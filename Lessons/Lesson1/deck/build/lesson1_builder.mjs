@@ -29,6 +29,10 @@ const FONTS = {
 };
 
 const IMAGES = {
+  boyPortrait: "boy.png",
+  girlPortrait: "girl.png",
+  manPortrait: "man.png",
+  womanPortrait: "woman.png",
   boyRunning: "boy_is_running.png",
   girlRunning: "girl_is_running.png",
   manRunning: "man_is_running.png",
@@ -251,8 +255,8 @@ async function slide2People(presentation) {
   addBackground(slide);
   addTopBar(slide, slideNo, "The boy", "", "STEP 1");
 
-  await addLabeledCard(slide, slideNo, IMAGES.boyRunning, "boy", null, 160, 180, 360, 270);
-  await addLabeledCard(slide, slideNo, IMAGES.girlRunning, "girl", null, 760, 180, 360, 270);
+  await addLabeledCard(slide, slideNo, IMAGES.boyPortrait, "boy", null, 160, 180, 360, 270);
+  await addLabeledCard(slide, slideNo, IMAGES.girlPortrait, "girl", null, 760, 180, 360, 270);
 
 }
 
@@ -262,35 +266,15 @@ async function slide3Actions(presentation) {
   addBackground(slide);
   addTopBar(slide, slideNo, "The man", "", "STEP 2");
 
-  await addLabeledCard(slide, slideNo, IMAGES.manWalking, "man", null, 160, 180, 360, 270);
-  await addLabeledCard(slide, slideNo, IMAGES.womanWalking, "woman", null, 760, 180, 360, 270);
+  await addLabeledCard(slide, slideNo, IMAGES.manPortrait, "man", null, 160, 180, 360, 270);
+  await addLabeledCard(slide, slideNo, IMAGES.womanPortrait, "woman", null, 760, 180, 360, 270);
 }
 
-async function slide4Running(presentation) {
+async function slide4SentencePattern(presentation) {
   const slideNo = 4;
   const slide = presentation.slides.add();
   addBackground(slide);
-  addTopBar(slide, slideNo, "Running", "", "STEP 3");
-
-  await addLabeledCard(slide, slideNo, IMAGES.boyRunning, "running", null, 160, 180, 360, 270);
-  await addLabeledCard(slide, slideNo, IMAGES.boyWalking, "walking", null, 760, 180, 360, 270);
-}
-
-async function slide5Walking(presentation) {
-  const slideNo = 5;
-  const slide = presentation.slides.add();
-  addBackground(slide);
-  addTopBar(slide, slideNo, "Swimming", "", "STEP 4");
-
-  await addLabeledCard(slide, slideNo, IMAGES.manSwimming, "swimming", null, 160, 180, 360, 270);
-  await addLabeledCard(slide, slideNo, IMAGES.manEating, "eating", null, 760, 180, 360, 270);
-}
-
-async function slide6Swimming(presentation) {
-  const slideNo = 6;
-  const slide = presentation.slides.add();
-  addBackground(slide);
-  addTopBar(slide, slideNo, "Sentence Pattern", "Now combine person and action.", "STEP 5");
+  addTopBar(slide, slideNo, "Sentence Pattern", "Now combine person and action.", "STEP 3");
 
   await addLabeledCard(slide, slideNo, IMAGES.boyRunning, "boy", "The boy is running.", 72, 154, 250, 230);
   await addLabeledCard(slide, slideNo, IMAGES.girlWalking, "girl", "The girl is walking.", 370, 154, 250, 230);
@@ -315,11 +299,11 @@ async function slide6Swimming(presentation) {
   });
 }
 
-async function slide7Eating(presentation) {
-  const slideNo = 7;
+async function slide5Practice(presentation) {
+  const slideNo = 5;
   const slide = presentation.slides.add();
   addBackground(slide);
-  addTopBar(slide, slideNo, "Practice", "Read the full sentence and connect it to the picture.", "STEP 6");
+  addTopBar(slide, slideNo, "Practice", "Read the full sentence and connect it to the picture.", "STEP 4");
 
   await addLabeledCard(slide, slideNo, IMAGES.boyEating, "boy", "The boy is eating.", 72, 154, 250, 230);
   await addLabeledCard(slide, slideNo, IMAGES.girlEating, "girl", "The girl is eating.", 370, 154, 250, 230);
@@ -338,10 +322,10 @@ async function slide7Eating(presentation) {
 }
 
 async function slide8Review(presentation) {
-  const slideNo = 8;
+  const slideNo = 6;
   const slide = presentation.slides.add();
   addBackground(slide);
-  addTopBar(slide, slideNo, "Review", "Point, say, and choose the right sentence.", "STEP 7");
+  addTopBar(slide, slideNo, "Review", "Point, say, and choose the right sentence.", "STEP 5");
 
   await addLabeledCard(slide, slideNo, IMAGES.boyRunning, "A", "The boy is running.", 72, 164, 240, 180);
   await addLabeledCard(slide, slideNo, IMAGES.womanWalking, "B", "The woman is walking.", 356, 164, 240, 180);
@@ -371,10 +355,8 @@ async function createDeck() {
   await slide1Cover(presentation);
   await slide2People(presentation);
   await slide3Actions(presentation);
-  await slide4Running(presentation);
-  await slide5Walking(presentation);
-  await slide6Swimming(presentation);
-  await slide7Eating(presentation);
+  await slide4SentencePattern(presentation);
+  await slide5Practice(presentation);
   await slide8Review(presentation);
 
   return presentation;

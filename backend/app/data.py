@@ -15,6 +15,7 @@ PEOPLE = {
     "boy": {
         "label": "The boy",
         "images": {
+            "portrait": "boy.png",
             "running": "boy_is_running.png",
             "walking": "boy_is_walking.png",
             "swimming": "boy_is_swimming.png",
@@ -24,6 +25,7 @@ PEOPLE = {
     "girl": {
         "label": "The girl",
         "images": {
+            "portrait": "girl.png",
             "running": "girl_is_running.png",
             "walking": "girl_is_walking.png",
             "swimming": "girl_is_swimming.png",
@@ -33,6 +35,7 @@ PEOPLE = {
     "man": {
         "label": "The man",
         "images": {
+            "portrait": "man.png",
             "running": "man_is_running.png",
             "walking": "man_is_walking.png",
             "swimming": "man_is_swimming.png",
@@ -42,6 +45,7 @@ PEOPLE = {
     "woman": {
         "label": "The woman",
         "images": {
+            "portrait": "woman.png",
             "running": "woman_is_running.png",
             "walking": "Woman_is_walking.png",
             "swimming": "woman_is_swimming.png",
@@ -60,6 +64,10 @@ def person_image(person: str, action: str) -> str:
     return PEOPLE[person]["images"][action]
 
 
+def portrait_image(person: str) -> str:
+    return PEOPLE[person]["images"].get("portrait", person_image(person, "running"))
+
+
 def noun_cards() -> list[LessonCard]:
     return [
         LessonCard(
@@ -67,8 +75,8 @@ def noun_cards() -> list[LessonCard]:
             stage="People",
             correct_option_id="boy",
             options=[
-                ChoiceOption(id="boy", image_url=image_url(person_image("boy", "running"))),
-                ChoiceOption(id="girl", image_url=image_url(person_image("girl", "running"))),
+                ChoiceOption(id="boy", image_url=image_url(portrait_image("boy"))),
+                ChoiceOption(id="girl", image_url=image_url(portrait_image("girl"))),
             ],
         ),
         LessonCard(
@@ -76,8 +84,8 @@ def noun_cards() -> list[LessonCard]:
             stage="People",
             correct_option_id="girl",
             options=[
-                ChoiceOption(id="boy", image_url=image_url(person_image("boy", "eating"))),
-                ChoiceOption(id="girl", image_url=image_url(person_image("girl", "eating"))),
+                ChoiceOption(id="boy", image_url=image_url(portrait_image("boy"))),
+                ChoiceOption(id="girl", image_url=image_url(portrait_image("girl"))),
             ],
         ),
         LessonCard(
@@ -85,8 +93,8 @@ def noun_cards() -> list[LessonCard]:
             stage="People",
             correct_option_id="man",
             options=[
-                ChoiceOption(id="man", image_url=image_url(person_image("man", "walking"))),
-                ChoiceOption(id="woman", image_url=image_url(person_image("woman", "walking"))),
+                ChoiceOption(id="man", image_url=image_url(portrait_image("man"))),
+                ChoiceOption(id="woman", image_url=image_url(portrait_image("woman"))),
             ],
         ),
         LessonCard(
@@ -94,49 +102,8 @@ def noun_cards() -> list[LessonCard]:
             stage="People",
             correct_option_id="woman",
             options=[
-                ChoiceOption(id="man", image_url=image_url(person_image("man", "swimming"))),
-                ChoiceOption(id="woman", image_url=image_url(person_image("woman", "swimming"))),
-            ],
-        ),
-    ]
-
-
-def action_cards() -> list[LessonCard]:
-    return [
-        LessonCard(
-            prompt="Running",
-            stage="Actions",
-            correct_option_id="running",
-            options=[
-                ChoiceOption(id="running", image_url=image_url(person_image("boy", "running"))),
-                ChoiceOption(id="walking", image_url=image_url(person_image("boy", "walking"))),
-            ],
-        ),
-        LessonCard(
-            prompt="Walking",
-            stage="Actions",
-            correct_option_id="walking",
-            options=[
-                ChoiceOption(id="walking", image_url=image_url(person_image("girl", "walking"))),
-                ChoiceOption(id="eating", image_url=image_url(person_image("girl", "eating"))),
-            ],
-        ),
-        LessonCard(
-            prompt="Swimming",
-            stage="Actions",
-            correct_option_id="swimming",
-            options=[
-                ChoiceOption(id="swimming", image_url=image_url(person_image("man", "swimming"))),
-                ChoiceOption(id="eating", image_url=image_url(person_image("man", "eating"))),
-            ],
-        ),
-        LessonCard(
-            prompt="Eating",
-            stage="Actions",
-            correct_option_id="eating",
-            options=[
-                ChoiceOption(id="swimming", image_url=image_url(person_image("woman", "swimming"))),
-                ChoiceOption(id="eating", image_url=image_url(person_image("woman", "eating"))),
+                ChoiceOption(id="man", image_url=image_url(portrait_image("man"))),
+                ChoiceOption(id="woman", image_url=image_url(portrait_image("woman"))),
             ],
         ),
     ]
@@ -183,7 +150,7 @@ LESSON_1 = Lesson(
     level="Beginner A1",
     goal="Match simple English prompts to the correct picture without translation.",
     vocabulary=["boy", "girl", "man", "woman", "running", "walking", "swimming", "eating"],
-    cards=[*noun_cards(), *action_cards(), *sentence_cards()],
+    cards=[*noun_cards(), *sentence_cards()],
 )
 
 

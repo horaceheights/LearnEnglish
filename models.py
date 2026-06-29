@@ -45,8 +45,8 @@ LESSON_1 = Lesson(
             stage="People",
             correct_option_id="boy",
             options=[
-                ChoiceOption("boy", image_file("boy_is_running.png")),
-                ChoiceOption("girl", image_file("girl_is_running.png")),
+                ChoiceOption("boy", image_file("boy.png")),
+                ChoiceOption("girl", image_file("girl.png")),
             ],
         ),
         LessonCard(
@@ -54,8 +54,8 @@ LESSON_1 = Lesson(
             stage="People",
             correct_option_id="girl",
             options=[
-                ChoiceOption("boy", image_file("boy_is_eating.png")),
-                ChoiceOption("girl", image_file("girl_is_eating.png")),
+                ChoiceOption("boy", image_file("boy.png")),
+                ChoiceOption("girl", image_file("girl.png")),
             ],
         ),
         LessonCard(
@@ -63,8 +63,8 @@ LESSON_1 = Lesson(
             stage="People",
             correct_option_id="man",
             options=[
-                ChoiceOption("man", image_file("man_is_walking.png")),
-                ChoiceOption("woman", image_file("Woman_is_walking.png")),
+                ChoiceOption("man", image_file("man.png")),
+                ChoiceOption("woman", image_file("woman.png")),
             ],
         ),
         LessonCard(
@@ -72,44 +72,8 @@ LESSON_1 = Lesson(
             stage="People",
             correct_option_id="woman",
             options=[
-                ChoiceOption("man", image_file("man_is_swimming.png")),
-                ChoiceOption("woman", image_file("woman_is_swimming.png")),
-            ],
-        ),
-        LessonCard(
-            prompt="Running",
-            stage="Actions",
-            correct_option_id="running",
-            options=[
-                ChoiceOption("running", image_file("boy_is_running.png")),
-                ChoiceOption("walking", image_file("boy_is_walking.png")),
-            ],
-        ),
-        LessonCard(
-            prompt="Walking",
-            stage="Actions",
-            correct_option_id="walking",
-            options=[
-                ChoiceOption("walking", image_file("girl_is_walking.png")),
-                ChoiceOption("eating", image_file("girl_is_eating.png")),
-            ],
-        ),
-        LessonCard(
-            prompt="Swimming",
-            stage="Actions",
-            correct_option_id="swimming",
-            options=[
-                ChoiceOption("swimming", image_file("man_is_swimming.png")),
-                ChoiceOption("eating", image_file("man_is_eating.png")),
-            ],
-        ),
-        LessonCard(
-            prompt="Eating",
-            stage="Actions",
-            correct_option_id="eating",
-            options=[
-                ChoiceOption("swimming", image_file("woman_is_swimming.png")),
-                ChoiceOption("eating", image_file("woman_is_eating.png")),
+                ChoiceOption("man", image_file("man.png")),
+                ChoiceOption("woman", image_file("woman.png")),
             ],
         ),
         LessonCard(
