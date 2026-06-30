@@ -523,6 +523,8 @@ export default function LessonPlayer({ lesson, lessons }) {
   const [isCreatingProfile, setIsCreatingProfile] = useState(false);
   const [loginName, setLoginName] = useState("");
   const [loginError, setLoginError] = useState("");
+  const [profileSaveError, setProfileSaveError] = useState("");
+  const [isSavingProfile, setIsSavingProfile] = useState(false);
   const [draftProfile, setDraftProfile] = useState({});
   const [onboardingStepIndex, setOnboardingStepIndex] = useState(-1);
   const [cardIndex, setCardIndex] = useState(0);
@@ -706,6 +708,8 @@ export default function LessonPlayer({ lesson, lessons }) {
 
   const saveProfile = async () => {
     let nextProfile = { ...draftProfile };
+    setProfileSaveError("");
+    setIsSavingProfile(true);
 
     try {
       const savedUser = await saveLearnerProfile(nextProfile);
@@ -716,6 +720,10 @@ export default function LessonPlayer({ lesson, lessons }) {
       };
     } catch (error) {
       console.error("Could not save learner profile", error);
+      setProfileSaveError(
+        "No pude guardar el perfil. Revisa que el backend de Render este activo y que Vercel tenga NEXT_PUBLIC_API_BASE_URL configurado."
+      );
+      setIsSavingProfile(false);
       return;
     }
 
@@ -728,6 +736,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     setIsCreatingProfile(false);
     setStarted(false);
     setShowHelp(shouldShowHelp(nextProfile));
+    setIsSavingProfile(false);
   };
 
   const startEditingProfile = () => {
@@ -1069,12 +1078,13 @@ export default function LessonPlayer({ lesson, lessons }) {
                   <input
                     type="text"
                     value={draftProfile.displayName || ""}
-                    onChange={(event) =>
+                    onChange={(event) => {
+                      setProfileSaveError("");
                       setDraftProfile((current) => ({
                         ...current,
                         displayName: event.target.value,
-                      }))
-                    }
+                      }));
+                    }}
                     placeholder="Tu nombre"
                     required
                     style={{
@@ -1089,6 +1099,11 @@ export default function LessonPlayer({ lesson, lessons }) {
                 {!hasDraftProfileName ? (
                   <div style={{ color: "var(--red)", fontWeight: 700 }}>
                     Escribe tu nombre para continuar.
+                  </div>
+                ) : null}
+                {profileSaveError ? (
+                  <div style={{ color: "var(--red)", fontWeight: 700, lineHeight: 1.5 }}>
+                    {profileSaveError}
                   </div>
                 ) : null}
                 <div style={{ display: "grid", gap: "10px" }}>
@@ -1119,13 +1134,13 @@ export default function LessonPlayer({ lesson, lessons }) {
                     type="button"
                     style={{
                       ...styles.primaryButton,
-                      opacity: hasDraftProfileName ? 1 : 0.55,
-                      cursor: hasDraftProfileName ? "pointer" : "not-allowed",
+                      opacity: hasDraftProfileName && !isSavingProfile ? 1 : 0.55,
+                      cursor: hasDraftProfileName && !isSavingProfile ? "pointer" : "not-allowed",
                     }}
-                    disabled={!hasDraftProfileName}
+                    disabled={!hasDraftProfileName || isSavingProfile}
                     onClick={saveProfile}
                   >
-                    Continuar a las lecciones
+                    {isSavingProfile ? "Guardando..." : "Continuar a las lecciones"}
                   </button>
                 </div>
               </div>

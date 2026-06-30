@@ -6,14 +6,20 @@ export function getApiBaseUrl() {
     if (configured) {
       return configured.replace(/\/$/, "");
     }
-    return `${window.location.protocol}//${window.location.hostname}:8000`;
+
+    const isLocalHost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+    const isLanHost = /^(10|172\.(1[6-9]|2\d|3[0-1])|192\.168)\./.test(window.location.hostname);
+    if (isLocalHost || isLanHost) {
+      return `${window.location.protocol}//${window.location.hostname}:8000`;
+    }
   }
 
   return API_BASE_URL;
 }
 
 async function apiRequest(path, options = {}) {
-  const response = await fetch(`${getApiBaseUrl()}${path}`, {
+  const apiBaseUrl = getApiBaseUrl();
+  const response = await fetch(`${apiBaseUrl}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +28,7 @@ async function apiRequest(path, options = {}) {
   });
 
   if (!response.ok) {
-    throw new Error(`API request failed: ${response.status}`);
+    throw new Error(`API request failed at ${apiBaseUrl}${path}: ${response.status}`);
   }
 
   return response.json();
