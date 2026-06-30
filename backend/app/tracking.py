@@ -24,6 +24,14 @@ engine = create_engine(
 )
 
 
+def storage_info() -> dict[str, Any]:
+    return {
+        "database_configured": bool(os.getenv("DATABASE_URL")),
+        "database_type": "postgres" if DATABASE_URL.startswith("postgresql") else "sqlite",
+        "sqlite_path": str(DB_PATH) if DATABASE_URL.startswith("sqlite") else None,
+    }
+
+
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -137,7 +145,26 @@ def create_or_update_user(payload: UserCreate, user_id: str | None = None) -> di
             {"display_name": display_name, "user_id": user_id},
         ).mappings().fetchone()
         if duplicate:
-            return row_to_user(duplicate)
+            db.execute(
+                text(
+                    """
+                    UPDATE users
+                    SET profile_json = :profile_json,
+                        updated_at = :updated_at
+                    WHERE id = :user_id
+                    """
+                ),
+                {
+                    "profile_json": profile_json,
+                    "updated_at": timestamp,
+                    "user_id": duplicate["id"],
+                },
+            )
+            row = db.execute(
+                text("SELECT * FROM users WHERE id = :user_id"),
+                {"user_id": duplicate["id"]},
+            ).mappings().fetchone()
+            return row_to_user(row)
 
         if user_id:
             existing = db.execute(

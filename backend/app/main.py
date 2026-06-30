@@ -19,6 +19,7 @@ from .tracking import (
     get_user_by_name,
     get_user,
     init_db,
+    storage_info,
 )
 
 
@@ -47,6 +48,11 @@ if LESSON_IMAGE_DIR.exists():
 @app.get("/api/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/api/admin/storage")
+def read_admin_storage():
+    return storage_info()
 
 
 @app.get("/api/lessons")
