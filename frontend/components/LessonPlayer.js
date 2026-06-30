@@ -1006,8 +1006,6 @@ export default function LessonPlayer({ lesson, lessons }) {
   }
 
   if (!profile) {
-    const draftBullets = getProfileBullets(draftProfile);
-
     return (
       <div style={styles.page}>
         <div style={{ maxWidth: "980px", margin: "0 auto", display: "grid", gap: "20px" }}>
@@ -1104,22 +1102,6 @@ export default function LessonPlayer({ lesson, lessons }) {
                     {profileSaveError}
                   </div>
                 ) : null}
-                <div style={{ display: "grid", gap: "10px" }}>
-                  {draftBullets.map((bullet) => (
-                    <div
-                      key={bullet}
-                      style={{
-                        padding: "14px 16px",
-                        borderRadius: "16px",
-                        background: "var(--surface-2)",
-                        color: "var(--text)",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {bullet}
-                    </div>
-                  ))}
-                </div>
                 <div style={{ display: "grid", gap: "12px", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr" }}>
                   <button
                     type="button"
