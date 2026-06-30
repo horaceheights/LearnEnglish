@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { getApiBaseUrl } from "../lib/api";
+import {
+  finishLessonSession,
+  getApiBaseUrl,
+  getLearnerByName,
+  logCardAttempt,
+  saveLearnerProfile,
+  startLessonSession,
+} from "../lib/api";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
-const LESSON_IMAGE_VERSION = "20260629-all-actions";
+const LESSON_IMAGE_VERSION = "20260630-expanded-actions";
 
 const styles = {
   page: {
@@ -513,6 +520,9 @@ export default function LessonPlayer({ lesson, lessons }) {
   const [started, setStarted] = useState(false);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [profile, setProfile] = useState(null);
+  const [isCreatingProfile, setIsCreatingProfile] = useState(false);
+  const [loginName, setLoginName] = useState("");
+  const [loginError, setLoginError] = useState("");
   const [draftProfile, setDraftProfile] = useState({});
   const [onboardingStepIndex, setOnboardingStepIndex] = useState(-1);
   const [cardIndex, setCardIndex] = useState(0);
@@ -523,6 +533,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   const [isComplete, setIsComplete] = useState(false);
   const [autoAdvanceDelayMs, setAutoAdvanceDelayMs] = useState(700);
   const [showHelp, setShowHelp] = useState(false);
+  const [lessonSessionId, setLessonSessionId] = useState(null);
   const playTone = useTone();
   const speakText = useSpeech();
   const viewportWidth = useViewportWidth();
@@ -532,6 +543,8 @@ export default function LessonPlayer({ lesson, lessons }) {
 
   const currentCard = lesson.cards[cardIndex];
   const totalCards = lesson.cards.length;
+  const optionCount = currentCard?.options.length || 2;
+  const isFourOptionCard = optionCount >= 4;
   const onboardingFinished = onboardingStepIndex >= ONBOARDING_STEPS.length;
   const activeOnboardingStep =
     onboardingStepIndex >= 0 && onboardingStepIndex < ONBOARDING_STEPS.length
@@ -569,11 +582,22 @@ export default function LessonPlayer({ lesson, lessons }) {
   };
   const choiceGridStyle = {
     ...styles.choiceGrid,
-    gridTemplateColumns: isMobile ? "1fr" : styles.choiceGrid.gridTemplateColumns,
+    gridTemplateColumns: isFourOptionCard ? "repeat(2, minmax(0, 1fr))" : isMobile ? "1fr" : styles.choiceGrid.gridTemplateColumns,
+    gap: isFourOptionCard ? (isMobile ? "8px" : "12px") : styles.choiceGrid.gap,
   };
   const responsiveImageStyle = {
     ...styles.image,
-    height: isMobile ? "min(36vh, 240px)" : isTablet ? "340px" : styles.image.height,
+    height: isFourOptionCard
+      ? isMobile
+        ? "min(24vh, 150px)"
+        : isTablet
+          ? "160px"
+          : "176px"
+      : isMobile
+        ? "min(36vh, 240px)"
+        : isTablet
+          ? "340px"
+          : styles.image.height,
   };
   const titleStyle = {
     margin: "4px 0 0",
@@ -599,8 +623,8 @@ export default function LessonPlayer({ lesson, lessons }) {
       const storedProfile = window.localStorage.getItem(PROFILE_STORAGE_KEY);
       if (storedProfile) {
         const parsedProfile = JSON.parse(storedProfile);
-        setProfile(parsedProfile);
         setDraftProfile(parsedProfile);
+        setLoginName(parsedProfile.displayName || "");
       }
     } catch (error) {
       console.error("Could not load stored profile", error);
@@ -609,6 +633,35 @@ export default function LessonPlayer({ lesson, lessons }) {
     }
   }, []);
 
+  useEffect(() => {
+    if (!profileLoaded || !profile || profile.userId) {
+      return;
+    }
+
+    let isActive = true;
+
+    saveLearnerProfile(profile)
+      .then((savedUser) => {
+        if (!isActive) {
+          return;
+        }
+
+        const nextProfile = {
+          ...profile,
+          userId: savedUser.id,
+          displayName: savedUser.display_name,
+        };
+        window.localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(nextProfile));
+        setProfile(nextProfile);
+        setDraftProfile(nextProfile);
+      })
+      .catch((error) => console.error("Could not register existing learner profile", error));
+
+    return () => {
+      isActive = false;
+    };
+  }, [profile, profileLoaded]);
+
   const resetProgress = () => {
     setCardIndex(0);
     setScore(0);
@@ -616,6 +669,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     setSelectedOptionId(null);
     setLastResult(null);
     setIsComplete(false);
+    setLessonSessionId(null);
     setShowHelp(shouldShowHelp(profile || draftProfile));
     setAutoAdvanceDelayMs(700);
   };
@@ -650,26 +704,95 @@ export default function LessonPlayer({ lesson, lessons }) {
     return () => window.clearTimeout(timeoutId);
   }, [cardIndex, currentCard, isComplete, lastResult, speakText, started]);
 
-  const saveProfile = () => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(draftProfile));
+  const saveProfile = async () => {
+    let nextProfile = { ...draftProfile };
+
+    try {
+      const savedUser = await saveLearnerProfile(nextProfile);
+      nextProfile = {
+        ...savedUser.profile,
+        userId: savedUser.id,
+        displayName: savedUser.display_name,
+      };
+    } catch (error) {
+      console.error("Could not save learner profile", error);
+      return;
     }
-    setProfile(draftProfile);
+
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(nextProfile));
+    }
+    setProfile(nextProfile);
+    setDraftProfile(nextProfile);
+    setLoginName(nextProfile.displayName || "");
+    setIsCreatingProfile(false);
     setStarted(false);
-    setShowHelp(shouldShowHelp(draftProfile));
+    setShowHelp(shouldShowHelp(nextProfile));
   };
 
   const startEditingProfile = () => {
     setDraftProfile(profile || {});
     setProfile(null);
+    setIsCreatingProfile(true);
     setOnboardingStepIndex(0);
     setStarted(false);
     resetProgress();
   };
 
-  const startLesson = () => {
+  const startNewUser = () => {
+    setProfile(null);
+    setDraftProfile({});
+    setLoginError("");
+    setIsCreatingProfile(true);
+    setOnboardingStepIndex(0);
+    setStarted(false);
+    resetProgress();
+  };
+
+  const loginExistingUser = async () => {
+    const name = loginName.trim();
+    if (!name) {
+      setLoginError("Escribe tu nombre para entrar.");
+      return;
+    }
+
+    setLoginError("");
+
+    try {
+      const savedUser = await getLearnerByName(name);
+      const nextProfile = {
+        ...savedUser.profile,
+        userId: savedUser.id,
+        displayName: savedUser.display_name,
+      };
+      window.localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(nextProfile));
+      setProfile(nextProfile);
+      setDraftProfile(nextProfile);
+      setIsCreatingProfile(false);
+      setOnboardingStepIndex(-1);
+    } catch (error) {
+      console.error("Could not find learner profile", error);
+      setLoginError("No encontramos ese usuario. Toca Nuevo usuario para crear un perfil.");
+    }
+  };
+
+  const startLesson = async () => {
     resetProgress();
     setShowHelp(shouldShowHelp(profile));
+
+    if (profile?.userId) {
+      try {
+        const session = await startLessonSession({
+          userId: profile.userId,
+          lessonId: lesson.id,
+          totalCards,
+        });
+        setLessonSessionId(session.id);
+      } catch (error) {
+        console.error("Could not start lesson session", error);
+      }
+    }
+
     setStarted(true);
   };
 
@@ -719,7 +842,22 @@ export default function LessonPlayer({ lesson, lessons }) {
     }
 
     const isCorrect = optionId === currentCard.correct_option_id;
+    const firstTry = !wrongAttempts[cardIndex];
     setSelectedOptionId(optionId);
+
+    if (profile?.userId && lessonSessionId) {
+      logCardAttempt({
+        sessionId: lessonSessionId,
+        userId: profile.userId,
+        lessonId: lesson.id,
+        cardIndex,
+        prompt: currentCard.prompt,
+        selectedOptionId: optionId,
+        correctOptionId: currentCard.correct_option_id,
+        isCorrect,
+        firstTry,
+      }).catch((error) => console.error("Could not log card attempt", error));
+    }
 
     if (isCorrect) {
       const praise = PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)];
@@ -729,7 +867,7 @@ export default function LessonPlayer({ lesson, lessons }) {
         { frequency: 1175, frequency2: 1760, durationMs: 260, delayMs: 160, type: "triangle", type2: "sine", volume: 0.11 },
         { frequency: 1568, frequency2: 2093, durationMs: 320, delayMs: 340, type: "triangle", type2: "sine", volume: 0.09 },
       ]);
-      if (!wrongAttempts[cardIndex]) {
+      if (firstTry) {
         setScore((current) => current + 1);
       }
       const praiseDelay = speakText(praise, {
@@ -771,9 +909,93 @@ export default function LessonPlayer({ lesson, lessons }) {
   const canContinueOnboarding = activeOnboardingStep?.multiSelect
     ? getStoredValueAsList(draftProfile[activeOnboardingStep.id]).length > 0
     : true;
+  const hasProfileName = Boolean(profile?.displayName?.trim());
+  const hasDraftProfileName = Boolean(draftProfile.displayName?.trim());
+
+  useEffect(() => {
+    if (!isComplete || !lessonSessionId) {
+      return;
+    }
+
+    finishLessonSession({
+      sessionId: lessonSessionId,
+      score,
+      totalCards,
+    }).catch((error) => console.error("Could not finish lesson session", error));
+  }, [isComplete, lessonSessionId, score, totalCards]);
 
   if (!profileLoaded) {
     return null;
+  }
+
+  if (!profile && !isCreatingProfile) {
+    const canLogin = Boolean(loginName.trim());
+
+    return (
+      <div style={styles.page}>
+        <div style={{ maxWidth: "720px", margin: "0 auto", display: "grid", gap: "20px" }}>
+          <section style={heroStyle}>
+            <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
+              Bienvenido
+            </div>
+            <h1 style={titleStyle}>Aprende ingles de forma natural</h1>
+            <p style={{ margin: "0 auto", maxWidth: 560, opacity: 0.95, lineHeight: 1.6 }}>
+              Entra con tu nombre para continuar tu practica.
+            </p>
+          </section>
+
+          <section style={boardStyle}>
+            <div style={{ display: "grid", gap: "16px" }}>
+              <label style={{ display: "grid", gap: "8px", fontWeight: 700 }}>
+                Nombre
+                <input
+                  type="text"
+                  value={loginName}
+                  onChange={(event) => {
+                    setLoginName(event.target.value);
+                    setLoginError("");
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" && canLogin) {
+                      loginExistingUser();
+                    }
+                  }}
+                  placeholder="Tu nombre"
+                  autoComplete="name"
+                  style={{
+                    border: "1px solid var(--line)",
+                    borderRadius: "16px",
+                    padding: "14px 16px",
+                    font: "inherit",
+                    background: "#fff",
+                  }}
+                />
+              </label>
+
+              {loginError ? <div style={{ color: "var(--red)", fontWeight: 700 }}>{loginError}</div> : null}
+
+              <div style={{ display: "grid", gap: "12px", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr" }}>
+                <button
+                  type="button"
+                  style={{
+                    ...styles.primaryButton,
+                    opacity: canLogin ? 1 : 0.55,
+                    cursor: canLogin ? "pointer" : "not-allowed",
+                  }}
+                  disabled={!canLogin}
+                  onClick={loginExistingUser}
+                >
+                  Entrar
+                </button>
+                <button type="button" style={styles.subtleButton} onClick={startNewUser}>
+                  Nuevo usuario
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    );
   }
 
   if (!profile) {
@@ -842,6 +1064,33 @@ export default function LessonPlayer({ lesson, lessons }) {
               </div>
             ) : onboardingFinished ? (
               <div style={{ display: "grid", gap: "18px" }}>
+                <label style={{ display: "grid", gap: "8px", fontWeight: 700 }}>
+                  Nombre para pruebas
+                  <input
+                    type="text"
+                    value={draftProfile.displayName || ""}
+                    onChange={(event) =>
+                      setDraftProfile((current) => ({
+                        ...current,
+                        displayName: event.target.value,
+                      }))
+                    }
+                    placeholder="Tu nombre"
+                    required
+                    style={{
+                      border: "1px solid var(--line)",
+                      borderRadius: "16px",
+                      padding: "14px 16px",
+                      font: "inherit",
+                      background: "#fff",
+                    }}
+                  />
+                </label>
+                {!hasDraftProfileName ? (
+                  <div style={{ color: "var(--red)", fontWeight: 700 }}>
+                    Escribe tu nombre para continuar.
+                  </div>
+                ) : null}
                 <div style={{ display: "grid", gap: "10px" }}>
                   {draftBullets.map((bullet) => (
                     <div
@@ -866,7 +1115,16 @@ export default function LessonPlayer({ lesson, lessons }) {
                   >
                     Revisar
                   </button>
-                  <button type="button" style={styles.primaryButton} onClick={saveProfile}>
+                  <button
+                    type="button"
+                    style={{
+                      ...styles.primaryButton,
+                      opacity: hasDraftProfileName ? 1 : 0.55,
+                      cursor: hasDraftProfileName ? "pointer" : "not-allowed",
+                    }}
+                    disabled={!hasDraftProfileName}
+                    onClick={saveProfile}
+                  >
                     Continuar a las lecciones
                   </button>
                 </div>
@@ -931,7 +1189,14 @@ export default function LessonPlayer({ lesson, lessons }) {
                   <button
                     type="button"
                     style={{ ...styles.subtleButton, width: "auto", minWidth: "120px" }}
-                    onClick={() => setOnboardingStepIndex((current) => (current <= 0 ? -1 : current - 1))}
+                    onClick={() => {
+                      if (onboardingStepIndex <= 0) {
+                        setIsCreatingProfile(false);
+                        setOnboardingStepIndex(-1);
+                        return;
+                      }
+                      setOnboardingStepIndex((current) => current - 1);
+                    }}
                   >
                     Atras
                   </button>
@@ -982,7 +1247,10 @@ export default function LessonPlayer({ lesson, lessons }) {
 
           <section style={boardStyle}>
             <div style={{ display: "grid", gap: "18px" }}>
-              <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
+                <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>
+                  Welcome {profile.displayName || "Student"}
+                </div>
                 <button
                   type="button"
                   style={styles.profileIconButton}
@@ -999,23 +1267,27 @@ export default function LessonPlayer({ lesson, lessons }) {
                   <button
                     key={lessonSummary.id}
                     type="button"
-                    onClick={startLesson}
+                    onClick={hasProfileName ? startLesson : startEditingProfile}
                     style={{
                       textAlign: "left",
                       border: "1px solid var(--line)",
                       borderRadius: "22px",
                       background: "var(--surface)",
                       padding: "20px",
-                      cursor: "pointer",
+                      cursor: hasProfileName ? "pointer" : "not-allowed",
+                      opacity: hasProfileName ? 1 : 0.6,
                       boxShadow: "0 12px 30px rgba(22, 33, 39, 0.06)",
                     }}
+                    aria-disabled={!hasProfileName}
                   >
                     <div style={{ fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)" }}>
                       {lessonSummary.level}
                     </div>
                     <div style={{ fontSize: isMobile ? 24 : 28, fontWeight: 700, marginTop: 8 }}>{lessonSummary.title}</div>
                     <div style={{ marginTop: 10, color: "var(--muted)", lineHeight: 1.6 }}>
-                      Toca para empezar esta leccion con una experiencia pensada para hispanohablantes.
+                      {hasProfileName
+                        ? "Toca para empezar esta leccion con una experiencia pensada para hispanohablantes."
+                        : "Agrega tu nombre para empezar esta leccion."}
                     </div>
                   </button>
                 ))}
@@ -1126,7 +1398,7 @@ export default function LessonPlayer({ lesson, lessons }) {
                   style={{
                     ...cardStyleFor(option.id),
                     borderRadius: isMobile ? "18px" : styles.cardButton.borderRadius,
-                    padding: isMobile ? "6px" : styles.cardButton.padding,
+                    padding: isFourOptionCard ? (isMobile ? "4px" : "6px") : isMobile ? "6px" : styles.cardButton.padding,
                   }}
                   onClick={() => handleChoice(option.id)}
                   disabled={lastResult === "correct"}
