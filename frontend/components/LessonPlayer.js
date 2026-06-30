@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   finishLessonSession,
-  getApiBaseUrl,
   getLearnerByName,
   logCardAttempt,
   saveLearnerProfile,
@@ -143,9 +142,9 @@ function HomeIcon() {
   );
 }
 
-function lessonImageSrc(apiBaseUrl, imageUrl) {
+function lessonImageSrc(imageUrl) {
   const separator = imageUrl.includes("?") ? "&" : "?";
-  return `${apiBaseUrl}${imageUrl}${separator}v=${LESSON_IMAGE_VERSION}`;
+  return `${imageUrl}${separator}v=${LESSON_IMAGE_VERSION}`;
 }
 
 const PRAISE_PHRASES = [
@@ -539,7 +538,6 @@ export default function LessonPlayer({ lesson, lessons }) {
   const playTone = useTone();
   const speakText = useSpeech();
   const viewportWidth = useViewportWidth();
-  const apiBaseUrl = getApiBaseUrl();
   const isTablet = viewportWidth <= 1080;
   const isMobile = viewportWidth <= 760;
 
@@ -1418,7 +1416,7 @@ export default function LessonPlayer({ lesson, lessons }) {
                   onClick={() => handleChoice(option.id)}
                   disabled={lastResult === "correct"}
                 >
-                  <img src={lessonImageSrc(apiBaseUrl, option.image_url)} alt={option.id} style={responsiveImageStyle} />
+                  <img src={lessonImageSrc(option.image_url)} alt={option.id} style={responsiveImageStyle} />
                 </button>
               ))}
             </div>

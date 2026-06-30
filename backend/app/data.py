@@ -220,21 +220,35 @@ def sentence_cards_stage_two() -> list[LessonCard]:
 
     for person in PEOPLE_IN_ORDER:
         for action in ACTIONS_IN_ORDER:
-            distractor_actions = [item for item in ACTIONS_IN_ORDER if item != action]
-            selected_actions = stable_shuffle(distractor_actions, f"action-stage-two-{person}-{action}")[:3]
-            option_actions = stable_shuffle([action, *selected_actions], f"option-stage-two-{person}-{action}")
+            mode = stable_shuffle(["same-person", "same-action"], f"challenge-mode-{person}-{action}")[0]
+
+            if mode == "same-action":
+                option_people = stable_shuffle(PEOPLE_IN_ORDER, f"same-action-stage-two-{person}-{action}")
+                options = [
+                    ChoiceOption(
+                        id=f"{option_person}-{action}",
+                        image_url=image_url(person_image(option_person, action)),
+                    )
+                    for option_person in option_people
+                ]
+            else:
+                distractor_actions = [item for item in ACTIONS_IN_ORDER if item != action]
+                selected_actions = stable_shuffle(distractor_actions, f"same-person-stage-two-{person}-{action}")[:3]
+                option_actions = stable_shuffle([action, *selected_actions], f"option-stage-two-{person}-{action}")
+                options = [
+                    ChoiceOption(
+                        id=f"{person}-{option_action}",
+                        image_url=image_url(person_image(person, option_action)),
+                    )
+                    for option_action in option_actions
+                ]
+
             cards.append(
                 LessonCard(
                     prompt=f"{PEOPLE[person]['label']} is {action}.",
                     stage="Pattern Challenge",
                     correct_option_id=f"{person}-{action}",
-                    options=[
-                        ChoiceOption(
-                            id=f"{person}-{option_action}",
-                            image_url=image_url(person_image(person, option_action)),
-                        )
-                        for option_action in option_actions
-                    ],
+                    options=options,
                 )
             )
 
