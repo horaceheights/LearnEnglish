@@ -37,6 +37,14 @@ uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
 ALLOWED_ORIGINS=https://your-project-name.vercel.app
 ```
 
+8. Add a persistent Postgres database and set:
+
+```text
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
+```
+
+Without `DATABASE_URL`, the backend falls back to a local SQLite file. That is fine for local development, but hosted services can replace that file during deploys, which means learner profiles and results may disappear.
+
 After deploy, Koyeb will give you a URL like:
 
 ```text
