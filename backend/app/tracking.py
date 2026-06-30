@@ -134,16 +134,22 @@ def create_or_update_user(payload: UserCreate, user_id: str | None = None) -> di
     profile_json = json.dumps(payload.profile)
 
     with engine.begin() as db:
-        duplicate = db.execute(
-            text(
-                """
-                SELECT * FROM users
-                WHERE lower(display_name) = lower(:display_name)
-                AND (:user_id IS NULL OR id != :user_id)
-                """
-            ),
-            {"display_name": display_name, "user_id": user_id},
-        ).mappings().fetchone()
+        if user_id:
+            duplicate = db.execute(
+                text(
+                    """
+                    SELECT * FROM users
+                    WHERE lower(display_name) = lower(:display_name)
+                    AND id != :user_id
+                    """
+                ),
+                {"display_name": display_name, "user_id": user_id},
+            ).mappings().fetchone()
+        else:
+            duplicate = db.execute(
+                text("SELECT * FROM users WHERE lower(display_name) = lower(:display_name)"),
+                {"display_name": display_name},
+            ).mappings().fetchone()
         if duplicate:
             db.execute(
                 text(
