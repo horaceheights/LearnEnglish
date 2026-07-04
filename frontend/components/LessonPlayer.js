@@ -1,16 +1,19 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   finishLessonSession,
+  getApiBaseUrl,
   getLearnerByName,
+  getLesson,
   logCardAttempt,
   saveLearnerProfile,
+  scorePronunciationAudio,
   startLessonSession,
 } from "../lib/api";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
-const LESSON_IMAGE_VERSION = "20260630-expanded-actions";
+const LESSON_IMAGE_VERSION = "20260701-pronouns-they";
 
 const styles = {
   page: {
@@ -143,8 +146,9 @@ function HomeIcon() {
 }
 
 function lessonImageSrc(imageUrl) {
+  const source = imageUrl.startsWith("http") ? imageUrl : `${getApiBaseUrl()}${imageUrl}`;
   const separator = imageUrl.includes("?") ? "&" : "?";
-  return `${imageUrl}${separator}v=${LESSON_IMAGE_VERSION}`;
+  return `${source}${separator}v=${LESSON_IMAGE_VERSION}`;
 }
 
 const PRAISE_PHRASES = [
@@ -155,6 +159,48 @@ const PRAISE_PHRASES = [
   "Nice job",
   "Excellent",
 ];
+
+const ING_PRONUNCIATION_PARTS = {
+  drinking: ["drink", "ing"],
+  eating: ["eat", "ing"],
+  reading: ["read", "ing"],
+  running: ["run", "ning"],
+  sitting: ["sit", "ting"],
+  sleeping: ["sleep", "ing"],
+  standing: ["stand", "ing"],
+  swimming: ["swim", "ming"],
+  walking: ["walk", "ing"],
+  writing: ["writ", "ing"],
+};
+
+function buildPronunciationSpeechParts(text, { splitIngWords = false, pauseMs = 280, partPauseMs = 130 } = {}) {
+  const words = String(text || "").match(/[A-Za-z']+/g) || [];
+
+  return words.flatMap((word) => {
+    const ingParts = splitIngWords ? ING_PRONUNCIATION_PARTS[word.toLowerCase()] : null;
+    if (!ingParts) {
+      return [{ text: word, word, pauseAfterMs: pauseMs }];
+    }
+
+    return ingParts.map((part, index) => ({
+      text: part,
+      word,
+      pauseAfterMs: index === ingParts.length - 1 ? pauseMs : partPauseMs,
+    }));
+  });
+}
+
+function wordAtSpeechBoundary(text, charIndex) {
+  const source = String(text || "");
+  const matches = [...source.matchAll(/[A-Za-z']+/g)];
+  const match = matches.find((item) => {
+    const start = item.index ?? 0;
+    const end = start + item[0].length;
+    return charIndex >= start && charIndex < end;
+  });
+
+  return match?.[0] || "";
+}
 
 const ONBOARDING_STEPS = [
   {
@@ -331,6 +377,9 @@ function useTone() {
     }
 
     const context = audioContextRef.current;
+    if (context.state === "suspended") {
+      context.resume().catch(() => {});
+    }
     const now = context.currentTime;
     const sequence = Array.isArray(notes) ? notes : [notes];
 
@@ -372,6 +421,7 @@ function useTone() {
 
 function useSpeech() {
   const [voices, setVoices] = useState([]);
+  const speechSequenceRef = useRef(0);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
@@ -388,31 +438,153 @@ function useSpeech() {
     return () => window.speechSynthesis.removeEventListener("voiceschanged", loadVoices);
   }, []);
 
-  return (text, options = {}) => {
+  const chooseVoice = useCallback(
+    (mode) => {
+      const englishVoices = voices.filter((item) => item.lang?.toLowerCase().startsWith("en"));
+      const scoredVoices = englishVoices
+        .map((voice) => {
+          const name = voice.name.toLowerCase();
+          const lang = voice.lang.toLowerCase();
+          let score = 0;
+
+          if (lang === "en-us") score += 30;
+          if (name.includes("natural") || name.includes("neural") || name.includes("online")) score += 35;
+          if (name.includes("google")) score += 20;
+          if (["aria", "jenny", "ava", "emma", "sonia", "libby", "brian", "guy"].some((item) => name.includes(item))) score += 18;
+          if (voice.localService) score += 4;
+          if (name.includes("desktop") || name.includes("david") || name.includes("zira")) score -= 12;
+
+          return { voice, score };
+        })
+        .sort((left, right) => right.score - left.score);
+
+      if (mode === "feedback" && scoredVoices[1]) {
+        return scoredVoices[1].voice;
+      }
+
+      return scoredVoices[0]?.voice || englishVoices[0] || voices[0];
+    },
+    [voices]
+  );
+
+  return useCallback((text, options = {}) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       return 0;
     }
 
+    speechSequenceRef.current += 1;
+    const sequenceId = speechSequenceRef.current;
     window.speechSynthesis.cancel();
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = options.lang || "en-US";
-    utterance.rate = options.rate ?? 0.39;
-    utterance.pitch = options.pitch ?? 1;
-    utterance.volume = options.volume ?? 1;
+    const voice = chooseVoice(options.voiceMode);
+    const makeUtterance = (spokenText) => {
+      const utterance = new SpeechSynthesisUtterance(spokenText);
+      utterance.lang = options.lang || "en-US";
+      utterance.rate = options.rate ?? (options.voiceMode === "feedback" ? 0.78 : 0.68);
+      utterance.pitch = options.pitch ?? 1.03;
+      utterance.volume = options.volume ?? 1;
 
-    const englishVoices = voices.filter((item) => item.lang?.toLowerCase().startsWith("en"));
-    const promptVoice = englishVoices[0];
-    const feedbackVoice = englishVoices[1] || englishVoices[0];
-    const voice = options.voiceMode === "feedback" ? feedbackVoice : promptVoice;
+      if (voice) {
+        utterance.voice = voice;
+      }
 
-    if (voice) {
-      utterance.voice = voice;
+      return utterance;
+    };
+
+    if (options.wordByWord) {
+      const pauseMs = options.wordPauseMs ?? 280;
+      const partPauseMs = options.wordPartPauseMs ?? 130;
+      const speechParts = buildPronunciationSpeechParts(text, {
+        splitIngWords: options.splitIngWords,
+        pauseMs,
+        partPauseMs,
+      });
+      let partIndex = 0;
+
+      const speakNextWord = () => {
+        if (speechSequenceRef.current !== sequenceId) {
+          return;
+        }
+
+        if (partIndex >= speechParts.length) {
+          if (options.repeatFullAfter) {
+            const fullUtterance = makeUtterance(text);
+            fullUtterance.rate = options.repeatFullRate ?? 0.72;
+            fullUtterance.pitch = options.repeatFullPitch ?? fullUtterance.pitch;
+            if (typeof options.onRepeatStart === "function") {
+              options.onRepeatStart();
+            }
+            if (typeof options.onRepeatPartStart === "function") {
+              fullUtterance.onboundary = (event) => {
+                const word = wordAtSpeechBoundary(text, event.charIndex);
+                if (word) {
+                  options.onRepeatPartStart({ text: word, word });
+                }
+              };
+            }
+            fullUtterance.onend = () => {
+              if (speechSequenceRef.current === sequenceId && typeof options.onEnd === "function") {
+                options.onEnd();
+              }
+            };
+            window.setTimeout(() => {
+              if (speechSequenceRef.current === sequenceId) {
+                if (typeof options.onRepeatPartStart === "function") {
+                  const repeatWords = String(text || "").match(/[A-Za-z']+/g) || [];
+                  const repeatRate = options.repeatFullRate ?? 0.72;
+                  let repeatElapsedMs = 0;
+                  repeatWords.forEach((word) => {
+                    const scheduledAt = repeatElapsedMs;
+                    window.setTimeout(() => {
+                      if (speechSequenceRef.current === sequenceId) {
+                        options.onRepeatPartStart({ text: word, word });
+                      }
+                    }, scheduledAt);
+                    repeatElapsedMs += Math.max(260, word.length * (95 / repeatRate));
+                  });
+                }
+                window.speechSynthesis.speak(fullUtterance);
+              }
+            }, options.repeatFullPauseMs ?? 350);
+          } else if (typeof options.onEnd === "function") {
+            options.onEnd();
+          }
+          return;
+        }
+
+        const currentPart = speechParts[partIndex];
+        const utterance = makeUtterance(currentPart.text);
+        partIndex += 1;
+        if (typeof options.onPartStart === "function") {
+          options.onPartStart(currentPart);
+        }
+        utterance.onend = () => {
+          window.setTimeout(speakNextWord, currentPart.pauseAfterMs);
+        };
+        window.speechSynthesis.speak(utterance);
+      };
+
+      speakNextWord();
+      const characterMs = (options.rate ?? 0.62) < 0.6 ? 260 : 230;
+      return Math.max(
+        1200,
+        speechParts.reduce((total, part) => total + part.text.length * characterMs + part.pauseAfterMs, 0) +
+          (options.repeatFullAfter ? String(text || "").length * 120 + (options.repeatFullPauseMs ?? 350) : 0)
+      );
+    }
+
+    const utterance = makeUtterance(text);
+    if (typeof options.onEnd === "function") {
+      utterance.onend = () => {
+        if (speechSequenceRef.current === sequenceId) {
+          options.onEnd();
+        }
+      };
     }
 
     window.speechSynthesis.speak(utterance);
-    return Math.max(2400, text.length * 170);
-  };
+    return Math.max(900, text.length * 120);
+  }, [chooseVoice]);
 }
 
 function useViewportWidth() {
@@ -515,7 +687,187 @@ function getWrongFeedback(profile) {
   return "No fue esa. Intentalo otra vez. Esta tarjeta ya no contara como acierto al primer intento.";
 }
 
+function summarizePronunciationScore(result) {
+  const textScore = result?.text_score;
+  const wordScores = textScore?.word_score_list || [];
+  const pronunciation =
+    textScore?.speechace_score?.pronunciation ??
+    textScore?.quality_score ??
+    result?.speechace_score?.pronunciation ??
+    null;
+  const weakestWord = wordScores
+    .filter((word) => typeof word.quality_score === "number")
+    .sort((left, right) => left.quality_score - right.quality_score)[0];
+  const weakestSyllable = weakestWord
+    ? (weakestWord.syllable_score_list || [])
+        .filter((syllable) => typeof syllable.quality_score === "number")
+        .sort((left, right) => left.quality_score - right.quality_score)[0]
+    : null;
+  const weakestPhone = weakestWord
+    ? (weakestWord.phone_score_list || [])
+        .filter((phone) => typeof phone.quality_score === "number")
+        .sort((left, right) => left.quality_score - right.quality_score)[0]
+    : null;
+
+  return {
+    pronunciation,
+    wordScores,
+    weakestWord,
+    weakestSyllable,
+    weakestPhone,
+  };
+}
+
+function promptParts(prompt) {
+  return prompt.match(/[A-Za-z]+|[^A-Za-z]+/g) || [prompt];
+}
+
+function normalizePronunciationWord(word) {
+  return String(word || "").toLowerCase().replace(/[^a-z]/g, "");
+}
+
+function findWordScore(summary, word) {
+  const key = normalizePronunciationWord(word);
+  if (!key) {
+    return null;
+  }
+
+  return summary?.wordScores?.find((item) => normalizePronunciationWord(item.word) === key) || null;
+}
+
+function findWeakestSyllable(wordScore) {
+  return (wordScore?.syllable_score_list || [])
+    .filter((syllable) => typeof syllable.quality_score === "number" && syllable.letters)
+    .sort((left, right) => left.quality_score - right.quality_score)[0] || null;
+}
+
+function pronunciationPromptFromOption(optionId) {
+  const parts = String(optionId || "").split("-");
+  const action = parts[parts.length - 1];
+  const actionWords = ["running", "walking", "swimming", "eating", "drinking", "reading", "writing", "sleeping", "sitting", "standing"];
+  const hasAction = actionWords.includes(action);
+  const people = hasAction ? parts.slice(0, -1) : parts;
+
+  if (people.length > 1) {
+    return hasAction ? `They are ${action}.` : "They";
+  }
+
+  const person = people[0];
+  if (!person) {
+    return "";
+  }
+
+  if (hasAction) {
+    return `The ${person} is ${action}.`;
+  }
+
+  return `The ${person}`;
+}
+
+function pronunciationTokenColors(score) {
+  if (typeof score !== "number") {
+    return {
+      background: "#fffdf9",
+      border: "rgba(36, 51, 58, 0.12)",
+      color: "var(--text)",
+      shadow: "none",
+    };
+  }
+
+  if (score >= 75) {
+    return {
+      background: "#d8f3df",
+      border: "rgba(47, 143, 98, 0.5)",
+      color: "var(--green)",
+      shadow: "0 0 0 3px rgba(47, 143, 98, 0.12)",
+    };
+  }
+
+  if (score >= 55) {
+    return {
+      background: "#fff1c7",
+      border: "rgba(191, 114, 0, 0.52)",
+      color: "#7a4d00",
+      shadow: "0 0 0 3px rgba(191, 114, 0, 0.12)",
+    };
+  }
+
+  return {
+    background: "#ffe0dc",
+    border: "rgba(197, 64, 64, 0.58)",
+    color: "var(--red)",
+    shadow: "0 0 0 3px rgba(197, 64, 64, 0.12)",
+  };
+}
+
+function getPronunciationAdvice(summary) {
+  if (!summary?.weakestWord) {
+    return "Intentalo otra vez con sonidos claros y despacio.";
+  }
+
+  const word = summary.weakestWord.word;
+  const syllable = summary.weakestSyllable?.letters;
+  const phone = summary.weakestPhone?.phone;
+
+  if (phone === "dh" || phone === "th") {
+    return `En "${word}", coloca la punta de la lengua suavemente entre los dientes. Saca un poco de aire y, si suena como "the", usa la voz.`;
+  }
+
+  if (phone === "r") {
+    return `En "${word}", no hagas la r como en espanol. Levanta un poco el centro de la lengua y redondea ligeramente los labios.`;
+  }
+
+  if (phone === "ih" || phone === "iy") {
+    return `En "${word}", cuida la vocal. Sonrie un poco, manten la boca relajada y haz el sonido corto y claro.`;
+  }
+
+  if (syllable) {
+    return `En "${word}", practica primero la parte "${syllable}". Dila despacio, luego repite toda la frase.`;
+  }
+
+  return `Practica "${word}" despacio. Mira la posicion de tu boca, dilo una vez solo, y luego repite toda la frase.`;
+}
+
+function getPronunciationOutcome(summary) {
+  const score = summary?.pronunciation;
+  const failedWord = summary?.wordScores?.find((word) => typeof word.quality_score === "number" && word.quality_score < 55);
+
+  if (typeof score !== "number") {
+    return {
+      accepted: false,
+      title: "Intenta otra vez",
+      message: "No pude revisar eso con claridad. Intenta decir la frase otra vez.",
+    };
+  }
+
+  if (failedWord) {
+    return {
+      accepted: false,
+      title: "Intenta otra vez",
+      message: getPronunciationAdvice({
+        ...summary,
+        weakestWord: failedWord,
+      }),
+    };
+  }
+
+  if (score >= 65) {
+    return {
+      accepted: true,
+      title: "Nice",
+      message: "Suena bien. Sigue asi.",
+    };
+  }
+
+  return {
+    accepted: false,
+    title: "Intenta otra vez",
+    message: getPronunciationAdvice(summary),
+  };
+}
+
 export default function LessonPlayer({ lesson, lessons }) {
+  const [activeLesson, setActiveLesson] = useState(lesson);
   const [started, setStarted] = useState(false);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [profile, setProfile] = useState(null);
@@ -535,16 +887,51 @@ export default function LessonPlayer({ lesson, lessons }) {
   const [autoAdvanceDelayMs, setAutoAdvanceDelayMs] = useState(700);
   const [showHelp, setShowHelp] = useState(false);
   const [lessonSessionId, setLessonSessionId] = useState(null);
+  const [loadingLessonId, setLoadingLessonId] = useState(null);
+  const [lessonLoadError, setLessonLoadError] = useState("");
+  const [pronunciationStatus, setPronunciationStatus] = useState("Getting ready...");
+  const [isPronunciationRecording, setIsPronunciationRecording] = useState(false);
+  const [isPronunciationScoring, setIsPronunciationScoring] = useState(false);
+  const [pronunciationResult, setPronunciationResult] = useState(null);
+  const [pronunciationError, setPronunciationError] = useState("");
+  const [pronunciationAttempt, setPronunciationAttempt] = useState(0);
+  const [activePronunciationOptionIndex, setActivePronunciationOptionIndex] = useState(0);
+  const [completedPronunciationOptions, setCompletedPronunciationOptions] = useState([]);
+  const [completedPronunciationResults, setCompletedPronunciationResults] = useState({});
+  const [modelSpeechPart, setModelSpeechPart] = useState(null);
+  const pronunciationRecorderRef = useRef(null);
+  const pronunciationRecognitionRef = useRef(null);
+  const pronunciationChunksRef = useRef([]);
+  const pronunciationStreamRef = useRef(null);
+  const pronunciationAudioContextRef = useRef(null);
+  const pronunciationMonitorRef = useRef(null);
+  const pronunciationStartTimeoutRef = useRef(null);
+  const pronunciationTimeoutRef = useRef(null);
+  const pronunciationHasSpeechRef = useRef(false);
+  const pronunciationSilenceStartedAtRef = useRef(null);
+  const pronunciationStartedAtRef = useRef(0);
+  const pronunciationShouldScoreRef = useRef(true);
+  const pronunciationCardKeyRef = useRef("");
+  const pronunciationToneKeyRef = useRef("");
+  const spokenPromptKeyRef = useRef("");
   const playTone = useTone();
   const speakText = useSpeech();
   const viewportWidth = useViewportWidth();
   const isTablet = viewportWidth <= 1080;
   const isMobile = viewportWidth <= 760;
 
-  const currentCard = lesson.cards[cardIndex];
-  const totalCards = lesson.cards.length;
+  const currentCard = activeLesson.cards[cardIndex];
+  const totalCards = activeLesson.cards.length;
+  const isPronunciationLesson = activeLesson.id === "lesson-3-pronunciation";
+  const isRecognitionLesson = activeLesson.id === "lesson-1-people-actions" || activeLesson.id === "lesson-2-pronouns";
   const optionCount = currentCard?.options.length || 2;
+  const activePronunciationOption = isPronunciationLesson ? currentCard?.options[activePronunciationOptionIndex] : null;
+  const activePronunciationPrompt =
+    isPronunciationLesson && activePronunciationOption
+      ? pronunciationPromptFromOption(activePronunciationOption.id)
+      : currentCard?.prompt || "";
   const isFourOptionCard = optionCount >= 4;
+  const isThreeOptionCard = optionCount === 3;
   const onboardingFinished = onboardingStepIndex >= ONBOARDING_STEPS.length;
   const activeOnboardingStep =
     onboardingStepIndex >= 0 && onboardingStepIndex < ONBOARDING_STEPS.length
@@ -554,6 +941,14 @@ export default function LessonPlayer({ lesson, lessons }) {
     () => `${Math.min(cardIndex + 1, totalCards)} / ${totalCards}`,
     [cardIndex, totalCards]
   );
+  const pronunciationSummary = useMemo(
+    () => summarizePronunciationScore(pronunciationResult),
+    [pronunciationResult]
+  );
+  const pronunciationOutcome = useMemo(
+    () => getPronunciationOutcome(pronunciationSummary),
+    [pronunciationSummary]
+  );
   const onboardingProgress = useMemo(() => {
     if (!activeOnboardingStep) {
       return "";
@@ -561,6 +956,44 @@ export default function LessonPlayer({ lesson, lessons }) {
 
     return `${onboardingStepIndex + 1} / ${ONBOARDING_STEPS.length}`;
   }, [activeOnboardingStep, onboardingStepIndex]);
+  const curriculumUnits = useMemo(() => {
+    const units = [];
+    const unitMap = new Map();
+
+    lessons.forEach((lessonSummary) => {
+      const unitKey = lessonSummary.unit_id || "unit-1";
+      const lessonKey = lessonSummary.lesson_id || "lesson-1";
+
+      if (!unitMap.has(unitKey)) {
+        const unit = {
+          id: unitKey,
+          title: lessonSummary.unit_title || "Unit 1",
+          lessons: [],
+          lessonMap: new Map(),
+        };
+        unitMap.set(unitKey, unit);
+        units.push(unit);
+      }
+
+      const unit = unitMap.get(unitKey);
+      if (!unit.lessonMap.has(lessonKey)) {
+        const lessonGroup = {
+          id: lessonKey,
+          title: lessonSummary.lesson_title || "Lesson 1",
+          subLessons: [],
+        };
+        unit.lessonMap.set(lessonKey, lessonGroup);
+        unit.lessons.push(lessonGroup);
+      }
+
+      unit.lessonMap.get(lessonKey).subLessons.push(lessonSummary);
+    });
+
+    return units.map((unit) => ({
+      ...unit,
+      lessonMap: undefined,
+    }));
+  }, [lessons]);
   const shellStyle = {
     maxWidth: "1180px",
     margin: "0 auto",
@@ -584,6 +1017,11 @@ export default function LessonPlayer({ lesson, lessons }) {
     ...styles.choiceGrid,
     gridTemplateColumns: isFourOptionCard ? "repeat(2, minmax(0, 1fr))" : isMobile ? "1fr" : styles.choiceGrid.gridTemplateColumns,
     gap: isFourOptionCard ? (isMobile ? "8px" : "12px") : styles.choiceGrid.gap,
+  };
+  const centeredThirdOptionStyle = {
+    gridColumn: "1 / -1",
+    width: "calc((100% - 18px) / 2)",
+    justifySelf: "center",
   };
   const responsiveImageStyle = {
     ...styles.image,
@@ -613,6 +1051,235 @@ export default function LessonPlayer({ lesson, lessons }) {
     display: "grid",
     gap: "12px",
   };
+  const pronunciationCue = isPronunciationRecording || isPronunciationScoring
+    ? { color: "var(--muted)", isActive: true }
+    : { color: "var(--muted)", isActive: false };
+  const renderListeningCue = () => (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+        color: pronunciationCue.color,
+        fontWeight: 800,
+        minHeight: 28,
+      }}
+    >
+      <span
+        aria-hidden="true"
+        style={{
+          width: 18,
+          height: 18,
+          borderRadius: "999px",
+          background: pronunciationCue.color,
+          boxShadow: "0 0 0 8px rgba(94, 109, 115, 0.14)",
+          animation: pronunciationCue.isActive ? "listeningPulse 850ms ease-in-out infinite" : "none",
+          flex: "0 0 auto",
+        }}
+      />
+      <div style={{ display: "flex", alignItems: "center", gap: 3, height: 22 }} aria-hidden="true">
+        {[0, 1, 2, 3].map((bar) => (
+          <span
+            key={bar}
+            style={{
+              width: 5,
+              height: 20,
+              borderRadius: "999px",
+              background: pronunciationCue.color,
+              transformOrigin: "center",
+              opacity: pronunciationCue.isActive ? 1 : 0.25,
+              animation: pronunciationCue.isActive ? `listeningBar 620ms ease-in-out ${bar * 90}ms infinite` : "none",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+  const renderPronunciationWord = (
+    word,
+    index,
+    spokenWordIndex,
+    summary = pronunciationSummary,
+    result = pronunciationResult
+  ) => {
+    const wordScore = findWordScore(summary, word);
+    const qualityScore = wordScore?.quality_score;
+    const hasGrading = Boolean(result);
+    const isWeakestWord =
+      wordScore &&
+      summary.weakestWord &&
+      normalizePronunciationWord(wordScore.word) === normalizePronunciationWord(summary.weakestWord.word);
+    const weakestSyllable = findWeakestSyllable(wordScore);
+    const weakSyllable = weakestSyllable?.letters || "";
+    const colors = pronunciationTokenColors(qualityScore);
+    const syllableColors = pronunciationTokenColors(weakestSyllable?.quality_score);
+    const shouldHighlightSyllable =
+      hasGrading &&
+      weakSyllable &&
+      typeof weakestSyllable?.quality_score === "number" &&
+      weakestSyllable.quality_score < 75;
+    const tokenBackground = hasGrading ? colors.background : "#fffdf9";
+    const tokenColor = hasGrading ? colors.color : "transparent";
+    const tokenBorder = hasGrading ? colors.border : "rgba(36, 51, 58, 0.1)";
+    const tokenShadow = hasGrading ? colors.shadow : "none";
+    const weakIndex = shouldHighlightSyllable ? word.toLowerCase().indexOf(String(weakSyllable).toLowerCase()) : -1;
+
+    let content = word;
+    if (hasGrading && weakIndex >= 0) {
+      const before = word.slice(0, weakIndex);
+      const middle = word.slice(weakIndex, weakIndex + weakSyllable.length);
+      const after = word.slice(weakIndex + weakSyllable.length);
+      content = (
+        <>
+          {before}
+          <span
+            style={{
+              background: syllableColors.background,
+              borderBottom: `3px solid ${syllableColors.color}`,
+              borderRadius: "6px",
+              padding: "0 2px",
+              color: syllableColors.color,
+            }}
+          >
+            {middle}
+          </span>
+          {after}
+        </>
+      );
+    }
+
+    return (
+      <span
+        key={`${word}-${index}`}
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          border: `1px solid ${tokenBorder}`,
+          borderRadius: "14px",
+          background: tokenBackground,
+          color: tokenColor,
+          padding: isMobile ? "7px 10px" : "8px 12px",
+          fontSize: isMobile ? 20 : 24,
+          fontWeight: 800,
+          lineHeight: 1,
+          boxShadow: isWeakestWord ? "0 0 0 3px rgba(197, 64, 64, 0.18)" : tokenShadow,
+        }}
+        title={
+          hasGrading && typeof qualityScore === "number"
+            ? `${word}: ${Math.round(qualityScore)}${
+                shouldHighlightSyllable ? `, ${weakSyllable}: ${Math.round(weakestSyllable.quality_score)}` : ""
+              }`
+            : undefined
+        }
+      >
+        {content}
+      </span>
+    );
+  };
+  const renderPronunciationPhrase = (
+    phrase = activePronunciationPrompt,
+    summary = pronunciationSummary,
+    result = pronunciationResult
+  ) => {
+    let spokenWordIndex = 0;
+
+    return promptParts(phrase).map((part, index) => {
+      if (!/[A-Za-z]+/.test(part)) {
+        return <span key={`${part}-${index}`}>{part}</span>;
+      }
+
+      const renderedWord = renderPronunciationWord(part, index, spokenWordIndex, summary, result);
+      spokenWordIndex += 1;
+      return renderedWord;
+    });
+  };
+  const renderEmptyPronunciationPhrase = (phrase) => {
+    return promptParts(phrase).map((part, index) => {
+      if (!/[A-Za-z]+/.test(part)) {
+        return <span key={`${part}-${index}`}>{part}</span>;
+      }
+
+      return (
+        <span
+          key={`${part}-${index}`}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            border: "1px solid rgba(36, 51, 58, 0.12)",
+            borderRadius: "12px",
+            background: "#fffdf9",
+            color: "transparent",
+            padding: isMobile ? "6px 9px" : "7px 10px",
+            fontSize: isMobile ? 18 : 20,
+            fontWeight: 800,
+            lineHeight: 1,
+            userSelect: "none",
+          }}
+        >
+          {part}
+        </span>
+      );
+    });
+  };
+  const renderPronunciationPromptHeader = (phrase, optionId, isActive) => {
+    const activePart = isActive && modelSpeechPart?.optionId === optionId ? modelSpeechPart : null;
+
+    return promptParts(phrase).map((part, index) => {
+      if (!/[A-Za-z]+/.test(part)) {
+        return <span key={`${part}-${index}`}>{part}</span>;
+      }
+
+      const normalizedWord = part.toLowerCase();
+      const normalizedActiveWord = activePart?.word?.toLowerCase();
+      const normalizedActiveText = activePart?.text?.toLowerCase();
+      const ingParts = ING_PRONUNCIATION_PARTS[normalizedWord];
+      const shouldHighlightWhole = normalizedActiveText === normalizedWord || normalizedActiveWord === normalizedWord && !ingParts;
+      const activePartIndex = ingParts && normalizedActiveWord === normalizedWord && normalizedActiveText
+        ? normalizedWord.indexOf(normalizedActiveText)
+        : -1;
+
+      if (activePartIndex >= 0) {
+        const before = part.slice(0, activePartIndex);
+        const middle = part.slice(activePartIndex, activePartIndex + normalizedActiveText.length);
+        const after = part.slice(activePartIndex + normalizedActiveText.length);
+
+        return (
+          <span key={`${part}-${index}`}>
+            {before}
+            <span
+              style={{
+                background: "#fff1c7",
+                borderRadius: "8px",
+                padding: "0 3px",
+                color: "#7a4d00",
+              }}
+            >
+              {middle}
+            </span>
+            {after}
+          </span>
+        );
+      }
+
+      return (
+        <span
+          key={`${part}-${index}`}
+          style={
+            shouldHighlightWhole
+              ? {
+                  background: "#fff1c7",
+                  borderRadius: "8px",
+                  padding: "0 3px",
+                  color: "#7a4d00",
+                }
+              : undefined
+          }
+        >
+          {part}
+        </span>
+      );
+    });
+  };
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -632,6 +1299,10 @@ export default function LessonPlayer({ lesson, lessons }) {
       setProfileLoaded(true);
     }
   }, []);
+
+  useEffect(() => {
+    setActiveLesson(lesson);
+  }, [lesson]);
 
   useEffect(() => {
     if (!profileLoaded || !profile || profile.userId) {
@@ -663,6 +1334,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   }, [profile, profileLoaded]);
 
   const resetProgress = () => {
+    stopPronunciationCapture();
     setCardIndex(0);
     setScore(0);
     setWrongAttempts({});
@@ -672,6 +1344,66 @@ export default function LessonPlayer({ lesson, lessons }) {
     setLessonSessionId(null);
     setShowHelp(shouldShowHelp(profile || draftProfile));
     setAutoAdvanceDelayMs(700);
+    resetPronunciationPractice();
+  };
+
+  const resetPronunciationPractice = () => {
+    setPronunciationStatus("Getting ready...");
+    setIsPronunciationRecording(false);
+    setIsPronunciationScoring(false);
+    setPronunciationResult(null);
+    setPronunciationError("");
+    setPronunciationAttempt(0);
+    setActivePronunciationOptionIndex(0);
+    setCompletedPronunciationOptions([]);
+    setCompletedPronunciationResults({});
+    setModelSpeechPart(null);
+    pronunciationCardKeyRef.current = "";
+    pronunciationToneKeyRef.current = "";
+    pronunciationChunksRef.current = [];
+  };
+
+  const clearPronunciationMonitoring = () => {
+    if (pronunciationMonitorRef.current) {
+      window.cancelAnimationFrame(pronunciationMonitorRef.current);
+      pronunciationMonitorRef.current = null;
+    }
+    if (pronunciationStartTimeoutRef.current) {
+      window.clearTimeout(pronunciationStartTimeoutRef.current);
+      pronunciationStartTimeoutRef.current = null;
+    }
+    if (pronunciationTimeoutRef.current) {
+      window.clearTimeout(pronunciationTimeoutRef.current);
+      pronunciationTimeoutRef.current = null;
+    }
+    if (pronunciationAudioContextRef.current) {
+      pronunciationAudioContextRef.current.close().catch(() => {});
+      pronunciationAudioContextRef.current = null;
+    }
+    if (pronunciationRecognitionRef.current) {
+      pronunciationRecognitionRef.current.onresult = null;
+      pronunciationRecognitionRef.current.onerror = null;
+      pronunciationRecognitionRef.current.onend = null;
+      try {
+        pronunciationRecognitionRef.current.stop();
+      } catch (error) {
+        // Recognition may already be stopped.
+      }
+      pronunciationRecognitionRef.current = null;
+    }
+  };
+
+  const stopPronunciationCapture = ({ shouldScore = false } = {}) => {
+    pronunciationShouldScoreRef.current = shouldScore;
+    clearPronunciationMonitoring();
+    if (pronunciationRecorderRef.current && pronunciationRecorderRef.current.state !== "inactive") {
+      pronunciationRecorderRef.current.stop();
+    }
+    pronunciationRecorderRef.current = null;
+    if (pronunciationStreamRef.current) {
+      pronunciationStreamRef.current.getTracks().forEach((track) => track.stop());
+      pronunciationStreamRef.current = null;
+    }
   };
 
   useEffect(() => {
@@ -693,16 +1425,354 @@ export default function LessonPlayer({ lesson, lessons }) {
   }, [autoAdvanceDelayMs, cardIndex, lastResult, started, totalCards]);
 
   useEffect(() => {
-    if (!started || isComplete || !currentCard || lastResult !== null) {
-      return;
+    resetPronunciationPractice();
+    spokenPromptKeyRef.current = "";
+
+    return () => {
+      stopPronunciationCapture();
+    };
+  }, [cardIndex, activeLesson.id]);
+
+  useEffect(() => {
+    if (!isRecognitionLesson || !started || isComplete || !currentCard || lastResult !== null) {
+      return undefined;
     }
+
+    const promptKey = `${activeLesson.id}-${cardIndex}-${currentCard.prompt}`;
+    if (spokenPromptKeyRef.current === promptKey) {
+      return undefined;
+    }
+    spokenPromptKeyRef.current = promptKey;
 
     const timeoutId = window.setTimeout(() => {
       speakText(currentCard.prompt, { voiceMode: "prompt" });
     }, 120);
 
     return () => window.clearTimeout(timeoutId);
-  }, [cardIndex, currentCard, isComplete, lastResult, speakText, started]);
+  }, [activeLesson.id, cardIndex, currentCard, isComplete, isRecognitionLesson, lastResult, speakText, started]);
+
+  useEffect(() => {
+    if (!isPronunciationLesson || !started || isComplete || !currentCard || lastResult === "correct") {
+      return undefined;
+    }
+
+    const cardKey = `${activeLesson.id}-${cardIndex}-${activePronunciationOptionIndex}-${activePronunciationPrompt}`;
+    if (pronunciationCardKeyRef.current === cardKey) {
+      return undefined;
+    }
+    pronunciationCardKeyRef.current = cardKey;
+
+    const timeoutId = window.setTimeout(() => {
+      beginPronunciationRecording();
+    }, 450);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [
+    activeLesson.id,
+    activePronunciationOptionIndex,
+    activePronunciationPrompt,
+    cardIndex,
+    currentCard,
+    isComplete,
+    isPronunciationLesson,
+    lastResult,
+    started,
+  ]);
+
+  useEffect(() => {
+    if (
+      !isPronunciationLesson ||
+      !started ||
+      isComplete ||
+      !currentCard ||
+      lastResult === "correct" ||
+      !pronunciationResult ||
+      !pronunciationOutcome.accepted ||
+      !activePronunciationOption
+    ) {
+      return undefined;
+    }
+
+    const toneKey = `${cardIndex}-${activePronunciationOption.id}-${pronunciationAttempt}-correct`;
+    if (pronunciationToneKeyRef.current !== toneKey) {
+      pronunciationToneKeyRef.current = toneKey;
+      playTone([
+        { frequency: 880, frequency2: 1320, durationMs: 180, type: "triangle", type2: "sine", volume: 0.12 },
+        { frequency: 1175, frequency2: 1760, durationMs: 220, delayMs: 130, type: "triangle", type2: "sine", volume: 0.11 },
+      ]);
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      const completedId = activePronunciationOption.id;
+      setCompletedPronunciationResults((current) => ({
+        ...current,
+        [completedId]: pronunciationResult,
+      }));
+      setCompletedPronunciationOptions((current) =>
+        current.includes(completedId) ? current : [...current, completedId]
+      );
+
+      const nextIndex = activePronunciationOptionIndex + 1;
+      if (nextIndex < currentCard.options.length) {
+        setPronunciationResult(null);
+        setPronunciationError("");
+        setPronunciationAttempt(0);
+        pronunciationCardKeyRef.current = "";
+        setActivePronunciationOptionIndex(nextIndex);
+        return;
+      }
+
+      setAutoAdvanceDelayMs(900);
+      setScore((current) => current + 1);
+      setLastResult("correct");
+    }, 650);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [
+    activePronunciationOption,
+    activePronunciationOptionIndex,
+    currentCard,
+    isComplete,
+    isPronunciationLesson,
+    lastResult,
+    playTone,
+    pronunciationOutcome.accepted,
+    pronunciationResult,
+    pronunciationAttempt,
+    started,
+  ]);
+
+  useEffect(() => {
+    if (
+      !isPronunciationLesson ||
+      !started ||
+      isComplete ||
+      !currentCard ||
+      lastResult === "correct" ||
+      !pronunciationResult ||
+      pronunciationOutcome.accepted ||
+      !activePronunciationOption
+    ) {
+      return;
+    }
+
+    const toneKey = `${cardIndex}-${activePronunciationOption.id}-${pronunciationAttempt}-wrong`;
+    if (pronunciationToneKeyRef.current === toneKey) {
+      return;
+    }
+
+    pronunciationToneKeyRef.current = toneKey;
+    playTone([
+      { frequency: 220, durationMs: 260, type: "sawtooth", volume: 0.1 },
+      { frequency: 185, durationMs: 300, delayMs: 210, type: "sawtooth", volume: 0.09 },
+    ]);
+  }, [
+    activePronunciationOption,
+    cardIndex,
+    currentCard,
+    isComplete,
+    isPronunciationLesson,
+    lastResult,
+    playTone,
+    pronunciationAttempt,
+    pronunciationOutcome.accepted,
+    pronunciationResult,
+    started,
+  ]);
+
+  const scorePronunciationBlob = async (audioBlob) => {
+    if (!audioBlob || !currentCard) {
+      return;
+    }
+
+    setIsPronunciationScoring(true);
+    setPronunciationStatus("Scoring pronunciation...");
+    setPronunciationError("");
+
+    try {
+      const result = await scorePronunciationAudio({
+        text: activePronunciationPrompt,
+        audioBlob,
+        userId: profile?.userId,
+      });
+      if (result?._client_timing) {
+        console.info("Pronunciation scoring timing", result._client_timing);
+      }
+      setPronunciationResult(result);
+      setPronunciationStatus("Checked.");
+    } catch (error) {
+      if (error.code === "error_no_speech" || error.message === "NO_SPEECH_DETECTED") {
+        setPronunciationError("No te pude escuchar. Intentalo otra vez.");
+        setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
+      } else {
+        setPronunciationError("No pude revisar eso. Intentalo otra vez.");
+        setPronunciationStatus("Pronunciation scoring failed.");
+      }
+    } finally {
+      setIsPronunciationScoring(false);
+    }
+  };
+
+  const beginPronunciationRecording = async ({ isRetry = false } = {}) => {
+    if (!currentCard || !activePronunciationPrompt || isPronunciationRecording || isPronunciationScoring) {
+      return;
+    }
+
+    if (typeof window === "undefined" || !navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
+      setPronunciationError("This browser cannot record audio here.");
+      setPronunciationStatus("Recording is not available.");
+      return;
+    }
+
+    setPronunciationError("");
+    setPronunciationResult(null);
+    const nextAttempt = pronunciationAttempt + 1;
+    setPronunciationAttempt(nextAttempt);
+    setPronunciationStatus("Listen...");
+    pronunciationChunksRef.current = [];
+    pronunciationHasSpeechRef.current = false;
+    pronunciationSilenceStartedAtRef.current = null;
+    pronunciationShouldScoreRef.current = true;
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) {
+        throw new Error("This browser cannot detect when speech ends.");
+      }
+      const audioContext = new AudioContextClass();
+      const source = audioContext.createMediaStreamSource(stream);
+      const analyser = audioContext.createAnalyser();
+      const samples = new Uint8Array(analyser.fftSize);
+      source.connect(analyser);
+
+      pronunciationStreamRef.current = stream;
+      pronunciationRecorderRef.current = recorder;
+      pronunciationAudioContextRef.current = audioContext;
+
+      recorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          pronunciationChunksRef.current.push(event.data);
+        }
+      };
+
+      recorder.onstop = () => {
+        const shouldScore = pronunciationShouldScoreRef.current;
+        clearPronunciationMonitoring();
+        stream.getTracks().forEach((track) => track.stop());
+        pronunciationStreamRef.current = null;
+        pronunciationRecorderRef.current = null;
+        setIsPronunciationRecording(false);
+
+        const audioBlob = new Blob(pronunciationChunksRef.current, {
+          type: recorder.mimeType || "audio/webm",
+        });
+        pronunciationChunksRef.current = [];
+
+        if (shouldScore) {
+          scorePronunciationBlob(audioBlob);
+        }
+      };
+
+      let listeningStarted = false;
+      const startListening = () => {
+        if (listeningStarted) {
+          return;
+        }
+        listeningStarted = true;
+        setModelSpeechPart(null);
+        if (pronunciationStartTimeoutRef.current) {
+          window.clearTimeout(pronunciationStartTimeoutRef.current);
+          pronunciationStartTimeoutRef.current = null;
+        }
+        pronunciationStartTimeoutRef.current = null;
+        if (recorder.state !== "inactive") {
+          return;
+        }
+
+        playTone({ frequency: 740, frequency2: 988, durationMs: 220, type: "sine", type2: "triangle", volume: 0.85 });
+        recorder.start();
+        setIsPronunciationRecording(true);
+        setPronunciationStatus("Now you say it.");
+        pronunciationStartedAtRef.current = window.performance.now();
+
+        const minListenMs = Math.min(Math.max(activePronunciationPrompt.length * 180, 900), 1800);
+        const silenceMs = 850;
+        const maxListenMs = Math.min(Math.max(activePronunciationPrompt.length * 420, 4200), 7600);
+        const voiceThreshold = 0.022;
+
+        const monitor = () => {
+          if (!pronunciationRecorderRef.current || pronunciationRecorderRef.current.state === "inactive") {
+            return;
+          }
+
+          analyser.getByteTimeDomainData(samples);
+          let sum = 0;
+          for (const sample of samples) {
+            const centered = (sample - 128) / 128;
+            sum += centered * centered;
+          }
+          const volume = Math.sqrt(sum / samples.length);
+          const now = window.performance.now();
+          const elapsed = now - pronunciationStartedAtRef.current;
+
+          if (volume > voiceThreshold) {
+            pronunciationHasSpeechRef.current = true;
+            pronunciationSilenceStartedAtRef.current = null;
+          } else if (pronunciationHasSpeechRef.current && elapsed > minListenMs) {
+            if (!pronunciationSilenceStartedAtRef.current) {
+              pronunciationSilenceStartedAtRef.current = now;
+            }
+            if (now - pronunciationSilenceStartedAtRef.current >= silenceMs) {
+              setPronunciationStatus("Checking...");
+              stopPronunciationCapture({ shouldScore: true });
+              return;
+            }
+          }
+
+          pronunciationMonitorRef.current = window.requestAnimationFrame(monitor);
+        };
+
+        pronunciationMonitorRef.current = window.requestAnimationFrame(monitor);
+        pronunciationTimeoutRef.current = window.setTimeout(() => {
+          if (pronunciationRecorderRef.current && pronunciationRecorderRef.current.state !== "inactive") {
+            if (!pronunciationHasSpeechRef.current) {
+              setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
+              setPronunciationError("No te pude escuchar. Intentalo otra vez.");
+              stopPronunciationCapture({ shouldScore: false });
+              return;
+            }
+            setPronunciationStatus("Checking...");
+            stopPronunciationCapture({ shouldScore: true });
+          }
+        }, maxListenMs);
+      };
+
+      const speechDelay = speakText(activePronunciationPrompt, {
+        voiceMode: "prompt",
+        wordByWord: true,
+        splitIngWords: true,
+        repeatFullAfter: true,
+        repeatFullPauseMs: isRetry ? 420 : 320,
+        repeatFullRate: isRetry ? 0.7 : 0.74,
+        wordPauseMs: isRetry ? 300 : 220,
+        wordPartPauseMs: isRetry ? 180 : 140,
+        rate: isRetry ? 0.56 : 0.62,
+        pitch: isRetry ? 1.04 : undefined,
+        onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
+        onRepeatStart: () => setModelSpeechPart(null),
+        onRepeatPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
+        onEnd: () => window.setTimeout(startListening, isRetry ? 650 : 500),
+      });
+      const startDelay = Math.min(Math.max(speechDelay + 4500, 9000), 15000);
+      pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
+    } catch (error) {
+      stopPronunciationCapture({ shouldScore: false });
+      setPronunciationError(error.message || "Could not start recording.");
+      setPronunciationStatus("Recording failed.");
+    }
+  };
 
   const saveProfile = async () => {
     let nextProfile = { ...draftProfile };
@@ -783,7 +1853,24 @@ export default function LessonPlayer({ lesson, lessons }) {
     }
   };
 
-  const startLesson = async () => {
+  const startLesson = async (lessonId = activeLesson.id) => {
+    let lessonToStart = activeLesson;
+    setLessonLoadError("");
+
+    if (lessonId !== activeLesson.id) {
+      setLoadingLessonId(lessonId);
+      try {
+        lessonToStart = await getLesson(lessonId);
+        setActiveLesson(lessonToStart);
+      } catch (error) {
+        console.error("Could not load selected lesson", error);
+        setLessonLoadError("No pudimos cargar esa leccion. Intentalo otra vez.");
+        setLoadingLessonId(null);
+        return;
+      }
+      setLoadingLessonId(null);
+    }
+
     resetProgress();
     setShowHelp(shouldShowHelp(profile));
 
@@ -791,8 +1878,8 @@ export default function LessonPlayer({ lesson, lessons }) {
       try {
         const session = await startLessonSession({
           userId: profile.userId,
-          lessonId: lesson.id,
-          totalCards,
+          lessonId: lessonToStart.id,
+          totalCards: lessonToStart.cards.length,
         });
         setLessonSessionId(session.id);
       } catch (error) {
@@ -856,7 +1943,7 @@ export default function LessonPlayer({ lesson, lessons }) {
       logCardAttempt({
         sessionId: lessonSessionId,
         userId: profile.userId,
-        lessonId: lesson.id,
+        lessonId: activeLesson.id,
         cardIndex,
         prompt: currentCard.prompt,
         selectedOptionId: optionId,
@@ -867,37 +1954,40 @@ export default function LessonPlayer({ lesson, lessons }) {
     }
 
     if (isCorrect) {
-      const praise = PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)];
-      const praisePitch = [1.0, 1.1, 1.2, 1.28][Math.floor(Math.random() * 4)];
-      playTone([
-        { frequency: 880, frequency2: 1320, durationMs: 220, type: "triangle", type2: "sine", volume: 0.12 },
-        { frequency: 1175, frequency2: 1760, durationMs: 260, delayMs: 160, type: "triangle", type2: "sine", volume: 0.11 },
-        { frequency: 1568, frequency2: 2093, durationMs: 320, delayMs: 340, type: "triangle", type2: "sine", volume: 0.09 },
-      ]);
+      setLastResult("correct");
+      setAutoAdvanceDelayMs(1000);
       if (firstTry) {
         setScore((current) => current + 1);
       }
-      const praiseDelay = speakText(praise, {
-        rate: 0.75,
-        pitch: praisePitch,
-        volume: 1,
-        voiceMode: "feedback",
-      });
-      setAutoAdvanceDelayMs(Math.max(1100, praiseDelay + 180));
-      setLastResult("correct");
+
+      const praise = PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)];
+      const praisePitch = [1.0, 1.1, 1.2, 1.28][Math.floor(Math.random() * 4)];
+      window.setTimeout(() => {
+        playTone([
+          { frequency: 880, frequency2: 1320, durationMs: 220, type: "triangle", type2: "sine", volume: 0.12 },
+          { frequency: 1175, frequency2: 1760, durationMs: 260, delayMs: 160, type: "triangle", type2: "sine", volume: 0.11 },
+          { frequency: 1568, frequency2: 2093, durationMs: 320, delayMs: 340, type: "triangle", type2: "sine", volume: 0.09 },
+        ]);
+        speakText(praise, {
+          rate: 0.75,
+          pitch: praisePitch,
+          volume: 1,
+          voiceMode: "feedback",
+        });
+      }, 0);
       return;
     }
 
-    playTone([
-      { frequency: 220, durationMs: 300, type: "sawtooth", volume: 0.1 },
-      { frequency: 185, durationMs: 340, delayMs: 240, type: "sawtooth", volume: 0.09 },
-    ]);
-    window.setTimeout(() => {
-      speakText("Try again", { voiceMode: "feedback", rate: 0.72, pitch: 0.94 });
-    }, 180);
     setAutoAdvanceDelayMs(700);
     setWrongAttempts((current) => ({ ...current, [cardIndex]: true }));
     setLastResult("wrong");
+    window.setTimeout(() => {
+      playTone([
+        { frequency: 220, durationMs: 300, type: "sawtooth", volume: 0.1 },
+        { frequency: 185, durationMs: 340, delayMs: 240, type: "sawtooth", volume: 0.09 },
+      ]);
+      speakText("Try again", { voiceMode: "feedback", rate: 0.72, pitch: 0.94 });
+    }, 0);
   };
 
   const cardStyleFor = (optionId) => {
@@ -1258,33 +2348,53 @@ export default function LessonPlayer({ lesson, lessons }) {
               </div>
 
               <div style={{ display: "grid", gap: "16px" }}>
-                {lessons.map((lessonSummary) => (
-                  <button
-                    key={lessonSummary.id}
-                    type="button"
-                    onClick={hasProfileName ? startLesson : startEditingProfile}
-                    style={{
-                      textAlign: "left",
-                      border: "1px solid var(--line)",
-                      borderRadius: "22px",
-                      background: "var(--surface)",
-                      padding: "20px",
-                      cursor: hasProfileName ? "pointer" : "not-allowed",
-                      opacity: hasProfileName ? 1 : 0.6,
-                      boxShadow: "0 12px 30px rgba(22, 33, 39, 0.06)",
-                    }}
-                    aria-disabled={!hasProfileName}
-                  >
-                    <div style={{ fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)" }}>
-                      {lessonSummary.level}
+                {lessonLoadError ? <div style={{ color: "var(--red)", fontWeight: 700 }}>{lessonLoadError}</div> : null}
+                {curriculumUnits.map((unit) => (
+                  <section key={unit.id} style={{ display: "grid", gap: "12px" }}>
+                    <div style={{ display: "grid", gap: "4px" }}>
+                      <div style={{ fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)" }}>
+                        {unit.title}
+                      </div>
                     </div>
-                    <div style={{ fontSize: isMobile ? 24 : 28, fontWeight: 700, marginTop: 8 }}>{lessonSummary.title}</div>
-                    <div style={{ marginTop: 10, color: "var(--muted)", lineHeight: 1.6 }}>
-                      {hasProfileName
-                        ? "Toca para empezar esta leccion con una experiencia pensada para hispanohablantes."
-                        : "Agrega tu nombre para empezar esta leccion."}
-                    </div>
-                  </button>
+                    {unit.lessons.map((lessonGroup) => (
+                      <div key={lessonGroup.id} style={{ display: "grid", gap: "10px" }}>
+                        <div style={{ fontSize: isMobile ? 18 : 20, fontWeight: 700 }}>{lessonGroup.title}</div>
+                        {lessonGroup.subLessons.map((lessonSummary) => (
+                          <button
+                            key={lessonSummary.id}
+                            type="button"
+                            onClick={hasProfileName ? () => startLesson(lessonSummary.id) : startEditingProfile}
+                            style={{
+                              textAlign: "left",
+                              border: "1px solid var(--line)",
+                              borderRadius: "22px",
+                              background: "var(--surface)",
+                              padding: "20px",
+                              cursor: hasProfileName ? "pointer" : "not-allowed",
+                              opacity: hasProfileName ? 1 : 0.6,
+                              boxShadow: "0 12px 30px rgba(22, 33, 39, 0.06)",
+                            }}
+                            aria-disabled={!hasProfileName}
+                            disabled={loadingLessonId === lessonSummary.id}
+                          >
+                            <div style={{ fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)" }}>
+                              {lessonSummary.level}
+                            </div>
+                            <div style={{ fontSize: isMobile ? 24 : 28, fontWeight: 700, marginTop: 8 }}>
+                              {lessonSummary.sub_lesson_id || lessonSummary.title} {lessonSummary.sub_lesson_title || ""}
+                            </div>
+                            <div style={{ marginTop: 10, color: "var(--muted)", lineHeight: 1.6 }}>
+                              {hasProfileName
+                                ? loadingLessonId === lessonSummary.id
+                                  ? "Cargando leccion..."
+                                  : "Toca para empezar esta sub-leccion."
+                                : "Agrega tu nombre para empezar esta sub-leccion."}
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    ))}
+                  </section>
                 ))}
               </div>
             </div>
@@ -1304,7 +2414,7 @@ export default function LessonPlayer({ lesson, lessons }) {
                 <div style={{ fontSize: 12, letterSpacing: "0.08em", color: "var(--muted)", textTransform: "uppercase" }}>
                   Leccion terminada
                 </div>
-                <strong style={{ fontSize: 20 }}>{lesson.title}</strong>
+                <strong style={{ fontSize: 20 }}>{activeLesson.title}</strong>
                 <span style={{ color: "var(--muted)" }}>
                   Puntaje: {score} / {totalCards}
                 </span>
@@ -1368,7 +2478,28 @@ export default function LessonPlayer({ lesson, lessons }) {
             </div>
             <button
               type="button"
-              onClick={() => speakText(currentCard.prompt, { voiceMode: "prompt" })}
+              onClick={() =>
+                speakText(
+                  isPronunciationLesson ? activePronunciationPrompt : currentCard.prompt,
+                  isPronunciationLesson
+                    ? {
+                        voiceMode: "prompt",
+                        wordByWord: true,
+                        splitIngWords: true,
+                        repeatFullAfter: true,
+                        repeatFullPauseMs: 320,
+                        repeatFullRate: 0.74,
+                        wordPauseMs: 220,
+                        wordPartPauseMs: 140,
+                        rate: 0.62,
+                        onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
+                        onRepeatStart: () => setModelSpeechPart(null),
+                        onRepeatPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
+                        onEnd: () => setModelSpeechPart(null),
+                      }
+                    : { voiceMode: "prompt" }
+                )
+              }
               style={{
                 border: 0,
                 background: "transparent",
@@ -1378,29 +2509,153 @@ export default function LessonPlayer({ lesson, lessons }) {
                 cursor: "pointer",
                 width: "100%",
               }}
-              aria-label={`Play pronunciation for ${currentCard.prompt}`}
+              aria-label={`Play pronunciation for ${isPronunciationLesson ? activePronunciationPrompt : currentCard.prompt}`}
             >
-              <h1 style={titleStyle}>{currentCard.prompt}</h1>
+              <h1 style={titleStyle}>{isPronunciationLesson ? "Pronunciation Practice" : currentCard.prompt}</h1>
             </button>
           </section>
 
           <section style={boardStyle}>
             <div style={choiceGridStyle}>
-              {currentCard.options.map((option) => (
-                <button
-                  key={option.id}
-                  type="button"
-                  style={{
-                    ...cardStyleFor(option.id),
-                    borderRadius: isMobile ? "18px" : styles.cardButton.borderRadius,
-                    padding: isFourOptionCard ? (isMobile ? "4px" : "6px") : isMobile ? "6px" : styles.cardButton.padding,
-                  }}
-                  onClick={() => handleChoice(option.id)}
-                  disabled={lastResult === "correct"}
-                >
-                  <img src={lessonImageSrc(option.image_url)} alt={option.id} style={responsiveImageStyle} />
-                </button>
-              ))}
+              {currentCard.options.map((option, optionIndex) => {
+                const optionPrompt = pronunciationPromptFromOption(option.id);
+                const isActivePronunciationOption =
+                  isPronunciationLesson && optionIndex === activePronunciationOptionIndex && lastResult !== "correct";
+                const isCompletedPronunciationOption =
+                  isPronunciationLesson && completedPronunciationOptions.includes(option.id);
+                const completedPronunciationResult = isPronunciationLesson ? completedPronunciationResults[option.id] : null;
+                const completedPronunciationSummary = completedPronunciationResult
+                  ? summarizePronunciationScore(completedPronunciationResult)
+                  : null;
+                const pronunciationCardStyle = isPronunciationLesson
+                  ? {
+                      cursor: "default",
+                      border: isActivePronunciationOption
+                        ? "4px solid var(--text)"
+                        : isCompletedPronunciationOption
+                          ? "3px solid rgba(47, 143, 98, 0.32)"
+                          : "3px solid rgba(36, 51, 58, 0.12)",
+                      boxShadow: isActivePronunciationOption
+                        ? "0 14px 30px rgba(22, 33, 39, 0.14)"
+                        : isCompletedPronunciationOption
+                          ? "0 10px 24px rgba(47, 143, 98, 0.12)"
+                          : styles.cardButton.boxShadow,
+                    }
+                  : {};
+                const CardTag = isPronunciationLesson ? "div" : "button";
+
+                return (
+                  <CardTag
+                    key={option.id}
+                    {...(isPronunciationLesson ? { role: "group" } : { type: "button" })}
+                    style={{
+                      ...cardStyleFor(option.id),
+                      ...pronunciationCardStyle,
+                      ...(isThreeOptionCard && !isMobile && optionIndex === 2 ? centeredThirdOptionStyle : {}),
+                      borderRadius: isMobile ? "18px" : styles.cardButton.borderRadius,
+                      padding: isPronunciationLesson
+                        ? isMobile
+                          ? "8px"
+                          : "10px"
+                        : isFourOptionCard
+                          ? isMobile
+                            ? "4px"
+                            : "6px"
+                          : isMobile
+                            ? "6px"
+                            : styles.cardButton.padding,
+                    }}
+                    onClick={isPronunciationLesson ? undefined : () => handleChoice(option.id)}
+                    {...(!isPronunciationLesson ? { disabled: lastResult === "correct" } : {})}
+                  >
+                    {isPronunciationLesson ? (
+                      <div
+                        style={{
+                          border: "1px solid var(--line)",
+                          borderRadius: "16px",
+                          background: isCompletedPronunciationOption
+                              ? "#ecfff3"
+                              : "#fff",
+                          padding: isMobile ? "8px" : "10px",
+                          marginBottom: isMobile ? 8 : 10,
+                          display: "grid",
+                          gap: "8px",
+                          minHeight: isMobile ? 84 : 92,
+                        }}
+                      >
+                        <div
+                          style={{
+                            fontSize: isMobile ? 19 : 22,
+                            fontWeight: 800,
+                            lineHeight: 1.15,
+                            color: "var(--text)",
+                            textAlign: "left",
+                          }}
+                        >
+                          {renderPronunciationPromptHeader(optionPrompt, option.id, isActivePronunciationOption)}
+                        </div>
+                        <div style={{ minHeight: 24 }}>
+                          {isActivePronunciationOption ? renderListeningCue() : null}
+                        </div>
+                        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: isMobile ? "7px" : "8px" }}>
+                          {isActivePronunciationOption
+                            ? renderPronunciationPhrase(optionPrompt)
+                            : completedPronunciationResult
+                              ? renderPronunciationPhrase(
+                                  optionPrompt,
+                                  completedPronunciationSummary,
+                                  completedPronunciationResult
+                                )
+                              : renderEmptyPronunciationPhrase(optionPrompt)}
+                        </div>
+                        {isActivePronunciationOption && pronunciationResult ? (
+                          <div
+                            style={{
+                              color: pronunciationOutcome.accepted ? "var(--green)" : "#7a4d00",
+                              fontWeight: 700,
+                              lineHeight: 1.35,
+                              textAlign: "left",
+                            }}
+                          >
+                            {pronunciationOutcome.accepted ? "Nice." : pronunciationOutcome.message}
+                          </div>
+                        ) : null}
+                        {isActivePronunciationOption && (pronunciationError || (pronunciationResult && !pronunciationOutcome.accepted)) ? (
+                          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10 }}>
+                            {pronunciationError ? (
+                              <div style={{ color: "var(--red)", fontWeight: 700, lineHeight: 1.35, textAlign: "left" }}>
+                                {pronunciationError}
+                              </div>
+                            ) : null}
+                            <button
+                              type="button"
+                              onClick={(event) => {
+                                event.stopPropagation();
+                                setPronunciationError("");
+                                setPronunciationResult(null);
+                                beginPronunciationRecording({ isRetry: true });
+                              }}
+                              disabled={isPronunciationRecording || isPronunciationScoring}
+                              style={{
+                                border: "1px solid var(--line)",
+                                borderRadius: "999px",
+                                background: "var(--surface)",
+                                color: "var(--text)",
+                                padding: "7px 12px",
+                                fontWeight: 800,
+                                cursor: isPronunciationRecording || isPronunciationScoring ? "not-allowed" : "pointer",
+                              }}
+                            >
+                              Retry
+                            </button>
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : null}
+                    <img src={lessonImageSrc(option.image_url)} alt={optionPrompt || option.id} style={responsiveImageStyle} />
+                  </CardTag>
+                );
+              })}
             </div>
 
             <div style={{ marginTop: 20 }}>

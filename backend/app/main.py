@@ -1,11 +1,12 @@
 import os
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from .data import LESSONS, LESSON_IMAGE_DIR
+from .speechace import close_speechace_client, score_pronunciation, speechace_configured, speechace_request_debug
 from .tracking import (
     CardAttemptCreate,
     SessionCreate,
@@ -27,14 +28,27 @@ app = FastAPI(title="Learn English API", version="0.1.0")
 init_db()
 
 
+@app.on_event("shutdown")
+async def shutdown_clients():
+    await close_speechace_client()
+
+
 def allowed_origins() -> list[str]:
     configured = os.getenv("ALLOWED_ORIGINS", "")
     origins = [origin.strip() for origin in configured.split(",") if origin.strip()]
     return origins or ["http://localhost:3000"]
 
+
+def allowed_origin_regex() -> str | None:
+    if os.getenv("ALLOWED_ORIGINS"):
+        return None
+
+    return r"^https?://(localhost|127\.0\.0\.1|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2}):3000$"
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins(),
+    allow_origin_regex=allowed_origin_regex(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -50,6 +64,29 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
+@app.get("/api/pronunciation/health")
+def pronunciation_health():
+    return {
+        "speechace_configured": speechace_configured(),
+        "speechace_request": speechace_request_debug(),
+    }
+
+
+@app.post("/api/pronunciation/score")
+async def score_pronunciation_practice(
+    text: str = Form(...),
+    audio: UploadFile = File(...),
+    user_id: str | None = Form(None),
+    question_info: str | None = Form(None),
+):
+    return await score_pronunciation(
+        text=text,
+        audio_file=audio,
+        user_id=user_id,
+        question_info=question_info,
+    )
+
+
 @app.get("/api/admin/storage")
 def read_admin_storage():
     return storage_info()
@@ -62,6 +99,12 @@ def list_lessons() -> list[dict[str, str]]:
             "id": lesson.id,
             "title": lesson.title,
             "level": lesson.level,
+            "unit_id": lesson.unit_id,
+            "unit_title": lesson.unit_title,
+            "lesson_id": lesson.lesson_id,
+            "lesson_title": lesson.lesson_title,
+            "sub_lesson_id": lesson.sub_lesson_id,
+            "sub_lesson_title": lesson.sub_lesson_title,
         }
         for lesson in LESSONS.values()
     ]

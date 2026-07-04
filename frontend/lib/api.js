@@ -35,14 +35,15 @@ async function apiRequest(path, options = {}) {
 }
 
 export async function getLessons() {
+  const apiBaseUrl = getApiBaseUrl();
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}/api/lessons`, {
+    response = await fetch(`${apiBaseUrl}/api/lessons`, {
       cache: "no-store",
     });
   } catch (error) {
     throw new Error(
-      `Could not reach the backend at ${API_BASE_URL}. Start the FastAPI server first.`,
+      `Could not reach the backend at ${apiBaseUrl}. Start the FastAPI server first.`,
     );
   }
 
@@ -54,14 +55,15 @@ export async function getLessons() {
 }
 
 export async function getLesson(lessonId) {
+  const apiBaseUrl = getApiBaseUrl();
   let response;
   try {
-    response = await fetch(`${API_BASE_URL}/api/lessons/${lessonId}`, {
+    response = await fetch(`${apiBaseUrl}/api/lessons/${lessonId}`, {
       cache: "no-store",
     });
   } catch (error) {
     throw new Error(
-      `Could not reach the backend at ${API_BASE_URL}. Start the FastAPI server first.`,
+      `Could not reach the backend at ${apiBaseUrl}. Start the FastAPI server first.`,
     );
   }
 
@@ -115,6 +117,49 @@ export async function logCardAttempt(attempt) {
       first_try: attempt.firstTry,
     }),
   });
+}
+
+export async function scorePronunciationAudio({ text, audioBlob, userId, questionInfo }) {
+  const apiBaseUrl = getApiBaseUrl();
+  const startedAt = typeof performance !== "undefined" ? performance.now() : Date.now();
+  const formData = new FormData();
+  formData.append("text", text);
+  formData.append("audio", audioBlob, "lesson-pronunciation.webm");
+  if (userId) {
+    formData.append("user_id", userId);
+  }
+  if (questionInfo) {
+    formData.append("question_info", questionInfo);
+  }
+
+  const response = await fetch(`${apiBaseUrl}/api/pronunciation/score`, {
+    method: "POST",
+    body: formData,
+  });
+  const payload = await response.json();
+
+  if (!response.ok) {
+    const detail = payload.detail;
+    const error = new Error(
+      detail?.short_message === "error_no_speech"
+        ? "NO_SPEECH_DETECTED"
+        : typeof detail === "string"
+          ? detail
+          : detail?.detail_message || detail?.message || "Could not score pronunciation."
+    );
+    error.code = detail?.short_message || payload.short_message || "PRONUNCIATION_SCORE_FAILED";
+    error.detail = detail;
+    throw error;
+  }
+
+  const clientTotalMs = Math.round((typeof performance !== "undefined" ? performance.now() : Date.now()) - startedAt);
+  return {
+    ...payload,
+    _client_timing: {
+      total_ms: clientTotalMs,
+      backend: payload._timing,
+    },
+  };
 }
 
 export async function getAdminSummary() {

@@ -147,9 +147,15 @@ def create_or_update_user(payload: UserCreate, user_id: str | None = None) -> di
             ).mappings().fetchone()
         else:
             duplicate = db.execute(
-                text("SELECT * FROM users WHERE lower(display_name) = lower(:display_name)"),
-                {"display_name": display_name},
-            ).mappings().fetchone()
+            text(
+                """
+                SELECT * FROM users
+                WHERE lower(display_name) = lower(:display_name)
+                ORDER BY updated_at DESC
+                """
+            ),
+            {"display_name": display_name},
+        ).mappings().fetchone()
         if duplicate:
             db.execute(
                 text(
@@ -240,7 +246,13 @@ def get_user_by_name(display_name: str) -> dict[str, Any] | None:
 
     with engine.begin() as db:
         row = db.execute(
-            text("SELECT * FROM users WHERE lower(display_name) = lower(:display_name)"),
+            text(
+                """
+                SELECT * FROM users
+                WHERE lower(display_name) = lower(:display_name)
+                ORDER BY updated_at DESC
+                """
+            ),
             {"display_name": name},
         ).mappings().fetchone()
     return row_to_user(row) if row else None

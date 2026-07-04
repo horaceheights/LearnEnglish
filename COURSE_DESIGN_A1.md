@@ -17,7 +17,7 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 
 ## Current Track Check
 
-Lesson 1, `People and Actions`, is on track for early A1.
+Unit 1, `People, Actions, And Basic Sentences`, is on track for early A1. The two built sub-lessons are `1.1 People and Actions` and `1.2 He, She, and They`.
 
 What it does well:
 
@@ -41,17 +41,22 @@ What to add next:
 
 Goal: Understand simple subject + action sentences.
 
-Lessons:
+Lesson 1: People and Pronouns
 
-1. People and Actions: `boy`, `girl`, `man`, `woman`; `running`, `walking`, `swimming`, `eating`
-2. More People: `mother`, `father`, `baby`, `child`, `friend`, `teacher`, `student`
-3. Everyday Actions: `drinking`, `reading`, `writing`, `sleeping`, `sitting`, `standing`
-4. Review: person + action recognition across old and new images
+Sub-lessons:
+
+1. 1.1 People and Actions: `boy`, `girl`, `man`, `woman`; `running`, `walking`, `swimming`, `eating`
+2. 1.2 He, She, and They: `he`, `she`, `they`; `He is...`, `She is...`, `They are...`
+3. 1.3 More People: `mother`, `father`, `baby`, `child`, `friend`, `teacher`, `student`
+4. 1.4 Everyday Actions: `drinking`, `reading`, `writing`, `sleeping`, `sitting`, `standing`
+5. 1.5 Review: person + action recognition across old and new images
 
 Core patterns:
 
 - `The boy is running.`
 - `The woman is eating.`
+- `He is running.`
+- `They are eating.`
 - `The teacher is reading.`
 
 ### Unit 2: Objects, Colors, And Numbers
@@ -209,9 +214,25 @@ Avoid:
 - decorative or atmospheric images
 - too many new visual variables in one card
 
+## Current Unit 1 Build
+
+Unit 1 currently starts with:
+
+- `1.1 People and Actions`
+- `1.2 He, She, and They`
+- `1.3 Pronunciation Practice`
+
+Sub-lesson `1.3 Pronunciation Practice` should stay short. It reuses existing people/action/pronoun images and focuses on saying high-frequency words and sentences clearly, not on adding new vocabulary.
+
+Use a compact set such as:
+
+- people words: `The boy`, `The girl`, `The man`, `The woman`
+- pronoun sentences: `He is reading.`, `She is writing.`, `They are running.`, `They are eating.`
+- action sentences: `The boy is drinking.`, `The girl is sleeping.`, `The man is walking.`, `The woman is swimming.`
+
 ## Next Build Recommendation
 
-Build A1 Lesson 2 as `More People and Everyday Actions`.
+Build Unit 1 sub-lesson `1.4 More People`.
 
 Use:
 
