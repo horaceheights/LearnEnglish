@@ -16,6 +16,41 @@ const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260701-pronouns-they";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 
+const COURSE_MENU_VISUALS = {
+  units: {
+    "unit-1": {
+      title: "People, Actions, and Basic Sentences",
+      description: "Aprende a reconocer personas, acciones y frases cortas con imagenes claras.",
+      images: ["boy.webp", "girl_is_reading.webp", "they_boy_girl_are_running.webp"],
+      accent: "#ffe1ad",
+    },
+  },
+  lessons: {
+    "lesson-1": {
+      description: "Empieza con boy, girl, man, woman; luego une pronombres y acciones.",
+      images: ["man_is_walking.webp", "woman_is_reading.webp"],
+    },
+  },
+  subLessons: {
+    "lesson-1-people-actions": {
+      description: "Personas y acciones basicas con imagenes.",
+      image: "boy_is_reading.webp",
+      accent: "#ffe8c7",
+    },
+    "lesson-2-pronouns": {
+      description: "He, she y they con una o dos personas.",
+      image: "they_boy_girl.webp",
+      accent: "#dff4ef",
+    },
+    "lesson-3-pronunciation": {
+      description: "Practica corta para escuchar, repetir y mejorar.",
+      image: "woman_is_speaking.webp",
+      fallbackImage: "girl_is_reading.webp",
+      accent: "#f1e7ff",
+    },
+  },
+};
+
 const styles = {
   page: {
     minHeight: "100vh",
@@ -235,6 +270,22 @@ function lessonImageSrc(imageUrl) {
   const source = imageUrl.startsWith("http") ? imageUrl : `${getApiBaseUrl()}${imageUrl}`;
   const separator = imageUrl.includes("?") ? "&" : "?";
   return `${source}${separator}v=${LESSON_IMAGE_VERSION}`;
+}
+
+function menuImageSrc(name) {
+  return lessonImageSrc(`/lesson-assets/${name}`);
+}
+
+function getUnitVisual(unitId) {
+  return COURSE_MENU_VISUALS.units[unitId] || COURSE_MENU_VISUALS.units["unit-1"];
+}
+
+function getLessonVisual(lessonId) {
+  return COURSE_MENU_VISUALS.lessons[lessonId] || COURSE_MENU_VISUALS.lessons["lesson-1"];
+}
+
+function getSubLessonVisual(lessonId) {
+  return COURSE_MENU_VISUALS.subLessons[lessonId] || COURSE_MENU_VISUALS.subLessons["lesson-1-people-actions"];
 }
 
 const PRAISE_PHRASES = [
@@ -2433,74 +2484,240 @@ export default function LessonPlayer({ lesson, lessons }) {
             </p>
           </section>
 
-          <section style={boardStyle}>
-            <div style={{ display: "grid", gap: "18px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
-                <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>
-                  Welcome {profile.displayName || "Student"}
-                </div>
-                <button
-                  type="button"
-                  style={styles.profileIconButton}
-                  onClick={startEditingProfile}
-                  aria-label="Ajustar mi perfil"
-                  title="Ajustar mi perfil"
-                >
-                  <UserIcon />
-                </button>
+          <section style={{ display: "grid", gap: "18px" }}>
+            <div
+              style={{
+                background: "var(--surface)",
+                border: "1px solid var(--line)",
+                borderRadius: "24px",
+                padding: isMobile ? "16px" : "22px 24px",
+                boxShadow: "0 14px 34px rgba(22, 33, 39, 0.06)",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "12px",
+              }}
+            >
+              <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>
+                Welcome {profile.displayName || "Student"}
               </div>
+              <button
+                type="button"
+                style={styles.profileIconButton}
+                onClick={startEditingProfile}
+                aria-label="Ajustar mi perfil"
+                title="Ajustar mi perfil"
+              >
+                <UserIcon />
+              </button>
+            </div>
 
-              <div style={{ display: "grid", gap: "16px" }}>
-                {lessonLoadError ? <div style={{ color: "var(--red)", fontWeight: 700 }}>{lessonLoadError}</div> : null}
-                {curriculumUnits.map((unit) => (
-                  <section key={unit.id} style={{ display: "grid", gap: "12px" }}>
-                    <div style={{ display: "grid", gap: "4px" }}>
-                      <div style={{ fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)" }}>
+            {lessonLoadError ? <div style={{ color: "var(--red)", fontWeight: 700 }}>{lessonLoadError}</div> : null}
+
+            {curriculumUnits.map((unit) => {
+              const unitVisual = getUnitVisual(unit.id);
+
+              return (
+                <section key={unit.id} style={{ display: "grid", gap: "16px" }}>
+                  <div
+                    style={{
+                      border: "1px solid var(--line)",
+                      borderRadius: "28px",
+                      background: `linear-gradient(135deg, ${unitVisual.accent}, #fffdf8 58%, #e7f7f3)`,
+                      boxShadow: "0 18px 42px rgba(22, 33, 39, 0.08)",
+                      padding: isMobile ? "18px" : "24px",
+                      display: "grid",
+                      gridTemplateColumns: isMobile ? "1fr" : "1.1fr 0.9fr",
+                      gap: "20px",
+                      alignItems: "center",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <div style={{ display: "grid", gap: "10px" }}>
+                      <div style={{ fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--muted)" }}>
                         {unit.title}
                       </div>
-                    </div>
-                    {unit.lessons.map((lessonGroup) => (
-                      <div key={lessonGroup.id} style={{ display: "grid", gap: "10px" }}>
-                        <div style={{ fontSize: isMobile ? 18 : 20, fontWeight: 700 }}>{lessonGroup.title}</div>
-                        {lessonGroup.subLessons.map((lessonSummary) => (
-                          <button
-                            key={lessonSummary.id}
-                            type="button"
-                            onClick={hasProfileName ? () => startLesson(lessonSummary.id) : startEditingProfile}
-                            style={{
-                              textAlign: "left",
-                              border: "1px solid var(--line)",
-                              borderRadius: "22px",
-                              background: "var(--surface)",
-                              padding: "20px",
-                              cursor: hasProfileName ? "pointer" : "not-allowed",
-                              opacity: hasProfileName ? 1 : 0.6,
-                              boxShadow: "0 12px 30px rgba(22, 33, 39, 0.06)",
-                            }}
-                            aria-disabled={!hasProfileName}
-                            disabled={loadingLessonId === lessonSummary.id}
-                          >
-                            <div style={{ fontSize: 12, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--muted)" }}>
-                              {lessonSummary.level}
-                            </div>
-                            <div style={{ fontSize: isMobile ? 24 : 28, fontWeight: 700, marginTop: 8 }}>
-                              {lessonSummary.sub_lesson_id || lessonSummary.title} {lessonSummary.sub_lesson_title || ""}
-                            </div>
-                            <div style={{ marginTop: 10, color: "var(--muted)", lineHeight: 1.6 }}>
-                              {hasProfileName
-                                ? loadingLessonId === lessonSummary.id
-                                  ? "Cargando leccion..."
-                                  : "Toca para empezar esta sub-leccion."
-                                : "Agrega tu nombre para empezar esta sub-leccion."}
-                            </div>
-                          </button>
-                        ))}
+                      <div style={{ fontSize: isMobile ? 28 : 34, fontWeight: 800, lineHeight: 1.08 }}>
+                        {unitVisual.title}
                       </div>
-                    ))}
-                  </section>
-                ))}
-              </div>
-            </div>
+                      <p style={{ margin: 0, color: "var(--muted)", lineHeight: 1.55, maxWidth: 560 }}>
+                        {unitVisual.description}
+                      </p>
+                    </div>
+
+                    <div
+                      style={{
+                        minHeight: isMobile ? 142 : 188,
+                        position: "relative",
+                      }}
+                      aria-hidden="true"
+                    >
+                      {unitVisual.images.map((imageName, imageIndex) => (
+                        <img
+                          key={imageName}
+                          src={menuImageSrc(imageName)}
+                          alt=""
+                          style={{
+                            position: "absolute",
+                            width: isMobile ? "42%" : "44%",
+                            aspectRatio: "4 / 3",
+                            objectFit: "cover",
+                            borderRadius: "18px",
+                            border: "5px solid rgba(255, 255, 255, 0.82)",
+                            boxShadow: "0 16px 28px rgba(22, 33, 39, 0.15)",
+                            left: imageIndex === 0 ? "0%" : imageIndex === 1 ? "28%" : "55%",
+                            top: imageIndex === 0 ? "30%" : imageIndex === 1 ? "3%" : "38%",
+                            transform: imageIndex === 0 ? "rotate(-5deg)" : imageIndex === 1 ? "rotate(3deg)" : "rotate(6deg)",
+                            background: "var(--surface-2)",
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  {unit.lessons.map((lessonGroup) => {
+                    const lessonVisual = getLessonVisual(lessonGroup.id);
+
+                    return (
+                      <section key={lessonGroup.id} style={{ display: "grid", gap: "12px" }}>
+                        <div
+                          style={{
+                            display: "grid",
+                            gridTemplateColumns: isMobile ? "1fr" : "auto 1fr",
+                            alignItems: "center",
+                            gap: "14px",
+                          }}
+                        >
+                          <div
+                            style={{
+                              display: "flex",
+                              gap: "8px",
+                              minWidth: isMobile ? "unset" : "150px",
+                            }}
+                            aria-hidden="true"
+                          >
+                            {lessonVisual.images.map((imageName) => (
+                              <img
+                                key={imageName}
+                                src={menuImageSrc(imageName)}
+                                alt=""
+                                style={{
+                                  width: 68,
+                                  height: 52,
+                                  objectFit: "cover",
+                                  borderRadius: "14px",
+                                  border: "3px solid #fff",
+                                  boxShadow: "0 10px 18px rgba(22, 33, 39, 0.12)",
+                                }}
+                              />
+                            ))}
+                          </div>
+                          <div style={{ display: "grid", gap: "4px" }}>
+                            <div style={{ fontSize: isMobile ? 21 : 24, fontWeight: 800 }}>{lessonGroup.title}</div>
+                            <div style={{ color: "var(--muted)", lineHeight: 1.45 }}>{lessonVisual.description}</div>
+                          </div>
+                        </div>
+
+                        <div
+                          style={{
+                            display: "grid",
+                            gridTemplateColumns: isMobile ? "1fr" : "repeat(3, minmax(0, 1fr))",
+                            gap: "14px",
+                          }}
+                        >
+                          {lessonGroup.subLessons.map((lessonSummary) => {
+                            const subLessonVisual = getSubLessonVisual(lessonSummary.id);
+                            const subLessonTitle = `${lessonSummary.sub_lesson_id || lessonSummary.title} ${lessonSummary.sub_lesson_title || ""}`;
+
+                            return (
+                              <button
+                                key={lessonSummary.id}
+                                type="button"
+                                onClick={hasProfileName ? () => startLesson(lessonSummary.id) : startEditingProfile}
+                                style={{
+                                  textAlign: "left",
+                                  border: "1px solid var(--line)",
+                                  borderRadius: "22px",
+                                  background: "var(--surface)",
+                                  padding: "10px",
+                                  cursor: hasProfileName ? "pointer" : "not-allowed",
+                                  opacity: hasProfileName ? 1 : 0.6,
+                                  boxShadow: "0 12px 30px rgba(22, 33, 39, 0.06)",
+                                  overflow: "hidden",
+                                  display: "grid",
+                                  gap: "12px",
+                                }}
+                                aria-disabled={!hasProfileName}
+                                disabled={loadingLessonId === lessonSummary.id}
+                              >
+                                <div
+                                  style={{
+                                    minHeight: 140,
+                                    borderRadius: "16px",
+                                    background: subLessonVisual.accent,
+                                    overflow: "hidden",
+                                    position: "relative",
+                                  }}
+                                >
+                                  <img
+                                    src={menuImageSrc(subLessonVisual.fallbackImage || subLessonVisual.image)}
+                                    alt=""
+                                    style={{
+                                      width: "100%",
+                                      height: "100%",
+                                      minHeight: 140,
+                                      objectFit: "cover",
+                                      display: "block",
+                                    }}
+                                  />
+                                  <div
+                                    style={{
+                                      position: "absolute",
+                                      inset: 0,
+                                      background: "linear-gradient(180deg, transparent 45%, rgba(22, 33, 39, 0.54))",
+                                    }}
+                                  />
+                                  <div
+                                    style={{
+                                      position: "absolute",
+                                      left: 12,
+                                      bottom: 10,
+                                      color: "#fff",
+                                      fontSize: 12,
+                                      letterSpacing: "0.08em",
+                                      textTransform: "uppercase",
+                                      fontWeight: 800,
+                                    }}
+                                  >
+                                    {lessonSummary.level}
+                                  </div>
+                                </div>
+
+                                <div style={{ display: "grid", gap: "7px", padding: "0 4px 6px" }}>
+                                  <div style={{ fontSize: isMobile ? 22 : 24, fontWeight: 800, lineHeight: 1.08 }}>
+                                    {subLessonTitle}
+                                  </div>
+                                  <div style={{ color: "var(--muted)", lineHeight: 1.45 }}>
+                                    {subLessonVisual.description}
+                                  </div>
+                                  <div style={{ color: "var(--teal)", fontWeight: 800, marginTop: 2 }}>
+                                    {hasProfileName
+                                      ? loadingLessonId === lessonSummary.id
+                                        ? "Cargando..."
+                                        : "Empezar"
+                                      : "Agrega tu nombre"}
+                                  </div>
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </section>
+                    );
+                  })}
+                </section>
+              );
+            })}
           </section>
         </div>
       </div>
