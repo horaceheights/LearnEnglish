@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: learnenglish
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SPEECHACE_API_KEY
+        sync: false
+      - key: SPEECHACE_API_BASE_URL
+        value: https://api.speechace.co
+      - key: SPEECHACE_DIALECT
+        value: en-us
+      - key: ALLOWED_ORIGINS
+        value: https://learn-english-orcin.vercel.app,https://learn-english-horaio-gutierrezs-projects.vercel.app,https://learn-english-git-main-horaio-gutierrezs-projects.vercel.app
+      - key: DATABASE_URL
+        sync: false

@@ -43,13 +43,21 @@ ALLOWED_ORIGINS=https://your-project-name.vercel.app
 DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 ```
 
-9. Add the SpeechAce key for pronunciation scoring:
+9. Add the SpeechAce key for pronunciation scoring. This must be added in the hosted backend service environment. Your local `backend/.env` file is not pushed to Render, Vercel, or GitHub:
 
 ```text
 SPEECHACE_API_KEY=your-speechace-product-key
 SPEECHACE_API_BASE_URL=https://api.speechace.co
 SPEECHACE_DIALECT=en-us
 ```
+
+After saving environment variables in Render, restart or redeploy the backend. Then verify:
+
+```text
+https://your-api-name.onrender.com/api/pronunciation/health
+```
+
+It should return `"speechace_configured": true`.
 
 Without `DATABASE_URL`, the backend falls back to a local SQLite file. That is fine for local development, but hosted services can replace that file during deploys, which means learner profiles and results may disappear.
 

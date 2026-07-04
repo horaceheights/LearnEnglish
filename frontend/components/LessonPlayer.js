@@ -14,6 +14,7 @@ import {
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260701-pronouns-they";
+const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 
 const styles = {
   page: {
@@ -25,11 +26,12 @@ const styles = {
     gap: "20px",
   },
   hero: {
-    background: "linear-gradient(135deg, #2f8f62, #2b6e75)",
+    background: "linear-gradient(135deg, #fff8ed 0%, #ffe5bd 58%, #dff4ef 100%)",
     borderRadius: "28px",
-    color: "#fff",
+    color: "var(--text)",
     padding: "28px",
-    boxShadow: "0 20px 45px rgba(25, 67, 70, 0.22)",
+    border: "1px solid rgba(218, 178, 119, 0.72)",
+    boxShadow: "0 22px 54px rgba(92, 61, 22, 0.12)",
   },
   board: {
     background: "var(--surface)",
@@ -81,12 +83,13 @@ const styles = {
   primaryButton: {
     border: 0,
     borderRadius: "16px",
-    background: "var(--green)",
+    background: "linear-gradient(135deg, var(--orange), #e96f42)",
     color: "#fff",
     padding: "14px 18px",
     cursor: "pointer",
     fontWeight: 700,
     width: "100%",
+    boxShadow: "0 10px 22px rgba(233, 111, 66, 0.22)",
   },
   subtleButton: {
     border: "1px solid var(--line)",
@@ -127,6 +130,89 @@ function UserIcon() {
         strokeLinecap="round"
       />
     </svg>
+  );
+}
+
+function SpanGlishLogo({ compact = false }) {
+  return (
+    <div
+      aria-label="SpanGlish!"
+      style={{
+        width: compact ? "212px" : "318px",
+        maxWidth: "84vw",
+        minHeight: compact ? "78px" : "112px",
+        margin: compact ? "0 auto 4px" : "0 auto 8px",
+        position: "relative",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: compact ? "12px 20px" : "16px 28px",
+        background: "linear-gradient(135deg, #ffe7bd, #ffd48d)",
+        border: "3px solid rgba(255, 255, 255, 0.72)",
+        borderRadius: "54% 46% 55% 45% / 48% 56% 44% 52%",
+        boxShadow: "0 12px 26px rgba(92, 61, 22, 0.16)",
+        overflow: "hidden",
+      }}
+    >
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          width: compact ? "70px" : "92px",
+          height: compact ? "70px" : "92px",
+          left: compact ? "10px" : "18px",
+          top: compact ? "-14px" : "-18px",
+          borderRadius: "999px",
+          background: "#ffeecf",
+        }}
+      />
+      <span
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          width: compact ? "88px" : "118px",
+          height: compact ? "88px" : "118px",
+          right: compact ? "4px" : "10px",
+          bottom: compact ? "-30px" : "-38px",
+          borderRadius: "999px",
+          background: "#ffc978",
+          opacity: 0.72,
+        }}
+      />
+      <img
+        src={SPANGLISH_LOGO_SRC}
+        alt=""
+        style={{
+          width: "100%",
+          height: "auto",
+          display: "block",
+          position: "relative",
+        }}
+      />
+    </div>
+  );
+}
+
+function MiniSpanGlishLogo() {
+  return (
+    <div
+      aria-label="SpanGlish!"
+      style={{
+        width: "116px",
+        height: "42px",
+        borderRadius: "999px",
+        background: "rgba(255, 232, 199, 0.92)",
+        border: "1px solid rgba(218, 178, 119, 0.72)",
+        boxShadow: "0 8px 18px rgba(92, 61, 22, 0.12)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "5px 10px",
+        overflow: "hidden",
+      }}
+    >
+      <img src={SPANGLISH_LOGO_SRC} alt="" style={{ width: "100%", height: "auto", display: "block" }} />
+    </div>
   );
 }
 
@@ -1002,9 +1088,9 @@ export default function LessonPlayer({ lesson, lessons }) {
   };
   const heroStyle = {
     ...styles.hero,
-    padding: isMobile ? "12px 16px" : "18px 28px",
+    padding: isMobile ? "14px 18px" : "20px 30px 22px",
     borderRadius: isMobile ? "18px" : styles.hero.borderRadius,
-    width: isMobile ? "100%" : isTablet ? "88%" : "72%",
+    width: isMobile ? "100%" : isTablet ? "82%" : "64%",
     justifySelf: "center",
     textAlign: "center",
   };
@@ -1038,9 +1124,19 @@ export default function LessonPlayer({ lesson, lessons }) {
           : styles.image.height,
   };
   const titleStyle = {
+    margin: "6px 0 0",
+    fontSize: isMobile ? "1.42rem" : "clamp(1.65rem, 2.35vw, 2.32rem)",
+    lineHeight: 1.12,
+    letterSpacing: 0,
+  };
+  const sloganStyle = {
+    ...titleStyle,
     margin: "4px 0 0",
-    fontSize: isMobile ? "1.9rem" : "clamp(2rem, 3.4vw, 3rem)",
-    lineHeight: 1.08,
+    fontSize: isMobile ? "1.16rem" : "clamp(1.25rem, 1.8vw, 1.78rem)",
+    lineHeight: 1.14,
+    fontFamily: '"Arial Rounded MT Bold", "Trebuchet MS", Arial, sans-serif',
+    color: "#17373b",
+    textShadow: "0 2px 0 #fff3d9, 0 5px 12px rgba(92, 61, 22, 0.18)",
   };
   const mobileSummaryStyle = {
     background: "var(--surface)",
@@ -2036,10 +2132,11 @@ export default function LessonPlayer({ lesson, lessons }) {
       <div style={styles.page}>
         <div style={{ maxWidth: "720px", margin: "0 auto", display: "grid", gap: "20px" }}>
           <section style={heroStyle}>
+            <SpanGlishLogo compact={isMobile} />
             <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
               Bienvenido
             </div>
-            <h1 style={titleStyle}>Aprende ingles de forma natural</h1>
+            <h1 style={sloganStyle}>Aprende ingles de forma natural</h1>
             <p style={{ margin: "0 auto", maxWidth: 560, opacity: 0.95, lineHeight: 1.6 }}>
               Entra con tu nombre para continuar tu practica.
             </p>
@@ -2106,10 +2203,11 @@ export default function LessonPlayer({ lesson, lessons }) {
           <section style={heroStyle}>
             {onboardingStepIndex < 0 ? (
               <>
+                <SpanGlishLogo compact={isMobile} />
                 <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
                   Para hispanohablantes
                 </div>
-                <h1 style={titleStyle}>Aprende ingles de forma natural</h1>
+                <h1 style={sloganStyle}>Aprende ingles de forma natural</h1>
                 <p style={{ margin: "0 auto", maxWidth: 620, opacity: 0.95, lineHeight: 1.6 }}>
                   Un metodo pensado para hispanohablantes. Empieza viendo, escuchando y repitiendo, igual que en la vida real.
                 </p>
@@ -2325,10 +2423,11 @@ export default function LessonPlayer({ lesson, lessons }) {
       <div style={styles.page}>
         <div style={{ maxWidth: "980px", margin: "0 auto", display: "grid", gap: "20px" }}>
           <section style={heroStyle}>
+            <SpanGlishLogo compact={isMobile} />
             <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
               Tu ruta
             </div>
-            <h1 style={titleStyle}>Lecciones para empezar con claridad</h1>
+            <h1 style={sloganStyle}>Lecciones para empezar con claridad</h1>
             <p style={{ margin: "0 auto", maxWidth: 620, opacity: 0.95, lineHeight: 1.6 }}>
               {getRecommendation(profile)}
             </p>
@@ -2425,6 +2524,9 @@ export default function LessonPlayer({ lesson, lessons }) {
               </section>
             ) : null}
             <section style={heroStyle}>
+              <div style={{ display: "flex", justifyContent: "flex-start", marginBottom: isMobile ? 4 : 8 }}>
+                <MiniSpanGlishLogo />
+              </div>
               <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
                 Leccion terminada
               </div>
@@ -2454,9 +2556,10 @@ export default function LessonPlayer({ lesson, lessons }) {
   return (
     <div style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
       <div style={shellStyle}>
-        <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
+          <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
           <section style={heroStyle}>
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
+              <MiniSpanGlishLogo />
               <button
                 type="button"
                 aria-label={showHelp ? "Ocultar ayuda" : "Mostrar ayuda"}
@@ -2464,9 +2567,9 @@ export default function LessonPlayer({ lesson, lessons }) {
                   width: isMobile ? 34 : 44,
                   height: isMobile ? 34 : 44,
                   borderRadius: "999px",
-                  border: "2px solid rgba(255,255,255,0.28)",
-                  background: showHelp ? "#F4C95D" : "rgba(255,255,255,0.14)",
-                  color: showHelp ? "#24333A" : "#ffffff",
+                  border: "2px solid rgba(218, 178, 119, 0.58)",
+                  background: showHelp ? "#F4C95D" : "rgba(255,255,255,0.74)",
+                  color: "#24333A",
                   fontSize: isMobile ? 18 : 24,
                   fontWeight: 700,
                   lineHeight: 1,
@@ -2507,7 +2610,7 @@ export default function LessonPlayer({ lesson, lessons }) {
               style={{
                 border: 0,
                 background: "transparent",
-                color: "#fff",
+                color: "var(--text)",
                 padding: 0,
                 margin: 0,
                 cursor: "pointer",
