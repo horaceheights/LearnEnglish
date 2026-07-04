@@ -82,7 +82,7 @@ async def score_pronunciation(
     if not api_key:
         raise HTTPException(
             status_code=503,
-            detail="Speechace is not configured. Set SPEECHACE_API_KEY in backend/.env.",
+            detail="Speechace is not configured. Set SPEECHACE_API_KEY in the backend environment.",
         )
 
     started_at = time.perf_counter()

@@ -1601,9 +1601,13 @@ export default function LessonPlayer({ lesson, lessons }) {
       setPronunciationResult(result);
       setPronunciationStatus("Checked.");
     } catch (error) {
+      console.error("Pronunciation scoring failed", error);
       if (error.code === "error_no_speech" || error.message === "NO_SPEECH_DETECTED") {
         setPronunciationError("No te pude escuchar. Intentalo otra vez.");
         setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
+      } else if (error.status === 503 || /Speechace is not configured/i.test(error.message || "")) {
+        setPronunciationError("El servicio de pronunciacion no esta configurado. Intentalo mas tarde.");
+        setPronunciationStatus("Pronunciation service is not configured.");
       } else {
         setPronunciationError("No pude revisar eso. Intentalo otra vez.");
         setPronunciationStatus("Pronunciation scoring failed.");

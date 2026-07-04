@@ -147,6 +147,7 @@ export async function scorePronunciationAudio({ text, audioBlob, userId, questio
           ? detail
           : detail?.detail_message || detail?.message || "Could not score pronunciation."
     );
+    error.status = response.status;
     error.code = detail?.short_message || payload.short_message || "PRONUNCIATION_SCORE_FAILED";
     error.detail = detail;
     throw error;
