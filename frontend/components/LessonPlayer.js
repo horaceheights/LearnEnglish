@@ -4,9 +4,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   finishLessonSession,
   getApiBaseUrl,
+  getCourseAudioUrl,
   getLearnerByName,
   getLesson,
   logCardAttempt,
+  preloadCourseAudio,
   saveLearnerProfile,
   scorePronunciationAudio,
   startLessonSession,
@@ -15,6 +17,7 @@ import {
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260701-pronouns-they";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
+const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 
 const COURSE_MENU_VISUALS = {
   units: {
@@ -288,14 +291,25 @@ function getSubLessonVisual(lessonId) {
   return COURSE_MENU_VISUALS.subLessons[lessonId] || COURSE_MENU_VISUALS.subLessons["lesson-1-people-actions"];
 }
 
+function isSecureRecordingContext() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return window.isSecureContext || ["localhost", "127.0.0.1"].includes(window.location.hostname);
+}
+
 const PRAISE_PHRASES = [
   "Great",
   "Awesome",
   "Yay",
+  "Good job",
   "Keep it up",
   "Nice job",
   "Excellent",
 ];
+
+const FEEDBACK_AUDIO_PHRASES = [...PRAISE_PHRASES, "Try again"];
 
 const ING_PRONUNCIATION_PARTS = {
   drinking: ["drink", "ing"],
@@ -559,6 +573,8 @@ function useTone() {
 function useSpeech() {
   const [voices, setVoices] = useState([]);
   const speechSequenceRef = useRef(0);
+  const audioRef = useRef(null);
+  const speechTimersRef = useRef([]);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
@@ -604,13 +620,30 @@ function useSpeech() {
     [voices]
   );
 
-  return useCallback((text, options = {}) => {
+  const clearSpeechTimers = useCallback(() => {
+    speechTimersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+    speechTimersRef.current = [];
+  }, []);
+
+  const scheduleSpeechTimer = useCallback((callback, delayMs) => {
+    const timerId = window.setTimeout(callback, delayMs);
+    speechTimersRef.current.push(timerId);
+    return timerId;
+  }, []);
+
+  const stopAudioPlayback = useCallback(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+      audioRef.current = null;
+    }
+  }, []);
+
+  const speakWithBrowserVoice = useCallback((text, options = {}, sequenceId = null) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       return 0;
     }
 
-    speechSequenceRef.current += 1;
-    const sequenceId = speechSequenceRef.current;
     window.speechSynthesis.cancel();
 
     const voice = chooseVoice(options.voiceMode);
@@ -639,7 +672,7 @@ function useSpeech() {
       let partIndex = 0;
 
       const speakNextWord = () => {
-        if (speechSequenceRef.current !== sequenceId) {
+        if (sequenceId && speechSequenceRef.current !== sequenceId) {
           return;
         }
 
@@ -665,7 +698,7 @@ function useSpeech() {
               }
             };
             window.setTimeout(() => {
-              if (speechSequenceRef.current === sequenceId) {
+              if (!sequenceId || speechSequenceRef.current === sequenceId) {
                 if (typeof options.onRepeatPartStart === "function") {
                   const repeatWords = String(text || "").match(/[A-Za-z']+/g) || [];
                   const repeatRate = options.repeatFullRate ?? 0.72;
@@ -673,7 +706,7 @@ function useSpeech() {
                   repeatWords.forEach((word) => {
                     const scheduledAt = repeatElapsedMs;
                     window.setTimeout(() => {
-                      if (speechSequenceRef.current === sequenceId) {
+                      if (!sequenceId || speechSequenceRef.current === sequenceId) {
                         options.onRepeatPartStart({ text: word, word });
                       }
                     }, scheduledAt);
@@ -713,7 +746,7 @@ function useSpeech() {
     const utterance = makeUtterance(text);
     if (typeof options.onEnd === "function") {
       utterance.onend = () => {
-        if (speechSequenceRef.current === sequenceId) {
+        if (!sequenceId || speechSequenceRef.current === sequenceId) {
           options.onEnd();
         }
       };
@@ -722,6 +755,160 @@ function useSpeech() {
     window.speechSynthesis.speak(utterance);
     return Math.max(900, text.length * 120);
   }, [chooseVoice]);
+
+  const schedulePartHighlights = useCallback((parts, callback, sequenceId, speedFactor = 1) => {
+    if (typeof callback !== "function") {
+      return 0;
+    }
+
+    let elapsedMs = 0;
+    parts.forEach((part) => {
+      const scheduledAt = elapsedMs;
+      scheduleSpeechTimer(() => {
+        if (speechSequenceRef.current === sequenceId) {
+          callback(part);
+        }
+      }, scheduledAt);
+      elapsedMs += Math.max(260, part.text.length * 150 * speedFactor) + part.pauseAfterMs;
+    });
+    return elapsedMs;
+  }, [scheduleSpeechTimer]);
+
+  const playAudioUrl = useCallback((url, sequenceId) => {
+    return new Promise((resolve, reject) => {
+      if (typeof window === "undefined") {
+        reject(new Error("Audio playback is not available."));
+        return;
+      }
+
+      const audio = new Audio(url);
+      audio.preload = "auto";
+      audioRef.current = audio;
+      audio.onended = () => {
+        if (speechSequenceRef.current === sequenceId) {
+          resolve();
+        }
+      };
+      audio.onerror = () => reject(new Error("Could not play course audio."));
+      audio.play().catch(reject);
+    });
+  }, []);
+
+  return useCallback((text, options = {}) => {
+    if (typeof window === "undefined") {
+      return 0;
+    }
+
+    speechSequenceRef.current += 1;
+    const sequenceId = speechSequenceRef.current;
+    clearSpeechTimers();
+    stopAudioPlayback();
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    const useFallback = () => speakWithBrowserVoice(text, options, sequenceId);
+
+    if (options.disableCourseAudio) {
+      return useFallback();
+    }
+
+    const lang = options.lang || "en-US";
+
+    if (options.wordByWord) {
+      const pauseMs = options.wordPauseMs ?? 280;
+      const partPauseMs = options.wordPartPauseMs ?? 130;
+      const speechParts = buildPronunciationSpeechParts(text, {
+        splitIngWords: options.splitIngWords,
+        pauseMs,
+        partPauseMs,
+      });
+      const repeatWords = (String(text || "").match(/[A-Za-z']+/g) || []).map((word) => ({
+        text: word,
+        word,
+        pauseAfterMs: Math.max(220, word.length * 55),
+      }));
+      const shouldRepeatFull = Boolean(options.repeatFullAfter);
+
+      const slowHighlightMs = schedulePartHighlights(speechParts, options.onPartStart, sequenceId, options.rate && options.rate < 0.6 ? 1.2 : 1);
+      const estimatedRepeatMs = shouldRepeatFull
+        ? Math.max(1000, repeatWords.reduce((total, part) => total + part.text.length * 95 + part.pauseAfterMs, 0))
+        : 0;
+      const slowUrl = getCourseAudioUrl({
+        text,
+        mode: "pronunciation_slow",
+        lang,
+        variant: options.splitIngWords ? "split-ing" : "default",
+      });
+
+      (async () => {
+        try {
+          await playAudioUrl(slowUrl, sequenceId);
+          if (speechSequenceRef.current !== sequenceId) {
+            return;
+          }
+          clearSpeechTimers();
+          if (shouldRepeatFull) {
+            const repeatUrl = getCourseAudioUrl({
+              text,
+              mode: "pronunciation_repeat",
+              lang,
+              variant: "medium-slow",
+            });
+            if (typeof options.onRepeatStart === "function") {
+              options.onRepeatStart();
+            }
+            await new Promise((resolve) => scheduleSpeechTimer(resolve, options.repeatFullPauseMs ?? 350));
+            if (speechSequenceRef.current !== sequenceId) {
+              return;
+            }
+            schedulePartHighlights(repeatWords, options.onRepeatPartStart, sequenceId, 0.75);
+            await playAudioUrl(repeatUrl, sequenceId);
+          }
+          if (speechSequenceRef.current === sequenceId && typeof options.onEnd === "function") {
+            options.onEnd();
+          }
+        } catch (error) {
+          console.info("Course audio unavailable, falling back to browser speech", error);
+          clearSpeechTimers();
+          if (speechSequenceRef.current === sequenceId) {
+            speakWithBrowserVoice(text, options, sequenceId);
+          }
+        }
+      })();
+
+      return Math.max(2600, slowHighlightMs + estimatedRepeatMs + (shouldRepeatFull ? options.repeatFullPauseMs ?? 350 : 0));
+    }
+
+    const url = getCourseAudioUrl({
+      text,
+      mode: options.voiceMode === "feedback" ? "feedback" : "prompt",
+      lang,
+      variant: options.voiceMode || "default",
+    });
+
+    playAudioUrl(url, sequenceId)
+      .then(() => {
+        if (speechSequenceRef.current === sequenceId && typeof options.onEnd === "function") {
+          options.onEnd();
+        }
+      })
+      .catch((error) => {
+        console.info("Course audio unavailable, falling back to browser speech", error);
+        if (speechSequenceRef.current === sequenceId) {
+          speakWithBrowserVoice(text, options, sequenceId);
+        }
+      });
+
+    return Math.max(900, text.length * 120);
+  }, [
+    clearSpeechTimers,
+    playAudioUrl,
+    schedulePartHighlights,
+    scheduleSpeechTimer,
+    speakWithBrowserVoice,
+    stopAudioPlayback,
+  ]);
 }
 
 function useViewportWidth() {
@@ -1051,6 +1238,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   const pronunciationCardKeyRef = useRef("");
   const pronunciationToneKeyRef = useRef("");
   const spokenPromptKeyRef = useRef("");
+  const preloadedAudioKeysRef = useRef(new Set());
   const playTone = useTone();
   const speakText = useSpeech();
   const viewportWidth = useViewportWidth();
@@ -1599,6 +1787,72 @@ export default function LessonPlayer({ lesson, lessons }) {
   }, [activeLesson.id, cardIndex, currentCard, isComplete, isRecognitionLesson, lastResult, speakText, started]);
 
   useEffect(() => {
+    if (!started || isComplete || !activeLesson.cards?.length) {
+      return;
+    }
+
+    const cardsToPreload = activeLesson.cards.slice(cardIndex, cardIndex + COURSE_AUDIO_PRELOAD_AHEAD);
+    const audioItems = isPronunciationLesson
+      ? cardsToPreload.flatMap((card) =>
+          (card.options || []).map((option) => ({
+            text: pronunciationPromptFromOption(option.id),
+            mode: "pronunciation_slow",
+            variant: "split-ing",
+          }))
+        )
+      : cardsToPreload
+          .map((card) => card.prompt)
+          .filter(Boolean)
+          .map((prompt) => ({
+            text: prompt,
+            mode: "prompt",
+            variant: "prompt",
+          }));
+
+    const uniqueAudioItems = Array.from(
+      new Map(audioItems.filter((item) => item.text).map((item) => [`${item.mode}|${item.variant}|${item.text}`, item])).values()
+    );
+
+    uniqueAudioItems.forEach((item) => {
+      const key = `${activeLesson.id}|${item.mode}|${item.variant}|${item.text}`;
+      if (preloadedAudioKeysRef.current.has(key)) {
+        return;
+      }
+      preloadedAudioKeysRef.current.add(key);
+      preloadCourseAudio({
+        text: item.text,
+        mode: item.mode,
+        lang: "en-US",
+        variant: item.variant,
+      }).catch((error) => {
+        console.info("Could not preload course audio", item.text, error);
+      });
+    });
+  }, [activeLesson.cards, activeLesson.id, activePronunciationPrompt, cardIndex, isComplete, isPronunciationLesson, started]);
+
+  useEffect(() => {
+    if (!started) {
+      return;
+    }
+
+    FEEDBACK_AUDIO_PHRASES.forEach((phrase) => {
+      const key = `feedback|${phrase}`;
+      if (preloadedAudioKeysRef.current.has(key)) {
+        return;
+      }
+      preloadedAudioKeysRef.current.add(key);
+      preloadCourseAudio({
+        text: phrase,
+        mode: "feedback",
+        lang: "en-US",
+        variant: "feedback",
+      }).catch((error) => {
+        console.info("Could not preload feedback audio", phrase, error);
+      });
+    });
+  }, [started]);
+
+  useEffect(() => {
     if (!isPronunciationLesson || !started || isComplete || !currentCard || lastResult === "correct") {
       return undefined;
     }
@@ -1770,8 +2024,12 @@ export default function LessonPlayer({ lesson, lessons }) {
     }
 
     if (typeof window === "undefined" || !navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
-      setPronunciationError("This browser cannot record audio here.");
-      setPronunciationStatus("Recording is not available.");
+      const isInsecureOrigin = typeof window !== "undefined" && !isSecureRecordingContext();
+      const message = isInsecureOrigin
+        ? "El microfono necesita HTTPS o abrir la app en localhost en este dispositivo."
+        : "Este navegador no permite grabar audio aqui.";
+      setPronunciationError(message);
+      setPronunciationStatus(message);
       return;
     }
 
@@ -1904,17 +2162,16 @@ export default function LessonPlayer({ lesson, lessons }) {
         voiceMode: "prompt",
         wordByWord: true,
         splitIngWords: true,
-        repeatFullAfter: true,
-        repeatFullPauseMs: isRetry ? 420 : 320,
-        repeatFullRate: isRetry ? 0.7 : 0.74,
+        repeatFullAfter: false,
         wordPauseMs: isRetry ? 300 : 220,
         wordPartPauseMs: isRetry ? 180 : 140,
         rate: isRetry ? 0.56 : 0.62,
         pitch: isRetry ? 1.04 : undefined,
         onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
-        onRepeatStart: () => setModelSpeechPart(null),
-        onRepeatPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
-        onEnd: () => window.setTimeout(startListening, isRetry ? 650 : 500),
+        onEnd: () => {
+          setModelSpeechPart(null);
+          window.setTimeout(startListening, isRetry ? 650 : 500);
+        },
       });
       const startDelay = Math.min(Math.max(speechDelay + 4500, 9000), 15000);
       pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
@@ -2482,6 +2739,9 @@ export default function LessonPlayer({ lesson, lessons }) {
             <p style={{ margin: "0 auto", maxWidth: 620, opacity: 0.95, lineHeight: 1.6 }}>
               {getRecommendation(profile)}
             </p>
+            <div style={{ marginTop: 8, fontSize: 12, color: "var(--muted)" }}>
+              Las voces de practica pueden ser generadas con IA.
+            </div>
           </section>
 
           <section style={{ display: "grid", gap: "18px" }}>
@@ -2810,15 +3070,11 @@ export default function LessonPlayer({ lesson, lessons }) {
                         voiceMode: "prompt",
                         wordByWord: true,
                         splitIngWords: true,
-                        repeatFullAfter: true,
-                        repeatFullPauseMs: 320,
-                        repeatFullRate: 0.74,
+                        repeatFullAfter: false,
                         wordPauseMs: 220,
                         wordPartPauseMs: 140,
                         rate: 0.62,
                         onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
-                        onRepeatStart: () => setModelSpeechPart(null),
-                        onRepeatPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
                         onEnd: () => setModelSpeechPart(null),
                       }
                     : { voiceMode: "prompt" }
@@ -3019,6 +3275,7 @@ export default function LessonPlayer({ lesson, lessons }) {
                 </div>
                 <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>{score}</div>
               </div>
+              <div style={{ color: "var(--muted)", fontSize: 12 }}>Voz de practica generada con IA.</div>
               <button
                 type="button"
                 style={isMobile ? styles.iconOnlyButton : { ...styles.subtleButton, width: "auto", padding: "10px 14px" }}

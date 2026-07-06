@@ -485,7 +485,6 @@ def pronunciation_focus_cards() -> list[LessonCard]:
             options=[
                 ChoiceOption(id="boy-reading", image_url=image_url(person_image("boy", "reading"))),
                 ChoiceOption(id="girl-reading", image_url=image_url(person_image("girl", "reading"))),
-                ChoiceOption(id="boy-girl-reading", image_url=image_url(pair_image(("boy", "girl"), "reading"))),
             ],
         ),
         LessonCard(
@@ -495,7 +494,6 @@ def pronunciation_focus_cards() -> list[LessonCard]:
             options=[
                 ChoiceOption(id="girl-writing", image_url=image_url(person_image("girl", "writing"))),
                 ChoiceOption(id="boy-writing", image_url=image_url(person_image("boy", "writing"))),
-                ChoiceOption(id="boy-girl-writing", image_url=image_url(pair_image(("boy", "girl"), "writing"))),
             ],
         ),
         LessonCard(
@@ -505,7 +503,6 @@ def pronunciation_focus_cards() -> list[LessonCard]:
             options=[
                 ChoiceOption(id="boy-girl-running", image_url=image_url(pair_image(("boy", "girl"), "running"))),
                 ChoiceOption(id="boy-running", image_url=image_url(person_image("boy", "running"))),
-                ChoiceOption(id="girl-running", image_url=image_url(person_image("girl", "running"))),
             ],
         ),
         LessonCard(
@@ -515,7 +512,6 @@ def pronunciation_focus_cards() -> list[LessonCard]:
             options=[
                 ChoiceOption(id="man-woman-eating", image_url=image_url(pair_image(("man", "woman"), "eating"))),
                 ChoiceOption(id="man-eating", image_url=image_url(person_image("man", "eating"))),
-                ChoiceOption(id="woman-eating", image_url=image_url(person_image("woman", "eating"))),
             ],
         ),
         LessonCard(
@@ -525,7 +521,6 @@ def pronunciation_focus_cards() -> list[LessonCard]:
             options=[
                 ChoiceOption(id="boy-drinking", image_url=image_url(person_image("boy", "drinking"))),
                 ChoiceOption(id="boy-eating", image_url=image_url(person_image("boy", "eating"))),
-                ChoiceOption(id="boy-reading", image_url=image_url(person_image("boy", "reading"))),
             ],
         ),
         LessonCard(
@@ -535,7 +530,6 @@ def pronunciation_focus_cards() -> list[LessonCard]:
             options=[
                 ChoiceOption(id="girl-sleeping", image_url=image_url(person_image("girl", "sleeping"))),
                 ChoiceOption(id="girl-sitting", image_url=image_url(person_image("girl", "sitting"))),
-                ChoiceOption(id="girl-standing", image_url=image_url(person_image("girl", "standing"))),
             ],
         ),
         LessonCard(
@@ -545,7 +539,6 @@ def pronunciation_focus_cards() -> list[LessonCard]:
             options=[
                 ChoiceOption(id="man-walking", image_url=image_url(person_image("man", "walking"))),
                 ChoiceOption(id="man-running", image_url=image_url(person_image("man", "running"))),
-                ChoiceOption(id="man-swimming", image_url=image_url(person_image("man", "swimming"))),
             ],
         ),
         LessonCard(
@@ -555,7 +548,6 @@ def pronunciation_focus_cards() -> list[LessonCard]:
             options=[
                 ChoiceOption(id="woman-swimming", image_url=image_url(person_image("woman", "swimming"))),
                 ChoiceOption(id="woman-walking", image_url=image_url(person_image("woman", "walking"))),
-                ChoiceOption(id="woman-drinking", image_url=image_url(person_image("woman", "drinking"))),
             ],
         ),
     ]

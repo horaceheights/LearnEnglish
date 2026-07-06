@@ -163,6 +163,29 @@ export async function scorePronunciationAudio({ text, audioBlob, userId, questio
   };
 }
 
+export function getCourseAudioUrl({ text, mode = "prompt", lang = "en-US", variant = "default" }) {
+  const apiBaseUrl = getApiBaseUrl();
+  const params = new URLSearchParams({
+    text,
+    mode,
+    lang,
+    variant,
+  });
+  return `${apiBaseUrl}/api/audio/course?${params.toString()}`;
+}
+
+export async function preloadCourseAudio({ text, mode = "prompt", lang = "en-US", variant = "default" }) {
+  const response = await fetch(getCourseAudioUrl({ text, mode, lang, variant }), {
+    cache: "force-cache",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Could not preload course audio: ${response.status}`);
+  }
+
+  return response.blob();
+}
+
 export async function getAdminSummary() {
   return apiRequest("/api/admin/summary", { cache: "no-store" });
 }

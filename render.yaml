@@ -12,6 +12,14 @@ services:
         value: https://api.speechace.co
       - key: SPEECHACE_DIALECT
         value: en-us
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_TTS_MODEL
+        value: gpt-4o-mini-tts
+      - key: OPENAI_TTS_VOICE
+        value: coral
+      - key: OPENAI_TTS_FORMAT
+        value: mp3
       - key: ALLOWED_ORIGINS
         value: https://learn-english-orcin.vercel.app,https://learn-english-horaio-gutierrezs-projects.vercel.app,https://learn-english-git-main-horaio-gutierrezs-projects.vercel.app
       - key: DATABASE_URL

@@ -51,6 +51,15 @@ SPEECHACE_API_BASE_URL=https://api.speechace.co
 SPEECHACE_DIALECT=en-us
 ```
 
+10. Add the OpenAI key for course audio. This lets the backend generate and cache natural lesson prompts instead of relying on browser voices:
+
+```text
+OPENAI_API_KEY=your-openai-api-key
+OPENAI_TTS_MODEL=gpt-4o-mini-tts
+OPENAI_TTS_VOICE=coral
+OPENAI_TTS_FORMAT=mp3
+```
+
 After saving environment variables in Render, restart or redeploy the backend. Then verify:
 
 ```text
@@ -58,6 +67,15 @@ https://your-api-name.onrender.com/api/pronunciation/health
 ```
 
 It should return `"speechace_configured": true`.
+
+Also verify:
+
+```text
+https://your-api-name.onrender.com/api/audio/health
+https://your-api-name.onrender.com/api/audio/course?text=The%20boy&mode=prompt&lang=en-US
+```
+
+The audio health endpoint should return `"openai_audio_configured": true`, and the course audio URL should return a playable audio file.
 
 Without `DATABASE_URL`, the backend falls back to a local SQLite file. That is fine for local development, but hosted services can replace that file during deploys, which means learner profiles and results may disappear.
 
@@ -93,6 +111,16 @@ NEXT_PUBLIC_API_BASE_URL=https://your-api-name.koyeb.app
 5. Deploy.
 
 Vercel will give you a URL like:
+
+## Local Microphone Testing
+
+Pronunciation practice needs browser microphone APIs. Chrome and most mobile browsers only expose `getUserMedia` on secure origins:
+
+- `http://localhost:3000` works on the same computer.
+- `http://192.168.x.x:3000` may not expose the microphone because it is not HTTPS.
+- The deployed HTTPS Vercel URL should work once the browser grants microphone permission.
+
+If testing from another device on your LAN, use the deployed HTTPS URL or set up local HTTPS for the frontend.
 
 ```text
 https://your-project-name.vercel.app

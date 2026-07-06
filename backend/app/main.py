@@ -5,6 +5,7 @@ from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+from .course_audio import audio_debug, get_course_audio
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .speechace import close_speechace_client, score_pronunciation, speechace_configured, speechace_request_debug
 from .tracking import (
@@ -70,6 +71,21 @@ def pronunciation_health():
         "speechace_configured": speechace_configured(),
         "speechace_request": speechace_request_debug(),
     }
+
+
+@app.get("/api/audio/health")
+def audio_health():
+    return audio_debug()
+
+
+@app.get("/api/audio/course")
+async def read_course_audio(
+    text: str,
+    mode: str = "prompt",
+    lang: str = "en-US",
+    variant: str = "default",
+):
+    return await get_course_audio(text=text, mode=mode, lang=lang, variant=variant)
 
 
 @app.post("/api/pronunciation/score")
