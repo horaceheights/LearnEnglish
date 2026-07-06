@@ -36,8 +36,16 @@ def load_local_env() -> None:
 load_local_env()
 
 
+def openai_api_key() -> str:
+    raw_key = (os.getenv("OPENAI_API_KEY") or "").strip()
+    key_start = raw_key.find("sk-")
+    if key_start >= 0:
+        return raw_key[key_start:].strip()
+    return raw_key
+
+
 def audio_configured() -> bool:
-    return bool(os.getenv("OPENAI_API_KEY"))
+    return bool(openai_api_key())
 
 
 def audio_debug() -> dict[str, object]:
@@ -93,7 +101,8 @@ async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> Fil
     if len(cleaned_text) > 500:
         raise HTTPException(status_code=400, detail="Text is too long for course audio.")
 
-    if not audio_configured():
+    api_key = openai_api_key()
+    if not api_key:
         raise HTTPException(status_code=503, detail="OpenAI course audio is not configured.")
 
     model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
@@ -122,7 +131,7 @@ async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> Fil
             "response_format": output_format,
         }
         headers = {
-            "Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}",
+            "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json",
         }
 
@@ -130,7 +139,7 @@ async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> Fil
             async with httpx.AsyncClient(timeout=45.0) as client:
                 response = await client.post(OPENAI_SPEECH_URL, json=payload, headers=headers)
         except httpx.HTTPError as error:
-            raise HTTPException(status_code=502, detail=f"Could not reach OpenAI audio service: {error}") from error
+            raise HTTPException(status_code=502, detail="Could not reach OpenAI audio service.") from error
 
         if response.status_code >= 400:
             detail = response.text[:500] if response.text else "OpenAI audio request failed."

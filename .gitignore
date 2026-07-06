@@ -7,7 +7,9 @@ venv/
 
 tmp/
 backend/learnenglish.db
-backend/storage/
+backend/storage/*
+!backend/storage/audio-cache/
+!backend/storage/audio-cache/*.mp3
 
 frontend/node_modules/
 frontend/.next/

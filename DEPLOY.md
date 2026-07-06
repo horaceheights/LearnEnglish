@@ -60,6 +60,8 @@ OPENAI_TTS_VOICE=coral
 OPENAI_TTS_FORMAT=mp3
 ```
 
+`OPENAI_API_KEY` must be the raw key only, starting with `sk-`. Do not include labels such as `openAI`, quotes, extra spaces, or line breaks.
+
 After saving environment variables in Render, restart or redeploy the backend. Then verify:
 
 ```text
@@ -76,6 +78,30 @@ https://your-api-name.onrender.com/api/audio/course?text=The%20boy&mode=prompt&l
 ```
 
 The audio health endpoint should return `"openai_audio_configured": true`, and the course audio URL should return a playable audio file.
+
+## Shipping Pregenerated Course Audio
+
+Generated course audio can be committed from `backend/storage/audio-cache/*.mp3` so Render receives the same cached files that were created locally. This avoids paying OpenAI again for the same lesson prompts after each deploy.
+
+This works because the cache filename is deterministic from:
+
+- text
+- mode
+- language
+- variant
+- `OPENAI_TTS_MODEL`
+- `OPENAI_TTS_VOICE`
+- `OPENAI_TTS_FORMAT`
+
+Keep the Render audio settings the same as local, especially:
+
+```text
+OPENAI_TTS_MODEL=gpt-4o-mini-tts
+OPENAI_TTS_VOICE=coral
+OPENAI_TTS_FORMAT=mp3
+```
+
+If any of those values change, the backend will create new cache filenames and regenerate audio. Do not commit learner database files or other runtime storage.
 
 Without `DATABASE_URL`, the backend falls back to a local SQLite file. That is fine for local development, but hosted services can replace that file during deploys, which means learner profiles and results may disappear.
 
