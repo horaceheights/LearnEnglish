@@ -1152,6 +1152,122 @@ function getPronunciationAdvice(summary) {
   return `Practica "${word}" despacio. Mira la posicion de tu boca, dilo una vez solo, y luego repite toda la frase.`;
 }
 
+function getMouthCoachType(summary) {
+  const phone = summary?.weakestPhone?.phone;
+  const word = normalizePronunciationWord(summary?.weakestWord?.word);
+  const syllable = normalizePronunciationWord(summary?.weakestSyllable?.letters);
+
+  if (phone === "dh" || phone === "th" || word.startsWith("th")) {
+    return "th";
+  }
+
+  if (phone === "r" || word.includes("r")) {
+    return "r";
+  }
+
+  if (word.startsWith("w") || phone === "w") {
+    return "w";
+  }
+
+  if (word.endsWith("ing") || syllable.includes("ing") || syllable.includes("ning") || syllable.includes("ming")) {
+    return "ing";
+  }
+
+  if (phone === "ih" || phone === "iy") {
+    return "vowel";
+  }
+
+  return "clear";
+}
+
+function mouthCoachConfig(type) {
+  return {
+    th: {
+      title: "Lengua entre dientes",
+      cue: "Toca los dientes con la lengua y deja salir aire.",
+      steps: ["abre", "lengua adelante", "aire"],
+      lipRx: "67;70;70;67",
+      lipRy: "34;37;35;34",
+      mouthRx: "43;47;46;43",
+      mouthRy: "18;21;19;18",
+      tongueMove: "0 13;0 -6;0 0;0 13",
+      tongueTipOpacity: "0.15;1;0.82;0.15",
+      arrow: "M154 57 C139 48 130 47 119 55",
+    },
+    r: {
+      title: "R suave",
+      cue: "Redondea un poco los labios y levanta la lengua sin tocar.",
+      steps: ["redondea", "lengua arriba", "suave"],
+      lipRx: "58;50;54;58",
+      lipRy: "35;39;37;35",
+      mouthRx: "37;31;34;37",
+      mouthRy: "19;23;21;19",
+      tongueMove: "0 12;0 -12;0 -7;0 12",
+      tongueTipOpacity: "0.1;0.55;0.35;0.1",
+      arrow: "M151 80 C136 61 123 55 108 59",
+    },
+    w: {
+      title: "Labios redondos",
+      cue: "Haz los labios redondos primero, luego abre para la palabra.",
+      steps: ["redondea", "empuja", "abre"],
+      lipRx: "66;43;55;66",
+      lipRy: "32;42;37;32",
+      mouthRx: "42;24;34;42",
+      mouthRy: "17;25;21;17",
+      tongueMove: "0 8;0 9;0 4;0 8",
+      tongueTipOpacity: "0.12;0.18;0.14;0.12",
+      arrow: "M151 43 C132 37 115 39 98 48",
+    },
+    ing: {
+      title: "Final -ing",
+      cue: "La parte de atras de la lengua sube. El sonido sale por la nariz.",
+      steps: ["base", "lengua atras", "nariz"],
+      lipRx: "64;66;62;64",
+      lipRy: "32;35;32;32",
+      mouthRx: "42;45;40;42",
+      mouthRy: "17;20;17;17",
+      tongueMove: "0 12;13 -10;16 -14;0 12",
+      tongueTipOpacity: "0.12;0.28;0.2;0.12",
+      arrow: "M151 75 C136 64 125 58 111 52",
+    },
+    vowel: {
+      title: "Vocal corta",
+      cue: "Relaja la boca y haz la vocal pequena y clara.",
+      steps: ["relaja", "sonrie", "corto"],
+      lipRx: "62;70;64;62",
+      lipRy: "31;29;30;31",
+      mouthRx: "39;47;40;39",
+      mouthRy: "16;15;15;16",
+      tongueMove: "0 10;0 5;0 6;0 10",
+      tongueTipOpacity: "0.1;0.15;0.14;0.1",
+      arrow: "M151 52 C136 51 122 51 107 52",
+    },
+    clear: {
+      title: "Mira la boca",
+      cue: "Abre, coloca la lengua y repite despacio.",
+      steps: ["abre", "coloca", "repite"],
+      lipRx: "62;67;64;62",
+      lipRy: "31;35;33;31",
+      mouthRx: "39;44;41;39",
+      mouthRy: "16;20;18;16",
+      tongueMove: "0 11;0 1;0 5;0 11",
+      tongueTipOpacity: "0.12;0.4;0.25;0.12",
+      arrow: "M151 63 C136 57 122 55 108 58",
+    },
+  }[type] || {
+    title: "Mira la boca",
+    cue: "Abre, coloca la lengua y repite despacio.",
+    steps: ["abre", "coloca", "repite"],
+    lipRx: "62;67;64;62",
+    lipRy: "31;35;33;31",
+    mouthRx: "39;44;41;39",
+    mouthRy: "16;20;18;16",
+    tongueMove: "0 11;0 1;0 5;0 11",
+    tongueTipOpacity: "0.12;0.4;0.25;0.12",
+    arrow: "M151 63 C136 57 122 55 108 58",
+  };
+}
+
 function getPronunciationOutcome(summary) {
   const score = summary?.pronunciation;
   const failedWord = summary?.wordScores?.find((word) => typeof word.quality_score === "number" && word.quality_score < 55);
@@ -1439,13 +1555,28 @@ export default function LessonPlayer({ lesson, lessons }) {
       </div>
     </div>
   );
+  const playPronunciationModel = (text, optionId = activePronunciationOption?.id) => {
+    return speakText(text, {
+      voiceMode: "prompt",
+      wordByWord: true,
+      splitIngWords: true,
+      repeatFullAfter: false,
+      wordPauseMs: 220,
+      wordPartPauseMs: 140,
+      rate: 0.62,
+      onPartStart: (part) => setModelSpeechPart({ ...part, optionId }),
+      onEnd: () => setModelSpeechPart(null),
+    });
+  };
   const renderPronunciationWord = (
     word,
     index,
     spokenWordIndex,
     summary = pronunciationSummary,
-    result = pronunciationResult
+    result = pronunciationResult,
+    options = {}
   ) => {
+    const { optionId = activePronunciationOption?.id, interactive = false } = options;
     const wordScore = findWordScore(summary, word);
     const qualityScore = wordScore?.quality_score;
     const hasGrading = Boolean(result);
@@ -1492,30 +1623,51 @@ export default function LessonPlayer({ lesson, lessons }) {
       );
     }
 
+    const tokenStyle = {
+      display: "inline-flex",
+      alignItems: "center",
+      border: `1px solid ${tokenBorder}`,
+      borderRadius: "14px",
+      background: tokenBackground,
+      color: tokenColor,
+      padding: isMobile ? "6px 9px" : "8px 12px",
+      fontSize: isMobile ? 18 : 24,
+      fontWeight: 800,
+      lineHeight: 1,
+      boxShadow: isWeakestWord ? "0 0 0 3px rgba(197, 64, 64, 0.18)" : tokenShadow,
+    };
+    const tokenTitle =
+      hasGrading && typeof qualityScore === "number"
+        ? `${word}: ${Math.round(qualityScore)}${
+            shouldHighlightSyllable ? `, ${weakSyllable}: ${Math.round(weakestSyllable.quality_score)}` : ""
+          }`
+        : `Escuchar ${word}`;
+
+    if (interactive) {
+      return (
+        <button
+          key={`${word}-${index}`}
+          type="button"
+          style={{
+            ...tokenStyle,
+            cursor: "pointer",
+            appearance: "none",
+            fontFamily: "inherit",
+          }}
+          title={tokenTitle}
+          aria-label={`Escuchar ${word}`}
+          onClick={(event) => {
+            event.stopPropagation();
+            playPronunciationModel(word, optionId);
+          }}
+        >
+          {content}
+        </button>
+      );
+    }
+
     return (
-      <span
-        key={`${word}-${index}`}
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          border: `1px solid ${tokenBorder}`,
-          borderRadius: "14px",
-          background: tokenBackground,
-          color: tokenColor,
-          padding: isMobile ? "6px 9px" : "8px 12px",
-          fontSize: isMobile ? 18 : 24,
-          fontWeight: 800,
-          lineHeight: 1,
-          boxShadow: isWeakestWord ? "0 0 0 3px rgba(197, 64, 64, 0.18)" : tokenShadow,
-        }}
-        title={
-          hasGrading && typeof qualityScore === "number"
-            ? `${word}: ${Math.round(qualityScore)}${
-                shouldHighlightSyllable ? `, ${weakSyllable}: ${Math.round(weakestSyllable.quality_score)}` : ""
-              }`
-            : undefined
-        }
-      >
+      <span key={`${word}-${index}`} style={tokenStyle} title={tokenTitle}>
         {content}
       </span>
     );
@@ -1523,7 +1675,8 @@ export default function LessonPlayer({ lesson, lessons }) {
   const renderPronunciationPhrase = (
     phrase = activePronunciationPrompt,
     summary = pronunciationSummary,
-    result = pronunciationResult
+    result = pronunciationResult,
+    options = {}
   ) => {
     let spokenWordIndex = 0;
 
@@ -1532,34 +1685,57 @@ export default function LessonPlayer({ lesson, lessons }) {
         return <span key={`${part}-${index}`}>{part}</span>;
       }
 
-      const renderedWord = renderPronunciationWord(part, index, spokenWordIndex, summary, result);
+      const renderedWord = renderPronunciationWord(part, index, spokenWordIndex, summary, result, options);
       spokenWordIndex += 1;
       return renderedWord;
     });
   };
-  const renderEmptyPronunciationPhrase = (phrase) => {
+  const renderEmptyPronunciationPhrase = (phrase, options = {}) => {
+    const { optionId = activePronunciationOption?.id, interactive = false } = options;
     return promptParts(phrase).map((part, index) => {
       if (!/[A-Za-z]+/.test(part)) {
         return <span key={`${part}-${index}`}>{part}</span>;
       }
 
+      const emptyTokenStyle = {
+        display: "inline-flex",
+        alignItems: "center",
+        border: "1px solid rgba(36, 51, 58, 0.12)",
+        borderRadius: "12px",
+        background: "#fffdf9",
+        color: "transparent",
+        padding: isMobile ? "5px 8px" : "7px 10px",
+        fontSize: isMobile ? 16 : 20,
+        fontWeight: 800,
+        lineHeight: 1,
+        userSelect: "none",
+      };
+
+      if (interactive) {
+        return (
+          <button
+            key={`${part}-${index}`}
+            type="button"
+            style={{
+              ...emptyTokenStyle,
+              appearance: "none",
+              fontFamily: "inherit",
+              cursor: "pointer",
+            }}
+            title={`Escuchar ${part}`}
+            aria-label={`Escuchar ${part}`}
+            onClick={(event) => {
+              event.stopPropagation();
+              playPronunciationModel(part, optionId);
+            }}
+          >
+            {part}
+          </button>
+        );
+      }
+
       return (
-        <span
-          key={`${part}-${index}`}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            border: "1px solid rgba(36, 51, 58, 0.12)",
-            borderRadius: "12px",
-            background: "#fffdf9",
-            color: "transparent",
-            padding: isMobile ? "5px 8px" : "7px 10px",
-            fontSize: isMobile ? 16 : 20,
-            fontWeight: 800,
-            lineHeight: 1,
-            userSelect: "none",
-          }}
-        >
+        <span key={`${part}-${index}`} style={emptyTokenStyle}>
           {part}
         </span>
       );
@@ -1623,6 +1799,126 @@ export default function LessonPlayer({ lesson, lessons }) {
         </span>
       );
     });
+  };
+  const renderMouthCoach = (summary = pronunciationSummary) => {
+    const type = getMouthCoachType(summary);
+    const coach = mouthCoachConfig(type);
+    const duration = "1.8s";
+
+    return (
+      <div
+        style={{
+          border: "1px solid rgba(218, 178, 119, 0.55)",
+          borderRadius: "14px",
+          background: "linear-gradient(135deg, #fff8e8, #fffdf9)",
+          padding: isMobile ? "9px" : "12px",
+          display: "grid",
+          gap: isMobile ? 7 : 9,
+          minWidth: isMobile ? "100%" : 300,
+          flex: isMobile ? "1 1 100%" : "0 1 330px",
+        }}
+      >
+        <div style={{ display: "grid", gap: 2 }}>
+          <div style={{ fontSize: isMobile ? 13 : 14, fontWeight: 900, color: "#7a4d00" }}>{coach.title}</div>
+          <div style={{ fontSize: isMobile ? 12 : 13, color: "var(--muted)", lineHeight: 1.25 }}>{coach.cue}</div>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: isMobile ? "1fr" : "minmax(180px, 1fr) 92px",
+            alignItems: "center",
+            gap: isMobile ? 8 : 10,
+          }}
+        >
+          <svg
+            viewBox="0 0 220 150"
+            width="100%"
+            height={isMobile ? 128 : 142}
+            role="img"
+            aria-label={`${coach.title}: animacion de labios, dientes y lengua`}
+            style={{ display: "block", maxWidth: 260, justifySelf: "center" }}
+          >
+            <defs>
+              <radialGradient id={`mouthGlow-${type}`} cx="50%" cy="42%" r="65%">
+                <stop offset="0%" stopColor="#fff2ec" />
+                <stop offset="100%" stopColor="#f5b0a9" />
+              </radialGradient>
+              <linearGradient id={`tongueGrad-${type}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#f58a91" />
+                <stop offset="100%" stopColor="#d84f61" />
+              </linearGradient>
+            </defs>
+
+            <rect x="9" y="9" width="202" height="132" rx="24" fill="#fffaf1" stroke="rgba(218,178,119,0.45)" />
+            <g transform="translate(4 4)">
+              <ellipse cx="102" cy="73" rx="70" ry="38" fill={`url(#mouthGlow-${type})`} stroke="#d87477" strokeWidth="3">
+                <animate attributeName="rx" values={coach.lipRx} dur={duration} repeatCount="indefinite" />
+                <animate attributeName="ry" values={coach.lipRy} dur={duration} repeatCount="indefinite" />
+              </ellipse>
+              <ellipse cx="102" cy="73" rx="44" ry="20" fill="#382428">
+                <animate attributeName="rx" values={coach.mouthRx} dur={duration} repeatCount="indefinite" />
+                <animate attributeName="ry" values={coach.mouthRy} dur={duration} repeatCount="indefinite" />
+              </ellipse>
+
+              <path d="M61 63 Q102 48 143 63 L137 74 Q102 67 67 74 Z" fill="#fffdf9" stroke="#e8ded1" strokeWidth="1.5" />
+              <path d="M67 91 Q102 104 137 91 L132 99 Q102 112 72 99 Z" fill="#fff8ee" opacity="0.92" />
+
+              <g>
+                <animateTransform
+                  attributeName="transform"
+                  type="translate"
+                  values={coach.tongueMove}
+                  dur={duration}
+                  repeatCount="indefinite"
+                />
+                <path
+                  d="M57 88 C73 68 91 65 105 73 C121 82 135 83 148 88 C136 113 73 113 57 88 Z"
+                  fill={`url(#tongueGrad-${type})`}
+                  stroke="#bd3f52"
+                  strokeWidth="2"
+                />
+                <path d="M75 91 C91 101 116 101 132 91" fill="none" stroke="#f7a2a8" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+              </g>
+
+              <path d="M100 50 L107 50 L107 98 L100 98 Z" fill="#f58a91" opacity="0.1">
+                <animate attributeName="opacity" values={coach.tongueTipOpacity} dur={duration} repeatCount="indefinite" />
+              </path>
+
+              <path d={coach.arrow} fill="none" stroke="#00866f" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+              <path d="M119 55 L129 52 L125 63" fill="none" stroke="#00866f" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
+            </g>
+          </svg>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: isMobile ? "repeat(3, 1fr)" : "1fr",
+              gap: 6,
+            }}
+          >
+            {coach.steps.map((step, index) => (
+              <div
+                key={step}
+                style={{
+                  borderRadius: "999px",
+                  background: index === 1 ? "#dff6e9" : "#fff",
+                  border: "1px solid rgba(36, 51, 58, 0.12)",
+                  color: index === 1 ? "var(--green)" : "var(--muted)",
+                  padding: isMobile ? "6px 7px" : "7px 9px",
+                  textAlign: "center",
+                  fontSize: isMobile ? 10 : 11,
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.04em",
+                }}
+              >
+                {step}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
   };
 
   useEffect(() => {
@@ -3057,17 +3353,7 @@ export default function LessonPlayer({ lesson, lessons }) {
                 <button
                   type="button"
                   onClick={() =>
-                    speakText(activePronunciationPrompt, {
-                      voiceMode: "prompt",
-                      wordByWord: true,
-                      splitIngWords: true,
-                      repeatFullAfter: false,
-                      wordPauseMs: 220,
-                      wordPartPauseMs: 140,
-                      rate: 0.62,
-                      onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
-                      onEnd: () => setModelSpeechPart(null),
-                    })
+                    playPronunciationModel(activePronunciationPrompt)
                   }
                   style={{
                     border: 0,
@@ -3121,22 +3407,9 @@ export default function LessonPlayer({ lesson, lessons }) {
               <button
                 type="button"
                 onClick={() =>
-                  speakText(
-                    isPronunciationLesson ? activePronunciationPrompt : currentCard.prompt,
-                    isPronunciationLesson
-                      ? {
-                          voiceMode: "prompt",
-                          wordByWord: true,
-                          splitIngWords: true,
-                          repeatFullAfter: false,
-                          wordPauseMs: 220,
-                          wordPartPauseMs: 140,
-                          rate: 0.62,
-                          onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
-                          onEnd: () => setModelSpeechPart(null),
-                        }
-                      : { voiceMode: "prompt" }
-                  )
+                  isPronunciationLesson
+                    ? playPronunciationModel(activePronunciationPrompt)
+                    : speakText(currentCard.prompt, { voiceMode: "prompt" })
                 }
                 style={{
                   border: 0,
@@ -3235,23 +3508,47 @@ export default function LessonPlayer({ lesson, lessons }) {
                             textAlign: "left",
                           }}
                         >
-                          <span style={{ minWidth: 0 }}>
+                          <button
+                            type="button"
+                            style={{
+                              border: 0,
+                              background: "transparent",
+                              color: "inherit",
+                              padding: 0,
+                              margin: 0,
+                              minWidth: 0,
+                              textAlign: "left",
+                              font: "inherit",
+                              fontWeight: "inherit",
+                              cursor: "pointer",
+                            }}
+                            aria-label={`Escuchar frase ${optionPrompt}`}
+                            title={`Escuchar frase ${optionPrompt}`}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              playPronunciationModel(optionPrompt, option.id);
+                            }}
+                          >
                             {renderPronunciationPromptHeader(optionPrompt, option.id, isActivePronunciationOption)}
-                          </span>
+                          </button>
                           {isActivePronunciationOption ? (
                             <span style={{ flex: "0 0 auto" }}>{renderListeningCue()}</span>
                           ) : null}
                         </div>
                         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: isMobile ? "6px" : "8px" }}>
                           {isActivePronunciationOption
-                            ? renderPronunciationPhrase(optionPrompt)
+                            ? renderPronunciationPhrase(optionPrompt, pronunciationSummary, pronunciationResult, {
+                                interactive: true,
+                                optionId: option.id,
+                              })
                             : completedPronunciationResult
                               ? renderPronunciationPhrase(
                                   optionPrompt,
                                   completedPronunciationSummary,
-                                  completedPronunciationResult
+                                  completedPronunciationResult,
+                                  { interactive: true, optionId: option.id }
                                 )
-                              : renderEmptyPronunciationPhrase(optionPrompt)}
+                              : renderEmptyPronunciationPhrase(optionPrompt, { interactive: true, optionId: option.id })}
                         </div>
                         {isActivePronunciationOption && pronunciationResult ? (
                           <div
@@ -3266,33 +3563,44 @@ export default function LessonPlayer({ lesson, lessons }) {
                           </div>
                         ) : null}
                         {isActivePronunciationOption && (pronunciationError || (pronunciationResult && !pronunciationOutcome.accepted)) ? (
-                          <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10 }}>
-                            {pronunciationError ? (
-                              <div style={{ color: "var(--red)", fontWeight: 700, lineHeight: 1.35, textAlign: "left" }}>
-                                {pronunciationError}
-                              </div>
-                            ) : null}
-                            <button
-                              type="button"
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                setPronunciationError("");
-                                setPronunciationResult(null);
-                                beginPronunciationRecording({ isRetry: true });
-                              }}
-                              disabled={isPronunciationRecording || isPronunciationScoring}
-                              style={{
-                                border: "1px solid var(--line)",
-                                borderRadius: "999px",
-                                background: "var(--surface)",
-                                color: "var(--text)",
-                                padding: "7px 12px",
-                                fontWeight: 800,
-                                cursor: isPronunciationRecording || isPronunciationScoring ? "not-allowed" : "pointer",
-                              }}
-                            >
-                              Retry
-                            </button>
+                          <div
+                            style={{
+                              display: "flex",
+                              flexWrap: "wrap",
+                              alignItems: "center",
+                              justifyContent: "space-between",
+                              gap: isMobile ? 8 : 10,
+                            }}
+                          >
+                            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, flex: "1 1 260px" }}>
+                              {pronunciationError ? (
+                                <div style={{ color: "var(--red)", fontWeight: 700, lineHeight: 1.35, textAlign: "left" }}>
+                                  {pronunciationError}
+                                </div>
+                              ) : null}
+                              <button
+                                type="button"
+                                onClick={(event) => {
+                                  event.stopPropagation();
+                                  setPronunciationError("");
+                                  setPronunciationResult(null);
+                                  beginPronunciationRecording({ isRetry: true });
+                                }}
+                                disabled={isPronunciationRecording || isPronunciationScoring}
+                                style={{
+                                  border: "1px solid var(--line)",
+                                  borderRadius: "999px",
+                                  background: "var(--surface)",
+                                  color: "var(--text)",
+                                  padding: "7px 12px",
+                                  fontWeight: 800,
+                                  cursor: isPronunciationRecording || isPronunciationScoring ? "not-allowed" : "pointer",
+                                }}
+                              >
+                                Retry
+                              </button>
+                            </div>
+                            {pronunciationResult && !pronunciationOutcome.accepted ? renderMouthCoach(pronunciationSummary) : null}
                           </div>
                         ) : null}
                       </div>
