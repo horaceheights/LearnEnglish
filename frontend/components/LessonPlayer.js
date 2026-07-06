@@ -1323,25 +1323,26 @@ export default function LessonPlayer({ lesson, lessons }) {
     maxWidth: "1180px",
     margin: "0 auto",
     display: "grid",
-    gap: isMobile ? "12px" : "20px",
+    gap: isMobile ? "8px" : "20px",
   };
+  const compactPracticeHeader = isPronunciationLesson && (isMobile || isTablet);
   const heroStyle = {
     ...styles.hero,
-    padding: isMobile ? "14px 18px" : "20px 30px 22px",
+    padding: compactPracticeHeader ? (isMobile ? "7px 10px" : "10px 18px") : isMobile ? "14px 18px" : "20px 30px 22px",
     borderRadius: isMobile ? "18px" : styles.hero.borderRadius,
-    width: isMobile ? "100%" : isTablet ? "82%" : "64%",
+    width: compactPracticeHeader ? "100%" : isMobile ? "100%" : isTablet ? "82%" : "64%",
     justifySelf: "center",
     textAlign: "center",
   };
   const boardStyle = {
     ...styles.board,
-    padding: isMobile ? "12px" : styles.board.padding,
+    padding: isMobile ? (isPronunciationLesson ? "8px" : "12px") : styles.board.padding,
     borderRadius: isMobile ? "18px" : styles.board.borderRadius,
   };
   const choiceGridStyle = {
     ...styles.choiceGrid,
     gridTemplateColumns: isFourOptionCard ? "repeat(2, minmax(0, 1fr))" : isMobile ? "1fr" : styles.choiceGrid.gridTemplateColumns,
-    gap: isFourOptionCard ? (isMobile ? "8px" : "12px") : styles.choiceGrid.gap,
+    gap: isPronunciationLesson && isMobile ? "10px" : isFourOptionCard ? (isMobile ? "8px" : "12px") : styles.choiceGrid.gap,
   };
   const centeredThirdOptionStyle = {
     gridColumn: "1 / -1",
@@ -1350,7 +1351,9 @@ export default function LessonPlayer({ lesson, lessons }) {
   };
   const responsiveImageStyle = {
     ...styles.image,
-    height: isFourOptionCard
+    height: isPronunciationLesson && isMobile
+      ? "min(25vh, 180px)"
+      : isFourOptionCard
       ? isMobile
         ? "min(24vh, 150px)"
         : isTablet
@@ -1363,8 +1366,14 @@ export default function LessonPlayer({ lesson, lessons }) {
           : styles.image.height,
   };
   const titleStyle = {
-    margin: "6px 0 0",
-    fontSize: isMobile ? "1.42rem" : "clamp(1.65rem, 2.35vw, 2.32rem)",
+    margin: compactPracticeHeader ? 0 : "6px 0 0",
+    fontSize: compactPracticeHeader
+      ? isMobile
+        ? "1.02rem"
+        : "1.22rem"
+      : isMobile
+        ? "1.42rem"
+        : "clamp(1.65rem, 2.35vw, 2.32rem)",
     lineHeight: 1.12,
     letterSpacing: 0,
   };
@@ -1394,31 +1403,31 @@ export default function LessonPlayer({ lesson, lessons }) {
       style={{
         display: "flex",
         alignItems: "center",
-        gap: "12px",
+        gap: isMobile ? "6px" : "12px",
         color: pronunciationCue.color,
         fontWeight: 800,
-        minHeight: 28,
+        minHeight: isMobile ? 20 : 28,
       }}
     >
       <span
         aria-hidden="true"
         style={{
-          width: 18,
-          height: 18,
+          width: isMobile ? 14 : 18,
+          height: isMobile ? 14 : 18,
           borderRadius: "999px",
           background: pronunciationCue.color,
-          boxShadow: "0 0 0 8px rgba(94, 109, 115, 0.14)",
+          boxShadow: `0 0 0 ${isMobile ? 6 : 8}px rgba(94, 109, 115, 0.14)`,
           animation: pronunciationCue.isActive ? "listeningPulse 850ms ease-in-out infinite" : "none",
           flex: "0 0 auto",
         }}
       />
-      <div style={{ display: "flex", alignItems: "center", gap: 3, height: 22 }} aria-hidden="true">
+      <div style={{ display: "flex", alignItems: "center", gap: isMobile ? 2 : 3, height: isMobile ? 18 : 22 }} aria-hidden="true">
         {[0, 1, 2, 3].map((bar) => (
           <span
             key={bar}
             style={{
-              width: 5,
-              height: 20,
+              width: isMobile ? 4 : 5,
+              height: isMobile ? 16 : 20,
               borderRadius: "999px",
               background: pronunciationCue.color,
               transformOrigin: "center",
@@ -1493,8 +1502,8 @@ export default function LessonPlayer({ lesson, lessons }) {
           borderRadius: "14px",
           background: tokenBackground,
           color: tokenColor,
-          padding: isMobile ? "7px 10px" : "8px 12px",
-          fontSize: isMobile ? 20 : 24,
+          padding: isMobile ? "6px 9px" : "8px 12px",
+          fontSize: isMobile ? 18 : 24,
           fontWeight: 800,
           lineHeight: 1,
           boxShadow: isWeakestWord ? "0 0 0 3px rgba(197, 64, 64, 0.18)" : tokenShadow,
@@ -1544,8 +1553,8 @@ export default function LessonPlayer({ lesson, lessons }) {
             borderRadius: "12px",
             background: "#fffdf9",
             color: "transparent",
-            padding: isMobile ? "6px 9px" : "7px 10px",
-            fontSize: isMobile ? 18 : 20,
+            padding: isMobile ? "5px 8px" : "7px 10px",
+            fontSize: isMobile ? 16 : 20,
             fontWeight: 800,
             lineHeight: 1,
             userSelect: "none",
@@ -3035,19 +3044,67 @@ export default function LessonPlayer({ lesson, lessons }) {
       <div style={shellStyle}>
           <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
           <section style={heroStyle}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "12px" }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: compactPracticeHeader ? "8px" : "12px",
+              }}
+            >
               <MiniSpanGlishLogo />
+              {compactPracticeHeader ? (
+                <button
+                  type="button"
+                  onClick={() =>
+                    speakText(activePronunciationPrompt, {
+                      voiceMode: "prompt",
+                      wordByWord: true,
+                      splitIngWords: true,
+                      repeatFullAfter: false,
+                      wordPauseMs: 220,
+                      wordPartPauseMs: 140,
+                      rate: 0.62,
+                      onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
+                      onEnd: () => setModelSpeechPart(null),
+                    })
+                  }
+                  style={{
+                    border: 0,
+                    background: "transparent",
+                    color: "var(--text)",
+                    padding: 0,
+                    margin: 0,
+                    cursor: "pointer",
+                    minWidth: 0,
+                    flex: "1 1 auto",
+                    textAlign: "center",
+                  }}
+                  aria-label={`Play pronunciation for ${activePronunciationPrompt}`}
+                >
+                  <h1
+                    style={{
+                      ...titleStyle,
+                      whiteSpace: "nowrap",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    Pronunciation
+                  </h1>
+                </button>
+              ) : null}
               <button
                 type="button"
                 aria-label={showHelp ? "Ocultar ayuda" : "Mostrar ayuda"}
                 style={{
-                  width: isMobile ? 34 : 44,
-                  height: isMobile ? 34 : 44,
+                  width: compactPracticeHeader ? (isMobile ? 30 : 36) : isMobile ? 34 : 44,
+                  height: compactPracticeHeader ? (isMobile ? 30 : 36) : isMobile ? 34 : 44,
                   borderRadius: "999px",
                   border: "2px solid rgba(218, 178, 119, 0.58)",
                   background: showHelp ? "#F4C95D" : "rgba(255,255,255,0.74)",
                   color: "#24333A",
-                  fontSize: isMobile ? 18 : 24,
+                  fontSize: compactPracticeHeader ? (isMobile ? 16 : 20) : isMobile ? 18 : 24,
                   fontWeight: 700,
                   lineHeight: 1,
                   cursor: "pointer",
@@ -3060,39 +3117,41 @@ export default function LessonPlayer({ lesson, lessons }) {
                 ?
               </button>
             </div>
-            <button
-              type="button"
-              onClick={() =>
-                speakText(
-                  isPronunciationLesson ? activePronunciationPrompt : currentCard.prompt,
-                  isPronunciationLesson
-                    ? {
-                        voiceMode: "prompt",
-                        wordByWord: true,
-                        splitIngWords: true,
-                        repeatFullAfter: false,
-                        wordPauseMs: 220,
-                        wordPartPauseMs: 140,
-                        rate: 0.62,
-                        onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
-                        onEnd: () => setModelSpeechPart(null),
-                      }
-                    : { voiceMode: "prompt" }
-                )
-              }
-              style={{
-                border: 0,
-                background: "transparent",
-                color: "var(--text)",
-                padding: 0,
-                margin: 0,
-                cursor: "pointer",
-                width: "100%",
-              }}
-              aria-label={`Play pronunciation for ${isPronunciationLesson ? activePronunciationPrompt : currentCard.prompt}`}
-            >
-              <h1 style={titleStyle}>{isPronunciationLesson ? "Pronunciation Practice" : currentCard.prompt}</h1>
-            </button>
+            {!compactPracticeHeader ? (
+              <button
+                type="button"
+                onClick={() =>
+                  speakText(
+                    isPronunciationLesson ? activePronunciationPrompt : currentCard.prompt,
+                    isPronunciationLesson
+                      ? {
+                          voiceMode: "prompt",
+                          wordByWord: true,
+                          splitIngWords: true,
+                          repeatFullAfter: false,
+                          wordPauseMs: 220,
+                          wordPartPauseMs: 140,
+                          rate: 0.62,
+                          onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
+                          onEnd: () => setModelSpeechPart(null),
+                        }
+                      : { voiceMode: "prompt" }
+                  )
+                }
+                style={{
+                  border: 0,
+                  background: "transparent",
+                  color: "var(--text)",
+                  padding: 0,
+                  margin: 0,
+                  cursor: "pointer",
+                  width: "100%",
+                }}
+                aria-label={`Play pronunciation for ${isPronunciationLesson ? activePronunciationPrompt : currentCard.prompt}`}
+              >
+                <h1 style={titleStyle}>{isPronunciationLesson ? "Pronunciation Practice" : currentCard.prompt}</h1>
+              </button>
+            ) : null}
           </section>
 
           <section style={boardStyle}>
@@ -3156,28 +3215,34 @@ export default function LessonPlayer({ lesson, lessons }) {
                           background: isCompletedPronunciationOption
                               ? "#ecfff3"
                               : "#fff",
-                          padding: isMobile ? "8px" : "10px",
-                          marginBottom: isMobile ? 8 : 10,
+                          padding: isMobile ? "7px" : "10px",
+                          marginBottom: isMobile ? 7 : 10,
                           display: "grid",
-                          gap: "8px",
-                          minHeight: isMobile ? 84 : 92,
+                          gap: isMobile ? "6px" : "8px",
+                          minHeight: isMobile ? 0 : 92,
                         }}
                       >
                         <div
                           style={{
-                            fontSize: isMobile ? 19 : 22,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            gap: isMobile ? "8px" : "12px",
+                            fontSize: isMobile ? 18 : 22,
                             fontWeight: 800,
                             lineHeight: 1.15,
                             color: "var(--text)",
                             textAlign: "left",
                           }}
                         >
-                          {renderPronunciationPromptHeader(optionPrompt, option.id, isActivePronunciationOption)}
+                          <span style={{ minWidth: 0 }}>
+                            {renderPronunciationPromptHeader(optionPrompt, option.id, isActivePronunciationOption)}
+                          </span>
+                          {isActivePronunciationOption ? (
+                            <span style={{ flex: "0 0 auto" }}>{renderListeningCue()}</span>
+                          ) : null}
                         </div>
-                        <div style={{ minHeight: 24 }}>
-                          {isActivePronunciationOption ? renderListeningCue() : null}
-                        </div>
-                        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: isMobile ? "7px" : "8px" }}>
+                        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: isMobile ? "6px" : "8px" }}>
                           {isActivePronunciationOption
                             ? renderPronunciationPhrase(optionPrompt)
                             : completedPronunciationResult
@@ -3253,8 +3318,8 @@ export default function LessonPlayer({ lesson, lessons }) {
 
             <div
               style={{
-                marginTop: isMobile ? 12 : 20,
-                padding: isMobile ? "10px 12px" : "14px 18px",
+                marginTop: isMobile ? 10 : 20,
+                padding: isMobile ? "8px 10px" : "14px 18px",
                 borderRadius: isMobile ? "14px" : "18px",
                 background: "var(--surface-2)",
                 display: "flex",
@@ -3275,7 +3340,9 @@ export default function LessonPlayer({ lesson, lessons }) {
                 </div>
                 <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>{score}</div>
               </div>
-              <div style={{ color: "var(--muted)", fontSize: 12 }}>Voz de practica generada con IA.</div>
+              {!isMobile ? (
+                <div style={{ color: "var(--muted)", fontSize: 12 }}>Voz de practica generada con IA.</div>
+              ) : null}
               <button
                 type="button"
                 style={isMobile ? styles.iconOnlyButton : { ...styles.subtleButton, width: "auto", padding: "10px 14px" }}
