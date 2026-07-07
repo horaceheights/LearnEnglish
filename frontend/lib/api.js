@@ -1,3 +1,5 @@
+import courseAudioManifest from "./courseAudioManifest.json";
+
 const API_BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
 
 export function getApiBaseUrl() {
@@ -164,6 +166,12 @@ export async function scorePronunciationAudio({ text, audioBlob, userId, questio
 }
 
 export function getCourseAudioUrl({ text, mode = "prompt", lang = "en-US", variant = "default" }) {
+  const manifestKey = [String(text || "").trim(), mode, lang, variant].join("\n");
+  const staticAudioFile = courseAudioManifest[manifestKey];
+  if (staticAudioFile) {
+    return `/audio-cache/${staticAudioFile}`;
+  }
+
   const apiBaseUrl = getApiBaseUrl();
   const params = new URLSearchParams({
     text,

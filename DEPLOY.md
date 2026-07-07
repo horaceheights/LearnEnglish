@@ -81,7 +81,9 @@ The audio health endpoint should return `"openai_audio_configured": true`, and t
 
 ## Shipping Pregenerated Course Audio
 
-Generated course audio can be committed from `backend/storage/audio-cache/*.mp3` so Render receives the same cached files that were created locally. This avoids paying OpenAI again for the same lesson prompts after each deploy.
+Generated course audio can be shipped with the frontend from `frontend/public/audio-cache/*.mp3`. The frontend uses `frontend/lib/courseAudioManifest.json` to play those static Vercel files first, then falls back to the Render backend only when a clip is missing. This avoids mobile audio lag from Render and avoids paying OpenAI again for the same lesson prompts after each deploy.
+
+Backend cache files in `backend/storage/audio-cache/*.mp3` can still be kept as the source cache for generation, but the mobile app should prefer the frontend static files.
 
 This works because the cache filename is deterministic from:
 
@@ -101,7 +103,15 @@ OPENAI_TTS_VOICE=coral
 OPENAI_TTS_FORMAT=mp3
 ```
 
-If any of those values change, the backend will create new cache filenames and regenerate audio. Do not commit learner database files or other runtime storage.
+If any of those values change, the backend will create new cache filenames and regenerate audio. After generating new clips, rebuild the frontend audio manifest and copy the MP3s into `frontend/public/audio-cache` before pushing. Do not commit learner database files or other runtime storage.
+
+From the repo root:
+
+```bash
+python scripts/build_frontend_audio_manifest.py
+```
+
+The script should report `"missing_expected": 0` before pushing if you want every known lesson clip served statically by Vercel.
 
 Without `DATABASE_URL`, the backend falls back to a local SQLite file. That is fine for local development, but hosted services can replace that file during deploys, which means learner profiles and results may disappear.
 
