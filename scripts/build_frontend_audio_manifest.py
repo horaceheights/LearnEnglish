@@ -25,6 +25,11 @@ ACTION_WORDS = {
     "sleeping",
     "sitting",
     "standing",
+    "playing",
+    "working",
+    "cooking",
+    "talking",
+    "studying",
 }
 FEEDBACK_PHRASES = [
     "Great",
@@ -109,6 +114,11 @@ def main() -> int:
                     "expected": audio_path.name,
                 }
             )
+
+    referenced_files = set(manifest.values())
+    for audio_file in frontend_cache.glob("*.mp3"):
+        if audio_file.name not in referenced_files:
+            audio_file.unlink()
 
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(

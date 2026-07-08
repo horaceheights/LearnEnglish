@@ -15,7 +15,7 @@ import {
 } from "../lib/api";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
-const LESSON_IMAGE_VERSION = "20260701-pronouns-they";
+const LESSON_IMAGE_VERSION = "20260708-family-members";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 
@@ -50,6 +50,11 @@ const COURSE_MENU_VISUALS = {
       image: "woman_is_speaking.webp",
       fallbackImage: "girl_is_reading.webp",
       accent: "#f1e7ff",
+    },
+    "lesson-4-family-members": {
+      description: "Familia cercana: bebes, ninos, adultos, padres y abuelos.",
+      image: "family_grandparents.webp",
+      accent: "#ffe7bd",
     },
   },
 };
@@ -1364,7 +1369,10 @@ export default function LessonPlayer({ lesson, lessons }) {
   const currentCard = activeLesson.cards[cardIndex];
   const totalCards = activeLesson.cards.length;
   const isPronunciationLesson = activeLesson.id === "lesson-3-pronunciation";
-  const isRecognitionLesson = activeLesson.id === "lesson-1-people-actions" || activeLesson.id === "lesson-2-pronouns";
+  const isRecognitionLesson =
+    activeLesson.id === "lesson-1-people-actions" ||
+    activeLesson.id === "lesson-2-pronouns" ||
+    activeLesson.id === "lesson-4-family-members";
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationLesson ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =

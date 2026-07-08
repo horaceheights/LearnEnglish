@@ -106,12 +106,101 @@ ACTIONS_IN_ORDER = [
     "standing",
 ]
 
+LESSON_1_ACTION_PAIRS = [
+    ("boy", "running"),
+    ("boy", "swimming"),
+    ("boy", "eating"),
+    ("boy", "reading"),
+    ("girl", "walking"),
+    ("girl", "drinking"),
+    ("girl", "writing"),
+    ("girl", "sleeping"),
+    ("man", "walking"),
+    ("man", "swimming"),
+    ("man", "drinking"),
+    ("man", "sitting"),
+    ("woman", "eating"),
+    ("woman", "reading"),
+    ("woman", "writing"),
+    ("woman", "standing"),
+]
+
 PRONOUN_ACTIONS = ["running", "eating", "reading", "writing"]
 PAIR_IMAGE_NAMES = {
     ("boy", "girl"): "they_boy_girl",
     ("boy", "man"): "they_boy_man",
     ("girl", "woman"): "they_girl_woman",
     ("man", "woman"): "they_man_woman",
+}
+
+FAMILY_PEOPLE = {
+    "baby": {"label": "A baby", "image": "family_baby.png"},
+    "babies": {"label": "Babies", "image": "family_babies.png"},
+    "child": {"label": "A child", "image": "boy.png"},
+    "children": {"label": "Children", "image": "family_children.png"},
+    "adult": {"label": "An adult", "image": "family_father.png"},
+    "adults": {"label": "Adults", "image": "family_adults.png"},
+    "brother": {"label": "A brother", "image": "boy.png"},
+    "brothers": {"label": "Brothers", "image": "family_brothers.png"},
+    "sister": {"label": "A sister", "image": "girl.png"},
+    "sisters": {"label": "Sisters", "image": "family_sisters.png"},
+    "father": {"label": "A father", "image": "family_father.png"},
+    "mother": {"label": "A mother", "image": "family_mother.png"},
+    "parents": {"label": "Parents", "image": "family_parents_talking.png"},
+    "grandfather": {"label": "A grandfather", "image": "family_grandfather.png"},
+    "grandmother": {"label": "A grandmother", "image": "family_grandmother.png"},
+    "grandparents": {"label": "Grandparents", "image": "family_grandparents.png"},
+}
+
+FAMILY_ACTIONS = {
+    "baby-sleeping": {
+        "prompt": "A baby is sleeping.",
+        "stage": "Family Sentences",
+        "image": "family_baby_sleeping.png",
+        "distractors": ["children-playing", "mother-cooking", "father-working"],
+    },
+    "children-playing": {
+        "prompt": "Children are playing.",
+        "stage": "Family Sentences",
+        "image": "family_children_playing.png",
+        "distractors": ["baby-sleeping", "father-working", "parents-talking"],
+    },
+    "brother-studying": {
+        "prompt": "A brother is studying.",
+        "stage": "Family Sentences",
+        "image": "boy_is_writing.png",
+        "distractors": ["sister-reading", "children-playing", "father-working"],
+    },
+    "sister-reading": {
+        "prompt": "A sister is reading.",
+        "stage": "Family Sentences",
+        "image": "girl_is_reading.png",
+        "distractors": ["brother-studying", "mother-cooking", "children-playing"],
+    },
+    "father-working": {
+        "prompt": "A father is working.",
+        "stage": "Family Sentences",
+        "image": "family_father_working.png",
+        "distractors": ["mother-cooking", "parents-talking", "baby-sleeping"],
+    },
+    "mother-cooking": {
+        "prompt": "A mother is cooking.",
+        "stage": "Family Sentences",
+        "image": "family_mother_cooking.png",
+        "distractors": ["father-working", "sister-reading", "parents-talking"],
+    },
+    "parents-talking": {
+        "prompt": "Parents are talking.",
+        "stage": "Family Sentences",
+        "image": "family_parents_talking.png",
+        "distractors": ["children-playing", "grandparents-sitting", "baby-sleeping"],
+    },
+    "grandparents-sitting": {
+        "prompt": "Grandparents are sitting.",
+        "stage": "Family Sentences",
+        "image": "family_grandparents.png",
+        "distractors": ["parents-talking", "children-playing", "father-working"],
+    },
 }
 
 
@@ -170,6 +259,10 @@ def pair_image(pair: tuple[str, str], action: str = "portrait") -> str:
     if action == "portrait":
         return f"{image_stem}.png"
     return f"{image_stem}_are_{action}.png"
+
+
+def family_image(person: str) -> str:
+    return FAMILY_PEOPLE[person]["image"]
 
 
 def noun_cards() -> list[LessonCard]:
@@ -242,26 +335,25 @@ def sentence_cards() -> list[LessonCard]:
         "woman": "man",
     }
 
-    for person in PEOPLE_IN_ORDER:
-        for action in ACTIONS_IN_ORDER:
-            distractor_person = distractor_people[person]
-            cards.append(
-                LessonCard(
-                    prompt=f"{PEOPLE[person]['label']} is {action}.",
-                    stage="Pattern",
-                    correct_option_id=f"{person}-{action}",
-                    options=[
-                        ChoiceOption(
-                            id=f"{person}-{action}",
-                            image_url=image_url(person_image(person, action)),
-                        ),
-                        ChoiceOption(
-                            id=f"{distractor_person}-{action}",
-                            image_url=image_url(person_image(distractor_person, action)),
-                        ),
-                    ],
-                )
+    for person, action in LESSON_1_ACTION_PAIRS:
+        distractor_person = distractor_people[person]
+        cards.append(
+            LessonCard(
+                prompt=f"{PEOPLE[person]['label']} is {action}.",
+                stage="Pattern",
+                correct_option_id=f"{person}-{action}",
+                options=[
+                    ChoiceOption(
+                        id=f"{person}-{action}",
+                        image_url=image_url(person_image(person, action)),
+                    ),
+                    ChoiceOption(
+                        id=f"{distractor_person}-{action}",
+                        image_url=image_url(person_image(distractor_person, action)),
+                    ),
+                ],
             )
+        )
 
     return cards
 
@@ -269,39 +361,38 @@ def sentence_cards() -> list[LessonCard]:
 def sentence_cards_stage_two() -> list[LessonCard]:
     cards: list[LessonCard] = []
 
-    for person in PEOPLE_IN_ORDER:
-        for action in ACTIONS_IN_ORDER:
-            mode = stable_shuffle(["same-person", "same-action"], f"challenge-mode-{person}-{action}")[0]
+    for person, action in LESSON_1_ACTION_PAIRS:
+        mode = stable_shuffle(["same-person", "same-action"], f"challenge-mode-{person}-{action}")[0]
 
-            if mode == "same-action":
-                option_people = stable_shuffle(PEOPLE_IN_ORDER, f"same-action-stage-two-{person}-{action}")
-                options = [
-                    ChoiceOption(
-                        id=f"{option_person}-{action}",
-                        image_url=image_url(person_image(option_person, action)),
-                    )
-                    for option_person in option_people
-                ]
-            else:
-                distractor_actions = [item for item in ACTIONS_IN_ORDER if item != action]
-                selected_actions = stable_shuffle(distractor_actions, f"same-person-stage-two-{person}-{action}")[:3]
-                option_actions = stable_shuffle([action, *selected_actions], f"option-stage-two-{person}-{action}")
-                options = [
-                    ChoiceOption(
-                        id=f"{person}-{option_action}",
-                        image_url=image_url(person_image(person, option_action)),
-                    )
-                    for option_action in option_actions
-                ]
-
-            cards.append(
-                LessonCard(
-                    prompt=f"{PEOPLE[person]['label']} is {action}.",
-                    stage="Pattern Challenge",
-                    correct_option_id=f"{person}-{action}",
-                    options=options,
+        if mode == "same-action":
+            option_people = stable_shuffle(PEOPLE_IN_ORDER, f"same-action-stage-two-{person}-{action}")
+            options = [
+                ChoiceOption(
+                    id=f"{option_person}-{action}",
+                    image_url=image_url(person_image(option_person, action)),
                 )
+                for option_person in option_people
+            ]
+        else:
+            distractor_actions = [item for item in ACTIONS_IN_ORDER if item != action]
+            selected_actions = stable_shuffle(distractor_actions, f"same-person-stage-two-{person}-{action}")[:3]
+            option_actions = stable_shuffle([action, *selected_actions], f"option-stage-two-{person}-{action}")
+            options = [
+                ChoiceOption(
+                    id=f"{person}-{option_action}",
+                    image_url=image_url(person_image(person, option_action)),
+                )
+                for option_action in option_actions
+            ]
+
+        cards.append(
+            LessonCard(
+                prompt=f"{PEOPLE[person]['label']} is {action}.",
+                stage="Pattern Challenge",
+                correct_option_id=f"{person}-{action}",
+                options=options,
             )
+        )
 
     return cards
 
@@ -555,6 +646,101 @@ def pronunciation_focus_cards() -> list[LessonCard]:
     return stable_shuffle_cards(cards, "lesson-3-pronunciation-focus")
 
 
+def family_vocabulary_cards() -> list[LessonCard]:
+    intro_pairs = [
+        ("baby", "babies"),
+        ("child", "children"),
+        ("adult", "adults"),
+        ("brother", "brothers"),
+        ("sister", "sisters"),
+        ("father", "mother"),
+        ("parents", "grandparents"),
+        ("grandfather", "grandmother"),
+    ]
+
+    cards: list[LessonCard] = []
+    for first_id, second_id in intro_pairs:
+        for correct_id in (first_id, second_id):
+            option_ids = stable_shuffle([first_id, second_id], f"family-intro-{correct_id}")
+            cards.append(
+                LessonCard(
+                    prompt=FAMILY_PEOPLE[correct_id]["label"],
+                    stage="Family",
+                    correct_option_id=correct_id,
+                    options=[
+                        ChoiceOption(id=option_id, image_url=image_url(family_image(option_id)))
+                        for option_id in option_ids
+                    ],
+                )
+            )
+
+    return cards
+
+
+def family_vocabulary_challenge_cards() -> list[LessonCard]:
+    card_specs = [
+        ("baby", ["baby", "babies", "adult", "adults"]),
+        ("babies", ["babies", "baby", "adult", "adults"]),
+        ("child", ["child", "children", "adult", "adults"]),
+        ("children", ["children", "child", "adult", "adults"]),
+        ("adult", ["adult", "adults", "child", "children"]),
+        ("adults", ["adults", "adult", "child", "children"]),
+        ("brother", ["brother", "sister", "father", "mother"]),
+        ("brothers", ["brothers", "sisters", "parents", "grandparents"]),
+        ("sister", ["sister", "brother", "mother", "father"]),
+        ("sisters", ["sisters", "brothers", "parents", "grandparents"]),
+        ("father", ["father", "mother", "grandfather", "grandmother"]),
+        ("mother", ["mother", "father", "grandmother", "grandfather"]),
+        ("parents", ["parents", "grandparents", "children", "babies"]),
+        ("grandfather", ["grandfather", "grandmother", "father", "mother"]),
+        ("grandmother", ["grandmother", "grandfather", "mother", "father"]),
+        ("grandparents", ["grandparents", "parents", "children", "babies"]),
+    ]
+
+    cards: list[LessonCard] = []
+    for correct_id, option_ids in card_specs:
+        shuffled_options = stable_shuffle(option_ids, f"family-challenge-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt=FAMILY_PEOPLE[correct_id]["label"],
+                stage="Family Challenge",
+                correct_option_id=correct_id,
+                options=[
+                    ChoiceOption(id=option_id, image_url=image_url(family_image(option_id)))
+                    for option_id in shuffled_options
+                ],
+            )
+        )
+
+    return cards
+
+
+def family_sentence_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for correct_id, action in FAMILY_ACTIONS.items():
+        option_ids = stable_shuffle(
+            [correct_id, *action["distractors"]],
+            f"family-sentence-{correct_id}",
+        )
+        cards.append(
+            LessonCard(
+                prompt=action["prompt"],
+                stage=action["stage"],
+                correct_option_id=correct_id,
+                options=[
+                    ChoiceOption(
+                        id=option_id,
+                        image_url=image_url(FAMILY_ACTIONS[option_id]["image"]),
+                    )
+                    for option_id in option_ids
+                ],
+            )
+        )
+
+    return cards
+
+
 LESSON_1 = Lesson(
     id="lesson-1-people-actions",
     title="1.1 People and Actions",
@@ -644,9 +830,52 @@ LESSON_3 = Lesson(
     cards=pronunciation_focus_cards(),
 )
 
+LESSON_4 = Lesson(
+    id="lesson-4-family-members",
+    title="1.4 Family Members",
+    level="Beginner A1",
+    unit_id="unit-1",
+    unit_title="Unit 1: People, Actions, And Basic Sentences",
+    lesson_id="lesson-1",
+    lesson_title="Lesson 1: People and Pronouns",
+    sub_lesson_id="1.4",
+    sub_lesson_title="Family Members",
+    goal="Recognize close family members and a few natural family action sentences.",
+    vocabulary=[
+        "a",
+        "an",
+        "baby",
+        "babies",
+        "child",
+        "children",
+        "adult",
+        "adults",
+        "brother",
+        "brothers",
+        "sister",
+        "sisters",
+        "father",
+        "mother",
+        "parents",
+        "grandfather",
+        "grandmother",
+        "grandparents",
+        "playing",
+        "working",
+        "cooking",
+        "talking",
+        "studying",
+        "sleeping",
+        "reading",
+        "sitting",
+    ],
+    cards=[*family_vocabulary_cards(), *family_vocabulary_challenge_cards(), *family_sentence_cards()],
+)
+
 
 LESSONS = {
     LESSON_1.id: LESSON_1,
     LESSON_2.id: LESSON_2,
     LESSON_3.id: LESSON_3,
+    LESSON_4.id: LESSON_4,
 }

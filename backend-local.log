@@ -1,173 +1,93 @@
-INFO:     127.0.0.1:58196 - "GET /api/audio/health HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61075 - "GET /api/audio/course?text=Excellent&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:53867 - "OPTIONS /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:53867 - "GET /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58900 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58902 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58898 - "OPTIONS /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58898 - "GET /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63718 - "GET /api/lessons/lesson-3-pronunciation HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63718 - "OPTIONS /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63718 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63718 - "GET /api/audio/course?text=The+man+is+walking.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49324 - "GET /api/audio/course?text=The+man+is+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52593 - "GET /api/audio/course?text=The+girl+is+reading.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:62218 - "GET /api/audio/course?text=The+boy+is+reading.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49324 - "GET /api/audio/course?text=Good+job&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49324 - "GET /api/audio/course?text=Excellent&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52316 - "GET /api/audio/course?text=The+man+is+walking.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:62870 - "GET /api/audio/course?text=Great&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:62392 - "GET /api/audio/course?text=Awesome&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63718 - "GET /api/audio/course?text=Yay&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:62218 - "GET /api/audio/course?text=Nice+job&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52593 - "GET /api/audio/course?text=Keep+it+up&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49324 - "GET /api/audio/course?text=Try+again&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:62392 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:55011 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56341 - "GET /api/audio/course?text=The+man+is+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:55097 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56853 - "GET /api/audio/course?text=The+boy+is+reading.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:52232 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52234 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:64849 - "OPTIONS /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:64849 - "GET /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52045 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=The+boy&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:52045 - "OPTIONS /api/card-attempts HTTP/1.1" 200 OK
-INFO:     127.0.0.1:52045 - "POST /api/card-attempts HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=Keep+it+up&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=The+girl&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:52045 - "POST /api/card-attempts HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=Yay&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=The+man&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:52045 - "POST /api/card-attempts HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=Nice+job&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=The+woman&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:52045 - "POST /api/card-attempts HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=Awesome&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:52045 - "GET /api/audio/course?text=The+boy+is+sleeping.&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60025 - "GET /api/audio/course?text=The+boy+is+running.&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:51305 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:51307 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58745 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58747 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56461 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56463 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:64028 - "OPTIONS /api/users/by-name/Codex%20POC HTTP/1.1" 200 OK
-INFO:     127.0.0.1:64028 - "GET /api/users/by-name/Codex%20POC HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/lessons/lesson-3-pronunciation HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "OPTIONS /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=The+man+is+walking.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=The+man+is+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=The+boy+is+reading.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=The+girl+is+reading.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=The+girl+is+writing.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=The+boy+is+writing.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=They+are+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=The+boy+is+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=The+girl+is+sleeping.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=The+girl+is+sitting.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=The+girl&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=The+boy&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=They+are+eating.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=The+man+is+eating.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=Great&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=Awesome&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=Yay&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=Good+job&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=Keep+it+up&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=Nice+job&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61407 - "GET /api/audio/course?text=Excellent&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:49973 - "GET /api/audio/course?text=Try+again&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:64253 - "GET /lesson-assets/man_is_running.webp?v=20260701-pronouns-they HTTP/1.1" 200 OK
-INFO:     127.0.0.1:57836 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:57838 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:53231 - "OPTIONS /api/users/by-name/Codex%20POC HTTP/1.1" 200 OK
-INFO:     127.0.0.1:53231 - "GET /api/users/by-name/Codex%20POC HTTP/1.1" 200 OK
-INFO:     127.0.0.1:53231 - "GET /api/lessons/lesson-3-pronunciation HTTP/1.1" 200 OK
-INFO:     127.0.0.1:53231 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58399 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:58401 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59911 - "OPTIONS /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59911 - "GET /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "GET /api/lessons/lesson-3-pronunciation HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "OPTIONS /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "GET /api/audio/course?text=The+man+is+walking.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "GET /api/audio/course?text=The+man+is+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "GET /api/audio/course?text=The+boy+is+reading.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "GET /api/audio/course?text=Awesome&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "GET /api/audio/course?text=Yay&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "GET /api/audio/course?text=Keep+it+up&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59828 - "GET /api/audio/course?text=Nice+job&mode=feedback&lang=en-US&variant=feedback HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63383 - "GET /api/audio/course?text=The+man+is+walking.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:54075 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59309 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:57973 - "GET /api/audio/course?text=The+man+is+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:59157 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59157 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59157 - "GET /api/audio/course?text=The+boy&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59157 - "GET /api/audio/course?text=The+girl&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59157 - "GET /api/audio/course?text=The+man&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59157 - "GET /api/audio/course?text=The+woman&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59157 - "GET /api/audio/course?text=The+boy+is+running.&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61908 - "GET /api/audio/course?text=The+boy&mode=prompt&lang=en-US&variant=prompt HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:60895 - "GET /api/lessons/lesson-3-pronunciation HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60895 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:54605 - "GET /api/audio/course?text=The+man+is+walking.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:64100 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:50693 - "GET /api/audio/course?text=The+man+is+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:56814 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:56816 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60555 - "OPTIONS /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60555 - "GET /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60555 - "GET /api/lessons/lesson-3-pronunciation HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60555 - "OPTIONS /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:60555 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63396 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:64045 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:57299 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:57301 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:50284 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:50286 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63809 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63811 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63319 - "OPTIONS /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63319 - "GET /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63319 - "GET /api/lessons/lesson-3-pronunciation HTTP/1.1" 200 OK
-INFO:     127.0.0.1:63319 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:53243 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:65261 - "GET /api/lessons HTTP/1.1" 200 OK
-INFO:     127.0.0.1:65263 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59883 - "OPTIONS /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59883 - "GET /api/users/by-name/perro HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59883 - "GET /api/lessons/lesson-3-pronunciation HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59883 - "OPTIONS /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:59883 - "POST /api/sessions HTTP/1.1" 200 OK
-INFO:     127.0.0.1:55014 - "GET /api/audio/course?text=The+man+is+walking.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:65157 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:57789 - "GET /api/audio/course?text=The+man+is+running.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:49551 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61910 - "GET /api/audio/course?text=The+boy+is+reading.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:65053 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:57397 - "GET /api/audio/course?text=The+girl+is+reading.&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:52916 - "POST /api/pronunciation/score HTTP/1.1" 200 OK
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=The&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=girl&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=is&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=reading&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=The&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=girl&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=is&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=reading&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=The&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=girl&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=is&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:50258 - "GET /api/audio/course?text=reading&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:51405 - "GET /api/audio/course?text=The&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:51405 - "GET /api/audio/course?text=boy&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:51324 - "GET /api/audio/course?text=The&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:51324 - "GET /api/audio/course?text=girl&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:51324 - "GET /api/audio/course?text=is&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
-INFO:     127.0.0.1:51324 - "GET /api/audio/course?text=reading&mode=pronunciation_slow&lang=en-US&variant=split-ing HTTP/1.1" 206 Partial Content
+INFO:     127.0.0.1:63751 - "GET /api/lessons/lesson-4-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53926 - "GET /api/lessons/lesson-4-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52207 - "OPTIONS /api/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52207 - "POST /api/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65501 - "GET /lesson-assets/family_baby.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49779 - "GET /lesson-assets/family_babies.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53895 - "OPTIONS /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53895 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53895 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59336 - "GET /lesson-assets/family_children.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50063 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50063 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63254 - "GET /lesson-assets/family_adults.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58302 - "GET /lesson-assets/family_father.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50063 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50063 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49319 - "GET /lesson-assets/family_brothers.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50063 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50063 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65083 - "GET /lesson-assets/family_sisters.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50063 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50334 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59831 - "GET /lesson-assets/family_mother.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50334 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50334 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63483 - "GET /lesson-assets/family_grandparents.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51627 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50205 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52007 - "GET /lesson-assets/family_grandmother.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:52007 - "GET /lesson-assets/family_grandfather.webp?v=20260708-family-members HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50205 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50205 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51513 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51513 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51513 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51513 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61220 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53409 - "GET /api/lessons HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53411 - "GET /api/lessons/lesson-1-people-actions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64268 - "OPTIONS /api/users/by-name/perro HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64268 - "GET /api/users/by-name/perro HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64268 - "GET /api/lessons/lesson-4-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64268 - "POST /api/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64268 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64268 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64268 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64268 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64892 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58923 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58923 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58923 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58923 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58552 - "GET /lesson-assets/family_parents_talking.webp?v=20260708-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54222 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59773 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52860 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61134 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55059 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55059 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55059 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55059 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55059 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55059 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59095 - "GET /lesson-assets/family_mother_cooking.webp?v=20260708-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65266 - "GET /lesson-assets/family_baby_sleeping.webp?v=20260708-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56302 - "GET /lesson-assets/family_father_working.webp?v=20260708-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52194 - "GET /lesson-assets/family_children_playing.webp?v=20260708-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57477 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53952 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60478 - "GET /lesson-assets/boy_is_writing.webp?v=20260708-family-members HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55849 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62293 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49809 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64462 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52448 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59423 - "POST /api/card-attempts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59423 - "OPTIONS /api/sessions/9f6f69f8-3fe0-49cf-b780-21afe80a321f/finish HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59423 - "PATCH /api/sessions/9f6f69f8-3fe0-49cf-b780-21afe80a321f/finish HTTP/1.1" 200 OK
