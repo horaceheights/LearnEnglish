@@ -18,6 +18,14 @@ const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260710-family-1-5-long";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
+const DEFAULT_PROFILE = {
+  level: "new",
+  immediateGoal: "unsure",
+  learningMode: "natural_guided",
+  confidence: "trying",
+  sessionLength: "short",
+  challenge: [],
+};
 
 const COURSE_MENU_VISUALS = {
   units: {
@@ -594,6 +602,9 @@ function useSpeech() {
   const [voices, setVoices] = useState([]);
   const speechSequenceRef = useRef(0);
   const audioRef = useRef(null);
+  const courseAudioContextRef = useRef(null);
+  const courseAudioSourceRef = useRef(null);
+  const decodedCourseAudioRef = useRef(new Map());
   const speechTimersRef = useRef([]);
 
   useEffect(() => {
@@ -609,6 +620,53 @@ function useSpeech() {
     window.speechSynthesis.addEventListener("voiceschanged", loadVoices);
 
     return () => window.speechSynthesis.removeEventListener("voiceschanged", loadVoices);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    const unlockCourseAudio = () => {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) {
+        return;
+      }
+
+      if (!courseAudioContextRef.current) {
+        courseAudioContextRef.current = new AudioContextClass();
+      }
+
+      if (courseAudioContextRef.current.state === "suspended") {
+        courseAudioContextRef.current.resume().catch(() => {});
+      }
+    };
+
+    window.addEventListener("pointerdown", unlockCourseAudio, { passive: true });
+    window.addEventListener("touchstart", unlockCourseAudio, { passive: true });
+
+    return () => {
+      window.removeEventListener("pointerdown", unlockCourseAudio);
+      window.removeEventListener("touchstart", unlockCourseAudio);
+      if (courseAudioSourceRef.current) {
+        try {
+          courseAudioSourceRef.current.stop();
+        } catch (error) {
+          // The source may already be stopped.
+        }
+        try {
+          courseAudioSourceRef.current.disconnect();
+        } catch (error) {
+          // The source may already be disconnected.
+        }
+        courseAudioSourceRef.current = null;
+      }
+      if (courseAudioContextRef.current) {
+        courseAudioContextRef.current.close().catch(() => {});
+        courseAudioContextRef.current = null;
+      }
+      decodedCourseAudioRef.current.clear();
+    };
   }, []);
 
   const chooseVoice = useCallback(
@@ -652,6 +710,19 @@ function useSpeech() {
   }, []);
 
   const stopAudioPlayback = useCallback(() => {
+    if (courseAudioSourceRef.current) {
+      try {
+        courseAudioSourceRef.current.stop();
+      } catch (error) {
+        // The source may already be stopped.
+      }
+      try {
+        courseAudioSourceRef.current.disconnect();
+      } catch (error) {
+        // The source may already be disconnected.
+      }
+      courseAudioSourceRef.current = null;
+    }
     if (audioRef.current) {
       const objectUrl = audioRef.current.__objectUrl;
       audioRef.current.pause();
@@ -661,6 +732,43 @@ function useSpeech() {
       }
       audioRef.current = null;
     }
+  }, []);
+
+  const getCourseAudioContext = useCallback(async () => {
+    if (typeof window === "undefined") {
+      throw new Error("Audio playback is not available.");
+    }
+
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) {
+      throw new Error("Web Audio is not available.");
+    }
+
+    if (!courseAudioContextRef.current) {
+      courseAudioContextRef.current = new AudioContextClass();
+    }
+
+    if (courseAudioContextRef.current.state === "suspended") {
+      await courseAudioContextRef.current.resume();
+    }
+
+    return courseAudioContextRef.current;
+  }, []);
+
+  const decodeCourseAudio = useCallback(async (url, context) => {
+    const cachedAudio = decodedCourseAudioRef.current.get(url);
+    if (cachedAudio) {
+      return cachedAudio;
+    }
+
+    const response = await fetch(url, { cache: "force-cache" });
+    if (!response.ok) {
+      throw new Error(`Could not fetch course audio: ${response.status}`);
+    }
+    const arrayBuffer = await response.arrayBuffer();
+    const audioBuffer = await context.decodeAudioData(arrayBuffer.slice(0));
+    decodedCourseAudioRef.current.set(url, audioBuffer);
+    return audioBuffer;
   }, []);
 
   const speakWithBrowserVoice = useCallback((text, options = {}, sequenceId = null) => {
@@ -805,104 +913,159 @@ function useSpeech() {
         return;
       }
 
-      let objectUrl = null;
-      let settled = false;
-      let started = false;
-      let readyTimerId = null;
+      const playWithHtmlAudio = () => {
+        let objectUrl = null;
+        let settled = false;
+        let started = false;
+        let readyTimerId = null;
 
-      const cleanup = () => {
-        if (readyTimerId) {
-          window.clearTimeout(readyTimerId);
-          readyTimerId = null;
-        }
-      };
+        const cleanup = () => {
+          if (readyTimerId) {
+            window.clearTimeout(readyTimerId);
+            readyTimerId = null;
+          }
+        };
 
-      const finish = () => {
-        if (objectUrl) {
-          URL.revokeObjectURL(objectUrl);
-          objectUrl = null;
-          audio.__objectUrl = null;
-        }
-      };
+        const finish = () => {
+          if (objectUrl) {
+            URL.revokeObjectURL(objectUrl);
+            objectUrl = null;
+            audio.__objectUrl = null;
+          }
+        };
 
-      const audio = new Audio();
-      audio.preload = "auto";
-      audio.playsInline = true;
-      audioRef.current = audio;
-      audio.onended = () => {
-        cleanup();
-        finish();
-        if (speechSequenceRef.current === sequenceId && !settled) {
-          settled = true;
-          resolve();
-        }
-      };
-      audio.onerror = () => {
-        cleanup();
-        finish();
-        if (!settled) {
-          settled = true;
-          reject(new Error("Could not play course audio."));
-        }
-      };
+        const audio = new Audio();
+        audio.preload = "auto";
+        audio.playsInline = true;
+        audioRef.current = audio;
+        audio.onended = () => {
+          cleanup();
+          finish();
+          if (speechSequenceRef.current === sequenceId && !settled) {
+            settled = true;
+            resolve();
+          }
+        };
+        audio.onerror = () => {
+          cleanup();
+          finish();
+          if (!settled) {
+            settled = true;
+            reject(new Error("Could not play course audio."));
+          }
+        };
 
-      const startPlayback = () => {
-        if (started || speechSequenceRef.current !== sequenceId) {
-          return;
-        }
-        started = true;
-        cleanup();
-        try {
-          audio.currentTime = 0;
-        } catch (error) {
-          // Some mobile browsers disallow setting currentTime until metadata is fully ready.
-        }
-        audio.play()
-          .then(() => {
-            if (speechSequenceRef.current === sequenceId && typeof options.onStarted === "function") {
-              options.onStarted();
+        const startPlayback = () => {
+          if (started || speechSequenceRef.current !== sequenceId) {
+            return;
+          }
+          started = true;
+          cleanup();
+          try {
+            audio.currentTime = 0;
+          } catch (error) {
+            // Some mobile browsers disallow setting currentTime until metadata is fully ready.
+          }
+          audio.play()
+            .then(() => {
+              if (speechSequenceRef.current === sequenceId && typeof options.onStarted === "function") {
+                options.onStarted();
+              }
+            })
+            .catch((error) => {
+              finish();
+              if (!settled) {
+                settled = true;
+                reject(error);
+              }
+            });
+        };
+
+        audio.addEventListener("canplaythrough", startPlayback, { once: true });
+        audio.addEventListener("canplay", startPlayback, { once: true });
+
+        (async () => {
+          try {
+            const response = await fetch(url, { cache: "force-cache" });
+            if (!response.ok) {
+              throw new Error(`Could not fetch course audio: ${response.status}`);
             }
-          })
-          .catch((error) => {
-            finish();
-            if (!settled) {
-              settled = true;
-              reject(error);
+            const blob = await response.blob();
+            if (speechSequenceRef.current !== sequenceId) {
+              return;
             }
-          });
+            objectUrl = URL.createObjectURL(blob);
+            audio.__objectUrl = objectUrl;
+            audio.src = objectUrl;
+          } catch (error) {
+            if (speechSequenceRef.current !== sequenceId) {
+              return;
+            }
+            audio.src = url;
+          }
+          audio.load();
+          if (audio.readyState >= 3) {
+            startPlayback();
+          } else {
+            readyTimerId = window.setTimeout(startPlayback, 1800);
+          }
+        })();
       };
-
-      audio.addEventListener("canplaythrough", startPlayback, { once: true });
-      audio.addEventListener("canplay", startPlayback, { once: true });
 
       (async () => {
+        let settled = false;
         try {
-          const response = await fetch(url, { cache: "force-cache" });
-          if (!response.ok) {
-            throw new Error(`Could not fetch course audio: ${response.status}`);
-          }
-          const blob = await response.blob();
+          const context = await getCourseAudioContext();
+          const audioBuffer = await decodeCourseAudio(url, context);
           if (speechSequenceRef.current !== sequenceId) {
             return;
           }
-          objectUrl = URL.createObjectURL(blob);
-          audio.__objectUrl = objectUrl;
-          audio.src = objectUrl;
+
+          if (courseAudioSourceRef.current) {
+            try {
+              courseAudioSourceRef.current.stop();
+            } catch (error) {
+              // The source may already be stopped.
+            }
+            try {
+              courseAudioSourceRef.current.disconnect();
+            } catch (error) {
+              // The source may already be disconnected.
+            }
+            courseAudioSourceRef.current = null;
+          }
+
+          const source = context.createBufferSource();
+          source.buffer = audioBuffer;
+          source.connect(context.destination);
+          courseAudioSourceRef.current = source;
+          source.onended = () => {
+            if (courseAudioSourceRef.current === source) {
+              courseAudioSourceRef.current = null;
+            }
+            try {
+              source.disconnect();
+            } catch (error) {
+              // The source may already be disconnected.
+            }
+            if (speechSequenceRef.current === sequenceId && !settled) {
+              settled = true;
+              resolve();
+            }
+          };
+          source.start(0);
+          if (typeof options.onStarted === "function") {
+            options.onStarted();
+          }
         } catch (error) {
-          if (speechSequenceRef.current !== sequenceId) {
-            return;
+          console.info("Web Audio playback unavailable, falling back to HTML audio", error);
+          if (speechSequenceRef.current === sequenceId) {
+            playWithHtmlAudio();
           }
-          audio.src = url;
-        }
-        audio.load();
-        if (audio.readyState >= 3) {
-          startPlayback();
-        } else {
-          readyTimerId = window.setTimeout(startPlayback, 1800);
         }
       })();
     });
-  }, []);
+  }, [decodeCourseAudio, getCourseAudioContext]);
 
   return useCallback((text, options = {}) => {
     if (typeof window === "undefined") {
@@ -2635,8 +2798,18 @@ export default function LessonPlayer({ lesson, lessons }) {
     }
   };
 
-  const saveProfile = async () => {
-    let nextProfile = { ...draftProfile };
+  const saveProfile = async (profileToSave = draftProfile) => {
+    const displayName = String(profileToSave.displayName || loginName || "").trim();
+    if (!displayName) {
+      setProfileSaveError("Escribe tu nombre para continuar.");
+      return;
+    }
+
+    let nextProfile = {
+      ...DEFAULT_PROFILE,
+      ...profileToSave,
+      displayName,
+    };
     setProfileSaveError("");
     setIsSavingProfile(true);
 
@@ -2672,19 +2845,30 @@ export default function LessonPlayer({ lesson, lessons }) {
     setDraftProfile(profile || {});
     setProfile(null);
     setIsCreatingProfile(true);
-    setOnboardingStepIndex(0);
+    setOnboardingStepIndex(-1);
     setStarted(false);
     resetProgress();
   };
 
   const startNewUser = () => {
+    const name = loginName.trim();
     setProfile(null);
-    setDraftProfile({});
     setLoginError("");
+    setDraftProfile({
+      ...DEFAULT_PROFILE,
+      displayName: name,
+    });
     setIsCreatingProfile(true);
-    setOnboardingStepIndex(0);
+    setOnboardingStepIndex(-1);
     setStarted(false);
     resetProgress();
+
+    if (name) {
+      saveProfile({
+        ...DEFAULT_PROFILE,
+        displayName: name,
+      });
+    }
   };
 
   const loginExistingUser = async () => {
@@ -2958,221 +3142,84 @@ export default function LessonPlayer({ lesson, lessons }) {
   }
 
   if (!profile) {
+    const canCreateProfile = Boolean(String(draftProfile.displayName || "").trim());
+
     return (
       <div style={styles.page}>
-        <div style={{ maxWidth: "980px", margin: "0 auto", display: "grid", gap: "20px" }}>
+        <div style={{ maxWidth: "720px", margin: "0 auto", display: "grid", gap: "20px" }}>
           <section style={heroStyle}>
-            {onboardingStepIndex < 0 ? (
-              <>
-                <SpanGlishLogo compact={isMobile} />
-                <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
-                  Para hispanohablantes
-                </div>
-                <h1 style={sloganStyle}>Aprende ingles de forma natural</h1>
-                <p style={{ margin: "0 auto", maxWidth: 620, opacity: 0.95, lineHeight: 1.6 }}>
-                  Un metodo pensado para hispanohablantes. Empieza viendo, escuchando y repitiendo, igual que en la vida real.
-                </p>
-                <div style={{ maxWidth: 260, margin: "24px auto 0" }}>
-                  <button type="button" style={styles.primaryButton} onClick={() => setOnboardingStepIndex(0)}>
-                    Comenzar
-                  </button>
-                </div>
-              </>
-            ) : onboardingFinished ? (
-              <>
-                <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
-                  Tu camino esta listo
-                </div>
-                <h1 style={titleStyle}>Empezaremos contigo en mente</h1>
-                <p style={{ margin: "0 auto", maxWidth: 620, opacity: 0.95, lineHeight: 1.6 }}>
-                  {getRecommendation(draftProfile)}
-                </p>
-              </>
-            ) : (
-              <>
-                <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
-                  Perfil inicial
-                </div>
-                <div style={{ fontSize: 14, opacity: 0.88 }}>{onboardingProgress}</div>
-                {activeOnboardingStep.helperText ? (
-                  <div style={{ fontSize: 14, opacity: 0.88 }}>{activeOnboardingStep.helperText}</div>
-                ) : null}
-                <h1 style={titleStyle}>{activeOnboardingStep.title}</h1>
-              </>
-            )}
+            <SpanGlishLogo compact={isMobile} />
+            <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
+              Nuevo usuario
+            </div>
+            <h1 style={sloganStyle}>Crea tu perfil</h1>
+            <p style={{ margin: "0 auto", maxWidth: 560, opacity: 0.95, lineHeight: 1.6 }}>
+              Solo necesitamos tu nombre para empezar.
+            </p>
           </section>
 
           <section style={boardStyle}>
-            {onboardingStepIndex < 0 ? (
-              <div style={{ display: "grid", gap: "16px" }}>
-                <div style={{ color: "var(--muted)", lineHeight: 1.7 }}>
-                  Primero vamos a conocerte un poco para que la experiencia se sienta mas clara, mas natural y mas util para ti.
-                </div>
-                <div
+            <div style={{ display: "grid", gap: "18px" }}>
+              <label style={{ display: "grid", gap: "8px", fontWeight: 700 }}>
+                Nombre
+                <input
+                  type="text"
+                  value={draftProfile.displayName || ""}
+                  onChange={(event) => {
+                    setProfileSaveError("");
+                    setDraftProfile((current) => ({
+                      ...DEFAULT_PROFILE,
+                      ...current,
+                      displayName: event.target.value,
+                    }));
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" && canCreateProfile && !isSavingProfile) {
+                      saveProfile();
+                    }
+                  }}
+                  placeholder="Tu nombre"
+                  autoComplete="name"
+                  required
                   style={{
-                    borderRadius: "20px",
-                    background: "var(--surface-2)",
-                    padding: "18px 20px",
-                    color: "var(--muted)",
-                    lineHeight: 1.6,
+                    border: "1px solid var(--line)",
+                    borderRadius: "16px",
+                    padding: "14px 16px",
+                    font: "inherit",
+                    background: "#fff",
+                  }}
+                />
+              </label>
+              {profileSaveError ? (
+                <div style={{ color: "var(--red)", fontWeight: 700, lineHeight: 1.5 }}>
+                  {profileSaveError}
+                </div>
+              ) : null}
+              <div style={{ display: "grid", gap: "12px", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr" }}>
+                <button
+                  type="button"
+                  style={styles.subtleButton}
+                  onClick={() => {
+                    setIsCreatingProfile(false);
+                    setProfileSaveError("");
                   }}
                 >
-                  Este primer perfil nos ayudara a ajustar el ritmo, la ayuda disponible y la forma en que te iremos guiando.
-                </div>
-              </div>
-            ) : onboardingFinished ? (
-              <div style={{ display: "grid", gap: "18px" }}>
-                <label style={{ display: "grid", gap: "8px", fontWeight: 700 }}>
-                  Nombre para pruebas
-                  <input
-                    type="text"
-                    value={draftProfile.displayName || ""}
-                    onChange={(event) => {
-                      setProfileSaveError("");
-                      setDraftProfile((current) => ({
-                        ...current,
-                        displayName: event.target.value,
-                      }));
-                    }}
-                    placeholder="Tu nombre"
-                    required
-                    style={{
-                      border: "1px solid var(--line)",
-                      borderRadius: "16px",
-                      padding: "14px 16px",
-                      font: "inherit",
-                      background: "#fff",
-                    }}
-                  />
-                </label>
-                {!hasDraftProfileName ? (
-                  <div style={{ color: "var(--red)", fontWeight: 700 }}>
-                    Escribe tu nombre para continuar.
-                  </div>
-                ) : null}
-                {profileSaveError ? (
-                  <div style={{ color: "var(--red)", fontWeight: 700, lineHeight: 1.5 }}>
-                    {profileSaveError}
-                  </div>
-                ) : null}
-                <div style={{ display: "grid", gap: "12px", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr" }}>
-                  <button
-                    type="button"
-                    style={styles.subtleButton}
-                    onClick={() => setOnboardingStepIndex(ONBOARDING_STEPS.length - 1)}
-                  >
-                    Revisar
-                  </button>
-                  <button
-                    type="button"
-                    style={{
-                      ...styles.primaryButton,
-                      opacity: hasDraftProfileName && !isSavingProfile ? 1 : 0.55,
-                      cursor: hasDraftProfileName && !isSavingProfile ? "pointer" : "not-allowed",
-                    }}
-                    disabled={!hasDraftProfileName || isSavingProfile}
-                    onClick={saveProfile}
-                  >
-                    {isSavingProfile ? "Guardando..." : "Continuar a las lecciones"}
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div style={{ display: "grid", gap: "14px" }}>
-                {activeOnboardingStep.options.map((option) => (
-                  <button
-                    key={option.id}
-                    type="button"
-                    onClick={() => handleOnboardingChoice(option.id)}
-                    style={{
-                      textAlign: "left",
-                      border: "1px solid var(--line)",
-                      borderRadius: "20px",
-                      background: getStoredValueAsList(draftProfile[activeOnboardingStep.id]).includes(option.id)
-                        ? "rgba(47, 143, 98, 0.08)"
-                        : "#fff",
-                      padding: "18px 20px",
-                      cursor: "pointer",
-                      boxShadow: "0 12px 30px rgba(22, 33, 39, 0.06)",
-                    }}
-                  >
-                    <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
-                      {activeOnboardingStep.multiSelect ? (
-                        <div
-                          aria-hidden="true"
-                          style={{
-                            width: 22,
-                            height: 22,
-                            marginTop: 2,
-                            borderRadius: activeOnboardingStep.id === "challenge" ? "6px" : "999px",
-                            border: getStoredValueAsList(draftProfile[activeOnboardingStep.id]).includes(option.id)
-                              ? "2px solid var(--green)"
-                              : "2px solid var(--line)",
-                            background: getStoredValueAsList(draftProfile[activeOnboardingStep.id]).includes(option.id)
-                              ? "var(--green)"
-                              : "#fff",
-                            boxShadow: getStoredValueAsList(draftProfile[activeOnboardingStep.id]).includes(option.id)
-                              ? "inset 0 0 0 4px #fff"
-                              : "none",
-                            flexShrink: 0,
-                          }}
-                        />
-                      ) : null}
-                      <div>
-                        <div style={{ fontSize: 18, fontWeight: 700 }}>{option.label}</div>
-                        <div style={{ marginTop: 8, color: "var(--muted)", lineHeight: 1.5 }}>{option.hint}</div>
-                      </div>
-                    </div>
-                  </button>
-                ))}
-                <div
+                  Atras
+                </button>
+                <button
+                  type="button"
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    gap: "12px",
-                    marginTop: "8px",
-                    flexWrap: "wrap",
+                    ...styles.primaryButton,
+                    opacity: canCreateProfile && !isSavingProfile ? 1 : 0.55,
+                    cursor: canCreateProfile && !isSavingProfile ? "pointer" : "not-allowed",
                   }}
+                  disabled={!canCreateProfile || isSavingProfile}
+                  onClick={() => saveProfile()}
                 >
-                  <button
-                    type="button"
-                    style={{ ...styles.subtleButton, width: "auto", minWidth: "120px" }}
-                    onClick={() => {
-                      if (onboardingStepIndex <= 0) {
-                        setIsCreatingProfile(false);
-                        setOnboardingStepIndex(-1);
-                        return;
-                      }
-                      setOnboardingStepIndex((current) => current - 1);
-                    }}
-                  >
-                    Atras
-                  </button>
-                  {activeOnboardingStep.multiSelect ? (
-                    <button
-                      type="button"
-                      style={{
-                        ...styles.primaryButton,
-                        width: "auto",
-                        minWidth: "160px",
-                        opacity: canContinueOnboarding ? 1 : 0.55,
-                        cursor: canContinueOnboarding ? "pointer" : "not-allowed",
-                      }}
-                      disabled={!canContinueOnboarding}
-                      onClick={() => {
-                        if (onboardingStepIndex >= ONBOARDING_STEPS.length - 1) {
-                          setOnboardingStepIndex(ONBOARDING_STEPS.length);
-                        } else {
-                          setOnboardingStepIndex((current) => current + 1);
-                        }
-                      }}
-                    >
-                      Continuar
-                    </button>
-                  ) : null}
-                </div>
+                  {isSavingProfile ? "Guardando..." : "Continuar"}
+                </button>
               </div>
-            )}
+            </div>
           </section>
         </div>
       </div>
