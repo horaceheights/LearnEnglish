@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import random
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -7,6 +8,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .course_audio import audio_debug, get_course_audio
 from .data import LESSONS, LESSON_IMAGE_DIR
+from .schemas import Lesson, LessonCard
 from .speechace import close_speechace_client, score_pronunciation, speechace_configured, speechace_request_debug
 from .tracking import (
     CardAttemptCreate,
@@ -58,6 +60,60 @@ app.add_middleware(
 
 if LESSON_IMAGE_DIR.exists():
     app.mount("/lesson-assets", StaticFiles(directory=str(LESSON_IMAGE_DIR)), name="lesson-assets")
+
+
+def copy_model(model, update: dict):
+    if hasattr(model, "model_copy"):
+        return model.model_copy(update=update)
+    return model.copy(update=update)
+
+
+def balanced_correct_positions(cards: list[LessonCard], rng: random.Random) -> dict[int, int]:
+    card_groups: dict[int, list[int]] = {}
+    for card_index, card in enumerate(cards):
+        option_count = len(card.options)
+        if option_count > 1:
+            card_groups.setdefault(option_count, []).append(card_index)
+
+    positions: dict[int, int] = {}
+    for option_count, card_indices in card_groups.items():
+        target_positions = (list(range(option_count)) * ((len(card_indices) // option_count) + 1))[: len(card_indices)]
+        rng.shuffle(target_positions)
+        for card_index, target_position in zip(card_indices, target_positions):
+            positions[card_index] = target_position
+
+    return positions
+
+
+def shuffle_card_options(card: LessonCard, correct_position: int | None, rng: random.Random) -> LessonCard:
+    options = [*card.options]
+    if len(options) <= 1:
+        return card
+
+    correct_options = [option for option in options if option.id == card.correct_option_id]
+    if len(correct_options) != 1:
+        rng.shuffle(options)
+        return copy_model(card, {"options": options})
+
+    correct_option = correct_options[0]
+    distractors = [option for option in options if option.id != card.correct_option_id]
+    rng.shuffle(distractors)
+
+    target_position = correct_position if correct_position is not None else rng.randrange(len(options))
+    target_position = max(0, min(target_position, len(distractors)))
+    shuffled_options = [*distractors]
+    shuffled_options.insert(target_position, correct_option)
+    return copy_model(card, {"options": shuffled_options})
+
+
+def lesson_for_delivery(lesson: Lesson) -> Lesson:
+    rng = random.SystemRandom()
+    correct_positions = balanced_correct_positions(lesson.cards, rng)
+    cards = [
+        shuffle_card_options(card, correct_positions.get(card_index), rng)
+        for card_index, card in enumerate(lesson.cards)
+    ]
+    return copy_model(lesson, {"cards": cards})
 
 
 @app.get("/api/health")
@@ -131,7 +187,7 @@ def get_lesson(lesson_id: str):
     lesson = LESSONS.get(lesson_id)
     if lesson is None:
         raise HTTPException(status_code=404, detail="Lesson not found")
-    return lesson
+    return lesson_for_delivery(lesson)
 
 
 @app.post("/api/users")

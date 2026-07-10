@@ -36,6 +36,25 @@ def validate_duplicate_option_images() -> list[str]:
     return errors
 
 
+def validate_option_ids() -> list[str]:
+    errors: list[str] = []
+    for lesson in LESSONS.values():
+        for card_index, card in enumerate(lesson.cards, 1):
+            option_ids = [option.id for option in card.options]
+            if len(option_ids) != len(set(option_ids)):
+                errors.append(
+                    f"{lesson.id} card {card_index} ({card.prompt!r}) has duplicate option ids: {option_ids}."
+                )
+
+            correct_count = option_ids.count(card.correct_option_id)
+            if correct_count != 1:
+                errors.append(
+                    f"{lesson.id} card {card_index} ({card.prompt!r}) expected correct option "
+                    f"{card.correct_option_id!r} exactly once, found {correct_count}."
+                )
+    return errors
+
+
 def validate_family_adult_ambiguity() -> list[str]:
     errors: list[str] = []
     for lesson in LESSONS.values():
@@ -53,6 +72,7 @@ def validate_family_adult_ambiguity() -> list[str]:
 
 def main() -> int:
     errors = [
+        *validate_option_ids(),
         *validate_duplicate_option_images(),
         *validate_family_adult_ambiguity(),
     ]

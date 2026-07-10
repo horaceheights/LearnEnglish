@@ -15,7 +15,7 @@ import {
 } from "../lib/api";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
-const LESSON_IMAGE_VERSION = "20260708-family-members";
+const LESSON_IMAGE_VERSION = "20260710-family-1-5";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 
@@ -53,8 +53,13 @@ const COURSE_MENU_VISUALS = {
     },
     "lesson-4-family-members": {
       description: "Familia cercana: bebes, ninos, adultos, padres y abuelos.",
-      image: "family_grandparents.webp",
+      image: "family_all_members.webp",
       accent: "#ffe7bd",
+    },
+    "lesson-5-family-action-practice": {
+      description: "Mas practica con familia, adultos, ninos y acciones comunes.",
+      image: "family_adults_playing.webp",
+      accent: "#dff4ef",
     },
   },
 };
@@ -89,7 +94,7 @@ const styles = {
     gap: "20px",
   },
   cardButton: {
-    border: "3px solid #d9ded7",
+    border: "4px solid var(--text)",
     borderRadius: "24px",
     overflow: "hidden",
     background: "#fff",
@@ -176,10 +181,13 @@ function UserIcon() {
   );
 }
 
-function SpanGlishLogo({ compact = false }) {
+function SpanGlishLogo({ compact = false, onClick }) {
+  const Wrapper = onClick ? "button" : "div";
   return (
-    <div
+    <Wrapper
       aria-label="SpanGlish!"
+      type={onClick ? "button" : undefined}
+      onClick={onClick}
       style={{
         width: compact ? "212px" : "318px",
         maxWidth: "84vw",
@@ -195,6 +203,8 @@ function SpanGlishLogo({ compact = false }) {
         borderRadius: "54% 46% 55% 45% / 48% 56% 44% 52%",
         boxShadow: "0 12px 26px rgba(92, 61, 22, 0.16)",
         overflow: "hidden",
+        cursor: onClick ? "pointer" : undefined,
+        font: "inherit",
       }}
     >
       <span
@@ -232,14 +242,17 @@ function SpanGlishLogo({ compact = false }) {
           position: "relative",
         }}
       />
-    </div>
+    </Wrapper>
   );
 }
 
-function MiniSpanGlishLogo() {
+function MiniSpanGlishLogo({ onClick }) {
+  const Wrapper = onClick ? "button" : "div";
   return (
-    <div
+    <Wrapper
       aria-label="SpanGlish!"
+      type={onClick ? "button" : undefined}
+      onClick={onClick}
       style={{
         width: "116px",
         height: "42px",
@@ -252,10 +265,12 @@ function MiniSpanGlishLogo() {
         justifyContent: "center",
         padding: "5px 10px",
         overflow: "hidden",
+        cursor: onClick ? "pointer" : undefined,
+        font: "inherit",
       }}
     >
       <img src={SPANGLISH_LOGO_SRC} alt="" style={{ width: "100%", height: "auto", display: "block" }} />
-    </div>
+    </Wrapper>
   );
 }
 
@@ -1372,7 +1387,8 @@ export default function LessonPlayer({ lesson, lessons }) {
   const isRecognitionLesson =
     activeLesson.id === "lesson-1-people-actions" ||
     activeLesson.id === "lesson-2-pronouns" ||
-    activeLesson.id === "lesson-4-family-members";
+    activeLesson.id === "lesson-4-family-members" ||
+    activeLesson.id === "lesson-5-family-action-practice";
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationLesson ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =
@@ -1381,6 +1397,7 @@ export default function LessonPlayer({ lesson, lessons }) {
       : currentCard?.prompt || "";
   const isFourOptionCard = optionCount >= 4;
   const isThreeOptionCard = optionCount === 3;
+  const isSingleOptionCard = optionCount === 1;
   const onboardingFinished = onboardingStepIndex >= ONBOARDING_STEPS.length;
   const activeOnboardingStep =
     onboardingStepIndex >= 0 && onboardingStepIndex < ONBOARDING_STEPS.length
@@ -1465,7 +1482,14 @@ export default function LessonPlayer({ lesson, lessons }) {
   };
   const choiceGridStyle = {
     ...styles.choiceGrid,
-    gridTemplateColumns: isFourOptionCard ? "repeat(2, minmax(0, 1fr))" : isMobile ? "1fr" : styles.choiceGrid.gridTemplateColumns,
+    gridTemplateColumns: isSingleOptionCard
+      ? "minmax(0, 720px)"
+      : isFourOptionCard
+        ? "repeat(2, minmax(0, 1fr))"
+        : isMobile
+          ? "1fr"
+          : styles.choiceGrid.gridTemplateColumns,
+    justifyContent: isSingleOptionCard ? "center" : undefined,
     gap: isPronunciationLesson && isMobile ? "10px" : isFourOptionCard ? (isMobile ? "8px" : "12px") : styles.choiceGrid.gap,
   };
   const centeredThirdOptionStyle = {
@@ -1477,6 +1501,12 @@ export default function LessonPlayer({ lesson, lessons }) {
     ...styles.image,
     height: isPronunciationLesson && isMobile
       ? "min(25vh, 180px)"
+      : isSingleOptionCard
+        ? isMobile
+          ? "min(48vh, 320px)"
+          : isTablet
+            ? "400px"
+            : "460px"
       : isFourOptionCard
       ? isMobile
         ? "min(24vh, 150px)"

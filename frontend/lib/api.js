@@ -1,6 +1,7 @@
 import courseAudioManifest from "./courseAudioManifest.json";
 
 const API_BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
+const STATIC_ASSET_VERSION = process.env.NEXT_PUBLIC_STATIC_ASSET_VERSION || "20260710-family-five-kids";
 
 export function getApiBaseUrl() {
   if (typeof window !== "undefined") {
@@ -169,7 +170,7 @@ export function getCourseAudioUrl({ text, mode = "prompt", lang = "en-US", varia
   const manifestKey = [String(text || "").trim(), mode, lang, variant].join("\n");
   const staticAudioFile = courseAudioManifest[manifestKey];
   if (staticAudioFile) {
-    return `/audio-cache/${staticAudioFile}`;
+    return `/audio-cache/${staticAudioFile}?v=${encodeURIComponent(STATIC_ASSET_VERSION)}`;
   }
 
   const apiBaseUrl = getApiBaseUrl();

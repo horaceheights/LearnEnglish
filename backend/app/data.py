@@ -134,6 +134,7 @@ PAIR_IMAGE_NAMES = {
 }
 
 FAMILY_PEOPLE = {
+    "family": {"label": "A family", "image": "family_all_members.png"},
     "baby": {"label": "A baby", "image": "family_baby.png"},
     "babies": {"label": "Babies", "image": "family_babies.png"},
     "child": {"label": "A child", "image": "boy.png"},
@@ -146,7 +147,7 @@ FAMILY_PEOPLE = {
     "sisters": {"label": "Sisters", "image": "family_sisters.png"},
     "father": {"label": "A father", "image": "family_father.png"},
     "mother": {"label": "A mother", "image": "family_mother.png"},
-    "parents": {"label": "Parents", "image": "family_parents_talking.png"},
+    "parents": {"label": "Parents", "image": "family_parents.png"},
     "grandfather": {"label": "A grandfather", "image": "family_grandfather.png"},
     "grandmother": {"label": "A grandmother", "image": "family_grandmother.png"},
     "grandparents": {"label": "Grandparents", "image": "family_grandparents.png"},
@@ -168,7 +169,7 @@ FAMILY_ACTIONS = {
     "brother-studying": {
         "prompt": "A brother is studying.",
         "stage": "Family Sentences",
-        "image": "boy_is_writing.png",
+        "image": "family_brother_studying.png",
         "distractors": ["sister-reading", "children-playing", "father-working"],
     },
     "sister-reading": {
@@ -198,9 +199,40 @@ FAMILY_ACTIONS = {
     "grandparents-sitting": {
         "prompt": "Grandparents are sitting.",
         "stage": "Family Sentences",
-        "image": "family_grandparents.png",
+        "image": "family_grandparents_sitting.png",
         "distractors": ["parents-talking", "children-playing", "father-working"],
     },
+    "parents-adults": {
+        "prompt": "The parents are adults.",
+        "stage": "Family Sentences",
+        "image": "family_parents.png",
+        "distractors": ["children-playing", "baby-sleeping", "grandparents-sitting"],
+    },
+}
+
+FAMILY_PRACTICE_IMAGES = {
+    "family": "family_all_members.png",
+    "adult-man": "family_father.png",
+    "adult-woman": "family_mother.png",
+    "adult-pair": "family_adults.png",
+    "adults": "family_adults.png",
+    "child-boy": "boy.png",
+    "child-girl": "girl.png",
+    "children": "family_children.png",
+    "baby": "family_baby.png",
+    "babies": "family_babies.png",
+    "parents": "family_parents.png",
+    "grandparents": "family_grandparents.png",
+    "adults-playing": "family_adults_playing.png",
+    "grandparents-talking": "family_grandparents_talking.png",
+    "parents-talking": "family_parents_talking.png",
+    "grandparents-sitting": "family_grandparents_sitting.png",
+    "father-working": "family_father_working.png",
+    "mother-cooking": "family_mother_cooking.png",
+    "baby-sleeping": "family_baby_sleeping.png",
+    "children-playing": "family_children_playing.png",
+    "brother-studying": "family_brother_studying.png",
+    "sister-reading": "girl_is_reading.png",
 }
 
 
@@ -263,6 +295,10 @@ def pair_image(pair: tuple[str, str], action: str = "portrait") -> str:
 
 def family_image(person: str) -> str:
     return FAMILY_PEOPLE[person]["image"]
+
+
+def family_practice_image(option_id: str) -> str:
+    return FAMILY_PRACTICE_IMAGES[option_id]
 
 
 def noun_cards() -> list[LessonCard]:
@@ -677,6 +713,19 @@ def family_vocabulary_cards() -> list[LessonCard]:
     return cards
 
 
+def family_context_cards() -> list[LessonCard]:
+    return [
+        LessonCard(
+            prompt=FAMILY_PEOPLE["family"]["label"],
+            stage="Family",
+            correct_option_id="family",
+            options=[
+                ChoiceOption(id="family", image_url=image_url(family_image("family"))),
+            ],
+        )
+    ]
+
+
 def family_vocabulary_challenge_cards() -> list[LessonCard]:
     card_specs = [
         ("baby", ["baby", "babies", "adult", "adults"]),
@@ -734,6 +783,55 @@ def family_sentence_cards() -> list[LessonCard]:
                         image_url=image_url(FAMILY_ACTIONS[option_id]["image"]),
                     )
                     for option_id in option_ids
+                ],
+            )
+        )
+
+    return cards
+
+
+def family_action_practice_cards() -> list[LessonCard]:
+    card_specs = [
+        ("They are a family.", "family", ["family", "adults-playing", "children-playing", "baby-sleeping"]),
+        ("He is an adult.", "adult-man", ["adult-man", "child-boy", "baby", "children"]),
+        ("She is an adult.", "adult-woman", ["adult-woman", "child-girl", "baby", "children"]),
+        ("They are adults.", "adults", ["adults", "children", "babies", "family"]),
+        ("The boy is a child.", "child-boy", ["child-boy", "adult-man", "baby", "adults"]),
+        ("The girl is a child.", "child-girl", ["child-girl", "adult-woman", "baby", "adults"]),
+        ("They are children.", "children", ["children", "adult-pair", "baby", "babies"]),
+        ("They are parents.", "parents", ["parents", "grandparents", "children", "babies"]),
+        ("They are grandparents.", "grandparents", ["grandparents", "parents", "children", "babies"]),
+        ("The adults are playing.", "adults-playing", ["adults-playing", "parents-talking", "father-working", "mother-cooking"]),
+        (
+            "The grandparents are talking.",
+            "grandparents-talking",
+            ["grandparents-talking", "grandparents-sitting", "parents-talking", "children-playing"],
+        ),
+        ("The parents are talking.", "parents-talking", ["parents-talking", "grandparents-talking", "adults-playing", "children-playing"]),
+        (
+            "The grandparents are sitting.",
+            "grandparents-sitting",
+            ["grandparents-sitting", "grandparents-talking", "parents-talking", "children-playing"],
+        ),
+        ("The father is working.", "father-working", ["father-working", "mother-cooking", "adults-playing", "parents-talking"]),
+        ("The mother is cooking.", "mother-cooking", ["mother-cooking", "father-working", "parents-talking", "adults-playing"]),
+        ("The baby is sleeping.", "baby-sleeping", ["baby-sleeping", "children-playing", "adults-playing", "mother-cooking"]),
+        ("The children are playing.", "children-playing", ["children-playing", "adults-playing", "baby-sleeping", "parents-talking"]),
+        ("The brother is studying.", "brother-studying", ["brother-studying", "sister-reading", "children-playing", "father-working"]),
+        ("The sister is reading.", "sister-reading", ["sister-reading", "brother-studying", "mother-cooking", "children-playing"]),
+    ]
+
+    cards: list[LessonCard] = []
+    for prompt, correct_id, option_ids in card_specs:
+        shuffled_options = stable_shuffle(option_ids, f"family-action-practice-{prompt}")
+        cards.append(
+            LessonCard(
+                prompt=prompt,
+                stage="Family Action Practice",
+                correct_option_id=correct_id,
+                options=[
+                    ChoiceOption(id=option_id, image_url=image_url(family_practice_image(option_id)))
+                    for option_id in shuffled_options
                 ],
             )
         )
@@ -850,6 +948,7 @@ LESSON_4 = Lesson(
         "children",
         "adult",
         "adults",
+        "family",
         "brother",
         "brothers",
         "sister",
@@ -869,7 +968,50 @@ LESSON_4 = Lesson(
         "reading",
         "sitting",
     ],
-    cards=[*family_vocabulary_cards(), *family_vocabulary_challenge_cards(), *family_sentence_cards()],
+    cards=[*family_context_cards(), *family_vocabulary_cards(), *family_vocabulary_challenge_cards(), *family_sentence_cards()],
+)
+
+LESSON_5 = Lesson(
+    id="lesson-5-family-action-practice",
+    title="1.5 Family Action Practice",
+    level="Beginner A1",
+    unit_id="unit-1",
+    unit_title="Unit 1: People, Actions, And Basic Sentences",
+    lesson_id="lesson-1",
+    lesson_title="Lesson 1: People and Pronouns",
+    sub_lesson_id="1.5",
+    sub_lesson_title="Family Action Practice",
+    goal="Practice short family sentences with adult, child, children, and common family actions.",
+    vocabulary=[
+        "a",
+        "an",
+        "the",
+        "he",
+        "she",
+        "they",
+        "family",
+        "adult",
+        "adults",
+        "child",
+        "children",
+        "boy",
+        "girl",
+        "parents",
+        "grandparents",
+        "father",
+        "mother",
+        "brother",
+        "sister",
+        "playing",
+        "talking",
+        "sitting",
+        "working",
+        "cooking",
+        "sleeping",
+        "studying",
+        "reading",
+    ],
+    cards=family_action_practice_cards(),
 )
 
 
@@ -878,4 +1020,5 @@ LESSONS = {
     LESSON_2.id: LESSON_2,
     LESSON_3.id: LESSON_3,
     LESSON_4.id: LESSON_4,
+    LESSON_5.id: LESSON_5,
 }
