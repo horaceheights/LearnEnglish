@@ -15,7 +15,7 @@ import {
 } from "../lib/api";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
-const LESSON_IMAGE_VERSION = "20260710-family-1-5";
+const LESSON_IMAGE_VERSION = "20260710-family-1-5-long";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 
@@ -653,8 +653,12 @@ function useSpeech() {
 
   const stopAudioPlayback = useCallback(() => {
     if (audioRef.current) {
+      const objectUrl = audioRef.current.__objectUrl;
       audioRef.current.pause();
       audioRef.current.src = "";
+      if (objectUrl) {
+        URL.revokeObjectURL(objectUrl);
+      }
       audioRef.current = null;
     }
   }, []);
@@ -794,23 +798,109 @@ function useSpeech() {
     return elapsedMs;
   }, [scheduleSpeechTimer]);
 
-  const playAudioUrl = useCallback((url, sequenceId) => {
+  const playAudioUrl = useCallback((url, sequenceId, options = {}) => {
     return new Promise((resolve, reject) => {
       if (typeof window === "undefined") {
         reject(new Error("Audio playback is not available."));
         return;
       }
 
-      const audio = new Audio(url);
+      let objectUrl = null;
+      let settled = false;
+      let started = false;
+      let readyTimerId = null;
+
+      const cleanup = () => {
+        if (readyTimerId) {
+          window.clearTimeout(readyTimerId);
+          readyTimerId = null;
+        }
+      };
+
+      const finish = () => {
+        if (objectUrl) {
+          URL.revokeObjectURL(objectUrl);
+          objectUrl = null;
+          audio.__objectUrl = null;
+        }
+      };
+
+      const audio = new Audio();
       audio.preload = "auto";
+      audio.playsInline = true;
       audioRef.current = audio;
       audio.onended = () => {
-        if (speechSequenceRef.current === sequenceId) {
+        cleanup();
+        finish();
+        if (speechSequenceRef.current === sequenceId && !settled) {
+          settled = true;
           resolve();
         }
       };
-      audio.onerror = () => reject(new Error("Could not play course audio."));
-      audio.play().catch(reject);
+      audio.onerror = () => {
+        cleanup();
+        finish();
+        if (!settled) {
+          settled = true;
+          reject(new Error("Could not play course audio."));
+        }
+      };
+
+      const startPlayback = () => {
+        if (started || speechSequenceRef.current !== sequenceId) {
+          return;
+        }
+        started = true;
+        cleanup();
+        try {
+          audio.currentTime = 0;
+        } catch (error) {
+          // Some mobile browsers disallow setting currentTime until metadata is fully ready.
+        }
+        audio.play()
+          .then(() => {
+            if (speechSequenceRef.current === sequenceId && typeof options.onStarted === "function") {
+              options.onStarted();
+            }
+          })
+          .catch((error) => {
+            finish();
+            if (!settled) {
+              settled = true;
+              reject(error);
+            }
+          });
+      };
+
+      audio.addEventListener("canplaythrough", startPlayback, { once: true });
+      audio.addEventListener("canplay", startPlayback, { once: true });
+
+      (async () => {
+        try {
+          const response = await fetch(url, { cache: "force-cache" });
+          if (!response.ok) {
+            throw new Error(`Could not fetch course audio: ${response.status}`);
+          }
+          const blob = await response.blob();
+          if (speechSequenceRef.current !== sequenceId) {
+            return;
+          }
+          objectUrl = URL.createObjectURL(blob);
+          audio.__objectUrl = objectUrl;
+          audio.src = objectUrl;
+        } catch (error) {
+          if (speechSequenceRef.current !== sequenceId) {
+            return;
+          }
+          audio.src = url;
+        }
+        audio.load();
+        if (audio.readyState >= 3) {
+          startPlayback();
+        } else {
+          readyTimerId = window.setTimeout(startPlayback, 1800);
+        }
+      })();
     });
   }, []);
 
@@ -850,7 +940,13 @@ function useSpeech() {
       }));
       const shouldRepeatFull = Boolean(options.repeatFullAfter);
 
-      const slowHighlightMs = schedulePartHighlights(speechParts, options.onPartStart, sequenceId, options.rate && options.rate < 0.6 ? 1.2 : 1);
+      const slowHighlightMs = speechParts.reduce(
+        (total, part) =>
+          total +
+          Math.max(260, part.text.length * 150 * (options.rate && options.rate < 0.6 ? 1.2 : 1)) +
+          part.pauseAfterMs,
+        0
+      );
       const estimatedRepeatMs = shouldRepeatFull
         ? Math.max(1000, repeatWords.reduce((total, part) => total + part.text.length * 95 + part.pauseAfterMs, 0))
         : 0;
@@ -863,7 +959,15 @@ function useSpeech() {
 
       (async () => {
         try {
-          await playAudioUrl(slowUrl, sequenceId);
+          await playAudioUrl(slowUrl, sequenceId, {
+            onStarted: () =>
+              schedulePartHighlights(
+                speechParts,
+                options.onPartStart,
+                sequenceId,
+                options.rate && options.rate < 0.6 ? 1.2 : 1
+              ),
+          });
           if (speechSequenceRef.current !== sequenceId) {
             return;
           }
@@ -882,8 +986,9 @@ function useSpeech() {
             if (speechSequenceRef.current !== sequenceId) {
               return;
             }
-            schedulePartHighlights(repeatWords, options.onRepeatPartStart, sequenceId, 0.75);
-            await playAudioUrl(repeatUrl, sequenceId);
+            await playAudioUrl(repeatUrl, sequenceId, {
+              onStarted: () => schedulePartHighlights(repeatWords, options.onRepeatPartStart, sequenceId, 0.75),
+            });
           }
           if (speechSequenceRef.current === sequenceId && typeof options.onEnd === "function") {
             options.onEnd();
@@ -2025,6 +2130,11 @@ export default function LessonPlayer({ lesson, lessons }) {
     resetPronunciationPractice();
   };
 
+  const goToLessons = () => {
+    resetProgress();
+    setStarted(false);
+  };
+
   const resetPronunciationPractice = () => {
     setPronunciationStatus("Getting ready...");
     setIsPronunciationRecording(false);
@@ -3074,7 +3184,7 @@ export default function LessonPlayer({ lesson, lessons }) {
       <div style={styles.page}>
         <div style={{ maxWidth: "980px", margin: "0 auto", display: "grid", gap: "20px" }}>
           <section style={heroStyle}>
-            <SpanGlishLogo compact={isMobile} />
+            <SpanGlishLogo compact={isMobile} onClick={goToLessons} />
             <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
               Tu ruta
             </div>
@@ -3345,7 +3455,7 @@ export default function LessonPlayer({ lesson, lessons }) {
             ) : null}
             <section style={heroStyle}>
               <div style={{ display: "flex", justifyContent: "flex-start", marginBottom: isMobile ? 4 : 8 }}>
-                <MiniSpanGlishLogo />
+                <MiniSpanGlishLogo onClick={goToLessons} />
               </div>
               <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
                 Leccion terminada
@@ -3359,10 +3469,7 @@ export default function LessonPlayer({ lesson, lessons }) {
               <button
                 type="button"
                 style={styles.primaryButton}
-                onClick={() => {
-                  resetProgress();
-                  setStarted(false);
-                }}
+                onClick={goToLessons}
               >
                 Volver a las lecciones
               </button>
@@ -3386,7 +3493,7 @@ export default function LessonPlayer({ lesson, lessons }) {
                 gap: compactPracticeHeader ? "8px" : "12px",
               }}
             >
-              <MiniSpanGlishLogo />
+              <MiniSpanGlishLogo onClick={goToLessons} />
               {compactPracticeHeader ? (
                 <button
                   type="button"
@@ -3694,10 +3801,7 @@ export default function LessonPlayer({ lesson, lessons }) {
                 style={isMobile ? styles.iconOnlyButton : { ...styles.subtleButton, width: "auto", padding: "10px 14px" }}
                 aria-label="Volver a lecciones"
                 title="Volver a lecciones"
-                onClick={() => {
-                  resetProgress();
-                  setStarted(false);
-                }}
+                onClick={goToLessons}
               >
                 {isMobile ? <HomeIcon /> : "Lecciones"}
               </button>
