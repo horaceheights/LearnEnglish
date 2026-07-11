@@ -984,6 +984,13 @@ function useSpeech() {
         audio.addEventListener("canplaythrough", startPlayback, { once: true });
         audio.addEventListener("canplay", startPlayback, { once: true });
 
+        if (options.directUrl) {
+          audio.src = url;
+          audio.load();
+          startPlayback();
+          return;
+        }
+
         (async () => {
           try {
             const response = await fetch(url, { cache: "force-cache" });
@@ -1011,6 +1018,11 @@ function useSpeech() {
           }
         })();
       };
+
+      if (options.directUrl) {
+        playWithHtmlAudio();
+        return;
+      }
 
       (async () => {
         let settled = false;
@@ -1123,6 +1135,7 @@ function useSpeech() {
       (async () => {
         try {
           await playAudioUrl(slowUrl, sequenceId, {
+            directUrl: options.directCourseAudio,
             onStarted: () =>
               schedulePartHighlights(
                 speechParts,
@@ -1150,6 +1163,7 @@ function useSpeech() {
               return;
             }
             await playAudioUrl(repeatUrl, sequenceId, {
+              directUrl: options.directCourseAudio,
               onStarted: () => schedulePartHighlights(repeatWords, options.onRepeatPartStart, sequenceId, 0.75),
             });
           }
@@ -2469,7 +2483,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   }, [started]);
 
   useEffect(() => {
-    if (!isPronunciationLesson || !started || isComplete || !currentCard || lastResult === "correct") {
+    if (!isPronunciationLesson || isMobile || !started || isComplete || !currentCard || lastResult === "correct") {
       return undefined;
     }
 
@@ -2492,6 +2506,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     currentCard,
     isComplete,
     isPronunciationLesson,
+    isMobile,
     lastResult,
     started,
   ]);
@@ -2659,62 +2674,59 @@ export default function LessonPlayer({ lesson, lessons }) {
     pronunciationSilenceStartedAtRef.current = null;
     pronunciationShouldScoreRef.current = true;
 
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const recorder = new MediaRecorder(stream);
-      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContextClass) {
-        throw new Error("This browser cannot detect when speech ends.");
+    let listeningStarted = false;
+    const startListening = async () => {
+      if (listeningStarted) {
+        return;
       }
-      const audioContext = new AudioContextClass();
-      const source = audioContext.createMediaStreamSource(stream);
-      const analyser = audioContext.createAnalyser();
-      const samples = new Uint8Array(analyser.fftSize);
-      source.connect(analyser);
-
-      pronunciationStreamRef.current = stream;
-      pronunciationRecorderRef.current = recorder;
-      pronunciationAudioContextRef.current = audioContext;
-
-      recorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          pronunciationChunksRef.current.push(event.data);
-        }
-      };
-
-      recorder.onstop = () => {
-        const shouldScore = pronunciationShouldScoreRef.current;
-        clearPronunciationMonitoring();
-        stream.getTracks().forEach((track) => track.stop());
-        pronunciationStreamRef.current = null;
-        pronunciationRecorderRef.current = null;
-        setIsPronunciationRecording(false);
-
-        const audioBlob = new Blob(pronunciationChunksRef.current, {
-          type: recorder.mimeType || "audio/webm",
-        });
-        pronunciationChunksRef.current = [];
-
-        if (shouldScore) {
-          scorePronunciationBlob(audioBlob);
-        }
-      };
-
-      let listeningStarted = false;
-      const startListening = () => {
-        if (listeningStarted) {
-          return;
-        }
-        listeningStarted = true;
-        setModelSpeechPart(null);
-        if (pronunciationStartTimeoutRef.current) {
-          window.clearTimeout(pronunciationStartTimeoutRef.current);
-          pronunciationStartTimeoutRef.current = null;
-        }
+      listeningStarted = true;
+      setModelSpeechPart(null);
+      if (pronunciationStartTimeoutRef.current) {
+        window.clearTimeout(pronunciationStartTimeoutRef.current);
         pronunciationStartTimeoutRef.current = null;
-        if (recorder.state !== "inactive") {
-          return;
+      }
+
+      try {
+        setPronunciationStatus("Get ready...");
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const recorder = new MediaRecorder(stream);
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          throw new Error("This browser cannot detect when speech ends.");
         }
+        const audioContext = new AudioContextClass();
+        const source = audioContext.createMediaStreamSource(stream);
+        const analyser = audioContext.createAnalyser();
+        const samples = new Uint8Array(analyser.fftSize);
+        source.connect(analyser);
+
+        pronunciationStreamRef.current = stream;
+        pronunciationRecorderRef.current = recorder;
+        pronunciationAudioContextRef.current = audioContext;
+
+        recorder.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            pronunciationChunksRef.current.push(event.data);
+          }
+        };
+
+        recorder.onstop = () => {
+          const shouldScore = pronunciationShouldScoreRef.current;
+          clearPronunciationMonitoring();
+          stream.getTracks().forEach((track) => track.stop());
+          pronunciationStreamRef.current = null;
+          pronunciationRecorderRef.current = null;
+          setIsPronunciationRecording(false);
+
+          const audioBlob = new Blob(pronunciationChunksRef.current, {
+            type: recorder.mimeType || "audio/webm",
+          });
+          pronunciationChunksRef.current = [];
+
+          if (shouldScore) {
+            scorePronunciationBlob(audioBlob);
+          }
+        };
 
         playTone({ frequency: 740, frequency2: 988, durationMs: 220, type: "sine", type2: "triangle", volume: 0.85 });
         recorder.start();
@@ -2772,30 +2784,31 @@ export default function LessonPlayer({ lesson, lessons }) {
             stopPronunciationCapture({ shouldScore: true });
           }
         }, maxListenMs);
-      };
+      } catch (error) {
+        stopPronunciationCapture({ shouldScore: false });
+        setPronunciationError(error.message || "Could not start recording.");
+        setPronunciationStatus("Recording failed.");
+      }
+    };
 
-      const speechDelay = speakText(activePronunciationPrompt, {
-        voiceMode: "prompt",
-        wordByWord: true,
-        splitIngWords: true,
-        repeatFullAfter: false,
-        wordPauseMs: isRetry ? 300 : 220,
-        wordPartPauseMs: isRetry ? 180 : 140,
-        rate: isRetry ? 0.56 : 0.62,
-        pitch: isRetry ? 1.04 : undefined,
-        onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
-        onEnd: () => {
-          setModelSpeechPart(null);
-          window.setTimeout(startListening, isRetry ? 650 : 500);
-        },
-      });
-      const startDelay = Math.min(Math.max(speechDelay + 4500, 9000), 15000);
-      pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
-    } catch (error) {
-      stopPronunciationCapture({ shouldScore: false });
-      setPronunciationError(error.message || "Could not start recording.");
-      setPronunciationStatus("Recording failed.");
-    }
+    const speechDelay = speakText(activePronunciationPrompt, {
+      voiceMode: "prompt",
+      wordByWord: true,
+      splitIngWords: true,
+      repeatFullAfter: false,
+      directCourseAudio: isMobile,
+      wordPauseMs: isRetry ? 300 : 220,
+      wordPartPauseMs: isRetry ? 180 : 140,
+      rate: isRetry ? 0.56 : 0.62,
+      pitch: isRetry ? 1.04 : undefined,
+      onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
+      onEnd: () => {
+        setModelSpeechPart(null);
+        window.setTimeout(startListening, isRetry ? 650 : 500);
+      },
+    });
+    const startDelay = Math.min(Math.max(speechDelay + 4500, 9000), 15000);
+    pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
   };
 
   const saveProfile = async (profileToSave = draftProfile) => {
@@ -3742,6 +3755,29 @@ export default function LessonPlayer({ lesson, lessons }) {
                                 )
                               : renderEmptyPronunciationPhrase(optionPrompt, { interactive: true, optionId: option.id })}
                         </div>
+                        {isActivePronunciationOption && isMobile && !isPronunciationRecording && !isPronunciationScoring && !pronunciationResult ? (
+                          <button
+                            type="button"
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              setPronunciationError("");
+                              beginPronunciationRecording({ isRetry: pronunciationAttempt > 0 });
+                            }}
+                            style={{
+                              border: 0,
+                              borderRadius: "999px",
+                              background: "linear-gradient(135deg, var(--orange), #e96f42)",
+                              color: "#fff",
+                              padding: "10px 14px",
+                              fontWeight: 900,
+                              cursor: "pointer",
+                              justifySelf: "start",
+                              boxShadow: "0 8px 18px rgba(233, 111, 66, 0.2)",
+                            }}
+                          >
+                            Escuchar y repetir
+                          </button>
+                        ) : null}
                         {isActivePronunciationOption && pronunciationResult ? (
                           <div
                             style={{
