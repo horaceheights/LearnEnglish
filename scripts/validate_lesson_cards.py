@@ -26,6 +26,8 @@ def validate_duplicate_option_images() -> list[str]:
         for card_index, card in enumerate(lesson.cards, 1):
             seen: dict[str, str] = {}
             for option in card.options:
+                if not option.image_url:
+                    continue
                 previous_id = seen.get(option.image_url)
                 if previous_id:
                     errors.append(

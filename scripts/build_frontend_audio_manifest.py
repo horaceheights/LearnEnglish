@@ -59,6 +59,10 @@ def pronunciation_prompt_from_option(option_id: str) -> str:
     return f"The {person} is {action}." if has_action else f"The {person}"
 
 
+def option_practice_prompt(option) -> str:
+    return option.label or pronunciation_prompt_from_option(option.id)
+
+
 def words(text: str) -> list[str]:
     return re.findall(r"[A-Za-z']+", text or "")
 
@@ -67,17 +71,19 @@ def expected_audio_items() -> set[tuple[str, str, str, str]]:
     items: set[tuple[str, str, str, str]] = set()
     for lesson in LESSONS.values():
         for card in lesson.cards:
-            if card.prompt:
-                items.add((card.prompt, "prompt", "en-US", "prompt"))
-
-            if lesson.id == "lesson-3-pronunciation":
+            if card.stage == "Pronunciation Practice" or lesson.id == "lesson-3-pronunciation":
                 for option in card.options:
-                    prompt = pronunciation_prompt_from_option(option.id)
+                    prompt = option_practice_prompt(option)
                     if not prompt:
                         continue
                     items.add((prompt, "pronunciation_slow", "en-US", "split-ing"))
                     for word in words(prompt):
                         items.add((word, "pronunciation_slow", "en-US", "split-ing"))
+                continue
+
+            prompt = card.audio_text or card.prompt
+            if prompt:
+                items.add((prompt, "prompt", "en-US", "prompt"))
 
     for phrase in FEEDBACK_PHRASES:
         items.add((phrase, "feedback", "en-US", "feedback"))

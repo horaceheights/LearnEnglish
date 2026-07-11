@@ -15,7 +15,7 @@ import {
 } from "../lib/api";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
-const LESSON_IMAGE_VERSION = "20260710-family-1-5-long";
+const LESSON_IMAGE_VERSION = "20260710-objects-places-1-6";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 const DEFAULT_PROFILE = {
@@ -53,12 +53,6 @@ const COURSE_MENU_VISUALS = {
       image: "they_boy_girl.webp",
       accent: "#dff4ef",
     },
-    "lesson-3-pronunciation": {
-      description: "Practica corta para escuchar, repetir y mejorar.",
-      image: "woman_is_speaking.webp",
-      fallbackImage: "girl_is_reading.webp",
-      accent: "#f1e7ff",
-    },
     "lesson-4-family-members": {
       description: "Familia cercana: bebes, ninos, adultos, padres y abuelos.",
       image: "family_all_members.webp",
@@ -68,6 +62,11 @@ const COURSE_MENU_VISUALS = {
       description: "Mas practica con familia, adultos, ninos y acciones comunes.",
       image: "family_adults_playing.webp",
       accent: "#dff4ef",
+    },
+    "lesson-6-objects-places": {
+      description: "Objetos y lugares comunes para preparar colores, numeros y ubicaciones.",
+      image: "place_school.webp",
+      accent: "#ffe8c7",
     },
   },
 };
@@ -1370,7 +1369,23 @@ function findWeakestSyllable(wordScore) {
 function pronunciationPromptFromOption(optionId) {
   const parts = String(optionId || "").split("-");
   const action = parts[parts.length - 1];
-  const actionWords = ["running", "walking", "swimming", "eating", "drinking", "reading", "writing", "sleeping", "sitting", "standing"];
+  const actionWords = [
+    "running",
+    "walking",
+    "swimming",
+    "eating",
+    "drinking",
+    "reading",
+    "writing",
+    "sleeping",
+    "sitting",
+    "standing",
+    "playing",
+    "working",
+    "cooking",
+    "talking",
+    "studying",
+  ];
   const hasAction = actionWords.includes(action);
   const people = hasAction ? parts.slice(0, -1) : parts;
 
@@ -1388,6 +1403,10 @@ function pronunciationPromptFromOption(optionId) {
   }
 
   return `The ${person}`;
+}
+
+function optionPracticePrompt(option) {
+  return option?.label || pronunciationPromptFromOption(option?.id);
 }
 
 function pronunciationTokenColors(score) {
@@ -1665,17 +1684,19 @@ export default function LessonPlayer({ lesson, lessons }) {
 
   const currentCard = activeLesson.cards[cardIndex];
   const totalCards = activeLesson.cards.length;
-  const isPronunciationLesson = activeLesson.id === "lesson-3-pronunciation";
+  const isPronunciationCard =
+    activeLesson.id === "lesson-3-pronunciation" || currentCard?.stage === "Pronunciation Practice";
   const isRecognitionLesson =
     activeLesson.id === "lesson-1-people-actions" ||
     activeLesson.id === "lesson-2-pronouns" ||
     activeLesson.id === "lesson-4-family-members" ||
-    activeLesson.id === "lesson-5-family-action-practice";
+    activeLesson.id === "lesson-5-family-action-practice" ||
+    activeLesson.id === "lesson-6-objects-places";
   const optionCount = currentCard?.options.length || 2;
-  const activePronunciationOption = isPronunciationLesson ? currentCard?.options[activePronunciationOptionIndex] : null;
+  const activePronunciationOption = isPronunciationCard ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =
-    isPronunciationLesson && activePronunciationOption
-      ? pronunciationPromptFromOption(activePronunciationOption.id)
+    isPronunciationCard && activePronunciationOption
+      ? optionPracticePrompt(activePronunciationOption)
       : currentCard?.prompt || "";
   const isFourOptionCard = optionCount >= 4;
   const isThreeOptionCard = optionCount === 3;
@@ -1748,7 +1769,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     display: "grid",
     gap: isMobile ? "8px" : "20px",
   };
-  const compactPracticeHeader = isPronunciationLesson && (isMobile || isTablet);
+  const compactPracticeHeader = isPronunciationCard && (isMobile || isTablet);
   const heroStyle = {
     ...styles.hero,
     padding: compactPracticeHeader ? (isMobile ? "7px 10px" : "10px 18px") : isMobile ? "14px 18px" : "20px 30px 22px",
@@ -1759,7 +1780,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   };
   const boardStyle = {
     ...styles.board,
-    padding: isMobile ? (isPronunciationLesson ? "8px" : "12px") : styles.board.padding,
+    padding: isMobile ? (isPronunciationCard ? "8px" : "12px") : styles.board.padding,
     borderRadius: isMobile ? "18px" : styles.board.borderRadius,
   };
   const choiceGridStyle = {
@@ -1772,7 +1793,7 @@ export default function LessonPlayer({ lesson, lessons }) {
           ? "1fr"
           : styles.choiceGrid.gridTemplateColumns,
     justifyContent: isSingleOptionCard ? "center" : undefined,
-    gap: isPronunciationLesson && isMobile ? "10px" : isFourOptionCard ? (isMobile ? "8px" : "12px") : styles.choiceGrid.gap,
+    gap: isPronunciationCard && isMobile ? "10px" : isFourOptionCard ? (isMobile ? "8px" : "12px") : styles.choiceGrid.gap,
   };
   const centeredThirdOptionStyle = {
     gridColumn: "1 / -1",
@@ -1781,7 +1802,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   };
   const responsiveImageStyle = {
     ...styles.image,
-    height: isPronunciationLesson && isMobile
+    height: isPronunciationCard && isMobile
       ? "min(25vh, 180px)"
       : isSingleOptionCard
         ? isMobile
@@ -2399,7 +2420,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   }, [cardIndex, activeLesson.id]);
 
   useEffect(() => {
-    if (!isRecognitionLesson || !started || isComplete || !currentCard || lastResult !== null) {
+    if (!isRecognitionLesson || isPronunciationCard || !started || isComplete || !currentCard || lastResult !== null) {
       return undefined;
     }
 
@@ -2410,11 +2431,11 @@ export default function LessonPlayer({ lesson, lessons }) {
     spokenPromptKeyRef.current = promptKey;
 
     const timeoutId = window.setTimeout(() => {
-      speakText(currentCard.prompt, { voiceMode: "prompt" });
+      speakText(currentCard.audio_text || currentCard.prompt, { voiceMode: "prompt" });
     }, 120);
 
     return () => window.clearTimeout(timeoutId);
-  }, [activeLesson.id, cardIndex, currentCard, isComplete, isRecognitionLesson, lastResult, speakText, started]);
+  }, [activeLesson.id, cardIndex, currentCard, isComplete, isPronunciationCard, isRecognitionLesson, lastResult, speakText, started]);
 
   useEffect(() => {
     if (!started || isComplete || !activeLesson.cards?.length) {
@@ -2422,22 +2443,36 @@ export default function LessonPlayer({ lesson, lessons }) {
     }
 
     const cardsToPreload = activeLesson.cards.slice(cardIndex, cardIndex + COURSE_AUDIO_PRELOAD_AHEAD);
-    const audioItems = isPronunciationLesson
-      ? cardsToPreload.flatMap((card) =>
-          (card.options || []).map((option) => ({
-            text: pronunciationPromptFromOption(option.id),
-            mode: "pronunciation_slow",
-            variant: "split-ing",
-          }))
-        )
-      : cardsToPreload
-          .map((card) => card.prompt)
-          .filter(Boolean)
-          .map((prompt) => ({
-            text: prompt,
-            mode: "prompt",
-            variant: "prompt",
-          }));
+    const audioItems = cardsToPreload.flatMap((card) => {
+      if (card.stage === "Pronunciation Practice" || activeLesson.id === "lesson-3-pronunciation") {
+        return (card.options || []).flatMap((option) => {
+          const prompt = optionPracticePrompt(option);
+          const words = String(prompt || "").match(/[A-Za-z']+/g) || [];
+          return [
+            {
+              text: prompt,
+              mode: "pronunciation_slow",
+              variant: "split-ing",
+            },
+            ...words.map((word) => ({
+              text: word,
+              mode: "pronunciation_slow",
+              variant: "split-ing",
+            })),
+          ];
+        });
+      }
+
+      return card.prompt
+        ? [
+            {
+              text: card.audio_text || card.prompt,
+              mode: "prompt",
+              variant: "prompt",
+            },
+          ]
+        : [];
+    });
 
     const uniqueAudioItems = Array.from(
       new Map(audioItems.filter((item) => item.text).map((item) => [`${item.mode}|${item.variant}|${item.text}`, item])).values()
@@ -2458,7 +2493,7 @@ export default function LessonPlayer({ lesson, lessons }) {
         console.info("Could not preload course audio", item.text, error);
       });
     });
-  }, [activeLesson.cards, activeLesson.id, activePronunciationPrompt, cardIndex, isComplete, isPronunciationLesson, started]);
+  }, [activeLesson.cards, activeLesson.id, activePronunciationPrompt, cardIndex, isComplete, started]);
 
   useEffect(() => {
     if (!started) {
@@ -2483,7 +2518,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   }, [started]);
 
   useEffect(() => {
-    if (!isPronunciationLesson || isMobile || !started || isComplete || !currentCard || lastResult === "correct") {
+    if (!isPronunciationCard || isMobile || !started || isComplete || !currentCard || lastResult === "correct") {
       return undefined;
     }
 
@@ -2505,7 +2540,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     cardIndex,
     currentCard,
     isComplete,
-    isPronunciationLesson,
+    isPronunciationCard,
     isMobile,
     lastResult,
     started,
@@ -2513,7 +2548,7 @@ export default function LessonPlayer({ lesson, lessons }) {
 
   useEffect(() => {
     if (
-      !isPronunciationLesson ||
+      !isPronunciationCard ||
       !started ||
       isComplete ||
       !currentCard ||
@@ -2565,7 +2600,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     activePronunciationOptionIndex,
     currentCard,
     isComplete,
-    isPronunciationLesson,
+    isPronunciationCard,
     lastResult,
     playTone,
     pronunciationOutcome.accepted,
@@ -2576,7 +2611,7 @@ export default function LessonPlayer({ lesson, lessons }) {
 
   useEffect(() => {
     if (
-      !isPronunciationLesson ||
+      !isPronunciationCard ||
       !started ||
       isComplete ||
       !currentCard ||
@@ -2603,7 +2638,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     cardIndex,
     currentCard,
     isComplete,
-    isPronunciationLesson,
+    isPronunciationCard,
     lastResult,
     playTone,
     pronunciationAttempt,
@@ -2675,6 +2710,47 @@ export default function LessonPlayer({ lesson, lessons }) {
     pronunciationShouldScoreRef.current = true;
 
     let listeningStarted = false;
+    let spokenPartCount = 0;
+    const speechParts = buildPronunciationSpeechParts(activePronunciationPrompt, {
+      splitIngWords: true,
+      pauseMs: isRetry ? 300 : 220,
+      partPauseMs: isRetry ? 180 : 140,
+    });
+    const prepareCapture = async () => {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) {
+        throw new Error("This browser cannot detect when speech ends.");
+      }
+      const audioContext = new AudioContextClass();
+      if (audioContext.state === "suspended") {
+        await audioContext.resume().catch(() => {});
+      }
+      const source = audioContext.createMediaStreamSource(stream);
+      const analyser = audioContext.createAnalyser();
+      const samples = new Uint8Array(analyser.fftSize);
+      source.connect(analyser);
+
+      pronunciationStreamRef.current = stream;
+      pronunciationRecorderRef.current = recorder;
+      pronunciationAudioContextRef.current = audioContext;
+
+      return { stream, recorder, analyser, samples };
+    };
+    const captureReadyPromise = prepareCapture();
+    captureReadyPromise.catch(() => {
+      // The error is surfaced when startListening awaits the same promise.
+    });
+    const scheduleListeningStart = (delayMs) => {
+      if (listeningStarted) {
+        return;
+      }
+      if (pronunciationStartTimeoutRef.current) {
+        window.clearTimeout(pronunciationStartTimeoutRef.current);
+      }
+      pronunciationStartTimeoutRef.current = window.setTimeout(startListening, delayMs);
+    };
     const startListening = async () => {
       if (listeningStarted) {
         return;
@@ -2688,21 +2764,7 @@ export default function LessonPlayer({ lesson, lessons }) {
 
       try {
         setPronunciationStatus("Get ready...");
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        const recorder = new MediaRecorder(stream);
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) {
-          throw new Error("This browser cannot detect when speech ends.");
-        }
-        const audioContext = new AudioContextClass();
-        const source = audioContext.createMediaStreamSource(stream);
-        const analyser = audioContext.createAnalyser();
-        const samples = new Uint8Array(analyser.fftSize);
-        source.connect(analyser);
-
-        pronunciationStreamRef.current = stream;
-        pronunciationRecorderRef.current = recorder;
-        pronunciationAudioContextRef.current = audioContext;
+        const { stream, recorder, analyser, samples } = await captureReadyPromise;
 
         recorder.ondataavailable = (event) => {
           if (event.data.size > 0) {
@@ -2801,13 +2863,20 @@ export default function LessonPlayer({ lesson, lessons }) {
       wordPartPauseMs: isRetry ? 180 : 140,
       rate: isRetry ? 0.56 : 0.62,
       pitch: isRetry ? 1.04 : undefined,
-      onPartStart: (part) => setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id }),
+      onPartStart: (part) => {
+        setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id });
+        spokenPartCount += 1;
+        if (spokenPartCount >= speechParts.length) {
+          const finalPartMs = Math.min(Math.max(part.text.length * 170, 620), 1350);
+          scheduleListeningStart(isRetry ? finalPartMs + 180 : finalPartMs);
+        }
+      },
       onEnd: () => {
         setModelSpeechPart(null);
-        window.setTimeout(startListening, isRetry ? 650 : 500);
+        scheduleListeningStart(isRetry ? 180 : 80);
       },
     });
-    const startDelay = Math.min(Math.max(speechDelay + 4500, 9000), 15000);
+    const startDelay = Math.min(Math.max(speechDelay + 1200, 3800), 8000);
     pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
   };
 
@@ -3612,9 +3681,9 @@ export default function LessonPlayer({ lesson, lessons }) {
               <button
                 type="button"
                 onClick={() =>
-                  isPronunciationLesson
+                  isPronunciationCard
                     ? playPronunciationModel(activePronunciationPrompt)
-                    : speakText(currentCard.prompt, { voiceMode: "prompt" })
+                    : speakText(currentCard.audio_text || currentCard.prompt, { voiceMode: "prompt" })
                 }
                 style={{
                   border: 0,
@@ -3625,9 +3694,23 @@ export default function LessonPlayer({ lesson, lessons }) {
                   cursor: "pointer",
                   width: "100%",
                 }}
-                aria-label={`Play pronunciation for ${isPronunciationLesson ? activePronunciationPrompt : currentCard.prompt}`}
+                aria-label={`Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : currentCard.prompt}`}
               >
-                <h1 style={titleStyle}>{isPronunciationLesson ? "Pronunciation Practice" : currentCard.prompt}</h1>
+                {currentCard.stage ? (
+                  <div
+                    style={{
+                      marginTop: isMobile ? 4 : 6,
+                      fontSize: isMobile ? 11 : 12,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "var(--muted)",
+                      fontWeight: 800,
+                    }}
+                  >
+                    {currentCard.stage}
+                  </div>
+                ) : null}
+                <h1 style={titleStyle}>{isPronunciationCard ? "Pronunciation Practice" : currentCard.prompt}</h1>
               </button>
             ) : null}
           </section>
@@ -3635,16 +3718,18 @@ export default function LessonPlayer({ lesson, lessons }) {
           <section style={boardStyle}>
             <div style={choiceGridStyle}>
               {currentCard.options.map((option, optionIndex) => {
-                const optionPrompt = pronunciationPromptFromOption(option.id);
+                const optionPrompt = optionPracticePrompt(option);
+                const optionLabel = option.label || optionPrompt || option.id;
+                const hasOptionImage = Boolean(option.image_url);
                 const isActivePronunciationOption =
-                  isPronunciationLesson && optionIndex === activePronunciationOptionIndex && lastResult !== "correct";
+                  isPronunciationCard && optionIndex === activePronunciationOptionIndex && lastResult !== "correct";
                 const isCompletedPronunciationOption =
-                  isPronunciationLesson && completedPronunciationOptions.includes(option.id);
-                const completedPronunciationResult = isPronunciationLesson ? completedPronunciationResults[option.id] : null;
+                  isPronunciationCard && completedPronunciationOptions.includes(option.id);
+                const completedPronunciationResult = isPronunciationCard ? completedPronunciationResults[option.id] : null;
                 const completedPronunciationSummary = completedPronunciationResult
                   ? summarizePronunciationScore(completedPronunciationResult)
                   : null;
-                const pronunciationCardStyle = isPronunciationLesson
+                const pronunciationCardStyle = isPronunciationCard
                   ? {
                       cursor: "default",
                       border: isActivePronunciationOption
@@ -3659,18 +3744,18 @@ export default function LessonPlayer({ lesson, lessons }) {
                           : styles.cardButton.boxShadow,
                     }
                   : {};
-                const CardTag = isPronunciationLesson ? "div" : "button";
+                const CardTag = isPronunciationCard ? "div" : "button";
 
                 return (
                   <CardTag
                     key={option.id}
-                    {...(isPronunciationLesson ? { role: "group" } : { type: "button" })}
+                    {...(isPronunciationCard ? { role: "group" } : { type: "button" })}
                     style={{
                       ...cardStyleFor(option.id),
                       ...pronunciationCardStyle,
                       ...(isThreeOptionCard && !isMobile && optionIndex === 2 ? centeredThirdOptionStyle : {}),
                       borderRadius: isMobile ? "18px" : styles.cardButton.borderRadius,
-                      padding: isPronunciationLesson
+                      padding: isPronunciationCard
                         ? isMobile
                           ? "8px"
                           : "10px"
@@ -3682,10 +3767,10 @@ export default function LessonPlayer({ lesson, lessons }) {
                             ? "6px"
                             : styles.cardButton.padding,
                     }}
-                    onClick={isPronunciationLesson ? undefined : () => handleChoice(option.id)}
-                    {...(!isPronunciationLesson ? { disabled: lastResult === "correct" } : {})}
+                    onClick={isPronunciationCard ? undefined : () => handleChoice(option.id)}
+                    {...(!isPronunciationCard ? { disabled: lastResult === "correct" } : {})}
                   >
-                    {isPronunciationLesson ? (
+                    {isPronunciationCard ? (
                       <div
                         style={{
                           border: "1px solid var(--line)",
@@ -3833,7 +3918,28 @@ export default function LessonPlayer({ lesson, lessons }) {
                         ) : null}
                       </div>
                     ) : null}
-                    <img src={lessonImageSrc(option.image_url)} alt={optionPrompt || option.id} style={responsiveImageStyle} />
+                    {hasOptionImage ? (
+                      <img src={lessonImageSrc(option.image_url)} alt={optionLabel} style={responsiveImageStyle} />
+                    ) : (
+                      <div
+                        style={{
+                          minHeight: isMobile ? 116 : 172,
+                          display: "grid",
+                          placeItems: "center",
+                          borderRadius: isMobile ? "14px" : "18px",
+                          background: "linear-gradient(135deg, #fffdf9, #fff4df)",
+                          border: "1px solid rgba(218, 178, 119, 0.56)",
+                          color: "var(--text)",
+                          fontSize: isMobile ? 26 : 38,
+                          fontWeight: 900,
+                          lineHeight: 1.12,
+                          textAlign: "center",
+                          padding: isMobile ? "18px 14px" : "28px 20px",
+                        }}
+                      >
+                        {optionLabel}
+                      </div>
+                    )}
                   </CardTag>
                 );
               })}

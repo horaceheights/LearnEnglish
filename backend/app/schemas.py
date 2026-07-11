@@ -3,7 +3,8 @@ from pydantic import BaseModel
 
 class ChoiceOption(BaseModel):
     id: str
-    image_url: str
+    image_url: str = ""
+    label: str | None = None
 
 
 class LessonCard(BaseModel):
@@ -11,6 +12,7 @@ class LessonCard(BaseModel):
     stage: str
     correct_option_id: str
     options: list[ChoiceOption]
+    audio_text: str | None = None
 
 
 class Lesson(BaseModel):

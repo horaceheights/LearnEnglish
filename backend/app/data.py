@@ -246,6 +246,36 @@ FAMILY_PRACTICE_IMAGES = {
     "sister-reading": "girl_is_reading.png",
 }
 
+OBJECTS_AND_PLACES = {
+    "book": {"label": "A book", "image": "object_book.png", "kind": "object"},
+    "pencil": {"label": "A pencil", "image": "object_pencil.png", "kind": "object"},
+    "notebook": {"label": "A notebook", "image": "object_notebook.png", "kind": "object"},
+    "backpack": {"label": "A backpack", "image": "object_backpack.png", "kind": "object"},
+    "car": {"label": "A car", "image": "object_car.png", "kind": "object"},
+    "bike": {"label": "A bike", "image": "object_bike.png", "kind": "object"},
+    "house": {"label": "A house", "image": "place_house.png", "kind": "place"},
+    "park": {"label": "A park", "image": "place_park.png", "kind": "place"},
+    "street": {"label": "A street", "image": "place_street.png", "kind": "place"},
+    "bridge": {"label": "A bridge", "image": "place_bridge.png", "kind": "place"},
+    "school": {"label": "A school", "image": "place_school.png", "kind": "place"},
+    "classroom": {"label": "A classroom", "image": "place_classroom.png", "kind": "place"},
+}
+
+OBJECT_PLACE_INTRO_PAIRS = [
+    ("book", "pencil"),
+    ("notebook", "backpack"),
+    ("car", "bike"),
+    ("house", "school"),
+    ("park", "street"),
+    ("bridge", "classroom"),
+]
+
+OBJECT_PLACE_CHALLENGE_GROUPS = [
+    ["book", "pencil", "notebook", "backpack"],
+    ["car", "bike", "street", "bridge"],
+    ["house", "school", "park", "classroom"],
+]
+
 
 def stable_shuffle(items: list[str], seed: str) -> list[str]:
     shuffled = [*items]
@@ -310,6 +340,22 @@ def family_image(person: str) -> str:
 
 def family_practice_image(option_id: str) -> str:
     return FAMILY_PRACTICE_IMAGES[option_id]
+
+
+def object_place_image(option_id: str) -> str:
+    return OBJECTS_AND_PLACES[option_id]["image"]
+
+
+def object_place_choice(option_id: str, label: str | None = None) -> ChoiceOption:
+    return ChoiceOption(
+        id=option_id,
+        image_url=image_url(object_place_image(option_id)),
+        label=label or OBJECTS_AND_PLACES[option_id]["label"],
+    )
+
+
+def text_choice(option_id: str, label: str) -> ChoiceOption:
+    return ChoiceOption(id=option_id, label=label)
 
 
 def noun_cards() -> list[LessonCard]:
@@ -861,6 +907,143 @@ def family_action_practice_cards() -> list[LessonCard]:
     return cards
 
 
+def object_place_cards() -> list[LessonCard]:
+    return [
+        *object_place_new_word_cards(),
+        *object_place_recognition_cards(),
+        *object_place_sentence_meaning_cards(),
+        *object_place_pronunciation_cards(),
+        *object_place_grammar_cards(),
+    ]
+
+
+def object_place_new_word_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for option_id, item in OBJECTS_AND_PLACES.items():
+        cards.append(
+            LessonCard(
+                prompt=item["label"],
+                stage="New Words",
+                correct_option_id=option_id,
+                options=[object_place_choice(option_id)],
+            )
+        )
+
+    return cards
+
+
+def object_place_recognition_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for first_id, second_id in OBJECT_PLACE_INTRO_PAIRS:
+        for correct_id in (first_id, second_id):
+            option_ids = stable_shuffle([first_id, second_id], f"object-place-intro-{correct_id}")
+            cards.append(
+                LessonCard(
+                    prompt=OBJECTS_AND_PLACES[correct_id]["label"],
+                    stage="Recognition Practice",
+                    correct_option_id=correct_id,
+                    options=[
+                        object_place_choice(option_id)
+                        for option_id in option_ids
+                    ],
+                )
+            )
+
+    for group_index, group in enumerate(OBJECT_PLACE_CHALLENGE_GROUPS, 1):
+        for correct_id in group:
+            option_ids = stable_shuffle(group, f"object-place-challenge-{group_index}-{correct_id}")
+            cards.append(
+                LessonCard(
+                    prompt=OBJECTS_AND_PLACES[correct_id]["label"],
+                    stage="Recognition Practice",
+                    correct_option_id=correct_id,
+                    options=[
+                        object_place_choice(option_id)
+                        for option_id in option_ids
+                    ],
+                )
+            )
+
+    return cards
+
+
+def object_place_sentence_meaning_cards() -> list[LessonCard]:
+    sentence_specs = [
+        ("This is a book.", "book", ["book", "pencil", "notebook", "backpack"]),
+        ("This is a pencil.", "pencil", ["pencil", "book", "bike", "street"]),
+        ("This is a notebook.", "notebook", ["notebook", "book", "classroom", "bridge"]),
+        ("This is a backpack.", "backpack", ["backpack", "notebook", "house", "school"]),
+        ("This is a car.", "car", ["car", "bike", "street", "bridge"]),
+        ("This is a bike.", "bike", ["bike", "car", "pencil", "park"]),
+        ("This is a house.", "house", ["house", "school", "classroom", "bridge"]),
+        ("This is a park.", "park", ["park", "street", "house", "classroom"]),
+        ("This is a street.", "street", ["street", "park", "car", "bridge"]),
+        ("This is a bridge.", "bridge", ["bridge", "street", "bike", "school"]),
+        ("This is a school.", "school", ["school", "house", "classroom", "notebook"]),
+        ("This is a classroom.", "classroom", ["classroom", "school", "book", "backpack"]),
+    ]
+
+    cards: list[LessonCard] = []
+    for prompt, correct_id, option_ids in sentence_specs:
+        shuffled_options = stable_shuffle(option_ids, f"object-place-sentence-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt=prompt,
+                stage="Sentence Meaning",
+                correct_option_id=correct_id,
+                options=[object_place_choice(option_id) for option_id in shuffled_options],
+            )
+        )
+
+    return cards
+
+
+def object_place_pronunciation_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for first_id, second_id in OBJECT_PLACE_INTRO_PAIRS:
+        cards.append(
+            LessonCard(
+                prompt="Listen and repeat.",
+                stage="Pronunciation Practice",
+                correct_option_id=first_id,
+                options=[
+                    object_place_choice(first_id, OBJECTS_AND_PLACES[first_id]["label"]),
+                    object_place_choice(second_id, OBJECTS_AND_PLACES[second_id]["label"]),
+                ],
+            )
+        )
+
+    return cards
+
+
+def object_place_grammar_cards() -> list[LessonCard]:
+    grammar_specs = [
+        ("book", "a-book", [("a-book", "a book"), ("an-book", "an book")]),
+        ("object", "an-object", [("a-object", "a object"), ("an-object", "an object")]),
+        ("place", "a-place", [("a-place", "a place"), ("an-place", "an place")]),
+        ("school", "a-school", [("a-school", "a school"), ("an-school", "an school")]),
+        ("classroom", "a-classroom", [("a-classroom", "a classroom"), ("an-classroom", "an classroom")]),
+        ("street", "a-street", [("a-street", "a street"), ("an-street", "an street")]),
+    ]
+
+    cards: list[LessonCard] = []
+    for prompt, correct_id, options in grammar_specs:
+        shuffled_options = stable_shuffle(options, f"object-place-grammar-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt=prompt,
+                stage="Grammar Practice",
+                correct_option_id=correct_id,
+                options=[text_choice(option_id, label) for option_id, label in shuffled_options],
+            )
+        )
+
+    return cards
+
+
 LESSON_1 = Lesson(
     id="lesson-1-people-actions",
     title="1.1 People and Actions",
@@ -1036,11 +1219,45 @@ LESSON_5 = Lesson(
     cards=family_action_practice_cards(),
 )
 
+LESSON_6 = Lesson(
+    id="lesson-6-objects-places",
+    title="1.6 Objects and Places",
+    level="Beginner A1",
+    unit_id="unit-1",
+    unit_title="Unit 1: People, Actions, And Basic Sentences",
+    lesson_id="lesson-1",
+    lesson_title="Lesson 1: People and Pronouns",
+    sub_lesson_id="1.6",
+    sub_lesson_title="Objects and Places",
+    goal="Recognize common objects and places before adding colors, numbers, and location phrases.",
+    vocabulary=[
+        "a",
+        "an",
+        "this",
+        "is",
+        "object",
+        "place",
+        "book",
+        "pencil",
+        "notebook",
+        "backpack",
+        "car",
+        "bike",
+        "house",
+        "park",
+        "street",
+        "bridge",
+        "school",
+        "classroom",
+    ],
+    cards=object_place_cards(),
+)
+
 
 LESSONS = {
     LESSON_1.id: LESSON_1,
     LESSON_2.id: LESSON_2,
-    LESSON_3.id: LESSON_3,
     LESSON_4.id: LESSON_4,
     LESSON_5.id: LESSON_5,
+    LESSON_6.id: LESSON_6,
 }
