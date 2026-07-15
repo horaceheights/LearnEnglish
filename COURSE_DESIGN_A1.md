@@ -220,29 +220,25 @@ Unit 1 currently starts with:
 
 - `1.1 People and Actions`
 - `1.2 He, She, and They`
-- `1.3 Pronunciation Practice`
+- `1.3 Family Members`
+- `1.4 Family Action Practice`
+- `1.5 Places Around Me`
 
-Sub-lesson `1.3 Pronunciation Practice` should stay short. It reuses existing people/action/pronoun images and focuses on saying high-frequency words and sentences clearly, not on adding new vocabulary.
-
-Use a compact set such as:
-
-- people words: `The boy`, `The girl`, `The man`, `The woman`
-- pronoun sentences: `He is reading.`, `She is writing.`, `They are running.`, `They are eating.`
-- action sentences: `The boy is drinking.`, `The girl is sleeping.`, `The man is walking.`, `The woman is swimming.`
+Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
 
 ## Next Build Recommendation
 
-Build Unit 1 sub-lesson `1.4 More People`.
+Continue Unit 1 after `1.5 Places Around Me` with short lessons that follow the standard section mix:
 
-Use:
-
-- people: `teacher`, `student`, `mother`, `father`
-- actions: `reading`, `writing`, `drinking`, `sleeping`
-- patterns: `The teacher is reading.`, `The father is sleeping.`
+- new vocabulary
+- recognition practice
+- pronunciation practice
+- grammar practice
+- quick review
 
 Why this is the right next step:
 
-- it extends Lesson 1 without changing the interaction model
+- it keeps lessons predictable for the learner
 - it reinforces the present continuous pattern
-- it gives the app more content before introducing harder mechanics
+- it gives the app more content before introducing colors, numbers, and location phrases
 - it keeps the learner in concrete visual A1 language

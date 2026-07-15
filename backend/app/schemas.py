@@ -13,6 +13,8 @@ class LessonCard(BaseModel):
     correct_option_id: str
     options: list[ChoiceOption]
     audio_text: str | None = None
+    answer_audio_text: str | None = None
+    prompt_image_url: str = ""
 
 
 class Lesson(BaseModel):

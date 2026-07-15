@@ -122,7 +122,7 @@ export async function logCardAttempt(attempt) {
   });
 }
 
-export async function scorePronunciationAudio({ text, audioBlob, userId, questionInfo }) {
+export async function scorePronunciationAudio({ text, audioBlob, userId, questionInfo, provider }) {
   const apiBaseUrl = getApiBaseUrl();
   const startedAt = typeof performance !== "undefined" ? performance.now() : Date.now();
   const formData = new FormData();
@@ -133,6 +133,9 @@ export async function scorePronunciationAudio({ text, audioBlob, userId, questio
   }
   if (questionInfo) {
     formData.append("question_info", questionInfo);
+  }
+  if (provider) {
+    formData.append("provider", provider);
   }
 
   const response = await fetch(`${apiBaseUrl}/api/pronunciation/score`, {

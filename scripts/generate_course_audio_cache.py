@@ -10,7 +10,7 @@ BACKEND_DIR = ROOT / "backend"
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(BACKEND_DIR))
 
-from app.course_audio import audio_configured, cache_path_for, get_course_audio  # noqa: E402
+from app.course_audio import audio_configured, cache_path_for, get_course_audio, voice_for_variant  # noqa: E402
 from scripts.build_frontend_audio_manifest import expected_audio_items, main as build_manifest  # noqa: E402
 
 
@@ -28,12 +28,11 @@ async def generate_missing_audio() -> int:
         return 1
 
     model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
-    voice = os.getenv("OPENAI_TTS_VOICE", "coral")
     output_format = os.getenv("OPENAI_TTS_FORMAT", "mp3").lower()
     missing = []
 
     for text, mode, lang, variant in sorted(expected_audio_items()):
-        audio_path = cache_path_for(text, mode, lang, variant, model, voice, output_format)
+        audio_path = cache_path_for(text, mode, lang, variant, model, voice_for_variant(variant), output_format)
         if not audio_path.exists() or audio_path.stat().st_size <= 0:
             missing.append((text, mode, lang, variant))
 

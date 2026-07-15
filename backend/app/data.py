@@ -246,34 +246,254 @@ FAMILY_PRACTICE_IMAGES = {
     "sister-reading": "girl_is_reading.png",
 }
 
-OBJECTS_AND_PLACES = {
-    "book": {"label": "A book", "image": "object_book.png", "kind": "object"},
-    "pencil": {"label": "A pencil", "image": "object_pencil.png", "kind": "object"},
-    "notebook": {"label": "A notebook", "image": "object_notebook.png", "kind": "object"},
-    "backpack": {"label": "A backpack", "image": "object_backpack.png", "kind": "object"},
-    "car": {"label": "A car", "image": "object_car.png", "kind": "object"},
-    "bike": {"label": "A bike", "image": "object_bike.png", "kind": "object"},
-    "house": {"label": "A house", "image": "place_house.png", "kind": "place"},
-    "park": {"label": "A park", "image": "place_park.png", "kind": "place"},
-    "street": {"label": "A street", "image": "place_street.png", "kind": "place"},
-    "bridge": {"label": "A bridge", "image": "place_bridge.png", "kind": "place"},
-    "school": {"label": "A school", "image": "place_school.png", "kind": "place"},
-    "classroom": {"label": "A classroom", "image": "place_classroom.png", "kind": "place"},
+PLACES_AROUND_ME = {
+    "park": {"label": "a park", "sentence": "It is a park.", "image": "place_park.png"},
+    "house": {"label": "a house", "sentence": "It is a house.", "image": "place_house.png"},
+    "school": {"label": "a school", "sentence": "It is a school.", "image": "place_school.png"},
+    "street": {"label": "a street", "sentence": "It is a street.", "image": "place_street.png"},
+    "bridge": {"label": "a bridge", "sentence": "It is a bridge.", "image": "place_bridge.png"},
+    "store": {"label": "a store", "sentence": "It is a store.", "image": "place_store.png"},
+    "building": {"label": "a building", "sentence": "It is a building.", "image": "place_building.png"},
+    "car": {"label": "a car", "sentence": "It is a car.", "image": "object_car.png"},
+    "bike": {"label": "a bike", "sentence": "It is a bike.", "image": "object_bike.png"},
+    "bus": {"label": "a bus", "sentence": "It is a bus.", "image": "place_bus.png"},
 }
 
-OBJECT_PLACE_INTRO_PAIRS = [
-    ("book", "pencil"),
-    ("notebook", "backpack"),
-    ("car", "bike"),
-    ("house", "school"),
-    ("park", "street"),
-    ("bridge", "classroom"),
+PLACE_IDS = ["park", "house", "school", "street", "bridge", "store", "building", "car", "bike", "bus"]
+
+PLACE_RECOGNITION_GROUPS = [
+    ["park", "house", "school", "street"],
+    ["bridge", "store", "building", "bus"],
+    ["car", "bike", "street", "bridge"],
 ]
 
-OBJECT_PLACE_CHALLENGE_GROUPS = [
-    ["book", "pencil", "notebook", "backpack"],
-    ["car", "bike", "street", "bridge"],
-    ["house", "school", "park", "classroom"],
+PLACE_PRONUNCIATION_IDS = ["park", "house", "school", "street", "bridge", "bus"]
+
+LESSON_1_SENTENCE_PAIRS = [
+    ("boy", "running"),
+    ("boy", "reading"),
+    ("girl", "walking"),
+    ("girl", "writing"),
+    ("man", "walking"),
+    ("man", "swimming"),
+    ("woman", "reading"),
+    ("woman", "standing"),
+]
+
+LESSON_1_RECOGNITION_GROUPS = [
+    ["boy-running", "girl-walking", "man-walking", "woman-standing"],
+    ["boy-reading", "girl-writing", "man-swimming", "woman-reading"],
+]
+
+LESSON_1_PRONUNCIATION_IDS = [
+    "boy-running",
+    "girl-walking",
+    "boy-reading",
+    "girl-writing",
+    "man-swimming",
+    "woman-standing",
+]
+
+LESSON_1_GRAMMAR_SPECS = [
+    {
+        "id": "grammar-boy-running-is",
+        "prompt": "The boy ___ running.",
+        "answer": "is",
+        "sentence": "The boy is running.",
+        "image": "boy_is_running.png",
+    },
+    {
+        "id": "grammar-girl-writing-is",
+        "prompt": "The girl ___ writing.",
+        "answer": "is",
+        "sentence": "The girl is writing.",
+        "image": "girl_is_writing.png",
+    },
+    {
+        "id": "grammar-man-swimming-is",
+        "prompt": "The man ___ swimming.",
+        "answer": "is",
+        "sentence": "The man is swimming.",
+        "image": "man_is_swimming.png",
+    },
+    {
+        "id": "grammar-woman-reading-is",
+        "prompt": "The woman ___ reading.",
+        "answer": "is",
+        "sentence": "The woman is reading.",
+        "image": "woman_is_reading.png",
+    },
+    {
+        "id": "grammar-boy-girl-running-are",
+        "prompt": "The boy and the girl ___ running.",
+        "answer": "are",
+        "sentence": "The boy and the girl are running.",
+        "image": "they_boy_girl_are_running.png",
+    },
+    {
+        "id": "grammar-man-woman-reading-are",
+        "prompt": "The man and the woman ___ reading.",
+        "answer": "are",
+        "sentence": "The man and the woman are reading.",
+        "image": "they_man_woman_are_reading.png",
+    },
+    {
+        "id": "grammar-boy-man-eating-are",
+        "prompt": "The boy and the man ___ eating.",
+        "answer": "are",
+        "sentence": "The boy and the man are eating.",
+        "image": "they_boy_man_are_eating.png",
+    },
+    {
+        "id": "grammar-girl-woman-writing-are",
+        "prompt": "The girl and the woman ___ writing.",
+        "answer": "are",
+        "sentence": "The girl and the woman are writing.",
+        "image": "they_girl_woman_are_writing.png",
+    },
+]
+
+LESSON_1_PLURAL_SENTENCES = [
+    {
+        "id": "boy-girl-running",
+        "prompt": "The boy and the girl are running.",
+        "image": "they_boy_girl_are_running.png",
+    },
+    {
+        "id": "man-woman-reading",
+        "prompt": "The man and the woman are reading.",
+        "image": "they_man_woman_are_reading.png",
+    },
+    {
+        "id": "boy-man-eating",
+        "prompt": "The boy and the man are eating.",
+        "image": "they_boy_man_are_eating.png",
+    },
+    {
+        "id": "girl-woman-writing",
+        "prompt": "The girl and the woman are writing.",
+        "image": "they_girl_woman_are_writing.png",
+    },
+]
+
+LESSON_2_PRONOUN_VOCAB = [
+    ("he-boy", "He", "boy.png"),
+    ("he-man", "He", "man.png"),
+    ("she-girl", "She", "girl.png"),
+    ("she-woman", "She", "woman.png"),
+    ("they-children", "They", "they_boy_girl.png"),
+    ("they-adults", "They", "they_man_woman.png"),
+]
+
+LESSON_2_SENTENCE_SPECS = [
+    ("he-boy-reading", "He is reading.", "boy_is_reading.png"),
+    ("he-man-walking", "He is walking.", "man_is_walking.png"),
+    ("she-girl-writing", "She is writing.", "girl_is_writing.png"),
+    ("she-woman-reading", "She is reading.", "woman_is_reading.png"),
+    ("they-boy-girl-running", "They are running.", "they_boy_girl_are_running.png"),
+    ("they-man-woman-eating", "They are eating.", "they_man_woman_are_eating.png"),
+    ("they-boy-man-reading", "They are reading.", "they_boy_man_are_reading.png"),
+    ("they-girl-woman-writing", "They are writing.", "they_girl_woman_are_writing.png"),
+]
+
+LESSON_2_PRONUNCIATION_IDS = [
+    "he-boy-reading",
+    "she-girl-writing",
+    "they-boy-girl-running",
+    "they-man-woman-eating",
+]
+
+LESSON_3_FAMILY_NEW_VOCAB_IDS = [
+    "family",
+    "baby",
+    "babies",
+    "child",
+    "children",
+    "adult",
+    "adults",
+    "brother",
+    "brothers",
+    "sister",
+    "sisters",
+    "father",
+    "mother",
+    "parents",
+    "grandfather",
+    "grandmother",
+    "grandparents",
+]
+
+LESSON_3_FAMILY_GROUPS = [
+    ["baby", "babies", "child", "children"],
+    ["brother", "brothers", "sister", "sisters"],
+    ["adult", "adults", "child", "children"],
+    ["parents", "grandparents", "father", "mother"],
+    ["father", "mother", "grandfather", "grandmother"],
+]
+
+LESSON_3_PRONUNCIATION_IDS = [
+    "baby",
+    "children",
+    "brother",
+    "sister",
+    "parents",
+    "grandparents",
+]
+
+LESSON_3_FAMILY_PRACTICE_IDS = [
+    "family",
+    "baby",
+    "babies",
+    "child",
+    "children",
+    "adult",
+    "adults",
+    "brother",
+    "sister",
+    "father",
+    "mother",
+    "parents",
+    "grandparents",
+]
+
+LESSON_3_GRAMMAR_SPECS = [
+    ("A baby ___ sleeping.", "is", "A baby is sleeping.", "family_baby_sleeping.png"),
+    ("Children ___ playing.", "are", "Children are playing.", "family_children_playing.png"),
+    ("A father ___ working.", "is", "A father is working.", "family_father_working.png"),
+    ("Parents ___ talking.", "are", "Parents are talking.", "family_parents_talking.png"),
+    ("A grandfather ___ sitting.", "is", "A grandfather is sitting.", "family_grandfather.png"),
+    ("Grandparents ___ sitting.", "are", "Grandparents are sitting.", "family_grandparents_sitting.png"),
+]
+
+LESSON_4_ACTION_VOCAB = [
+    ("playing", "Playing", "family_children_playing.png"),
+    ("working", "Working", "family_father_working.png"),
+    ("talking", "Talking", "family_parents_talking.png"),
+    ("cooking", "Cooking", "family_mother_cooking.png"),
+    ("studying", "Studying", "family_brother_studying.png"),
+    ("sitting", "Sitting", "family_grandparents_sitting.png"),
+]
+
+LESSON_4_ACTION_SPECS = [
+    ("adults-playing", "The adults are playing."),
+    ("grandparents-talking", "The grandparents are talking."),
+    ("parents-talking", "The parents are talking."),
+    ("grandparents-sitting", "The grandparents are sitting."),
+    ("father-working", "The father is working."),
+    ("mother-cooking", "The mother is cooking."),
+    ("children-playing", "The children are playing."),
+    ("children-studying", "The children are studying."),
+    ("brother-studying", "The brother is studying."),
+    ("sister-reading", "The sister is reading."),
+]
+
+LESSON_4_PRONUNCIATION_IDS = [
+    "adults-playing",
+    "grandparents-talking",
+    "father-working",
+    "mother-cooking",
+    "children-studying",
+    "brother-studying",
 ]
 
 
@@ -342,20 +562,505 @@ def family_practice_image(option_id: str) -> str:
     return FAMILY_PRACTICE_IMAGES[option_id]
 
 
-def object_place_image(option_id: str) -> str:
-    return OBJECTS_AND_PLACES[option_id]["image"]
+def place_image(option_id: str) -> str:
+    return PLACES_AROUND_ME[option_id]["image"]
 
 
-def object_place_choice(option_id: str, label: str | None = None) -> ChoiceOption:
+def place_choice(option_id: str, label: str | None = None) -> ChoiceOption:
     return ChoiceOption(
         id=option_id,
-        image_url=image_url(object_place_image(option_id)),
-        label=label or OBJECTS_AND_PLACES[option_id]["label"],
+        image_url=image_url(place_image(option_id)),
+        label=label or PLACES_AROUND_ME[option_id]["label"],
+    )
+
+
+def person_choice(person: str, label: str | None = None) -> ChoiceOption:
+    return ChoiceOption(
+        id=person,
+        image_url=image_url(portrait_image(person)),
+        label=label or PEOPLE[person]["label"],
+    )
+
+
+def action_card_id(person: str, action: str) -> str:
+    return f"{person}-{action}"
+
+
+def parse_action_card_id(option_id: str) -> tuple[str, str]:
+    person, action = option_id.split("-", 1)
+    return person, action
+
+
+def action_sentence(person: str, action: str) -> str:
+    return f"{PEOPLE[person]['label']} is {action}."
+
+
+def action_choice(option_id: str, label: str | None = None) -> ChoiceOption:
+    person, action = parse_action_card_id(option_id)
+    return ChoiceOption(
+        id=option_id,
+        image_url=image_url(person_image(person, action)),
+        label=label or action_sentence(person, action),
     )
 
 
 def text_choice(option_id: str, label: str) -> ChoiceOption:
     return ChoiceOption(id=option_id, label=label)
+
+
+def people_action_cards() -> list[LessonCard]:
+    return [
+        *people_new_vocab_cards(),
+        *people_meaning_practice_cards(),
+        *people_listen_cards(),
+        *people_pronunciation_cards(),
+        *people_plural_intro_cards(),
+        *people_grammar_cards(),
+    ]
+
+
+def people_new_vocab_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for person in PEOPLE_IN_ORDER:
+        cards.append(
+            LessonCard(
+                prompt=PEOPLE[person]["label"],
+                stage="New Vocab",
+                correct_option_id=person,
+                options=[person_choice(person)],
+                audio_text=PEOPLE[person]["label"],
+            )
+        )
+
+    return cards
+
+
+def people_meaning_practice_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for index, (person, action) in enumerate(LESSON_1_SENTENCE_PAIRS, 1):
+        correct_id = action_card_id(person, action)
+        group = next(group for group in LESSON_1_RECOGNITION_GROUPS if correct_id in group)
+        option_ids = stable_shuffle(group, f"people-meaning-{index}-{correct_id}")
+        sentence = action_sentence(person, action)
+        cards.append(
+            LessonCard(
+                prompt=sentence,
+                stage="Meaning Practice",
+                correct_option_id=correct_id,
+                options=[action_choice(option_id, "") for option_id in option_ids],
+                audio_text=sentence,
+            )
+        )
+
+    return cards
+
+
+def people_listen_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for group_index, group in enumerate(LESSON_1_RECOGNITION_GROUPS, 1):
+        for correct_id in group:
+            person, action = parse_action_card_id(correct_id)
+            option_ids = stable_shuffle(group, f"people-listen-{group_index}-{correct_id}")
+            cards.append(
+                LessonCard(
+                    prompt="Listen and choose.",
+                    stage="Listen",
+                    correct_option_id=correct_id,
+                    options=[action_choice(option_id, "") for option_id in option_ids],
+                    audio_text=action_sentence(person, action),
+                )
+            )
+
+    return stable_shuffle_cards(cards, "people-listen")
+
+
+def people_pronunciation_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for option_id in LESSON_1_PRONUNCIATION_IDS:
+        person, action = parse_action_card_id(option_id)
+        sentence = action_sentence(person, action)
+        cards.append(
+            LessonCard(
+                prompt=sentence,
+                stage="Pronunciation Practice",
+                correct_option_id=option_id,
+                options=[action_choice(option_id, sentence)],
+                audio_text=sentence,
+            )
+        )
+
+    return cards
+
+
+def people_plural_intro_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for spec in LESSON_1_PLURAL_SENTENCES:
+        cards.append(
+            LessonCard(
+                prompt=spec["prompt"],
+                stage="More People",
+                correct_option_id=spec["id"],
+                options=[
+                    ChoiceOption(
+                        id=spec["id"],
+                        image_url=image_url(spec["image"]),
+                        label=spec["prompt"],
+                    )
+                ],
+                audio_text=spec["prompt"],
+            )
+        )
+
+    return cards
+
+
+def people_grammar_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for spec in stable_shuffle_cards(LESSON_1_GRAMMAR_SPECS, "people-grammar-card-order"):
+        options = stable_shuffle(["is", "are"], f"people-grammar-{spec['id']}")
+        cards.append(
+            LessonCard(
+                prompt=spec["prompt"],
+                stage="Grammar",
+                correct_option_id=spec["answer"],
+                options=[text_choice(option, option) for option in options],
+                audio_text="",
+                answer_audio_text=spec["sentence"],
+                prompt_image_url=image_url(spec["image"]),
+            )
+        )
+
+    return cards
+
+
+def image_choice(option_id: str, image_name: str, label: str = "") -> ChoiceOption:
+    return ChoiceOption(id=option_id, image_url=image_url(image_name), label=label)
+
+
+def sentence_spec_choice(spec: tuple[str, str, str], label: str = "") -> ChoiceOption:
+    option_id, sentence, image_name = spec
+    return image_choice(option_id, image_name, label or sentence)
+
+
+def lesson_2_pronoun_cards() -> list[LessonCard]:
+    return [
+        *lesson_2_new_vocab_cards(),
+        *lesson_2_meaning_cards(),
+        *lesson_2_listen_cards(),
+        *lesson_2_pronunciation_cards(),
+        *lesson_2_grammar_cards(),
+    ]
+
+
+def lesson_2_new_vocab_cards() -> list[LessonCard]:
+    return [
+        LessonCard(
+            prompt=label,
+            stage="New Vocab",
+            correct_option_id=option_id,
+            options=[image_choice(option_id, image_name, label)],
+            audio_text=label,
+        )
+        for option_id, label, image_name in LESSON_2_PRONOUN_VOCAB
+    ]
+
+
+def lesson_2_meaning_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+    for index, correct_spec in enumerate(LESSON_2_SENTENCE_SPECS, 1):
+        correct_id, sentence, _image_name = correct_spec
+        option_specs = stable_shuffle_cards(LESSON_2_SENTENCE_SPECS, f"lesson-2-meaning-{index}-{correct_id}")[:4]
+        if correct_spec not in option_specs:
+            option_specs[-1] = correct_spec
+        option_specs = stable_shuffle_cards(option_specs, f"lesson-2-meaning-final-{index}-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt=sentence,
+                stage="Meaning Practice",
+                correct_option_id=correct_id,
+                options=[sentence_spec_choice(spec, "") for spec in option_specs],
+                audio_text=sentence,
+            )
+        )
+    return cards
+
+
+def lesson_2_listen_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+    for index, correct_spec in enumerate(LESSON_2_SENTENCE_SPECS, 1):
+        correct_id, sentence, _image_name = correct_spec
+        option_specs = stable_shuffle_cards(LESSON_2_SENTENCE_SPECS, f"lesson-2-listen-{index}-{correct_id}")[:4]
+        if correct_spec not in option_specs:
+            option_specs[-1] = correct_spec
+        option_specs = stable_shuffle_cards(option_specs, f"lesson-2-listen-final-{index}-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt="Listen and choose.",
+                stage="Listen",
+                correct_option_id=correct_id,
+                options=[sentence_spec_choice(spec, "") for spec in option_specs],
+                audio_text=sentence,
+            )
+        )
+    return stable_shuffle_cards(cards, "lesson-2-listen-order")
+
+
+def lesson_2_pronunciation_cards() -> list[LessonCard]:
+    specs_by_id = {option_id: (option_id, sentence, image_name) for option_id, sentence, image_name in LESSON_2_SENTENCE_SPECS}
+    cards: list[LessonCard] = []
+    for option_id in LESSON_2_PRONUNCIATION_IDS:
+        spec = specs_by_id[option_id]
+        _id, sentence, _image_name = spec
+        cards.append(
+            LessonCard(
+                prompt=sentence,
+                stage="Pronunciation Practice",
+                correct_option_id=option_id,
+                options=[sentence_spec_choice(spec, sentence)],
+                audio_text=sentence,
+            )
+        )
+    return cards
+
+
+def lesson_2_grammar_cards() -> list[LessonCard]:
+    specs = [
+        ("He ___ reading.", "is", "He is reading.", "boy_is_reading.png"),
+        ("She ___ writing.", "is", "She is writing.", "girl_is_writing.png"),
+        ("They ___ running.", "are", "They are running.", "they_boy_girl_are_running.png"),
+        ("They ___ eating.", "are", "They are eating.", "they_man_woman_are_eating.png"),
+        ("He ___ walking.", "is", "He is walking.", "man_is_walking.png"),
+        ("They ___ writing.", "are", "They are writing.", "they_girl_woman_are_writing.png"),
+    ]
+    cards: list[LessonCard] = []
+    for index, (prompt, answer, sentence, image_name) in enumerate(stable_shuffle_cards(specs, "lesson-2-grammar-order"), 1):
+        options = stable_shuffle(["is", "are"], f"lesson-2-grammar-{index}-{answer}")
+        cards.append(
+            LessonCard(
+                prompt=prompt,
+                stage="Grammar",
+                correct_option_id=answer,
+                options=[text_choice(option, option) for option in options],
+                audio_text="",
+                answer_audio_text=sentence,
+                prompt_image_url=image_url(image_name),
+            )
+        )
+    return cards
+
+
+def family_choice(option_id: str, label: str | None = None) -> ChoiceOption:
+    return ChoiceOption(
+        id=option_id,
+        image_url=image_url(family_image(option_id)),
+        label=label or FAMILY_PEOPLE[option_id]["label"],
+    )
+
+
+def family_member_cards() -> list[LessonCard]:
+    return [
+        *family_member_new_vocab_cards(),
+        *family_member_meaning_cards(),
+        *family_member_listen_cards(),
+        *family_member_pronunciation_cards(),
+        *family_member_grammar_cards(),
+    ]
+
+
+def family_member_new_vocab_cards() -> list[LessonCard]:
+    return [
+        LessonCard(
+            prompt=FAMILY_PEOPLE[option_id]["label"],
+            stage="New Vocab",
+            correct_option_id=option_id,
+            options=[family_choice(option_id)],
+            audio_text=FAMILY_PEOPLE[option_id]["label"],
+        )
+        for option_id in LESSON_3_FAMILY_NEW_VOCAB_IDS
+    ]
+
+
+def family_member_meaning_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+    for index, correct_id in enumerate(LESSON_3_FAMILY_PRACTICE_IDS, 1):
+        group = next((group for group in LESSON_3_FAMILY_GROUPS if correct_id in group), [correct_id])
+        option_ids = stable_shuffle(group, f"family-member-meaning-{index}-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt=FAMILY_PEOPLE[correct_id]["label"],
+                stage="Meaning Practice",
+                correct_option_id=correct_id,
+                options=[family_choice(option_id, "") for option_id in option_ids],
+                audio_text=FAMILY_PEOPLE[correct_id]["label"],
+            )
+        )
+    return stable_shuffle_cards(cards, "family-member-meaning-order")
+
+
+def family_member_listen_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+    for index, correct_id in enumerate(LESSON_3_FAMILY_PRACTICE_IDS, 1):
+        group = next((group for group in LESSON_3_FAMILY_GROUPS if correct_id in group), [correct_id])
+        option_ids = stable_shuffle(group, f"family-member-listen-{index}-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt="Listen and choose.",
+                stage="Listen",
+                correct_option_id=correct_id,
+                options=[family_choice(option_id, "") for option_id in option_ids],
+                audio_text=FAMILY_PEOPLE[correct_id]["label"],
+            )
+        )
+    return stable_shuffle_cards(cards, "family-member-listen-order")
+
+
+def family_member_pronunciation_cards() -> list[LessonCard]:
+    return [
+        LessonCard(
+            prompt=FAMILY_PEOPLE[option_id]["label"],
+            stage="Pronunciation Practice",
+            correct_option_id=option_id,
+            options=[family_choice(option_id, FAMILY_PEOPLE[option_id]["label"])],
+            audio_text=FAMILY_PEOPLE[option_id]["label"],
+        )
+        for option_id in LESSON_3_PRONUNCIATION_IDS
+    ]
+
+
+def family_member_grammar_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+    for index, (prompt, answer, sentence, image_name) in enumerate(stable_shuffle_cards(LESSON_3_GRAMMAR_SPECS, "family-grammar-order"), 1):
+        options = stable_shuffle(["is", "are"], f"family-member-grammar-{index}-{answer}")
+        cards.append(
+            LessonCard(
+                prompt=prompt,
+                stage="Grammar",
+                correct_option_id=answer,
+                options=[text_choice(option, option) for option in options],
+                audio_text="",
+                answer_audio_text=sentence,
+                prompt_image_url=image_url(image_name),
+            )
+        )
+    return cards
+
+
+def family_action_cards() -> list[LessonCard]:
+    return [
+        *family_action_new_vocab_cards(),
+        *family_action_meaning_cards(),
+        *family_action_listen_cards(),
+        *family_action_pronunciation_cards(),
+        *family_action_grammar_cards(),
+    ]
+
+
+def family_action_new_vocab_cards() -> list[LessonCard]:
+    return [
+        LessonCard(
+            prompt=label,
+            stage="New Vocab",
+            correct_option_id=option_id,
+            options=[image_choice(option_id, image_name, label)],
+            audio_text=label,
+        )
+        for option_id, label, image_name in LESSON_4_ACTION_VOCAB
+    ]
+
+
+def family_action_meaning_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+    specs = [(option_id, sentence, family_practice_image(option_id)) for option_id, sentence in LESSON_4_ACTION_SPECS]
+    for index, correct_spec in enumerate(specs, 1):
+        correct_id, sentence, _image_name = correct_spec
+        option_specs = stable_shuffle_cards(specs, f"family-action-meaning-{index}-{correct_id}")[:4]
+        if correct_spec not in option_specs:
+            option_specs[-1] = correct_spec
+        option_specs = stable_shuffle_cards(option_specs, f"family-action-meaning-final-{index}-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt=sentence,
+                stage="Meaning Practice",
+                correct_option_id=correct_id,
+                options=[sentence_spec_choice(spec, "") for spec in option_specs],
+                audio_text=sentence,
+            )
+        )
+    return cards
+
+
+def family_action_listen_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+    specs = [(option_id, sentence, family_practice_image(option_id)) for option_id, sentence in LESSON_4_ACTION_SPECS]
+    for index, correct_spec in enumerate(specs, 1):
+        correct_id, sentence, _image_name = correct_spec
+        option_specs = stable_shuffle_cards(specs, f"family-action-listen-{index}-{correct_id}")[:4]
+        if correct_spec not in option_specs:
+            option_specs[-1] = correct_spec
+        option_specs = stable_shuffle_cards(option_specs, f"family-action-listen-final-{index}-{correct_id}")
+        cards.append(
+            LessonCard(
+                prompt="Listen and choose.",
+                stage="Listen",
+                correct_option_id=correct_id,
+                options=[sentence_spec_choice(spec, "") for spec in option_specs],
+                audio_text=sentence,
+            )
+        )
+    return stable_shuffle_cards(cards, "family-action-listen-order")
+
+
+def family_action_pronunciation_cards() -> list[LessonCard]:
+    specs_by_id = {
+        option_id: (option_id, sentence, family_practice_image(option_id))
+        for option_id, sentence in LESSON_4_ACTION_SPECS
+    }
+    cards: list[LessonCard] = []
+    for option_id in LESSON_4_PRONUNCIATION_IDS:
+        spec = specs_by_id[option_id]
+        _id, sentence, _image_name = spec
+        cards.append(
+            LessonCard(
+                prompt=sentence,
+                stage="Pronunciation Practice",
+                correct_option_id=option_id,
+                options=[sentence_spec_choice(spec, sentence)],
+                audio_text=sentence,
+            )
+        )
+    return cards
+
+
+def family_action_grammar_cards() -> list[LessonCard]:
+    specs = [
+        ("The father ___ working.", "is", "The father is working.", "family_father_working.png"),
+        ("The mother ___ cooking.", "is", "The mother is cooking.", "family_mother_cooking.png"),
+        ("The children ___ playing.", "are", "The children are playing.", "family_children_playing.png"),
+        ("The parents ___ talking.", "are", "The parents are talking.", "family_parents_talking.png"),
+        ("The brother ___ studying.", "is", "The brother is studying.", "family_brother_studying.png"),
+        ("The grandparents ___ sitting.", "are", "The grandparents are sitting.", "family_grandparents_sitting.png"),
+    ]
+    cards: list[LessonCard] = []
+    for index, (prompt, answer, sentence, image_name) in enumerate(stable_shuffle_cards(specs, "family-action-grammar-order"), 1):
+        options = stable_shuffle(["is", "are"], f"family-action-grammar-{index}-{answer}")
+        cards.append(
+            LessonCard(
+                prompt=prompt,
+                stage="Grammar",
+                correct_option_id=answer,
+                options=[text_choice(option, option) for option in options],
+                audio_text="",
+                answer_audio_text=sentence,
+                prompt_image_url=image_url(image_name),
+            )
+        )
+    return cards
 
 
 def noun_cards() -> list[LessonCard]:
@@ -909,135 +1614,145 @@ def family_action_practice_cards() -> list[LessonCard]:
 
 def object_place_cards() -> list[LessonCard]:
     return [
-        *object_place_new_word_cards(),
-        *object_place_recognition_cards(),
-        *object_place_sentence_meaning_cards(),
-        *object_place_pronunciation_cards(),
-        *object_place_grammar_cards(),
+        *place_new_word_cards(),
+        *place_sentence_learning_cards(),
+        *place_picture_to_text_cards(),
+        *place_listen_to_picture_cards(),
+        *place_pronunciation_cards(),
+        *place_review_cards(),
     ]
 
 
-def object_place_new_word_cards() -> list[LessonCard]:
+def place_new_word_cards() -> list[LessonCard]:
     cards: list[LessonCard] = []
 
-    for option_id, item in OBJECTS_AND_PLACES.items():
+    for option_id in PLACE_IDS:
+        item = PLACES_AROUND_ME[option_id]
         cards.append(
             LessonCard(
                 prompt=item["label"],
                 stage="New Words",
                 correct_option_id=option_id,
-                options=[object_place_choice(option_id)],
+                options=[place_choice(option_id)],
+                audio_text=item["label"],
             )
         )
 
     return cards
 
 
-def object_place_recognition_cards() -> list[LessonCard]:
+def place_sentence_learning_cards() -> list[LessonCard]:
     cards: list[LessonCard] = []
 
-    for first_id, second_id in OBJECT_PLACE_INTRO_PAIRS:
-        for correct_id in (first_id, second_id):
-            option_ids = stable_shuffle([first_id, second_id], f"object-place-intro-{correct_id}")
-            cards.append(
-                LessonCard(
-                    prompt=OBJECTS_AND_PLACES[correct_id]["label"],
-                    stage="Recognition Practice",
-                    correct_option_id=correct_id,
-                    options=[
-                        object_place_choice(option_id)
-                        for option_id in option_ids
-                    ],
-                )
+    for option_id in PLACE_IDS:
+        item = PLACES_AROUND_ME[option_id]
+        cards.append(
+            LessonCard(
+                prompt=item["sentence"],
+                stage="What Is It?",
+                correct_option_id=option_id,
+                options=[place_choice(option_id, item["sentence"])],
+                audio_text=item["sentence"],
             )
+        )
 
-    for group_index, group in enumerate(OBJECT_PLACE_CHALLENGE_GROUPS, 1):
+    return cards
+
+
+def place_picture_to_text_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for group_index, group in enumerate(PLACE_RECOGNITION_GROUPS, 1):
         for correct_id in group:
-            option_ids = stable_shuffle(group, f"object-place-challenge-{group_index}-{correct_id}")
+            item = PLACES_AROUND_ME[correct_id]
+            option_ids = stable_shuffle(group, f"place-picture-text-{group_index}-{correct_id}")
             cards.append(
                 LessonCard(
-                    prompt=OBJECTS_AND_PLACES[correct_id]["label"],
-                    stage="Recognition Practice",
+                    prompt="What is it?",
+                    stage="Picture To Text",
                     correct_option_id=correct_id,
                     options=[
-                        object_place_choice(option_id)
+                        text_choice(option_id, PLACES_AROUND_ME[option_id]["sentence"])
                         for option_id in option_ids
                     ],
+                    audio_text="What is it?",
+                    answer_audio_text=item["sentence"],
+                    prompt_image_url=image_url(place_image(correct_id)),
                 )
             )
 
-    return cards
+    return stable_shuffle_cards(cards, "place-picture-to-text")
 
 
-def object_place_sentence_meaning_cards() -> list[LessonCard]:
-    sentence_specs = [
-        ("This is a book.", "book", ["book", "pencil", "notebook", "backpack"]),
-        ("This is a pencil.", "pencil", ["pencil", "book", "bike", "street"]),
-        ("This is a notebook.", "notebook", ["notebook", "book", "classroom", "bridge"]),
-        ("This is a backpack.", "backpack", ["backpack", "notebook", "house", "school"]),
-        ("This is a car.", "car", ["car", "bike", "street", "bridge"]),
-        ("This is a bike.", "bike", ["bike", "car", "pencil", "park"]),
-        ("This is a house.", "house", ["house", "school", "classroom", "bridge"]),
-        ("This is a park.", "park", ["park", "street", "house", "classroom"]),
-        ("This is a street.", "street", ["street", "park", "car", "bridge"]),
-        ("This is a bridge.", "bridge", ["bridge", "street", "bike", "school"]),
-        ("This is a school.", "school", ["school", "house", "classroom", "notebook"]),
-        ("This is a classroom.", "classroom", ["classroom", "school", "book", "backpack"]),
-    ]
-
+def place_listen_to_picture_cards() -> list[LessonCard]:
     cards: list[LessonCard] = []
-    for prompt, correct_id, option_ids in sentence_specs:
-        shuffled_options = stable_shuffle(option_ids, f"object-place-sentence-{correct_id}")
-        cards.append(
-            LessonCard(
-                prompt=prompt,
-                stage="Sentence Meaning",
-                correct_option_id=correct_id,
-                options=[object_place_choice(option_id) for option_id in shuffled_options],
+
+    for group_index, group in enumerate(PLACE_RECOGNITION_GROUPS, 1):
+        for correct_id in group:
+            item = PLACES_AROUND_ME[correct_id]
+            option_ids = stable_shuffle(group, f"place-listen-picture-{group_index}-{correct_id}")
+            cards.append(
+                LessonCard(
+                    prompt="What is it?",
+                    stage="Listen To Picture",
+                    correct_option_id=correct_id,
+                    options=[place_choice(option_id, "") for option_id in option_ids],
+                    audio_text=item["sentence"],
+                )
             )
-        )
 
-    return cards
+    return stable_shuffle_cards(cards, "place-listen-to-picture")
 
 
-def object_place_pronunciation_cards() -> list[LessonCard]:
+def place_pronunciation_cards() -> list[LessonCard]:
     cards: list[LessonCard] = []
 
-    for first_id, second_id in OBJECT_PLACE_INTRO_PAIRS:
+    for option_id in PLACE_PRONUNCIATION_IDS:
+        item = PLACES_AROUND_ME[option_id]
         cards.append(
             LessonCard(
-                prompt="Listen and repeat.",
+                prompt=item["sentence"],
                 stage="Pronunciation Practice",
-                correct_option_id=first_id,
-                options=[
-                    object_place_choice(first_id, OBJECTS_AND_PLACES[first_id]["label"]),
-                    object_place_choice(second_id, OBJECTS_AND_PLACES[second_id]["label"]),
-                ],
+                correct_option_id=option_id,
+                options=[place_choice(option_id, item["sentence"])],
+                audio_text=item["sentence"],
             )
         )
 
     return cards
 
 
-def object_place_grammar_cards() -> list[LessonCard]:
-    grammar_specs = [
-        ("book", "a-book", [("a-book", "a book"), ("an-book", "an book")]),
-        ("object", "an-object", [("a-object", "a object"), ("an-object", "an object")]),
-        ("place", "a-place", [("a-place", "a place"), ("an-place", "an place")]),
-        ("school", "a-school", [("a-school", "a school"), ("an-school", "an school")]),
-        ("classroom", "a-classroom", [("a-classroom", "a classroom"), ("an-classroom", "an classroom")]),
-        ("street", "a-street", [("a-street", "a street"), ("an-street", "an street")]),
+def place_review_cards() -> list[LessonCard]:
+    review_specs = [
+        ("Picture To Text", "park", ["park", "school", "house", "street"]),
+        ("Listen To Picture", "bridge", ["bridge", "street", "store", "building"]),
+        ("Picture To Text", "store", ["store", "school", "house", "bus"]),
+        ("Listen To Picture", "car", ["car", "bike", "bus", "street"]),
+        ("Picture To Text", "bus", ["bus", "car", "bike", "building"]),
+        ("Listen To Picture", "house", ["house", "school", "store", "park"]),
     ]
 
     cards: list[LessonCard] = []
-    for prompt, correct_id, options in grammar_specs:
-        shuffled_options = stable_shuffle(options, f"object-place-grammar-{correct_id}")
+    for index, (stage_type, correct_id, option_ids) in enumerate(review_specs, 1):
+        item = PLACES_AROUND_ME[correct_id]
+        shuffled_options = stable_shuffle(option_ids, f"place-review-{index}-{correct_id}")
+        if stage_type == "Picture To Text":
+            options = [
+                text_choice(option_id, PLACES_AROUND_ME[option_id]["sentence"])
+                for option_id in shuffled_options
+            ]
+        else:
+            options = [place_choice(option_id, "") for option_id in shuffled_options]
+
         cards.append(
             LessonCard(
-                prompt=prompt,
-                stage="Grammar Practice",
+                prompt="What is it?",
+                stage="Review",
                 correct_option_id=correct_id,
-                options=[text_choice(option_id, label) for option_id, label in shuffled_options],
+                options=options,
+                audio_text="What is it?" if stage_type == "Picture To Text" else item["sentence"],
+                answer_audio_text=item["sentence"],
+                prompt_image_url=image_url(place_image(correct_id)) if stage_type == "Picture To Text" else "",
             )
         )
 
@@ -1071,7 +1786,7 @@ LESSON_1 = Lesson(
         "sitting",
         "standing",
     ],
-    cards=[*noun_cards(), *sentence_cards(), *noun_cards_stage_two(), *sentence_cards_stage_two()],
+    cards=people_action_cards(),
 )
 
 LESSON_2 = Lesson(
@@ -1096,7 +1811,7 @@ LESSON_2 = Lesson(
         "reading",
         "writing",
     ],
-    cards=[*pronoun_intro_cards(), *pronoun_sentence_cards()],
+    cards=lesson_2_pronoun_cards(),
 )
 
 LESSON_3 = Lesson(
@@ -1135,13 +1850,13 @@ LESSON_3 = Lesson(
 
 LESSON_4 = Lesson(
     id="lesson-4-family-members",
-    title="1.4 Family Members",
+    title="1.3 Family Members",
     level="Beginner A1",
     unit_id="unit-1",
     unit_title="Unit 1: People, Actions, And Basic Sentences",
     lesson_id="lesson-1",
     lesson_title="Lesson 1: People and Pronouns",
-    sub_lesson_id="1.4",
+    sub_lesson_id="1.3",
     sub_lesson_title="Family Members",
     goal="Recognize close family members and a few natural family action sentences.",
     vocabulary=[
@@ -1173,18 +1888,18 @@ LESSON_4 = Lesson(
         "reading",
         "sitting",
     ],
-    cards=[*family_context_cards(), *family_vocabulary_cards(), *family_vocabulary_challenge_cards(), *family_sentence_cards()],
+    cards=family_member_cards(),
 )
 
 LESSON_5 = Lesson(
     id="lesson-5-family-action-practice",
-    title="1.5 Family Action Practice",
+    title="1.4 Family Action Practice",
     level="Beginner A1",
     unit_id="unit-1",
     unit_title="Unit 1: People, Actions, And Basic Sentences",
     lesson_id="lesson-1",
     lesson_title="Lesson 1: People and Pronouns",
-    sub_lesson_id="1.5",
+    sub_lesson_id="1.4",
     sub_lesson_title="Family Action Practice",
     goal="Practice short family sentences with adult, child, children, and common family actions.",
     vocabulary=[
@@ -1216,39 +1931,35 @@ LESSON_5 = Lesson(
         "studying",
         "reading",
     ],
-    cards=family_action_practice_cards(),
+    cards=family_action_cards(),
 )
 
 LESSON_6 = Lesson(
     id="lesson-6-objects-places",
-    title="1.6 Objects and Places",
+    title="1.5 Places Around Me",
     level="Beginner A1",
     unit_id="unit-1",
     unit_title="Unit 1: People, Actions, And Basic Sentences",
     lesson_id="lesson-1",
     lesson_title="Lesson 1: People and Pronouns",
-    sub_lesson_id="1.6",
-    sub_lesson_title="Objects and Places",
-    goal="Recognize common objects and places before adding colors, numbers, and location phrases.",
+    sub_lesson_id="1.5",
+    sub_lesson_title="Places Around Me",
+    goal="Recognize common outdoor places and answer the question: What is it?",
     vocabulary=[
         "a",
-        "an",
-        "this",
+        "what",
+        "it",
         "is",
-        "object",
-        "place",
-        "book",
-        "pencil",
-        "notebook",
-        "backpack",
-        "car",
-        "bike",
-        "house",
         "park",
+        "house",
+        "school",
         "street",
         "bridge",
-        "school",
-        "classroom",
+        "store",
+        "building",
+        "car",
+        "bike",
+        "bus",
     ],
     cards=object_place_cards(),
 )

@@ -12,6 +12,14 @@ services:
         value: https://api.speechace.co
       - key: SPEECHACE_DIALECT
         value: en-us
+      - key: PRONUNCIATION_PROVIDER
+        value: speechace
+      - key: AZURE_SPEECH_KEY
+        sync: false
+      - key: AZURE_SPEECH_REGION
+        value: mexicocentral
+      - key: AZURE_SPEECH_LOCALE
+        value: en-US
       - key: OPENAI_API_KEY
         sync: false
       - key: OPENAI_TTS_MODEL

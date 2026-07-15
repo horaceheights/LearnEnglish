@@ -53,6 +53,8 @@ def audio_debug() -> dict[str, object]:
         "openai_audio_configured": audio_configured(),
         "model": os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts"),
         "voice": os.getenv("OPENAI_TTS_VOICE", "coral"),
+        "question_voice": os.getenv("OPENAI_TTS_QUESTION_VOICE", "alloy"),
+        "answer_voice": os.getenv("OPENAI_TTS_ANSWER_VOICE", os.getenv("OPENAI_TTS_VOICE", "coral")),
         "format": os.getenv("OPENAI_TTS_FORMAT", "mp3"),
         "cache_dir": str(CACHE_DIR),
     }
@@ -81,10 +83,28 @@ def audio_instructions(mode: str, lang: str, variant: str) -> str:
             "Speak in English as a warm, encouraging A1 teacher. Make this very short feedback phrase "
             "sound cheerful, clear, and natural, like a friendly celebration after a correct answer."
         )
+    if variant == "question":
+        return (
+            f"Speak in {language_hint} as a friendly classroom guide asking a beginner learner a short question. "
+            "Use a clear, curious question intonation. Keep it natural and concise."
+        )
+    if variant == "answer":
+        return (
+            f"Speak in {language_hint} as a warm A1 English teacher confirming the answer. "
+            "Say the full sentence clearly and a little slowly so the learner can repeat it."
+        )
     return (
         f"Speak in {language_hint} as a friendly A1 English teacher. Use a warm, clear, natural voice. "
         "Do not speak too fast. Make short beginner phrases easy to understand."
     )
+
+
+def voice_for_variant(variant: str) -> str:
+    if variant == "question":
+        return os.getenv("OPENAI_TTS_QUESTION_VOICE", "alloy")
+    if variant == "answer":
+        return os.getenv("OPENAI_TTS_ANSWER_VOICE", os.getenv("OPENAI_TTS_VOICE", "coral"))
+    return os.getenv("OPENAI_TTS_VOICE", "coral")
 
 
 def cache_path_for(text: str, mode: str, lang: str, variant: str, model: str, voice: str, output_format: str) -> Path:
@@ -106,7 +126,7 @@ async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> Fil
         raise HTTPException(status_code=503, detail="OpenAI course audio is not configured.")
 
     model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
-    voice = os.getenv("OPENAI_TTS_VOICE", "coral")
+    voice = voice_for_variant(variant)
     output_format = os.getenv("OPENAI_TTS_FORMAT", "mp3").lower()
     media_type = SUPPORTED_FORMATS.get(output_format)
     if not media_type:

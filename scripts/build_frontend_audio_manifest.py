@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BACKEND_DIR = ROOT / "backend"
 sys.path.insert(0, str(BACKEND_DIR))
 
-from app.course_audio import cache_path_for  # noqa: E402
+from app.course_audio import cache_path_for, voice_for_variant  # noqa: E402
 from app.data import LESSONS  # noqa: E402
 
 
@@ -81,9 +81,12 @@ def expected_audio_items() -> set[tuple[str, str, str, str]]:
                         items.add((word, "pronunciation_slow", "en-US", "split-ing"))
                 continue
 
-            prompt = card.audio_text or card.prompt
-            if prompt:
-                items.add((prompt, "prompt", "en-US", "prompt"))
+            prompt = card.audio_text if card.audio_text is not None else card.prompt
+            if prompt and prompt.strip():
+                variant = "question" if prompt.strip().lower() == "what is it?" else "prompt"
+                items.add((prompt, "prompt", "en-US", variant))
+            if card.answer_audio_text:
+                items.add((card.answer_audio_text, "prompt", "en-US", "answer"))
 
     for phrase in FEEDBACK_PHRASES:
         items.add((phrase, "feedback", "en-US", "feedback"))
@@ -103,7 +106,7 @@ def main() -> int:
     missing: list[dict[str, str]] = []
 
     for text, mode, lang, variant in sorted(expected_audio_items()):
-        audio_path = cache_path_for(text, mode, lang, variant, model, voice, output_format)
+        audio_path = cache_path_for(text, mode, lang, variant, model, voice_for_variant(variant), output_format)
         key = "\n".join([text.strip(), mode, lang, variant])
         if audio_path.exists() and audio_path.stat().st_size > 0:
             destination = frontend_cache / audio_path.name

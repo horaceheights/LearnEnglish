@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import { getApiBaseUrl } from "../../lib/api";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { getApiBaseUrl, scorePronunciationAudio } from "../../lib/api";
+import { WavAudioRecorder } from "../../lib/WavAudioRecorder";
 
-const targetPhrase = "The boy is running.";
+const defaultTargetPhrase = "The boy is running.";
 
 const styles = {
   page: {
@@ -94,16 +95,30 @@ function summarizeScore(result) {
 }
 
 export default function PronunciationPocPage() {
+  const [targetPhrase, setTargetPhrase] = useState(defaultTargetPhrase);
+  const [provider, setProvider] = useState("Loading...");
+  const [availableProviders, setAvailableProviders] = useState([]);
   const [status, setStatus] = useState("Ready");
   const [isRecording, setIsRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState(null);
   const [audioUrl, setAudioUrl] = useState("");
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
+  const [history, setHistory] = useState([]);
   const recorderRef = useRef(null);
   const chunksRef = useRef([]);
   const apiBaseUrl = getApiBaseUrl();
   const summary = useMemo(() => summarizeScore(result), [result]);
+
+  useEffect(() => {
+    fetch(`${apiBaseUrl}/api/pronunciation/health`)
+      .then((response) => response.json())
+      .then((payload) => {
+        setProvider(payload.provider || "Unknown");
+        setAvailableProviders(Object.entries(payload.configured || {}).filter(([, configured]) => configured).map(([name]) => name));
+      })
+      .catch(() => setProvider("Unavailable"));
+  }, [apiBaseUrl]);
 
   const startRecording = async () => {
     setError("");
@@ -113,7 +128,7 @@ export default function PronunciationPocPage() {
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const recorder = new MediaRecorder(stream);
+      const recorder = new WavAudioRecorder(stream);
       chunksRef.current = [];
       recorderRef.current = recorder;
 
@@ -128,7 +143,7 @@ export default function PronunciationPocPage() {
         const blob = new Blob(chunksRef.current, { type: recorder.mimeType || "audio/webm" });
         setAudioBlob(blob);
         setAudioUrl(URL.createObjectURL(blob));
-        setStatus("Recording ready. Send it to Speechace.");
+        setStatus(`Recording ready. Send it to ${provider}.`);
       };
 
       recorder.start();
@@ -156,24 +171,22 @@ export default function PronunciationPocPage() {
     }
 
     setError("");
-    setStatus("Sending to Speechace...");
-
-    const formData = new FormData();
-    formData.append("text", targetPhrase);
-    formData.append("audio", audioBlob, "pronunciation-poc.webm");
+    setStatus(`Sending to ${provider}...`);
 
     try {
-      const response = await fetch(`${apiBaseUrl}/api/pronunciation/score`, {
-        method: "POST",
-        body: formData,
-      });
-      const payload = await response.json();
-
-      if (!response.ok) {
-        throw new Error(typeof payload.detail === "string" ? payload.detail : JSON.stringify(payload.detail));
-      }
-
+      const payload = await scorePronunciationAudio({ text: targetPhrase, audioBlob, provider });
       setResult(payload);
+      setProvider(payload.provider || provider);
+      setHistory((current) => [
+        {
+          provider: payload.provider || provider,
+          phrase: targetPhrase,
+          score: summarizeScore(payload).pronunciation,
+          clientMs: payload._client_timing?.total_ms,
+          providerMs: payload._timing?.provider_ms ?? payload._timing?.speechace_ms,
+        },
+        ...current,
+      ].slice(0, 10));
       setStatus("Score received");
     } catch (scoreError) {
       setError(scoreError.message || "Could not score audio.");
@@ -186,13 +199,33 @@ export default function PronunciationPocPage() {
       <div style={styles.shell}>
         <section style={{ ...styles.panel, background: "linear-gradient(135deg, #2f8f62, #2b6e75)", color: "#fff" }}>
           <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
-            Speechace POC
+            Pronunciation Provider Tester
           </div>
           <h1 style={{ margin: "10px 0 8px", fontSize: "clamp(2rem, 4vw, 3.3rem)" }}>Pronunciation Practice</h1>
-          <p style={{ margin: 0, opacity: 0.92 }}>Say: {targetPhrase}</p>
+          <p style={{ margin: 0, opacity: 0.92 }}>Active provider: <strong>{provider}</strong></p>
         </section>
 
         <section style={styles.panel}>
+          <label style={{ display: "grid", gap: 7, marginBottom: 18, fontWeight: 700 }}>
+            Phrase to read
+            <input
+              value={targetPhrase}
+              onChange={(event) => setTargetPhrase(event.target.value)}
+              disabled={isRecording}
+              style={{ border: "1px solid var(--line)", borderRadius: 12, padding: "12px 14px", font: "inherit" }}
+            />
+          </label>
+          <label style={{ display: "grid", gap: 7, marginBottom: 18, fontWeight: 700, maxWidth: 260 }}>
+            Scoring provider
+            <select
+              value={provider}
+              onChange={(event) => setProvider(event.target.value)}
+              disabled={isRecording}
+              style={{ border: "1px solid var(--line)", borderRadius: 12, padding: "12px 14px", font: "inherit", background: "#fff" }}
+            >
+              {availableProviders.length ? availableProviders.map((name) => <option key={name} value={name}>{name}</option>) : <option value={provider}>{provider}</option>}
+            </select>
+          </label>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
             {!isRecording ? (
               <button type="button" style={styles.button} onClick={startRecording}>
@@ -225,8 +258,13 @@ export default function PronunciationPocPage() {
         {result ? (
           <section style={styles.panel}>
             <h2 style={{ margin: "0 0 12px" }}>Quick Summary</h2>
-            <div style={{ display: "grid", gap: 8 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 12 }}>
+              <div><strong>Provider</strong><br />{result.provider || provider}</div>
               <div>Pronunciation score: {summary.pronunciation ?? "Not returned"}</div>
+              <div><strong>Round trip</strong><br />{result._client_timing?.total_ms ?? "—"} ms</div>
+              <div><strong>Provider processing</strong><br />{result._timing?.provider_ms ?? result._timing?.speechace_ms ?? "—"} ms</div>
+              <div><strong>Backend total</strong><br />{result._timing?.backend_total_ms ?? "—"} ms</div>
+              <div><strong>Recognized</strong><br />{result.recognized_text || "Not returned"}</div>
               {summary.weakestWord ? (
                 <>
                   <div>
@@ -244,9 +282,27 @@ export default function PronunciationPocPage() {
           </section>
         ) : null}
 
+        {history.length ? (
+          <section style={styles.panel}>
+            <h2 style={{ margin: "0 0 12px" }}>Speed History</h2>
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left" }}>
+                <thead><tr><th style={{ padding: 8 }}>Provider</th><th style={{ padding: 8 }}>Score</th><th style={{ padding: 8 }}>Round trip</th><th style={{ padding: 8 }}>Provider</th><th style={{ padding: 8 }}>Phrase</th></tr></thead>
+                <tbody>{history.map((item, index) => (
+                  <tr key={`${item.provider}-${item.clientMs}-${index}`} style={{ borderTop: "1px solid var(--line)" }}>
+                    <td style={{ padding: 8 }}>{item.provider}</td><td style={{ padding: 8 }}>{item.score ?? "—"}</td>
+                    <td style={{ padding: 8 }}>{item.clientMs ?? "—"} ms</td><td style={{ padding: 8 }}>{item.providerMs ?? "—"} ms</td>
+                    <td style={{ padding: 8 }}>{item.phrase}</td>
+                  </tr>
+                ))}</tbody>
+              </table>
+            </div>
+          </section>
+        ) : null}
+
         {result ? (
           <section style={styles.panel}>
-            <h2 style={{ margin: "0 0 12px" }}>Raw Speechace Response</h2>
+            <h2 style={{ margin: "0 0 12px" }}>Raw Provider Response</h2>
             <pre style={styles.pre}>{JSON.stringify(result, null, 2)}</pre>
           </section>
         ) : null}

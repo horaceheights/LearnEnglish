@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from .course_audio import audio_debug, get_course_audio
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .schemas import Lesson, LessonCard
-from .speechace import close_speechace_client, score_pronunciation, speechace_configured, speechace_request_debug
+from .pronunciation import close_pronunciation_clients, pronunciation_debug, score_pronunciation
 from .tracking import (
     CardAttemptCreate,
     SessionCreate,
@@ -33,7 +33,7 @@ init_db()
 
 @app.on_event("shutdown")
 async def shutdown_clients():
-    await close_speechace_client()
+    await close_pronunciation_clients()
 
 
 def allowed_origins() -> list[str]:
@@ -123,10 +123,7 @@ def health() -> dict[str, str]:
 
 @app.get("/api/pronunciation/health")
 def pronunciation_health():
-    return {
-        "speechace_configured": speechace_configured(),
-        "speechace_request": speechace_request_debug(),
-    }
+    return pronunciation_debug()
 
 
 @app.get("/api/audio/health")
@@ -150,12 +147,14 @@ async def score_pronunciation_practice(
     audio: UploadFile = File(...),
     user_id: str | None = Form(None),
     question_info: str | None = Form(None),
+    provider: str | None = Form(None),
 ):
     return await score_pronunciation(
         text=text,
         audio_file=audio,
         user_id=user_id,
         question_info=question_info,
+        provider_override=provider,
     )
 
 
