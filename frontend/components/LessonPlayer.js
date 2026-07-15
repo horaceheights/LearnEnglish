@@ -2701,7 +2701,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   }, [started]);
 
   useEffect(() => {
-    if (!isPronunciationCard || isMobile || !started || isComplete || !currentCard || lastResult === "correct") {
+    if (!isPronunciationCard || !started || isComplete || !currentCard || lastResult === "correct") {
       return undefined;
     }
 
@@ -2724,7 +2724,6 @@ export default function LessonPlayer({ lesson, lessons }) {
     currentCard,
     isComplete,
     isPronunciationCard,
-    isMobile,
     lastResult,
     started,
   ]);
@@ -4214,29 +4213,6 @@ export default function LessonPlayer({ lesson, lessons }) {
                                 )
                               : renderEmptyPronunciationPhrase(optionPrompt, { interactive: true, optionId: option.id })}
                         </div>
-                        {isActivePronunciationOption && isMobile && !isPronunciationRecording && !isPronunciationScoring && !pronunciationResult ? (
-                          <button
-                            type="button"
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              setPronunciationError("");
-                              beginPronunciationRecording({ isRetry: pronunciationAttempt > 0 });
-                            }}
-                            style={{
-                              border: 0,
-                              borderRadius: "999px",
-                              background: "linear-gradient(135deg, var(--orange), #e96f42)",
-                              color: "#fff",
-                              padding: "10px 14px",
-                              fontWeight: 900,
-                              cursor: "pointer",
-                              justifySelf: "start",
-                              boxShadow: "0 8px 18px rgba(233, 111, 66, 0.2)",
-                            }}
-                          >
-                            Escuchar y repetir
-                          </button>
-                        ) : null}
                         {isActivePronunciationOption && pronunciationResult ? (
                           <div
                             style={{
