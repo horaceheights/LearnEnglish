@@ -5,6 +5,7 @@ import {
   finishLessonSession,
   getApiBaseUrl,
   getCourseAudioUrl,
+  getPronunciationStreamingToken,
   getLearnerByName,
   getLesson,
   logCardAttempt,
@@ -606,6 +607,7 @@ function useSpeech() {
   const courseAudioSourceRef = useRef(null);
   const decodedCourseAudioRef = useRef(new Map());
   const speechTimersRef = useRef([]);
+  const audioProgressFrameRef = useRef(null);
 
   useEffect(() => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
@@ -710,6 +712,10 @@ function useSpeech() {
   }, []);
 
   const stopAudioPlayback = useCallback(() => {
+    if (audioProgressFrameRef.current) {
+      window.cancelAnimationFrame(audioProgressFrameRef.current);
+      audioProgressFrameRef.current = null;
+    }
     if (courseAudioSourceRef.current) {
       try {
         courseAudioSourceRef.current.stop();
@@ -918,12 +924,33 @@ function useSpeech() {
         let settled = false;
         let started = false;
         let readyTimerId = null;
+        const loadStartedAt = window.performance.now();
+        let bufferedAt = null;
+        let playbackStartedAt = null;
+        let waitingEvents = 0;
 
         const cleanup = () => {
           if (readyTimerId) {
             window.clearTimeout(readyTimerId);
             readyTimerId = null;
           }
+          if (audioProgressFrameRef.current) {
+            window.cancelAnimationFrame(audioProgressFrameRef.current);
+            audioProgressFrameRef.current = null;
+          }
+        };
+
+        const updatePlaybackProgress = () => {
+          if (speechSequenceRef.current !== sequenceId || audio.paused || audio.ended) {
+            return;
+          }
+          if (typeof options.onProgress === "function") {
+            options.onProgress({
+              currentTime: audio.currentTime || 0,
+              duration: Number.isFinite(audio.duration) ? audio.duration : 0,
+            });
+          }
+          audioProgressFrameRef.current = window.requestAnimationFrame(updatePlaybackProgress);
         };
 
         const finish = () => {
@@ -941,6 +968,14 @@ function useSpeech() {
         audio.onended = () => {
           cleanup();
           finish();
+          if (options.diagnosticsLabel) {
+            console.info("Course audio timing", {
+              label: options.diagnosticsLabel,
+              buffered_ms: bufferedAt ? Math.round(bufferedAt - loadStartedAt) : null,
+              playback_ms: playbackStartedAt ? Math.round(window.performance.now() - playbackStartedAt) : null,
+              waiting_events: waitingEvents,
+            });
+          }
           if (speechSequenceRef.current === sequenceId && !settled) {
             settled = true;
             resolve();
@@ -953,6 +988,9 @@ function useSpeech() {
             settled = true;
             reject(new Error("Could not play course audio."));
           }
+        };
+        audio.onwaiting = () => {
+          waitingEvents += 1;
         };
 
         const startPlayback = () => {
@@ -968,8 +1006,12 @@ function useSpeech() {
           }
           audio.play()
             .then(() => {
+              playbackStartedAt = window.performance.now();
               if (speechSequenceRef.current === sequenceId && typeof options.onStarted === "function") {
                 options.onStarted();
+              }
+              if (speechSequenceRef.current === sequenceId && typeof options.onProgress === "function") {
+                updatePlaybackProgress();
               }
             })
             .catch((error) => {
@@ -998,6 +1040,7 @@ function useSpeech() {
               throw new Error(`Could not fetch course audio: ${response.status}`);
             }
             const blob = await response.blob();
+            bufferedAt = window.performance.now();
             if (speechSequenceRef.current !== sequenceId) {
               return;
             }
@@ -1019,7 +1062,7 @@ function useSpeech() {
         })();
       };
 
-      if (options.directUrl) {
+      if (options.directUrl || options.htmlAudio) {
         playWithHtmlAudio();
         return;
       }
@@ -1114,6 +1157,33 @@ function useSpeech() {
         pauseAfterMs: Math.max(220, word.length * 55),
       }));
       const shouldRepeatFull = Boolean(options.repeatFullAfter);
+      const slowPartWeights = speechParts.map(
+        (part) =>
+          Math.max(260, part.text.length * 150 * (options.rate && options.rate < 0.6 ? 1.2 : 1)) +
+          part.pauseAfterMs
+      );
+      const slowPartTotal = slowPartWeights.reduce((total, value) => total + value, 0);
+      let highlightedSlowPartIndex = -1;
+
+      const highlightFromAudioClock = ({ currentTime, duration }) => {
+        if (!duration || typeof options.onPartStart !== "function") {
+          return;
+        }
+        const timelinePosition = Math.min(1, currentTime / duration) * slowPartTotal;
+        let elapsed = 0;
+        let partIndex = speechParts.length - 1;
+        for (let index = 0; index < slowPartWeights.length; index += 1) {
+          elapsed += slowPartWeights[index];
+          if (timelinePosition < elapsed) {
+            partIndex = index;
+            break;
+          }
+        }
+        if (partIndex !== highlightedSlowPartIndex) {
+          highlightedSlowPartIndex = partIndex;
+          options.onPartStart(speechParts[partIndex]);
+        }
+      };
 
       const slowHighlightMs = speechParts.reduce(
         (total, part) =>
@@ -1136,13 +1206,19 @@ function useSpeech() {
         try {
           await playAudioUrl(slowUrl, sequenceId, {
             directUrl: options.directCourseAudio,
-            onStarted: () =>
-              schedulePartHighlights(
-                speechParts,
-                options.onPartStart,
-                sequenceId,
-                options.rate && options.rate < 0.6 ? 1.2 : 1
-              ),
+            htmlAudio: options.bufferedCourseAudio,
+            diagnosticsLabel: options.bufferedCourseAudio ? "pronunciation-model" : undefined,
+            onProgress: options.bufferedCourseAudio ? highlightFromAudioClock : undefined,
+            onStarted: () => {
+              if (!options.bufferedCourseAudio) {
+                schedulePartHighlights(
+                  speechParts,
+                  options.onPartStart,
+                  sequenceId,
+                  options.rate && options.rate < 0.6 ? 1.2 : 1
+                );
+              }
+            },
           });
           if (speechSequenceRef.current !== sequenceId) {
             return;
@@ -1317,9 +1393,7 @@ function summarizePronunciationScore(result) {
   const textScore = result?.text_score;
   const wordScores = textScore?.word_score_list || [];
   const pronunciation =
-    textScore?.speechace_score?.pronunciation ??
     textScore?.quality_score ??
-    result?.speechace_score?.pronunciation ??
     null;
   const weakestWord = wordScores
     .filter((word) => typeof word.quality_score === "number")
@@ -1341,6 +1415,45 @@ function summarizePronunciationScore(result) {
     weakestWord,
     weakestSyllable,
     weakestPhone,
+  };
+}
+
+function normalizeAzureStreamingResult(payload, recognizedText, elapsedMs) {
+  const best = (payload?.NBest || [])[0] || {};
+  const assessment = best.PronunciationAssessment || best;
+  const wordScores = (best.Words || []).map((word) => {
+    const wordAssessment = word.PronunciationAssessment || word;
+    return {
+      word: word.Word,
+      quality_score: wordAssessment.AccuracyScore,
+      error_type: wordAssessment.ErrorType,
+      syllable_score_list: (word.Syllables || []).map((syllable) => ({
+        letters: syllable.Grapheme || syllable.Syllable,
+        quality_score: (syllable.PronunciationAssessment || syllable).AccuracyScore,
+      })),
+      phone_score_list: (word.Phonemes || []).map((phone) => ({
+        phone: phone.Phoneme,
+        quality_score: (phone.PronunciationAssessment || phone).AccuracyScore,
+      })),
+    };
+  });
+
+  return {
+    provider: "azure-streaming",
+    recognized_text: recognizedText || payload?.DisplayText || best.Display,
+    text_score: {
+      quality_score: assessment.PronScore ?? assessment.AccuracyScore,
+      word_score_list: wordScores,
+      azure_scores: {
+        accuracy: assessment.AccuracyScore,
+        fluency: assessment.FluencyScore,
+        completeness: assessment.CompletenessScore,
+      },
+    },
+    _client_timing: {
+      total_ms: Math.round(elapsedMs),
+      transport: "azure-browser-streaming",
+    },
   };
 }
 
@@ -1663,6 +1776,8 @@ export default function LessonPlayer({ lesson, lessons }) {
   const [modelSpeechPart, setModelSpeechPart] = useState(null);
   const pronunciationRecorderRef = useRef(null);
   const pronunciationRecognitionRef = useRef(null);
+  const azurePronunciationRecognizerRef = useRef(null);
+  const azureStreamingPreparationRef = useRef({ promise: null, expiresAt: 0 });
   const pronunciationChunksRef = useRef([]);
   const pronunciationStreamRef = useRef(null);
   const pronunciationAudioContextRef = useRef(null);
@@ -2413,6 +2528,14 @@ export default function LessonPlayer({ lesson, lessons }) {
       }
       pronunciationRecognitionRef.current = null;
     }
+    if (azurePronunciationRecognizerRef.current) {
+      try {
+        azurePronunciationRecognizerRef.current.close();
+      } catch (error) {
+        // The recognizer may already be closed.
+      }
+      azurePronunciationRecognizerRef.current = null;
+    }
   };
 
   const stopPronunciationCapture = ({ shouldScore = false } = {}) => {
@@ -2732,7 +2855,7 @@ export default function LessonPlayer({ lesson, lessons }) {
       if (error.code === "error_no_speech" || error.message === "NO_SPEECH_DETECTED") {
         setPronunciationError("No te pude escuchar. Intentalo otra vez.");
         setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
-      } else if (error.status === 503 || /Speechace is not configured/i.test(error.message || "")) {
+      } else if (error.status === 503 || /Azure Speech is not configured/i.test(error.message || "")) {
         setPronunciationError("El servicio de pronunciacion no esta configurado. Intentalo mas tarde.");
         setPronunciationStatus("Pronunciation service is not configured.");
       } else {
@@ -2742,6 +2865,161 @@ export default function LessonPlayer({ lesson, lessons }) {
     } finally {
       setIsPronunciationScoring(false);
     }
+  };
+
+  const prepareAzureStreaming = () => {
+    const cached = azureStreamingPreparationRef.current;
+    if (cached.promise && cached.expiresAt > Date.now()) {
+      return cached.promise;
+    }
+
+    const promise = Promise.all([
+      import("microsoft-cognitiveservices-speech-sdk"),
+      getPronunciationStreamingToken(),
+    ]).then(([SpeechSDK, tokenInfo]) => ({ SpeechSDK, tokenInfo }));
+
+    azureStreamingPreparationRef.current = {
+      promise,
+      expiresAt: Date.now() + 7 * 60 * 1000,
+    };
+    promise.catch(() => {
+      if (azureStreamingPreparationRef.current.promise === promise) {
+        azureStreamingPreparationRef.current = { promise: null, expiresAt: 0 };
+      }
+    });
+    return promise;
+  };
+
+  const scorePronunciationWithAzureStreaming = async (preparedStreaming) => {
+    const startedAt = window.performance.now();
+    let SpeechSDK;
+    let tokenInfo;
+
+    try {
+      ({ SpeechSDK, tokenInfo } = await (preparedStreaming || prepareAzureStreaming()));
+    } catch (error) {
+      console.info("Azure browser streaming is unavailable; using recorded-audio fallback", error);
+      return false;
+    }
+
+    let recognizer = null;
+    let audioConfig = null;
+    let settled = false;
+    let timeoutId = null;
+
+    const closeRecognizer = () => {
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+        timeoutId = null;
+      }
+      if (azurePronunciationRecognizerRef.current === recognizer) {
+        azurePronunciationRecognizerRef.current = null;
+      }
+      try {
+        recognizer?.close();
+      } catch (error) {
+        // The recognizer may already be closed.
+      }
+      try {
+        audioConfig?.close();
+      } catch (error) {
+        // The microphone input may already be closed.
+      }
+    };
+
+    try {
+      const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(tokenInfo.token, tokenInfo.region);
+      speechConfig.speechRecognitionLanguage = tokenInfo.locale || "en-US";
+      speechConfig.outputFormat = SpeechSDK.OutputFormat.Detailed;
+      audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+      recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+      const assessmentConfig = new SpeechSDK.PronunciationAssessmentConfig(
+        activePronunciationPrompt,
+        SpeechSDK.PronunciationAssessmentGradingSystem.HundredMark,
+        SpeechSDK.PronunciationAssessmentGranularity.Phoneme,
+        true
+      );
+      assessmentConfig.phonemeAlphabet = "IPA";
+      assessmentConfig.applyTo(recognizer);
+      recognizer.sessionStarted = () => {
+        setIsPronunciationRecording(true);
+        setPronunciationStatus("Now you say it.");
+        playTone({ frequency: 740, frequency2: 988, durationMs: 180, type: "sine", type2: "triangle", volume: 0.85 });
+      };
+      azurePronunciationRecognizerRef.current = recognizer;
+    } catch (error) {
+      closeRecognizer();
+      console.info("Could not initialize Azure browser pronunciation assessment", error);
+      return false;
+    }
+
+    setPronunciationError("");
+    setPronunciationResult(null);
+    setIsPronunciationRecording(true);
+    setPronunciationStatus("Get ready...");
+
+    return new Promise((resolve) => {
+      const finish = (callback) => {
+        if (settled) {
+          return;
+        }
+        settled = true;
+        closeRecognizer();
+        setIsPronunciationRecording(false);
+        callback();
+        resolve(true);
+      };
+
+      timeoutId = window.setTimeout(() => {
+        finish(() => {
+          setIsPronunciationScoring(false);
+          setPronunciationError("No te pude escuchar. Intentalo otra vez.");
+          setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
+        });
+      }, 12000);
+
+      recognizer.recognizeOnceAsync(
+        (result) => {
+          finish(() => {
+            if (result.reason !== SpeechSDK.ResultReason.RecognizedSpeech) {
+              setIsPronunciationScoring(false);
+              setPronunciationError("No te pude escuchar. Intentalo otra vez.");
+              setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
+              return;
+            }
+
+            setIsPronunciationScoring(true);
+            setPronunciationStatus("Checking...");
+            try {
+              const rawPayload = result.properties.getProperty(SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult);
+              const payload = JSON.parse(rawPayload || "{}");
+              const normalized = normalizeAzureStreamingResult(
+                payload,
+                result.text,
+                window.performance.now() - startedAt
+              );
+              console.info("Pronunciation streaming timing", normalized._client_timing);
+              setPronunciationResult(normalized);
+              setPronunciationStatus("Checked.");
+            } catch (error) {
+              console.error("Could not read Azure pronunciation result", error);
+              setPronunciationError("No pude revisar eso. Intentalo otra vez.");
+              setPronunciationStatus("Pronunciation scoring failed.");
+            } finally {
+              setIsPronunciationScoring(false);
+            }
+          });
+        },
+        (error) => {
+          finish(() => {
+            console.error("Azure pronunciation streaming failed", error);
+            setIsPronunciationScoring(false);
+            setPronunciationError("No pude revisar eso. Intentalo otra vez.");
+            setPronunciationStatus("Pronunciation scoring failed.");
+          });
+        }
+      );
+    });
   };
 
   const beginPronunciationRecording = async ({ isRetry = false } = {}) => {
@@ -2768,14 +3046,12 @@ export default function LessonPlayer({ lesson, lessons }) {
     pronunciationHasSpeechRef.current = false;
     pronunciationSilenceStartedAtRef.current = null;
     pronunciationShouldScoreRef.current = true;
+    const azureStreamingPreparation = isMobile ? prepareAzureStreaming() : null;
+    azureStreamingPreparation?.catch(() => {
+      // The existing recorded-audio path remains available as a fallback.
+    });
 
     let listeningStarted = false;
-    let spokenPartCount = 0;
-    const speechParts = buildPronunciationSpeechParts(activePronunciationPrompt, {
-      splitIngWords: true,
-      pauseMs: isRetry ? 300 : 220,
-      partPauseMs: isRetry ? 180 : 140,
-    });
     const prepareCapture = async () => {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const recorder = new WavAudioRecorder(stream);
@@ -2798,10 +3074,6 @@ export default function LessonPlayer({ lesson, lessons }) {
 
       return { stream, recorder, analyser, samples };
     };
-    const captureReadyPromise = prepareCapture();
-    captureReadyPromise.catch(() => {
-      // The error is surfaced when startListening awaits the same promise.
-    });
     const scheduleListeningStart = (delayMs) => {
       if (listeningStarted) {
         return;
@@ -2824,7 +3096,13 @@ export default function LessonPlayer({ lesson, lessons }) {
 
       try {
         setPronunciationStatus("Get ready...");
-        const { stream, recorder, analyser, samples } = await captureReadyPromise;
+        if (isMobile) {
+          const handledByAzureStreaming = await scorePronunciationWithAzureStreaming(azureStreamingPreparation);
+          if (handledByAzureStreaming) {
+            return;
+          }
+        }
+        const { stream, recorder, analyser, samples } = await prepareCapture();
 
         recorder.ondataavailable = (event) => {
           if (event.data.size > 0) {
@@ -2918,25 +3196,20 @@ export default function LessonPlayer({ lesson, lessons }) {
       wordByWord: true,
       splitIngWords: true,
       repeatFullAfter: false,
-      directCourseAudio: isMobile,
+      bufferedCourseAudio: isMobile,
       wordPauseMs: isRetry ? 300 : 220,
       wordPartPauseMs: isRetry ? 180 : 140,
       rate: isRetry ? 0.56 : 0.62,
       pitch: isRetry ? 1.04 : undefined,
       onPartStart: (part) => {
         setModelSpeechPart({ ...part, optionId: activePronunciationOption?.id });
-        spokenPartCount += 1;
-        if (spokenPartCount >= speechParts.length) {
-          const finalPartMs = Math.min(Math.max(part.text.length * 170, 620), 1350);
-          scheduleListeningStart(isRetry ? finalPartMs + 180 : finalPartMs);
-        }
       },
       onEnd: () => {
         setModelSpeechPart(null);
-        scheduleListeningStart(isRetry ? 180 : 80);
+        scheduleListeningStart(isRetry ? 240 : 140);
       },
     });
-    const startDelay = Math.min(Math.max(speechDelay + 1200, 3800), 8000);
+    const startDelay = Math.min(Math.max(speechDelay + 8000, 10000), 16000);
     pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
   };
 

@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from .course_audio import audio_debug, get_course_audio
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .schemas import Lesson, LessonCard
-from .pronunciation import close_pronunciation_clients, pronunciation_debug, score_pronunciation
+from .pronunciation import close_pronunciation_clients, get_pronunciation_browser_token, pronunciation_debug, score_pronunciation
 from .tracking import (
     CardAttemptCreate,
     SessionCreate,
@@ -124,6 +124,11 @@ def health() -> dict[str, str]:
 @app.get("/api/pronunciation/health")
 def pronunciation_health():
     return pronunciation_debug()
+
+
+@app.get("/api/pronunciation/token")
+async def pronunciation_token():
+    return await get_pronunciation_browser_token()
 
 
 @app.get("/api/audio/health")

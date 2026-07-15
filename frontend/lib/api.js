@@ -169,6 +169,23 @@ export async function scorePronunciationAudio({ text, audioBlob, userId, questio
   };
 }
 
+export async function getPronunciationStreamingToken() {
+  const apiBaseUrl = getApiBaseUrl();
+  const response = await fetch(`${apiBaseUrl}/api/pronunciation/token`, {
+    cache: "no-store",
+  });
+  const payload = await response.json();
+
+  if (!response.ok) {
+    const detail = typeof payload.detail === "string" ? payload.detail : "Could not start pronunciation streaming.";
+    const error = new Error(detail);
+    error.status = response.status;
+    throw error;
+  }
+
+  return payload;
+}
+
 export function getCourseAudioUrl({ text, mode = "prompt", lang = "en-US", variant = "default" }) {
   const manifestKey = [String(text || "").trim(), mode, lang, variant].join("\n");
   const staticAudioFile = courseAudioManifest[manifestKey];

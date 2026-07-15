@@ -9,6 +9,8 @@ from fastapi import HTTPException, UploadFile
 
 
 _client: httpx.AsyncClient | None = None
+_browser_token: str | None = None
+_browser_token_expires_at = 0.0
 
 
 def azure_configured() -> bool:
@@ -35,6 +37,41 @@ def azure_client() -> httpx.AsyncClient:
 async def close_azure_client() -> None:
     if _client and not _client.is_closed:
         await _client.aclose()
+
+
+async def get_browser_speech_token() -> dict[str, str]:
+    global _browser_token, _browser_token_expires_at
+
+    key = os.getenv("AZURE_SPEECH_KEY")
+    region = os.getenv("AZURE_SPEECH_REGION")
+    locale = os.getenv("AZURE_SPEECH_LOCALE", "en-US")
+    if not key or not region:
+        raise HTTPException(status_code=503, detail="Azure Speech is not configured.")
+
+    now = time.monotonic()
+    if _browser_token and now < _browser_token_expires_at:
+        return {"token": _browser_token, "region": region, "locale": locale}
+
+    token_url = f"https://{region}.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+    try:
+        response = await azure_client().post(
+            token_url,
+            headers={"Ocp-Apim-Subscription-Key": key, "Content-Length": "0"},
+            content=b"",
+        )
+    except httpx.RequestError as error:
+        raise HTTPException(status_code=502, detail=f"Could not request an Azure Speech token: {error}") from error
+
+    if response.status_code >= 400:
+        raise HTTPException(status_code=response.status_code, detail="Azure Speech token request failed.")
+
+    token = response.text.strip()
+    if not token:
+        raise HTTPException(status_code=502, detail="Azure Speech returned an empty token.")
+
+    _browser_token = token
+    _browser_token_expires_at = now + 8 * 60
+    return {"token": token, "region": region, "locale": locale}
 
 
 def _content_type(audio_file: UploadFile) -> str:
@@ -81,7 +118,6 @@ def normalize_azure_result(payload: dict[str, Any], elapsed_ms: int, audio_bytes
         "provider": "azure",
         "text_score": {
             "quality_score": assessment.get("PronScore") or assessment.get("AccuracyScore"),
-            "speechace_score": {"pronunciation": assessment.get("PronScore")},
             "word_score_list": words,
             "azure_scores": {
                 "accuracy": assessment.get("AccuracyScore"),

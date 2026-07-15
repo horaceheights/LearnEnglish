@@ -6,14 +6,8 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: SPEECHACE_API_KEY
-        sync: false
-      - key: SPEECHACE_API_BASE_URL
-        value: https://api.speechace.co
-      - key: SPEECHACE_DIALECT
-        value: en-us
       - key: PRONUNCIATION_PROVIDER
-        value: speechace
+        value: azure
       - key: AZURE_SPEECH_KEY
         sync: false
       - key: AZURE_SPEECH_REGION
