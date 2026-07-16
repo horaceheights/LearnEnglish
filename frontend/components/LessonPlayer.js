@@ -1566,7 +1566,7 @@ function optionPracticePrompt(option) {
 function pronunciationThresholds(level) {
   if (String(level || "").toUpperCase().includes("A1")) {
     return {
-      passAccuracy: 45,
+      passAccuracy: 30,
       minimumCompleteness: 60,
       greenWord: 65,
       orangeWord: 25,
