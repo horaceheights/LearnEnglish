@@ -546,22 +546,55 @@ const ONBOARDING_STEPS = [
 function useTone() {
   const audioContextRef = useRef(null);
 
-  return (notes) => {
+  const getAudioContext = useCallback(() => {
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
     if (!AudioContextClass) {
-      return;
+      return null;
     }
 
     if (!audioContextRef.current) {
       audioContextRef.current = new AudioContextClass();
     }
 
-    const context = audioContextRef.current;
+    return audioContextRef.current;
+  }, []);
+
+  useEffect(() => {
+    const unlockToneAudio = () => {
+      const context = getAudioContext();
+      if (context?.state === "suspended") {
+        context.resume().catch(() => {});
+      }
+    };
+
+    window.addEventListener("pointerdown", unlockToneAudio, { passive: true });
+    window.addEventListener("touchstart", unlockToneAudio, { passive: true });
+
+    return () => {
+      window.removeEventListener("pointerdown", unlockToneAudio);
+      window.removeEventListener("touchstart", unlockToneAudio);
+      if (audioContextRef.current) {
+        audioContextRef.current.close().catch(() => {});
+        audioContextRef.current = null;
+      }
+    };
+  }, [getAudioContext]);
+
+  return useCallback(async (notes) => {
+    const context = getAudioContext();
+    if (!context) {
+      return;
+    }
+
     if (context.state === "suspended") {
-      context.resume().catch(() => {});
+      await context.resume().catch(() => {});
     }
     const now = context.currentTime;
     const sequence = Array.isArray(notes) ? notes : [notes];
+    const sequenceDurationMs = sequence.reduce(
+      (duration, note) => Math.max(duration, (note.delayMs || 0) + note.durationMs),
+      0
+    );
 
     sequence.forEach((note) => {
       const oscillator = context.createOscillator();
@@ -596,7 +629,9 @@ function useTone() {
         sparkle.stop(endAt);
       }
     });
-  };
+
+    await new Promise((resolve) => window.setTimeout(resolve, sequenceDurationMs + 35));
+  }, [getAudioContext]);
 }
 
 function useSpeech() {
@@ -1980,7 +2015,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     display: "grid",
     gap: "12px",
   };
-  const pronunciationCue = isPronunciationRecording || isPronunciationScoring
+  const pronunciationCue = isPronunciationRecording
     ? { color: "var(--muted)", isActive: true }
     : { color: "var(--muted)", isActive: false };
 
@@ -2930,6 +2965,8 @@ export default function LessonPlayer({ lesson, lessons }) {
       const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(tokenInfo.token, tokenInfo.region);
       speechConfig.speechRecognitionLanguage = tokenInfo.locale || "en-US";
       speechConfig.outputFormat = SpeechSDK.OutputFormat.Detailed;
+      speechConfig.setProperty(SpeechSDK.PropertyId.Speech_SegmentationSilenceTimeoutMs, "700");
+      speechConfig.setProperty(SpeechSDK.PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "7000");
       audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
       recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
       const assessmentConfig = new SpeechSDK.PronunciationAssessmentConfig(
@@ -2943,7 +2980,6 @@ export default function LessonPlayer({ lesson, lessons }) {
       recognizer.sessionStarted = () => {
         setIsPronunciationRecording(true);
         setPronunciationStatus("Now you say it.");
-        playTone({ frequency: 740, frequency2: 988, durationMs: 180, type: "sine", type2: "triangle", volume: 0.85 });
       };
       azurePronunciationRecognizerRef.current = recognizer;
     } catch (error) {
@@ -2954,8 +2990,16 @@ export default function LessonPlayer({ lesson, lessons }) {
 
     setPronunciationError("");
     setPronunciationResult(null);
-    setIsPronunciationRecording(true);
+    setIsPronunciationRecording(false);
     setPronunciationStatus("Get ready...");
+    await playTone({
+      frequency: 740,
+      frequency2: 988,
+      durationMs: 180,
+      type: "sine",
+      type2: "triangle",
+      volume: 0.85,
+    });
 
     return new Promise((resolve) => {
       const finish = (callback) => {
@@ -3127,7 +3171,7 @@ export default function LessonPlayer({ lesson, lessons }) {
           }
         };
 
-        playTone({ frequency: 740, frequency2: 988, durationMs: 220, type: "sine", type2: "triangle", volume: 0.85 });
+        await playTone({ frequency: 740, frequency2: 988, durationMs: 220, type: "sine", type2: "triangle", volume: 0.85 });
         recorder.start();
         setIsPronunciationRecording(true);
         setPronunciationStatus("Now you say it.");

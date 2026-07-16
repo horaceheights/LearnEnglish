@@ -1619,7 +1619,7 @@ def object_place_cards() -> list[LessonCard]:
         *place_picture_to_text_cards(),
         *place_listen_to_picture_cards(),
         *place_pronunciation_cards(),
-        *place_review_cards(),
+        *place_grammar_cards(),
     ]
 
 
@@ -1722,40 +1722,29 @@ def place_pronunciation_cards() -> list[LessonCard]:
     return cards
 
 
-def place_review_cards() -> list[LessonCard]:
-    review_specs = [
-        ("Picture To Text", "park", ["park", "school", "house", "street"]),
-        ("Listen To Picture", "bridge", ["bridge", "street", "store", "building"]),
-        ("Picture To Text", "store", ["store", "school", "house", "bus"]),
-        ("Listen To Picture", "car", ["car", "bike", "bus", "street"]),
-        ("Picture To Text", "bus", ["bus", "car", "bike", "building"]),
-        ("Listen To Picture", "house", ["house", "school", "store", "park"]),
+def place_grammar_cards() -> list[LessonCard]:
+    grammar_specs = [
+        ("What ___ it?", "is", ["is", "are"], "What is it?", "park"),
+        ("___ is a school.", "It", ["It", "What"], "It is a school.", "school"),
+        ("It ___ a bridge.", "is", ["is", "are"], "It is a bridge.", "bridge"),
+        ("What is ___?", "it", ["it", "a"], "What is it?", "store"),
+        ("It is ___ park.", "a", ["a", "an"], "It is a park.", "park"),
+        ("It is ___ building.", "a", ["a", "an"], "It is a building.", "building"),
     ]
-
     cards: list[LessonCard] = []
-    for index, (stage_type, correct_id, option_ids) in enumerate(review_specs, 1):
-        item = PLACES_AROUND_ME[correct_id]
-        shuffled_options = stable_shuffle(option_ids, f"place-review-{index}-{correct_id}")
-        if stage_type == "Picture To Text":
-            options = [
-                text_choice(option_id, PLACES_AROUND_ME[option_id]["sentence"])
-                for option_id in shuffled_options
-            ]
-        else:
-            options = [place_choice(option_id, "") for option_id in shuffled_options]
-
+    for index, (prompt, answer, choices, sentence, place_id) in enumerate(grammar_specs, 1):
+        shuffled_choices = stable_shuffle(choices, f"place-grammar-{index}-{answer}")
         cards.append(
             LessonCard(
-                prompt="What is it?",
-                stage="Review",
-                correct_option_id=correct_id,
-                options=options,
-                audio_text="What is it?" if stage_type == "Picture To Text" else item["sentence"],
-                answer_audio_text=item["sentence"],
-                prompt_image_url=image_url(place_image(correct_id)) if stage_type == "Picture To Text" else "",
+                prompt=prompt,
+                stage="Grammar",
+                correct_option_id=answer,
+                options=[text_choice(choice, choice) for choice in shuffled_choices],
+                audio_text="",
+                answer_audio_text=sentence,
+                prompt_image_url=image_url(place_image(place_id)),
             )
         )
-
     return cards
 
 
