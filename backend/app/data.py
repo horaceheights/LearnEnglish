@@ -613,8 +613,8 @@ def people_action_cards() -> list[LessonCard]:
         *people_new_vocab_cards(),
         *people_meaning_practice_cards(),
         *people_listen_cards(),
-        *people_pronunciation_cards(),
         *people_plural_intro_cards(),
+        *people_pronunciation_cards(),
         *people_grammar_cards(),
     ]
 
@@ -690,6 +690,23 @@ def people_pronunciation_cards() -> list[LessonCard]:
                 correct_option_id=option_id,
                 options=[action_choice(option_id, sentence)],
                 audio_text=sentence,
+            )
+        )
+
+    for spec in LESSON_1_PLURAL_SENTENCES[:2]:
+        cards.append(
+            LessonCard(
+                prompt=spec["prompt"],
+                stage="Pronunciation Practice",
+                correct_option_id=spec["id"],
+                options=[
+                    ChoiceOption(
+                        id=spec["id"],
+                        image_url=image_url(spec["image"]),
+                        label=spec["prompt"],
+                    )
+                ],
+                audio_text=spec["prompt"],
             )
         )
 
