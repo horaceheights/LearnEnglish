@@ -128,6 +128,7 @@ const styles = {
     width: "100%",
     height: "380px",
     objectFit: "contain",
+    objectPosition: "center",
     display: "block",
     borderRadius: "18px",
     background: "var(--surface-2)",
@@ -3829,7 +3830,8 @@ export default function LessonPlayer({ lesson, lessons }) {
                             position: "absolute",
                             width: isMobile ? "42%" : "44%",
                             aspectRatio: "4 / 3",
-                            objectFit: "cover",
+                            objectFit: "contain",
+                            objectPosition: "center",
                             borderRadius: "18px",
                             border: "5px solid rgba(255, 255, 255, 0.82)",
                             boxShadow: "0 16px 28px rgba(22, 33, 39, 0.15)",
@@ -3872,7 +3874,9 @@ export default function LessonPlayer({ lesson, lessons }) {
                                 style={{
                                   width: 68,
                                   height: 52,
-                                  objectFit: "cover",
+                                  objectFit: "contain",
+                                  objectPosition: "center",
+                                  background: "var(--surface-2)",
                                   borderRadius: "14px",
                                   border: "3px solid #fff",
                                   boxShadow: "0 10px 18px rgba(22, 33, 39, 0.12)",
@@ -3934,7 +3938,8 @@ export default function LessonPlayer({ lesson, lessons }) {
                                       width: "100%",
                                       height: "100%",
                                       minHeight: 140,
-                                      objectFit: "cover",
+                                      objectFit: "contain",
+                                      objectPosition: "center",
                                       display: "block",
                                     }}
                                   />
@@ -4165,7 +4170,8 @@ export default function LessonPlayer({ lesson, lessons }) {
                     display: "block",
                     width: "100%",
                     aspectRatio: "16 / 9",
-                    objectFit: "cover",
+                    objectFit: "contain",
+                    objectPosition: "center",
                   }}
                 />
               </div>
