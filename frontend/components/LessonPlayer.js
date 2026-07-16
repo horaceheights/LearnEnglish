@@ -1427,6 +1427,7 @@ function getWrongFeedback(profile) {
 function summarizePronunciationScore(result) {
   const textScore = result?.text_score;
   const wordScores = textScore?.word_score_list || [];
+  const azureScores = textScore?.azure_scores || {};
   const pronunciation =
     textScore?.quality_score ??
     null;
@@ -1446,6 +1447,9 @@ function summarizePronunciationScore(result) {
 
   return {
     pronunciation,
+    accuracy: azureScores.accuracy ?? pronunciation,
+    fluency: azureScores.fluency ?? null,
+    completeness: azureScores.completeness ?? null,
     wordScores,
     weakestWord,
     weakestSyllable,
@@ -1558,7 +1562,26 @@ function optionPracticePrompt(option) {
   return option?.label || pronunciationPromptFromOption(option?.id);
 }
 
-function pronunciationTokenColors(score) {
+function pronunciationThresholds(level) {
+  if (String(level || "").toUpperCase().includes("A1")) {
+    return {
+      passAccuracy: 45,
+      minimumCompleteness: 60,
+      greenWord: 65,
+      orangeWord: 25,
+    };
+  }
+
+  return {
+    passAccuracy: 65,
+    minimumCompleteness: 75,
+    greenWord: 75,
+    orangeWord: 55,
+  };
+}
+
+function pronunciationTokenColors(score, level, attemptAccepted = false) {
+  const thresholds = pronunciationThresholds(level);
   if (typeof score !== "number") {
     return {
       background: "#fffdf9",
@@ -1568,7 +1591,7 @@ function pronunciationTokenColors(score) {
     };
   }
 
-  if (score >= 75) {
+  if (score >= thresholds.greenWord) {
     return {
       background: "#d8f3df",
       border: "rgba(47, 143, 98, 0.5)",
@@ -1577,7 +1600,7 @@ function pronunciationTokenColors(score) {
     };
   }
 
-  if (score >= 55) {
+  if (attemptAccepted || score >= thresholds.orangeWord) {
     return {
       background: "#fff1c7",
       border: "rgba(191, 114, 0, 0.52)",
@@ -1738,11 +1761,12 @@ function mouthCoachConfig(type) {
   };
 }
 
-function getPronunciationOutcome(summary) {
-  const score = summary?.pronunciation;
-  const failedWord = summary?.wordScores?.find((word) => typeof word.quality_score === "number" && word.quality_score < 55);
+function getPronunciationOutcome(summary, level) {
+  const thresholds = pronunciationThresholds(level);
+  const accuracy = summary?.accuracy ?? summary?.pronunciation;
+  const completeness = summary?.completeness;
 
-  if (typeof score !== "number") {
+  if (typeof accuracy !== "number") {
     return {
       accepted: false,
       title: "Intenta otra vez",
@@ -1750,18 +1774,15 @@ function getPronunciationOutcome(summary) {
     };
   }
 
-  if (failedWord) {
+  if (typeof completeness === "number" && completeness < thresholds.minimumCompleteness) {
     return {
       accepted: false,
       title: "Intenta otra vez",
-      message: getPronunciationAdvice({
-        ...summary,
-        weakestWord: failedWord,
-      }),
+      message: "Escuche solo una parte de la frase. Toma tu tiempo e intenta decir todas las palabras.",
     };
   }
 
-  if (score >= 65) {
+  if (accuracy >= thresholds.passAccuracy) {
     return {
       accepted: true,
       title: "Nice",
@@ -1868,8 +1889,8 @@ export default function LessonPlayer({ lesson, lessons }) {
     [pronunciationResult]
   );
   const pronunciationOutcome = useMemo(
-    () => getPronunciationOutcome(pronunciationSummary),
-    [pronunciationSummary]
+    () => getPronunciationOutcome(pronunciationSummary, activeLesson.level),
+    [activeLesson.level, pronunciationSummary]
   );
   const onboardingProgress = useMemo(() => {
     if (!activeOnboardingStep) {
@@ -2113,13 +2134,19 @@ export default function LessonPlayer({ lesson, lessons }) {
       normalizePronunciationWord(wordScore.word) === normalizePronunciationWord(summary.weakestWord.word);
     const weakestSyllable = findWeakestSyllable(wordScore);
     const weakSyllable = weakestSyllable?.letters || "";
-    const colors = pronunciationTokenColors(qualityScore);
-    const syllableColors = pronunciationTokenColors(weakestSyllable?.quality_score);
+    const attemptAccepted = hasGrading ? getPronunciationOutcome(summary, activeLesson.level).accepted : false;
+    const colors = pronunciationTokenColors(qualityScore, activeLesson.level, attemptAccepted);
+    const syllableColors = pronunciationTokenColors(
+      weakestSyllable?.quality_score,
+      activeLesson.level,
+      attemptAccepted
+    );
+    const thresholds = pronunciationThresholds(activeLesson.level);
     const shouldHighlightSyllable =
       hasGrading &&
       weakSyllable &&
       typeof weakestSyllable?.quality_score === "number" &&
-      weakestSyllable.quality_score < 75;
+      weakestSyllable.quality_score < thresholds.greenWord;
     const tokenBackground = hasGrading ? colors.background : "#fffdf9";
     const tokenColor = hasGrading ? colors.color : "transparent";
     const tokenBorder = hasGrading ? colors.border : "rgba(36, 51, 58, 0.1)";
@@ -2764,6 +2791,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   ]);
 
   useEffect(() => {
+    const resultCardKey = `${activeLesson.id}-${cardIndex}-${activePronunciationOptionIndex}-${activePronunciationPrompt}`;
     if (
       !isPronunciationCard ||
       !started ||
@@ -2772,7 +2800,8 @@ export default function LessonPlayer({ lesson, lessons }) {
       lastResult === "correct" ||
       !pronunciationResult ||
       !pronunciationOutcome.accepted ||
-      !activePronunciationOption
+      !activePronunciationOption ||
+      pronunciationCardKeyRef.current !== resultCardKey
     ) {
       return undefined;
     }
@@ -2813,8 +2842,11 @@ export default function LessonPlayer({ lesson, lessons }) {
 
     return () => window.clearTimeout(timeoutId);
   }, [
+    activeLesson.id,
     activePronunciationOption,
     activePronunciationOptionIndex,
+    activePronunciationPrompt,
+    cardIndex,
     currentCard,
     isComplete,
     isPronunciationCard,
@@ -2827,6 +2859,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   ]);
 
   useEffect(() => {
+    const resultCardKey = `${activeLesson.id}-${cardIndex}-${activePronunciationOptionIndex}-${activePronunciationPrompt}`;
     if (
       !isPronunciationCard ||
       !started ||
@@ -2835,7 +2868,8 @@ export default function LessonPlayer({ lesson, lessons }) {
       lastResult === "correct" ||
       !pronunciationResult ||
       pronunciationOutcome.accepted ||
-      !activePronunciationOption
+      !activePronunciationOption ||
+      pronunciationCardKeyRef.current !== resultCardKey
     ) {
       return;
     }
@@ -2851,7 +2885,10 @@ export default function LessonPlayer({ lesson, lessons }) {
       { frequency: 185, durationMs: 300, delayMs: 210, type: "sawtooth", volume: 0.09 },
     ]);
   }, [
+    activeLesson.id,
     activePronunciationOption,
+    activePronunciationOptionIndex,
+    activePronunciationPrompt,
     cardIndex,
     currentCard,
     isComplete,
