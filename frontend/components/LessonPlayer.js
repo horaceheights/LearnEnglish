@@ -1827,6 +1827,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   const [pronunciationResult, setPronunciationResult] = useState(null);
   const [pronunciationError, setPronunciationError] = useState("");
   const [pronunciationAttempt, setPronunciationAttempt] = useState(0);
+  const [pronunciationSpokenWordCount, setPronunciationSpokenWordCount] = useState(0);
   const [activePronunciationOptionIndex, setActivePronunciationOptionIndex] = useState(0);
   const [completedPronunciationOptions, setCompletedPronunciationOptions] = useState([]);
   const [completedPronunciationResults, setCompletedPronunciationResults] = useState({});
@@ -2143,15 +2144,36 @@ export default function LessonPlayer({ lesson, lessons }) {
       attemptAccepted
     );
     const thresholds = pronunciationThresholds(activeLesson.level);
+    const isSpokenWord =
+      !hasGrading &&
+      isPronunciationRecording &&
+      optionId === activePronunciationOption?.id &&
+      spokenWordIndex < pronunciationSpokenWordCount;
+    const isCurrentSpokenWord =
+      isSpokenWord && spokenWordIndex === pronunciationSpokenWordCount - 1;
     const shouldHighlightSyllable =
       hasGrading &&
       weakSyllable &&
       typeof weakestSyllable?.quality_score === "number" &&
       weakestSyllable.quality_score < thresholds.greenWord;
-    const tokenBackground = hasGrading ? colors.background : "#fffdf9";
-    const tokenColor = hasGrading ? colors.color : "transparent";
-    const tokenBorder = hasGrading ? colors.border : "rgba(36, 51, 58, 0.1)";
-    const tokenShadow = hasGrading ? colors.shadow : "none";
+    const tokenBackground = hasGrading
+      ? colors.background
+      : isCurrentSpokenWord
+        ? "#d9eef5"
+        : isSpokenWord
+          ? "#edf7f9"
+          : "#fffdf9";
+    const tokenColor = hasGrading ? colors.color : isSpokenWord ? "#176777" : "transparent";
+    const tokenBorder = hasGrading
+      ? colors.border
+      : isSpokenWord
+        ? "rgba(23, 103, 119, 0.42)"
+        : "rgba(36, 51, 58, 0.1)";
+    const tokenShadow = hasGrading
+      ? colors.shadow
+      : isCurrentSpokenWord
+        ? "0 0 0 3px rgba(23, 103, 119, 0.16)"
+        : "none";
     const weakIndex = shouldHighlightSyllable ? word.toLowerCase().indexOf(String(weakSyllable).toLowerCase()) : -1;
 
     let content = word;
@@ -2554,6 +2576,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     setPronunciationResult(null);
     setPronunciationError("");
     setPronunciationAttempt(0);
+    setPronunciationSpokenWordCount(0);
     setActivePronunciationOptionIndex(0);
     setCompletedPronunciationOptions([]);
     setCompletedPronunciationResults({});
@@ -3016,8 +3039,15 @@ export default function LessonPlayer({ lesson, lessons }) {
       assessmentConfig.phonemeAlphabet = "IPA";
       assessmentConfig.applyTo(recognizer);
       recognizer.sessionStarted = () => {
+        setPronunciationSpokenWordCount(0);
         setIsPronunciationRecording(true);
         setPronunciationStatus("Now you say it.");
+      };
+      recognizer.recognizing = (_sender, event) => {
+        const recognizedWords = String(event?.result?.text || "").match(/[A-Za-z']+/g) || [];
+        const expectedWordCount = String(activePronunciationPrompt).match(/[A-Za-z']+/g)?.length || 0;
+        const nextWordCount = Math.min(recognizedWords.length, expectedWordCount);
+        setPronunciationSpokenWordCount((currentCount) => Math.max(currentCount, nextWordCount));
       };
       azurePronunciationRecognizerRef.current = recognizer;
     } catch (error) {
@@ -3028,6 +3058,7 @@ export default function LessonPlayer({ lesson, lessons }) {
 
     setPronunciationError("");
     setPronunciationResult(null);
+    setPronunciationSpokenWordCount(0);
     setIsPronunciationRecording(false);
     setPronunciationStatus("Get ready...");
     await playTone({
@@ -3127,7 +3158,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     pronunciationHasSpeechRef.current = false;
     pronunciationSilenceStartedAtRef.current = null;
     pronunciationShouldScoreRef.current = true;
-    const azureStreamingPreparation = isMobile ? prepareAzureStreaming() : null;
+    const azureStreamingPreparation = prepareAzureStreaming();
     azureStreamingPreparation?.catch(() => {
       // The existing recorded-audio path remains available as a fallback.
     });
@@ -3177,11 +3208,9 @@ export default function LessonPlayer({ lesson, lessons }) {
 
       try {
         setPronunciationStatus("Get ready...");
-        if (isMobile) {
-          const handledByAzureStreaming = await scorePronunciationWithAzureStreaming(azureStreamingPreparation);
-          if (handledByAzureStreaming) {
-            return;
-          }
+        const handledByAzureStreaming = await scorePronunciationWithAzureStreaming(azureStreamingPreparation);
+        if (handledByAzureStreaming) {
+          return;
         }
         const { stream, recorder, analyser, samples } = await prepareCapture();
 
