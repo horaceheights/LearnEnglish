@@ -2045,6 +2045,7 @@ export default function LessonPlayer({ lesson, lessons }) {
   const renderHighlightedTitle = (text) => {
     const focusWordsByStage = {
       "More People": new Set(["and", "are"]),
+      "New Grammar": new Set(["not"]),
       Grammar: new Set(["is", "are"]),
     };
     const focusWords = focusWordsByStage[currentCard?.stage];

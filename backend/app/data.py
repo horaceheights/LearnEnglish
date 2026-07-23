@@ -496,6 +496,84 @@ LESSON_4_PRONUNCIATION_IDS = [
     "brother-studying",
 ]
 
+LESSON_2_NEGATION_SPECS = [
+    {
+        "id": "he-not-sleeping",
+        "prompt": "He ___ sleeping.",
+        "answer": "is not",
+        "sentence": "He is not sleeping.",
+        "choices": ["is", "is not"],
+        "image": "boy_is_reading.png",
+    },
+    {
+        "id": "they-not-reading",
+        "prompt": "They ___ reading.",
+        "answer": "are not",
+        "sentence": "They are not reading.",
+        "choices": ["are", "are not"],
+        "image": "they_boy_girl_are_running.png",
+    },
+]
+
+LESSON_3_NEGATION_SPECS = [
+    {
+        "id": "baby-not-playing",
+        "prompt": "A baby ___ playing.",
+        "answer": "is not",
+        "sentence": "A baby is not playing.",
+        "choices": ["is", "is not"],
+        "image": "family_baby_sleeping.png",
+    },
+    {
+        "id": "children-not-sleeping",
+        "prompt": "Children ___ sleeping.",
+        "answer": "are not",
+        "sentence": "Children are not sleeping.",
+        "choices": ["are", "are not"],
+        "image": "family_children_playing.png",
+    },
+]
+
+LESSON_4_NEGATION_SPECS = [
+    {
+        "id": "father-not-cooking",
+        "prompt": "The father ___ cooking.",
+        "answer": "is not",
+        "sentence": "The father is not cooking.",
+        "choices": ["is", "is not"],
+        "image": "family_father_working.png",
+    },
+    {
+        "id": "grandparents-not-playing",
+        "prompt": "The grandparents ___ playing.",
+        "answer": "are not",
+        "sentence": "The grandparents are not playing.",
+        "choices": ["are", "are not"],
+        "image": "family_grandparents_sitting.png",
+    },
+]
+
+LESSON_5_NEGATION_SPECS = [
+    {
+        "id": "bike-not-bus",
+        "prompt": "It ___ a bus.",
+        "answer": "is not",
+        "sentence": "It is not a bus.",
+        "choices": ["is", "is not"],
+        "image": "object_bike.png",
+        "place_id": "bike",
+    },
+    {
+        "id": "building-not-school",
+        "prompt": "It ___ a school.",
+        "answer": "is not",
+        "sentence": "It is not a school.",
+        "choices": ["is", "is not"],
+        "image": "place_building.png",
+        "place_id": "building",
+    },
+]
+
 
 def stable_shuffle(items: list[str], seed: str) -> list[str]:
     shuffled = [*items]
@@ -794,12 +872,32 @@ def sentence_spec_choice(spec: tuple[str, str, str], label: str = "") -> ChoiceO
     return image_choice(option_id, image_name, label or sentence)
 
 
+def negation_intro_cards(specs: list[dict[str, object]]) -> list[LessonCard]:
+    return [
+        LessonCard(
+            prompt=str(spec["sentence"]),
+            stage="New Grammar",
+            correct_option_id=str(spec["id"]),
+            options=[
+                image_choice(
+                    str(spec["id"]),
+                    str(spec["image"]),
+                    str(spec["sentence"]),
+                )
+            ],
+            audio_text=str(spec["sentence"]),
+        )
+        for spec in specs
+    ]
+
+
 def lesson_2_pronoun_cards() -> list[LessonCard]:
     return [
         *lesson_2_new_vocab_cards(),
         *lesson_2_meaning_cards(),
         *lesson_2_listen_cards(),
         *lesson_2_pronunciation_cards(),
+        *negation_intro_cards(LESSON_2_NEGATION_SPECS),
         *lesson_2_grammar_cards(),
     ]
 
@@ -877,16 +975,29 @@ def lesson_2_pronunciation_cards() -> list[LessonCard]:
 
 def lesson_2_grammar_cards() -> list[LessonCard]:
     specs = [
-        ("He ___ reading.", "is", "He is reading.", "boy_is_reading.png"),
-        ("She ___ writing.", "is", "She is writing.", "girl_is_writing.png"),
-        ("They ___ running.", "are", "They are running.", "they_boy_girl_are_running.png"),
-        ("They ___ eating.", "are", "They are eating.", "they_man_woman_are_eating.png"),
-        ("He ___ walking.", "is", "He is walking.", "man_is_walking.png"),
-        ("They ___ writing.", "are", "They are writing.", "they_girl_woman_are_writing.png"),
+        ("He ___ reading.", "is", ["is", "are"], "He is reading.", "boy_is_reading.png"),
+        ("She ___ writing.", "is", ["is", "are"], "She is writing.", "girl_is_writing.png"),
+        ("They ___ running.", "are", ["is", "are"], "They are running.", "they_boy_girl_are_running.png"),
+        ("They ___ eating.", "are", ["is", "are"], "They are eating.", "they_man_woman_are_eating.png"),
+        ("He ___ walking.", "is", ["is", "are"], "He is walking.", "man_is_walking.png"),
+        ("They ___ writing.", "are", ["is", "are"], "They are writing.", "they_girl_woman_are_writing.png"),
+        *[
+            (
+                str(spec["prompt"]),
+                str(spec["answer"]),
+                list(spec["choices"]),
+                str(spec["sentence"]),
+                str(spec["image"]),
+            )
+            for spec in LESSON_2_NEGATION_SPECS
+        ],
     ]
     cards: list[LessonCard] = []
-    for index, (prompt, answer, sentence, image_name) in enumerate(stable_shuffle_cards(specs, "lesson-2-grammar-order"), 1):
-        options = stable_shuffle(["is", "are"], f"lesson-2-grammar-{index}-{answer}")
+    for index, (prompt, answer, choices, sentence, image_name) in enumerate(
+        stable_shuffle_cards(specs, "lesson-2-grammar-order"),
+        1,
+    ):
+        options = stable_shuffle(choices, f"lesson-2-grammar-{index}-{answer}")
         cards.append(
             LessonCard(
                 prompt=prompt,
@@ -915,6 +1026,7 @@ def family_member_cards() -> list[LessonCard]:
         *family_member_meaning_cards(),
         *family_member_listen_cards(),
         *family_member_pronunciation_cards(),
+        *negation_intro_cards(LESSON_3_NEGATION_SPECS),
         *family_member_grammar_cards(),
     ]
 
@@ -980,9 +1092,28 @@ def family_member_pronunciation_cards() -> list[LessonCard]:
 
 
 def family_member_grammar_cards() -> list[LessonCard]:
+    specs = [
+        *[
+            (prompt, answer, ["is", "are"], sentence, image_name)
+            for prompt, answer, sentence, image_name in LESSON_3_GRAMMAR_SPECS
+        ],
+        *[
+            (
+                str(spec["prompt"]),
+                str(spec["answer"]),
+                list(spec["choices"]),
+                str(spec["sentence"]),
+                str(spec["image"]),
+            )
+            for spec in LESSON_3_NEGATION_SPECS
+        ],
+    ]
     cards: list[LessonCard] = []
-    for index, (prompt, answer, sentence, image_name) in enumerate(stable_shuffle_cards(LESSON_3_GRAMMAR_SPECS, "family-grammar-order"), 1):
-        options = stable_shuffle(["is", "are"], f"family-member-grammar-{index}-{answer}")
+    for index, (prompt, answer, choices, sentence, image_name) in enumerate(
+        stable_shuffle_cards(specs, "family-grammar-order"),
+        1,
+    ):
+        options = stable_shuffle(choices, f"family-member-grammar-{index}-{answer}")
         cards.append(
             LessonCard(
                 prompt=prompt,
@@ -1003,6 +1134,7 @@ def family_action_cards() -> list[LessonCard]:
         *family_action_meaning_cards(),
         *family_action_listen_cards(),
         *family_action_pronunciation_cards(),
+        *negation_intro_cards(LESSON_4_NEGATION_SPECS),
         *family_action_grammar_cards(),
     ]
 
@@ -1085,16 +1217,29 @@ def family_action_pronunciation_cards() -> list[LessonCard]:
 
 def family_action_grammar_cards() -> list[LessonCard]:
     specs = [
-        ("The father ___ working.", "is", "The father is working.", "family_father_working.png"),
-        ("The mother ___ cooking.", "is", "The mother is cooking.", "family_mother_cooking.png"),
-        ("The children ___ playing.", "are", "The children are playing.", "family_children_playing.png"),
-        ("The parents ___ talking.", "are", "The parents are talking.", "family_parents_talking.png"),
-        ("The brother ___ studying.", "is", "The brother is studying.", "family_brother_studying.png"),
-        ("The grandparents ___ sitting.", "are", "The grandparents are sitting.", "family_grandparents_sitting.png"),
+        ("The father ___ working.", "is", ["is", "are"], "The father is working.", "family_father_working.png"),
+        ("The mother ___ cooking.", "is", ["is", "are"], "The mother is cooking.", "family_mother_cooking.png"),
+        ("The children ___ playing.", "are", ["is", "are"], "The children are playing.", "family_children_playing.png"),
+        ("The parents ___ talking.", "are", ["is", "are"], "The parents are talking.", "family_parents_talking.png"),
+        ("The brother ___ studying.", "is", ["is", "are"], "The brother is studying.", "family_brother_studying.png"),
+        ("The grandparents ___ sitting.", "are", ["is", "are"], "The grandparents are sitting.", "family_grandparents_sitting.png"),
+        *[
+            (
+                str(spec["prompt"]),
+                str(spec["answer"]),
+                list(spec["choices"]),
+                str(spec["sentence"]),
+                str(spec["image"]),
+            )
+            for spec in LESSON_4_NEGATION_SPECS
+        ],
     ]
     cards: list[LessonCard] = []
-    for index, (prompt, answer, sentence, image_name) in enumerate(stable_shuffle_cards(specs, "family-action-grammar-order"), 1):
-        options = stable_shuffle(["is", "are"], f"family-action-grammar-{index}-{answer}")
+    for index, (prompt, answer, choices, sentence, image_name) in enumerate(
+        stable_shuffle_cards(specs, "family-action-grammar-order"),
+        1,
+    ):
+        options = stable_shuffle(choices, f"family-action-grammar-{index}-{answer}")
         cards.append(
             LessonCard(
                 prompt=prompt,
@@ -1665,6 +1810,7 @@ def object_place_cards() -> list[LessonCard]:
         *place_picture_to_text_cards(),
         *place_listen_to_picture_cards(),
         *place_pronunciation_cards(),
+        *negation_intro_cards(LESSON_5_NEGATION_SPECS),
         *place_grammar_cards(),
     ]
 
@@ -1776,9 +1922,22 @@ def place_grammar_cards() -> list[LessonCard]:
         ("What is ___?", "it", ["it", "a"], "What is it?", "store"),
         ("It is ___ park.", "a", ["a", "an"], "It is a park.", "park"),
         ("It is ___ building.", "a", ["a", "an"], "It is a building.", "building"),
+        *[
+            (
+                str(spec["prompt"]),
+                str(spec["answer"]),
+                list(spec["choices"]),
+                str(spec["sentence"]),
+                str(spec["place_id"]),
+            )
+            for spec in LESSON_5_NEGATION_SPECS
+        ],
     ]
     cards: list[LessonCard] = []
-    for index, (prompt, answer, choices, sentence, place_id) in enumerate(grammar_specs, 1):
+    for index, (prompt, answer, choices, sentence, place_id) in enumerate(
+        stable_shuffle_cards(grammar_specs, "place-grammar-order"),
+        1,
+    ):
         shuffled_choices = stable_shuffle(choices, f"place-grammar-{index}-{answer}")
         cards.append(
             LessonCard(
@@ -1841,6 +2000,7 @@ LESSON_2 = Lesson(
         "they",
         "is",
         "are",
+        "not",
         "running",
         "eating",
         "reading",
@@ -1897,6 +2057,7 @@ LESSON_4 = Lesson(
     vocabulary=[
         "a",
         "an",
+        "not",
         "baby",
         "babies",
         "child",
@@ -1944,6 +2105,7 @@ LESSON_5 = Lesson(
         "he",
         "she",
         "they",
+        "not",
         "family",
         "adult",
         "adults",
@@ -1985,6 +2147,7 @@ LESSON_6 = Lesson(
         "what",
         "it",
         "is",
+        "not",
         "park",
         "house",
         "school",
