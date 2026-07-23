@@ -611,6 +611,7 @@ def text_choice(option_id: str, label: str) -> ChoiceOption:
 def people_action_cards() -> list[LessonCard]:
     return [
         *people_new_vocab_cards(),
+        *people_action_intro_cards(),
         *people_meaning_practice_cards(),
         *people_listen_cards(),
         *people_plural_intro_cards(),
@@ -630,6 +631,34 @@ def people_new_vocab_cards() -> list[LessonCard]:
                 correct_option_id=person,
                 options=[person_choice(person)],
                 audio_text=PEOPLE[person]["label"],
+            )
+        )
+
+    return cards
+
+
+def people_action_intro_cards() -> list[LessonCard]:
+    actions_by_person: dict[str, list[str]] = {}
+    for person, action in LESSON_1_SENTENCE_PAIRS:
+        actions_by_person.setdefault(person, []).append(action)
+
+    cards: list[LessonCard] = []
+    for index, (person, action) in enumerate(LESSON_1_SENTENCE_PAIRS, 1):
+        correct_id = action_card_id(person, action)
+        distractor_action = next(item for item in actions_by_person[person] if item != action)
+        distractor_id = action_card_id(person, distractor_action)
+        option_ids = stable_shuffle(
+            [correct_id, distractor_id],
+            f"people-action-intro-{index}-{correct_id}",
+        )
+        sentence = action_sentence(person, action)
+        cards.append(
+            LessonCard(
+                prompt=sentence,
+                stage="Action Introduction",
+                correct_option_id=correct_id,
+                options=[action_choice(option_id, "") for option_id in option_ids],
+                audio_text=sentence,
             )
         )
 
