@@ -1798,11 +1798,18 @@ function getPronunciationOutcome(summary, level) {
   };
 }
 
-export default function LessonPlayer({ lesson, lessons }) {
+export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [activeLesson, setActiveLesson] = useState(lesson);
-  const [started, setStarted] = useState(false);
-  const [profileLoaded, setProfileLoaded] = useState(false);
-  const [profile, setProfile] = useState(null);
+  const [started, setStarted] = useState(testMode);
+  const [profileLoaded, setProfileLoaded] = useState(testMode);
+  const [profile, setProfile] = useState(
+    testMode
+      ? {
+          ...DEFAULT_PROFILE,
+          displayName: "Pronunciation Test",
+        }
+      : null
+  );
   const [isCreatingProfile, setIsCreatingProfile] = useState(false);
   const [loginName, setLoginName] = useState("");
   const [loginError, setLoginError] = useState("");
@@ -2500,6 +2507,10 @@ export default function LessonPlayer({ lesson, lessons }) {
   };
 
   useEffect(() => {
+    if (testMode) {
+      return;
+    }
+
     if (typeof window === "undefined") {
       return;
     }
@@ -2516,14 +2527,14 @@ export default function LessonPlayer({ lesson, lessons }) {
     } finally {
       setProfileLoaded(true);
     }
-  }, []);
+  }, [testMode]);
 
   useEffect(() => {
     setActiveLesson(lesson);
   }, [lesson]);
 
   useEffect(() => {
-    if (!profileLoaded || !profile || profile.userId) {
+    if (testMode || !profileLoaded || !profile || profile.userId) {
       return;
     }
 
@@ -2549,7 +2560,7 @@ export default function LessonPlayer({ lesson, lessons }) {
     return () => {
       isActive = false;
     };
-  }, [profile, profileLoaded]);
+  }, [profile, profileLoaded, testMode]);
 
   const resetProgress = () => {
     stopPronunciationCapture();
