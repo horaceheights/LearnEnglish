@@ -1158,7 +1158,74 @@ function useSpeech() {
     });
   }, [decodeCourseAudio, getCourseAudioContext]);
 
-  return useCallback((text, options = {}) => {
+  const playMediaTone = useCallback(async ({
+    frequency = 740,
+    frequency2 = 988,
+    durationMs = 180,
+    volume = 0.9,
+  } = {}) => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    const sampleRate = 22050;
+    const sampleCount = Math.ceil((durationMs / 1000) * sampleRate);
+    const wavBuffer = new ArrayBuffer(44 + sampleCount * 2);
+    const view = new DataView(wavBuffer);
+    const writeText = (offset, value) => {
+      for (let index = 0; index < value.length; index += 1) {
+        view.setUint8(offset + index, value.charCodeAt(index));
+      }
+    };
+
+    writeText(0, "RIFF");
+    view.setUint32(4, 36 + sampleCount * 2, true);
+    writeText(8, "WAVE");
+    writeText(12, "fmt ");
+    view.setUint32(16, 16, true);
+    view.setUint16(20, 1, true);
+    view.setUint16(22, 1, true);
+    view.setUint32(24, sampleRate, true);
+    view.setUint32(28, sampleRate * 2, true);
+    view.setUint16(32, 2, true);
+    view.setUint16(34, 16, true);
+    writeText(36, "data");
+    view.setUint32(40, sampleCount * 2, true);
+
+    for (let index = 0; index < sampleCount; index += 1) {
+      const time = index / sampleRate;
+      const progress = index / sampleCount;
+      const envelope = Math.min(1, progress / 0.08, (1 - progress) / 0.12);
+      const sample =
+        (Math.sin(2 * Math.PI * frequency * time) +
+          0.55 * Math.sin(2 * Math.PI * frequency2 * time)) /
+        1.55;
+      view.setInt16(44 + index * 2, Math.round(sample * envelope * 32767), true);
+    }
+
+    const objectUrl = URL.createObjectURL(new Blob([wavBuffer], { type: "audio/wav" }));
+    const audio = new Audio(objectUrl);
+    audio.preload = "auto";
+    audio.playsInline = true;
+    audio.volume = Math.min(1, Math.max(0, volume));
+
+    return new Promise((resolve) => {
+      let settled = false;
+      const finish = (played) => {
+        if (settled) {
+          return;
+        }
+        settled = true;
+        URL.revokeObjectURL(objectUrl);
+        resolve(played);
+      };
+      audio.onended = () => finish(true);
+      audio.onerror = () => finish(false);
+      audio.play().catch(() => finish(false));
+    });
+  }, []);
+
+  const speakText = useCallback((text, options = {}) => {
     if (typeof window === "undefined") {
       return 0;
     }
@@ -1323,6 +1390,8 @@ function useSpeech() {
     speakWithBrowserVoice,
     stopAudioPlayback,
   ]);
+
+  return useMemo(() => ({ speakText, playMediaTone }), [playMediaTone, speakText]);
 }
 
 function useViewportWidth() {
@@ -1858,10 +1927,28 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const spokenPromptKeyRef = useRef("");
   const preloadedAudioKeysRef = useRef(new Set());
   const playTone = useTone();
-  const speakText = useSpeech();
+  const { speakText, playMediaTone } = useSpeech();
   const viewportWidth = useViewportWidth();
   const isTablet = viewportWidth <= 1080;
   const isMobile = viewportWidth <= 760;
+  const playReadyCue = useCallback(async () => {
+    const playedThroughMedia = await playMediaTone({
+      frequency: 740,
+      frequency2: 988,
+      durationMs: 180,
+      volume: 1,
+    });
+    if (!playedThroughMedia) {
+      await playTone({
+        frequency: 740,
+        frequency2: 988,
+        durationMs: 180,
+        type: "sine",
+        type2: "triangle",
+        volume: 0.85,
+      });
+    }
+  }, [playMediaTone, playTone]);
 
   const currentCard = activeLesson.cards[cardIndex];
   const totalCards = activeLesson.cards.length;
@@ -3073,14 +3160,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setPronunciationSpokenWordCount(0);
     setIsPronunciationRecording(false);
     setPronunciationStatus("Get ready...");
-    await playTone({
-      frequency: 740,
-      frequency2: 988,
-      durationMs: 180,
-      type: "sine",
-      type2: "triangle",
-      volume: 0.85,
-    });
+    await playReadyCue();
 
     return new Promise((resolve) => {
       const finish = (callback) => {
@@ -3250,7 +3330,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           }
         };
 
-        await playTone({ frequency: 740, frequency2: 988, durationMs: 220, type: "sine", type2: "triangle", volume: 0.85 });
+        await playReadyCue();
         recorder.start();
         setIsPronunciationRecording(true);
         setPronunciationStatus("Now you say it.");
