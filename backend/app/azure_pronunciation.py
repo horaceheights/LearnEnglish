@@ -1,10 +1,14 @@
 import base64
+import io
 import json
 import os
 import time
+import wave
 from typing import Any
 
+import av
 import httpx
+from av.error import FFmpegError
 from fastapi import HTTPException, UploadFile
 
 
@@ -86,6 +90,45 @@ def _content_type(audio_file: UploadFile) -> str:
     )
 
 
+def _is_mobile_audio(audio_file: UploadFile) -> bool:
+    content_type = (audio_file.content_type or "").lower()
+    filename = (audio_file.filename or "").lower()
+    return (
+        content_type in {"audio/m4a", "audio/mp4", "audio/x-m4a", "video/mp4"}
+        or filename.endswith((".m4a", ".mp4"))
+    )
+
+
+def convert_mobile_audio_to_wav(audio: bytes) -> bytes:
+    """Decode mobile AAC/M4A and return Azure-compatible 16 kHz mono PCM WAV."""
+    try:
+        with av.open(io.BytesIO(audio), mode="r") as container:
+            audio_stream = next((stream for stream in container.streams if stream.type == "audio"), None)
+            if audio_stream is None:
+                raise ValueError("The uploaded file does not contain an audio stream.")
+
+            resampler = av.AudioResampler(format="s16", layout="mono", rate=16000)
+            pcm = bytearray()
+            for frame in container.decode(audio_stream):
+                for converted in resampler.resample(frame):
+                    pcm.extend(bytes(converted.planes[0])[: converted.samples * 2])
+            for converted in resampler.resample(None):
+                pcm.extend(bytes(converted.planes[0])[: converted.samples * 2])
+    except (FFmpegError, EOFError, ValueError) as error:
+        raise HTTPException(status_code=415, detail=f"Could not decode the mobile audio recording: {error}") from error
+
+    if not pcm:
+        raise HTTPException(status_code=400, detail="The mobile audio recording contains no samples.")
+
+    output = io.BytesIO()
+    with wave.open(output, "wb") as wav_file:
+        wav_file.setnchannels(1)
+        wav_file.setsampwidth(2)
+        wav_file.setframerate(16000)
+        wav_file.writeframes(pcm)
+    return output.getvalue()
+
+
 def normalize_azure_result(payload: dict[str, Any], elapsed_ms: int, audio_bytes: int) -> dict[str, Any]:
     best = (payload.get("NBest") or [{}])[0]
     assessment = best.get("PronunciationAssessment") or best
@@ -141,6 +184,11 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
     audio = await audio_file.read()
     if not audio:
         raise HTTPException(status_code=400, detail="Audio file is empty.")
+    if _is_mobile_audio(audio_file):
+        audio = convert_mobile_audio_to_wav(audio)
+        content_type = "audio/wav; codecs=audio/pcm; samplerate=16000"
+    else:
+        content_type = _content_type(audio_file)
 
     config = {
         "ReferenceText": text,
@@ -160,7 +208,7 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
             headers={
                 "Ocp-Apim-Subscription-Key": key,
                 "Pronunciation-Assessment": encoded_config,
-                "Content-Type": _content_type(audio_file),
+                "Content-Type": content_type,
                 "Accept": "application/json",
             },
             content=audio,
