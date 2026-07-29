@@ -17,7 +17,16 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"
+      ],
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,6 +39,9 @@
     "owner": "horaceheightss-team",
     "plugins": [
       "expo-audio"
-    ]
+    ],
+    "updates": {
+      "url": "https://u.expo.dev/898830f0-4e7c-4568-82da-7cfb25c97d8f"
+    }
   }
 }
