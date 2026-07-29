@@ -2,25 +2,48 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { absoluteMediaUrl } from '../config';
 import type { LessonCard } from '../types';
-import { CourseAudioButton } from './CourseAudioButton';
 import { PronunciationPractice } from './PronunciationPractice';
 
 type Props = {
   card: LessonCard;
+  level: string;
+  userId?: string;
   selectedId: string | null;
+  result: 'correct' | 'wrong' | null;
+  gentleFeedback: boolean;
+  showHelp: boolean;
   onSelect: (optionId: string) => void;
-  onContinue: () => void;
+  onPronunciationPassed: () => void;
 };
 
-export function LessonCardView({ card, selectedId, onSelect, onContinue }: Props) {
+export function LessonCardView({
+  card,
+  level,
+  userId,
+  selectedId,
+  result,
+  gentleFeedback,
+  showHelp,
+  onSelect,
+  onPronunciationPassed,
+}: Props) {
   const isPronunciation = card.stage === 'Pronunciation Practice';
   const isListenCard = card.stage === 'Listen';
-  const answeredCorrectly = selectedId === card.correct_option_id;
 
   return (
     <View style={styles.card}>
-      <Text style={styles.stage}>{card.stage.toUpperCase()}</Text>
-      <Text style={styles.prompt}>{card.prompt}</Text>
+      {showHelp ? (
+        <View style={styles.help}>
+          <Text style={styles.helpTitle}>Ayuda</Text>
+          <Text style={styles.helpText}>
+            {isPronunciation
+              ? 'Escucha la frase, repítela cuando aparezca la señal y revisa las palabras marcadas.'
+              : isListenCard
+                ? 'Escucha con atención y toca la imagen que corresponde.'
+                : 'Toca la imagen o palabra que corresponde a la frase.'}
+          </Text>
+        </View>
+      ) : null}
       {card.prompt_image_url ? (
         <Image
           accessibilityLabel={card.answer_audio_text || card.prompt}
@@ -29,30 +52,36 @@ export function LessonCardView({ card, selectedId, onSelect, onContinue }: Props
           style={styles.promptImage}
         />
       ) : null}
-      {card.audio_text && !isPronunciation ? (
-        <View style={styles.audioWrap}>
-          <CourseAudioButton
-            label={isListenCard ? 'Play the sentence' : 'Hear it'}
-            text={card.audio_text}
-          />
-        </View>
-      ) : null}
-
       {isPronunciation ? (
-        <PronunciationPractice onPassed={onContinue} phrase={card.audio_text || card.prompt} />
+        <>
+          {card.options[0]?.image_url ? (
+            <Image
+              accessibilityLabel={card.options[0].label || card.prompt}
+              resizeMode="contain"
+              source={{ uri: absoluteMediaUrl(card.options[0].image_url) }}
+              style={styles.pronunciationImage}
+            />
+          ) : null}
+          <PronunciationPractice
+            level={level}
+            onPassed={onPronunciationPassed}
+            phrase={card.audio_text || card.prompt}
+            userId={userId}
+          />
+        </>
       ) : (
         <>
           <View style={styles.options}>
             {card.options.map((option) => {
               const selected = selectedId === option.id;
               const correct = option.id === card.correct_option_id;
-              const revealCorrect = selectedId !== null && correct;
-              const revealWrong = selected && !correct;
+              const revealCorrect = selected && result === 'correct' && correct;
+              const revealWrong = selected && result === 'wrong';
               return (
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
                   accessibilityRole="button"
-                  disabled={selectedId !== null}
+                  disabled={result === 'correct'}
                   key={option.id}
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
@@ -71,7 +100,7 @@ export function LessonCardView({ card, selectedId, onSelect, onContinue }: Props
                       style={styles.optionImage}
                     />
                   ) : null}
-                  {option.label && (!isListenCard || selectedId !== null || !option.image_url) ? (
+                  {option.label && !option.image_url ? (
                     <Text style={styles.optionLabel}>{option.label}</Text>
                   ) : null}
                   {revealCorrect ? <Text style={styles.feedbackIcon}>✓</Text> : null}
@@ -80,17 +109,15 @@ export function LessonCardView({ card, selectedId, onSelect, onContinue }: Props
               );
             })}
           </View>
-          {selectedId !== null ? (
+          {result ? (
             <View style={styles.feedback}>
-              <Text style={[styles.feedbackText, answeredCorrectly ? styles.correctText : styles.wrongText]}>
-                {answeredCorrectly ? 'Correct!' : 'Not quite. The correct answer is highlighted.'}
+              <Text style={[styles.feedbackText, result === 'correct' ? styles.correctText : styles.wrongText]}>
+                {result === 'correct'
+                  ? 'Correcto. Vamos a la siguiente tarjeta…'
+                  : gentleFeedback
+                    ? 'No pasa nada. Inténtalo otra vez. Esta tarjeta ya no contará como acierto al primer intento.'
+                    : 'No fue esa. Inténtalo otra vez. Esta tarjeta ya no contará como acierto al primer intento.'}
               </Text>
-              {card.answer_audio_text ? (
-                <CourseAudioButton label="Hear the complete sentence" text={card.answer_audio_text} />
-              ) : null}
-              <Pressable accessibilityRole="button" onPress={onContinue} style={styles.continueButton}>
-                <Text style={styles.continueText}>Continue</Text>
-              </Pressable>
             </View>
           ) : null}
         </>
@@ -107,17 +134,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 20,
   },
-  stage: { color: '#287a57', fontSize: 11, fontWeight: '900', letterSpacing: 1.6 },
-  prompt: {
-    color: '#17251f',
-    fontSize: 27,
-    fontWeight: '800',
-    lineHeight: 35,
-    marginTop: 10,
-    textAlign: 'center',
-  },
+  help: { backgroundColor: '#fff4df', borderRadius: 14, marginBottom: 12, padding: 12 },
+  helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
+  helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
   promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
-  audioWrap: { marginTop: 16 },
+  pronunciationImage: { alignSelf: 'center', height: 190, marginTop: 8, width: '100%' },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -169,13 +190,5 @@ const styles = StyleSheet.create({
   feedbackText: { fontSize: 16, fontWeight: '800', textAlign: 'center' },
   correctText: { color: '#287a57' },
   wrongText: { color: '#a34842' },
-  continueButton: {
-    alignItems: 'center',
-    backgroundColor: '#17251f',
-    borderRadius: 16,
-    justifyContent: 'center',
-    minHeight: 54,
-  },
-  continueText: { color: '#fff', fontSize: 16, fontWeight: '800' },
   pressed: { opacity: 0.72 },
 });

@@ -4,9 +4,14 @@ import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 
 import { courseAudioUrl } from '../config';
 
-type Props = { text: string; label?: string };
+type Props = {
+  text: string;
+  label?: string;
+  mode?: string;
+  variant?: string;
+};
 
-export function CourseAudioButton({ text, label = 'Listen' }: Props) {
+export function CourseAudioButton({ text, label = 'Listen', mode = 'prompt', variant = 'default' }: Props) {
   const player = useAudioPlayer(null);
   const status = useAudioPlayerStatus(player);
   const [loadedText, setLoadedText] = useState('');
@@ -14,7 +19,7 @@ export function CourseAudioButton({ text, label = 'Listen' }: Props) {
   const play = () => {
     if (!text) return;
     if (loadedText !== text) {
-      player.replace(courseAudioUrl(text));
+      player.replace(courseAudioUrl(text, mode, variant));
       setLoadedText(text);
     } else {
       player.seekTo(0);

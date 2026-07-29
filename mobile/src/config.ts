@@ -6,12 +6,16 @@ export function absoluteMediaUrl(path: string): string {
   return path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
 }
 
-export function courseAudioUrl(text: string): string {
+export function courseAudioUrl(
+  text: string,
+  mode = 'prompt',
+  variant = 'default',
+): string {
   const query = new URLSearchParams({
     text,
-    mode: 'lesson',
-    lang: 'en',
-    variant: 'default',
+    mode,
+    lang: 'en-US',
+    variant,
   });
   return `${API_BASE_URL}/api/audio/course?${query.toString()}`;
 }
