@@ -1,0 +1,49 @@
+# EAS archives from the Git repository root. Exclude every non-mobile
+# application and local development directory explicitly.
+.agents/
+.git/
+.streamlit/
+backend/
+frontend/
+Lessons/
+scripts/
+tmp/
+venv/
+__pycache__/
+
+# Root-level legacy app, deployment files, and local logs.
+app.py
+models.py
+render.yaml
+*.md
+*.log
+*.err.log
+/package-lock.json
+
+# Dependencies and development state are recreated by EAS.
+mobile/node_modules/
+mobile/.expo/
+mobile/.claude/
+mobile/.metro-health-check*
+mobile/expo-local*.log
+
+# Local diagnostic and generated output.
+mobile/tmp-export-debug*/
+mobile/eas-archive-inspect*/
+mobile/dist/
+mobile/web-build/
+mobile/android/
+mobile/ios/
+mobile/.kotlin/
+mobile/*.tsbuildinfo
+
+# Local secrets, credentials, and OS files.
+mobile/.env
+mobile/.env.*
+mobile/*.jks
+mobile/*.p8
+mobile/*.p12
+mobile/*.key
+mobile/*.mobileprovision
+mobile/.DS_Store
+mobile/Thumbs.db
