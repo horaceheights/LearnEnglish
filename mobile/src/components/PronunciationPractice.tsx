@@ -53,10 +53,15 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     accuracy >= passAccuracy &&
     (typeof completeness !== 'number' || completeness >= minimumCompleteness);
   const weakestWord = useMemo(
-    () =>
-      result?.text_score?.word_score_list
-        ?.filter((word) => typeof word.quality_score === 'number')
-        .toSorted((left, right) => (left.quality_score ?? 100) - (right.quality_score ?? 100))[0],
+    () => {
+      const scoredWords = result?.text_score?.word_score_list
+        ?.filter((word) => typeof word.quality_score === 'number');
+      return scoredWords
+        ? [...scoredWords].sort(
+          (left, right) => (left.quality_score ?? 100) - (right.quality_score ?? 100),
+        )[0]
+        : undefined;
+    },
     [result],
   );
 
@@ -104,9 +109,13 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         setPhase('success');
         setMessage('Nice.');
       } else {
-        const weakest = nextResult.text_score?.word_score_list
-          ?.filter((word) => typeof word.quality_score === 'number')
-          .toSorted((left, right) => (left.quality_score ?? 100) - (right.quality_score ?? 100))[0];
+        const scoredWords = nextResult.text_score?.word_score_list
+          ?.filter((word) => typeof word.quality_score === 'number');
+        const weakest = scoredWords
+          ? [...scoredWords].sort(
+            (left, right) => (left.quality_score ?? 100) - (right.quality_score ?? 100),
+          )[0]
+          : undefined;
         scheduleRetry(weakest?.word ? `Practica “${weakest.word}”.` : 'Inténtalo otra vez.');
       }
     } catch {
