@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { useAudioPlayer } from 'expo-audio';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import * as Updates from 'expo-updates';
 
 import {
   finishLessonSession,
@@ -20,6 +21,7 @@ import {
 } from '../api';
 import { LessonCardView } from '../components/LessonCardView';
 import { courseAudioUrl } from '../config';
+import { setDiagnosticContext } from '../diagnostics';
 import type { LearnerProfile, Lesson } from '../types';
 
 const PRAISE = ['Great', 'Awesome', 'Yay', 'Good job', 'Keep it up', 'Nice job', 'Excellent'];
@@ -28,9 +30,17 @@ type Props = {
   lessonId: string;
   profile: LearnerProfile;
   onExit: () => void;
+  initialCardIndex?: number;
+  qaMode?: boolean;
 };
 
-export function LessonScreen({ lessonId, profile, onExit }: Props) {
+export function LessonScreen({
+  lessonId,
+  profile,
+  onExit,
+  initialCardIndex = 0,
+  qaMode = false,
+}: Props) {
   const audioPlayer = useAudioPlayer(null);
   const { height: viewportHeight } = useWindowDimensions();
   const finishedSessionRef = useRef(false);
@@ -47,6 +57,8 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
   const [isComplete, setIsComplete] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
+  const [qaAutoAdvance, setQaAutoAdvance] = useState(false);
+  const [cardRunId, setCardRunId] = useState(0);
 
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
@@ -67,7 +79,8 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
     try {
       const nextLesson = await getLesson(lessonId);
       setLesson(nextLesson);
-      if (profile.userId) {
+      setCardIndex(Math.min(Math.max(initialCardIndex, 0), Math.max(nextLesson.cards.length - 1, 0)));
+      if (profile.userId && !qaMode) {
         startLessonSession(profile.userId, nextLesson.id, nextLesson.cards.length)
           .then((session) => setSessionId(session.id))
           .catch(() => undefined);
@@ -79,12 +92,24 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
     }
   };
 
-  useEffect(() => { void load(); }, [lessonId]);
+  useEffect(() => { void load(); }, [initialCardIndex, lessonId, qaMode]);
 
   const currentCard = lesson?.cards[cardIndex];
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
+  const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
+
+  useEffect(() => {
+    setDiagnosticContext({
+      cardIndex,
+      lessonId,
+      prompt: currentCard?.prompt,
+      qaMode,
+      stage: currentCard?.stage,
+      totalCards: lesson?.cards.length,
+    });
+  }, [cardIndex, currentCard?.prompt, currentCard?.stage, lesson?.cards.length, lessonId, qaMode]);
 
   useEffect(() => {
     if (!currentCard || isPronunciation || result !== null) return undefined;
@@ -110,20 +135,34 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
   }, [cardIndex, lesson]);
 
   useEffect(() => {
-    if (result !== 'correct' || !currentCard || (isGrammar && !grammarCompleted)) return undefined;
+    if (
+      result !== 'correct' ||
+      !currentCard ||
+      (isGrammar && !grammarCompleted) ||
+      (qaMode && !qaAutoAdvance)
+    ) return undefined;
     const delay = isGrammar ? 2200 : currentCard.answer_audio_text ? 2600 : isPronunciation ? 900 : 1000;
     const timer = setTimeout(advance, delay);
     return () => clearTimeout(timer);
-  }, [advance, currentCard, grammarCompleted, isGrammar, isPronunciation, result]);
+  }, [
+    advance,
+    currentCard,
+    grammarCompleted,
+    isGrammar,
+    isPronunciation,
+    qaAutoAdvance,
+    qaMode,
+    result,
+  ]);
 
   useEffect(() => {
-    if (!isComplete || !lesson || !sessionId || finishedSessionRef.current) return;
+    if (qaMode || !isComplete || !lesson || !sessionId || finishedSessionRef.current) return;
     finishedSessionRef.current = true;
     void finishLessonSession(sessionId, score, lesson.cards.length).catch(() => undefined);
-  }, [isComplete, lesson, score, sessionId]);
+  }, [isComplete, lesson, qaMode, score, sessionId]);
 
   const recordAttempt = (optionId: string, isCorrect: boolean, firstTry: boolean) => {
-    if (!lesson || !currentCard || !profile.userId || !sessionId) return;
+    if (qaMode || !lesson || !currentCard || !profile.userId || !sessionId) return;
     void logCardAttempt({
       sessionId,
       userId: profile.userId,
@@ -184,6 +223,23 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
       'answer',
     );
   }, [currentCard, isGrammar, playAudio, selectedId]);
+
+  const resetCardState = useCallback(() => {
+    pronunciationPassHandledRef.current = false;
+    setScore(0);
+    setWrongCards(new Set());
+    setGrammarCompleted(false);
+    setSelectedId(null);
+    setResult(null);
+    setIsComplete(false);
+    setCardRunId((current) => current + 1);
+  }, []);
+
+  const openQaCard = useCallback((nextIndex: number) => {
+    if (!lesson) return;
+    setCardIndex(Math.min(Math.max(nextIndex, 0), lesson.cards.length - 1));
+    resetCardState();
+  }, [lesson, resetCardState]);
 
   const renderPrompt = () => {
     if (!currentCard) return '';
@@ -254,6 +310,50 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
     <SafeAreaView style={styles.safeArea}>
       <StatusBar hidden />
       <View style={styles.page}>
+        {qaMode ? (
+          <View style={styles.qaToolbar}>
+            <View style={styles.qaIdentity}>
+              <Text style={styles.qaLabel}>ENGINE QA · v{Updates.runtimeVersion || '1.3.0'} · {updateCode}</Text>
+              <Text numberOfLines={1} style={styles.qaContext}>
+                {lesson.id} · #{cardIndex + 1}/{lesson.cards.length} · {currentCard.stage}
+              </Text>
+            </View>
+            <View style={styles.qaActions}>
+              <Pressable
+                accessibilityLabel="Tarjeta anterior"
+                disabled={cardIndex === 0}
+                onPress={() => openQaCard(cardIndex - 1)}
+                style={[styles.qaAction, cardIndex === 0 ? styles.qaActionDisabled : null]}
+              >
+                <Text style={styles.qaActionText}>‹</Text>
+              </Pressable>
+              <Pressable accessibilityRole="button" onPress={resetCardState} style={styles.qaRestart}>
+                <Text style={styles.qaRestartText}>Reiniciar</Text>
+              </Pressable>
+              <Pressable
+                accessibilityLabel="Tarjeta siguiente"
+                disabled={cardIndex === lesson.cards.length - 1}
+                onPress={() => openQaCard(cardIndex + 1)}
+                style={[
+                  styles.qaAction,
+                  cardIndex === lesson.cards.length - 1 ? styles.qaActionDisabled : null,
+                ]}
+              >
+                <Text style={styles.qaActionText}>›</Text>
+              </Pressable>
+              <Pressable
+                accessibilityRole="switch"
+                accessibilityState={{ checked: qaAutoAdvance }}
+                onPress={() => setQaAutoAdvance((current) => !current)}
+                style={[styles.qaAuto, qaAutoAdvance ? styles.qaAutoActive : null]}
+              >
+                <Text style={[styles.qaAutoText, qaAutoAdvance ? styles.qaAutoTextActive : null]}>
+                  Auto {qaAutoAdvance ? 'ON' : 'OFF'}
+                </Text>
+              </Pressable>
+            </View>
+          </View>
+        ) : null}
         <View style={styles.hero}>
           <View style={styles.heroTop}>
             <View style={styles.heroNavigation}>
@@ -307,6 +407,7 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
         <LessonCardView
           card={currentCard}
           gentleFeedback={profile.confidence === 'nervous'}
+          key={qaMode ? `${cardIndex}-${cardRunId}` : 'lesson-card'}
           level={lesson.level}
           onPronunciationPassed={pronunciationPassed}
           onGrammarAnimationComplete={grammarAnimationComplete}
@@ -324,6 +425,20 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { flex: 1, gap: 6, padding: 6 },
+  qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 38, paddingHorizontal: 9, paddingVertical: 4 },
+  qaIdentity: { flex: 1, marginRight: 8 },
+  qaLabel: { color: '#d8bfe9', fontSize: 7, fontWeight: '900', letterSpacing: 0.7 },
+  qaContext: { color: '#fff', fontSize: 10, fontWeight: '800', marginTop: 1 },
+  qaActions: { alignItems: 'center', flexDirection: 'row', gap: 5 },
+  qaAction: { alignItems: 'center', backgroundColor: '#fff', borderRadius: 9, height: 28, justifyContent: 'center', width: 28 },
+  qaActionDisabled: { opacity: 0.3 },
+  qaActionText: { color: '#3f2859', fontSize: 20, fontWeight: '900', lineHeight: 22 },
+  qaRestart: { backgroundColor: '#eee3f7', borderRadius: 9, justifyContent: 'center', minHeight: 28, paddingHorizontal: 9 },
+  qaRestartText: { color: '#4f2769', fontSize: 10, fontWeight: '900' },
+  qaAuto: { borderColor: '#b997cf', borderRadius: 9, borderWidth: 1, justifyContent: 'center', minHeight: 28, paddingHorizontal: 8 },
+  qaAutoActive: { backgroundColor: '#bde8cd', borderColor: '#8fc7a5' },
+  qaAutoText: { color: '#e8dff0', fontSize: 9, fontWeight: '900' },
+  qaAutoTextActive: { color: '#245d3d' },
   hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, paddingHorizontal: 9, paddingVertical: 5 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },

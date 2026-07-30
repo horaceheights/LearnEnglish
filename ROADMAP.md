@@ -74,6 +74,8 @@ creation without proportionally increasing engineering effort.
 - Consolidated lesson header, larger uncropped images, and visible lesson exit
 - Grammar answers animate toward sentence blanks and repeat the completed sentence
 - In-app error boundary replaces unexplained blank screens
+- Internal Engine QA hub can jump directly to lessons, stages, and cards
+- Persistent QA checklist: `ENGINE_QA_CHECKLIST.md`
 
 ---
 
@@ -83,6 +85,7 @@ Nothing moves ahead of a serious defect that prevents lesson completion,
 corrupts progress, or produces unreliable learning feedback.
 
 - [ ] Run every card in every lesson on a physical Android phone
+- [~] Use the internal Engine QA hub to complete `ENGINE_QA_CHECKLIST.md`
 - [ ] Verify correct, incorrect, retry, help, audio, and completion paths
 - [ ] Test leaving during playback, recording, grading, and animation
 - [ ] Test screen lock, app switching, calls, lost internet, and backend cold starts

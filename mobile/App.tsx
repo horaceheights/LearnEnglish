@@ -2,20 +2,29 @@ import { Component, type ErrorInfo, type ReactNode, useEffect, useState } from '
 import { ActivityIndicator, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import * as Updates from 'expo-updates';
 
+import { getDiagnosticContext, type DiagnosticContext } from './src/diagnostics';
 import { clearLocalProfile, loadLocalProfile } from './src/profile';
 import { CourseScreen } from './src/screens/CourseScreen';
+import { EngineQAScreen } from './src/screens/EngineQAScreen';
 import { LessonScreen } from './src/screens/LessonScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import type { LearnerProfile } from './src/types';
 
-type Screen = { name: 'course' } | { name: 'lesson'; lessonId: string } | { name: 'profile' };
+type Screen =
+  | { name: 'course' }
+  | { name: 'lesson'; lessonId: string; initialCardIndex?: number; qaMode?: boolean }
+  | { name: 'profile' }
+  | { name: 'qa' };
 
-class AppErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
-  state: { error: Error | null } = { error: null };
+class AppErrorBoundary extends Component<
+  { children: ReactNode },
+  { error: Error | null; diagnostic: DiagnosticContext }
+> {
+  state: { error: Error | null; diagnostic: DiagnosticContext } = { diagnostic: {}, error: null };
 
   static getDerivedStateFromError(error: Error) {
-    return { error };
+    return { diagnostic: getDiagnosticContext(), error };
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
@@ -29,6 +38,24 @@ class AppErrorBoundary extends Component<{ children: ReactNode }, { error: Error
         <View style={styles.crashPanel}>
           <Text style={styles.crashTitle}>SpanGlish encontró un error</Text>
           <Text style={styles.crashText}>{this.state.error.message}</Text>
+          {this.state.diagnostic.lessonId ? (
+            <View style={styles.diagnosticPanel}>
+              <Text style={styles.diagnosticTitle}>CONTEXTO DE DIAGNÓSTICO</Text>
+              <Text style={styles.diagnosticText}>
+                {this.state.diagnostic.lessonId} · tarjeta {(this.state.diagnostic.cardIndex ?? 0) + 1}/
+                {this.state.diagnostic.totalCards ?? '?'}
+              </Text>
+              <Text style={styles.diagnosticText}>
+                {this.state.diagnostic.stage || 'Etapa desconocida'} · QA {this.state.diagnostic.qaMode ? 'ON' : 'OFF'}
+              </Text>
+              <Text numberOfLines={2} style={styles.diagnosticPrompt}>
+                {this.state.diagnostic.prompt}
+              </Text>
+              <Text style={styles.diagnosticText}>
+                v{Updates.runtimeVersion || '1.3.0'} · {Updates.updateId?.slice(0, 8) || 'embedded'}
+              </Text>
+            </View>
+          ) : null}
           <Pressable onPress={() => void Updates.reloadAsync()} style={styles.crashButton}>
             <Text style={styles.crashButtonText}>Reiniciar la app</Text>
           </Pressable>
@@ -64,9 +91,11 @@ function AppContent() {
   if (screen.name === 'lesson') {
     return (
       <LessonScreen
+        initialCardIndex={screen.initialCardIndex}
         lessonId={screen.lessonId}
-        onExit={() => setScreen({ name: 'course' })}
+        onExit={() => setScreen(screen.qaMode ? { name: 'qa' } : { name: 'course' })}
         profile={profile}
+        qaMode={screen.qaMode}
       />
     );
   }
@@ -89,10 +118,21 @@ function AppContent() {
     );
   }
 
+  if (screen.name === 'qa') {
+    return (
+      <EngineQAScreen
+        onExit={() => setScreen({ name: 'course' })}
+        onOpenCard={(lessonId, initialCardIndex) =>
+          setScreen({ initialCardIndex, lessonId, name: 'lesson', qaMode: true })}
+      />
+    );
+  }
+
   return (
     <CourseScreen
       onEditProfile={() => setScreen({ name: 'profile' })}
       onOpenLesson={(lessonId) => setScreen({ lessonId, name: 'lesson' })}
+      onOpenQA={() => setScreen({ name: 'qa' })}
       profile={profile}
     />
   );
@@ -112,6 +152,10 @@ const styles = StyleSheet.create({
   crashPanel: { backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 22, borderWidth: 1, padding: 22 },
   crashTitle: { color: '#24333a', fontSize: 22, fontWeight: '900', textAlign: 'center' },
   crashText: { color: '#a34842', fontSize: 13, lineHeight: 19, marginTop: 12, textAlign: 'center' },
+  diagnosticPanel: { backgroundColor: '#f4eff8', borderRadius: 13, marginTop: 14, padding: 11 },
+  diagnosticTitle: { color: '#76559e', fontSize: 8, fontWeight: '900', letterSpacing: 0.8 },
+  diagnosticText: { color: '#4d4353', fontSize: 11, fontWeight: '800', marginTop: 3 },
+  diagnosticPrompt: { color: '#6e626f', fontSize: 10, lineHeight: 14, marginTop: 4 },
   crashButton: { alignItems: 'center', backgroundColor: '#e96f42', borderRadius: 14, marginTop: 18, padding: 14 },
   crashButtonText: { color: '#fff', fontSize: 15, fontWeight: '900' },
 });

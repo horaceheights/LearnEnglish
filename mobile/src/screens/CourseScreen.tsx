@@ -14,6 +14,7 @@ import * as Updates from 'expo-updates';
 import { getLessons } from '../api';
 import { BrandHeader } from '../components/BrandHeader';
 import { absoluteMediaUrl } from '../config';
+import { setDiagnosticContext } from '../diagnostics';
 import type { LearnerProfile, LessonSummary } from '../types';
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
@@ -53,9 +54,10 @@ type Props = {
   profile: LearnerProfile;
   onOpenLesson: (lessonId: string) => void;
   onEditProfile: () => void;
+  onOpenQA: () => void;
 };
 
-export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
+export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }: Props) {
   const { currentlyRunning, isUpdatePending } = Updates.useUpdates();
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
   const [error, setError] = useState('');
@@ -75,6 +77,7 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
   };
 
   useEffect(() => { void load(); }, []);
+  useEffect(() => { setDiagnosticContext({}); }, []);
 
   useEffect(() => {
     if (isUpdatePending) {
@@ -133,6 +136,10 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
                   : 'UPDATE CHECK UNAVAILABLE'}
           </Text>
           <Text style={styles.versionCode}>{versionLabel}</Text>
+        </Pressable>
+        <Pressable accessibilityRole="button" onPress={onOpenQA} style={styles.qaButton}>
+          <Text style={styles.qaEyebrow}>INTERNAL TESTING</Text>
+          <Text style={styles.qaTitle}>Open Engine QA →</Text>
         </Pressable>
         <BrandHeader
           compact
@@ -211,6 +218,9 @@ const styles = StyleSheet.create({
   versionBadgeReady: { backgroundColor: '#ffe1ad', borderColor: '#d9a34d' },
   versionStatus: { color: '#42534b', fontSize: 9, fontWeight: '900', letterSpacing: 0.5, textAlign: 'right' },
   versionCode: { color: '#697177', fontSize: 9, fontWeight: '700', marginTop: 2, textAlign: 'right' },
+  qaButton: { alignSelf: 'stretch', backgroundColor: '#eee3f7', borderColor: '#cdbbdd', borderRadius: 14, borderWidth: 1, paddingHorizontal: 14, paddingVertical: 10 },
+  qaEyebrow: { color: '#76559e', fontSize: 8, fontWeight: '900', letterSpacing: 1 },
+  qaTitle: { color: '#4f2769', fontSize: 15, fontWeight: '900', marginTop: 2 },
   welcome: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 21, borderWidth: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 16 },
   welcomeText: { color: '#24333a', fontSize: 21, fontWeight: '800' },
   aiNote: { color: '#697177', fontSize: 11, marginTop: 4 },
