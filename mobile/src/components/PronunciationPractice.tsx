@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import {
   AudioModule,
+  preload,
   RecordingPresets,
   setAudioModeAsync,
   useAudioPlayer,
@@ -32,7 +33,10 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   const recorder = useAudioRecorder(METERING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
   const modelPlayer = useAudioPlayer(null);
-  const readyCuePlayer = useAudioPlayer(READY_CUE_URL);
+  const readyCuePlayer = useAudioPlayer(null);
+  const [readyCuePreload] = useState(() =>
+    preload(READY_CUE_URL).catch(() => undefined),
+  );
   const modelStatus = useAudioPlayerStatus(modelPlayer);
   const [phase, setPhase] = useState<Phase>('model');
   const [message, setMessage] = useState('Escucha la frase.');
@@ -144,6 +148,16 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       await recorder.prepareToRecordAsync(METERING_OPTIONS);
       setPhase('ready');
       setMessage('Prepárate…');
+      await readyCuePreload;
+      if (!readyCuePlayer.isLoaded) {
+        readyCuePlayer.replace(READY_CUE_URL);
+      }
+      for (let attemptIndex = 0; attemptIndex < 30 && !readyCuePlayer.isLoaded; attemptIndex += 1) {
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
+      if (!readyCuePlayer.isLoaded) {
+        throw new Error('Ready cue did not load.');
+      }
       await readyCuePlayer.seekTo(0).catch(() => undefined);
       readyCuePlayer.play();
       await new Promise((resolve) => setTimeout(resolve, 260));
@@ -153,7 +167,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     } catch {
       scheduleRetry('No pudimos abrir el micrófono.');
     }
-  }, [readyCuePlayer, recorder, scheduleRetry]);
+  }, [readyCuePlayer, readyCuePreload, recorder, scheduleRetry]);
 
   useEffect(() => {
     if (phase !== 'listening') {
