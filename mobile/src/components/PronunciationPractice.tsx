@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import {
   AudioModule,
   RecordingPresets,
@@ -11,7 +11,7 @@ import {
 } from 'expo-audio';
 
 import { scorePronunciation } from '../api';
-import { courseAudioUrl } from '../config';
+import { courseAudioUrl, READY_CUE_URL } from '../config';
 import type { PronunciationResult } from '../types';
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
   onPassed: () => void;
 };
 
-type Phase = 'model' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
+type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
 
 const METERING_OPTIONS = {
   ...RecordingPresets.HIGH_QUALITY,
@@ -32,6 +32,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   const recorder = useAudioRecorder(METERING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
   const modelPlayer = useAudioPlayer(null);
+  const readyCuePlayer = useAudioPlayer(READY_CUE_URL);
   const modelStatus = useAudioPlayerStatus(modelPlayer);
   const [phase, setPhase] = useState<Phase>('model');
   const [message, setMessage] = useState('Escucha la frase.');
@@ -42,6 +43,10 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   const captureFinishing = useRef(false);
   const modelWasPlaying = useRef(false);
   const retryTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pulseAnimation = useRef(new Animated.Value(0)).current;
+  const waveAnimations = useRef(
+    [0, 1, 2, 3, 4].map(() => new Animated.Value(0.3)),
+  ).current;
 
   const overallScore = result?.text_score?.quality_score;
   const accuracy = result?.text_score?.azure_scores?.accuracy ?? overallScore;
@@ -137,13 +142,74 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       silenceStartedAt.current = null;
       captureFinishing.current = false;
       await recorder.prepareToRecordAsync(METERING_OPTIONS);
+      setPhase('ready');
+      setMessage('Prepárate…');
+      await readyCuePlayer.seekTo(0).catch(() => undefined);
+      readyCuePlayer.play();
+      await new Promise((resolve) => setTimeout(resolve, 260));
       recorder.record();
       setPhase('listening');
       setMessage('Ahora tú…');
     } catch {
       scheduleRetry('No pudimos abrir el micrófono.');
     }
-  }, [recorder, scheduleRetry]);
+  }, [readyCuePlayer, recorder, scheduleRetry]);
+
+  useEffect(() => {
+    if (phase !== 'listening') {
+      pulseAnimation.stopAnimation();
+      pulseAnimation.setValue(0);
+      waveAnimations.forEach((animation) => {
+        animation.stopAnimation();
+        animation.setValue(0.3);
+      });
+      return undefined;
+    }
+
+    const pulse = Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulseAnimation, {
+          duration: 425,
+          easing: Easing.inOut(Easing.ease),
+          toValue: 1,
+          useNativeDriver: true,
+        }),
+        Animated.timing(pulseAnimation, {
+          duration: 425,
+          easing: Easing.inOut(Easing.ease),
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    const wave = Animated.loop(
+      Animated.stagger(
+        75,
+        waveAnimations.map((animation) =>
+          Animated.sequence([
+            Animated.timing(animation, {
+              duration: 230,
+              easing: Easing.inOut(Easing.ease),
+              toValue: 1,
+              useNativeDriver: true,
+            }),
+            Animated.timing(animation, {
+              duration: 230,
+              easing: Easing.inOut(Easing.ease),
+              toValue: 0.3,
+              useNativeDriver: true,
+            }),
+          ]),
+        ),
+      ),
+    );
+    pulse.start();
+    wave.start();
+    return () => {
+      pulse.stop();
+      wave.stop();
+    };
+  }, [phase, pulseAnimation, waveAnimations]);
 
   useEffect(() => {
     setAttempt(0);
@@ -198,23 +264,39 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       <Pressable
         accessibilityLabel={`Repetir modelo: ${phrase}`}
         accessibilityRole="button"
-        disabled={phase === 'checking' || phase === 'listening'}
+        disabled={phase === 'checking' || phase === 'listening' || phase === 'ready'}
         onPress={phase === 'permission' ? startListening : playModel}
       >
         <Text style={styles.phrase}>{phrase}</Text>
       </Pressable>
       <View style={styles.statusRow}>
-        <View style={[styles.statusDot, { backgroundColor: statusColor }]} />
+        <Animated.View
+          style={[
+            styles.statusDot,
+            {
+              backgroundColor: statusColor,
+              opacity: phase === 'listening'
+                ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.55, 1] })
+                : 1,
+              transform: [{
+                scale: phase === 'listening'
+                  ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.35] })
+                  : 1,
+              }],
+            },
+          ]}
+        />
         <View style={styles.wave} accessibilityElementsHidden>
           {[12, 22, 30, 22, 12].map((height, index) => (
-            <View
+            <Animated.View
               key={`${height}-${index}`}
               style={[
                 styles.waveBar,
                 {
                   backgroundColor: statusColor,
-                  height: phase === 'listening' ? height : 8,
+                  height,
                   opacity: phase === 'listening' ? 1 : 0.35,
+                  transform: [{ scaleY: phase === 'listening' ? waveAnimations[index] : 0.27 }],
                 },
               ]}
             />

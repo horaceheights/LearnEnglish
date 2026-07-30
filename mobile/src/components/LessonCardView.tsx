@@ -40,7 +40,7 @@ export function LessonCardView({
           ? '72%'
           : '48%';
   const featureImageHeight = isPronunciation
-    ? Math.max(58, Math.min(88, viewportHeight * 0.18))
+    ? Math.max(125, Math.min(190, viewportHeight * 0.32))
     : Math.max(70, Math.min(118, viewportHeight * 0.24));
   const optionImageHeight =
     card.options.length >= 4
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 20,
   },
-  cardLandscape: { flex: 1, padding: 9 },
+  cardLandscape: { flex: 1, justifyContent: 'center', padding: 9 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },

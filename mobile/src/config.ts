@@ -1,5 +1,6 @@
 export const API_BASE_URL = 'https://learnenglish-fxki.onrender.com';
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
+export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue`;
 
 export function absoluteMediaUrl(path: string): string {
   if (!path) return '';

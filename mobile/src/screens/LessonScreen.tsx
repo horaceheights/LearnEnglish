@@ -34,6 +34,7 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
   const audioPlayer = useAudioPlayer(null);
   const { height: viewportHeight } = useWindowDimensions();
   const finishedSessionRef = useRef(false);
+  const pronunciationPassHandledRef = useRef(false);
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [sessionId, setSessionId] = useState('');
   const [cardIndex, setCardIndex] = useState(0);
@@ -100,6 +101,7 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
       return;
     }
     setCardIndex((current) => current + 1);
+    pronunciationPassHandledRef.current = false;
     setSelectedId(null);
     setResult(null);
   }, [cardIndex, lesson]);
@@ -157,10 +159,11 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
   };
 
   const pronunciationPassed = useCallback(() => {
-    if (result === 'correct') return;
+    if (pronunciationPassHandledRef.current) return;
+    pronunciationPassHandledRef.current = true;
     setScore((current) => current + 1);
     setResult('correct');
-  }, [result]);
+  }, []);
 
   const renderPrompt = () => {
     if (!currentCard) return '';
@@ -259,6 +262,7 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
         <LessonCardView
           card={currentCard}
           gentleFeedback={profile.confidence === 'nervous'}
+          key={`${lesson.id}-${cardIndex}`}
           level={lesson.level}
           onPronunciationPassed={pronunciationPassed}
           onSelect={choose}

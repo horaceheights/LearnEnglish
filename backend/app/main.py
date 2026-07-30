@@ -4,9 +4,10 @@ import random
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 
-from .course_audio import audio_debug, get_course_audio
+from .course_audio import audio_debug, get_course_audio, ready_cue_wav
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .schemas import Lesson, LessonCard
 from .pronunciation import close_pronunciation_clients, get_pronunciation_browser_token, pronunciation_debug, score_pronunciation
@@ -144,6 +145,15 @@ async def read_course_audio(
     variant: str = "default",
 ):
     return await get_course_audio(text=text, mode=mode, lang=lang, variant=variant)
+
+
+@app.get("/api/audio/ready-cue")
+def read_ready_cue():
+    return Response(
+        content=ready_cue_wav(),
+        media_type="audio/wav",
+        headers={"Cache-Control": "public, max-age=31536000, immutable"},
+    )
 
 
 @app.post("/api/pronunciation/score")

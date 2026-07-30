@@ -2,6 +2,10 @@ import hashlib
 import os
 from pathlib import Path
 import asyncio
+from io import BytesIO
+import math
+import struct
+import wave
 
 import httpx
 from fastapi import HTTPException
@@ -19,6 +23,31 @@ SUPPORTED_FORMATS = {
     "wav": "audio/wav",
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
+_ready_cue: bytes | None = None
+
+
+def ready_cue_wav() -> bytes:
+    global _ready_cue
+    if _ready_cue is not None:
+        return _ready_cue
+
+    sample_rate = 16_000
+    duration_seconds = 0.18
+    frame_count = int(sample_rate * duration_seconds)
+    buffer = BytesIO()
+    with wave.open(buffer, "wb") as audio:
+        audio.setnchannels(1)
+        audio.setsampwidth(2)
+        audio.setframerate(sample_rate)
+        frames = bytearray()
+        for index in range(frame_count):
+            time = index / sample_rate
+            envelope = min(1.0, index / 160, (frame_count - index) / 320)
+            sample = int(11_500 * envelope * math.sin(2 * math.pi * 880 * time))
+            frames.extend(struct.pack("<h", sample))
+        audio.writeframes(frames)
+    _ready_cue = buffer.getvalue()
+    return _ready_cue
 
 
 def load_local_env() -> None:
