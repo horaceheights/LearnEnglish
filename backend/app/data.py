@@ -1914,6 +1914,36 @@ def place_pronunciation_cards() -> list[LessonCard]:
     return cards
 
 
+def test_pronunciation_cards() -> list[LessonCard]:
+    specs = [
+        ("boy-running", "The boy is running.", "boy_is_running.png"),
+        ("girl-walking", "The girl is walking.", "girl_is_walking.png"),
+        ("man-swimming", "The man is swimming.", "man_is_swimming.png"),
+        ("woman-standing", "The woman is standing.", "woman_is_standing.png"),
+        (
+            "man-woman-reading",
+            "The man and the woman are reading.",
+            "they_man_woman_are_reading.png",
+        ),
+    ]
+    return [
+        LessonCard(
+            prompt=prompt,
+            stage="Pronunciation Practice",
+            correct_option_id=option_id,
+            options=[
+                ChoiceOption(
+                    id=option_id,
+                    image_url=image_url(image),
+                    label=prompt,
+                )
+            ],
+            audio_text=prompt,
+        )
+        for option_id, prompt, image in specs
+    ]
+
+
 def place_grammar_cards() -> list[LessonCard]:
     grammar_specs = [
         ("What ___ it?", "is", ["is", "are"], "What is it?", "park"),
@@ -2162,6 +2192,21 @@ LESSON_6 = Lesson(
     cards=object_place_cards(),
 )
 
+TEST_PRONUNCIATION_LESSON = Lesson(
+    id="test-pronunciation",
+    title="Test Pronunciation",
+    level="Beginner A1",
+    unit_id="test",
+    unit_title="Temporary Testing",
+    lesson_id="test-pronunciation",
+    lesson_title="Pronunciation Testing",
+    sub_lesson_id="TEST",
+    sub_lesson_title="Test Pronunciation",
+    goal="Quickly test the complete automatic pronunciation flow.",
+    vocabulary=[],
+    cards=test_pronunciation_cards(),
+)
+
 
 LESSONS = {
     LESSON_1.id: LESSON_1,
@@ -2169,4 +2214,5 @@ LESSONS = {
     LESSON_4.id: LESSON_4,
     LESSON_5.id: LESSON_5,
     LESSON_6.id: LESSON_6,
+    TEST_PRONUNCIATION_LESSON.id: TEST_PRONUNCIATION_LESSON,
 }
