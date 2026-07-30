@@ -39,16 +39,19 @@ export function LessonCardView({
         : card.options.length === 1
           ? '72%'
           : '48%';
-  const featureImageHeight = Math.max(105, Math.min(170, viewportHeight * 0.34));
+  const featureImageHeight = isPronunciation
+    ? Math.max(58, Math.min(88, viewportHeight * 0.18))
+    : Math.max(70, Math.min(118, viewportHeight * 0.24));
   const optionImageHeight =
     card.options.length >= 4
-      ? Math.max(88, Math.min(132, viewportHeight * 0.27))
+      ? Math.max(64, Math.min(104, viewportHeight * 0.22))
       : card.options.length === 1
-        ? Math.max(150, Math.min(230, viewportHeight * 0.46))
-        : Math.max(120, Math.min(178, viewportHeight * 0.36));
+        ? Math.max(82, Math.min(142, viewportHeight * 0.29))
+        : Math.max(76, Math.min(122, viewportHeight * 0.25));
+  const optionMinHeight = isLandscape ? Math.max(58, viewportHeight * 0.17) : 92;
 
   return (
-    <View style={styles.card}>
+    <View style={[styles.card, isLandscape ? styles.cardLandscape : null]}>
       {showHelp ? (
         <View style={styles.help}>
           <Text style={styles.helpTitle}>Ayuda</Text>
@@ -66,7 +69,7 @@ export function LessonCardView({
           accessibilityLabel={card.answer_audio_text || card.prompt}
           resizeMode="contain"
           source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
-          style={[styles.promptImage, { height: featureImageHeight }]}
+          style={[styles.promptImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
         />
       ) : null}
       {isPronunciation ? (
@@ -76,7 +79,7 @@ export function LessonCardView({
               accessibilityLabel={card.options[0].label || card.prompt}
               resizeMode="contain"
               source={{ uri: absoluteMediaUrl(card.options[0].image_url) }}
-              style={[styles.pronunciationImage, { height: featureImageHeight }]}
+              style={[styles.pronunciationImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
             />
           ) : null}
           <PronunciationPractice
@@ -88,7 +91,7 @@ export function LessonCardView({
         </>
       ) : (
         <>
-          <View style={styles.options}>
+          <View style={[styles.options, isLandscape ? styles.optionsLandscape : null]}>
             {card.options.map((option) => {
               const selected = selectedId === option.id;
               const correct = option.id === card.correct_option_id;
@@ -103,7 +106,7 @@ export function LessonCardView({
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
                     styles.option,
-                    { width: optionWidth },
+                    { minHeight: optionMinHeight, width: optionWidth },
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
                     pressed ? styles.pressed : null,
@@ -114,7 +117,7 @@ export function LessonCardView({
                       accessibilityIgnoresInvertColors
                       resizeMode="contain"
                       source={{ uri: absoluteMediaUrl(option.image_url) }}
-                      style={[styles.optionImage, { height: optionImageHeight }]}
+                      style={[styles.optionImage, { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight }]}
                     />
                   ) : null}
                   {option.label && !option.image_url ? (
@@ -151,7 +154,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 20,
   },
-  help: { backgroundColor: '#fff4df', borderRadius: 14, marginBottom: 12, padding: 12 },
+  cardLandscape: { flex: 1, padding: 9 },
+  help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
   promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
@@ -163,6 +167,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 20,
   },
+  optionsLandscape: { gap: 7, marginTop: 5 },
   option: {
     alignItems: 'center',
     backgroundColor: '#faf9f5',
@@ -172,7 +177,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 92,
     overflow: 'hidden',
-    padding: 8,
+    padding: 5,
     position: 'relative',
     width: '48%',
   },
@@ -182,7 +187,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
     lineHeight: 19,
-    marginTop: 8,
+    marginTop: 4,
     textAlign: 'center',
   },
   correctOption: { backgroundColor: '#eaf6ee', borderColor: '#3c996c' },
@@ -202,8 +207,8 @@ const styles = StyleSheet.create({
     width: 28,
   },
   wrongIcon: { backgroundColor: '#c95e55' },
-  feedback: { gap: 14, marginTop: 18 },
-  feedbackText: { fontSize: 16, fontWeight: '800', textAlign: 'center' },
+  feedback: { gap: 6, marginTop: 5 },
+  feedbackText: { fontSize: 13, fontWeight: '800', textAlign: 'center' },
   correctText: { color: '#287a57' },
   wrongText: { color: '#a34842' },
   pressed: { opacity: 0.72 },

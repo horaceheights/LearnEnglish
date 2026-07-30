@@ -3,10 +3,10 @@ import {
   ActivityIndicator,
   Pressable,
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  useWindowDimensions,
   View,
 } from 'react-native';
 import { useAudioPlayer } from 'expo-audio';
@@ -32,7 +32,7 @@ type Props = {
 
 export function LessonScreen({ lessonId, profile, onExit }: Props) {
   const audioPlayer = useAudioPlayer(null);
-  const scrollRef = useRef<ScrollView>(null);
+  const { height: viewportHeight } = useWindowDimensions();
   const finishedSessionRef = useRef(false);
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [sessionId, setSessionId] = useState('');
@@ -44,7 +44,7 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
-  const [showHelp, setShowHelp] = useState(profile.learningMode !== 'natural_only');
+  const [showHelp, setShowHelp] = useState(false);
 
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
@@ -102,7 +102,6 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
     setCardIndex((current) => current + 1);
     setSelectedId(null);
     setResult(null);
-    scrollRef.current?.scrollTo({ animated: false, y: 0 });
   }, [cardIndex, lesson]);
 
   useEffect(() => {
@@ -223,8 +222,8 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="dark-content" backgroundColor="#fbf7ef" />
-      <ScrollView ref={scrollRef} contentContainerStyle={styles.page}>
+      <StatusBar hidden />
+      <View style={styles.page}>
         <View style={styles.hero}>
           <View style={styles.heroTop}>
             <Pressable accessibilityLabel="Volver a lecciones" onPress={onExit} style={styles.logoPill}>
@@ -246,7 +245,15 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
               : playAudio(promptAudio, 'prompt', 'prompt')}
           >
             <Text style={styles.stage}>{currentCard.stage.toUpperCase()}</Text>
-            <Text style={styles.prompt}>{isPronunciation ? 'Pronunciation Practice' : renderPrompt()}</Text>
+            <Text
+              numberOfLines={2}
+              style={[
+                styles.prompt,
+                { fontSize: viewportHeight < 400 ? 21 : 24, lineHeight: viewportHeight < 400 ? 25 : 29 },
+              ]}
+            >
+              {isPronunciation ? 'Pronunciation Practice' : renderPrompt()}
+            </Text>
           </Pressable>
         </View>
         <LessonCardView
@@ -268,30 +275,30 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
           </Pressable>
         </View>
         <View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${progress}%` }]} /></View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
-  page: { gap: 10, padding: 10, paddingBottom: 24 },
-  hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 20, borderWidth: 1, padding: 12 },
+  page: { flex: 1, gap: 6, padding: 6 },
+  hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, paddingHorizontal: 9, paddingVertical: 5 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
-  logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 16, height: 38, justifyContent: 'center', width: 58 },
-  logoText: { color: '#f1bf00', fontSize: 17, fontWeight: '900' },
-  helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 19, borderWidth: 2, height: 38, justifyContent: 'center', width: 38 },
+  logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 13, height: 30, justifyContent: 'center', width: 50 },
+  logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
+  helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 2, height: 30, justifyContent: 'center', width: 30 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
-  helpButtonText: { color: '#24333a', fontSize: 20, fontWeight: '900' },
-  stage: { color: '#697177', fontSize: 11, fontWeight: '900', letterSpacing: 1.1, marginTop: 2, textAlign: 'center' },
-  prompt: { color: '#24333a', fontSize: 27, fontWeight: '900', lineHeight: 34, marginTop: 3, textAlign: 'center' },
+  helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
+  stage: { color: '#697177', fontSize: 9, fontWeight: '900', letterSpacing: 1, textAlign: 'center' },
+  prompt: { color: '#24333a', fontWeight: '900', textAlign: 'center' },
   highlight: { backgroundColor: '#f9dc8e', color: '#8a4f00' },
-  footer: { alignItems: 'center', backgroundColor: '#f2ebde', borderRadius: 16, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15, paddingVertical: 10 },
-  footerLabel: { color: '#697177', fontSize: 9, fontWeight: '800', letterSpacing: 1 },
-  footerValue: { color: '#24333a', fontSize: 18, fontWeight: '900', marginTop: 2 },
-  homeButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#ddd8cf', borderRadius: 20, borderWidth: 1, height: 40, justifyContent: 'center', width: 40 },
-  homeText: { color: '#24333a', fontSize: 22, fontWeight: '900' },
-  progressTrack: { backgroundColor: '#dedbd2', borderRadius: 4, height: 5, overflow: 'hidden' },
+  footer: { alignItems: 'center', backgroundColor: '#f2ebde', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 12, paddingVertical: 4 },
+  footerLabel: { color: '#697177', fontSize: 8, fontWeight: '800', letterSpacing: 1 },
+  footerValue: { color: '#24333a', fontSize: 15, fontWeight: '900' },
+  homeButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#ddd8cf', borderRadius: 15, borderWidth: 1, height: 30, justifyContent: 'center', width: 30 },
+  homeText: { color: '#24333a', fontSize: 17, fontWeight: '900' },
+  progressTrack: { backgroundColor: '#dedbd2', borderRadius: 3, height: 3, overflow: 'hidden' },
   progressFill: { backgroundColor: '#2f8f62', height: '100%' },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
