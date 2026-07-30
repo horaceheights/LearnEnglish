@@ -4,6 +4,58 @@ This is the persistent source of truth for product priorities. When work is
 completed, update this file in the same commit. When asked "what is next?",
 select the highest-value unfinished item whose dependencies are complete.
 
+## Product vision
+
+SpanGlish will combine the strongest qualities of immersive, image-led
+learning and highly engaging, adaptive practice, while adding capabilities
+that existing language apps do not currently provide well.
+
+The product should:
+
+- Teach meaning directly through images, sound, context, and interaction
+- Make practice feel playful without sacrificing instructional quality
+- Adapt to each learner's vocabulary, grammar, listening, and pronunciation
+- Give specific, actionable help instead of only marking answers wrong
+- Support beginners with Spanish when necessary, then gradually remove it
+- Use animation, audio, haptics, and visual coaching as teaching tools
+- Preserve a clear path from beginner recognition to real conversation
+- Eventually provide differentiated pronunciation and visual mouth coaching
+
+## Engine-first strategy
+
+Do not scale course content massively until the reusable learning engine is
+robust. New content created before the engine stabilizes would multiply
+inconsistent interactions, incomplete analytics, and future migration work.
+
+The near-term product is therefore the engine itself:
+
+1. Reliable lesson state and navigation
+2. Reusable activity definitions
+3. Shared animation, audio, haptic, and feedback behavior
+4. Progress persistence and resuming
+5. Mistake, mastery, and review data
+6. Accessibility and device-responsive layouts
+7. Offline/error behavior
+8. Content validation and an efficient authoring workflow
+
+### Content-scaling gate
+
+Mass content production begins only when:
+
+- [ ] Existing lessons complete reliably across the supported device matrix
+- [ ] Core activities are represented by reusable schemas, not lesson-specific code
+- [ ] A new lesson can be assembled mostly from data and existing activity types
+- [ ] Progress, retries, help usage, and mastery signals persist correctly
+- [ ] Audio, image, animation, and haptic behavior is consistent
+- [ ] Interrupted lessons resume safely
+- [ ] Backend/network failures recover without losing learner work
+- [ ] Accessibility and text/layout scaling have been tested
+- [ ] Automated content validation catches broken cards and missing media
+- [ ] Regression and release checklists are repeatable
+
+After this gate passes, the same engine can support rapid, large-scale course
+creation without proportionally increasing engineering effort.
+
 ## Status key
 
 - `[ ]` Not started
