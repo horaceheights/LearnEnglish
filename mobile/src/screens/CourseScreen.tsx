@@ -9,6 +9,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import * as Updates from 'expo-updates';
 
 import { getLessons } from '../api';
 import { BrandHeader } from '../components/BrandHeader';
@@ -50,9 +51,14 @@ type Props = {
 };
 
 export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
+  const { currentlyRunning, isUpdatePending } = Updates.useUpdates();
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
   const [error, setError] = useState('');
   const [loadingLessonId, setLoadingLessonId] = useState('');
+  const [updateState, setUpdateState] = useState<'checking' | 'current' | 'ready' | 'unavailable'>('checking');
+
+  const updateCode = currentlyRunning.updateId?.slice(0, 8) || 'embedded';
+  const versionLabel = `v${currentlyRunning.runtimeVersion || '1.3.0'} · ${updateCode}`;
 
   const load = async () => {
     setError('');
@@ -65,6 +71,35 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
 
   useEffect(() => { void load(); }, []);
 
+  useEffect(() => {
+    if (isUpdatePending) {
+      setUpdateState('ready');
+      return;
+    }
+
+    let active = true;
+    const checkForUpdates = async () => {
+      if (__DEV__) {
+        if (active) setUpdateState('current');
+        return;
+      }
+      try {
+        const update = await Updates.checkForUpdateAsync();
+        if (!active) return;
+        if (update.isAvailable) {
+          await Updates.fetchUpdateAsync();
+          if (active) setUpdateState('ready');
+        } else {
+          setUpdateState('current');
+        }
+      } catch {
+        if (active) setUpdateState('unavailable');
+      }
+    };
+    void checkForUpdates();
+    return () => { active = false; };
+  }, [isUpdatePending]);
+
   const openLesson = (lessonId: string) => {
     setLoadingLessonId(lessonId);
     onOpenLesson(lessonId);
@@ -73,6 +108,27 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.page}>
+        <Pressable
+          accessibilityRole={updateState === 'ready' ? 'button' : 'text'}
+          disabled={updateState !== 'ready'}
+          onPress={() => void Updates.reloadAsync()}
+          style={[
+            styles.versionBadge,
+            updateState === 'ready' ? styles.versionBadgeReady : null,
+            updateState === 'current' ? styles.versionBadgeCurrent : null,
+          ]}
+        >
+          <Text style={styles.versionStatus}>
+            {updateState === 'checking'
+              ? 'CHECKING FOR UPDATES…'
+              : updateState === 'ready'
+                ? 'UPDATE READY · TAP TO RESTART'
+                : updateState === 'current'
+                  ? '✓ UP TO DATE'
+                  : 'UPDATE CHECK UNAVAILABLE'}
+          </Text>
+          <Text style={styles.versionCode}>{versionLabel}</Text>
+        </Pressable>
         <BrandHeader
           compact
           eyebrow="Tu ruta"
@@ -137,6 +193,19 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { gap: 16, padding: 16, paddingBottom: 32 },
+  versionBadge: {
+    alignSelf: 'flex-end',
+    backgroundColor: '#f2ebde',
+    borderColor: '#ddd8cf',
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  versionBadgeCurrent: { backgroundColor: '#eaf6ee', borderColor: '#9dcfb4' },
+  versionBadgeReady: { backgroundColor: '#ffe1ad', borderColor: '#d9a34d' },
+  versionStatus: { color: '#42534b', fontSize: 9, fontWeight: '900', letterSpacing: 0.5, textAlign: 'right' },
+  versionCode: { color: '#697177', fontSize: 9, fontWeight: '700', marginTop: 2, textAlign: 'right' },
   welcome: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 21, borderWidth: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 16 },
   welcomeText: { color: '#24333a', fontSize: 21, fontWeight: '800' },
   aiNote: { color: '#697177', fontSize: 11, marginTop: 4 },
