@@ -216,7 +216,6 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     playModel();
     return () => {
       if (retryTimer.current) clearTimeout(retryTimer.current);
-      if (recorder.isRecording) void recorder.stop();
     };
   }, [phrase]);
 

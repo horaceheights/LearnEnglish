@@ -267,7 +267,6 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
         <LessonCardView
           card={currentCard}
           gentleFeedback={profile.confidence === 'nervous'}
-          key={`${lesson.id}-${cardIndex}`}
           level={lesson.level}
           onPronunciationPassed={pronunciationPassed}
           onSelect={choose}
