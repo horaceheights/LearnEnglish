@@ -46,6 +46,7 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [grammarCompleted, setGrammarCompleted] = useState(false);
 
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
@@ -82,6 +83,7 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
 
   const currentCard = lesson?.cards[cardIndex];
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
+  const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
 
   useEffect(() => {
@@ -102,16 +104,17 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
     }
     setCardIndex((current) => current + 1);
     pronunciationPassHandledRef.current = false;
+    setGrammarCompleted(false);
     setSelectedId(null);
     setResult(null);
   }, [cardIndex, lesson]);
 
   useEffect(() => {
-    if (result !== 'correct' || !currentCard) return undefined;
-    const delay = currentCard.answer_audio_text ? 2600 : isPronunciation ? 900 : 1000;
+    if (result !== 'correct' || !currentCard || (isGrammar && !grammarCompleted)) return undefined;
+    const delay = isGrammar ? 2200 : currentCard.answer_audio_text ? 2600 : isPronunciation ? 900 : 1000;
     const timer = setTimeout(advance, delay);
     return () => clearTimeout(timer);
-  }, [advance, currentCard, isPronunciation, result]);
+  }, [advance, currentCard, grammarCompleted, isGrammar, isPronunciation, result]);
 
   useEffect(() => {
     if (!isComplete || !lesson || !sessionId || finishedSessionRef.current) return;
@@ -144,6 +147,9 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
     if (correct) {
       setResult('correct');
       if (firstTry) setScore((current) => current + 1);
+      if (isGrammar) {
+        return;
+      }
       if (currentCard.answer_audio_text) {
         playAudio(currentCard.answer_audio_text, 'prompt', 'answer');
       } else {
@@ -165,14 +171,35 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
     setResult('correct');
   }, []);
 
+  const grammarAnimationComplete = useCallback(() => {
+    if (!currentCard || !isGrammar) return;
+    const selectedOption = currentCard.options.find((option) => option.id === selectedId);
+    const completedSentence = selectedOption?.label
+      ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
+      : currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
+    setGrammarCompleted(true);
+    playAudio(
+      currentCard.answer_audio_text || completedSentence,
+      'prompt',
+      'answer',
+    );
+  }, [currentCard, isGrammar, playAudio, selectedId]);
+
   const renderPrompt = () => {
     if (!currentCard) return '';
+    const selectedOption = currentCard.options.find((option) => option.id === selectedId);
+    const displayedPrompt =
+      isGrammar && grammarCompleted && selectedOption?.label
+        ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
+        : currentCard.prompt;
     const focus = currentCard.stage === 'Grammar'
-      ? new Set(['is', 'are'])
+      ? new Set(['is', 'are', selectedOption?.label?.toLowerCase() || ''])
+      : currentCard.stage === 'New Grammar'
+        ? new Set(['not', selectedOption?.label?.toLowerCase() || ''])
       : currentCard.stage === 'More People'
         ? new Set(['and', 'are'])
         : new Set<string>();
-    return currentCard.prompt.split(/(\b[A-Za-z']+\b)/g).map((part, index) => (
+    return displayedPrompt.split(/(\b[A-Za-z']+\b)/g).map((part, index) => (
       <Text key={`${part}-${index}`} style={focus.has(part.toLowerCase()) ? styles.highlight : undefined}>
         {part}
       </Text>
@@ -282,6 +309,7 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
           gentleFeedback={profile.confidence === 'nervous'}
           level={lesson.level}
           onPronunciationPassed={pronunciationPassed}
+          onGrammarAnimationComplete={grammarAnimationComplete}
           onSelect={choose}
           result={result}
           selectedId={selectedId}

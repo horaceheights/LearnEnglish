@@ -1,4 +1,5 @@
-import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
 
 import { absoluteMediaUrl } from '../config';
 import type { LessonCard } from '../types';
@@ -14,6 +15,7 @@ type Props = {
   showHelp: boolean;
   onSelect: (optionId: string) => void;
   onPronunciationPassed: () => void;
+  onGrammarAnimationComplete: () => void;
 };
 
 export function LessonCardView({
@@ -26,10 +28,14 @@ export function LessonCardView({
   showHelp,
   onSelect,
   onPronunciationPassed,
+  onGrammarAnimationComplete,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isPronunciation = card.stage === 'Pronunciation Practice';
+  const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar';
   const isListenCard = card.stage === 'Listen';
+  const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
+  const [flyingAnswer, setFlyingAnswer] = useState('');
   const isLandscape = viewportWidth > viewportHeight;
   const optionWidth =
     isLandscape && card.options.length >= 4
@@ -52,8 +58,69 @@ export function LessonCardView({
         : Math.max(185, Math.min(285, viewportHeight * 0.48));
   const optionMinHeight = isLandscape ? Math.max(58, viewportHeight * 0.17) : 92;
 
+  useEffect(() => {
+    if (!isGrammar || result !== 'correct' || !selectedId) return undefined;
+    const selectedOption = card.options.find((option) => option.id === selectedId);
+    if (!selectedOption?.label) {
+      onGrammarAnimationComplete();
+      return undefined;
+    }
+
+    setFlyingAnswer(selectedOption.label);
+    flyingAnswerAnimation.setValue(0);
+    const animation = Animated.timing(flyingAnswerAnimation, {
+      duration: 700,
+      easing: Easing.out(Easing.cubic),
+      toValue: 1,
+      useNativeDriver: true,
+    });
+    animation.start(({ finished }) => {
+      if (!finished) return;
+      setFlyingAnswer('');
+      onGrammarAnimationComplete();
+    });
+    return () => animation.stop();
+  }, [
+    card.options,
+    flyingAnswerAnimation,
+    isGrammar,
+    onGrammarAnimationComplete,
+    result,
+    selectedId,
+  ]);
+
   return (
     <View style={[styles.card, isLandscape ? styles.cardLandscape : null]}>
+      {flyingAnswer ? (
+        <Animated.View
+          pointerEvents="none"
+          style={[
+            styles.flyingAnswer,
+            {
+              opacity: flyingAnswerAnimation.interpolate({
+                inputRange: [0, 0.82, 1],
+                outputRange: [1, 1, 0],
+              }),
+              transform: [
+                {
+                  translateY: flyingAnswerAnimation.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [210, 0],
+                  }),
+                },
+                {
+                  scale: flyingAnswerAnimation.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0.9, 1.15],
+                  }),
+                },
+              ],
+            },
+          ]}
+        >
+          <Text style={styles.flyingAnswerText}>{flyingAnswer}</Text>
+        </Animated.View>
+      ) : null}
       {showHelp ? (
         <View style={styles.help}>
           <Text style={styles.helpTitle}>Ayuda</Text>
@@ -167,6 +234,8 @@ const styles = StyleSheet.create({
   },
   cardLandscape: { flex: 1, justifyContent: 'center', padding: 9 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
+  flyingAnswer: { alignItems: 'center', left: 0, position: 'absolute', right: 0, top: -64, zIndex: 20 },
+  flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
   promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
