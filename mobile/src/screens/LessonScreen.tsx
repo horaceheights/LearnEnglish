@@ -237,6 +237,19 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
                 <Text style={styles.backButtonText}>← Lecciones</Text>
               </Pressable>
             </View>
+            <View style={styles.lessonStatus}>
+              <View style={styles.statusMetric}>
+                <Text style={styles.statusLabel}>PROGRESO</Text>
+                <Text style={styles.statusValue}>{cardIndex + 1} / {lesson.cards.length}</Text>
+              </View>
+              <View style={styles.statusMetric}>
+                <Text style={styles.statusLabel}>PUNTAJE</Text>
+                <Text style={styles.statusValue}>{score}</Text>
+              </View>
+              <View style={styles.headerProgressTrack}>
+                <View style={[styles.progressFill, { width: `${progress}%` }]} />
+              </View>
+            </View>
             <Pressable
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
               onPress={() => setShowHelp((current) => !current)}
@@ -275,14 +288,6 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
           showHelp={showHelp}
           userId={profile.userId}
         />
-        <View style={styles.footer}>
-          <View><Text style={styles.footerLabel}>PROGRESO</Text><Text style={styles.footerValue}>{cardIndex + 1} / {lesson.cards.length}</Text></View>
-          <View><Text style={styles.footerLabel}>PUNTAJE</Text><Text style={styles.footerValue}>{score}</Text></View>
-          <Pressable accessibilityLabel="Volver a lecciones" onPress={onExit} style={styles.homeButton}>
-            <Text style={styles.homeText}>⌂</Text>
-          </Pressable>
-        </View>
-        <View style={styles.progressTrack}><View style={[styles.progressFill, { width: `${progress}%` }]} /></View>
       </View>
     </SafeAreaView>
   );
@@ -298,18 +303,17 @@ const styles = StyleSheet.create({
   logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
   backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 30, paddingHorizontal: 10 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
+  lessonStatus: { alignItems: 'center', flexDirection: 'row', gap: 18, justifyContent: 'center', minWidth: 210, position: 'relative', paddingBottom: 5 },
+  statusMetric: { alignItems: 'center', minWidth: 62 },
+  statusLabel: { color: '#697177', fontSize: 7, fontWeight: '900', letterSpacing: 0.8 },
+  statusValue: { color: '#24333a', fontSize: 13, fontWeight: '900', lineHeight: 15 },
+  headerProgressTrack: { backgroundColor: '#d9c6a8', borderRadius: 2, bottom: 0, height: 3, left: 0, overflow: 'hidden', position: 'absolute', right: 0 },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 2, height: 30, justifyContent: 'center', width: 30 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
   stage: { color: '#697177', fontSize: 9, fontWeight: '900', letterSpacing: 1, textAlign: 'center' },
   prompt: { color: '#24333a', fontWeight: '900', textAlign: 'center' },
   highlight: { backgroundColor: '#f9dc8e', color: '#8a4f00' },
-  footer: { alignItems: 'center', backgroundColor: '#f2ebde', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 12, paddingVertical: 4 },
-  footerLabel: { color: '#697177', fontSize: 8, fontWeight: '800', letterSpacing: 1 },
-  footerValue: { color: '#24333a', fontSize: 15, fontWeight: '900' },
-  homeButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#ddd8cf', borderRadius: 15, borderWidth: 1, height: 30, justifyContent: 'center', width: 30 },
-  homeText: { color: '#24333a', fontSize: 17, fontWeight: '900' },
-  progressTrack: { backgroundColor: '#dedbd2', borderRadius: 3, height: 3, overflow: 'hidden' },
   progressFill: { backgroundColor: '#2f8f62', height: '100%' },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },

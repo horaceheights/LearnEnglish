@@ -40,7 +40,7 @@ export function LessonCardView({
           ? '72%'
           : '48%';
   const featureImageHeight = isPronunciation
-    ? Math.max(125, Math.min(190, viewportHeight * 0.32))
+    ? Math.max(175, Math.min(255, viewportHeight * 0.43))
     : Math.max(70, Math.min(118, viewportHeight * 0.24));
   const optionImageHeight =
     card.options.length >= 4
@@ -81,7 +81,16 @@ export function LessonCardView({
               accessibilityLabel={card.options[0].label || card.prompt}
               resizeMode="contain"
               source={{ uri: absoluteMediaUrl(card.options[0].image_url) }}
-              style={[styles.pronunciationImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
+              style={[
+                styles.pronunciationImage,
+                {
+                  height: showHelp
+                    ? featureImageHeight * 0.65
+                    : result
+                      ? featureImageHeight * 0.72
+                      : featureImageHeight,
+                },
+              ]}
             />
           ) : null}
           <PronunciationPractice
