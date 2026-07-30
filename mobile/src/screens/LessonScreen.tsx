@@ -229,9 +229,14 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
       <View style={styles.page}>
         <View style={styles.hero}>
           <View style={styles.heroTop}>
-            <Pressable accessibilityLabel="Volver a lecciones" onPress={onExit} style={styles.logoPill}>
-              <Text style={styles.logoText}>SP</Text>
-            </Pressable>
+            <View style={styles.heroNavigation}>
+              <Pressable accessibilityLabel="Volver a lecciones" onPress={onExit} style={styles.logoPill}>
+                <Text style={styles.logoText}>SP</Text>
+              </Pressable>
+              <Pressable accessibilityRole="button" onPress={onExit} style={styles.backButton}>
+                <Text style={styles.backButtonText}>← Lecciones</Text>
+              </Pressable>
+            </View>
             <Pressable
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
               onPress={() => setShowHelp((current) => !current)}
@@ -289,8 +294,11 @@ const styles = StyleSheet.create({
   page: { flex: 1, gap: 6, padding: 6 },
   hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, paddingHorizontal: 9, paddingVertical: 5 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
+  heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
   logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 13, height: 30, justifyContent: 'center', width: 50 },
   logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
+  backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 30, paddingHorizontal: 10 },
+  backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 2, height: 30, justifyContent: 'center', width: 30 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
