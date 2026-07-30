@@ -41,15 +41,15 @@ export function LessonCardView({
           : '48%';
   const featureImageHeight = isPronunciation
     ? Math.max(175, Math.min(255, viewportHeight * 0.43))
-    : Math.max(70, Math.min(118, viewportHeight * 0.24));
+    : Math.max(155, Math.min(245, viewportHeight * 0.41));
   const optionImageHeight =
     card.options.length >= 4
-      ? Math.max(82, Math.min(132, viewportHeight * 0.25))
+      ? Math.max(125, Math.min(180, viewportHeight * 0.31))
       : card.options.length === 3
-        ? Math.max(110, Math.min(180, viewportHeight * 0.32))
+        ? Math.max(155, Math.min(225, viewportHeight * 0.38))
       : card.options.length === 1
-        ? Math.max(150, Math.min(240, viewportHeight * 0.42))
-        : Math.max(165, Math.min(250, viewportHeight * 0.43));
+        ? Math.max(180, Math.min(285, viewportHeight * 0.48))
+        : Math.max(185, Math.min(285, viewportHeight * 0.48));
   const optionMinHeight = isLandscape ? Math.max(58, viewportHeight * 0.17) : 92;
 
   return (
