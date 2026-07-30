@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
 import { absoluteMediaUrl } from '../config';
 import type { LessonCard } from '../types';
@@ -27,8 +27,15 @@ export function LessonCardView({
   onSelect,
   onPronunciationPassed,
 }: Props) {
+  const { height: viewportHeight } = useWindowDimensions();
   const isPronunciation = card.stage === 'Pronunciation Practice';
   const isListenCard = card.stage === 'Listen';
+  const optionImageHeight =
+    card.options.length >= 4
+      ? Math.max(88, Math.min(132, viewportHeight * 0.27))
+      : card.options.length === 1
+        ? Math.max(150, Math.min(230, viewportHeight * 0.46))
+        : Math.max(120, Math.min(178, viewportHeight * 0.36));
 
   return (
     <View style={styles.card}>
@@ -95,9 +102,9 @@ export function LessonCardView({
                   {option.image_url ? (
                     <Image
                       accessibilityIgnoresInvertColors
-                      resizeMode="cover"
+                      resizeMode="contain"
                       source={{ uri: absoluteMediaUrl(option.image_url) }}
-                      style={styles.optionImage}
+                      style={[styles.optionImage, { height: optionImageHeight }]}
                     />
                   ) : null}
                   {option.label && !option.image_url ? (
@@ -160,7 +167,7 @@ const styles = StyleSheet.create({
     width: '48%',
   },
   singleOption: { width: '82%' },
-  optionImage: { backgroundColor: '#f0eee7', borderRadius: 11, height: 128, width: '100%' },
+  optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
   optionLabel: {
     color: '#26372f',
     fontSize: 14,
