@@ -44,10 +44,12 @@ export function LessonCardView({
     : Math.max(70, Math.min(118, viewportHeight * 0.24));
   const optionImageHeight =
     card.options.length >= 4
-      ? Math.max(64, Math.min(104, viewportHeight * 0.22))
+      ? Math.max(82, Math.min(132, viewportHeight * 0.25))
+      : card.options.length === 3
+        ? Math.max(110, Math.min(180, viewportHeight * 0.32))
       : card.options.length === 1
-        ? Math.max(82, Math.min(142, viewportHeight * 0.29))
-        : Math.max(76, Math.min(122, viewportHeight * 0.25));
+        ? Math.max(150, Math.min(240, viewportHeight * 0.42))
+        : Math.max(165, Math.min(250, viewportHeight * 0.43));
   const optionMinHeight = isLandscape ? Math.max(58, viewportHeight * 0.17) : 92;
 
   return (
