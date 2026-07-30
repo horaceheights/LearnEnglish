@@ -27,9 +27,19 @@ export function LessonCardView({
   onSelect,
   onPronunciationPassed,
 }: Props) {
-  const { height: viewportHeight } = useWindowDimensions();
+  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isPronunciation = card.stage === 'Pronunciation Practice';
   const isListenCard = card.stage === 'Listen';
+  const isLandscape = viewportWidth > viewportHeight;
+  const optionWidth =
+    isLandscape && card.options.length >= 4
+      ? '23.5%'
+      : isLandscape && card.options.length === 3
+        ? '31%'
+        : card.options.length === 1
+          ? '72%'
+          : '48%';
+  const featureImageHeight = Math.max(105, Math.min(170, viewportHeight * 0.34));
   const optionImageHeight =
     card.options.length >= 4
       ? Math.max(88, Math.min(132, viewportHeight * 0.27))
@@ -56,7 +66,7 @@ export function LessonCardView({
           accessibilityLabel={card.answer_audio_text || card.prompt}
           resizeMode="contain"
           source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
-          style={styles.promptImage}
+          style={[styles.promptImage, { height: featureImageHeight }]}
         />
       ) : null}
       {isPronunciation ? (
@@ -66,7 +76,7 @@ export function LessonCardView({
               accessibilityLabel={card.options[0].label || card.prompt}
               resizeMode="contain"
               source={{ uri: absoluteMediaUrl(card.options[0].image_url) }}
-              style={styles.pronunciationImage}
+              style={[styles.pronunciationImage, { height: featureImageHeight }]}
             />
           ) : null}
           <PronunciationPractice
@@ -93,7 +103,7 @@ export function LessonCardView({
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
                     styles.option,
-                    card.options.length === 1 ? styles.singleOption : null,
+                    { width: optionWidth },
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
                     pressed ? styles.pressed : null,
@@ -166,7 +176,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '48%',
   },
-  singleOption: { width: '82%' },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
   optionLabel: {
     color: '#26372f',

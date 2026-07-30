@@ -10,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import { useAudioPlayer } from 'expo-audio';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 import {
   finishLessonSession,
@@ -44,6 +45,13 @@ export function LessonScreen({ lessonId, profile, onExit }: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [isComplete, setIsComplete] = useState(false);
   const [showHelp, setShowHelp] = useState(profile.learningMode !== 'natural_only');
+
+  useEffect(() => {
+    void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+    return () => {
+      void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+    };
+  }, []);
 
   const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
     if (!text.trim()) return;
