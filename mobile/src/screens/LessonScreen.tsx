@@ -24,7 +24,7 @@ import { courseAudioUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
 import type { LearnerProfile, Lesson } from '../types';
 
-const PRAISE = ['Great', 'Awesome', 'Yay', 'Good job', 'Keep it up', 'Nice job', 'Excellent'];
+const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 
 type Props = {
   lessonId: string;
@@ -42,7 +42,9 @@ export function LessonScreen({
   qaMode = false,
 }: Props) {
   const audioPlayer = useAudioPlayer(null);
+  const successChimePlayer = useAudioPlayer(SUCCESS_CHIME);
   const { height: viewportHeight } = useWindowDimensions();
+  const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const finishedSessionRef = useRef(false);
   const pronunciationPassHandledRef = useRef(false);
   const [lesson, setLesson] = useState<Lesson | null>(null);
@@ -72,6 +74,27 @@ export function LessonScreen({
     audioPlayer.replace(courseAudioUrl(text, mode, variant));
     audioPlayer.play();
   }, [audioPlayer]);
+
+  const playSuccessChime = useCallback(async () => {
+    try {
+      await successChimePlayer.seekTo(0);
+      successChimePlayer.play();
+    } catch {
+      // Feedback audio should never interrupt the lesson flow.
+    }
+  }, [successChimePlayer]);
+
+  const playAnswerAfterChime = useCallback((text: string) => {
+    if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
+    answerAudioTimerRef.current = setTimeout(() => {
+      answerAudioTimerRef.current = null;
+      playAudio(text, 'prompt', 'answer');
+    }, 520);
+  }, [playAudio]);
+
+  useEffect(() => () => {
+    if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
+  }, []);
 
   const load = async () => {
     setIsLoading(true);
@@ -186,21 +209,18 @@ export function LessonScreen({
     if (correct) {
       setResult('correct');
       if (firstTry) setScore((current) => current + 1);
+      void playSuccessChime();
       if (isGrammar) {
         return;
       }
       if (currentCard.answer_audio_text) {
-        playAudio(currentCard.answer_audio_text, 'prompt', 'answer');
-      } else {
-        const praise = PRAISE[Math.floor(Math.random() * PRAISE.length)];
-        playAudio(praise, 'feedback', 'feedback');
+        playAnswerAfterChime(currentCard.answer_audio_text);
       }
       return;
     }
 
     setWrongCards((current) => new Set(current).add(cardIndex));
     setResult('wrong');
-    playAudio('Try again', 'feedback', 'feedback');
   };
 
   const pronunciationPassed = useCallback(() => {
@@ -208,7 +228,8 @@ export function LessonScreen({
     pronunciationPassHandledRef.current = true;
     setScore((current) => current + 1);
     setResult('correct');
-  }, []);
+    void playSuccessChime();
+  }, [playSuccessChime]);
 
   const grammarAnimationComplete = useCallback(() => {
     if (!currentCard || !isGrammar) return;
