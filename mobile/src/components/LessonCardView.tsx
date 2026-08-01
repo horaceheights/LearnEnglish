@@ -5,6 +5,13 @@ import { absoluteMediaUrl } from '../config';
 import type { LessonCard } from '../types';
 import { PronunciationPractice } from './PronunciationPractice';
 
+const TEXT_OPTION_THEMES = [
+  { accent: '#d26a3d', background: '#fff1e9', border: '#efb093' },
+  { accent: '#287a67', background: '#e8f6f1', border: '#8fc9b8' },
+  { accent: '#356aa0', background: '#ebf3fb', border: '#9bbddd' },
+  { accent: '#9a6724', background: '#fff6dc', border: '#e7c477' },
+];
+
 type Props = {
   card: LessonCard;
   level: string;
@@ -34,11 +41,15 @@ export function LessonCardView({
   const isPronunciation = card.stage === 'Pronunciation Practice';
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar';
   const isListenCard = card.stage === 'Listen';
+  const isLandscape = viewportWidth > viewportHeight;
+  const hasTextOnlyOptions = card.options.length > 0 && card.options.every((option) => !option.image_url);
+  const useTextGrid = isLandscape && hasTextOnlyOptions && card.options.length >= 3;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
-  const isLandscape = viewportWidth > viewportHeight;
   const optionWidth =
-    isLandscape && card.options.length >= 4
+    useTextGrid
+      ? '48.5%'
+      : isLandscape && card.options.length >= 4
       ? '23.5%'
       : isLandscape && card.options.length === 3
         ? '31%'
@@ -47,7 +58,9 @@ export function LessonCardView({
           : '48%';
   const featureImageHeight = isPronunciation
     ? Math.max(175, Math.min(255, viewportHeight * 0.43))
-    : Math.max(155, Math.min(245, viewportHeight * 0.41));
+    : useTextGrid
+      ? Math.max(165, Math.min(215, viewportHeight * 0.35))
+      : Math.max(155, Math.min(245, viewportHeight * 0.41));
   const optionImageHeight =
     card.options.length >= 4
       ? Math.max(125, Math.min(180, viewportHeight * 0.31))
@@ -56,7 +69,13 @@ export function LessonCardView({
       : card.options.length === 1
         ? Math.max(180, Math.min(285, viewportHeight * 0.48))
         : Math.max(185, Math.min(285, viewportHeight * 0.48));
-  const optionMinHeight = isLandscape ? Math.max(58, viewportHeight * 0.17) : 92;
+  const optionMinHeight = hasTextOnlyOptions
+    ? isLandscape
+      ? Math.max(72, Math.min(92, viewportHeight * 0.145))
+      : 104
+    : isLandscape
+      ? Math.max(58, viewportHeight * 0.17)
+      : 92;
 
   useEffect(() => {
     if (!isGrammar || result !== 'correct' || !selectedId) return undefined;
@@ -170,21 +189,30 @@ export function LessonCardView({
       ) : (
         <>
           <View style={[styles.options, isLandscape ? styles.optionsLandscape : null]}>
-            {card.options.map((option) => {
+            {card.options.map((option, optionIndex) => {
               const selected = selectedId === option.id;
               const correct = option.id === card.correct_option_id;
               const revealCorrect = selected && result === 'correct' && correct;
               const revealWrong = selected && result === 'wrong';
+              const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
               return (
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
                   accessibilityRole="button"
+                  accessibilityState={{ disabled: result === 'correct', selected }}
                   disabled={result === 'correct'}
                   key={option.id}
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
                     styles.option,
                     { minHeight: optionMinHeight, width: optionWidth },
+                    hasTextOnlyOptions
+                      ? {
+                          backgroundColor: textTheme.background,
+                          borderColor: textTheme.border,
+                        }
+                      : null,
+                    hasTextOnlyOptions ? styles.textOption : null,
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
                     pressed ? styles.pressed : null,
@@ -199,7 +227,16 @@ export function LessonCardView({
                     />
                   ) : null}
                   {option.label && !option.image_url ? (
-                    <Text style={styles.optionLabel}>{option.label}</Text>
+                    <>
+                      <View
+                        pointerEvents="none"
+                        style={[styles.optionSpark, { backgroundColor: textTheme.accent }]}
+                      />
+                      <View style={[styles.optionLetter, { backgroundColor: textTheme.accent }]}>
+                        <Text style={styles.optionLetterText}>{String.fromCharCode(65 + optionIndex)}</Text>
+                      </View>
+                      <Text style={[styles.optionLabel, styles.textOptionLabel]}>{option.label}</Text>
+                    </>
                   ) : null}
                   {revealCorrect ? <Text style={styles.feedbackIcon}>✓</Text> : null}
                   {revealWrong ? <Text style={[styles.feedbackIcon, styles.wrongIcon]}>×</Text> : null}
@@ -262,6 +299,30 @@ const styles = StyleSheet.create({
     width: '48%',
   },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
+  textOption: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+  },
+  optionSpark: {
+    borderRadius: 50,
+    height: 72,
+    opacity: 0.08,
+    position: 'absolute',
+    right: -20,
+    top: -25,
+    width: 72,
+  },
+  optionLetter: {
+    alignItems: 'center',
+    borderRadius: 18,
+    height: 36,
+    justifyContent: 'center',
+    marginRight: 13,
+    width: 36,
+  },
+  optionLetterText: { color: '#fff', fontSize: 17, fontWeight: '900' },
   optionLabel: {
     color: '#26372f',
     fontSize: 14,
@@ -269,6 +330,15 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     marginTop: 4,
     textAlign: 'center',
+  },
+  textOptionLabel: {
+    flex: 1,
+    fontSize: 20,
+    fontWeight: '900',
+    letterSpacing: -0.25,
+    lineHeight: 25,
+    marginTop: 0,
+    textAlign: 'left',
   },
   correctOption: { backgroundColor: '#eaf6ee', borderColor: '#3c996c' },
   wrongOption: { backgroundColor: '#fbeceb', borderColor: '#c95e55' },
