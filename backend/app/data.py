@@ -10,7 +10,7 @@ LESSON_IMAGE_DIR = ROOT_DIR / "Lessons" / "Lesson1" / "images"
 
 def image_url(name: str) -> str:
     image_name = Path(name).with_suffix('.webp').name
-    cache_version = "?v=20260801-unified-plural" if image_name.startswith("they_") else ""
+    cache_version = "?v=20260801-unified-plural-v2" if image_name.startswith("they_") else ""
     return f"/lesson-assets/{image_name}{cache_version}"
 
 
