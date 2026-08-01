@@ -6,10 +6,10 @@ import type { LessonCard } from '../types';
 import { PronunciationPractice } from './PronunciationPractice';
 
 const TEXT_OPTION_THEMES = [
-  { accent: '#d26a3d', background: '#fff1e9', border: '#efb093' },
-  { accent: '#287a67', background: '#e8f6f1', border: '#8fc9b8' },
-  { accent: '#356aa0', background: '#ebf3fb', border: '#9bbddd' },
-  { accent: '#9a6724', background: '#fff6dc', border: '#e7c477' },
+  { accent: '#6947ad', background: '#f3effc', border: '#b9a8df' },
+  { accent: '#2f6f9f', background: '#edf5fc', border: '#a1c7e2' },
+  { accent: '#96651d', background: '#fff6df', border: '#e3c27d' },
+  { accent: '#4f5d95', background: '#f0f2fa', border: '#adb5d8' },
 ];
 
 type Props = {
@@ -238,7 +238,11 @@ export function LessonCardView({
                           styles.optionLabel,
                           styles.textOptionLabel,
                           {
-                            color: textTheme.accent,
+                            color: revealCorrect
+                              ? '#287a57'
+                              : revealWrong
+                                ? '#a34842'
+                                : textTheme.accent,
                             fontSize: Math.max(26, Math.min(34, viewportHeight * 0.052)),
                             lineHeight: Math.max(32, Math.min(40, viewportHeight * 0.062)),
                           },
@@ -246,7 +250,18 @@ export function LessonCardView({
                       >
                         {option.label}
                       </Text>
-                      <View style={[styles.optionUnderline, { backgroundColor: textTheme.accent }]} />
+                      <View
+                        style={[
+                          styles.optionUnderline,
+                          {
+                            backgroundColor: revealCorrect
+                              ? '#3c996c'
+                              : revealWrong
+                                ? '#c95e55'
+                                : textTheme.accent,
+                          },
+                        ]}
+                      />
                     </>
                   ) : null}
                   {revealCorrect ? <Text style={styles.feedbackIcon}>✓</Text> : null}
