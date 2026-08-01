@@ -216,6 +216,7 @@ export function LessonCardView({
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
                     pressed ? styles.pressed : null,
+                    pressed && hasTextOnlyOptions ? styles.textOptionPressed : null,
                   ]}
                 >
                   {option.image_url ? (
@@ -232,10 +233,20 @@ export function LessonCardView({
                         pointerEvents="none"
                         style={[styles.optionSpark, { backgroundColor: textTheme.accent }]}
                       />
-                      <View style={[styles.optionLetter, { backgroundColor: textTheme.accent }]}>
-                        <Text style={styles.optionLetterText}>{String.fromCharCode(65 + optionIndex)}</Text>
-                      </View>
-                      <Text style={[styles.optionLabel, styles.textOptionLabel]}>{option.label}</Text>
+                      <Text
+                        style={[
+                          styles.optionLabel,
+                          styles.textOptionLabel,
+                          {
+                            color: textTheme.accent,
+                            fontSize: Math.max(26, Math.min(34, viewportHeight * 0.052)),
+                            lineHeight: Math.max(32, Math.min(40, viewportHeight * 0.062)),
+                          },
+                        ]}
+                      >
+                        {option.label}
+                      </Text>
+                      <View style={[styles.optionUnderline, { backgroundColor: textTheme.accent }]} />
                     </>
                   ) : null}
                   {revealCorrect ? <Text style={styles.feedbackIcon}>✓</Text> : null}
@@ -300,10 +311,15 @@ const styles = StyleSheet.create({
   },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
   textOption: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
+    borderBottomWidth: 5,
+    elevation: 3,
+    justifyContent: 'center',
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    shadowColor: '#152b22',
+    shadowOffset: { height: 3, width: 0 },
+    shadowOpacity: 0.14,
+    shadowRadius: 4,
   },
   optionSpark: {
     borderRadius: 50,
@@ -314,15 +330,7 @@ const styles = StyleSheet.create({
     top: -25,
     width: 72,
   },
-  optionLetter: {
-    alignItems: 'center',
-    borderRadius: 18,
-    height: 36,
-    justifyContent: 'center',
-    marginRight: 13,
-    width: 36,
-  },
-  optionLetterText: { color: '#fff', fontSize: 17, fontWeight: '900' },
+  optionUnderline: { borderRadius: 4, height: 5, marginTop: 7, opacity: 0.75, width: 42 },
   optionLabel: {
     color: '#26372f',
     fontSize: 14,
@@ -332,13 +340,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   textOptionLabel: {
-    flex: 1,
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: '900',
-    letterSpacing: -0.25,
-    lineHeight: 25,
+    letterSpacing: -0.5,
+    lineHeight: 36,
     marginTop: 0,
-    textAlign: 'left',
+    textAlign: 'center',
+    textShadowColor: 'rgba(255,255,255,0.85)',
+    textShadowOffset: { height: 1, width: 0 },
+    textShadowRadius: 1,
   },
   correctOption: { backgroundColor: '#eaf6ee', borderColor: '#3c996c' },
   wrongOption: { backgroundColor: '#fbeceb', borderColor: '#c95e55' },
@@ -362,4 +372,5 @@ const styles = StyleSheet.create({
   correctText: { color: '#287a57' },
   wrongText: { color: '#a34842' },
   pressed: { opacity: 0.72 },
+  textOptionPressed: { elevation: 0, transform: [{ scale: 0.97 }, { translateY: 3 }] },
 });
