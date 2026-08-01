@@ -57,18 +57,18 @@ export function LessonCardView({
           ? '72%'
           : '48%';
   const featureImageHeight = isPronunciation
-    ? Math.max(175, Math.min(255, viewportHeight * 0.43))
+    ? Math.max(185, Math.min(280, viewportHeight * 0.47))
     : useTextGrid
-      ? Math.max(165, Math.min(215, viewportHeight * 0.35))
-      : Math.max(155, Math.min(245, viewportHeight * 0.41));
+      ? Math.max(175, Math.min(225, viewportHeight * 0.37))
+      : Math.max(175, Math.min(300, viewportHeight * 0.49));
   const optionImageHeight =
     card.options.length >= 4
-      ? Math.max(125, Math.min(180, viewportHeight * 0.31))
+      ? Math.max(145, Math.min(215, viewportHeight * 0.36))
       : card.options.length === 3
-        ? Math.max(155, Math.min(225, viewportHeight * 0.38))
+        ? Math.max(175, Math.min(270, viewportHeight * 0.45))
       : card.options.length === 1
-        ? Math.max(180, Math.min(285, viewportHeight * 0.48))
-        : Math.max(185, Math.min(285, viewportHeight * 0.48));
+        ? Math.max(220, Math.min(365, viewportHeight * 0.61))
+        : Math.max(205, Math.min(340, viewportHeight * 0.57));
   const optionMinHeight = hasTextOnlyOptions
     ? isLandscape
       ? Math.max(72, Math.min(92, viewportHeight * 0.145))
