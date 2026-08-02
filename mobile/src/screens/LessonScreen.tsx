@@ -10,7 +10,7 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
-import { useAudioPlayer } from 'expo-audio';
+import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
 
@@ -45,10 +45,14 @@ export function LessonScreen({
   qaMode = false,
 }: Props) {
   const audioPlayer = useAudioPlayer(null);
+  const audioPlayerStatus = useAudioPlayerStatus(audioPlayer);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME);
   const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE);
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const grammarAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const grammarAnswerAwaitingRef = useRef(false);
+  const grammarAnswerWasPlayingRef = useRef(false);
   const finishedSessionRef = useRef(false);
   const pronunciationPassHandledRef = useRef(false);
   const [lesson, setLesson] = useState<Lesson | null>(null);
@@ -117,6 +121,7 @@ export function LessonScreen({
 
   useEffect(() => () => {
     if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
+    if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
   }, []);
 
   const load = async () => {
@@ -169,6 +174,12 @@ export function LessonScreen({
 
   const advance = useCallback(() => {
     if (!lesson) return;
+    grammarAnswerAwaitingRef.current = false;
+    grammarAnswerWasPlayingRef.current = false;
+    if (grammarAudioTimerRef.current) {
+      clearTimeout(grammarAudioTimerRef.current);
+      grammarAudioTimerRef.current = null;
+    }
     if (cardIndex >= lesson.cards.length - 1) {
       setIsComplete(true);
       return;
@@ -184,18 +195,43 @@ export function LessonScreen({
     if (
       result !== 'correct' ||
       !currentCard ||
-      (isGrammar && !grammarCompleted) ||
+      isGrammar ||
       (qaMode && !qaAutoAdvance)
     ) return undefined;
-    const delay = isGrammar ? 2200 : currentCard.answer_audio_text ? 2600 : isPronunciation ? 900 : 1000;
+    const delay = currentCard.answer_audio_text ? 2600 : isPronunciation ? 900 : 1000;
     const timer = setTimeout(advance, delay);
     return () => clearTimeout(timer);
   }, [
     advance,
     currentCard,
-    grammarCompleted,
     isGrammar,
     isPronunciation,
+    qaAutoAdvance,
+    qaMode,
+    result,
+  ]);
+
+  useEffect(() => {
+    if (!grammarAnswerAwaitingRef.current || !isGrammar || result !== 'correct') return;
+    if (audioPlayerStatus.playing) grammarAnswerWasPlayingRef.current = true;
+    if (!audioPlayerStatus.didJustFinish || !grammarAnswerWasPlayingRef.current) return;
+
+    grammarAnswerAwaitingRef.current = false;
+    grammarAnswerWasPlayingRef.current = false;
+    if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+    if (qaMode && !qaAutoAdvance) {
+      grammarAudioTimerRef.current = null;
+      return;
+    }
+    grammarAudioTimerRef.current = setTimeout(() => {
+      grammarAudioTimerRef.current = null;
+      advance();
+    }, 350);
+  }, [
+    advance,
+    audioPlayerStatus.didJustFinish,
+    audioPlayerStatus.playing,
+    isGrammar,
     qaAutoAdvance,
     qaMode,
     result,
@@ -262,14 +298,31 @@ export function LessonScreen({
       ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
       : currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
     setGrammarCompleted(true);
+    grammarAnswerAwaitingRef.current = true;
+    grammarAnswerWasPlayingRef.current = false;
+    if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+    grammarAudioTimerRef.current = setTimeout(() => {
+      grammarAudioTimerRef.current = null;
+      if (!grammarAnswerAwaitingRef.current) return;
+      grammarAnswerAwaitingRef.current = false;
+      grammarAnswerWasPlayingRef.current = false;
+      if (qaMode && !qaAutoAdvance) return;
+      advance();
+    }, 15000);
     playAudio(
       currentCard.answer_audio_text || completedSentence,
       'prompt',
       'answer',
     );
-  }, [currentCard, isGrammar, playAudio, selectedId]);
+  }, [advance, currentCard, isGrammar, playAudio, qaAutoAdvance, qaMode, selectedId]);
 
   const resetCardState = useCallback(() => {
+    grammarAnswerAwaitingRef.current = false;
+    grammarAnswerWasPlayingRef.current = false;
+    if (grammarAudioTimerRef.current) {
+      clearTimeout(grammarAudioTimerRef.current);
+      grammarAudioTimerRef.current = null;
+    }
     pronunciationPassHandledRef.current = false;
     setScore(0);
     setWrongCards(new Set());
