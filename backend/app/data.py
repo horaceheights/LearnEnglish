@@ -697,9 +697,9 @@ def people_action_cards() -> list[LessonCard]:
     return [
         *people_new_vocab_cards(),
         *people_action_intro_cards(),
+        *people_plural_intro_cards(),
         *people_meaning_practice_cards(),
         *people_listen_cards(),
-        *people_plural_intro_cards(),
         *people_pronunciation_cards(),
         *people_grammar_cards(),
     ]
@@ -834,7 +834,7 @@ def people_plural_intro_cards() -> list[LessonCard]:
         cards.append(
             LessonCard(
                 prompt=spec["prompt"],
-                stage="More People",
+                stage="Action Introduction",
                 correct_option_id=spec["id"],
                 options=[
                     ChoiceOption(
