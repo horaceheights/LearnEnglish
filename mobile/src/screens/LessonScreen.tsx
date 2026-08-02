@@ -495,6 +495,8 @@ export function LessonScreen({
               <Text style={styles.helpButtonText}>?</Text>
             </Pressable>
           </View>
+        </View>
+        <View style={styles.contentHeader}>
           <Text style={styles.stage}>{lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}</Text>
           <View style={styles.promptRow}>
             <Pressable
@@ -513,7 +515,10 @@ export function LessonScreen({
                 }}
                 style={[
                   styles.prompt,
-                  { fontSize: viewportHeight < 400 ? 21 : 24, lineHeight: viewportHeight < 400 ? 25 : 29 },
+                  {
+                    fontSize: Math.max(26, Math.min(36, viewportHeight * 0.052)),
+                    lineHeight: Math.max(31, Math.min(43, viewportHeight * 0.062)),
+                  },
                 ]}
               >
                 {isPronunciation ? pronunciationInstruction(lesson.id) : renderPrompt()}
@@ -592,10 +597,11 @@ const styles = StyleSheet.create({
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 2, height: 30, justifyContent: 'center', width: 30 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
-  stage: { color: '#697177', fontSize: 9, fontWeight: '900', letterSpacing: 1, textAlign: 'center' },
-  promptRow: { justifyContent: 'center', minHeight: 29, position: 'relative' },
+  contentHeader: { backgroundColor: '#fff', borderColor: '#e4ded2', borderRadius: 18, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 7 },
+  stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
+  promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptTapTarget: { width: '100%' },
-  prompt: { color: '#24333a', fontWeight: '900', textAlign: 'center' },
+  prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
   repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', minHeight: 28, width: 82 },
   repeatButtonFloating: { left: '50%', marginTop: -14, position: 'absolute', top: '50%' },
   repeatButtonPressed: { backgroundColor: '#fff4df', opacity: 0.78, transform: [{ scale: 0.97 }] },
