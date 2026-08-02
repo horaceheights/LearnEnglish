@@ -27,6 +27,7 @@ import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '..
 import type { LearnerProfile, Lesson } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
+const TRY_AGAIN_CUE = require('../../assets/try-again.wav');
 
 type Props = {
   lessonId: string;
@@ -45,6 +46,7 @@ export function LessonScreen({
 }: Props) {
   const audioPlayer = useAudioPlayer(null);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME);
+  const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE);
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const finishedSessionRef = useRef(false);
@@ -95,6 +97,15 @@ export function LessonScreen({
       // Feedback audio should never interrupt the lesson flow.
     }
   }, [successChimePlayer]);
+
+  const playTryAgainCue = useCallback(async () => {
+    try {
+      await tryAgainCuePlayer.seekTo(0);
+      tryAgainCuePlayer.play();
+    } catch {
+      // Feedback audio should never interrupt the lesson flow.
+    }
+  }, [tryAgainCuePlayer]);
 
   const playAnswerAfterChime = useCallback((text: string) => {
     if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
@@ -233,6 +244,7 @@ export function LessonScreen({
 
     setWrongCards((current) => new Set(current).add(cardIndex));
     setResult('wrong');
+    void playTryAgainCue();
   };
 
   const pronunciationPassed = useCallback(() => {
