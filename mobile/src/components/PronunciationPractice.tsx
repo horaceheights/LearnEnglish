@@ -5,6 +5,7 @@ import {
   preload,
   RecordingPresets,
   setAudioModeAsync,
+  type RecordingOptions,
   useAudioPlayer,
   useAudioPlayerStatus,
   useAudioRecorder,
@@ -24,13 +25,24 @@ type Props = {
 
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
 
-const METERING_OPTIONS = {
+const SPEECH_RECORDING_OPTIONS: RecordingOptions = {
   ...RecordingPresets.HIGH_QUALITY,
+  sampleRate: 16000,
+  numberOfChannels: 1,
+  bitRate: 64000,
+  android: {
+    ...RecordingPresets.HIGH_QUALITY.android,
+    sampleRate: 16000,
+  },
+  ios: {
+    ...RecordingPresets.HIGH_QUALITY.ios,
+    sampleRate: 16000,
+  },
   isMeteringEnabled: true,
 };
 
 export function PronunciationPractice({ phrase, level, userId, onPassed }: Props) {
-  const recorder = useAudioRecorder(METERING_OPTIONS);
+  const recorder = useAudioRecorder(SPEECH_RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
   const modelPlayer = useAudioPlayer(null);
   const readyCuePlayer = useAudioPlayer(null);
@@ -100,13 +112,20 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     setPhase('checking');
     setMessage('Checking…');
     try {
+      const recorderStopStartedAt = Date.now();
       await recorder.stop();
+      const recorderFinalizeMs = Date.now() - recorderStopStartedAt;
       const uri = recorder.uri;
       if (!shouldScore || !uri) {
         scheduleRetry('No te pude escuchar.');
         return;
       }
       const nextResult = await scorePronunciation(uri, phrase, userId);
+      nextResult._timing = {
+        ...nextResult._timing,
+        recorder_finalize_ms: recorderFinalizeMs,
+      };
+      console.info('[SpanGlish] Pronunciation timing', nextResult._timing);
       setResult(nextResult);
       const nextAccuracy = nextResult.text_score?.azure_scores?.accuracy ?? nextResult.text_score?.quality_score;
       const nextCompleteness = nextResult.text_score?.azure_scores?.completeness;
@@ -145,7 +164,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       heardSpeech.current = false;
       silenceStartedAt.current = null;
       captureFinishing.current = false;
-      await recorder.prepareToRecordAsync(METERING_OPTIONS);
+      await recorder.prepareToRecordAsync(SPEECH_RECORDING_OPTIONS);
       setPhase('ready');
       setMessage('Prepárate…');
       await readyCuePreload;

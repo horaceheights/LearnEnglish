@@ -129,7 +129,7 @@ def convert_mobile_audio_to_wav(audio: bytes) -> bytes:
     return output.getvalue()
 
 
-def normalize_azure_result(payload: dict[str, Any], elapsed_ms: int, audio_bytes: int) -> dict[str, Any]:
+def normalize_azure_result(payload: dict[str, Any], timing: dict[str, int]) -> dict[str, Any]:
     best = (payload.get("NBest") or [{}])[0]
     assessment = best.get("PronunciationAssessment") or best
     words = []
@@ -169,7 +169,7 @@ def normalize_azure_result(payload: dict[str, Any], elapsed_ms: int, audio_bytes
             },
         },
         "recognized_text": payload.get("DisplayText") or best.get("Display"),
-        "_timing": {"provider_ms": elapsed_ms, "backend_total_ms": elapsed_ms, "audio_bytes": audio_bytes},
+        "_timing": timing,
         "_provider_response": payload,
     }
 
@@ -181,11 +181,18 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
     if not key or not region:
         raise HTTPException(status_code=503, detail="Azure Speech is not configured.")
 
+    backend_started = time.perf_counter()
+    read_started = time.perf_counter()
     audio = await audio_file.read()
+    read_audio_ms = round((time.perf_counter() - read_started) * 1000)
     if not audio:
         raise HTTPException(status_code=400, detail="Audio file is empty.")
+    uploaded_audio_bytes = len(audio)
+    convert_audio_ms = 0
     if _is_mobile_audio(audio_file):
+        convert_started = time.perf_counter()
         audio = convert_mobile_audio_to_wav(audio)
+        convert_audio_ms = round((time.perf_counter() - convert_started) * 1000)
         content_type = "audio/wav; codecs=audio/pcm; samplerate=16000"
     else:
         content_type = _content_type(audio_file)
@@ -226,4 +233,11 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
     if payload.get("RecognitionStatus") not in {"Success", 0}:
         status = payload.get("RecognitionStatus", "Unknown")
         raise HTTPException(status_code=422, detail={"message": f"Azure recognition failed: {status}", "azure": payload})
-    return normalize_azure_result(payload, elapsed_ms, len(audio))
+    return normalize_azure_result(payload, {
+        "read_audio_ms": read_audio_ms,
+        "convert_audio_ms": convert_audio_ms,
+        "provider_ms": elapsed_ms,
+        "backend_total_ms": round((time.perf_counter() - backend_started) * 1000),
+        "uploaded_audio_bytes": uploaded_audio_bytes,
+        "audio_bytes": len(audio),
+    })

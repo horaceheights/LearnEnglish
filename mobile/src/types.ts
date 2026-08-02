@@ -58,6 +58,16 @@ export type WordScore = {
 
 export type PronunciationResult = {
   recognized_text?: string;
+  _timing?: {
+    audio_bytes?: number;
+    backend_total_ms?: number;
+    client_request_ms?: number;
+    convert_audio_ms?: number;
+    provider_ms?: number;
+    read_audio_ms?: number;
+    recorder_finalize_ms?: number;
+    uploaded_audio_bytes?: number;
+  };
   text_score?: {
     quality_score?: number;
     word_score_list?: WordScore[];

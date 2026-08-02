@@ -91,6 +91,7 @@ export async function scorePronunciation(
   phrase: string,
   userId?: string,
 ): Promise<PronunciationResult> {
+  const requestStartedAt = Date.now();
   const formData = new FormData();
   formData.append('text', phrase);
   formData.append('provider', 'azure');
@@ -108,5 +109,10 @@ export async function scorePronunciation(
         : JSON.stringify(payload?.detail || payload);
     throw new Error(detail || `Scoring failed (${response.status}).`);
   }
-  return payload as PronunciationResult;
+  const result = payload as PronunciationResult;
+  result._timing = {
+    ...result._timing,
+    client_request_ms: Date.now() - requestStartedAt,
+  };
+  return result;
 }
