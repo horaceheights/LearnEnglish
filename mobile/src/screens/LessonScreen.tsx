@@ -43,7 +43,7 @@ export function LessonScreen({
 }: Props) {
   const audioPlayer = useAudioPlayer(null);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME);
-  const { height: viewportHeight } = useWindowDimensions();
+  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const finishedSessionRef = useRef(false);
   const pronunciationPassHandledRef = useRef(false);
@@ -61,6 +61,7 @@ export function LessonScreen({
   const [grammarCompleted, setGrammarCompleted] = useState(false);
   const [qaAutoAdvance, setQaAutoAdvance] = useState(false);
   const [cardRunId, setCardRunId] = useState(0);
+  const [promptTextWidth, setPromptTextWidth] = useState(0);
 
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
@@ -408,9 +409,6 @@ export function LessonScreen({
           </View>
           <Text style={styles.stage}>{currentCard.stage.toUpperCase()}</Text>
           <View style={styles.promptRow}>
-            {!isPronunciation && promptAudio.trim() ? (
-              <View pointerEvents="none" style={styles.repeatButtonSpacer} />
-            ) : null}
             <Pressable
               accessibilityLabel={`Reproducir: ${promptAudio}`}
               disabled={!promptAudio.trim()}
@@ -421,6 +419,10 @@ export function LessonScreen({
             >
               <Text
                 numberOfLines={2}
+                onTextLayout={({ nativeEvent }) => {
+                  const measuredWidth = Math.max(0, ...nativeEvent.lines.map((line) => line.width));
+                  setPromptTextWidth((current) => Math.abs(current - measuredWidth) < 1 ? current : measuredWidth);
+                }}
                 style={[
                   styles.prompt,
                   { fontSize: viewportHeight < 400 ? 21 : 24, lineHeight: viewportHeight < 400 ? 25 : 29 },
@@ -434,7 +436,17 @@ export function LessonScreen({
                 accessibilityLabel={`Repetir audio: ${promptAudio}`}
                 accessibilityRole="button"
                 onPress={() => playAudio(promptAudio, 'prompt', 'prompt')}
-                style={({ pressed }) => [styles.repeatButton, pressed ? styles.repeatButtonPressed : null]}
+                style={({ pressed }) => [
+                  styles.repeatButton,
+                  styles.repeatButtonFloating,
+                  {
+                    marginLeft: Math.max(
+                      9,
+                      Math.min((promptTextWidth / 2) + 9, (viewportWidth / 2) - 112),
+                    ),
+                  },
+                  pressed ? styles.repeatButtonPressed : null,
+                ]}
               >
                 <Text style={styles.repeatIcon}>↻</Text>
                 <Text style={styles.repeatText}>Repetir</Text>
@@ -493,11 +505,11 @@ const styles = StyleSheet.create({
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
   stage: { color: '#697177', fontSize: 9, fontWeight: '900', letterSpacing: 1, textAlign: 'center' },
-  promptRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 29 },
-  promptTapTarget: { flexShrink: 1 },
+  promptRow: { justifyContent: 'center', minHeight: 29, position: 'relative' },
+  promptTapTarget: { width: '100%' },
   prompt: { color: '#24333a', fontWeight: '900', textAlign: 'center' },
-  repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', marginLeft: 9, minHeight: 28, width: 82 },
-  repeatButtonSpacer: { marginRight: 9, width: 82 },
+  repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', minHeight: 28, width: 82 },
+  repeatButtonFloating: { left: '50%', marginTop: -14, position: 'absolute', top: '50%' },
   repeatButtonPressed: { backgroundColor: '#fff4df', opacity: 0.78, transform: [{ scale: 0.97 }] },
   repeatIcon: { color: '#8a4f00', fontSize: 16, fontWeight: '900', lineHeight: 18 },
   repeatText: { color: '#694b22', fontSize: 10, fontWeight: '900' },
