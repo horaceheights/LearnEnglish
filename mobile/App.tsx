@@ -1,5 +1,14 @@
 import { Component, type ErrorInfo, type ReactNode, useEffect, useState } from 'react';
-import { ActivityIndicator, Pressable, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import * as Updates from 'expo-updates';
 
 import { getDiagnosticContext, type DiagnosticContext } from './src/diagnostics';
@@ -16,6 +25,8 @@ type Screen =
   | { name: 'lesson'; lessonId: string; initialCardIndex?: number; qaMode?: boolean }
   | { name: 'profile' }
   | { name: 'qa' };
+
+const ANDROID_SYSTEM_CONTROL_INSET = 32;
 
 class AppErrorBoundary extends Component<
   { children: ReactNode },
@@ -138,15 +149,30 @@ function AppContent() {
   );
 }
 
+function SystemControlSafeFrame({ children }: { children: ReactNode }) {
+  const { height, width } = useWindowDimensions();
+  const isLandscape = width > height;
+  const androidSystemInset = Platform.OS === 'android'
+    ? isLandscape
+      ? { paddingRight: ANDROID_SYSTEM_CONTROL_INSET }
+      : { paddingBottom: ANDROID_SYSTEM_CONTROL_INSET }
+    : null;
+
+  return <View style={[styles.appFrame, androidSystemInset]}>{children}</View>;
+}
+
 export default function App() {
   return (
-    <AppErrorBoundary>
-      <AppContent />
-    </AppErrorBoundary>
+    <SystemControlSafeFrame>
+      <AppErrorBoundary>
+        <AppContent />
+      </AppErrorBoundary>
+    </SystemControlSafeFrame>
   );
 }
 
 const styles = StyleSheet.create({
+  appFrame: { backgroundColor: '#fbf7ef', flex: 1 },
   loading: { alignItems: 'center', backgroundColor: '#fbf7ef', flex: 1, justifyContent: 'center' },
   crashPage: { backgroundColor: '#fbf7ef', flex: 1, justifyContent: 'center', padding: 24 },
   crashPanel: { backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 22, borderWidth: 1, padding: 22 },
