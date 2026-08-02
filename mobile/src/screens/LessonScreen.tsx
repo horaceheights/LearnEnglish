@@ -50,6 +50,10 @@ export function LessonScreen({
   const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE);
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const answerAudioAwaitingRef = useRef(false);
+  const answerAudioStartedRef = useRef(false);
+  const answerAudioWasPlayingRef = useRef(false);
   const grammarAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const grammarAnswerAwaitingRef = useRef(false);
   const grammarAnswerWasPlayingRef = useRef(false);
@@ -115,12 +119,15 @@ export function LessonScreen({
     if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
     answerAudioTimerRef.current = setTimeout(() => {
       answerAudioTimerRef.current = null;
+      answerAudioStartedRef.current = true;
+      answerAudioWasPlayingRef.current = false;
       playAudio(text, 'prompt', 'answer');
     }, 520);
   }, [playAudio]);
 
   useEffect(() => () => {
     if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
+    if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
     if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
   }, []);
 
@@ -174,6 +181,17 @@ export function LessonScreen({
 
   const advance = useCallback(() => {
     if (!lesson) return;
+    answerAudioAwaitingRef.current = false;
+    answerAudioStartedRef.current = false;
+    answerAudioWasPlayingRef.current = false;
+    if (answerAudioTimerRef.current) {
+      clearTimeout(answerAudioTimerRef.current);
+      answerAudioTimerRef.current = null;
+    }
+    if (answerAdvanceTimerRef.current) {
+      clearTimeout(answerAdvanceTimerRef.current);
+      answerAdvanceTimerRef.current = null;
+    }
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
     if (grammarAudioTimerRef.current) {
@@ -196,9 +214,10 @@ export function LessonScreen({
       result !== 'correct' ||
       !currentCard ||
       isGrammar ||
+      Boolean(currentCard.answer_audio_text) ||
       (qaMode && !qaAutoAdvance)
     ) return undefined;
-    const delay = currentCard.answer_audio_text ? 2600 : isPronunciation ? 900 : 1000;
+    const delay = isPronunciation ? 900 : 1000;
     const timer = setTimeout(advance, delay);
     return () => clearTimeout(timer);
   }, [
@@ -212,7 +231,69 @@ export function LessonScreen({
   ]);
 
   useEffect(() => {
+    if (
+      !answerAudioAwaitingRef.current ||
+      !answerAudioStartedRef.current ||
+      isGrammar ||
+      result !== 'correct'
+    ) return;
+    if (audioPlayerStatus.error) {
+      answerAudioAwaitingRef.current = false;
+      answerAudioStartedRef.current = false;
+      answerAudioWasPlayingRef.current = false;
+      if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
+      if (qaMode && !qaAutoAdvance) {
+        answerAdvanceTimerRef.current = null;
+        return;
+      }
+      answerAdvanceTimerRef.current = setTimeout(() => {
+        answerAdvanceTimerRef.current = null;
+        advance();
+      }, 900);
+      return;
+    }
+    if (audioPlayerStatus.playing) answerAudioWasPlayingRef.current = true;
+    if (!audioPlayerStatus.didJustFinish || !answerAudioWasPlayingRef.current) return;
+
+    answerAudioAwaitingRef.current = false;
+    answerAudioStartedRef.current = false;
+    answerAudioWasPlayingRef.current = false;
+    if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
+    if (qaMode && !qaAutoAdvance) {
+      answerAdvanceTimerRef.current = null;
+      return;
+    }
+    answerAdvanceTimerRef.current = setTimeout(() => {
+      answerAdvanceTimerRef.current = null;
+      advance();
+    }, 350);
+  }, [
+    advance,
+    audioPlayerStatus.didJustFinish,
+    audioPlayerStatus.error,
+    audioPlayerStatus.playing,
+    isGrammar,
+    qaAutoAdvance,
+    qaMode,
+    result,
+  ]);
+
+  useEffect(() => {
     if (!grammarAnswerAwaitingRef.current || !isGrammar || result !== 'correct') return;
+    if (audioPlayerStatus.error) {
+      grammarAnswerAwaitingRef.current = false;
+      grammarAnswerWasPlayingRef.current = false;
+      if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+      if (qaMode && !qaAutoAdvance) {
+        grammarAudioTimerRef.current = null;
+        return;
+      }
+      grammarAudioTimerRef.current = setTimeout(() => {
+        grammarAudioTimerRef.current = null;
+        advance();
+      }, 900);
+      return;
+    }
     if (audioPlayerStatus.playing) grammarAnswerWasPlayingRef.current = true;
     if (!audioPlayerStatus.didJustFinish || !grammarAnswerWasPlayingRef.current) return;
 
@@ -230,6 +311,7 @@ export function LessonScreen({
   }, [
     advance,
     audioPlayerStatus.didJustFinish,
+    audioPlayerStatus.error,
     audioPlayerStatus.playing,
     isGrammar,
     qaAutoAdvance,
@@ -273,6 +355,19 @@ export function LessonScreen({
         return;
       }
       if (currentCard.answer_audio_text) {
+        answerAudioAwaitingRef.current = true;
+        answerAudioStartedRef.current = false;
+        answerAudioWasPlayingRef.current = false;
+        if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
+        answerAdvanceTimerRef.current = setTimeout(() => {
+          answerAdvanceTimerRef.current = null;
+          if (!answerAudioAwaitingRef.current) return;
+          answerAudioAwaitingRef.current = false;
+          answerAudioStartedRef.current = false;
+          answerAudioWasPlayingRef.current = false;
+          if (qaMode && !qaAutoAdvance) return;
+          advance();
+        }, 60000);
         playAnswerAfterChime(currentCard.answer_audio_text);
       }
       return;
@@ -308,7 +403,7 @@ export function LessonScreen({
       grammarAnswerWasPlayingRef.current = false;
       if (qaMode && !qaAutoAdvance) return;
       advance();
-    }, 15000);
+    }, 60000);
     playAudio(
       currentCard.answer_audio_text || completedSentence,
       'prompt',
@@ -317,6 +412,17 @@ export function LessonScreen({
   }, [advance, currentCard, isGrammar, playAudio, qaAutoAdvance, qaMode, selectedId]);
 
   const resetCardState = useCallback(() => {
+    answerAudioAwaitingRef.current = false;
+    answerAudioStartedRef.current = false;
+    answerAudioWasPlayingRef.current = false;
+    if (answerAudioTimerRef.current) {
+      clearTimeout(answerAudioTimerRef.current);
+      answerAudioTimerRef.current = null;
+    }
+    if (answerAdvanceTimerRef.current) {
+      clearTimeout(answerAdvanceTimerRef.current);
+      answerAdvanceTimerRef.current = null;
+    }
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
     if (grammarAudioTimerRef.current) {
