@@ -73,6 +73,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     typeof accuracy === 'number' &&
     accuracy >= passAccuracy &&
     (typeof completeness !== 'number' || completeness >= minimumCompleteness);
+  const statusIsAnimated = phase === 'listening' || phase === 'checking';
   const weakestWord = useMemo(
     () => {
       const scoredWords = result?.text_score?.word_score_list
@@ -189,7 +190,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   }, [readyCuePlayer, readyCuePreload, recorder, scheduleRetry]);
 
   useEffect(() => {
-    if (phase !== 'listening') {
+    if (!statusIsAnimated) {
       pulseAnimation.stopAnimation();
       pulseAnimation.setValue(0);
       waveAnimations.forEach((animation) => {
@@ -242,7 +243,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       pulse.stop();
       wave.stop();
     };
-  }, [phase, pulseAnimation, waveAnimations]);
+  }, [pulseAnimation, statusIsAnimated, waveAnimations]);
 
   useEffect(() => {
     setAttempt(0);
@@ -289,7 +290,13 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     return () => clearTimeout(timer);
   }, [onPassed, passed, phase]);
 
-  const statusColor = phase === 'listening' ? '#d95c52' : phase === 'success' ? '#2f8f62' : '#697177';
+  const statusColor = phase === 'listening'
+    ? '#d95c52'
+    : phase === 'checking'
+      ? '#76559e'
+      : phase === 'success'
+        ? '#2f8f62'
+        : '#697177';
 
   return (
     <View style={styles.container}>
@@ -307,11 +314,11 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
             styles.statusDot,
             {
               backgroundColor: statusColor,
-              opacity: phase === 'listening'
+              opacity: statusIsAnimated
                 ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.55, 1] })
                 : 1,
               transform: [{
-                scale: phase === 'listening'
+                scale: statusIsAnimated
                   ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.35] })
                   : 1,
               }],
@@ -327,8 +334,8 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
                 {
                   backgroundColor: statusColor,
                   height,
-                  opacity: phase === 'listening' ? 1 : 0.35,
-                  transform: [{ scaleY: phase === 'listening' ? waveAnimations[index] : 0.27 }],
+                  opacity: statusIsAnimated ? 1 : 0.35,
+                  transform: [{ scaleY: statusIsAnimated ? waveAnimations[index] : 0.27 }],
                 },
               ]}
             />
