@@ -28,11 +28,97 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-balanced-v1"
-PROMPT_TARGET_WPM = 135
-PRONUNCIATION_TARGET_WPM = 95
-TARGET_RMS_DBFS = -24.0
+AUDIO_PROFILE_VERSION = "a1-syllable-v3"
+PROMPT_TARGET_SPM = 150
+SHORT_VOCAB_TARGET_SPM = 120
+PRONUNCIATION_TARGET_SPM = 125
+TARGET_RMS_DBFS = -22.5
 NORMALIZATION_SAMPLE_RATE = 24_000
+MAX_TEMPO_SLOWDOWN = 0.55
+MAX_TEMPO_SPEEDUP = 1.60
+
+# The first course deliberately uses a small vocabulary. Keeping its irregular
+# syllable counts explicit makes pacing deterministic instead of treating
+# "woman" and "boy" as if they took the same teaching time.
+COURSE_SYLLABLES = {
+    "a": 1,
+    "adult": 2,
+    "adults": 2,
+    "an": 1,
+    "and": 1,
+    "are": 1,
+    "babies": 2,
+    "baby": 2,
+    "bike": 1,
+    "boy": 1,
+    "bridge": 1,
+    "brother": 2,
+    "brothers": 2,
+    "building": 2,
+    "bus": 1,
+    "car": 1,
+    "child": 1,
+    "children": 2,
+    "choose": 1,
+    "cooking": 2,
+    "eating": 2,
+    "family": 3,
+    "father": 2,
+    "girl": 1,
+    "grandfather": 3,
+    "grandmother": 3,
+    "grandparents": 3,
+    "he": 1,
+    "house": 1,
+    "is": 1,
+    "it": 1,
+    "listen": 2,
+    "man": 1,
+    "mother": 2,
+    "not": 1,
+    "parents": 2,
+    "park": 1,
+    "playing": 2,
+    "reading": 2,
+    "running": 2,
+    "school": 1,
+    "she": 1,
+    "sister": 2,
+    "sisters": 2,
+    "sitting": 2,
+    "sleeping": 2,
+    "standing": 2,
+    "store": 1,
+    "street": 1,
+    "studying": 3,
+    "swimming": 2,
+    "talking": 2,
+    "the": 1,
+    "they": 1,
+    "walking": 2,
+    "what": 1,
+    "woman": 2,
+    "working": 2,
+    "writing": 2,
+}
+
+ING_PRONUNCIATION_NOTES = {
+    "building": "'building' /ˈbɪl.dɪŋ/",
+    "cooking": "'cooking' /ˈkʊk.ɪŋ/",
+    "eating": "'eating' /ˈiː.tɪŋ/",
+    "playing": "'playing' /ˈpleɪ.ɪŋ/",
+    "reading": "'reading' /ˈriː.dɪŋ/",
+    "running": "'running' /ˈrʌn.ɪŋ/",
+    "sitting": "'sitting' /ˈsɪt.ɪŋ/",
+    "sleeping": "'sleeping' /ˈsliː.pɪŋ/",
+    "standing": "'standing' /ˈstæn.dɪŋ/",
+    "studying": "'studying' /ˈstʌd.i.ɪŋ/",
+    "swimming": "'swimming' /ˈswɪm.ɪŋ/",
+    "talking": "'talking' /ˈtɔk.ɪŋ/",
+    "walking": "'walking' /ˈwɔk.ɪŋ/",
+    "working": "'working' /ˈwɝ.kɪŋ/",
+    "writing": "'writing' /ˈraɪ.tɪŋ/",
+}
 
 
 def ready_cue_wav() -> bytes:
@@ -95,25 +181,102 @@ def audio_debug() -> dict[str, object]:
         "answer_voice": os.getenv("OPENAI_TTS_ANSWER_VOICE", os.getenv("OPENAI_TTS_VOICE", "coral")),
         "format": os.getenv("OPENAI_TTS_FORMAT", "mp3"),
         "audio_profile": AUDIO_PROFILE_VERSION,
-        "prompt_target_wpm": PROMPT_TARGET_WPM,
-        "pronunciation_target_wpm": PRONUNCIATION_TARGET_WPM,
+        "prompt_target_spm": PROMPT_TARGET_SPM,
+        "short_vocab_target_spm": SHORT_VOCAB_TARGET_SPM,
+        "pronunciation_target_spm": PRONUNCIATION_TARGET_SPM,
         "target_rms_dbfs": TARGET_RMS_DBFS,
+        "tempo_correction_range": [MAX_TEMPO_SLOWDOWN, MAX_TEMPO_SPEEDUP],
         "cache_dir": str(CACHE_DIR),
     }
 
 
-def audio_instructions(mode: str, lang: str, variant: str) -> str:
+def syllable_count(text: str) -> int:
+    total = 0
+    for match in re.finditer(r"[A-Za-z']+", text.lower()):
+        word = match.group(0).strip("'")
+        if not word:
+            continue
+        if word in COURSE_SYLLABLES:
+            total += COURSE_SYLLABLES[word]
+            continue
+        groups = re.findall(r"[aeiouy]+", word)
+        count = len(groups)
+        if word.endswith("e") and not word.endswith(("le", "ye")) and count > 1:
+            count -= 1
+        total += max(1, count)
+    return total
+
+
+def target_syllables_per_minute(text: str, mode: str, variant: str) -> int:
+    syllables = syllable_count(text)
+    word_count = len(re.findall(r"[A-Za-z']+", text))
+    if mode.startswith("pronunciation"):
+        return PRONUNCIATION_TARGET_SPM
+    if word_count <= 2:
+        return SHORT_VOCAB_TARGET_SPM
+    if variant == "answer":
+        return 145
+    return PROMPT_TARGET_SPM
+
+
+def target_active_seconds(text: str, mode: str, variant: str) -> float:
+    syllables = syllable_count(text)
+    pace = target_syllables_per_minute(text, mode, variant)
+    return syllables * 60 / pace if syllables and pace else 0
+
+
+def pronunciation_notes(text: str) -> str:
+    lowered = text.lower()
+    notes: list[str] = []
+    if re.search(r"\bthe\b", lowered):
+        notes.append(
+            "Make the voiced TH in 'the' clearly audible as /ðə/ before a consonant; give it enough time "
+            "to imitate, while keeping the main stress on the following noun."
+        )
+    if re.search(r"\bboy\b", lowered):
+        notes.append("Pronounce 'boy' as /bɔɪ/, one natural diphthong; never turn it into a prolonged 'booooy'.")
+    if re.search(r"\bgirl\b", lowered):
+        notes.append(
+            "Pronounce American English 'girl' as one careful syllable /ɡɝl/; make the R-colored vowel and "
+            "final L distinct without rushing it."
+        )
+    if re.search(r"\bman\b", lowered):
+        notes.append("Pronounce 'man' as /mæn/ with a clear short-A vowel; do not reduce the vowel.")
+    if re.search(r"\bwoman\b", lowered):
+        notes.append("Pronounce 'woman' as two even syllables /ˈwʊm.ən/.")
+    ing_words = [word for word in ING_PRONUNCIATION_NOTES if re.search(rf"\b{word}\b", lowered)]
+    if ing_words:
+        models = ", ".join(ING_PRONUNCIATION_NOTES[word] for word in ing_words)
+        notes.append(
+            f"Use this pronunciation model: {models}. Give every syllable its proper time, but keep the final "
+            "/ŋ/ brief and natural. Do not rush the final verb, pause inside the word, hold the nasal, or add a "
+            "hard G sound."
+        )
+    return " ".join(notes)
+
+
+def audio_instructions(text: str, mode: str, lang: str, variant: str) -> str:
     language_hint = "Spanish" if lang.lower().startswith("es") else "English"
+    pace = target_syllables_per_minute(text, mode, variant)
+    target_seconds = target_active_seconds(text, mode, variant)
+    word_notes = pronunciation_notes(text)
+    shared = (
+        f"The spoken words themselves should last about {target_seconds:.1f} seconds, excluding silence. "
+        "Use careful General American pronunciation with correct vowels and consonants. Keep the same measured "
+        "syllable pace from the beginning through the final word; never accelerate the predicate or an -ing "
+        "ending. Keep vocal level, microphone distance, and pitch range consistent. Use natural word stress and "
+        "a gentle falling pitch for a statement. Do not unnaturally elongate stressed vowels."
+    )
     if mode == "pronunciation_slow":
         return (
-            f"Speak in {language_hint} as a warm A1 English teacher. Speak slowly and clearly. "
-            "Leave a small pause between each word. For words ending in -ing, gently separate the base "
-            "and the -ing part, for example run...ning or swim...ming. Keep the tone friendly and natural."
+            f"Speak in {language_hint} as a warm A1 pronunciation teacher. Model the exact phrase slowly and "
+            f"clearly at about {pace} spoken syllables per minute. Leave a small natural space between words, "
+            f"but never split a word unnaturally. {shared} {word_notes}"
         )
     if mode == "pronunciation_repeat":
         return (
             f"Speak in {language_hint} as a warm A1 English teacher. Repeat the phrase clearly at a medium-slow "
-            "pace, faster than a slow demonstration but slower than normal conversation. Keep every word distinct."
+            f"pace near {pace} spoken syllables per minute. Keep every word distinct. {shared} {word_notes}"
         )
     if mode == "feedback":
         if lang.lower().startswith("es"):
@@ -133,12 +296,14 @@ def audio_instructions(mode: str, lang: str, variant: str) -> str:
     if variant == "answer":
         return (
             f"Speak in {language_hint} as a warm A1 English teacher confirming the answer. "
-            "Say the full sentence clearly and a little slowly so the learner can repeat it."
+            f"Say the full sentence clearly at about {target_syllables_per_minute('a sentence', mode, variant)} "
+            f"spoken syllables per minute so the learner can repeat it. {shared} {word_notes}"
         )
     return (
         f"Speak in {language_hint} as a friendly A1 English teacher. Use a warm, clear, natural voice. "
-        "Use an even, unhurried pace and consistent volume. Never rush longer sentences. "
-        "Make short beginner phrases easy to understand."
+        f"Use an even teaching pace of about {PROMPT_TARGET_SPM} spoken syllables per minute, or about "
+        f"{SHORT_VOCAB_TARGET_SPM} for a short vocabulary label. {shared} Make short beginner phrases "
+        f"easy to imitate. {word_notes}"
     )
 
 
@@ -218,7 +383,20 @@ def _normalize_volume(samples: array) -> array:
         return samples
     active_start, active_end = _active_sample_bounds(samples)
     active = samples[active_start:active_end]
-    rms = math.sqrt(sum(value * value for value in active) / max(len(active), 1))
+    block_size = max(1, NORMALIZATION_SAMPLE_RATE // 50)
+    gate_rms = 32767 * (10 ** (-38 / 20))
+    voiced_sum_squares = 0
+    voiced_sample_count = 0
+    for start in range(0, len(active), block_size):
+        block = active[start:start + block_size]
+        if not block:
+            continue
+        block_sum_squares = sum(value * value for value in block)
+        block_rms = math.sqrt(block_sum_squares / len(block))
+        if block_rms >= gate_rms:
+            voiced_sum_squares += block_sum_squares
+            voiced_sample_count += len(block)
+    rms = math.sqrt(voiced_sum_squares / voiced_sample_count) if voiced_sample_count else 0
     if rms <= 0:
         return samples
     target_rms = 32767 * (10 ** (TARGET_RMS_DBFS / 20))
@@ -250,7 +428,7 @@ def _encode_mp3(samples: array) -> bytes:
     return output.getvalue()
 
 
-def normalize_course_audio(audio_bytes: bytes, text: str, mode: str, output_format: str) -> bytes:
+def normalize_course_audio(audio_bytes: bytes, text: str, mode: str, variant: str, output_format: str) -> bytes:
     if output_format != "mp3":
         return audio_bytes
     samples = _decoded_mono_samples(audio_bytes)
@@ -261,11 +439,15 @@ def normalize_course_audio(audio_bytes: bytes, text: str, mode: str, output_form
     trim_start = max(0, speech_start - safety_padding)
     trim_end = min(len(samples), speech_end + safety_padding)
     active = samples[trim_start:trim_end]
-    word_count = len(re.findall(r"[A-Za-z']+", text))
+    syllables = syllable_count(text)
     active_seconds = (speech_end - speech_start) / NORMALIZATION_SAMPLE_RATE
-    current_wpm = word_count * 60 / active_seconds if word_count and active_seconds else 0
-    target_wpm = PRONUNCIATION_TARGET_WPM if mode.startswith("pronunciation") else PROMPT_TARGET_WPM
-    tempo_factor = max(0.5, min(2.0, target_wpm / current_wpm)) if current_wpm else 1.0
+    current_spm = syllables * 60 / active_seconds if syllables and active_seconds else 0
+    target_spm = target_syllables_per_minute(text, mode, variant)
+    tempo_factor = (
+        max(MAX_TEMPO_SLOWDOWN, min(MAX_TEMPO_SPEEDUP, target_spm / current_spm))
+        if current_spm
+        else 1.0
+    )
     adjusted = _tempo_adjust(active, tempo_factor)
     normalized = _normalize_volume(adjusted)
     leading_silence = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.18)
@@ -282,9 +464,21 @@ def voice_for_variant(variant: str) -> str:
 
 
 def cache_path_for(text: str, mode: str, lang: str, variant: str, model: str, voice: str, output_format: str) -> Path:
-    key = "\n".join([text, mode, lang, variant, model, voice, output_format])
+    key = "\n".join([AUDIO_PROFILE_VERSION, text, mode, lang, variant, model, voice, output_format])
     digest = hashlib.sha256(key.encode("utf-8")).hexdigest()
     return CACHE_DIR / f"{digest}.{output_format}"
+
+
+def audio_file_response(audio_path: Path, media_type: str) -> FileResponse:
+    return FileResponse(
+        audio_path,
+        media_type=media_type,
+        filename=audio_path.name,
+        headers={
+            "Cache-Control": "public, max-age=31536000, immutable",
+            "X-Audio-Profile": AUDIO_PROFILE_VERSION,
+        },
+    )
 
 
 async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> FileResponse:
@@ -309,19 +503,19 @@ async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> Fil
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     audio_path = cache_path_for(cleaned_text, mode, lang, variant, model, voice, output_format)
     if audio_path.exists() and audio_path.stat().st_size > 0:
-        return FileResponse(audio_path, media_type=media_type, filename=audio_path.name)
+        return audio_file_response(audio_path, media_type)
 
     lock_key = audio_path.name
     lock = _generation_locks.setdefault(lock_key, asyncio.Lock())
     async with lock:
         if audio_path.exists() and audio_path.stat().st_size > 0:
-            return FileResponse(audio_path, media_type=media_type, filename=audio_path.name)
+            return audio_file_response(audio_path, media_type)
 
         payload = {
             "model": model,
             "voice": voice,
             "input": cleaned_text,
-            "instructions": audio_instructions(mode, lang, variant),
+            "instructions": audio_instructions(cleaned_text, mode, lang, variant),
             "response_format": output_format,
         }
         headers = {
@@ -341,9 +535,9 @@ async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> Fil
 
         audio_bytes = response.content
         try:
-            audio_bytes = normalize_course_audio(audio_bytes, cleaned_text, mode, output_format)
+            audio_bytes = normalize_course_audio(audio_bytes, cleaned_text, mode, variant, output_format)
         except (ValueError, av.FFmpegError):
             # A generated take is still usable if optional normalization cannot decode it.
             pass
         audio_path.write_bytes(audio_bytes)
-    return FileResponse(audio_path, media_type=media_type, filename=audio_path.name)
+    return audio_file_response(audio_path, media_type)
