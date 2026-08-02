@@ -23,6 +23,7 @@ import {
 import { LessonCardView } from '../components/LessonCardView';
 import { courseAudioUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
+import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
 import type { LearnerProfile, Lesson } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
@@ -287,7 +288,7 @@ export function LessonScreen({
       : currentCard.stage === 'More People'
         ? new Set(['and', 'are'])
         : new Set<string>();
-    return displayedPrompt.split(/(\b[A-Za-z']+\b)/g).map((part, index) => (
+    return lessonPromptText(lesson.id, displayedPrompt).split(/(\b[A-Za-z']+\b)/g).map((part, index) => (
       <Text key={`${part}-${index}`} style={focus.has(part.toLowerCase()) ? styles.highlight : undefined}>
         {part}
       </Text>
@@ -417,7 +418,7 @@ export function LessonScreen({
               <Text style={styles.helpButtonText}>?</Text>
             </Pressable>
           </View>
-          <Text style={styles.stage}>{currentCard.stage.toUpperCase()}</Text>
+          <Text style={styles.stage}>{lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}</Text>
           <View style={styles.promptRow}>
             <Pressable
               accessibilityLabel={`Reproducir: ${promptAudio}`}
@@ -438,7 +439,7 @@ export function LessonScreen({
                   { fontSize: viewportHeight < 400 ? 21 : 24, lineHeight: viewportHeight < 400 ? 25 : 29 },
                 ]}
               >
-                {isPronunciation ? 'Pronunciation Practice' : renderPrompt()}
+                {isPronunciation ? pronunciationInstruction(lesson.id) : renderPrompt()}
               </Text>
             </Pressable>
             {!isPronunciation && promptAudio.trim() ? (

@@ -11,7 +11,7 @@ type Props = {
   variant?: string;
 };
 
-export function CourseAudioButton({ text, label = 'Listen', mode = 'prompt', variant = 'default' }: Props) {
+export function CourseAudioButton({ text, label = 'Escuchar', mode = 'prompt', variant = 'default' }: Props) {
   const player = useAudioPlayer(null);
   const status = useAudioPlayerStatus(player);
   const [loadedText, setLoadedText] = useState('');
@@ -29,14 +29,14 @@ export function CourseAudioButton({ text, label = 'Listen', mode = 'prompt', var
 
   return (
     <Pressable
-      accessibilityLabel={`Play audio: ${text}`}
+      accessibilityLabel={`Reproducir audio: ${text}`}
       accessibilityRole="button"
       disabled={!text}
       onPress={play}
       style={({ pressed }) => [styles.button, pressed ? styles.pressed : null]}
     >
       <Text style={styles.icon}>{status.playing ? '■' : '▶'}</Text>
-      <Text style={styles.label}>{status.isBuffering ? 'Loading audio…' : label}</Text>
+      <Text style={styles.label}>{status.isBuffering ? 'Cargando audio…' : label}</Text>
     </Pressable>
   );
 }

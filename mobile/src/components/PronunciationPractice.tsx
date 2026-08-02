@@ -136,7 +136,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         (typeof nextCompleteness !== 'number' || nextCompleteness >= minimumCompleteness);
       if (accepted) {
         setPhase('success');
-        setMessage('Nice.');
+        setMessage('Muy bien.');
       } else {
         const scoredWords = nextResult.text_score?.word_score_list
           ?.filter((word) => typeof word.quality_score === 'number');
@@ -349,7 +349,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
           <View style={[styles.scorePanel, passed ? styles.passedPanel : styles.practicePanel]}>
             <Text style={styles.score}>{Math.round(overallScore)}</Text>
             <View style={styles.scoreDetails}>
-              <Text style={styles.scoreTitle}>{passed ? 'Nice.' : 'Inténtalo otra vez'}</Text>
+              <Text style={styles.scoreTitle}>{passed ? 'Muy bien.' : 'Inténtalo otra vez'}</Text>
               <Text style={styles.scoreText}>Escuché: {result.recognized_text || 'No pude reconocer la frase'}</Text>
               {weakestWord ? (
                 <Text style={styles.scoreText}>
