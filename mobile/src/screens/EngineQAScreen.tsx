@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
+  BackHandler,
   Pressable,
   SafeAreaView,
   ScrollView,
@@ -33,6 +34,15 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
       .catch(() => setError('No se pudo cargar la lista de lecciones.'))
       .finally(() => setIsLoading(false));
   }, []);
+
+  useEffect(() => {
+    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+      onExit();
+      return true;
+    });
+
+    return () => subscription.remove();
+  }, [onExit]);
 
   const stages = useMemo(
     () => [...new Set(selectedLesson?.cards.map((card) => card.stage) || [])],

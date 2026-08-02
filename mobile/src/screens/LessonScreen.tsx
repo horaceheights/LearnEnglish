@@ -354,18 +354,28 @@ export function LessonScreen({
             <View style={styles.qaActions}>
               <Pressable
                 accessibilityLabel="Tarjeta anterior"
+                accessibilityRole="button"
                 disabled={cardIndex === 0}
+                hitSlop={6}
                 onPress={() => openQaCard(cardIndex - 1)}
                 style={[styles.qaAction, cardIndex === 0 ? styles.qaActionDisabled : null]}
               >
                 <Text style={styles.qaActionText}>‹</Text>
               </Pressable>
-              <Pressable accessibilityRole="button" onPress={resetCardState} style={styles.qaRestart}>
+              <Pressable
+                accessibilityLabel="Reiniciar tarjeta"
+                accessibilityRole="button"
+                hitSlop={6}
+                onPress={resetCardState}
+                style={styles.qaRestart}
+              >
                 <Text style={styles.qaRestartText}>Reiniciar</Text>
               </Pressable>
               <Pressable
                 accessibilityLabel="Tarjeta siguiente"
+                accessibilityRole="button"
                 disabled={cardIndex === lesson.cards.length - 1}
+                hitSlop={6}
                 onPress={() => openQaCard(cardIndex + 1)}
                 style={[
                   styles.qaAction,
@@ -375,8 +385,10 @@ export function LessonScreen({
                 <Text style={styles.qaActionText}>›</Text>
               </Pressable>
               <Pressable
+                accessibilityLabel={`Avance automático ${qaAutoAdvance ? 'activado' : 'desactivado'}`}
                 accessibilityRole="switch"
                 accessibilityState={{ checked: qaAutoAdvance }}
+                hitSlop={6}
                 onPress={() => setQaAutoAdvance((current) => !current)}
                 style={[styles.qaAuto, qaAutoAdvance ? styles.qaAutoActive : null]}
               >
@@ -486,19 +498,19 @@ export function LessonScreen({
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { flex: 1, gap: 6, padding: 6 },
-  qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 38, paddingHorizontal: 9, paddingVertical: 4 },
+  qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 54, paddingHorizontal: 10, paddingVertical: 5 },
   qaIdentity: { flex: 1, marginRight: 8 },
   qaLabel: { color: '#d8bfe9', fontSize: 7, fontWeight: '900', letterSpacing: 0.7 },
   qaContext: { color: '#fff', fontSize: 10, fontWeight: '800', marginTop: 1 },
-  qaActions: { alignItems: 'center', flexDirection: 'row', gap: 5 },
-  qaAction: { alignItems: 'center', backgroundColor: '#fff', borderRadius: 9, height: 28, justifyContent: 'center', width: 28 },
+  qaActions: { alignItems: 'center', flexDirection: 'row', gap: 7 },
+  qaAction: { alignItems: 'center', backgroundColor: '#fff', borderRadius: 12, height: 44, justifyContent: 'center', width: 44 },
   qaActionDisabled: { opacity: 0.3 },
-  qaActionText: { color: '#3f2859', fontSize: 20, fontWeight: '900', lineHeight: 22 },
-  qaRestart: { backgroundColor: '#eee3f7', borderRadius: 9, justifyContent: 'center', minHeight: 28, paddingHorizontal: 9 },
-  qaRestartText: { color: '#4f2769', fontSize: 10, fontWeight: '900' },
-  qaAuto: { borderColor: '#b997cf', borderRadius: 9, borderWidth: 1, justifyContent: 'center', minHeight: 28, paddingHorizontal: 8 },
+  qaActionText: { color: '#3f2859', fontSize: 30, fontWeight: '900', lineHeight: 32 },
+  qaRestart: { alignItems: 'center', backgroundColor: '#eee3f7', borderRadius: 12, justifyContent: 'center', minHeight: 44, minWidth: 82, paddingHorizontal: 13 },
+  qaRestartText: { color: '#4f2769', fontSize: 12, fontWeight: '900' },
+  qaAuto: { alignItems: 'center', borderColor: '#b997cf', borderRadius: 12, borderWidth: 1, justifyContent: 'center', minHeight: 44, minWidth: 76, paddingHorizontal: 11 },
   qaAutoActive: { backgroundColor: '#bde8cd', borderColor: '#8fc7a5' },
-  qaAutoText: { color: '#e8dff0', fontSize: 9, fontWeight: '900' },
+  qaAutoText: { color: '#e8dff0', fontSize: 11, fontWeight: '900' },
   qaAutoTextActive: { color: '#245d3d' },
   hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, paddingHorizontal: 9, paddingVertical: 5 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
