@@ -10,7 +10,13 @@ LESSON_IMAGE_DIR = ROOT_DIR / "Lessons" / "Lesson1" / "images"
 
 def image_url(name: str) -> str:
     image_name = Path(name).with_suffix('.webp').name
-    if image_name.startswith("they_"):
+    if image_name in {
+        "girl_is_running.webp",
+        "they_boy_girl_are_running.webp",
+        "they_girl_woman_are_running.webp",
+    }:
+        cache_version = "?v=20260802-running-girl-proportions-v2"
+    elif image_name.startswith("they_"):
         cache_version = "?v=20260801-unified-plural-v2"
     elif image_name.startswith(("place_", "object_")):
         cache_version = "?v=20260801-objects-places-v2"
