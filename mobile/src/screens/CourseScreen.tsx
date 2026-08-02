@@ -7,8 +7,10 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  useWindowDimensions,
   View,
 } from 'react-native';
+import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
 
 import { getLessons } from '../api';
@@ -59,6 +61,11 @@ type Props = {
 
 export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }: Props) {
   const { currentlyRunning, isUpdatePending } = Updates.useUpdates();
+  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
+  const isLandscape = viewportWidth > viewportHeight;
+  const isTablet = Math.min(viewportWidth, viewportHeight) >= 540;
+  const lessonCardWidth = isTablet ? '31.5%' : '48.5%';
+  const lessonImageHeight = isTablet ? 190 : 138;
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
   const [error, setError] = useState('');
   const [loadingLessonId, setLoadingLessonId] = useState('');
@@ -78,6 +85,9 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
 
   useEffect(() => { void load(); }, []);
   useEffect(() => { setDiagnosticContext({}); }, []);
+  useEffect(() => {
+    void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT);
+  }, []);
 
   useEffect(() => {
     if (isUpdatePending) {
@@ -168,7 +178,7 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
           </View>
         ) : null}
         {!lessons.length && !error ? <ActivityIndicator color="#e96f42" size="large" /> : null}
-        <View style={styles.grid}>
+        <View style={[styles.grid, isLandscape ? styles.gridLandscape : null]}>
           {lessons.map((lesson) => {
             const visual = VISUALS[lesson.id] || VISUALS['lesson-1-people-actions'];
             return (
@@ -176,9 +186,17 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
                 accessibilityRole="button"
                 key={lesson.id}
                 onPress={() => openLesson(lesson.id)}
-                style={({ pressed }) => [styles.lessonCard, pressed ? styles.pressed : null]}
+                style={({ pressed }) => [
+                  styles.lessonCard,
+                  isLandscape ? { width: lessonCardWidth } : null,
+                  pressed ? styles.pressed : null,
+                ]}
               >
-                <View style={[styles.imagePanel, { backgroundColor: visual.color }]}>
+                <View style={[
+                  styles.imagePanel,
+                  { backgroundColor: visual.color },
+                  isLandscape ? { height: lessonImageHeight } : null,
+                ]}>
                   <Image
                     resizeMode="contain"
                     source={{ uri: absoluteMediaUrl(`/lesson-assets/${visual.image}`) }}
@@ -231,6 +249,7 @@ const styles = StyleSheet.create({
   unitTitle: { color: '#24333a', fontSize: 27, fontWeight: '900', lineHeight: 32, marginTop: 6 },
   unitDescription: { color: '#526168', fontSize: 14, lineHeight: 20, marginTop: 7 },
   grid: { gap: 14 },
+  gridLandscape: { flexDirection: 'row', flexWrap: 'wrap' },
   lessonCard: { backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 22, borderWidth: 1, overflow: 'hidden', padding: 10 },
   imagePanel: { borderRadius: 16, height: 180, overflow: 'hidden', position: 'relative' },
   image: { height: '100%', width: '100%' },

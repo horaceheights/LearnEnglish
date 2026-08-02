@@ -78,7 +78,7 @@ export function LessonScreen({
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
     return () => {
-      void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+      void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT);
     };
   }, []);
 
