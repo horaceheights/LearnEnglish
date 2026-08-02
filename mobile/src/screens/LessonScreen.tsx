@@ -406,24 +406,38 @@ export function LessonScreen({
               <Text style={styles.helpButtonText}>?</Text>
             </Pressable>
           </View>
-          <Pressable
-            accessibilityLabel={`Reproducir: ${promptAudio}`}
-            disabled={!promptAudio.trim()}
-            onPress={() => isPronunciation
-              ? playAudio(promptAudio, 'pronunciation_slow', 'split-ing')
-              : playAudio(promptAudio, 'prompt', 'prompt')}
-          >
-            <Text style={styles.stage}>{currentCard.stage.toUpperCase()}</Text>
-            <Text
-              numberOfLines={2}
-              style={[
-                styles.prompt,
-                { fontSize: viewportHeight < 400 ? 21 : 24, lineHeight: viewportHeight < 400 ? 25 : 29 },
-              ]}
+          <Text style={styles.stage}>{currentCard.stage.toUpperCase()}</Text>
+          <View style={styles.promptRow}>
+            <Pressable
+              accessibilityLabel={`Reproducir: ${promptAudio}`}
+              disabled={!promptAudio.trim()}
+              onPress={() => isPronunciation
+                ? playAudio(promptAudio, 'pronunciation_slow', 'split-ing')
+                : playAudio(promptAudio, 'prompt', 'prompt')}
+              style={styles.promptTapTarget}
             >
-              {isPronunciation ? 'Pronunciation Practice' : renderPrompt()}
-            </Text>
-          </Pressable>
+              <Text
+                numberOfLines={2}
+                style={[
+                  styles.prompt,
+                  { fontSize: viewportHeight < 400 ? 21 : 24, lineHeight: viewportHeight < 400 ? 25 : 29 },
+                ]}
+              >
+                {isPronunciation ? 'Pronunciation Practice' : renderPrompt()}
+              </Text>
+            </Pressable>
+            {!isPronunciation && promptAudio.trim() ? (
+              <Pressable
+                accessibilityLabel={`Repetir audio: ${promptAudio}`}
+                accessibilityRole="button"
+                onPress={() => playAudio(promptAudio, 'prompt', 'prompt')}
+                style={({ pressed }) => [styles.repeatButton, pressed ? styles.repeatButtonPressed : null]}
+              >
+                <Text style={styles.repeatIcon}>↻</Text>
+                <Text style={styles.repeatText}>Repetir</Text>
+              </Pressable>
+            ) : null}
+          </View>
         </View>
         <LessonCardView
           card={currentCard}
@@ -476,7 +490,13 @@ const styles = StyleSheet.create({
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
   stage: { color: '#697177', fontSize: 9, fontWeight: '900', letterSpacing: 1, textAlign: 'center' },
+  promptRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 29 },
+  promptTapTarget: { flexShrink: 1 },
   prompt: { color: '#24333a', fontWeight: '900', textAlign: 'center' },
+  repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', marginLeft: 9, minHeight: 28, paddingHorizontal: 9 },
+  repeatButtonPressed: { backgroundColor: '#fff4df', opacity: 0.78, transform: [{ scale: 0.97 }] },
+  repeatIcon: { color: '#8a4f00', fontSize: 16, fontWeight: '900', lineHeight: 18 },
+  repeatText: { color: '#694b22', fontSize: 10, fontWeight: '900' },
   highlight: { backgroundColor: '#f9dc8e', color: '#8a4f00' },
   progressFill: { backgroundColor: '#2f8f62', height: '100%' },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
