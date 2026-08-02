@@ -26,6 +26,7 @@ const SPANISH_STAGE_LABELS: Record<string, string> = {
   'People': 'Personas',
   'People Challenge': 'Reto de personas',
   'Picture To Text': 'De imagen a texto',
+  'Plural Challenge': 'Reto de frases plurales',
   'Pronoun Pattern': 'Patrón de pronombres',
   'Pronouns': 'Pronombres',
   'Pronunciation': 'Pronunciación',

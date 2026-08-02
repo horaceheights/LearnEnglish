@@ -391,6 +391,29 @@ LESSON_1_PLURAL_SENTENCES = [
     },
 ]
 
+LESSON_1_PLURAL_CHALLENGES = [
+    {
+        **LESSON_1_PLURAL_SENTENCES[0],
+        "distractor_id": "boy-girl-eating",
+        "distractor_image": "they_boy_girl_are_eating.png",
+    },
+    {
+        **LESSON_1_PLURAL_SENTENCES[1],
+        "distractor_id": "man-woman-writing",
+        "distractor_image": "they_man_woman_are_writing.png",
+    },
+    {
+        **LESSON_1_PLURAL_SENTENCES[2],
+        "distractor_id": "boy-man-reading",
+        "distractor_image": "they_boy_man_are_reading.png",
+    },
+    {
+        **LESSON_1_PLURAL_SENTENCES[3],
+        "distractor_id": "girl-woman-running",
+        "distractor_image": "they_girl_woman_are_running.png",
+    },
+]
+
 LESSON_2_PRONOUN_VOCAB = [
     ("he-boy", "He", "boy.png"),
     ("he-man", "He", "man.png"),
@@ -706,6 +729,7 @@ def people_action_cards() -> list[LessonCard]:
         *people_new_vocab_cards(),
         *people_action_intro_cards(),
         *people_plural_intro_cards(),
+        *people_plural_challenge_cards(),
         *people_meaning_practice_cards(),
         *people_listen_cards(),
         *people_pronunciation_cards(),
@@ -1923,6 +1947,36 @@ def place_pronunciation_cards() -> list[LessonCard]:
                 correct_option_id=option_id,
                 options=[place_choice(option_id, item["sentence"])],
                 audio_text=item["sentence"],
+            )
+        )
+
+    return cards
+
+
+def people_plural_challenge_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for index, spec in enumerate(LESSON_1_PLURAL_CHALLENGES, 1):
+        options = [
+            ChoiceOption(
+                id=str(spec["id"]),
+                image_url=image_url(str(spec["image"])),
+                label="",
+            ),
+            ChoiceOption(
+                id=str(spec["distractor_id"]),
+                image_url=image_url(str(spec["distractor_image"])),
+                label="",
+            ),
+        ]
+        random.Random(f"people-plural-challenge-{index}").shuffle(options)
+        cards.append(
+            LessonCard(
+                prompt=str(spec["prompt"]),
+                stage="Plural Challenge",
+                correct_option_id=str(spec["id"]),
+                options=options,
+                audio_text=str(spec["prompt"]),
             )
         )
 
