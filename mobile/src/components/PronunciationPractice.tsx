@@ -111,7 +111,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     if (captureFinishing.current) return;
     captureFinishing.current = true;
     setPhase('checking');
-    setMessage('Checking…');
+    setMessage('');
     try {
       const recorderStopStartedAt = Date.now();
       await recorder.stop();
