@@ -18,6 +18,8 @@ def image_url(name: str) -> str:
         cache_version = "?v=20260802-running-girl-proportions-v2"
     elif image_name == "boy_is_reading.webp" or image_name.startswith("man"):
         cache_version = "?v=20260802-boy-man-age-distinction-v1"
+    elif image_name == "place_park.webp":
+        cache_version = "?v=20260802-kids-playground-park-v1"
     elif image_name.startswith(("place_", "object_")):
         cache_version = "?v=20260801-objects-places-v2"
     else:
