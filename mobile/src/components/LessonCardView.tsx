@@ -42,12 +42,15 @@ export function LessonCardView({
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar';
   const isListenCard = card.stage === 'Listen';
   const isLandscape = viewportWidth > viewportHeight;
+  // Android system bars can reduce a 600dp tablet viewport below 600dp.
+  const isTabletLandscape = isLandscape && Math.min(viewportWidth, viewportHeight) >= 540;
   const hasTextOnlyOptions = card.options.length > 0 && card.options.every((option) => !option.image_url);
   const useTextGrid = isLandscape && hasTextOnlyOptions && card.options.length >= 3;
+  const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const optionWidth =
-    useTextGrid
+    useTextGrid || useTabletImageGrid
       ? '48.5%'
       : isLandscape && card.options.length >= 4
       ? '23.5%'
@@ -56,13 +59,26 @@ export function LessonCardView({
         : card.options.length === 1
           ? '72%'
           : '48%';
-  const featureImageHeight = isPronunciation
+  const featureImageHeight = isTabletLandscape
+    ? isPronunciation
+      ? Math.max(280, Math.min(390, viewportHeight * 0.49))
+      : useTextGrid
+        ? Math.max(235, Math.min(320, viewportHeight * 0.4))
+        : Math.max(270, Math.min(410, viewportHeight * 0.52))
+    : isPronunciation
     ? Math.max(185, Math.min(280, viewportHeight * 0.47))
     : useTextGrid
       ? Math.max(175, Math.min(225, viewportHeight * 0.37))
       : Math.max(175, Math.min(300, viewportHeight * 0.49));
-  const optionImageHeight =
-    card.options.length >= 4
+  const optionImageHeight = isTabletLandscape
+    ? card.options.length >= 4
+      ? Math.max(150, Math.min(235, viewportHeight * 0.29))
+      : card.options.length === 3
+        ? Math.max(230, Math.min(320, viewportHeight * 0.41))
+        : card.options.length === 1
+          ? Math.max(320, Math.min(460, viewportHeight * 0.62))
+          : Math.max(280, Math.min(400, viewportHeight * 0.55))
+    : card.options.length >= 4
       ? Math.max(145, Math.min(215, viewportHeight * 0.36))
       : card.options.length === 3
         ? Math.max(175, Math.min(270, viewportHeight * 0.45))
@@ -71,7 +87,9 @@ export function LessonCardView({
         : Math.max(205, Math.min(340, viewportHeight * 0.57));
   const optionMinHeight = hasTextOnlyOptions
     ? isLandscape
-      ? Math.max(72, Math.min(92, viewportHeight * 0.145))
+      ? isTabletLandscape
+        ? Math.max(96, Math.min(124, viewportHeight * 0.16))
+        : Math.max(72, Math.min(92, viewportHeight * 0.145))
       : 104
     : isLandscape
       ? Math.max(58, viewportHeight * 0.17)
@@ -109,7 +127,11 @@ export function LessonCardView({
   ]);
 
   return (
-    <View style={[styles.card, isLandscape ? styles.cardLandscape : null]}>
+    <View style={[
+      styles.card,
+      isLandscape ? styles.cardLandscape : null,
+      isTabletLandscape ? styles.cardTabletLandscape : null,
+    ]}>
       {flyingAnswer ? (
         <Animated.View
           pointerEvents="none"
@@ -188,7 +210,11 @@ export function LessonCardView({
         </>
       ) : (
         <>
-          <View style={[styles.options, isLandscape ? styles.optionsLandscape : null]}>
+          <View style={[
+            styles.options,
+            isLandscape ? styles.optionsLandscape : null,
+            isTabletLandscape ? styles.optionsTabletLandscape : null,
+          ]}>
             {card.options.map((option, optionIndex) => {
               const selected = selectedId === option.id;
               const correct = option.id === card.correct_option_id;
@@ -205,7 +231,11 @@ export function LessonCardView({
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
                     styles.option,
-                    { minHeight: optionMinHeight, width: optionWidth },
+                    {
+                      minHeight: optionMinHeight,
+                      padding: isTabletLandscape ? 8 : 5,
+                      width: optionWidth,
+                    },
                     hasTextOnlyOptions
                       ? {
                           backgroundColor: textTheme.background,
@@ -224,7 +254,11 @@ export function LessonCardView({
                       accessibilityIgnoresInvertColors
                       resizeMode="contain"
                       source={{ uri: absoluteMediaUrl(option.image_url) }}
-                      style={[styles.optionImage, { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight }]}
+                      style={[
+                        styles.optionImage,
+                        isTabletLandscape ? styles.optionImageTablet : null,
+                        { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight },
+                      ]}
                     />
                   ) : null}
                   {option.label && !option.image_url ? (
@@ -243,8 +277,12 @@ export function LessonCardView({
                               : revealWrong
                                 ? '#a34842'
                                 : textTheme.accent,
-                            fontSize: Math.max(26, Math.min(34, viewportHeight * 0.052)),
-                            lineHeight: Math.max(32, Math.min(40, viewportHeight * 0.062)),
+                            fontSize: isTabletLandscape
+                              ? Math.max(34, Math.min(42, viewportHeight * 0.055))
+                              : Math.max(26, Math.min(34, viewportHeight * 0.052)),
+                            lineHeight: isTabletLandscape
+                              ? Math.max(40, Math.min(49, viewportHeight * 0.064))
+                              : Math.max(32, Math.min(40, viewportHeight * 0.062)),
                           },
                         ]}
                       >
@@ -272,7 +310,11 @@ export function LessonCardView({
           </View>
           {result ? (
             <View style={styles.feedback}>
-              <Text style={[styles.feedbackText, result === 'correct' ? styles.correctText : styles.wrongText]}>
+              <Text style={[
+                styles.feedbackText,
+                isTabletLandscape ? styles.feedbackTextTablet : null,
+                result === 'correct' ? styles.correctText : styles.wrongText,
+              ]}>
                 {result === 'correct'
                   ? 'Correcto. Vamos a la siguiente tarjeta…'
                   : gentleFeedback
@@ -296,6 +338,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   cardLandscape: { flex: 1, justifyContent: 'center', padding: 9 },
+  cardTabletLandscape: { padding: 14 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
   flyingAnswer: { alignItems: 'center', left: 0, position: 'absolute', right: 0, top: -64, zIndex: 20 },
   flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },
@@ -311,6 +354,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   optionsLandscape: { gap: 7, marginTop: 5 },
+  optionsTabletLandscape: { columnGap: 12, marginTop: 8, rowGap: 10 },
   option: {
     alignItems: 'center',
     backgroundColor: '#faf9f5',
@@ -325,6 +369,7 @@ const styles = StyleSheet.create({
     width: '48%',
   },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
+  optionImageTablet: { borderRadius: 14 },
   textOption: {
     borderBottomWidth: 5,
     elevation: 3,
@@ -384,6 +429,7 @@ const styles = StyleSheet.create({
   wrongIcon: { backgroundColor: '#c95e55' },
   feedback: { gap: 6, marginTop: 5 },
   feedbackText: { fontSize: 13, fontWeight: '800', textAlign: 'center' },
+  feedbackTextTablet: { fontSize: 16, lineHeight: 21 },
   correctText: { color: '#287a57' },
   wrongText: { color: '#a34842' },
   pressed: { opacity: 0.72 },
