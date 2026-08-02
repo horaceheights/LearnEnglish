@@ -1,12 +1,16 @@
 import hashlib
 import os
+import re
 from pathlib import Path
 import asyncio
+from array import array
+from fractions import Fraction
 from io import BytesIO
 import math
 import struct
 import wave
 
+import av
 import httpx
 from fastapi import HTTPException
 from fastapi.responses import FileResponse
@@ -24,6 +28,11 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
+AUDIO_PROFILE_VERSION = "a1-balanced-v1"
+PROMPT_TARGET_WPM = 135
+PRONUNCIATION_TARGET_WPM = 95
+TARGET_RMS_DBFS = -24.0
+NORMALIZATION_SAMPLE_RATE = 24_000
 
 
 def ready_cue_wav() -> bytes:
@@ -85,6 +94,10 @@ def audio_debug() -> dict[str, object]:
         "question_voice": os.getenv("OPENAI_TTS_QUESTION_VOICE", "alloy"),
         "answer_voice": os.getenv("OPENAI_TTS_ANSWER_VOICE", os.getenv("OPENAI_TTS_VOICE", "coral")),
         "format": os.getenv("OPENAI_TTS_FORMAT", "mp3"),
+        "audio_profile": AUDIO_PROFILE_VERSION,
+        "prompt_target_wpm": PROMPT_TARGET_WPM,
+        "pronunciation_target_wpm": PRONUNCIATION_TARGET_WPM,
+        "target_rms_dbfs": TARGET_RMS_DBFS,
         "cache_dir": str(CACHE_DIR),
     }
 
@@ -124,8 +137,140 @@ def audio_instructions(mode: str, lang: str, variant: str) -> str:
         )
     return (
         f"Speak in {language_hint} as a friendly A1 English teacher. Use a warm, clear, natural voice. "
-        "Do not speak too fast. Make short beginner phrases easy to understand."
+        "Use an even, unhurried pace and consistent volume. Never rush longer sentences. "
+        "Make short beginner phrases easy to understand."
     )
+
+
+def _decoded_mono_samples(audio_bytes: bytes) -> array:
+    samples = array("h")
+    with av.open(BytesIO(audio_bytes), mode="r") as container:
+        audio_stream = next((stream for stream in container.streams if stream.type == "audio"), None)
+        if audio_stream is None:
+            raise ValueError("Generated course audio contains no audio stream.")
+        resampler = av.AudioResampler(format="s16", layout="mono", rate=NORMALIZATION_SAMPLE_RATE)
+        for frame in container.decode(audio_stream):
+            for converted in resampler.resample(frame):
+                samples.extend(array("h", bytes(converted.planes[0])[: converted.samples * 2]))
+        for converted in resampler.resample(None):
+            samples.extend(array("h", bytes(converted.planes[0])[: converted.samples * 2]))
+    return samples
+
+
+def _active_sample_bounds(samples: array) -> tuple[int, int]:
+    window = max(1, NORMALIZATION_SAMPLE_RATE // 50)
+    threshold = 32767 * (10 ** (-38 / 20))
+    active_windows = []
+    for start in range(0, len(samples), window):
+        block = samples[start:start + window]
+        if block and max(abs(value) for value in block) >= threshold:
+            active_windows.append(start // window)
+    if not active_windows:
+        return 0, len(samples)
+    start = active_windows[0] * window
+    end = min(len(samples), (active_windows[-1] + 1) * window)
+    return start, end
+
+
+def _tempo_adjust(samples: array, factor: float) -> array:
+    graph = av.filter.Graph()
+    source = graph.add_abuffer(
+        sample_rate=NORMALIZATION_SAMPLE_RATE,
+        format="s16",
+        layout="mono",
+        time_base=Fraction(1, NORMALIZATION_SAMPLE_RATE),
+    )
+    tempo = graph.add("atempo", args=f"{factor:.6f}")
+    sink = graph.add("abuffersink")
+    graph.link_nodes(source, tempo, sink)
+    graph.configure()
+
+    output = array("h")
+    pts = 0
+    for start in range(0, len(samples), 1024):
+        block = samples[start:start + 1024]
+        frame = av.AudioFrame(format="s16", layout="mono", samples=len(block))
+        frame.sample_rate = NORMALIZATION_SAMPLE_RATE
+        frame.time_base = Fraction(1, NORMALIZATION_SAMPLE_RATE)
+        frame.pts = pts
+        frame.planes[0].update(block.tobytes())
+        pts += len(block)
+        source.push(frame)
+        while True:
+            try:
+                filtered = sink.pull()
+            except (av.error.BlockingIOError, av.error.EOFError):
+                break
+            output.extend(array("h", bytes(filtered.planes[0])[: filtered.samples * 2]))
+
+    source.push(None)
+    while True:
+        try:
+            filtered = sink.pull()
+        except (av.error.BlockingIOError, av.error.EOFError):
+            break
+        output.extend(array("h", bytes(filtered.planes[0])[: filtered.samples * 2]))
+    return output
+
+
+def _normalize_volume(samples: array) -> array:
+    if not samples:
+        return samples
+    active_start, active_end = _active_sample_bounds(samples)
+    active = samples[active_start:active_end]
+    rms = math.sqrt(sum(value * value for value in active) / max(len(active), 1))
+    if rms <= 0:
+        return samples
+    target_rms = 32767 * (10 ** (TARGET_RMS_DBFS / 20))
+    peak = max(abs(value) for value in active)
+    peak_limit = 32767 * (10 ** (-2 / 20))
+    gain = min(target_rms / rms, peak_limit / max(peak, 1))
+    return array("h", (max(-32768, min(32767, round(value * gain))) for value in samples))
+
+
+def _encode_mp3(samples: array) -> bytes:
+    output = BytesIO()
+    with av.open(output, mode="w", format="mp3") as container:
+        stream = container.add_stream("libmp3lame", rate=NORMALIZATION_SAMPLE_RATE)
+        stream.layout = "mono"
+        stream.bit_rate = 96_000
+        pts = 0
+        for start in range(0, len(samples), 1024):
+            block = samples[start:start + 1024]
+            frame = av.AudioFrame(format="s16", layout="mono", samples=len(block))
+            frame.sample_rate = NORMALIZATION_SAMPLE_RATE
+            frame.time_base = Fraction(1, NORMALIZATION_SAMPLE_RATE)
+            frame.pts = pts
+            frame.planes[0].update(block.tobytes())
+            pts += len(block)
+            for packet in stream.encode(frame):
+                container.mux(packet)
+        for packet in stream.encode(None):
+            container.mux(packet)
+    return output.getvalue()
+
+
+def normalize_course_audio(audio_bytes: bytes, text: str, mode: str, output_format: str) -> bytes:
+    if output_format != "mp3":
+        return audio_bytes
+    samples = _decoded_mono_samples(audio_bytes)
+    if not samples:
+        return audio_bytes
+    speech_start, speech_end = _active_sample_bounds(samples)
+    safety_padding = round(NORMALIZATION_SAMPLE_RATE * 0.12)
+    trim_start = max(0, speech_start - safety_padding)
+    trim_end = min(len(samples), speech_end + safety_padding)
+    active = samples[trim_start:trim_end]
+    word_count = len(re.findall(r"[A-Za-z']+", text))
+    active_seconds = (speech_end - speech_start) / NORMALIZATION_SAMPLE_RATE
+    current_wpm = word_count * 60 / active_seconds if word_count and active_seconds else 0
+    target_wpm = PRONUNCIATION_TARGET_WPM if mode.startswith("pronunciation") else PROMPT_TARGET_WPM
+    tempo_factor = max(0.5, min(2.0, target_wpm / current_wpm)) if current_wpm else 1.0
+    adjusted = _tempo_adjust(active, tempo_factor)
+    normalized = _normalize_volume(adjusted)
+    leading_silence = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.18)
+    trailing_silence = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.28)
+    return _encode_mp3(leading_silence + normalized + trailing_silence)
 
 
 def voice_for_variant(variant: str) -> str:
@@ -194,5 +339,11 @@ async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> Fil
             detail = response.text[:500] if response.text else "OpenAI audio request failed."
             raise HTTPException(status_code=502, detail=detail)
 
-        audio_path.write_bytes(response.content)
+        audio_bytes = response.content
+        try:
+            audio_bytes = normalize_course_audio(audio_bytes, cleaned_text, mode, output_format)
+        except (ValueError, av.FFmpegError):
+            # A generated take is still usable if optional normalization cannot decode it.
+            pass
+        audio_path.write_bytes(audio_bytes)
     return FileResponse(audio_path, media_type=media_type, filename=audio_path.name)
