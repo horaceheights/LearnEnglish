@@ -408,6 +408,9 @@ export function LessonScreen({
           </View>
           <Text style={styles.stage}>{currentCard.stage.toUpperCase()}</Text>
           <View style={styles.promptRow}>
+            {!isPronunciation && promptAudio.trim() ? (
+              <View pointerEvents="none" style={styles.repeatButtonSpacer} />
+            ) : null}
             <Pressable
               accessibilityLabel={`Reproducir: ${promptAudio}`}
               disabled={!promptAudio.trim()}
@@ -493,7 +496,8 @@ const styles = StyleSheet.create({
   promptRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 29 },
   promptTapTarget: { flexShrink: 1 },
   prompt: { color: '#24333a', fontWeight: '900', textAlign: 'center' },
-  repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', marginLeft: 9, minHeight: 28, paddingHorizontal: 9 },
+  repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', marginLeft: 9, minHeight: 28, width: 82 },
+  repeatButtonSpacer: { marginRight: 9, width: 82 },
   repeatButtonPressed: { backgroundColor: '#fff4df', opacity: 0.78, transform: [{ scale: 0.97 }] },
   repeatIcon: { color: '#8a4f00', fontSize: 16, fontWeight: '900', lineHeight: 18 },
   repeatText: { color: '#694b22', fontSize: 10, fontWeight: '900' },
