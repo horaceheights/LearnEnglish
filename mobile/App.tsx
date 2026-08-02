@@ -26,7 +26,9 @@ type Screen =
   | { name: 'profile' }
   | { name: 'qa' };
 
-const ANDROID_SYSTEM_CONTROL_INSET = 32;
+const ANDROID_PHONE_SYSTEM_CONTROL_INSET = 36;
+const ANDROID_TABLET_SYSTEM_CONTROL_INSET = 48;
+const TABLET_MINIMUM_EDGE = 540;
 
 class AppErrorBoundary extends Component<
   { children: ReactNode },
@@ -152,10 +154,15 @@ function AppContent() {
 function SystemControlSafeFrame({ children }: { children: ReactNode }) {
   const { height, width } = useWindowDimensions();
   const isLandscape = width > height;
+  const isTablet = Math.min(width, height) >= TABLET_MINIMUM_EDGE;
   const androidSystemInset = Platform.OS === 'android'
-    ? isLandscape
-      ? { paddingRight: ANDROID_SYSTEM_CONTROL_INSET }
-      : { paddingBottom: ANDROID_SYSTEM_CONTROL_INSET }
+    ? isLandscape && !isTablet
+      ? { paddingRight: ANDROID_PHONE_SYSTEM_CONTROL_INSET }
+      : {
+          paddingBottom: isTablet
+            ? ANDROID_TABLET_SYSTEM_CONTROL_INSET
+            : ANDROID_PHONE_SYSTEM_CONTROL_INSET,
+        }
     : null;
 
   return <View style={[styles.appFrame, androidSystemInset]}>{children}</View>;
