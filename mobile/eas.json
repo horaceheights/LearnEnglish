@@ -12,7 +12,16 @@
     "preview": {
       "autoIncrement": true,
       "distribution": "internal",
-      "channel": "preview"
+      "channel": "preview",
+      "env": {
+        "SPANGLISH_ARM64_ONLY": "1"
+      }
+    },
+    "preview-universal": {
+      "extends": "preview",
+      "env": {
+        "SPANGLISH_ARM64_ONLY": "0"
+      }
     },
     "production": {
       "autoIncrement": true,
