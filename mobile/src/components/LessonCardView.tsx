@@ -44,6 +44,7 @@ export function LessonCardView({
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar';
   const isListenCard = card.stage === 'Listen';
   const isLandscape = viewportWidth > viewportHeight;
+  const isCompactLandscape = isLandscape && viewportHeight < 460;
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
   const isTabletLandscape = isLandscape && Math.min(viewportWidth, viewportHeight) >= 540;
   const hasTextOnlyOptions = card.options.length > 0 && card.options.every((option) => !option.image_url);
@@ -51,6 +52,7 @@ export function LessonCardView({
   const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
+  const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
   const optionWidth =
     useTextGrid || useTabletImageGrid
       ? '48.5%'
@@ -61,7 +63,18 @@ export function LessonCardView({
         : card.options.length === 1
           ? '72%'
           : '48%';
-  const featureImageHeight = isTabletLandscape
+  const optionMinHeight = hasTextOnlyOptions
+    ? isLandscape
+      ? isTabletLandscape
+        ? Math.max(96, Math.min(124, viewportHeight * 0.16))
+        : isCompactLandscape
+          ? Math.max(58, Math.min(72, viewportHeight * 0.16))
+          : Math.max(72, Math.min(92, viewportHeight * 0.145))
+      : 104
+    : isLandscape
+      ? Math.max(58, viewportHeight * 0.17)
+      : 92;
+  const responsiveFeatureImageHeight = isTabletLandscape
     ? isPronunciation
       ? Math.max(280, Math.min(390, viewportHeight * 0.49))
       : useTextGrid
@@ -72,7 +85,7 @@ export function LessonCardView({
     : useTextGrid
       ? Math.max(175, Math.min(225, viewportHeight * 0.37))
       : Math.max(175, Math.min(300, viewportHeight * 0.49));
-  const optionImageHeight = isTabletLandscape
+  const responsiveOptionImageHeight = isTabletLandscape
     ? card.options.length >= 4
       ? Math.max(150, Math.min(235, viewportHeight * 0.29))
       : card.options.length === 3
@@ -87,15 +100,24 @@ export function LessonCardView({
       : card.options.length === 1
         ? Math.max(220, Math.min(365, viewportHeight * 0.61))
         : Math.max(205, Math.min(340, viewportHeight * 0.57));
-  const optionMinHeight = hasTextOnlyOptions
-    ? isLandscape
-      ? isTabletLandscape
-        ? Math.max(96, Math.min(124, viewportHeight * 0.16))
-        : Math.max(72, Math.min(92, viewportHeight * 0.145))
-      : 104
-    : isLandscape
-      ? Math.max(58, viewportHeight * 0.17)
-      : 92;
+  const fallbackCardHeight = Math.max(150, viewportHeight * (isCompactLandscape ? 0.43 : 0.58));
+  const availableCardHeight = measuredCardHeight || fallbackCardHeight;
+  const featureReservedHeight = isPronunciation
+    ? result
+      ? 96
+      : 68
+    : hasTextOnlyOptions
+      ? optionMinHeight + 30
+      : 24;
+  const featureImageHeight = Math.min(
+    responsiveFeatureImageHeight,
+    Math.max(isPronunciation ? 82 : 70, availableCardHeight - featureReservedHeight),
+  );
+  const optionRows = useTabletImageGrid ? 2 : 1;
+  const optionImageHeight = Math.min(
+    responsiveOptionImageHeight,
+    Math.max(68, (availableCardHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
+  );
 
   useEffect(() => {
     if (!isGrammar || result !== 'correct' || !selectedId) return undefined;
@@ -139,8 +161,14 @@ export function LessonCardView({
     <View style={[
       styles.card,
       isLandscape ? styles.cardLandscape : null,
+      isCompactLandscape ? styles.cardCompactLandscape : null,
       isTabletLandscape ? styles.cardTabletLandscape : null,
-    ]}>
+    ]}
+      onLayout={({ nativeEvent }) => {
+        const nextHeight = Math.round(nativeEvent.layout.height);
+        setMeasuredCardHeight((current) => Math.abs(current - nextHeight) < 2 ? current : nextHeight);
+      }}
+    >
       {flyingAnswer ? (
         <Animated.View
           pointerEvents="none"
@@ -353,6 +381,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   cardLandscape: { flex: 1, justifyContent: 'center', padding: 9 },
+  cardCompactLandscape: { minHeight: 0, overflow: 'hidden', padding: 6 },
   cardTabletLandscape: { padding: 14 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
   flyingAnswer: { alignItems: 'center', left: 0, position: 'absolute', right: 0, top: -64, zIndex: 20 },
