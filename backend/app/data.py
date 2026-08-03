@@ -2071,12 +2071,10 @@ def test_pronunciation_cards() -> list[LessonCard]:
 
 
 def place_grammar_cards() -> list[LessonCard]:
+    # Keep only choices that require looking at the picture. Generic blanks such
+    # as "What ___ it?" can be solved from the words alone and add no visual
+    # comprehension value to this lesson.
     grammar_specs = [
-        ("What ___ it?", "is", ["is", "are"], "What is it?", "park"),
-        ("___ is a school.", "It", ["It", "What"], "It is a school.", "school"),
-        ("It ___ a bridge.", "is", ["is", "are"], "It is a bridge.", "bridge"),
-        ("It is ___ park.", "a", ["a", "an"], "It is a park.", "park"),
-        ("It is ___ building.", "a", ["a", "an"], "It is a building.", "building"),
         *[
             (
                 str(spec["prompt"]),
