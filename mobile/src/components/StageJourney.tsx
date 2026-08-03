@@ -87,7 +87,7 @@ export function StageJourney({ cards, currentIndex, lessonId }: Props) {
               {isComplete ? <Text style={styles.completeMark}>✓</Text> : null}
               <Text
                 adjustsFontSizeToFit
-                minimumFontScale={0.7}
+                minimumFontScale={0.58}
                 numberOfLines={1}
                 style={[styles.segmentLabel, color === '#d99b20' ? styles.darkLabel : null]}
               >
@@ -102,14 +102,14 @@ export function StageJourney({ cards, currentIndex, lessonId }: Props) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, maxWidth: 1200, minWidth: 300 },
-  track: { borderColor: '#fff', borderRadius: 15, borderWidth: 2, flexDirection: 'row', height: 47, overflow: 'hidden' },
+  container: { flex: 1, minWidth: 300, width: '100%' },
+  track: { borderColor: '#fff', borderRadius: 20, borderWidth: 3, flexDirection: 'row', height: 66, overflow: 'hidden', width: '100%' },
   segment: { alignItems: 'center', borderRightColor: 'rgba(255,255,255,0.7)', borderRightWidth: 1, flex: 1, justifyContent: 'center', minWidth: 0, overflow: 'hidden', position: 'relative' },
   futureOverlay: { backgroundColor: 'rgba(255,255,255,0.32)', bottom: 0, left: 0, position: 'absolute', right: 0, top: 0 },
-  activeSegment: { borderColor: '#24333a', borderWidth: 2 },
+  activeSegment: { borderColor: '#24333a', borderWidth: 3 },
   activeProgress: { backgroundColor: 'rgba(20,35,42,0.20)', bottom: 0, left: 0, position: 'absolute', top: 0 },
-  marker: { backgroundColor: '#fff', borderColor: '#17252b', borderRadius: 10, borderWidth: 3, height: 20, marginLeft: -10, position: 'absolute', top: -2, width: 20, zIndex: 3 },
-  completeMark: { color: '#fff', fontSize: 14, fontWeight: '900', left: 5, position: 'absolute', top: 3, textShadowColor: 'rgba(0,0,0,0.35)', textShadowOffset: { height: 1, width: 0 }, textShadowRadius: 2 },
-  segmentLabel: { color: '#fff', fontSize: 14, fontWeight: '900', paddingHorizontal: 5, textAlign: 'center', textShadowColor: 'rgba(0,0,0,0.5)', textShadowOffset: { height: 1, width: 0 }, textShadowRadius: 2, width: '100%', zIndex: 2 },
+  marker: { backgroundColor: '#fff', borderColor: '#17252b', borderRadius: 14, borderWidth: 4, height: 28, marginLeft: -14, position: 'absolute', top: -3, width: 28, zIndex: 3 },
+  completeMark: { color: '#fff', fontSize: 18, fontWeight: '900', left: 7, position: 'absolute', top: 4, textShadowColor: 'rgba(0,0,0,0.35)', textShadowOffset: { height: 1, width: 0 }, textShadowRadius: 2 },
+  segmentLabel: { color: '#fff', fontSize: 20, fontWeight: '900', paddingHorizontal: 6, textAlign: 'center', textShadowColor: 'rgba(0,0,0,0.55)', textShadowOffset: { height: 1, width: 0 }, textShadowRadius: 2, width: '100%', zIndex: 2 },
   darkLabel: { color: '#3d2a00', textShadowColor: 'transparent' },
 });
