@@ -40,8 +40,8 @@ For every defect, capture:
 - [ ] Auto ON performs the normal production transition
 - [ ] Leaving the lesson returns to Engine QA
 - [ ] QA activity does not alter learner progress or score history
-- [ ] Crash-reporting status shows Active
-- [ ] QA diagnostic test reaches Sentry with the correct runtime/update code
+- [x] Crash-reporting status shows Active
+- [x] QA diagnostic test reaches Sentry with the correct runtime/update code
 
 ## Universal card behavior
 
@@ -164,5 +164,5 @@ A preview update is ready for broader testing when:
 - [ ] Complete pronunciation test lesson passes
 - [ ] Complete grammar transition test passes
 - [ ] No open crash-level regression exists
-- [ ] Sentry source maps are uploaded for the build/update
+- [x] Sentry source maps are uploaded for the build/update
 - [ ] Update code and change summary are recorded
