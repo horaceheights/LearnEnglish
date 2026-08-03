@@ -841,7 +841,7 @@ const styles = StyleSheet.create({
   logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
   backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
-  lessonStatus: { alignItems: 'center', flex: 1, justifyContent: 'center', marginHorizontal: 12 },
+  lessonStatus: { alignItems: 'center', flex: 1, justifyContent: 'center', marginHorizontal: 7 },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },

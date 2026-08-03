@@ -109,17 +109,17 @@ export function StageJourney({ cards, currentIndex, lessonId, score }: Props) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, maxWidth: 760, minWidth: 280 },
+  container: { flex: 1, maxWidth: 980, minWidth: 300 },
   captionRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 3, paddingHorizontal: 2 },
-  currentLabel: { color: '#37444a', flex: 1, fontSize: 9, fontWeight: '900', letterSpacing: 0.4, textTransform: 'uppercase' },
-  score: { color: '#4f3b13', fontSize: 10, fontWeight: '900', marginLeft: 8 },
-  track: { borderColor: '#fff', borderRadius: 10, borderWidth: 2, flexDirection: 'row', height: 28, overflow: 'hidden' },
+  currentLabel: { color: '#37444a', flex: 1, fontSize: 10, fontWeight: '900', letterSpacing: 0.45, textTransform: 'uppercase' },
+  score: { color: '#4f3b13', fontSize: 12, fontWeight: '900', marginLeft: 8 },
+  track: { borderColor: '#fff', borderRadius: 12, borderWidth: 2, flexDirection: 'row', height: 36, overflow: 'hidden' },
   segment: { alignItems: 'center', borderRightColor: 'rgba(255,255,255,0.7)', borderRightWidth: 1, flex: 1, justifyContent: 'center', minWidth: 0, overflow: 'hidden', position: 'relative' },
   futureSegment: { opacity: 0.42 },
   activeSegment: { borderColor: '#24333a', borderWidth: 2 },
   activeProgress: { backgroundColor: 'rgba(20,35,42,0.20)', bottom: 0, left: 0, position: 'absolute', top: 0 },
-  marker: { backgroundColor: '#fff', borderColor: '#24333a', borderRadius: 6, borderWidth: 2, height: 12, marginLeft: -6, position: 'absolute', top: -1, width: 12, zIndex: 3 },
-  completeMark: { color: 'rgba(255,255,255,0.82)', fontSize: 9, fontWeight: '900', left: 3, position: 'absolute', top: 1 },
-  segmentLabel: { color: '#fff', fontSize: 9, fontWeight: '900', paddingHorizontal: 3, textAlign: 'center', textShadowColor: 'rgba(0,0,0,0.20)', textShadowOffset: { height: 1, width: 0 }, textShadowRadius: 1, width: '100%', zIndex: 2 },
+  marker: { backgroundColor: '#fff', borderColor: '#24333a', borderRadius: 8, borderWidth: 2, height: 15, marginLeft: -7.5, position: 'absolute', top: -1, width: 15, zIndex: 3 },
+  completeMark: { color: 'rgba(255,255,255,0.88)', fontSize: 11, fontWeight: '900', left: 4, position: 'absolute', top: 2 },
+  segmentLabel: { color: '#fff', fontSize: 11, fontWeight: '900', paddingHorizontal: 4, textAlign: 'center', textShadowColor: 'rgba(0,0,0,0.20)', textShadowOffset: { height: 1, width: 0 }, textShadowRadius: 1, width: '100%', zIndex: 2 },
   darkLabel: { color: '#3d2a00', textShadowColor: 'transparent' },
 });
