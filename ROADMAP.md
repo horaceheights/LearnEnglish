@@ -90,7 +90,7 @@ corrupts progress, or produces unreliable learning feedback.
 - [ ] Test leaving during playback, recording, grading, and animation
 - [ ] Test screen lock, app switching, calls, lost internet, and backend cold starts
 - [ ] Test small, medium, and large Android landscape dimensions
-- [ ] Add production crash reporting and structured diagnostics
+- [~] Add production crash reporting and structured diagnostics (SDK integrated; account connection and test event pending)
 - [x] Show an in-app error screen instead of an unexplained blank screen
 - [ ] Persist the learner's active lesson/card before interruption
 - [ ] Create a repeatable pre-release checklist

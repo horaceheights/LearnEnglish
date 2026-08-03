@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
+  Alert,
   BackHandler,
   Pressable,
   ScrollView,
@@ -11,7 +12,11 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getLesson, getLessons } from '../api';
-import { setDiagnosticContext } from '../diagnostics';
+import {
+  captureDiagnosticError,
+  isCrashReportingConfigured,
+  setDiagnosticContext,
+} from '../diagnostics';
 import type { Lesson, LessonSummary } from '../types';
 
 type Props = {
@@ -26,12 +31,16 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingLessonId, setLoadingLessonId] = useState('');
   const [error, setError] = useState('');
+  const crashReportingConfigured = isCrashReportingConfigured();
 
   useEffect(() => {
     setDiagnosticContext({ qaMode: true });
     getLessons()
       .then(setLessons)
-      .catch(() => setError('No se pudo cargar la lista de lecciones.'))
+      .catch((loadError) => {
+        captureDiagnosticError(loadError, 'qa_load_lessons');
+        setError('No se pudo cargar la lista de lecciones.');
+      })
       .finally(() => setIsLoading(false));
   }, []);
 
@@ -63,7 +72,8 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
       const lesson = await getLesson(lessonId);
       setSelectedLesson(lesson);
       setSelectedStage(lesson.cards[0]?.stage || '');
-    } catch {
+    } catch (loadError) {
+      captureDiagnosticError(loadError, 'qa_load_lesson', { lesson_id: lessonId });
       setError('No se pudo cargar esa lección.');
     } finally {
       setLoadingLessonId('');
@@ -90,6 +100,31 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
             Selecciona una lección, filtra por etapa y abre una tarjeta. Dentro de la lección usa Anterior,
             Reiniciar, Siguiente y Auto para probar cada transición.
           </Text>
+        </View>
+
+        <View style={styles.reportingPanel}>
+          <View style={styles.reportingCopy}>
+            <Text style={styles.reportingTitle}>Reportes de errores</Text>
+            <Text style={styles.reportingStatus}>
+              {crashReportingConfigured ? 'Activo · Sentry conectado' : 'Pendiente · falta conectar Sentry'}
+            </Text>
+          </View>
+          <Pressable
+            accessibilityHint="Envía un error de prueba sin cerrar la aplicación"
+            accessibilityLabel="Probar reporte de errores"
+            accessibilityRole="button"
+            disabled={!crashReportingConfigured}
+            onPress={() => {
+              captureDiagnosticError(new Error('SpanGlish QA diagnostic test'), 'qa_sentry_test');
+              Alert.alert('Reporte enviado', 'Busca “SpanGlish QA diagnostic test” en Sentry.');
+            }}
+            style={[
+              styles.reportingButton,
+              !crashReportingConfigured ? styles.reportingButtonDisabled : null,
+            ]}
+          >
+            <Text style={styles.reportingButtonText}>Enviar prueba</Text>
+          </Pressable>
         </View>
 
         {isLoading ? <ActivityIndicator color="#6e4aad" size="large" /> : null}
@@ -180,6 +215,13 @@ const styles = StyleSheet.create({
   instructions: { backgroundColor: '#eee3f7', borderRadius: 18, padding: 15 },
   instructionsTitle: { color: '#3f2859', fontSize: 14, fontWeight: '900' },
   instructionsText: { color: '#675176', fontSize: 12, lineHeight: 18, marginTop: 4 },
+  reportingPanel: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#ded3e7', borderRadius: 16, borderWidth: 1, flexDirection: 'row', gap: 12, justifyContent: 'space-between', padding: 13 },
+  reportingCopy: { flex: 1 },
+  reportingTitle: { color: '#2b2433', fontSize: 13, fontWeight: '900' },
+  reportingStatus: { color: '#675f6f', fontSize: 11, marginTop: 3 },
+  reportingButton: { alignItems: 'center', backgroundColor: '#67418c', borderRadius: 12, justifyContent: 'center', minHeight: 48, paddingHorizontal: 14 },
+  reportingButtonDisabled: { backgroundColor: '#b9afbF', opacity: 0.65 },
+  reportingButtonText: { color: '#fff', fontSize: 12, fontWeight: '900' },
   error: { backgroundColor: '#fbeceb', borderRadius: 12, color: '#a34842', padding: 12, textAlign: 'center' },
   sectionTitle: { color: '#2b2433', fontSize: 17, fontWeight: '900' },
   lessonList: { gap: 8 },

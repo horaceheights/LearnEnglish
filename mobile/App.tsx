@@ -10,7 +10,13 @@ import * as Updates from 'expo-updates';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { ConnectivityBanner } from './src/components/ConnectivityBanner';
-import { getDiagnosticContext, type DiagnosticContext } from './src/diagnostics';
+import {
+  addDiagnosticBreadcrumb,
+  captureDiagnosticError,
+  getDiagnosticContext,
+  setDiagnosticContext,
+  type DiagnosticContext,
+} from './src/diagnostics';
 import { clearLocalProfile, loadLocalProfile } from './src/profile';
 import { CourseScreen } from './src/screens/CourseScreen';
 import { EngineQAScreen } from './src/screens/EngineQAScreen';
@@ -36,7 +42,9 @@ class AppErrorBoundary extends Component<
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
-    console.error('[SpanGlish] Unhandled render error', error, info.componentStack);
+    captureDiagnosticError(error, 'render_error', {
+      component_stack: info.componentStack || 'unavailable',
+    });
   }
 
   render() {
@@ -60,7 +68,7 @@ class AppErrorBoundary extends Component<
                 {this.state.diagnostic.prompt}
               </Text>
               <Text style={styles.diagnosticText}>
-                v{Updates.runtimeVersion || '1.4.0'} · {Updates.updateId?.slice(0, 8) || 'embedded'}
+                v{Updates.runtimeVersion || '1.5.0'} · {Updates.updateId?.slice(0, 8) || 'embedded'}
               </Text>
             </View>
           ) : null}
@@ -81,8 +89,16 @@ function AppContent() {
   useEffect(() => {
     loadLocalProfile()
       .then(setProfile)
+      .catch((error) => captureDiagnosticError(error, 'restore_local_profile'))
       .finally(() => setIsRestoring(false));
   }, []);
+
+  useEffect(() => {
+    addDiagnosticBreadcrumb('screen_changed', { screen: screen.name });
+    if (screen.name !== 'lesson') {
+      setDiagnosticContext({ operation: `screen_${screen.name}` });
+    }
+  }, [screen]);
 
   if (isRestoring) {
     return (

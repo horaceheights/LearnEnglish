@@ -5,6 +5,7 @@
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
     "@react-native-community/netinfo": "12.0.1",
+    "@sentry/react-native": "~7.11.0",
     "expo": "~57.0.9",
     "expo-asset": "57.0.8",
     "expo-audio": "~57.0.3",
@@ -24,7 +25,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "sentry:upload-sourcemaps": "sentry-expo-upload-sourcemaps dist"
   },
   "private": true
 }

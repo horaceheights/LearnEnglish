@@ -5,6 +5,7 @@ module.exports = ({ config }) => {
     ...config,
     plugins: [
       ...(config.plugins || []),
+      '@sentry/react-native',
       [
         'expo-build-properties',
         {

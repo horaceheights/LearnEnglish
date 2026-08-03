@@ -23,7 +23,12 @@ import {
 } from '../api';
 import { LessonCardView } from '../components/LessonCardView';
 import { courseAudioUrl } from '../config';
-import { setDiagnosticContext } from '../diagnostics';
+import {
+  addDiagnosticBreadcrumb,
+  captureDiagnosticError,
+  setDiagnosticContext,
+  setDiagnosticOperation,
+} from '../diagnostics';
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
 import type { LearnerProfile, Lesson } from '../types';
@@ -96,6 +101,7 @@ export function LessonScreen({
 
   const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
     if (!text.trim()) return;
+    addDiagnosticBreadcrumb('audio_started', { mode, variant });
     audioPlayer.replace(courseAudioUrl(text, mode, variant));
     audioPlayer.play();
   }, [audioPlayer]);
@@ -135,6 +141,7 @@ export function LessonScreen({
   }, []);
 
   const load = async () => {
+    setDiagnosticContext({ lessonId, operation: 'lesson_load', qaMode });
     setIsLoading(true);
     setError('');
     try {
@@ -144,9 +151,15 @@ export function LessonScreen({
       if (profile.userId && !qaMode) {
         startLessonSession(profile.userId, nextLesson.id, nextLesson.cards.length)
           .then((session) => setSessionId(session.id))
-          .catch(() => undefined);
+          .catch((sessionError) => captureDiagnosticError(
+            sessionError,
+            'start_lesson_session',
+            { lesson_id: nextLesson.id },
+            'warning',
+          ));
       }
     } catch (loadError) {
+      captureDiagnosticError(loadError, 'lesson_load', { lesson_id: lessonId });
       setError(loadError instanceof Error ? loadError.message : 'No pudimos cargar esta lección. Inténtalo otra vez.');
     } finally {
       setIsLoading(false);
@@ -167,6 +180,7 @@ export function LessonScreen({
       lessonId,
       prompt: currentCard?.prompt,
       qaMode,
+      operation: 'card_active',
       stage: currentCard?.stage,
       totalCards: lesson?.cards.length,
     });
@@ -184,6 +198,10 @@ export function LessonScreen({
 
   const advance = useCallback(() => {
     if (!lesson) return;
+    addDiagnosticBreadcrumb('card_advanced', {
+      from_card: cardIndex + 1,
+      to_card: Math.min(cardIndex + 2, lesson.cards.length),
+    });
     answerAudioAwaitingRef.current = false;
     answerAudioStartedRef.current = false;
     answerAudioWasPlayingRef.current = false;
@@ -325,7 +343,14 @@ export function LessonScreen({
   useEffect(() => {
     if (qaMode || !isComplete || !lesson || !sessionId || finishedSessionRef.current) return;
     finishedSessionRef.current = true;
-    void finishLessonSession(sessionId, score, lesson.cards.length).catch(() => undefined);
+    setDiagnosticOperation('finish_lesson_session');
+    void finishLessonSession(sessionId, score, lesson.cards.length)
+      .catch((finishError) => captureDiagnosticError(
+        finishError,
+        'finish_lesson_session',
+        { score, total_cards: lesson.cards.length },
+        'warning',
+      ));
   }, [isComplete, lesson, qaMode, score, sessionId]);
 
   const recordAttempt = (optionId: string, isCorrect: boolean, firstTry: boolean) => {
@@ -340,13 +365,24 @@ export function LessonScreen({
       correctOptionId: currentCard.correct_option_id,
       isCorrect,
       firstTry,
-    }).catch(() => undefined);
+    }).catch((attemptError) => captureDiagnosticError(
+      attemptError,
+      'save_card_attempt',
+      { card_number: cardIndex + 1, is_correct: isCorrect },
+      'warning',
+    ));
   };
 
   const choose = (optionId: string) => {
     if (!currentCard || result === 'correct') return;
     const correct = optionId === currentCard.correct_option_id;
     const firstTry = !wrongCards.has(cardIndex);
+    addDiagnosticBreadcrumb('answer_selected', {
+      card_number: cardIndex + 1,
+      first_try: firstTry,
+      is_correct: correct,
+      option_id: optionId,
+    });
     setSelectedId(optionId);
     recordAttempt(optionId, correct, firstTry);
 
@@ -518,7 +554,7 @@ export function LessonScreen({
         {qaMode ? (
           <View style={styles.qaToolbar}>
             <View style={styles.qaIdentity}>
-              <Text style={styles.qaLabel}>ENGINE QA · v{Updates.runtimeVersion || '1.4.0'} · {updateCode}</Text>
+              <Text style={styles.qaLabel}>ENGINE QA · v{Updates.runtimeVersion || '1.5.0'} · {updateCode}</Text>
               <Text numberOfLines={1} style={styles.qaContext}>
                 {lesson.id} · #{cardIndex + 1}/{lesson.cards.length} · {currentCard.stage}
               </Text>

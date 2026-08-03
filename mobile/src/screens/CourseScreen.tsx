@@ -75,7 +75,7 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
   const [updateState, setUpdateState] = useState<'checking' | 'current' | 'ready' | 'unavailable'>('checking');
 
   const updateCode = currentlyRunning.updateId?.slice(0, 8) || 'embedded';
-  const versionLabel = `v${currentlyRunning.runtimeVersion || '1.4.0'} · ${updateCode}`;
+  const versionLabel = `v${currentlyRunning.runtimeVersion || '1.5.0'} · ${updateCode}`;
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
 
   const load = async () => {
