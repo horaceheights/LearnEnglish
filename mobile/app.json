@@ -33,7 +33,15 @@
     },
     "owner": "horaceheightss-team",
     "plugins": [
-      "expo-audio"
+      "expo-audio",
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "organization": "horacio-gutierrez",
+          "project": "react-native"
+        }
+      ]
     ],
     "updates": {
       "url": "https://u.expo.dev/898830f0-4e7c-4568-82da-7cfb25c97d8f"
