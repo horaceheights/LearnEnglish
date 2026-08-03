@@ -2075,7 +2075,6 @@ def place_grammar_cards() -> list[LessonCard]:
         ("What ___ it?", "is", ["is", "are"], "What is it?", "park"),
         ("___ is a school.", "It", ["It", "What"], "It is a school.", "school"),
         ("It ___ a bridge.", "is", ["is", "are"], "It is a bridge.", "bridge"),
-        ("What is ___?", "it", ["it", "a"], "What is it?", "store"),
         ("It is ___ park.", "a", ["a", "an"], "It is a park.", "park"),
         ("It is ___ building.", "a", ["a", "an"], "It is a building.", "building"),
         *[
