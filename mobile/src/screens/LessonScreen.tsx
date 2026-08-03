@@ -709,7 +709,6 @@ export function LessonScreen({
                 cards={lesson.cards}
                 currentIndex={cardIndex}
                 lessonId={lesson.id}
-                score={score}
               />
             </View>
             <Pressable

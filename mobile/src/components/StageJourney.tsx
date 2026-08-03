@@ -8,7 +8,6 @@ type Props = {
   cards: LessonCard[];
   currentIndex: number;
   lessonId: string;
-  score: number;
 };
 
 type StageSegment = {
@@ -29,7 +28,7 @@ const STAGE_COLORS = [
   '#638b52',
 ];
 
-export function StageJourney({ cards, currentIndex, lessonId, score }: Props) {
+export function StageJourney({ cards, currentIndex, lessonId }: Props) {
   const segments = useMemo<StageSegment[]>(() => {
     const grouped: StageSegment[] = [];
     cards.forEach((card, index) => {
@@ -61,15 +60,9 @@ export function StageJourney({ cards, currentIndex, lessonId, score }: Props) {
   return (
     <View
       accessible
-      accessibilityLabel={`${activeSegment?.label || 'Lección'}, etapa ${activeSegmentIndex + 1} de ${segments.length}. Puntaje ${score}.`}
+      accessibilityLabel={`${activeSegment?.label || 'Lección'}, etapa ${activeSegmentIndex + 1} de ${segments.length}.`}
       style={styles.container}
     >
-      <View style={styles.captionRow}>
-        <Text numberOfLines={1} style={styles.currentLabel}>
-          {activeSegment?.label || 'Lección'}
-        </Text>
-        <Text style={styles.score}>★ {score}</Text>
-      </View>
       <View style={styles.track}>
         {segments.map((segment, index) => {
           const isActive = index === activeSegmentIndex;
@@ -110,9 +103,6 @@ export function StageJourney({ cards, currentIndex, lessonId, score }: Props) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, maxWidth: 1200, minWidth: 300 },
-  captionRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 3, paddingHorizontal: 2 },
-  currentLabel: { color: '#263238', flex: 1, fontSize: 13, fontWeight: '900', letterSpacing: 0.5, textTransform: 'uppercase' },
-  score: { color: '#3d2d0d', fontSize: 15, fontWeight: '900', marginLeft: 10 },
   track: { borderColor: '#fff', borderRadius: 15, borderWidth: 2, flexDirection: 'row', height: 47, overflow: 'hidden' },
   segment: { alignItems: 'center', borderRightColor: 'rgba(255,255,255,0.7)', borderRightWidth: 1, flex: 1, justifyContent: 'center', minWidth: 0, overflow: 'hidden', position: 'relative' },
   futureOverlay: { backgroundColor: 'rgba(255,255,255,0.32)', bottom: 0, left: 0, position: 'absolute', right: 0, top: 0 },
