@@ -10,7 +10,7 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
-import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import { preload, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -31,7 +31,7 @@ import {
 } from '../diagnostics';
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
-import type { LearnerProfile, Lesson } from '../types';
+import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 const TRY_AGAIN_CUE = require('../../assets/try-again.wav');
@@ -64,6 +64,8 @@ export function LessonScreen({
   const grammarAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const grammarAnswerAwaitingRef = useRef(false);
   const grammarAnswerWasPlayingRef = useRef(false);
+  const audioPlaybackRequestRef = useRef(0);
+  const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
   const pronunciationPassHandledRef = useRef(false);
   const [lesson, setLesson] = useState<Lesson | null>(null);
@@ -99,12 +101,68 @@ export function LessonScreen({
     return () => subscription.remove();
   }, [onExit]);
 
+  const ensureAudioPreloaded = useCallback((url: string) => {
+    const existing = audioPreloadRef.current.get(url);
+    if (existing) return existing;
+
+    const startedAt = Date.now();
+    const pending = preload(url)
+      .then(() => {
+        addDiagnosticBreadcrumb('audio_preloaded', {
+          duration_ms: Date.now() - startedAt,
+        });
+      })
+      .catch((preloadError) => {
+        audioPreloadRef.current.delete(url);
+        captureDiagnosticError(
+          preloadError,
+          'course_audio_preload',
+          { duration_ms: Date.now() - startedAt },
+          'warning',
+        );
+      });
+    audioPreloadRef.current.set(url, pending);
+    return pending;
+  }, []);
+
+  const preloadCardAudio = useCallback((card?: LessonCard) => {
+    if (!card) return Promise.resolve();
+    const text = card.audio_text ?? card.prompt ?? '';
+    const requests: Promise<void>[] = [];
+    if (text.trim()) {
+      const pronunciation = card.stage === 'Pronunciation Practice';
+      const variant = pronunciation
+        ? 'split-ing'
+        : text.trim().toLowerCase() === 'what is it?'
+          ? 'question'
+          : 'prompt';
+      requests.push(ensureAudioPreloaded(courseAudioUrl(
+        text,
+        pronunciation ? 'pronunciation_slow' : 'prompt',
+        variant,
+      )));
+    }
+    if (card.answer_audio_text?.trim()) {
+      requests.push(ensureAudioPreloaded(courseAudioUrl(
+        card.answer_audio_text,
+        'prompt',
+        'answer',
+      )));
+    }
+    return Promise.all(requests).then(() => undefined);
+  }, [ensureAudioPreloaded]);
+
   const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
     if (!text.trim()) return;
-    addDiagnosticBreadcrumb('audio_started', { mode, variant });
-    audioPlayer.replace(courseAudioUrl(text, mode, variant));
-    audioPlayer.play();
-  }, [audioPlayer]);
+    const url = courseAudioUrl(text, mode, variant);
+    const requestId = ++audioPlaybackRequestRef.current;
+    void ensureAudioPreloaded(url).then(() => {
+      if (audioPlaybackRequestRef.current !== requestId) return;
+      addDiagnosticBreadcrumb('audio_started', { mode, variant });
+      audioPlayer.replace(url);
+      audioPlayer.play();
+    });
+  }, [audioPlayer, ensureAudioPreloaded]);
 
   const playSuccessChime = useCallback(async () => {
     try {
@@ -146,8 +204,18 @@ export function LessonScreen({
     setError('');
     try {
       const nextLesson = await getLesson(lessonId);
+      const nextCardIndex = Math.min(
+        Math.max(initialCardIndex, 0),
+        Math.max(nextLesson.cards.length - 1, 0),
+      );
+      // Keep the loading state visible until the first phrase is ready. This
+      // avoids showing a silent card while its audio buffers for the first time.
+      await Promise.race([
+        preloadCardAudio(nextLesson.cards[nextCardIndex]),
+        new Promise<void>((resolve) => setTimeout(resolve, 3500)),
+      ]);
       setLesson(nextLesson);
-      setCardIndex(Math.min(Math.max(initialCardIndex, 0), Math.max(nextLesson.cards.length - 1, 0)));
+      setCardIndex(nextCardIndex);
       if (profile.userId && !qaMode) {
         startLessonSession(profile.userId, nextLesson.id, nextLesson.cards.length)
           .then((session) => setSessionId(session.id))
@@ -173,6 +241,19 @@ export function LessonScreen({
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
+
+  useEffect(() => {
+    if (!lesson) return;
+    // Prepare the active card (important for QA jumps) plus the next two cards.
+    for (let index = cardIndex; index <= Math.min(cardIndex + 2, lesson.cards.length - 1); index += 1) {
+      void preloadCardAudio(lesson.cards[index]);
+    }
+  }, [cardIndex, lesson, preloadCardAudio]);
+
+  useEffect(() => {
+    audioPlaybackRequestRef.current += 1;
+    audioPlayer.pause();
+  }, [audioPlayer, cardIndex]);
 
   useEffect(() => {
     setDiagnosticContext({
