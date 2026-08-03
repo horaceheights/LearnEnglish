@@ -61,6 +61,9 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   const [message, setMessage] = useState('Escucha la frase.');
   const [result, setResult] = useState<PronunciationResult | null>(null);
   const [attempt, setAttempt] = useState(0);
+  const attemptRef = useRef(0);
+  const mountedRef = useRef(true);
+  const runIdRef = useRef(0);
   const heardSpeech = useRef(false);
   const silenceStartedAt = useRef<number | null>(null);
   const captureFinishing = useRef(false);
@@ -95,29 +98,40 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     [result],
   );
 
-  const playModel = useCallback(() => {
+  const isCurrentRun = useCallback(
+    (runId: number) => mountedRef.current && runIdRef.current === runId,
+    [],
+  );
+
+  const playModel = useCallback((runId = runIdRef.current) => {
+    if (!isCurrentRun(runId)) return;
     if (retryTimer.current) clearTimeout(retryTimer.current);
     setResult(null);
     setPhase('model');
-    setMessage(attempt ? 'Escucha otra vez…' : 'Escucha la frase.');
+    setMessage(attemptRef.current ? 'Escucha otra vez…' : 'Escucha la frase.');
     heardSpeech.current = false;
     silenceStartedAt.current = null;
     captureFinishing.current = false;
     modelWasPlaying.current = false;
     setDiagnosticOperation('pronunciation_model_playback');
-    addDiagnosticBreadcrumb('pronunciation_model_started', { attempt: attempt + 1 });
+    addDiagnosticBreadcrumb('pronunciation_model_started', { attempt: attemptRef.current + 1 });
     modelPlayer.replace(courseAudioUrl(phrase, 'pronunciation_slow', 'split-ing'));
+    if (!isCurrentRun(runId)) return;
     modelPlayer.play();
-  }, [attempt, modelPlayer, phrase]);
+  }, [isCurrentRun, modelPlayer, phrase]);
 
-  const scheduleRetry = useCallback((reason: string) => {
+  const scheduleRetry = useCallback((reason: string, runId = runIdRef.current) => {
+    if (!isCurrentRun(runId)) return;
     setPhase('retry');
     setMessage(`${reason} Volvemos a intentarlo…`);
-    setAttempt((current) => current + 1);
-    retryTimer.current = setTimeout(playModel, 1700);
-  }, [playModel]);
+    attemptRef.current += 1;
+    setAttempt(attemptRef.current);
+    retryTimer.current = setTimeout(() => playModel(runId), 1700);
+  }, [isCurrentRun, playModel]);
 
   const finishCapture = useCallback(async (shouldScore: boolean) => {
+    const runId = runIdRef.current;
+    if (!isCurrentRun(runId)) return;
     if (captureFinishing.current) return;
     captureFinishing.current = true;
     setDiagnosticOperation('pronunciation_grading');
@@ -126,13 +140,15 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     try {
       const recorderStopStartedAt = Date.now();
       await recorder.stop();
+      if (!isCurrentRun(runId)) return;
       const recorderFinalizeMs = Date.now() - recorderStopStartedAt;
       const uri = recorder.uri;
       if (!shouldScore || !uri) {
-        scheduleRetry('No te pude escuchar.');
+        scheduleRetry('No te pude escuchar.', runId);
         return;
       }
       const nextResult = await scorePronunciation(uri, phrase, userId);
+      if (!isCurrentRun(runId)) return;
       nextResult._timing = {
         ...nextResult._timing,
         recorder_finalize_ms: recorderFinalizeMs,
@@ -148,7 +164,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       if (accepted) {
         addDiagnosticBreadcrumb('pronunciation_accepted', {
           accuracy: Math.round(nextAccuracy),
-          attempt: attempt + 1,
+          attempt: attemptRef.current + 1,
         });
         setPhase('success');
         setMessage('Muy bien.');
@@ -160,64 +176,83 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
             (left, right) => (left.quality_score ?? 100) - (right.quality_score ?? 100),
           )[0]
           : undefined;
-        scheduleRetry(weakest?.word ? `Practica “${weakest.word}”.` : 'Inténtalo otra vez.');
+        scheduleRetry(
+          weakest?.word ? `Practica “${weakest.word}”.` : 'Inténtalo otra vez.',
+          runId,
+        );
       }
     } catch (scoreError) {
+      if (!isCurrentRun(runId)) return;
       captureDiagnosticError(scoreError, 'pronunciation_grading', {
-        attempt: attempt + 1,
+        attempt: attemptRef.current + 1,
         phrase_length: phrase.length,
       });
       scheduleRetry(
         scoreError instanceof Error && /conexión|internet/i.test(scoreError.message)
           ? 'Revisa tu conexión a internet.'
           : 'No pudimos revisar esa grabación.',
+        runId,
       );
     }
-  }, [attempt, minimumCompleteness, passAccuracy, phrase, recorder, scheduleRetry, userId]);
+  }, [isCurrentRun, minimumCompleteness, passAccuracy, phrase, recorder, scheduleRetry, userId]);
 
   const startListening = useCallback(async () => {
-    setDiagnosticOperation('microphone_permission');
-    const permission = await AudioModule.requestRecordingPermissionsAsync();
-    if (!permission.granted) {
-      setPhase('permission');
-      setMessage('Necesitamos permiso para escuchar tu pronunciación.');
-      Alert.alert('Micrófono necesario', 'Permite que SpanGlish use el micrófono para continuar automáticamente.');
-      return;
-    }
+    const runId = runIdRef.current;
+    if (!isCurrentRun(runId)) return;
     try {
+      setDiagnosticOperation('microphone_permission');
+      const permission = await AudioModule.requestRecordingPermissionsAsync();
+      if (!isCurrentRun(runId)) return;
+      if (!permission.granted) {
+        setPhase('permission');
+        setMessage('Necesitamos permiso para escuchar tu pronunciación.');
+        Alert.alert('Micrófono necesario', 'Permite que SpanGlish use el micrófono para continuar automáticamente.');
+        return;
+      }
       setDiagnosticOperation('microphone_prepare');
       await setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
+      if (!isCurrentRun(runId)) return;
       heardSpeech.current = false;
       silenceStartedAt.current = null;
       captureFinishing.current = false;
       await recorder.prepareToRecordAsync(SPEECH_RECORDING_OPTIONS);
+      if (!isCurrentRun(runId)) return;
       setPhase('ready');
       setMessage('Prepárate…');
       await readyCuePreload;
+      if (!isCurrentRun(runId)) return;
       if (!readyCuePlayer.isLoaded) {
         readyCuePlayer.replace(READY_CUE_URL);
       }
-      for (let attemptIndex = 0; attemptIndex < 30 && !readyCuePlayer.isLoaded; attemptIndex += 1) {
+      for (
+        let attemptIndex = 0;
+        attemptIndex < 30 && !readyCuePlayer.isLoaded && isCurrentRun(runId);
+        attemptIndex += 1
+      ) {
         await new Promise((resolve) => setTimeout(resolve, 50));
       }
+      if (!isCurrentRun(runId)) return;
       if (!readyCuePlayer.isLoaded) {
         throw new Error('Ready cue did not load.');
       }
       await readyCuePlayer.seekTo(0).catch(() => undefined);
+      if (!isCurrentRun(runId)) return;
       readyCuePlayer.play();
       await new Promise((resolve) => setTimeout(resolve, 260));
+      if (!isCurrentRun(runId)) return;
       recorder.record();
       setDiagnosticOperation('pronunciation_recording');
-      addDiagnosticBreadcrumb('pronunciation_recording_started', { attempt: attempt + 1 });
+      addDiagnosticBreadcrumb('pronunciation_recording_started', { attempt: attemptRef.current + 1 });
       setPhase('listening');
       setMessage('Ahora tú…');
     } catch (recordingError) {
+      if (!isCurrentRun(runId)) return;
       captureDiagnosticError(recordingError, 'microphone_prepare', {
-        attempt: attempt + 1,
+        attempt: attemptRef.current + 1,
       });
-      scheduleRetry('No pudimos abrir el micrófono.');
+      scheduleRetry('No pudimos abrir el micrófono.', runId);
     }
-  }, [attempt, readyCuePlayer, readyCuePreload, recorder, scheduleRetry]);
+  }, [isCurrentRun, readyCuePlayer, readyCuePreload, recorder, scheduleRetry]);
 
   useEffect(() => {
     if (!statusIsAnimated) {
@@ -276,12 +311,25 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   }, [pulseAnimation, statusIsAnimated, waveAnimations]);
 
   useEffect(() => {
-    setAttempt(0);
-    playModel();
+    mountedRef.current = true;
     return () => {
+      mountedRef.current = false;
+      runIdRef.current += 1;
       if (retryTimer.current) clearTimeout(retryTimer.current);
     };
-  }, [phrase]);
+  }, []);
+
+  useEffect(() => {
+    const runId = runIdRef.current + 1;
+    runIdRef.current = runId;
+    attemptRef.current = 0;
+    setAttempt(0);
+    playModel(runId);
+    return () => {
+      if (runIdRef.current === runId) runIdRef.current += 1;
+      if (retryTimer.current) clearTimeout(retryTimer.current);
+    };
+  }, [phrase, playModel]);
 
   useEffect(() => {
     if (phase !== 'model') return;
@@ -334,7 +382,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         accessibilityLabel={`Repetir modelo: ${phrase}`}
         accessibilityRole="button"
         disabled={phase === 'checking' || phase === 'listening' || phase === 'ready'}
-        onPress={phase === 'permission' ? startListening : playModel}
+        onPress={() => phase === 'permission' ? void startListening() : playModel()}
       >
         <Text style={styles.phrase}>{phrase}</Text>
       </Pressable>
