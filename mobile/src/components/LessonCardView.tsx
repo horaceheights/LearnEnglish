@@ -48,7 +48,13 @@ export function LessonCardView({
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
   const isTabletLandscape = isLandscape && Math.min(viewportWidth, viewportHeight) >= 540;
   const hasTextOnlyOptions = card.options.length > 0 && card.options.every((option) => !option.image_url);
-  const useTextGrid = isLandscape && hasTextOnlyOptions && card.options.length >= 3;
+  // Short phone landscape viewports cannot fit two full rows below the prompt image.
+  // Keep four text answers in one row there; tablets retain the roomier two-column grid.
+  const useTextGrid =
+    isLandscape &&
+    !isCompactLandscape &&
+    hasTextOnlyOptions &&
+    card.options.length >= 3;
   const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
