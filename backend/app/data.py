@@ -868,7 +868,7 @@ def people_plural_intro_cards() -> list[LessonCard]:
         cards.append(
             LessonCard(
                 prompt=spec["prompt"],
-                stage="Action Introduction",
+                stage="Plural Challenge",
                 correct_option_id=spec["id"],
                 options=[
                     ChoiceOption(
