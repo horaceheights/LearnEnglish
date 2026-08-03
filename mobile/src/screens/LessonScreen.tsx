@@ -22,6 +22,7 @@ import {
   startLessonSession,
 } from '../api';
 import { LessonCardView } from '../components/LessonCardView';
+import { StageJourney } from '../components/StageJourney';
 import { courseAudioUrl } from '../config';
 import {
   addDiagnosticBreadcrumb,
@@ -628,8 +629,6 @@ export function LessonScreen({
     );
   }
 
-  const progress = ((cardIndex + 1) / lesson.cards.length) * 100;
-
   const lessonContent = (
     <>
         {qaMode ? (
@@ -704,21 +703,14 @@ export function LessonScreen({
               </Pressable>
             </View>
             <View
-              accessible
-              accessibilityLabel={`Progreso ${cardIndex + 1} de ${lesson.cards.length}. Puntaje ${score}.`}
               style={styles.lessonStatus}
             >
-              <View style={styles.statusMetric}>
-                <Text style={styles.statusLabel}>PROGRESO</Text>
-                <Text style={styles.statusValue}>{cardIndex + 1} / {lesson.cards.length}</Text>
-              </View>
-              <View style={styles.statusMetric}>
-                <Text style={styles.statusLabel}>PUNTAJE</Text>
-                <Text style={styles.statusValue}>{score}</Text>
-              </View>
-              <View style={styles.headerProgressTrack}>
-                <View style={[styles.progressFill, { width: `${progress}%` }]} />
-              </View>
+              <StageJourney
+                cards={lesson.cards}
+                currentIndex={cardIndex}
+                lessonId={lesson.id}
+                score={score}
+              />
             </View>
             <Pressable
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
@@ -849,11 +841,7 @@ const styles = StyleSheet.create({
   logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
   backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
-  lessonStatus: { alignItems: 'center', flexDirection: 'row', gap: 18, justifyContent: 'center', minWidth: 210, position: 'relative', paddingBottom: 5 },
-  statusMetric: { alignItems: 'center', minWidth: 62 },
-  statusLabel: { color: '#697177', fontSize: 7, fontWeight: '900', letterSpacing: 0.8 },
-  statusValue: { color: '#24333a', fontSize: 13, fontWeight: '900', lineHeight: 15 },
-  headerProgressTrack: { backgroundColor: '#d9c6a8', borderRadius: 2, bottom: 0, height: 3, left: 0, overflow: 'hidden', position: 'absolute', right: 0 },
+  lessonStatus: { alignItems: 'center', flex: 1, justifyContent: 'center', marginHorizontal: 12 },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
@@ -868,7 +856,6 @@ const styles = StyleSheet.create({
   repeatIcon: { color: '#8a4f00', fontSize: 16, fontWeight: '900', lineHeight: 18 },
   repeatText: { color: '#694b22', fontSize: 10, fontWeight: '900' },
   highlight: { backgroundColor: '#f9dc8e', color: '#8a4f00' },
-  progressFill: { backgroundColor: '#2f8f62', height: '100%' },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
   coldStart: { color: '#697177', fontSize: 13, lineHeight: 19, marginTop: 7, textAlign: 'center' },

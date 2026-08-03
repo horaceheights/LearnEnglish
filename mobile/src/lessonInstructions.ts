@@ -38,6 +38,55 @@ const SPANISH_INSTRUCTION_PROMPTS: Record<string, string> = {
   'Listen and choose.': 'Ahora escucha y elige.',
 };
 
+const SHORT_SPANISH_STAGE_LABELS: Record<string, string> = {
+  'Action Introduction': 'Acciones',
+  'Family': 'Familia',
+  'Family Action Practice': 'Acciones',
+  'Family Challenge': 'Reto',
+  'Family Sentences': 'Frases',
+  'Grammar': 'Gramática',
+  'Listen': 'Escucha',
+  'Listen To Picture': 'Escucha',
+  'Meaning Practice': 'Significado',
+  'More People': 'Personas',
+  'Negation Practice': 'Negación',
+  'New Grammar': 'Gramática',
+  'New Vocab': 'Vocab',
+  'New Words': 'Palabras',
+  'Pattern': 'Patrón',
+  'Pattern Challenge': 'Reto',
+  'People': 'Personas',
+  'People Challenge': 'Reto',
+  'Picture To Text': 'Imagen-texto',
+  'Plural Challenge': 'Plural',
+  'Pronoun Pattern': 'Pronombres',
+  'Pronouns': 'Pronombres',
+  'Pronunciation': 'Pronuncia',
+  'Pronunciation Practice': 'Pronuncia',
+  'What Is It?': '¿Qué es?',
+};
+
+const SHORT_ENGLISH_STAGE_LABELS: Record<string, string> = {
+  'Action Introduction': 'Actions',
+  'Family Action Practice': 'Actions',
+  'Family Challenge': 'Challenge',
+  'Family Sentences': 'Sentences',
+  'Listen To Picture': 'Listen',
+  'Meaning Practice': 'Meaning',
+  'More People': 'People',
+  'Negation Practice': 'Negation',
+  'New Grammar': 'Grammar',
+  'New Vocab': 'Vocab',
+  'New Words': 'Words',
+  'Pattern Challenge': 'Challenge',
+  'People Challenge': 'Challenge',
+  'Picture To Text': 'Picture-text',
+  'Plural Challenge': 'Plural',
+  'Pronoun Pattern': 'Pronouns',
+  'Pronunciation Practice': 'Pronounce',
+  'What Is It?': 'What is it?',
+};
+
 export function usesSpanishInstructions(lessonId: string) {
   return SPANISH_FIRST_LESSONS.has(lessonId);
 }
@@ -45,6 +94,13 @@ export function usesSpanishInstructions(lessonId: string) {
 export function lessonStageLabel(lessonId: string, stage: string) {
   if (!usesSpanishInstructions(lessonId)) return stage;
   return SPANISH_STAGE_LABELS[stage] || stage;
+}
+
+export function lessonStageShortLabel(lessonId: string, stage: string) {
+  if (usesSpanishInstructions(lessonId)) {
+    return SHORT_SPANISH_STAGE_LABELS[stage] || lessonStageLabel(lessonId, stage);
+  }
+  return SHORT_ENGLISH_STAGE_LABELS[stage] || stage;
 }
 
 export function lessonPromptText(lessonId: string, prompt: string) {
