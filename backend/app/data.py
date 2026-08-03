@@ -1852,6 +1852,7 @@ def object_place_cards() -> list[LessonCard]:
         *place_listen_to_picture_cards(),
         *place_pronunciation_cards(),
         *negation_intro_cards(LESSON_5_NEGATION_SPECS),
+        *place_negation_picture_cards(),
         *place_grammar_cards(),
     ]
 
@@ -1949,6 +1950,60 @@ def place_pronunciation_cards() -> list[LessonCard]:
                 correct_option_id=option_id,
                 options=[place_choice(option_id, item["sentence"])],
                 audio_text=item["sentence"],
+            )
+        )
+
+    return cards
+
+
+def place_negation_picture_cards() -> list[LessonCard]:
+    """Practice place negation with progressively harder picture choices.
+
+    The two-picture cards can use the short negative sentence because the
+    pictured alternatives are a direct contrast. The four-picture cards add
+    a positive identification so only one of the four images is logically
+    correct.
+    """
+    specs = [
+        {
+            "id": "bike-not-bus-two",
+            "prompt": "It is not a bus.",
+            "correct_id": "bike",
+            "option_ids": ["bike", "bus"],
+        },
+        {
+            "id": "building-not-school-two",
+            "prompt": "It is not a school.",
+            "correct_id": "building",
+            "option_ids": ["building", "school"],
+        },
+        {
+            "id": "bike-not-bus-four",
+            "prompt": "It is a bike. It is not a bus.",
+            "correct_id": "bike",
+            "option_ids": ["bike", "bus", "car", "bridge"],
+        },
+        {
+            "id": "building-not-school-four",
+            "prompt": "It is a building. It is not a school.",
+            "correct_id": "building",
+            "option_ids": ["building", "school", "store", "house"],
+        },
+    ]
+
+    cards: list[LessonCard] = []
+    for spec in specs:
+        option_ids = stable_shuffle(
+            list(spec["option_ids"]),
+            f"place-negation-picture-{spec['id']}",
+        )
+        cards.append(
+            LessonCard(
+                prompt=str(spec["prompt"]),
+                stage="Negation Practice",
+                correct_option_id=str(spec["correct_id"]),
+                options=[place_choice(option_id, "") for option_id in option_ids],
+                audio_text=str(spec["prompt"]),
             )
         )
 
