@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 
+from .diagnostics import initialize_diagnostics
 from .course_audio import audio_debug, get_course_audio, ready_cue_wav
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .schemas import Lesson, LessonCard
@@ -27,7 +28,7 @@ from .tracking import (
     storage_info,
 )
 
-
+initialize_diagnostics()
 app = FastAPI(title="Learn English API", version="0.1.0")
 init_db()
 

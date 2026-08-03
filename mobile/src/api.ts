@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react-native';
 import { fetch } from 'expo/fetch';
 import { File } from 'expo-file-system';
 
@@ -13,6 +14,20 @@ import type {
 const STANDARD_REQUEST_TIMEOUT_MS = 70000;
 const PRONUNCIATION_REQUEST_TIMEOUT_MS = 45000;
 
+function routeTemplate(path: string): string {
+  return path
+    .replace(/\/by-name\/[^/?]+/i, '/by-name/:display_name')
+    .replace(/[0-9a-f]{8}-[0-9a-f-]{27,}/gi, ':id');
+}
+
+function tracedHeaders(headers: HeadersInit | undefined, span: Sentry.Span): Headers {
+  const traced = new Headers(headers);
+  const context = span.spanContext();
+  const sampled = (context.traceFlags & 1) === 1 ? '1' : '0';
+  traced.set('sentry-trace', `${context.traceId}-${context.spanId}-${sampled}`);
+  return traced;
+}
+
 function requestError(error: unknown): Error {
   if (error instanceof Error && error.name === 'AbortError') {
     return new Error('La conexión tardó demasiado. Revisa tu internet e inténtalo otra vez.');
@@ -24,27 +39,41 @@ function requestError(error: unknown): Error {
 }
 
 async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), STANDARD_REQUEST_TIMEOUT_MS);
-  try {
-    const response = await fetch(`${API_BASE_URL}${path}`, {
-      ...init,
-      headers: {
-        'Content-Type': 'application/json',
-        ...init?.headers,
+  const method = init?.method || 'GET';
+  return Sentry.startSpan(
+    {
+      name: `${method} ${routeTemplate(path)}`,
+      op: 'http.client',
+      attributes: {
+        'http.request.method': method,
+        'server.address': 'learnenglish-fxki.onrender.com',
       },
-      signal: controller.signal,
-    });
-    const payload = await response.json();
-    if (!response.ok) {
-      throw new Error(typeof payload?.detail === 'string' ? payload.detail : `Request failed (${response.status}).`);
+    },
+    async (span) => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), STANDARD_REQUEST_TIMEOUT_MS);
+      try {
+        const headers = tracedHeaders(init?.headers, span);
+        headers.set('Content-Type', 'application/json');
+        const response = await fetch(`${API_BASE_URL}${path}`, {
+          ...init,
+          headers,
+          signal: controller.signal,
+        });
+        span.setAttribute('http.response.status_code', response.status);
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(typeof payload?.detail === 'string' ? payload.detail : `Request failed (${response.status}).`);
+        }
+        return payload as T;
+      } catch (error) {
+        span.setAttribute('error.type', error instanceof Error ? error.name : 'unknown');
+        throw requestError(error);
+      } finally {
+        clearTimeout(timeout);
+      }
     }
-    return payload as T;
-  } catch (error) {
-    throw requestError(error);
-  } finally {
-    clearTimeout(timeout);
-  }
+  );
 }
 
 export function getLessons(): Promise<LessonSummary[]> {
@@ -112,38 +141,64 @@ export async function scorePronunciation(
   recordingUri: string,
   phrase: string,
   userId?: string,
+  clientTiming?: { recorderFinalizeMs?: number },
 ): Promise<PronunciationResult> {
-  const requestStartedAt = Date.now();
-  const formData = new FormData();
-  formData.append('text', phrase);
-  formData.append('provider', 'azure');
-  if (userId) formData.append('user_id', userId);
-  formData.append('audio', new File(recordingUri), 'pronunciation.m4a');
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), PRONUNCIATION_REQUEST_TIMEOUT_MS);
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/pronunciation/score`, {
-      method: 'POST',
-      body: formData,
-      signal: controller.signal,
-    });
-    const payload = await response.json();
-    if (!response.ok) {
-      const detail =
-        typeof payload?.detail === 'string'
-          ? payload.detail
-          : JSON.stringify(payload?.detail || payload);
-      throw new Error(detail || `Scoring failed (${response.status}).`);
+  return Sentry.startSpan(
+    {
+      name: 'POST /api/pronunciation/score',
+      op: 'http.client',
+      attributes: {
+        'http.request.method': 'POST',
+        'pronunciation.provider': 'azure',
+        'pronunciation.recorder_finalize_ms': clientTiming?.recorderFinalizeMs,
+        'server.address': 'learnenglish-fxki.onrender.com',
+      },
+    },
+    async (span) => {
+      const requestStartedAt = Date.now();
+      const formData = new FormData();
+      formData.append('text', phrase);
+      formData.append('provider', 'azure');
+      if (userId) formData.append('user_id', userId);
+      formData.append('audio', new File(recordingUri), 'pronunciation.m4a');
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), PRONUNCIATION_REQUEST_TIMEOUT_MS);
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/pronunciation/score`, {
+          method: 'POST',
+          body: formData,
+          headers: tracedHeaders(undefined, span),
+          signal: controller.signal,
+        });
+        span.setAttribute('http.response.status_code', response.status);
+        const payload = await response.json();
+        if (!response.ok) {
+          const detail =
+            typeof payload?.detail === 'string'
+              ? payload.detail
+              : JSON.stringify(payload?.detail || payload);
+          throw new Error(detail || `Scoring failed (${response.status}).`);
+        }
+        const result = payload as PronunciationResult;
+        const clientRequestMs = Date.now() - requestStartedAt;
+        result._timing = {
+          ...result._timing,
+          client_request_ms: clientRequestMs,
+        };
+        span.setAttribute('pronunciation.client_request_ms', clientRequestMs);
+        if (typeof result._timing?.backend_total_ms === 'number') {
+          span.setAttribute('pronunciation.backend_total_ms', result._timing.backend_total_ms);
+        }
+        if (typeof result._timing?.provider_ms === 'number') {
+          span.setAttribute('pronunciation.provider_ms', result._timing.provider_ms);
+        }
+        return result;
+      } catch (error) {
+        span.setAttribute('error.type', error instanceof Error ? error.name : 'unknown');
+        throw requestError(error);
+      } finally {
+        clearTimeout(timeout);
+      }
     }
-    const result = payload as PronunciationResult;
-    result._timing = {
-      ...result._timing,
-      client_request_ms: Date.now() - requestStartedAt,
-    };
-    return result;
-  } catch (error) {
-    throw requestError(error);
-  } finally {
-    clearTimeout(timeout);
-  }
+  );
 }

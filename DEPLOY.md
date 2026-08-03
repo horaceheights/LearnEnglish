@@ -60,6 +60,19 @@ OPENAI_TTS_VOICE=coral
 OPENAI_TTS_FORMAT=mp3
 ```
 
+11. Add Sentry performance tracing for backend latency and mobile-to-server
+trace correlation:
+
+```text
+SENTRY_DSN=your-sentry-project-dsn
+SENTRY_TRACES_SAMPLE_RATE=0.2
+SENTRY_ENVIRONMENT=production
+```
+
+The DSN may be the existing React Native project DSN or a backend project in
+the same Sentry organization. Request bodies are not collected, so learner
+recordings and pronunciation text are excluded from Sentry.
+
 `OPENAI_API_KEY` must be the raw key only, starting with `sk-`. Do not include labels such as `openAI`, quotes, extra spaces, or line breaks.
 
 After saving environment variables in Render, restart or redeploy the backend. Then verify:

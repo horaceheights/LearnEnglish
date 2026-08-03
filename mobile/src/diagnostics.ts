@@ -13,6 +13,12 @@ export type DiagnosticContext = {
 
 let currentContext: DiagnosticContext = {};
 const sentryDsn = process.env.EXPO_PUBLIC_SENTRY_DSN?.trim() || '';
+const configuredTraceSampleRate = Number(
+  process.env.EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE || '0.2',
+);
+const traceSampleRate = Number.isFinite(configuredTraceSampleRate)
+  ? Math.min(Math.max(configuredTraceSampleRate, 0), 1)
+  : 0.2;
 
 function updateSentryContext(): void {
   Sentry.setContext('learning_activity', {
@@ -31,6 +37,11 @@ export function initializeDiagnostics(): void {
     dsn: sentryDsn,
     enabled: Boolean(sentryDsn),
     integrations: [
+      Sentry.reactNativeTracingIntegration({
+        shouldCreateSpanForRequest: (url) => url.includes('learnenglish-fxki.onrender.com'),
+        traceFetch: true,
+        traceXHR: false,
+      }),
       Sentry.mobileReplayIntegration({
         maskAllImages: true,
         maskAllText: true,
@@ -40,7 +51,13 @@ export function initializeDiagnostics(): void {
     replaysOnErrorSampleRate: 1.0,
     replaysSessionSampleRate: 0.1,
     sendDefaultPii: false,
-    tracesSampleRate: 0,
+    enableAppStartTracking: true,
+    enableCaptureFailedRequests: true,
+    enableNativeFramesTracking: true,
+    enableStallTracking: true,
+    enableUserInteractionTracing: true,
+    tracePropagationTargets: ['learnenglish-fxki.onrender.com'],
+    tracesSampleRate: traceSampleRate,
   });
 
   Sentry.setTags({

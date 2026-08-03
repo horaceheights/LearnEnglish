@@ -1,6 +1,7 @@
 import os
 from typing import Any
 
+import sentry_sdk
 from fastapi import HTTPException, UploadFile
 
 from .azure_pronunciation import azure_configured, azure_debug, close_azure_client, get_browser_speech_token, score_with_azure
@@ -30,6 +31,8 @@ async def get_pronunciation_browser_token() -> dict[str, str]:
 
 async def score_pronunciation(*, text: str, audio_file: UploadFile, user_id: str | None = None, question_info: str | None = None, provider_override: str | None = None):
     provider = (provider_override or pronunciation_provider()).strip().lower()
-    if provider == "azure":
-        return await score_with_azure(text=text, audio_file=audio_file)
-    raise HTTPException(status_code=503, detail=f"Unsupported pronunciation provider: {provider}")
+    with sentry_sdk.start_span(op="pronunciation.score", name="Score pronunciation") as span:
+        span.set_data("pronunciation.provider", provider)
+        if provider == "azure":
+            return await score_with_azure(text=text, audio_file=audio_file)
+        raise HTTPException(status_code=503, detail=f"Unsupported pronunciation provider: {provider}")

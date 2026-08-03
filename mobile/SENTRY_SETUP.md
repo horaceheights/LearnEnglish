@@ -11,6 +11,7 @@ prevent the app from starting.
 3. Create an organization auth token with source-map upload and release scopes.
 4. Add these EAS environment variables to `preview` and `production`:
    - `EXPO_PUBLIC_SENTRY_DSN` (plain text; a DSN is a public client identifier)
+   - `EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` (plain text; `0.2` is the default)
    - `SENTRY_ORG` (plain text)
    - `SENTRY_PROJECT` (plain text)
    - `SENTRY_AUTH_TOKEN` (sensitive)
@@ -18,6 +19,25 @@ prevent the app from starting.
 
 Never commit the auth token. Learner names, recordings, and spoken audio are
 not added to Sentry events. Default PII collection is disabled.
+
+## Performance tracing
+
+The mobile app samples 20% of app starts, interactions, API requests, frame
+measurements, and custom pronunciation spans by default. Set
+`EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` between `0` and `1` to change the
+sample without editing code.
+
+The FastAPI service uses the same trace IDs to continue mobile requests through
+Render and the Azure pronunciation call. Add these Render environment variables:
+
+- `SENTRY_DSN`: use the current Sentry project DSN, or a backend project DSN
+  from the same Sentry organization.
+- `SENTRY_TRACES_SAMPLE_RATE=0.2`
+- `SENTRY_ENVIRONMENT=production`
+
+Backend request bodies are disabled in Sentry. Audio recordings, reference
+phrases, learner names, and API keys are not attached to spans. Trace spans
+contain route names, response status, durations, and audio byte counts only.
 
 ## Verification
 

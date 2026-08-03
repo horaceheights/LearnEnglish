@@ -8,6 +8,7 @@ from typing import Any
 
 import av
 import httpx
+import sentry_sdk
 from av.error import FFmpegError
 from fastapi import HTTPException, UploadFile
 
@@ -183,7 +184,9 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
 
     backend_started = time.perf_counter()
     read_started = time.perf_counter()
-    audio = await audio_file.read()
+    with sentry_sdk.start_span(op="file.read", name="Read pronunciation audio") as read_span:
+        audio = await audio_file.read()
+        read_span.set_data("audio.uploaded_bytes", len(audio))
     read_audio_ms = round((time.perf_counter() - read_started) * 1000)
     if not audio:
         raise HTTPException(status_code=400, detail="Audio file is empty.")
@@ -191,7 +194,9 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
     convert_audio_ms = 0
     if _is_mobile_audio(audio_file):
         convert_started = time.perf_counter()
-        audio = convert_mobile_audio_to_wav(audio)
+        with sentry_sdk.start_span(op="audio.convert", name="Convert pronunciation audio") as convert_span:
+            audio = convert_mobile_audio_to_wav(audio)
+            convert_span.set_data("audio.converted_bytes", len(audio))
         convert_audio_ms = round((time.perf_counter() - convert_started) * 1000)
         content_type = "audio/wav; codecs=audio/pcm; samplerate=16000"
     else:
@@ -209,17 +214,19 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
     url = f"https://{region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1"
     started = time.perf_counter()
     try:
-        response = await azure_client().post(
-            url,
-            params={"language": locale, "format": "detailed"},
-            headers={
-                "Ocp-Apim-Subscription-Key": key,
-                "Pronunciation-Assessment": encoded_config,
-                "Content-Type": content_type,
-                "Accept": "application/json",
-            },
-            content=audio,
-        )
+        with sentry_sdk.start_span(op="pronunciation.provider", name="Azure pronunciation assessment") as provider_span:
+            response = await azure_client().post(
+                url,
+                params={"language": locale, "format": "detailed"},
+                headers={
+                    "Ocp-Apim-Subscription-Key": key,
+                    "Pronunciation-Assessment": encoded_config,
+                    "Content-Type": content_type,
+                    "Accept": "application/json",
+                },
+                content=audio,
+            )
+            provider_span.set_data("http.response.status_code", response.status_code)
     except httpx.RequestError as error:
         raise HTTPException(status_code=502, detail=f"Could not reach Azure Speech: {error}") from error
 

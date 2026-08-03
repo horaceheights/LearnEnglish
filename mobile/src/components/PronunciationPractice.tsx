@@ -147,7 +147,9 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         scheduleRetry('No te pude escuchar.', runId);
         return;
       }
-      const nextResult = await scorePronunciation(uri, phrase, userId);
+      const nextResult = await scorePronunciation(uri, phrase, userId, {
+        recorderFinalizeMs,
+      });
       if (!isCurrentRun(runId)) return;
       nextResult._timing = {
         ...nextResult._timing,
