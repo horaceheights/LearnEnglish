@@ -730,9 +730,9 @@ def people_action_cards() -> list[LessonCard]:
     return [
         *people_new_vocab_cards(),
         *people_action_intro_cards(),
+        *people_meaning_practice_cards(),
         *people_plural_intro_cards(),
         *people_plural_challenge_cards(),
-        *people_meaning_practice_cards(),
         *people_listen_cards(),
         *people_pronunciation_cards(),
         *people_grammar_cards(),
@@ -795,7 +795,7 @@ def people_meaning_practice_cards() -> list[LessonCard]:
         cards.append(
             LessonCard(
                 prompt=sentence,
-                stage="Meaning Practice",
+                stage="Action Introduction",
                 correct_option_id=correct_id,
                 options=[action_choice(option_id, "") for option_id in option_ids],
                 audio_text=sentence,
