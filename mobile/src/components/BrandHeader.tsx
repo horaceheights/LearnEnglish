@@ -11,7 +11,7 @@ type Props = {
 export function BrandHeader({ eyebrow, title, subtitle, compact = false, onLogoPress }: Props) {
   const logo = (
     <Image
-      accessibilityLabel="SpanGlish"
+      accessible={false}
       resizeMode="contain"
       source={require('../../assets/icon.png')}
       style={[styles.logo, compact ? styles.logoCompact : null]}
@@ -21,10 +21,10 @@ export function BrandHeader({ eyebrow, title, subtitle, compact = false, onLogoP
   return (
     <View style={[styles.hero, compact ? styles.heroCompact : null]}>
       {onLogoPress ? (
-        <Pressable accessibilityRole="button" onPress={onLogoPress}>{logo}</Pressable>
+        <Pressable accessibilityLabel="SpanGlish" accessibilityRole="button" onPress={onLogoPress}>{logo}</Pressable>
       ) : logo}
       {eyebrow ? <Text style={styles.eyebrow}>{eyebrow}</Text> : null}
-      <Text style={[styles.title, compact ? styles.titleCompact : null]}>{title}</Text>
+      <Text accessibilityRole="header" style={[styles.title, compact ? styles.titleCompact : null]}>{title}</Text>
       {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
     </View>
   );

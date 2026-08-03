@@ -164,7 +164,7 @@ export function LessonCardView({
       ) : null}
       {showHelp ? (
         <View style={styles.help}>
-          <Text style={styles.helpTitle}>Ayuda</Text>
+          <Text accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
           <Text style={styles.helpText}>
             {isPronunciation
               ? 'Escucha la frase, repítela cuando aparezca la señal y revisa las palabras marcadas.'
@@ -251,6 +251,7 @@ export function LessonCardView({
                 >
                   {option.image_url ? (
                     <Image
+                      accessible={false}
                       accessibilityIgnoresInvertColors
                       resizeMode="contain"
                       source={{ uri: absoluteMediaUrl(option.image_url) }}
@@ -309,7 +310,12 @@ export function LessonCardView({
             })}
           </View>
           {result ? (
-            <View style={styles.feedback}>
+            <View
+              accessible
+              accessibilityLiveRegion="polite"
+              accessibilityRole="text"
+              style={styles.feedback}
+            >
               <Text style={[
                 styles.feedbackText,
                 isTabletLandscape ? styles.feedbackTextTablet : null,

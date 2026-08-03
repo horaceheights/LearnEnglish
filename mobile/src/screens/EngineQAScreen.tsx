@@ -76,10 +76,10 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
         <View style={styles.header}>
           <View>
             <Text style={styles.eyebrow}>INTERNAL TESTING</Text>
-            <Text style={styles.title}>Engine QA</Text>
+            <Text accessibilityRole="header" style={styles.title}>Engine QA</Text>
             <Text style={styles.subtitle}>Abre cualquier tarjeta sin modificar el progreso del alumno.</Text>
           </View>
-          <Pressable accessibilityRole="button" onPress={onExit} style={styles.exitButton}>
+          <Pressable accessibilityLabel="Volver al inicio" accessibilityRole="button" onPress={onExit} style={styles.exitButton}>
             <Text style={styles.exitText}>← Inicio</Text>
           </Pressable>
         </View>
@@ -102,6 +102,7 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
             return (
               <Pressable
                 accessibilityRole="button"
+                accessibilityState={{ selected }}
                 key={lesson.id}
                 onPress={() => void chooseLesson(lesson.id)}
                 style={[styles.lessonButton, selected ? styles.lessonButtonSelected : null]}
@@ -125,6 +126,7 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
               {stages.map((stage) => (
                 <Pressable
                   accessibilityRole="button"
+                  accessibilityState={{ selected: selectedStage === stage }}
                   key={stage}
                   onPress={() => setSelectedStage(stage)}
                   style={[styles.stageButton, selectedStage === stage ? styles.stageButtonSelected : null]}
@@ -173,7 +175,7 @@ const styles = StyleSheet.create({
   eyebrow: { color: '#76559e', fontSize: 10, fontWeight: '900', letterSpacing: 1.3 },
   title: { color: '#2b2433', fontSize: 32, fontWeight: '900', marginTop: 2 },
   subtitle: { color: '#675f6f', fontSize: 13, lineHeight: 18, marginTop: 4, maxWidth: 260 },
-  exitButton: { backgroundColor: '#fff', borderColor: '#cdbbdd', borderRadius: 14, borderWidth: 1, paddingHorizontal: 13, paddingVertical: 10 },
+  exitButton: { backgroundColor: '#fff', borderColor: '#cdbbdd', borderRadius: 14, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
   exitText: { color: '#533278', fontSize: 13, fontWeight: '900' },
   instructions: { backgroundColor: '#eee3f7', borderRadius: 18, padding: 15 },
   instructionsTitle: { color: '#3f2859', fontSize: 14, fontWeight: '900' },
@@ -181,19 +183,19 @@ const styles = StyleSheet.create({
   error: { backgroundColor: '#fbeceb', borderRadius: 12, color: '#a34842', padding: 12, textAlign: 'center' },
   sectionTitle: { color: '#2b2433', fontSize: 17, fontWeight: '900' },
   lessonList: { gap: 8 },
-  lessonButton: { backgroundColor: '#fff', borderColor: '#ded3e7', borderRadius: 14, borderWidth: 1, padding: 13 },
+  lessonButton: { backgroundColor: '#fff', borderColor: '#ded3e7', borderRadius: 14, borderWidth: 1, justifyContent: 'center', minHeight: 48, padding: 13 },
   lessonButtonSelected: { backgroundColor: '#67418c', borderColor: '#67418c' },
   lessonButtonText: { color: '#3f3944', fontSize: 14, fontWeight: '800' },
   lessonButtonTextSelected: { color: '#fff' },
   stageList: { gap: 8, paddingRight: 16 },
-  stageButton: { backgroundColor: '#fff', borderColor: '#d8cbe3', borderRadius: 999, borderWidth: 1, paddingHorizontal: 13, paddingVertical: 9 },
+  stageButton: { backgroundColor: '#fff', borderColor: '#d8cbe3', borderRadius: 999, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
   stageButtonSelected: { backgroundColor: '#e1caef', borderColor: '#9b71b8' },
   stageText: { color: '#5f5765', fontSize: 12, fontWeight: '800' },
   stageTextSelected: { color: '#4f2769' },
   cardHeading: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   cardCount: { color: '#766f7b', fontSize: 11, fontWeight: '700' },
   cardList: { gap: 8 },
-  cardButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#ded3e7', borderRadius: 15, borderWidth: 1, flexDirection: 'row', padding: 11 },
+  cardButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#ded3e7', borderRadius: 15, borderWidth: 1, flexDirection: 'row', minHeight: 56, padding: 11 },
   cardNumber: { color: '#76559e', fontSize: 13, fontWeight: '900', minWidth: 40 },
   cardText: { flex: 1 },
   cardPrompt: { color: '#2f2934', fontSize: 14, fontWeight: '800' },

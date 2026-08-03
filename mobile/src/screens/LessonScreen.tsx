@@ -573,14 +573,23 @@ export function LessonScreen({
         <View style={styles.hero}>
           <View style={styles.heroTop}>
             <View style={styles.heroNavigation}>
-              <Pressable accessibilityLabel="Volver a lecciones" onPress={onExit} style={styles.logoPill}>
+              <View accessible={false} importantForAccessibility="no-hide-descendants" style={styles.logoPill}>
                 <Text style={styles.logoText}>SP</Text>
-              </Pressable>
-              <Pressable accessibilityRole="button" onPress={onExit} style={styles.backButton}>
+              </View>
+              <Pressable
+                accessibilityLabel="Volver a lecciones"
+                accessibilityRole="button"
+                onPress={onExit}
+                style={styles.backButton}
+              >
                 <Text style={styles.backButtonText}>← Lecciones</Text>
               </Pressable>
             </View>
-            <View style={styles.lessonStatus}>
+            <View
+              accessible
+              accessibilityLabel={`Progreso ${cardIndex + 1} de ${lesson.cards.length}. Puntaje ${score}.`}
+              style={styles.lessonStatus}
+            >
               <View style={styles.statusMetric}>
                 <Text style={styles.statusLabel}>PROGRESO</Text>
                 <Text style={styles.statusValue}>{cardIndex + 1} / {lesson.cards.length}</Text>
@@ -595,6 +604,8 @@ export function LessonScreen({
             </View>
             <Pressable
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
+              accessibilityRole="button"
+              accessibilityState={{ expanded: showHelp }}
               onPress={() => setShowHelp((current) => !current)}
               style={[styles.helpButton, showHelp ? styles.helpButtonActive : null]}
             >
@@ -603,10 +614,14 @@ export function LessonScreen({
           </View>
         </View>
         <View style={styles.contentHeader}>
-          <Text style={styles.stage}>{lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}</Text>
+          <Text accessibilityRole="header" style={styles.stage}>
+            {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
+          </Text>
           <View style={styles.promptRow}>
             <Pressable
               accessibilityLabel={`Reproducir: ${promptAudio}`}
+              accessibilityHint="Toca dos veces para escuchar la frase"
+              accessibilityRole="button"
               disabled={!promptAudio.trim()}
               onPress={() => isPronunciation
                 ? playAudio(promptAudio, 'pronunciation_slow', 'split-ing')
@@ -633,7 +648,9 @@ export function LessonScreen({
             {!isPronunciation && promptAudio.trim() ? (
               <Pressable
                 accessibilityLabel={`Repetir audio: ${promptAudio}`}
+                accessibilityHint="Reproduce nuevamente la frase"
                 accessibilityRole="button"
+                hitSlop={6}
                 onPress={() => playAudio(promptAudio, 'prompt', 'prompt')}
                 style={({ pressed }) => [
                   styles.repeatButton,
@@ -691,16 +708,16 @@ const styles = StyleSheet.create({
   hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, paddingHorizontal: 9, paddingVertical: 5 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
-  logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 13, height: 30, justifyContent: 'center', width: 50 },
+  logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 15, height: 48, justifyContent: 'center', width: 54 },
   logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
-  backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 30, paddingHorizontal: 10 },
+  backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
   lessonStatus: { alignItems: 'center', flexDirection: 'row', gap: 18, justifyContent: 'center', minWidth: 210, position: 'relative', paddingBottom: 5 },
   statusMetric: { alignItems: 'center', minWidth: 62 },
   statusLabel: { color: '#697177', fontSize: 7, fontWeight: '900', letterSpacing: 0.8 },
   statusValue: { color: '#24333a', fontSize: 13, fontWeight: '900', lineHeight: 15 },
   headerProgressTrack: { backgroundColor: '#d9c6a8', borderRadius: 2, bottom: 0, height: 3, left: 0, overflow: 'hidden', position: 'absolute', right: 0 },
-  helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 2, height: 30, justifyContent: 'center', width: 30 },
+  helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
   contentHeader: { backgroundColor: '#fff', borderColor: '#e4ded2', borderRadius: 18, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 7 },
@@ -720,7 +737,7 @@ const styles = StyleSheet.create({
   coldStart: { color: '#697177', fontSize: 13, lineHeight: 19, marginTop: 7, textAlign: 'center' },
   errorTitle: { color: '#24333a', fontSize: 23, fontWeight: '900', textAlign: 'center' },
   errorText: { color: '#a34842', fontSize: 14, marginTop: 9, textAlign: 'center' },
-  primary: { alignItems: 'center', backgroundColor: '#e96f42', borderRadius: 15, justifyContent: 'center', marginTop: 20, minHeight: 54, paddingHorizontal: 26 },
+  primary: { alignItems: 'center', backgroundColor: '#c94d24', borderRadius: 15, justifyContent: 'center', marginTop: 20, minHeight: 54, paddingHorizontal: 26 },
   primaryText: { color: '#fff', fontSize: 16, fontWeight: '900' },
   linkButton: { marginTop: 15, padding: 10 },
   linkText: { color: '#16766f', fontSize: 15, fontWeight: '800' },

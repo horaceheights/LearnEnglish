@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   label: { color: '#24333a', fontSize: 15, fontWeight: '800', marginBottom: 8 },
   input: { borderColor: '#ddd8cf', borderRadius: 15, borderWidth: 1, color: '#24333a', fontSize: 17, minHeight: 54, paddingHorizontal: 16 },
   error: { color: '#b94b44', fontSize: 13, marginTop: 10 },
-  primary: { alignItems: 'center', backgroundColor: '#e96f42', borderRadius: 15, justifyContent: 'center', marginTop: 18, minHeight: 54 },
+  primary: { alignItems: 'center', backgroundColor: '#c94d24', borderRadius: 15, justifyContent: 'center', marginTop: 18, minHeight: 54 },
   primaryText: { color: '#fff', fontSize: 16, fontWeight: '900' },
   secondary: { alignItems: 'center', borderColor: '#ddd8cf', borderRadius: 15, borderWidth: 1, justifyContent: 'center', marginTop: 10, minHeight: 52 },
   secondaryText: { color: '#24333a', fontSize: 16, fontWeight: '800' },

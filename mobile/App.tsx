@@ -69,7 +69,7 @@ class AppErrorBoundary extends Component<
               </Text>
             </View>
           ) : null}
-          <Pressable onPress={() => void Updates.reloadAsync()} style={styles.crashButton}>
+          <Pressable accessibilityRole="button" onPress={() => void Updates.reloadAsync()} style={styles.crashButton}>
             <Text style={styles.crashButtonText}>Reiniciar la app</Text>
           </Pressable>
         </View>
@@ -189,6 +189,6 @@ const styles = StyleSheet.create({
   diagnosticTitle: { color: '#76559e', fontSize: 8, fontWeight: '900', letterSpacing: 0.8 },
   diagnosticText: { color: '#4d4353', fontSize: 11, fontWeight: '800', marginTop: 3 },
   diagnosticPrompt: { color: '#6e626f', fontSize: 10, lineHeight: 14, marginTop: 4 },
-  crashButton: { alignItems: 'center', backgroundColor: '#e96f42', borderRadius: 14, marginTop: 18, padding: 14 },
+  crashButton: { alignItems: 'center', backgroundColor: '#c94d24', borderRadius: 14, marginTop: 18, padding: 14 },
   crashButtonText: { color: '#fff', fontSize: 15, fontWeight: '900' },
 });

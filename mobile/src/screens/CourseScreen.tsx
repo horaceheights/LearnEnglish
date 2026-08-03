@@ -128,6 +128,7 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
       <ScrollView contentContainerStyle={styles.page}>
         <Pressable
           accessibilityRole={updateState === 'ready' ? 'button' : 'text'}
+          accessibilityState={{ busy: updateState === 'checking' }}
           disabled={updateState !== 'ready'}
           onPress={() => void Updates.reloadAsync()}
           style={[
@@ -174,7 +175,9 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
         {error ? (
           <View style={styles.errorPanel}>
             <Text style={styles.error}>{error}</Text>
-            <Pressable onPress={load}><Text style={styles.retry}>Reintentar</Text></Pressable>
+            <Pressable accessibilityRole="button" onPress={load} style={styles.retryButton}>
+              <Text style={styles.retry}>Reintentar</Text>
+            </Pressable>
           </View>
         ) : null}
         {!lessons.length && !error ? <ActivityIndicator color="#e96f42" size="large" /> : null}
@@ -183,6 +186,8 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
             const visual = VISUALS[lesson.id] || VISUALS['lesson-1-people-actions'];
             return (
               <Pressable
+                accessibilityHint="Abre esta lección en modo horizontal"
+                accessibilityLabel={`${lesson.sub_lesson_id || lesson.title} ${lesson.sub_lesson_title || ''}. ${visual.description}`}
                 accessibilityRole="button"
                 key={lesson.id}
                 onPress={() => openLesson(lesson.id)}
@@ -229,6 +234,8 @@ const styles = StyleSheet.create({
     borderColor: '#ddd8cf',
     borderRadius: 10,
     borderWidth: 1,
+    justifyContent: 'center',
+    minHeight: 48,
     paddingHorizontal: 10,
     paddingVertical: 6,
   },
@@ -259,6 +266,7 @@ const styles = StyleSheet.create({
   start: { color: '#16766f', fontSize: 15, fontWeight: '900', margin: 4, marginTop: 9 },
   errorPanel: { alignItems: 'center', backgroundColor: '#fbeceb', borderRadius: 16, padding: 15 },
   error: { color: '#a34842', textAlign: 'center' },
-  retry: { color: '#a34842', fontWeight: '900', marginTop: 8 },
+  retryButton: { alignItems: 'center', justifyContent: 'center', marginTop: 8, minHeight: 48, minWidth: 96 },
+  retry: { color: '#a34842', fontWeight: '900' },
   pressed: { opacity: 0.72 },
 });
