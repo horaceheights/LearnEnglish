@@ -10,19 +10,41 @@ import type {
   SavedUser,
 } from './types';
 
-async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...init,
-    headers: {
-      'Content-Type': 'application/json',
-      ...init?.headers,
-    },
-  });
-  const payload = await response.json();
-  if (!response.ok) {
-    throw new Error(typeof payload?.detail === 'string' ? payload.detail : `Request failed (${response.status}).`);
+const STANDARD_REQUEST_TIMEOUT_MS = 70000;
+const PRONUNCIATION_REQUEST_TIMEOUT_MS = 45000;
+
+function requestError(error: unknown): Error {
+  if (error instanceof Error && error.name === 'AbortError') {
+    return new Error('La conexión tardó demasiado. Revisa tu internet e inténtalo otra vez.');
   }
-  return payload as T;
+  if (error instanceof Error && /network|fetch|internet|connection/i.test(error.message)) {
+    return new Error('No pudimos conectarnos. Revisa tu internet e inténtalo otra vez.');
+  }
+  return error instanceof Error ? error : new Error('Ocurrió un problema de conexión. Inténtalo otra vez.');
+}
+
+async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), STANDARD_REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(`${API_BASE_URL}${path}`, {
+      ...init,
+      headers: {
+        'Content-Type': 'application/json',
+        ...init?.headers,
+      },
+      signal: controller.signal,
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      throw new Error(typeof payload?.detail === 'string' ? payload.detail : `Request failed (${response.status}).`);
+    }
+    return payload as T;
+  } catch (error) {
+    throw requestError(error);
+  } finally {
+    clearTimeout(timeout);
+  }
 }
 
 export function getLessons(): Promise<LessonSummary[]> {
@@ -97,22 +119,31 @@ export async function scorePronunciation(
   formData.append('provider', 'azure');
   if (userId) formData.append('user_id', userId);
   formData.append('audio', new File(recordingUri), 'pronunciation.m4a');
-  const response = await fetch(`${API_BASE_URL}/api/pronunciation/score`, {
-    method: 'POST',
-    body: formData,
-  });
-  const payload = await response.json();
-  if (!response.ok) {
-    const detail =
-      typeof payload?.detail === 'string'
-        ? payload.detail
-        : JSON.stringify(payload?.detail || payload);
-    throw new Error(detail || `Scoring failed (${response.status}).`);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), PRONUNCIATION_REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/pronunciation/score`, {
+      method: 'POST',
+      body: formData,
+      signal: controller.signal,
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      const detail =
+        typeof payload?.detail === 'string'
+          ? payload.detail
+          : JSON.stringify(payload?.detail || payload);
+      throw new Error(detail || `Scoring failed (${response.status}).`);
+    }
+    const result = payload as PronunciationResult;
+    result._timing = {
+      ...result._timing,
+      client_request_ms: Date.now() - requestStartedAt,
+    };
+    return result;
+  } catch (error) {
+    throw requestError(error);
+  } finally {
+    clearTimeout(timeout);
   }
-  const result = payload as PronunciationResult;
-  result._timing = {
-    ...result._timing,
-    client_request_ms: Date.now() - requestStartedAt,
-  };
-  return result;
 }

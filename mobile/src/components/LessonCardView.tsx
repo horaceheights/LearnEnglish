@@ -2,6 +2,7 @@ import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensio
 import { useEffect, useRef, useState } from 'react';
 
 import { absoluteMediaUrl } from '../config';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import type { LessonCard } from '../types';
 import { PronunciationPractice } from './PronunciationPractice';
 
@@ -38,6 +39,7 @@ export function LessonCardView({
   onGrammarAnimationComplete,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
+  const reduceMotion = useReducedMotion();
   const isPronunciation = card.stage === 'Pronunciation Practice';
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar';
   const isListenCard = card.stage === 'Listen';
@@ -103,6 +105,12 @@ export function LessonCardView({
       return undefined;
     }
 
+    if (reduceMotion) {
+      setFlyingAnswer('');
+      onGrammarAnimationComplete();
+      return undefined;
+    }
+
     setFlyingAnswer(selectedOption.label);
     flyingAnswerAnimation.setValue(0);
     const animation = Animated.timing(flyingAnswerAnimation, {
@@ -122,6 +130,7 @@ export function LessonCardView({
     flyingAnswerAnimation,
     isGrammar,
     onGrammarAnimationComplete,
+    reduceMotion,
     result,
     selectedId,
   ]);

@@ -3,7 +3,7 @@ import {
   ActivityIndicator,
   BackHandler,
   Pressable,
-  SafeAreaView,
+  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -13,6 +13,7 @@ import {
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import {
   finishLessonSession,
@@ -24,6 +25,7 @@ import { LessonCardView } from '../components/LessonCardView';
 import { courseAudioUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
+import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
 import type { LearnerProfile, Lesson } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
@@ -48,7 +50,7 @@ export function LessonScreen({
   const audioPlayerStatus = useAudioPlayerStatus(audioPlayer);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME);
   const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE);
-  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
+  const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAudioAwaitingRef = useRef(false);
@@ -74,6 +76,7 @@ export function LessonScreen({
   const [qaAutoAdvance, setQaAutoAdvance] = useState(false);
   const [cardRunId, setCardRunId] = useState(0);
   const [promptTextWidth, setPromptTextWidth] = useState(0);
+  const loadingMessage = useProgressiveLoadingMessage(isLoading);
 
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
@@ -143,8 +146,8 @@ export function LessonScreen({
           .then((session) => setSessionId(session.id))
           .catch(() => undefined);
       }
-    } catch {
-      setError('No pudimos cargar esta lección. Inténtalo otra vez.');
+    } catch (loadError) {
+      setError(loadError instanceof Error ? loadError.message : 'No pudimos cargar esta lección. Inténtalo otra vez.');
     } finally {
       setIsLoading(false);
     }
@@ -471,8 +474,8 @@ export function LessonScreen({
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.center}>
           <ActivityIndicator color="#e96f42" size="large" />
-          <Text style={styles.loadingText}>Cargando la lección…</Text>
-          <Text style={styles.coldStart}>La primera carga puede tardar mientras el servidor despierta.</Text>
+          <Text accessibilityLiveRegion="polite" style={styles.loadingText}>Cargando la lección…</Text>
+          <Text style={styles.coldStart}>{loadingMessage}</Text>
         </View>
       </SafeAreaView>
     );
@@ -510,14 +513,12 @@ export function LessonScreen({
 
   const progress = ((cardIndex + 1) / lesson.cards.length) * 100;
 
-  return (
-    <SafeAreaView style={styles.safeArea}>
-      <StatusBar hidden />
-      <View style={styles.page}>
+  const lessonContent = (
+    <>
         {qaMode ? (
           <View style={styles.qaToolbar}>
             <View style={styles.qaIdentity}>
-              <Text style={styles.qaLabel}>ENGINE QA · v{Updates.runtimeVersion || '1.3.0'} · {updateCode}</Text>
+              <Text style={styles.qaLabel}>ENGINE QA · v{Updates.runtimeVersion || '1.4.0'} · {updateCode}</Text>
               <Text numberOfLines={1} style={styles.qaContext}>
                 {lesson.id} · #{cardIndex + 1}/{lesson.cards.length} · {currentCard.stage}
               </Text>
@@ -683,7 +684,24 @@ export function LessonScreen({
           showHelp={showHelp}
           userId={profile.userId}
         />
-      </View>
+    </>
+  );
+  const needsAccessibleScrolling = fontScale > 1.15 || viewportHeight < 380;
+
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar hidden />
+      {needsAccessibleScrolling ? (
+        <ScrollView
+          contentContainerStyle={styles.pageScrollable}
+          persistentScrollbar
+          style={styles.pageScroll}
+        >
+          {lessonContent}
+        </ScrollView>
+      ) : (
+        <View style={styles.page}>{lessonContent}</View>
+      )}
     </SafeAreaView>
   );
 }
@@ -691,6 +709,8 @@ export function LessonScreen({
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { flex: 1, gap: 6, padding: 6 },
+  pageScroll: { flex: 1 },
+  pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
   qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 54, paddingHorizontal: 10, paddingVertical: 5 },
   qaIdentity: { flex: 1, marginRight: 8 },
   qaLabel: { color: '#d8bfe9', fontSize: 7, fontWeight: '900', letterSpacing: 0.7 },

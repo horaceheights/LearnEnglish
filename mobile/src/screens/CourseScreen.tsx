@@ -3,7 +3,6 @@ import {
   ActivityIndicator,
   Image,
   Pressable,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
@@ -12,11 +11,13 @@ import {
 } from 'react-native';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getLessons } from '../api';
 import { BrandHeader } from '../components/BrandHeader';
 import { absoluteMediaUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
+import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
 import type { LearnerProfile, LessonSummary } from '../types';
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
@@ -63,23 +64,29 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
   const { currentlyRunning, isUpdatePending } = Updates.useUpdates();
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
-  const isTablet = Math.min(viewportWidth, viewportHeight) >= 540;
-  const lessonCardWidth = isTablet ? '31.5%' : '48.5%';
-  const lessonImageHeight = isTablet ? 190 : 138;
+  const useGrid = isLandscape || viewportWidth >= 600;
+  const isExpanded = viewportWidth >= 840;
+  const lessonCardWidth = isExpanded ? '31.5%' : '48.5%';
+  const lessonImageHeight = isExpanded ? 210 : viewportWidth >= 600 ? 180 : 138;
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const [loadingLessonId, setLoadingLessonId] = useState('');
   const [updateState, setUpdateState] = useState<'checking' | 'current' | 'ready' | 'unavailable'>('checking');
 
   const updateCode = currentlyRunning.updateId?.slice(0, 8) || 'embedded';
-  const versionLabel = `v${currentlyRunning.runtimeVersion || '1.3.0'} · ${updateCode}`;
+  const versionLabel = `v${currentlyRunning.runtimeVersion || '1.4.0'} · ${updateCode}`;
+  const loadingMessage = useProgressiveLoadingMessage(isLoading);
 
   const load = async () => {
+    setIsLoading(true);
     setError('');
     try {
       setLessons(await getLessons());
-    } catch {
-      setError('No pudimos cargar las lecciones. Inténtalo otra vez.');
+    } catch (loadError) {
+      setError(loadError instanceof Error ? loadError.message : 'No pudimos cargar las lecciones. Inténtalo otra vez.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -180,8 +187,13 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
             </Pressable>
           </View>
         ) : null}
-        {!lessons.length && !error ? <ActivityIndicator color="#e96f42" size="large" /> : null}
-        <View style={[styles.grid, isLandscape ? styles.gridLandscape : null]}>
+        {isLoading && !lessons.length && !error ? (
+          <View accessible accessibilityLiveRegion="polite" style={styles.loadingPanel}>
+            <ActivityIndicator color="#e96f42" size="large" />
+            <Text style={styles.loadingText}>{loadingMessage}</Text>
+          </View>
+        ) : null}
+        <View style={[styles.grid, useGrid ? styles.gridLandscape : null]}>
           {lessons.map((lesson) => {
             const visual = VISUALS[lesson.id] || VISUALS['lesson-1-people-actions'];
             return (
@@ -193,14 +205,14 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
                 onPress={() => openLesson(lesson.id)}
                 style={({ pressed }) => [
                   styles.lessonCard,
-                  isLandscape ? { width: lessonCardWidth } : null,
+                  useGrid ? { width: lessonCardWidth } : null,
                   pressed ? styles.pressed : null,
                 ]}
               >
                 <View style={[
                   styles.imagePanel,
                   { backgroundColor: visual.color },
-                  isLandscape ? { height: lessonImageHeight } : null,
+                  useGrid ? { height: lessonImageHeight } : null,
                 ]}>
                   <Image
                     resizeMode="contain"
@@ -227,7 +239,7 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
 
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
-  page: { gap: 16, padding: 16, paddingBottom: 32 },
+  page: { alignSelf: 'center', gap: 16, maxWidth: 1280, padding: 16, paddingBottom: 32, width: '100%' },
   versionBadge: {
     alignSelf: 'flex-end',
     backgroundColor: '#f2ebde',
@@ -266,6 +278,8 @@ const styles = StyleSheet.create({
   start: { color: '#16766f', fontSize: 15, fontWeight: '900', margin: 4, marginTop: 9 },
   errorPanel: { alignItems: 'center', backgroundColor: '#fbeceb', borderRadius: 16, padding: 15 },
   error: { color: '#a34842', textAlign: 'center' },
+  loadingPanel: { alignItems: 'center', gap: 10, paddingVertical: 24 },
+  loadingText: { color: '#526168', fontSize: 14, lineHeight: 20, maxWidth: 420, textAlign: 'center' },
   retryButton: { alignItems: 'center', justifyContent: 'center', marginTop: 8, minHeight: 48, minWidth: 96 },
   retry: { color: '#a34842', fontWeight: '900' },
   pressed: { opacity: 0.72 },

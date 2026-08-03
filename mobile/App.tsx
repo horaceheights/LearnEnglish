@@ -1,16 +1,15 @@
 import { Component, type ErrorInfo, type ReactNode, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
-  Platform,
   Pressable,
-  SafeAreaView,
   StyleSheet,
   Text,
-  useWindowDimensions,
   View,
 } from 'react-native';
 import * as Updates from 'expo-updates';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
+import { ConnectivityBanner } from './src/components/ConnectivityBanner';
 import { getDiagnosticContext, type DiagnosticContext } from './src/diagnostics';
 import { clearLocalProfile, loadLocalProfile } from './src/profile';
 import { CourseScreen } from './src/screens/CourseScreen';
@@ -25,10 +24,6 @@ type Screen =
   | { name: 'lesson'; lessonId: string; initialCardIndex?: number; qaMode?: boolean }
   | { name: 'profile' }
   | { name: 'qa' };
-
-const ANDROID_PHONE_SYSTEM_CONTROL_INSET = 36;
-const ANDROID_TABLET_SYSTEM_CONTROL_INSET = 48;
-const TABLET_MINIMUM_EDGE = 540;
 
 class AppErrorBoundary extends Component<
   { children: ReactNode },
@@ -65,7 +60,7 @@ class AppErrorBoundary extends Component<
                 {this.state.diagnostic.prompt}
               </Text>
               <Text style={styles.diagnosticText}>
-                v{Updates.runtimeVersion || '1.3.0'} · {Updates.updateId?.slice(0, 8) || 'embedded'}
+                v{Updates.runtimeVersion || '1.4.0'} · {Updates.updateId?.slice(0, 8) || 'embedded'}
               </Text>
             </View>
           ) : null}
@@ -151,30 +146,16 @@ function AppContent() {
   );
 }
 
-function SystemControlSafeFrame({ children }: { children: ReactNode }) {
-  const { height, width } = useWindowDimensions();
-  const isLandscape = width > height;
-  const isTablet = Math.min(width, height) >= TABLET_MINIMUM_EDGE;
-  const androidSystemInset = Platform.OS === 'android'
-    ? isLandscape && !isTablet
-      ? { paddingRight: ANDROID_PHONE_SYSTEM_CONTROL_INSET }
-      : {
-          paddingBottom: isTablet
-            ? ANDROID_TABLET_SYSTEM_CONTROL_INSET
-            : ANDROID_PHONE_SYSTEM_CONTROL_INSET,
-        }
-    : null;
-
-  return <View style={[styles.appFrame, androidSystemInset]}>{children}</View>;
-}
-
 export default function App() {
   return (
-    <SystemControlSafeFrame>
-      <AppErrorBoundary>
-        <AppContent />
-      </AppErrorBoundary>
-    </SystemControlSafeFrame>
+    <SafeAreaProvider>
+      <View style={styles.appFrame}>
+        <ConnectivityBanner />
+        <AppErrorBoundary>
+          <AppContent />
+        </AppErrorBoundary>
+      </View>
+    </SafeAreaProvider>
   );
 }
 

@@ -14,6 +14,7 @@ import {
 
 import { scorePronunciation } from '../api';
 import { courseAudioUrl, READY_CUE_URL } from '../config';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import type { PronunciationResult } from '../types';
 
 type Props = {
@@ -42,6 +43,7 @@ const SPEECH_RECORDING_OPTIONS: RecordingOptions = {
 };
 
 export function PronunciationPractice({ phrase, level, userId, onPassed }: Props) {
+  const reduceMotion = useReducedMotion();
   const recorder = useAudioRecorder(SPEECH_RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
   const modelPlayer = useAudioPlayer(null);
@@ -73,7 +75,8 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     typeof accuracy === 'number' &&
     accuracy >= passAccuracy &&
     (typeof completeness !== 'number' || completeness >= minimumCompleteness);
-  const statusIsAnimated = phase === 'listening' || phase === 'checking';
+  const statusIsActive = phase === 'listening' || phase === 'checking';
+  const statusIsAnimated = statusIsActive && !reduceMotion;
   const weakestWord = useMemo(
     () => {
       const scoredWords = result?.text_score?.word_score_list
@@ -147,8 +150,12 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
           : undefined;
         scheduleRetry(weakest?.word ? `Practica “${weakest.word}”.` : 'Inténtalo otra vez.');
       }
-    } catch {
-      scheduleRetry('No pudimos revisar esa grabación.');
+    } catch (scoreError) {
+      scheduleRetry(
+        scoreError instanceof Error && /conexión|internet/i.test(scoreError.message)
+          ? 'Revisa tu conexión a internet.'
+          : 'No pudimos revisar esa grabación.',
+      );
     }
   }, [minimumCompleteness, passAccuracy, phrase, recorder, scheduleRetry, userId]);
 
@@ -316,7 +323,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
               backgroundColor: statusColor,
               opacity: statusIsAnimated
                 ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.55, 1] })
-                : 1,
+                : statusIsActive ? 0.9 : 1,
               transform: [{
                 scale: statusIsAnimated
                   ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.35] })
@@ -334,8 +341,8 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
                 {
                   backgroundColor: statusColor,
                   height,
-                  opacity: statusIsAnimated ? 1 : 0.35,
-                  transform: [{ scaleY: statusIsAnimated ? waveAnimations[index] : 0.27 }],
+                  opacity: statusIsActive ? 1 : 0.35,
+                  transform: [{ scaleY: statusIsAnimated ? waveAnimations[index] : statusIsActive ? 0.7 : 0.27 }],
                 },
               ]}
             />
