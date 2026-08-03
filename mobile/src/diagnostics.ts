@@ -30,6 +30,15 @@ export function initializeDiagnostics(): void {
   Sentry.init({
     dsn: sentryDsn,
     enabled: Boolean(sentryDsn),
+    integrations: [
+      Sentry.mobileReplayIntegration({
+        maskAllImages: true,
+        maskAllText: true,
+        maskAllVectors: true,
+      }),
+    ],
+    replaysOnErrorSampleRate: 1.0,
+    replaysSessionSampleRate: 0.1,
     sendDefaultPii: false,
     tracesSampleRate: 0,
   });
