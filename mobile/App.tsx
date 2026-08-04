@@ -134,6 +134,11 @@ function AppContent() {
           setProfile(nextProfile);
           setScreen({ name: 'course' });
         }}
+        onDeleted={() => {
+          void clearLocalProfile();
+          setProfile(null);
+          setScreen({ name: 'course' });
+        }}
         onSignOut={() => {
           void clearLocalProfile();
           setProfile(null);

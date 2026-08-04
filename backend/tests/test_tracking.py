@@ -71,6 +71,40 @@ class AdminSummaryTests(unittest.TestCase):
         self.assertEqual(0, learner["lesson_scores"]["lesson-2-pronouns"]["completed_runs"])
         self.assertTrue(any(lesson["number"] == "1.1" for lesson in summary["lessons"]))
 
+    def test_delete_user_removes_profile_sessions_and_attempts(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Delete Me"))
+        session = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+        tracking.create_attempt(
+            CardAttemptCreate(
+                session_id=session["id"],
+                user_id=user["id"],
+                lesson_id="lesson-1-people-actions",
+                card_index=0,
+                prompt="The boy",
+                selected_option_id="boy",
+                correct_option_id="boy",
+                is_correct=True,
+                first_try=True,
+            )
+        )
+
+        self.assertTrue(tracking.delete_user_and_activity(user["id"]))
+        self.assertIsNone(tracking.get_user(user["id"]))
+
+        with self.test_engine.begin() as db:
+            sessions = db.exec_driver_sql(
+                "SELECT COUNT(*) FROM lesson_sessions WHERE user_id = ?", (user["id"],)
+            ).scalar_one()
+            attempts = db.exec_driver_sql(
+                "SELECT COUNT(*) FROM card_attempts WHERE user_id = ?", (user["id"],)
+            ).scalar_one()
+
+        self.assertEqual(0, sessions)
+        self.assertEqual(0, attempts)
+        self.assertFalse(tracking.delete_user_and_activity(user["id"]))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,4 +1,6 @@
 export const API_BASE_URL = 'https://learnenglish-fxki.onrender.com';
+export const PRIVACY_POLICY_URL = `${API_BASE_URL}/privacy`;
+export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
 export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue`;
 export const COURSE_AUDIO_PROFILE = 'a1-syllable-v3';

@@ -4,12 +4,13 @@ import random
 
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response
+from fastapi.responses import HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from .diagnostics import initialize_diagnostics
 from .course_audio import audio_debug, get_course_audio, ready_cue_wav
 from .data import LESSONS, LESSON_IMAGE_DIR
+from .legal import account_deletion_html, privacy_policy_html
 from .schemas import Lesson, LessonCard
 from .pronunciation import close_pronunciation_clients, get_pronunciation_browser_token, pronunciation_debug, score_pronunciation
 from .tracking import (
@@ -21,6 +22,7 @@ from .tracking import (
     create_attempt,
     create_or_update_user,
     create_session,
+    delete_user_and_activity,
     finish_session,
     get_user_by_name,
     get_user,
@@ -121,6 +123,16 @@ def lesson_for_delivery(lesson: Lesson) -> Lesson:
 @app.get("/api/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}
+
+
+@app.get("/privacy", response_class=HTMLResponse, include_in_schema=False)
+def privacy_policy():
+    return privacy_policy_html()
+
+
+@app.get("/delete-account", response_class=HTMLResponse, include_in_schema=False)
+def account_deletion():
+    return account_deletion_html()
 
 
 @app.get("/api/pronunciation/health")
@@ -229,6 +241,13 @@ def read_user_by_name(display_name: str):
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return user
+
+
+@app.delete("/api/users/{user_id}")
+def delete_user(user_id: str):
+    if not delete_user_and_activity(user_id):
+        raise HTTPException(status_code=404, detail="User not found")
+    return {"deleted": True}
 
 
 @app.post("/api/sessions")

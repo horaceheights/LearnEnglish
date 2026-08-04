@@ -112,6 +112,10 @@ export function saveLearnerProfile(profile: LearnerProfile): Promise<SavedUser> 
   });
 }
 
+export function deleteLearnerProfile(userId: string): Promise<{ deleted: boolean }> {
+  return jsonRequest(`/api/users/${userId}`, { method: 'DELETE' });
+}
+
 export function startLessonSession(userId: string, lessonId: string, totalCards: number) {
   return jsonRequest<{ id: string }>('/api/sessions', {
     method: 'POST',

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   ActivityIndicator,
   KeyboardAvoidingView,
+  Linking,
   Platform,
   Pressable,
   StyleSheet,
@@ -13,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getLearnerByName, saveLearnerProfile } from '../api';
 import { BrandHeader } from '../components/BrandHeader';
+import { ACCOUNT_DELETION_URL, PRIVACY_POLICY_URL } from '../config';
 import { DEFAULT_PROFILE, persistProfile, profileFromUser } from '../profile';
 import type { LearnerProfile } from '../types';
 
@@ -93,6 +95,14 @@ export function LoginScreen({ onAuthenticated }: Props) {
           >
             {busyAction === 'create' ? <ActivityIndicator color="#24333a" /> : <Text style={styles.secondaryText}>Nuevo usuario</Text>}
           </Pressable>
+          <View style={styles.legalLinks}>
+            <Pressable onPress={() => void Linking.openURL(PRIVACY_POLICY_URL)}>
+              <Text style={styles.legalText}>Política de privacidad</Text>
+            </Pressable>
+            <Pressable onPress={() => void Linking.openURL(ACCOUNT_DELETION_URL)}>
+              <Text style={styles.legalText}>Eliminación de perfiles y datos</Text>
+            </Pressable>
+          </View>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -110,5 +120,7 @@ const styles = StyleSheet.create({
   primaryText: { color: '#fff', fontSize: 16, fontWeight: '800' },
   secondary: { alignItems: 'center', borderColor: '#ddd8cf', borderRadius: 15, borderWidth: 1, justifyContent: 'center', marginTop: 10, minHeight: 52 },
   secondaryText: { color: '#24333a', fontSize: 16, fontWeight: '700' },
+  legalLinks: { alignItems: 'center', gap: 10, marginTop: 20 },
+  legalText: { color: '#176f73', fontSize: 13, fontWeight: '700', textDecorationLine: 'underline' },
   disabled: { opacity: 0.45 },
 });

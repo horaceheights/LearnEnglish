@@ -154,12 +154,12 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, o
         >
           <Text style={styles.versionStatus}>
             {updateState === 'checking'
-              ? 'CHECKING FOR UPDATES…'
+              ? 'BUSCANDO ACTUALIZACIONES…'
               : updateState === 'ready'
-                ? 'UPDATE READY · TAP TO RESTART'
+                ? 'ACTUALIZAR'
                 : updateState === 'current'
-                  ? '✓ UP TO DATE'
-                  : 'UPDATE CHECK UNAVAILABLE'}
+                  ? '✓ ACTUALIZADO'
+                  : 'NO SE PUDO COMPROBAR'}
           </Text>
           <Text style={styles.versionCode}>{versionLabel}</Text>
         </Pressable>

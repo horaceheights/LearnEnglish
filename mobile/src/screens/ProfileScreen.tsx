@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import {
   ActivityIndicator,
+  Alert,
   KeyboardAvoidingView,
+  Linking,
   Platform,
   Pressable,
   StyleSheet,
@@ -11,8 +13,9 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { saveLearnerProfile } from '../api';
+import { deleteLearnerProfile, saveLearnerProfile } from '../api';
 import { BrandHeader } from '../components/BrandHeader';
+import { ACCOUNT_DELETION_URL, PRIVACY_POLICY_URL } from '../config';
 import { persistProfile, profileFromUser } from '../profile';
 import type { LearnerProfile } from '../types';
 
@@ -21,11 +24,13 @@ type Props = {
   onCancel: () => void;
   onSaved: (profile: LearnerProfile) => void;
   onSignOut: () => void;
+  onDeleted: () => void;
 };
 
-export function ProfileScreen({ profile, onCancel, onSaved, onSignOut }: Props) {
+export function ProfileScreen({ profile, onCancel, onSaved, onSignOut, onDeleted }: Props) {
   const [name, setName] = useState(profile.displayName);
   const [isSaving, setIsSaving] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
   const [error, setError] = useState('');
 
   const save = async () => {
@@ -41,6 +46,29 @@ export function ProfileScreen({ profile, onCancel, onSaved, onSignOut }: Props) 
     } finally {
       setIsSaving(false);
     }
+  };
+
+  const confirmDelete = () => {
+    if (!profile.userId || isDeleting) return;
+    Alert.alert(
+      'Eliminar perfil y datos',
+      'Se eliminarán permanentemente tu perfil, progreso, sesiones y respuestas. Esta acción no se puede deshacer.',
+      [
+        { style: 'cancel', text: 'Cancelar' },
+        {
+          style: 'destructive',
+          text: 'Eliminar definitivamente',
+          onPress: () => {
+            setIsDeleting(true);
+            setError('');
+            void deleteLearnerProfile(profile.userId!)
+              .then(onDeleted)
+              .catch(() => setError('No pudimos eliminar el perfil. Inténtalo otra vez.'))
+              .finally(() => setIsDeleting(false));
+          },
+        },
+      ],
+    );
   };
 
   return (
@@ -63,11 +91,24 @@ export function ProfileScreen({ profile, onCancel, onSaved, onSignOut }: Props) 
             value={name}
           />
           {error ? <Text style={styles.error}>{error}</Text> : null}
-          <Pressable disabled={!name.trim() || isSaving} onPress={save} style={styles.primary}>
+          <Pressable disabled={!name.trim() || isSaving || isDeleting} onPress={save} style={styles.primary}>
             {isSaving ? <ActivityIndicator color="#fff" /> : <Text style={styles.primaryText}>Guardar</Text>}
           </Pressable>
           <Pressable onPress={onCancel} style={styles.secondary}><Text style={styles.secondaryText}>Atrás</Text></Pressable>
           <Pressable onPress={onSignOut} style={styles.signOut}><Text style={styles.signOutText}>Cambiar de usuario</Text></Pressable>
+          <View style={styles.legalLinks}>
+            <Pressable onPress={() => void Linking.openURL(PRIVACY_POLICY_URL)}>
+              <Text style={styles.legalText}>Política de privacidad</Text>
+            </Pressable>
+            <Pressable onPress={() => void Linking.openURL(ACCOUNT_DELETION_URL)}>
+              <Text style={styles.legalText}>Información sobre eliminación de datos</Text>
+            </Pressable>
+          </View>
+          <Pressable disabled={!profile.userId || isDeleting} onPress={confirmDelete} style={styles.deleteButton}>
+            {isDeleting
+              ? <ActivityIndicator color="#a34842" />
+              : <Text style={styles.deleteText}>Eliminar mi perfil y mis datos</Text>}
+          </Pressable>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -87,4 +128,8 @@ const styles = StyleSheet.create({
   secondaryText: { color: '#24333a', fontSize: 16, fontWeight: '800' },
   signOut: { alignItems: 'center', marginTop: 18, padding: 8 },
   signOutText: { color: '#a34842', fontSize: 14, fontWeight: '800' },
+  legalLinks: { alignItems: 'center', gap: 10, marginTop: 18 },
+  legalText: { color: '#176f73', fontSize: 13, fontWeight: '700', textDecorationLine: 'underline' },
+  deleteButton: { alignItems: 'center', borderColor: '#d9aaa6', borderRadius: 15, borderWidth: 1, justifyContent: 'center', marginTop: 22, minHeight: 50 },
+  deleteText: { color: '#a34842', fontSize: 14, fontWeight: '900' },
 });

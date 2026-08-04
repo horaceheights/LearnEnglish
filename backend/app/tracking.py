@@ -264,6 +264,33 @@ def get_user_by_name(display_name: str) -> dict[str, Any] | None:
     return row_to_user(row) if row else None
 
 
+def delete_user_and_activity(user_id: str) -> bool:
+    """Delete a learner profile and every activity record linked to it."""
+    with engine.begin() as db:
+        existing = db.execute(
+            text("SELECT id FROM users WHERE id = :user_id"),
+            {"user_id": user_id},
+        ).fetchone()
+        if existing is None:
+            return False
+
+        # Delete children explicitly so this works consistently in SQLite and
+        # Postgres even when an older database was created without cascades.
+        db.execute(
+            text("DELETE FROM card_attempts WHERE user_id = :user_id"),
+            {"user_id": user_id},
+        )
+        db.execute(
+            text("DELETE FROM lesson_sessions WHERE user_id = :user_id"),
+            {"user_id": user_id},
+        )
+        db.execute(
+            text("DELETE FROM users WHERE id = :user_id"),
+            {"user_id": user_id},
+        )
+    return True
+
+
 def create_session(payload: SessionCreate) -> dict[str, Any]:
     session_id = str(uuid.uuid4())
     timestamp = now_iso()
