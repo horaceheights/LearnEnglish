@@ -112,6 +112,8 @@ function AppContent() {
     return <LoginScreen onAuthenticated={setProfile} />;
   }
 
+  const hasQaAccess = profile.displayName.trim().toLowerCase() === 'horace';
+
   if (screen.name === 'lesson') {
     return (
       <LessonScreen
@@ -142,7 +144,7 @@ function AppContent() {
     );
   }
 
-  if (screen.name === 'qa') {
+  if (screen.name === 'qa' && hasQaAccess) {
     return (
       <EngineQAScreen
         onExit={() => setScreen({ name: 'course' })}
@@ -156,7 +158,7 @@ function AppContent() {
     <CourseScreen
       onEditProfile={() => setScreen({ name: 'profile' })}
       onOpenLesson={(lessonId) => setScreen({ lessonId, name: 'lesson' })}
-      onOpenQA={() => setScreen({ name: 'qa' })}
+      onOpenQA={hasQaAccess ? () => setScreen({ name: 'qa' }) : undefined}
       profile={profile}
     />
   );

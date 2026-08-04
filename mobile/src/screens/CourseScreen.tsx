@@ -52,7 +52,7 @@ type Props = {
   profile: LearnerProfile;
   onOpenLesson: (lessonId: string) => void;
   onEditProfile: () => void;
-  onOpenQA: () => void;
+  onOpenQA?: () => void;
 };
 
 export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }: Props) {
@@ -150,10 +150,12 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
           </Text>
           <Text style={styles.versionCode}>{versionLabel}</Text>
         </Pressable>
-        <Pressable accessibilityRole="button" onPress={onOpenQA} style={styles.qaButton}>
-          <Text style={styles.qaEyebrow}>INTERNAL TESTING</Text>
-          <Text style={styles.qaTitle}>Open Engine QA →</Text>
-        </Pressable>
+        {onOpenQA ? (
+          <Pressable accessibilityRole="button" onPress={onOpenQA} style={styles.qaButton}>
+            <Text style={styles.qaEyebrow}>INTERNAL TESTING</Text>
+            <Text style={styles.qaTitle}>Open Engine QA →</Text>
+          </Pressable>
+        ) : null}
         <BrandHeader
           compact
           eyebrow="Tu ruta"
