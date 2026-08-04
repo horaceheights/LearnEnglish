@@ -9,6 +9,8 @@ from pydantic import BaseModel, Field
 from sqlalchemy import create_engine, text
 from sqlalchemy.engine import RowMapping
 
+from .data import LESSONS
+
 
 DB_PATH = Path(__file__).resolve().parents[1] / "learnenglish.db"
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{DB_PATH.as_posix()}")
@@ -358,7 +360,15 @@ def admin_summary() -> dict[str, Any]:
                     (SELECT COUNT(*) FROM users) AS users,
                     (SELECT COUNT(*) FROM lesson_sessions) AS sessions,
                     (SELECT COUNT(*) FROM lesson_sessions WHERE finished_at IS NOT NULL) AS completed_sessions,
-                    (SELECT COUNT(*) FROM card_attempts) AS attempts
+                    (
+                        SELECT COUNT(*)
+                        FROM (
+                            SELECT session_id, card_index
+                            FROM card_attempts
+                            GROUP BY session_id, card_index
+                        ) practiced_cards
+                    ) AS cards_practiced,
+                    (SELECT COUNT(*) FROM card_attempts) AS answer_taps
                 """
             )
         ).mappings().fetchone()
@@ -384,7 +394,11 @@ def admin_summary() -> dict[str, Any]:
                     GROUP BY user_id, session_id, card_index
                 ),
                 session_totals AS (
-                    SELECT user_id, COUNT(*) AS sessions, COALESCE(MAX(finished_at), MAX(started_at)) AS last_seen
+                    SELECT
+                        user_id,
+                        COUNT(*) AS sessions,
+                        SUM(CASE WHEN finished_at IS NOT NULL THEN 1 ELSE 0 END) AS completed_sessions,
+                        MAX(COALESCE(finished_at, started_at)) AS last_seen
                     FROM lesson_sessions
                     GROUP BY user_id
                 ),
@@ -412,6 +426,7 @@ def admin_summary() -> dict[str, Any]:
                     u.display_name,
                     u.updated_at,
                     COALESCE(st.sessions, 0) AS sessions,
+                    COALESCE(st.completed_sessions, 0) AS completed_sessions,
                     COALESCE(st.last_seen, u.updated_at) AS last_seen,
                     COALESCE(at.first_try_correct, 0) AS first_try_correct,
                     COALESCE(at.second_try_correct, 0) AS second_try_correct,
@@ -428,6 +443,34 @@ def admin_summary() -> dict[str, Any]:
                 """
             )
         ).mappings().fetchall()
+        lesson_results = db.execute(
+            text(
+                """
+                SELECT
+                    user_id,
+                    lesson_id,
+                    COUNT(*) AS visits,
+                    SUM(CASE WHEN finished_at IS NOT NULL THEN 1 ELSE 0 END) AS completed_runs,
+                    ROUND(
+                        AVG(
+                            CASE
+                                WHEN finished_at IS NOT NULL AND total_cards > 0
+                                THEN (score * 100.0) / total_cards
+                            END
+                        ),
+                        1
+                    ) AS average_score,
+                    MAX(
+                        CASE
+                            WHEN finished_at IS NOT NULL AND total_cards > 0
+                            THEN (score * 100.0) / total_cards
+                        END
+                    ) AS best_score
+                FROM lesson_sessions
+                GROUP BY user_id, lesson_id
+                """
+            )
+        ).mappings().fetchall()
         difficult_cards = db.execute(
             text(
                 """
@@ -441,9 +484,46 @@ def admin_summary() -> dict[str, Any]:
             )
         ).mappings().fetchall()
 
+    lesson_catalog = [
+        {
+            "id": lesson.id,
+            "number": lesson.sub_lesson_id,
+            "title": lesson.sub_lesson_title,
+        }
+        for lesson in LESSONS.values()
+        if lesson.sub_lesson_id != "TEST"
+    ]
+    scores_by_user: dict[str, dict[str, dict[str, Any]]] = {}
+    for result in lesson_results:
+        score = dict(result)
+        user_scores = scores_by_user.setdefault(score["user_id"], {})
+        user_scores[score["lesson_id"]] = {
+            "visits": score["visits"],
+            "completed_runs": score["completed_runs"],
+            "average_score": float(score["average_score"]) if score["average_score"] is not None else None,
+            "best_score": round(float(score["best_score"]), 1) if score["best_score"] is not None else None,
+        }
+
+    learner_rows = []
+    for row in learners:
+        learner = dict(row)
+        learner["visits"] = learner["sessions"]
+        learner["cards_practiced"] = learner["cards_answered"]
+        learner["answer_taps"] = learner["attempts"]
+        learner["lesson_scores"] = scores_by_user.get(learner["id"], {})
+        learner_rows.append(learner)
+
+    total_values = dict(totals)
+    # Preserve the previous keys for older dashboard clients while exposing names
+    # that describe what the numbers actually measure.
+    total_values["lesson_visits"] = total_values["sessions"]
+    total_values["completed_lessons"] = total_values["completed_sessions"]
+    total_values["attempts"] = total_values["answer_taps"]
+
     return {
-        "totals": dict(totals),
-        "learners": [dict(row) for row in learners],
+        "totals": total_values,
+        "lessons": lesson_catalog,
+        "learners": learner_rows,
         "difficult_cards": [dict(row) for row in difficult_cards],
     }
 
