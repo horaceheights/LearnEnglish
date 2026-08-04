@@ -4,7 +4,6 @@ const SPANISH_FIRST_LESSONS = new Set([
   'lesson-4-family-members',
   'lesson-5-family-action-practice',
   'lesson-6-objects-places',
-  'test-pronunciation',
 ]);
 
 const SPANISH_STAGE_LABELS: Record<string, string> = {

@@ -46,11 +46,6 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Objetos y lugares comunes.',
     color: '#ffe8c7',
   },
-  'test-pronunciation': {
-    image: 'they_man_woman_are_reading.webp',
-    description: 'Temporal: cinco tarjetas para probar la pronunciación rápidamente.',
-    color: '#f7d9df',
-  },
 };
 
 type Props = {
