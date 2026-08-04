@@ -21,6 +21,10 @@ elif DATABASE_URL.startswith("postgresql://") and "+psycopg" not in DATABASE_URL
 engine = create_engine(
     DATABASE_URL,
     connect_args={"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {},
+    # Render and serverless Postgres providers can close idle SSL connections.
+    # Validate pooled connections before checkout and retire them proactively.
+    pool_pre_ping=True,
+    pool_recycle=300,
 )
 
 

@@ -38,6 +38,19 @@ function requestError(error: unknown): Error {
   return error instanceof Error ? error : new Error('Ocurrió un problema de conexión. Inténtalo otra vez.');
 }
 
+async function responsePayload(response: Response): Promise<unknown> {
+  const body = await response.text();
+  if (!body.trim()) return null;
+  try {
+    return JSON.parse(body);
+  } catch {
+    if (!response.ok) {
+      throw new Error(`El servidor no pudo completar la solicitud (${response.status}). Inténtalo otra vez.`);
+    }
+    throw new Error('El servidor envió una respuesta que la app no pudo interpretar.');
+  }
+}
+
 async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
   const method = init?.method || 'GET';
   return Sentry.startSpan(
@@ -61,9 +74,12 @@ async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
           signal: controller.signal,
         });
         span.setAttribute('http.response.status_code', response.status);
-        const payload = await response.json();
+        const payload = await responsePayload(response);
         if (!response.ok) {
-          throw new Error(typeof payload?.detail === 'string' ? payload.detail : `Request failed (${response.status}).`);
+          const detail = payload && typeof payload === 'object' && 'detail' in payload
+            ? payload.detail
+            : undefined;
+          throw new Error(typeof detail === 'string' ? detail : `Request failed (${response.status}).`);
         }
         return payload as T;
       } catch (error) {
