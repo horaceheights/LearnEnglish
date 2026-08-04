@@ -66,6 +66,7 @@ export function LessonScreen({
   const grammarAnswerAwaitingRef = useRef(false);
   const grammarAnswerWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
+  const audioPlayerActiveRef = useRef(true);
   const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
   const pronunciationPassHandledRef = useRef(false);
@@ -157,12 +158,31 @@ export function LessonScreen({
     if (!text.trim()) return;
     const url = courseAudioUrl(text, mode, variant);
     const requestId = ++audioPlaybackRequestRef.current;
-    void ensureAudioPreloaded(url).then(() => {
-      if (audioPlaybackRequestRef.current !== requestId) return;
-      addDiagnosticBreadcrumb('audio_started', { mode, variant });
-      audioPlayer.replace(url);
-      audioPlayer.play();
-    });
+    void ensureAudioPreloaded(url)
+      .then(() => {
+        if (
+          !audioPlayerActiveRef.current ||
+          audioPlaybackRequestRef.current !== requestId
+        ) return;
+        addDiagnosticBreadcrumb('audio_started', { mode, variant });
+        audioPlayer.replace(url);
+        audioPlayer.play();
+      })
+      .catch((playbackError) => {
+        // useAudioPlayer releases its native object when this screen unmounts.
+        // A preload that finishes afterward is an expected cancellation, not
+        // an application error and must never become an unhandled rejection.
+        if (
+          !audioPlayerActiveRef.current ||
+          audioPlaybackRequestRef.current !== requestId
+        ) return;
+        captureDiagnosticError(
+          playbackError,
+          'course_audio_playback',
+          { mode, variant },
+          'warning',
+        );
+      });
   }, [audioPlayer, ensureAudioPreloaded]);
 
   const playSuccessChime = useCallback(async () => {
@@ -193,10 +213,15 @@ export function LessonScreen({
     }, 520);
   }, [playAudio]);
 
-  useEffect(() => () => {
-    if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
-    if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
-    if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+  useEffect(() => {
+    audioPlayerActiveRef.current = true;
+    return () => {
+      audioPlayerActiveRef.current = false;
+      audioPlaybackRequestRef.current += 1;
+      if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
+      if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
+      if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+    };
   }, []);
 
   const load = async () => {
