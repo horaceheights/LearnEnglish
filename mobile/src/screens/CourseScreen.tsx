@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   ActivityIndicator,
+  Alert,
   Image,
   Pressable,
   ScrollView,
@@ -52,10 +53,11 @@ type Props = {
   profile: LearnerProfile;
   onOpenLesson: (lessonId: string) => void;
   onEditProfile: () => void;
+  onSignOut: () => void;
   onOpenQA?: () => void;
 };
 
-export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }: Props) {
+export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, onSignOut }: Props) {
   const { currentlyRunning, isUpdatePending } = Updates.useUpdates();
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
@@ -125,6 +127,17 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
     onOpenLesson(lessonId);
   };
 
+  const confirmSignOut = () => {
+    Alert.alert(
+      '¿Cerrar sesión?',
+      'Tu progreso permanecerá guardado para cuando vuelvas a entrar.',
+      [
+        { style: 'cancel', text: 'Cancelar' },
+        { onPress: onSignOut, style: 'destructive', text: 'Cerrar sesión' },
+      ],
+    );
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.page}>
@@ -163,13 +176,18 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA }:
           title="Lecciones para empezar con claridad"
         />
         <View style={styles.welcome}>
-          <View>
+          <View style={styles.welcomeIdentity}>
             <Text style={styles.welcomeText}>Welcome {profile.displayName}</Text>
             <Text style={styles.aiNote}>Las voces de práctica pueden ser generadas con IA.</Text>
           </View>
-          <Pressable accessibilityLabel="Ajustar mi perfil" accessibilityRole="button" onPress={onEditProfile} style={styles.profileButton}>
-            <Text style={styles.profileIcon}>◉</Text>
-          </Pressable>
+          <View style={styles.accountActions}>
+            <Pressable accessibilityLabel="Ajustar mi perfil" accessibilityRole="button" onPress={onEditProfile} style={styles.profileButton}>
+              <Text style={styles.profileIcon}>◉</Text>
+            </Pressable>
+            <Pressable accessibilityRole="button" onPress={confirmSignOut} style={styles.signOutButton}>
+              <Text style={styles.signOutText}>Cerrar sesión</Text>
+            </Pressable>
+          </View>
         </View>
         <View style={styles.unit}>
           <Text style={styles.unitEyebrow}>UNIT 1</Text>
@@ -256,10 +274,14 @@ const styles = StyleSheet.create({
   qaEyebrow: { color: '#76559e', fontSize: 8, fontWeight: '900', letterSpacing: 1 },
   qaTitle: { color: '#4f2769', fontSize: 15, fontWeight: '900', marginTop: 2 },
   welcome: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 21, borderWidth: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 16 },
+  welcomeIdentity: { flex: 1, marginRight: 10 },
   welcomeText: { color: '#24333a', fontSize: 21, fontWeight: '800' },
   aiNote: { color: '#697177', fontSize: 11, marginTop: 4 },
+  accountActions: { alignItems: 'center', flexDirection: 'row', gap: 8 },
   profileButton: { alignItems: 'center', borderColor: '#ddd8cf', borderRadius: 22, borderWidth: 1, height: 44, justifyContent: 'center', width: 44 },
   profileIcon: { color: '#2f8f62', fontSize: 20 },
+  signOutButton: { alignItems: 'center', borderColor: '#d9a8a1', borderRadius: 12, borderWidth: 1, justifyContent: 'center', minHeight: 44, paddingHorizontal: 14 },
+  signOutText: { color: '#a34842', fontSize: 13, fontWeight: '900' },
   unit: { backgroundColor: '#ffe1ad', borderRadius: 24, padding: 20 },
   unitEyebrow: { color: '#697177', fontSize: 11, fontWeight: '800', letterSpacing: 1.4 },
   unitTitle: { color: '#24333a', fontSize: 27, fontWeight: '900', lineHeight: 32, marginTop: 6 },
