@@ -1,0 +1,28 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'com.gorre.spanglish'
+version = '0.1.0'
+
+android {
+  namespace 'com.gorre.spanglish.speech'
+  defaultConfig {
+    versionCode 1
+    versionName '0.1.0'
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation('com.microsoft.cognitiveservices.speech:client-sdk:1.50.0') {
+    // The Android speech APIs used here run through the SDK's native library.
+    // azure-core is a desktop-oriented transitive dependency whose Java 9
+    // MethodHandle calls would unnecessarily raise SpanGlish's Android minimum.
+    exclude group: 'com.azure', module: 'azure-core'
+  }
+}

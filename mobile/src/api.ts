@@ -5,6 +5,7 @@ import { File } from 'expo-file-system';
 import { API_BASE_URL } from './config';
 import type {
   LearnerProfile,
+  LessonFeedbackInput,
   Lesson,
   LessonSummary,
   PronunciationResult,
@@ -157,6 +158,60 @@ export function logCardAttempt(input: {
   });
 }
 
+export function saveLessonFeedback(input: LessonFeedbackInput) {
+  return jsonRequest<{ id: string; submitted_at: string }>('/api/feedback', {
+    method: 'POST',
+    body: JSON.stringify({
+      user_id: input.userId,
+      session_id: input.sessionId || null,
+      lesson_id: input.lessonId,
+      clarity_rating: input.clarityRating,
+      learning_support: input.learningSupport,
+      comment_text: input.commentText?.trim() || null,
+      score: input.score,
+      total_cards: input.totalCards,
+      app_version: input.appVersion || null,
+      update_id: input.updateId || null,
+      viewport_width: Math.round(input.viewportWidth),
+      viewport_height: Math.round(input.viewportHeight),
+    }),
+  });
+}
+
+export async function transcribeFeedback(recordingUri: string): Promise<string> {
+  return Sentry.startSpan(
+    { name: 'POST /api/feedback/transcribe', op: 'http.client' },
+    async (span) => {
+      const formData = new FormData();
+      formData.append('locale', 'es-MX');
+      formData.append('audio', new File(recordingUri), 'feedback.m4a');
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), PRONUNCIATION_REQUEST_TIMEOUT_MS);
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/feedback/transcribe`, {
+          method: 'POST',
+          body: formData,
+          headers: tracedHeaders(undefined, span),
+          signal: controller.signal,
+        });
+        span.setAttribute('http.response.status_code', response.status);
+        const payload = await response.json();
+        if (!response.ok) {
+          const detail = typeof payload?.detail === 'string'
+            ? payload.detail
+            : JSON.stringify(payload?.detail || payload);
+          throw new Error(detail || `Transcription failed (${response.status}).`);
+        }
+        return String(payload.transcript || '').trim();
+      } catch (error) {
+        throw requestError(error);
+      } finally {
+        clearTimeout(timeout);
+      }
+    },
+  );
+}
+
 export async function scorePronunciation(
   recordingUri: string,
   phrase: string,
@@ -180,7 +235,10 @@ export async function scorePronunciation(
       formData.append('text', phrase);
       formData.append('provider', 'azure');
       if (userId) formData.append('user_id', userId);
-      formData.append('audio', new File(recordingUri), 'pronunciation.m4a');
+      const recordingName = recordingUri.toLocaleLowerCase().includes('.wav')
+        ? 'pronunciation.wav'
+        : 'pronunciation.m4a';
+      formData.append('audio', new File(recordingUri), recordingName);
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), PRONUNCIATION_REQUEST_TIMEOUT_MS);
       try {
@@ -221,4 +279,24 @@ export async function scorePronunciation(
       }
     }
   );
+}
+
+export async function getPronunciationStreamingToken(): Promise<{
+  token: string;
+  region: string;
+  locale: string;
+}> {
+  const response = await fetch(`${API_BASE_URL}/api/pronunciation/token`);
+  const payload = await response.json();
+  if (!response.ok) {
+    const detail = typeof payload?.detail === 'string'
+      ? payload.detail
+      : JSON.stringify(payload?.detail || payload);
+    throw new Error(detail || `Could not start live pronunciation (${response.status}).`);
+  }
+  return {
+    token: String(payload.token || ''),
+    region: String(payload.region || ''),
+    locale: String(payload.locale || 'en-US'),
+  };
 }

@@ -36,7 +36,7 @@ def _page(title: str, body: str) -> str:
   </style>
 </head>
 <body><main><header><p>SpanGlish</p><h1>{html.escape(title)}</h1></header><article>{body}</article>
-<footer>Última actualización: 4 de agosto de 2026</footer></main></body>
+<footer>Última actualización: 5 de agosto de 2026</footer></main></body>
 </html>"""
 
 
@@ -52,6 +52,7 @@ def privacy_policy_html() -> str:
   <li><strong>Perfil:</strong> nombre visible, identificador interno y preferencias del perfil.</li>
   <li><strong>Actividad de aprendizaje:</strong> lecciones visitadas, respuestas, intentos, resultados, progreso y fechas de actividad.</li>
   <li><strong>Pronunciación:</strong> grabaciones de voz que decides enviar para recibir una evaluación.</li>
+  <li><strong>Comentarios opcionales:</strong> respuestas a encuestas de la lección y el texto que confirmas después de dictar un comentario.</li>
   <li><strong>Datos técnicos:</strong> versión de la aplicación, tipo de dispositivo, sistema operativo, identificadores técnicos, fallos, rendimiento y diagnóstico.</li>
 </ul>
 
@@ -60,6 +61,9 @@ def privacy_policy_html() -> str:
 
 <h2>Pronunciación y audio</h2>
 <p>Cuando utilizas la práctica de pronunciación, el audio se transmite cifrado a nuestros servicios y a Microsoft Azure Speech para generar el resultado. SpanGlish procesa ese audio para responder a la solicitud y no lo conserva intencionalmente en su base de datos de progreso.</p>
+
+<h2>Encuestas y comentarios hablados</h2>
+<p>Cuando decides responder una encuesta, guardamos las opciones seleccionadas y el comentario escrito que confirmas. Si utilizas el micrófono, el audio se envía cifrado a Microsoft Azure Speech para producir una transcripción y no se conserva intencionalmente en nuestra base de datos.</p>
 
 <h2>Proveedores</h2>
 <p>Utilizamos proveedores que procesan información por cuenta de SpanGlish, incluidos Render para infraestructura y base de datos, Microsoft Azure Speech para pronunciación, Sentry para diagnóstico y rendimiento, y Expo/EAS para crear y distribuir la aplicación y sus actualizaciones. Cada proveedor puede conservar datos técnicos conforme a sus propias políticas y obligaciones de seguridad.</p>
@@ -102,6 +106,7 @@ def account_deletion_html() -> str:
   <li>El nombre visible, identificador interno y preferencias del perfil.</li>
   <li>El progreso, las visitas y resultados de las lecciones.</li>
   <li>Los intentos y respuestas registrados para ese perfil.</li>
+  <li>Las respuestas y comentarios de encuestas asociados al perfil.</li>
 </ul>
 
 <h2>Información que no forma parte del perfil</h2>

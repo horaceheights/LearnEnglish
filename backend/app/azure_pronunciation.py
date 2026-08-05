@@ -207,7 +207,9 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
         "GradingSystem": "HundredMark",
         "Granularity": "Phoneme",
         "Dimension": "Comprehensive",
-        "EnableMiscue": True,
+        # Fillers, repetitions, and self-corrections are normal for beginners.
+        # Completeness is still reported, but extra words must not reduce accuracy.
+        "EnableMiscue": False,
         "PhonemeAlphabet": "IPA",
     }
     encoded_config = base64.b64encode(json.dumps(config).encode("utf-8")).decode("ascii")
@@ -248,3 +250,54 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
         "uploaded_audio_bytes": uploaded_audio_bytes,
         "audio_bytes": len(audio),
     })
+
+
+async def transcribe_with_azure(*, audio_file: UploadFile, locale: str = "es-MX") -> dict[str, Any]:
+    """Transcribe short feedback audio without retaining the uploaded recording."""
+    key = os.getenv("AZURE_SPEECH_KEY")
+    region = os.getenv("AZURE_SPEECH_REGION")
+    if not key or not region:
+        raise HTTPException(status_code=503, detail="Azure Speech is not configured.")
+
+    audio = await audio_file.read()
+    if not audio:
+        raise HTTPException(status_code=400, detail="Audio file is empty.")
+    if _is_mobile_audio(audio_file):
+        audio = convert_mobile_audio_to_wav(audio)
+        content_type = "audio/wav; codecs=audio/pcm; samplerate=16000"
+    else:
+        content_type = _content_type(audio_file)
+
+    url = f"https://{region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1"
+    try:
+        with sentry_sdk.start_span(op="feedback.transcription", name="Transcribe lesson feedback") as span:
+            response = await azure_client().post(
+                url,
+                params={"language": locale, "format": "detailed", "profanity": "masked"},
+                headers={
+                    "Ocp-Apim-Subscription-Key": key,
+                    "Content-Type": content_type,
+                    "Accept": "application/json",
+                },
+                content=audio,
+            )
+            span.set_data("http.response.status_code", response.status_code)
+            span.set_data("audio.bytes", len(audio))
+    except httpx.RequestError as error:
+        raise HTTPException(status_code=502, detail=f"Could not reach Azure Speech: {error}") from error
+
+    try:
+        payload = response.json()
+    except ValueError as error:
+        raise HTTPException(status_code=502, detail="Azure Speech returned an invalid response.") from error
+    if response.status_code >= 400:
+        raise HTTPException(status_code=response.status_code, detail=payload)
+    if payload.get("RecognitionStatus") not in {"Success", 0}:
+        status = payload.get("RecognitionStatus", "Unknown")
+        raise HTTPException(status_code=422, detail=f"Azure recognition failed: {status}")
+
+    best = (payload.get("NBest") or [{}])[0]
+    transcript = (payload.get("DisplayText") or best.get("Display") or best.get("Lexical") or "").strip()
+    if not transcript:
+        raise HTTPException(status_code=422, detail="No pudimos entender la grabación.")
+    return {"transcript": transcript, "locale": locale}

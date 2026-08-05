@@ -78,3 +78,18 @@ export type PronunciationResult = {
     };
   };
 };
+
+export type LessonFeedbackInput = {
+  userId: string;
+  sessionId?: string;
+  lessonId: string;
+  clarityRating: string;
+  learningSupport: string;
+  commentText?: string;
+  score: number;
+  totalCards: number;
+  appVersion?: string;
+  updateId?: string;
+  viewportWidth: number;
+  viewportHeight: number;
+};

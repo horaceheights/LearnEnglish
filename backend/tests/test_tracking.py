@@ -137,7 +137,41 @@ class AdminSummaryTests(unittest.TestCase):
 
         self.assertEqual(0, sessions)
         self.assertEqual(0, attempts)
+        reset_learner = next(
+            learner
+            for learner in tracking.admin_summary()["learners"]
+            if learner["id"] == user["id"]
+        )
+        self.assertIsNone(reset_learner["last_seen"])
         self.assertFalse(tracking.reset_user_activity("missing-user"))
+
+    def test_feedback_is_saved_and_visible_in_admin_summary(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Horace"))
+        session = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+        saved = tracking.create_lesson_feedback(
+            tracking.LessonFeedbackCreate(
+                user_id=user["id"],
+                session_id=session["id"],
+                lesson_id="lesson-1-people-actions",
+                clarity_rating="Fácil",
+                learning_support="Sí, ambos",
+                comment_text="  La práctica fue clara.  ",
+                score=9,
+                total_cards=10,
+                app_version="1.5.0",
+                update_id="pilot-update",
+                viewport_width=1920,
+                viewport_height=1200,
+            )
+        )
+
+        feedback = tracking.admin_summary()["feedback"]
+        self.assertEqual(saved["id"], feedback[0]["id"])
+        self.assertEqual("Horace", feedback[0]["display_name"])
+        self.assertEqual("La práctica fue clara.", feedback[0]["comment_text"])
+        self.assertEqual("Fácil", feedback[0]["clarity_rating"])
 
 
 if __name__ == "__main__":

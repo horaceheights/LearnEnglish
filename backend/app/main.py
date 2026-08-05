@@ -13,13 +13,16 @@ from .data import LESSONS, LESSON_IMAGE_DIR
 from .legal import account_deletion_html, privacy_policy_html
 from .schemas import Lesson, LessonCard
 from .pronunciation import close_pronunciation_clients, get_pronunciation_browser_token, pronunciation_debug, score_pronunciation
+from .azure_pronunciation import transcribe_with_azure
 from .tracking import (
     CardAttemptCreate,
+    LessonFeedbackCreate,
     SessionCreate,
     SessionFinish,
     UserCreate,
     admin_summary,
     create_attempt,
+    create_lesson_feedback,
     create_or_update_user,
     create_session,
     delete_user_and_activity,
@@ -274,6 +277,22 @@ def complete_session(session_id: str, payload: SessionFinish):
 @app.post("/api/card-attempts")
 def log_card_attempt(payload: CardAttemptCreate):
     return create_attempt(payload)
+
+
+@app.post("/api/feedback")
+def save_lesson_feedback(payload: LessonFeedbackCreate):
+    try:
+        return create_lesson_feedback(payload)
+    except ValueError as error:
+        raise HTTPException(status_code=404, detail=str(error)) from error
+
+
+@app.post("/api/feedback/transcribe")
+async def transcribe_lesson_feedback(
+    audio: UploadFile = File(...),
+    locale: str = Form("es-MX"),
+):
+    return await transcribe_with_azure(audio_file=audio, locale=locale)
 
 
 @app.get("/api/admin/summary")

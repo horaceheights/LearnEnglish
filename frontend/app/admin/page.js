@@ -69,6 +69,7 @@ export default async function AdminPage() {
 
   const totals = summary.totals;
   const lessons = summary.lessons ?? [];
+  const lessonNames = Object.fromEntries(lessons.map((lesson) => [lesson.id, lesson.number]));
 
   return (
     <main style={{ minHeight: "100vh", padding: 24 }}>
@@ -91,6 +92,42 @@ export default async function AdminPage() {
               <div style={{ marginTop: 5, color: "#718084", fontSize: 12 }}>{note}</div>
             </div>
           ))}
+        </section>
+
+        <section style={{ background: "#fffdf9", border, borderRadius: 24, padding: 24 }}>
+          <h2 style={{ margin: 0 }}>Lesson feedback</h2>
+          <p style={{ margin: "6px 0 18px", color: "#5e6d73" }}>
+            Pilot survey responses, including optional speech-to-text comments.
+          </p>
+          {(summary.feedback ?? []).length === 0 ? (
+            <p style={{ color: "#5e6d73" }}>No survey responses yet.</p>
+          ) : (
+            <div style={{ overflowX: "auto" }}>
+              <table style={{ width: "100%", minWidth: 950, borderCollapse: "collapse" }}>
+                <thead>
+                  <tr style={{ textAlign: "left", color: "#5e6d73" }}>
+                    {['Learner', 'Lesson', 'Clarity', 'Helpful element', 'Comment', 'Score', 'App', 'Submitted'].map((heading) => (
+                      <th key={heading} style={{ padding: "10px 8px", borderBottom: border }}>{heading}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {(summary.feedback ?? []).map((item) => (
+                    <tr key={item.id}>
+                      <td style={{ padding: "11px 8px", borderBottom: cellBorder, fontWeight: 700 }}>{item.display_name}</td>
+                      <td style={{ padding: "11px 8px", borderBottom: cellBorder }}>{lessonNames[item.lesson_id] || item.lesson_id}</td>
+                      <td style={{ padding: "11px 8px", borderBottom: cellBorder }}>{item.clarity_rating}</td>
+                      <td style={{ padding: "11px 8px", borderBottom: cellBorder }}>{item.learning_support}</td>
+                      <td style={{ padding: "11px 8px", borderBottom: cellBorder, minWidth: 240 }}>{item.comment_text || '—'}</td>
+                      <td style={{ padding: "11px 8px", borderBottom: cellBorder, whiteSpace: "nowrap" }}>{item.score}/{item.total_cards}</td>
+                      <td title={item.update_id} style={{ padding: "11px 8px", borderBottom: cellBorder }}>{item.app_version || '—'}</td>
+                      <td title={item.submitted_at} style={{ padding: "11px 8px", borderBottom: cellBorder, whiteSpace: "nowrap" }}>{friendlyDate(item.submitted_at)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </section>
 
         <section style={{ background: "#fffdf9", border, borderRadius: 24, padding: 24 }}>

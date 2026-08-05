@@ -76,6 +76,30 @@ def init_db() -> None:
         db.execute(
             text(
                 """
+                CREATE TABLE IF NOT EXISTS lesson_feedback (
+                    id TEXT PRIMARY KEY,
+                    user_id TEXT NOT NULL,
+                    session_id TEXT,
+                    lesson_id TEXT NOT NULL,
+                    clarity_rating TEXT NOT NULL,
+                    learning_support TEXT NOT NULL,
+                    comment_text TEXT,
+                    score INTEGER DEFAULT 0,
+                    total_cards INTEGER DEFAULT 0,
+                    app_version TEXT,
+                    update_id TEXT,
+                    viewport_width INTEGER,
+                    viewport_height INTEGER,
+                    submitted_at TEXT NOT NULL,
+                    FOREIGN KEY (user_id) REFERENCES users (id),
+                    FOREIGN KEY (session_id) REFERENCES lesson_sessions (id)
+                )
+                """
+            )
+        )
+        db.execute(
+            text(
+                """
                 CREATE TABLE IF NOT EXISTS card_attempts (
                     id TEXT PRIMARY KEY,
                     session_id TEXT NOT NULL,
@@ -122,6 +146,21 @@ class CardAttemptCreate(BaseModel):
     correct_option_id: str
     is_correct: bool
     first_try: bool
+
+
+class LessonFeedbackCreate(BaseModel):
+    user_id: str
+    session_id: str | None = None
+    lesson_id: str
+    clarity_rating: str = Field(max_length=40)
+    learning_support: str = Field(max_length=40)
+    comment_text: str | None = Field(default=None, max_length=2000)
+    score: int = 0
+    total_cards: int = 0
+    app_version: str | None = Field(default=None, max_length=40)
+    update_id: str | None = Field(default=None, max_length=80)
+    viewport_width: int | None = None
+    viewport_height: int | None = None
 
 
 def row_to_user(row: RowMapping) -> dict[str, Any]:
@@ -277,6 +316,10 @@ def delete_user_and_activity(user_id: str) -> bool:
         # Delete children explicitly so this works consistently in SQLite and
         # Postgres even when an older database was created without cascades.
         db.execute(
+            text("DELETE FROM lesson_feedback WHERE user_id = :user_id"),
+            {"user_id": user_id},
+        )
+        db.execute(
             text("DELETE FROM card_attempts WHERE user_id = :user_id"),
             {"user_id": user_id},
         )
@@ -303,6 +346,10 @@ def reset_user_activity(user_id: str) -> bool:
 
         # Attempts reference sessions, so remove them first for databases that
         # were created before foreign-key cascades were enabled.
+        db.execute(
+            text("DELETE FROM lesson_feedback WHERE user_id = :user_id"),
+            {"user_id": user_id},
+        )
         db.execute(
             text("DELETE FROM card_attempts WHERE user_id = :user_id"),
             {"user_id": user_id},
@@ -401,6 +448,54 @@ def create_attempt(payload: CardAttemptCreate) -> dict[str, Any]:
     return {"id": attempt_id, "attempted_at": timestamp}
 
 
+def create_lesson_feedback(payload: LessonFeedbackCreate) -> dict[str, Any]:
+    feedback_id = str(uuid.uuid4())
+    timestamp = now_iso()
+    comment_text = (payload.comment_text or "").strip() or None
+    with engine.begin() as db:
+        existing_user = db.execute(
+            text("SELECT id FROM users WHERE id = :user_id"),
+            {"user_id": payload.user_id},
+        ).fetchone()
+        if existing_user is None:
+            raise ValueError("User not found")
+        db.execute(
+            text(
+                """
+                INSERT INTO lesson_feedback (
+                    id, user_id, session_id, lesson_id, clarity_rating,
+                    learning_support, comment_text, score, total_cards,
+                    app_version, update_id, viewport_width, viewport_height,
+                    submitted_at
+                )
+                VALUES (
+                    :id, :user_id, :session_id, :lesson_id, :clarity_rating,
+                    :learning_support, :comment_text, :score, :total_cards,
+                    :app_version, :update_id, :viewport_width, :viewport_height,
+                    :submitted_at
+                )
+                """
+            ),
+            {
+                "id": feedback_id,
+                "user_id": payload.user_id,
+                "session_id": payload.session_id,
+                "lesson_id": payload.lesson_id,
+                "clarity_rating": payload.clarity_rating,
+                "learning_support": payload.learning_support,
+                "comment_text": comment_text,
+                "score": payload.score,
+                "total_cards": payload.total_cards,
+                "app_version": payload.app_version,
+                "update_id": payload.update_id,
+                "viewport_width": payload.viewport_width,
+                "viewport_height": payload.viewport_height,
+                "submitted_at": timestamp,
+            },
+        )
+    return {"id": feedback_id, "submitted_at": timestamp}
+
+
 def admin_summary() -> dict[str, Any]:
     with engine.begin() as db:
         totals = db.execute(
@@ -477,7 +572,7 @@ def admin_summary() -> dict[str, Any]:
                     u.updated_at,
                     COALESCE(st.sessions, 0) AS sessions,
                     COALESCE(st.completed_sessions, 0) AS completed_sessions,
-                    COALESCE(st.last_seen, u.updated_at) AS last_seen,
+                    st.last_seen AS last_seen,
                     COALESCE(at.first_try_correct, 0) AS first_try_correct,
                     COALESCE(at.second_try_correct, 0) AS second_try_correct,
                     COALESCE(at.third_try_correct, 0) AS third_try_correct,
@@ -489,7 +584,10 @@ def admin_summary() -> dict[str, Any]:
                 LEFT JOIN session_totals st ON st.user_id = u.id
                 LEFT JOIN attempt_totals at ON at.user_id = u.id
                 LEFT JOIN average_totals av ON av.user_id = u.id
-                ORDER BY last_seen DESC
+                ORDER BY
+                    CASE WHEN st.last_seen IS NULL THEN 1 ELSE 0 END,
+                    st.last_seen DESC,
+                    u.updated_at DESC
                 """
             )
         ).mappings().fetchall()
@@ -530,6 +628,30 @@ def admin_summary() -> dict[str, Any]:
                 HAVING SUM(CASE WHEN is_correct = 0 THEN 1 ELSE 0 END) > 0
                 ORDER BY misses DESC, attempts DESC
                 LIMIT 10
+                """
+            )
+        ).mappings().fetchall()
+        feedback = db.execute(
+            text(
+                """
+                SELECT
+                    f.id,
+                    f.lesson_id,
+                    f.clarity_rating,
+                    f.learning_support,
+                    f.comment_text,
+                    f.score,
+                    f.total_cards,
+                    f.app_version,
+                    f.update_id,
+                    f.viewport_width,
+                    f.viewport_height,
+                    f.submitted_at,
+                    u.display_name
+                FROM lesson_feedback f
+                JOIN users u ON u.id = f.user_id
+                ORDER BY f.submitted_at DESC
+                LIMIT 100
                 """
             )
         ).mappings().fetchall()
@@ -575,11 +697,13 @@ def admin_summary() -> dict[str, Any]:
         "lessons": lesson_catalog,
         "learners": learner_rows,
         "difficult_cards": [dict(row) for row in difficult_cards],
+        "feedback": [dict(row) for row in feedback],
     }
 
 
 def reset_tracking_data() -> dict[str, str]:
     with engine.begin() as db:
+        db.execute(text("DELETE FROM lesson_feedback"))
         db.execute(text("DELETE FROM card_attempts"))
         db.execute(text("DELETE FROM lesson_sessions"))
         db.execute(text("DELETE FROM users"))
