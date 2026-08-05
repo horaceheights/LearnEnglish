@@ -105,6 +105,40 @@ class AdminSummaryTests(unittest.TestCase):
         self.assertEqual(0, attempts)
         self.assertFalse(tracking.delete_user_and_activity(user["id"]))
 
+    def test_reset_user_activity_preserves_profile_and_removes_progress(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Start Again"))
+        session = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+        tracking.create_attempt(
+            CardAttemptCreate(
+                session_id=session["id"],
+                user_id=user["id"],
+                lesson_id="lesson-1-people-actions",
+                card_index=0,
+                prompt="The girl",
+                selected_option_id="girl",
+                correct_option_id="girl",
+                is_correct=True,
+                first_try=True,
+            )
+        )
+
+        self.assertTrue(tracking.reset_user_activity(user["id"]))
+        self.assertIsNotNone(tracking.get_user(user["id"]))
+
+        with self.test_engine.begin() as db:
+            sessions = db.exec_driver_sql(
+                "SELECT COUNT(*) FROM lesson_sessions WHERE user_id = ?", (user["id"],)
+            ).scalar_one()
+            attempts = db.exec_driver_sql(
+                "SELECT COUNT(*) FROM card_attempts WHERE user_id = ?", (user["id"],)
+            ).scalar_one()
+
+        self.assertEqual(0, sessions)
+        self.assertEqual(0, attempts)
+        self.assertFalse(tracking.reset_user_activity("missing-user"))
+
 
 if __name__ == "__main__":
     unittest.main()

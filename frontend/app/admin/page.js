@@ -1,4 +1,5 @@
 import { getAdminSummary } from "../../lib/api";
+import LearnerActions from "./LearnerActions";
 
 const border = "1px solid #dbcdb3";
 const cellBorder = "1px solid #eee6d8";
@@ -112,6 +113,7 @@ export default async function AdminPage() {
                     </th>
                   ))}
                   <th style={{ minWidth: 175, padding: "10px 8px", borderBottom: border }}>Last active</th>
+                  <th style={{ minWidth: 160, padding: "10px 8px", borderBottom: border }}>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -127,6 +129,9 @@ export default async function AdminPage() {
                       </td>
                     ))}
                     <td title={learner.last_seen} style={{ padding: "13px 8px", borderBottom: cellBorder, color: "#52666d", whiteSpace: "nowrap" }}>{friendlyDate(learner.last_seen)}</td>
+                    <td style={{ padding: "10px 8px", borderBottom: cellBorder }}>
+                      <LearnerActions learner={{ id: learner.id, display_name: learner.display_name }} />
+                    </td>
                   </tr>
                 ))}
               </tbody>

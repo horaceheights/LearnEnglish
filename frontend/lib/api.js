@@ -218,3 +218,15 @@ export async function preloadCourseAudio({ text, mode = "prompt", lang = "en-US"
 export async function getAdminSummary() {
   return apiRequest("/api/admin/summary", { cache: "no-store" });
 }
+
+export async function resetLearnerProgress(userId) {
+  return apiRequest(`/api/users/${encodeURIComponent(userId)}/activity`, {
+    method: "DELETE",
+  });
+}
+
+export async function deleteLearner(userId) {
+  return apiRequest(`/api/users/${encodeURIComponent(userId)}`, {
+    method: "DELETE",
+  });
+}

@@ -27,6 +27,7 @@ from .tracking import (
     get_user_by_name,
     get_user,
     init_db,
+    reset_user_activity,
     storage_info,
 )
 
@@ -248,6 +249,13 @@ def delete_user(user_id: str):
     if not delete_user_and_activity(user_id):
         raise HTTPException(status_code=404, detail="User not found")
     return {"deleted": True}
+
+
+@app.delete("/api/users/{user_id}/activity")
+def reset_user_progress(user_id: str):
+    if not reset_user_activity(user_id):
+        raise HTTPException(status_code=404, detail="User not found")
+    return {"reset": True}
 
 
 @app.post("/api/sessions")

@@ -291,6 +291,29 @@ def delete_user_and_activity(user_id: str) -> bool:
     return True
 
 
+def reset_user_activity(user_id: str) -> bool:
+    """Delete a learner's tracked progress while preserving the profile."""
+    with engine.begin() as db:
+        existing = db.execute(
+            text("SELECT id FROM users WHERE id = :user_id"),
+            {"user_id": user_id},
+        ).fetchone()
+        if existing is None:
+            return False
+
+        # Attempts reference sessions, so remove them first for databases that
+        # were created before foreign-key cascades were enabled.
+        db.execute(
+            text("DELETE FROM card_attempts WHERE user_id = :user_id"),
+            {"user_id": user_id},
+        )
+        db.execute(
+            text("DELETE FROM lesson_sessions WHERE user_id = :user_id"),
+            {"user_id": user_id},
+        )
+    return True
+
+
 def create_session(payload: SessionCreate) -> dict[str, Any]:
     session_id = str(uuid.uuid4())
     timestamp = now_iso()
