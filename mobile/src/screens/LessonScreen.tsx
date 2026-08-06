@@ -58,7 +58,8 @@ export function LessonScreen({
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME);
   const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE);
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
-  const useCompactPhoneLayout = viewportWidth > viewportHeight && viewportWidth < 760 && viewportHeight < 420;
+  const isPortrait = viewportHeight >= viewportWidth;
+  const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAudioAwaitingRef = useRef(false);
@@ -91,7 +92,9 @@ export function LessonScreen({
   const audioProvider = courseAudioProvider(lessonId);
 
   useEffect(() => {
-    void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+    // Lessons adapt to both orientations. DEFAULT follows the device sensor,
+    // while the card renderer provides a dedicated portrait layout.
+    void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT);
     return () => {
       void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT);
     };
@@ -735,8 +738,12 @@ export function LessonScreen({
             </View>
           </View>
         ) : null}
-        <View style={[styles.hero, useCompactPhoneLayout ? styles.heroCompact : null]}>
-          <View style={styles.heroTop}>
+        <View style={[
+          styles.hero,
+          useCompactPhoneLayout ? styles.heroCompact : null,
+          isPortrait ? styles.heroPortrait : null,
+        ]}>
+          <View style={[styles.heroTop, isPortrait ? styles.heroTopPortrait : null]}>
             <View style={styles.heroNavigation}>
               <View
                 accessible={false}
@@ -754,16 +761,16 @@ export function LessonScreen({
                 <Text style={styles.backButtonText}>← Lecciones</Text>
               </Pressable>
             </View>
-            <View
-              style={styles.lessonStatus}
-            >
-              <StageJourney
-                cards={lesson.cards}
-                compact={useCompactPhoneLayout}
-                currentIndex={cardIndex}
-                lessonId={lesson.id}
-              />
-            </View>
+            {!isPortrait ? (
+              <View style={styles.lessonStatus}>
+                <StageJourney
+                  cards={lesson.cards}
+                  compact={useCompactPhoneLayout}
+                  currentIndex={cardIndex}
+                  lessonId={lesson.id}
+                />
+              </View>
+            ) : null}
             <Pressable
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
               accessibilityRole="button"
@@ -778,8 +785,22 @@ export function LessonScreen({
               <Text style={styles.helpButtonText}>?</Text>
             </Pressable>
           </View>
+          {isPortrait ? (
+            <View style={[styles.lessonStatus, styles.lessonStatusPortrait]}>
+              <StageJourney
+                cards={lesson.cards}
+                compact
+                currentIndex={cardIndex}
+                lessonId={lesson.id}
+              />
+            </View>
+          ) : null}
         </View>
-        <View style={[styles.contentHeader, useCompactPhoneLayout ? styles.contentHeaderCompact : null]}>
+        <View style={[
+          styles.contentHeader,
+          useCompactPhoneLayout ? styles.contentHeaderCompact : null,
+          isPortrait ? styles.contentHeaderPortrait : null,
+        ]}>
           <Text accessibilityRole="header" style={styles.stage}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
           </Text>
@@ -898,7 +919,9 @@ const styles = StyleSheet.create({
   qaAutoTextActive: { color: '#245d3d' },
   hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, paddingHorizontal: 5, paddingVertical: 5 },
   heroCompact: { paddingHorizontal: 4, paddingVertical: 3 },
+  heroPortrait: { paddingHorizontal: 7, paddingVertical: 6 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
+  heroTopPortrait: { minHeight: 48 },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
   logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 15, height: 48, justifyContent: 'center', width: 54 },
   logoPillCompact: { borderRadius: 12, height: 40, width: 46 },
@@ -907,12 +930,14 @@ const styles = StyleSheet.create({
   backButtonCompact: { borderRadius: 12, minHeight: 40, paddingHorizontal: 10 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
   lessonStatus: { alignItems: 'stretch', flex: 1, justifyContent: 'center', marginHorizontal: 3 },
+  lessonStatusPortrait: { flex: 0, marginHorizontal: 0, marginTop: 6, width: '100%' },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
   helpButtonCompact: { borderRadius: 20, height: 40, width: 40 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
   contentHeader: { backgroundColor: '#fff', borderColor: '#e4ded2', borderRadius: 18, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 7 },
   contentHeaderCompact: { borderRadius: 14, paddingHorizontal: 9, paddingVertical: 3 },
+  contentHeaderPortrait: { paddingHorizontal: 9, paddingVertical: 5 },
   stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptTapTarget: { width: '100%' },

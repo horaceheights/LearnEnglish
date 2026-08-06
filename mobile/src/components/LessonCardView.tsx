@@ -58,6 +58,7 @@ export function LessonCardView({
     hasTextOnlyOptions &&
     card.options.length >= 3;
   const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
+  const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
@@ -110,21 +111,28 @@ export function LessonCardView({
         : Math.max(205, Math.min(340, viewportHeight * 0.57));
   const fallbackCardHeight = Math.max(150, viewportHeight * (isCompactLandscape ? 0.43 : 0.58));
   const availableCardHeight = measuredCardHeight || fallbackCardHeight;
+  const textOptionRows = hasTextOnlyOptions
+    ? isLandscape && !useTextGrid
+      ? 1
+      : Math.ceil(card.options.length / 2)
+    : 0;
   const featureReservedHeight = isPronunciation
     ? result
       ? 96
       : 68
     : hasTextOnlyOptions
-      ? optionMinHeight + 30
+      ? (optionMinHeight * textOptionRows) + (Math.max(0, textOptionRows - 1) * 10) + 30
       : 24;
   const featureImageHeight = Math.min(
     responsiveFeatureImageHeight,
     Math.max(isPronunciation ? 82 : 70, availableCardHeight - featureReservedHeight),
   );
-  const optionRows = useTabletImageGrid ? 2 : 1;
+  const optionRows = useTabletImageGrid || usePortraitImageGrid ? 2 : 1;
   const optionImageHeight = Math.min(
     responsiveOptionImageHeight,
-    Math.max(68, (availableCardHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
+    usePortraitImageGrid
+      ? Math.max(68, ((availableCardHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
+      : Math.max(68, (availableCardHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
   );
 
   useEffect(() => {
@@ -169,6 +177,7 @@ export function LessonCardView({
     <View style={[
       styles.card,
       isLandscape ? styles.cardLandscape : null,
+      !isLandscape ? styles.cardPortrait : null,
       isCompactLandscape ? styles.cardCompactLandscape : null,
       isTabletLandscape ? styles.cardTabletLandscape : null,
     ]}
@@ -390,6 +399,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   cardLandscape: { flex: 1, justifyContent: 'center', padding: 9 },
+  cardPortrait: { flex: 1, minHeight: 0, padding: 10 },
   cardCompactLandscape: { minHeight: 0, overflow: 'hidden', padding: 6 },
   cardTabletLandscape: { padding: 14 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
