@@ -58,6 +58,7 @@ export function LessonScreen({
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME);
   const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE);
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
+  const useCompactPhoneLayout = viewportWidth > viewportHeight && viewportWidth < 760 && viewportHeight < 420;
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAudioAwaitingRef = useRef(false);
@@ -734,17 +735,21 @@ export function LessonScreen({
             </View>
           </View>
         ) : null}
-        <View style={styles.hero}>
+        <View style={[styles.hero, useCompactPhoneLayout ? styles.heroCompact : null]}>
           <View style={styles.heroTop}>
             <View style={styles.heroNavigation}>
-              <View accessible={false} importantForAccessibility="no-hide-descendants" style={styles.logoPill}>
+              <View
+                accessible={false}
+                importantForAccessibility="no-hide-descendants"
+                style={[styles.logoPill, useCompactPhoneLayout ? styles.logoPillCompact : null]}
+              >
                 <Text style={styles.logoText}>SP</Text>
               </View>
               <Pressable
                 accessibilityLabel="Volver a lecciones"
                 accessibilityRole="button"
                 onPress={onExit}
-                style={styles.backButton}
+                style={[styles.backButton, useCompactPhoneLayout ? styles.backButtonCompact : null]}
               >
                 <Text style={styles.backButtonText}>← Lecciones</Text>
               </Pressable>
@@ -754,6 +759,7 @@ export function LessonScreen({
             >
               <StageJourney
                 cards={lesson.cards}
+                compact={useCompactPhoneLayout}
                 currentIndex={cardIndex}
                 lessonId={lesson.id}
               />
@@ -763,13 +769,17 @@ export function LessonScreen({
               accessibilityRole="button"
               accessibilityState={{ expanded: showHelp }}
               onPress={() => setShowHelp((current) => !current)}
-              style={[styles.helpButton, showHelp ? styles.helpButtonActive : null]}
+              style={[
+                styles.helpButton,
+                useCompactPhoneLayout ? styles.helpButtonCompact : null,
+                showHelp ? styles.helpButtonActive : null,
+              ]}
             >
               <Text style={styles.helpButtonText}>?</Text>
             </Pressable>
           </View>
         </View>
-        <View style={styles.contentHeader}>
+        <View style={[styles.contentHeader, useCompactPhoneLayout ? styles.contentHeaderCompact : null]}>
           <Text accessibilityRole="header" style={styles.stage}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
           </Text>
@@ -793,8 +803,12 @@ export function LessonScreen({
                 style={[
                   styles.prompt,
                   {
-                    fontSize: Math.max(26, Math.min(36, viewportHeight * 0.052)),
-                    lineHeight: Math.max(31, Math.min(43, viewportHeight * 0.062)),
+                    fontSize: useCompactPhoneLayout
+                      ? Math.max(22, Math.min(29, viewportHeight * 0.072))
+                      : Math.max(26, Math.min(36, viewportHeight * 0.052)),
+                    lineHeight: useCompactPhoneLayout
+                      ? Math.max(27, Math.min(35, viewportHeight * 0.085))
+                      : Math.max(31, Math.min(43, viewportHeight * 0.062)),
                   },
                 ]}
               >
@@ -842,21 +856,21 @@ export function LessonScreen({
         />
     </>
   );
-  const needsAccessibleScrolling = fontScale > 1.15 || viewportHeight < 380;
+  const needsAccessibleScrolling = fontScale > 1.3 || viewportHeight < 300;
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar hidden />
       {needsAccessibleScrolling ? (
         <ScrollView
-          contentContainerStyle={styles.pageScrollable}
+          contentContainerStyle={[styles.pageScrollable, useCompactPhoneLayout ? styles.pageCompact : null]}
           persistentScrollbar
           style={styles.pageScroll}
         >
           {lessonContent}
         </ScrollView>
       ) : (
-        <View style={styles.page}>{lessonContent}</View>
+        <View style={[styles.page, useCompactPhoneLayout ? styles.pageCompact : null]}>{lessonContent}</View>
       )}
     </SafeAreaView>
   );
@@ -865,6 +879,7 @@ export function LessonScreen({
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { flex: 1, gap: 6, padding: 6 },
+  pageCompact: { gap: 4, padding: 4 },
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
   qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 54, paddingHorizontal: 10, paddingVertical: 5 },
@@ -882,17 +897,22 @@ const styles = StyleSheet.create({
   qaAutoText: { color: '#e8dff0', fontSize: 11, fontWeight: '900' },
   qaAutoTextActive: { color: '#245d3d' },
   hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, paddingHorizontal: 5, paddingVertical: 5 },
+  heroCompact: { paddingHorizontal: 4, paddingVertical: 3 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
   logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 15, height: 48, justifyContent: 'center', width: 54 },
+  logoPillCompact: { borderRadius: 12, height: 40, width: 46 },
   logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
   backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
+  backButtonCompact: { borderRadius: 12, minHeight: 40, paddingHorizontal: 10 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
   lessonStatus: { alignItems: 'stretch', flex: 1, justifyContent: 'center', marginHorizontal: 3 },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
+  helpButtonCompact: { borderRadius: 20, height: 40, width: 40 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
   contentHeader: { backgroundColor: '#fff', borderColor: '#e4ded2', borderRadius: 18, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 7 },
+  contentHeaderCompact: { borderRadius: 14, paddingHorizontal: 9, paddingVertical: 3 },
   stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptTapTarget: { width: '100%' },
