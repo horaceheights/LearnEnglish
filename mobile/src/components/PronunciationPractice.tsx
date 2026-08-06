@@ -23,6 +23,7 @@ import {
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import {
   alignExpectedPhrase,
+  assessedPhraseProgress,
   paceIndependentAccuracy,
   speechTokens,
 } from '../pronunciationEngine';
@@ -79,6 +80,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   const [attempt, setAttempt] = useState(0);
   const [liveLevel, setLiveLevel] = useState(0);
   const [liveMatchedCount, setLiveMatchedCount] = useState(0);
+  const [liveTentativeCount, setLiveTentativeCount] = useState(0);
   const attemptRef = useRef(0);
   const mountedRef = useRef(true);
   const runIdRef = useRef(0);
@@ -150,6 +152,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     noiseFloorDb.current = -60;
     setLiveLevel(0);
     setLiveMatchedCount(0);
+    setLiveTentativeCount(0);
     modelWasPlaying.current = false;
     setDiagnosticOperation('pronunciation_model_playback');
     addDiagnosticBreadcrumb('pronunciation_model_started', { attempt: attemptRef.current + 1 });
@@ -364,6 +367,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         phraseCompleteTimer.current = null;
         setLiveLevel(0);
         setLiveMatchedCount(0);
+        setLiveTentativeCount(0);
         await startNativeSpeech({
           locale: streamingToken.locale,
           referenceText: phrase,
@@ -419,16 +423,24 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         progress.matchedCount,
         Math.max(0, expectedTokens.length - 1),
       );
-      liveMatchedCountRef.current = tentativeCount;
-      setLiveMatchedCount(tentativeCount);
+      // Partial recognition is only a prediction. Show it as tentative, but
+      // never turn a whole word green until pronunciation evidence confirms
+      // its syllables/phonemes in a finalized result.
+      setLiveTentativeCount(tentativeCount);
     });
     const resultSubscription = addSpeechListener<SpeechResultEvent>('onSpeechResult', (event) => {
       if (!streamingCapture.current || !event.text) return;
       liveRecognizedText.current = event.text;
-      const progress = alignExpectedPhrase(phrase, event.text);
+      const progress = assessedPhraseProgress(
+        phrase,
+        event.text,
+        event.json,
+        liveMatchedCountRef.current,
+      );
       liveProgressComplete.current = progress.completed;
       liveMatchedCountRef.current = progress.matchedCount;
       setLiveMatchedCount(progress.matchedCount);
+      setLiveTentativeCount(progress.matchedCount);
       if (progress.completed && !phraseCompleteTimer.current) {
         // The finalized result is already available. Retain a small audio tail
         // before stopping so the final consonant or suffix is never clipped.
@@ -611,8 +623,11 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
                 key={`${token}-${index}`}
                 style={[
                   styles.liveWord,
+                  index < liveTentativeCount ? styles.liveWordTentative : undefined,
                   index < liveMatchedCount ? styles.liveWordHeard : undefined,
-                  index === liveMatchedCount ? styles.liveWordExpected : undefined,
+                  index === Math.max(liveMatchedCount, liveTentativeCount)
+                    ? styles.liveWordExpected
+                    : undefined,
                 ]}
               >
                 {token}
@@ -705,6 +720,7 @@ const styles = StyleSheet.create({
   liveWords: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center' },
   liveWord: { borderRadius: 8, color: '#24333a', fontSize: 18, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 3 },
   liveWordExpected: { borderColor: '#d99b35', borderWidth: 2, paddingHorizontal: 5, paddingVertical: 1 },
+  liveWordTentative: { color: '#b7791f' },
   liveWordHeard: { color: '#2f8f62' },
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },

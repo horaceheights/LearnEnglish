@@ -39,6 +39,35 @@ export type PhraseProgress = {
   tokens: string[];
 };
 
+const LIVE_WORD_MINIMUM_SCORE = 15;
+const LIVE_FINAL_SOUND_MINIMUM_SCORE = 20;
+
+function hasArticulationEvidence(word: WordScore): boolean {
+  if (word.error_type?.toLocaleLowerCase('en-US') === 'omission') return false;
+
+  const syllableScores = (word.syllable_score_list ?? [])
+    .map((syllable) => syllable.quality_score)
+    .filter((score): score is number => typeof score === 'number');
+  if (syllableScores.length) {
+    // A word is not complete when Azure heard its opening but scored a later
+    // syllable as missing (for example "talk" instead of "talk-ing").
+    if (syllableScores.some((score) => score < LIVE_WORD_MINIMUM_SCORE)) return false;
+    if (syllableScores[syllableScores.length - 1] < LIVE_FINAL_SOUND_MINIMUM_SCORE) return false;
+  }
+
+  const phoneScores = (word.phone_score_list ?? [])
+    .map((phone) => phone.quality_score)
+    .filter((score): score is number => typeof score === 'number');
+  if (phoneScores.length) {
+    const supportedPhones = phoneScores.filter((score) => score >= LIVE_WORD_MINIMUM_SCORE).length;
+    if (supportedPhones / phoneScores.length < 0.65) return false;
+    if (phoneScores[phoneScores.length - 1] < LIVE_FINAL_SOUND_MINIMUM_SCORE) return false;
+  }
+
+  const wordScore = word.quality_score;
+  return typeof wordScore === 'number' && wordScore >= LIVE_WORD_MINIMUM_SCORE;
+}
+
 /**
  * Aligns recognition hypotheses to the known sentence. Fillers, false starts,
  * repeated words, and self-corrections do not advance or penalize progress.
@@ -53,6 +82,55 @@ export function alignExpectedPhrase(referenceText: string, recognizedText: strin
     if (FILLERS.has(token)) continue;
     if (expectedIndex > 0 && tokenMatches(token, expected[expectedIndex - 1])) continue;
     if (tokenMatches(token, expected[expectedIndex])) expectedIndex += 1;
+  }
+
+  return {
+    completed: expected.length > 0 && expectedIndex === expected.length,
+    matchedCount: expectedIndex,
+    tokens: expected,
+  };
+}
+
+/**
+ * Confirms live progress using pronunciation-assessment evidence. A speech
+ * transcript is a prediction and can expand "talk" into "talking"; syllable
+ * and phoneme scores tell us whether the learner actually produced the rest.
+ */
+export function assessedPhraseProgress(
+  referenceText: string,
+  recognizedText: string,
+  assessmentJson: string,
+  previouslyConfirmedCount = 0,
+): PhraseProgress {
+  const transcriptProgress = alignExpectedPhrase(referenceText, recognizedText);
+  const confirmedStart = Math.min(
+    Math.max(0, previouslyConfirmedCount),
+    transcriptProgress.tokens.length,
+  );
+  if (!assessmentJson) {
+    return { ...transcriptProgress, completed: false, matchedCount: confirmedStart };
+  }
+
+  let assessmentResult: PronunciationResult;
+  try {
+    assessmentResult = normalizeNativeAssessment(assessmentJson, recognizedText);
+  } catch {
+    return { ...transcriptProgress, completed: false, matchedCount: confirmedStart };
+  }
+
+  const expected = transcriptProgress.tokens;
+  const assessedWords = assessmentResult.text_score?.word_score_list ?? [];
+  let expectedIndex = confirmedStart;
+
+  for (const assessedWord of assessedWords) {
+    if (expectedIndex >= expected.length || expectedIndex >= transcriptProgress.matchedCount) break;
+    const observed = speechTokens(assessedWord.word ?? '')[0];
+    if (!observed) continue;
+    if (FILLERS.has(observed)) continue;
+    if (expectedIndex > 0 && tokenMatches(observed, expected[expectedIndex - 1])) continue;
+    if (!tokenMatches(observed, expected[expectedIndex])) continue;
+    if (!hasArticulationEvidence(assessedWord)) break;
+    expectedIndex += 1;
   }
 
   return {
