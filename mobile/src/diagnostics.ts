@@ -20,6 +20,22 @@ const traceSampleRate = Number.isFinite(configuredTraceSampleRate)
   ? Math.min(Math.max(configuredTraceSampleRate, 0), 1)
   : 0.2;
 
+export function isExpectedConnectivityError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error ?? '');
+  return /unknownhostexception|unable to resolve host|no address associated with hostname|network request failed|failed to fetch|fetch failed|enotfound|eai_again|no pudimos conectarnos|revisa tu internet|conexi.n.*(?:internet|d.bil)/i.test(message);
+}
+
+function sentryEventIsConnectivityFailure(
+  event: { message?: string; exception?: { values?: { type?: string; value?: string }[] } },
+  originalException?: unknown,
+): boolean {
+  if (isExpectedConnectivityError(originalException)) return true;
+  if (isExpectedConnectivityError(event.message)) return true;
+  return (event.exception?.values ?? []).some((value) =>
+    isExpectedConnectivityError(value.value || value.type),
+  );
+}
+
 function updateSentryContext(): void {
   Sentry.setContext('learning_activity', {
     lesson_id: currentContext.lessonId || 'none',
@@ -58,6 +74,10 @@ export function initializeDiagnostics(): void {
     enableUserInteractionTracing: true,
     tracePropagationTargets: ['learnenglish-fxki.onrender.com'],
     tracesSampleRate: traceSampleRate,
+    // Offline and DNS failures are expected operating conditions, not code
+    // defects. Their request spans remain available for performance analysis.
+    beforeSend: (event, hint) =>
+      sentryEventIsConnectivityFailure(event, hint?.originalException) ? null : event,
   });
 
   Sentry.setTags({
@@ -97,6 +117,12 @@ export function captureDiagnosticError(
 ): string | undefined {
   const normalizedError = error instanceof Error ? error : new Error(String(error));
   const diagnostic = getDiagnosticContext();
+
+  if (isExpectedConnectivityError(normalizedError)) {
+    console.warn(`[SpanGlish] ${operation}`, normalizedError.message);
+    addDiagnosticBreadcrumb('connectivity_unavailable', { ...details, operation });
+    return undefined;
+  }
 
   console[level === 'error' ? 'error' : 'warn'](
     `[SpanGlish] ${operation}`,

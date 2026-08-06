@@ -18,6 +18,7 @@ import { courseAudioUrl, READY_CUE_URL } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
+  isExpectedConnectivityError,
   setDiagnosticOperation,
 } from '../diagnostics';
 import { useReducedMotion } from '../hooks/useReducedMotion';
@@ -391,7 +392,12 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       captureDiagnosticError(recordingError, 'microphone_prepare', {
         attempt: attemptRef.current + 1,
       });
-      scheduleRetry('No pudimos abrir el micrófono.', runId);
+      scheduleRetry(
+        isExpectedConnectivityError(recordingError)
+          ? 'Tu conexión está débil.'
+          : 'No pudimos abrir el micrófono.',
+        runId,
+      );
     }
   }, [isCurrentRun, phrase, readyCuePlayer, readyCuePreload, recorder, scheduleRetry]);
 

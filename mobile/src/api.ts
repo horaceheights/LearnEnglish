@@ -286,17 +286,27 @@ export async function getPronunciationStreamingToken(): Promise<{
   region: string;
   locale: string;
 }> {
-  const response = await fetch(`${API_BASE_URL}/api/pronunciation/token`);
-  const payload = await response.json();
-  if (!response.ok) {
-    const detail = typeof payload?.detail === 'string'
-      ? payload.detail
-      : JSON.stringify(payload?.detail || payload);
-    throw new Error(detail || `Could not start live pronunciation (${response.status}).`);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), PRONUNCIATION_REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/pronunciation/token`, {
+      signal: controller.signal,
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      const detail = typeof payload?.detail === 'string'
+        ? payload.detail
+        : JSON.stringify(payload?.detail || payload);
+      throw new Error(detail || `Could not start live pronunciation (${response.status}).`);
+    }
+    return {
+      token: String(payload.token || ''),
+      region: String(payload.region || ''),
+      locale: String(payload.locale || 'en-US'),
+    };
+  } catch (error) {
+    throw requestError(error);
+  } finally {
+    clearTimeout(timeout);
   }
-  return {
-    token: String(payload.token || ''),
-    region: String(payload.region || ''),
-    locale: String(payload.locale || 'en-US'),
-  };
 }
