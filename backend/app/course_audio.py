@@ -21,6 +21,7 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 CACHE_DIR = ROOT_DIR / "storage" / "audio-cache"
 OPENAI_SPEECH_URL = "https://api.openai.com/v1/audio/speech"
 ELEVENLABS_SPEECH_URL = "https://api.elevenlabs.io/v1/text-to-speech"
+ELEVENLABS_VOICES_URL = "https://api.elevenlabs.io/v2/voices"
 SUPPORTED_FORMATS = {
     "mp3": "audio/mpeg",
     "opus": "audio/ogg",
@@ -201,6 +202,51 @@ def audio_debug() -> dict[str, object]:
         "tempo_correction_range": [MAX_TEMPO_SLOWDOWN, MAX_TEMPO_SPEEDUP],
         "cache_dir": str(CACHE_DIR),
     }
+
+
+async def available_elevenlabs_premade_voices() -> dict[str, object]:
+    """Return safe metadata for premade voices visible to this API key."""
+    api_key = elevenlabs_api_key()
+    if not api_key:
+        raise HTTPException(status_code=503, detail="ElevenLabs course audio is not configured.")
+
+    try:
+        async with httpx.AsyncClient(timeout=20.0) as client:
+            response = await client.get(
+                ELEVENLABS_VOICES_URL,
+                params={"category": "premade", "page_size": 100},
+                headers={"xi-api-key": api_key, "Accept": "application/json"},
+            )
+    except httpx.HTTPError as error:
+        raise HTTPException(status_code=502, detail="Could not reach ElevenLabs voice service.") from error
+
+    if response.status_code >= 400:
+        raise HTTPException(
+            status_code=502,
+            detail=f"ElevenLabs voice request failed with status {response.status_code}.",
+        )
+
+    payload = response.json()
+    safe_voices = []
+    for voice in payload.get("voices", []):
+        if not isinstance(voice, dict):
+            continue
+        labels = voice.get("labels") if isinstance(voice.get("labels"), dict) else {}
+        safe_voices.append(
+            {
+                "voice_id": voice.get("voice_id"),
+                "name": voice.get("name"),
+                "category": voice.get("category"),
+                "description": voice.get("description"),
+                "labels": {
+                    key: labels.get(key)
+                    for key in ("accent", "age", "gender", "language", "use_case", "descriptive")
+                    if labels.get(key)
+                },
+                "available_for_tiers": voice.get("available_for_tiers") or [],
+            }
+        )
+    return {"voices": safe_voices, "count": len(safe_voices)}
 
 
 def syllable_count(text: str) -> int:

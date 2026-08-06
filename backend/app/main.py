@@ -8,7 +8,12 @@ from fastapi.responses import HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from .diagnostics import initialize_diagnostics
-from .course_audio import audio_debug, get_course_audio, ready_cue_wav
+from .course_audio import (
+    audio_debug,
+    available_elevenlabs_premade_voices,
+    get_course_audio,
+    ready_cue_wav,
+)
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .legal import account_deletion_html, privacy_policy_html
 from .schemas import Lesson, LessonCard
@@ -152,6 +157,11 @@ async def pronunciation_token():
 @app.get("/api/audio/health")
 def audio_health():
     return audio_debug()
+
+
+@app.get("/api/audio/elevenlabs-voices")
+async def elevenlabs_voices():
+    return await available_elevenlabs_premade_voices()
 
 
 @app.get("/api/audio/course")
