@@ -67,8 +67,7 @@ export function LessonFeedbackSurvey({
 
   useEffect(() => () => {
     mountedRef.current = false;
-    if (recorder.isRecording) void recorder.stop().catch(() => undefined);
-  }, [recorder]);
+  }, []);
 
   const startRecording = useCallback(async () => {
     if (phase !== 'idle') return;
@@ -154,7 +153,12 @@ export function LessonFeedbackSurvey({
           <Text style={styles.eyebrow}>ENCUESTA PILOTO · SOLO HORACE</Text>
           <Text style={styles.title}>Ayúdanos a mejorar esta lección</Text>
         </View>
-        <Pressable accessibilityRole="button" onPress={onDone} style={styles.skipButton}>
+        <Pressable
+          accessibilityRole="button"
+          disabled={isSaving || phase !== 'idle'}
+          onPress={onDone}
+          style={[styles.skipButton, isSaving || phase !== 'idle' ? styles.disabled : null]}
+        >
           <Text style={styles.skipText}>Ahora no</Text>
         </Pressable>
       </View>
