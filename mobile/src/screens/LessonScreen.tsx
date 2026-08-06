@@ -804,7 +804,7 @@ export function LessonScreen({
           <Text accessibilityRole="header" style={styles.stage}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
           </Text>
-          <View style={styles.promptRow}>
+          <View style={[styles.promptRow, isPortrait ? styles.promptRowPortrait : null]}>
             <Pressable
               accessibilityLabel={`Reproducir: ${promptAudio}`}
               accessibilityHint="Toca dos veces para escuchar la frase"
@@ -845,13 +845,15 @@ export function LessonScreen({
                 onPress={() => playAudio(promptAudio, 'prompt', 'prompt')}
                 style={({ pressed }) => [
                   styles.repeatButton,
-                  styles.repeatButtonFloating,
-                  {
-                    marginLeft: Math.max(
-                      9,
-                      Math.min((promptTextWidth / 2) + 9, (viewportWidth / 2) - 112),
-                    ),
-                  },
+                  isPortrait ? styles.repeatButtonPortrait : styles.repeatButtonFloating,
+                  !isPortrait
+                    ? {
+                        marginLeft: Math.max(
+                          9,
+                          Math.min((promptTextWidth / 2) + 9, (viewportWidth / 2) - 112),
+                        ),
+                      }
+                    : null,
                   pressed ? styles.repeatButtonPressed : null,
                 ]}
               >
@@ -940,10 +942,12 @@ const styles = StyleSheet.create({
   contentHeaderPortrait: { paddingHorizontal: 9, paddingVertical: 5 },
   stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
+  promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
   promptTapTarget: { width: '100%' },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
   repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', minHeight: 28, width: 82 },
   repeatButtonFloating: { left: '50%', marginTop: -14, position: 'absolute', top: '50%' },
+  repeatButtonPortrait: { alignSelf: 'center' },
   repeatButtonPressed: { backgroundColor: '#fff4df', opacity: 0.78, transform: [{ scale: 0.97 }] },
   repeatIcon: { color: '#8a4f00', fontSize: 16, fontWeight: '900', lineHeight: 18 },
   repeatText: { color: '#694b22', fontSize: 10, fontWeight: '900' },
