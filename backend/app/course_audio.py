@@ -28,7 +28,7 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-syllable-v3"
+AUDIO_PROFILE_VERSION = "a1-consistent-teacher-v4"
 PROMPT_TARGET_SPM = 150
 SHORT_VOCAB_TARGET_SPM = 120
 PRONUNCIATION_TARGET_SPM = 125
@@ -173,12 +173,13 @@ def audio_configured() -> bool:
 
 
 def audio_debug() -> dict[str, object]:
+    teacher_voice = os.getenv("OPENAI_TTS_VOICE", "coral")
     return {
         "openai_audio_configured": audio_configured(),
         "model": os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts"),
-        "voice": os.getenv("OPENAI_TTS_VOICE", "coral"),
-        "question_voice": os.getenv("OPENAI_TTS_QUESTION_VOICE", "alloy"),
-        "answer_voice": os.getenv("OPENAI_TTS_ANSWER_VOICE", os.getenv("OPENAI_TTS_VOICE", "coral")),
+        "voice": teacher_voice,
+        "question_voice": teacher_voice,
+        "answer_voice": teacher_voice,
         "format": os.getenv("OPENAI_TTS_FORMAT", "mp3"),
         "audio_profile": AUDIO_PROFILE_VERSION,
         "prompt_target_spm": PROMPT_TARGET_SPM,
@@ -260,7 +261,14 @@ def audio_instructions(text: str, mode: str, lang: str, variant: str) -> str:
     pace = target_syllables_per_minute(text, mode, variant)
     target_seconds = target_active_seconds(text, mode, variant)
     word_notes = pronunciation_notes(text)
+    voice_reference = (
+        "Always use the same teacher persona and sound like every clip was recorded in one studio session: "
+        "a calm adult female teacher with a warm but neutral tone, steady medium pitch, and restrained pitch "
+        "movement. Keep the delivery near the pitch and clarity of a careful reading of 'The girl is writing.' "
+        "Avoid sounding unusually bright, deep, breathy, theatrical, excited, sing-song, or conversational. "
+    )
     shared = (
+        voice_reference +
         f"The spoken words themselves should last about {target_seconds:.1f} seconds, excluding silence. "
         "Use careful General American pronunciation with correct vowels and consonants. Keep the same measured "
         "syllable pace from the beginning through the final word; never accelerate the predicate or an -ing "
@@ -291,7 +299,8 @@ def audio_instructions(text: str, mode: str, lang: str, variant: str) -> str:
     if variant == "question":
         return (
             f"Speak in {language_hint} as a friendly classroom guide asking a beginner learner a short question. "
-            "Use a clear, curious question intonation. Keep it natural and concise."
+            f"{voice_reference}Use only a slight, controlled rise at the end for question intonation. Keep it "
+            "natural and concise."
         )
     if variant == "answer":
         return (
@@ -456,10 +465,8 @@ def normalize_course_audio(audio_bytes: bytes, text: str, mode: str, variant: st
 
 
 def voice_for_variant(variant: str) -> str:
-    if variant == "question":
-        return os.getenv("OPENAI_TTS_QUESTION_VOICE", "alloy")
-    if variant == "answer":
-        return os.getenv("OPENAI_TTS_ANSWER_VOICE", os.getenv("OPENAI_TTS_VOICE", "coral"))
+    # One recognizable teacher voice across prompts, questions, answers, and
+    # pronunciation practice is more important than variant-specific voices.
     return os.getenv("OPENAI_TTS_VOICE", "coral")
 
 

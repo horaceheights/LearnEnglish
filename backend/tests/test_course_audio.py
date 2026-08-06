@@ -10,6 +10,7 @@ from backend.app.course_audio import (
     syllable_count,
     target_active_seconds,
     target_syllables_per_minute,
+    voice_for_variant,
 )
 from backend.app.data import LESSONS
 
@@ -81,7 +82,11 @@ class CourseAudioProfileTests(unittest.TestCase):
             "\n".join(["The boy", "prompt", "en-US", "default", "model", "voice", "mp3"]).encode("utf-8")
         ).hexdigest()
         self.assertNotEqual(f"{legacy}.mp3", current.name)
-        self.assertEqual("a1-syllable-v3", AUDIO_PROFILE_VERSION)
+        self.assertEqual("a1-consistent-teacher-v4", AUDIO_PROFILE_VERSION)
+
+    def test_every_variant_uses_the_same_teacher_voice(self):
+        self.assertEqual(voice_for_variant("default"), voice_for_variant("question"))
+        self.assertEqual(voice_for_variant("default"), voice_for_variant("answer"))
 
 
 if __name__ == "__main__":
