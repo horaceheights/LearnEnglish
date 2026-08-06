@@ -663,9 +663,19 @@ async def _generate_elevenlabs_audio(
         },
     )
     if response.status_code >= 400:
+        provider_message = ""
+        try:
+            error_payload = response.json()
+            error_detail = error_payload.get("detail", {}) if isinstance(error_payload, dict) else {}
+            if isinstance(error_detail, dict):
+                provider_message = str(error_detail.get("message") or error_detail.get("status") or "")
+        except ValueError:
+            pass
+        safe_message = re.sub(r"[^A-Za-z0-9 .,:'_()-]", "", provider_message)[:160]
+        suffix = f" {safe_message}" if safe_message else ""
         raise HTTPException(
             status_code=502,
-            detail=f"ElevenLabs audio request failed with status {response.status_code}.",
+            detail=f"ElevenLabs audio request failed with status {response.status_code}.{suffix}",
         )
     return response.content
 
