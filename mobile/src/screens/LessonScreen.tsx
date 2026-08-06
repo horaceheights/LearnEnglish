@@ -930,7 +930,7 @@ const styles = StyleSheet.create({
   backButtonCompact: { borderRadius: 12, minHeight: 40, paddingHorizontal: 10 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
   lessonStatus: { alignItems: 'stretch', flex: 1, justifyContent: 'center', marginHorizontal: 3 },
-  lessonStatusPortrait: { flex: 0, marginHorizontal: 0, marginTop: 6, width: '100%' },
+  lessonStatusPortrait: { flex: 0, height: 50, marginHorizontal: 0, marginTop: 6, width: '100%' },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
   helpButtonCompact: { borderRadius: 20, height: 40, width: 40 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
