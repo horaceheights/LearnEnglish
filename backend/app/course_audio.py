@@ -31,7 +31,7 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v11"
+AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v12"
 DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 # Nichalia Schwartz is a professional American teacher/e-learning voice from
 # the ElevenLabs Voice Library. Paid plans can use Voice Library voices by ID.
@@ -53,6 +53,8 @@ NORMALIZATION_SAMPLE_RATE = 24_000
 MAX_TEMPO_SLOWDOWN = 0.55
 MAX_TEMPO_SPEEDUP = 1.60
 MAX_PITCH_SHIFT = 1.12
+ELEVENLABS_PREMIUM_PROMPT_SPEED = 0.85
+ELEVENLABS_PREMIUM_PRONUNCIATION_SPEED = 0.80
 
 # The first course deliberately uses a small vocabulary. Keeping its irregular
 # syllable counts explicit makes pacing deterministic instead of treating
@@ -231,6 +233,8 @@ def audio_debug() -> dict[str, object]:
         "prompt_target_spm": PROMPT_TARGET_SPM,
         "short_vocab_target_spm": SHORT_VOCAB_TARGET_SPM,
         "pronunciation_target_spm": PRONUNCIATION_TARGET_SPM,
+        "elevenlabs_premium_prompt_speed": ELEVENLABS_PREMIUM_PROMPT_SPEED,
+        "elevenlabs_premium_pronunciation_speed": ELEVENLABS_PREMIUM_PRONUNCIATION_SPEED,
         "target_rms_dbfs": TARGET_RMS_DBFS,
         "target_median_pitch_hz": TARGET_MEDIAN_PITCH_HZ,
         "tempo_correction_range": [MAX_TEMPO_SLOWDOWN, MAX_TEMPO_SPEEDUP],
@@ -704,7 +708,11 @@ async def _generate_elevenlabs_audio(
         "use_speaker_boost": True,
         # Let ElevenLabs produce the slower delivery natively. Stretching an
         # already-generated word can create artifacts such as "sis-steeer".
-        "speed": 0.86 if premium and mode == "pronunciation_slow" else 0.92 if premium else 1.0,
+        "speed": (
+            ELEVENLABS_PREMIUM_PRONUNCIATION_SPEED
+            if premium and mode == "pronunciation_slow"
+            else ELEVENLABS_PREMIUM_PROMPT_SPEED if premium else 1.0
+        ),
     }
     response = await client.post(
         f"{ELEVENLABS_SPEECH_URL}/{voice}",
