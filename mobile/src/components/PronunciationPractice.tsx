@@ -35,6 +35,7 @@ import {
   type SpeechErrorEvent,
   type SpeechLevelEvent,
   type SpeechProgressEvent,
+  type SpeechResultEvent,
 } from '../../modules/spanglish-speech/src';
 
 type Props = {
@@ -411,16 +412,30 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       heardSpeech.current = true;
       liveRecognizedText.current = event.text;
       const progress = alignExpectedPhrase(phrase, event.text);
+      // Azure's partial transcript can predict a complete final word from only
+      // its opening sound. Keep the final word pending until the recognizer
+      // emits a finalized result so suffixes such as -ing, -s, and -ed are kept.
+      const tentativeCount = Math.min(
+        progress.matchedCount,
+        Math.max(0, expectedTokens.length - 1),
+      );
+      liveMatchedCountRef.current = tentativeCount;
+      setLiveMatchedCount(tentativeCount);
+    });
+    const resultSubscription = addSpeechListener<SpeechResultEvent>('onSpeechResult', (event) => {
+      if (!streamingCapture.current || !event.text) return;
+      liveRecognizedText.current = event.text;
+      const progress = alignExpectedPhrase(phrase, event.text);
       liveProgressComplete.current = progress.completed;
       liveMatchedCountRef.current = progress.matchedCount;
       setLiveMatchedCount(progress.matchedCount);
       if (progress.completed && !phraseCompleteTimer.current) {
-        // Give Azure a brief moment to finalize the last word, then stop without
-        // waiting for acoustic silence that background noise may prevent.
+        // The finalized result is already available. Retain a small audio tail
+        // before stopping so the final consonant or suffix is never clipped.
         phraseCompleteTimer.current = setTimeout(() => {
           phraseCompleteTimer.current = null;
           void finishNativeCapture();
-        }, 350);
+        }, 250);
       }
     });
     const errorSubscription = addSpeechListener<SpeechErrorEvent>('onSpeechError', (event) => {
@@ -430,9 +445,10 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     return () => {
       levelSubscription.remove();
       progressSubscription.remove();
+      resultSubscription.remove();
       errorSubscription.remove();
     };
-  }, [finishNativeCapture, phrase]);
+  }, [expectedTokens.length, finishNativeCapture, phrase]);
 
   useEffect(() => {
     if (phase !== 'listening' || !streamingCapture.current) return undefined;
