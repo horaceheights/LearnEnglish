@@ -31,7 +31,8 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-azure-comparison-v7"
+AUDIO_PROFILE_VERSION = "a1-provider-comparison-v8"
+DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 PROMPT_TARGET_SPM = 150
 SHORT_VOCAB_TARGET_SPM = 120
 PRONUNCIATION_TARGET_SPM = 125
@@ -191,7 +192,10 @@ def audio_debug() -> dict[str, object]:
         "openai_audio_configured": audio_configured(),
         "elevenlabs_audio_configured": bool(elevenlabs_api_key()),
         "elevenlabs_model": os.getenv("ELEVENLABS_TTS_MODEL", "eleven_multilingual_v2"),
-        "elevenlabs_voice_id": os.getenv("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM"),
+        "elevenlabs_voice_id": os.getenv(
+            "ELEVENLABS_BUILTIN_VOICE_ID", DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID
+        ),
+        "elevenlabs_voice_type": "built-in",
         "azure_audio_configured": bool(
             azure_speech_key() and (os.getenv("AZURE_SPEECH_REGION") or "").strip()
         ),
@@ -736,7 +740,9 @@ async def _provider_audio(
 ) -> FileResponse:
     if provider == "elevenlabs":
         model = os.getenv("ELEVENLABS_TTS_MODEL", "eleven_multilingual_v2")
-        voice = os.getenv("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM")
+        voice = os.getenv(
+            "ELEVENLABS_BUILTIN_VOICE_ID", DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID
+        )
         output_format = "mp3"
     elif provider == "azure":
         model = "azure-neural"

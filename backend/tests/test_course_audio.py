@@ -87,7 +87,7 @@ class CourseAudioProfileTests(unittest.TestCase):
             "\n".join(["The boy", "prompt", "en-US", "default", "model", "voice", "mp3"]).encode("utf-8")
         ).hexdigest()
         self.assertNotEqual(f"{legacy}.mp3", current.name)
-        self.assertEqual("a1-azure-comparison-v7", AUDIO_PROFILE_VERSION)
+        self.assertEqual("a1-provider-comparison-v8", AUDIO_PROFILE_VERSION)
 
     def test_only_supported_audio_providers_are_accepted(self):
         self.assertEqual("openai", normalized_provider("OpenAI"))
