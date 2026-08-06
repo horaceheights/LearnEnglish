@@ -117,6 +117,16 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   const statusIsActive = phase === 'listening' || phase === 'checking';
   const statusIsAnimated = statusIsActive && !reduceMotion && !(phase === 'listening' && streamingCapture.current);
   const expectedTokens = useMemo(() => speechTokens(phrase), [phrase]);
+  const currentWordIndex = useMemo(() => {
+    if (!expectedTokens.length || liveMatchedCount >= expectedTokens.length) return -1;
+    // A partial transcript may tentatively recognize the word being spoken.
+    // Keep the pointer on that word until finalized pronunciation evidence
+    // confirms it, then advance to the next expected word.
+    if (liveTentativeCount > liveMatchedCount) {
+      return Math.min(liveTentativeCount - 1, expectedTokens.length - 1);
+    }
+    return liveMatchedCount;
+  }, [expectedTokens.length, liveMatchedCount, liveTentativeCount]);
   const weakestWord = useMemo(
     () => {
       const scoredWords = result?.text_score?.word_score_list
@@ -633,19 +643,23 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
         {phase === 'listening' && nativeStreamingAvailable ? (
           <View style={styles.liveWords}>
             {expectedTokens.map((token, index) => (
-              <Text
-                key={`${token}-${index}`}
-                style={[
-                  styles.liveWord,
-                  index < liveTentativeCount ? styles.liveWordTentative : undefined,
-                  index < liveMatchedCount ? styles.liveWordHeard : undefined,
-                  index === Math.max(liveMatchedCount, liveTentativeCount)
-                    ? styles.liveWordExpected
-                    : undefined,
-                ]}
-              >
-                {token}
-              </Text>
+              <View key={`${token}-${index}`} style={styles.liveWordSlot}>
+                <Text
+                  style={[
+                    styles.liveWord,
+                    index < liveTentativeCount ? styles.liveWordTentative : undefined,
+                    index < liveMatchedCount ? styles.liveWordHeard : undefined,
+                  ]}
+                >
+                  {token}
+                </Text>
+                <Text
+                  accessibilityElementsHidden
+                  style={[styles.currentWordArrow, index === currentWordIndex ? null : styles.currentWordArrowHidden]}
+                >
+                  ↑
+                </Text>
+              </View>
             ))}
           </View>
         ) : <Text style={styles.phrase}>{phrase}</Text>}
@@ -731,11 +745,13 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
 const styles = StyleSheet.create({
   container: { gap: 6, marginTop: 4 },
   phrase: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, textAlign: 'center' },
-  liveWords: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center' },
-  liveWord: { borderRadius: 8, color: '#24333a', fontSize: 18, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 3 },
-  liveWordExpected: { borderColor: '#d99b35', borderWidth: 2, paddingHorizontal: 5, paddingVertical: 1 },
-  liveWordTentative: { color: '#b7791f' },
-  liveWordHeard: { color: '#2f8f62' },
+  liveWords: { alignItems: 'flex-start', flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center' },
+  liveWordSlot: { alignItems: 'center' },
+  liveWord: { borderColor: 'transparent', borderRadius: 8, borderWidth: 2, color: '#24333a', fontSize: 18, fontWeight: '900', paddingHorizontal: 7, paddingVertical: 3 },
+  liveWordTentative: { backgroundColor: '#fff2cf', borderColor: '#e1b85c', color: '#8a5b10' },
+  liveWordHeard: { backgroundColor: '#dff4e7', borderColor: '#2f8f62', color: '#17623f' },
+  currentWordArrow: { color: '#d95c52', fontSize: 20, fontWeight: '900', height: 21, lineHeight: 21, marginTop: -1 },
+  currentWordArrowHidden: { opacity: 0 },
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },
   wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 28, marginRight: 8 },
