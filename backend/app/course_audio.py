@@ -663,8 +663,10 @@ async def _generate_elevenlabs_audio(
         },
     )
     if response.status_code >= 400:
-        detail = response.text[:500] if response.text else "ElevenLabs audio request failed."
-        raise HTTPException(status_code=502, detail=detail)
+        raise HTTPException(
+            status_code=502,
+            detail=f"ElevenLabs audio request failed with status {response.status_code}.",
+        )
     return response.content
 
 
@@ -735,9 +737,12 @@ async def get_course_audio(
     requested_provider = normalized_provider(provider)
     try:
         return await _provider_audio(cleaned_text, mode, lang, variant, requested_provider)
-    except HTTPException:
+    except HTTPException as provider_error:
         if requested_provider != "elevenlabs":
             raise
         # The experiment must never interrupt a lesson. A separate OpenAI cache
         # is used so ElevenLabs is tried again when it becomes available.
-        return await _provider_audio(cleaned_text, mode, lang, variant, "openai")
+        fallback = await _provider_audio(cleaned_text, mode, lang, variant, "openai")
+        fallback.headers["X-Audio-Fallback-From"] = "elevenlabs"
+        fallback.headers["X-Audio-Fallback-Reason"] = str(provider_error.detail)[:120]
+        return fallback
