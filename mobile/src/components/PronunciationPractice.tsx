@@ -91,7 +91,9 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   const lastVoiceAt = useRef(0);
   const noiseFloorDb = useRef(-60);
   const liveProgressComplete = useRef(false);
+  const liveMatchedCountRef = useRef(0);
   const liveRecognizedText = useRef('');
+  const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
   const waveAnimations = useRef(
     [0, 1, 2, 3, 4].map(() => new Animated.Value(0.3)),
@@ -139,7 +141,10 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     captureFinishing.current = false;
     streamingCapture.current = false;
     liveProgressComplete.current = false;
+    liveMatchedCountRef.current = 0;
     liveRecognizedText.current = '';
+    if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
+    phraseCompleteTimer.current = null;
     lastVoiceAt.current = 0;
     noiseFloorDb.current = -60;
     setLiveLevel(0);
@@ -164,6 +169,8 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
   const finishNativeCapture = useCallback(async () => {
     const runId = runIdRef.current;
     if (!isCurrentRun(runId) || captureFinishing.current || !streamingCapture.current) return;
+    if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
+    phraseCompleteTimer.current = null;
     captureFinishing.current = true;
     streamingCapture.current = false;
     setPhase('checking');
@@ -199,7 +206,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         accuracy: typeof nextAccuracy === 'number' ? Math.round(nextAccuracy) : undefined,
         attempt: attemptRef.current + 1,
         completeness: nextCompleteness,
-        matched_words: liveMatchedCount,
+        matched_words: liveMatchedCountRef.current,
         total_words: expectedTokens.length,
       });
       if (accepted) {
@@ -227,7 +234,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         }
       }
     }
-  }, [expectedTokens.length, isCurrentRun, liveMatchedCount, minimumCompleteness, passAccuracy, phrase, scheduleRetry, userId]);
+  }, [expectedTokens.length, isCurrentRun, minimumCompleteness, passAccuracy, phrase, scheduleRetry, userId]);
 
   const finishCapture = useCallback(async (shouldScore: boolean) => {
     const runId = runIdRef.current;
@@ -350,7 +357,10 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
         streamingStartedAt.current = Date.now();
         lastVoiceAt.current = 0;
         liveProgressComplete.current = false;
+        liveMatchedCountRef.current = 0;
         liveRecognizedText.current = '';
+        if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
+        phraseCompleteTimer.current = null;
         setLiveLevel(0);
         setLiveMatchedCount(0);
         await startNativeSpeech({
@@ -398,10 +408,20 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     });
     const progressSubscription = addSpeechListener<SpeechProgressEvent>('onSpeechProgress', (event) => {
       if (!streamingCapture.current || !event.text) return;
+      heardSpeech.current = true;
       liveRecognizedText.current = event.text;
       const progress = alignExpectedPhrase(phrase, event.text);
       liveProgressComplete.current = progress.completed;
+      liveMatchedCountRef.current = progress.matchedCount;
       setLiveMatchedCount(progress.matchedCount);
+      if (progress.completed && !phraseCompleteTimer.current) {
+        // Give Azure a brief moment to finalize the last word, then stop without
+        // waiting for acoustic silence that background noise may prevent.
+        phraseCompleteTimer.current = setTimeout(() => {
+          phraseCompleteTimer.current = null;
+          void finishNativeCapture();
+        }, 350);
+      }
     });
     const errorSubscription = addSpeechListener<SpeechErrorEvent>('onSpeechError', (event) => {
       if (!streamingCapture.current) return;
@@ -412,7 +432,7 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       progressSubscription.remove();
       errorSubscription.remove();
     };
-  }, [phrase]);
+  }, [finishNativeCapture, phrase]);
 
   useEffect(() => {
     if (phase !== 'listening' || !streamingCapture.current) return undefined;
@@ -492,6 +512,8 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
       mountedRef.current = false;
       runIdRef.current += 1;
       if (retryTimer.current) clearTimeout(retryTimer.current);
+      if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
+      phraseCompleteTimer.current = null;
       if (streamingCapture.current) void stopNativeSpeech();
       streamingCapture.current = false;
     };
@@ -506,6 +528,8 @@ export function PronunciationPractice({ phrase, level, userId, onPassed }: Props
     return () => {
       if (runIdRef.current === runId) runIdRef.current += 1;
       if (retryTimer.current) clearTimeout(retryTimer.current);
+      if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
+      phraseCompleteTimer.current = null;
       if (streamingCapture.current) void stopNativeSpeech();
       streamingCapture.current = false;
     };
@@ -663,9 +687,9 @@ const styles = StyleSheet.create({
   container: { gap: 6, marginTop: 4 },
   phrase: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, textAlign: 'center' },
   liveWords: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center' },
-  liveWord: { backgroundColor: '#f1eee8', borderRadius: 8, color: '#566269', fontSize: 18, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 3 },
+  liveWord: { borderRadius: 8, color: '#24333a', fontSize: 18, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 3 },
   liveWordExpected: { borderColor: '#d99b35', borderWidth: 2, paddingHorizontal: 5, paddingVertical: 1 },
-  liveWordHeard: { backgroundColor: '#d8f3df', color: '#246d4d' },
+  liveWordHeard: { color: '#2f8f62' },
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },
   wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 28, marginRight: 8 },
