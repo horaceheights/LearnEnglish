@@ -31,7 +31,7 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-provider-comparison-v9"
+AUDIO_PROFILE_VERSION = "a1-provider-comparison-v10"
 DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 # Nichalia Schwartz is a professional American teacher/e-learning voice from
 # the ElevenLabs Voice Library. Paid plans can use Voice Library voices by ID.
@@ -568,6 +568,7 @@ def normalize_course_audio(
     variant: str,
     output_format: str,
     preserve_voice_pitch: bool = False,
+    preserve_natural_timing: bool = False,
 ) -> bytes:
     if output_format != "mp3":
         return audio_bytes
@@ -588,7 +589,7 @@ def normalize_course_audio(
         if current_spm
         else 1.0
     )
-    adjusted = _tempo_adjust(active, tempo_factor)
+    adjusted = active if preserve_natural_timing else _tempo_adjust(active, tempo_factor)
     voiced_audio = adjusted if preserve_voice_pitch else _normalize_pitch(adjusted)
     normalized = _normalize_volume(voiced_audio)
     leading_silence = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.18)
@@ -668,6 +669,7 @@ async def _generate_elevenlabs_audio(
     model: str,
     voice: str,
     premium: bool = False,
+    mode: str = "prompt",
 ) -> bytes:
     api_key = elevenlabs_api_key()
     if not api_key:
@@ -677,7 +679,9 @@ async def _generate_elevenlabs_audio(
         "similarity_boost": 0.80 if premium else 0.78,
         "style": 0.0,
         "use_speaker_boost": True,
-        "speed": 1.0,
+        # Let ElevenLabs produce the slower delivery natively. Stretching an
+        # already-generated word can create artifacts such as "sis-steeer".
+        "speed": 0.86 if premium and mode == "pronunciation_slow" else 0.92 if premium else 1.0,
     }
     response = await client.post(
         f"{ELEVENLABS_SPEECH_URL}/{voice}",
@@ -801,6 +805,7 @@ async def _provider_audio(
                         model,
                         voice,
                         premium=provider == "elevenlabs-premium",
+                        mode=mode,
                     )
                 elif provider == "azure":
                     audio_bytes = await _generate_azure_audio(client, text, lang, voice)
@@ -819,6 +824,7 @@ async def _provider_audio(
                 variant,
                 output_format,
                 preserve_voice_pitch=provider == "elevenlabs-premium",
+                preserve_natural_timing=provider == "elevenlabs-premium",
             )
         except (ValueError, av.FFmpegError):
             # A generated take is still usable if optional normalization cannot decode it.
