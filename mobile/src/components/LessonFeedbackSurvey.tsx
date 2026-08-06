@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Alert,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -15,6 +16,7 @@ import {
   type RecordingOptions,
   useAudioPlayer,
   useAudioRecorder,
+  useAudioRecorderState,
 } from 'expo-audio';
 import * as Updates from 'expo-updates';
 
@@ -29,6 +31,7 @@ const RECORDING_OPTIONS: RecordingOptions = {
   bitRate: 64000,
   android: { ...RecordingPresets.HIGH_QUALITY.android, sampleRate: 16000 },
   ios: { ...RecordingPresets.HIGH_QUALITY.ios, sampleRate: 16000 },
+  isMeteringEnabled: true,
 };
 
 const CLARITY_OPTIONS = ['Muy fácil', 'Fácil', 'Algo confusa', 'Muy confusa'];
@@ -56,6 +59,7 @@ export function LessonFeedbackSurvey({
   onDone,
 }: Props) {
   const recorder = useAudioRecorder(RECORDING_OPTIONS);
+  const recorderState = useAudioRecorderState(recorder, 100);
   const cuePlayer = useAudioPlayer(null);
   const mountedRef = useRef(true);
   const [clarity, setClarity] = useState('');
@@ -64,10 +68,20 @@ export function LessonFeedbackSurvey({
   const [phase, setPhase] = useState<'idle' | 'preparing' | 'recording' | 'transcribing'>('idle');
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState('');
+  const recordingActiveRef = useRef(false);
+  const isPortrait = viewportHeight >= viewportWidth;
+  const recordingLevel = Math.max(
+    0.18,
+    Math.min(1, ((recorderState.metering ?? -60) + 60) / 38),
+  );
 
   useEffect(() => () => {
     mountedRef.current = false;
-  }, []);
+    if (recordingActiveRef.current) {
+      recordingActiveRef.current = false;
+      void recorder.stop().catch(() => undefined);
+    }
+  }, [recorder]);
 
   const startRecording = useCallback(async () => {
     if (phase !== 'idle') return;
@@ -87,6 +101,7 @@ export function LessonFeedbackSurvey({
       cuePlayer.play();
       await new Promise((resolve) => setTimeout(resolve, 260));
       recorder.record();
+      recordingActiveRef.current = true;
       if (mountedRef.current) setPhase('recording');
     } catch (recordingError) {
       captureDiagnosticError(recordingError, 'feedback_recording_start');
@@ -103,6 +118,7 @@ export function LessonFeedbackSurvey({
     setError('');
     try {
       await recorder.stop();
+      recordingActiveRef.current = false;
       const uri = recorder.uri;
       if (!uri) throw new Error('No recording was produced.');
       const transcript = await transcribeFeedback(uri);
@@ -111,6 +127,7 @@ export function LessonFeedbackSurvey({
       captureDiagnosticError(transcriptionError, 'feedback_transcription');
       if (mountedRef.current) setError('No pudimos transcribirlo. Puedes grabar otra vez.');
     } finally {
+      recordingActiveRef.current = false;
       if (mountedRef.current) setPhase('idle');
     }
   }, [phase, recorder]);
@@ -147,10 +164,14 @@ export function LessonFeedbackSurvey({
   }, [clarity, comment, isSaving, lessonId, onDone, score, sessionId, support, totalCards, userId, viewportHeight, viewportWidth]);
 
   return (
-    <View style={styles.page}>
+    <ScrollView
+      contentContainerStyle={[styles.page, isPortrait ? styles.pagePortrait : null]}
+      keyboardShouldPersistTaps="handled"
+      style={styles.scroll}
+    >
       <View style={styles.headingRow}>
         <View>
-          <Text style={styles.eyebrow}>ENCUESTA PILOTO · SOLO HORACE</Text>
+          <Text style={styles.eyebrow}>TU OPINIÓN NOS AYUDA</Text>
           <Text style={styles.title}>Ayúdanos a mejorar esta lección</Text>
         </View>
         <Pressable
@@ -163,7 +184,7 @@ export function LessonFeedbackSurvey({
         </Pressable>
       </View>
 
-      <View style={styles.questionsRow}>
+      <View style={[styles.questionsRow, isPortrait ? styles.questionsColumn : null]}>
         <Question
           options={CLARITY_OPTIONS}
           selected={clarity}
@@ -178,7 +199,7 @@ export function LessonFeedbackSurvey({
         />
       </View>
 
-      <View style={styles.voiceCard}>
+      <View style={[styles.voiceCard, isPortrait ? styles.voiceCardPortrait : null]}>
         <View style={styles.voiceCopy}>
           <Text style={styles.questionTitle}>3. ¿Qué te confundió o qué podemos mejorar?</Text>
           <Text style={styles.hint}>Opcional · habla con confianza; guardaremos el texto, no la grabación.</Text>
@@ -193,6 +214,34 @@ export function LessonFeedbackSurvey({
             <Text style={styles.voiceButtonText}>{phase === 'recording' ? '■ Terminar' : '● Hablar'}</Text>
           )}
         </Pressable>
+        <View
+          accessibilityLabel={phase === 'recording' ? 'El micrófono está escuchando' : undefined}
+          accessibilityLiveRegion="polite"
+          style={[styles.recordingSignal, phase === 'recording' ? styles.recordingSignalActive : null]}
+        >
+          <View style={[styles.recordingDot, phase === 'recording' ? styles.recordingDotActive : null]} />
+          <View style={styles.wave} accessibilityElementsHidden>
+            {[0.62, 0.88, 1, 0.82, 0.58].map((weight, index) => (
+              <View
+                key={`${weight}-${index}`}
+                style={[
+                  styles.waveBar,
+                  {
+                    height: 28 * weight,
+                    transform: [{
+                      scaleY: phase === 'recording'
+                        ? Math.max(0.2, recordingLevel * (index % 2 ? 0.86 : 1.12))
+                        : 0.2,
+                    }],
+                  },
+                ]}
+              />
+            ))}
+          </View>
+          <Text style={styles.recordingLabel}>
+            {phase === 'recording' ? 'Escuchando…' : 'Listo para escuchar'}
+          </Text>
+        </View>
         <TextInput
           multiline
           onChangeText={setComment}
@@ -213,7 +262,7 @@ export function LessonFeedbackSurvey({
           {isSaving ? <ActivityIndicator color="#fff" /> : <Text style={styles.submitText}>Enviar comentarios</Text>}
         </Pressable>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -248,13 +297,16 @@ function Question({
 }
 
 const styles = StyleSheet.create({
-  page: { backgroundColor: '#fbf7ef', flex: 1, gap: 10, padding: 14 },
+  scroll: { backgroundColor: '#fbf7ef', flex: 1 },
+  page: { flexGrow: 1, gap: 10, padding: 14 },
+  pagePortrait: { paddingBottom: 28 },
   headingRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   eyebrow: { color: '#2f8f62', fontSize: 10, fontWeight: '900', letterSpacing: 1 },
   title: { color: '#24333a', fontSize: 25, fontWeight: '900', marginTop: 3 },
   skipButton: { borderColor: '#d7c8aa', borderRadius: 12, borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 },
   skipText: { color: '#58656a', fontSize: 13, fontWeight: '800' },
   questionsRow: { flexDirection: 'row', gap: 10 },
+  questionsColumn: { flexDirection: 'column' },
   questionCard: { backgroundColor: '#fff', borderColor: '#e2d8c8', borderRadius: 16, borderWidth: 1, flex: 1, padding: 12 },
   questionTitle: { color: '#24333a', fontSize: 15, fontWeight: '900' },
   optionRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 7, marginTop: 9 },
@@ -263,11 +315,19 @@ const styles = StyleSheet.create({
   optionText: { color: '#4c5b60', fontSize: 12, fontWeight: '800' },
   optionTextSelected: { color: '#17623f' },
   voiceCard: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e2d8c8', borderRadius: 16, borderWidth: 1, flexDirection: 'row', gap: 10, padding: 12 },
+  voiceCardPortrait: { alignItems: 'stretch', flexDirection: 'column' },
   voiceCopy: { flex: 1 },
   hint: { color: '#6d797d', fontSize: 11, marginTop: 4 },
   voiceButton: { alignItems: 'center', backgroundColor: '#2f8f62', borderRadius: 12, justifyContent: 'center', minHeight: 46, minWidth: 110, paddingHorizontal: 14 },
   voiceButtonRecording: { backgroundColor: '#c64f45' },
   voiceButtonText: { color: '#fff', fontSize: 13, fontWeight: '900' },
+  recordingSignal: { alignItems: 'center', flexDirection: 'row', gap: 7, minWidth: 150, opacity: 0.55 },
+  recordingSignalActive: { opacity: 1 },
+  recordingDot: { backgroundColor: '#aeb6b8', borderRadius: 7, height: 11, width: 11 },
+  recordingDotActive: { backgroundColor: '#d95c52' },
+  wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 30 },
+  waveBar: { backgroundColor: '#d95c52', borderRadius: 3, width: 4 },
+  recordingLabel: { color: '#58656a', fontSize: 11, fontWeight: '800' },
   transcript: { backgroundColor: '#f8f5ef', borderColor: '#ddd2c0', borderRadius: 10, borderWidth: 1, color: '#24333a', flex: 1.2, fontSize: 12, minHeight: 58, padding: 9, textAlignVertical: 'top' },
   footer: { alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-end', minHeight: 48 },
   error: { color: '#a34842', flex: 1, fontSize: 12, fontWeight: '700' },

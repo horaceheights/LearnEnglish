@@ -649,8 +649,7 @@ export function LessonScreen({
   }
 
   if (isComplete) {
-    const isHoracePilot = profile.displayName.trim().toLowerCase() === 'horace' && Boolean(profile.userId);
-    if (isHoracePilot) {
+    if (profile.userId) {
       return (
         <SafeAreaView style={styles.safeArea}>
           <StatusBar hidden />
@@ -660,7 +659,7 @@ export function LessonScreen({
             score={score}
             sessionId={sessionId || undefined}
             totalCards={lesson.cards.length}
-            userId={profile.userId!}
+            userId={profile.userId}
             viewportHeight={viewportHeight}
             viewportWidth={viewportWidth}
           />
