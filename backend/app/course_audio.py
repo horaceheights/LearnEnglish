@@ -20,6 +20,7 @@ from fastapi.responses import FileResponse
 ROOT_DIR = Path(__file__).resolve().parents[1]
 CACHE_DIR = ROOT_DIR / "storage" / "audio-cache"
 OPENAI_SPEECH_URL = "https://api.openai.com/v1/audio/speech"
+ELEVENLABS_SPEECH_URL = "https://api.elevenlabs.io/v1/text-to-speech"
 SUPPORTED_FORMATS = {
     "mp3": "audio/mpeg",
     "opus": "audio/ogg",
@@ -29,7 +30,7 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-consistent-teacher-v5"
+AUDIO_PROFILE_VERSION = "a1-elevenlabs-comparison-v6"
 PROMPT_TARGET_SPM = 150
 SHORT_VOCAB_TARGET_SPM = 120
 PRONUNCIATION_TARGET_SPM = 125
@@ -171,6 +172,10 @@ def openai_api_key() -> str:
     return raw_key
 
 
+def elevenlabs_api_key() -> str:
+    return (os.getenv("ELEVENLABS_API_KEY") or "").strip()
+
+
 def audio_configured() -> bool:
     return bool(openai_api_key())
 
@@ -179,6 +184,9 @@ def audio_debug() -> dict[str, object]:
     teacher_voice = os.getenv("OPENAI_TTS_VOICE", "coral")
     return {
         "openai_audio_configured": audio_configured(),
+        "elevenlabs_audio_configured": bool(elevenlabs_api_key()),
+        "elevenlabs_model": os.getenv("ELEVENLABS_TTS_MODEL", "eleven_multilingual_v2"),
+        "elevenlabs_voice_id": os.getenv("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM"),
         "model": os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts"),
         "voice": teacher_voice,
         "question_voice": teacher_voice,
@@ -570,7 +578,7 @@ def cache_path_for(text: str, mode: str, lang: str, variant: str, model: str, vo
     return CACHE_DIR / f"{digest}.{output_format}"
 
 
-def audio_file_response(audio_path: Path, media_type: str) -> FileResponse:
+def audio_file_response(audio_path: Path, media_type: str, provider: str) -> FileResponse:
     return FileResponse(
         audio_path,
         media_type=media_type,
@@ -578,11 +586,145 @@ def audio_file_response(audio_path: Path, media_type: str) -> FileResponse:
         headers={
             "Cache-Control": "public, max-age=31536000, immutable",
             "X-Audio-Profile": AUDIO_PROFILE_VERSION,
+            "X-Audio-Provider": provider,
         },
     )
 
 
-async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> FileResponse:
+def normalized_provider(provider: str) -> str:
+    requested = provider.strip().lower()
+    if requested not in {"openai", "elevenlabs"}:
+        raise HTTPException(status_code=400, detail="Unsupported course audio provider.")
+    return requested
+
+
+async def _generate_openai_audio(
+    client: httpx.AsyncClient,
+    text: str,
+    mode: str,
+    lang: str,
+    variant: str,
+    model: str,
+    voice: str,
+    output_format: str,
+) -> bytes:
+    api_key = openai_api_key()
+    if not api_key:
+        raise HTTPException(status_code=503, detail="OpenAI course audio is not configured.")
+    payload = {
+        "model": model,
+        "voice": voice,
+        "input": text,
+        "instructions": audio_instructions(text, mode, lang, variant),
+        "response_format": output_format,
+    }
+    response = await client.post(
+        OPENAI_SPEECH_URL,
+        json=payload,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+    )
+    if response.status_code >= 400:
+        detail = response.text[:500] if response.text else "OpenAI audio request failed."
+        raise HTTPException(status_code=502, detail=detail)
+    return response.content
+
+
+async def _generate_elevenlabs_audio(
+    client: httpx.AsyncClient,
+    text: str,
+    model: str,
+    voice: str,
+) -> bytes:
+    api_key = elevenlabs_api_key()
+    if not api_key:
+        raise HTTPException(status_code=503, detail="ElevenLabs course audio is not configured.")
+    response = await client.post(
+        f"{ELEVENLABS_SPEECH_URL}/{voice}",
+        params={"output_format": "mp3_44100_128"},
+        json={
+            "text": text,
+            "model_id": model,
+            "seed": 1101,
+            "voice_settings": {
+                "stability": 0.85,
+                "similarity_boost": 0.78,
+                "style": 0.0,
+                "use_speaker_boost": True,
+                "speed": 1.0,
+            },
+        },
+        headers={
+            "xi-api-key": api_key,
+            "Content-Type": "application/json",
+            "Accept": "audio/mpeg",
+        },
+    )
+    if response.status_code >= 400:
+        detail = response.text[:500] if response.text else "ElevenLabs audio request failed."
+        raise HTTPException(status_code=502, detail=detail)
+    return response.content
+
+
+async def _provider_audio(
+    text: str,
+    mode: str,
+    lang: str,
+    variant: str,
+    provider: str,
+) -> FileResponse:
+    if provider == "elevenlabs":
+        model = os.getenv("ELEVENLABS_TTS_MODEL", "eleven_multilingual_v2")
+        voice = os.getenv("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM")
+        output_format = "mp3"
+    else:
+        model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
+        voice = voice_for_variant(variant)
+        output_format = os.getenv("OPENAI_TTS_FORMAT", "mp3").lower()
+
+    media_type = SUPPORTED_FORMATS.get(output_format)
+    if not media_type:
+        raise HTTPException(status_code=500, detail=f"Unsupported course audio format: {output_format}")
+
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache_model = f"{provider}:{model}"
+    audio_path = cache_path_for(text, mode, lang, variant, cache_model, voice, output_format)
+    if audio_path.exists() and audio_path.stat().st_size > 0:
+        return audio_file_response(audio_path, media_type, provider)
+
+    lock = _generation_locks.setdefault(audio_path.name, asyncio.Lock())
+    async with lock:
+        if audio_path.exists() and audio_path.stat().st_size > 0:
+            return audio_file_response(audio_path, media_type, provider)
+        try:
+            async with httpx.AsyncClient(timeout=45.0) as client:
+                if provider == "elevenlabs":
+                    audio_bytes = await _generate_elevenlabs_audio(client, text, model, voice)
+                else:
+                    audio_bytes = await _generate_openai_audio(
+                        client, text, mode, lang, variant, model, voice, output_format
+                    )
+        except httpx.HTTPError as error:
+            raise HTTPException(status_code=502, detail=f"Could not reach {provider} audio service.") from error
+
+        try:
+            audio_bytes = normalize_course_audio(audio_bytes, text, mode, variant, output_format)
+        except (ValueError, av.FFmpegError):
+            # A generated take is still usable if optional normalization cannot decode it.
+            pass
+        audio_path.write_bytes(audio_bytes)
+    return audio_file_response(audio_path, media_type, provider)
+
+
+async def get_course_audio(
+    text: str,
+    mode: str,
+    lang: str,
+    variant: str,
+    provider: str = "openai",
+) -> FileResponse:
     cleaned_text = text.strip()
     if not cleaned_text:
         raise HTTPException(status_code=400, detail="Text is required.")
@@ -590,55 +732,12 @@ async def get_course_audio(text: str, mode: str, lang: str, variant: str) -> Fil
     if len(cleaned_text) > 500:
         raise HTTPException(status_code=400, detail="Text is too long for course audio.")
 
-    api_key = openai_api_key()
-    if not api_key:
-        raise HTTPException(status_code=503, detail="OpenAI course audio is not configured.")
-
-    model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
-    voice = voice_for_variant(variant)
-    output_format = os.getenv("OPENAI_TTS_FORMAT", "mp3").lower()
-    media_type = SUPPORTED_FORMATS.get(output_format)
-    if not media_type:
-        raise HTTPException(status_code=500, detail=f"Unsupported OPENAI_TTS_FORMAT: {output_format}")
-
-    CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    audio_path = cache_path_for(cleaned_text, mode, lang, variant, model, voice, output_format)
-    if audio_path.exists() and audio_path.stat().st_size > 0:
-        return audio_file_response(audio_path, media_type)
-
-    lock_key = audio_path.name
-    lock = _generation_locks.setdefault(lock_key, asyncio.Lock())
-    async with lock:
-        if audio_path.exists() and audio_path.stat().st_size > 0:
-            return audio_file_response(audio_path, media_type)
-
-        payload = {
-            "model": model,
-            "voice": voice,
-            "input": cleaned_text,
-            "instructions": audio_instructions(cleaned_text, mode, lang, variant),
-            "response_format": output_format,
-        }
-        headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json",
-        }
-
-        try:
-            async with httpx.AsyncClient(timeout=45.0) as client:
-                response = await client.post(OPENAI_SPEECH_URL, json=payload, headers=headers)
-        except httpx.HTTPError as error:
-            raise HTTPException(status_code=502, detail="Could not reach OpenAI audio service.") from error
-
-        if response.status_code >= 400:
-            detail = response.text[:500] if response.text else "OpenAI audio request failed."
-            raise HTTPException(status_code=502, detail=detail)
-
-        audio_bytes = response.content
-        try:
-            audio_bytes = normalize_course_audio(audio_bytes, cleaned_text, mode, variant, output_format)
-        except (ValueError, av.FFmpegError):
-            # A generated take is still usable if optional normalization cannot decode it.
-            pass
-        audio_path.write_bytes(audio_bytes)
-    return audio_file_response(audio_path, media_type)
+    requested_provider = normalized_provider(provider)
+    try:
+        return await _provider_audio(cleaned_text, mode, lang, variant, requested_provider)
+    except HTTPException:
+        if requested_provider != "elevenlabs":
+            raise
+        # The experiment must never interrupt a lesson. A separate OpenAI cache
+        # is used so ElevenLabs is tried again when it becomes available.
+        return await _provider_audio(cleaned_text, mode, lang, variant, "openai")

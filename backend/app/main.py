@@ -160,8 +160,15 @@ async def read_course_audio(
     mode: str = "prompt",
     lang: str = "en-US",
     variant: str = "default",
+    provider: str = "openai",
 ):
-    return await get_course_audio(text=text, mode=mode, lang=lang, variant=variant)
+    return await get_course_audio(
+        text=text,
+        mode=mode,
+        lang=lang,
+        variant=variant,
+        provider=provider,
+    )
 
 
 @app.get("/api/audio/ready-cue")

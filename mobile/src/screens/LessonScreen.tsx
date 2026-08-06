@@ -24,7 +24,7 @@ import {
 import { LessonCardView } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
 import { StageJourney } from '../components/StageJourney';
-import { courseAudioUrl } from '../config';
+import { courseAudioProvider, courseAudioUrl } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -87,6 +87,7 @@ export function LessonScreen({
   const [cardRunId, setCardRunId] = useState(0);
   const [promptTextWidth, setPromptTextWidth] = useState(0);
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
+  const audioProvider = courseAudioProvider(lessonId);
 
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
@@ -143,6 +144,7 @@ export function LessonScreen({
         text,
         pronunciation ? 'pronunciation_slow' : 'prompt',
         variant,
+        audioProvider,
       )));
     }
     if (card.answer_audio_text?.trim()) {
@@ -150,14 +152,15 @@ export function LessonScreen({
         card.answer_audio_text,
         'prompt',
         'answer',
+        audioProvider,
       )));
     }
     return Promise.all(requests).then(() => undefined);
-  }, [ensureAudioPreloaded]);
+  }, [audioProvider, ensureAudioPreloaded]);
 
   const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
     if (!text.trim()) return;
-    const url = courseAudioUrl(text, mode, variant);
+    const url = courseAudioUrl(text, mode, variant, audioProvider);
     const requestId = ++audioPlaybackRequestRef.current;
     void ensureAudioPreloaded(url)
       .then(() => {
@@ -184,7 +187,7 @@ export function LessonScreen({
           'warning',
         );
       });
-  }, [audioPlayer, ensureAudioPreloaded]);
+  }, [audioPlayer, audioProvider, ensureAudioPreloaded]);
 
   const playSuccessChime = useCallback(async () => {
     try {
@@ -824,6 +827,7 @@ export function LessonScreen({
           </View>
         </View>
         <LessonCardView
+          audioProvider={audioProvider}
           card={currentCard}
           gentleFeedback={profile.confidence === 'nervous'}
           key={qaMode ? `${cardIndex}-${cardRunId}` : 'lesson-card'}

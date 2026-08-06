@@ -11,6 +11,7 @@ from backend.app.course_audio import (
     _median_fundamental_hz,
     _normalize_pitch,
     cache_path_for,
+    normalized_provider,
     syllable_count,
     target_active_seconds,
     target_syllables_per_minute,
@@ -86,7 +87,11 @@ class CourseAudioProfileTests(unittest.TestCase):
             "\n".join(["The boy", "prompt", "en-US", "default", "model", "voice", "mp3"]).encode("utf-8")
         ).hexdigest()
         self.assertNotEqual(f"{legacy}.mp3", current.name)
-        self.assertEqual("a1-consistent-teacher-v5", AUDIO_PROFILE_VERSION)
+        self.assertEqual("a1-elevenlabs-comparison-v6", AUDIO_PROFILE_VERSION)
+
+    def test_only_supported_audio_providers_are_accepted(self):
+        self.assertEqual("openai", normalized_provider("OpenAI"))
+        self.assertEqual("elevenlabs", normalized_provider(" elevenlabs "))
 
     def test_every_variant_uses_the_same_teacher_voice(self):
         self.assertEqual(voice_for_variant("default"), voice_for_variant("question"))
