@@ -1,11 +1,15 @@
 import re
 import unittest
+from array import array
+import math
 
 from backend.app.course_audio import (
     AUDIO_PROFILE_VERSION,
     COURSE_SYLLABLES,
     ING_PRONUNCIATION_NOTES,
     audio_instructions,
+    _median_fundamental_hz,
+    _normalize_pitch,
     cache_path_for,
     syllable_count,
     target_active_seconds,
@@ -82,11 +86,22 @@ class CourseAudioProfileTests(unittest.TestCase):
             "\n".join(["The boy", "prompt", "en-US", "default", "model", "voice", "mp3"]).encode("utf-8")
         ).hexdigest()
         self.assertNotEqual(f"{legacy}.mp3", current.name)
-        self.assertEqual("a1-consistent-teacher-v4", AUDIO_PROFILE_VERSION)
+        self.assertEqual("a1-consistent-teacher-v5", AUDIO_PROFILE_VERSION)
 
     def test_every_variant_uses_the_same_teacher_voice(self):
         self.assertEqual(voice_for_variant("default"), voice_for_variant("question"))
         self.assertEqual(voice_for_variant("default"), voice_for_variant("answer"))
+
+    def test_pitch_normalization_moves_a_take_toward_the_reference_pitch(self):
+        sample_rate = 24_000
+        source = array("h", (
+            round(12_000 * math.sin(2 * math.pi * 170 * index / sample_rate))
+            for index in range(sample_rate)
+        ))
+        normalized = _normalize_pitch(source)
+        self.assertAlmostEqual(170, _median_fundamental_hz(source), delta=6)
+        self.assertAlmostEqual(190, _median_fundamental_hz(normalized), delta=7)
+        self.assertAlmostEqual(len(source), len(normalized), delta=sample_rate * 0.08)
 
 
 if __name__ == "__main__":

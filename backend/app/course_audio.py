@@ -7,6 +7,7 @@ from array import array
 from fractions import Fraction
 from io import BytesIO
 import math
+import statistics
 import struct
 import wave
 
@@ -28,14 +29,16 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-consistent-teacher-v4"
+AUDIO_PROFILE_VERSION = "a1-consistent-teacher-v5"
 PROMPT_TARGET_SPM = 150
 SHORT_VOCAB_TARGET_SPM = 120
 PRONUNCIATION_TARGET_SPM = 125
 TARGET_RMS_DBFS = -22.5
+TARGET_MEDIAN_PITCH_HZ = 190.0
 NORMALIZATION_SAMPLE_RATE = 24_000
 MAX_TEMPO_SLOWDOWN = 0.55
 MAX_TEMPO_SPEEDUP = 1.60
+MAX_PITCH_SHIFT = 1.12
 
 # The first course deliberately uses a small vocabulary. Keeping its irregular
 # syllable counts explicit makes pacing deterministic instead of treating
@@ -186,6 +189,7 @@ def audio_debug() -> dict[str, object]:
         "short_vocab_target_spm": SHORT_VOCAB_TARGET_SPM,
         "pronunciation_target_spm": PRONUNCIATION_TARGET_SPM,
         "target_rms_dbfs": TARGET_RMS_DBFS,
+        "target_median_pitch_hz": TARGET_MEDIAN_PITCH_HZ,
         "tempo_correction_range": [MAX_TEMPO_SLOWDOWN, MAX_TEMPO_SPEEDUP],
         "cache_dir": str(CACHE_DIR),
     }
@@ -387,6 +391,95 @@ def _tempo_adjust(samples: array, factor: float) -> array:
     return output
 
 
+def _median_fundamental_hz(samples: array) -> float:
+    """Estimate the voiced median pitch cheaply for short generated clips."""
+    frame_size = NORMALIZATION_SAMPLE_RATE // 25
+    hop_size = frame_size // 2
+    downsample = 4
+    reduced_rate = NORMALIZATION_SAMPLE_RATE // downsample
+    minimum_lag = reduced_rate // 300
+    maximum_lag = reduced_rate // 75
+    gate_rms = 32767 * (10 ** (-35 / 20))
+    pitches: list[float] = []
+
+    for start in range(0, max(0, len(samples) - frame_size), hop_size):
+        frame = samples[start:start + frame_size]
+        rms = math.sqrt(sum(value * value for value in frame) / len(frame))
+        if rms < gate_rms:
+            continue
+        reduced = [float(value) for value in frame[::downsample]]
+        mean = sum(reduced) / len(reduced)
+        reduced = [value - mean for value in reduced]
+        best_lag = 0
+        best_correlation = 0.0
+        for lag in range(minimum_lag, maximum_lag + 1):
+            left = reduced[:-lag]
+            right = reduced[lag:]
+            left_energy = sum(value * value for value in left)
+            right_energy = sum(value * value for value in right)
+            if not left_energy or not right_energy:
+                continue
+            correlation = sum(a * b for a, b in zip(left, right)) / math.sqrt(left_energy * right_energy)
+            if correlation > best_correlation:
+                best_correlation = correlation
+                best_lag = lag
+        if best_lag and best_correlation >= 0.3:
+            pitches.append(reduced_rate / best_lag)
+
+    return statistics.median(pitches) if pitches else 0.0
+
+
+def _normalize_pitch(samples: array) -> array:
+    current_pitch = _median_fundamental_hz(samples)
+    if not current_pitch:
+        return samples
+    factor = max(1 / MAX_PITCH_SHIFT, min(MAX_PITCH_SHIFT, TARGET_MEDIAN_PITCH_HZ / current_pitch))
+    if abs(1 - factor) < 0.01:
+        return samples
+
+    graph = av.filter.Graph()
+    source = graph.add_abuffer(
+        sample_rate=NORMALIZATION_SAMPLE_RATE,
+        format="s16",
+        layout="mono",
+        time_base=Fraction(1, NORMALIZATION_SAMPLE_RATE),
+    )
+    pitched_rate = round(NORMALIZATION_SAMPLE_RATE * factor)
+    rate = graph.add("asetrate", args=str(pitched_rate))
+    resample = graph.add("aresample", args=str(NORMALIZATION_SAMPLE_RATE))
+    restore_duration = graph.add("atempo", args=f"{1 / factor:.6f}")
+    sink = graph.add("abuffersink")
+    graph.link_nodes(source, rate, resample, restore_duration, sink)
+    graph.configure()
+
+    output = array("h")
+    pts = 0
+    for start in range(0, len(samples), 1024):
+        block = samples[start:start + 1024]
+        frame = av.AudioFrame(format="s16", layout="mono", samples=len(block))
+        frame.sample_rate = NORMALIZATION_SAMPLE_RATE
+        frame.time_base = Fraction(1, NORMALIZATION_SAMPLE_RATE)
+        frame.pts = pts
+        frame.planes[0].update(block.tobytes())
+        pts += len(block)
+        source.push(frame)
+        while True:
+            try:
+                filtered = sink.pull()
+            except (av.error.BlockingIOError, av.error.EOFError):
+                break
+            output.extend(array("h", bytes(filtered.planes[0])[: filtered.samples * 2]))
+
+    source.push(None)
+    while True:
+        try:
+            filtered = sink.pull()
+        except (av.error.BlockingIOError, av.error.EOFError):
+            break
+        output.extend(array("h", bytes(filtered.planes[0])[: filtered.samples * 2]))
+    return output or samples
+
+
 def _normalize_volume(samples: array) -> array:
     if not samples:
         return samples
@@ -458,7 +551,8 @@ def normalize_course_audio(audio_bytes: bytes, text: str, mode: str, variant: st
         else 1.0
     )
     adjusted = _tempo_adjust(active, tempo_factor)
-    normalized = _normalize_volume(adjusted)
+    pitch_normalized = _normalize_pitch(adjusted)
+    normalized = _normalize_volume(pitch_normalized)
     leading_silence = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.18)
     trailing_silence = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.28)
     return _encode_mp3(leading_silence + normalized + trailing_silence)
