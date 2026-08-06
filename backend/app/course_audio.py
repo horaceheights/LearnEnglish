@@ -31,8 +31,11 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-provider-comparison-v8"
+AUDIO_PROFILE_VERSION = "a1-provider-comparison-v9"
 DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
+# Nichalia Schwartz is a professional American teacher/e-learning voice from
+# the ElevenLabs Voice Library. Paid plans can use Voice Library voices by ID.
+DEFAULT_ELEVENLABS_PREMIUM_VOICE_ID = "XfNU2rGpBa01ckF309OY"
 PROMPT_TARGET_SPM = 150
 SHORT_VOCAB_TARGET_SPM = 120
 PRONUNCIATION_TARGET_SPM = 125
@@ -196,6 +199,13 @@ def audio_debug() -> dict[str, object]:
             "ELEVENLABS_BUILTIN_VOICE_ID", DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID
         ),
         "elevenlabs_voice_type": "built-in",
+        "elevenlabs_premium_model": os.getenv(
+            "ELEVENLABS_PREMIUM_MODEL", "eleven_multilingual_v2"
+        ),
+        "elevenlabs_premium_voice_id": os.getenv(
+            "ELEVENLABS_PREMIUM_VOICE_ID", DEFAULT_ELEVENLABS_PREMIUM_VOICE_ID
+        ),
+        "elevenlabs_premium_voice_type": "voice-library-professional",
         "azure_audio_configured": bool(
             azure_speech_key() and (os.getenv("AZURE_SPEECH_REGION") or "").strip()
         ),
@@ -551,7 +561,14 @@ def _encode_mp3(samples: array) -> bytes:
     return output.getvalue()
 
 
-def normalize_course_audio(audio_bytes: bytes, text: str, mode: str, variant: str, output_format: str) -> bytes:
+def normalize_course_audio(
+    audio_bytes: bytes,
+    text: str,
+    mode: str,
+    variant: str,
+    output_format: str,
+    preserve_voice_pitch: bool = False,
+) -> bytes:
     if output_format != "mp3":
         return audio_bytes
     samples = _decoded_mono_samples(audio_bytes)
@@ -572,8 +589,8 @@ def normalize_course_audio(audio_bytes: bytes, text: str, mode: str, variant: st
         else 1.0
     )
     adjusted = _tempo_adjust(active, tempo_factor)
-    pitch_normalized = _normalize_pitch(adjusted)
-    normalized = _normalize_volume(pitch_normalized)
+    voiced_audio = adjusted if preserve_voice_pitch else _normalize_pitch(adjusted)
+    normalized = _normalize_volume(voiced_audio)
     leading_silence = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.18)
     trailing_silence = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.28)
     return _encode_mp3(leading_silence + normalized + trailing_silence)
@@ -606,7 +623,7 @@ def audio_file_response(audio_path: Path, media_type: str, provider: str) -> Fil
 
 def normalized_provider(provider: str) -> str:
     requested = provider.strip().lower()
-    if requested not in {"openai", "elevenlabs", "azure"}:
+    if requested not in {"openai", "elevenlabs", "elevenlabs-premium", "azure"}:
         raise HTTPException(status_code=400, detail="Unsupported course audio provider.")
     return requested
 
@@ -650,10 +667,18 @@ async def _generate_elevenlabs_audio(
     text: str,
     model: str,
     voice: str,
+    premium: bool = False,
 ) -> bytes:
     api_key = elevenlabs_api_key()
     if not api_key:
         raise HTTPException(status_code=503, detail="ElevenLabs course audio is not configured.")
+    voice_settings = {
+        "stability": 0.55 if premium else 0.85,
+        "similarity_boost": 0.80 if premium else 0.78,
+        "style": 0.0,
+        "use_speaker_boost": True,
+        "speed": 1.0,
+    }
     response = await client.post(
         f"{ELEVENLABS_SPEECH_URL}/{voice}",
         params={"output_format": "mp3_44100_128"},
@@ -661,13 +686,7 @@ async def _generate_elevenlabs_audio(
             "text": text,
             "model_id": model,
             "seed": 1101,
-            "voice_settings": {
-                "stability": 0.85,
-                "similarity_boost": 0.78,
-                "style": 0.0,
-                "use_speaker_boost": True,
-                "speed": 1.0,
-            },
+            "voice_settings": voice_settings,
         },
         headers={
             "xi-api-key": api_key,
@@ -738,7 +757,13 @@ async def _provider_audio(
     variant: str,
     provider: str,
 ) -> FileResponse:
-    if provider == "elevenlabs":
+    if provider == "elevenlabs-premium":
+        model = os.getenv("ELEVENLABS_PREMIUM_MODEL", "eleven_multilingual_v2")
+        voice = os.getenv(
+            "ELEVENLABS_PREMIUM_VOICE_ID", DEFAULT_ELEVENLABS_PREMIUM_VOICE_ID
+        )
+        output_format = "mp3"
+    elif provider == "elevenlabs":
         model = os.getenv("ELEVENLABS_TTS_MODEL", "eleven_multilingual_v2")
         voice = os.getenv(
             "ELEVENLABS_BUILTIN_VOICE_ID", DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID
@@ -769,8 +794,14 @@ async def _provider_audio(
             return audio_file_response(audio_path, media_type, provider)
         try:
             async with httpx.AsyncClient(timeout=45.0) as client:
-                if provider == "elevenlabs":
-                    audio_bytes = await _generate_elevenlabs_audio(client, text, model, voice)
+                if provider in {"elevenlabs", "elevenlabs-premium"}:
+                    audio_bytes = await _generate_elevenlabs_audio(
+                        client,
+                        text,
+                        model,
+                        voice,
+                        premium=provider == "elevenlabs-premium",
+                    )
                 elif provider == "azure":
                     audio_bytes = await _generate_azure_audio(client, text, lang, voice)
                 else:
@@ -781,7 +812,14 @@ async def _provider_audio(
             raise HTTPException(status_code=502, detail=f"Could not reach {provider} audio service.") from error
 
         try:
-            audio_bytes = normalize_course_audio(audio_bytes, text, mode, variant, output_format)
+            audio_bytes = normalize_course_audio(
+                audio_bytes,
+                text,
+                mode,
+                variant,
+                output_format,
+                preserve_voice_pitch=provider == "elevenlabs-premium",
+            )
         except (ValueError, av.FFmpegError):
             # A generated take is still usable if optional normalization cannot decode it.
             pass

@@ -92,6 +92,7 @@ class CourseAudioProfileTests(unittest.TestCase):
     def test_only_supported_audio_providers_are_accepted(self):
         self.assertEqual("openai", normalized_provider("OpenAI"))
         self.assertEqual("elevenlabs", normalized_provider(" elevenlabs "))
+        self.assertEqual("elevenlabs-premium", normalized_provider(" ElevenLabs-Premium "))
         self.assertEqual("azure", normalized_provider(" Azure "))
 
     def test_every_variant_uses_the_same_teacher_voice(self):
