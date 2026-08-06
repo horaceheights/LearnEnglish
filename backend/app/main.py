@@ -10,7 +10,6 @@ from fastapi.staticfiles import StaticFiles
 from .diagnostics import initialize_diagnostics
 from .course_audio import (
     audio_debug,
-    available_elevenlabs_premade_voices,
     get_course_audio,
     ready_cue_wav,
 )
@@ -157,11 +156,6 @@ async def pronunciation_token():
 @app.get("/api/audio/health")
 def audio_health():
     return audio_debug()
-
-
-@app.get("/api/audio/elevenlabs-voices")
-async def elevenlabs_voices():
-    return await available_elevenlabs_premade_voices()
 
 
 @app.get("/api/audio/course")

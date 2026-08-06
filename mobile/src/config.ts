@@ -3,11 +3,11 @@ export const PRIVACY_POLICY_URL = `${API_BASE_URL}/privacy`;
 export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
 export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue`;
-export const COURSE_AUDIO_PROFILE = 'a1-elevenlabs-comparison-v6';
-export type CourseAudioProvider = 'openai' | 'elevenlabs';
+export const COURSE_AUDIO_PROFILE = 'a1-azure-comparison-v7';
+export type CourseAudioProvider = 'openai' | 'elevenlabs' | 'azure';
 
 export function courseAudioProvider(lessonId: string): CourseAudioProvider {
-  return lessonId === FIRST_LESSON_ID ? 'elevenlabs' : 'openai';
+  return lessonId === FIRST_LESSON_ID ? 'azure' : 'openai';
 }
 
 export function absoluteMediaUrl(path: string): string {

@@ -10,6 +10,7 @@ import math
 import statistics
 import struct
 import wave
+from xml.sax.saxutils import escape as xml_escape
 
 import av
 import httpx
@@ -21,7 +22,6 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 CACHE_DIR = ROOT_DIR / "storage" / "audio-cache"
 OPENAI_SPEECH_URL = "https://api.openai.com/v1/audio/speech"
 ELEVENLABS_SPEECH_URL = "https://api.elevenlabs.io/v1/text-to-speech"
-ELEVENLABS_VOICES_URL = "https://api.elevenlabs.io/v2/voices"
 SUPPORTED_FORMATS = {
     "mp3": "audio/mpeg",
     "opus": "audio/ogg",
@@ -31,7 +31,7 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-elevenlabs-comparison-v6"
+AUDIO_PROFILE_VERSION = "a1-azure-comparison-v7"
 PROMPT_TARGET_SPM = 150
 SHORT_VOCAB_TARGET_SPM = 120
 PRONUNCIATION_TARGET_SPM = 125
@@ -177,6 +177,10 @@ def elevenlabs_api_key() -> str:
     return (os.getenv("ELEVENLABS_API_KEY") or "").strip()
 
 
+def azure_speech_key() -> str:
+    return (os.getenv("AZURE_SPEECH_KEY") or "").strip()
+
+
 def audio_configured() -> bool:
     return bool(openai_api_key())
 
@@ -188,6 +192,10 @@ def audio_debug() -> dict[str, object]:
         "elevenlabs_audio_configured": bool(elevenlabs_api_key()),
         "elevenlabs_model": os.getenv("ELEVENLABS_TTS_MODEL", "eleven_multilingual_v2"),
         "elevenlabs_voice_id": os.getenv("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM"),
+        "azure_audio_configured": bool(
+            azure_speech_key() and (os.getenv("AZURE_SPEECH_REGION") or "").strip()
+        ),
+        "azure_voice": os.getenv("AZURE_TTS_VOICE", "en-US-JennyNeural"),
         "model": os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts"),
         "voice": teacher_voice,
         "question_voice": teacher_voice,
@@ -202,51 +210,6 @@ def audio_debug() -> dict[str, object]:
         "tempo_correction_range": [MAX_TEMPO_SLOWDOWN, MAX_TEMPO_SPEEDUP],
         "cache_dir": str(CACHE_DIR),
     }
-
-
-async def available_elevenlabs_premade_voices() -> dict[str, object]:
-    """Return safe metadata for premade voices visible to this API key."""
-    api_key = elevenlabs_api_key()
-    if not api_key:
-        raise HTTPException(status_code=503, detail="ElevenLabs course audio is not configured.")
-
-    try:
-        async with httpx.AsyncClient(timeout=20.0) as client:
-            response = await client.get(
-                ELEVENLABS_VOICES_URL,
-                params={"category": "premade", "page_size": 100},
-                headers={"xi-api-key": api_key, "Accept": "application/json"},
-            )
-    except httpx.HTTPError as error:
-        raise HTTPException(status_code=502, detail="Could not reach ElevenLabs voice service.") from error
-
-    if response.status_code >= 400:
-        raise HTTPException(
-            status_code=502,
-            detail=f"ElevenLabs voice request failed with status {response.status_code}.",
-        )
-
-    payload = response.json()
-    safe_voices = []
-    for voice in payload.get("voices", []):
-        if not isinstance(voice, dict):
-            continue
-        labels = voice.get("labels") if isinstance(voice.get("labels"), dict) else {}
-        safe_voices.append(
-            {
-                "voice_id": voice.get("voice_id"),
-                "name": voice.get("name"),
-                "category": voice.get("category"),
-                "description": voice.get("description"),
-                "labels": {
-                    key: labels.get(key)
-                    for key in ("accent", "age", "gender", "language", "use_case", "descriptive")
-                    if labels.get(key)
-                },
-                "available_for_tiers": voice.get("available_for_tiers") or [],
-            }
-        )
-    return {"voices": safe_voices, "count": len(safe_voices)}
 
 
 def syllable_count(text: str) -> int:
@@ -639,7 +602,7 @@ def audio_file_response(audio_path: Path, media_type: str, provider: str) -> Fil
 
 def normalized_provider(provider: str) -> str:
     requested = provider.strip().lower()
-    if requested not in {"openai", "elevenlabs"}:
+    if requested not in {"openai", "elevenlabs", "azure"}:
         raise HTTPException(status_code=400, detail="Unsupported course audio provider.")
     return requested
 
@@ -726,6 +689,44 @@ async def _generate_elevenlabs_audio(
     return response.content
 
 
+async def _generate_azure_audio(
+    client: httpx.AsyncClient,
+    text: str,
+    lang: str,
+    voice: str,
+) -> bytes:
+    api_key = azure_speech_key()
+    region = (os.getenv("AZURE_SPEECH_REGION") or "").strip()
+    if not api_key or not region:
+        raise HTTPException(status_code=503, detail="Azure course audio is not configured.")
+
+    safe_locale = lang if re.fullmatch(r"[A-Za-z]{2,3}-[A-Za-z]{2,4}", lang) else "en-US"
+    safe_voice = voice if re.fullmatch(r"[A-Za-z0-9:.-]+", voice) else "en-US-JennyNeural"
+    ssml = (
+        f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" '
+        f'xml:lang="{safe_locale}"><voice name="{safe_voice}">'
+        f'<prosody rate="-5%" pitch="+0%" volume="+0%">{xml_escape(text)}</prosody>'
+        "</voice></speak>"
+    )
+    response = await client.post(
+        f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1",
+        content=ssml.encode("utf-8"),
+        headers={
+            "Ocp-Apim-Subscription-Key": api_key,
+            "Content-Type": "application/ssml+xml",
+            "X-Microsoft-OutputFormat": "audio-24khz-96kbitrate-mono-mp3",
+            "User-Agent": "SpanGlish",
+            "Accept": "audio/mpeg",
+        },
+    )
+    if response.status_code >= 400:
+        raise HTTPException(
+            status_code=502,
+            detail=f"Azure audio request failed with status {response.status_code}.",
+        )
+    return response.content
+
+
 async def _provider_audio(
     text: str,
     mode: str,
@@ -736,6 +737,10 @@ async def _provider_audio(
     if provider == "elevenlabs":
         model = os.getenv("ELEVENLABS_TTS_MODEL", "eleven_multilingual_v2")
         voice = os.getenv("ELEVENLABS_VOICE_ID", "21m00Tcm4TlvDq8ikWAM")
+        output_format = "mp3"
+    elif provider == "azure":
+        model = "azure-neural"
+        voice = os.getenv("AZURE_TTS_VOICE", "en-US-JennyNeural")
         output_format = "mp3"
     else:
         model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
@@ -760,6 +765,8 @@ async def _provider_audio(
             async with httpx.AsyncClient(timeout=45.0) as client:
                 if provider == "elevenlabs":
                     audio_bytes = await _generate_elevenlabs_audio(client, text, model, voice)
+                elif provider == "azure":
+                    audio_bytes = await _generate_azure_audio(client, text, lang, voice)
                 else:
                     audio_bytes = await _generate_openai_audio(
                         client, text, mode, lang, variant, model, voice, output_format
@@ -794,11 +801,11 @@ async def get_course_audio(
     try:
         return await _provider_audio(cleaned_text, mode, lang, variant, requested_provider)
     except HTTPException as provider_error:
-        if requested_provider != "elevenlabs":
+        if requested_provider == "openai":
             raise
-        # The experiment must never interrupt a lesson. A separate OpenAI cache
-        # is used so ElevenLabs is tried again when it becomes available.
+        # A provider experiment must never interrupt a lesson. The fallback has
+        # a separate OpenAI cache, so the requested provider is retried later.
         fallback = await _provider_audio(cleaned_text, mode, lang, variant, "openai")
-        fallback.headers["X-Audio-Fallback-From"] = "elevenlabs"
+        fallback.headers["X-Audio-Fallback-From"] = requested_provider
         fallback.headers["X-Audio-Fallback-Reason"] = str(provider_error.detail)[:120]
         return fallback
