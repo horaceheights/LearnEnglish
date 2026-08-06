@@ -165,6 +165,7 @@ async def read_course_audio(
     lang: str = "en-US",
     variant: str = "default",
     provider: str = "openai",
+    narrator: str = "female-teacher",
 ):
     return await get_course_audio(
         text=text,
@@ -172,6 +173,7 @@ async def read_course_audio(
         lang=lang,
         variant=variant,
         provider=provider,
+        narrator=narrator,
     )
 
 

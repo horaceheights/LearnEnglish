@@ -24,7 +24,7 @@ import {
 import { LessonCardView } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
 import { StageJourney } from '../components/StageJourney';
-import { courseAudioProvider, courseAudioUrl } from '../config';
+import { courseAudioProvider, courseAudioUrl, courseAudioVoice } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -90,6 +90,7 @@ export function LessonScreen({
   const [promptTextWidth, setPromptTextWidth] = useState(0);
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const audioProvider = courseAudioProvider(lessonId);
+  const audioVoice = courseAudioVoice(lessonId, lesson?.cards[cardIndex]?.stage || '');
 
   useEffect(() => {
     // Lessons adapt to both orientations. DEFAULT follows the device sensor,
@@ -149,6 +150,7 @@ export function LessonScreen({
         pronunciation ? 'pronunciation_slow' : 'prompt',
         variant,
         audioProvider,
+        courseAudioVoice(lessonId, card.stage),
       )));
     }
     if (card.answer_audio_text?.trim()) {
@@ -157,14 +159,15 @@ export function LessonScreen({
         'prompt',
         'answer',
         audioProvider,
+        courseAudioVoice(lessonId, card.stage),
       )));
     }
     return Promise.all(requests).then(() => undefined);
-  }, [audioProvider, ensureAudioPreloaded]);
+  }, [audioProvider, ensureAudioPreloaded, lessonId]);
 
   const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
     if (!text.trim()) return;
-    const url = courseAudioUrl(text, mode, variant, audioProvider);
+    const url = courseAudioUrl(text, mode, variant, audioProvider, audioVoice);
     const requestId = ++audioPlaybackRequestRef.current;
     void ensureAudioPreloaded(url)
       .then(() => {
@@ -191,7 +194,7 @@ export function LessonScreen({
           'warning',
         );
       });
-  }, [audioPlayer, audioProvider, ensureAudioPreloaded]);
+  }, [audioPlayer, audioProvider, audioVoice, ensureAudioPreloaded]);
 
   const playSuccessChime = useCallback(async () => {
     try {
@@ -865,6 +868,7 @@ export function LessonScreen({
         </View>
         <LessonCardView
           audioProvider={audioProvider}
+          audioVoice={audioVoice}
           card={currentCard}
           gentleFeedback={profile.confidence === 'nervous'}
           key={qaMode ? `${cardIndex}-${cardRunId}` : 'lesson-card'}

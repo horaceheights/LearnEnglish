@@ -1,7 +1,7 @@
 import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 
-import { absoluteMediaUrl, type CourseAudioProvider } from '../config';
+import { absoluteMediaUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import type { LessonCard } from '../types';
 import { PronunciationPractice } from './PronunciationPractice';
@@ -15,6 +15,7 @@ const TEXT_OPTION_THEMES = [
 
 type Props = {
   audioProvider: CourseAudioProvider;
+  audioVoice: CourseAudioVoice;
   card: LessonCard;
   level: string;
   userId?: string;
@@ -29,6 +30,7 @@ type Props = {
 
 export function LessonCardView({
   audioProvider,
+  audioVoice,
   card,
   level,
   userId,
@@ -257,6 +259,7 @@ export function LessonCardView({
           ) : null}
           <PronunciationPractice
             audioProvider={audioProvider}
+            audioVoice={audioVoice}
             level={level}
             onPassed={onPronunciationPassed}
             phrase={card.audio_text || card.prompt}

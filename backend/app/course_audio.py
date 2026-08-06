@@ -31,11 +31,19 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-provider-comparison-v10"
+AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v11"
 DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 # Nichalia Schwartz is a professional American teacher/e-learning voice from
 # the ElevenLabs Voice Library. Paid plans can use Voice Library voices by ID.
 DEFAULT_ELEVENLABS_PREMIUM_VOICE_ID = "XfNU2rGpBa01ckF309OY"
+ELEVENLABS_PREMIUM_CAST = {
+    # Professional teacher/e-learning voice already approved in lesson 1.3.
+    "female-teacher": DEFAULT_ELEVENLABS_PREMIUM_VOICE_ID,
+    # Natural default voices available to paid API accounts.
+    "female-warm": "EXAVITQu4vr4xnSDxMaL",  # Sarah
+    "male-warm": "nPczCjzI2devNBz1zQrb",  # Brian
+    "male-conversational": "TX3LPaxmHKxFdv7VOQHJ",  # Liam
+}
 PROMPT_TARGET_SPM = 150
 SHORT_VOCAB_TARGET_SPM = 120
 PRONUNCIATION_TARGET_SPM = 125
@@ -206,6 +214,10 @@ def audio_debug() -> dict[str, object]:
             "ELEVENLABS_PREMIUM_VOICE_ID", DEFAULT_ELEVENLABS_PREMIUM_VOICE_ID
         ),
         "elevenlabs_premium_voice_type": "voice-library-professional",
+        "elevenlabs_premium_cast": {
+            narrator: premium_voice_for_narrator(narrator)
+            for narrator in ELEVENLABS_PREMIUM_CAST
+        },
         "azure_audio_configured": bool(
             azure_speech_key() and (os.getenv("AZURE_SPEECH_REGION") or "").strip()
         ),
@@ -629,6 +641,17 @@ def normalized_provider(provider: str) -> str:
     return requested
 
 
+def premium_voice_for_narrator(narrator: str) -> str:
+    requested = narrator.strip().lower()
+    if requested not in ELEVENLABS_PREMIUM_CAST:
+        raise HTTPException(status_code=400, detail="Unsupported course narrator.")
+    default_voice = ELEVENLABS_PREMIUM_CAST[requested]
+    if requested == "female-teacher":
+        default_voice = os.getenv("ELEVENLABS_PREMIUM_VOICE_ID", default_voice)
+    environment_name = f"ELEVENLABS_VOICE_{requested.upper().replace('-', '_')}_ID"
+    return os.getenv(environment_name, default_voice)
+
+
 async def _generate_openai_audio(
     client: httpx.AsyncClient,
     text: str,
@@ -760,12 +783,11 @@ async def _provider_audio(
     lang: str,
     variant: str,
     provider: str,
+    narrator: str,
 ) -> FileResponse:
     if provider == "elevenlabs-premium":
         model = os.getenv("ELEVENLABS_PREMIUM_MODEL", "eleven_multilingual_v2")
-        voice = os.getenv(
-            "ELEVENLABS_PREMIUM_VOICE_ID", DEFAULT_ELEVENLABS_PREMIUM_VOICE_ID
-        )
+        voice = premium_voice_for_narrator(narrator)
         output_format = "mp3"
     elif provider == "elevenlabs":
         model = os.getenv("ELEVENLABS_TTS_MODEL", "eleven_multilingual_v2")
@@ -839,6 +861,7 @@ async def get_course_audio(
     lang: str,
     variant: str,
     provider: str = "openai",
+    narrator: str = "female-teacher",
 ) -> FileResponse:
     cleaned_text = text.strip()
     if not cleaned_text:
@@ -848,14 +871,22 @@ async def get_course_audio(
         raise HTTPException(status_code=400, detail="Text is too long for course audio.")
 
     requested_provider = normalized_provider(provider)
+    if requested_provider == "elevenlabs-premium":
+        # Validate before entering provider fallback so a programming error does
+        # not silently replace a requested cast member with an unrelated voice.
+        premium_voice_for_narrator(narrator)
     try:
-        return await _provider_audio(cleaned_text, mode, lang, variant, requested_provider)
+        return await _provider_audio(
+            cleaned_text, mode, lang, variant, requested_provider, narrator
+        )
     except HTTPException as provider_error:
         if requested_provider == "openai":
             raise
         # A provider experiment must never interrupt a lesson. The fallback has
         # a separate OpenAI cache, so the requested provider is retried later.
-        fallback = await _provider_audio(cleaned_text, mode, lang, variant, "openai")
+        fallback = await _provider_audio(
+            cleaned_text, mode, lang, variant, "openai", narrator
+        )
         fallback.headers["X-Audio-Fallback-From"] = requested_provider
         fallback.headers["X-Audio-Fallback-Reason"] = str(provider_error.detail)[:120]
         return fallback

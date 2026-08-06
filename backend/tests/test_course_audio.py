@@ -12,6 +12,7 @@ from backend.app.course_audio import (
     _normalize_pitch,
     cache_path_for,
     normalized_provider,
+    premium_voice_for_narrator,
     syllable_count,
     target_active_seconds,
     target_syllables_per_minute,
@@ -87,13 +88,22 @@ class CourseAudioProfileTests(unittest.TestCase):
             "\n".join(["The boy", "prompt", "en-US", "default", "model", "voice", "mp3"]).encode("utf-8")
         ).hexdigest()
         self.assertNotEqual(f"{legacy}.mp3", current.name)
-        self.assertEqual("a1-provider-comparison-v8", AUDIO_PROFILE_VERSION)
+        self.assertEqual("a1-elevenlabs-cast-v11", AUDIO_PROFILE_VERSION)
 
     def test_only_supported_audio_providers_are_accepted(self):
         self.assertEqual("openai", normalized_provider("OpenAI"))
         self.assertEqual("elevenlabs", normalized_provider(" elevenlabs "))
         self.assertEqual("elevenlabs-premium", normalized_provider(" ElevenLabs-Premium "))
         self.assertEqual("azure", normalized_provider(" Azure "))
+
+    def test_premium_cast_has_distinct_male_and_female_narrators(self):
+        voices = {
+            premium_voice_for_narrator("female-teacher"),
+            premium_voice_for_narrator("female-warm"),
+            premium_voice_for_narrator("male-warm"),
+            premium_voice_for_narrator("male-conversational"),
+        }
+        self.assertEqual(4, len(voices))
 
     def test_every_variant_uses_the_same_teacher_voice(self):
         self.assertEqual(voice_for_variant("default"), voice_for_variant("question"))

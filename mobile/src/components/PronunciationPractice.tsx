@@ -14,7 +14,7 @@ import {
 } from 'expo-audio';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { courseAudioUrl, READY_CUE_URL, type CourseAudioProvider } from '../config';
+import { courseAudioUrl, READY_CUE_URL, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -42,6 +42,7 @@ import {
 
 type Props = {
   audioProvider: CourseAudioProvider;
+  audioVoice: CourseAudioVoice;
   phrase: string;
   level: string;
   userId?: string;
@@ -66,7 +67,7 @@ const SPEECH_RECORDING_OPTIONS: RecordingOptions = {
   isMeteringEnabled: true,
 };
 
-export function PronunciationPractice({ audioProvider, phrase, level, userId, onPassed }: Props) {
+export function PronunciationPractice({ audioProvider, audioVoice, phrase, level, userId, onPassed }: Props) {
   const reduceMotion = useReducedMotion();
   const recorder = useAudioRecorder(SPEECH_RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
@@ -158,10 +159,16 @@ export function PronunciationPractice({ audioProvider, phrase, level, userId, on
     modelWasPlaying.current = false;
     setDiagnosticOperation('pronunciation_model_playback');
     addDiagnosticBreadcrumb('pronunciation_model_started', { attempt: attemptRef.current + 1 });
-    modelPlayer.replace(courseAudioUrl(phrase, 'pronunciation_slow', 'split-ing', audioProvider));
+    modelPlayer.replace(courseAudioUrl(
+      phrase,
+      'pronunciation_slow',
+      'split-ing',
+      audioProvider,
+      audioVoice,
+    ));
     if (!isCurrentRun(runId)) return;
     modelPlayer.play();
-  }, [audioProvider, isCurrentRun, modelPlayer, phrase]);
+  }, [audioProvider, audioVoice, isCurrentRun, modelPlayer, phrase]);
 
   const scheduleRetry = useCallback((reason: string, runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
