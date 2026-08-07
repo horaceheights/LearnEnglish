@@ -102,6 +102,7 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
   const earBlinkAnimation = useRef(new Animated.Value(1)).current;
+  const gradingMascotAnimation = useRef(new Animated.Value(0)).current;
   const waveAnimations = useRef(
     [0, 1, 2, 3, 4].map(() => new Animated.Value(0.3)),
   ).current;
@@ -587,6 +588,33 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   }, [earBlinkAnimation, phase, reduceMotion]);
 
   useEffect(() => {
+    if (phase !== 'checking' || reduceMotion) {
+      gradingMascotAnimation.stopAnimation();
+      gradingMascotAnimation.setValue(0);
+      return undefined;
+    }
+
+    const gradingMotion = Animated.loop(
+      Animated.sequence([
+        Animated.timing(gradingMascotAnimation, {
+          duration: 360,
+          easing: Easing.inOut(Easing.ease),
+          toValue: 1,
+          useNativeDriver: true,
+        }),
+        Animated.timing(gradingMascotAnimation, {
+          duration: 360,
+          easing: Easing.inOut(Easing.ease),
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    gradingMotion.start();
+    return () => gradingMotion.stop();
+  }, [gradingMascotAnimation, phase, reduceMotion]);
+
+  useEffect(() => {
     mountedRef.current = true;
     return () => {
       mountedRef.current = false;
@@ -694,6 +722,29 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
         ) : <Text style={styles.phrase}>{phrase}</Text>}
       </Pressable>
       <View style={styles.statusRow}>
+        {phase === 'checking' ? (
+          <Animated.Image
+            accessibilityLabel="La profesora ardilla está calificando"
+            resizeMode="contain"
+            source={require('../../assets/mascots/squirrel-professor-grading.png')}
+            style={[
+              styles.gradingMascot,
+              {
+                transform: [
+                  {
+                    rotate: gradingMascotAnimation.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['-1.5deg', '1.5deg'],
+                    }),
+                  },
+                  {
+                    translateY: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [1, -2] }),
+                  },
+                ],
+              },
+            ]}
+          />
+        ) : null}
         <View style={styles.signalStack}>
           <View style={styles.signalRow}>
             <Animated.View
@@ -816,6 +867,7 @@ const styles = StyleSheet.create({
   signalStack: { alignItems: 'center', marginRight: 8 },
   signalRow: { alignItems: 'center', flexDirection: 'row' },
   listeningEar: { fontSize: 50, height: 58, lineHeight: 58, marginTop: -2, textAlign: 'center' },
+  gradingMascot: { height: 96, marginRight: 8, width: 76 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },
   wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 28, marginRight: 8 },
   waveBar: { borderRadius: 3, width: 4 },
