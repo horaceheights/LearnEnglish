@@ -287,6 +287,7 @@ export function LessonScreen({
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
   const pauseForPronunciationReview = manualCardNavigation && isPronunciation;
   const canSwipeForward = pauseForPronunciationReview && attemptedCards.has(cardIndex);
+  const automaticAdvanceDelay = manualCardNavigation ? 1000 : 0;
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
 
@@ -372,11 +373,12 @@ export function LessonScreen({
       pauseForPronunciationReview ||
       (qaMode && !qaAutoAdvance)
     ) return undefined;
-    const delay = isPronunciation ? 900 : 1000;
+    const delay = (isPronunciation ? 900 : 1000) + automaticAdvanceDelay;
     const timer = setTimeout(advance, delay);
     return () => clearTimeout(timer);
   }, [
     advance,
+    automaticAdvanceDelay,
     currentCard,
     isGrammar,
     isPronunciation,
@@ -405,7 +407,7 @@ export function LessonScreen({
       answerAdvanceTimerRef.current = setTimeout(() => {
         answerAdvanceTimerRef.current = null;
         advance();
-      }, 900);
+      }, 900 + automaticAdvanceDelay);
       return;
     }
     if (audioPlayerStatus.playing) answerAudioWasPlayingRef.current = true;
@@ -422,9 +424,10 @@ export function LessonScreen({
     answerAdvanceTimerRef.current = setTimeout(() => {
       answerAdvanceTimerRef.current = null;
       advance();
-    }, 350);
+    }, 350 + automaticAdvanceDelay);
   }, [
     advance,
+    automaticAdvanceDelay,
     audioPlayerStatus.didJustFinish,
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
@@ -448,7 +451,7 @@ export function LessonScreen({
       grammarAudioTimerRef.current = setTimeout(() => {
         grammarAudioTimerRef.current = null;
         advance();
-      }, 900);
+      }, 900 + automaticAdvanceDelay);
       return;
     }
     if (audioPlayerStatus.playing) grammarAnswerWasPlayingRef.current = true;
@@ -464,9 +467,10 @@ export function LessonScreen({
     grammarAudioTimerRef.current = setTimeout(() => {
       grammarAudioTimerRef.current = null;
       advance();
-    }, 350);
+    }, 350 + automaticAdvanceDelay);
   }, [
     advance,
+    automaticAdvanceDelay,
     audioPlayerStatus.didJustFinish,
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
