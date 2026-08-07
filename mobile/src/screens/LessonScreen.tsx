@@ -920,7 +920,7 @@ export function LessonScreen({
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { flex: 1, gap: 6, padding: 6 },
-  pagePortrait: { gap: 10, padding: 10 },
+  pagePortrait: { gap: 7, padding: 10 },
   pageCompact: { gap: 4, padding: 4 },
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
