@@ -694,57 +694,61 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
         ) : <Text style={styles.phrase}>{phrase}</Text>}
       </Pressable>
       <View style={styles.statusRow}>
-        {phase === 'listening' ? (
-          <Animated.Text
-            accessibilityLabel="Escuchando"
-            style={[
-              styles.listeningEar,
-              {
-                opacity: earBlinkAnimation,
-                transform: [{
-                  scale: earBlinkAnimation.interpolate({ inputRange: [0.3, 1], outputRange: [0.9, 1.08] }),
-                }],
-              },
-            ]}
-          >
-            👂
-          </Animated.Text>
-        ) : null}
-        <Animated.View
-          style={[
-            styles.statusDot,
-            {
-              backgroundColor: statusColor,
-              opacity: statusIsAnimated
-                ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.55, 1] })
-                : statusIsActive ? 0.9 : 1,
-              transform: [{
-                scale: statusIsAnimated
-                  ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.35] })
-                  : 1,
-              }],
-            },
-          ]}
-        />
-        <View style={styles.wave} accessibilityElementsHidden>
-          {[12, 22, 30, 22, 12].map((height, index) => (
+        <View style={styles.signalStack}>
+          <View style={styles.signalRow}>
             <Animated.View
-              key={`${height}-${index}`}
               style={[
-                styles.waveBar,
+                styles.statusDot,
                 {
                   backgroundColor: statusColor,
-                  height,
-                  opacity: statusIsActive ? 1 : 0.35,
+                  opacity: statusIsAnimated
+                    ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.55, 1] })
+                    : statusIsActive ? 0.9 : 1,
                   transform: [{
-                    scaleY: phase === 'listening' && streamingCapture.current
-                      ? Math.max(0.18, Math.min(1, liveLevel * (index % 2 ? 0.8 : 1.1)))
-                      : statusIsAnimated ? waveAnimations[index] : statusIsActive ? 0.7 : 0.27,
+                    scale: statusIsAnimated
+                      ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.35] })
+                      : 1,
                   }],
                 },
               ]}
             />
-          ))}
+            <View style={styles.wave} accessibilityElementsHidden>
+              {[12, 22, 30, 22, 12].map((height, index) => (
+                <Animated.View
+                  key={`${height}-${index}`}
+                  style={[
+                    styles.waveBar,
+                    {
+                      backgroundColor: statusColor,
+                      height,
+                      opacity: statusIsActive ? 1 : 0.35,
+                      transform: [{
+                        scaleY: phase === 'listening' && streamingCapture.current
+                          ? Math.max(0.18, Math.min(1, liveLevel * (index % 2 ? 0.8 : 1.1)))
+                          : statusIsAnimated ? waveAnimations[index] : statusIsActive ? 0.7 : 0.27,
+                      }],
+                    },
+                  ]}
+                />
+              ))}
+            </View>
+          </View>
+          {phase === 'listening' ? (
+            <Animated.Text
+              accessibilityLabel="Escuchando"
+              style={[
+                styles.listeningEar,
+                {
+                  opacity: earBlinkAnimation,
+                  transform: [{
+                    scale: earBlinkAnimation.interpolate({ inputRange: [0.3, 1], outputRange: [0.9, 1.08] }),
+                  }],
+                },
+              ]}
+            >
+              👂
+            </Animated.Text>
+          ) : null}
         </View>
         <Text style={[styles.message, { color: statusColor }]}>{message}</Text>
       </View>
@@ -809,7 +813,9 @@ const styles = StyleSheet.create({
   currentWordArrowStem: { backgroundColor: '#83d6a4', borderRadius: 3, height: 10, width: 5 },
   currentWordArrowHidden: { opacity: 0 },
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
-  listeningEar: { fontSize: 25, marginRight: 8 },
+  signalStack: { alignItems: 'center', marginRight: 8 },
+  signalRow: { alignItems: 'center', flexDirection: 'row' },
+  listeningEar: { fontSize: 50, height: 58, lineHeight: 58, marginTop: -2, textAlign: 'center' },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },
   wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 28, marginRight: 8 },
   waveBar: { borderRadius: 3, width: 4 },
