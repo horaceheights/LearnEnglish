@@ -71,6 +71,10 @@ export function LessonScreen({
   const grammarAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const grammarAnswerAwaitingRef = useRef(false);
   const grammarAnswerWasPlayingRef = useRef(false);
+  const singleCardAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const singleCardFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const singleCardAudioAwaitingRef = useRef(false);
+  const singleCardAudioWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
   const audioPlayerActiveRef = useRef(true);
   const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
@@ -288,6 +292,7 @@ export function LessonScreen({
   const pauseForPronunciationReview = manualCardNavigation && isPronunciation;
   const canSwipeForward = pauseForPronunciationReview && attemptedCards.has(cardIndex);
   const automaticAdvanceDelay = manualCardNavigation ? 1000 : 0;
+  const isAutomaticSingleCard = manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
 
@@ -306,6 +311,12 @@ export function LessonScreen({
   useEffect(() => {
     audioPlaybackRequestRef.current += 1;
     audioPlayer.pause();
+    singleCardAudioAwaitingRef.current = false;
+    singleCardAudioWasPlayingRef.current = false;
+    if (singleCardAdvanceTimerRef.current) clearTimeout(singleCardAdvanceTimerRef.current);
+    if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
+    singleCardAdvanceTimerRef.current = null;
+    singleCardFallbackTimerRef.current = null;
   }, [audioPlayer, cardIndex]);
 
   useEffect(() => {
@@ -322,13 +333,17 @@ export function LessonScreen({
 
   useEffect(() => {
     if (!currentCard || isPronunciation || result !== null) return undefined;
-    const timer = setTimeout(() => playAudio(
-      promptAudio,
-      'prompt',
-      promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
-    ), 120);
+    const timer = setTimeout(() => {
+      singleCardAudioAwaitingRef.current = isAutomaticSingleCard;
+      singleCardAudioWasPlayingRef.current = false;
+      playAudio(
+        promptAudio,
+        'prompt',
+        promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
+      );
+    }, 120);
     return () => clearTimeout(timer);
-  }, [cardIndex, currentCard, isPronunciation, playAudio, promptAudio, result]);
+  }, [cardIndex, currentCard, isAutomaticSingleCard, isPronunciation, playAudio, promptAudio, result]);
 
   const advance = useCallback(() => {
     if (!lesson) return;
@@ -353,6 +368,16 @@ export function LessonScreen({
       clearTimeout(grammarAudioTimerRef.current);
       grammarAudioTimerRef.current = null;
     }
+    singleCardAudioAwaitingRef.current = false;
+    singleCardAudioWasPlayingRef.current = false;
+    if (singleCardAdvanceTimerRef.current) {
+      clearTimeout(singleCardAdvanceTimerRef.current);
+      singleCardAdvanceTimerRef.current = null;
+    }
+    if (singleCardFallbackTimerRef.current) {
+      clearTimeout(singleCardFallbackTimerRef.current);
+      singleCardFallbackTimerRef.current = null;
+    }
     if (cardIndex >= lesson.cards.length - 1) {
       setIsComplete(true);
       return;
@@ -363,6 +388,44 @@ export function LessonScreen({
     setSelectedId(null);
     setResult(null);
   }, [cardIndex, lesson]);
+
+  const completeAutomaticSingleCard = useCallback(() => {
+    if (!isAutomaticSingleCard || singleCardAdvanceTimerRef.current) return;
+    singleCardAudioAwaitingRef.current = false;
+    singleCardAudioWasPlayingRef.current = false;
+    if (singleCardFallbackTimerRef.current) {
+      clearTimeout(singleCardFallbackTimerRef.current);
+      singleCardFallbackTimerRef.current = null;
+    }
+    setCompletedCards((current) => new Set(current).add(cardIndex));
+    singleCardAdvanceTimerRef.current = setTimeout(() => {
+      singleCardAdvanceTimerRef.current = null;
+      advance();
+    }, 1000);
+  }, [advance, cardIndex, isAutomaticSingleCard]);
+
+  useEffect(() => {
+    if (!isAutomaticSingleCard || !singleCardAudioAwaitingRef.current) return;
+    if (audioPlayerStatus.playing) singleCardAudioWasPlayingRef.current = true;
+    if (audioPlayerStatus.error || (audioPlayerStatus.didJustFinish && singleCardAudioWasPlayingRef.current)) {
+      completeAutomaticSingleCard();
+    }
+  }, [
+    audioPlayerStatus.didJustFinish,
+    audioPlayerStatus.error,
+    audioPlayerStatus.playing,
+    completeAutomaticSingleCard,
+    isAutomaticSingleCard,
+  ]);
+
+  useEffect(() => {
+    if (!isAutomaticSingleCard) return undefined;
+    singleCardFallbackTimerRef.current = setTimeout(completeAutomaticSingleCard, 8000);
+    return () => {
+      if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
+      singleCardFallbackTimerRef.current = null;
+    };
+  }, [cardIndex, completeAutomaticSingleCard, isAutomaticSingleCard]);
 
   useEffect(() => {
     if (
@@ -628,6 +691,16 @@ export function LessonScreen({
     if (grammarAudioTimerRef.current) {
       clearTimeout(grammarAudioTimerRef.current);
       grammarAudioTimerRef.current = null;
+    }
+    singleCardAudioAwaitingRef.current = false;
+    singleCardAudioWasPlayingRef.current = false;
+    if (singleCardAdvanceTimerRef.current) {
+      clearTimeout(singleCardAdvanceTimerRef.current);
+      singleCardAdvanceTimerRef.current = null;
+    }
+    if (singleCardFallbackTimerRef.current) {
+      clearTimeout(singleCardFallbackTimerRef.current);
+      singleCardFallbackTimerRef.current = null;
     }
     pronunciationPassHandledRef.current = false;
     setGrammarCompleted(false);
@@ -1060,6 +1133,7 @@ export function LessonScreen({
             key={qaMode ? `${cardIndex}-${cardRunId}` : 'lesson-card'}
             level={lesson.level}
             manualReview={pauseForPronunciationReview}
+            optionsInteractive={!isAutomaticSingleCard}
             onPronunciationAttempted={pronunciationAttempted}
             onPronunciationPassed={pronunciationPassed}
             onPronunciationReviewRestarted={pronunciationReviewRestarted}

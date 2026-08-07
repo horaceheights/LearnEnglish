@@ -19,6 +19,7 @@ type Props = {
   card: LessonCard;
   level: string;
   manualReview?: boolean;
+  optionsInteractive?: boolean;
   userId?: string;
   selectedId: string | null;
   result: 'correct' | 'wrong' | null;
@@ -37,6 +38,7 @@ export function LessonCardView({
   card,
   level,
   manualReview = false,
+  optionsInteractive = true,
   userId,
   selectedId,
   result,
@@ -287,9 +289,9 @@ export function LessonCardView({
               return (
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
-                  accessibilityRole="button"
-                  accessibilityState={{ disabled: result === 'correct', selected }}
-                  disabled={result === 'correct'}
+                  accessibilityRole={optionsInteractive ? 'button' : 'image'}
+                  accessibilityState={{ disabled: !optionsInteractive || result === 'correct', selected }}
+                  disabled={!optionsInteractive || result === 'correct'}
                   key={option.id}
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
