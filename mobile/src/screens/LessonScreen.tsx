@@ -291,7 +291,7 @@ export function LessonScreen({
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
   const pauseForPronunciationReview = manualCardNavigation && isPronunciation;
   const canSwipeForward = pauseForPronunciationReview && attemptedCards.has(cardIndex);
-  const automaticAdvanceDelay = manualCardNavigation ? 1000 : 0;
+  const automaticAdvanceDelay = manualCardNavigation ? 2000 : 0;
   const isAutomaticSingleCard = manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
@@ -401,7 +401,7 @@ export function LessonScreen({
     singleCardAdvanceTimerRef.current = setTimeout(() => {
       singleCardAdvanceTimerRef.current = null;
       advance();
-    }, 1000);
+    }, 3000);
   }, [advance, cardIndex, isAutomaticSingleCard]);
 
   useEffect(() => {
