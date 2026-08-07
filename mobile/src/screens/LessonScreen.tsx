@@ -1030,40 +1030,16 @@ export function LessonScreen({
           </View>
         </View>
         {manualCardNavigation ? (
-          <View style={[styles.manualNavigation, useCompactPhoneLayout ? styles.manualNavigationCompact : null]}>
-            <Pressable
-              accessibilityLabel="Tarjeta anterior"
-              accessibilityRole="button"
-              disabled={cardIndex === 0}
-              hitSlop={6}
-              onPress={() => navigateManualCard(-1)}
-              style={({ pressed }) => [
-                styles.manualNavigationButton,
-                cardIndex === 0 ? styles.manualNavigationButtonDisabled : null,
-                pressed ? styles.manualNavigationButtonPressed : null,
-              ]}
-            >
-              <Text style={styles.manualNavigationButtonText}>← Anterior</Text>
-            </Pressable>
-            <Text style={styles.swipeHint}>Desliza ↔</Text>
-            <Pressable
-              accessibilityLabel={canAdvanceManualCard ? 'Continuar a la siguiente tarjeta' : 'Responde antes de continuar'}
-              accessibilityRole="button"
-              accessibilityState={{ disabled: !canAdvanceManualCard }}
-              disabled={!canAdvanceManualCard}
-              hitSlop={6}
-              onPress={() => navigateManualCard(1)}
-              style={({ pressed }) => [
-                styles.manualNavigationButton,
-                styles.manualNavigationButtonNext,
-                !canAdvanceManualCard ? styles.manualNavigationButtonDisabled : null,
-                pressed ? styles.manualNavigationButtonPressed : null,
-              ]}
-            >
-              <Text style={[styles.manualNavigationButtonText, styles.manualNavigationButtonNextText]}>
-                {cardIndex === lesson.cards.length - 1 ? 'Terminar →' : 'Continuar →'}
-              </Text>
-            </Pressable>
+          <View
+            accessibilityLabel={canAdvanceManualCard ? 'Desliza para continuar' : 'Responde para continuar'}
+            accessible
+            style={[styles.manualNavigation, useCompactPhoneLayout ? styles.manualNavigationCompact : null]}
+          >
+            <Text style={[styles.swipeHint, !canAdvanceManualCard ? styles.swipeHintLocked : null]}>
+              {canAdvanceManualCard
+                ? cardIndex === lesson.cards.length - 1 ? 'Desliza para terminar →' : 'Desliza para continuar →'
+                : 'Responde para continuar'}
+            </Text>
           </View>
         ) : null}
         <Animated.View
@@ -1133,15 +1109,10 @@ const styles = StyleSheet.create({
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
   cardCarousel: { flex: 1 },
-  manualNavigation: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', minHeight: 42, paddingHorizontal: 4 },
+  manualNavigation: { alignItems: 'center', justifyContent: 'center', minHeight: 42, paddingHorizontal: 4 },
   manualNavigationCompact: { minHeight: 36 },
-  manualNavigationButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c7b18b', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 38, minWidth: 94, paddingHorizontal: 11 },
-  manualNavigationButtonDisabled: { opacity: 0.32 },
-  manualNavigationButtonNext: { backgroundColor: '#287f68', borderColor: '#287f68' },
-  manualNavigationButtonPressed: { opacity: 0.75, transform: [{ scale: 0.97 }] },
-  manualNavigationButtonText: { color: '#37464c', fontSize: 12, fontWeight: '900' },
-  manualNavigationButtonNextText: { color: '#fff' },
-  swipeHint: { color: '#697177', fontSize: 11, fontWeight: '800' },
+  swipeHint: { color: '#287f68', fontSize: 18, fontWeight: '900', textAlign: 'center' },
+  swipeHintLocked: { color: '#7b736a' },
   qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 54, paddingHorizontal: 10, paddingVertical: 5 },
   qaIdentity: { flex: 1, marginRight: 8 },
   qaLabel: { color: '#d8bfe9', fontSize: 7, fontWeight: '900', letterSpacing: 0.7 },
