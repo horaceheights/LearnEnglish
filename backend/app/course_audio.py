@@ -31,7 +31,7 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
-AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v13"
+AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v14"
 DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 # Nichalia Schwartz is a professional American teacher/e-learning voice from
 # the ElevenLabs Voice Library. Paid plans can use Voice Library voices by ID.
@@ -53,8 +53,8 @@ NORMALIZATION_SAMPLE_RATE = 24_000
 MAX_TEMPO_SLOWDOWN = 0.55
 MAX_TEMPO_SPEEDUP = 1.60
 MAX_PITCH_SHIFT = 1.12
-ELEVENLABS_PREMIUM_PROMPT_SPEED = 0.75
-ELEVENLABS_PREMIUM_PRONUNCIATION_SPEED = 0.75
+ELEVENLABS_PREMIUM_PROMPT_SPEED = 0.70
+ELEVENLABS_PREMIUM_PRONUNCIATION_SPEED = 0.70
 
 # The first course deliberately uses a small vocabulary. Keeping its irregular
 # syllable counts explicit makes pacing deterministic instead of treating
