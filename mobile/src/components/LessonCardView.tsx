@@ -125,7 +125,7 @@ export function LessonCardView({
     ? result
       ? 108
       : isLandscape
-        ? isCompactLandscape ? 108 : 122
+        ? 78
         : 132
     : hasTextOnlyOptions
       ? (optionMinHeight * textOptionRows) + (Math.max(0, textOptionRows - 1) * 10) + 30
@@ -267,6 +267,11 @@ export function LessonCardView({
           <PronunciationPractice
             audioProvider={audioProvider}
             audioVoice={audioVoice}
+            imageHeight={showHelp
+              ? featureImageHeight * 0.65
+              : result
+                ? featureImageHeight * 0.72
+                : featureImageHeight}
             level={level}
             onPassed={onPronunciationPassed}
             phrase={card.audio_text || card.prompt}

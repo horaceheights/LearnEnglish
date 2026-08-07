@@ -44,6 +44,7 @@ type Props = {
   audioProvider: CourseAudioProvider;
   audioVoice: CourseAudioVoice;
   phrase: string;
+  imageHeight: number;
   level: string;
   userId?: string;
   onPassed: () => void;
@@ -67,7 +68,15 @@ const SPEECH_RECORDING_OPTIONS: RecordingOptions = {
   isMeteringEnabled: true,
 };
 
-export function PronunciationPractice({ audioProvider, audioVoice, phrase, level, userId, onPassed }: Props) {
+export function PronunciationPractice({
+  audioProvider,
+  audioVoice,
+  phrase,
+  imageHeight,
+  level,
+  userId,
+  onPassed,
+}: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const recorder = useAudioRecorder(SPEECH_RECORDING_OPTIONS);
@@ -124,6 +133,9 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   const listeningMascotSize = viewportWidth > viewportHeight
     ? Math.max(62, Math.min(72, viewportHeight * 0.19))
     : Math.max(74, Math.min(84, viewportWidth * 0.15));
+  const isLandscape = viewportWidth > viewportHeight;
+  const landscapeListeningMascotTop = -((imageHeight + listeningMascotSize) / 2);
+  const landscapeGradingMascotTop = -((imageHeight + 104) / 2);
   const currentWordIndex = useMemo(() => {
     if (!expectedTokens.length || liveMatchedCount >= expectedTokens.length) return -1;
     // A partial transcript may tentatively recognize the word being spoken.
@@ -737,7 +749,11 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
       </Pressable>
       <View style={styles.statusRow}>
         {phase === 'checking' ? (
-          <View style={styles.gradingMascotWrap}>
+          <View style={[
+            styles.gradingMascotWrap,
+            isLandscape ? styles.landscapeMascot : null,
+            isLandscape ? { top: landscapeGradingMascotTop } : null,
+          ]}>
             <Animated.Image
               accessibilityLabel="La profesora ardilla está calificando"
               resizeMode="contain"
@@ -826,11 +842,17 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
               ))}
             </View>
           </View>
+        </View>
           {phase === 'listening' ? (
             <View
               accessible
               accessibilityLabel="Escuchando"
-              style={[styles.listeningMascotWrap, { height: listeningMascotSize, width: listeningMascotSize }]}
+              style={[
+                styles.listeningMascotWrap,
+                { height: listeningMascotSize, width: listeningMascotSize },
+                isLandscape ? styles.landscapeMascot : null,
+                isLandscape ? { top: landscapeListeningMascotTop } : null,
+              ]}
             >
               <Animated.Image
                 resizeMode="contain"
@@ -865,7 +887,6 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
               />
             </View>
           ) : null}
-        </View>
         <Text style={[styles.message, { color: statusColor }]}>{message}</Text>
       </View>
       {attempt > 0 && phase !== 'success' ? <Text style={styles.attempt}>Intento {attempt + 1}</Text> : null}
@@ -934,6 +955,7 @@ const styles = StyleSheet.create({
   listeningMascotWrap: { height: 94, marginTop: 1, position: 'relative', width: 94 },
   listeningMascot: { height: 94, width: 94 },
   listeningMascotFront: { left: 0, position: 'absolute', top: 0 },
+  landscapeMascot: { left: 16, marginRight: 0, position: 'absolute', zIndex: 4 },
   gradingMascotWrap: { height: 104, marginRight: 9, position: 'relative', width: 94 },
   gradingMascot: { height: 104, width: 80 },
   gradingCheck: { color: '#58b985', fontSize: 27, fontWeight: '900', position: 'absolute', right: 0, top: 5 },
