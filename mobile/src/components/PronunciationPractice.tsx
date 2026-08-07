@@ -70,6 +70,17 @@ const SPEECH_RECORDING_OPTIONS: RecordingOptions = {
   isMeteringEnabled: true,
 };
 
+const LISTENING_MASCOT_FRAMES = [
+  require('../../assets/mascots/serious/listening-frames-normalized/listening-01.png'),
+  require('../../assets/mascots/serious/listening-frames-normalized/listening-02.png'),
+  require('../../assets/mascots/serious/listening-frames-normalized/listening-03.png'),
+  require('../../assets/mascots/serious/listening-frames-normalized/listening-04.png'),
+  require('../../assets/mascots/serious/listening-frames-normalized/listening-05.png'),
+  require('../../assets/mascots/serious/listening-frames-normalized/listening-06.png'),
+] as const;
+
+const LISTENING_MASCOT_FRAME_MS = [180, 130, 120, 110, 110] as const;
+
 export function PronunciationPractice({
   audioProvider,
   audioVoice,
@@ -99,6 +110,7 @@ export function PronunciationPractice({
   const [liveMatchedCount, setLiveMatchedCount] = useState(0);
   const [liveTentativeCount, setLiveTentativeCount] = useState(0);
   const [gradingFrame, setGradingFrame] = useState(0);
+  const [listeningFrame, setListeningFrame] = useState(0);
   const attemptRef = useRef(0);
   const mountedRef = useRef(true);
   const runIdRef = useRef(0);
@@ -116,7 +128,6 @@ export function PronunciationPractice({
   const liveRecognizedText = useRef('');
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
-  const listeningMascotAnimation = useRef(new Animated.Value(0)).current;
   const gradingMascotAnimation = useRef(new Animated.Value(0)).current;
   const waveAnimations = useRef(
     [0, 1, 2, 3, 4].map(() => new Animated.Value(0.3)),
@@ -580,23 +591,35 @@ export function PronunciationPractice({
 
   useEffect(() => {
     if (phase !== 'listening') {
-      listeningMascotAnimation.stopAnimation();
-      listeningMascotAnimation.setValue(0);
+      setListeningFrame(0);
       return undefined;
     }
 
-    listeningMascotAnimation.setValue(reduceMotion ? 1 : 0);
-    if (reduceMotion) return undefined;
+    if (reduceMotion) {
+      setListeningFrame(LISTENING_MASCOT_FRAMES.length - 1);
+      return undefined;
+    }
 
-    const listenTurn = Animated.timing(listeningMascotAnimation, {
-      duration: 220,
-      easing: Easing.out(Easing.cubic),
-      toValue: 1,
-      useNativeDriver: true,
-    });
-    listenTurn.start();
-    return () => listenTurn.stop();
-  }, [listeningMascotAnimation, phase, reduceMotion]);
+    let cancelled = false;
+    let currentFrame = 0;
+    let frameTimer: ReturnType<typeof setTimeout> | undefined;
+    setListeningFrame(0);
+
+    const advanceFrame = () => {
+      if (cancelled || currentFrame >= LISTENING_MASCOT_FRAMES.length - 1) return;
+      currentFrame += 1;
+      setListeningFrame(currentFrame);
+      if (currentFrame < LISTENING_MASCOT_FRAMES.length - 1) {
+        frameTimer = setTimeout(advanceFrame, LISTENING_MASCOT_FRAME_MS[currentFrame]);
+      }
+    };
+
+    frameTimer = setTimeout(advanceFrame, LISTENING_MASCOT_FRAME_MS[0]);
+    return () => {
+      cancelled = true;
+      if (frameTimer) clearTimeout(frameTimer);
+    };
+  }, [phase, reduceMotion]);
 
   useEffect(() => {
     if (phase !== 'checking' || reduceMotion) {
@@ -764,35 +787,12 @@ export function PronunciationPractice({
       accessibilityLabel="Escuchando"
       style={[styles.listeningMascotWrap, { height: listeningMascotHeight, width: listeningMascotWidth }]}
     >
-      <Animated.Image
+      <Image
         resizeMode="contain"
-        source={require('../../assets/mascots/squirrel-professor-listening-front.png')}
+        source={LISTENING_MASCOT_FRAMES[listeningFrame]}
         style={[
           styles.listeningMascot,
           { height: listeningMascotHeight, width: listeningMascotWidth },
-          {
-            opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.65, 1], outputRange: [1, 0.25, 0] }),
-            transform: [
-              { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, -2] }) },
-              { scale: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [1, 0.99] }) },
-            ],
-          },
-        ]}
-      />
-      <Animated.Image
-        resizeMode="contain"
-        source={require('../../assets/mascots/squirrel-professor-listening-side.png')}
-        style={[
-          styles.listeningMascot,
-          styles.listeningMascotOverlay,
-          { height: listeningMascotHeight, width: listeningMascotWidth },
-          {
-            opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.35, 1], outputRange: [0, 0.75, 1] }),
-            transform: [
-              { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [-3, 0] }) },
-              { rotate: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['1deg', '-2deg'] }) },
-            ],
-          },
         ]}
       />
     </View>
@@ -961,7 +961,6 @@ const styles = StyleSheet.create({
   signalRow: { alignItems: 'center', flexDirection: 'row' },
   listeningMascotWrap: { height: 104, position: 'relative', width: 94 },
   listeningMascot: { height: 94, width: 94 },
-  listeningMascotOverlay: { left: 0, position: 'absolute', top: 0 },
   gradingMascotWrap: { height: 104, position: 'relative', width: 94 },
   gradingMascot: { alignSelf: 'center', height: 104, width: 80 },
   gradingCheck: { color: '#58b985', fontSize: 27, fontWeight: '900', position: 'absolute', right: 0, top: 5 },
