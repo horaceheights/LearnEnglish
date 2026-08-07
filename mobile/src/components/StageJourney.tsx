@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { lessonStageShortLabel } from '../lessonInstructions';
 import type { LessonCard } from '../types';
@@ -9,6 +9,8 @@ type Props = {
   compact?: boolean;
   currentIndex: number;
   lessonId: string;
+  maxVisitedIndex?: number;
+  onStagePress?: (startIndex: number) => void;
 };
 
 type StageSegment = {
@@ -29,7 +31,14 @@ const STAGE_COLORS = [
   '#638b52',
 ];
 
-export function StageJourney({ cards, compact = false, currentIndex, lessonId }: Props) {
+export function StageJourney({
+  cards,
+  compact = false,
+  currentIndex,
+  lessonId,
+  maxVisitedIndex = currentIndex,
+  onStagePress,
+}: Props) {
   const segments = useMemo<StageSegment[]>(() => {
     const grouped: StageSegment[] = [];
     cards.forEach((card, index) => {
@@ -59,26 +68,29 @@ export function StageJourney({ cards, compact = false, currentIndex, lessonId }:
     : 0;
 
   return (
-    <View
-      accessible
-      accessibilityLabel={`${activeSegment?.label || 'Lección'}, etapa ${activeSegmentIndex + 1} de ${segments.length}.`}
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <View style={[styles.track, compact ? styles.trackCompact : null]}>
         {segments.map((segment, index) => {
           const isActive = index === activeSegmentIndex;
           const isComplete = index < activeSegmentIndex;
+          const isUnlocked = segment.start <= maxVisitedIndex;
           const color = STAGE_COLORS[index % STAGE_COLORS.length];
           return (
-            <View
+            <Pressable
+              accessibilityLabel={`Ir a la sección ${segment.label}`}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: !isUnlocked, selected: isActive }}
+              disabled={!isUnlocked || !onStagePress}
               key={`${segment.stage}-${segment.start}`}
-              style={[
+              onPress={() => onStagePress?.(segment.start)}
+              style={({ pressed }) => [
                 styles.segment,
                 { backgroundColor: color },
                 isActive ? styles.activeSegment : null,
+                pressed ? styles.segmentPressed : null,
               ]}
             >
-              {!isActive && !isComplete ? <View style={styles.futureOverlay} /> : null}
+              {!isUnlocked ? <View pointerEvents="none" style={styles.futureOverlay} /> : null}
               {isActive ? (
                 <>
                   <View style={[styles.activeProgress, { width: `${positionInStage}%` }]} />
@@ -98,7 +110,7 @@ export function StageJourney({ cards, compact = false, currentIndex, lessonId }:
               >
                 {segment.label}
               </Text>
-            </View>
+            </Pressable>
           );
         })}
       </View>
@@ -111,6 +123,7 @@ const styles = StyleSheet.create({
   track: { borderColor: '#fff', borderRadius: 20, borderWidth: 3, flexDirection: 'row', height: 66, overflow: 'hidden', width: '100%' },
   trackCompact: { borderRadius: 16, height: 50 },
   segment: { alignItems: 'center', borderRightColor: 'rgba(255,255,255,0.7)', borderRightWidth: 1, flex: 1, justifyContent: 'center', minWidth: 0, overflow: 'hidden', position: 'relative' },
+  segmentPressed: { opacity: 0.78 },
   futureOverlay: { backgroundColor: 'rgba(255,255,255,0.32)', bottom: 0, left: 0, position: 'absolute', right: 0, top: 0 },
   activeSegment: { borderColor: '#24333a', borderWidth: 3 },
   activeProgress: { backgroundColor: 'rgba(20,35,42,0.20)', bottom: 0, left: 0, position: 'absolute', top: 0 },

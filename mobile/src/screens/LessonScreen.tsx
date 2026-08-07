@@ -76,8 +76,10 @@ export function LessonScreen({
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [sessionId, setSessionId] = useState('');
   const [cardIndex, setCardIndex] = useState(0);
+  const [furthestCardIndex, setFurthestCardIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [wrongCards, setWrongCards] = useState<Set<number>>(() => new Set());
+  const [completedCards, setCompletedCards] = useState<Set<number>>(() => new Set());
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [result, setResult] = useState<'correct' | 'wrong' | null>(null);
   const [error, setError] = useState('');
@@ -253,6 +255,7 @@ export function LessonScreen({
       ]);
       setLesson(nextLesson);
       setCardIndex(nextCardIndex);
+      setFurthestCardIndex(nextCardIndex);
       if (profile.userId && !qaMode) {
         startLessonSession(profile.userId, nextLesson.id, nextLesson.cards.length)
           .then((session) => setSessionId(session.id))
@@ -278,6 +281,10 @@ export function LessonScreen({
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
+
+  useEffect(() => {
+    setFurthestCardIndex((current) => Math.max(current, cardIndex));
+  }, [cardIndex]);
 
   useEffect(() => {
     if (!lesson) return;
@@ -494,7 +501,7 @@ export function LessonScreen({
   const choose = (optionId: string) => {
     if (!currentCard || result === 'correct') return;
     const correct = optionId === currentCard.correct_option_id;
-    const firstTry = !wrongCards.has(cardIndex);
+    const firstTry = !wrongCards.has(cardIndex) && !completedCards.has(cardIndex);
     addDiagnosticBreadcrumb('answer_selected', {
       card_number: cardIndex + 1,
       first_try: firstTry,
@@ -506,7 +513,10 @@ export function LessonScreen({
 
     if (correct) {
       setResult('correct');
-      if (firstTry) setScore((current) => current + 1);
+      if (!completedCards.has(cardIndex)) {
+        setCompletedCards((current) => new Set(current).add(cardIndex));
+        if (firstTry) setScore((current) => current + 1);
+      }
       void playSuccessChime();
       if (isGrammar) {
         return;
@@ -538,10 +548,13 @@ export function LessonScreen({
   const pronunciationPassed = useCallback(() => {
     if (pronunciationPassHandledRef.current) return;
     pronunciationPassHandledRef.current = true;
-    setScore((current) => current + 1);
+    if (!completedCards.has(cardIndex)) {
+      setCompletedCards((current) => new Set(current).add(cardIndex));
+      setScore((current) => current + 1);
+    }
     setResult('correct');
     void playSuccessChime();
-  }, [playSuccessChime]);
+  }, [cardIndex, completedCards, playSuccessChime]);
 
   const grammarAnimationComplete = useCallback(() => {
     if (!currentCard || !isGrammar) return;
@@ -568,7 +581,7 @@ export function LessonScreen({
     );
   }, [advance, currentCard, isGrammar, playAudio, qaAutoAdvance, qaMode, selectedId]);
 
-  const resetCardState = useCallback(() => {
+  const clearCardInteractionState = useCallback(() => {
     answerAudioAwaitingRef.current = false;
     answerAudioStartedRef.current = false;
     answerAudioWasPlayingRef.current = false;
@@ -587,14 +600,29 @@ export function LessonScreen({
       grammarAudioTimerRef.current = null;
     }
     pronunciationPassHandledRef.current = false;
-    setScore(0);
-    setWrongCards(new Set());
     setGrammarCompleted(false);
     setSelectedId(null);
     setResult(null);
     setIsComplete(false);
     setCardRunId((current) => current + 1);
   }, []);
+
+  const resetCardState = useCallback(() => {
+    clearCardInteractionState();
+    setScore(0);
+    setWrongCards(new Set());
+    setCompletedCards(new Set());
+  }, [clearCardInteractionState]);
+
+  const openStage = useCallback((startIndex: number) => {
+    if (!lesson || startIndex > furthestCardIndex) return;
+    addDiagnosticBreadcrumb('lesson_stage_opened', {
+      from_card: cardIndex + 1,
+      to_card: startIndex + 1,
+    });
+    clearCardInteractionState();
+    setCardIndex(Math.min(Math.max(startIndex, 0), lesson.cards.length - 1));
+  }, [cardIndex, clearCardInteractionState, furthestCardIndex, lesson]);
 
   const openQaCard = useCallback((nextIndex: number) => {
     if (!lesson) return;
@@ -777,6 +805,8 @@ export function LessonScreen({
                   compact={useCompactPhoneLayout}
                   currentIndex={cardIndex}
                   lessonId={lesson.id}
+                  maxVisitedIndex={qaMode ? lesson.cards.length - 1 : furthestCardIndex}
+                  onStagePress={openStage}
                 />
               </View>
             ) : null}
@@ -801,6 +831,8 @@ export function LessonScreen({
                 compact
                 currentIndex={cardIndex}
                 lessonId={lesson.id}
+                maxVisitedIndex={qaMode ? lesson.cards.length - 1 : furthestCardIndex}
+                onStagePress={openStage}
               />
             </View>
           ) : null}
