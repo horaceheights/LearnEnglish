@@ -130,11 +130,14 @@ export function PronunciationPractice({
   const statusIsActive = phase === 'listening' || phase === 'checking';
   const statusIsAnimated = statusIsActive && !reduceMotion && !(phase === 'listening' && streamingCapture.current);
   const expectedTokens = useMemo(() => speechTokens(phrase), [phrase]);
-  const listeningMascotSize = viewportWidth > viewportHeight
-    ? Math.max(62, Math.min(72, viewportHeight * 0.19))
-    : Math.max(74, Math.min(84, viewportWidth * 0.15));
+  const listeningMascotWidth = 94;
+  const listeningMascotHeight = 104;
   const isLandscape = viewportWidth > viewportHeight;
-  const landscapeListeningMascotTop = -((imageHeight + listeningMascotSize) / 2);
+  const landscapeListeningMascotTop = -((imageHeight + listeningMascotHeight) / 2);
+  const landscapeListeningMascotLeft = Math.max(
+    16,
+    (viewportWidth / 2) - (imageHeight * 0.8) - listeningMascotWidth - 10,
+  );
   const landscapeGradingMascotTop = -((imageHeight + 104) / 2);
   const currentWordIndex = useMemo(() => {
     if (!expectedTokens.length || liveMatchedCount >= expectedTokens.length) return -1;
@@ -840,9 +843,9 @@ export function PronunciationPractice({
               accessibilityLabel="Escuchando"
               style={[
                 styles.listeningMascotWrap,
-                { height: listeningMascotSize, width: listeningMascotSize },
+                { height: listeningMascotHeight, width: listeningMascotWidth },
                 isLandscape ? styles.landscapeMascot : null,
-                isLandscape ? { top: landscapeListeningMascotTop } : null,
+                isLandscape ? { left: landscapeListeningMascotLeft, top: landscapeListeningMascotTop } : null,
               ]}
             >
               <Animated.Image
@@ -850,7 +853,7 @@ export function PronunciationPractice({
                 source={require('../../assets/mascots/squirrel-professor-listening-front.png')}
                 style={[
                   styles.listeningMascot,
-                  { height: listeningMascotSize, width: listeningMascotSize },
+                  { height: listeningMascotHeight, width: listeningMascotWidth },
                   {
                     opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.65, 1], outputRange: [1, 0.25, 0] }),
                     transform: [
@@ -866,7 +869,7 @@ export function PronunciationPractice({
                 style={[
                   styles.listeningMascot,
                   styles.listeningMascotOverlay,
-                  { height: listeningMascotSize, width: listeningMascotSize },
+                  { height: listeningMascotHeight, width: listeningMascotWidth },
                   {
                     opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.35, 1], outputRange: [0, 0.75, 1] }),
                     transform: [
