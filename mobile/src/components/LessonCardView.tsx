@@ -61,11 +61,14 @@ export function LessonCardView({
     card.options.length >= 3;
   const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
+  const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
   const optionWidth =
-    useTextGrid || useTabletImageGrid
+    usePortraitImageStack
+      ? '100%'
+      : useTextGrid || useTabletImageGrid
       ? '48.5%'
       : isLandscape && card.options.length >= 4
       ? '23.5%'
@@ -129,10 +132,10 @@ export function LessonCardView({
     responsiveFeatureImageHeight,
     Math.max(isPronunciation ? 82 : 70, availableCardHeight - featureReservedHeight),
   );
-  const optionRows = useTabletImageGrid || usePortraitImageGrid ? 2 : 1;
+  const optionRows = useTabletImageGrid || usePortraitImageGrid || usePortraitImageStack ? 2 : 1;
   const optionImageHeight = Math.min(
     responsiveOptionImageHeight,
-    usePortraitImageGrid
+    usePortraitImageGrid || usePortraitImageStack
       ? Math.max(68, ((availableCardHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
       : Math.max(68, (availableCardHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
   );
@@ -271,6 +274,7 @@ export function LessonCardView({
           <View style={[
             styles.options,
             isLandscape ? styles.optionsLandscape : null,
+            !isLandscape ? styles.optionsPortrait : null,
             isTabletLandscape ? styles.optionsTabletLandscape : null,
           ]}>
             {card.options.map((option, optionIndex) => {
@@ -300,6 +304,7 @@ export function LessonCardView({
                           borderColor: textTheme.border,
                         }
                       : null,
+                    !isLandscape && option.image_url ? styles.imageOptionPortrait : null,
                     hasTextOnlyOptions ? styles.textOption : null,
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
@@ -315,6 +320,7 @@ export function LessonCardView({
                       source={{ uri: absoluteMediaUrl(option.image_url) }}
                       style={[
                         styles.optionImage,
+                        !isLandscape ? styles.optionImagePortrait : null,
                         isTabletLandscape ? styles.optionImageTablet : null,
                         { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight },
                       ]}
@@ -402,7 +408,20 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   cardLandscape: { flex: 1, justifyContent: 'center', padding: 9 },
-  cardPortrait: { flex: 1, minHeight: 0, padding: 10 },
+  cardPortrait: {
+    backgroundColor: '#fffdf8',
+    borderColor: '#eadfce',
+    borderRadius: 28,
+    borderWidth: 2,
+    elevation: 2,
+    flex: 1,
+    minHeight: 0,
+    padding: 12,
+    shadowColor: '#8d684a',
+    shadowOffset: { height: 3, width: 0 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+  },
   cardCompactLandscape: { minHeight: 0, overflow: 'hidden', padding: 6 },
   cardTabletLandscape: { padding: 14 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
@@ -420,6 +439,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   optionsLandscape: { gap: 7, marginTop: 5 },
+  optionsPortrait: { columnGap: 10, marginTop: 8, rowGap: 14 },
   optionsTabletLandscape: { columnGap: 12, marginTop: 8, rowGap: 10 },
   option: {
     alignItems: 'center',
@@ -434,7 +454,20 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '48%',
   },
+  imageOptionPortrait: {
+    backgroundColor: '#fffef9',
+    borderColor: '#172d35',
+    borderRadius: 24,
+    borderWidth: 4,
+    elevation: 3,
+    padding: 8,
+    shadowColor: '#172d35',
+    shadowOffset: { height: 3, width: 0 },
+    shadowOpacity: 0.12,
+    shadowRadius: 5,
+  },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
+  optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   textOption: {
     borderBottomWidth: 5,

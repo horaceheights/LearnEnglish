@@ -745,6 +745,13 @@ export function LessonScreen({
           useCompactPhoneLayout ? styles.heroCompact : null,
           isPortrait ? styles.heroPortrait : null,
         ]}>
+          {isPortrait ? (
+            <View pointerEvents="none" style={StyleSheet.absoluteFill}>
+              <View style={styles.heroGlowCoral} />
+              <View style={styles.heroGlowMint} />
+              <View style={styles.heroGlowGold} />
+            </View>
+          ) : null}
           <View style={[styles.heroTop, isPortrait ? styles.heroTopPortrait : null]}>
             <View style={styles.heroNavigation}>
               <View
@@ -889,14 +896,22 @@ export function LessonScreen({
       <StatusBar hidden />
       {needsAccessibleScrolling ? (
         <ScrollView
-          contentContainerStyle={[styles.pageScrollable, useCompactPhoneLayout ? styles.pageCompact : null]}
+          contentContainerStyle={[
+            styles.pageScrollable,
+            useCompactPhoneLayout ? styles.pageCompact : null,
+            isPortrait ? styles.pagePortrait : null,
+          ]}
           persistentScrollbar
           style={styles.pageScroll}
         >
           {lessonContent}
         </ScrollView>
       ) : (
-        <View style={[styles.page, useCompactPhoneLayout ? styles.pageCompact : null]}>{lessonContent}</View>
+        <View style={[
+          styles.page,
+          useCompactPhoneLayout ? styles.pageCompact : null,
+          isPortrait ? styles.pagePortrait : null,
+        ]}>{lessonContent}</View>
       )}
     </SafeAreaView>
   );
@@ -905,6 +920,7 @@ export function LessonScreen({
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { flex: 1, gap: 6, padding: 6 },
+  pagePortrait: { gap: 10, padding: 10 },
   pageCompact: { gap: 4, padding: 4 },
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
@@ -924,7 +940,23 @@ const styles = StyleSheet.create({
   qaAutoTextActive: { color: '#245d3d' },
   hero: { backgroundColor: '#ffe8c7', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, paddingHorizontal: 5, paddingVertical: 5 },
   heroCompact: { paddingHorizontal: 4, paddingVertical: 3 },
-  heroPortrait: { paddingHorizontal: 7, paddingVertical: 6 },
+  heroPortrait: {
+    backgroundColor: '#fff0d6',
+    borderColor: '#d9b873',
+    borderRadius: 25,
+    elevation: 2,
+    overflow: 'hidden',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    position: 'relative',
+    shadowColor: '#9a7244',
+    shadowOffset: { height: 3, width: 0 },
+    shadowOpacity: 0.1,
+    shadowRadius: 7,
+  },
+  heroGlowCoral: { backgroundColor: '#f7b7a7', borderRadius: 90, height: 150, left: -45, opacity: 0.24, position: 'absolute', top: -65, width: 150 },
+  heroGlowMint: { backgroundColor: '#a9dfcf', borderRadius: 100, bottom: -75, height: 180, opacity: 0.3, position: 'absolute', right: -55, width: 180 },
+  heroGlowGold: { backgroundColor: '#f4cf72', borderRadius: 65, height: 110, opacity: 0.2, position: 'absolute', right: 75, top: -55, width: 110 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   heroTopPortrait: { minHeight: 48 },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
@@ -942,7 +974,19 @@ const styles = StyleSheet.create({
   helpButtonText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
   contentHeader: { backgroundColor: '#fff', borderColor: '#e4ded2', borderRadius: 18, borderWidth: 1, paddingHorizontal: 12, paddingVertical: 7 },
   contentHeaderCompact: { borderRadius: 14, paddingHorizontal: 9, paddingVertical: 3 },
-  contentHeaderPortrait: { paddingHorizontal: 9, paddingVertical: 5 },
+  contentHeaderPortrait: {
+    backgroundColor: '#fffaf1',
+    borderColor: '#ead6b5',
+    borderRadius: 24,
+    borderWidth: 2,
+    elevation: 2,
+    paddingHorizontal: 12,
+    paddingVertical: 9,
+    shadowColor: '#8d684a',
+    shadowOffset: { height: 2, width: 0 },
+    shadowOpacity: 0.09,
+    shadowRadius: 6,
+  },
   stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
