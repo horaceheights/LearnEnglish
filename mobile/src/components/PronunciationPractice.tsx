@@ -102,7 +102,7 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   const liveRecognizedText = useRef('');
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
-  const earBlinkAnimation = useRef(new Animated.Value(1)).current;
+  const listeningMascotAnimation = useRef(new Animated.Value(0)).current;
   const gradingMascotAnimation = useRef(new Animated.Value(0)).current;
   const waveAnimations = useRef(
     [0, 1, 2, 3, 4].map(() => new Animated.Value(0.3)),
@@ -563,30 +563,32 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
 
   useEffect(() => {
     if (phase !== 'listening' || reduceMotion) {
-      earBlinkAnimation.stopAnimation();
-      earBlinkAnimation.setValue(1);
+      listeningMascotAnimation.stopAnimation();
+      listeningMascotAnimation.setValue(0);
       return undefined;
     }
 
-    const blink = Animated.loop(
+    const listenTurn = Animated.loop(
       Animated.sequence([
-        Animated.timing(earBlinkAnimation, {
-          duration: 520,
-          easing: Easing.inOut(Easing.ease),
-          toValue: 0.3,
-          useNativeDriver: true,
-        }),
-        Animated.timing(earBlinkAnimation, {
-          duration: 520,
+        Animated.timing(listeningMascotAnimation, {
+          duration: 680,
           easing: Easing.inOut(Easing.ease),
           toValue: 1,
           useNativeDriver: true,
         }),
+        Animated.delay(180),
+        Animated.timing(listeningMascotAnimation, {
+          duration: 680,
+          easing: Easing.inOut(Easing.ease),
+          toValue: 0,
+          useNativeDriver: true,
+        }),
+        Animated.delay(180),
       ]),
     );
-    blink.start();
-    return () => blink.stop();
-  }, [earBlinkAnimation, phase, reduceMotion]);
+    listenTurn.start();
+    return () => listenTurn.stop();
+  }, [listeningMascotAnimation, phase, reduceMotion]);
 
   useEffect(() => {
     if (phase !== 'checking' || reduceMotion) {
@@ -821,20 +823,41 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
             </View>
           </View>
           {phase === 'listening' ? (
-            <Animated.Text
+            <View
+              accessible
               accessibilityLabel="Escuchando"
-              style={[
-                styles.listeningEar,
-                {
-                  opacity: earBlinkAnimation,
-                  transform: [{
-                    scale: earBlinkAnimation.interpolate({ inputRange: [0.3, 1], outputRange: [0.9, 1.08] }),
-                  }],
-                },
-              ]}
+              style={styles.listeningMascotWrap}
             >
-              👂
-            </Animated.Text>
+              <Animated.Image
+                resizeMode="contain"
+                source={require('../../assets/mascots/squirrel-professor-listening-side.png')}
+                style={[
+                  styles.listeningMascot,
+                  {
+                    opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.72, 1], outputRange: [1, 0.4, 0] }),
+                    transform: [
+                      { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, 4] }) },
+                      { rotate: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['-2deg', '0deg'] }) },
+                    ],
+                  },
+                ]}
+              />
+              <Animated.Image
+                resizeMode="contain"
+                source={require('../../assets/mascots/squirrel-professor-listening-front.png')}
+                style={[
+                  styles.listeningMascot,
+                  styles.listeningMascotFront,
+                  {
+                    opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.28, 1], outputRange: [0, 0.4, 1] }),
+                    transform: [
+                      { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [-4, 0] }) },
+                      { scale: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.97, 1] }) },
+                    ],
+                  },
+                ]}
+              />
+            </View>
           ) : null}
         </View>
         <Text style={[styles.message, { color: statusColor }]}>{message}</Text>
@@ -902,7 +925,9 @@ const styles = StyleSheet.create({
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
   signalStack: { alignItems: 'center', marginRight: 8 },
   signalRow: { alignItems: 'center', flexDirection: 'row' },
-  listeningEar: { fontSize: 50, height: 58, lineHeight: 58, marginTop: -2, textAlign: 'center' },
+  listeningMascotWrap: { height: 94, marginTop: 1, position: 'relative', width: 94 },
+  listeningMascot: { height: 94, width: 94 },
+  listeningMascotFront: { left: 0, position: 'absolute', top: 0 },
   gradingMascotWrap: { height: 104, marginRight: 9, position: 'relative', width: 94 },
   gradingMascot: { height: 104, width: 80 },
   gradingCheck: { color: '#58b985', fontSize: 27, fontWeight: '900', position: 'absolute', right: 0, top: 5 },
