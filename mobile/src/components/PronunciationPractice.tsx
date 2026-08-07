@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { File } from 'expo-file-system';
 import {
   AudioModule,
@@ -14,7 +14,7 @@ import {
 } from 'expo-audio';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { courseAudioUrl, READY_CUE_URL, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { absoluteMediaUrl, courseAudioUrl, READY_CUE_URL, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -45,6 +45,8 @@ type Props = {
   audioVoice: CourseAudioVoice;
   phrase: string;
   imageHeight: number;
+  imageLabel?: string;
+  imageUrl?: string;
   level: string;
   userId?: string;
   onPassed: () => void;
@@ -73,6 +75,8 @@ export function PronunciationPractice({
   audioVoice,
   phrase,
   imageHeight,
+  imageLabel,
+  imageUrl,
   level,
   userId,
   onPassed,
@@ -133,12 +137,6 @@ export function PronunciationPractice({
   const listeningMascotWidth = 94;
   const listeningMascotHeight = 104;
   const isLandscape = viewportWidth > viewportHeight;
-  const landscapeListeningMascotTop = -((imageHeight + listeningMascotHeight) / 2);
-  const landscapeListeningMascotLeft = Math.max(
-    16,
-    (viewportWidth / 2) - (imageHeight * 0.8) - listeningMascotWidth - 10,
-  );
-  const landscapeGradingMascotTop = -((imageHeight + 104) / 2);
   const currentWordIndex = useMemo(() => {
     if (!expectedTokens.length || liveMatchedCount >= expectedTokens.length) return -1;
     // A partial transcript may tentatively recognize the word being spoken.
@@ -708,8 +706,115 @@ export function PronunciationPractice({
         ? '#2f8f62'
         : '#697177';
 
+  const gradingMascot = phase === 'checking' ? (
+    <View style={styles.gradingMascotWrap}>
+      <Animated.Image
+        accessibilityLabel="La profesora ardilla está calificando"
+        resizeMode="contain"
+        source={gradingFrame === 0
+          ? require('../../assets/mascots/squirrel-professor-grading.png')
+          : require('../../assets/mascots/squirrel-professor-grading-frame-2.png')}
+        style={[
+          styles.gradingMascot,
+          {
+            transform: [{
+              rotate: gradingMascotAnimation.interpolate({
+                inputRange: [0, 1],
+                outputRange: ['-1deg', '1deg'],
+              }),
+            }],
+          },
+        ]}
+      />
+      <Animated.Text
+        accessibilityElementsHidden
+        style={[
+          styles.gradingCheck,
+          {
+            opacity: gradingMascotAnimation,
+            transform: [
+              { scale: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1.15] }) },
+              { translateY: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [5, -5] }) },
+            ],
+          },
+        ]}
+      >
+        ✓
+      </Animated.Text>
+      <Animated.Text
+        accessibilityElementsHidden
+        style={[
+          styles.gradingStar,
+          {
+            opacity: gradingMascotAnimation.interpolate({ inputRange: [0, 0.45, 1], outputRange: [0, 1, 0.25] }),
+            transform: [{
+              rotate: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['-20deg', '20deg'] }),
+            }],
+          },
+        ]}
+      >
+        ★
+      </Animated.Text>
+    </View>
+  ) : null;
+
+  const listeningMascot = phase === 'listening' ? (
+    <View
+      accessible
+      accessibilityLabel="Escuchando"
+      style={[styles.listeningMascotWrap, { height: listeningMascotHeight, width: listeningMascotWidth }]}
+    >
+      <Animated.Image
+        resizeMode="contain"
+        source={require('../../assets/mascots/squirrel-professor-listening-front.png')}
+        style={[
+          styles.listeningMascot,
+          { height: listeningMascotHeight, width: listeningMascotWidth },
+          {
+            opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.65, 1], outputRange: [1, 0.25, 0] }),
+            transform: [
+              { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, -2] }) },
+              { scale: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [1, 0.99] }) },
+            ],
+          },
+        ]}
+      />
+      <Animated.Image
+        resizeMode="contain"
+        source={require('../../assets/mascots/squirrel-professor-listening-side.png')}
+        style={[
+          styles.listeningMascot,
+          styles.listeningMascotOverlay,
+          { height: listeningMascotHeight, width: listeningMascotWidth },
+          {
+            opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.35, 1], outputRange: [0, 0.75, 1] }),
+            transform: [
+              { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [-3, 0] }) },
+              { rotate: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['1deg', '-2deg'] }) },
+            ],
+          },
+        ]}
+      />
+    </View>
+  ) : null;
+
+  const activeMascot = listeningMascot ?? gradingMascot;
+
   return (
     <View style={styles.container}>
+      {imageUrl ? (
+        <View style={isLandscape ? styles.landscapeMediaRow : styles.portraitMediaRow}>
+          {/* Guardrail: equal side columns keep the centered image and mascot from ever overlapping. */}
+          {isLandscape ? <View style={styles.mascotColumn}>{activeMascot}</View> : null}
+          <Image
+            accessibilityLabel={imageLabel || phrase}
+            resizeMode="contain"
+            source={{ uri: absoluteMediaUrl(imageUrl) }}
+            style={[styles.practiceImage, { height: imageHeight }, isLandscape ? styles.practiceImageLandscape : null]}
+          />
+          {isLandscape ? <View style={styles.mascotColumn} /> : null}
+        </View>
+      ) : null}
       <Pressable
         accessibilityLabel={`Repetir modelo: ${phrase}`}
         accessibilityRole="button"
@@ -742,61 +847,7 @@ export function PronunciationPractice({
         ) : <Text style={styles.phrase}>{phrase}</Text>}
       </Pressable>
       <View style={styles.statusRow}>
-        {phase === 'checking' ? (
-          <View style={[
-            styles.gradingMascotWrap,
-            isLandscape ? styles.landscapeMascot : null,
-            isLandscape ? { top: landscapeGradingMascotTop } : null,
-          ]}>
-            <Animated.Image
-              accessibilityLabel="La profesora ardilla está calificando"
-              resizeMode="contain"
-              source={gradingFrame === 0
-                ? require('../../assets/mascots/squirrel-professor-grading.png')
-                : require('../../assets/mascots/squirrel-professor-grading-frame-2.png')}
-              style={[
-                styles.gradingMascot,
-                {
-                  transform: [{
-                    rotate: gradingMascotAnimation.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: ['-1deg', '1deg'],
-                    }),
-                  }],
-                },
-              ]}
-            />
-            <Animated.Text
-              accessibilityElementsHidden
-              style={[
-                styles.gradingCheck,
-                {
-                  opacity: gradingMascotAnimation,
-                  transform: [
-                    { scale: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1.15] }) },
-                    { translateY: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [5, -5] }) },
-                  ],
-                },
-              ]}
-            >
-              ✓
-            </Animated.Text>
-            <Animated.Text
-              accessibilityElementsHidden
-              style={[
-                styles.gradingStar,
-                {
-                  opacity: gradingMascotAnimation.interpolate({ inputRange: [0, 0.45, 1], outputRange: [0, 1, 0.25] }),
-                  transform: [{
-                    rotate: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['-20deg', '20deg'] }),
-                  }],
-                },
-              ]}
-            >
-              ★
-            </Animated.Text>
-          </View>
-        ) : null}
+        {!isLandscape ? gradingMascot : null}
         <View style={styles.signalStack}>
           <View style={styles.signalRow}>
             <Animated.View
@@ -837,50 +888,7 @@ export function PronunciationPractice({
             </View>
           </View>
         </View>
-          {phase === 'listening' ? (
-            <View
-              accessible
-              accessibilityLabel="Escuchando"
-              style={[
-                styles.listeningMascotWrap,
-                { height: listeningMascotHeight, width: listeningMascotWidth },
-                isLandscape ? styles.landscapeMascot : null,
-                isLandscape ? { left: landscapeListeningMascotLeft, top: landscapeListeningMascotTop } : null,
-              ]}
-            >
-              <Animated.Image
-                resizeMode="contain"
-                source={require('../../assets/mascots/squirrel-professor-listening-front.png')}
-                style={[
-                  styles.listeningMascot,
-                  { height: listeningMascotHeight, width: listeningMascotWidth },
-                  {
-                    opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.65, 1], outputRange: [1, 0.25, 0] }),
-                    transform: [
-                      { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, -2] }) },
-                      { scale: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [1, 0.99] }) },
-                    ],
-                  },
-                ]}
-              />
-              <Animated.Image
-                resizeMode="contain"
-                source={require('../../assets/mascots/squirrel-professor-listening-side.png')}
-                style={[
-                  styles.listeningMascot,
-                  styles.listeningMascotOverlay,
-                  { height: listeningMascotHeight, width: listeningMascotWidth },
-                  {
-                    opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.35, 1], outputRange: [0, 0.75, 1] }),
-                    transform: [
-                      { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [-3, 0] }) },
-                      { rotate: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['1deg', '-2deg'] }) },
-                    ],
-                  },
-                ]}
-              />
-            </View>
-          ) : null}
+        {!isLandscape ? listeningMascot : null}
         <Text style={[styles.message, { color: statusColor }]}>{message}</Text>
       </View>
       {attempt > 0 && phase !== 'success' ? <Text style={styles.attempt}>Intento {attempt + 1}</Text> : null}
@@ -924,6 +932,11 @@ export function PronunciationPractice({
 
 const styles = StyleSheet.create({
   container: { gap: 6, marginTop: 4 },
+  landscapeMediaRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', width: '100%' },
+  mascotColumn: { alignItems: 'center', justifyContent: 'center', width: 112 },
+  portraitMediaRow: { alignItems: 'center', width: '100%' },
+  practiceImage: { alignSelf: 'center', width: '100%' },
+  practiceImageLandscape: { flex: 1, minWidth: 0, width: undefined },
   phrase: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, textAlign: 'center' },
   liveWords: { alignItems: 'flex-start', flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center' },
   liveWordSlot: { alignItems: 'center' },
@@ -946,12 +959,11 @@ const styles = StyleSheet.create({
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
   signalStack: { alignItems: 'center', marginRight: 8 },
   signalRow: { alignItems: 'center', flexDirection: 'row' },
-  listeningMascotWrap: { height: 94, marginTop: 1, position: 'relative', width: 94 },
+  listeningMascotWrap: { height: 104, position: 'relative', width: 94 },
   listeningMascot: { height: 94, width: 94 },
   listeningMascotOverlay: { left: 0, position: 'absolute', top: 0 },
-  landscapeMascot: { left: 16, marginRight: 0, position: 'absolute', zIndex: 4 },
-  gradingMascotWrap: { height: 104, marginRight: 9, position: 'relative', width: 94 },
-  gradingMascot: { height: 104, width: 80 },
+  gradingMascotWrap: { height: 104, position: 'relative', width: 94 },
+  gradingMascot: { alignSelf: 'center', height: 104, width: 80 },
   gradingCheck: { color: '#58b985', fontSize: 27, fontWeight: '900', position: 'absolute', right: 0, top: 5 },
   gradingStar: { color: '#edb949', fontSize: 18, fontWeight: '900', position: 'absolute', right: 4, top: 39 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },

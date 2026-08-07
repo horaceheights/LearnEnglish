@@ -246,38 +246,21 @@ export function LessonCardView({
         />
       ) : null}
       {isPronunciation ? (
-        <>
-          {card.options[0]?.image_url ? (
-            <Image
-              accessibilityLabel={card.options[0].label || card.prompt}
-              resizeMode="contain"
-              source={{ uri: absoluteMediaUrl(card.options[0].image_url) }}
-              style={[
-                styles.pronunciationImage,
-                {
-                  height: showHelp
-                    ? featureImageHeight * 0.65
-                    : result
-                      ? featureImageHeight * 0.72
-                      : featureImageHeight,
-                },
-              ]}
-            />
-          ) : null}
-          <PronunciationPractice
-            audioProvider={audioProvider}
-            audioVoice={audioVoice}
-            imageHeight={showHelp
-              ? featureImageHeight * 0.65
-              : result
-                ? featureImageHeight * 0.72
-                : featureImageHeight}
-            level={level}
-            onPassed={onPronunciationPassed}
-            phrase={card.audio_text || card.prompt}
-            userId={userId}
-          />
-        </>
+        <PronunciationPractice
+          audioProvider={audioProvider}
+          audioVoice={audioVoice}
+          imageHeight={showHelp
+            ? featureImageHeight * 0.65
+            : result
+              ? featureImageHeight * 0.72
+              : featureImageHeight}
+          imageLabel={card.options[0]?.label || card.prompt}
+          imageUrl={card.options[0]?.image_url}
+          level={level}
+          onPassed={onPronunciationPassed}
+          phrase={card.audio_text || card.prompt}
+          userId={userId}
+        />
       ) : (
         <>
           <View style={[
@@ -443,7 +426,6 @@ const styles = StyleSheet.create({
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
   promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
-  pronunciationImage: { alignSelf: 'center', height: 190, marginTop: 2, width: '100%' },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',
