@@ -285,6 +285,8 @@ export function LessonScreen({
   const currentCard = lesson?.cards[cardIndex];
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
+  const pauseForPronunciationReview = manualCardNavigation && isPronunciation;
+  const canSwipeForward = pauseForPronunciationReview && attemptedCards.has(cardIndex);
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
 
@@ -367,7 +369,7 @@ export function LessonScreen({
       !currentCard ||
       isGrammar ||
       Boolean(currentCard.answer_audio_text) ||
-      manualCardNavigation ||
+      pauseForPronunciationReview ||
       (qaMode && !qaAutoAdvance)
     ) return undefined;
     const delay = isPronunciation ? 900 : 1000;
@@ -378,7 +380,7 @@ export function LessonScreen({
     currentCard,
     isGrammar,
     isPronunciation,
-    manualCardNavigation,
+    pauseForPronunciationReview,
     qaAutoAdvance,
     qaMode,
     result,
@@ -396,7 +398,7 @@ export function LessonScreen({
       answerAudioStartedRef.current = false;
       answerAudioWasPlayingRef.current = false;
       if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
-      if (manualCardNavigation || (qaMode && !qaAutoAdvance)) {
+      if (pauseForPronunciationReview || (qaMode && !qaAutoAdvance)) {
         answerAdvanceTimerRef.current = null;
         return;
       }
@@ -413,7 +415,7 @@ export function LessonScreen({
     answerAudioStartedRef.current = false;
     answerAudioWasPlayingRef.current = false;
     if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
-    if (manualCardNavigation || (qaMode && !qaAutoAdvance)) {
+    if (pauseForPronunciationReview || (qaMode && !qaAutoAdvance)) {
       answerAdvanceTimerRef.current = null;
       return;
     }
@@ -427,7 +429,7 @@ export function LessonScreen({
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
     isGrammar,
-    manualCardNavigation,
+    pauseForPronunciationReview,
     qaAutoAdvance,
     qaMode,
     result,
@@ -439,7 +441,7 @@ export function LessonScreen({
       grammarAnswerAwaitingRef.current = false;
       grammarAnswerWasPlayingRef.current = false;
       if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
-      if (manualCardNavigation || (qaMode && !qaAutoAdvance)) {
+      if (pauseForPronunciationReview || (qaMode && !qaAutoAdvance)) {
         grammarAudioTimerRef.current = null;
         return;
       }
@@ -455,7 +457,7 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
     if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
-    if (manualCardNavigation || (qaMode && !qaAutoAdvance)) {
+    if (pauseForPronunciationReview || (qaMode && !qaAutoAdvance)) {
       grammarAudioTimerRef.current = null;
       return;
     }
@@ -469,7 +471,7 @@ export function LessonScreen({
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
     isGrammar,
-    manualCardNavigation,
+    pauseForPronunciationReview,
     qaAutoAdvance,
     qaMode,
     result,
@@ -537,7 +539,7 @@ export function LessonScreen({
         answerAudioStartedRef.current = false;
         answerAudioWasPlayingRef.current = false;
         if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
-        if (!manualCardNavigation) {
+        if (!pauseForPronunciationReview) {
           answerAdvanceTimerRef.current = setTimeout(() => {
             answerAdvanceTimerRef.current = null;
             if (!answerAudioAwaitingRef.current) return;
@@ -588,7 +590,7 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = true;
     grammarAnswerWasPlayingRef.current = false;
     if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
-    if (!manualCardNavigation) {
+    if (!pauseForPronunciationReview) {
       grammarAudioTimerRef.current = setTimeout(() => {
         grammarAudioTimerRef.current = null;
         if (!grammarAnswerAwaitingRef.current) return;
@@ -603,7 +605,7 @@ export function LessonScreen({
       'prompt',
       'answer',
     );
-  }, [advance, currentCard, isGrammar, manualCardNavigation, playAudio, qaAutoAdvance, qaMode, selectedId]);
+  }, [advance, currentCard, isGrammar, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId]);
 
   const clearCardInteractionState = useCallback(() => {
     answerAudioAwaitingRef.current = false;
@@ -671,6 +673,10 @@ export function LessonScreen({
 
   const navigateManualCard = useCallback((direction: -1 | 1) => {
     if (!manualCardNavigation || !lesson || cardTransitioningRef.current) return;
+    if (direction > 0 && !canSwipeForward) {
+      settleCard();
+      return;
+    }
     const nextIndex = cardIndex + direction;
     if (nextIndex < 0) {
       settleCard();
@@ -688,9 +694,6 @@ export function LessonScreen({
         settleCard();
         return;
       }
-      if (direction > 0 && result === null && !attemptedCards.has(cardIndex)) {
-        addDiagnosticBreadcrumb('card_skipped', { card_number: cardIndex + 1 });
-      }
       clearCardInteractionState();
       if (nextIndex >= lesson.cards.length) {
         cardTranslateX.setValue(0);
@@ -706,11 +709,10 @@ export function LessonScreen({
   }, [
     cardIndex,
     cardTranslateX,
+    canSwipeForward,
     clearCardInteractionState,
-    attemptedCards,
     lesson,
     manualCardNavigation,
-    result,
     settleCard,
     viewportWidth,
   ]);
@@ -724,10 +726,11 @@ export function LessonScreen({
     ),
     onPanResponderMove: (_, gesture) => {
       const atStart = cardIndex === 0 && gesture.dx > 0;
-      cardTranslateX.setValue(atStart ? gesture.dx * 0.28 : gesture.dx);
+      const forwardBlocked = gesture.dx < 0 && !canSwipeForward;
+      cardTranslateX.setValue(atStart || forwardBlocked ? gesture.dx * 0.28 : gesture.dx);
     },
     onPanResponderRelease: (_, gesture) => {
-      const shouldAdvance = gesture.dx < -58 || gesture.vx < -0.55;
+      const shouldAdvance = canSwipeForward && (gesture.dx < -58 || gesture.vx < -0.55);
       const shouldReturn = gesture.dx > 58 || gesture.vx > 0.55;
       if (shouldAdvance) navigateManualCard(1);
       else if (shouldReturn && cardIndex > 0) navigateManualCard(-1);
@@ -735,7 +738,7 @@ export function LessonScreen({
     },
     onPanResponderTerminate: settleCard,
     onPanResponderTerminationRequest: () => true,
-  }), [cardIndex, cardTranslateX, manualCardNavigation, navigateManualCard, settleCard]);
+  }), [canSwipeForward, cardIndex, cardTranslateX, manualCardNavigation, navigateManualCard, settleCard]);
 
   const renderPrompt = () => {
     if (!currentCard) return '';
@@ -1025,40 +1028,17 @@ export function LessonScreen({
             ) : null}
           </View>
         </View>
-        {manualCardNavigation ? (
-          <View style={[styles.manualNavigation, useCompactPhoneLayout ? styles.manualNavigationCompact : null]}>
-            <Pressable
-              accessibilityLabel="Tarjeta anterior"
-              accessibilityRole="button"
-              disabled={cardIndex === 0}
-              hitSlop={6}
-              onPress={() => navigateManualCard(-1)}
-              style={({ pressed }) => [
-                styles.manualNavigationButton,
-                cardIndex === 0 ? styles.manualNavigationButtonDisabled : null,
-                pressed ? styles.manualNavigationButtonPressed : null,
-              ]}
-            >
-              <Text style={styles.manualNavigationButtonText}>← Anterior</Text>
-            </Pressable>
-            <Text style={styles.swipeHint}>Desliza ↔</Text>
-            <Pressable
-              accessibilityLabel={result === null && !attemptedCards.has(cardIndex) ? 'Omitir tarjeta' : 'Continuar a la siguiente tarjeta'}
-              accessibilityRole="button"
-              hitSlop={6}
-              onPress={() => navigateManualCard(1)}
-              style={({ pressed }) => [
-                styles.manualNavigationButton,
-                styles.manualNavigationButtonNext,
-                pressed ? styles.manualNavigationButtonPressed : null,
-              ]}
-            >
-              <Text style={[styles.manualNavigationButtonText, styles.manualNavigationButtonNextText]}>
-                {result === null && !attemptedCards.has(cardIndex)
-                  ? 'Omitir →'
-                  : cardIndex === lesson.cards.length - 1 ? 'Terminar →' : 'Continuar →'}
-              </Text>
-            </Pressable>
+        {pauseForPronunciationReview ? (
+          <View
+            accessibilityLabel={canSwipeForward ? 'Desliza para continuar' : 'Completa la práctica para continuar'}
+            accessible
+            style={[styles.manualNavigation, useCompactPhoneLayout ? styles.manualNavigationCompact : null]}
+          >
+            <Text style={[styles.swipeHint, !canSwipeForward ? styles.swipeHintLocked : null]}>
+              {canSwipeForward
+                ? cardIndex === lesson.cards.length - 1 ? 'Desliza para terminar →' : 'Desliza para continuar →'
+                : 'Completa la práctica para continuar'}
+            </Text>
           </View>
         ) : null}
         <Animated.View
@@ -1075,7 +1055,7 @@ export function LessonScreen({
             gentleFeedback={profile.confidence === 'nervous'}
             key={qaMode ? `${cardIndex}-${cardRunId}` : 'lesson-card'}
             level={lesson.level}
-            manualReview={manualCardNavigation}
+            manualReview={pauseForPronunciationReview}
             onPronunciationAttempted={pronunciationAttempted}
             onPronunciationPassed={pronunciationPassed}
             onPronunciationReviewRestarted={pronunciationReviewRestarted}
@@ -1128,15 +1108,10 @@ const styles = StyleSheet.create({
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
   cardCarousel: { flex: 1 },
-  manualNavigation: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', minHeight: 42, paddingHorizontal: 4 },
+  manualNavigation: { alignItems: 'center', justifyContent: 'center', minHeight: 42, paddingHorizontal: 4 },
   manualNavigationCompact: { minHeight: 36 },
-  manualNavigationButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c7b18b', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 38, minWidth: 94, paddingHorizontal: 11 },
-  manualNavigationButtonDisabled: { opacity: 0.32 },
-  manualNavigationButtonNext: { backgroundColor: '#287f68', borderColor: '#287f68' },
-  manualNavigationButtonPressed: { opacity: 0.75, transform: [{ scale: 0.97 }] },
-  manualNavigationButtonText: { color: '#37464c', fontSize: 12, fontWeight: '900' },
-  manualNavigationButtonNextText: { color: '#fff' },
-  swipeHint: { color: '#697177', fontSize: 11, fontWeight: '800' },
+  swipeHint: { color: '#287f68', fontSize: 18, fontWeight: '900', textAlign: 'center' },
+  swipeHintLocked: { color: '#7b736a' },
   qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 54, paddingHorizontal: 10, paddingVertical: 5 },
   qaIdentity: { flex: 1, marginRight: 8 },
   qaLabel: { color: '#d8bfe9', fontSize: 7, fontWeight: '900', letterSpacing: 0.7 },
