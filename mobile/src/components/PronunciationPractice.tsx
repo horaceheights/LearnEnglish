@@ -101,6 +101,7 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   const liveRecognizedText = useRef('');
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
+  const earBlinkAnimation = useRef(new Animated.Value(1)).current;
   const waveAnimations = useRef(
     [0, 1, 2, 3, 4].map(() => new Animated.Value(0.3)),
   ).current;
@@ -197,7 +198,7 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
     captureFinishing.current = true;
     streamingCapture.current = false;
     setPhase('checking');
-    setMessage('');
+    setMessage('Calificando…');
     setDiagnosticOperation('pronunciation_grading_streaming');
     let recordingUri = '';
     try {
@@ -266,7 +267,7 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
     captureFinishing.current = true;
     setDiagnosticOperation('pronunciation_grading');
     setPhase('checking');
-    setMessage('');
+    setMessage('Calificando…');
     try {
       const recorderStopStartedAt = Date.now();
       await recorder.stop();
@@ -559,6 +560,33 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   }, [pulseAnimation, statusIsAnimated, waveAnimations]);
 
   useEffect(() => {
+    if (phase !== 'listening' || reduceMotion) {
+      earBlinkAnimation.stopAnimation();
+      earBlinkAnimation.setValue(1);
+      return undefined;
+    }
+
+    const blink = Animated.loop(
+      Animated.sequence([
+        Animated.timing(earBlinkAnimation, {
+          duration: 520,
+          easing: Easing.inOut(Easing.ease),
+          toValue: 0.3,
+          useNativeDriver: true,
+        }),
+        Animated.timing(earBlinkAnimation, {
+          duration: 520,
+          easing: Easing.inOut(Easing.ease),
+          toValue: 1,
+          useNativeDriver: true,
+        }),
+      ]),
+    );
+    blink.start();
+    return () => blink.stop();
+  }, [earBlinkAnimation, phase, reduceMotion]);
+
+  useEffect(() => {
     mountedRef.current = true;
     return () => {
       mountedRef.current = false;
@@ -653,18 +681,35 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
                 >
                   {token}
                 </Text>
-                <Text
+                <View
                   accessibilityElementsHidden
                   style={[styles.currentWordArrow, index === currentWordIndex ? null : styles.currentWordArrowHidden]}
                 >
-                  ↑
-                </Text>
+                  <View style={styles.currentWordArrowHead} />
+                  <View style={styles.currentWordArrowStem} />
+                </View>
               </View>
             ))}
           </View>
         ) : <Text style={styles.phrase}>{phrase}</Text>}
       </Pressable>
       <View style={styles.statusRow}>
+        {phase === 'listening' ? (
+          <Animated.Text
+            accessibilityLabel="Escuchando"
+            style={[
+              styles.listeningEar,
+              {
+                opacity: earBlinkAnimation,
+                transform: [{
+                  scale: earBlinkAnimation.interpolate({ inputRange: [0.3, 1], outputRange: [0.9, 1.08] }),
+                }],
+              },
+            ]}
+          >
+            👂
+          </Animated.Text>
+        ) : null}
         <Animated.View
           style={[
             styles.statusDot,
@@ -750,9 +795,21 @@ const styles = StyleSheet.create({
   liveWord: { borderColor: 'transparent', borderRadius: 8, borderWidth: 2, color: '#24333a', fontSize: 18, fontWeight: '900', paddingHorizontal: 7, paddingVertical: 3 },
   liveWordTentative: { backgroundColor: '#fff2cf', borderColor: '#e1b85c', color: '#8a5b10' },
   liveWordHeard: { backgroundColor: '#dff4e7', borderColor: '#2f8f62', color: '#17623f' },
-  currentWordArrow: { color: '#d95c52', fontSize: 20, fontWeight: '900', height: 21, lineHeight: 21, marginTop: -1 },
+  currentWordArrow: { alignItems: 'center', height: 23, justifyContent: 'center', marginTop: 1, width: 22 },
+  currentWordArrowHead: {
+    borderBottomColor: '#83d6a4',
+    borderBottomWidth: 8,
+    borderLeftColor: 'transparent',
+    borderLeftWidth: 7,
+    borderRightColor: 'transparent',
+    borderRightWidth: 7,
+    height: 0,
+    width: 0,
+  },
+  currentWordArrowStem: { backgroundColor: '#83d6a4', borderRadius: 3, height: 10, width: 5 },
   currentWordArrowHidden: { opacity: 0 },
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
+  listeningEar: { fontSize: 25, marginRight: 8 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },
   wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 28, marginRight: 8 },
   waveBar: { borderRadius: 3, width: 4 },
