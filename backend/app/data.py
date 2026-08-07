@@ -729,6 +729,7 @@ def text_choice(option_id: str, label: str) -> ChoiceOption:
 def people_action_cards() -> list[LessonCard]:
     return [
         *people_new_vocab_cards(),
+        *people_subject_practice_cards(),
         *people_action_intro_cards(),
         *people_meaning_practice_cards(),
         *people_plural_intro_cards(),
@@ -750,6 +751,34 @@ def people_new_vocab_cards() -> list[LessonCard]:
                 correct_option_id=person,
                 options=[person_choice(person)],
                 audio_text=PEOPLE[person]["label"],
+            )
+        )
+
+    return cards
+
+
+def people_subject_practice_cards() -> list[LessonCard]:
+    practice_specs = [
+        ("boy", ["boy", "man"]),
+        ("girl", ["girl", "woman"]),
+        ("man", ["boy", "girl", "man"]),
+        ("woman", PEOPLE_IN_ORDER),
+    ]
+    cards: list[LessonCard] = []
+
+    for index, (correct_person, people) in enumerate(practice_specs, 1):
+        option_ids = stable_shuffle(
+            people,
+            f"people-subject-practice-{index}-{correct_person}",
+        )
+        subject = PEOPLE[correct_person]["label"]
+        cards.append(
+            LessonCard(
+                prompt=subject,
+                stage="New Vocab",
+                correct_option_id=correct_person,
+                options=[person_choice(person, "") for person in option_ids],
+                audio_text=subject,
             )
         )
 
