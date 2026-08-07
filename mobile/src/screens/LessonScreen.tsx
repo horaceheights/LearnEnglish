@@ -1,7 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
+  Animated,
   BackHandler,
+  PanResponder,
   Pressable,
   ScrollView,
   StatusBar,
@@ -60,6 +62,7 @@ export function LessonScreen({
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isPortrait = viewportHeight >= viewportWidth;
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
+  const manualCardNavigation = lessonId === 'lesson-1-people-actions' && !qaMode;
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAudioAwaitingRef = useRef(false);
@@ -72,12 +75,15 @@ export function LessonScreen({
   const audioPlayerActiveRef = useRef(true);
   const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
+  const cardTransitioningRef = useRef(false);
+  const cardTranslateX = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [sessionId, setSessionId] = useState('');
   const [cardIndex, setCardIndex] = useState(0);
   const [furthestCardIndex, setFurthestCardIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [attemptedCards, setAttemptedCards] = useState<Set<number>>(() => new Set());
   const [wrongCards, setWrongCards] = useState<Set<number>>(() => new Set());
   const [completedCards, setCompletedCards] = useState<Set<number>>(() => new Set());
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -361,6 +367,7 @@ export function LessonScreen({
       !currentCard ||
       isGrammar ||
       Boolean(currentCard.answer_audio_text) ||
+      manualCardNavigation ||
       (qaMode && !qaAutoAdvance)
     ) return undefined;
     const delay = isPronunciation ? 900 : 1000;
@@ -371,6 +378,7 @@ export function LessonScreen({
     currentCard,
     isGrammar,
     isPronunciation,
+    manualCardNavigation,
     qaAutoAdvance,
     qaMode,
     result,
@@ -388,7 +396,7 @@ export function LessonScreen({
       answerAudioStartedRef.current = false;
       answerAudioWasPlayingRef.current = false;
       if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
-      if (qaMode && !qaAutoAdvance) {
+      if (manualCardNavigation || (qaMode && !qaAutoAdvance)) {
         answerAdvanceTimerRef.current = null;
         return;
       }
@@ -405,7 +413,7 @@ export function LessonScreen({
     answerAudioStartedRef.current = false;
     answerAudioWasPlayingRef.current = false;
     if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
-    if (qaMode && !qaAutoAdvance) {
+    if (manualCardNavigation || (qaMode && !qaAutoAdvance)) {
       answerAdvanceTimerRef.current = null;
       return;
     }
@@ -419,6 +427,7 @@ export function LessonScreen({
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
     isGrammar,
+    manualCardNavigation,
     qaAutoAdvance,
     qaMode,
     result,
@@ -430,7 +439,7 @@ export function LessonScreen({
       grammarAnswerAwaitingRef.current = false;
       grammarAnswerWasPlayingRef.current = false;
       if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
-      if (qaMode && !qaAutoAdvance) {
+      if (manualCardNavigation || (qaMode && !qaAutoAdvance)) {
         grammarAudioTimerRef.current = null;
         return;
       }
@@ -446,7 +455,7 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
     if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
-    if (qaMode && !qaAutoAdvance) {
+    if (manualCardNavigation || (qaMode && !qaAutoAdvance)) {
       grammarAudioTimerRef.current = null;
       return;
     }
@@ -460,6 +469,7 @@ export function LessonScreen({
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
     isGrammar,
+    manualCardNavigation,
     qaAutoAdvance,
     qaMode,
     result,
@@ -509,6 +519,7 @@ export function LessonScreen({
       option_id: optionId,
     });
     setSelectedId(optionId);
+    setAttemptedCards((current) => new Set(current).add(cardIndex));
     recordAttempt(optionId, correct, firstTry);
 
     if (correct) {
@@ -526,15 +537,17 @@ export function LessonScreen({
         answerAudioStartedRef.current = false;
         answerAudioWasPlayingRef.current = false;
         if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
-        answerAdvanceTimerRef.current = setTimeout(() => {
-          answerAdvanceTimerRef.current = null;
-          if (!answerAudioAwaitingRef.current) return;
-          answerAudioAwaitingRef.current = false;
-          answerAudioStartedRef.current = false;
-          answerAudioWasPlayingRef.current = false;
-          if (qaMode && !qaAutoAdvance) return;
-          advance();
-        }, 60000);
+        if (!manualCardNavigation) {
+          answerAdvanceTimerRef.current = setTimeout(() => {
+            answerAdvanceTimerRef.current = null;
+            if (!answerAudioAwaitingRef.current) return;
+            answerAudioAwaitingRef.current = false;
+            answerAudioStartedRef.current = false;
+            answerAudioWasPlayingRef.current = false;
+            if (qaMode && !qaAutoAdvance) return;
+            advance();
+          }, 60000);
+        }
         playAnswerAfterChime(currentCard.answer_audio_text);
       }
       return;
@@ -556,6 +569,15 @@ export function LessonScreen({
     void playSuccessChime();
   }, [cardIndex, completedCards, playSuccessChime]);
 
+  const pronunciationAttempted = useCallback(() => {
+    setAttemptedCards((current) => new Set(current).add(cardIndex));
+  }, [cardIndex]);
+
+  const pronunciationReviewRestarted = useCallback(() => {
+    pronunciationPassHandledRef.current = false;
+    setResult(null);
+  }, []);
+
   const grammarAnimationComplete = useCallback(() => {
     if (!currentCard || !isGrammar) return;
     const selectedOption = currentCard.options.find((option) => option.id === selectedId);
@@ -566,20 +588,22 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = true;
     grammarAnswerWasPlayingRef.current = false;
     if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
-    grammarAudioTimerRef.current = setTimeout(() => {
-      grammarAudioTimerRef.current = null;
-      if (!grammarAnswerAwaitingRef.current) return;
-      grammarAnswerAwaitingRef.current = false;
-      grammarAnswerWasPlayingRef.current = false;
-      if (qaMode && !qaAutoAdvance) return;
-      advance();
-    }, 60000);
+    if (!manualCardNavigation) {
+      grammarAudioTimerRef.current = setTimeout(() => {
+        grammarAudioTimerRef.current = null;
+        if (!grammarAnswerAwaitingRef.current) return;
+        grammarAnswerAwaitingRef.current = false;
+        grammarAnswerWasPlayingRef.current = false;
+        if (qaMode && !qaAutoAdvance) return;
+        advance();
+      }, 60000);
+    }
     playAudio(
       currentCard.answer_audio_text || completedSentence,
       'prompt',
       'answer',
     );
-  }, [advance, currentCard, isGrammar, playAudio, qaAutoAdvance, qaMode, selectedId]);
+  }, [advance, currentCard, isGrammar, manualCardNavigation, playAudio, qaAutoAdvance, qaMode, selectedId]);
 
   const clearCardInteractionState = useCallback(() => {
     answerAudioAwaitingRef.current = false;
@@ -610,6 +634,7 @@ export function LessonScreen({
   const resetCardState = useCallback(() => {
     clearCardInteractionState();
     setScore(0);
+    setAttemptedCards(new Set());
     setWrongCards(new Set());
     setCompletedCards(new Set());
   }, [clearCardInteractionState]);
@@ -620,15 +645,97 @@ export function LessonScreen({
       from_card: cardIndex + 1,
       to_card: startIndex + 1,
     });
+    cardTranslateX.stopAnimation();
+    cardTranslateX.setValue(0);
     clearCardInteractionState();
     setCardIndex(Math.min(Math.max(startIndex, 0), lesson.cards.length - 1));
-  }, [cardIndex, clearCardInteractionState, furthestCardIndex, lesson]);
+  }, [cardIndex, cardTranslateX, clearCardInteractionState, furthestCardIndex, lesson]);
 
   const openQaCard = useCallback((nextIndex: number) => {
     if (!lesson) return;
     setCardIndex(Math.min(Math.max(nextIndex, 0), lesson.cards.length - 1));
     resetCardState();
   }, [lesson, resetCardState]);
+
+  const settleCard = useCallback(() => {
+    Animated.spring(cardTranslateX, {
+      damping: 22,
+      mass: 0.7,
+      stiffness: 240,
+      toValue: 0,
+      useNativeDriver: true,
+    }).start(() => {
+      cardTransitioningRef.current = false;
+    });
+  }, [cardTranslateX]);
+
+  const navigateManualCard = useCallback((direction: -1 | 1) => {
+    if (!manualCardNavigation || !lesson || cardTransitioningRef.current) return;
+    const nextIndex = cardIndex + direction;
+    if (nextIndex < 0) {
+      settleCard();
+      return;
+    }
+
+    cardTransitioningRef.current = true;
+    const travelDistance = Math.min(Math.max(viewportWidth * 0.72, 320), 760);
+    Animated.timing(cardTranslateX, {
+      duration: 190,
+      toValue: direction > 0 ? -travelDistance : travelDistance,
+      useNativeDriver: true,
+    }).start(({ finished }) => {
+      if (!finished) {
+        settleCard();
+        return;
+      }
+      if (direction > 0 && result === null && !attemptedCards.has(cardIndex)) {
+        addDiagnosticBreadcrumb('card_skipped', { card_number: cardIndex + 1 });
+      }
+      clearCardInteractionState();
+      if (nextIndex >= lesson.cards.length) {
+        cardTranslateX.setValue(0);
+        cardTransitioningRef.current = false;
+        setIsComplete(true);
+        return;
+      }
+
+      cardTranslateX.setValue(direction > 0 ? travelDistance : -travelDistance);
+      setCardIndex(nextIndex);
+      requestAnimationFrame(settleCard);
+    });
+  }, [
+    cardIndex,
+    cardTranslateX,
+    clearCardInteractionState,
+    attemptedCards,
+    lesson,
+    manualCardNavigation,
+    result,
+    settleCard,
+    viewportWidth,
+  ]);
+
+  const cardPanResponder = useMemo(() => PanResponder.create({
+    onMoveShouldSetPanResponder: (_, gesture) => (
+      manualCardNavigation &&
+      !cardTransitioningRef.current &&
+      Math.abs(gesture.dx) > 16 &&
+      Math.abs(gesture.dx) > Math.abs(gesture.dy) * 1.35
+    ),
+    onPanResponderMove: (_, gesture) => {
+      const atStart = cardIndex === 0 && gesture.dx > 0;
+      cardTranslateX.setValue(atStart ? gesture.dx * 0.28 : gesture.dx);
+    },
+    onPanResponderRelease: (_, gesture) => {
+      const shouldAdvance = gesture.dx < -58 || gesture.vx < -0.55;
+      const shouldReturn = gesture.dx > 58 || gesture.vx > 0.55;
+      if (shouldAdvance) navigateManualCard(1);
+      else if (shouldReturn && cardIndex > 0) navigateManualCard(-1);
+      else settleCard();
+    },
+    onPanResponderTerminate: settleCard,
+    onPanResponderTerminationRequest: () => true,
+  }), [cardIndex, cardTranslateX, manualCardNavigation, navigateManualCard, settleCard]);
 
   const renderPrompt = () => {
     if (!currentCard) return '';
@@ -918,21 +1025,68 @@ export function LessonScreen({
             ) : null}
           </View>
         </View>
-        <LessonCardView
-          audioProvider={audioProvider}
-          audioVoice={audioVoice}
-          card={currentCard}
-          gentleFeedback={profile.confidence === 'nervous'}
-          key={qaMode ? `${cardIndex}-${cardRunId}` : 'lesson-card'}
-          level={lesson.level}
-          onPronunciationPassed={pronunciationPassed}
-          onGrammarAnimationComplete={grammarAnimationComplete}
-          onSelect={choose}
-          result={result}
-          selectedId={selectedId}
-          showHelp={showHelp}
-          userId={profile.userId}
-        />
+        {manualCardNavigation ? (
+          <View style={[styles.manualNavigation, useCompactPhoneLayout ? styles.manualNavigationCompact : null]}>
+            <Pressable
+              accessibilityLabel="Tarjeta anterior"
+              accessibilityRole="button"
+              disabled={cardIndex === 0}
+              hitSlop={6}
+              onPress={() => navigateManualCard(-1)}
+              style={({ pressed }) => [
+                styles.manualNavigationButton,
+                cardIndex === 0 ? styles.manualNavigationButtonDisabled : null,
+                pressed ? styles.manualNavigationButtonPressed : null,
+              ]}
+            >
+              <Text style={styles.manualNavigationButtonText}>← Anterior</Text>
+            </Pressable>
+            <Text style={styles.swipeHint}>Desliza ↔</Text>
+            <Pressable
+              accessibilityLabel={result === null && !attemptedCards.has(cardIndex) ? 'Omitir tarjeta' : 'Continuar a la siguiente tarjeta'}
+              accessibilityRole="button"
+              hitSlop={6}
+              onPress={() => navigateManualCard(1)}
+              style={({ pressed }) => [
+                styles.manualNavigationButton,
+                styles.manualNavigationButtonNext,
+                pressed ? styles.manualNavigationButtonPressed : null,
+              ]}
+            >
+              <Text style={[styles.manualNavigationButtonText, styles.manualNavigationButtonNextText]}>
+                {result === null && !attemptedCards.has(cardIndex)
+                  ? 'Omitir →'
+                  : cardIndex === lesson.cards.length - 1 ? 'Terminar →' : 'Continuar →'}
+              </Text>
+            </Pressable>
+          </View>
+        ) : null}
+        <Animated.View
+          {...(manualCardNavigation ? cardPanResponder.panHandlers : {})}
+          style={[
+            styles.cardCarousel,
+            manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
+          ]}
+        >
+          <LessonCardView
+            audioProvider={audioProvider}
+            audioVoice={audioVoice}
+            card={currentCard}
+            gentleFeedback={profile.confidence === 'nervous'}
+            key={qaMode ? `${cardIndex}-${cardRunId}` : 'lesson-card'}
+            level={lesson.level}
+            manualReview={manualCardNavigation}
+            onPronunciationAttempted={pronunciationAttempted}
+            onPronunciationPassed={pronunciationPassed}
+            onPronunciationReviewRestarted={pronunciationReviewRestarted}
+            onGrammarAnimationComplete={grammarAnimationComplete}
+            onSelect={choose}
+            result={result}
+            selectedId={selectedId}
+            showHelp={showHelp}
+            userId={profile.userId}
+          />
+        </Animated.View>
     </>
   );
   const needsAccessibleScrolling = fontScale > 1.3 || viewportHeight < 300;
@@ -973,6 +1127,16 @@ const styles = StyleSheet.create({
   pagePronunciation: { gap: 4, paddingBottom: 4, paddingTop: 4 },
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
+  cardCarousel: { flex: 1 },
+  manualNavigation: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', minHeight: 42, paddingHorizontal: 4 },
+  manualNavigationCompact: { minHeight: 36 },
+  manualNavigationButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c7b18b', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 38, minWidth: 94, paddingHorizontal: 11 },
+  manualNavigationButtonDisabled: { opacity: 0.32 },
+  manualNavigationButtonNext: { backgroundColor: '#287f68', borderColor: '#287f68' },
+  manualNavigationButtonPressed: { opacity: 0.75, transform: [{ scale: 0.97 }] },
+  manualNavigationButtonText: { color: '#37464c', fontSize: 12, fontWeight: '900' },
+  manualNavigationButtonNextText: { color: '#fff' },
+  swipeHint: { color: '#697177', fontSize: 11, fontWeight: '800' },
   qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 54, paddingHorizontal: 10, paddingVertical: 5 },
   qaIdentity: { flex: 1, marginRight: 8 },
   qaLabel: { color: '#d8bfe9', fontSize: 7, fontWeight: '900', letterSpacing: 0.7 },

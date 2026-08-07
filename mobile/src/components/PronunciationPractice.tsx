@@ -48,8 +48,11 @@ type Props = {
   imageLabel?: string;
   imageUrl?: string;
   level: string;
+  manualReview?: boolean;
   userId?: string;
+  onAttempted?: () => void;
   onPassed: () => void;
+  onReviewRestart?: () => void;
 };
 
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
@@ -100,8 +103,11 @@ export function PronunciationPractice({
   imageLabel,
   imageUrl,
   level,
+  manualReview = false,
   userId,
+  onAttempted,
   onPassed,
+  onReviewRestart,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -117,6 +123,7 @@ export function PronunciationPractice({
   const [message, setMessage] = useState('Escucha la frase.');
   const [result, setResult] = useState<PronunciationResult | null>(null);
   const [attempt, setAttempt] = useState(0);
+  const [bestScore, setBestScore] = useState<number | undefined>();
   const [liveLevel, setLiveLevel] = useState(0);
   const [liveMatchedCount, setLiveMatchedCount] = useState(0);
   const [liveTentativeCount, setLiveTentativeCount] = useState(0);
@@ -224,11 +231,13 @@ export function PronunciationPractice({
   const scheduleRetry = useCallback((reason: string, runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
     setPhase('retry');
-    setMessage(`${reason} Volvemos a intentarlo…`);
+    setMessage(manualReview
+      ? `${reason} Practica otra vez cuando estés listo.`
+      : `${reason} Volvemos a intentarlo…`);
     attemptRef.current += 1;
     setAttempt(attemptRef.current);
-    retryTimer.current = setTimeout(() => playModel(runId), 1700);
-  }, [isCurrentRun, playModel]);
+    if (!manualReview) retryTimer.current = setTimeout(() => playModel(runId), 1700);
+  }, [isCurrentRun, manualReview, playModel]);
 
   const finishNativeCapture = useCallback(async () => {
     const runId = runIdRef.current;
@@ -260,7 +269,11 @@ export function PronunciationPractice({
         recorder_finalize_ms: recorderFinalizeMs,
       };
       setResult(nextResult);
+      onAttempted?.();
       const nextAccuracy = paceIndependentAccuracy(nextResult);
+      if (typeof nextAccuracy === 'number') {
+        setBestScore((current) => Math.max(current ?? 0, nextAccuracy));
+      }
       const nextCompleteness = nextResult.text_score?.azure_scores?.completeness;
       const accepted =
         typeof nextAccuracy === 'number' &&
@@ -298,7 +311,7 @@ export function PronunciationPractice({
         }
       }
     }
-  }, [expectedTokens.length, isCurrentRun, minimumCompleteness, passAccuracy, phrase, scheduleRetry, userId]);
+  }, [expectedTokens.length, isCurrentRun, minimumCompleteness, onAttempted, passAccuracy, phrase, scheduleRetry, userId]);
 
   const finishCapture = useCallback(async (shouldScore: boolean) => {
     const runId = runIdRef.current;
@@ -328,7 +341,11 @@ export function PronunciationPractice({
       };
       console.info('[SpanGlish] Pronunciation timing', nextResult._timing);
       setResult(nextResult);
+      onAttempted?.();
       const nextAccuracy = paceIndependentAccuracy(nextResult);
+      if (typeof nextAccuracy === 'number') {
+        setBestScore((current) => Math.max(current ?? 0, nextAccuracy));
+      }
       const nextCompleteness = nextResult.text_score?.azure_scores?.completeness;
       const accepted =
         typeof nextAccuracy === 'number' &&
@@ -367,7 +384,7 @@ export function PronunciationPractice({
         runId,
       );
     }
-  }, [isCurrentRun, minimumCompleteness, passAccuracy, phrase, recorder, scheduleRetry, userId]);
+  }, [isCurrentRun, minimumCompleteness, onAttempted, passAccuracy, phrase, recorder, scheduleRetry, userId]);
 
   const startListening = useCallback(async () => {
     const runId = runIdRef.current;
@@ -674,6 +691,7 @@ export function PronunciationPractice({
     runIdRef.current = runId;
     attemptRef.current = 0;
     setAttempt(0);
+    setBestScore(undefined);
     playModel(runId);
     return () => {
       if (runIdRef.current === runId) runIdRef.current += 1;
@@ -866,6 +884,9 @@ export function PronunciationPractice({
               ) : null}
             </View>
           </View>
+          {manualReview && typeof bestScore === 'number' ? (
+            <Text style={styles.bestScore}>Mejor resultado: {Math.round(bestScore)}</Text>
+          ) : null}
           <View style={styles.words}>
             {result.text_score?.word_score_list?.map((word, index) => {
               const wordScore = word.quality_score;
@@ -884,6 +905,19 @@ export function PronunciationPractice({
               );
             })}
           </View>
+          {manualReview && (phase === 'success' || phase === 'retry') ? (
+            <Pressable
+              accessibilityLabel="Practicar la pronunciación otra vez"
+              accessibilityRole="button"
+              onPress={() => {
+                onReviewRestart?.();
+                void playModel();
+              }}
+              style={({ pressed }) => [styles.practiceAgain, pressed ? styles.practiceAgainPressed : null]}
+            >
+              <Text style={styles.practiceAgainText}>↻ Practicar otra vez</Text>
+            </Pressable>
+          ) : null}
         </>
       ) : null}
     </View>
@@ -931,6 +965,10 @@ const styles = StyleSheet.create({
   scorePanel: { alignItems: 'center', borderRadius: 14, flexDirection: 'row', padding: 7 },
   passedPanel: { backgroundColor: '#eaf6ee' },
   practicePanel: { backgroundColor: '#fff3df' },
+  bestScore: { color: '#287a57', fontSize: 12, fontWeight: '900', textAlign: 'center' },
+  practiceAgain: { alignItems: 'center', alignSelf: 'center', backgroundColor: '#fff', borderColor: '#2f8f62', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 42, paddingHorizontal: 18 },
+  practiceAgainPressed: { backgroundColor: '#eaf6ee', opacity: 0.82 },
+  practiceAgainText: { color: '#24734f', fontSize: 13, fontWeight: '900' },
   score: { color: '#287a57', fontSize: 30, fontWeight: '900', minWidth: 52 },
   scoreDetails: { flex: 1, gap: 1, marginLeft: 7 },
   scoreTitle: { color: '#17251f', fontSize: 13, fontWeight: '800' },
