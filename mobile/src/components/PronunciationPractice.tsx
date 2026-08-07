@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Alert, Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { File } from 'expo-file-system';
 import {
   AudioModule,
@@ -68,6 +68,7 @@ const SPEECH_RECORDING_OPTIONS: RecordingOptions = {
 };
 
 export function PronunciationPractice({ audioProvider, audioVoice, phrase, level, userId, onPassed }: Props) {
+  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const recorder = useAudioRecorder(SPEECH_RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
@@ -120,6 +121,9 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   const statusIsActive = phase === 'listening' || phase === 'checking';
   const statusIsAnimated = statusIsActive && !reduceMotion && !(phase === 'listening' && streamingCapture.current);
   const expectedTokens = useMemo(() => speechTokens(phrase), [phrase]);
+  const listeningMascotSize = viewportWidth > viewportHeight
+    ? Math.max(62, Math.min(72, viewportHeight * 0.19))
+    : Math.max(74, Math.min(84, viewportWidth * 0.15));
   const currentWordIndex = useMemo(() => {
     if (!expectedTokens.length || liveMatchedCount >= expectedTokens.length) return -1;
     // A partial transcript may tentatively recognize the word being spoken.
@@ -826,13 +830,14 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
             <View
               accessible
               accessibilityLabel="Escuchando"
-              style={styles.listeningMascotWrap}
+              style={[styles.listeningMascotWrap, { height: listeningMascotSize, width: listeningMascotSize }]}
             >
               <Animated.Image
                 resizeMode="contain"
                 source={require('../../assets/mascots/squirrel-professor-listening-side.png')}
                 style={[
                   styles.listeningMascot,
+                  { height: listeningMascotSize, width: listeningMascotSize },
                   {
                     opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.72, 1], outputRange: [1, 0.4, 0] }),
                     transform: [
@@ -848,6 +853,7 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
                 style={[
                   styles.listeningMascot,
                   styles.listeningMascotFront,
+                  { height: listeningMascotSize, width: listeningMascotSize },
                   {
                     opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.28, 1], outputRange: [0, 0.4, 1] }),
                     transform: [

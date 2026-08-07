@@ -809,11 +809,17 @@ export function LessonScreen({
           styles.contentHeader,
           useCompactPhoneLayout ? styles.contentHeaderCompact : null,
           isPortrait ? styles.contentHeaderPortrait : null,
+          isPronunciation ? styles.contentHeaderPronunciation : null,
+          isPronunciation && isPortrait ? styles.contentHeaderPronunciationPortrait : null,
         ]}>
           <Text accessibilityRole="header" style={styles.stage}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
           </Text>
-          <View style={[styles.promptRow, isPortrait ? styles.promptRowPortrait : null]}>
+          <View style={[
+            styles.promptRow,
+            isPortrait ? styles.promptRowPortrait : null,
+            isPronunciation ? styles.promptRowPronunciation : null,
+          ]}>
             <Pressable
               accessibilityLabel={`Reproducir: ${promptAudio}`}
               accessibilityHint="Toca dos veces para escuchar la frase"
@@ -833,12 +839,20 @@ export function LessonScreen({
                 style={[
                   styles.prompt,
                   {
-                    fontSize: useCompactPhoneLayout
-                      ? Math.max(22, Math.min(29, viewportHeight * 0.072))
-                      : Math.max(26, Math.min(36, viewportHeight * 0.052)),
-                    lineHeight: useCompactPhoneLayout
-                      ? Math.max(27, Math.min(35, viewportHeight * 0.085))
-                      : Math.max(31, Math.min(43, viewportHeight * 0.062)),
+                    fontSize: isPronunciation
+                      ? isPortrait
+                        ? Math.max(21, Math.min(26, viewportWidth * 0.045))
+                        : Math.max(18, Math.min(24, viewportHeight * 0.06))
+                      : useCompactPhoneLayout
+                        ? Math.max(22, Math.min(29, viewportHeight * 0.072))
+                        : Math.max(26, Math.min(36, viewportHeight * 0.052)),
+                    lineHeight: isPronunciation
+                      ? isPortrait
+                        ? Math.max(25, Math.min(31, viewportWidth * 0.054))
+                        : Math.max(22, Math.min(29, viewportHeight * 0.072))
+                      : useCompactPhoneLayout
+                        ? Math.max(27, Math.min(35, viewportHeight * 0.085))
+                        : Math.max(31, Math.min(43, viewportHeight * 0.062)),
                   },
                 ]}
               >
@@ -900,6 +914,7 @@ export function LessonScreen({
             styles.pageScrollable,
             useCompactPhoneLayout ? styles.pageCompact : null,
             isPortrait ? styles.pagePortrait : null,
+            isPronunciation ? styles.pagePronunciation : null,
           ]}
           persistentScrollbar
           style={styles.pageScroll}
@@ -911,6 +926,7 @@ export function LessonScreen({
           styles.page,
           useCompactPhoneLayout ? styles.pageCompact : null,
           isPortrait ? styles.pagePortrait : null,
+          isPronunciation ? styles.pagePronunciation : null,
         ]}>{lessonContent}</View>
       )}
     </SafeAreaView>
@@ -922,6 +938,7 @@ const styles = StyleSheet.create({
   page: { flex: 1, gap: 6, padding: 6 },
   pagePortrait: { gap: 7, padding: 10 },
   pageCompact: { gap: 4, padding: 4 },
+  pagePronunciation: { gap: 4, paddingBottom: 4, paddingTop: 4 },
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
   qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 54, paddingHorizontal: 10, paddingVertical: 5 },
@@ -987,9 +1004,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.09,
     shadowRadius: 6,
   },
+  contentHeaderPronunciation: { paddingBottom: 3, paddingTop: 3 },
+  contentHeaderPronunciationPortrait: { paddingBottom: 5, paddingTop: 5 },
   stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
+  promptRowPronunciation: { minHeight: 28 },
   promptTapTarget: { width: '100%' },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
   repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', minHeight: 28, width: 82 },

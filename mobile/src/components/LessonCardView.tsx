@@ -123,14 +123,16 @@ export function LessonCardView({
     : 0;
   const featureReservedHeight = isPronunciation
     ? result
-      ? 96
-      : 68
+      ? 108
+      : isLandscape
+        ? isCompactLandscape ? 108 : 122
+        : 132
     : hasTextOnlyOptions
       ? (optionMinHeight * textOptionRows) + (Math.max(0, textOptionRows - 1) * 10) + 30
       : 24;
   const featureImageHeight = Math.min(
     responsiveFeatureImageHeight,
-    Math.max(isPronunciation ? 82 : 70, availableCardHeight - featureReservedHeight),
+    Math.max(isPronunciation ? 68 : 70, availableCardHeight - featureReservedHeight),
   );
   const optionRows = useTabletImageGrid || usePortraitImageGrid || usePortraitImageStack ? 2 : 1;
   const optionImageHeight = Math.min(
@@ -185,6 +187,8 @@ export function LessonCardView({
       !isLandscape ? styles.cardPortrait : null,
       isCompactLandscape ? styles.cardCompactLandscape : null,
       isTabletLandscape ? styles.cardTabletLandscape : null,
+      isPronunciation ? styles.pronunciationCard : null,
+      isPronunciation && !isLandscape ? styles.pronunciationCardPortrait : null,
     ]}
       onLayout={({ nativeEvent }) => {
         const nextHeight = Math.round(nativeEvent.layout.height);
@@ -426,13 +430,15 @@ const styles = StyleSheet.create({
   },
   cardCompactLandscape: { minHeight: 0, overflow: 'hidden', padding: 6 },
   cardTabletLandscape: { padding: 14 },
+  pronunciationCard: { justifyContent: 'flex-start', paddingBottom: 4, paddingTop: 3 },
+  pronunciationCardPortrait: { paddingBottom: 6, paddingTop: 3 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
   flyingAnswer: { alignItems: 'center', left: 0, position: 'absolute', right: 0, top: -64, zIndex: 20 },
   flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
   promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
-  pronunciationImage: { alignSelf: 'center', height: 190, marginTop: 8, width: '100%' },
+  pronunciationImage: { alignSelf: 'center', height: 190, marginTop: 2, width: '100%' },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',
