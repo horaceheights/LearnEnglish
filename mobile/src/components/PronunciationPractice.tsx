@@ -81,6 +81,17 @@ const LISTENING_MASCOT_FRAMES = [
 
 const LISTENING_MASCOT_FRAME_MS = [180, 130, 120, 110, 110] as const;
 
+const GRADING_MASCOT_FRAMES = [
+  require('../../assets/mascots/serious/grading-frames-normalized/grading-01.png'),
+  require('../../assets/mascots/serious/grading-frames-normalized/grading-02.png'),
+  require('../../assets/mascots/serious/grading-frames-normalized/grading-03.png'),
+  require('../../assets/mascots/serious/grading-frames-normalized/grading-04.png'),
+  require('../../assets/mascots/serious/grading-frames-normalized/grading-05.png'),
+  require('../../assets/mascots/serious/grading-frames-normalized/grading-06.png'),
+] as const;
+
+const GRADING_MASCOT_FRAME_MS = [240, 160, 160, 190, 320, 650] as const;
+
 export function PronunciationPractice({
   audioProvider,
   audioVoice,
@@ -128,7 +139,6 @@ export function PronunciationPractice({
   const liveRecognizedText = useRef('');
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
-  const gradingMascotAnimation = useRef(new Animated.Value(0)).current;
   const waveAnimations = useRef(
     [0, 1, 2, 3, 4].map(() => new Animated.Value(0.3)),
   ).current;
@@ -623,37 +633,28 @@ export function PronunciationPractice({
 
   useEffect(() => {
     if (phase !== 'checking' || reduceMotion) {
-      gradingMascotAnimation.stopAnimation();
-      gradingMascotAnimation.setValue(0);
       setGradingFrame(0);
       return undefined;
     }
 
-    const frameTimer = setInterval(() => {
-      setGradingFrame((currentFrame) => currentFrame === 0 ? 1 : 0);
-    }, 360);
-    const gradingMotion = Animated.loop(
-      Animated.sequence([
-        Animated.timing(gradingMascotAnimation, {
-          duration: 360,
-          easing: Easing.inOut(Easing.ease),
-          toValue: 1,
-          useNativeDriver: true,
-        }),
-        Animated.timing(gradingMascotAnimation, {
-          duration: 360,
-          easing: Easing.inOut(Easing.ease),
-          toValue: 0,
-          useNativeDriver: true,
-        }),
-      ]),
-    );
-    gradingMotion.start();
-    return () => {
-      clearInterval(frameTimer);
-      gradingMotion.stop();
+    let cancelled = false;
+    let currentFrame = 0;
+    let frameTimer: ReturnType<typeof setTimeout> | undefined;
+    setGradingFrame(0);
+
+    const advanceFrame = () => {
+      if (cancelled) return;
+      currentFrame = (currentFrame + 1) % GRADING_MASCOT_FRAMES.length;
+      setGradingFrame(currentFrame);
+      frameTimer = setTimeout(advanceFrame, GRADING_MASCOT_FRAME_MS[currentFrame]);
     };
-  }, [gradingMascotAnimation, phase, reduceMotion]);
+
+    frameTimer = setTimeout(advanceFrame, GRADING_MASCOT_FRAME_MS[0]);
+    return () => {
+      cancelled = true;
+      if (frameTimer) clearTimeout(frameTimer);
+    };
+  }, [phase, reduceMotion]);
 
   useEffect(() => {
     mountedRef.current = true;
@@ -731,53 +732,12 @@ export function PronunciationPractice({
 
   const gradingMascot = phase === 'checking' ? (
     <View style={styles.gradingMascotWrap}>
-      <Animated.Image
+      <Image
         accessibilityLabel="La profesora ardilla está calificando"
         resizeMode="contain"
-        source={gradingFrame === 0
-          ? require('../../assets/mascots/squirrel-professor-grading.png')
-          : require('../../assets/mascots/squirrel-professor-grading-frame-2.png')}
-        style={[
-          styles.gradingMascot,
-          {
-            transform: [{
-              rotate: gradingMascotAnimation.interpolate({
-                inputRange: [0, 1],
-                outputRange: ['-1deg', '1deg'],
-              }),
-            }],
-          },
-        ]}
+        source={GRADING_MASCOT_FRAMES[gradingFrame]}
+        style={styles.gradingMascot}
       />
-      <Animated.Text
-        accessibilityElementsHidden
-        style={[
-          styles.gradingCheck,
-          {
-            opacity: gradingMascotAnimation,
-            transform: [
-              { scale: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1.15] }) },
-              { translateY: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [5, -5] }) },
-            ],
-          },
-        ]}
-      >
-        ✓
-      </Animated.Text>
-      <Animated.Text
-        accessibilityElementsHidden
-        style={[
-          styles.gradingStar,
-          {
-            opacity: gradingMascotAnimation.interpolate({ inputRange: [0, 0.45, 1], outputRange: [0, 1, 0.25] }),
-            transform: [{
-              rotate: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['-20deg', '20deg'] }),
-            }],
-          },
-        ]}
-      >
-        ★
-      </Animated.Text>
     </View>
   ) : null;
 
@@ -962,9 +922,7 @@ const styles = StyleSheet.create({
   listeningMascotWrap: { height: 104, position: 'relative', width: 94 },
   listeningMascot: { height: 94, width: 94 },
   gradingMascotWrap: { height: 104, position: 'relative', width: 94 },
-  gradingMascot: { alignSelf: 'center', height: 104, width: 80 },
-  gradingCheck: { color: '#58b985', fontSize: 27, fontWeight: '900', position: 'absolute', right: 0, top: 5 },
-  gradingStar: { color: '#edb949', fontSize: 18, fontWeight: '900', position: 'absolute', right: 4, top: 39 },
+  gradingMascot: { height: 104, width: 94 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },
   wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 28, marginRight: 8 },
   waveBar: { borderRadius: 3, width: 4 },
