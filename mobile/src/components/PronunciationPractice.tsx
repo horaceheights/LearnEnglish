@@ -578,30 +578,21 @@ export function PronunciationPractice({
   }, [pulseAnimation, statusIsAnimated, waveAnimations]);
 
   useEffect(() => {
-    if (phase !== 'listening' || reduceMotion) {
+    if (phase !== 'listening') {
       listeningMascotAnimation.stopAnimation();
       listeningMascotAnimation.setValue(0);
       return undefined;
     }
 
-    const listenTurn = Animated.loop(
-      Animated.sequence([
-        Animated.timing(listeningMascotAnimation, {
-          duration: 680,
-          easing: Easing.inOut(Easing.ease),
-          toValue: 1,
-          useNativeDriver: true,
-        }),
-        Animated.delay(180),
-        Animated.timing(listeningMascotAnimation, {
-          duration: 680,
-          easing: Easing.inOut(Easing.ease),
-          toValue: 0,
-          useNativeDriver: true,
-        }),
-        Animated.delay(180),
-      ]),
-    );
+    listeningMascotAnimation.setValue(reduceMotion ? 1 : 0);
+    if (reduceMotion) return undefined;
+
+    const listenTurn = Animated.timing(listeningMascotAnimation, {
+      duration: 220,
+      easing: Easing.out(Easing.cubic),
+      toValue: 1,
+      useNativeDriver: true,
+    });
     listenTurn.start();
     return () => listenTurn.stop();
   }, [listeningMascotAnimation, phase, reduceMotion]);
@@ -856,31 +847,31 @@ export function PronunciationPractice({
             >
               <Animated.Image
                 resizeMode="contain"
-                source={require('../../assets/mascots/squirrel-professor-listening-side.png')}
+                source={require('../../assets/mascots/squirrel-professor-listening-front.png')}
                 style={[
                   styles.listeningMascot,
                   { height: listeningMascotSize, width: listeningMascotSize },
                   {
-                    opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.72, 1], outputRange: [1, 0.4, 0] }),
+                    opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.65, 1], outputRange: [1, 0.25, 0] }),
                     transform: [
-                      { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, 4] }) },
-                      { rotate: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['-2deg', '0deg'] }) },
+                      { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0, -2] }) },
+                      { scale: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [1, 0.99] }) },
                     ],
                   },
                 ]}
               />
               <Animated.Image
                 resizeMode="contain"
-                source={require('../../assets/mascots/squirrel-professor-listening-front.png')}
+                source={require('../../assets/mascots/squirrel-professor-listening-side.png')}
                 style={[
                   styles.listeningMascot,
-                  styles.listeningMascotFront,
+                  styles.listeningMascotOverlay,
                   { height: listeningMascotSize, width: listeningMascotSize },
                   {
-                    opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.28, 1], outputRange: [0, 0.4, 1] }),
+                    opacity: listeningMascotAnimation.interpolate({ inputRange: [0, 0.35, 1], outputRange: [0, 0.75, 1] }),
                     transform: [
-                      { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [-4, 0] }) },
-                      { scale: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.97, 1] }) },
+                      { translateX: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [-3, 0] }) },
+                      { rotate: listeningMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['1deg', '-2deg'] }) },
                     ],
                   },
                 ]}
@@ -954,7 +945,7 @@ const styles = StyleSheet.create({
   signalRow: { alignItems: 'center', flexDirection: 'row' },
   listeningMascotWrap: { height: 94, marginTop: 1, position: 'relative', width: 94 },
   listeningMascot: { height: 94, width: 94 },
-  listeningMascotFront: { left: 0, position: 'absolute', top: 0 },
+  listeningMascotOverlay: { left: 0, position: 'absolute', top: 0 },
   landscapeMascot: { left: 16, marginRight: 0, position: 'absolute', zIndex: 4 },
   gradingMascotWrap: { height: 104, marginRight: 9, position: 'relative', width: 94 },
   gradingMascot: { height: 104, width: 80 },
