@@ -84,6 +84,7 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
   const [liveLevel, setLiveLevel] = useState(0);
   const [liveMatchedCount, setLiveMatchedCount] = useState(0);
   const [liveTentativeCount, setLiveTentativeCount] = useState(0);
+  const [gradingFrame, setGradingFrame] = useState(0);
   const attemptRef = useRef(0);
   const mountedRef = useRef(true);
   const runIdRef = useRef(0);
@@ -591,9 +592,13 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
     if (phase !== 'checking' || reduceMotion) {
       gradingMascotAnimation.stopAnimation();
       gradingMascotAnimation.setValue(0);
+      setGradingFrame(0);
       return undefined;
     }
 
+    const frameTimer = setInterval(() => {
+      setGradingFrame((currentFrame) => currentFrame === 0 ? 1 : 0);
+    }, 360);
     const gradingMotion = Animated.loop(
       Animated.sequence([
         Animated.timing(gradingMascotAnimation, {
@@ -611,7 +616,10 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
       ]),
     );
     gradingMotion.start();
-    return () => gradingMotion.stop();
+    return () => {
+      clearInterval(frameTimer);
+      gradingMotion.stop();
+    };
   }, [gradingMascotAnimation, phase, reduceMotion]);
 
   useEffect(() => {
@@ -723,27 +731,55 @@ export function PronunciationPractice({ audioProvider, audioVoice, phrase, level
       </Pressable>
       <View style={styles.statusRow}>
         {phase === 'checking' ? (
-          <Animated.Image
-            accessibilityLabel="La profesora ardilla está calificando"
-            resizeMode="contain"
-            source={require('../../assets/mascots/squirrel-professor-grading.png')}
-            style={[
-              styles.gradingMascot,
-              {
-                transform: [
-                  {
+          <View style={styles.gradingMascotWrap}>
+            <Animated.Image
+              accessibilityLabel="La profesora ardilla está calificando"
+              resizeMode="contain"
+              source={gradingFrame === 0
+                ? require('../../assets/mascots/squirrel-professor-grading.png')
+                : require('../../assets/mascots/squirrel-professor-grading-frame-2.png')}
+              style={[
+                styles.gradingMascot,
+                {
+                  transform: [{
                     rotate: gradingMascotAnimation.interpolate({
                       inputRange: [0, 1],
-                      outputRange: ['-1.5deg', '1.5deg'],
+                      outputRange: ['-1deg', '1deg'],
                     }),
-                  },
-                  {
-                    translateY: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [1, -2] }),
-                  },
-                ],
-              },
-            ]}
-          />
+                  }],
+                },
+              ]}
+            />
+            <Animated.Text
+              accessibilityElementsHidden
+              style={[
+                styles.gradingCheck,
+                {
+                  opacity: gradingMascotAnimation,
+                  transform: [
+                    { scale: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.6, 1.15] }) },
+                    { translateY: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: [5, -5] }) },
+                  ],
+                },
+              ]}
+            >
+              ✓
+            </Animated.Text>
+            <Animated.Text
+              accessibilityElementsHidden
+              style={[
+                styles.gradingStar,
+                {
+                  opacity: gradingMascotAnimation.interpolate({ inputRange: [0, 0.45, 1], outputRange: [0, 1, 0.25] }),
+                  transform: [{
+                    rotate: gradingMascotAnimation.interpolate({ inputRange: [0, 1], outputRange: ['-20deg', '20deg'] }),
+                  }],
+                },
+              ]}
+            >
+              ★
+            </Animated.Text>
+          </View>
         ) : null}
         <View style={styles.signalStack}>
           <View style={styles.signalRow}>
@@ -867,7 +903,10 @@ const styles = StyleSheet.create({
   signalStack: { alignItems: 'center', marginRight: 8 },
   signalRow: { alignItems: 'center', flexDirection: 'row' },
   listeningEar: { fontSize: 50, height: 58, lineHeight: 58, marginTop: -2, textAlign: 'center' },
-  gradingMascot: { height: 96, marginRight: 8, width: 76 },
+  gradingMascotWrap: { height: 104, marginRight: 9, position: 'relative', width: 94 },
+  gradingMascot: { height: 104, width: 80 },
+  gradingCheck: { color: '#58b985', fontSize: 27, fontWeight: '900', position: 'absolute', right: 0, top: 5 },
+  gradingStar: { color: '#edb949', fontSize: 18, fontWeight: '900', position: 'absolute', right: 4, top: 39 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },
   wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 28, marginRight: 8 },
   waveBar: { borderRadius: 3, width: 4 },
