@@ -285,6 +285,10 @@ export function LessonScreen({
   const currentCard = lesson?.cards[cardIndex];
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
+  const manualCardRequiresResponse = Boolean(currentCard?.options.length) || isPronunciation;
+  const canAdvanceManualCard = !manualCardRequiresResponse || completedCards.has(cardIndex) || (
+    isPronunciation && attemptedCards.has(cardIndex)
+  );
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
 
@@ -671,6 +675,10 @@ export function LessonScreen({
 
   const navigateManualCard = useCallback((direction: -1 | 1) => {
     if (!manualCardNavigation || !lesson || cardTransitioningRef.current) return;
+    if (direction > 0 && !canAdvanceManualCard) {
+      settleCard();
+      return;
+    }
     const nextIndex = cardIndex + direction;
     if (nextIndex < 0) {
       settleCard();
@@ -688,9 +696,6 @@ export function LessonScreen({
         settleCard();
         return;
       }
-      if (direction > 0 && result === null && !attemptedCards.has(cardIndex)) {
-        addDiagnosticBreadcrumb('card_skipped', { card_number: cardIndex + 1 });
-      }
       clearCardInteractionState();
       if (nextIndex >= lesson.cards.length) {
         cardTranslateX.setValue(0);
@@ -706,11 +711,10 @@ export function LessonScreen({
   }, [
     cardIndex,
     cardTranslateX,
+    canAdvanceManualCard,
     clearCardInteractionState,
-    attemptedCards,
     lesson,
     manualCardNavigation,
-    result,
     settleCard,
     viewportWidth,
   ]);
@@ -1043,20 +1047,21 @@ export function LessonScreen({
             </Pressable>
             <Text style={styles.swipeHint}>Desliza ↔</Text>
             <Pressable
-              accessibilityLabel={result === null && !attemptedCards.has(cardIndex) ? 'Omitir tarjeta' : 'Continuar a la siguiente tarjeta'}
+              accessibilityLabel={canAdvanceManualCard ? 'Continuar a la siguiente tarjeta' : 'Responde antes de continuar'}
               accessibilityRole="button"
+              accessibilityState={{ disabled: !canAdvanceManualCard }}
+              disabled={!canAdvanceManualCard}
               hitSlop={6}
               onPress={() => navigateManualCard(1)}
               style={({ pressed }) => [
                 styles.manualNavigationButton,
                 styles.manualNavigationButtonNext,
+                !canAdvanceManualCard ? styles.manualNavigationButtonDisabled : null,
                 pressed ? styles.manualNavigationButtonPressed : null,
               ]}
             >
               <Text style={[styles.manualNavigationButtonText, styles.manualNavigationButtonNextText]}>
-                {result === null && !attemptedCards.has(cardIndex)
-                  ? 'Omitir →'
-                  : cardIndex === lesson.cards.length - 1 ? 'Terminar →' : 'Continuar →'}
+                {cardIndex === lesson.cards.length - 1 ? 'Terminar →' : 'Continuar →'}
               </Text>
             </Pressable>
           </View>
