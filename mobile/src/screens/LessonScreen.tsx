@@ -1317,7 +1317,7 @@ const styles = StyleSheet.create({
   repeatButtonPressed: { backgroundColor: '#fff4df', opacity: 0.78, transform: [{ scale: 0.97 }] },
   repeatIcon: { color: '#8a4f00', fontSize: 16, fontWeight: '900', lineHeight: 18 },
   repeatText: { color: '#694b22', fontSize: 10, fontWeight: '900' },
-  highlight: { backgroundColor: '#ffe36b', color: '#111' },
+  highlight: { color: '#d99b00', fontWeight: '900' },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
   coldStart: { color: '#697177', fontSize: 13, lineHeight: 19, marginTop: 7, textAlign: 'center' },
