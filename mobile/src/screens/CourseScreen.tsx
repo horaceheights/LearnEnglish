@@ -172,6 +172,7 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, o
         <BrandHeader
           compact
           eyebrow="Tu ruta"
+          prominentLogo
           subtitle="Personas, acciones y frases cortas con imágenes claras."
           title="Lecciones para empezar con claridad"
         />

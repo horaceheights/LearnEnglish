@@ -5,22 +5,23 @@ type Props = {
   title: string;
   subtitle?: string;
   compact?: boolean;
+  prominentLogo?: boolean;
   onLogoPress?: () => void;
 };
 
-export function BrandHeader({ eyebrow, title, subtitle, compact = false, onLogoPress }: Props) {
+export function BrandHeader({ eyebrow, title, subtitle, compact = false, prominentLogo = false, onLogoPress }: Props) {
   const logo = (
     <Image
       accessible={false}
       accessibilityIgnoresInvertColors
       resizeMode="cover"
       source={require('../../assets/spanglish-header-logo.png')}
-      style={[styles.logo, compact ? styles.logoCompact : null]}
+      style={[styles.logo, compact ? styles.logoCompact : null, prominentLogo ? styles.logoProminent : null]}
     />
   );
 
   return (
-    <View style={[styles.hero, compact ? styles.heroCompact : null]}>
+    <View style={[styles.hero, compact ? styles.heroCompact : null, prominentLogo ? styles.heroProminent : null]}>
       {onLogoPress ? (
         <Pressable accessibilityLabel="SpanGlish" accessibilityRole="button" onPress={onLogoPress}>{logo}</Pressable>
       ) : logo}
@@ -41,8 +42,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   heroCompact: { paddingBottom: 12, paddingTop: 10 },
+  heroProminent: { paddingHorizontal: 8 },
   logo: { height: 82, marginBottom: 8, width: 250 },
   logoCompact: { height: 54, marginBottom: 3, width: 170 },
+  logoProminent: { height: 108, marginBottom: 6, maxWidth: 340, width: '100%' },
   eyebrow: { color: '#697177', fontSize: 11, fontWeight: '800', letterSpacing: 1.2, textTransform: 'uppercase' },
   title: { color: '#24333a', fontSize: 28, fontWeight: '900', lineHeight: 34, marginTop: 4, textAlign: 'center' },
   titleCompact: { fontSize: 22, lineHeight: 27 },
