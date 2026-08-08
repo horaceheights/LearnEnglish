@@ -12,8 +12,9 @@ export function BrandHeader({ eyebrow, title, subtitle, compact = false, onLogoP
   const logo = (
     <Image
       accessible={false}
-      resizeMode="contain"
-      source={require('../../assets/icon.png')}
+      accessibilityIgnoresInvertColors
+      resizeMode="cover"
+      source={require('../../assets/spanglish-header-logo.png')}
       style={[styles.logo, compact ? styles.logoCompact : null]}
     />
   );
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   heroCompact: { paddingBottom: 12, paddingTop: 10 },
-  logo: { borderRadius: 22, height: 90, marginBottom: 8, width: 90 },
-  logoCompact: { borderRadius: 14, height: 48, marginBottom: 3, width: 48 },
+  logo: { height: 82, marginBottom: 8, width: 250 },
+  logoCompact: { height: 54, marginBottom: 3, width: 170 },
   eyebrow: { color: '#697177', fontSize: 11, fontWeight: '800', letterSpacing: 1.2, textTransform: 'uppercase' },
   title: { color: '#24333a', fontSize: 28, fontWeight: '900', lineHeight: 34, marginTop: 4, textAlign: 'center' },
   titleCompact: { fontSize: 22, lineHeight: 27 },
