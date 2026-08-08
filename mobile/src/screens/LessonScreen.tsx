@@ -93,8 +93,8 @@ export function LessonScreen({
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isPortrait = viewportHeight >= viewportWidth;
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
-  const portraitBrandWidth = Math.min(136, Math.max(104, viewportWidth - 256));
-  const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 120;
+  const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
+  const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 190;
   const manualCardNavigation = lessonId === 'lesson-1-people-actions' && !qaMode;
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -1010,7 +1010,7 @@ export function LessonScreen({
                   onPress={onExit}
                   style={styles.backButton}
                 >
-                  <Text style={styles.backButtonText}>← Lecciones</Text>
+                  <Text style={styles.backButtonText}>←</Text>
                 </Pressable>
                 <LessonBrandMark
                   centeredWidth={portraitBrandWidth}
@@ -1019,15 +1019,15 @@ export function LessonScreen({
               </>
             ) : (
               <View style={styles.heroNavigation}>
-                <LessonBrandMark compact={useCompactPhoneLayout} />
                 <Pressable
                   accessibilityLabel="Volver a lecciones"
                   accessibilityRole="button"
                   onPress={onExit}
                   style={[styles.backButton, useCompactPhoneLayout ? styles.backButtonCompact : null]}
                 >
-                  <Text style={styles.backButtonText}>← Lecciones</Text>
+                  <Text style={styles.backButtonText}>←</Text>
                 </Pressable>
+                <LessonBrandMark compact={useCompactPhoneLayout} />
               </View>
             )}
             {!isPortrait ? (
@@ -1271,12 +1271,12 @@ const styles = StyleSheet.create({
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   heroTopPortrait: { minHeight: 48, position: 'relative' },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
-  logoPill: { borderRadius: 18, height: 48, overflow: 'hidden', width: 144 },
-  logoPillCompact: { borderRadius: 14, height: 40, width: 116 },
+  logoPill: { height: 50, overflow: 'hidden', width: 205 },
+  logoPillCompact: { height: 40, width: 165 },
   brandLogoImage: { height: '100%', width: '100%' },
-  backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
-  backButtonCompact: { borderRadius: 12, minHeight: 40, paddingHorizontal: 10 },
-  backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
+  backButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, height: 48, justifyContent: 'center', width: 48 },
+  backButtonCompact: { borderRadius: 12, height: 40, width: 40 },
+  backButtonText: { color: '#24333a', fontSize: 26, fontWeight: '900', lineHeight: 28 },
   lessonStatus: { alignItems: 'stretch', flex: 1, justifyContent: 'center', marginHorizontal: 3 },
   lessonStatusPortrait: { flex: 0, height: 50, marginHorizontal: 0, marginTop: 6, width: '100%' },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
