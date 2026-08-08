@@ -94,7 +94,9 @@ export function StageJourney({
               {isActive ? (
                 <>
                   <View style={[styles.activeProgress, { width: `${positionInStage}%` }]} />
-                  <View style={[styles.marker, compact ? styles.markerCompact : null, { left: `${positionInStage}%` }]} />
+                  <View style={[styles.marker, compact ? styles.markerCompact : null, { left: `${positionInStage}%` }]}>
+                    <View style={[styles.markerGem, compact ? styles.markerGemCompact : null]} />
+                  </View>
                 </>
               ) : null}
               {isComplete ? <Text style={[styles.completeMark, compact ? styles.completeMarkCompact : null]}>✓</Text> : null}
@@ -127,8 +129,10 @@ const styles = StyleSheet.create({
   futureOverlay: { backgroundColor: 'rgba(255,255,255,0.32)', bottom: 0, left: 0, position: 'absolute', right: 0, top: 0 },
   activeSegment: { borderColor: '#24333a', borderWidth: 3 },
   activeProgress: { backgroundColor: 'rgba(20,35,42,0.20)', bottom: 0, left: 0, position: 'absolute', top: 0 },
-  marker: { backgroundColor: '#fff', borderColor: '#17252b', borderRadius: 14, borderWidth: 4, height: 28, marginLeft: -14, position: 'absolute', top: -3, width: 28, zIndex: 3 },
-  markerCompact: { borderRadius: 11, borderWidth: 3, height: 22, marginLeft: -11, width: 22 },
+  marker: { alignItems: 'center', backgroundColor: '#fff4a8', borderColor: '#17252b', borderRadius: 4, borderWidth: 2, height: 16, justifyContent: 'center', marginLeft: -8, position: 'absolute', top: 3, transform: [{ rotate: '45deg' }], width: 16, zIndex: 3 },
+  markerCompact: { borderRadius: 3, height: 12, marginLeft: -6, top: 2, width: 12 },
+  markerGem: { backgroundColor: '#f3a712', borderRadius: 3, height: 6, width: 6 },
+  markerGemCompact: { height: 4, width: 4 },
   completeMark: { color: '#fff', fontSize: 18, fontWeight: '900', left: 7, position: 'absolute', top: 4, textShadowColor: 'rgba(0,0,0,0.35)', textShadowOffset: { height: 1, width: 0 }, textShadowRadius: 2 },
   completeMarkCompact: { fontSize: 13, left: 4, top: 2 },
   segmentLabel: { color: '#fff', fontSize: 20, fontWeight: '900', paddingHorizontal: 6, textAlign: 'center', textShadowColor: 'rgba(0,0,0,0.55)', textShadowOffset: { height: 1, width: 0 }, textShadowRadius: 2, width: '100%', zIndex: 2 },
