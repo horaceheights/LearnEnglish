@@ -969,23 +969,43 @@ export function LessonScreen({
             </View>
           ) : null}
           <View style={[styles.heroTop, isPortrait ? styles.heroTopPortrait : null]}>
-            <View style={styles.heroNavigation}>
-              <View
-                accessible={false}
-                importantForAccessibility="no-hide-descendants"
-                style={[styles.logoPill, useCompactPhoneLayout ? styles.logoPillCompact : null]}
-              >
-                <Text style={styles.logoText}>SP</Text>
+            {isPortrait ? (
+              <>
+                <Pressable
+                  accessibilityLabel="Volver a lecciones"
+                  accessibilityRole="button"
+                  onPress={onExit}
+                  style={styles.backButton}
+                >
+                  <Text style={styles.backButtonText}>← Lecciones</Text>
+                </Pressable>
+                <View
+                  accessible={false}
+                  importantForAccessibility="no-hide-descendants"
+                  style={[styles.logoPill, styles.logoPillPortrait]}
+                >
+                  <Text style={styles.logoText}>SP</Text>
+                </View>
+              </>
+            ) : (
+              <View style={styles.heroNavigation}>
+                <View
+                  accessible={false}
+                  importantForAccessibility="no-hide-descendants"
+                  style={[styles.logoPill, useCompactPhoneLayout ? styles.logoPillCompact : null]}
+                >
+                  <Text style={styles.logoText}>SP</Text>
+                </View>
+                <Pressable
+                  accessibilityLabel="Volver a lecciones"
+                  accessibilityRole="button"
+                  onPress={onExit}
+                  style={[styles.backButton, useCompactPhoneLayout ? styles.backButtonCompact : null]}
+                >
+                  <Text style={styles.backButtonText}>← Lecciones</Text>
+                </Pressable>
               </View>
-              <Pressable
-                accessibilityLabel="Volver a lecciones"
-                accessibilityRole="button"
-                onPress={onExit}
-                style={[styles.backButton, useCompactPhoneLayout ? styles.backButtonCompact : null]}
-              >
-                <Text style={styles.backButtonText}>← Lecciones</Text>
-              </Pressable>
-            </View>
+            )}
             {!isPortrait ? (
               <View style={styles.lessonStatus}>
                 <StageJourney
@@ -1225,10 +1245,11 @@ const styles = StyleSheet.create({
   heroGlowMint: { backgroundColor: '#a9dfcf', borderRadius: 100, bottom: -75, height: 180, opacity: 0.3, position: 'absolute', right: -55, width: 180 },
   heroGlowGold: { backgroundColor: '#f4cf72', borderRadius: 65, height: 110, opacity: 0.2, position: 'absolute', right: 75, top: -55, width: 110 },
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
-  heroTopPortrait: { minHeight: 48 },
+  heroTopPortrait: { minHeight: 48, position: 'relative' },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
   logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 15, height: 48, justifyContent: 'center', width: 54 },
   logoPillCompact: { borderRadius: 12, height: 40, width: 46 },
+  logoPillPortrait: { left: '50%', marginLeft: -27, position: 'absolute' },
   logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
   backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
   backButtonCompact: { borderRadius: 12, minHeight: 40, paddingHorizontal: 10 },
