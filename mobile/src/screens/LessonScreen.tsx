@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Animated,
   BackHandler,
+  Image,
   PanResponder,
   Pressable,
   ScrollView,
@@ -39,6 +40,7 @@ import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 const TRY_AGAIN_CUE = require('../../assets/try-again.wav');
+const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
 
 type Props = {
   lessonId: string;
@@ -67,12 +69,12 @@ function LessonBrandMark({
           : null,
       ]}
     >
-      <Text style={[styles.brandSpan, compact ? styles.brandWordCompact : null]}>Span</Text>
-      <View style={[styles.brandBridge, compact ? styles.brandBridgeCompact : null]}>
-        <View style={styles.brandBridgeTail} />
-        <Text style={[styles.brandBridgeText, compact ? styles.brandBridgeTextCompact : null]}>Aa</Text>
-      </View>
-      <Text style={[styles.brandGlish, compact ? styles.brandWordCompact : null]}>Glish!</Text>
+      <Image
+        accessibilityIgnoresInvertColors
+        resizeMode="cover"
+        source={HEADER_BRAND_LOGO}
+        style={styles.brandLogoImage}
+      />
     </View>
   );
 }
@@ -1269,16 +1271,9 @@ const styles = StyleSheet.create({
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   heroTopPortrait: { minHeight: 48, position: 'relative' },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
-  logoPill: { alignItems: 'center', backgroundColor: '#fff9ed', borderColor: '#e3bb76', borderRadius: 18, borderWidth: 1, flexDirection: 'row', gap: 3, height: 48, justifyContent: 'center', paddingHorizontal: 7, width: 126 },
-  logoPillCompact: { borderRadius: 14, gap: 2, height: 40, paddingHorizontal: 5, width: 108 },
-  brandSpan: { color: '#ef6b4a', fontSize: 15, fontStyle: 'italic', fontWeight: '900' },
-  brandGlish: { color: '#2f6f9f', fontSize: 15, fontStyle: 'italic', fontWeight: '900' },
-  brandWordCompact: { fontSize: 12 },
-  brandBridge: { alignItems: 'center', backgroundColor: '#16766f', borderRadius: 8, height: 19, justifyContent: 'center', position: 'relative', width: 24 },
-  brandBridgeCompact: { borderRadius: 7, height: 16, width: 20 },
-  brandBridgeTail: { backgroundColor: '#16766f', bottom: -2, height: 6, left: 4, position: 'absolute', transform: [{ rotate: '45deg' }], width: 6 },
-  brandBridgeText: { color: '#fff', fontSize: 9, fontWeight: '900', letterSpacing: -0.3, lineHeight: 11, zIndex: 1 },
-  brandBridgeTextCompact: { fontSize: 8, lineHeight: 9 },
+  logoPill: { borderRadius: 18, height: 48, overflow: 'hidden', width: 144 },
+  logoPillCompact: { borderRadius: 14, height: 40, width: 116 },
+  brandLogoImage: { height: '100%', width: '100%' },
   backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
   backButtonCompact: { borderRadius: 12, minHeight: 40, paddingHorizontal: 10 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
