@@ -819,6 +819,7 @@ export function LessonScreen({
 
   const renderPrompt = () => {
     if (!currentCard) return '';
+    const normalizedStage = currentCard.stage.trim().toLowerCase();
     const selectedOption = currentCard.options.find((option) => option.id === selectedId);
     const displayedPrompt =
       isGrammar && grammarCompleted && selectedOption?.label
@@ -828,7 +829,7 @@ export function LessonScreen({
       ? new Set(['is', 'are', selectedOption?.label?.toLowerCase() || ''])
       : currentCard.stage === 'New Grammar'
         ? new Set(['not', selectedOption?.label?.toLowerCase() || ''])
-      : currentCard.stage === 'More People'
+      : currentCard.stage === 'More People' || normalizedStage.includes('plural')
         ? new Set(['and', 'are'])
         : new Set<string>();
     return lessonPromptText(lesson.id, displayedPrompt).split(/(\b[A-Za-z']+\b)/g).map((part, index) => (
@@ -1267,7 +1268,7 @@ const styles = StyleSheet.create({
   repeatButtonPressed: { backgroundColor: '#fff4df', opacity: 0.78, transform: [{ scale: 0.97 }] },
   repeatIcon: { color: '#8a4f00', fontSize: 16, fontWeight: '900', lineHeight: 18 },
   repeatText: { color: '#694b22', fontSize: 10, fontWeight: '900' },
-  highlight: { backgroundColor: '#f9dc8e', color: '#8a4f00' },
+  highlight: { backgroundColor: '#ffe36b', color: '#111' },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
   coldStart: { color: '#697177', fontSize: 13, lineHeight: 19, marginTop: 7, textAlign: 'center' },
