@@ -48,6 +48,35 @@ type Props = {
   qaMode?: boolean;
 };
 
+function LessonBrandMark({
+  compact = false,
+  centeredWidth,
+}: {
+  compact?: boolean;
+  centeredWidth?: number;
+}) {
+  return (
+    <View
+      accessible={false}
+      importantForAccessibility="no-hide-descendants"
+      style={[
+        styles.logoPill,
+        compact ? styles.logoPillCompact : null,
+        centeredWidth
+          ? { left: '50%', marginLeft: -(centeredWidth / 2), position: 'absolute', width: centeredWidth }
+          : null,
+      ]}
+    >
+      <Text style={[styles.brandSpan, compact ? styles.brandWordCompact : null]}>Span</Text>
+      <View style={[styles.brandBridge, compact ? styles.brandBridgeCompact : null]}>
+        <View style={styles.brandBridgeTail} />
+        <Text style={[styles.brandBridgeText, compact ? styles.brandBridgeTextCompact : null]}>Aa</Text>
+      </View>
+      <Text style={[styles.brandGlish, compact ? styles.brandWordCompact : null]}>Glish!</Text>
+    </View>
+  );
+}
+
 export function LessonScreen({
   lessonId,
   profile,
@@ -62,6 +91,8 @@ export function LessonScreen({
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isPortrait = viewportHeight >= viewportWidth;
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
+  const portraitBrandWidth = Math.min(136, Math.max(104, viewportWidth - 256));
+  const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 120;
   const manualCardNavigation = lessonId === 'lesson-1-people-actions' && !qaMode;
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -979,23 +1010,14 @@ export function LessonScreen({
                 >
                   <Text style={styles.backButtonText}>← Lecciones</Text>
                 </Pressable>
-                <View
-                  accessible={false}
-                  importantForAccessibility="no-hide-descendants"
-                  style={[styles.logoPill, styles.logoPillPortrait]}
-                >
-                  <Text style={styles.logoText}>SP</Text>
-                </View>
+                <LessonBrandMark
+                  centeredWidth={portraitBrandWidth}
+                  compact={useCompactPortraitBrand}
+                />
               </>
             ) : (
               <View style={styles.heroNavigation}>
-                <View
-                  accessible={false}
-                  importantForAccessibility="no-hide-descendants"
-                  style={[styles.logoPill, useCompactPhoneLayout ? styles.logoPillCompact : null]}
-                >
-                  <Text style={styles.logoText}>SP</Text>
-                </View>
+                <LessonBrandMark compact={useCompactPhoneLayout} />
                 <Pressable
                   accessibilityLabel="Volver a lecciones"
                   accessibilityRole="button"
@@ -1247,10 +1269,16 @@ const styles = StyleSheet.create({
   heroTop: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   heroTopPortrait: { minHeight: 48, position: 'relative' },
   heroNavigation: { alignItems: 'center', flexDirection: 'row', gap: 7 },
-  logoPill: { alignItems: 'center', backgroundColor: '#16324f', borderRadius: 15, height: 48, justifyContent: 'center', width: 54 },
-  logoPillCompact: { borderRadius: 12, height: 40, width: 46 },
-  logoPillPortrait: { left: '50%', marginLeft: -27, position: 'absolute' },
-  logoText: { color: '#f1bf00', fontSize: 15, fontWeight: '900' },
+  logoPill: { alignItems: 'center', backgroundColor: '#fff9ed', borderColor: '#e3bb76', borderRadius: 18, borderWidth: 1, flexDirection: 'row', gap: 3, height: 48, justifyContent: 'center', paddingHorizontal: 7, width: 126 },
+  logoPillCompact: { borderRadius: 14, gap: 2, height: 40, paddingHorizontal: 5, width: 108 },
+  brandSpan: { color: '#ef6b4a', fontSize: 15, fontStyle: 'italic', fontWeight: '900' },
+  brandGlish: { color: '#2f6f9f', fontSize: 15, fontStyle: 'italic', fontWeight: '900' },
+  brandWordCompact: { fontSize: 12 },
+  brandBridge: { alignItems: 'center', backgroundColor: '#16766f', borderRadius: 8, height: 19, justifyContent: 'center', position: 'relative', width: 24 },
+  brandBridgeCompact: { borderRadius: 7, height: 16, width: 20 },
+  brandBridgeTail: { backgroundColor: '#16766f', bottom: -2, height: 6, left: 4, position: 'absolute', transform: [{ rotate: '45deg' }], width: 6 },
+  brandBridgeText: { color: '#fff', fontSize: 9, fontWeight: '900', letterSpacing: -0.3, lineHeight: 11, zIndex: 1 },
+  brandBridgeTextCompact: { fontSize: 8, lineHeight: 9 },
   backButton: { backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, justifyContent: 'center', minHeight: 48, paddingHorizontal: 13 },
   backButtonCompact: { borderRadius: 12, minHeight: 40, paddingHorizontal: 10 },
   backButtonText: { color: '#24333a', fontSize: 12, fontWeight: '900' },
