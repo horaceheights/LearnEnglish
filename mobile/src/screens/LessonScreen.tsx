@@ -179,6 +179,11 @@ export function LessonScreen({
   }, [onExit]);
 
   useEffect(() => {
+    if (qaMode) {
+      setSentenceHelpStatus('pending');
+      return undefined;
+    }
+
     let active = true;
     setSentenceHelpStatus('loading');
     AsyncStorage.getItem(sentenceHelpStorageKey)
@@ -189,7 +194,7 @@ export function LessonScreen({
         if (active) setSentenceHelpStatus('pending');
       });
     return () => { active = false; };
-  }, [sentenceHelpStorageKey]);
+  }, [qaMode, sentenceHelpStorageKey]);
 
   const ensureAudioPreloaded = useCallback((url: string) => {
     const existing = audioPreloadRef.current.get(url);
@@ -444,12 +449,11 @@ export function LessonScreen({
   const dismissSentenceCoachmark = useCallback(() => {
     setShowSentenceCoachmark(false);
     setSentenceHelpStatus('seen');
-    void AsyncStorage.setItem(sentenceHelpStorageKey, 'seen');
-  }, [sentenceHelpStorageKey]);
+    if (!qaMode) void AsyncStorage.setItem(sentenceHelpStorageKey, 'seen');
+  }, [qaMode, sentenceHelpStorageKey]);
 
   useEffect(() => {
     if (
-      qaMode ||
       sentenceHelpStatus !== 'pending' ||
       !currentCard ||
       currentCard.options.length < 2 ||
@@ -462,7 +466,7 @@ export function LessonScreen({
       450,
     );
     return () => clearTimeout(timer);
-  }, [currentCard, isPronunciation, promptAudio, qaMode, sentenceHelpStatus, updateSentenceAnchor]);
+  }, [currentCard, isPronunciation, promptAudio, sentenceHelpStatus, updateSentenceAnchor]);
 
   useEffect(() => {
     if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
