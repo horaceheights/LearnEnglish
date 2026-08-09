@@ -59,8 +59,9 @@ type Props = {
 
 export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, onSignOut }: Props) {
   const { currentlyRunning, isUpdatePending } = Updates.useUpdates();
-  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
+  const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
+  const useStackedWelcome = viewportWidth < 390 || fontScale > 1.25;
   const useGrid = isLandscape || viewportWidth >= 600;
   const isExpanded = viewportWidth >= 840;
   const lessonCardWidth = isExpanded ? '31.5%' : '48.5%';
@@ -176,12 +177,12 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, o
           subtitle="Personas, acciones y frases cortas con imágenes claras."
           title="Lecciones para empezar con claridad"
         />
-        <View style={styles.welcome}>
-          <View style={styles.welcomeIdentity}>
+        <View style={[styles.welcome, useStackedWelcome ? styles.welcomeStacked : null]}>
+          <View style={[styles.welcomeIdentity, useStackedWelcome ? styles.welcomeIdentityStacked : null]}>
             <Text style={styles.welcomeText}>Welcome {profile.displayName}</Text>
             <Text style={styles.aiNote}>Las voces de práctica pueden ser generadas con IA.</Text>
           </View>
-          <View style={styles.accountActions}>
+          <View style={[styles.accountActions, useStackedWelcome ? styles.accountActionsStacked : null]}>
             <Pressable accessibilityLabel="Ajustar mi perfil" accessibilityRole="button" onPress={onEditProfile} style={styles.profileButton}>
               <Text style={styles.profileIcon}>◉</Text>
             </Pressable>
@@ -275,10 +276,13 @@ const styles = StyleSheet.create({
   qaEyebrow: { color: '#76559e', fontSize: 8, fontWeight: '900', letterSpacing: 1 },
   qaTitle: { color: '#4f2769', fontSize: 15, fontWeight: '900', marginTop: 2 },
   welcome: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 21, borderWidth: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 16 },
+  welcomeStacked: { alignItems: 'stretch', flexDirection: 'column', gap: 14 },
   welcomeIdentity: { flex: 1, marginRight: 10 },
+  welcomeIdentityStacked: { marginRight: 0, width: '100%' },
   welcomeText: { color: '#24333a', fontSize: 21, fontWeight: '800' },
   aiNote: { color: '#697177', fontSize: 11, marginTop: 4 },
   accountActions: { alignItems: 'center', flexDirection: 'row', gap: 8 },
+  accountActionsStacked: { flexWrap: 'wrap', justifyContent: 'flex-end', width: '100%' },
   profileButton: { alignItems: 'center', borderColor: '#ddd8cf', borderRadius: 22, borderWidth: 1, height: 44, justifyContent: 'center', width: 44 },
   profileIcon: { color: '#2f8f62', fontSize: 20 },
   signOutButton: { alignItems: 'center', borderColor: '#d9a8a1', borderRadius: 12, borderWidth: 1, justifyContent: 'center', minHeight: 44, paddingHorizontal: 14 },
