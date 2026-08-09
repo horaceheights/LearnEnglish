@@ -130,8 +130,10 @@ export function LessonScreen({
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
   const promptTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const translationHideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const promptTapTargetRef = useRef<View | null>(null);
   const lastPromptTapRef = useRef(0);
+  const translationOpacity = useRef(new Animated.Value(0)).current;
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [sessionId, setSessionId] = useState('');
   const [cardIndex, setCardIndex] = useState(0);
@@ -312,8 +314,10 @@ export function LessonScreen({
       if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
       if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
       if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
+      if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
+      translationOpacity.stopAnimation();
     };
-  }, []);
+  }, [translationOpacity]);
 
   const load = async () => {
     setDiagnosticContext({ lessonId, operation: 'lesson_load', qaMode });
@@ -400,8 +404,26 @@ export function LessonScreen({
       promptTapTimerRef.current = null;
     }
     lastPromptTapRef.current = 0;
-    updateSentenceAnchor(() => setShowSentenceTranslation(true));
-  }, [updateSentenceAnchor]);
+    if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
+    translationOpacity.stopAnimation();
+    translationOpacity.setValue(0);
+    setShowSentenceTranslation(true);
+    Animated.timing(translationOpacity, {
+      duration: 160,
+      toValue: 1,
+      useNativeDriver: true,
+    }).start();
+    translationHideTimerRef.current = setTimeout(() => {
+      translationHideTimerRef.current = null;
+      Animated.timing(translationOpacity, {
+        duration: 240,
+        toValue: 0,
+        useNativeDriver: true,
+      }).start(({ finished }) => {
+        if (finished) setShowSentenceTranslation(false);
+      });
+    }, 2760);
+  }, [translationOpacity]);
 
   const handlePromptPress = useCallback(() => {
     const now = Date.now();
@@ -445,9 +467,13 @@ export function LessonScreen({
   useEffect(() => {
     if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
     promptTapTimerRef.current = null;
+    if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
+    translationHideTimerRef.current = null;
     lastPromptTapRef.current = 0;
+    translationOpacity.stopAnimation();
+    translationOpacity.setValue(0);
     setShowSentenceTranslation(false);
-  }, [cardIndex]);
+  }, [cardIndex, translationOpacity]);
 
   useEffect(() => {
     setFurthestCardIndex((current) => Math.max(current, cardIndex));
@@ -1216,7 +1242,7 @@ export function LessonScreen({
               }}
               onLongPress={openSentenceTranslation}
               onLayout={() => {
-                if (showSentenceCoachmark || showSentenceTranslation) updateSentenceAnchor();
+                if (showSentenceCoachmark) updateSentenceAnchor();
               }}
               onPress={handlePromptPress}
               style={styles.promptTapTarget}
@@ -1245,6 +1271,15 @@ export function LessonScreen({
               >
                 {isPronunciation ? pronunciationInstruction(lesson.id) : renderPrompt()}
               </Text>
+              {showSentenceTranslation ? (
+                <Animated.Text
+                  accessibilityLiveRegion="polite"
+                  numberOfLines={2}
+                  style={[styles.inlineTranslation, { opacity: translationOpacity }]}
+                >
+                  {sentenceTranslation}
+                </Animated.Text>
+              ) : null}
             </Pressable>
           </View>
         </View>
@@ -1318,16 +1353,8 @@ export function LessonScreen({
       )}
       <SentenceHelpOverlay
         anchorBottom={sentenceAnchorBottom}
-        mode="coachmark"
         onClose={dismissSentenceCoachmark}
         visible={showSentenceCoachmark}
-      />
-      <SentenceHelpOverlay
-        anchorBottom={sentenceAnchorBottom}
-        mode="translation"
-        onClose={() => setShowSentenceTranslation(false)}
-        translation={sentenceTranslation}
-        visible={showSentenceTranslation}
       />
     </SafeAreaView>
   );
@@ -1419,6 +1446,14 @@ const styles = StyleSheet.create({
   promptRowPronunciation: { minHeight: 28 },
   promptTapTarget: { width: '100%' },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
+  inlineTranslation: {
+    color: '#58656b',
+    fontSize: 13,
+    fontWeight: '700',
+    lineHeight: 17,
+    marginTop: 2,
+    textAlign: 'center',
+  },
   highlight: { color: '#d99b00', fontWeight: '900' },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
