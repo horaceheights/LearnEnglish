@@ -13,6 +13,7 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { preload, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
@@ -26,6 +27,7 @@ import {
 } from '../api';
 import { LessonCardView } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
+import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
 import { courseAudioProvider, courseAudioUrl, courseAudioVoice } from '../config';
 import {
@@ -36,11 +38,14 @@ import {
 } from '../diagnostics';
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
+import { spanishTranslationFor } from '../sentenceTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 const TRY_AGAIN_CUE = require('../../assets/try-again.wav');
 const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
+const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v1';
+const DOUBLE_TAP_DELAY_MS = 290;
 
 type Props = {
   lessonId: string;
@@ -124,6 +129,8 @@ export function LessonScreen({
   const cardTransitioningRef = useRef(false);
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
+  const promptTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastPromptTapRef = useRef(0);
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [sessionId, setSessionId] = useState('');
   const [cardIndex, setCardIndex] = useState(0);
@@ -141,10 +148,13 @@ export function LessonScreen({
   const [grammarCompleted, setGrammarCompleted] = useState(false);
   const [qaAutoAdvance, setQaAutoAdvance] = useState(false);
   const [cardRunId, setCardRunId] = useState(0);
-  const [promptTextWidth, setPromptTextWidth] = useState(0);
+  const [sentenceHelpStatus, setSentenceHelpStatus] = useState<'loading' | 'pending' | 'seen'>('loading');
+  const [showSentenceCoachmark, setShowSentenceCoachmark] = useState(false);
+  const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const audioProvider = courseAudioProvider(lessonId);
   const audioVoice = courseAudioVoice(lessonId, lesson?.cards[cardIndex]?.stage || '');
+  const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
 
   useEffect(() => {
     // Lessons adapt to both orientations. DEFAULT follows the device sensor,
@@ -163,6 +173,19 @@ export function LessonScreen({
 
     return () => subscription.remove();
   }, [onExit]);
+
+  useEffect(() => {
+    let active = true;
+    setSentenceHelpStatus('loading');
+    AsyncStorage.getItem(sentenceHelpStorageKey)
+      .then((stored) => {
+        if (active) setSentenceHelpStatus(stored === 'seen' ? 'seen' : 'pending');
+      })
+      .catch(() => {
+        if (active) setSentenceHelpStatus('pending');
+      });
+    return () => { active = false; };
+  }, [sentenceHelpStorageKey]);
 
   const ensureAudioPreloaded = useCallback((url: string) => {
     const existing = audioPreloadRef.current.get(url);
@@ -286,6 +309,7 @@ export function LessonScreen({
       if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
       if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
       if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+      if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
     };
   }, []);
 
@@ -336,7 +360,75 @@ export function LessonScreen({
   const automaticAdvanceDelay = manualCardNavigation ? 2000 : 0;
   const isAutomaticSingleCard = manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
+  const sentenceTranslation = spanishTranslationFor(
+    isGrammar ? currentCard?.prompt ?? '' : promptAudio,
+  );
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
+
+  const replayPrompt = useCallback(() => {
+    if (!promptAudio.trim()) return;
+    if (isPronunciation) {
+      playAudio(promptAudio, 'pronunciation_slow', 'split-ing');
+      return;
+    }
+    playAudio(
+      promptAudio,
+      'prompt',
+      promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
+    );
+  }, [isPronunciation, playAudio, promptAudio]);
+
+  const openSentenceTranslation = useCallback(() => {
+    if (promptTapTimerRef.current) {
+      clearTimeout(promptTapTimerRef.current);
+      promptTapTimerRef.current = null;
+    }
+    lastPromptTapRef.current = 0;
+    setShowSentenceTranslation(true);
+  }, []);
+
+  const handlePromptPress = useCallback(() => {
+    const now = Date.now();
+    if (lastPromptTapRef.current && now - lastPromptTapRef.current <= DOUBLE_TAP_DELAY_MS) {
+      openSentenceTranslation();
+      return;
+    }
+
+    lastPromptTapRef.current = now;
+    if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
+    promptTapTimerRef.current = setTimeout(() => {
+      promptTapTimerRef.current = null;
+      lastPromptTapRef.current = 0;
+      replayPrompt();
+    }, DOUBLE_TAP_DELAY_MS);
+  }, [openSentenceTranslation, replayPrompt]);
+
+  const dismissSentenceCoachmark = useCallback(() => {
+    setShowSentenceCoachmark(false);
+    setSentenceHelpStatus('seen');
+    void AsyncStorage.setItem(sentenceHelpStorageKey, 'seen');
+  }, [sentenceHelpStorageKey]);
+
+  useEffect(() => {
+    if (
+      qaMode ||
+      sentenceHelpStatus !== 'pending' ||
+      !currentCard ||
+      currentCard.options.length < 2 ||
+      isPronunciation ||
+      !promptAudio.trim()
+    ) return undefined;
+
+    const timer = setTimeout(() => setShowSentenceCoachmark(true), 450);
+    return () => clearTimeout(timer);
+  }, [currentCard, isPronunciation, promptAudio, qaMode, sentenceHelpStatus]);
+
+  useEffect(() => {
+    if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
+    promptTapTimerRef.current = null;
+    lastPromptTapRef.current = 0;
+    setShowSentenceTranslation(false);
+  }, [cardIndex]);
 
   useEffect(() => {
     setFurthestCardIndex((current) => Math.max(current, cardIndex));
@@ -1095,20 +1187,19 @@ export function LessonScreen({
           ]}>
             <Pressable
               accessibilityLabel={`Reproducir: ${promptAudio}`}
-              accessibilityHint="Toca dos veces para escuchar la frase"
+              accessibilityActions={[{ label: 'Mostrar traducción', name: 'translate' }]}
+              accessibilityHint="Toca una vez para repetir. Usa la acción Traducir para ver la frase en español."
               accessibilityRole="button"
               disabled={!promptAudio.trim()}
-              onPress={() => isPronunciation
-                ? playAudio(promptAudio, 'pronunciation_slow', 'split-ing')
-                : playAudio(promptAudio, 'prompt', 'prompt')}
+              onAccessibilityAction={({ nativeEvent }) => {
+                if (nativeEvent.actionName === 'translate') openSentenceTranslation();
+              }}
+              onLongPress={openSentenceTranslation}
+              onPress={handlePromptPress}
               style={styles.promptTapTarget}
             >
               <Text
                 numberOfLines={2}
-                onTextLayout={({ nativeEvent }) => {
-                  const measuredWidth = Math.max(0, ...nativeEvent.lines.map((line) => line.width));
-                  setPromptTextWidth((current) => Math.abs(current - measuredWidth) < 1 ? current : measuredWidth);
-                }}
                 style={[
                   styles.prompt,
                   {
@@ -1132,31 +1223,6 @@ export function LessonScreen({
                 {isPronunciation ? pronunciationInstruction(lesson.id) : renderPrompt()}
               </Text>
             </Pressable>
-            {!isPronunciation && promptAudio.trim() ? (
-              <Pressable
-                accessibilityLabel={`Repetir audio: ${promptAudio}`}
-                accessibilityHint="Reproduce nuevamente la frase"
-                accessibilityRole="button"
-                hitSlop={6}
-                onPress={() => playAudio(promptAudio, 'prompt', 'prompt')}
-                style={({ pressed }) => [
-                  styles.repeatButton,
-                  isPortrait ? styles.repeatButtonPortrait : styles.repeatButtonFloating,
-                  !isPortrait
-                    ? {
-                        marginLeft: Math.max(
-                          9,
-                          Math.min((promptTextWidth / 2) + 9, (viewportWidth / 2) - 112),
-                        ),
-                      }
-                    : null,
-                  pressed ? styles.repeatButtonPressed : null,
-                ]}
-              >
-                <Text style={styles.repeatIcon}>↻</Text>
-                <Text style={styles.repeatText}>Repetir</Text>
-              </Pressable>
-            ) : null}
           </View>
         </View>
         {pauseForPronunciationReview ? (
@@ -1227,6 +1293,17 @@ export function LessonScreen({
           isPronunciation ? styles.pagePronunciation : null,
         ]}>{lessonContent}</View>
       )}
+      <SentenceHelpOverlay
+        mode="coachmark"
+        onClose={dismissSentenceCoachmark}
+        visible={showSentenceCoachmark}
+      />
+      <SentenceHelpOverlay
+        mode="translation"
+        onClose={() => setShowSentenceTranslation(false)}
+        translation={sentenceTranslation}
+        visible={showSentenceTranslation}
+      />
     </SafeAreaView>
   );
 }
@@ -1317,12 +1394,6 @@ const styles = StyleSheet.create({
   promptRowPronunciation: { minHeight: 28 },
   promptTapTarget: { width: '100%' },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
-  repeatButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#c98f42', borderRadius: 13, borderWidth: 1, flexDirection: 'row', gap: 4, justifyContent: 'center', minHeight: 28, width: 82 },
-  repeatButtonFloating: { left: '50%', marginTop: -14, position: 'absolute', top: '50%' },
-  repeatButtonPortrait: { alignSelf: 'center' },
-  repeatButtonPressed: { backgroundColor: '#fff4df', opacity: 0.78, transform: [{ scale: 0.97 }] },
-  repeatIcon: { color: '#8a4f00', fontSize: 16, fontWeight: '900', lineHeight: 18 },
-  repeatText: { color: '#694b22', fontSize: 10, fontWeight: '900' },
   highlight: { color: '#d99b00', fontWeight: '900' },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
