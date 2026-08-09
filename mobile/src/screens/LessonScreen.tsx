@@ -124,6 +124,9 @@ export function LessonScreen({
   const singleCardFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const singleCardAudioAwaitingRef = useRef(false);
   const singleCardAudioWasPlayingRef = useRef(false);
+  const promptAutoplayFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const promptAutoplayAwaitingRef = useRef(false);
+  const promptAutoplayWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
   const audioPlayerActiveRef = useRef(true);
   const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
@@ -157,6 +160,7 @@ export function LessonScreen({
   const [sentenceAnchorBottom, setSentenceAnchorBottom] = useState<number | undefined>(undefined);
   const [showSentenceCoachmark, setShowSentenceCoachmark] = useState(false);
   const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
+  const [promptAutoplayFinished, setPromptAutoplayFinished] = useState(false);
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const audioProvider = courseAudioProvider(lessonId);
   const audioVoice = courseAudioVoice(lessonId, lesson?.cards[cardIndex]?.stage || '');
@@ -322,6 +326,7 @@ export function LessonScreen({
       if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
       if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
       if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
+      if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
       translationOpacity.stopAnimation();
     };
   }, [translationOpacity]);
@@ -460,15 +465,23 @@ export function LessonScreen({
       !currentCard ||
       currentCard.options.length < 2 ||
       isPronunciation ||
-      !promptAudio.trim()
+      !promptAudio.trim() ||
+      !promptAutoplayFinished
     ) return undefined;
 
     const timer = setTimeout(
       () => updateSentenceAnchor(() => setShowSentenceCoachmark(true)),
-      450,
+      250,
     );
     return () => clearTimeout(timer);
-  }, [currentCard, isPronunciation, promptAudio, sentenceHelpStatus, updateSentenceAnchor]);
+  }, [
+    currentCard,
+    isPronunciation,
+    promptAudio,
+    promptAutoplayFinished,
+    sentenceHelpStatus,
+    updateSentenceAnchor,
+  ]);
 
   useEffect(() => {
     if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
@@ -500,8 +513,13 @@ export function LessonScreen({
     singleCardAudioWasPlayingRef.current = false;
     if (singleCardAdvanceTimerRef.current) clearTimeout(singleCardAdvanceTimerRef.current);
     if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
+    if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
     singleCardAdvanceTimerRef.current = null;
     singleCardFallbackTimerRef.current = null;
+    promptAutoplayFallbackTimerRef.current = null;
+    promptAutoplayAwaitingRef.current = false;
+    promptAutoplayWasPlayingRef.current = false;
+    setPromptAutoplayFinished(false);
   }, [audioPlayer, cardIndex]);
 
   useEffect(() => {
@@ -518,6 +536,13 @@ export function LessonScreen({
 
   useEffect(() => {
     if (!currentCard || isPronunciation || result !== null) return undefined;
+    promptAutoplayAwaitingRef.current = true;
+    promptAutoplayWasPlayingRef.current = false;
+    promptAutoplayFallbackTimerRef.current = setTimeout(() => {
+      promptAutoplayFallbackTimerRef.current = null;
+      promptAutoplayAwaitingRef.current = false;
+      setPromptAutoplayFinished(true);
+    }, 10000);
     const timer = setTimeout(() => {
       singleCardAudioAwaitingRef.current = isAutomaticSingleCard;
       singleCardAudioWasPlayingRef.current = false;
@@ -527,8 +552,30 @@ export function LessonScreen({
         promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
       );
     }, 120);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
+      promptAutoplayFallbackTimerRef.current = null;
+      promptAutoplayAwaitingRef.current = false;
+    };
   }, [cardIndex, currentCard, isAutomaticSingleCard, isPronunciation, playAudio, promptAudio, result]);
+
+  useEffect(() => {
+    if (!promptAutoplayAwaitingRef.current) return;
+    if (audioPlayerStatus.playing) promptAutoplayWasPlayingRef.current = true;
+    if (
+      !audioPlayerStatus.error &&
+      (!audioPlayerStatus.didJustFinish || !promptAutoplayWasPlayingRef.current)
+    ) return;
+
+    promptAutoplayAwaitingRef.current = false;
+    promptAutoplayWasPlayingRef.current = false;
+    if (promptAutoplayFallbackTimerRef.current) {
+      clearTimeout(promptAutoplayFallbackTimerRef.current);
+      promptAutoplayFallbackTimerRef.current = null;
+    }
+    setPromptAutoplayFinished(true);
+  }, [audioPlayerStatus.didJustFinish, audioPlayerStatus.error, audioPlayerStatus.playing]);
 
   const advance = useCallback(() => {
     if (!lesson) return;
