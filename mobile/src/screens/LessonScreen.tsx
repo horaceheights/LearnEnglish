@@ -44,7 +44,7 @@ import type { LearnerProfile, Lesson, LessonCard } from '../types';
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 const TRY_AGAIN_CUE = require('../../assets/try-again.wav');
 const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
-const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v1';
+const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v2';
 const DOUBLE_TAP_DELAY_MS = 290;
 
 type Props = {
