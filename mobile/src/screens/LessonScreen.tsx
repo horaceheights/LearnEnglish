@@ -50,6 +50,15 @@ type Props = {
   qaMode?: boolean;
 };
 
+function BackArrowIcon() {
+  return (
+    <View accessible={false} importantForAccessibility="no-hide-descendants" style={styles.backArrowIcon}>
+      <View style={styles.backArrowShaft} />
+      <View style={styles.backArrowHead} />
+    </View>
+  );
+}
+
 function LessonBrandMark({
   compact = false,
   centeredWidth,
@@ -1010,7 +1019,7 @@ export function LessonScreen({
                   onPress={onExit}
                   style={styles.backButton}
                 >
-                  <Text style={styles.backButtonText}>←</Text>
+                  <BackArrowIcon />
                 </Pressable>
                 <LessonBrandMark
                   centeredWidth={portraitBrandWidth}
@@ -1025,7 +1034,7 @@ export function LessonScreen({
                   onPress={onExit}
                   style={[styles.backButton, useCompactPhoneLayout ? styles.backButtonCompact : null]}
                 >
-                  <Text style={styles.backButtonText}>←</Text>
+                  <BackArrowIcon />
                 </Pressable>
                 <LessonBrandMark compact={useCompactPhoneLayout} />
               </View>
@@ -1276,7 +1285,9 @@ const styles = StyleSheet.create({
   brandLogoImage: { height: '100%', width: '100%' },
   backButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 15, borderWidth: 1, height: 48, justifyContent: 'center', width: 48 },
   backButtonCompact: { borderRadius: 12, height: 40, width: 40 },
-  backButtonText: { color: '#24333a', fontSize: 26, fontWeight: '900', lineHeight: 28 },
+  backArrowIcon: { height: 20, position: 'relative', width: 26 },
+  backArrowShaft: { backgroundColor: '#f06d3f', borderRadius: 2, height: 4, left: 7, position: 'absolute', top: 8, width: 17 },
+  backArrowHead: { borderBottomColor: 'transparent', borderBottomWidth: 7, borderRightColor: '#f06d3f', borderRightWidth: 10, borderTopColor: 'transparent', borderTopWidth: 7, height: 0, left: 0, position: 'absolute', top: 3, width: 0 },
   lessonStatus: { alignItems: 'stretch', flex: 1, justifyContent: 'center', marginHorizontal: 3 },
   lessonStatusPortrait: { flex: 0, height: 50, marginHorizontal: 0, marginTop: 6, width: '100%' },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
