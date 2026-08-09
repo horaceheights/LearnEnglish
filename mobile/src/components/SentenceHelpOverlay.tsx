@@ -3,16 +3,25 @@ import { Image, Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } 
 const LISTENING_SQUIRREL = require('../../assets/mascots/serious/listening-frames-normalized/listening-06.png');
 
 type Props = {
+  anchorBottom?: number;
   mode: 'coachmark' | 'translation';
   onClose: () => void;
   translation?: string;
   visible: boolean;
 };
 
-export function SentenceHelpOverlay({ mode, onClose, translation, visible }: Props) {
+export function SentenceHelpOverlay({ anchorBottom, mode, onClose, translation, visible }: Props) {
   const { height, width } = useWindowDimensions();
   const isLandscape = width > height;
   const isCoachmark = mode === 'coachmark';
+  const estimatedHeight = isCoachmark
+    ? isLandscape ? 150 : 216
+    : isLandscape ? 126 : 156;
+  const fallbackTop = height * (isLandscape ? 0.26 : 0.29);
+  const desiredTop = anchorBottom === undefined
+    ? fallbackTop
+    : anchorBottom + (isCoachmark ? 26 : 10);
+  const calloutTop = Math.max(12, Math.min(desiredTop, height - estimatedHeight - 14));
 
   return (
     <Modal
@@ -29,53 +38,55 @@ export function SentenceHelpOverlay({ mode, onClose, translation, visible }: Pro
           onPress={onClose}
           style={StyleSheet.absoluteFill}
         />
-        <View style={[
-          styles.callout,
-          isLandscape ? styles.calloutLandscape : styles.calloutPortrait,
-          !isCoachmark ? styles.translationCallout : null,
-        ]}>
-          {isCoachmark ? (
-            <View pointerEvents="none" style={styles.pointerWrap}>
-              <Text style={styles.pointerArrow}>↑</Text>
-              <Text style={styles.pointerLabel}>LA FRASE</Text>
-            </View>
-          ) : null}
-          <View style={styles.calloutBody}>
-            <Image
-              accessibilityIgnoresInvertColors
-              accessible={false}
-              resizeMode="contain"
-              source={LISTENING_SQUIRREL}
-              style={[
-                styles.squirrel,
-                isCoachmark ? styles.squirrelCoachmark : styles.squirrelTranslation,
-              ]}
-            />
-            <View style={styles.copy}>
-              <Text accessibilityRole="header" style={styles.title}>
-                {isCoachmark ? '¿Necesitas ayuda?' : 'En español'}
-              </Text>
-              {isCoachmark ? (
-                <>
-                  <Text style={styles.message}>
-                    Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.
-                  </Text>
-                  <Text style={styles.message}>
-                    Toca <Text style={styles.emphasis}>dos veces</Text> para ver su traducción.
-                  </Text>
-                </>
-              ) : (
-                <Text accessibilityLiveRegion="polite" style={styles.translation}>
-                  {translation}
+        <View pointerEvents="box-none" style={[styles.calloutPositioner, { paddingTop: calloutTop }]}>
+          <View style={[
+            styles.callout,
+            isLandscape ? styles.calloutLandscape : null,
+            !isCoachmark ? styles.translationCallout : null,
+          ]}>
+            {isCoachmark ? (
+              <View pointerEvents="none" style={styles.pointerWrap}>
+                <Text style={styles.pointerLabel}>LA FRASE</Text>
+                <Text style={styles.pointerArrow}>↑</Text>
+              </View>
+            ) : null}
+            <View style={styles.calloutBody}>
+              <Image
+                accessibilityIgnoresInvertColors
+                accessible={false}
+                resizeMode="contain"
+                source={LISTENING_SQUIRREL}
+                style={[
+                  styles.squirrel,
+                  isCoachmark ? styles.squirrelCoachmark : styles.squirrelTranslation,
+                ]}
+              />
+              <View style={styles.copy}>
+                <Text accessibilityRole="header" style={styles.title}>
+                  {isCoachmark ? '¿Necesitas ayuda?' : 'En español'}
                 </Text>
-              )}
-              <Pressable
-                accessibilityRole="button"
-                onPress={onClose}
-                style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]}
-              >
-                <Text style={styles.buttonText}>{isCoachmark ? 'Entendido' : 'Cerrar'}</Text>
-              </Pressable>
+                {isCoachmark ? (
+                  <>
+                    <Text style={styles.message}>
+                      Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.
+                    </Text>
+                    <Text style={styles.message}>
+                      Toca <Text style={styles.emphasis}>dos veces</Text> para ver su traducción.
+                    </Text>
+                  </>
+                ) : (
+                  <Text accessibilityLiveRegion="polite" style={styles.translation}>
+                    {translation}
+                  </Text>
+                )}
+                <Pressable
+                  accessibilityRole="button"
+                  onPress={onClose}
+                  style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]}
+                >
+                  <Text style={styles.buttonText}>{isCoachmark ? 'Entendido' : 'Cerrar'}</Text>
+                </Pressable>
+              </View>
             </View>
           </View>
         </View>
@@ -88,10 +99,9 @@ const styles = StyleSheet.create({
   overlay: {
     backgroundColor: 'rgba(26, 31, 34, 0.46)',
     flex: 1,
-    justifyContent: 'flex-end',
     paddingHorizontal: 14,
-    paddingVertical: 18,
   },
+  calloutPositioner: { alignItems: 'center', flex: 1, width: '100%' },
   callout: {
     alignSelf: 'center',
     backgroundColor: '#fffaf1',
@@ -107,21 +117,22 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
     width: '100%',
   },
-  calloutPortrait: { marginBottom: 18 },
-  calloutLandscape: { marginBottom: 2, maxWidth: 700, paddingVertical: 10 },
+  calloutLandscape: { maxWidth: 700, paddingVertical: 10 },
   translationCallout: { maxWidth: 520 },
   pointerWrap: {
     alignItems: 'center',
+    flexDirection: 'row',
+    gap: 3,
     left: 0,
     position: 'absolute',
     right: 0,
-    top: -55,
+    top: -23,
   },
   pointerArrow: {
     color: '#f06d3f',
-    fontSize: 42,
+    fontSize: 27,
     fontWeight: '900',
-    lineHeight: 40,
+    lineHeight: 27,
     textShadowColor: 'rgba(255,255,255,0.9)',
     textShadowOffset: { height: 1, width: 0 },
     textShadowRadius: 2,
@@ -134,7 +145,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     letterSpacing: 1,
     paddingHorizontal: 8,
-    paddingVertical: 3,
+    paddingVertical: 2,
   },
   calloutBody: { alignItems: 'center', flexDirection: 'row', gap: 10 },
   squirrel: { flexShrink: 0 },

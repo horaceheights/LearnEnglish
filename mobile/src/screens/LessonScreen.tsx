@@ -130,6 +130,7 @@ export function LessonScreen({
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
   const promptTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const promptTapTargetRef = useRef<View | null>(null);
   const lastPromptTapRef = useRef(0);
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [sessionId, setSessionId] = useState('');
@@ -149,6 +150,7 @@ export function LessonScreen({
   const [qaAutoAdvance, setQaAutoAdvance] = useState(false);
   const [cardRunId, setCardRunId] = useState(0);
   const [sentenceHelpStatus, setSentenceHelpStatus] = useState<'loading' | 'pending' | 'seen'>('loading');
+  const [sentenceAnchorBottom, setSentenceAnchorBottom] = useState<number | undefined>(undefined);
   const [showSentenceCoachmark, setShowSentenceCoachmark] = useState(false);
   const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
@@ -378,14 +380,28 @@ export function LessonScreen({
     );
   }, [isPronunciation, playAudio, promptAudio]);
 
+  const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
+    const target = promptTapTargetRef.current;
+    if (!target) {
+      setSentenceAnchorBottom(undefined);
+      onMeasured?.();
+      return;
+    }
+
+    target.measureInWindow((_x, y, _width, height) => {
+      setSentenceAnchorBottom(y + height);
+      onMeasured?.();
+    });
+  }, []);
+
   const openSentenceTranslation = useCallback(() => {
     if (promptTapTimerRef.current) {
       clearTimeout(promptTapTimerRef.current);
       promptTapTimerRef.current = null;
     }
     lastPromptTapRef.current = 0;
-    setShowSentenceTranslation(true);
-  }, []);
+    updateSentenceAnchor(() => setShowSentenceTranslation(true));
+  }, [updateSentenceAnchor]);
 
   const handlePromptPress = useCallback(() => {
     const now = Date.now();
@@ -419,9 +435,12 @@ export function LessonScreen({
       !promptAudio.trim()
     ) return undefined;
 
-    const timer = setTimeout(() => setShowSentenceCoachmark(true), 450);
+    const timer = setTimeout(
+      () => updateSentenceAnchor(() => setShowSentenceCoachmark(true)),
+      450,
+    );
     return () => clearTimeout(timer);
-  }, [currentCard, isPronunciation, promptAudio, qaMode, sentenceHelpStatus]);
+  }, [currentCard, isPronunciation, promptAudio, qaMode, sentenceHelpStatus, updateSentenceAnchor]);
 
   useEffect(() => {
     if (promptTapTimerRef.current) clearTimeout(promptTapTimerRef.current);
@@ -1186,6 +1205,7 @@ export function LessonScreen({
             isPronunciation ? styles.promptRowPronunciation : null,
           ]}>
             <Pressable
+              ref={promptTapTargetRef}
               accessibilityLabel={`Reproducir: ${promptAudio}`}
               accessibilityActions={[{ label: 'Mostrar traducción', name: 'translate' }]}
               accessibilityHint="Toca una vez para repetir. Usa la acción Traducir para ver la frase en español."
@@ -1195,6 +1215,9 @@ export function LessonScreen({
                 if (nativeEvent.actionName === 'translate') openSentenceTranslation();
               }}
               onLongPress={openSentenceTranslation}
+              onLayout={() => {
+                if (showSentenceCoachmark || showSentenceTranslation) updateSentenceAnchor();
+              }}
               onPress={handlePromptPress}
               style={styles.promptTapTarget}
             >
@@ -1294,11 +1317,13 @@ export function LessonScreen({
         ]}>{lessonContent}</View>
       )}
       <SentenceHelpOverlay
+        anchorBottom={sentenceAnchorBottom}
         mode="coachmark"
         onClose={dismissSentenceCoachmark}
         visible={showSentenceCoachmark}
       />
       <SentenceHelpOverlay
+        anchorBottom={sentenceAnchorBottom}
         mode="translation"
         onClose={() => setShowSentenceTranslation(false)}
         translation={sentenceTranslation}
