@@ -3,6 +3,15 @@
 Use this checklist with the in-app **Engine QA** hub. QA mode uses the real
 lesson player but does not create learner sessions or card-attempt records.
 
+## Permanent QA parity guardrail
+
+- Production lesson behavior is the single source of truth; QA must render the same lesson player and card components.
+- QA may only add diagnostics, direct card/stage navigation, restart controls, and analytics isolation.
+- **Auto ON** is the QA default and must reproduce the normal production timing, transitions, audio, swipe rules, help, translations, surveys, and responsive layouts.
+- **Auto OFF** may pause transitions for inspection, but it must not substitute an older lesson flow.
+- Every learner-facing change is incomplete until it is verified in both the normal lesson entry and Engine QA.
+- Any new `qaMode` condition must be justified as a testing control or persistence safeguard, never as a separate UI implementation.
+
 ## Test session record
 
 - Tester:

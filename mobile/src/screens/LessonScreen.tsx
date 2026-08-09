@@ -109,7 +109,9 @@ export function LessonScreen({
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
   const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
   const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 190;
-  const manualCardNavigation = lessonId === 'lesson-1-people-actions' && !qaMode;
+  // QA runs the production lesson flow. qaMode may add diagnostics and testing
+  // controls, but it must not disable learner-facing behavior.
+  const manualCardNavigation = lessonId === 'lesson-1-people-actions';
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAudioAwaitingRef = useRef(false);
@@ -149,7 +151,7 @@ export function LessonScreen({
   const [isComplete, setIsComplete] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
-  const [qaAutoAdvance, setQaAutoAdvance] = useState(false);
+  const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
   const [cardRunId, setCardRunId] = useState(0);
   const [sentenceHelpStatus, setSentenceHelpStatus] = useState<'loading' | 'pending' | 'seen'>('loading');
   const [sentenceAnchorBottom, setSentenceAnchorBottom] = useState<number | undefined>(undefined);
@@ -902,7 +904,7 @@ export function LessonScreen({
   }, [clearCardInteractionState]);
 
   const openStage = useCallback((startIndex: number) => {
-    if (!lesson || startIndex > furthestCardIndex) return;
+    if (!lesson || (!qaMode && startIndex > furthestCardIndex)) return;
     addDiagnosticBreadcrumb('lesson_stage_opened', {
       from_card: cardIndex + 1,
       to_card: startIndex + 1,
@@ -911,7 +913,7 @@ export function LessonScreen({
     cardTranslateX.setValue(0);
     clearCardInteractionState();
     setCardIndex(Math.min(Math.max(startIndex, 0), lesson.cards.length - 1));
-  }, [cardIndex, cardTranslateX, clearCardInteractionState, furthestCardIndex, lesson]);
+  }, [cardIndex, cardTranslateX, clearCardInteractionState, furthestCardIndex, lesson, qaMode]);
 
   const openQaCard = useCallback((nextIndex: number) => {
     if (!lesson) return;
@@ -1312,7 +1314,7 @@ export function LessonScreen({
             audioVoice={audioVoice}
             card={currentCard}
             gentleFeedback={profile.confidence === 'nervous'}
-            key={qaMode ? `${cardIndex}-${cardRunId}` : 'lesson-card'}
+            key={`lesson-card-${cardRunId}`}
             level={lesson.level}
             manualReview={pauseForPronunciationReview}
             optionsInteractive={!isAutomaticSingleCard}
