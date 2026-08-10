@@ -627,6 +627,11 @@ def stable_shuffle_cards(cards: list[LessonCard], seed: str) -> list[LessonCard]
     return shuffled
 
 
+def in_stage(cards: list[LessonCard], stage: str) -> list[LessonCard]:
+    """Reuse lesson-specific exercises inside the shared Lesson 1.1 journey."""
+    return [card.model_copy(update={"stage": stage}) for card in cards]
+
+
 def pronoun_card_group(card: LessonCard) -> str:
     if card.prompt.startswith("They"):
         return "They"
@@ -963,12 +968,12 @@ def negation_intro_cards(specs: list[dict[str, object]]) -> list[LessonCard]:
 
 def lesson_2_pronoun_cards() -> list[LessonCard]:
     return [
-        *lesson_2_new_vocab_cards(),
-        *lesson_2_meaning_cards(),
-        *lesson_2_listen_cards(),
-        *lesson_2_pronunciation_cards(),
-        *negation_intro_cards(LESSON_2_NEGATION_SPECS),
-        *lesson_2_grammar_cards(),
+        *in_stage(lesson_2_new_vocab_cards(), "New Vocab"),
+        *in_stage(lesson_2_meaning_cards(), "Action Introduction"),
+        *in_stage(negation_intro_cards(LESSON_2_NEGATION_SPECS), "Plural Challenge"),
+        *in_stage(lesson_2_listen_cards(), "Listen"),
+        *in_stage(lesson_2_pronunciation_cards(), "Pronunciation Practice"),
+        *in_stage(lesson_2_grammar_cards(), "Grammar"),
     ]
 
 
@@ -1092,12 +1097,12 @@ def family_choice(option_id: str, label: str | None = None) -> ChoiceOption:
 
 def family_member_cards() -> list[LessonCard]:
     return [
-        *family_member_new_vocab_cards(),
-        *family_member_meaning_cards(),
-        *family_member_listen_cards(),
-        *family_member_pronunciation_cards(),
-        *negation_intro_cards(LESSON_3_NEGATION_SPECS),
-        *family_member_grammar_cards(),
+        *in_stage(family_member_new_vocab_cards(), "New Vocab"),
+        *in_stage(family_member_meaning_cards(), "Action Introduction"),
+        *in_stage(negation_intro_cards(LESSON_3_NEGATION_SPECS), "Plural Challenge"),
+        *in_stage(family_member_listen_cards(), "Listen"),
+        *in_stage(family_member_pronunciation_cards(), "Pronunciation Practice"),
+        *in_stage(family_member_grammar_cards(), "Grammar"),
     ]
 
 
@@ -1200,12 +1205,12 @@ def family_member_grammar_cards() -> list[LessonCard]:
 
 def family_action_cards() -> list[LessonCard]:
     return [
-        *family_action_new_vocab_cards(),
-        *family_action_meaning_cards(),
-        *family_action_listen_cards(),
-        *family_action_pronunciation_cards(),
-        *negation_intro_cards(LESSON_4_NEGATION_SPECS),
-        *family_action_grammar_cards(),
+        *in_stage(family_action_new_vocab_cards(), "New Vocab"),
+        *in_stage(family_action_meaning_cards(), "Action Introduction"),
+        *in_stage(negation_intro_cards(LESSON_4_NEGATION_SPECS), "Plural Challenge"),
+        *in_stage(family_action_listen_cards(), "Listen"),
+        *in_stage(family_action_pronunciation_cards(), "Pronunciation Practice"),
+        *in_stage(family_action_grammar_cards(), "Grammar"),
     ]
 
 
@@ -1875,14 +1880,14 @@ def family_action_practice_cards() -> list[LessonCard]:
 
 def object_place_cards() -> list[LessonCard]:
     return [
-        *place_new_word_cards(),
-        *place_sentence_learning_cards(),
-        *place_picture_to_text_cards(),
-        *place_listen_to_picture_cards(),
-        *place_pronunciation_cards(),
-        *negation_intro_cards(LESSON_5_NEGATION_SPECS),
-        *place_negation_picture_cards(),
-        *place_grammar_cards(),
+        *in_stage(place_new_word_cards(), "New Vocab"),
+        *in_stage(place_sentence_learning_cards(), "Action Introduction"),
+        *in_stage(place_picture_to_text_cards(), "Action Introduction"),
+        *in_stage(negation_intro_cards(LESSON_5_NEGATION_SPECS), "Plural Challenge"),
+        *in_stage(place_negation_picture_cards(), "Plural Challenge"),
+        *in_stage(place_listen_to_picture_cards(), "Listen"),
+        *in_stage(place_pronunciation_cards(), "Pronunciation Practice"),
+        *in_stage(place_grammar_cards(), "Grammar"),
     ]
 
 
