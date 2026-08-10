@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { MaterialIcons } from '@expo/vector-icons';
 import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
@@ -205,7 +206,11 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
             onPress={() => setIsAccountMenuOpen(true)}
             style={({ pressed }) => [styles.settingsButton, isAccountMenuOpen ? styles.settingsButtonOpen : null, pressed ? styles.pressed : null]}
           >
-            <Text style={[styles.settingsIcon, isAccountMenuOpen ? styles.settingsIconOpen : null]}>⚙</Text>
+            <MaterialIcons
+              color={isAccountMenuOpen ? '#fff' : '#16766f'}
+              name="settings"
+              size={25}
+            />
           </Pressable>
         </View>
 
@@ -463,8 +468,6 @@ const styles = StyleSheet.create({
     width: 46,
   },
   settingsButtonOpen: { backgroundColor: '#16766f', borderColor: '#16766f' },
-  settingsIcon: { color: '#16766f', fontSize: 23, fontWeight: '700', lineHeight: 25 },
-  settingsIconOpen: { color: '#fff' },
   accountMenuBackdrop: { alignItems: 'flex-end', backgroundColor: 'transparent', flex: 1, paddingRight: 14, paddingTop: 76 },
   accountMenu: {
     backgroundColor: '#fbf7ef',
