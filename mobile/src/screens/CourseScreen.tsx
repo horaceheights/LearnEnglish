@@ -2,7 +2,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
+  Alert,
+  BackHandler,
   Image,
+  Modal,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -52,7 +55,9 @@ const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];
 type Props = {
   profile: LearnerProfile;
   onOpenLesson: (lessonId: string) => void;
-  onEditProfile: () => void;
+  onViewProfile: () => void;
+  onChangeUser: () => void;
+  onOpenQA?: () => void;
 };
 
 function lessonName(lesson: LessonSummary): string {
@@ -64,7 +69,7 @@ function unitName(lesson?: LessonSummary): string {
   return title.replace(/^Unit\s+\d+\s*:\s*/i, '');
 }
 
-export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
+export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUser, onOpenQA }: Props) {
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
@@ -73,6 +78,7 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadingLessonId, setLoadingLessonId] = useState('');
   const [recentLessonId, setRecentLessonId] = useState('');
+  const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const currentLesson = useMemo(
@@ -112,6 +118,40 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
     onOpenLesson(lessonId);
   };
 
+  const openProfile = () => {
+    setIsAccountMenuOpen(false);
+    onViewProfile();
+  };
+
+  const openQA = () => {
+    setIsAccountMenuOpen(false);
+    onOpenQA?.();
+  };
+
+  const confirmChangeUser = () => {
+    setIsAccountMenuOpen(false);
+    Alert.alert(
+      '¿Cambiar de usuario?',
+      'Volverás a la pantalla de acceso para elegir otro perfil.',
+      [
+        { style: 'cancel', text: 'Cancelar' },
+        { onPress: onChangeUser, text: 'Cambiar usuario' },
+      ],
+    );
+  };
+
+  const confirmExit = () => {
+    setIsAccountMenuOpen(false);
+    Alert.alert(
+      '¿Salir de SpanGlish?',
+      'Tu usuario quedará guardado para la próxima vez.',
+      [
+        { style: 'cancel', text: 'Cancelar' },
+        { onPress: () => BackHandler.exitApp(), style: 'destructive', text: 'Salir' },
+      ],
+    );
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.page}>
@@ -133,12 +173,82 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
             accessibilityHint="Abre la configuración de tu cuenta"
             accessibilityLabel={`Perfil de ${profile.displayName}`}
             accessibilityRole="button"
-            onPress={onEditProfile}
+            onPress={() => setIsAccountMenuOpen(true)}
             style={({ pressed }) => [styles.profileButton, pressed ? styles.pressed : null]}
           >
             <Text style={styles.profileInitial}>{profile.displayName.trim().charAt(0).toUpperCase() || 'P'}</Text>
           </Pressable>
         </View>
+
+        <Modal
+          animationType="fade"
+          onRequestClose={() => setIsAccountMenuOpen(false)}
+          transparent
+          visible={isAccountMenuOpen}
+        >
+          <View style={styles.accountMenuBackdrop}>
+            <Pressable
+              accessibilityLabel="Cerrar menú de cuenta"
+              accessibilityRole="button"
+              onPress={() => setIsAccountMenuOpen(false)}
+              style={StyleSheet.absoluteFill}
+            />
+            <View accessibilityViewIsModal style={styles.accountMenu}>
+              <ScrollView contentContainerStyle={styles.accountMenuContent} showsVerticalScrollIndicator={false}>
+                <View style={styles.menuHandle} />
+                <View style={styles.menuIdentity}>
+                <View style={styles.menuAvatar}>
+                  <Text style={styles.menuAvatarText}>{profile.displayName.trim().charAt(0).toUpperCase() || 'P'}</Text>
+                </View>
+                <View style={styles.menuIdentityCopy}>
+                  <Text style={styles.menuEyebrow}>CUENTA ACTUAL</Text>
+                  <Text numberOfLines={1} style={styles.menuName}>{profile.displayName}</Text>
+                </View>
+                <Pressable accessibilityLabel="Cerrar" accessibilityRole="button" onPress={() => setIsAccountMenuOpen(false)} style={styles.menuClose}>
+                  <Text style={styles.menuCloseText}>×</Text>
+                </Pressable>
+              </View>
+
+              <Pressable accessibilityRole="button" onPress={openProfile} style={({ pressed }) => [styles.menuOption, pressed ? styles.menuOptionPressed : null]}>
+                <View style={[styles.menuOptionMark, styles.menuOptionMarkProfile]}><Text style={styles.menuOptionMarkText}>P</Text></View>
+                <View style={styles.menuOptionCopy}>
+                  <Text style={styles.menuOptionTitle}>Ver perfil</Text>
+                  <Text style={styles.menuOptionDescription}>Consulta tu información y preferencias.</Text>
+                </View>
+                <Text style={styles.menuOptionArrow}>&gt;</Text>
+              </Pressable>
+
+              {onOpenQA ? (
+                <Pressable accessibilityRole="button" onPress={openQA} style={({ pressed }) => [styles.menuOption, pressed ? styles.menuOptionPressed : null]}>
+                  <View style={[styles.menuOptionMark, styles.menuOptionMarkQA]}><Text style={styles.menuOptionMarkText}>QA</Text></View>
+                  <View style={styles.menuOptionCopy}>
+                    <Text style={styles.menuOptionTitle}>QA test</Text>
+                    <Text style={styles.menuOptionDescription}>Herramientas internas de prueba.</Text>
+                  </View>
+                  <Text style={styles.menuOptionArrow}>&gt;</Text>
+                </Pressable>
+              ) : null}
+
+              <Pressable accessibilityRole="button" onPress={confirmChangeUser} style={({ pressed }) => [styles.menuOption, pressed ? styles.menuOptionPressed : null]}>
+                <View style={[styles.menuOptionMark, styles.menuOptionMarkSwitch]}><Text style={styles.menuOptionMarkText}>U</Text></View>
+                <View style={styles.menuOptionCopy}>
+                  <Text style={styles.menuOptionTitle}>Cambiar usuario</Text>
+                  <Text style={styles.menuOptionDescription}>Elige otro perfil de aprendizaje.</Text>
+                </View>
+                <Text style={styles.menuOptionArrow}>&gt;</Text>
+              </Pressable>
+
+              <Pressable accessibilityRole="button" onPress={confirmExit} style={({ pressed }) => [styles.menuOption, styles.menuOptionExit, pressed ? styles.menuOptionPressed : null]}>
+                <View style={[styles.menuOptionMark, styles.menuOptionMarkExit]}><Text style={styles.menuOptionMarkText}>X</Text></View>
+                <View style={styles.menuOptionCopy}>
+                  <Text style={[styles.menuOptionTitle, styles.menuOptionTitleExit]}>Salir</Text>
+                  <Text style={styles.menuOptionDescription}>Cierra la app y conserva este usuario.</Text>
+                </View>
+                </Pressable>
+              </ScrollView>
+            </View>
+          </View>
+        </Modal>
 
         {error ? (
           <View style={styles.errorPanel}>
@@ -289,6 +399,32 @@ const styles = StyleSheet.create({
     width: 46,
   },
   profileInitial: { color: '#16766f', fontSize: 17, fontWeight: '900' },
+  accountMenuBackdrop: { backgroundColor: 'rgba(36,51,58,0.38)', flex: 1, justifyContent: 'flex-end' },
+  accountMenu: { backgroundColor: '#fbf7ef', borderTopLeftRadius: 28, borderTopRightRadius: 28, maxHeight: '92%', overflow: 'hidden' },
+  accountMenuContent: { padding: 18, paddingBottom: 28 },
+  menuHandle: { alignSelf: 'center', backgroundColor: '#cec5b9', borderRadius: 2, height: 4, marginBottom: 17, width: 42 },
+  menuIdentity: { alignItems: 'center', flexDirection: 'row', marginBottom: 14 },
+  menuAvatar: { alignItems: 'center', backgroundColor: '#16766f', borderRadius: 24, height: 48, justifyContent: 'center', width: 48 },
+  menuAvatarText: { color: '#fff', fontSize: 18, fontWeight: '900' },
+  menuIdentityCopy: { flex: 1, marginLeft: 12, minWidth: 0 },
+  menuEyebrow: { color: '#697177', fontSize: 8, fontWeight: '900', letterSpacing: 0.9 },
+  menuName: { color: '#24333a', fontSize: 20, fontWeight: '900', marginTop: 2 },
+  menuClose: { alignItems: 'center', backgroundColor: '#eee8de', borderRadius: 18, height: 36, justifyContent: 'center', width: 36 },
+  menuCloseText: { color: '#526168', fontSize: 24, fontWeight: '500', lineHeight: 26 },
+  menuOption: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 16, borderWidth: 1, flexDirection: 'row', marginTop: 8, minHeight: 66, padding: 10 },
+  menuOptionPressed: { opacity: 0.68 },
+  menuOptionMark: { alignItems: 'center', borderRadius: 13, height: 42, justifyContent: 'center', width: 42 },
+  menuOptionMarkProfile: { backgroundColor: '#dff4ef' },
+  menuOptionMarkQA: { backgroundColor: '#eee3f7' },
+  menuOptionMarkSwitch: { backgroundColor: '#ffe8c7' },
+  menuOptionMarkExit: { backgroundColor: '#fbeceb' },
+  menuOptionMarkText: { color: '#46565c', fontSize: 11, fontWeight: '900' },
+  menuOptionCopy: { flex: 1, marginHorizontal: 11, minWidth: 0 },
+  menuOptionTitle: { color: '#24333a', fontSize: 15, fontWeight: '900' },
+  menuOptionTitleExit: { color: '#a34842' },
+  menuOptionDescription: { color: '#697177', fontSize: 10, marginTop: 3 },
+  menuOptionArrow: { color: '#b0a79b', fontSize: 20, fontWeight: '700' },
+  menuOptionExit: { marginTop: 14 },
   continueCard: {
     alignItems: 'center',
     backgroundColor: '#16766f',

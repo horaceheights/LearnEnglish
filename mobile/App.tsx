@@ -132,15 +132,8 @@ function AppContent() {
         onCancel={() => setScreen({ name: 'course' })}
         onSaved={(nextProfile) => {
           setProfile(nextProfile);
-          setScreen({ name: 'course' });
         }}
         onDeleted={() => {
-          void clearLocalProfile();
-          setProfile(null);
-          setScreen({ name: 'course' });
-        }}
-        onOpenQA={hasQaAccess ? () => setScreen({ name: 'qa' }) : undefined}
-        onSignOut={() => {
           void clearLocalProfile();
           setProfile(null);
           setScreen({ name: 'course' });
@@ -162,8 +155,14 @@ function AppContent() {
 
   return (
     <CourseScreen
-      onEditProfile={() => setScreen({ name: 'profile' })}
+      onChangeUser={() => {
+        void clearLocalProfile();
+        setProfile(null);
+        setScreen({ name: 'course' });
+      }}
       onOpenLesson={(lessonId) => setScreen({ lessonId, name: 'lesson' })}
+      onOpenQA={hasQaAccess ? () => setScreen({ name: 'qa' }) : undefined}
+      onViewProfile={() => setScreen({ name: 'profile' })}
       profile={profile}
     />
   );
