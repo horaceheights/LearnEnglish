@@ -199,13 +199,13 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
             </View>
           </View>
           <Pressable
-            accessibilityHint="Abre la configuración de tu cuenta"
-            accessibilityLabel={`Perfil de ${profile.displayName}`}
+            accessibilityHint="Abre el menú de opciones"
+            accessibilityLabel="Opciones"
             accessibilityRole="button"
             onPress={() => setIsAccountMenuOpen(true)}
-            style={({ pressed }) => [styles.profileButton, pressed ? styles.pressed : null]}
+            style={({ pressed }) => [styles.settingsButton, isAccountMenuOpen ? styles.settingsButtonOpen : null, pressed ? styles.pressed : null]}
           >
-            <Text style={styles.profileInitial}>{profile.displayName.trim().charAt(0).toUpperCase() || 'P'}</Text>
+            <Text style={[styles.settingsIcon, isAccountMenuOpen ? styles.settingsIconOpen : null]}>⚙</Text>
           </Pressable>
         </View>
 
@@ -222,9 +222,15 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
               onPress={() => setIsAccountMenuOpen(false)}
               style={StyleSheet.absoluteFill}
             />
-            <View accessibilityViewIsModal style={styles.accountMenu}>
+            <View
+              accessibilityViewIsModal
+              style={[
+                styles.accountMenu,
+                { maxHeight: Math.max(viewportHeight - 112, 260), width: Math.min(viewportWidth - 28, 360) },
+              ]}
+            >
+              <View style={styles.menuPointer} />
               <ScrollView contentContainerStyle={styles.accountMenuContent} showsVerticalScrollIndicator={false}>
-                <View style={styles.menuHandle} />
                 <View style={styles.menuIdentity}>
                 <View style={styles.menuAvatar}>
                   <Text style={styles.menuAvatarText}>{profile.displayName.trim().charAt(0).toUpperCase() || 'P'}</Text>
@@ -445,7 +451,7 @@ const styles = StyleSheet.create({
   greetingBlock: { borderLeftColor: '#e7ded0', borderLeftWidth: 1, flex: 1, marginLeft: 12, minWidth: 0, paddingLeft: 12 },
   greeting: { color: '#24333a', fontSize: 18, fontWeight: '900', marginTop: 2 },
   routeLabel: { color: '#697177', fontSize: 8, fontWeight: '900', letterSpacing: 0.8 },
-  profileButton: {
+  settingsButton: {
     alignItems: 'center',
     backgroundColor: '#e3f4ef',
     borderColor: '#b8ddd3',
@@ -456,23 +462,36 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     width: 46,
   },
-  profileInitial: { color: '#16766f', fontSize: 17, fontWeight: '900' },
-  accountMenuBackdrop: { backgroundColor: 'rgba(36,51,58,0.38)', flex: 1, justifyContent: 'flex-end' },
-  accountMenu: { backgroundColor: '#fbf7ef', borderTopLeftRadius: 28, borderTopRightRadius: 28, maxHeight: '92%', overflow: 'hidden' },
-  accountMenuContent: { padding: 18, paddingBottom: 28 },
-  menuHandle: { alignSelf: 'center', backgroundColor: '#cec5b9', borderRadius: 2, height: 4, marginBottom: 17, width: 42 },
-  menuIdentity: { alignItems: 'center', flexDirection: 'row', marginBottom: 14 },
-  menuAvatar: { alignItems: 'center', backgroundColor: '#16766f', borderRadius: 24, height: 48, justifyContent: 'center', width: 48 },
-  menuAvatarText: { color: '#fff', fontSize: 18, fontWeight: '900' },
+  settingsButtonOpen: { backgroundColor: '#16766f', borderColor: '#16766f' },
+  settingsIcon: { color: '#16766f', fontSize: 23, fontWeight: '700', lineHeight: 25 },
+  settingsIconOpen: { color: '#fff' },
+  accountMenuBackdrop: { alignItems: 'flex-end', backgroundColor: 'transparent', flex: 1, paddingRight: 14, paddingTop: 76 },
+  accountMenu: {
+    backgroundColor: '#fbf7ef',
+    borderColor: '#d9d0c5',
+    borderRadius: 20,
+    borderWidth: 1,
+    elevation: 12,
+    overflow: 'visible',
+    shadowColor: '#24333a',
+    shadowOffset: { height: 6, width: 0 },
+    shadowOpacity: 0.2,
+    shadowRadius: 14,
+  },
+  accountMenuContent: { padding: 12, paddingBottom: 14 },
+  menuPointer: { alignSelf: 'flex-end', backgroundColor: '#fbf7ef', borderColor: '#d9d0c5', borderLeftWidth: 1, borderTopWidth: 1, height: 14, marginRight: 16, marginTop: -8, position: 'absolute', transform: [{ rotate: '45deg' }], width: 14, zIndex: 2 },
+  menuIdentity: { alignItems: 'center', flexDirection: 'row', marginBottom: 8, padding: 4 },
+  menuAvatar: { alignItems: 'center', backgroundColor: '#16766f', borderRadius: 21, height: 42, justifyContent: 'center', width: 42 },
+  menuAvatarText: { color: '#fff', fontSize: 16, fontWeight: '900' },
   menuIdentityCopy: { flex: 1, marginLeft: 12, minWidth: 0 },
   menuEyebrow: { color: '#697177', fontSize: 8, fontWeight: '900', letterSpacing: 0.9 },
-  menuName: { color: '#24333a', fontSize: 20, fontWeight: '900', marginTop: 2 },
-  menuClose: { alignItems: 'center', backgroundColor: '#eee8de', borderRadius: 18, height: 36, justifyContent: 'center', width: 36 },
-  menuCloseText: { color: '#526168', fontSize: 24, fontWeight: '500', lineHeight: 26 },
-  menuOption: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 16, borderWidth: 1, flexDirection: 'row', marginTop: 8, minHeight: 66, padding: 10 },
+  menuName: { color: '#24333a', fontSize: 17, fontWeight: '900', marginTop: 2 },
+  menuClose: { alignItems: 'center', backgroundColor: '#eee8de', borderRadius: 16, height: 32, justifyContent: 'center', width: 32 },
+  menuCloseText: { color: '#526168', fontSize: 21, fontWeight: '500', lineHeight: 23 },
+  menuOption: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 13, borderWidth: 1, flexDirection: 'row', marginTop: 6, minHeight: 57, padding: 8 },
   menuOptionPressed: { opacity: 0.68 },
   menuOptionDisabled: { opacity: 0.72 },
-  menuOptionMark: { alignItems: 'center', borderRadius: 13, height: 42, justifyContent: 'center', width: 42 },
+  menuOptionMark: { alignItems: 'center', borderRadius: 11, height: 36, justifyContent: 'center', width: 36 },
   menuOptionMarkProfile: { backgroundColor: '#dff4ef' },
   menuOptionMarkQA: { backgroundColor: '#eee3f7' },
   menuOptionMarkUpdate: { backgroundColor: '#dff4ef' },
@@ -480,11 +499,11 @@ const styles = StyleSheet.create({
   menuOptionMarkExit: { backgroundColor: '#fbeceb' },
   menuOptionMarkText: { color: '#46565c', fontSize: 11, fontWeight: '900' },
   menuOptionCopy: { flex: 1, marginHorizontal: 11, minWidth: 0 },
-  menuOptionTitle: { color: '#24333a', fontSize: 15, fontWeight: '900' },
+  menuOptionTitle: { color: '#24333a', fontSize: 14, fontWeight: '900' },
   menuOptionTitleExit: { color: '#a34842' },
   menuOptionDescription: { color: '#697177', fontSize: 10, marginTop: 3 },
   menuOptionArrow: { color: '#b0a79b', fontSize: 20, fontWeight: '700' },
-  menuOptionExit: { marginTop: 14 },
+  menuOptionExit: { marginTop: 10 },
   continueCard: {
     alignItems: 'center',
     backgroundColor: '#16766f',
