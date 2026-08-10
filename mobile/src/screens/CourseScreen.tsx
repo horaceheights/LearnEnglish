@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -144,7 +144,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
     );
   };
 
-  const confirmExit = () => {
+  const confirmExit = useCallback(() => {
     setIsAccountMenuOpen(false);
     Alert.alert(
       '¿Salir de SpanGlish?',
@@ -154,7 +154,19 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
         { onPress: () => BackHandler.exitApp(), style: 'destructive', text: 'Salir' },
       ],
     );
-  };
+  }, []);
+
+  useEffect(() => {
+    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (isAccountMenuOpen) {
+        setIsAccountMenuOpen(false);
+        return true;
+      }
+      confirmExit();
+      return true;
+    });
+    return () => subscription.remove();
+  }, [confirmExit, isAccountMenuOpen]);
 
   const checkForUpdates = async () => {
     if (updateStatus !== 'idle') return;

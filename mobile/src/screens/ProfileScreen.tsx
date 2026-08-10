@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
+  BackHandler,
   KeyboardAvoidingView,
   Linking,
   Platform,
@@ -63,11 +64,24 @@ export function ProfileScreen({ profile, onCancel, onSaved, onDeleted }: Props) 
     }
   };
 
-  const cancelEditing = () => {
+  const cancelEditing = useCallback(() => {
     setName(profile.displayName);
     setError('');
     setIsEditing(false);
-  };
+  }, [profile.displayName]);
+
+  useEffect(() => {
+    const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (isSaving || isDeleting) return true;
+      if (isEditing) {
+        cancelEditing();
+      } else {
+        onCancel();
+      }
+      return true;
+    });
+    return () => subscription.remove();
+  }, [cancelEditing, isDeleting, isEditing, isSaving, onCancel]);
 
   const confirmDelete = () => {
     if (!profile.userId || isDeleting) return;
