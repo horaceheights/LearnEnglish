@@ -170,6 +170,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
 
   const checkForUpdates = async () => {
     if (updateStatus !== 'idle') return;
+    setIsAccountMenuOpen(false);
     try {
       if (isUpdatePending) {
         setUpdateStatus('downloading');
