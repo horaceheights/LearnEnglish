@@ -109,9 +109,9 @@ export function LessonScreen({
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
   const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
   const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 190;
-  // QA runs the production lesson flow. qaMode may add diagnostics and testing
-  // controls, but it must not disable learner-facing behavior.
-  const manualCardNavigation = lessonId === 'lesson-1-people-actions';
+  // Every lesson uses the learner-tested 1.1 flow. QA may add diagnostics and
+  // controls, but it must not change navigation or review behavior.
+  const manualCardNavigation = true;
   const answerAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const answerAudioAwaitingRef = useRef(false);
