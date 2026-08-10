@@ -14,6 +14,7 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
+import Constants from 'expo-constants';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -56,13 +57,18 @@ const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];
 const UPDATE_COMPLETED_STORAGE_KEY = 'app:update-completed-message';
 
 type UpdateReceipt = {
+  build?: string;
   updateId: string;
   version: string;
 };
 
-function detailedVersion(version: string, updateId: string): string {
+function installedVersion(version: string, build: string): string {
+  return `v${version} · Build ${build}`;
+}
+
+function detailedVersion(version: string, build: string, updateId: string): string {
   const updateLabel = updateId === 'embedded' ? 'incluida' : updateId.slice(0, 8);
-  return `v${version} · ${updateLabel}`;
+  return `${installedVersion(version, build)} · ${updateLabel}`;
 }
 
 type Props = {
@@ -84,7 +90,8 @@ function unitName(lesson?: LessonSummary): string {
 
 export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
   const { isUpdatePending } = Updates.useUpdates();
-  const currentVersion = Updates.runtimeVersion || '1.6.0';
+  const currentVersion = Constants.nativeAppVersion || Updates.runtimeVersion || '1.6.0';
+  const currentBuild = Constants.nativeBuildVersion || 'desarrollo';
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
@@ -152,13 +159,13 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
         return AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY).then(() => {
           const currentUpdateId = Updates.updateId || 'embedded';
           const versionDetails = previous
-            ? `Versi\u00f3n anterior: ${detailedVersion(previous.version, previous.updateId)}\nVersi\u00f3n actual: ${detailedVersion(currentVersion, currentUpdateId)}`
-            : `Versi\u00f3n actual: v${currentVersion}`;
+            ? `Versi\u00f3n anterior: ${detailedVersion(previous.version, previous.build || currentBuild, previous.updateId)}\nVersi\u00f3n actual: ${detailedVersion(currentVersion, currentBuild, currentUpdateId)}`
+            : `Versi\u00f3n actual: ${installedVersion(currentVersion, currentBuild)}`;
           Alert.alert('Actualizaci\u00f3n completada', versionDetails);
         });
       })
       .catch(() => undefined);
-  }, [currentVersion]);
+  }, [currentBuild, currentVersion]);
 
   const openLesson = (lessonId: string) => {
     setLoadingLessonId(lessonId);
@@ -218,6 +225,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
     setIsAccountMenuOpen(false);
     try {
       const updateReceipt = JSON.stringify({
+        build: currentBuild,
         updateId: Updates.updateId || 'embedded',
         version: currentVersion,
       } satisfies UpdateReceipt);
@@ -232,7 +240,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
       const update = await Updates.checkForUpdateAsync();
       if (!update.isAvailable) {
         setUpdateStatus('idle');
-        Alert.alert('SpanGlish está actualizado', `Versión actual: v${currentVersion}`);
+        Alert.alert('SpanGlish está actualizado', `Versión actual: ${installedVersion(currentVersion, currentBuild)}`);
         return;
       }
 
@@ -357,7 +365,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                       ? 'Buscando una versión nueva…'
                       : updateStatus === 'downloading'
                         ? 'Instalando y reiniciando…'
-                        : `Versión actual: v${currentVersion} · Busca actualizaciones.`}
+                        : `${installedVersion(currentVersion, currentBuild)} · Busca actualizaciones.`}
                   </Text>
                 </View>
                 {updateStatus === 'idle' ? <Text style={styles.menuOptionArrow}>&gt;</Text> : null}
