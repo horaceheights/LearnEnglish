@@ -14,6 +14,7 @@ import {
   View,
 } from 'react-native';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getLessons } from '../api';
@@ -70,6 +71,7 @@ function unitName(lesson?: LessonSummary): string {
 }
 
 export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUser, onOpenQA }: Props) {
+  const { isUpdatePending } = Updates.useUpdates();
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
@@ -79,6 +81,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
   const [loadingLessonId, setLoadingLessonId] = useState('');
   const [recentLessonId, setRecentLessonId] = useState('');
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
+  const [updateStatus, setUpdateStatus] = useState<'idle' | 'checking' | 'downloading'>('idle');
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const currentLesson = useMemo(
@@ -150,6 +153,32 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
         { onPress: () => BackHandler.exitApp(), style: 'destructive', text: 'Salir' },
       ],
     );
+  };
+
+  const checkForUpdates = async () => {
+    if (updateStatus !== 'idle') return;
+    try {
+      if (isUpdatePending) {
+        setUpdateStatus('downloading');
+        await Updates.reloadAsync();
+        return;
+      }
+
+      setUpdateStatus('checking');
+      const update = await Updates.checkForUpdateAsync();
+      if (!update.isAvailable) {
+        setUpdateStatus('idle');
+        Alert.alert('SpanGlish está actualizado', 'Ya tienes la versión más reciente.');
+        return;
+      }
+
+      setUpdateStatus('downloading');
+      await Updates.fetchUpdateAsync();
+      await Updates.reloadAsync();
+    } catch {
+      setUpdateStatus('idle');
+      Alert.alert('No pudimos actualizar', 'Revisa tu conexión a internet e inténtalo otra vez.');
+    }
   };
 
   return (
@@ -228,6 +257,35 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
                   <Text style={styles.menuOptionArrow}>&gt;</Text>
                 </Pressable>
               ) : null}
+
+              <Pressable
+                accessibilityRole="button"
+                accessibilityState={{ busy: updateStatus !== 'idle', disabled: updateStatus !== 'idle' }}
+                disabled={updateStatus !== 'idle'}
+                onPress={() => void checkForUpdates()}
+                style={({ pressed }) => [
+                  styles.menuOption,
+                  updateStatus !== 'idle' ? styles.menuOptionDisabled : null,
+                  pressed ? styles.menuOptionPressed : null,
+                ]}
+              >
+                <View style={[styles.menuOptionMark, styles.menuOptionMarkUpdate]}>
+                  {updateStatus === 'idle'
+                    ? <Text style={styles.menuOptionMarkText}>A</Text>
+                    : <ActivityIndicator color="#16766f" size="small" />}
+                </View>
+                <View style={styles.menuOptionCopy}>
+                  <Text style={styles.menuOptionTitle}>Actualizar</Text>
+                  <Text style={styles.menuOptionDescription}>
+                    {updateStatus === 'checking'
+                      ? 'Buscando una versión nueva…'
+                      : updateStatus === 'downloading'
+                        ? 'Instalando y reiniciando…'
+                        : 'Busca e instala la versión más reciente.'}
+                  </Text>
+                </View>
+                {updateStatus === 'idle' ? <Text style={styles.menuOptionArrow}>&gt;</Text> : null}
+              </Pressable>
 
               <Pressable accessibilityRole="button" onPress={confirmChangeUser} style={({ pressed }) => [styles.menuOption, pressed ? styles.menuOptionPressed : null]}>
                 <View style={[styles.menuOptionMark, styles.menuOptionMarkSwitch]}><Text style={styles.menuOptionMarkText}>U</Text></View>
@@ -413,9 +471,11 @@ const styles = StyleSheet.create({
   menuCloseText: { color: '#526168', fontSize: 24, fontWeight: '500', lineHeight: 26 },
   menuOption: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 16, borderWidth: 1, flexDirection: 'row', marginTop: 8, minHeight: 66, padding: 10 },
   menuOptionPressed: { opacity: 0.68 },
+  menuOptionDisabled: { opacity: 0.72 },
   menuOptionMark: { alignItems: 'center', borderRadius: 13, height: 42, justifyContent: 'center', width: 42 },
   menuOptionMarkProfile: { backgroundColor: '#dff4ef' },
   menuOptionMarkQA: { backgroundColor: '#eee3f7' },
+  menuOptionMarkUpdate: { backgroundColor: '#dff4ef' },
   menuOptionMarkSwitch: { backgroundColor: '#ffe8c7' },
   menuOptionMarkExit: { backgroundColor: '#fbeceb' },
   menuOptionMarkText: { color: '#46565c', fontSize: 11, fontWeight: '900' },
