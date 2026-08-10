@@ -418,6 +418,68 @@ def create_attempt(payload: CardAttemptCreate) -> dict[str, Any]:
     attempt_id = str(uuid.uuid4())
     timestamp = now_iso()
     with engine.begin() as db:
+        session = db.execute(
+            text(
+                """
+                SELECT user_id, lesson_id
+                FROM lesson_sessions
+                WHERE id = :session_id
+                """
+            ),
+            {"session_id": payload.session_id},
+        ).mappings().fetchone()
+        session_recovered = session is None
+
+        if session_recovered:
+            existing_user = db.execute(
+                text("SELECT id FROM users WHERE id = :user_id"),
+                {"user_id": payload.user_id},
+            ).fetchone()
+            if existing_user is None:
+                raise ValueError("User not found")
+
+            # An administrator can reset a learner while their lesson is still
+            # open on a device. The device will keep the now-deleted session ID
+            # until it leaves the lesson, so recreate that session as a fresh
+            # run before accepting the next attempt. ON CONFLICT also makes the
+            # recovery safe when two attempts arrive at nearly the same time.
+            db.execute(
+                text(
+                    """
+                    INSERT INTO lesson_sessions (
+                        id, user_id, lesson_id, started_at, total_cards
+                    )
+                    VALUES (
+                        :id, :user_id, :lesson_id, :started_at, 0
+                    )
+                    ON CONFLICT (id) DO NOTHING
+                    """
+                ),
+                {
+                    "id": payload.session_id,
+                    "user_id": payload.user_id,
+                    "lesson_id": payload.lesson_id,
+                    "started_at": timestamp,
+                },
+            )
+            session = db.execute(
+                text(
+                    """
+                    SELECT user_id, lesson_id
+                    FROM lesson_sessions
+                    WHERE id = :session_id
+                    """
+                ),
+                {"session_id": payload.session_id},
+            ).mappings().fetchone()
+
+        if (
+            session is None
+            or session["user_id"] != payload.user_id
+            or session["lesson_id"] != payload.lesson_id
+        ):
+            raise ValueError("Session does not match learner and lesson")
+
         db.execute(
             text(
                 """
@@ -445,7 +507,11 @@ def create_attempt(payload: CardAttemptCreate) -> dict[str, Any]:
                 "attempted_at": timestamp,
             },
         )
-    return {"id": attempt_id, "attempted_at": timestamp}
+    return {
+        "id": attempt_id,
+        "attempted_at": timestamp,
+        "session_recovered": session_recovered,
+    }
 
 
 def create_lesson_feedback(payload: LessonFeedbackCreate) -> dict[str, Any]:

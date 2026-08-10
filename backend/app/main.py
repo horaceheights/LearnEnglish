@@ -289,7 +289,10 @@ def complete_session(session_id: str, payload: SessionFinish):
 
 @app.post("/api/card-attempts")
 def log_card_attempt(payload: CardAttemptCreate):
-    return create_attempt(payload)
+    try:
+        return create_attempt(payload)
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
 
 
 @app.post("/api/feedback")

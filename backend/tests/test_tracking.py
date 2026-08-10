@@ -145,6 +145,78 @@ class AdminSummaryTests(unittest.TestCase):
         self.assertIsNone(reset_learner["last_seen"])
         self.assertFalse(tracking.reset_user_activity("missing-user"))
 
+    def test_attempt_recovers_session_deleted_by_user_reset(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Open Lesson"))
+        session = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+        self.assertTrue(tracking.reset_user_activity(user["id"]))
+
+        saved = tracking.create_attempt(
+            CardAttemptCreate(
+                session_id=session["id"],
+                user_id=user["id"],
+                lesson_id="lesson-1-people-actions",
+                card_index=4,
+                prompt="The boy",
+                selected_option_id="boy",
+                correct_option_id="boy",
+                is_correct=True,
+                first_try=True,
+            )
+        )
+
+        self.assertTrue(saved["session_recovered"])
+        with self.test_engine.begin() as db:
+            recovered_session = db.exec_driver_sql(
+                "SELECT user_id, lesson_id FROM lesson_sessions WHERE id = ?",
+                (session["id"],),
+            ).fetchone()
+            attempts = db.exec_driver_sql(
+                "SELECT COUNT(*) FROM card_attempts WHERE session_id = ?",
+                (session["id"],),
+            ).scalar_one()
+
+        self.assertEqual((user["id"], "lesson-1-people-actions"), recovered_session)
+        self.assertEqual(1, attempts)
+
+        second = tracking.create_attempt(
+            CardAttemptCreate(
+                session_id=session["id"],
+                user_id=user["id"],
+                lesson_id="lesson-1-people-actions",
+                card_index=5,
+                prompt="The girl",
+                selected_option_id="girl",
+                correct_option_id="girl",
+                is_correct=True,
+                first_try=True,
+            )
+        )
+        self.assertFalse(second["session_recovered"])
+
+    def test_attempt_rejects_session_owned_by_another_user(self):
+        owner = tracking.create_or_update_user(UserCreate(display_name="Session Owner"))
+        other = tracking.create_or_update_user(UserCreate(display_name="Different Learner"))
+        session = tracking.create_session(
+            SessionCreate(user_id=owner["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+
+        with self.assertRaisesRegex(ValueError, "Session does not match learner and lesson"):
+            tracking.create_attempt(
+                CardAttemptCreate(
+                    session_id=session["id"],
+                    user_id=other["id"],
+                    lesson_id="lesson-1-people-actions",
+                    card_index=0,
+                    prompt="The boy",
+                    selected_option_id="boy",
+                    correct_option_id="boy",
+                    is_correct=True,
+                    first_try=True,
+                )
+            )
+
     def test_feedback_is_saved_and_visible_in_admin_summary(self):
         user = tracking.create_or_update_user(UserCreate(display_name="Horace"))
         session = tracking.create_session(
