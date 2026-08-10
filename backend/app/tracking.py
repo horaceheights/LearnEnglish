@@ -429,6 +429,12 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
                         score,
                         total_cards,
                         finished_at,
+                        MAX(
+                            CASE
+                                WHEN total_cards > 0 AND (score * 100.0) / total_cards >= 80 THEN 1
+                                ELSE 0
+                            END
+                        ) OVER (PARTITION BY lesson_id) AS passed,
                         ROW_NUMBER() OVER (
                             PARTITION BY lesson_id
                             ORDER BY finished_at DESC, id DESC
@@ -437,7 +443,7 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
                     WHERE user_id = :user_id
                       AND finished_at IS NOT NULL
                 )
-                SELECT lesson_id, score, total_cards, finished_at
+                SELECT lesson_id, score, total_cards, finished_at, passed
                 FROM ranked_sessions
                 WHERE session_rank = 1
                 ORDER BY lesson_id
@@ -450,6 +456,7 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
         {
             "lesson_id": row["lesson_id"],
             "completed": True,
+            "passed": bool(row["passed"]),
             "score": row["score"],
             "total_cards": row["total_cards"],
             "percentage": round((row["score"] * 100) / row["total_cards"])

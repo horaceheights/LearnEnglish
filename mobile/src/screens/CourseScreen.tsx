@@ -74,6 +74,7 @@ function unitName(lesson?: LessonSummary): string {
 
 export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
   const { isUpdatePending } = Updates.useUpdates();
+  const currentVersion = Updates.runtimeVersion || '1.6.0';
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
@@ -88,8 +89,12 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const currentLesson = useMemo(
-    () => lessons.find((lesson) => lesson.id === recentLessonId) || lessons[0],
-    [lessons, recentLessonId],
+    () => {
+      const firstLessonToPass = lessons.find((lesson) => !progressByLesson[lesson.id]?.passed);
+      if (firstLessonToPass) return firstLessonToPass;
+      return lessons.find((lesson) => lesson.id === recentLessonId) || lessons[lessons.length - 1];
+    },
+    [lessons, progressByLesson, recentLessonId],
   );
   const currentVisual = currentLesson ? VISUALS[currentLesson.id] || DEFAULT_VISUAL : DEFAULT_VISUAL;
 
@@ -328,7 +333,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                       ? 'Buscando una versión nueva…'
                       : updateStatus === 'downloading'
                         ? 'Instalando y reiniciando…'
-                        : 'Busca e instala la versión más reciente.'}
+                        : `Versión actual: v${currentVersion} · Busca actualizaciones.`}
                   </Text>
                 </View>
                 {updateStatus === 'idle' ? <Text style={styles.menuOptionArrow}>&gt;</Text> : null}
@@ -422,26 +427,30 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                 const visual = VISUALS[lesson.id] || DEFAULT_VISUAL;
                 const isCurrent = lesson.id === currentLesson.id;
                 const progress = progressByLesson[lesson.id];
-                const status = progress ? 'Completada' : 'Disponible';
+                const isLocked = index > 0 && !progressByLesson[lessons[index - 1].id]?.passed;
+                const status = isLocked ? 'Bloqueada' : progress?.passed ? 'Completada' : progress ? 'Repetir' : 'Disponible';
                 const scoreLabel = progress
                   ? `Puntaje ${progress.score}/${progress.total_cards} (${progress.percentage}%)`
                   : '';
                 return (
                   <Pressable
-                    accessibilityHint="Abre esta lección"
+                    accessibilityHint={isLocked ? 'Completa la lección anterior con al menos 80 por ciento' : 'Abre esta lección'}
                     accessibilityLabel={`${lessonName(lesson)}. ${status}.${scoreLabel ? ` ${scoreLabel}.` : ''} ${visual.description}`}
                     accessibilityRole="button"
+                    accessibilityState={{ disabled: isLocked }}
+                    disabled={isLocked}
                     key={lesson.id}
                     onPress={() => openLesson(lesson.id)}
                     style={({ pressed }) => [
                       styles.lessonRow,
                       useTwoColumns ? styles.lessonRowGrid : null,
                       isCurrent ? styles.lessonRowCurrent : null,
+                      isLocked ? styles.lessonRowLocked : null,
                       pressed ? styles.pressed : null,
                     ]}
                   >
-                    <View style={[styles.lessonStep, progress ? styles.lessonStepCompleted : isCurrent ? styles.lessonStepCurrent : null]}>
-                      {progress ? (
+                    <View style={[styles.lessonStep, progress?.passed ? styles.lessonStepCompleted : isCurrent ? styles.lessonStepCurrent : null]}>
+                      {progress?.passed ? (
                         <MaterialIcons color="#fff" name="check" size={18} />
                       ) : (
                         <Text style={[styles.lessonStepText, isCurrent ? styles.lessonStepTextCurrent : null]}>
@@ -458,7 +467,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                     </View>
                     <View style={styles.lessonCopy}>
                       <View style={styles.lessonMeta}>
-                        <Text style={[styles.lessonStatus, progress || isCurrent ? styles.lessonStatusCurrent : null]}>{status}</Text>
+                        <Text style={[styles.lessonStatus, progress?.passed || isCurrent ? styles.lessonStatusCurrent : null]}>{status}</Text>
                         <Text style={styles.lessonLevel}>{lesson.level}</Text>
                       </View>
                       <Text numberOfLines={2} style={styles.lessonTitle}>{lessonName(lesson)}</Text>
@@ -466,7 +475,9 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                         {scoreLabel || visual.description}
                       </Text>
                     </View>
-                    {loadingLessonId === lesson.id ? (
+                    {isLocked ? (
+                      <MaterialIcons color="#9b958b" name="lock" size={19} />
+                    ) : loadingLessonId === lesson.id ? (
                       <ActivityIndicator color="#16766f" size="small" />
                     ) : (
                       <Text style={styles.rowArrow}>&gt;</Text>
@@ -593,6 +604,7 @@ const styles = StyleSheet.create({
   },
   lessonRowGrid: { borderColor: '#eee8de', borderRadius: 16, borderWidth: 1, flexGrow: 1, width: '48%' },
   lessonRowCurrent: { backgroundColor: '#eef8f5', borderColor: '#9dcfc4', borderRadius: 16, borderWidth: 1 },
+  lessonRowLocked: { backgroundColor: '#f4f1eb', opacity: 0.68 },
   lessonStep: { alignItems: 'center', backgroundColor: '#f2ebde', borderRadius: 15, height: 30, justifyContent: 'center', width: 30 },
   lessonStepCurrent: { backgroundColor: '#16766f' },
   lessonStepCompleted: { backgroundColor: '#23856f' },

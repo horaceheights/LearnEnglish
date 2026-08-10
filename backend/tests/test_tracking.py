@@ -90,10 +90,28 @@ class AdminSummaryTests(unittest.TestCase):
         self.assertEqual(1, len(progress))
         self.assertEqual("lesson-1-people-actions", progress[0]["lesson_id"])
         self.assertTrue(progress[0]["completed"])
+        self.assertFalse(progress[0]["passed"])
         self.assertEqual(6, progress[0]["score"])
         self.assertEqual(8, progress[0]["total_cards"])
         self.assertEqual(75, progress[0]["percentage"])
         self.assertIsNotNone(progress[0]["completed_at"])
+
+    def test_lesson_progress_keeps_pass_after_a_lower_retry(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Passed Learner"))
+        passed = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+        retry = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+        tracking.finish_session(passed["id"], SessionFinish(score=8, total_cards=10))
+        tracking.finish_session(retry["id"], SessionFinish(score=6, total_cards=10))
+
+        progress = tracking.get_lesson_progress(user["id"])[0]
+
+        self.assertTrue(progress["passed"])
+        self.assertEqual(6, progress["score"])
+        self.assertEqual(60, progress["percentage"])
 
     def test_lesson_progress_handles_missing_and_reset_learners(self):
         user = tracking.create_or_update_user(UserCreate(display_name="Reset Progress"))

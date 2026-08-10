@@ -1336,19 +1336,6 @@ export function LessonScreen({
             </Pressable>
           </View>
         </View>
-        {pauseForPronunciationReview ? (
-          <View
-            accessibilityLabel={canSwipeForward ? 'Desliza para continuar' : 'Completa la práctica para continuar'}
-            accessible
-            style={[styles.manualNavigation, useCompactPhoneLayout ? styles.manualNavigationCompact : null]}
-          >
-            <Text style={[styles.swipeHint, !canSwipeForward ? styles.swipeHintLocked : null]}>
-              {canSwipeForward
-                ? cardIndex === lesson.cards.length - 1 ? 'Desliza para terminar →' : 'Desliza para continuar →'
-                : 'Completa la práctica para continuar'}
-            </Text>
-          </View>
-        ) : null}
         <Animated.View
           {...(manualCardNavigation ? cardPanResponder.panHandlers : {})}
           style={[
@@ -1376,6 +1363,19 @@ export function LessonScreen({
             userId={profile.userId}
           />
         </Animated.View>
+        {pauseForPronunciationReview ? (
+          <View
+            accessibilityLabel={canSwipeForward ? 'Desliza para continuar' : 'Completa la práctica para continuar'}
+            accessible
+            style={[styles.manualNavigation, useCompactPhoneLayout ? styles.manualNavigationCompact : null]}
+          >
+            <Text style={[styles.swipeHint, !canSwipeForward ? styles.swipeHintLocked : null]}>
+              {canSwipeForward
+                ? cardIndex === lesson.cards.length - 1 ? 'Desliza para terminar →' : 'Desliza para continuar →'
+                : 'Completa la práctica para continuar'}
+            </Text>
+          </View>
+        ) : null}
     </>
   );
   const needsAccessibleScrolling = fontScale > 1.3 || viewportHeight < 300;

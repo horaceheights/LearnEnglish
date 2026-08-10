@@ -68,7 +68,7 @@ class AppErrorBoundary extends Component<
                 {this.state.diagnostic.prompt}
               </Text>
               <Text style={styles.diagnosticText}>
-                v{Updates.runtimeVersion || '1.5.0'} · {Updates.updateId?.slice(0, 8) || 'embedded'}
+                v{Updates.runtimeVersion || '1.6.0'} · {Updates.updateId?.slice(0, 8) || 'embedded'}
               </Text>
             </View>
           ) : null}
