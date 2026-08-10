@@ -58,7 +58,7 @@ type Props = {
   profile: LearnerProfile;
   onOpenLesson: (lessonId: string) => void;
   onViewProfile: () => void;
-  onChangeUser: () => void;
+  onSignOut: () => void;
   onOpenQA?: () => void;
 };
 
@@ -71,7 +71,7 @@ function unitName(lesson?: LessonSummary): string {
   return title.replace(/^Unit\s+\d+\s*:\s*/i, '');
 }
 
-export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUser, onOpenQA }: Props) {
+export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
   const { isUpdatePending } = Updates.useUpdates();
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
@@ -132,14 +132,14 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
     onOpenQA?.();
   };
 
-  const confirmChangeUser = () => {
+  const confirmSignOut = () => {
     setIsAccountMenuOpen(false);
     Alert.alert(
-      '¿Cambiar de usuario?',
-      'Volverás a la pantalla de acceso para elegir otro perfil.',
+      '¿Cerrar sesión?',
+      'Volverás a la pantalla de acceso. Tu progreso permanecerá guardado.',
       [
         { style: 'cancel', text: 'Cancelar' },
-        { onPress: onChangeUser, text: 'Cambiar usuario' },
+        { onPress: onSignOut, style: 'destructive', text: 'Cerrar sesión' },
       ],
     );
   };
@@ -311,11 +311,13 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onChangeUse
                 {updateStatus === 'idle' ? <Text style={styles.menuOptionArrow}>&gt;</Text> : null}
               </Pressable>
 
-              <Pressable accessibilityRole="button" onPress={confirmChangeUser} style={({ pressed }) => [styles.menuOption, pressed ? styles.menuOptionPressed : null]}>
-                <View style={[styles.menuOptionMark, styles.menuOptionMarkSwitch]}><Text style={styles.menuOptionMarkText}>U</Text></View>
+              <Pressable accessibilityRole="button" onPress={confirmSignOut} style={({ pressed }) => [styles.menuOption, pressed ? styles.menuOptionPressed : null]}>
+                <View style={[styles.menuOptionMark, styles.menuOptionMarkSignOut]}>
+                  <MaterialIcons color="#9b5d27" name="logout" size={18} />
+                </View>
                 <View style={styles.menuOptionCopy}>
-                  <Text style={styles.menuOptionTitle}>Cambiar usuario</Text>
-                  <Text style={styles.menuOptionDescription}>Elige otro perfil de aprendizaje.</Text>
+                  <Text style={styles.menuOptionTitle}>Cerrar sesión</Text>
+                  <Text style={styles.menuOptionDescription}>Vuelve a la pantalla de acceso.</Text>
                 </View>
                 <Text style={styles.menuOptionArrow}>&gt;</Text>
               </Pressable>
@@ -511,7 +513,7 @@ const styles = StyleSheet.create({
   menuOptionMarkProfile: { backgroundColor: '#dff4ef' },
   menuOptionMarkQA: { backgroundColor: '#eee3f7' },
   menuOptionMarkUpdate: { backgroundColor: '#dff4ef' },
-  menuOptionMarkSwitch: { backgroundColor: '#ffe8c7' },
+  menuOptionMarkSignOut: { backgroundColor: '#ffe8c7' },
   menuOptionMarkExit: { backgroundColor: '#fbeceb' },
   menuOptionMarkText: { color: '#46565c', fontSize: 11, fontWeight: '900' },
   menuOptionCopy: { flex: 1, marginHorizontal: 11, minWidth: 0 },

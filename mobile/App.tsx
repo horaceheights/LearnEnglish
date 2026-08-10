@@ -155,7 +155,7 @@ function AppContent() {
 
   return (
     <CourseScreen
-      onChangeUser={() => {
+      onSignOut={() => {
         void clearLocalProfile();
         setProfile(null);
         setScreen({ name: 'course' });
