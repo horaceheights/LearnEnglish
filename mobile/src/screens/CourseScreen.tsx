@@ -2,7 +2,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
-  Alert,
   Image,
   Pressable,
   ScrollView,
@@ -12,7 +11,6 @@ import {
   View,
 } from 'react-native';
 import * as ScreenOrientation from 'expo-screen-orientation';
-import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getLessons } from '../api';
@@ -55,8 +53,6 @@ type Props = {
   profile: LearnerProfile;
   onOpenLesson: (lessonId: string) => void;
   onEditProfile: () => void;
-  onSignOut: () => void;
-  onOpenQA?: () => void;
 };
 
 function lessonName(lesson: LessonSummary): string {
@@ -68,8 +64,7 @@ function unitName(lesson?: LessonSummary): string {
   return title.replace(/^Unit\s+\d+\s*:\s*/i, '');
 }
 
-export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, onSignOut }: Props) {
-  const { currentlyRunning, isUpdatePending } = Updates.useUpdates();
+export function CourseScreen({ profile, onOpenLesson, onEditProfile }: Props) {
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
@@ -78,10 +73,6 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, o
   const [isLoading, setIsLoading] = useState(true);
   const [loadingLessonId, setLoadingLessonId] = useState('');
   const [recentLessonId, setRecentLessonId] = useState('');
-  const [updateState, setUpdateState] = useState<'checking' | 'current' | 'ready' | 'unavailable'>('checking');
-
-  const updateCode = currentlyRunning.updateId?.slice(0, 8) || 'embedded';
-  const versionLabel = `v${currentlyRunning.runtimeVersion || '1.5.0'} / ${updateCode}`;
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const currentLesson = useMemo(
@@ -114,51 +105,11 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, o
       .catch(() => setRecentLessonId(''));
   }, [recentLessonStorageKey]);
 
-  useEffect(() => {
-    if (isUpdatePending) {
-      setUpdateState('ready');
-      return;
-    }
-
-    let active = true;
-    const checkForUpdates = async () => {
-      if (__DEV__) {
-        if (active) setUpdateState('current');
-        return;
-      }
-      try {
-        const update = await Updates.checkForUpdateAsync();
-        if (!active) return;
-        if (update.isAvailable) {
-          await Updates.fetchUpdateAsync();
-          if (active) setUpdateState('ready');
-        } else {
-          setUpdateState('current');
-        }
-      } catch {
-        if (active) setUpdateState('unavailable');
-      }
-    };
-    void checkForUpdates();
-    return () => { active = false; };
-  }, [isUpdatePending]);
-
   const openLesson = (lessonId: string) => {
     setLoadingLessonId(lessonId);
     setRecentLessonId(lessonId);
     void AsyncStorage.setItem(recentLessonStorageKey, lessonId).catch(() => undefined);
     onOpenLesson(lessonId);
-  };
-
-  const confirmSignOut = () => {
-    Alert.alert(
-      '¿Cerrar sesión?',
-      'Tu progreso permanecerá guardado para cuando vuelvas a entrar.',
-      [
-        { style: 'cancel', text: 'Cancelar' },
-        { onPress: onSignOut, style: 'destructive', text: 'Cerrar sesión' },
-      ],
-    );
   };
 
   return (
@@ -174,47 +125,19 @@ export function CourseScreen({ profile, onOpenLesson, onEditProfile, onOpenQA, o
               style={styles.logo}
             />
             <View style={styles.greetingBlock}>
-              <Text numberOfLines={1} style={styles.greeting}>Hola, {profile.displayName}</Text>
-              <Text style={styles.routeLabel}>Tu ruta de inglés</Text>
+              <Text style={styles.routeLabel}>TU RUTA DE INGLÉS</Text>
+              <Text numberOfLines={1} style={styles.greeting}>{profile.displayName}</Text>
             </View>
           </View>
-          <View style={styles.accountActions}>
-            <Pressable
-              accessibilityLabel="Ajustar mi perfil"
-              accessibilityRole="button"
-              onPress={onEditProfile}
-              style={({ pressed }) => [styles.iconButton, pressed ? styles.pressed : null]}
-            >
-              <Text style={styles.profileIcon}>P</Text>
-            </Pressable>
-            <Pressable
-              accessibilityLabel="Cerrar sesión"
-              accessibilityRole="button"
-              onPress={confirmSignOut}
-              style={({ pressed }) => [styles.iconButton, pressed ? styles.pressed : null]}
-            >
-              <Text style={styles.signOutIcon}>Salir</Text>
-            </Pressable>
-          </View>
-        </View>
-
-        <View style={styles.utilityRow}>
           <Pressable
-            accessibilityRole={updateState === 'ready' ? 'button' : 'text'}
-            accessibilityState={{ busy: updateState === 'checking' }}
-            disabled={updateState !== 'ready'}
-            onPress={() => void Updates.reloadAsync()}
-            style={[styles.versionBadge, updateState === 'ready' ? styles.versionBadgeReady : null]}
+            accessibilityHint="Abre la configuración de tu cuenta"
+            accessibilityLabel={`Perfil de ${profile.displayName}`}
+            accessibilityRole="button"
+            onPress={onEditProfile}
+            style={({ pressed }) => [styles.profileButton, pressed ? styles.pressed : null]}
           >
-            <Text style={styles.versionText}>
-              {updateState === 'ready' ? 'Actualización lista' : updateState === 'checking' ? 'Buscando actualización' : versionLabel}
-            </Text>
+            <Text style={styles.profileInitial}>{profile.displayName.trim().charAt(0).toUpperCase() || 'P'}</Text>
           </Pressable>
-          {onOpenQA ? (
-            <Pressable accessibilityRole="button" onPress={onOpenQA} style={styles.qaButton}>
-              <Text style={styles.qaText}>Engine QA</Text>
-            </Pressable>
-          ) : null}
         </View>
 
         {error ? (
@@ -345,35 +268,27 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    minHeight: 72,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    minHeight: 76,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
   },
   brandBlock: { alignItems: 'center', flex: 1, flexDirection: 'row', minWidth: 0 },
-  logo: { height: 46, width: 142 },
-  greetingBlock: { borderLeftColor: '#e7ded0', borderLeftWidth: 1, flex: 1, marginLeft: 10, paddingLeft: 10 },
-  greeting: { color: '#24333a', fontSize: 16, fontWeight: '900' },
-  routeLabel: { color: '#697177', fontSize: 10, fontWeight: '700', marginTop: 2 },
-  accountActions: { alignItems: 'center', flexDirection: 'row', gap: 7, marginLeft: 8 },
-  iconButton: {
+  logo: { height: 43, width: 132 },
+  greetingBlock: { borderLeftColor: '#e7ded0', borderLeftWidth: 1, flex: 1, marginLeft: 12, minWidth: 0, paddingLeft: 12 },
+  greeting: { color: '#24333a', fontSize: 18, fontWeight: '900', marginTop: 2 },
+  routeLabel: { color: '#697177', fontSize: 8, fontWeight: '900', letterSpacing: 0.8 },
+  profileButton: {
     alignItems: 'center',
-    backgroundColor: '#fbf7ef',
-    borderColor: '#ddd8cf',
-    borderRadius: 12,
-    borderWidth: 1,
-    height: 44,
+    backgroundColor: '#e3f4ef',
+    borderColor: '#b8ddd3',
+    borderRadius: 23,
+    borderWidth: 2,
+    height: 46,
     justifyContent: 'center',
-    minWidth: 44,
-    paddingHorizontal: 8,
+    marginLeft: 12,
+    width: 46,
   },
-  profileIcon: { color: '#16766f', fontSize: 14, fontWeight: '900' },
-  signOutIcon: { color: '#a34842', fontSize: 10, fontWeight: '900' },
-  utilityRow: { alignItems: 'center', flexDirection: 'row', gap: 8, justifyContent: 'flex-end', minHeight: 20 },
-  versionBadge: { backgroundColor: '#f2ebde', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 4 },
-  versionBadgeReady: { backgroundColor: '#ffe1ad', borderColor: '#d9a34d', borderWidth: 1 },
-  versionText: { color: '#697177', fontSize: 8, fontWeight: '800' },
-  qaButton: { backgroundColor: '#eee3f7', borderRadius: 8, paddingHorizontal: 8, paddingVertical: 4 },
-  qaText: { color: '#76559e', fontSize: 8, fontWeight: '900' },
+  profileInitial: { color: '#16766f', fontSize: 17, fontWeight: '900' },
   continueCard: {
     alignItems: 'center',
     backgroundColor: '#16766f',

@@ -11,6 +11,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { deleteLearnerProfile, saveLearnerProfile } from '../api';
@@ -25,9 +26,10 @@ type Props = {
   onSaved: (profile: LearnerProfile) => void;
   onSignOut: () => void;
   onDeleted: () => void;
+  onOpenQA?: () => void;
 };
 
-export function ProfileScreen({ profile, onCancel, onSaved, onSignOut, onDeleted }: Props) {
+export function ProfileScreen({ profile, onCancel, onSaved, onSignOut, onDeleted, onOpenQA }: Props) {
   const [name, setName] = useState(profile.displayName);
   const [isSaving, setIsSaving] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -109,6 +111,19 @@ export function ProfileScreen({ profile, onCancel, onSaved, onSignOut, onDeleted
               ? <ActivityIndicator color="#a34842" />
               : <Text style={styles.deleteText}>Eliminar mi perfil y mis datos</Text>}
           </Pressable>
+          {onOpenQA ? (
+            <View style={styles.internalTools}>
+              <View>
+                <Text style={styles.internalEyebrow}>INTERNAL TESTING</Text>
+                <Text style={styles.versionText}>
+                  v{Updates.runtimeVersion || '1.5.0'} · {Updates.updateId?.slice(0, 8) || 'embedded'}
+                </Text>
+              </View>
+              <Pressable accessibilityRole="button" onPress={onOpenQA} style={styles.qaButton}>
+                <Text style={styles.qaText}>Engine QA</Text>
+              </Pressable>
+            </View>
+          ) : null}
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -132,4 +147,9 @@ const styles = StyleSheet.create({
   legalText: { color: '#176f73', fontSize: 13, fontWeight: '700', textDecorationLine: 'underline' },
   deleteButton: { alignItems: 'center', borderColor: '#d9aaa6', borderRadius: 15, borderWidth: 1, justifyContent: 'center', marginTop: 22, minHeight: 50 },
   deleteText: { color: '#a34842', fontSize: 14, fontWeight: '900' },
+  internalTools: { alignItems: 'center', backgroundColor: '#f4eff8', borderRadius: 15, flexDirection: 'row', justifyContent: 'space-between', marginTop: 18, padding: 12 },
+  internalEyebrow: { color: '#76559e', fontSize: 8, fontWeight: '900', letterSpacing: 0.8 },
+  versionText: { color: '#7d7182', fontSize: 9, fontWeight: '700', marginTop: 3 },
+  qaButton: { alignItems: 'center', backgroundColor: '#76559e', borderRadius: 11, justifyContent: 'center', minHeight: 42, paddingHorizontal: 14 },
+  qaText: { color: '#fff', fontSize: 12, fontWeight: '900' },
 });

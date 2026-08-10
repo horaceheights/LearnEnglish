@@ -139,6 +139,7 @@ function AppContent() {
           setProfile(null);
           setScreen({ name: 'course' });
         }}
+        onOpenQA={hasQaAccess ? () => setScreen({ name: 'qa' }) : undefined}
         onSignOut={() => {
           void clearLocalProfile();
           setProfile(null);
@@ -163,12 +164,6 @@ function AppContent() {
     <CourseScreen
       onEditProfile={() => setScreen({ name: 'profile' })}
       onOpenLesson={(lessonId) => setScreen({ lessonId, name: 'lesson' })}
-      onOpenQA={hasQaAccess ? () => setScreen({ name: 'qa' }) : undefined}
-      onSignOut={() => {
-        void clearLocalProfile();
-        setProfile(null);
-        setScreen({ name: 'course' });
-      }}
       profile={profile}
     />
   );
