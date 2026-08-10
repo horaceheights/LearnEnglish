@@ -55,6 +55,16 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
 const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];
 const UPDATE_COMPLETED_STORAGE_KEY = 'app:update-completed-message';
 
+type UpdateReceipt = {
+  updateId: string;
+  version: string;
+};
+
+function detailedVersion(version: string, updateId: string): string {
+  const updateLabel = updateId === 'embedded' ? 'incluida' : updateId.slice(0, 8);
+  return `v${version} · ${updateLabel}`;
+}
+
 type Props = {
   profile: LearnerProfile;
   onOpenLesson: (lessonId: string) => void;
@@ -131,14 +141,24 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
   }, [recentLessonStorageKey]);
   useEffect(() => {
     AsyncStorage.getItem(UPDATE_COMPLETED_STORAGE_KEY)
-      .then((shouldShowMessage) => {
-        if (shouldShowMessage !== 'true') return;
+      .then((storedReceipt) => {
+        if (!storedReceipt) return;
+        let previous: UpdateReceipt | null = null;
+        try {
+          previous = JSON.parse(storedReceipt) as UpdateReceipt;
+        } catch {
+          // Support the one-time boolean flag written by earlier app versions.
+        }
         return AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY).then(() => {
-          Alert.alert('Actualizaci\u00f3n completada', 'SpanGlish se actualiz\u00f3 correctamente.');
+          const currentUpdateId = Updates.updateId || 'embedded';
+          const versionDetails = previous
+            ? `Versi\u00f3n anterior: ${detailedVersion(previous.version, previous.updateId)}\nVersi\u00f3n actual: ${detailedVersion(currentVersion, currentUpdateId)}`
+            : `Versi\u00f3n actual: v${currentVersion}`;
+          Alert.alert('Actualizaci\u00f3n completada', versionDetails);
         });
       })
       .catch(() => undefined);
-  }, []);
+  }, [currentVersion]);
 
   const openLesson = (lessonId: string) => {
     setLoadingLessonId(lessonId);
@@ -197,9 +217,13 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
     if (updateStatus !== 'idle') return;
     setIsAccountMenuOpen(false);
     try {
+      const updateReceipt = JSON.stringify({
+        updateId: Updates.updateId || 'embedded',
+        version: currentVersion,
+      } satisfies UpdateReceipt);
       if (isUpdatePending) {
         setUpdateStatus('downloading');
-        await AsyncStorage.setItem(UPDATE_COMPLETED_STORAGE_KEY, 'true');
+        await AsyncStorage.setItem(UPDATE_COMPLETED_STORAGE_KEY, updateReceipt);
         await Updates.reloadAsync();
         return;
       }
@@ -208,13 +232,13 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
       const update = await Updates.checkForUpdateAsync();
       if (!update.isAvailable) {
         setUpdateStatus('idle');
-        Alert.alert('SpanGlish está actualizado', 'Ya tienes la versión más reciente.');
+        Alert.alert('SpanGlish está actualizado', `Versión actual: v${currentVersion}`);
         return;
       }
 
       setUpdateStatus('downloading');
       await Updates.fetchUpdateAsync();
-      await AsyncStorage.setItem(UPDATE_COMPLETED_STORAGE_KEY, 'true');
+      await AsyncStorage.setItem(UPDATE_COMPLETED_STORAGE_KEY, updateReceipt);
       await Updates.reloadAsync();
     } catch {
       await AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY).catch(() => undefined);
