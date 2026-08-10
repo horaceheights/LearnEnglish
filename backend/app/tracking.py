@@ -414,6 +414,53 @@ def finish_session(session_id: str, payload: SessionFinish) -> dict[str, Any] | 
     return {"id": session_id, "finished_at": timestamp, "score": payload.score, "total_cards": payload.total_cards}
 
 
+def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
+    """Return the learner's most recent completed run for every completed lesson."""
+    if get_user(user_id) is None:
+        return None
+
+    with engine.begin() as db:
+        rows = db.execute(
+            text(
+                """
+                WITH ranked_sessions AS (
+                    SELECT
+                        lesson_id,
+                        score,
+                        total_cards,
+                        finished_at,
+                        ROW_NUMBER() OVER (
+                            PARTITION BY lesson_id
+                            ORDER BY finished_at DESC, id DESC
+                        ) AS session_rank
+                    FROM lesson_sessions
+                    WHERE user_id = :user_id
+                      AND finished_at IS NOT NULL
+                )
+                SELECT lesson_id, score, total_cards, finished_at
+                FROM ranked_sessions
+                WHERE session_rank = 1
+                ORDER BY lesson_id
+                """
+            ),
+            {"user_id": user_id},
+        ).mappings().all()
+
+    return [
+        {
+            "lesson_id": row["lesson_id"],
+            "completed": True,
+            "score": row["score"],
+            "total_cards": row["total_cards"],
+            "percentage": round((row["score"] * 100) / row["total_cards"])
+            if row["total_cards"] > 0
+            else 0,
+            "completed_at": row["finished_at"],
+        }
+        for row in rows
+    ]
+
+
 def create_attempt(payload: CardAttemptCreate) -> dict[str, Any]:
     attempt_id = str(uuid.uuid4())
     timestamp = now_iso()

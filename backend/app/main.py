@@ -31,6 +31,7 @@ from .tracking import (
     create_session,
     delete_user_and_activity,
     finish_session,
+    get_lesson_progress,
     get_user_by_name,
     get_user,
     init_db,
@@ -250,6 +251,14 @@ def read_user(user_id: str):
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
     return user
+
+
+@app.get("/api/users/{user_id}/lesson-progress")
+def read_lesson_progress(user_id: str):
+    progress = get_lesson_progress(user_id)
+    if progress is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    return progress
 
 
 @app.get("/api/users/by-name/{display_name}")

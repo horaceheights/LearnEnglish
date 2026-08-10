@@ -31,6 +31,15 @@ export type Lesson = {
 
 export type LessonSummary = Omit<Lesson, 'goal' | 'vocabulary' | 'cards'>;
 
+export type LessonProgress = {
+  lesson_id: string;
+  completed: true;
+  score: number;
+  total_cards: number;
+  percentage: number;
+  completed_at: string;
+};
+
 export type LearnerProfile = {
   userId?: string;
   displayName: string;

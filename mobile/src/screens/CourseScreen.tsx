@@ -18,11 +18,11 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { getLessons } from '../api';
+import { getLessonProgress, getLessons } from '../api';
 import { absoluteMediaUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
-import type { LearnerProfile, LessonSummary } from '../types';
+import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
   'lesson-1-people-actions': {
@@ -53,6 +53,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
 };
 
 const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];
+const UPDATE_COMPLETED_STORAGE_KEY = 'app:update-completed-message';
 
 type Props = {
   profile: LearnerProfile;
@@ -77,6 +78,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
+  const [progressByLesson, setProgressByLesson] = useState<Record<string, LessonProgress>>({});
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [loadingLessonId, setLoadingLessonId] = useState('');
@@ -89,14 +91,22 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
     () => lessons.find((lesson) => lesson.id === recentLessonId) || lessons[0],
     [lessons, recentLessonId],
   );
-  const currentLessonIndex = currentLesson ? lessons.findIndex((lesson) => lesson.id === currentLesson.id) : -1;
   const currentVisual = currentLesson ? VISUALS[currentLesson.id] || DEFAULT_VISUAL : DEFAULT_VISUAL;
 
   const load = async () => {
     setIsLoading(true);
     setError('');
     try {
-      setLessons(await getLessons());
+      const [nextLessons, progressResult] = await Promise.all([
+        getLessons(),
+        profile.userId ? getLessonProgress(profile.userId).catch(() => null) : Promise.resolve(null),
+      ]);
+      setLessons(nextLessons);
+      setProgressByLesson(
+        progressResult
+          ? Object.fromEntries(progressResult.map((progress) => [progress.lesson_id, progress]))
+          : {},
+      );
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : 'No pudimos cargar las lecciones. Inténtalo otra vez.');
     } finally {
@@ -104,7 +114,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
     }
   };
 
-  useEffect(() => { void load(); }, []);
+  useEffect(() => { void load(); }, [profile.userId]);
   useEffect(() => { setDiagnosticContext({}); }, []);
   useEffect(() => {
     void ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT);
@@ -114,6 +124,16 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
       .then((lessonId) => setRecentLessonId(lessonId || ''))
       .catch(() => setRecentLessonId(''));
   }, [recentLessonStorageKey]);
+  useEffect(() => {
+    AsyncStorage.getItem(UPDATE_COMPLETED_STORAGE_KEY)
+      .then((shouldShowMessage) => {
+        if (shouldShowMessage !== 'true') return;
+        return AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY).then(() => {
+          Alert.alert('Actualizaci\u00f3n completada', 'SpanGlish se actualiz\u00f3 correctamente.');
+        });
+      })
+      .catch(() => undefined);
+  }, []);
 
   const openLesson = (lessonId: string) => {
     setLoadingLessonId(lessonId);
@@ -174,6 +194,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
     try {
       if (isUpdatePending) {
         setUpdateStatus('downloading');
+        await AsyncStorage.setItem(UPDATE_COMPLETED_STORAGE_KEY, 'true');
         await Updates.reloadAsync();
         return;
       }
@@ -188,8 +209,10 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
 
       setUpdateStatus('downloading');
       await Updates.fetchUpdateAsync();
+      await AsyncStorage.setItem(UPDATE_COMPLETED_STORAGE_KEY, 'true');
       await Updates.reloadAsync();
     } catch {
+      await AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY).catch(() => undefined);
       setUpdateStatus('idle');
       Alert.alert('No pudimos actualizar', 'Revisa tu conexión a internet e inténtalo otra vez.');
     }
@@ -398,11 +421,15 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
               {lessons.map((lesson, index) => {
                 const visual = VISUALS[lesson.id] || DEFAULT_VISUAL;
                 const isCurrent = lesson.id === currentLesson.id;
-                const status = isCurrent ? 'Actual' : index < currentLessonIndex ? 'Repasar' : 'Disponible';
+                const progress = progressByLesson[lesson.id];
+                const status = progress ? 'Completada' : 'Disponible';
+                const scoreLabel = progress
+                  ? `Puntaje ${progress.score}/${progress.total_cards} (${progress.percentage}%)`
+                  : '';
                 return (
                   <Pressable
                     accessibilityHint="Abre esta lección"
-                    accessibilityLabel={`${lessonName(lesson)}. ${status}. ${visual.description}`}
+                    accessibilityLabel={`${lessonName(lesson)}. ${status}.${scoreLabel ? ` ${scoreLabel}.` : ''} ${visual.description}`}
                     accessibilityRole="button"
                     key={lesson.id}
                     onPress={() => openLesson(lesson.id)}
@@ -413,10 +440,14 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                       pressed ? styles.pressed : null,
                     ]}
                   >
-                    <View style={[styles.lessonStep, isCurrent ? styles.lessonStepCurrent : null]}>
-                      <Text style={[styles.lessonStepText, isCurrent ? styles.lessonStepTextCurrent : null]}>
-                        {index + 1}
-                      </Text>
+                    <View style={[styles.lessonStep, progress ? styles.lessonStepCompleted : isCurrent ? styles.lessonStepCurrent : null]}>
+                      {progress ? (
+                        <MaterialIcons color="#fff" name="check" size={18} />
+                      ) : (
+                        <Text style={[styles.lessonStepText, isCurrent ? styles.lessonStepTextCurrent : null]}>
+                          {index + 1}
+                        </Text>
+                      )}
                     </View>
                     <View style={[styles.thumbnail, { backgroundColor: visual.color }]}>
                       <Image
@@ -427,11 +458,13 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                     </View>
                     <View style={styles.lessonCopy}>
                       <View style={styles.lessonMeta}>
-                        <Text style={[styles.lessonStatus, isCurrent ? styles.lessonStatusCurrent : null]}>{status}</Text>
+                        <Text style={[styles.lessonStatus, progress || isCurrent ? styles.lessonStatusCurrent : null]}>{status}</Text>
                         <Text style={styles.lessonLevel}>{lesson.level}</Text>
                       </View>
                       <Text numberOfLines={2} style={styles.lessonTitle}>{lessonName(lesson)}</Text>
-                      <Text numberOfLines={1} style={styles.lessonDescription}>{visual.description}</Text>
+                      <Text numberOfLines={1} style={progress ? styles.lessonScore : styles.lessonDescription}>
+                        {scoreLabel || visual.description}
+                      </Text>
                     </View>
                     {loadingLessonId === lesson.id ? (
                       <ActivityIndicator color="#16766f" size="small" />
@@ -562,6 +595,7 @@ const styles = StyleSheet.create({
   lessonRowCurrent: { backgroundColor: '#eef8f5', borderColor: '#9dcfc4', borderRadius: 16, borderWidth: 1 },
   lessonStep: { alignItems: 'center', backgroundColor: '#f2ebde', borderRadius: 15, height: 30, justifyContent: 'center', width: 30 },
   lessonStepCurrent: { backgroundColor: '#16766f' },
+  lessonStepCompleted: { backgroundColor: '#23856f' },
   lessonStepText: { color: '#697177', fontSize: 12, fontWeight: '900' },
   lessonStepTextCurrent: { color: '#fff' },
   thumbnail: { borderRadius: 13, height: 62, marginLeft: 8, overflow: 'hidden', width: 68 },
@@ -572,6 +606,7 @@ const styles = StyleSheet.create({
   lessonLevel: { backgroundColor: '#f2ebde', borderRadius: 5, color: '#697177', fontSize: 8, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 5, paddingVertical: 2 },
   lessonTitle: { color: '#24333a', fontSize: 15, fontWeight: '900', lineHeight: 18, marginTop: 3 },
   lessonDescription: { color: '#697177', fontSize: 10, marginTop: 3 },
+  lessonScore: { color: '#16766f', fontSize: 11, fontWeight: '900', marginTop: 3 },
   rowArrow: { color: '#b0a79b', fontSize: 22, fontWeight: '700', marginRight: 4 },
   errorPanel: { alignItems: 'center', backgroundColor: '#fbeceb', borderRadius: 16, padding: 15 },
   error: { color: '#a34842', textAlign: 'center' },

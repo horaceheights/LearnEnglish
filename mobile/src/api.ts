@@ -7,6 +7,7 @@ import type {
   LearnerProfile,
   LessonFeedbackInput,
   Lesson,
+  LessonProgress,
   LessonSummary,
   PronunciationResult,
   SavedUser,
@@ -99,6 +100,10 @@ export function getLessons(): Promise<LessonSummary[]> {
 
 export async function getLesson(lessonId: string): Promise<Lesson> {
   return jsonRequest(`/api/lessons/${lessonId}`);
+}
+
+export function getLessonProgress(userId: string): Promise<LessonProgress[]> {
+  return jsonRequest(`/api/users/${userId}/lesson-progress`);
 }
 
 export function getLearnerByName(displayName: string): Promise<SavedUser> {

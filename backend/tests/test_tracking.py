@@ -71,6 +71,43 @@ class AdminSummaryTests(unittest.TestCase):
         self.assertEqual(0, learner["lesson_scores"]["lesson-2-pronouns"]["completed_runs"])
         self.assertTrue(any(lesson["number"] == "1.1" for lesson in summary["lessons"]))
 
+    def test_lesson_progress_returns_latest_completed_run(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Progress Learner"))
+        first = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+        second = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=8)
+        )
+        tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-2-pronouns", total_cards=10)
+        )
+        tracking.finish_session(first["id"], SessionFinish(score=7, total_cards=10))
+        tracking.finish_session(second["id"], SessionFinish(score=6, total_cards=8))
+
+        progress = tracking.get_lesson_progress(user["id"])
+
+        self.assertEqual(1, len(progress))
+        self.assertEqual("lesson-1-people-actions", progress[0]["lesson_id"])
+        self.assertTrue(progress[0]["completed"])
+        self.assertEqual(6, progress[0]["score"])
+        self.assertEqual(8, progress[0]["total_cards"])
+        self.assertEqual(75, progress[0]["percentage"])
+        self.assertIsNotNone(progress[0]["completed_at"])
+
+    def test_lesson_progress_handles_missing_and_reset_learners(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Reset Progress"))
+        session = tracking.create_session(
+            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+        )
+        tracking.finish_session(session["id"], SessionFinish(score=9, total_cards=10))
+        self.assertEqual(1, len(tracking.get_lesson_progress(user["id"])))
+
+        tracking.reset_user_activity(user["id"])
+
+        self.assertEqual([], tracking.get_lesson_progress(user["id"]))
+        self.assertIsNone(tracking.get_lesson_progress("missing-user"))
+
     def test_delete_user_removes_profile_sessions_and_attempts(self):
         user = tracking.create_or_update_user(UserCreate(display_name="Delete Me"))
         session = tracking.create_session(
