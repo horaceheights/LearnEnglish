@@ -56,9 +56,14 @@ const COURSE_MENU_VISUALS = {
       accent: "#dff4ef",
     },
     "lesson-4-family-members": {
-      description: "Familia cercana: bebes, ninos, adultos, padres y abuelos.",
+      description: "Familia cercana: bebes, ninos, hermanos y hermanas.",
       image: "family_all_members.webp",
       accent: "#ffe7bd",
+    },
+    "lesson-4-family-members-continued": {
+      description: "Familia: adultos, padres, madres y abuelos.",
+      image: "family_grandparents.webp",
+      accent: "#f1e4fa",
     },
     "lesson-5-family-action-practice": {
       description: "Mas practica con familia, adultos, ninos y acciones comunes.",
@@ -1960,6 +1965,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     activeLesson.id === "lesson-1-people-actions" ||
     activeLesson.id === "lesson-2-pronouns" ||
     activeLesson.id === "lesson-4-family-members" ||
+    activeLesson.id === "lesson-4-family-members-continued" ||
     activeLesson.id === "lesson-5-family-action-practice" ||
     activeLesson.id === "lesson-6-objects-places";
   const optionCount = currentCard?.options.length || 2;

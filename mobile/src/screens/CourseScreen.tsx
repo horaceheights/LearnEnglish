@@ -38,8 +38,13 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
   },
   'lesson-4-family-members': {
     image: 'family_all_members.webp',
-    description: 'Familia cercana: niños, adultos, padres y abuelos.',
+    description: 'Familia cercana: bebés, niños, hermanos y hermanas.',
     color: '#ffe7bd',
+  },
+  'lesson-4-family-members-continued': {
+    image: 'family_grandparents.webp',
+    description: 'Familia: adultos, padres, madres y abuelos.',
+    color: '#f1e4fa',
   },
   'lesson-5-family-action-practice': {
     image: 'family_adults_playing.webp',

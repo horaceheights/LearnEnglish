@@ -4,6 +4,7 @@ export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
 export const SECOND_LESSON_ID = 'lesson-2-pronouns';
 export const THIRD_LESSON_ID = 'lesson-4-family-members';
+export const FOURTH_LESSON_ID = 'lesson-4-family-members-continued';
 export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue`;
 export const COURSE_AUDIO_PROFILE = 'a1-elevenlabs-cast-v14';
 export type CourseAudioProvider = 'openai' | 'elevenlabs' | 'elevenlabs-premium' | 'azure';
@@ -20,7 +21,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   // The approved teacher takes for the complete family set were verified by
   // transcription, so use them for both recognition and listening practice.
   if (
-    lessonId === THIRD_LESSON_ID &&
+    (lessonId === THIRD_LESSON_ID || lessonId === FOURTH_LESSON_ID) &&
     (normalizedStage.includes('action') || normalizedStage.includes('listen'))
   ) {
     return 'female-teacher';
@@ -54,7 +55,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
     normalizedStage.includes('picture') ||
     normalizedStage.includes('what is it')
   ) {
-    return lessonId === THIRD_LESSON_ID ? 'male-warm' : 'male-conversational';
+    return lessonId === THIRD_LESSON_ID || lessonId === FOURTH_LESSON_ID ? 'female-teacher' : 'male-conversational';
   }
 
   // Keep uncategorized future stages stable while still alternating the cast.
