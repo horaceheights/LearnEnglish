@@ -29,6 +29,14 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(lesson=lesson.id):
                 self.assertTrue(all(count > 0 for count in counts.values()), counts)
 
+    def test_lesson_1_3_uses_two_choices_before_four_choices(self):
+        lesson = LESSONS["lesson-4-family-members"]
+        practice_cards = [card for card in lesson.cards if card.stage == "Action Introduction"]
+
+        self.assertTrue(all(len(card.options) == 2 for card in practice_cards[:16]))
+        self.assertFalse(any(len(card.options) == 2 for card in practice_cards[16:]))
+        self.assertTrue(any(len(card.options) == 4 for card in practice_cards[16:]))
+
 
 if __name__ == "__main__":
     unittest.main()

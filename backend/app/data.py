@@ -1098,12 +1098,43 @@ def family_choice(option_id: str, label: str | None = None) -> ChoiceOption:
 def family_member_cards() -> list[LessonCard]:
     return [
         *in_stage(family_member_new_vocab_cards(), "New Vocab"),
+        *in_stage(family_member_two_choice_cards(), "Action Introduction"),
         *in_stage(family_member_meaning_cards(), "Action Introduction"),
         *in_stage(negation_intro_cards(LESSON_3_NEGATION_SPECS), "Plural Challenge"),
         *in_stage(family_member_listen_cards(), "Listen"),
         *in_stage(family_member_pronunciation_cards(), "Pronunciation Practice"),
         *in_stage(family_member_grammar_cards(), "Grammar"),
     ]
+
+
+def family_member_two_choice_cards() -> list[LessonCard]:
+    pairs = [
+        ("baby", "babies"),
+        ("child", "children"),
+        ("adult", "adults"),
+        ("brother", "brothers"),
+        ("sister", "sisters"),
+        ("father", "mother"),
+        ("parents", "grandparents"),
+        ("grandfather", "grandmother"),
+    ]
+    cards: list[LessonCard] = []
+    for pair_index, pair in enumerate(pairs, 1):
+        for correct_id in pair:
+            option_ids = stable_shuffle(
+                list(pair),
+                f"family-member-two-choice-{pair_index}-{correct_id}",
+            )
+            cards.append(
+                LessonCard(
+                    prompt=FAMILY_PEOPLE[correct_id]["label"],
+                    stage="Action Introduction",
+                    correct_option_id=correct_id,
+                    options=[family_choice(option_id, "") for option_id in option_ids],
+                    audio_text=FAMILY_PEOPLE[correct_id]["label"],
+                )
+            )
+    return cards
 
 
 def family_member_new_vocab_cards() -> list[LessonCard]:
