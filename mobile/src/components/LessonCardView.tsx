@@ -70,6 +70,7 @@ export function LessonCardView({
   const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
   const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
+  const useSingleImageLayout = !hasTextOnlyOptions && card.options.length === 1;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
@@ -82,8 +83,8 @@ export function LessonCardView({
       ? '23.5%'
       : isLandscape && card.options.length === 3
         ? '31%'
-        : card.options.length === 1
-          ? '72%'
+        : useSingleImageLayout
+          ? '100%'
           : '48%';
   const optionMinHeight = hasTextOnlyOptions
     ? isLandscape
@@ -143,12 +144,16 @@ export function LessonCardView({
     Math.max(isPronunciation ? 68 : 70, availableCardHeight - featureReservedHeight),
   );
   const optionRows = useTabletImageGrid || usePortraitImageGrid || usePortraitImageStack ? 2 : 1;
-  const optionImageHeight = Math.min(
-    responsiveOptionImageHeight,
-    usePortraitImageGrid || usePortraitImageStack
-      ? Math.max(68, ((availableCardHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
-      : Math.max(68, (availableCardHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
-  );
+  // A single image is a teaching slide rather than a choice grid. Let it use
+  // the full measured panel; resizeMode="contain" preserves its aspect ratio.
+  const optionImageHeight = useSingleImageLayout
+    ? Math.max(68, availableCardHeight - 42)
+    : Math.min(
+      responsiveOptionImageHeight,
+      usePortraitImageGrid || usePortraitImageStack
+        ? Math.max(68, ((availableCardHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
+        : Math.max(68, (availableCardHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
+    );
 
   useEffect(() => {
     if (!isGrammar || result !== 'correct' || !selectedId) return undefined;
