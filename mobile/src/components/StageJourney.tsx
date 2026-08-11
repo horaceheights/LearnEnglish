@@ -5,6 +5,7 @@ import { lessonStageShortLabel } from '../lessonInstructions';
 import type { LessonCard } from '../types';
 
 type Props = {
+  allComplete?: boolean;
   cards: LessonCard[];
   compact?: boolean;
   currentIndex: number;
@@ -32,6 +33,7 @@ const STAGE_COLORS = [
 ];
 
 export function StageJourney({
+  allComplete = false,
   cards,
   compact = false,
   currentIndex,
@@ -72,12 +74,12 @@ export function StageJourney({
       <View style={[styles.track, compact ? styles.trackCompact : null]}>
         {segments.map((segment, index) => {
           const isActive = index === activeSegmentIndex;
-          const isComplete = index < activeSegmentIndex;
+          const isComplete = allComplete || index < activeSegmentIndex;
           const isUnlocked = segment.start <= maxVisitedIndex;
           const color = STAGE_COLORS[index % STAGE_COLORS.length];
           return (
             <Pressable
-              accessibilityLabel={`Ir a la sección ${segment.label}`}
+              accessibilityLabel={`Ir a la sección ${segment.label}${isComplete ? ', completada' : ''}`}
               accessibilityRole="button"
               accessibilityState={{ disabled: !isUnlocked, selected: isActive }}
               disabled={!isUnlocked || !onStagePress}

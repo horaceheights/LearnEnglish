@@ -73,7 +73,7 @@ function detailedVersion(label: string, version: string, build: string, updateId
 
 type Props = {
   profile: LearnerProfile;
-  onOpenLesson: (lessonId: string) => void;
+  onOpenLesson: (lessonId: string, previouslyCompleted: boolean) => void;
   onViewProfile: () => void;
   onSignOut: () => void;
   onOpenQA?: () => void;
@@ -171,7 +171,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
     setLoadingLessonId(lessonId);
     setRecentLessonId(lessonId);
     void AsyncStorage.setItem(recentLessonStorageKey, lessonId).catch(() => undefined);
-    onOpenLesson(lessonId);
+    onOpenLesson(lessonId, Boolean(progressByLesson[lessonId]?.completed));
   };
 
   const openProfile = () => {
