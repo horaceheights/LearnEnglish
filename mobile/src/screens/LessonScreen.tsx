@@ -754,12 +754,15 @@ export function LessonScreen({
       clearTimeout(singleCardFallbackTimerRef.current);
       singleCardFallbackTimerRef.current = null;
     }
-    setCompletedCards((current) => new Set(current).add(cardIndex));
+    if (!completedCards.has(cardIndex)) {
+      setCompletedCards((current) => new Set(current).add(cardIndex));
+      setScore((current) => current + 1);
+    }
     singleCardAdvanceTimerRef.current = setTimeout(() => {
       singleCardAdvanceTimerRef.current = null;
       advance();
     }, 3000);
-  }, [advance, cardIndex, isAutomaticSingleCard]);
+  }, [advance, cardIndex, completedCards, isAutomaticSingleCard]);
 
   useEffect(() => {
     if (!isAutomaticSingleCard || !singleCardAudioAwaitingRef.current) return;

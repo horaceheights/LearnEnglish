@@ -29,13 +29,41 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(lesson=lesson.id):
                 self.assertTrue(all(count > 0 for count in counts.values()), counts)
 
-    def test_lesson_1_3_uses_two_choices_before_four_choices(self):
-        lesson = LESSONS["lesson-4-family-members"]
-        practice_cards = [card for card in lesson.cards if card.stage == "Action Introduction"]
+    def test_family_lessons_use_two_choices_before_four_choices_in_vocab(self):
+        for lesson_id in ["lesson-4-family-members", "lesson-4-family-members-continued"]:
+            lesson = LESSONS[lesson_id]
+            option_counts = [
+                len(card.options)
+                for card in lesson.cards
+                if card.stage == "New Vocab" and len(card.options) > 1
+            ]
+            first_four_choice = option_counts.index(4)
 
-        self.assertTrue(all(len(card.options) == 2 for card in practice_cards[:16]))
-        self.assertFalse(any(len(card.options) == 2 for card in practice_cards[16:]))
-        self.assertTrue(any(len(card.options) == 4 for card in practice_cards[16:]))
+            with self.subTest(lesson=lesson_id):
+                self.assertGreater(first_four_choice, 0)
+                self.assertTrue(all(count == 2 for count in option_counts[:first_four_choice]))
+                self.assertTrue(all(count == 4 for count in option_counts[first_four_choice:]))
+
+    def test_family_action_sections_only_contain_ing_actions_and_negatives(self):
+        for lesson_id in ["lesson-4-family-members", "lesson-4-family-members-continued"]:
+            action_cards = [
+                card for card in LESSONS[lesson_id].cards if card.stage == "Action Introduction"
+            ]
+            action_text = [str(card.audio_text or card.prompt).lower() for card in action_cards]
+
+            with self.subTest(lesson=lesson_id):
+                self.assertTrue(all("ing" in text for text in action_text), action_text)
+                self.assertTrue(any(" not " in text for text in action_text), action_text)
+
+    def test_family_split_and_following_lesson_numbers_are_in_order(self):
+        self.assertEqual(
+            ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6"],
+            [lesson.sub_lesson_id for lesson in LESSONS.values()],
+        )
+        self.assertEqual(
+            "Family Members Continued",
+            LESSONS["lesson-4-family-members-continued"].sub_lesson_title,
+        )
 
 
 if __name__ == "__main__":
