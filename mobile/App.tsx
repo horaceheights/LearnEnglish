@@ -27,7 +27,7 @@ import type { LearnerProfile } from './src/types';
 
 type Screen =
   | { name: 'course' }
-  | { name: 'lesson'; lessonId: string; initialCardIndex?: number; qaMode?: boolean }
+  | { name: 'lesson'; lessonId: string; initialCardIndex?: number; previouslyCompleted?: boolean; qaMode?: boolean }
   | { name: 'profile' }
   | { name: 'qa' };
 
@@ -120,6 +120,7 @@ function AppContent() {
         initialCardIndex={screen.initialCardIndex}
         lessonId={screen.lessonId}
         onExit={() => setScreen(screen.qaMode ? { name: 'qa' } : { name: 'course' })}
+        previouslyCompleted={screen.previouslyCompleted}
         profile={profile}
         qaMode={screen.qaMode}
       />
@@ -160,7 +161,7 @@ function AppContent() {
         setProfile(null);
         setScreen({ name: 'course' });
       }}
-      onOpenLesson={(lessonId) => setScreen({ lessonId, name: 'lesson' })}
+      onOpenLesson={(lessonId, previouslyCompleted) => setScreen({ lessonId, name: 'lesson', previouslyCompleted })}
       onOpenQA={hasQaAccess ? () => setScreen({ name: 'qa' }) : undefined}
       onViewProfile={() => setScreen({ name: 'profile' })}
       profile={profile}

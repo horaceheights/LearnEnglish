@@ -4,6 +4,7 @@ import {
   Animated,
   BackHandler,
   Image,
+  Modal,
   PanResponder,
   Pressable,
   ScrollView,
@@ -95,8 +96,11 @@ type Props = {
   profile: LearnerProfile;
   onExit: () => void;
   initialCardIndex?: number;
+  previouslyCompleted?: boolean;
   qaMode?: boolean;
 };
+
+type CompletedLessonMode = 'standard' | 'prompt' | 'sections' | 'review';
 
 function BackArrowIcon() {
   return (
@@ -141,6 +145,7 @@ export function LessonScreen({
   profile,
   onExit,
   initialCardIndex = 0,
+  previouslyCompleted = false,
   qaMode = false,
 }: Props) {
   const audioPlayer = useAudioPlayer(null);
@@ -205,11 +210,17 @@ export function LessonScreen({
   const [showSentenceCoachmark, setShowSentenceCoachmark] = useState(false);
   const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
   const [promptAutoplayFinished, setPromptAutoplayFinished] = useState(false);
+  const [completedLessonMode, setCompletedLessonMode] = useState<CompletedLessonMode>(
+    previouslyCompleted && !qaMode ? 'prompt' : 'standard',
+  );
+  const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
   const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const audioProvider = courseAudioProvider(lessonId);
   const audioVoice = courseAudioVoice(lessonId, lesson?.cards[cardIndex]?.stage || '');
   const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
+  const isCompletedSectionPicker = completedLessonMode === 'prompt' || completedLessonMode === 'sections';
+  const showCompletedJourney = previouslyCompleted && completedLessonMode !== 'standard';
 
   useEffect(() => {
     // Lessons adapt to both orientations. DEFAULT follows the device sensor,
@@ -382,9 +393,11 @@ export function LessonScreen({
     setError('');
     resumeHydratedRef.current = false;
     finishedSessionRef.current = false;
+    setCompletedLessonMode(previouslyCompleted && !qaMode ? 'prompt' : 'standard');
+    setReviewStageBounds(null);
     try {
       const nextLesson = await getLesson(lessonId);
-      const savedRun = qaMode
+      const savedRun = qaMode || previouslyCompleted
         ? null
         : parseSavedLessonRun(
           await AsyncStorage.getItem(lessonResumeStorageKey).catch(() => null),
@@ -402,7 +415,9 @@ export function LessonScreen({
       ]);
       setLesson(nextLesson);
       setCardIndex(nextCardIndex);
-      setFurthestCardIndex(savedRun?.furthestCardIndex ?? nextCardIndex);
+      setFurthestCardIndex(
+        savedRun?.furthestCardIndex ?? (previouslyCompleted ? nextLesson.cards.length - 1 : nextCardIndex),
+      );
       setScore(savedRun?.score ?? 0);
       setAttemptedCards(new Set(savedRun?.attemptedCards ?? []));
       setWrongCards(new Set(savedRun?.wrongCards ?? []));
@@ -410,6 +425,7 @@ export function LessonScreen({
       setSessionId(savedRun?.sessionId ?? '');
       resumeHydratedRef.current = true;
       if (profile.userId && !qaMode) {
+        if (previouslyCompleted) return;
         if (savedRun?.sessionId) return;
         startLessonSession(profile.userId, nextLesson.id, nextLesson.cards.length)
           .then((session) => setSessionId(session.id))
@@ -428,10 +444,10 @@ export function LessonScreen({
     }
   };
 
-  useEffect(() => { void load(); }, [initialCardIndex, lessonId, lessonResumeStorageKey, qaMode]);
+  useEffect(() => { void load(); }, [initialCardIndex, lessonId, lessonResumeStorageKey, previouslyCompleted, qaMode]);
 
   useEffect(() => {
-    if (qaMode || !lesson || !resumeHydratedRef.current) return;
+    if (qaMode || completedLessonMode !== 'standard' || !lesson || !resumeHydratedRef.current) return;
     if (isComplete) {
       void AsyncStorage.removeItem(lessonResumeStorageKey).catch(() => undefined);
       return;
@@ -453,6 +469,7 @@ export function LessonScreen({
     attemptedCards,
     cardIndex,
     completedCards,
+    completedLessonMode,
     furthestCardIndex,
     isComplete,
     lesson,
@@ -469,7 +486,8 @@ export function LessonScreen({
   const pauseForPronunciationReview = manualCardNavigation && isPronunciation;
   const canSwipeForward = pauseForPronunciationReview && attemptedCards.has(cardIndex);
   const automaticAdvanceDelay = manualCardNavigation ? 2000 : 0;
-  const isAutomaticSingleCard = manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
+  const isAutomaticSingleCard =
+    !isCompletedSectionPicker && manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const sentenceTranslation = spanishTranslationFor(
     isGrammar ? currentCard?.prompt ?? '' : promptAudio,
@@ -628,7 +646,7 @@ export function LessonScreen({
   }, [cardIndex, currentCard?.prompt, currentCard?.stage, lesson?.cards.length, lessonId, qaMode]);
 
   useEffect(() => {
-    if (!currentCard || isPronunciation || result !== null) return undefined;
+    if (isCompletedSectionPicker || !currentCard || isPronunciation || result !== null) return undefined;
     promptAutoplayAwaitingRef.current = true;
     promptAutoplayWasPlayingRef.current = false;
     promptAutoplayFallbackTimerRef.current = setTimeout(() => {
@@ -651,7 +669,7 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
     };
-  }, [cardIndex, currentCard, isAutomaticSingleCard, isPronunciation, playAudio, promptAudio, result]);
+  }, [cardIndex, currentCard, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, promptAudio, result]);
 
   useEffect(() => {
     if (!promptAutoplayAwaitingRef.current) return;
@@ -703,6 +721,20 @@ export function LessonScreen({
       clearTimeout(singleCardFallbackTimerRef.current);
       singleCardFallbackTimerRef.current = null;
     }
+    if (
+      completedLessonMode === 'review' &&
+      reviewStageBounds &&
+      cardIndex >= reviewStageBounds.end
+    ) {
+      audioPlaybackRequestRef.current += 1;
+      audioPlayer.pause();
+      setCompletedLessonMode('sections');
+      setReviewStageBounds(null);
+      setGrammarCompleted(false);
+      setSelectedId(null);
+      setResult(null);
+      return;
+    }
     if (cardIndex >= lesson.cards.length - 1) {
       setIsComplete(true);
       return;
@@ -712,7 +744,7 @@ export function LessonScreen({
     setGrammarCompleted(false);
     setSelectedId(null);
     setResult(null);
-  }, [cardIndex, lesson]);
+  }, [audioPlayer, cardIndex, completedLessonMode, lesson, reviewStageBounds]);
 
   const completeAutomaticSingleCard = useCallback(() => {
     if (!isAutomaticSingleCard || singleCardAdvanceTimerRef.current) return;
@@ -1043,6 +1075,37 @@ export function LessonScreen({
     setCompletedCards(new Set());
   }, [clearCardInteractionState]);
 
+  const chooseCompletedLessonSections = useCallback(() => {
+    audioPlaybackRequestRef.current += 1;
+    audioPlayer.pause();
+    clearCardInteractionState();
+    setCompletedLessonMode('sections');
+    setReviewStageBounds(null);
+  }, [audioPlayer, clearCardInteractionState]);
+
+  const startCompletedLessonFromBeginning = useCallback(() => {
+    if (!lesson) return;
+    audioPlaybackRequestRef.current += 1;
+    audioPlayer.pause();
+    resetCardState();
+    setCardIndex(0);
+    setFurthestCardIndex(0);
+    setReviewStageBounds(null);
+    setCompletedLessonMode('standard');
+    setSessionId('');
+    void AsyncStorage.removeItem(lessonResumeStorageKey).catch(() => undefined);
+    if (profile.userId && !qaMode) {
+      startLessonSession(profile.userId, lesson.id, lesson.cards.length)
+        .then((session) => setSessionId(session.id))
+        .catch((sessionError) => captureDiagnosticError(
+          sessionError,
+          'start_lesson_session',
+          { lesson_id: lesson.id },
+          'warning',
+        ));
+    }
+  }, [audioPlayer, lesson, lessonResumeStorageKey, profile.userId, qaMode, resetCardState]);
+
   const openStage = useCallback((startIndex: number) => {
     if (!lesson || (!qaMode && startIndex > furthestCardIndex)) return;
     addDiagnosticBreadcrumb('lesson_stage_opened', {
@@ -1051,9 +1114,28 @@ export function LessonScreen({
     });
     cardTranslateX.stopAnimation();
     cardTranslateX.setValue(0);
-    clearCardInteractionState();
-    setCardIndex(Math.min(Math.max(startIndex, 0), lesson.cards.length - 1));
-  }, [cardIndex, cardTranslateX, clearCardInteractionState, furthestCardIndex, lesson, qaMode]);
+    const boundedStart = Math.min(Math.max(startIndex, 0), lesson.cards.length - 1);
+    if (completedLessonMode !== 'standard') {
+      const selectedStage = lesson.cards[boundedStart].stage;
+      let end = boundedStart;
+      while (end + 1 < lesson.cards.length && lesson.cards[end + 1].stage === selectedStage) end += 1;
+      resetCardState();
+      setReviewStageBounds({ end, start: boundedStart });
+      setCompletedLessonMode('review');
+    } else {
+      clearCardInteractionState();
+    }
+    setCardIndex(boundedStart);
+  }, [
+    cardIndex,
+    cardTranslateX,
+    clearCardInteractionState,
+    completedLessonMode,
+    furthestCardIndex,
+    lesson,
+    qaMode,
+    resetCardState,
+  ]);
 
   const openQaCard = useCallback((nextIndex: number) => {
     if (!lesson) return;
@@ -1080,7 +1162,10 @@ export function LessonScreen({
       return;
     }
     const nextIndex = cardIndex + direction;
-    if (nextIndex < 0) {
+    if (
+      nextIndex < 0 ||
+      (completedLessonMode === 'review' && reviewStageBounds && nextIndex < reviewStageBounds.start)
+    ) {
       settleCard();
       return;
     }
@@ -1097,6 +1182,17 @@ export function LessonScreen({
         return;
       }
       clearCardInteractionState();
+      if (
+        completedLessonMode === 'review' &&
+        reviewStageBounds &&
+        nextIndex > reviewStageBounds.end
+      ) {
+        cardTranslateX.setValue(0);
+        cardTransitioningRef.current = false;
+        setCompletedLessonMode('sections');
+        setReviewStageBounds(null);
+        return;
+      }
       if (nextIndex >= lesson.cards.length) {
         cardTranslateX.setValue(0);
         cardTransitioningRef.current = false;
@@ -1113,8 +1209,10 @@ export function LessonScreen({
     cardTranslateX,
     canSwipeForward,
     clearCardInteractionState,
+    completedLessonMode,
     lesson,
     manualCardNavigation,
+    reviewStageBounds,
     settleCard,
     viewportWidth,
   ]);
@@ -1325,11 +1423,12 @@ export function LessonScreen({
             {!isPortrait ? (
               <View style={styles.lessonStatus}>
                 <StageJourney
+                  allComplete={showCompletedJourney}
                   cards={lesson.cards}
                   compact={useCompactPhoneLayout}
                   currentIndex={cardIndex}
                   lessonId={lesson.id}
-                  maxVisitedIndex={qaMode ? lesson.cards.length - 1 : furthestCardIndex}
+                  maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
                   onStagePress={openStage}
                 />
               </View>
@@ -1351,22 +1450,32 @@ export function LessonScreen({
           {isPortrait ? (
             <View style={[styles.lessonStatus, styles.lessonStatusPortrait]}>
               <StageJourney
+                allComplete={showCompletedJourney}
                 cards={lesson.cards}
                 compact
                 currentIndex={cardIndex}
                 lessonId={lesson.id}
-                maxVisitedIndex={qaMode ? lesson.cards.length - 1 : furthestCardIndex}
+                maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
                 onStagePress={openStage}
               />
             </View>
           ) : null}
         </View>
-        <View style={[
+        {isCompletedSectionPicker ? (
+          <View accessibilityLiveRegion="polite" style={styles.sectionPickerPanel}>
+            <Text accessibilityRole="header" style={styles.sectionPickerTitle}>Elige una sección</Text>
+            <Text style={styles.sectionPickerText}>
+              Toca cualquiera de las secciones completadas de arriba para practicarla otra vez.
+            </Text>
+          </View>
+        ) : null}
+        <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
           styles.contentHeader,
           useCompactPhoneLayout ? styles.contentHeaderCompact : null,
           isPortrait ? styles.contentHeaderPortrait : null,
           isPronunciation ? styles.contentHeaderPronunciation : null,
           isPronunciation && isPortrait ? styles.contentHeaderPronunciationPortrait : null,
+          isCompletedSectionPicker ? styles.reviewContentInactive : null,
         ]}>
           <Text accessibilityRole="header" style={styles.stage}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
@@ -1431,8 +1540,10 @@ export function LessonScreen({
         </View>
         <Animated.View
           {...(manualCardNavigation ? cardPanResponder.panHandlers : {})}
+          pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'}
           style={[
             styles.cardCarousel,
+            isCompletedSectionPicker ? styles.reviewContentInactive : null,
             manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
           ]}
         >
@@ -1502,6 +1613,35 @@ export function LessonScreen({
         onClose={dismissSentenceCoachmark}
         visible={showSentenceCoachmark}
       />
+      <Modal
+        animationType="fade"
+        onRequestClose={chooseCompletedLessonSections}
+        transparent
+        visible={completedLessonMode === 'prompt'}
+      >
+        <View style={styles.completedPromptBackdrop}>
+          <View accessibilityViewIsModal style={styles.completedPromptCard}>
+            <Text accessibilityRole="header" style={styles.completedPromptTitle}>Lección completada</Text>
+            <Text style={styles.completedPromptText}>
+              Ya completaste esta lección. ¿Quieres comenzar desde el principio?
+            </Text>
+            <Pressable
+              accessibilityRole="button"
+              onPress={startCompletedLessonFromBeginning}
+              style={styles.completedPromptPrimary}
+            >
+              <Text style={styles.completedPromptPrimaryText}>Sí, empezar de nuevo</Text>
+            </Pressable>
+            <Pressable
+              accessibilityRole="button"
+              onPress={chooseCompletedLessonSections}
+              style={styles.completedPromptSecondary}
+            >
+              <Text style={styles.completedPromptSecondaryText}>No, elegir una sección</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
@@ -1515,6 +1655,40 @@ const styles = StyleSheet.create({
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
   cardCarousel: { flex: 1 },
+  reviewContentInactive: { opacity: 0.28 },
+  sectionPickerPanel: {
+    alignItems: 'center',
+    backgroundColor: '#eef8f5',
+    borderColor: '#83bfb1',
+    borderRadius: 18,
+    borderWidth: 2,
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+  },
+  sectionPickerTitle: { color: '#176b5d', fontSize: 20, fontWeight: '900', textAlign: 'center' },
+  sectionPickerText: { color: '#49635e', fontSize: 14, lineHeight: 19, marginTop: 3, textAlign: 'center' },
+  completedPromptBackdrop: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(25, 32, 35, 0.58)',
+    flex: 1,
+    justifyContent: 'center',
+    padding: 24,
+  },
+  completedPromptCard: {
+    backgroundColor: '#fffdf8',
+    borderColor: '#ddc9a7',
+    borderRadius: 24,
+    borderWidth: 2,
+    maxWidth: 480,
+    padding: 24,
+    width: '100%',
+  },
+  completedPromptTitle: { color: '#24333a', fontSize: 25, fontWeight: '900', textAlign: 'center' },
+  completedPromptText: { color: '#526168', fontSize: 16, lineHeight: 23, marginTop: 10, textAlign: 'center' },
+  completedPromptPrimary: { alignItems: 'center', backgroundColor: '#23856f', borderRadius: 15, marginTop: 22, minHeight: 54, justifyContent: 'center', paddingHorizontal: 18 },
+  completedPromptPrimaryText: { color: '#fff', fontSize: 16, fontWeight: '900', textAlign: 'center' },
+  completedPromptSecondary: { alignItems: 'center', borderColor: '#23856f', borderRadius: 15, borderWidth: 2, marginTop: 10, minHeight: 52, justifyContent: 'center', paddingHorizontal: 18 },
+  completedPromptSecondaryText: { color: '#176b5d', fontSize: 15, fontWeight: '900', textAlign: 'center' },
   manualNavigation: { alignItems: 'center', justifyContent: 'center', minHeight: 42, paddingHorizontal: 4 },
   manualNavigationCompact: { minHeight: 36 },
   swipeHint: { color: '#287f68', fontSize: 18, fontWeight: '900', textAlign: 'center' },
