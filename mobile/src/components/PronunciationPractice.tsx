@@ -794,7 +794,8 @@ export function PronunciationPractice({
         </View>
       ) : null}
       <Pressable
-        accessibilityLabel={`Repetir modelo: ${phrase}`}
+        accessibilityHint="Reproduce nuevamente el ejemplo en inglés"
+        accessibilityLabel="Repetir audio"
         accessibilityRole="button"
         disabled={phase === 'checking' || phase === 'listening' || phase === 'ready'}
         onPress={() => phase === 'permission' ? void startListening() : playModel()}
