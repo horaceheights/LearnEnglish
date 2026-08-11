@@ -15,6 +15,16 @@ export function courseAudioProvider(_lessonId: string): CourseAudioProvider {
 
 export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVoice {
   const normalizedStage = stage.trim().toLowerCase();
+  // The male-warm voice produced malformed multilingual audio for several
+  // short Lesson 1.3 nouns (for example, extra speech after "A sister").
+  // The approved teacher takes for the complete family set were verified by
+  // transcription, so use them for both recognition and listening practice.
+  if (
+    lessonId === THIRD_LESSON_ID &&
+    (normalizedStage.includes('action') || normalizedStage.includes('listen'))
+  ) {
+    return 'female-teacher';
+  }
   if (
     normalizedStage.includes('pronunciation') ||
     normalizedStage.includes('vocab') ||
