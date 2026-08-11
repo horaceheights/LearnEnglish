@@ -45,7 +45,50 @@ const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 const TRY_AGAIN_CUE = require('../../assets/try-again.wav');
 const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
 const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v2';
+const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const DOUBLE_TAP_DELAY_MS = 290;
+
+type SavedLessonRun = {
+  attemptedCards: number[];
+  cardCount: number;
+  cardIndex: number;
+  completedCards: number[];
+  furthestCardIndex: number;
+  score: number;
+  sessionId: string;
+  wrongCards: number[];
+};
+
+function validCardIndexes(indexes: unknown, cardCount: number) {
+  if (!Array.isArray(indexes)) return [];
+  return indexes.filter((index): index is number => (
+    Number.isInteger(index) && index >= 0 && index < cardCount
+  ));
+}
+
+function parseSavedLessonRun(value: string | null, cardCount: number): SavedLessonRun | null {
+  if (!value) return null;
+  try {
+    const saved = JSON.parse(value) as Partial<SavedLessonRun>;
+    if (saved.cardCount !== cardCount || !Number.isInteger(saved.cardIndex)) return null;
+    const cardIndex = Math.min(Math.max(saved.cardIndex || 0, 0), Math.max(cardCount - 1, 0));
+    return {
+      attemptedCards: validCardIndexes(saved.attemptedCards, cardCount),
+      cardCount,
+      cardIndex,
+      completedCards: validCardIndexes(saved.completedCards, cardCount),
+      furthestCardIndex: Math.min(
+        Math.max(Number.isInteger(saved.furthestCardIndex) ? saved.furthestCardIndex! : cardIndex, cardIndex),
+        Math.max(cardCount - 1, 0),
+      ),
+      score: Math.min(Math.max(Number.isInteger(saved.score) ? saved.score! : 0, 0), cardCount),
+      sessionId: typeof saved.sessionId === 'string' ? saved.sessionId : '',
+      wrongCards: validCardIndexes(saved.wrongCards, cardCount),
+    };
+  } catch {
+    return null;
+  }
+}
 
 type Props = {
   lessonId: string;
@@ -131,6 +174,7 @@ export function LessonScreen({
   const audioPlayerActiveRef = useRef(true);
   const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
+  const resumeHydratedRef = useRef(false);
   const cardTransitioningRef = useRef(false);
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
@@ -165,6 +209,7 @@ export function LessonScreen({
   const audioProvider = courseAudioProvider(lessonId);
   const audioVoice = courseAudioVoice(lessonId, lesson?.cards[cardIndex]?.stage || '');
   const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
+  const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
 
   useEffect(() => {
     // Lessons adapt to both orientations. DEFAULT follows the device sensor,
@@ -335,12 +380,20 @@ export function LessonScreen({
     setDiagnosticContext({ lessonId, operation: 'lesson_load', qaMode });
     setIsLoading(true);
     setError('');
+    resumeHydratedRef.current = false;
+    finishedSessionRef.current = false;
     try {
       const nextLesson = await getLesson(lessonId);
-      const nextCardIndex = Math.min(
-        Math.max(initialCardIndex, 0),
-        Math.max(nextLesson.cards.length - 1, 0),
-      );
+      const savedRun = qaMode
+        ? null
+        : parseSavedLessonRun(
+          await AsyncStorage.getItem(lessonResumeStorageKey).catch(() => null),
+          nextLesson.cards.length,
+        );
+      const nextCardIndex = savedRun?.cardIndex ?? Math.min(
+          Math.max(initialCardIndex, 0),
+          Math.max(nextLesson.cards.length - 1, 0),
+        );
       // Keep the loading state visible until the first phrase is ready. This
       // avoids showing a silent card while its audio buffers for the first time.
       await Promise.race([
@@ -349,8 +402,15 @@ export function LessonScreen({
       ]);
       setLesson(nextLesson);
       setCardIndex(nextCardIndex);
-      setFurthestCardIndex(nextCardIndex);
+      setFurthestCardIndex(savedRun?.furthestCardIndex ?? nextCardIndex);
+      setScore(savedRun?.score ?? 0);
+      setAttemptedCards(new Set(savedRun?.attemptedCards ?? []));
+      setWrongCards(new Set(savedRun?.wrongCards ?? []));
+      setCompletedCards(new Set(savedRun?.completedCards ?? []));
+      setSessionId(savedRun?.sessionId ?? '');
+      resumeHydratedRef.current = true;
       if (profile.userId && !qaMode) {
+        if (savedRun?.sessionId) return;
         startLessonSession(profile.userId, nextLesson.id, nextLesson.cards.length)
           .then((session) => setSessionId(session.id))
           .catch((sessionError) => captureDiagnosticError(
@@ -368,7 +428,40 @@ export function LessonScreen({
     }
   };
 
-  useEffect(() => { void load(); }, [initialCardIndex, lessonId, qaMode]);
+  useEffect(() => { void load(); }, [initialCardIndex, lessonId, lessonResumeStorageKey, qaMode]);
+
+  useEffect(() => {
+    if (qaMode || !lesson || !resumeHydratedRef.current) return;
+    if (isComplete) {
+      void AsyncStorage.removeItem(lessonResumeStorageKey).catch(() => undefined);
+      return;
+    }
+    const savedRun: SavedLessonRun = {
+      attemptedCards: [...attemptedCards],
+      cardCount: lesson.cards.length,
+      cardIndex,
+      completedCards: [...completedCards],
+      furthestCardIndex,
+      score,
+      sessionId,
+      wrongCards: [...wrongCards],
+    };
+    void AsyncStorage.setItem(lessonResumeStorageKey, JSON.stringify(savedRun)).catch((saveError) => (
+      captureDiagnosticError(saveError, 'save_lesson_resume', { lesson_id: lesson.id }, 'warning')
+    ));
+  }, [
+    attemptedCards,
+    cardIndex,
+    completedCards,
+    furthestCardIndex,
+    isComplete,
+    lesson,
+    lessonResumeStorageKey,
+    qaMode,
+    score,
+    sessionId,
+    wrongCards,
+  ]);
 
   const currentCard = lesson?.cards[cardIndex];
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
