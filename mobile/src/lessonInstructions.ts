@@ -3,7 +3,6 @@ const SPANISH_FIRST_LESSONS = new Set([
   'lesson-2-pronouns',
   'lesson-4-family-members',
   'lesson-4-family-members-continued',
-  'lesson-5-family-action-practice',
   'lesson-6-objects-places',
 ]);
 

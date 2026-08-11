@@ -65,11 +65,6 @@ const COURSE_MENU_VISUALS = {
       image: "family_grandparents.webp",
       accent: "#f1e4fa",
     },
-    "lesson-5-family-action-practice": {
-      description: "Mas practica con familia, adultos, ninos y acciones comunes.",
-      image: "family_adults_playing.webp",
-      accent: "#dff4ef",
-    },
     "lesson-6-objects-places": {
       description: "Objetos y lugares comunes para preparar colores, numeros y ubicaciones.",
       image: "place_school.webp",
@@ -1966,7 +1961,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     activeLesson.id === "lesson-2-pronouns" ||
     activeLesson.id === "lesson-4-family-members" ||
     activeLesson.id === "lesson-4-family-members-continued" ||
-    activeLesson.id === "lesson-5-family-action-practice" ||
     activeLesson.id === "lesson-6-objects-places";
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationCard ? currentCard?.options[activePronunciationOptionIndex] : null;

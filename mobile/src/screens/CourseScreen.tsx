@@ -46,11 +46,6 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Familia: adultos, padres, madres y abuelos.',
     color: '#f1e4fa',
   },
-  'lesson-5-family-action-practice': {
-    image: 'family_adults_playing.webp',
-    description: 'Familia, adultos, niños y acciones comunes.',
-    color: '#dff4ef',
-  },
   'lesson-6-objects-places': {
     image: 'place_school.webp',
     description: 'Objetos y lugares comunes.',
