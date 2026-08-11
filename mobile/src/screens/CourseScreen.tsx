@@ -63,12 +63,12 @@ type UpdateReceipt = {
 };
 
 function installedVersion(version: string, build: string): string {
-  return `v${version} · Build ${build}`;
+  return `Versión ${version} · Build ${build}`;
 }
 
-function detailedVersion(version: string, build: string, updateId: string): string {
+function detailedVersion(label: string, version: string, build: string, updateId: string): string {
   const updateLabel = updateId === 'embedded' ? 'incluida' : updateId.slice(0, 8);
-  return `${installedVersion(version, build)} · ${updateLabel}`;
+  return `${label}\nVersión: ${version}\nBuild: ${build}\nActualización: ${updateLabel}`;
 }
 
 type Props = {
@@ -91,7 +91,7 @@ function unitName(lesson?: LessonSummary): string {
 export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
   const { isUpdatePending } = Updates.useUpdates();
   const currentVersion = Constants.nativeAppVersion || Updates.runtimeVersion || '1.6.0';
-  const currentBuild = Constants.nativeBuildVersion || 'desarrollo';
+  const currentBuild = Constants.nativeBuildVersion || 'no disponible';
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
@@ -159,8 +159,8 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
         return AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY).then(() => {
           const currentUpdateId = Updates.updateId || 'embedded';
           const versionDetails = previous
-            ? `Versi\u00f3n anterior: ${detailedVersion(previous.version, previous.build || currentBuild, previous.updateId)}\nVersi\u00f3n actual: ${detailedVersion(currentVersion, currentBuild, currentUpdateId)}`
-            : `Versi\u00f3n actual: ${installedVersion(currentVersion, currentBuild)}`;
+            ? `${detailedVersion('ANTERIOR', previous.version, previous.build || currentBuild, previous.updateId)}\n\n${detailedVersion('ACTUAL', currentVersion, currentBuild, currentUpdateId)}`
+            : `Versi\u00f3n: ${currentVersion}\nBuild: ${currentBuild}`;
           Alert.alert('Actualizaci\u00f3n completada', versionDetails);
         });
       })
@@ -240,7 +240,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
       const update = await Updates.checkForUpdateAsync();
       if (!update.isAvailable) {
         setUpdateStatus('idle');
-        Alert.alert('SpanGlish está actualizado', `Versión actual: ${installedVersion(currentVersion, currentBuild)}`);
+        Alert.alert('SpanGlish está actualizado', `Versión: ${currentVersion}\nBuild: ${currentBuild}`);
         return;
       }
 
@@ -360,12 +360,15 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                 </View>
                 <View style={styles.menuOptionCopy}>
                   <Text style={styles.menuOptionTitle}>Actualizar</Text>
+                  {updateStatus === 'idle' ? (
+                    <Text style={styles.menuVersion}>{installedVersion(currentVersion, currentBuild)}</Text>
+                  ) : null}
                   <Text style={styles.menuOptionDescription}>
                     {updateStatus === 'checking'
                       ? 'Buscando una versión nueva…'
                       : updateStatus === 'downloading'
                         ? 'Instalando y reiniciando…'
-                        : `${installedVersion(currentVersion, currentBuild)} · Busca actualizaciones.`}
+                        : 'Busca e instala la versión más reciente.'}
                   </Text>
                 </View>
                 {updateStatus === 'idle' ? <Text style={styles.menuOptionArrow}>&gt;</Text> : null}
@@ -596,6 +599,7 @@ const styles = StyleSheet.create({
   menuOptionTitle: { color: '#24333a', fontSize: 14, fontWeight: '900' },
   menuOptionTitleExit: { color: '#a34842' },
   menuOptionDescription: { color: '#697177', fontSize: 10, marginTop: 3 },
+  menuVersion: { color: '#16766f', fontSize: 11, fontWeight: '900', marginTop: 2 },
   menuOptionArrow: { color: '#b0a79b', fontSize: 20, fontWeight: '700' },
   menuOptionExit: { marginTop: 10 },
   continueCard: {
