@@ -57,13 +57,38 @@ class LessonStructureTests(unittest.TestCase):
 
     def test_family_split_and_following_lesson_numbers_are_in_order(self):
         self.assertEqual(
-            ["1.1", "1.2", "1.3", "1.4", "1.5", "1.6"],
+            ["1.1", "1.2", "1.3", "1.4", "1.5"],
             [lesson.sub_lesson_id for lesson in LESSONS.values()],
         )
         self.assertEqual(
             "Family Members Continued",
             LESSONS["lesson-4-family-members-continued"].sub_lesson_title,
         )
+        self.assertNotIn("lesson-5-family-action-practice", LESSONS)
+        self.assertEqual("Places Around Me", LESSONS["lesson-6-objects-places"].sub_lesson_title)
+
+    def test_family_action_practice_is_distributed_between_family_lessons(self):
+        expected_by_lesson = {
+            "lesson-4-family-members": {
+                "Children are studying.",
+                "A brother is studying.",
+            },
+            "lesson-4-family-members-continued": {
+                "The adults are playing.",
+                "The grandparents are talking.",
+                "The grandparents are sitting.",
+                "The father is working.",
+                "The mother is cooking.",
+            },
+        }
+        for lesson_id, expected_sentences in expected_by_lesson.items():
+            spoken_text = {
+                card.audio_text
+                for card in LESSONS[lesson_id].cards
+                if card.audio_text
+            }
+            with self.subTest(lesson=lesson_id):
+                self.assertTrue(expected_sentences.issubset(spoken_text))
 
 
 if __name__ == "__main__":
