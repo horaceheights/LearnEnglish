@@ -72,6 +72,7 @@ const VOICE_PEAK_ABOVE_THRESHOLD_DB = 2;
 const MIN_AZURE_SNR_DB = 8;
 const MIN_AZURE_SPEECH_MS = 250;
 const MIN_AZURE_RECOGNITION_CONFIDENCE = 0.2;
+const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 
 function isExpectedNoSpeechRecognition(error: unknown): boolean {
   const message = error instanceof Error
@@ -192,6 +193,7 @@ export function PronunciationPractice({
   const recorderState = useAudioRecorderState(recorder, 100);
   const modelPlayer = useAudioPlayer(null);
   const readyCuePlayer = useAudioPlayer(null);
+  const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, { downloadFirst: true });
   const [readyCuePreload] = useState(() =>
     preload(READY_CUE_URL).catch(() => undefined),
   );
@@ -230,6 +232,7 @@ export function PronunciationPractice({
   const liveMatchedCountRef = useRef(0);
   const liveRecognizedText = useRef('');
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const successChimePlayed = useRef(false);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
   const successAnimation = useRef(new Animated.Value(1)).current;
   const waveAnimations = useRef(
@@ -323,6 +326,7 @@ export function PronunciationPractice({
     if (streamingCapture.current) void stopNativeSpeech();
     if (retryTimer.current) clearTimeout(retryTimer.current);
     setResult(null);
+    successChimePlayed.current = false;
     setContinueAfterCoaching(false);
     setNoSpeechFailure(false);
     setPhase('model');
@@ -1147,6 +1151,16 @@ export function PronunciationPractice({
     recorderState.metering,
     voiceEvidence,
   ]);
+
+  useEffect(() => {
+    if (phase !== 'success' || !passed || successChimePlayed.current) return;
+    successChimePlayed.current = true;
+    void successChimePlayer.seekTo(0)
+      .then(() => successChimePlayer.play())
+      .catch(() => {
+        // Celebration audio should never interrupt automatic lesson progress.
+      });
+  }, [passed, phase, successChimePlayer]);
 
   useEffect(() => {
     if (phase !== 'success' || (!passed && !continueAfterCoaching)) return undefined;

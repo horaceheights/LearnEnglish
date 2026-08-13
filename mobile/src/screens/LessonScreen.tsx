@@ -1003,8 +1003,7 @@ export function LessonScreen({
       setScore((current) => current + 1);
     }
     setResult('correct');
-    void playSuccessChime();
-  }, [cardIndex, completedCards, playSuccessChime]);
+  }, [cardIndex, completedCards]);
 
   const pronunciationAttempted = useCallback(() => {
     setAttemptedCards((current) => new Set(current).add(cardIndex));
