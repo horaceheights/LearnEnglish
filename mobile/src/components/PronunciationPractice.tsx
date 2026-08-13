@@ -33,6 +33,7 @@ import type { PronunciationResult } from '../types';
 import {
   addSpeechListener,
   nativeStreamingAvailable,
+  nativeStreamingImplementationVersion,
   startNativeSpeech,
   stopNativeSpeech,
   type SpeechErrorEvent,
@@ -84,6 +85,7 @@ function isExpectedNoSpeechRecognition(error: unknown): boolean {
 function azureSignalEvidence(json: string): {
   confidence?: number;
   durationMs?: number;
+  recognized: boolean;
   reliable: boolean;
   snr?: number;
   status?: number | string;
@@ -108,11 +110,12 @@ function azureSignalEvidence(json: string): {
     const recognizedText = payload.DisplayText ?? best?.Display ?? best?.Lexical ?? '';
     const status = payload.RecognitionStatus;
     const statusSucceeded = status === 0 || String(status).toLowerCase() === 'success';
+    const recognized = statusSucceeded && recognizedText.trim().length > 0;
     return {
       confidence,
       durationMs,
-      reliable: statusSucceeded
-        && recognizedText.trim().length > 0
+      recognized,
+      reliable: recognized
         && typeof snr === 'number'
         && snr >= MIN_AZURE_SNR_DB
         && typeof durationMs === 'number'
@@ -122,7 +125,7 @@ function azureSignalEvidence(json: string): {
       status,
     };
   } catch {
-    return { reliable: false };
+    return { recognized: false, reliable: false };
   }
 }
 
@@ -460,7 +463,11 @@ export function PronunciationPractice({
         return;
       }
       const signalEvidence = azureSignalEvidence(nativeResult.json);
-      if (!signalEvidence.reliable) {
+      // Continuous recognition returns the most recent finalized segment,
+      // which can be a short suffix such as "-ning". The complete recording
+      // is still checked by the backend below, so only legacy one-shot builds
+      // need this per-segment gate before upload.
+      if (nativeStreamingImplementationVersion < 3 && !signalEvidence.reliable) {
         addDiagnosticBreadcrumb('pronunciation_signal_rejected', {
           confidence: signalEvidence.confidence,
           duration_ms: signalEvidence.durationMs,
@@ -826,7 +833,10 @@ export function PronunciationPractice({
       if (!streamingCapture.current || !event.text) return;
       liveRecognizedText.current = event.text;
       const signalEvidence = azureSignalEvidence(event.json);
-      if (!signalEvidence.reliable) {
+      // A short finalized suffix may be under the final-grade duration gate,
+      // but it can safely update live progress because exact syllable mapping
+      // and Azure pronunciation scores are checked below.
+      if (!signalEvidence.recognized) {
         liveProgressComplete.current = false;
         addDiagnosticBreadcrumb('pronunciation_live_signal_rejected', {
           confidence: signalEvidence.confidence,

@@ -49,7 +49,7 @@ class SpanGlishSpeechModule : Module() {
 
   override fun definition() = ModuleDefinition {
     Name("SpanGlishSpeech")
-    Constant("implementationVersion") { 2 }
+    Constant("implementationVersion") { 3 }
     Events("onSpeechLevel", "onSpeechProgress", "onSpeechResult", "onSpeechError", "onSpeechState")
 
     AsyncFunction("startAsync") { options: Map<String, String> ->
@@ -84,20 +84,12 @@ class SpanGlishSpeechModule : Module() {
     val streamFormat = AudioStreamFormat.getWaveFormatPCM(sampleRate.toLong(), 16, 1)
     val pushStream = PushAudioInputStream.createPushStream(streamFormat)
     val inputConfig = AudioConfig.fromStreamInput(pushStream)
-    val referenceWordCount = Regex("[A-Za-z']+").findAll(referenceText).count()
     val azureConfig = SpeechConfig.fromAuthorizationToken(token, region).apply {
       speechRecognitionLanguage = locale
       setProperty(PropertyId.SpeechServiceResponse_RequestWordLevelTimestamps, "true")
-      // A child carefully separating "stud · y · ing" should not cause Azure
-      // to finalize the utterance at the first deliberate pause.
-      setProperty(
-        PropertyId.Speech_SegmentationSilenceTimeoutMs,
-        when {
-          referenceWordCount <= 1 -> "2600"
-          referenceWordCount <= 4 -> "1900"
-          else -> "1200"
-        },
-      )
+      // Produce scored chunks quickly for near-real-time syllable feedback.
+      // Continuous recognition keeps listening after each deliberate pause.
+      setProperty(PropertyId.Speech_SegmentationSilenceTimeoutMs, "700")
       // JavaScript closes each silent listening round after three seconds.
       // Give that timer enough room to finish before Azure ends the session.
       setProperty(PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "4000")
@@ -165,10 +157,9 @@ class SpanGlishSpeechModule : Module() {
     pcmBuffer.reset()
     startedAt = System.currentTimeMillis()
     running.set(true)
-    // Exercises are short utterances. Single-utterance assessment supports
-    // miscue comparison while the push stream still sends audio incrementally
-    // and the recognizing callback still supplies live hypotheses.
-    recognitionFuture = speechRecognizer.recognizeOnceAsync()
+    // Keep Azure alive across deliberate word and syllable pauses. The app
+    // decides when the exercise is complete and stop() flushes the last chunk.
+    recognitionFuture = speechRecognizer.startContinuousRecognitionAsync()
     sendEvent("onSpeechState", mapOf("state" to "listening"))
     captureFuture = executor.submit { captureAudio(pushStream) }
   }
@@ -247,9 +238,10 @@ class SpanGlishSpeechModule : Module() {
     runCatching { audioRecord?.stop() }
     runCatching { audioStream?.close() }
     runCatching { captureFuture?.get(2, TimeUnit.SECONDS) }
-    // Closing the push stream normally finalizes recognition immediately. Do
-    // not hold the UI while Azure waits for its own initial-silence timeout.
+    // Wait for startup, then explicitly stop continuous recognition so Azure
+    // flushes the last word or suffix before the result is returned to JS.
     runCatching { recognitionFuture?.get(750, TimeUnit.MILLISECONDS) }
+    runCatching { recognizer?.stopContinuousRecognitionAsync()?.get(2, TimeUnit.SECONDS) }
     val recordingUri = writeRecording()
     closeResources()
     sendEvent("onSpeechState", mapOf("state" to "stopped"))

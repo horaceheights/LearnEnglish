@@ -36,10 +36,12 @@ type NativeSpeechModule = {
 
 const nativeModule = requireOptionalNativeModule<NativeSpeechModule>('SpanGlishSpeech');
 
+export const nativeStreamingImplementationVersion = nativeModule?.implementationVersion ?? 0;
+
 // Version 1 waits for Azure's own initial-silence timeout during stopAsync.
 // Fall back to expo-audio when an older dev client is connected so Metro-only
 // updates still honor the three-second no-response flow.
-export const nativeStreamingAvailable = (nativeModule?.implementationVersion ?? 0) >= 2;
+export const nativeStreamingAvailable = nativeStreamingImplementationVersion >= 2;
 
 export function addSpeechListener<T>(eventName: string, listener: (event: T) => void) {
   return nativeModule?.addListener(eventName, listener) ?? { remove: () => undefined };
