@@ -59,10 +59,15 @@ const MAX_AUTOMATIC_ATTEMPTS = 2;
 const NO_SPEECH_LISTEN_MS = 3000;
 const MAX_NO_SPEECH_ROUNDS = 3;
 const NO_SPEECH_REPLAY_DELAY_MS = 900;
-const MIN_CONFIRMED_VOICE_MS = 240;
-const MIN_SINGLE_WORD_ACTIVE_VOICE_MS = 280;
-const MIN_PHRASE_ACTIVE_VOICE_MS = 420;
-const MIN_VOICE_LEVEL_RANGE_DB = 3;
+const MIN_CONFIRMED_VOICE_MS = 160;
+const MIN_SINGLE_WORD_ACTIVE_VOICE_MS = 160;
+const MIN_PHRASE_ACTIVE_VOICE_MS = 240;
+const MIN_ACTIVE_VOICE_SAMPLES = 3;
+const MIN_VOICE_LEVEL_RANGE_DB = 1.5;
+const MIN_VOICE_PEAK_DB = -46;
+const SPEECH_THRESHOLD_FLOOR_DB = -48;
+const SPEECH_ABOVE_NOISE_DB = 6;
+const VOICE_PEAK_ABOVE_THRESHOLD_DB = 2;
 const MIN_AZURE_SNR_DB = 8;
 const MIN_AZURE_SPEECH_MS = 250;
 const MIN_AZURE_RECOGNITION_CONFIDENCE = 0.2;
@@ -298,8 +303,8 @@ export function PronunciationPractice({
     const levelRangeDb = voiceEvidencePeakDb.current - voiceEvidenceMinDb.current;
     const strong = heardSpeech.current
       && voiceActiveDurationMs.current >= requiredActiveMs
-      && voiceActiveSampleCount.current >= 4
-      && voiceEvidencePeakDb.current >= -37
+      && voiceActiveSampleCount.current >= MIN_ACTIVE_VOICE_SAMPLES
+      && voiceEvidencePeakDb.current >= MIN_VOICE_PEAK_DB
       && levelRangeDb >= MIN_VOICE_LEVEL_RANGE_DB;
     return {
       activeMs: Math.round(voiceActiveDurationMs.current),
@@ -745,7 +750,10 @@ export function PronunciationPractice({
     const levelSubscription = addSpeechListener<SpeechLevelEvent>('onSpeechLevel', (event) => {
       if (!streamingCapture.current) return;
       const now = Date.now();
-      const speechThreshold = Math.max(-42, noiseFloorDb.current + 10);
+      const speechThreshold = Math.max(
+        SPEECH_THRESHOLD_FLOOR_DB,
+        noiseFloorDb.current + SPEECH_ABOVE_NOISE_DB,
+      );
       const active = event.active && event.levelDb >= speechThreshold;
       if (!heardSpeech.current && !active) {
         noiseFloorDb.current = noiseFloorDb.current * 0.9 + event.levelDb * 0.1;
@@ -764,7 +772,7 @@ export function PronunciationPractice({
           voiceCandidatePeakDb.current = Math.max(voiceCandidatePeakDb.current, event.levelDb);
         }
         const candidateDuration = now - voiceCandidateStartedAt.current;
-        const hasVoicePeak = voiceCandidatePeakDb.current >= speechThreshold + 5;
+        const hasVoicePeak = voiceCandidatePeakDb.current >= speechThreshold + VOICE_PEAK_ABOVE_THRESHOLD_DB;
         if (candidateDuration >= MIN_CONFIRMED_VOICE_MS && hasVoicePeak) {
           heardSpeech.current = true;
           lastVoiceAt.current = now;
@@ -1073,7 +1081,10 @@ export function PronunciationPractice({
     if (phase !== 'listening' || streamingCapture.current || !recorderState.isRecording) return;
     const levelDb = recorderState.metering ?? -160;
     const elapsed = recorderState.durationMillis;
-    const speechThreshold = Math.max(-42, noiseFloorDb.current + 10);
+    const speechThreshold = Math.max(
+      SPEECH_THRESHOLD_FLOOR_DB,
+      noiseFloorDb.current + SPEECH_ABOVE_NOISE_DB,
+    );
     const active = levelDb >= speechThreshold;
     if (!heardSpeech.current && !active) {
       noiseFloorDb.current = noiseFloorDb.current * 0.9 + levelDb * 0.1;
@@ -1090,7 +1101,10 @@ export function PronunciationPractice({
           voiceCandidatePeakDb.current = Math.max(voiceCandidatePeakDb.current, levelDb);
         }
         const candidateDuration = elapsed - voiceCandidateStartedAt.current;
-        if (candidateDuration >= MIN_CONFIRMED_VOICE_MS && voiceCandidatePeakDb.current >= speechThreshold + 5) {
+        if (
+          candidateDuration >= MIN_CONFIRMED_VOICE_MS
+          && voiceCandidatePeakDb.current >= speechThreshold + VOICE_PEAK_ABOVE_THRESHOLD_DB
+        ) {
           heardSpeech.current = true;
           silenceStartedAt.current = null;
           setMessage('Te escucho…');
