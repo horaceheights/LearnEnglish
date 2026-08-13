@@ -3,6 +3,7 @@ import { Alert, Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowD
 import { File } from 'expo-file-system';
 import {
   AudioModule,
+  createAudioPlayer,
   preload,
   RecordingPresets,
   setAudioModeAsync,
@@ -139,15 +140,8 @@ function exerciseTypeForPhrase(value: string) {
 
 const SPEECH_RECORDING_OPTIONS: RecordingOptions = {
   ...RecordingPresets.HIGH_QUALITY,
-  sampleRate: 16000,
-  numberOfChannels: 1,
-  bitRate: 64000,
   android: {
     ...RecordingPresets.HIGH_QUALITY.android,
-    sampleRate: 16000,
-  },
-  ios: {
-    ...RecordingPresets.HIGH_QUALITY.ios,
     sampleRate: 16000,
   },
   isMeteringEnabled: true,
@@ -191,8 +185,13 @@ export function PronunciationPractice({
   const reduceMotion = useReducedMotion();
   const recorder = useAudioRecorder(SPEECH_RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
-  const modelPlayer = useAudioPlayer(null);
-  const readyCuePlayer = useAudioPlayer(null);
+  // These players are used by callbacks that span preload, animation, and
+  // recording transitions. Own them explicitly so Expo cannot release their
+  // native SharedObjects between React effect cycles on iOS.
+  const [modelPlayer, setModelPlayer] = useState(() => createAudioPlayer(null));
+  const modelPlayerRef = useRef(modelPlayer);
+  const retiredModelPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
+  const [readyCuePlayer] = useState(() => createAudioPlayer(READY_CUE_URL));
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, { downloadFirst: true });
   const [readyCuePreload] = useState(() =>
     preload(READY_CUE_URL).catch(() => undefined),
@@ -348,16 +347,38 @@ export function PronunciationPractice({
     modelWasPlaying.current = false;
     setDiagnosticOperation('pronunciation_model_playback');
     addDiagnosticBreadcrumb('pronunciation_model_started', { attempt: attemptRef.current + 1 });
-    modelPlayer.replace(courseAudioUrl(
-      phrase,
-      'pronunciation_slow',
-      'split-ing',
-      audioProvider,
-      audioVoice,
-    ));
-    if (!isCurrentRun(runId)) return;
-    modelPlayer.play();
-  }, [audioProvider, audioVoice, isCurrentRun, modelPlayer, phrase, resetVoiceEvidence]);
+    try {
+      const nextPlayer = createAudioPlayer(courseAudioUrl(
+        phrase,
+        'pronunciation_slow',
+        'split-ing',
+        audioProvider,
+        audioVoice,
+      ));
+      if (!isCurrentRun(runId)) {
+        nextPlayer.release();
+        return;
+      }
+      const previousPlayer = modelPlayerRef.current;
+      try {
+        previousPlayer.pause();
+      } catch {
+        // A previous clip may already have ended while the next one is created.
+      }
+      retiredModelPlayersRef.current.push(previousPlayer);
+      modelPlayerRef.current = nextPlayer;
+      setModelPlayer(nextPlayer);
+      nextPlayer.play();
+    } catch (playbackError) {
+      if (!isCurrentRun(runId)) return;
+      captureDiagnosticError(playbackError, 'pronunciation_model_playback', {
+        attempt: attemptRef.current + 1,
+      });
+      setPhase('retry');
+      setMessage('No pudimos reproducir la frase.');
+      setNoSpeechFailure(true);
+    }
+  }, [audioProvider, audioVoice, isCurrentRun, phrase, resetVoiceEvidence]);
 
   const playReadyCueAndWait = useCallback(async (runId: number) => {
     await readyCuePlayer.seekTo(0).catch(() => undefined);
@@ -691,9 +712,6 @@ export function PronunciationPractice({
       setMessage('Prepárate…');
       await readyCuePreload;
       if (!isCurrentRun(runId)) return;
-      if (!readyCuePlayer.isLoaded) {
-        readyCuePlayer.replace(READY_CUE_URL);
-      }
       for (
         let attemptIndex = 0;
         attemptIndex < 30 && !readyCuePlayer.isLoaded && isCurrentRun(runId);
@@ -702,14 +720,26 @@ export function PronunciationPractice({
         await new Promise((resolve) => setTimeout(resolve, 50));
       }
       if (!isCurrentRun(runId)) return;
-      if (!readyCuePlayer.isLoaded) {
-        throw new Error('Ready cue did not load.');
-      }
       // Ensure no model-audio tail can leak into the learner's microphone
       // window before the ready cue establishes the three-second boundary.
       modelPlayer.pause();
-      const cueEndedAt = await playReadyCueAndWait(runId);
-      if (!cueEndedAt || !isCurrentRun(runId)) return;
+      let cueEndedAt = Date.now();
+      if (readyCuePlayer.isLoaded) {
+        try {
+          const playedCueEndedAt = await playReadyCueAndWait(runId);
+          if (!playedCueEndedAt || !isCurrentRun(runId)) return;
+          cueEndedAt = playedCueEndedAt;
+        } catch (cueError) {
+          addDiagnosticBreadcrumb('pronunciation_ready_cue_skipped', {
+            reason: cueError instanceof Error ? cueError.message : String(cueError),
+          });
+        }
+      } else {
+        addDiagnosticBreadcrumb('pronunciation_ready_cue_skipped', {
+          reason: 'Ready cue did not load.',
+        });
+      }
+      if (!isCurrentRun(runId)) return;
       if (streamingToken) {
         streamingCapture.current = true;
         streamingStartedAt.current = cueEndedAt;
@@ -1062,8 +1092,36 @@ export function PronunciationPractice({
       phraseCompleteTimer.current = null;
       if (streamingCapture.current) void stopNativeSpeech();
       streamingCapture.current = false;
+      try {
+        modelPlayerRef.current.pause();
+      } catch {
+        // The native object may already be unavailable during app teardown.
+      }
+      try {
+        readyCuePlayer.pause();
+      } catch {
+        // The native object may already be unavailable during app teardown.
+      }
+      try {
+        modelPlayerRef.current.release();
+      } catch {
+        // Release is idempotent from the component's point of view.
+      }
+      try {
+        readyCuePlayer.release();
+      } catch {
+        // Release is idempotent from the component's point of view.
+      }
+      retiredModelPlayersRef.current.forEach((player) => {
+        try {
+          player.release();
+        } catch {
+          // Retired players may already be unavailable during app teardown.
+        }
+      });
+      retiredModelPlayersRef.current = [];
     };
-  }, []);
+  }, [readyCuePlayer]);
 
   useEffect(() => {
     const runId = runIdRef.current + 1;

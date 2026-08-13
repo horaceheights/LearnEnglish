@@ -57,3 +57,8 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 ## Deploy
 
 Deployment notes for `Vercel + Koyeb` are in [DEPLOY.md](C:/Users/gorre/Documents/Code%20Projects/LearnEnglish/DEPLOY.md).
+
+## Testing
+
+- Spanish tester guide: [GUIA_PRUEBAS_TESTERS_ES.md](GUIA_PRUEBAS_TESTERS_ES.md)
+- Internal engine checklist: [ENGINE_QA_CHECKLIST.md](ENGINE_QA_CHECKLIST.md)

@@ -15,7 +15,7 @@ import {
   View,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { preload, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import { createAudioPlayer, preload, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -151,7 +151,12 @@ export function LessonScreen({
   previouslyCompleted = false,
   qaMode = false,
 }: Props) {
-  const audioPlayer = useAudioPlayer(null);
+  // This player is reused while lesson audio is preloaded asynchronously. Own
+  // its lifecycle explicitly so an already-scheduled callback can never receive
+  // the auto-released SharedObject created by useAudioPlayer on iOS.
+  const [audioPlayer, setAudioPlayer] = useState(() => createAudioPlayer(null));
+  const audioPlayerRef = useRef(audioPlayer);
+  const retiredAudioPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
   const audioPlayerStatus = useAudioPlayerStatus(audioPlayer);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, { downloadFirst: true });
   const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE, { downloadFirst: true });
@@ -327,13 +332,28 @@ export function LessonScreen({
           audioPlaybackRequestRef.current !== requestId
         ) return;
         addDiagnosticBreadcrumb('audio_started', { mode, variant });
-        audioPlayer.replace(url);
-        audioPlayer.play();
+        const nextPlayer = createAudioPlayer(url);
+        if (
+          !audioPlayerActiveRef.current ||
+          audioPlaybackRequestRef.current !== requestId
+        ) {
+          nextPlayer.release();
+          return;
+        }
+        const previousPlayer = audioPlayerRef.current;
+        try {
+          previousPlayer.pause();
+        } catch {
+          // A previous clip may already have ended while the next one is created.
+        }
+        retiredAudioPlayersRef.current.push(previousPlayer);
+        audioPlayerRef.current = nextPlayer;
+        setAudioPlayer(nextPlayer);
+        nextPlayer.play();
       })
       .catch((playbackError) => {
-        // useAudioPlayer releases its native object when this screen unmounts.
-        // A preload that finishes afterward is an expected cancellation, not
-        // an application error and must never become an unhandled rejection.
+        // A preload that finishes after a transition is an expected
+        // cancellation, not an application error.
         if (
           !audioPlayerActiveRef.current ||
           audioPlaybackRequestRef.current !== requestId
@@ -345,7 +365,7 @@ export function LessonScreen({
           'warning',
         );
       });
-  }, [audioPlayer, audioProvider, audioVoice, ensureAudioPreloaded]);
+  }, [audioProvider, audioVoice, ensureAudioPreloaded]);
 
   const playSuccessChime = useCallback(async () => {
     try {
@@ -387,6 +407,24 @@ export function LessonScreen({
       if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
       if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
       translationOpacity.stopAnimation();
+      try {
+        audioPlayerRef.current.pause();
+      } catch {
+        // The native player may already be unavailable while React is tearing down.
+      }
+      try {
+        audioPlayerRef.current.release();
+      } catch {
+        // Release is idempotent from the screen's point of view.
+      }
+      retiredAudioPlayersRef.current.forEach((player) => {
+        try {
+          player.release();
+        } catch {
+          // Retired players may already be unavailable during app teardown.
+        }
+      });
+      retiredAudioPlayersRef.current = [];
     };
   }, [translationOpacity]);
 
