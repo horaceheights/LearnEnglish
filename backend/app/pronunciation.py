@@ -4,7 +4,15 @@ from typing import Any
 import sentry_sdk
 from fastapi import HTTPException, UploadFile
 
-from .azure_pronunciation import azure_configured, azure_debug, close_azure_client, get_browser_speech_token, score_with_azure
+from .azure_pronunciation import (
+    azure_configured,
+    azure_debug,
+    close_azure_client,
+    get_browser_speech_token,
+    normalize_azure_result,
+    pedagogical_scoring_enabled,
+    score_with_azure,
+)
 
 
 def pronunciation_provider() -> str:
@@ -16,6 +24,7 @@ def pronunciation_debug() -> dict[str, Any]:
         "provider": pronunciation_provider(),
         "configured": {"azure": azure_configured()},
         "azure_request": azure_debug(),
+        "features": {"pedagogical_scoring": pedagogical_scoring_enabled()},
     }
 
 
@@ -29,10 +38,41 @@ async def get_pronunciation_browser_token() -> dict[str, str]:
     return await get_browser_speech_token()
 
 
-async def score_pronunciation(*, text: str, audio_file: UploadFile, user_id: str | None = None, question_info: str | None = None, provider_override: str | None = None):
+def interpret_azure_assessment(
+    *,
+    text: str,
+    payload: dict[str, Any],
+    level: str | None = None,
+    exercise_type: str | None = None,
+) -> dict[str, Any]:
+    return normalize_azure_result(
+        payload,
+        text=text,
+        level=level,
+        exercise_type=exercise_type,
+    )
+
+
+async def score_pronunciation(
+    *,
+    text: str,
+    audio_file: UploadFile,
+    user_id: str | None = None,
+    question_info: str | None = None,
+    provider_override: str | None = None,
+    level: str | None = None,
+    exercise_type: str | None = None,
+):
     provider = (provider_override or pronunciation_provider()).strip().lower()
     with sentry_sdk.start_span(op="pronunciation.score", name="Score pronunciation") as span:
         span.set_data("pronunciation.provider", provider)
+        span.set_data("pronunciation.level", level)
+        span.set_data("pronunciation.exercise_type", exercise_type)
         if provider == "azure":
-            return await score_with_azure(text=text, audio_file=audio_file)
+            return await score_with_azure(
+                text=text,
+                audio_file=audio_file,
+                level=level,
+                exercise_type=exercise_type,
+            )
         raise HTTPException(status_code=503, detail=f"Unsupported pronunciation provider: {provider}")

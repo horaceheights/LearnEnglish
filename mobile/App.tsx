@@ -24,6 +24,7 @@ import { LessonScreen } from './src/screens/LessonScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import type { LearnerProfile } from './src/types';
+import { canUseEasUpdates } from './src/updates';
 
 type Screen =
   | { name: 'course' }
@@ -169,13 +170,58 @@ function AppContent() {
   );
 }
 
+function StartupUpdateGate({ children }: { children: ReactNode }) {
+  const [isCheckingForUpdate, setIsCheckingForUpdate] = useState(canUseEasUpdates);
+
+  useEffect(() => {
+    if (!canUseEasUpdates) return;
+
+    let isMounted = true;
+
+    const applyAvailableUpdate = async () => {
+      try {
+        addDiagnosticBreadcrumb('startup_update_check');
+        const update = await Updates.checkForUpdateAsync();
+        if (!update.isAvailable) return;
+
+        addDiagnosticBreadcrumb('startup_update_download');
+        await Updates.fetchUpdateAsync();
+        addDiagnosticBreadcrumb('startup_update_reload');
+        await Updates.reloadAsync();
+      } catch (error) {
+        captureDiagnosticError(error, 'startup_update');
+      } finally {
+        if (isMounted) setIsCheckingForUpdate(false);
+      }
+    };
+
+    void applyAvailableUpdate();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  if (isCheckingForUpdate) {
+    return (
+      <SafeAreaView style={styles.loading}>
+        <ActivityIndicator color="#e96f42" size="large" />
+        <Text style={styles.updateText}>Buscando actualizaciones...</Text>
+      </SafeAreaView>
+    );
+  }
+
+  return children;
+}
+
 export default function App() {
   return (
     <SafeAreaProvider>
       <View style={styles.appFrame}>
         <ConnectivityBanner />
         <AppErrorBoundary>
-          <AppContent />
+          <StartupUpdateGate>
+            <AppContent />
+          </StartupUpdateGate>
         </AppErrorBoundary>
       </View>
     </SafeAreaProvider>
@@ -185,6 +231,7 @@ export default function App() {
 const styles = StyleSheet.create({
   appFrame: { backgroundColor: '#fbf7ef', flex: 1 },
   loading: { alignItems: 'center', backgroundColor: '#fbf7ef', flex: 1, justifyContent: 'center' },
+  updateText: { color: '#59686e', fontSize: 13, fontWeight: '700', marginTop: 12 },
   crashPage: { backgroundColor: '#fbf7ef', flex: 1, justifyContent: 'center', padding: 24 },
   crashPanel: { backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 22, borderWidth: 1, padding: 22 },
   crashTitle: { color: '#24333a', fontSize: 22, fontWeight: '900', textAlign: 'center' },

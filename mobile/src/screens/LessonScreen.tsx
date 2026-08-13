@@ -45,6 +45,9 @@ import type { LearnerProfile, Lesson, LessonCard } from '../types';
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 const TRY_AGAIN_CUE = require('../../assets/try-again.wav');
 const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
+void Promise.all([preload(SUCCESS_CHIME), preload(TRY_AGAIN_CUE)]).catch((preloadError) => {
+  captureDiagnosticError(preloadError, 'feedback_audio_preload', {}, 'warning');
+});
 const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v2';
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const DOUBLE_TAP_DELAY_MS = 290;
@@ -150,8 +153,8 @@ export function LessonScreen({
 }: Props) {
   const audioPlayer = useAudioPlayer(null);
   const audioPlayerStatus = useAudioPlayerStatus(audioPlayer);
-  const successChimePlayer = useAudioPlayer(SUCCESS_CHIME);
-  const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE);
+  const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, { downloadFirst: true });
+  const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE, { downloadFirst: true });
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isPortrait = viewportHeight >= viewportWidth;
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
@@ -483,7 +486,9 @@ export function LessonScreen({
   const currentCard = lesson?.cards[cardIndex];
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
-  const pauseForPronunciationReview = manualCardNavigation && isPronunciation;
+  // Pronunciation results remain visible for three seconds inside the practice
+  // component, then advance automatically without a swipe-review step.
+  const pauseForPronunciationReview = false;
   const canSwipeForward = pauseForPronunciationReview && attemptedCards.has(cardIndex);
   const automaticAdvanceDelay = manualCardNavigation ? 2000 : 0;
   const isAutomaticSingleCard =
@@ -577,16 +582,19 @@ export function LessonScreen({
       currentCard.options.length < 2 ||
       isPronunciation ||
       !promptAudio.trim() ||
-      !promptAutoplayFinished
+      !promptAutoplayFinished ||
+      attemptedCards.has(cardIndex)
     ) return undefined;
 
     const timer = setTimeout(
       () => updateSentenceAnchor(() => setShowSentenceCoachmark(true)),
-      250,
+      4000,
     );
     return () => clearTimeout(timer);
   }, [
     currentCard,
+    cardIndex,
+    attemptedCards,
     isPronunciation,
     promptAudio,
     promptAutoplayFinished,
@@ -796,7 +804,7 @@ export function LessonScreen({
       pauseForPronunciationReview ||
       (qaMode && !qaAutoAdvance)
     ) return undefined;
-    const delay = (isPronunciation ? 900 : 1000) + automaticAdvanceDelay;
+    const delay = isPronunciation ? 0 : 1000 + automaticAdvanceDelay;
     const timer = setTimeout(advance, delay);
     return () => clearTimeout(timer);
   }, [
@@ -1001,11 +1009,6 @@ export function LessonScreen({
   const pronunciationAttempted = useCallback(() => {
     setAttemptedCards((current) => new Set(current).add(cardIndex));
   }, [cardIndex]);
-
-  const pronunciationReviewRestarted = useCallback(() => {
-    pronunciationPassHandledRef.current = false;
-    setResult(null);
-  }, []);
 
   const grammarAnimationComplete = useCallback(() => {
     if (!currentCard || !isGrammar) return;
@@ -1251,10 +1254,11 @@ export function LessonScreen({
       isGrammar && grammarCompleted && selectedOption?.label
         ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
         : currentCard.prompt;
+    const selectedFocusWords = selectedOption?.label?.toLowerCase().match(/[a-z']+/g) || [];
     const focus = currentCard.stage === 'Grammar'
-      ? new Set(['is', 'are', selectedOption?.label?.toLowerCase() || ''])
+      ? new Set(['is', 'are', ...selectedFocusWords])
       : currentCard.stage === 'New Grammar'
-        ? new Set(['not', selectedOption?.label?.toLowerCase() || ''])
+        ? new Set(['not', ...selectedFocusWords])
       : currentCard.stage === 'More People' || normalizedStage.includes('plural')
         ? new Set(['and', 'are'])
         : new Set<string>();
@@ -1557,11 +1561,9 @@ export function LessonScreen({
             gentleFeedback={profile.confidence === 'nervous'}
             key={`lesson-card-${cardRunId}`}
             level={lesson.level}
-            manualReview={pauseForPronunciationReview}
             optionsInteractive={!isAutomaticSingleCard}
             onPronunciationAttempted={pronunciationAttempted}
             onPronunciationPassed={pronunciationPassed}
-            onPronunciationReviewRestarted={pronunciationReviewRestarted}
             onGrammarAnimationComplete={grammarAnimationComplete}
             onSelect={choose}
             result={result}
@@ -1570,19 +1572,6 @@ export function LessonScreen({
             userId={profile.userId}
           />
         </Animated.View>
-        {pauseForPronunciationReview ? (
-          <View
-            accessibilityLabel={canSwipeForward ? 'Desliza para continuar' : 'Completa la práctica para continuar'}
-            accessible
-            style={[styles.manualNavigation, useCompactPhoneLayout ? styles.manualNavigationCompact : null]}
-          >
-            <Text style={[styles.swipeHint, !canSwipeForward ? styles.swipeHintLocked : null]}>
-              {canSwipeForward
-                ? cardIndex === lesson.cards.length - 1 ? 'Desliza para terminar →' : 'Desliza para continuar →'
-                : 'Completa la práctica para continuar'}
-            </Text>
-          </View>
-        ) : null}
     </>
   );
   const needsAccessibleScrolling = fontScale > 1.3 || viewportHeight < 300;
@@ -1692,10 +1681,6 @@ const styles = StyleSheet.create({
   completedPromptPrimaryText: { color: '#fff', fontSize: 16, fontWeight: '900', textAlign: 'center' },
   completedPromptSecondary: { alignItems: 'center', borderColor: '#23856f', borderRadius: 15, borderWidth: 2, marginTop: 10, minHeight: 52, justifyContent: 'center', paddingHorizontal: 18 },
   completedPromptSecondaryText: { color: '#176b5d', fontSize: 15, fontWeight: '900', textAlign: 'center' },
-  manualNavigation: { alignItems: 'center', justifyContent: 'center', minHeight: 42, paddingHorizontal: 4 },
-  manualNavigationCompact: { minHeight: 36 },
-  swipeHint: { color: '#287f68', fontSize: 18, fontWeight: '900', textAlign: 'center' },
-  swipeHintLocked: { color: '#7b736a' },
   qaToolbar: { alignItems: 'center', backgroundColor: '#3f2859', borderRadius: 12, flexDirection: 'row', justifyContent: 'space-between', minHeight: 54, paddingHorizontal: 10, paddingVertical: 5 },
   qaIdentity: { flex: 1, marginRight: 8 },
   qaLabel: { color: '#d8bfe9', fontSize: 7, fontWeight: '900', letterSpacing: 0.7 },

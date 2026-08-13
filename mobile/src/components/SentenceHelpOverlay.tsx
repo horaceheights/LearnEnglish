@@ -58,7 +58,7 @@ export function SentenceHelpOverlay({ anchorBottom, onClose, visible }: Props) {
                   Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.
                 </Text>
                 <Text style={styles.message}>
-                  Toca <Text style={styles.emphasis}>dos veces</Text> para ver su traducción.
+                  Toca <Text style={styles.emphasis}>dos veces</Text> la palabra para ver su traducción.
                 </Text>
                 <Pressable
                   accessibilityRole="button"

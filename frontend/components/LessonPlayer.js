@@ -6,6 +6,7 @@ import {
   getApiBaseUrl,
   getCourseAudioUrl,
   getPronunciationStreamingToken,
+  interpretAzurePronunciation,
   getLearnerByName,
   getLesson,
   logCardAttempt,
@@ -1546,17 +1547,31 @@ function normalizeAzureStreamingResult(payload, recognizedText, elapsedMs) {
       })),
     };
   });
+  const syllableScores = wordScores
+    .flatMap((word) => word.syllable_score_list || [])
+    .map((syllable) => syllable.quality_score)
+    .filter((score) => typeof score === "number");
+  const syllableAccuracy = syllableScores.length
+    ? syllableScores.reduce((total, score) => total + score, 0) / syllableScores.length
+    : null;
+  const soundAccuracy = Math.max(
+    assessment.AccuracyScore ?? 0,
+    syllableAccuracy ?? 0
+  );
 
   return {
     provider: "azure-streaming",
     recognized_text: recognizedText || payload?.DisplayText || best.Display,
     text_score: {
-      quality_score: assessment.PronScore ?? assessment.AccuracyScore,
+      // PronScore includes fluency; sound accuracy must remain independent so
+      // deliberately segmented beginner speech is not labeled incorrect.
+      quality_score: soundAccuracy,
       word_score_list: wordScores,
       azure_scores: {
         accuracy: assessment.AccuracyScore,
         fluency: assessment.FluencyScore,
         completeness: assessment.CompletenessScore,
+        prosody: assessment.ProsodyScore,
       },
     },
     _client_timing: {
@@ -1570,6 +1585,119 @@ function promptParts(prompt) {
   return prompt.match(/[A-Za-z]+|[^A-Za-z]+/g) || [prompt];
 }
 
+const LIVE_PRONUNCIATION_SYLLABLES = {
+  adult: ["ad", "ult"],
+  adults: ["ad", "ults"],
+  babies: ["ba", "bies"],
+  baby: ["ba", "by"],
+  brother: ["bro", "ther"],
+  brothers: ["bro", "thers"],
+  building: ["build", "ing"],
+  children: ["chil", "dren"],
+  cooking: ["cook", "ing"],
+  eating: ["eat", "ing"],
+  family: ["fam", "i", "ly"],
+  father: ["fa", "ther"],
+  grandfather: ["grand", "fa", "ther"],
+  grandmother: ["grand", "mo", "ther"],
+  grandparents: ["grand", "par", "ents"],
+  listen: ["lis", "ten"],
+  mother: ["mo", "ther"],
+  parents: ["par", "ents"],
+  playing: ["play", "ing"],
+  reading: ["read", "ing"],
+  running: ["run", "ning"],
+  sister: ["sis", "ter"],
+  sisters: ["sis", "ters"],
+  sitting: ["sit", "ting"],
+  sleeping: ["sleep", "ing"],
+  standing: ["stand", "ing"],
+  studying: ["stud", "y", "ing"],
+  swimming: ["swim", "ming"],
+  talking: ["talk", "ing"],
+  walking: ["walk", "ing"],
+  woman: ["wo", "man"],
+  working: ["work", "ing"],
+  writing: ["writ", "ing"],
+};
+
+function pronunciationSpeechTokens(text) {
+  return String(text || "").toLowerCase().match(/[a-z]+(?:'[a-z]+)?/g) || [];
+}
+
+function readablePronunciationSyllables(word) {
+  const normalized = pronunciationSpeechTokens(word)[0] || String(word || "").toLowerCase();
+  if (LIVE_PRONUNCIATION_SYLLABLES[normalized]) return LIVE_PRONUNCIATION_SYLLABLES[normalized];
+  if (normalized.endsWith("ing") && normalized.length > 5) {
+    const stem = normalized.slice(0, -3);
+    const final = stem.at(-1);
+    const preceding = stem.at(-2);
+    return final && final === preceding ? [stem.slice(0, -1), `${final}ing`] : [stem, "ing"];
+  }
+  return [normalized];
+}
+
+function pronunciationReferenceSyllables(text) {
+  return pronunciationSpeechTokens(text).flatMap((word, wordIndex) =>
+    readablePronunciationSyllables(word).map((label, syllableIndex) => ({
+      key: `${wordIndex}:${syllableIndex}`,
+      label,
+      syllableIndex,
+      word,
+      wordIndex,
+    }))
+  );
+}
+
+function livePronunciationSyllables(referenceText, recognizedText) {
+  const expectedWords = pronunciationSpeechTokens(referenceText);
+  const slots = pronunciationReferenceSyllables(referenceText);
+  const heard = [];
+  const recognizedKeys = [];
+  let cursor = 0;
+
+  pronunciationSpeechTokens(recognizedText).forEach((observedToken, observedIndex) => {
+    let wordIndex = expectedWords.findIndex((word, index) => index >= cursor && word === observedToken);
+    if (wordIndex < 0) wordIndex = expectedWords.findIndex((word) => word === observedToken);
+
+    let matchingSlots = wordIndex >= 0 ? slots.filter((slot) => slot.wordIndex === wordIndex) : [];
+    if (wordIndex < 0) {
+      const orderedIndexes = [
+        ...expectedWords.map((_, index) => index).filter((index) => index >= cursor),
+        ...expectedWords.map((_, index) => index).filter((index) => index < cursor).reverse(),
+      ];
+      for (const candidateIndex of orderedIndexes) {
+        const wordSlots = slots.filter((slot) => slot.wordIndex === candidateIndex);
+        for (let start = 0; start < wordSlots.length; start += 1) {
+          let combined = "";
+          for (let end = start; end < wordSlots.length; end += 1) {
+            combined += wordSlots[end].label;
+            if (combined === observedToken) {
+              wordIndex = candidateIndex;
+              matchingSlots = wordSlots.slice(start, end + 1);
+              break;
+            }
+          }
+          if (wordIndex >= 0) break;
+        }
+        if (wordIndex >= 0) break;
+      }
+    }
+
+    if (matchingSlots.length) {
+      heard.push(...matchingSlots);
+      recognizedKeys.push(...matchingSlots.map((slot) => slot.key));
+      const wordSlots = slots.filter((slot) => slot.wordIndex === wordIndex);
+      if (matchingSlots.at(-1)?.syllableIndex === wordSlots.at(-1)?.syllableIndex) cursor = wordIndex + 1;
+      else cursor = wordIndex;
+    } else {
+      heard.push({ key: `extra:${observedIndex}:${observedToken}`, label: observedToken, wordIndex: -1 });
+    }
+  });
+
+  return { heard, recognizedKeys: [...new Set(recognizedKeys)] };
+}
+
 function normalizePronunciationWord(word) {
   return String(word || "").toLowerCase().replace(/[^a-z]/g, "");
 }
@@ -1581,12 +1709,6 @@ function findWordScore(summary, word) {
   }
 
   return summary?.wordScores?.find((item) => normalizePronunciationWord(item.word) === key) || null;
-}
-
-function findWeakestSyllable(wordScore) {
-  return (wordScore?.syllable_score_list || [])
-    .filter((syllable) => typeof syllable.quality_score === "number" && syllable.letters)
-    .sort((left, right) => left.quality_score - right.quality_score)[0] || null;
 }
 
 function pronunciationPromptFromOption(optionId) {
@@ -1650,42 +1772,16 @@ function pronunciationThresholds(level) {
   };
 }
 
-function pronunciationTokenColors(score, level, attemptAccepted = false) {
-  const thresholds = pronunciationThresholds(level);
-  if (typeof score !== "number") {
-    return {
-      background: "#fffdf9",
-      border: "rgba(36, 51, 58, 0.12)",
-      color: "var(--text)",
-      shadow: "none",
-    };
-  }
-
-  if (score >= thresholds.greenWord) {
-    return {
-      background: "#d8f3df",
-      border: "rgba(47, 143, 98, 0.5)",
-      color: "var(--green)",
-      shadow: "0 0 0 3px rgba(47, 143, 98, 0.12)",
-    };
-  }
-
-  if (attemptAccepted || score >= thresholds.orangeWord) {
-    return {
-      background: "#fff1c7",
-      border: "rgba(191, 114, 0, 0.52)",
-      color: "#7a4d00",
-      shadow: "0 0 0 3px rgba(191, 114, 0, 0.12)",
-    };
-  }
-
-  return {
-    background: "#ffe0dc",
-    border: "rgba(197, 64, 64, 0.58)",
-    color: "var(--red)",
-    shadow: "0 0 0 3px rgba(197, 64, 64, 0.12)",
-  };
+function pronunciationExerciseType(text) {
+  const wordCount = String(text || "").match(/[A-Za-z']+/g)?.length || 0;
+  if (wordCount <= 1) return "WORD";
+  if (wordCount <= 4) return "SHORT_PHRASE";
+  return "SENTENCE";
 }
+
+const NO_SPEECH_LISTEN_MS = 3000;
+const MAX_NO_SPEECH_ROUNDS = 3;
+const NO_SPEECH_REPLAY_DELAY_MS = 900;
 
 function getPronunciationAdvice(summary) {
   if (!summary?.weakestWord) {
@@ -1831,7 +1927,17 @@ function mouthCoachConfig(type) {
   };
 }
 
-function getPronunciationOutcome(summary, level) {
+function getPronunciationOutcome(summary, level, result = null) {
+  const interpreted = result?.feature_flags?.pedagogicalScoring === false
+    ? null
+    : result?.interpreted;
+  if (interpreted) {
+    return {
+      accepted: interpreted.passed,
+      title: interpreted.passed ? "Muy bien" : "Practiquemos una parte",
+      message: result?.feedback?.messages?.es || (interpreted.passed ? "Suena bien." : "Escucha e inténtalo otra vez."),
+    };
+  }
   const thresholds = pronunciationThresholds(level);
   const accuracy = summary?.accuracy ?? summary?.pronunciation;
   const completeness = summary?.completeness;
@@ -1902,8 +2008,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [isPronunciationScoring, setIsPronunciationScoring] = useState(false);
   const [pronunciationResult, setPronunciationResult] = useState(null);
   const [pronunciationError, setPronunciationError] = useState("");
+  const [pronunciationNoSpeechFailure, setPronunciationNoSpeechFailure] = useState(false);
   const [pronunciationAttempt, setPronunciationAttempt] = useState(0);
   const [pronunciationSpokenWordCount, setPronunciationSpokenWordCount] = useState(0);
+  const [pronunciationRecognizedSyllableKeys, setPronunciationRecognizedSyllableKeys] = useState([]);
   const [activePronunciationOptionIndex, setActivePronunciationOptionIndex] = useState(0);
   const [completedPronunciationOptions, setCompletedPronunciationOptions] = useState([]);
   const [completedPronunciationResults, setCompletedPronunciationResults] = useState({});
@@ -1919,6 +2027,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const pronunciationStartTimeoutRef = useRef(null);
   const pronunciationTimeoutRef = useRef(null);
   const pronunciationHasSpeechRef = useRef(false);
+  const pronunciationNoSpeechRoundRef = useRef(0);
+  const beginPronunciationRecordingRef = useRef(null);
   const pronunciationSilenceStartedAtRef = useRef(null);
   const pronunciationStartedAtRef = useRef(0);
   const pronunciationShouldScoreRef = useRef(true);
@@ -1968,6 +2078,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     isPronunciationCard && activePronunciationOption
       ? optionPracticePrompt(activePronunciationOption)
       : currentCard?.prompt || "";
+  const pronunciationTargetSyllables = useMemo(
+    () => pronunciationReferenceSyllables(activePronunciationPrompt),
+    [activePronunciationPrompt]
+  );
+  const pronunciationRecognizedSyllableSet = useMemo(
+    () => new Set(pronunciationRecognizedSyllableKeys),
+    [pronunciationRecognizedSyllableKeys]
+  );
   const isFourOptionCard = optionCount >= 4;
   const isThreeOptionCard = optionCount === 3;
   const isSingleOptionCard = optionCount === 1;
@@ -1985,8 +2103,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     [pronunciationResult]
   );
   const pronunciationOutcome = useMemo(
-    () => getPronunciationOutcome(pronunciationSummary, activeLesson.level),
-    [activeLesson.level, pronunciationSummary]
+    () => getPronunciationOutcome(pronunciationSummary, activeLesson.level, pronunciationResult),
+    [activeLesson.level, pronunciationResult, pronunciationSummary]
   );
   const onboardingProgress = useMemo(() => {
     if (!activeOnboardingStep) {
@@ -2225,20 +2343,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     const wordScore = findWordScore(summary, word);
     const qualityScore = wordScore?.quality_score;
     const hasGrading = Boolean(result);
-    const isWeakestWord =
-      wordScore &&
-      summary.weakestWord &&
-      normalizePronunciationWord(wordScore.word) === normalizePronunciationWord(summary.weakestWord.word);
-    const weakestSyllable = findWeakestSyllable(wordScore);
-    const weakSyllable = weakestSyllable?.letters || "";
-    const attemptAccepted = hasGrading ? getPronunciationOutcome(summary, activeLesson.level).accepted : false;
-    const colors = pronunciationTokenColors(qualityScore, activeLesson.level, attemptAccepted);
-    const syllableColors = pronunciationTokenColors(
-      weakestSyllable?.quality_score,
-      activeLesson.level,
-      attemptAccepted
-    );
+    const attemptAccepted = hasGrading ? getPronunciationOutcome(summary, activeLesson.level, result).accepted : false;
     const thresholds = pronunciationThresholds(activeLesson.level);
+    const wordErrorType = String(wordScore?.error_type || "").toLowerCase();
+    const hasWordScores = Boolean(summary?.wordScores?.length);
+    const isGoodFinalWord = hasGrading
+      && wordErrorType !== "omission"
+      && (typeof qualityScore === "number"
+        ? qualityScore >= thresholds.greenWord
+        : !hasWordScores && attemptAccepted);
     const isSpokenWord =
       !hasGrading &&
       isPronunciationRecording &&
@@ -2246,74 +2359,39 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       spokenWordIndex < pronunciationSpokenWordCount;
     const isCurrentSpokenWord =
       isSpokenWord && spokenWordIndex === pronunciationSpokenWordCount - 1;
-    const shouldHighlightSyllable =
-      hasGrading &&
-      weakSyllable &&
-      typeof weakestSyllable?.quality_score === "number" &&
-      weakestSyllable.quality_score < thresholds.greenWord;
     const tokenBackground = hasGrading
-      ? colors.background
+      ? isGoodFinalWord ? "#dff4e7" : "#fff2cf"
       : isCurrentSpokenWord
         ? "#d9eef5"
         : isSpokenWord
           ? "#edf7f9"
           : "#fffdf9";
-    const tokenColor = hasGrading ? colors.color : isSpokenWord ? "#176777" : "transparent";
+    const tokenColor = hasGrading ? isGoodFinalWord ? "#17623f" : "#8a5b10" : isSpokenWord ? "#176777" : "transparent";
     const tokenBorder = hasGrading
-      ? colors.border
+      ? isGoodFinalWord ? "rgba(47, 143, 98, 0.5)" : "rgba(191, 114, 0, 0.52)"
       : isSpokenWord
         ? "rgba(23, 103, 119, 0.42)"
         : "rgba(36, 51, 58, 0.1)";
-    const tokenShadow = hasGrading
-      ? colors.shadow
-      : isCurrentSpokenWord
+    const tokenShadow = isCurrentSpokenWord
         ? "0 0 0 3px rgba(23, 103, 119, 0.16)"
         : "none";
-    const weakIndex = shouldHighlightSyllable ? word.toLowerCase().indexOf(String(weakSyllable).toLowerCase()) : -1;
-
-    let content = word;
-    if (hasGrading && weakIndex >= 0) {
-      const before = word.slice(0, weakIndex);
-      const middle = word.slice(weakIndex, weakIndex + weakSyllable.length);
-      const after = word.slice(weakIndex + weakSyllable.length);
-      content = (
-        <>
-          {before}
-          <span
-            style={{
-              background: syllableColors.background,
-              borderBottom: `3px solid ${syllableColors.color}`,
-              borderRadius: "6px",
-              padding: "0 2px",
-              color: syllableColors.color,
-            }}
-          >
-            {middle}
-          </span>
-          {after}
-        </>
-      );
-    }
 
     const tokenStyle = {
       display: "inline-flex",
       alignItems: "center",
       border: `1px solid ${tokenBorder}`,
-      borderRadius: "14px",
+      borderRadius: hasGrading ? "8px" : "14px",
       background: tokenBackground,
       color: tokenColor,
-      padding: isMobile ? "6px 9px" : "8px 12px",
-      fontSize: isMobile ? 18 : 24,
+      padding: hasGrading ? "4px 7px" : isMobile ? "6px 9px" : "8px 12px",
+      fontSize: hasGrading ? 13 : isMobile ? 18 : 24,
       fontWeight: 800,
       lineHeight: 1,
-      boxShadow: isWeakestWord ? "0 0 0 3px rgba(197, 64, 64, 0.18)" : tokenShadow,
+      boxShadow: tokenShadow,
     };
-    const tokenTitle =
-      hasGrading && typeof qualityScore === "number"
-        ? `${word}: ${Math.round(qualityScore)}${
-            shouldHighlightSyllable ? `, ${weakSyllable}: ${Math.round(weakestSyllable.quality_score)}` : ""
-          }`
-        : `Escuchar ${word}`;
+    const tokenTitle = hasGrading
+      ? `${word}: ${isGoodFinalWord ? "bien" : "necesita mejorar"}`
+      : `Escuchar ${word}`;
 
     if (interactive) {
       return (
@@ -2333,14 +2411,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             playPronunciationModel(word, optionId);
           }}
         >
-          {content}
+          {word}
         </button>
       );
     }
 
     return (
       <span key={`${word}-${index}`} style={tokenStyle} title={tokenTitle}>
-        {content}
+      {word}
       </span>
     );
   };
@@ -2362,6 +2440,33 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       return renderedWord;
     });
   };
+  const renderLivePronunciationSyllableProgress = () => (
+    <div
+      aria-live="polite"
+      style={{ display: "flex", flexWrap: "wrap", gap: 4, width: "100%" }}
+    >
+      {pronunciationTargetSyllables.map((syllable) => {
+        const recognized = pronunciationRecognizedSyllableSet.has(syllable.key);
+        return (
+          <span
+            key={syllable.key}
+            aria-label={`${syllable.label}, ${recognized ? "reconocida" : "pendiente"}`}
+            style={{
+              border: `1.5px solid ${recognized ? "#2f8f62" : "#b8c3c8"}`,
+              borderRadius: 7,
+              background: recognized ? "#dff4e7" : "#fff",
+              color: recognized ? "#17623f" : "#64747b",
+              fontSize: 12,
+              fontWeight: 900,
+              padding: "3px 7px",
+            }}
+          >
+            {syllable.label}
+          </span>
+        );
+      })}
+    </div>
+  );
   const renderEmptyPronunciationPhrase = (phrase, options = {}) => {
     const { optionId = activePronunciationOption?.id, interactive = false } = options;
     return promptParts(phrase).map((part, index) => {
@@ -2674,8 +2779,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setIsPronunciationScoring(false);
     setPronunciationResult(null);
     setPronunciationError("");
+    setPronunciationNoSpeechFailure(false);
     setPronunciationAttempt(0);
     setPronunciationSpokenWordCount(0);
+    setPronunciationRecognizedSyllableKeys([]);
     setActivePronunciationOptionIndex(0);
     setCompletedPronunciationOptions([]);
     setCompletedPronunciationResults({});
@@ -2683,6 +2790,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     pronunciationCardKeyRef.current = "";
     pronunciationToneKeyRef.current = "";
     pronunciationChunksRef.current = [];
+    pronunciationNoSpeechRoundRef.current = 0;
   };
 
   const clearPronunciationMonitoring = () => {
@@ -2734,6 +2842,30 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       pronunciationStreamRef.current.getTracks().forEach((track) => track.stop());
       pronunciationStreamRef.current = null;
     }
+  };
+
+  const handlePronunciationNoSpeech = () => {
+    pronunciationNoSpeechRoundRef.current += 1;
+    setPronunciationAttempt((current) => Math.max(0, current - 1));
+    setPronunciationResult(null);
+    setIsPronunciationRecording(false);
+    setIsPronunciationScoring(false);
+    setPronunciationStatus("No puedo escucharte.");
+
+    if (pronunciationNoSpeechRoundRef.current >= MAX_NO_SPEECH_ROUNDS) {
+      setPronunciationNoSpeechFailure(true);
+      setPronunciationError("No puedo escucharte.");
+      return;
+    }
+
+    setPronunciationNoSpeechFailure(false);
+    setPronunciationError("");
+    pronunciationStartTimeoutRef.current = window.setTimeout(() => {
+      void beginPronunciationRecordingRef.current?.({
+        isRetry: true,
+        preserveNoSpeechRounds: true,
+      });
+    }, NO_SPEECH_REPLAY_DELAY_MS);
   };
 
   useEffect(() => {
@@ -2922,7 +3054,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       !currentCard ||
       lastResult === "correct" ||
       !pronunciationResult ||
-      !pronunciationOutcome.accepted ||
+      !(pronunciationOutcome.accepted || pronunciationAttempt >= 2) ||
       !activePronunciationOption ||
       pronunciationCardKeyRef.current !== resultCardKey
     ) {
@@ -2930,7 +3062,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     const toneKey = `${cardIndex}-${activePronunciationOption.id}-${pronunciationAttempt}-correct`;
-    if (pronunciationToneKeyRef.current !== toneKey) {
+    if (pronunciationOutcome.accepted && pronunciationToneKeyRef.current !== toneKey) {
       pronunciationToneKeyRef.current = toneKey;
       playTone([
         { frequency: 880, frequency2: 1320, durationMs: 180, type: "triangle", type2: "sine", volume: 0.12 },
@@ -2958,10 +3090,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         return;
       }
 
-      setAutoAdvanceDelayMs(900);
-      setScore((current) => current + 1);
+      setAutoAdvanceDelayMs(0);
+      if (pronunciationOutcome.accepted) setScore((current) => current + 1);
       setLastResult("correct");
-    }, 650);
+    }, 3000);
 
     return () => window.clearTimeout(timeoutId);
   }, [
@@ -2991,6 +3123,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       lastResult === "correct" ||
       !pronunciationResult ||
       pronunciationOutcome.accepted ||
+      pronunciationAttempt >= 2 ||
       !activePronunciationOption ||
       pronunciationCardKeyRef.current !== resultCardKey
     ) {
@@ -3007,6 +3140,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       { frequency: 220, durationMs: 260, type: "sawtooth", volume: 0.1 },
       { frequency: 185, durationMs: 300, delayMs: 210, type: "sawtooth", volume: 0.09 },
     ]);
+    const retryTimer = window.setTimeout(() => {
+      beginPronunciationRecording({ isRetry: true });
+    }, 3000);
+    return () => window.clearTimeout(retryTimer);
   }, [
     activeLesson.id,
     activePronunciationOption,
@@ -3038,6 +3175,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         text: activePronunciationPrompt,
         audioBlob,
         userId: profile?.userId,
+        level: activeLesson.level,
+        exerciseType: pronunciationExerciseType(activePronunciationPrompt),
       });
       if (result?._client_timing) {
         console.info("Pronunciation scoring timing", result._client_timing);
@@ -3047,8 +3186,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     } catch (error) {
       console.error("Pronunciation scoring failed", error);
       if (error.code === "error_no_speech" || error.message === "NO_SPEECH_DETECTED") {
-        setPronunciationError("No te pude escuchar. Intentalo otra vez.");
-        setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
+        handlePronunciationNoSpeech();
       } else if (error.status === 503 || /Azure Speech is not configured/i.test(error.message || "")) {
         setPronunciationError("El servicio de pronunciacion no esta configurado. Intentalo mas tarde.");
         setPronunciationStatus("Pronunciation service is not configured.");
@@ -3098,6 +3236,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     let recognizer = null;
     let audioConfig = null;
+    let assessmentConfig = null;
+    let speechConfig = null;
     let settled = false;
     let timeoutId = null;
 
@@ -3119,34 +3259,72 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       } catch (error) {
         // The microphone input may already be closed.
       }
+      try {
+        assessmentConfig?.close();
+        speechConfig?.close();
+      } catch (error) {
+        // SDK resources may already be released with the recognizer.
+      }
     };
 
     try {
-      const speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(tokenInfo.token, tokenInfo.region);
+      speechConfig = SpeechSDK.SpeechConfig.fromAuthorizationToken(tokenInfo.token, tokenInfo.region);
       speechConfig.speechRecognitionLanguage = tokenInfo.locale || "en-US";
       speechConfig.outputFormat = SpeechSDK.OutputFormat.Detailed;
-      speechConfig.setProperty(SpeechSDK.PropertyId.Speech_SegmentationSilenceTimeoutMs, "700");
-      speechConfig.setProperty(SpeechSDK.PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "7000");
+      const exerciseType = pronunciationExerciseType(activePronunciationPrompt);
+      speechConfig.setProperty(
+        SpeechSDK.PropertyId.Speech_SegmentationSilenceTimeoutMs,
+        exerciseType === "SENTENCE" ? "1000" : "1800"
+      );
+      speechConfig.setProperty(SpeechSDK.PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, "4000");
       audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
       recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
-      const assessmentConfig = new SpeechSDK.PronunciationAssessmentConfig(
+      assessmentConfig = new SpeechSDK.PronunciationAssessmentConfig(
         activePronunciationPrompt,
         SpeechSDK.PronunciationAssessmentGradingSystem.HundredMark,
         SpeechSDK.PronunciationAssessmentGranularity.Phoneme,
+        // The streaming recognizer powers the live "heard" sequence. Keep
+        // insertions and repetitions in the transcript; the backend applies
+        // the learner-level grading policy to the finalized assessment.
         true
       );
       assessmentConfig.phonemeAlphabet = "IPA";
+      assessmentConfig.enableProsodyAssessment?.();
       assessmentConfig.applyTo(recognizer);
       recognizer.sessionStarted = () => {
         setPronunciationSpokenWordCount(0);
+        setPronunciationRecognizedSyllableKeys([]);
         setIsPronunciationRecording(true);
         setPronunciationStatus("Now you say it.");
       };
       recognizer.recognizing = (_sender, event) => {
-        const recognizedWords = String(event?.result?.text || "").match(/[A-Za-z']+/g) || [];
+        const recognizedText = String(event?.result?.text || "");
+        if (recognizedText) {
+          const firstSpeech = !pronunciationHasSpeechRef.current;
+          pronunciationHasSpeechRef.current = true;
+          pronunciationNoSpeechRoundRef.current = 0;
+          if (firstSpeech) setPronunciationStatus("Te escucho…");
+        }
+        const recognizedWords = recognizedText.match(/[A-Za-z']+/g) || [];
         const expectedWordCount = String(activePronunciationPrompt).match(/[A-Za-z']+/g)?.length || 0;
         const nextWordCount = Math.min(recognizedWords.length, expectedWordCount);
         setPronunciationSpokenWordCount((currentCount) => Math.max(currentCount, nextWordCount));
+        const syllableEvidence = livePronunciationSyllables(activePronunciationPrompt, recognizedText);
+        const observedTokens = pronunciationSpeechTokens(recognizedText);
+        const lastObservedToken = observedTokens.at(-1);
+        const expectedWords = pronunciationSpeechTokens(activePronunciationPrompt);
+        const predictedWordIndex = lastObservedToken ? expectedWords.indexOf(lastObservedToken) : -1;
+        const predictedWordSyllableKeys = new Set(
+          pronunciationTargetSyllables
+            .filter((syllable) => syllable.wordIndex === predictedWordIndex)
+            .map((syllable) => syllable.key)
+        );
+        const newlyRecognizedKeys = syllableEvidence.recognizedKeys.filter(
+          (key) => !predictedWordSyllableKeys.has(key)
+        );
+        setPronunciationRecognizedSyllableKeys((current) => [
+          ...new Set([...current, ...newlyRecognizedKeys]),
+        ]);
       };
       azurePronunciationRecognizerRef.current = recognizer;
     } catch (error) {
@@ -3156,52 +3334,59 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     setPronunciationError("");
+    setPronunciationNoSpeechFailure(false);
     setPronunciationResult(null);
     setPronunciationSpokenWordCount(0);
+    setPronunciationRecognizedSyllableKeys([]);
     setIsPronunciationRecording(false);
     setPronunciationStatus("Get ready...");
     await playReadyCue();
 
     return new Promise((resolve) => {
-      const finish = (callback) => {
+      const finish = async (callback) => {
         if (settled) {
           return;
         }
         settled = true;
         closeRecognizer();
         setIsPronunciationRecording(false);
-        callback();
+        await callback();
         resolve(true);
       };
 
       timeoutId = window.setTimeout(() => {
-        finish(() => {
-          setIsPronunciationScoring(false);
-          setPronunciationError("No te pude escuchar. Intentalo otra vez.");
-          setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
+        if (pronunciationHasSpeechRef.current) {
+          return;
+        }
+        void finish(() => {
+          handlePronunciationNoSpeech();
         });
-      }, 12000);
+      }, NO_SPEECH_LISTEN_MS);
 
       recognizer.recognizeOnceAsync(
         (result) => {
-          finish(() => {
+          void finish(async () => {
             if (result.reason !== SpeechSDK.ResultReason.RecognizedSpeech) {
-              setIsPronunciationScoring(false);
-              setPronunciationError("No te pude escuchar. Intentalo otra vez.");
-              setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
+              handlePronunciationNoSpeech();
               return;
             }
 
+            setPronunciationNoSpeechFailure(false);
             setIsPronunciationScoring(true);
             setPronunciationStatus("Checking...");
             try {
               const rawPayload = result.properties.getProperty(SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult);
               const payload = JSON.parse(rawPayload || "{}");
-              const normalized = normalizeAzureStreamingResult(
+              const normalized = await interpretAzurePronunciation({
+                expectedText: activePronunciationPrompt,
+                payload,
+                level: activeLesson.level,
+                exerciseType: pronunciationExerciseType(activePronunciationPrompt),
+              }).catch(() => normalizeAzureStreamingResult(
                 payload,
                 result.text,
                 window.performance.now() - startedAt
-              );
+              ));
               console.info("Pronunciation streaming timing", normalized._client_timing);
               setPronunciationResult(normalized);
               setPronunciationStatus("Checked.");
@@ -3215,7 +3400,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           });
         },
         (error) => {
-          finish(() => {
+          void finish(() => {
             console.error("Azure pronunciation streaming failed", error);
             setIsPronunciationScoring(false);
             setPronunciationError("No pude revisar eso. Intentalo otra vez.");
@@ -3226,7 +3411,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     });
   };
 
-  const beginPronunciationRecording = async ({ isRetry = false } = {}) => {
+  const beginPronunciationRecording = async ({ isRetry = false, preserveNoSpeechRounds = false } = {}) => {
     if (!currentCard || !activePronunciationPrompt || isPronunciationRecording || isPronunciationScoring) {
       return;
     }
@@ -3242,9 +3427,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     setPronunciationError("");
+    setPronunciationNoSpeechFailure(false);
     setPronunciationResult(null);
-    const nextAttempt = pronunciationAttempt + 1;
-    setPronunciationAttempt(nextAttempt);
+    if (!preserveNoSpeechRounds) {
+      pronunciationNoSpeechRoundRef.current = 0;
+      setPronunciationAttempt((current) => current + 1);
+    }
     setPronunciationStatus("Listen...");
     pronunciationChunksRef.current = [];
     pronunciationHasSpeechRef.current = false;
@@ -3357,8 +3545,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           const elapsed = now - pronunciationStartedAtRef.current;
 
           if (volume > voiceThreshold) {
+            const firstSpeech = !pronunciationHasSpeechRef.current;
             pronunciationHasSpeechRef.current = true;
+            pronunciationNoSpeechRoundRef.current = 0;
             pronunciationSilenceStartedAtRef.current = null;
+            if (firstSpeech) {
+              setPronunciationStatus("Te escucho…");
+            }
           } else if (pronunciationHasSpeechRef.current && elapsed > minListenMs) {
             if (!pronunciationSilenceStartedAtRef.current) {
               pronunciationSilenceStartedAtRef.current = now;
@@ -3370,6 +3563,18 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             }
           }
 
+          if (!pronunciationHasSpeechRef.current) {
+            if (elapsed >= NO_SPEECH_LISTEN_MS) {
+              stopPronunciationCapture({ shouldScore: false });
+              handlePronunciationNoSpeech();
+              return;
+            }
+          } else if (elapsed >= maxListenMs) {
+            setPronunciationStatus("Checking...");
+            stopPronunciationCapture({ shouldScore: true });
+            return;
+          }
+
           pronunciationMonitorRef.current = window.requestAnimationFrame(monitor);
         };
 
@@ -3377,15 +3582,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         pronunciationTimeoutRef.current = window.setTimeout(() => {
           if (pronunciationRecorderRef.current && pronunciationRecorderRef.current.state !== "inactive") {
             if (!pronunciationHasSpeechRef.current) {
-              setPronunciationStatus("No te pude escuchar. Intentalo otra vez.");
-              setPronunciationError("No te pude escuchar. Intentalo otra vez.");
               stopPronunciationCapture({ shouldScore: false });
+              handlePronunciationNoSpeech();
               return;
             }
-            setPronunciationStatus("Checking...");
-            stopPronunciationCapture({ shouldScore: true });
           }
-        }, maxListenMs);
+        }, NO_SPEECH_LISTEN_MS);
       } catch (error) {
         stopPronunciationCapture({ shouldScore: false });
         setPronunciationError(error.message || "Could not start recording.");
@@ -3414,6 +3616,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     const startDelay = Math.min(Math.max(speechDelay + 8000, 10000), 16000);
     pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
   };
+  beginPronunciationRecordingRef.current = beginPronunciationRecording;
 
   const saveProfile = async (profileToSave = draftProfile) => {
     const displayName = String(profileToSave.displayName || loginName || "").trim();
@@ -4407,7 +4610,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           ) : null}
                         </div>
                         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: isMobile ? "6px" : "8px" }}>
-                          {isActivePronunciationOption
+                          {isActivePronunciationOption && isPronunciationRecording
+                            ? renderLivePronunciationSyllableProgress()
+                            : isActivePronunciationOption
                             ? renderPronunciationPhrase(optionPrompt, pronunciationSummary, pronunciationResult, {
                                 interactive: true,
                                 optionId: option.id,
@@ -4423,14 +4628,21 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         </div>
                         {isActivePronunciationOption && pronunciationResult ? (
                           <div
+                            className={pronunciationOutcome.accepted ? "pronunciation-success-message" : undefined}
                             style={{
                               color: pronunciationOutcome.accepted ? "var(--green)" : "#7a4d00",
+                              fontSize: 13,
                               fontWeight: 700,
                               lineHeight: 1.35,
                               textAlign: "left",
                             }}
                           >
-                            {pronunciationOutcome.accepted ? "Nice." : pronunciationOutcome.message}
+                            {pronunciationOutcome.accepted ? "✨ " : ""}
+                            {pronunciationOutcome.message}
+                            {pronunciationOutcome.accepted ? " ✨" : ""}
+                            {!pronunciationOutcome.accepted && pronunciationAttempt >= 2
+                              ? " Seguimos practicando en la próxima tarjeta."
+                              : ""}
                           </div>
                         ) : null}
                         {isActivePronunciationOption && (pronunciationError || (pronunciationResult && !pronunciationOutcome.accepted)) ? (
@@ -4449,27 +4661,29 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                                   {pronunciationError}
                                 </div>
                               ) : null}
-                              <button
-                                type="button"
-                                onClick={(event) => {
-                                  event.stopPropagation();
-                                  setPronunciationError("");
-                                  setPronunciationResult(null);
-                                  beginPronunciationRecording({ isRetry: true });
-                                }}
-                                disabled={isPronunciationRecording || isPronunciationScoring}
-                                style={{
-                                  border: "1px solid var(--line)",
-                                  borderRadius: "999px",
-                                  background: "var(--surface)",
-                                  color: "var(--text)",
-                                  padding: "7px 12px",
-                                  fontWeight: 800,
-                                  cursor: isPronunciationRecording || isPronunciationScoring ? "not-allowed" : "pointer",
-                                }}
-                              >
-                                Retry
-                              </button>
+                              {pronunciationNoSpeechFailure ? (
+                                <button
+                                  type="button"
+                                  disabled={isPronunciationRecording || isPronunciationScoring}
+                                  onClick={(event) => {
+                                    event.stopPropagation();
+                                    void beginPronunciationRecording({ isRetry: true });
+                                  }}
+                                  style={{
+                                    border: 0,
+                                    borderRadius: 999,
+                                    background: "var(--green)",
+                                    color: "#fff",
+                                    cursor: isPronunciationRecording || isPronunciationScoring ? "default" : "pointer",
+                                    font: "inherit",
+                                    fontWeight: 800,
+                                    padding: "9px 16px",
+                                    opacity: isPronunciationRecording || isPronunciationScoring ? 0.6 : 1,
+                                  }}
+                                >
+                                  Reintentar
+                                </button>
+                              ) : null}
                             </div>
                             {pronunciationResult && !pronunciationOutcome.accepted ? renderMouthCoach(pronunciationSummary) : null}
                           </div>

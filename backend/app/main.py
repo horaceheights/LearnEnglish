@@ -15,8 +15,14 @@ from .course_audio import (
 )
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .legal import account_deletion_html, privacy_policy_html
-from .schemas import Lesson, LessonCard
-from .pronunciation import close_pronunciation_clients, get_pronunciation_browser_token, pronunciation_debug, score_pronunciation
+from .schemas import AzureAssessmentInterpretRequest, Lesson, LessonCard
+from .pronunciation import (
+    close_pronunciation_clients,
+    get_pronunciation_browser_token,
+    interpret_azure_assessment,
+    pronunciation_debug,
+    score_pronunciation,
+)
 from .azure_pronunciation import transcribe_with_azure
 from .tracking import (
     CardAttemptCreate,
@@ -194,6 +200,8 @@ async def score_pronunciation_practice(
     user_id: str | None = Form(None),
     question_info: str | None = Form(None),
     provider: str | None = Form(None),
+    level: str | None = Form(None),
+    exercise_type: str | None = Form(None),
 ):
     return await score_pronunciation(
         text=text,
@@ -201,6 +209,19 @@ async def score_pronunciation_practice(
         user_id=user_id,
         question_info=question_info,
         provider_override=provider,
+        level=level,
+        exercise_type=exercise_type,
+    )
+
+
+@app.post("/api/pronunciation/interpret-azure")
+def interpret_browser_pronunciation(request: AzureAssessmentInterpretRequest):
+    """Apply the server's teacher policy to a browser SDK Azure result."""
+    return interpret_azure_assessment(
+        text=request.expected_text,
+        payload=request.payload,
+        level=request.level,
+        exercise_type=request.exercise_type,
     )
 
 

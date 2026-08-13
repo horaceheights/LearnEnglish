@@ -1,3 +1,5 @@
+from typing import Any
+
 from pydantic import BaseModel
 
 
@@ -30,3 +32,10 @@ class Lesson(BaseModel):
     goal: str
     vocabulary: list[str]
     cards: list[LessonCard]
+
+
+class AzureAssessmentInterpretRequest(BaseModel):
+    expected_text: str
+    payload: dict[str, Any]
+    level: str | None = None
+    exercise_type: str | None = None

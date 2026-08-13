@@ -23,9 +23,10 @@ import {
 } from '../diagnostics';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import {
-  alignExpectedPhrase,
   assessedPhraseProgress,
+  liveSyllableEvidence,
   paceIndependentAccuracy,
+  referenceSyllables,
   speechTokens,
 } from '../pronunciationEngine';
 import type { PronunciationResult } from '../types';
@@ -48,14 +49,84 @@ type Props = {
   imageLabel?: string;
   imageUrl?: string;
   level: string;
-  manualReview?: boolean;
   userId?: string;
   onAttempted?: () => void;
   onPassed: () => void;
-  onReviewRestart?: () => void;
 };
 
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
+const MAX_AUTOMATIC_ATTEMPTS = 2;
+const NO_SPEECH_LISTEN_MS = 3000;
+const MAX_NO_SPEECH_ROUNDS = 3;
+const NO_SPEECH_REPLAY_DELAY_MS = 900;
+const MIN_CONFIRMED_VOICE_MS = 240;
+const MIN_SINGLE_WORD_ACTIVE_VOICE_MS = 280;
+const MIN_PHRASE_ACTIVE_VOICE_MS = 420;
+const MIN_VOICE_LEVEL_RANGE_DB = 3;
+const MIN_AZURE_SNR_DB = 8;
+const MIN_AZURE_SPEECH_MS = 250;
+const MIN_AZURE_RECOGNITION_CONFIDENCE = 0.2;
+
+function isExpectedNoSpeechRecognition(error: unknown): boolean {
+  const message = error instanceof Error
+    ? error.message
+    : typeof error === 'string'
+      ? error
+      : JSON.stringify(error ?? {});
+  return /InitialSilenceTimeout|BabbleTimeout|NoMatch|no usable speech|no pudimos entender/i.test(message);
+}
+
+function azureSignalEvidence(json: string): {
+  confidence?: number;
+  durationMs?: number;
+  reliable: boolean;
+  snr?: number;
+  status?: number | string;
+} {
+  try {
+    const payload = JSON.parse(json || '{}') as {
+      DisplayText?: string;
+      Duration?: number;
+      RecognitionStatus?: number | string;
+      SNR?: number;
+      NBest?: Array<{
+        Confidence?: number;
+        Display?: string;
+        Lexical?: string;
+        SNR?: number;
+      }>;
+    };
+    const best = payload.NBest?.[0];
+    const confidence = best?.Confidence;
+    const snr = typeof payload.SNR === 'number' ? payload.SNR : best?.SNR;
+    const durationMs = typeof payload.Duration === 'number' ? payload.Duration / 10_000 : undefined;
+    const recognizedText = payload.DisplayText ?? best?.Display ?? best?.Lexical ?? '';
+    const status = payload.RecognitionStatus;
+    const statusSucceeded = status === 0 || String(status).toLowerCase() === 'success';
+    return {
+      confidence,
+      durationMs,
+      reliable: statusSucceeded
+        && recognizedText.trim().length > 0
+        && typeof snr === 'number'
+        && snr >= MIN_AZURE_SNR_DB
+        && typeof durationMs === 'number'
+        && durationMs >= MIN_AZURE_SPEECH_MS
+        && (typeof confidence !== 'number' || confidence >= MIN_AZURE_RECOGNITION_CONFIDENCE),
+      snr,
+      status,
+    };
+  } catch {
+    return { reliable: false };
+  }
+}
+
+function exerciseTypeForPhrase(value: string) {
+  const count = speechTokens(value).length;
+  if (count <= 1) return 'WORD';
+  if (count <= 4) return 'SHORT_PHRASE';
+  return 'SENTENCE';
+}
 
 const SPEECH_RECORDING_OPTIONS: RecordingOptions = {
   ...RecordingPresets.HIGH_QUALITY,
@@ -103,11 +174,9 @@ export function PronunciationPractice({
   imageLabel,
   imageUrl,
   level,
-  manualReview = false,
   userId,
   onAttempted,
   onPassed,
-  onReviewRestart,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -123,16 +192,17 @@ export function PronunciationPractice({
   const [message, setMessage] = useState('Escucha la frase.');
   const [result, setResult] = useState<PronunciationResult | null>(null);
   const [attempt, setAttempt] = useState(0);
-  const [bestScore, setBestScore] = useState<number | undefined>();
   const [liveLevel, setLiveLevel] = useState(0);
-  const [liveMatchedCount, setLiveMatchedCount] = useState(0);
-  const [liveTentativeCount, setLiveTentativeCount] = useState(0);
+  const [recognizedSyllableKeys, setRecognizedSyllableKeys] = useState<string[]>([]);
+  const [continueAfterCoaching, setContinueAfterCoaching] = useState(false);
+  const [noSpeechFailure, setNoSpeechFailure] = useState(false);
   const [gradingFrame, setGradingFrame] = useState(0);
   const [listeningFrame, setListeningFrame] = useState(0);
   const attemptRef = useRef(0);
   const mountedRef = useRef(true);
   const runIdRef = useRef(0);
   const heardSpeech = useRef(false);
+  const noSpeechRound = useRef(0);
   const silenceStartedAt = useRef<number | null>(null);
   const captureFinishing = useRef(false);
   const modelWasPlaying = useRef(false);
@@ -141,63 +211,112 @@ export function PronunciationPractice({
   const streamingStartedAt = useRef(0);
   const lastVoiceAt = useRef(0);
   const noiseFloorDb = useRef(-60);
+  const voiceCandidateStartedAt = useRef<number | null>(null);
+  const voiceCandidatePeakDb = useRef(-160);
+  const voiceActiveDurationMs = useRef(0);
+  const voiceActiveSampleCount = useRef(0);
+  const voiceEvidenceMinDb = useRef(0);
+  const voiceEvidencePeakDb = useRef(-160);
+  const voiceLastActiveSampleAt = useRef<number | null>(null);
   const liveProgressComplete = useRef(false);
   const liveMatchedCountRef = useRef(0);
   const liveRecognizedText = useRef('');
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
+  const successAnimation = useRef(new Animated.Value(1)).current;
   const waveAnimations = useRef(
     [0, 1, 2, 3, 4].map(() => new Animated.Value(0.3)),
   ).current;
 
-  const overallScore = result ? paceIndependentAccuracy(result) : undefined;
-  const accuracy = overallScore;
-  const completeness = result?.text_score?.azure_scores?.completeness;
+  const interpreted = result?.feature_flags?.pedagogicalScoring === false ? undefined : result?.interpreted;
+  const overallScore = interpreted?.pedagogicalScore ?? (result ? paceIndependentAccuracy(result) : undefined);
+  const accuracy = interpreted?.soundAccuracy ?? overallScore;
+  const completeness = interpreted?.completeness ?? result?.text_score?.azure_scores?.completeness;
   const passAccuracy = level.toUpperCase().includes('A1') ? 30 : 65;
   const minimumCompleteness = level.toUpperCase().includes('A1') ? 60 : 75;
-  const passed =
-    typeof accuracy === 'number' &&
-    accuracy >= passAccuracy &&
-    (typeof completeness !== 'number' || completeness >= minimumCompleteness);
+  const passed = interpreted?.passed ?? (
+    typeof accuracy === 'number'
+    && accuracy >= passAccuracy
+    && (typeof completeness !== 'number' || completeness >= minimumCompleteness)
+  );
   const statusIsActive = phase === 'listening' || phase === 'checking';
   const statusIsAnimated = statusIsActive && !reduceMotion && !(phase === 'listening' && streamingCapture.current);
   const expectedTokens = useMemo(() => speechTokens(phrase), [phrase]);
+  const expectedSyllables = useMemo(() => referenceSyllables(phrase), [phrase]);
+  const recognizedSyllableKeySet = useMemo(
+    () => new Set(recognizedSyllableKeys),
+    [recognizedSyllableKeys],
+  );
+  const finalWordFeedback = useMemo(() => {
+    const wordScores = result?.text_score?.word_score_list ?? [];
+    return expectedTokens.map((token, index) => {
+      const wordResult = wordScores[index];
+      const errorType = wordResult?.error_type?.toLowerCase();
+      const good = errorType === 'omission'
+        ? false
+        : typeof wordResult?.quality_score === 'number'
+          ? wordResult.quality_score >= 65
+          : wordScores.length === 0 && passed;
+      return { good, token };
+    });
+  }, [expectedTokens, passed, result]);
   const listeningMascotWidth = 94;
   const listeningMascotHeight = 104;
   const isLandscape = viewportWidth > viewportHeight;
-  const currentWordIndex = useMemo(() => {
-    if (!expectedTokens.length || liveMatchedCount >= expectedTokens.length) return -1;
-    // A partial transcript may tentatively recognize the word being spoken.
-    // Keep the pointer on that word until finalized pronunciation evidence
-    // confirms it, then advance to the next expected word.
-    if (liveTentativeCount > liveMatchedCount) {
-      return Math.min(liveTentativeCount - 1, expectedTokens.length - 1);
-    }
-    return liveMatchedCount;
-  }, [expectedTokens.length, liveMatchedCount, liveTentativeCount]);
-  const weakestWord = useMemo(
-    () => {
-      const scoredWords = result?.text_score?.word_score_list
-        ?.filter((word) => typeof word.quality_score === 'number');
-      return scoredWords
-        ? [...scoredWords].sort(
-          (left, right) => (left.quality_score ?? 100) - (right.quality_score ?? 100),
-        )[0]
-        : undefined;
-    },
-    [result],
-  );
-
   const isCurrentRun = useCallback(
     (runId: number) => mountedRef.current && runIdRef.current === runId,
     [],
   );
+
+  const resetVoiceEvidence = useCallback(() => {
+    voiceCandidateStartedAt.current = null;
+    voiceCandidatePeakDb.current = -160;
+    voiceActiveDurationMs.current = 0;
+    voiceActiveSampleCount.current = 0;
+    voiceEvidenceMinDb.current = 0;
+    voiceEvidencePeakDb.current = -160;
+    voiceLastActiveSampleAt.current = null;
+  }, []);
+
+  const recordActiveVoiceSample = useCallback((levelDb: number, sampleAt: number) => {
+    const previousSampleAt = voiceLastActiveSampleAt.current;
+    if (previousSampleAt !== null) {
+      voiceActiveDurationMs.current += Math.min(150, Math.max(0, sampleAt - previousSampleAt));
+    }
+    voiceLastActiveSampleAt.current = sampleAt;
+    voiceActiveSampleCount.current += 1;
+    voiceEvidencePeakDb.current = Math.max(voiceEvidencePeakDb.current, levelDb);
+    voiceEvidenceMinDb.current = voiceActiveSampleCount.current === 1
+      ? levelDb
+      : Math.min(voiceEvidenceMinDb.current, levelDb);
+  }, []);
+
+  const voiceEvidence = useCallback(() => {
+    const requiredActiveMs = expectedTokens.length <= 1
+      ? MIN_SINGLE_WORD_ACTIVE_VOICE_MS
+      : MIN_PHRASE_ACTIVE_VOICE_MS;
+    const levelRangeDb = voiceEvidencePeakDb.current - voiceEvidenceMinDb.current;
+    const strong = heardSpeech.current
+      && voiceActiveDurationMs.current >= requiredActiveMs
+      && voiceActiveSampleCount.current >= 4
+      && voiceEvidencePeakDb.current >= -37
+      && levelRangeDb >= MIN_VOICE_LEVEL_RANGE_DB;
+    return {
+      activeMs: Math.round(voiceActiveDurationMs.current),
+      levelRangeDb: Math.round(levelRangeDb * 10) / 10,
+      peakDb: Math.round(voiceEvidencePeakDb.current),
+      samples: voiceActiveSampleCount.current,
+      strong,
+    };
+  }, [expectedTokens.length]);
 
   const playModel = useCallback((runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
     if (streamingCapture.current) void stopNativeSpeech();
     if (retryTimer.current) clearTimeout(retryTimer.current);
     setResult(null);
+    setContinueAfterCoaching(false);
+    setNoSpeechFailure(false);
     setPhase('model');
     setMessage(attemptRef.current ? 'Escucha otra vez…' : 'Escucha la frase.');
     heardSpeech.current = false;
@@ -211,9 +330,9 @@ export function PronunciationPractice({
     phraseCompleteTimer.current = null;
     lastVoiceAt.current = 0;
     noiseFloorDb.current = -60;
+    resetVoiceEvidence();
     setLiveLevel(0);
-    setLiveMatchedCount(0);
-    setLiveTentativeCount(0);
+    setRecognizedSyllableKeys([]);
     modelWasPlaying.current = false;
     setDiagnosticOperation('pronunciation_model_playback');
     addDiagnosticBreadcrumb('pronunciation_model_started', { attempt: attemptRef.current + 1 });
@@ -226,29 +345,104 @@ export function PronunciationPractice({
     ));
     if (!isCurrentRun(runId)) return;
     modelPlayer.play();
-  }, [audioProvider, audioVoice, isCurrentRun, modelPlayer, phrase]);
+  }, [audioProvider, audioVoice, isCurrentRun, modelPlayer, phrase, resetVoiceEvidence]);
+
+  const playReadyCueAndWait = useCallback(async (runId: number) => {
+    await readyCuePlayer.seekTo(0).catch(() => undefined);
+    if (!isCurrentRun(runId)) return null;
+    readyCuePlayer.play();
+    const cueStartedAt = Date.now();
+    let playbackStartedAt: number | null = null;
+    let expectedDurationMs = 180;
+
+    while (Date.now() - cueStartedAt < 1200 && isCurrentRun(runId)) {
+      if (readyCuePlayer.duration > 0) {
+        expectedDurationMs = Math.max(1, readyCuePlayer.duration * 1000);
+      }
+      if (readyCuePlayer.playing && playbackStartedAt === null) {
+        playbackStartedAt = Date.now();
+      }
+      const effectiveStartedAt = playbackStartedAt ?? cueStartedAt;
+      const reachedExpectedEnd = Date.now() >= effectiveStartedAt + expectedDurationMs + 25;
+      const reachedPlayerEnd = readyCuePlayer.duration > 0
+        && readyCuePlayer.currentTime >= Math.max(0, readyCuePlayer.duration - 0.01);
+      if (reachedExpectedEnd || reachedPlayerEnd) break;
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+    if (!isCurrentRun(runId)) return null;
+    readyCuePlayer.pause();
+    const cueEndedAt = Date.now();
+    addDiagnosticBreadcrumb('pronunciation_ready_cue_finished', {
+      cue_duration_ms: cueEndedAt - cueStartedAt,
+    });
+    return cueEndedAt;
+  }, [isCurrentRun, readyCuePlayer]);
 
   const scheduleRetry = useCallback((reason: string, runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
     setPhase('retry');
-    setMessage(manualReview
-      ? `${reason} Practica otra vez cuando estés listo.`
-      : `${reason} Volvemos a intentarlo…`);
+    setMessage(`${reason} Volvemos a intentarlo…`);
     attemptRef.current += 1;
     setAttempt(attemptRef.current);
-    if (!manualReview) retryTimer.current = setTimeout(() => playModel(runId), 1700);
-  }, [isCurrentRun, manualReview, playModel]);
+    if (attemptRef.current >= MAX_AUTOMATIC_ATTEMPTS) {
+      setContinueAfterCoaching(true);
+      setPhase('success');
+      setMessage(`${reason} Seguimos practicando.`);
+      return;
+    }
+    retryTimer.current = setTimeout(() => playModel(runId), 3000);
+  }, [isCurrentRun, playModel]);
 
-  const finishNativeCapture = useCallback(async () => {
+  const handleNoSpeech = useCallback((runId = runIdRef.current) => {
+    if (!isCurrentRun(runId)) return;
+    noSpeechRound.current += 1;
+    setResult(null);
+    setPhase('retry');
+    setMessage('No puedo escucharte.');
+    if (noSpeechRound.current >= MAX_NO_SPEECH_ROUNDS) {
+      setNoSpeechFailure(true);
+      return;
+    }
+    setNoSpeechFailure(false);
+    retryTimer.current = setTimeout(() => playModel(runId), NO_SPEECH_REPLAY_DELAY_MS);
+  }, [isCurrentRun, playModel]);
+
+  const evaluateResult = useCallback((nextResult: PronunciationResult) => {
+    const nextInterpreted = nextResult.feature_flags?.pedagogicalScoring === false
+      ? undefined
+      : nextResult.interpreted;
+    const nextAccuracy = nextInterpreted?.soundAccuracy ?? paceIndependentAccuracy(nextResult);
+    const nextCompleteness = nextInterpreted?.completeness ?? nextResult.text_score?.azure_scores?.completeness;
+    const accepted = nextInterpreted?.passed ?? (
+      typeof nextAccuracy === 'number'
+      && nextAccuracy >= passAccuracy
+      && (typeof nextCompleteness !== 'number' || nextCompleteness >= minimumCompleteness)
+    );
+    return { accepted, nextAccuracy, nextCompleteness };
+  }, [minimumCompleteness, passAccuracy]);
+
+  const finishNativeCapture = useCallback(async (reason: 'score' | 'no-speech' = 'score') => {
     const runId = runIdRef.current;
     if (!isCurrentRun(runId) || captureFinishing.current || !streamingCapture.current) return;
+    const evidence = voiceEvidence();
+    const shouldScore = reason === 'score' && evidence.strong;
+    console.info('[SpanGlish] Pronunciation voice gate', {
+      ...evidence,
+      requestedReason: reason,
+      route: shouldScore ? 'grade' : 'no-speech',
+    });
     if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
     phraseCompleteTimer.current = null;
     captureFinishing.current = true;
     streamingCapture.current = false;
-    setPhase('checking');
-    setMessage('Calificando…');
-    setDiagnosticOperation('pronunciation_grading_streaming');
+    if (shouldScore) {
+      setDiagnosticOperation('pronunciation_grading_streaming');
+    } else {
+      // Older dev clients can take several seconds to resolve stopAsync.
+      // Show the intended silence feedback immediately while they finish.
+      setPhase('retry');
+      setMessage('No puedo escucharte.');
+    }
     let recordingUri = '';
     try {
       const recorderStopStartedAt = Date.now();
@@ -256,29 +450,63 @@ export function PronunciationPractice({
       const recorderFinalizeMs = Date.now() - recorderStopStartedAt;
       recordingUri = nativeResult.uri;
       if (!isCurrentRun(runId)) return;
+      if (!shouldScore || !heardSpeech.current) {
+        handleNoSpeech(runId);
+        return;
+      }
+      const signalEvidence = azureSignalEvidence(nativeResult.json);
+      if (!signalEvidence.reliable) {
+        addDiagnosticBreadcrumb('pronunciation_signal_rejected', {
+          confidence: signalEvidence.confidence,
+          duration_ms: signalEvidence.durationMs,
+          snr_db: signalEvidence.snr,
+          status: signalEvidence.status,
+        });
+        handleNoSpeech(runId);
+        return;
+      }
       if (!recordingUri) {
-        scheduleRetry('No pude completar la evaluación.', runId);
+        addDiagnosticBreadcrumb('pronunciation_recording_missing', {
+          attempt: attemptRef.current + 1,
+          streaming: true,
+        });
+        handleNoSpeech(runId);
         return;
       }
       const nextResult = await scorePronunciation(recordingUri, phrase, userId, {
         recorderFinalizeMs,
+        level,
+        exerciseType: exerciseTypeForPhrase(phrase),
       });
       if (!isCurrentRun(runId)) return;
+      const resultConfidence = nextResult.diagnostics?.recognitionConfidence;
+      const resultSnr = nextResult.diagnostics?.snr;
+      if (
+        nextResult.feedback?.code === 'NO_SPEECH'
+        || nextResult.feedback?.code === 'RECORDING_UNCLEAR'
+        || nextResult.feedback?.code === 'SYSTEM_UNCERTAIN'
+        || (typeof resultSnr === 'number' && resultSnr < MIN_AZURE_SNR_DB)
+        || (typeof resultConfidence === 'number'
+          && resultConfidence < MIN_AZURE_RECOGNITION_CONFIDENCE)
+      ) {
+        addDiagnosticBreadcrumb('pronunciation_streaming_result_rejected', {
+          confidence: resultConfidence,
+          feedback_code: nextResult.feedback?.code,
+          snr_db: resultSnr,
+        });
+        handleNoSpeech(runId);
+        return;
+      }
+      noSpeechRound.current = 0;
+      setPhase('checking');
+      setMessage('Calificando…');
       nextResult._timing = {
         ...nextResult._timing,
         recorder_finalize_ms: recorderFinalizeMs,
       };
       setResult(nextResult);
       onAttempted?.();
-      const nextAccuracy = paceIndependentAccuracy(nextResult);
-      if (typeof nextAccuracy === 'number') {
-        setBestScore((current) => Math.max(current ?? 0, nextAccuracy));
-      }
-      const nextCompleteness = nextResult.text_score?.azure_scores?.completeness;
-      const accepted =
-        typeof nextAccuracy === 'number' &&
-        nextAccuracy >= passAccuracy &&
-        (typeof nextCompleteness !== 'number' || nextCompleteness >= minimumCompleteness);
+      const { accepted, nextAccuracy, nextCompleteness } = evaluateResult(nextResult);
       addDiagnosticBreadcrumb(accepted ? 'pronunciation_streaming_accepted' : 'pronunciation_streaming_retry', {
         accuracy: typeof nextAccuracy === 'number' ? Math.round(nextAccuracy) : undefined,
         attempt: attemptRef.current + 1,
@@ -288,20 +516,29 @@ export function PronunciationPractice({
       });
       if (accepted) {
         setPhase('success');
-        setMessage('Muy bien.');
+        setMessage(nextResult.feedback?.messages.es ?? 'Muy bien.');
         return;
       }
-      const weakest = nextResult.text_score?.word_score_list
-        ?.filter((word) => typeof word.quality_score === 'number')
-        .sort((left, right) => (left.quality_score ?? 100) - (right.quality_score ?? 100))[0];
-      scheduleRetry(weakest?.word ? `Practica “${weakest.word}”.` : 'Inténtalo otra vez.', runId);
+      scheduleRetry(nextResult.feedback?.messages.es ?? 'Inténtalo otra vez.', runId);
     } catch (scoreError) {
       if (!isCurrentRun(runId)) return;
+      if (!shouldScore || !heardSpeech.current || isExpectedNoSpeechRecognition(scoreError)) {
+        addDiagnosticBreadcrumb('pronunciation_no_speech', {
+          attempt: attemptRef.current + 1,
+          provider_rejected_speech: isExpectedNoSpeechRecognition(scoreError),
+        });
+        handleNoSpeech(runId);
+        return;
+      }
       captureDiagnosticError(scoreError, 'pronunciation_grading_streaming', {
         attempt: attemptRef.current + 1,
         phrase_length: phrase.length,
       });
-      scheduleRetry('No pudimos revisar esa grabación.', runId);
+      if (isExpectedConnectivityError(scoreError)) {
+        scheduleRetry('Revisa tu conexión a internet.', runId);
+        return;
+      }
+      handleNoSpeech(runId);
     } finally {
       if (recordingUri) {
         try {
@@ -311,30 +548,63 @@ export function PronunciationPractice({
         }
       }
     }
-  }, [expectedTokens.length, isCurrentRun, minimumCompleteness, onAttempted, passAccuracy, phrase, scheduleRetry, userId]);
+  }, [evaluateResult, expectedTokens.length, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, scheduleRetry, userId, voiceEvidence]);
 
   const finishCapture = useCallback(async (shouldScore: boolean) => {
     const runId = runIdRef.current;
     if (!isCurrentRun(runId)) return;
     if (captureFinishing.current) return;
+    const evidence = voiceEvidence();
+    const hasGradeableVoice = shouldScore && evidence.strong;
+    console.info('[SpanGlish] Pronunciation voice gate', {
+      ...evidence,
+      requestedReason: shouldScore ? 'score' : 'no-speech',
+      route: hasGradeableVoice ? 'verify-recording' : 'no-speech',
+    });
     captureFinishing.current = true;
-    setDiagnosticOperation('pronunciation_grading');
-    setPhase('checking');
-    setMessage('Calificando…');
+    if (hasGradeableVoice) {
+      setDiagnosticOperation('pronunciation_grading');
+    } else {
+      setPhase('retry');
+      setMessage('No puedo escucharte.');
+    }
     try {
       const recorderStopStartedAt = Date.now();
       await recorder.stop();
       if (!isCurrentRun(runId)) return;
       const recorderFinalizeMs = Date.now() - recorderStopStartedAt;
       const uri = recorder.uri;
-      if (!shouldScore || !uri) {
-        scheduleRetry('No te pude escuchar.', runId);
+      if (!hasGradeableVoice || !uri) {
+        handleNoSpeech(runId);
         return;
       }
       const nextResult = await scorePronunciation(uri, phrase, userId, {
         recorderFinalizeMs,
+        level,
+        exerciseType: exerciseTypeForPhrase(phrase),
       });
       if (!isCurrentRun(runId)) return;
+      const resultConfidence = nextResult.diagnostics?.recognitionConfidence;
+      const resultSnr = nextResult.diagnostics?.snr;
+      if (
+        nextResult.feedback?.code === 'NO_SPEECH'
+        || nextResult.feedback?.code === 'RECORDING_UNCLEAR'
+        || nextResult.feedback?.code === 'SYSTEM_UNCERTAIN'
+        || (typeof resultSnr === 'number' && resultSnr < MIN_AZURE_SNR_DB)
+        || (typeof resultConfidence === 'number'
+          && resultConfidence < MIN_AZURE_RECOGNITION_CONFIDENCE)
+      ) {
+        addDiagnosticBreadcrumb('pronunciation_recording_signal_rejected', {
+          confidence: resultConfidence,
+          feedback_code: nextResult.feedback?.code,
+          snr_db: resultSnr,
+        });
+        handleNoSpeech(runId);
+        return;
+      }
+      noSpeechRound.current = 0;
+      setPhase('checking');
+      setMessage('Calificando…');
       nextResult._timing = {
         ...nextResult._timing,
         recorder_finalize_ms: recorderFinalizeMs,
@@ -342,49 +612,38 @@ export function PronunciationPractice({
       console.info('[SpanGlish] Pronunciation timing', nextResult._timing);
       setResult(nextResult);
       onAttempted?.();
-      const nextAccuracy = paceIndependentAccuracy(nextResult);
-      if (typeof nextAccuracy === 'number') {
-        setBestScore((current) => Math.max(current ?? 0, nextAccuracy));
-      }
-      const nextCompleteness = nextResult.text_score?.azure_scores?.completeness;
-      const accepted =
-        typeof nextAccuracy === 'number' &&
-        nextAccuracy >= passAccuracy &&
-        (typeof nextCompleteness !== 'number' || nextCompleteness >= minimumCompleteness);
+      const { accepted, nextAccuracy } = evaluateResult(nextResult);
       if (accepted) {
         addDiagnosticBreadcrumb('pronunciation_accepted', {
-          accuracy: Math.round(nextAccuracy),
+          accuracy: typeof nextAccuracy === 'number' ? Math.round(nextAccuracy) : undefined,
           attempt: attemptRef.current + 1,
         });
         setPhase('success');
-        setMessage('Muy bien.');
+        setMessage(nextResult.feedback?.messages.es ?? 'Muy bien.');
       } else {
-        const scoredWords = nextResult.text_score?.word_score_list
-          ?.filter((word) => typeof word.quality_score === 'number');
-        const weakest = scoredWords
-          ? [...scoredWords].sort(
-            (left, right) => (left.quality_score ?? 100) - (right.quality_score ?? 100),
-          )[0]
-          : undefined;
-        scheduleRetry(
-          weakest?.word ? `Practica “${weakest.word}”.` : 'Inténtalo otra vez.',
-          runId,
-        );
+        scheduleRetry(nextResult.feedback?.messages.es ?? 'Inténtalo otra vez.', runId);
       }
     } catch (scoreError) {
       if (!isCurrentRun(runId)) return;
+      if (isExpectedNoSpeechRecognition(scoreError)) {
+        addDiagnosticBreadcrumb('pronunciation_no_speech', {
+          attempt: attemptRef.current + 1,
+          provider_rejected_speech: true,
+        });
+        handleNoSpeech(runId);
+        return;
+      }
       captureDiagnosticError(scoreError, 'pronunciation_grading', {
         attempt: attemptRef.current + 1,
         phrase_length: phrase.length,
       });
-      scheduleRetry(
-        scoreError instanceof Error && /conexión|internet/i.test(scoreError.message)
-          ? 'Revisa tu conexión a internet.'
-          : 'No pudimos revisar esa grabación.',
-        runId,
-      );
+      if (isExpectedConnectivityError(scoreError)) {
+        scheduleRetry('Revisa tu conexión a internet.', runId);
+        return;
+      }
+      handleNoSpeech(runId);
     }
-  }, [isCurrentRun, minimumCompleteness, onAttempted, passAccuracy, phrase, recorder, scheduleRetry, userId]);
+  }, [evaluateResult, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, recorder, scheduleRetry, userId, voiceEvidence]);
 
   const startListening = useCallback(async () => {
     const runId = runIdRef.current;
@@ -403,7 +662,9 @@ export function PronunciationPractice({
       await setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
       if (!isCurrentRun(runId)) return;
       heardSpeech.current = false;
+      setNoSpeechFailure(false);
       silenceStartedAt.current = null;
+      resetVoiceEvidence();
       captureFinishing.current = false;
       const streamingToken = nativeStreamingAvailable
         ? await getPronunciationStreamingToken()
@@ -428,23 +689,25 @@ export function PronunciationPractice({
       if (!readyCuePlayer.isLoaded) {
         throw new Error('Ready cue did not load.');
       }
-      await readyCuePlayer.seekTo(0).catch(() => undefined);
-      if (!isCurrentRun(runId)) return;
-      readyCuePlayer.play();
-      await new Promise((resolve) => setTimeout(resolve, 260));
-      if (!isCurrentRun(runId)) return;
+      // Ensure no model-audio tail can leak into the learner's microphone
+      // window before the ready cue establishes the three-second boundary.
+      modelPlayer.pause();
+      const cueEndedAt = await playReadyCueAndWait(runId);
+      if (!cueEndedAt || !isCurrentRun(runId)) return;
       if (streamingToken) {
         streamingCapture.current = true;
-        streamingStartedAt.current = Date.now();
+        streamingStartedAt.current = cueEndedAt;
         lastVoiceAt.current = 0;
+        resetVoiceEvidence();
         liveProgressComplete.current = false;
         liveMatchedCountRef.current = 0;
         liveRecognizedText.current = '';
         if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
         phraseCompleteTimer.current = null;
         setLiveLevel(0);
-        setLiveMatchedCount(0);
-        setLiveTentativeCount(0);
+        setRecognizedSyllableKeys([]);
+        setPhase('listening');
+        setMessage('Ahora tú…');
         await startNativeSpeech({
           locale: streamingToken.locale,
           referenceText: phrase,
@@ -453,14 +716,14 @@ export function PronunciationPractice({
         });
       } else {
         recorder.record();
+        setPhase('listening');
+        setMessage('Ahora tú…');
       }
       setDiagnosticOperation('pronunciation_recording');
       addDiagnosticBreadcrumb('pronunciation_recording_started', {
         attempt: attemptRef.current + 1,
         streaming: Boolean(streamingToken),
       });
-      setPhase('listening');
-      setMessage('Ahora tú…');
     } catch (recordingError) {
       if (!isCurrentRun(runId)) return;
       if (streamingCapture.current) void stopNativeSpeech();
@@ -475,44 +738,96 @@ export function PronunciationPractice({
         runId,
       );
     }
-  }, [isCurrentRun, phrase, readyCuePlayer, readyCuePreload, recorder, scheduleRetry]);
+  }, [isCurrentRun, modelPlayer, phrase, playReadyCueAndWait, readyCuePlayer, readyCuePreload, recorder, resetVoiceEvidence, scheduleRetry]);
 
   useEffect(() => {
     if (!nativeStreamingAvailable) return undefined;
     const levelSubscription = addSpeechListener<SpeechLevelEvent>('onSpeechLevel', (event) => {
       if (!streamingCapture.current) return;
       const now = Date.now();
-      if (!heardSpeech.current) {
+      const speechThreshold = Math.max(-42, noiseFloorDb.current + 10);
+      const active = event.active && event.levelDb >= speechThreshold;
+      if (!heardSpeech.current && !active) {
         noiseFloorDb.current = noiseFloorDb.current * 0.9 + event.levelDb * 0.1;
       }
-      const speechThreshold = Math.max(-54, noiseFloorDb.current + (heardSpeech.current ? 7 : 10));
-      const active = event.levelDb >= speechThreshold;
       setLiveLevel(Math.max(0.08, Math.min(1, (event.levelDb + 60) / 34)));
       if (active) {
-        heardSpeech.current = true;
-        lastVoiceAt.current = now;
+        recordActiveVoiceSample(event.levelDb, now);
+        if (heardSpeech.current) {
+          lastVoiceAt.current = now;
+          return;
+        }
+        if (voiceCandidateStartedAt.current === null) {
+          voiceCandidateStartedAt.current = now;
+          voiceCandidatePeakDb.current = event.levelDb;
+        } else {
+          voiceCandidatePeakDb.current = Math.max(voiceCandidatePeakDb.current, event.levelDb);
+        }
+        const candidateDuration = now - voiceCandidateStartedAt.current;
+        const hasVoicePeak = voiceCandidatePeakDb.current >= speechThreshold + 5;
+        if (candidateDuration >= MIN_CONFIRMED_VOICE_MS && hasVoicePeak) {
+          heardSpeech.current = true;
+          lastVoiceAt.current = now;
+          setMessage('Te escucho…');
+          addDiagnosticBreadcrumb('pronunciation_voice_confirmed', {
+            duration_ms: candidateDuration,
+            noise_floor_db: Math.round(noiseFloorDb.current),
+            peak_db: Math.round(voiceCandidatePeakDb.current),
+          });
+          if (liveProgressComplete.current && voiceEvidence().strong && !phraseCompleteTimer.current) {
+            phraseCompleteTimer.current = setTimeout(() => {
+              phraseCompleteTimer.current = null;
+              void finishNativeCapture();
+            }, 250);
+          }
+        }
+      } else if (!heardSpeech.current) {
+        voiceLastActiveSampleAt.current = null;
+        voiceCandidateStartedAt.current = null;
+        voiceCandidatePeakDb.current = -160;
+      } else {
+        voiceLastActiveSampleAt.current = null;
       }
     });
     const progressSubscription = addSpeechListener<SpeechProgressEvent>('onSpeechProgress', (event) => {
       if (!streamingCapture.current || !event.text) return;
-      heardSpeech.current = true;
       liveRecognizedText.current = event.text;
-      const progress = alignExpectedPhrase(phrase, event.text);
-      // Azure's partial transcript can predict a complete final word from only
-      // its opening sound. Keep the final word pending until the recognizer
-      // emits a finalized result so suffixes such as -ing, -s, and -ed are kept.
-      const tentativeCount = Math.min(
-        progress.matchedCount,
-        Math.max(0, expectedTokens.length - 1),
+      if (!voiceEvidence().strong) return;
+      const syllableEvidence = liveSyllableEvidence(phrase, '', event.text);
+      const observedTokens = speechTokens(event.text);
+      const lastObservedToken = observedTokens.at(-1);
+      const predictedWordIndex = lastObservedToken
+        ? expectedTokens.findIndex((token) => token === lastObservedToken)
+        : -1;
+      const predictedWordSyllableKeys = new Set(
+        expectedSyllables
+          .filter((syllable) => syllable.wordIndex === predictedWordIndex)
+          .map((syllable) => syllable.key),
       );
-      // Partial recognition is only a prediction. Show it as tentative, but
-      // never turn a whole word green until pronunciation evidence confirms
-      // its syllables/phonemes in a finalized result.
-      setLiveTentativeCount(tentativeCount);
+      // Azure can predict an entire reference word from a different sound.
+      // Keep the current full-word hypothesis neutral until scored evidence
+      // arrives; prior completed words and explicit fragments remain green.
+      const newlyRecognizedKeys = syllableEvidence.recognizedKeys.filter(
+        (key) => !predictedWordSyllableKeys.has(key),
+      );
+      setRecognizedSyllableKeys((current) => [
+        ...new Set([...current, ...newlyRecognizedKeys]),
+      ]);
     });
     const resultSubscription = addSpeechListener<SpeechResultEvent>('onSpeechResult', (event) => {
       if (!streamingCapture.current || !event.text) return;
       liveRecognizedText.current = event.text;
+      const signalEvidence = azureSignalEvidence(event.json);
+      if (!signalEvidence.reliable) {
+        liveProgressComplete.current = false;
+        addDiagnosticBreadcrumb('pronunciation_live_signal_rejected', {
+          confidence: signalEvidence.confidence,
+          duration_ms: signalEvidence.durationMs,
+          snr_db: signalEvidence.snr,
+          status: signalEvidence.status,
+        });
+        return;
+      }
       const progress = assessedPhraseProgress(
         phrase,
         event.text,
@@ -521,9 +836,18 @@ export function PronunciationPractice({
       );
       liveProgressComplete.current = progress.completed;
       liveMatchedCountRef.current = progress.matchedCount;
-      setLiveMatchedCount(progress.matchedCount);
-      setLiveTentativeCount(progress.matchedCount);
-      if (progress.completed && !phraseCompleteTimer.current) {
+      if (!voiceEvidence().strong) {
+        addDiagnosticBreadcrumb('pronunciation_result_waiting_for_voice', {
+          matched_words: progress.matchedCount,
+          total_words: expectedTokens.length,
+        });
+        return;
+      }
+      const syllableEvidence = liveSyllableEvidence(phrase, event.json, event.segmentText);
+      setRecognizedSyllableKeys((current) => [
+        ...new Set([...current, ...syllableEvidence.recognizedKeys]),
+      ]);
+      if (progress.completed && voiceEvidence().strong && !phraseCompleteTimer.current) {
         // The finalized result is already available. Retain a small audio tail
         // before stopping so the final consonant or suffix is never clipped.
         phraseCompleteTimer.current = setTimeout(() => {
@@ -534,6 +858,7 @@ export function PronunciationPractice({
     });
     const errorSubscription = addSpeechListener<SpeechErrorEvent>('onSpeechError', (event) => {
       if (!streamingCapture.current) return;
+      if (/InitialSilenceTimeout/i.test(event.message)) return;
       captureDiagnosticError(new Error(event.message), 'pronunciation_streaming');
     });
     return () => {
@@ -542,23 +867,29 @@ export function PronunciationPractice({
       resultSubscription.remove();
       errorSubscription.remove();
     };
-  }, [expectedTokens.length, finishNativeCapture, phrase]);
+  }, [expectedSyllables, expectedTokens, finishNativeCapture, phrase, recordActiveVoiceSample, voiceEvidence]);
 
   useEffect(() => {
     if (phase !== 'listening' || !streamingCapture.current) return undefined;
     const timer = setInterval(() => {
       const now = Date.now();
       const elapsed = now - streamingStartedAt.current;
+      if (!heardSpeech.current) {
+        if (elapsed >= NO_SPEECH_LISTEN_MS) {
+          void finishNativeCapture('no-speech');
+        }
+        return;
+      }
       const quietFor = lastVoiceAt.current ? now - lastVoiceAt.current : 0;
       const phraseFinished = liveProgressComplete.current && heardSpeech.current && quietFor >= 750;
       const speechEndedWithoutExactMatch = heardSpeech.current && quietFor >= 3500;
       const hardLimitMs = Math.min(Math.max(expectedTokens.length * 3500, 15_000), 30_000);
       if (phraseFinished || speechEndedWithoutExactMatch || elapsed >= hardLimitMs) {
-        void finishNativeCapture();
+        void finishNativeCapture(voiceEvidence().strong ? 'score' : 'no-speech');
       }
     }, 100);
     return () => clearInterval(timer);
-  }, [expectedTokens.length, finishNativeCapture, phase]);
+  }, [expectedTokens.length, finishNativeCapture, phase, voiceEvidence]);
 
   useEffect(() => {
     if (!statusIsAnimated) {
@@ -615,6 +946,32 @@ export function PronunciationPractice({
       wave.stop();
     };
   }, [pulseAnimation, statusIsAnimated, waveAnimations]);
+
+  useEffect(() => {
+    successAnimation.stopAnimation();
+    if (!result || !passed || reduceMotion) {
+      successAnimation.setValue(1);
+      return undefined;
+    }
+
+    successAnimation.setValue(0.82);
+    const celebration = Animated.sequence([
+      Animated.spring(successAnimation, {
+        friction: 4,
+        tension: 180,
+        toValue: 1.12,
+        useNativeDriver: true,
+      }),
+      Animated.spring(successAnimation, {
+        friction: 5,
+        tension: 140,
+        toValue: 1,
+        useNativeDriver: true,
+      }),
+    ]);
+    celebration.start();
+    return () => celebration.stop();
+  }, [passed, reduceMotion, result, successAnimation]);
 
   useEffect(() => {
     if (phase !== 'listening') {
@@ -690,8 +1047,8 @@ export function PronunciationPractice({
     const runId = runIdRef.current + 1;
     runIdRef.current = runId;
     attemptRef.current = 0;
+    noSpeechRound.current = 0;
     setAttempt(0);
-    setBestScore(undefined);
     playModel(runId);
     return () => {
       if (runIdRef.current === runId) runIdRef.current += 1;
@@ -716,29 +1073,62 @@ export function PronunciationPractice({
     if (phase !== 'listening' || streamingCapture.current || !recorderState.isRecording) return;
     const levelDb = recorderState.metering ?? -160;
     const elapsed = recorderState.durationMillis;
-    if (levelDb > -43) {
-      heardSpeech.current = true;
-      silenceStartedAt.current = null;
+    const speechThreshold = Math.max(-42, noiseFloorDb.current + 10);
+    const active = levelDb >= speechThreshold;
+    if (!heardSpeech.current && !active) {
+      noiseFloorDb.current = noiseFloorDb.current * 0.9 + levelDb * 0.1;
+    }
+    if (active) {
+      recordActiveVoiceSample(levelDb, elapsed);
+      if (heardSpeech.current) {
+        silenceStartedAt.current = null;
+      } else {
+        if (voiceCandidateStartedAt.current === null) {
+          voiceCandidateStartedAt.current = elapsed;
+          voiceCandidatePeakDb.current = levelDb;
+        } else {
+          voiceCandidatePeakDb.current = Math.max(voiceCandidatePeakDb.current, levelDb);
+        }
+        const candidateDuration = elapsed - voiceCandidateStartedAt.current;
+        if (candidateDuration >= MIN_CONFIRMED_VOICE_MS && voiceCandidatePeakDb.current >= speechThreshold + 5) {
+          heardSpeech.current = true;
+          silenceStartedAt.current = null;
+          setMessage('Te escucho…');
+        }
+      }
+    } else if (!heardSpeech.current) {
+      voiceLastActiveSampleAt.current = null;
+      voiceCandidateStartedAt.current = null;
+      voiceCandidatePeakDb.current = -160;
     } else if (heardSpeech.current && elapsed > 900) {
+      voiceLastActiveSampleAt.current = null;
       if (silenceStartedAt.current === null) silenceStartedAt.current = Date.now();
-      if (Date.now() - silenceStartedAt.current >= 1800) void finishCapture(true);
+      if (Date.now() - silenceStartedAt.current >= 1800) {
+        void finishCapture(voiceEvidence().strong);
+      }
+    }
+    if (!heardSpeech.current) {
+      if (elapsed >= NO_SPEECH_LISTEN_MS) void finishCapture(false);
+      return;
     }
     const maximumMs = Math.min(Math.max(phrase.length * 260, 8000), 15_000);
-    if (elapsed >= maximumMs) void finishCapture(heardSpeech.current);
+    if (elapsed >= maximumMs) void finishCapture(voiceEvidence().strong);
   }, [
     finishCapture,
     phase,
     phrase.length,
+    recordActiveVoiceSample,
     recorderState.durationMillis,
     recorderState.isRecording,
     recorderState.metering,
+    voiceEvidence,
   ]);
 
   useEffect(() => {
-    if (phase !== 'success' || !passed) return undefined;
-    const timer = setTimeout(onPassed, 650);
+    if (phase !== 'success' || (!passed && !continueAfterCoaching)) return undefined;
+    const timer = setTimeout(onPassed, 3000);
     return () => clearTimeout(timer);
-  }, [onPassed, passed, phase]);
+  }, [continueAfterCoaching, onPassed, passed, phase]);
 
   const statusColor = phase === 'listening'
     ? '#d95c52'
@@ -800,28 +1190,30 @@ export function PronunciationPractice({
         disabled={phase === 'checking' || phase === 'listening' || phase === 'ready'}
         onPress={() => phase === 'permission' ? void startListening() : playModel()}
       >
-        {phase === 'listening' && nativeStreamingAvailable ? (
-          <View style={styles.liveWords}>
-            {expectedTokens.map((token, index) => (
-              <View key={`${token}-${index}`} style={styles.liveWordSlot}>
-                <Text
-                  style={[
-                    styles.liveWord,
-                    index < liveTentativeCount ? styles.liveWordTentative : undefined,
-                    index < liveMatchedCount ? styles.liveWordHeard : undefined,
-                  ]}
-                >
-                  {token}
-                </Text>
-                <View
-                  accessibilityElementsHidden
-                  style={[styles.currentWordArrow, index === currentWordIndex ? null : styles.currentWordArrowHidden]}
-                >
-                  <View style={styles.currentWordArrowHead} />
-                  <View style={styles.currentWordArrowStem} />
-                </View>
-              </View>
-            ))}
+        {phase === 'listening' ? (
+          <View style={styles.liveAssessment}>
+            <Text style={styles.phrase}>{phrase}</Text>
+            <View
+              accessibilityLabel={expectedSyllables.map((syllable) => (
+                `${syllable.label}, ${recognizedSyllableKeySet.has(syllable.key) ? 'reconocida' : 'pendiente'}`
+              )).join('. ')}
+              style={styles.syllableSlots}
+            >
+              {expectedSyllables.map((syllable) => {
+                const recognized = recognizedSyllableKeySet.has(syllable.key);
+                return (
+                  <Text
+                    key={syllable.key}
+                    style={[
+                      styles.syllableSlot,
+                      recognized ? styles.syllableSlotRecognized : styles.syllableSlotMissing,
+                    ]}
+                  >
+                    {syllable.label}
+                  </Text>
+                );
+              })}
+            </View>
           </View>
         ) : <Text style={styles.phrase}>{phrase}</Text>}
       </Pressable>
@@ -871,54 +1263,52 @@ export function PronunciationPractice({
         <Text style={[styles.message, { color: statusColor }]}>{message}</Text>
       </View>
       {attempt > 0 && phase !== 'success' ? <Text style={styles.attempt}>Intento {attempt + 1}</Text> : null}
-      {result && typeof overallScore === 'number' ? (
+      {noSpeechFailure ? (
+        <Pressable
+          accessibilityLabel="Reintentar pronunciación"
+          accessibilityRole="button"
+          onPress={() => {
+            noSpeechRound.current = 0;
+            void playModel();
+          }}
+          style={({ pressed }) => [styles.retryNoSpeech, pressed ? styles.retryNoSpeechPressed : null]}
+        >
+          <Text style={styles.retryNoSpeechText}>Reintentar</Text>
+        </Pressable>
+      ) : null}
+      {result ? (
         <>
           <View style={[styles.scorePanel, passed ? styles.passedPanel : styles.practicePanel]}>
-            <Text style={styles.score}>{Math.round(overallScore)}</Text>
             <View style={styles.scoreDetails}>
-              <Text style={styles.scoreTitle}>{passed ? 'Muy bien.' : 'Inténtalo otra vez'}</Text>
-              <Text style={styles.scoreText}>Escuché: {result.recognized_text || 'No pude reconocer la frase'}</Text>
-              {weakestWord ? (
-                <Text style={styles.scoreText}>
-                  Practica “{weakestWord.word}” ({Math.round(weakestWord.quality_score ?? 0)})
-                </Text>
-              ) : null}
+              <Animated.Text
+                style={[
+                  styles.scoreTitle,
+                  passed ? { transform: [{ scale: successAnimation }] } : null,
+                ]}
+              >
+                {passed ? '✨ ' : ''}
+                {result.feedback?.messages.es ?? (passed ? '¡Muy bien!' : 'Escucha e inténtalo de nuevo.')}
+                {passed ? ' ✨' : ''}
+              </Animated.Text>
             </View>
           </View>
-          {manualReview && typeof bestScore === 'number' ? (
-            <Text style={styles.bestScore}>Mejor resultado: {Math.round(bestScore)}</Text>
-          ) : null}
-          <View style={styles.words}>
-            {result.text_score?.word_score_list?.map((word, index) => {
-              const wordScore = word.quality_score;
-              const color =
-                typeof wordScore !== 'number'
-                  ? '#f5f1e9'
-                  : wordScore >= 65
-                    ? '#d8f3df'
-                    : wordScore >= 25
-                      ? '#fff1c7'
-                      : '#ffe0dc';
+          <View
+            accessibilityLabel={`Resultado: ${finalWordFeedback.map(({ good, token }) => {
+              return `${token}, ${good ? 'bien' : 'necesita mejorar'}`;
+            }).join('. ')}`}
+            style={styles.words}
+          >
+            {finalWordFeedback.map(({ good, token }, index) => {
               return (
-                <Text key={`${word.word}-${index}`} style={[styles.word, { backgroundColor: color }]}>
-                  {word.word}
+                <Text
+                  key={`${token}-${index}`}
+                  style={[styles.word, good ? styles.wordGood : styles.wordNeedsImprovement]}
+                >
+                  {token}
                 </Text>
               );
             })}
           </View>
-          {manualReview && (phase === 'success' || phase === 'retry') ? (
-            <Pressable
-              accessibilityLabel="Practicar la pronunciación otra vez"
-              accessibilityRole="button"
-              onPress={() => {
-                onReviewRestart?.();
-                void playModel();
-              }}
-              style={({ pressed }) => [styles.practiceAgain, pressed ? styles.practiceAgainPressed : null]}
-            >
-              <Text style={styles.practiceAgainText}>↻ Practicar otra vez</Text>
-            </Pressable>
-          ) : null}
         </>
       ) : null}
     </View>
@@ -933,24 +1323,11 @@ const styles = StyleSheet.create({
   practiceImage: { alignSelf: 'center', width: '100%' },
   practiceImageLandscape: { flex: 1, minWidth: 0, width: undefined },
   phrase: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, textAlign: 'center' },
-  liveWords: { alignItems: 'flex-start', flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center' },
-  liveWordSlot: { alignItems: 'center' },
-  liveWord: { borderColor: 'transparent', borderRadius: 8, borderWidth: 2, color: '#24333a', fontSize: 18, fontWeight: '900', paddingHorizontal: 7, paddingVertical: 3 },
-  liveWordTentative: { backgroundColor: '#fff2cf', borderColor: '#e1b85c', color: '#8a5b10' },
-  liveWordHeard: { backgroundColor: '#dff4e7', borderColor: '#2f8f62', color: '#17623f' },
-  currentWordArrow: { alignItems: 'center', height: 23, justifyContent: 'center', marginTop: 1, width: 22 },
-  currentWordArrowHead: {
-    borderBottomColor: '#83d6a4',
-    borderBottomWidth: 8,
-    borderLeftColor: 'transparent',
-    borderLeftWidth: 7,
-    borderRightColor: 'transparent',
-    borderRightWidth: 7,
-    height: 0,
-    width: 0,
-  },
-  currentWordArrowStem: { backgroundColor: '#83d6a4', borderRadius: 3, height: 10, width: 5 },
-  currentWordArrowHidden: { opacity: 0 },
+  liveAssessment: { alignItems: 'center', gap: 3 },
+  syllableSlots: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, justifyContent: 'center' },
+  syllableSlot: { borderRadius: 7, borderWidth: 1.5, fontSize: 12, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 3 },
+  syllableSlotRecognized: { backgroundColor: '#dff4e7', borderColor: '#2f8f62', color: '#17623f' },
+  syllableSlotMissing: { backgroundColor: '#ffffff', borderColor: '#b8c3c8', color: '#64747b' },
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
   signalStack: { alignItems: 'center', marginRight: 8 },
   signalRow: { alignItems: 'center', flexDirection: 'row' },
@@ -963,17 +1340,16 @@ const styles = StyleSheet.create({
   waveBar: { borderRadius: 3, width: 4 },
   message: { flexShrink: 1, fontSize: 13, fontWeight: '800' },
   attempt: { color: '#8a4f00', fontSize: 12, fontWeight: '800', textAlign: 'center' },
-  scorePanel: { alignItems: 'center', borderRadius: 14, flexDirection: 'row', padding: 7 },
+  retryNoSpeech: { alignItems: 'center', alignSelf: 'center', backgroundColor: '#2f8f62', borderRadius: 13, justifyContent: 'center', minHeight: 42, paddingHorizontal: 22 },
+  retryNoSpeechPressed: { opacity: 0.78 },
+  retryNoSpeechText: { color: '#fff', fontSize: 14, fontWeight: '900' },
+  scorePanel: { alignItems: 'center', borderRadius: 14, flexDirection: 'row', padding: 10 },
   passedPanel: { backgroundColor: '#eaf6ee' },
   practicePanel: { backgroundColor: '#fff3df' },
-  bestScore: { color: '#287a57', fontSize: 12, fontWeight: '900', textAlign: 'center' },
-  practiceAgain: { alignItems: 'center', alignSelf: 'center', backgroundColor: '#fff', borderColor: '#2f8f62', borderRadius: 13, borderWidth: 1, justifyContent: 'center', minHeight: 42, paddingHorizontal: 18 },
-  practiceAgainPressed: { backgroundColor: '#eaf6ee', opacity: 0.82 },
-  practiceAgainText: { color: '#24734f', fontSize: 13, fontWeight: '900' },
-  score: { color: '#287a57', fontSize: 30, fontWeight: '900', minWidth: 52 },
-  scoreDetails: { flex: 1, gap: 1, marginLeft: 7 },
-  scoreTitle: { color: '#17251f', fontSize: 13, fontWeight: '800' },
-  scoreText: { color: '#52625a', fontSize: 10, lineHeight: 13 },
+  scoreDetails: { flex: 1, gap: 2 },
+  scoreTitle: { color: '#17251f', fontSize: 13, fontWeight: '900', lineHeight: 18, textAlign: 'center' },
   words: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, justifyContent: 'center' },
-  word: { borderRadius: 7, color: '#24333a', fontSize: 12, fontWeight: '800', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 4 },
+  word: { borderRadius: 7, color: '#24333a', fontSize: 13, fontWeight: '800', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 4 },
+  wordGood: { backgroundColor: '#dff4e7', color: '#17623f' },
+  wordNeedsImprovement: { backgroundColor: '#fff2cf', color: '#8a5b10' },
 });

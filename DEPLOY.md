@@ -43,12 +43,14 @@ ALLOWED_ORIGINS=https://your-project-name.vercel.app
 DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 ```
 
-9. Add the SpeechAce key for pronunciation scoring. This must be added in the hosted backend service environment. Your local `backend/.env` file is not pushed to Render, Vercel, or GitHub:
+9. Add Azure Speech for pronunciation scoring. These values belong only in the hosted backend service environment. Your local `backend/.env` file is not pushed to Render, Vercel, GitHub, or a mobile/browser bundle:
 
 ```text
-SPEECHACE_API_KEY=your-speechace-product-key
-SPEECHACE_API_BASE_URL=https://api.speechace.co
-SPEECHACE_DIALECT=en-us
+PRONUNCIATION_PROVIDER=azure
+AZURE_SPEECH_KEY=your-azure-speech-key
+AZURE_SPEECH_REGION=your-azure-region
+AZURE_SPEECH_LOCALE=en-US
+PRONUNCIATION_PEDAGOGICAL_SCORING=true
 ```
 
 10. Add the OpenAI key for course audio. This lets the backend generate and cache natural lesson prompts instead of relying on browser voices:
@@ -81,7 +83,7 @@ After saving environment variables in Render, restart or redeploy the backend. T
 https://your-api-name.onrender.com/api/pronunciation/health
 ```
 
-It should return `"speechace_configured": true`.
+It should return `"provider": "azure"`, `"azure": true` under `configured`, and `"pedagogical_scoring": true` under `features`.
 
 Also verify:
 

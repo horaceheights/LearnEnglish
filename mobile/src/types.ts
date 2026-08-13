@@ -62,12 +62,64 @@ export type WordScore = {
   word?: string;
   quality_score?: number;
   error_type?: string;
-  syllable_score_list?: { letters?: string; quality_score?: number }[];
-  phone_score_list?: { phone?: string; quality_score?: number }[];
+  offset_ms?: number;
+  duration_ms?: number;
+  syllable_score_list?: { letters?: string; quality_score?: number; offset_ms?: number; duration_ms?: number }[];
+  phone_score_list?: { phone?: string; quality_score?: number; offset_ms?: number; duration_ms?: number }[];
 };
 
+export type PronunciationFeedbackCode =
+  | 'CLEAR_AND_SMOOTH'
+  | 'CLEAR_BUT_SLOW'
+  | 'GOOD_SOUNDS_TRY_SMOOTHER'
+  | 'MISSING_PART'
+  | 'RETRY_TARGET_SOUND'
+  | 'RECORDING_UNCLEAR'
+  | 'NO_SPEECH'
+  | 'SYSTEM_UNCERTAIN';
+
 export type PronunciationResult = {
+  expectedText?: string;
+  recognizedText?: string;
   recognized_text?: string;
+  raw?: {
+    accuracyScore?: number;
+    fluencyScore?: number;
+    completenessScore?: number;
+    prosodyScore?: number;
+    pronScore?: number;
+  };
+  interpreted?: {
+    level: 'PRE_A1' | 'A1' | 'A2_PLUS';
+    exerciseType: 'WORD' | 'SHORT_PHRASE' | 'SENTENCE';
+    soundAccuracy: number;
+    completeness: number;
+    smoothness: number | null;
+    prosody: number | null;
+    pedagogicalScore: number;
+    passed: boolean;
+    confidence: 'HIGH' | 'MEDIUM' | 'LOW';
+    feedbackCode: PronunciationFeedbackCode;
+  };
+  diagnostics?: {
+    longestPauseMs?: number | null;
+    pauseToleranceMs?: number;
+    unexpectedBreaks?: number;
+    missingBreaks?: number;
+    missingWords?: string[];
+    weakWords?: string[];
+    weakPhonemes?: { phoneme: string; score: number }[];
+    missingFinalWords?: string[];
+    recognitionConfidence?: number | null;
+    snr?: number | null;
+    fallbackUsed?: boolean;
+  };
+  feedback?: {
+    code: PronunciationFeedbackCode;
+    target?: string | null;
+    messages: { en: string; es: string };
+  };
+  feature_flags?: { pedagogicalScoring?: boolean };
   _timing?: {
     audio_bytes?: number;
     backend_total_ms?: number;
@@ -85,6 +137,8 @@ export type PronunciationResult = {
       accuracy?: number;
       fluency?: number;
       completeness?: number;
+      prosody?: number;
+      pronunciation?: number;
     };
   };
 };

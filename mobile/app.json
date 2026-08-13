@@ -7,7 +7,12 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.gorre.spanglish",
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "SpanGlish usa el micrófono para escuchar y evaluar tu pronunciación.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.gorre.spanglish",
@@ -34,6 +39,7 @@
     "owner": "horaceheightss-team",
     "plugins": [
       "expo-audio",
+      "expo-font",
       [
         "@sentry/react-native/expo",
         {
@@ -44,6 +50,7 @@
       ]
     ],
     "updates": {
+      "checkAutomatically": "NEVER",
       "url": "https://u.expo.dev/898830f0-4e7c-4568-82da-7cfb25c97d8f"
     },
     "runtimeVersion": {

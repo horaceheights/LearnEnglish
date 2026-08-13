@@ -221,7 +221,7 @@ export async function scorePronunciation(
   recordingUri: string,
   phrase: string,
   userId?: string,
-  clientTiming?: { recorderFinalizeMs?: number },
+  clientOptions?: { recorderFinalizeMs?: number; level?: string; exerciseType?: string },
 ): Promise<PronunciationResult> {
   return Sentry.startSpan(
     {
@@ -230,7 +230,7 @@ export async function scorePronunciation(
       attributes: {
         'http.request.method': 'POST',
         'pronunciation.provider': 'azure',
-        'pronunciation.recorder_finalize_ms': clientTiming?.recorderFinalizeMs,
+        'pronunciation.recorder_finalize_ms': clientOptions?.recorderFinalizeMs,
         'server.address': 'learnenglish-fxki.onrender.com',
       },
     },
@@ -240,6 +240,8 @@ export async function scorePronunciation(
       formData.append('text', phrase);
       formData.append('provider', 'azure');
       if (userId) formData.append('user_id', userId);
+      if (clientOptions?.level) formData.append('level', clientOptions.level);
+      if (clientOptions?.exerciseType) formData.append('exercise_type', clientOptions.exerciseType);
       const recordingName = recordingUri.toLocaleLowerCase().includes('.wav')
         ? 'pronunciation.wav'
         : 'pronunciation.m4a';

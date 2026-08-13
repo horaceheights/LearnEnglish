@@ -24,6 +24,7 @@ import { absoluteMediaUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
+import { canUseEasUpdates } from '../updates';
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
   'lesson-1-people-actions': {
@@ -223,6 +224,13 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
   const checkForUpdates = async () => {
     if (updateStatus !== 'idle') return;
     setIsAccountMenuOpen(false);
+    if (!canUseEasUpdates) {
+      Alert.alert(
+        'Actualizaciones en desarrollo',
+        'Esta compilación recibe los cambios directamente desde Metro. Las actualizaciones instalables se comprueban en las compilaciones preview y production.',
+      );
+      return;
+    }
     try {
       const updateReceipt = JSON.stringify({
         build: currentBuild,

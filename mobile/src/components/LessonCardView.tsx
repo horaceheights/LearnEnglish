@@ -18,7 +18,6 @@ type Props = {
   audioVoice: CourseAudioVoice;
   card: LessonCard;
   level: string;
-  manualReview?: boolean;
   optionsInteractive?: boolean;
   userId?: string;
   selectedId: string | null;
@@ -28,7 +27,6 @@ type Props = {
   onSelect: (optionId: string) => void;
   onPronunciationAttempted?: () => void;
   onPronunciationPassed: () => void;
-  onPronunciationReviewRestarted?: () => void;
   onGrammarAnimationComplete: () => void;
 };
 
@@ -37,7 +35,6 @@ export function LessonCardView({
   audioVoice,
   card,
   level,
-  manualReview = false,
   optionsInteractive = true,
   userId,
   selectedId,
@@ -47,7 +44,6 @@ export function LessonCardView({
   onSelect,
   onPronunciationAttempted,
   onPronunciationPassed,
-  onPronunciationReviewRestarted,
   onGrammarAnimationComplete,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
@@ -270,10 +266,8 @@ export function LessonCardView({
           imageLabel={card.options[0]?.label || card.prompt}
           imageUrl={card.options[0]?.image_url}
           level={level}
-          manualReview={manualReview}
           onAttempted={onPronunciationAttempted}
           onPassed={onPronunciationPassed}
-          onReviewRestart={onPronunciationReviewRestarted}
           phrase={card.audio_text || card.prompt}
           userId={userId}
         />

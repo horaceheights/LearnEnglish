@@ -122,7 +122,7 @@ export async function logCardAttempt(attempt) {
   });
 }
 
-export async function scorePronunciationAudio({ text, audioBlob, userId, questionInfo, provider }) {
+export async function scorePronunciationAudio({ text, audioBlob, userId, questionInfo, provider, level, exerciseType }) {
   const apiBaseUrl = getApiBaseUrl();
   const startedAt = typeof performance !== "undefined" ? performance.now() : Date.now();
   const formData = new FormData();
@@ -136,6 +136,12 @@ export async function scorePronunciationAudio({ text, audioBlob, userId, questio
   }
   if (provider) {
     formData.append("provider", provider);
+  }
+  if (level) {
+    formData.append("level", level);
+  }
+  if (exerciseType) {
+    formData.append("exercise_type", exerciseType);
   }
 
   const response = await fetch(`${apiBaseUrl}/api/pronunciation/score`, {
@@ -217,6 +223,18 @@ export async function preloadCourseAudio({ text, mode = "prompt", lang = "en-US"
 
 export async function getAdminSummary() {
   return apiRequest("/api/admin/summary", { cache: "no-store" });
+}
+
+export async function interpretAzurePronunciation({ expectedText, payload, level, exerciseType }) {
+  return apiRequest("/api/pronunciation/interpret-azure", {
+    method: "POST",
+    body: JSON.stringify({
+      expected_text: expectedText,
+      payload,
+      level,
+      exercise_type: exerciseType,
+    }),
+  });
 }
 
 export async function resetLearnerProgress(userId) {

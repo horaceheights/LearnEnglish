@@ -1,12 +1,245 @@
 import type { PronunciationResult, WordScore } from './types';
 
 const FILLERS = new Set(['ah', 'er', 'hmm', 'mhm', 'uh', 'um']);
+// Green means the sound was actually clear enough, not merely that Azure's
+// reference-biased recognizer predicted the expected spelling.
+const LIVE_SYLLABLE_MINIMUM_SCORE = 55;
+
+const COURSE_SYLLABLE_PARTS: Record<string, string[]> = {
+  adult: ['ad', 'ult'],
+  adults: ['ad', 'ults'],
+  babies: ['ba', 'bies'],
+  baby: ['ba', 'by'],
+  brother: ['bro', 'ther'],
+  brothers: ['bro', 'thers'],
+  building: ['build', 'ing'],
+  children: ['chil', 'dren'],
+  cooking: ['cook', 'ing'],
+  eating: ['eat', 'ing'],
+  family: ['fam', 'i', 'ly'],
+  father: ['fa', 'ther'],
+  grandfather: ['grand', 'fa', 'ther'],
+  grandmother: ['grand', 'mo', 'ther'],
+  grandparents: ['grand', 'par', 'ents'],
+  listen: ['lis', 'ten'],
+  mother: ['mo', 'ther'],
+  parents: ['par', 'ents'],
+  playing: ['play', 'ing'],
+  reading: ['read', 'ing'],
+  running: ['run', 'ning'],
+  sister: ['sis', 'ter'],
+  sisters: ['sis', 'ters'],
+  sitting: ['sit', 'ting'],
+  sleeping: ['sleep', 'ing'],
+  standing: ['stand', 'ing'],
+  studying: ['stud', 'y', 'ing'],
+  swimming: ['swim', 'ming'],
+  talking: ['talk', 'ing'],
+  walking: ['walk', 'ing'],
+  woman: ['wo', 'man'],
+  working: ['work', 'ing'],
+  writing: ['writ', 'ing'],
+};
+
+export type ReferenceSyllable = {
+  key: string;
+  label: string;
+  syllableIndex: number;
+  word: string;
+  wordIndex: number;
+};
+
+export type LiveSyllableEvidence = {
+  heard: Array<ReferenceSyllable & { score?: number }>;
+  recognizedKeys: string[];
+};
 
 export function speechTokens(text: string): string[] {
   return text
     .toLocaleLowerCase('en-US')
     .replace(/[’]/g, "'")
     .match(/[a-z]+(?:'[a-z]+)?/g) ?? [];
+}
+
+function readableSyllables(word: string): string[] {
+  const normalized = speechTokens(word)[0] ?? word.toLocaleLowerCase('en-US');
+  const curated = COURSE_SYLLABLE_PARTS[normalized];
+  if (curated) return curated;
+
+  if (normalized.endsWith('ing') && normalized.length > 5) {
+    const stem = normalized.slice(0, -3);
+    const final = stem.at(-1);
+    const preceding = stem.at(-2);
+    if (final && final === preceding) {
+      return [stem.slice(0, -1), `${final}ing`];
+    }
+    return [stem, 'ing'];
+  }
+  return [normalized];
+}
+
+function matchingSyllableRange(slots: ReferenceSyllable[], observedToken: string): ReferenceSyllable[] {
+  const normalized = speechTokens(observedToken)[0] ?? observedToken.toLocaleLowerCase('en-US');
+  // Live green feedback is deliberately exact. A similar word such as
+  // "talking" must never complete target "walking".
+  for (let start = 0; start < slots.length; start += 1) {
+    let combined = '';
+    for (let end = start; end < slots.length; end += 1) {
+      combined += slots[end].label;
+      if (normalized === combined) return slots.slice(start, end + 1);
+    }
+  }
+  return [];
+}
+
+function targetWordIndexForToken(
+  expectedWords: string[],
+  slots: ReferenceSyllable[],
+  observedToken: string,
+  cursor: number,
+): number {
+  const exactFromCursor = expectedWords.findIndex(
+    (word, index) => index >= cursor && observedToken === word,
+  );
+  if (exactFromCursor >= 0) return exactFromCursor;
+
+  const exactAnywhere = expectedWords.findIndex((word) => observedToken === word);
+  if (exactAnywhere >= 0) return exactAnywhere;
+
+  const candidateIndexes = expectedWords.map((_, index) => index);
+  const orderedIndexes = [
+    ...candidateIndexes.filter((index) => index >= cursor),
+    ...candidateIndexes.filter((index) => index < cursor).reverse(),
+  ];
+  return orderedIndexes.find((wordIndex) => (
+    matchingSyllableRange(slots.filter((slot) => slot.wordIndex === wordIndex), observedToken).length > 0
+  )) ?? -1;
+}
+
+export function referenceSyllables(text: string): ReferenceSyllable[] {
+  return speechTokens(text).flatMap((word, wordIndex) =>
+    readableSyllables(word).map((label, syllableIndex) => ({
+      key: `${wordIndex}:${syllableIndex}`,
+      label,
+      syllableIndex,
+      word,
+      wordIndex,
+    })),
+  );
+}
+
+/**
+ * Converts one finalized Azure segment into child-readable syllable evidence.
+ * The segment transcript is intentionally not deduplicated, so repetitions
+ * remain visible while recognizedKeys identifies the target slots completed.
+ */
+export function liveSyllableEvidence(
+  referenceText: string,
+  assessmentJson: string,
+  segmentText = '',
+): LiveSyllableEvidence {
+  const expectedWords = speechTokens(referenceText);
+  const slots = referenceSyllables(referenceText);
+  const observedTokens = speechTokens(segmentText);
+
+  // Interim transcripts have no pronunciation evidence. They are useful for
+  // explicit fragments ("walk", "ing"), but a finalized Azure payload must
+  // be evaluated from its scored syllables instead of its reference-biased
+  // transcript.
+  if (observedTokens.length && !assessmentJson) {
+    const heard: LiveSyllableEvidence['heard'] = [];
+    const recognizedKeys: string[] = [];
+    let expectedCursor = 0;
+    for (const [observedIndex, observedToken] of observedTokens.entries()) {
+      const wordIndex = targetWordIndexForToken(expectedWords, slots, observedToken, expectedCursor);
+      const wordSlots = slots.filter((slot) => slot.wordIndex === wordIndex);
+      const matchedSlots = wordIndex >= 0 && tokenMatches(observedToken, expectedWords[wordIndex])
+        ? wordSlots
+        : matchingSyllableRange(wordSlots, observedToken);
+      if (matchedSlots.length) {
+        heard.push(...matchedSlots);
+        recognizedKeys.push(...matchedSlots.map((slot) => slot.key));
+        if (matchedSlots.at(-1)?.syllableIndex === wordSlots.at(-1)?.syllableIndex) {
+          expectedCursor = Math.max(expectedCursor, wordIndex + 1);
+        } else {
+          expectedCursor = wordIndex;
+        }
+      } else {
+        heard.push({
+          key: `extra:${observedIndex}:${observedToken}`,
+          label: observedToken,
+          syllableIndex: 0,
+          word: observedToken,
+          wordIndex: -1,
+        });
+      }
+    }
+    return { heard, recognizedKeys: [...new Set(recognizedKeys)] };
+  }
+
+  if (!assessmentJson) return { heard: [], recognizedKeys: [] };
+
+  let assessmentResult: PronunciationResult;
+  try {
+    assessmentResult = normalizeNativeAssessment(assessmentJson);
+  } catch {
+    return { heard: [], recognizedKeys: [] };
+  }
+
+  const heard: LiveSyllableEvidence['heard'] = [];
+  const recognizedKeys: string[] = [];
+  let expectedCursor = 0;
+  for (const assessedWord of (assessmentResult.text_score?.word_score_list ?? [])) {
+    const errorType = assessedWord.error_type?.toLocaleLowerCase('en-US');
+    if (errorType === 'omission' || errorType === 'insertion') continue;
+    const assessedToken = speechTokens(assessedWord.word ?? '')[0];
+    const wordIndex = assessedToken
+      ? targetWordIndexForToken(expectedWords, slots, assessedToken, expectedCursor)
+      : -1;
+    // Never map an unrelated recognized word to the expected word merely
+    // because it occupies the same sentence position (reading != walking).
+    if (wordIndex < 0) continue;
+
+    const wordSlots = slots.filter((slot) => slot.wordIndex === wordIndex);
+    const assessedSyllables = assessedWord.syllable_score_list ?? [];
+    if (!assessedSyllables.length && wordSlots.length === 1 && (assessedWord.quality_score ?? 0) >= LIVE_SYLLABLE_MINIMUM_SCORE) {
+      const slot = wordSlots[0];
+      heard.push({ ...slot, score: assessedWord.quality_score });
+      recognizedKeys.push(slot.key);
+      expectedCursor = Math.max(expectedCursor, wordIndex + 1);
+      continue;
+    }
+
+    let nextSyllableIndex = 0;
+    for (const [syllableIndex, syllable] of assessedSyllables.entries()) {
+      const score = syllable.quality_score;
+      if (typeof score !== 'number' || score < LIVE_SYLLABLE_MINIMUM_SCORE) continue;
+      const matchingSlots = syllable.letters
+        ? matchingSyllableRange(wordSlots.slice(nextSyllableIndex), syllable.letters)
+        : [];
+      const selectedSlots = matchingSlots.length
+        ? matchingSlots
+        : (wordSlots[syllableIndex] ? [wordSlots[syllableIndex]] : []);
+      if (selectedSlots.length) {
+        heard.push(...selectedSlots.map((slot) => ({ ...slot, score })));
+        recognizedKeys.push(...selectedSlots.map((slot) => slot.key));
+        nextSyllableIndex = (selectedSlots.at(-1)?.syllableIndex ?? nextSyllableIndex) + 1;
+      } else if (syllable.letters) {
+        // Preserve an extra/repeated Azure syllable without claiming that it
+        // completed an expected slot.
+        heard.push({
+          key: `extra:${wordIndex}:${syllableIndex}:${syllable.letters}`,
+          label: syllable.letters,
+          score,
+          syllableIndex,
+          word: expectedWords[wordIndex],
+          wordIndex,
+        });
+      }
+    }
+    if (nextSyllableIndex >= wordSlots.length) expectedCursor = Math.max(expectedCursor, wordIndex + 1);
+  }
+  return { heard, recognizedKeys: [...new Set(recognizedKeys)] };
 }
 
 function editDistance(left: string, right: string): number {
@@ -38,6 +271,58 @@ export type PhraseProgress = {
   matchedCount: number;
   tokens: string[];
 };
+
+function matchObservedTokens(observed: string[], expected: string[]): number {
+  let observedIndex = 0;
+  let expectedIndex = 0;
+  while (observedIndex < observed.length && expectedIndex < expected.length) {
+    const token = observed[observedIndex];
+    if (FILLERS.has(token)) {
+      observedIndex += 1;
+      continue;
+    }
+    if (expectedIndex > 0 && tokenMatches(token, expected[expectedIndex - 1])) {
+      observedIndex += 1;
+      continue;
+    }
+    if (tokenMatches(token, expected[expectedIndex])) {
+      expectedIndex += 1;
+      observedIndex += 1;
+      continue;
+    }
+
+    // Final recognition can split a deliberately segmented word into multiple
+    // tokens ("stop ping" or "stud ying"). Rejoin up to three finalized
+    // fragments before deciding that the expected word was absent.
+    let matchedFragments = 0;
+    let combined = '';
+    for (let fragmentCount = 1; fragmentCount <= 3 && observedIndex + fragmentCount <= observed.length; fragmentCount += 1) {
+      combined += observed[observedIndex + fragmentCount - 1];
+      if (tokenMatches(combined, expected[expectedIndex])) {
+        matchedFragments = fragmentCount;
+        break;
+      }
+    }
+    if (matchedFragments) {
+      expectedIndex += 1;
+      observedIndex += matchedFragments;
+      continue;
+    }
+    observedIndex += 1;
+  }
+  return expectedIndex;
+}
+
+function containsSegmentedMatch(observed: string[], expected: string): boolean {
+  for (let start = 0; start < observed.length; start += 1) {
+    let combined = observed[start];
+    for (let count = 2; count <= 3 && start + count <= observed.length; count += 1) {
+      combined += observed[start + count - 1];
+      if (tokenMatches(combined, expected)) return true;
+    }
+  }
+  return false;
+}
 
 const LIVE_WORD_MINIMUM_SCORE = 15;
 const LIVE_FINAL_SOUND_MINIMUM_SCORE = 20;
@@ -75,14 +360,7 @@ function hasArticulationEvidence(word: WordScore): boolean {
 export function alignExpectedPhrase(referenceText: string, recognizedText: string): PhraseProgress {
   const expected = speechTokens(referenceText);
   const observed = speechTokens(recognizedText);
-  let expectedIndex = 0;
-
-  for (const token of observed) {
-    if (expectedIndex >= expected.length) break;
-    if (FILLERS.has(token)) continue;
-    if (expectedIndex > 0 && tokenMatches(token, expected[expectedIndex - 1])) continue;
-    if (tokenMatches(token, expected[expectedIndex])) expectedIndex += 1;
-  }
+  const expectedIndex = matchObservedTokens(observed, expected);
 
   return {
     completed: expected.length > 0 && expectedIndex === expected.length,
@@ -133,6 +411,19 @@ export function assessedPhraseProgress(
     expectedIndex += 1;
   }
 
+  if (
+    expectedIndex < transcriptProgress.matchedCount
+    && expectedIndex < expected.length
+    && containsSegmentedMatch(speechTokens(recognizedText), expected[expectedIndex])
+    && assessedWords.some(hasArticulationEvidence)
+  ) {
+    // A finalized Azure chunk can contain only the latter half of a slowly
+    // segmented word. The cumulative finalized transcript supplies the joined
+    // spelling; segment evidence from the chunk prevents interim predictions
+    // from turning the word green prematurely.
+    expectedIndex += 1;
+  }
+
   return {
     completed: expected.length > 0 && expectedIndex === expected.length,
     matchedCount: expectedIndex,
@@ -158,15 +449,21 @@ export function normalizeNativeAssessment(json: string, recognizedText = ''): Pr
     const syllables = ((word.Syllables as Record<string, unknown>[] | undefined) ?? []).map((syllable) => ({
       letters: String(syllable.Grapheme ?? syllable.Syllable ?? ''),
       quality_score: numeric(assessment(syllable)?.AccuracyScore),
+      offset_ms: typeof numeric(syllable.Offset) === 'number' ? Math.round(numeric(syllable.Offset)! / 10_000) : undefined,
+      duration_ms: typeof numeric(syllable.Duration) === 'number' ? Math.round(numeric(syllable.Duration)! / 10_000) : undefined,
     }));
     const phones = ((word.Phonemes as Record<string, unknown>[] | undefined) ?? []).map((phone) => ({
       phone: String(phone.Phoneme ?? ''),
       quality_score: numeric(assessment(phone)?.AccuracyScore),
+      offset_ms: typeof numeric(phone.Offset) === 'number' ? Math.round(numeric(phone.Offset)! / 10_000) : undefined,
+      duration_ms: typeof numeric(phone.Duration) === 'number' ? Math.round(numeric(phone.Duration)! / 10_000) : undefined,
     }));
     return {
       word: String(word.Word ?? ''),
       quality_score: numeric(wordAssessment?.AccuracyScore),
       error_type: typeof wordAssessment?.ErrorType === 'string' ? wordAssessment.ErrorType : undefined,
+      offset_ms: typeof numeric(word.Offset) === 'number' ? Math.round(numeric(word.Offset)! / 10_000) : undefined,
+      duration_ms: typeof numeric(word.Duration) === 'number' ? Math.round(numeric(word.Duration)! / 10_000) : undefined,
       syllable_score_list: syllables,
       phone_score_list: phones,
     };
@@ -181,6 +478,8 @@ export function normalizeNativeAssessment(json: string, recognizedText = ''): Pr
         accuracy: numeric(overall?.AccuracyScore),
         fluency: numeric(overall?.FluencyScore),
         completeness: numeric(overall?.CompletenessScore),
+        prosody: numeric(overall?.ProsodyScore),
+        pronunciation: numeric(overall?.PronScore),
       },
     },
   };

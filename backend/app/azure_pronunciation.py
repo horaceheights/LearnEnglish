@@ -1,6 +1,7 @@
 import base64
 import io
 import json
+import logging
 import os
 import time
 import wave
@@ -12,10 +13,14 @@ import sentry_sdk
 from av.error import FFmpegError
 from fastapi import HTTPException, UploadFile
 
+from .pronunciation_config import infer_exercise_type, normalize_learner_level, policy_for
+from .pronunciation_scoring import interpret_assessment, legacy_text_score, parse_azure_assessment
+
 
 _client: httpx.AsyncClient | None = None
 _browser_token: str | None = None
 _browser_token_expires_at = 0.0
+logger = logging.getLogger(__name__)
 
 
 def azure_configured() -> bool:
@@ -130,52 +135,93 @@ def convert_mobile_audio_to_wav(audio: bytes) -> bytes:
     return output.getvalue()
 
 
-def normalize_azure_result(payload: dict[str, Any], timing: dict[str, int]) -> dict[str, Any]:
-    best = (payload.get("NBest") or [{}])[0]
-    assessment = best.get("PronunciationAssessment") or best
-    words = []
-    for word in best.get("Words") or []:
-        word_assessment = word.get("PronunciationAssessment") or word
-        syllables = [
-            {
-                "letters": item.get("Grapheme") or item.get("Syllable"),
-                "quality_score": (item.get("PronunciationAssessment") or item).get("AccuracyScore"),
-            }
-            for item in word.get("Syllables") or []
-        ]
-        phones = [
-            {
-                "phone": item.get("Phoneme"),
-                "quality_score": (item.get("PronunciationAssessment") or item).get("AccuracyScore"),
-            }
-            for item in word.get("Phonemes") or []
-        ]
-        words.append({
-            "word": word.get("Word"),
-            "quality_score": word_assessment.get("AccuracyScore"),
-            "syllable_score_list": syllables,
-            "phone_score_list": phones,
-            "error_type": word_assessment.get("ErrorType"),
-        })
+def pedagogical_scoring_enabled() -> bool:
+    return os.getenv("PRONUNCIATION_PEDAGOGICAL_SCORING", "true").strip().lower() not in {"0", "false", "off"}
 
+
+def azure_assessment_config(
+    *,
+    text: str,
+    locale: str,
+    level: str | None = None,
+    exercise_type: str | None = None,
+) -> dict[str, Any]:
+    normalized_level = normalize_learner_level(level)
+    normalized_exercise_type = infer_exercise_type(text, exercise_type)
+    policy = policy_for(normalized_level, normalized_exercise_type)
     return {
-        "provider": "azure",
-        "text_score": {
-            "quality_score": assessment.get("PronScore") or assessment.get("AccuracyScore"),
-            "word_score_list": words,
-            "azure_scores": {
-                "accuracy": assessment.get("AccuracyScore"),
-                "fluency": assessment.get("FluencyScore"),
-                "completeness": assessment.get("CompletenessScore"),
-            },
-        },
-        "recognized_text": payload.get("DisplayText") or best.get("Display"),
-        "_timing": timing,
-        "_provider_response": payload,
+        "ReferenceText": text,
+        "GradingSystem": "HundredMark",
+        "Granularity": "Phoneme",
+        "Dimension": "Comprehensive",
+        # Short scripted beginner cards tolerate fillers and ASR segmentation.
+        # Sentences enable omissions/insertions because completeness matters more.
+        "EnableMiscue": policy.enable_miscue,
+        "PhonemeAlphabet": "IPA",
+        "EnableProsodyAssessment": locale.lower() == "en-us",
     }
 
 
-async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, Any]:
+def _development_raw_diagnostics(payload: dict[str, Any]) -> None:
+    environment = os.getenv("APP_ENV", os.getenv("ENVIRONMENT", "development")).strip().lower()
+    if environment not in {"production", "prod"}:
+        # Azure's response has no credentials or audio. Keep it at DEBUG so
+        # development can calibrate segment behavior without exposing it to clients.
+        logger.debug("azure_pronunciation_raw %s", json.dumps(payload, ensure_ascii=False))
+
+
+def normalize_azure_result(
+    payload: dict[str, Any],
+    timing: dict[str, int] | None = None,
+    *,
+    text: str,
+    level: str | None = None,
+    exercise_type: str | None = None,
+) -> dict[str, Any]:
+    _development_raw_diagnostics(payload)
+    normalized = interpret_assessment(
+        parse_azure_assessment(payload, text),
+        level=level,
+        exercise_type=exercise_type,
+    )
+    enabled = pedagogical_scoring_enabled()
+    text_score = legacy_text_score(normalized)
+    if not enabled:
+        text_score["quality_score"] = normalized["raw"].get("pronScore") or normalized["raw"].get("accuracyScore")
+    result = {
+        "provider": "azure",
+        **normalized,
+        "recognized_text": normalized.get("recognizedText"),
+        "text_score": text_score,
+        "_timing": timing or {},
+        "feature_flags": {"pedagogicalScoring": enabled},
+    }
+    logger.info(
+        "pronunciation_assessment %s",
+        json.dumps({
+            "expected_text": text[:160],
+            "recognized_text": str(normalized.get("recognizedText") or "")[:160],
+            "learner_level": normalized["interpreted"]["level"],
+            "exercise_type": normalized["interpreted"]["exerciseType"],
+            "raw_scores": normalized["raw"],
+            "interpreted": normalized["interpreted"],
+            "longest_pause_ms": normalized["diagnostics"].get("longestPauseMs"),
+            "azure_error_types": sorted({
+                str(word.get("errorType")) for word in normalized["words"] if word.get("errorType")
+            }),
+            "fallback_used": normalized["diagnostics"].get("fallbackUsed"),
+        }, ensure_ascii=False),
+    )
+    return result
+
+
+async def score_with_azure(
+    *,
+    text: str,
+    audio_file: UploadFile,
+    level: str | None = None,
+    exercise_type: str | None = None,
+) -> dict[str, Any]:
     key = os.getenv("AZURE_SPEECH_KEY")
     region = os.getenv("AZURE_SPEECH_REGION")
     locale = os.getenv("AZURE_SPEECH_LOCALE", "en-US")
@@ -202,16 +248,12 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
     else:
         content_type = _content_type(audio_file)
 
-    config = {
-        "ReferenceText": text,
-        "GradingSystem": "HundredMark",
-        "Granularity": "Phoneme",
-        "Dimension": "Comprehensive",
-        # Fillers, repetitions, and self-corrections are normal for beginners.
-        # Completeness is still reported, but extra words must not reduce accuracy.
-        "EnableMiscue": False,
-        "PhonemeAlphabet": "IPA",
-    }
+    config = azure_assessment_config(
+        text=text,
+        locale=locale,
+        level=level,
+        exercise_type=exercise_type,
+    )
     encoded_config = base64.b64encode(json.dumps(config).encode("utf-8")).decode("ascii")
     url = f"https://{region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1"
     started = time.perf_counter()
@@ -230,7 +272,15 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
             )
             provider_span.set_data("http.response.status_code", response.status_code)
     except httpx.RequestError as error:
-        raise HTTPException(status_code=502, detail=f"Could not reach Azure Speech: {error}") from error
+        raise HTTPException(
+            status_code=502,
+            detail={
+                "code": "PRONUNCIATION_SERVICE_UNAVAILABLE",
+                "feedbackCode": "SYSTEM_UNCERTAIN",
+                "message": "Could not reach Azure Speech.",
+                "recoverable": True,
+            },
+        ) from error
 
     elapsed_ms = round((time.perf_counter() - started) * 1000)
     try:
@@ -239,17 +289,39 @@ async def score_with_azure(*, text: str, audio_file: UploadFile) -> dict[str, An
         raise HTTPException(status_code=502, detail=f"Azure Speech returned status {response.status_code} without JSON.") from error
     if response.status_code >= 400:
         raise HTTPException(status_code=response.status_code, detail=payload)
-    if payload.get("RecognitionStatus") not in {"Success", 0}:
+    recognition_status = payload.get("RecognitionStatus")
+    if recognition_status in {"NoMatch", "InitialSilenceTimeout", "BabbleTimeout"}:
+        return normalize_azure_result(
+            payload,
+            {
+                "read_audio_ms": read_audio_ms,
+                "convert_audio_ms": convert_audio_ms,
+                "provider_ms": elapsed_ms,
+                "backend_total_ms": round((time.perf_counter() - backend_started) * 1000),
+                "uploaded_audio_bytes": uploaded_audio_bytes,
+                "audio_bytes": len(audio),
+            },
+            text=text,
+            level=level,
+            exercise_type=exercise_type,
+        )
+    if recognition_status not in {"Success", 0}:
         status = payload.get("RecognitionStatus", "Unknown")
         raise HTTPException(status_code=422, detail={"message": f"Azure recognition failed: {status}", "azure": payload})
-    return normalize_azure_result(payload, {
-        "read_audio_ms": read_audio_ms,
-        "convert_audio_ms": convert_audio_ms,
-        "provider_ms": elapsed_ms,
-        "backend_total_ms": round((time.perf_counter() - backend_started) * 1000),
-        "uploaded_audio_bytes": uploaded_audio_bytes,
-        "audio_bytes": len(audio),
-    })
+    return normalize_azure_result(
+        payload,
+        {
+            "read_audio_ms": read_audio_ms,
+            "convert_audio_ms": convert_audio_ms,
+            "provider_ms": elapsed_ms,
+            "backend_total_ms": round((time.perf_counter() - backend_started) * 1000),
+            "uploaded_audio_bytes": uploaded_audio_bytes,
+            "audio_bytes": len(audio),
+        },
+        text=text,
+        level=level,
+        exercise_type=exercise_type,
+    )
 
 
 async def transcribe_with_azure(*, audio_file: UploadFile, locale: str = "es-MX") -> dict[str, Any]:
