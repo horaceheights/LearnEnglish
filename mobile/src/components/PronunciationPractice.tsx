@@ -61,7 +61,8 @@ type Props = {
 
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
 const MAX_AUTOMATIC_ATTEMPTS = 2;
-const NO_SPEECH_LISTEN_MS = 5000;
+const NO_SPEECH_LISTEN_MS = 3000;
+const IOS_SPEECH_END_SILENCE_MS = 1200;
 const MAX_NO_SPEECH_ROUNDS = 3;
 const NO_SPEECH_REPLAY_DELAY_MS = 900;
 const MIN_CONFIRMED_VOICE_MS = 160;
@@ -273,6 +274,7 @@ export function PronunciationPractice({
   const liveProgressComplete = useRef(false);
   const liveMatchedCountRef = useRef(0);
   const liveRecognizedText = useRef('');
+  const scoredSyllableKeysRef = useRef(new Set<string>());
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const successChimePlayed = useRef(false);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
@@ -380,6 +382,7 @@ export function PronunciationPractice({
     liveProgressComplete.current = false;
     liveMatchedCountRef.current = 0;
     liveRecognizedText.current = '';
+    scoredSyllableKeysRef.current.clear();
     if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
     phraseCompleteTimer.current = null;
     lastVoiceAt.current = 0;
@@ -968,9 +971,9 @@ export function PronunciationPractice({
         event.json,
         liveMatchedCountRef.current,
       );
-      liveProgressComplete.current = progress.completed;
       liveMatchedCountRef.current = progress.matchedCount;
       if (!voiceEvidence().strong) {
+        liveProgressComplete.current = progress.completed;
         addDiagnosticBreadcrumb('pronunciation_result_waiting_for_voice', {
           matched_words: progress.matchedCount,
           total_words: expectedTokens.length,
@@ -978,10 +981,14 @@ export function PronunciationPractice({
         return;
       }
       const syllableEvidence = liveSyllableEvidence(phrase, event.json, event.segmentText);
+      syllableEvidence.recognizedKeys.forEach((key) => scoredSyllableKeysRef.current.add(key));
+      const allSyllablesConfirmed = expectedSyllables.length > 0
+        && expectedSyllables.every((syllable) => scoredSyllableKeysRef.current.has(syllable.key));
+      liveProgressComplete.current = progress.completed || allSyllablesConfirmed;
       setRecognizedSyllableKeys((current) => [
         ...new Set([...current, ...syllableEvidence.recognizedKeys]),
       ]);
-      if (progress.completed && voiceEvidence().strong && !phraseCompleteTimer.current) {
+      if (liveProgressComplete.current && !phraseCompleteTimer.current) {
         // The finalized result is already available. Retain a small audio tail
         // before stopping so the final consonant or suffix is never clipped.
         phraseCompleteTimer.current = setTimeout(() => {
@@ -1281,16 +1288,16 @@ export function PronunciationPractice({
     } else if (heardSpeech.current && elapsed > 900) {
       voiceLastActiveSampleAt.current = null;
       if (silenceStartedAt.current === null) silenceStartedAt.current = Date.now();
-      if (Date.now() - silenceStartedAt.current >= 1800) {
-        void finishCapture(voiceEvidence().strong);
+      if (Date.now() - silenceStartedAt.current >= IOS_SPEECH_END_SILENCE_MS) {
+        void finishCapture(true);
       }
     }
     if (!heardSpeech.current) {
-      if (elapsed >= NO_SPEECH_LISTEN_MS) void finishCapture(true);
+      if (elapsed >= NO_SPEECH_LISTEN_MS) void finishCapture(false);
       return;
     }
     const maximumMs = Math.min(Math.max(phrase.length * 260, 8000), 15_000);
-    if (elapsed >= maximumMs) void finishCapture(voiceEvidence().strong);
+    if (elapsed >= maximumMs) void finishCapture(true);
   }, [
     finishCapture,
     phase,
