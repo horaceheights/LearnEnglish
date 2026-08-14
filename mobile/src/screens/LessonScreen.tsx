@@ -160,12 +160,20 @@ export function LessonScreen({
   // This player is reused while lesson audio is preloaded asynchronously. Own
   // its lifecycle explicitly so an already-scheduled callback can never receive
   // the auto-released SharedObject created by useAudioPlayer on iOS.
-  const [audioPlayer, setAudioPlayer] = useState(() => createAudioPlayer(null));
+  const [audioPlayer, setAudioPlayer] = useState(() => createAudioPlayer(null, {
+    keepAudioSessionActive: true,
+  }));
   const audioPlayerRef = useRef(audioPlayer);
   const retiredAudioPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
   const audioPlayerStatus = useAudioPlayerStatus(audioPlayer);
-  const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, { downloadFirst: true });
-  const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE, { downloadFirst: true });
+  const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, {
+    downloadFirst: true,
+    keepAudioSessionActive: true,
+  });
+  const tryAgainCuePlayer = useAudioPlayer(TRY_AGAIN_CUE, {
+    downloadFirst: true,
+    keepAudioSessionActive: true,
+  });
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isPortrait = viewportHeight >= viewportWidth;
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
@@ -346,7 +354,7 @@ export function LessonScreen({
           audioPlaybackRequestRef.current !== requestId
         ) return;
         addDiagnosticBreadcrumb('audio_started', { mode, variant });
-        const nextPlayer = createAudioPlayer(url);
+        const nextPlayer = createAudioPlayer(url, { keepAudioSessionActive: true });
         if (
           !audioPlayerActiveRef.current ||
           audioPlaybackRequestRef.current !== requestId

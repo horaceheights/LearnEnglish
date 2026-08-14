@@ -20,6 +20,14 @@ export type SpeechErrorEvent = {
   message: string;
 };
 
+export type SpeechStateEvent = {
+  channels?: number;
+  inputRoute?: string;
+  outputRoute?: string;
+  sampleRate?: number;
+  state: string;
+};
+
 type Subscription = { remove: () => void };
 
 type NativeSpeechModule = {
@@ -31,7 +39,9 @@ type NativeSpeechModule = {
     region: string;
     token: string;
   }) => Promise<void>;
+  startRecordingAsync?: () => Promise<void>;
   stopAsync: () => Promise<{ json: string; text: string; uri: string }>;
+  stopRecordingAsync?: () => Promise<{ uri: string }>;
 };
 
 const nativeModule = requireOptionalNativeModule<NativeSpeechModule>('SpanGlishSpeech');
@@ -42,6 +52,9 @@ export const nativeStreamingImplementationVersion = nativeModule?.implementation
 // Fall back to expo-audio when an older dev client is connected so Metro-only
 // updates still honor the three-second no-response flow.
 export const nativeStreamingAvailable = nativeStreamingImplementationVersion >= 2;
+export const nativeRecordingAvailable = Boolean(
+  nativeModule?.startRecordingAsync && nativeModule.stopRecordingAsync,
+);
 
 export function addSpeechListener<T>(eventName: string, listener: (event: T) => void) {
   return nativeModule?.addListener(eventName, listener) ?? { remove: () => undefined };
@@ -55,4 +68,16 @@ export async function startNativeSpeech(options: Parameters<NativeSpeechModule['
 export async function stopNativeSpeech() {
   if (!nativeModule) return { json: '', text: '', uri: '' };
   return nativeModule.stopAsync();
+}
+
+export async function startNativeRecording() {
+  if (!nativeModule?.startRecordingAsync) {
+    throw new Error('Native audio recording is not available in this build.');
+  }
+  await nativeModule.startRecordingAsync();
+}
+
+export async function stopNativeRecording() {
+  if (!nativeModule?.stopRecordingAsync) return { uri: '' };
+  return nativeModule.stopRecordingAsync();
 }

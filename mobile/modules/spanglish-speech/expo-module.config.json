@@ -1,5 +1,9 @@
 {
-  "platforms": ["android"],
+  "platforms": ["apple", "android"],
+  "apple": {
+    "modules": ["SpanGlishSpeechModule"],
+    "podspecPath": "ios/SpanGlishSpeech.podspec"
+  },
   "android": {
     "modules": ["com.gorre.spanglish.speech.SpanGlishSpeechModule"]
   }

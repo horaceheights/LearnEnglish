@@ -2,6 +2,7 @@ import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensio
 import { useEffect, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView } from 'expo-video';
 
+import { lessonActionVideo } from '../actionVideos';
 import { absoluteMediaUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import type { LessonCard } from '../types';
@@ -250,12 +251,23 @@ export function LessonCardView({
         </View>
       ) : null}
       {card.prompt_image_url ? (
-        <Image
-          accessibilityLabel={card.answer_audio_text || card.prompt}
-          resizeMode="contain"
-          source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
-          style={[styles.promptImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
-        />
+        lessonActionVideo(card.prompt_image_url) ? (
+          <View style={styles.promptActionMedia}>
+            <LessonActionMedia
+              accessibilityLabel={card.answer_audio_text || card.prompt}
+              height={showHelp ? featureImageHeight * 0.65 : featureImageHeight}
+              imageUrl={card.prompt_image_url}
+              videoName={lessonActionVideo(card.prompt_image_url)!}
+            />
+          </View>
+        ) : (
+          <Image
+            accessibilityLabel={card.answer_audio_text || card.prompt}
+            resizeMode="contain"
+            source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
+            style={[styles.promptImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
+          />
+        )
       ) : null}
       {isPronunciation ? (
         <PronunciationPractice
@@ -268,6 +280,7 @@ export function LessonCardView({
               : featureImageHeight}
           imageLabel={card.options[0]?.label || card.prompt}
           imageUrl={card.options[0]?.image_url}
+          videoName={lessonActionVideo(card.options[0]?.image_url)}
           level={level}
           onAttempted={onPronunciationAttempted}
           onPassed={onPronunciationPassed}
@@ -288,10 +301,7 @@ export function LessonCardView({
               const revealCorrect = selected && result === 'correct' && correct;
               const revealWrong = selected && result === 'wrong';
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
-              const actionVideoName =
-                lessonId === 'lesson-1-people-actions' && option.image_url
-                  ? lessonActionVideo(option.image_url)
-                  : null;
+              const actionVideoName = lessonActionVideo(option.image_url);
               return (
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
@@ -418,22 +428,6 @@ export function LessonCardView({
   );
 }
 
-const LESSON_ACTION_VIDEOS: Record<string, string> = {
-  boy_is_drinking: 'boy-drinking-scene-veo-v1.mp4',
-  boy_is_eating: 'boy-eating-scene-veo-v1.mp4',
-  boy_is_running: 'boy-running-scene-veo-v1.mp4',
-  boy_is_sleeping: 'boy-sleeping-scene-veo-v1.mp4',
-  boy_is_swimming: 'boy-swimming-scene-veo-v1.mp4',
-  boy_is_walking: 'boy-walking-scene-veo-v1.mp4',
-  family_children_playing: 'children-playing-scene-veo-v1.mp4',
-  family_parents_talking: 'parents-talking-scene-veo-v1.mp4',
-};
-
-function lessonActionVideo(imageUrl: string): string | null {
-  const filename = imageUrl.split('?')[0].split('/').pop()?.replace(/\.[^.]+$/, '');
-  return filename ? LESSON_ACTION_VIDEOS[filename] || null : null;
-}
-
 function LessonActionMedia({
   accessibilityLabel,
   height,
@@ -444,7 +438,7 @@ function LessonActionMedia({
   accessibilityLabel: string;
   height: number;
   imageUrl: string;
-  onPress: () => void;
+  onPress?: () => void;
   videoName: string;
 }) {
   const reduceMotion = useReducedMotion();
@@ -503,12 +497,14 @@ function LessonActionMedia({
         surfaceType="textureView"
         style={[styles.actionMediaLayer, !firstFrameRendered ? styles.hiddenVideo : null]}
       />
-      <Pressable
-        accessibilityLabel={accessibilityLabel}
-        accessibilityRole="button"
-        onPress={onPress}
-        style={styles.actionMediaPressTarget}
-      />
+      {onPress ? (
+        <Pressable
+          accessibilityLabel={accessibilityLabel}
+          accessibilityRole="button"
+          onPress={onPress}
+          style={styles.actionMediaPressTarget}
+        />
+      ) : null}
     </View>
   );
 }
@@ -548,6 +544,7 @@ const styles = StyleSheet.create({
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
   promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
+  promptActionMedia: { alignSelf: 'center', marginTop: 14, width: '100%' },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',

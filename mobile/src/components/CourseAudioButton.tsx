@@ -12,7 +12,7 @@ type Props = {
 };
 
 export function CourseAudioButton({ text, label = 'Escuchar', mode = 'prompt', variant = 'default' }: Props) {
-  const player = useAudioPlayer(null);
+  const player = useAudioPlayer(null, { keepAudioSessionActive: true });
   const status = useAudioPlayerStatus(player);
   const [loadedText, setLoadedText] = useState('');
 

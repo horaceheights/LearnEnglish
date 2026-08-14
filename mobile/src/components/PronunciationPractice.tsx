@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Alert, Animated, Easing, Image, Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { File } from 'expo-file-system';
 import {
   AudioModule,
@@ -13,9 +13,10 @@ import {
   useAudioRecorder,
   useAudioRecorderState,
 } from 'expo-audio';
+import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { absoluteMediaUrl, courseAudioUrl, READY_CUE_URL, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { absoluteMediaUrl, courseAudioUrl, lessonVideoUrl, READY_CUE_URL, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -41,6 +42,7 @@ import {
   type SpeechLevelEvent,
   type SpeechProgressEvent,
   type SpeechResultEvent,
+  type SpeechStateEvent,
 } from '../../modules/spanglish-speech/src';
 
 type Props = {
@@ -50,6 +52,7 @@ type Props = {
   imageHeight: number;
   imageLabel?: string;
   imageUrl?: string;
+  videoName?: string | null;
   level: string;
   userId?: string;
   onAttempted?: () => void;
@@ -74,6 +77,22 @@ const MIN_AZURE_SNR_DB = 8;
 const MIN_AZURE_SPEECH_MS = 250;
 const MIN_AZURE_RECOGNITION_CONFIDENCE = 0.2;
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
+
+function showMicrophonePermissionAlert(canAskAgain: boolean) {
+  const message = canAskAgain
+    ? 'Permite que SpanGlish use el micrófono para continuar automáticamente.'
+    : 'El permiso está desactivado. Abre Ajustes y activa el micrófono para SpanGlish.';
+  Alert.alert(
+    'Micrófono necesario',
+    message,
+    canAskAgain
+      ? [{ text: 'Entendido' }]
+      : [
+          { style: 'cancel', text: 'Cancelar' },
+          { onPress: () => void Linking.openSettings(), text: 'Abrir Ajustes' },
+        ],
+  );
+}
 
 function isExpectedNoSpeechRecognition(error: unknown): boolean {
   const message = error instanceof Error
@@ -176,6 +195,7 @@ export function PronunciationPractice({
   imageHeight,
   imageLabel,
   imageUrl,
+  videoName,
   level,
   userId,
   onAttempted,
@@ -183,16 +203,39 @@ export function PronunciationPractice({
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
+  const practiceVideoPlayer = useVideoPlayer(
+    videoName ? { uri: lessonVideoUrl(videoName), useCaching: true } : null,
+    (instance) => {
+      instance.loop = true;
+      instance.muted = true;
+      if (videoName && !reduceMotion) instance.play();
+    },
+  );
   const recorder = useAudioRecorder(SPEECH_RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
+
+  useEffect(() => {
+    if (!videoName || reduceMotion) {
+      practiceVideoPlayer.pause();
+    } else {
+      practiceVideoPlayer.play();
+    }
+  }, [practiceVideoPlayer, reduceMotion, videoName]);
   // These players are used by callbacks that span preload, animation, and
   // recording transitions. Own them explicitly so Expo cannot release their
   // native SharedObjects between React effect cycles on iOS.
-  const [modelPlayer, setModelPlayer] = useState(() => createAudioPlayer(null));
+  const [modelPlayer, setModelPlayer] = useState(() => createAudioPlayer(null, {
+    keepAudioSessionActive: true,
+  }));
   const modelPlayerRef = useRef(modelPlayer);
   const retiredModelPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
-  const [readyCuePlayer] = useState(() => createAudioPlayer(READY_CUE_URL));
-  const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, { downloadFirst: true });
+  const [readyCuePlayer] = useState(() => createAudioPlayer(READY_CUE_URL, {
+    keepAudioSessionActive: true,
+  }));
+  const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, {
+    downloadFirst: true,
+    keepAudioSessionActive: true,
+  });
   const [readyCuePreload] = useState(() =>
     preload(READY_CUE_URL).catch(() => undefined),
   );
@@ -353,13 +396,16 @@ export function PronunciationPractice({
         playsInSilentMode: true,
       });
       if (!isCurrentRun(runId)) return;
-      const nextPlayer = createAudioPlayer(courseAudioUrl(
-        phrase,
-        'pronunciation_slow',
-        'split-ing',
-        audioProvider,
-        audioVoice,
-      ));
+      const nextPlayer = createAudioPlayer(
+        courseAudioUrl(
+          phrase,
+          'pronunciation_slow',
+          'split-ing',
+          audioProvider,
+          audioVoice,
+        ),
+        { keepAudioSessionActive: true },
+      );
       if (!isCurrentRun(runId)) {
         nextPlayer.release();
         return;
@@ -613,13 +659,14 @@ export function PronunciationPractice({
       setPhase('retry');
       setMessage('No puedo escucharte.');
     }
+    let recordingUri = '';
     try {
       const recorderStopStartedAt = Date.now();
       await recorder.stop();
       if (!isCurrentRun(runId)) return;
       const recorderFinalizeMs = Date.now() - recorderStopStartedAt;
-      const uri = recorder.uri;
-      if (!hasGradeableVoice || !uri) {
+      recordingUri = recorder.uri || '';
+      if (!hasGradeableVoice || !recordingUri) {
         handleNoSpeech(runId);
         return;
       }
@@ -631,7 +678,7 @@ export function PronunciationPractice({
           samples: evidence.samples,
         });
       }
-      const nextResult = await scorePronunciation(uri, phrase, userId, {
+      const nextResult = await scorePronunciation(recordingUri, phrase, userId, {
         recorderFinalizeMs,
         level,
         exerciseType: exerciseTypeForPhrase(phrase),
@@ -695,6 +742,14 @@ export function PronunciationPractice({
         return;
       }
       handleNoSpeech(runId);
+    } finally {
+      if (recordingUri) {
+        try {
+          new File(recordingUri).delete();
+        } catch {
+          // Pronunciation recordings are disposable after server grading.
+        }
+      }
     }
   }, [evaluateResult, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, recorder, scheduleRetry, userId, voiceEvidence]);
 
@@ -708,7 +763,7 @@ export function PronunciationPractice({
       if (!permission.granted) {
         setPhase('permission');
         setMessage('Necesitamos permiso para escuchar tu pronunciación.');
-        Alert.alert('Micrófono necesario', 'Permite que SpanGlish use el micrófono para continuar automáticamente.');
+        showMicrophonePermissionAlert(permission.canAskAgain);
         return;
       }
       // Keep the ready cue in a playback-only session. On iOS, playing a cue
@@ -940,11 +995,21 @@ export function PronunciationPractice({
       if (/InitialSilenceTimeout/i.test(event.message)) return;
       captureDiagnosticError(new Error(event.message), 'pronunciation_streaming');
     });
+    const stateSubscription = addSpeechListener<SpeechStateEvent>('onSpeechState', (event) => {
+      addDiagnosticBreadcrumb('native_audio_state', {
+        channels: event.channels,
+        input_route: event.inputRoute,
+        output_route: event.outputRoute,
+        sample_rate: event.sampleRate,
+        state: event.state,
+      });
+    });
     return () => {
       levelSubscription.remove();
       progressSubscription.remove();
       resultSubscription.remove();
       errorSubscription.remove();
+      stateSubscription.remove();
     };
   }, [expectedSyllables, expectedTokens, finishNativeCapture, phrase, recordActiveVoiceSample, voiceEvidence]);
 
@@ -1297,12 +1362,38 @@ export function PronunciationPractice({
         <View style={isLandscape ? styles.landscapeMediaRow : styles.portraitMediaRow}>
           {/* Guardrail: equal side columns keep the centered image and mascot from ever overlapping. */}
           {isLandscape ? <View style={styles.mascotColumn}>{activeMascot}</View> : null}
-          <Image
-            accessibilityLabel={imageLabel || phrase}
-            resizeMode="contain"
-            source={{ uri: absoluteMediaUrl(imageUrl) }}
-            style={[styles.practiceImage, { height: imageHeight }, isLandscape ? styles.practiceImageLandscape : null]}
-          />
+          {videoName && !reduceMotion ? (
+            <View
+              style={[
+                styles.practiceMedia,
+                { height: imageHeight },
+                isLandscape ? styles.practiceImageLandscape : null,
+              ]}
+            >
+              <Image
+                accessibilityLabel={imageLabel || phrase}
+                resizeMode="contain"
+                source={{ uri: absoluteMediaUrl(imageUrl) }}
+                style={styles.practiceMediaLayer}
+              />
+              <VideoView
+                accessible={false}
+                contentFit="contain"
+                nativeControls={false}
+                player={practiceVideoPlayer}
+                pointerEvents="none"
+                surfaceType="textureView"
+                style={styles.practiceMediaLayer}
+              />
+            </View>
+          ) : (
+            <Image
+              accessibilityLabel={imageLabel || phrase}
+              resizeMode="contain"
+              source={{ uri: absoluteMediaUrl(imageUrl) }}
+              style={[styles.practiceImage, { height: imageHeight }, isLandscape ? styles.practiceImageLandscape : null]}
+            />
+          )}
           {isLandscape ? <View style={styles.mascotColumn} /> : null}
         </View>
       ) : null}
@@ -1445,6 +1536,23 @@ const styles = StyleSheet.create({
   portraitMediaRow: { alignItems: 'center', width: '100%' },
   practiceImage: { alignSelf: 'center', width: '100%' },
   practiceImageLandscape: { flex: 1, minWidth: 0, width: undefined },
+  practiceMedia: {
+    alignSelf: 'center',
+    backgroundColor: '#f2ebde',
+    borderRadius: 17,
+    overflow: 'hidden',
+    position: 'relative',
+    width: '100%',
+  },
+  practiceMediaLayer: {
+    bottom: 0,
+    height: '100%',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    width: '100%',
+  },
   phrase: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, textAlign: 'center' },
   liveAssessment: { alignItems: 'center', gap: 3 },
   syllableSlots: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, justifyContent: 'center' },

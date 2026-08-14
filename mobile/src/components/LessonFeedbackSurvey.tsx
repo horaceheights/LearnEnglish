@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
+  Linking,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -9,6 +10,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import { File } from 'expo-file-system';
 import {
   AudioModule,
   RecordingPresets,
@@ -23,6 +25,13 @@ import * as Updates from 'expo-updates';
 import { saveLessonFeedback, transcribeFeedback } from '../api';
 import { READY_CUE_URL } from '../config';
 import { captureDiagnosticError } from '../diagnostics';
+import {
+  addSpeechListener,
+  nativeRecordingAvailable,
+  startNativeRecording,
+  stopNativeRecording,
+  type SpeechLevelEvent,
+} from '../../modules/spanglish-speech/src';
 
 const RECORDING_OPTIONS: RecordingOptions = {
   ...RecordingPresets.HIGH_QUALITY,
@@ -60,7 +69,7 @@ export function LessonFeedbackSurvey({
 }: Props) {
   const recorder = useAudioRecorder(RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
-  const cuePlayer = useAudioPlayer(null);
+  const cuePlayer = useAudioPlayer(null, { keepAudioSessionActive: true });
   const mountedRef = useRef(true);
   const [clarity, setClarity] = useState('');
   const [support, setSupport] = useState('');
@@ -68,18 +77,37 @@ export function LessonFeedbackSurvey({
   const [phase, setPhase] = useState<'idle' | 'preparing' | 'recording' | 'transcribing'>('idle');
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState('');
+  const [nativeRecordingLevel, setNativeRecordingLevel] = useState(0.18);
   const recordingActiveRef = useRef(false);
+  const nativeRecordingActiveRef = useRef(false);
   const isPortrait = viewportHeight >= viewportWidth;
-  const recordingLevel = Math.max(
-    0.18,
-    Math.min(1, ((recorderState.metering ?? -60) + 60) / 38),
-  );
+  const recordingLevel = nativeRecordingActiveRef.current
+    ? nativeRecordingLevel
+    : Math.max(0.18, Math.min(1, ((recorderState.metering ?? -60) + 60) / 38));
+
+  useEffect(() => {
+    if (!nativeRecordingAvailable) return undefined;
+    const levelSubscription = addSpeechListener<SpeechLevelEvent>('onSpeechLevel', (event) => {
+      if (!nativeRecordingActiveRef.current) return;
+      setNativeRecordingLevel(Math.max(0.18, Math.min(1, (event.levelDb + 60) / 34)));
+    });
+    return () => levelSubscription.remove();
+  }, []);
 
   useEffect(() => () => {
     mountedRef.current = false;
     if (recordingActiveRef.current) {
       recordingActiveRef.current = false;
-      void recorder.stop().catch(() => undefined);
+      if (nativeRecordingActiveRef.current) {
+        nativeRecordingActiveRef.current = false;
+        void stopNativeRecording()
+          .then(({ uri }) => {
+            if (uri) new File(uri).delete();
+          })
+          .catch(() => undefined);
+      } else {
+        void recorder.stop().catch(() => undefined);
+      }
     }
   }, [recorder]);
 
@@ -91,19 +119,48 @@ export function LessonFeedbackSurvey({
       const permission = await AudioModule.requestRecordingPermissionsAsync();
       if (!permission.granted) {
         setPhase('idle');
-        Alert.alert('Micrófono necesario', 'Permite el micrófono para enviar un comentario hablado.');
+        Alert.alert(
+          'Micrófono necesario',
+          permission.canAskAgain
+            ? 'Permite el micrófono para enviar un comentario hablado.'
+            : 'El permiso está desactivado. Abre Ajustes y activa el micrófono para SpanGlish.',
+          permission.canAskAgain
+            ? [{ text: 'Entendido' }]
+            : [
+                { style: 'cancel', text: 'Cancelar' },
+                { onPress: () => void Linking.openSettings(), text: 'Abrir Ajustes' },
+              ],
+        );
         return;
       }
-      await setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
-      await recorder.prepareToRecordAsync(RECORDING_OPTIONS);
+      // Play the ready cue before opening the microphone. Keeping this player
+      // active prevents its completion from shutting down the iOS recorder.
+      await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
       if (!cuePlayer.isLoaded) cuePlayer.replace(READY_CUE_URL);
       await new Promise((resolve) => setTimeout(resolve, 120));
       cuePlayer.play();
       await new Promise((resolve) => setTimeout(resolve, 260));
-      recorder.record();
+      cuePlayer.pause();
+      setNativeRecordingLevel(0.18);
+      if (nativeRecordingAvailable) {
+        await startNativeRecording();
+        nativeRecordingActiveRef.current = true;
+      } else {
+        await setAudioModeAsync({
+          allowsRecording: true,
+          playsInSilentMode: true,
+          shouldRouteThroughEarpiece: false,
+        });
+        await recorder.prepareToRecordAsync(RECORDING_OPTIONS);
+        recorder.record();
+      }
       recordingActiveRef.current = true;
       if (mountedRef.current) setPhase('recording');
     } catch (recordingError) {
+      if (nativeRecordingActiveRef.current) {
+        nativeRecordingActiveRef.current = false;
+        void stopNativeRecording().catch(() => undefined);
+      }
       captureDiagnosticError(recordingError, 'feedback_recording_start');
       if (mountedRef.current) {
         setPhase('idle');
@@ -116,18 +173,31 @@ export function LessonFeedbackSurvey({
     if (phase !== 'recording') return;
     setPhase('transcribing');
     setError('');
+    let recordingUri = '';
     try {
-      await recorder.stop();
+      if (nativeRecordingActiveRef.current) {
+        nativeRecordingActiveRef.current = false;
+        recordingUri = (await stopNativeRecording()).uri;
+      } else {
+        await recorder.stop();
+        recordingUri = recorder.uri || '';
+      }
       recordingActiveRef.current = false;
-      const uri = recorder.uri;
-      if (!uri) throw new Error('No recording was produced.');
-      const transcript = await transcribeFeedback(uri);
+      if (!recordingUri) throw new Error('No recording was produced.');
+      const transcript = await transcribeFeedback(recordingUri);
       if (mountedRef.current) setComment(transcript);
     } catch (transcriptionError) {
       captureDiagnosticError(transcriptionError, 'feedback_transcription');
       if (mountedRef.current) setError('No pudimos transcribirlo. Puedes grabar otra vez.');
     } finally {
       recordingActiveRef.current = false;
+      if (recordingUri) {
+        try {
+          new File(recordingUri).delete();
+        } catch {
+          // Voice feedback recordings are disposable after transcription.
+        }
+      }
       if (mountedRef.current) setPhase('idle');
     }
   }, [phase, recorder]);
