@@ -58,7 +58,7 @@ type Props = {
 
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
 const MAX_AUTOMATIC_ATTEMPTS = 2;
-const NO_SPEECH_LISTEN_MS = 3000;
+const NO_SPEECH_LISTEN_MS = 5000;
 const MAX_NO_SPEECH_ROUNDS = 3;
 const NO_SPEECH_REPLAY_DELAY_MS = 900;
 const MIN_CONFIRMED_VOICE_MS = 160;
@@ -320,7 +320,7 @@ export function PronunciationPractice({
     };
   }, [expectedTokens.length]);
 
-  const playModel = useCallback((runId = runIdRef.current) => {
+  const playModel = useCallback(async (runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
     if (streamingCapture.current) void stopNativeSpeech();
     if (retryTimer.current) clearTimeout(retryTimer.current);
@@ -348,6 +348,11 @@ export function PronunciationPractice({
     setDiagnosticOperation('pronunciation_model_playback');
     addDiagnosticBreadcrumb('pronunciation_model_started', { attempt: attemptRef.current + 1 });
     try {
+      await setAudioModeAsync({
+        allowsRecording: false,
+        playsInSilentMode: true,
+      });
+      if (!isCurrentRun(runId)) return;
       const nextPlayer = createAudioPlayer(courseAudioUrl(
         phrase,
         'pronunciation_slow',
@@ -592,7 +597,10 @@ export function PronunciationPractice({
     if (!isCurrentRun(runId)) return;
     if (captureFinishing.current) return;
     const evidence = voiceEvidence();
-    const hasGradeableVoice = shouldScore && evidence.strong;
+    // iOS metering is useful for responsive UI, but it is not reliable enough
+    // to decide whether a valid recording should be discarded. Let the server
+    // inspect the finalized audio whenever the listening window completed.
+    const hasGradeableVoice = shouldScore;
     console.info('[SpanGlish] Pronunciation voice gate', {
       ...evidence,
       requestedReason: shouldScore ? 'score' : 'no-speech',
@@ -614,6 +622,14 @@ export function PronunciationPractice({
       if (!hasGradeableVoice || !uri) {
         handleNoSpeech(runId);
         return;
+      }
+      if (!evidence.strong) {
+        addDiagnosticBreadcrumb('pronunciation_recording_uploaded_without_local_voice', {
+          active_ms: evidence.activeMs,
+          level_range_db: evidence.levelRangeDb,
+          peak_db: evidence.peakDb,
+          samples: evidence.samples,
+        });
       }
       const nextResult = await scorePronunciation(uri, phrase, userId, {
         recorderFinalizeMs,
@@ -1194,7 +1210,7 @@ export function PronunciationPractice({
       }
     }
     if (!heardSpeech.current) {
-      if (elapsed >= NO_SPEECH_LISTEN_MS) void finishCapture(false);
+      if (elapsed >= NO_SPEECH_LISTEN_MS) void finishCapture(true);
       return;
     }
     const maximumMs = Math.min(Math.max(phrase.length * 260, 8000), 15_000);

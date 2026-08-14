@@ -166,6 +166,7 @@ def audio_health():
 
 
 @app.get("/api/audio/course")
+@app.get("/api/audio/course.mp3")
 async def read_course_audio(
     text: str,
     mode: str = "prompt",
@@ -185,6 +186,7 @@ async def read_course_audio(
 
 
 @app.get("/api/audio/ready-cue")
+@app.get("/api/audio/ready-cue.wav")
 def read_ready_cue():
     return Response(
         content=ready_cue_wav(),

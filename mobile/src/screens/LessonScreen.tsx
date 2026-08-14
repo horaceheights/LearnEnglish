@@ -15,7 +15,13 @@ import {
   View,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createAudioPlayer, preload, useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
+import {
+  createAudioPlayer,
+  preload,
+  setAudioModeAsync,
+  useAudioPlayer,
+  useAudioPlayerStatus,
+} from 'expo-audio';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -326,7 +332,15 @@ export function LessonScreen({
     const url = courseAudioUrl(text, mode, variant, audioProvider, audioVoice);
     const requestId = ++audioPlaybackRequestRef.current;
     void ensureAudioPreloaded(url)
-      .then(() => {
+      .then(async () => {
+        if (
+          !audioPlayerActiveRef.current ||
+          audioPlaybackRequestRef.current !== requestId
+        ) return;
+        await setAudioModeAsync({
+          allowsRecording: false,
+          playsInSilentMode: true,
+        });
         if (
           !audioPlayerActiveRef.current ||
           audioPlaybackRequestRef.current !== requestId

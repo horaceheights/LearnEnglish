@@ -6,7 +6,9 @@ export const FIRST_LESSON_ID = 'lesson-1-people-actions';
 export const SECOND_LESSON_ID = 'lesson-2-pronouns';
 export const THIRD_LESSON_ID = 'lesson-4-family-members';
 export const FOURTH_LESSON_ID = 'lesson-4-family-members-continued';
-export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue`;
+// Keep an explicit extension in native audio URLs. AVPlayer on iOS can fail
+// extensionless media endpoints even when their Content-Type is correct.
+export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue.wav`;
 export const COURSE_AUDIO_PROFILE = 'a1-elevenlabs-cast-v14';
 export type CourseAudioProvider = 'openai' | 'elevenlabs' | 'elevenlabs-premium' | 'azure';
 export type CourseAudioVoice = 'female-teacher' | 'female-warm' | 'male-warm' | 'male-conversational';
@@ -92,5 +94,5 @@ export function courseAudioUrl(
     provider,
     narrator,
   });
-  return `${API_BASE_URL}/api/audio/course?${query.toString()}`;
+  return `${API_BASE_URL}/api/audio/course.mp3?${query.toString()}`;
 }
