@@ -327,6 +327,7 @@ export function LessonCardView({
                         accessibilityLabel={option.label || card.prompt}
                         height={showHelp ? optionImageHeight * 0.65 : optionImageHeight}
                         imageUrl={option.image_url}
+                        onPress={() => onSelect(option.id)}
                         videoName={actionVideoName}
                       />
                     ) : (
@@ -421,8 +422,11 @@ const LESSON_ACTION_VIDEOS: Record<string, string> = {
   boy_is_drinking: 'boy-drinking-scene-veo-v1.mp4',
   boy_is_eating: 'boy-eating-scene-veo-v1.mp4',
   boy_is_running: 'boy-running-scene-veo-v1.mp4',
+  boy_is_sleeping: 'boy-sleeping-scene-veo-v1.mp4',
   boy_is_swimming: 'boy-swimming-scene-veo-v1.mp4',
   boy_is_walking: 'boy-walking-scene-veo-v1.mp4',
+  family_children_playing: 'children-playing-scene-veo-v1.mp4',
+  family_parents_talking: 'parents-talking-scene-veo-v1.mp4',
 };
 
 function lessonActionVideo(imageUrl: string): string | null {
@@ -434,16 +438,19 @@ function LessonActionMedia({
   accessibilityLabel,
   height,
   imageUrl,
+  onPress,
   videoName,
 }: {
   accessibilityLabel: string;
   height: number;
   imageUrl: string;
+  onPress: () => void;
   videoName: string;
 }) {
   const reduceMotion = useReducedMotion();
   const [videoFailed, setVideoFailed] = useState(false);
-  const player = useVideoPlayer(lessonVideoUrl(videoName), (instance) => {
+  const [firstFrameRendered, setFirstFrameRendered] = useState(false);
+  const player = useVideoPlayer({ uri: lessonVideoUrl(videoName), useCaching: true }, (instance) => {
     instance.loop = true;
     instance.muted = true;
     if (!reduceMotion) instance.play();
@@ -476,16 +483,33 @@ function LessonActionMedia({
   }
 
   return (
-    <VideoView
-      accessibilityLabel={accessibilityLabel}
-      contentFit="contain"
-      nativeControls={false}
-      onFirstFrameRender={() => setVideoFailed(false)}
-      player={player}
-      pointerEvents="none"
-      surfaceType="textureView"
-      style={[styles.optionImage, styles.optionImagePortrait, { height }]}
-    />
+    <View style={[styles.actionMedia, { height }]}>
+      <Image
+        accessible={false}
+        resizeMode="contain"
+        source={{ uri: absoluteMediaUrl(imageUrl) }}
+        style={styles.actionMediaLayer}
+      />
+      <VideoView
+        accessible={false}
+        contentFit="contain"
+        nativeControls={false}
+        onFirstFrameRender={() => {
+          setFirstFrameRendered(true);
+          setVideoFailed(false);
+        }}
+        player={player}
+        pointerEvents="none"
+        surfaceType="textureView"
+        style={[styles.actionMediaLayer, !firstFrameRendered ? styles.hiddenVideo : null]}
+      />
+      <Pressable
+        accessibilityLabel={accessibilityLabel}
+        accessibilityRole="button"
+        onPress={onPress}
+        style={styles.actionMediaPressTarget}
+      />
+    </View>
   );
 }
 
@@ -562,6 +586,32 @@ const styles = StyleSheet.create({
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
+  actionMedia: {
+    backgroundColor: '#f2ebde',
+    borderRadius: 17,
+    overflow: 'hidden',
+    position: 'relative',
+    width: '100%',
+  },
+  actionMediaLayer: {
+    bottom: 0,
+    height: '100%',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    width: '100%',
+  },
+  actionMediaPressTarget: {
+    bottom: 0,
+    elevation: 2,
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    zIndex: 2,
+  },
+  hiddenVideo: { opacity: 0 },
   textOption: {
     borderBottomWidth: 5,
     elevation: 3,
