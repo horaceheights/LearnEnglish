@@ -1585,8 +1585,20 @@ function promptParts(prompt) {
   return prompt.match(/[A-Za-z]+|[^A-Za-z]+/g) || [prompt];
 }
 
-function BoyRunningScene({ alt, style }) {
-  const [frame, setFrame] = useState(0);
+const LESSON_ACTION_VIDEOS = {
+  "boy_is_drinking": "boy-drinking-scene-veo-v1.mp4",
+  "boy_is_eating": "boy-eating-scene-veo-v1.mp4",
+  "boy_is_running": "boy-running-scene-veo-v1.mp4",
+  "boy_is_swimming": "boy-swimming-scene-veo-v1.mp4",
+  "boy_is_walking": "boy-walking-scene-veo-v1.mp4",
+};
+
+function lessonActionVideo(imageUrl) {
+  const normalized = String(imageUrl || "").split("?")[0].split("/").pop()?.replace(/\.[^.]+$/, "");
+  return normalized ? LESSON_ACTION_VIDEOS[normalized] : null;
+}
+
+function LessonActionMedia({ alt, imageUrl, style, videoName }) {
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -1597,60 +1609,26 @@ function BoyRunningScene({ alt, style }) {
     return () => motionQuery.removeEventListener?.("change", updateMotionPreference);
   }, []);
 
-  useEffect(() => {
-    if (reduceMotion) {
-      setFrame(0);
-      return undefined;
-    }
-    const timer = window.setInterval(() => {
-      setFrame((current) => (current + 1) % 6);
-    }, 310);
-    return () => window.clearInterval(timer);
-  }, [reduceMotion]);
-
   if (reduceMotion) {
-    return <img src={lessonImageSrc("/lesson-assets/boy_is_running.webp")} alt={alt} style={style} />;
+    return <img src={lessonImageSrc(imageUrl)} alt={alt} style={style} />;
   }
 
   return (
-    <div
-      role="img"
+    <video
       aria-label={alt}
+      autoPlay
+      loop
+      muted
+      playsInline
+      poster={lessonImageSrc(imageUrl)}
+      src={lessonImageSrc(`/lesson-assets/${videoName}`)}
       style={{
         ...style,
-        position: "relative",
-        overflow: "hidden",
+        objectFit: "contain",
+        objectPosition: "center",
+        background: "var(--surface-2)",
       }}
-    >
-      <div
-        aria-hidden="true"
-        style={{
-          width: "600%",
-          height: "100%",
-          display: "flex",
-          transform: `translateX(-${frame * (100 / 6)}%)`,
-          willChange: "transform",
-        }}
-      >
-        {["boy-running-scene-frames-v2-a.png", "boy-running-scene-frames-v2-b.png"].map((source) => (
-          <img
-            key={source}
-            src={lessonImageSrc(`/lesson-assets/${source}`)}
-            alt=""
-            style={{
-              width: "50%",
-              maxWidth: "none",
-              height: "100%",
-              display: "block",
-              flex: "0 0 50%",
-              objectFit: "contain",
-              objectPosition: "center",
-              background: "var(--surface-2)",
-            }}
-          />
-        ))}
-      </div>
-    </div>
+    />
   );
 }
 
@@ -4574,10 +4552,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 const optionPrompt = optionPracticePrompt(option);
                 const optionLabel = option.label || optionPrompt || option.id;
                 const hasOptionImage = Boolean(option.image_url);
-                const shouldAnimateBoyRunning =
+                const actionVideoName =
                   activeLesson.id === "lesson-1-people-actions" &&
-                  !isPronunciationCard &&
-                  String(option.image_url || "").includes("boy_is_running");
+                  !isPronunciationCard
+                    ? lessonActionVideo(option.image_url)
+                    : null;
                 const isActivePronunciationOption =
                   isPronunciationCard && optionIndex === activePronunciationOptionIndex && lastResult !== "correct";
                 const isCompletedPronunciationOption =
@@ -4764,8 +4743,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       </div>
                     ) : null}
                     {hasOptionImage ? (
-                      shouldAnimateBoyRunning ? (
-                        <BoyRunningScene alt={optionLabel} style={responsiveImageStyle} />
+                      actionVideoName ? (
+                        <LessonActionMedia
+                          alt={optionLabel}
+                          imageUrl={option.image_url}
+                          style={responsiveImageStyle}
+                          videoName={actionVideoName}
+                        />
                       ) : (
                         <img src={lessonImageSrc(option.image_url)} alt={optionLabel} style={responsiveImageStyle} />
                       )

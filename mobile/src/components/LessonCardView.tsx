@@ -1,5 +1,6 @@
 import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
+import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { absoluteMediaUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
@@ -18,6 +19,7 @@ type Props = {
   audioVoice: CourseAudioVoice;
   card: LessonCard;
   level: string;
+  lessonId: string;
   optionsInteractive?: boolean;
   userId?: string;
   selectedId: string | null;
@@ -35,6 +37,7 @@ export function LessonCardView({
   audioVoice,
   card,
   level,
+  lessonId,
   optionsInteractive = true,
   userId,
   selectedId,
@@ -285,6 +288,10 @@ export function LessonCardView({
               const revealCorrect = selected && result === 'correct' && correct;
               const revealWrong = selected && result === 'wrong';
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
+              const actionVideoName =
+                lessonId === 'lesson-1-people-actions' && option.image_url
+                  ? lessonActionVideo(option.image_url)
+                  : null;
               return (
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
@@ -315,18 +322,27 @@ export function LessonCardView({
                   ]}
                 >
                   {option.image_url ? (
-                    <Image
-                      accessible={false}
-                      accessibilityIgnoresInvertColors
-                      resizeMode="contain"
-                      source={{ uri: absoluteMediaUrl(option.image_url) }}
-                      style={[
-                        styles.optionImage,
-                        !isLandscape ? styles.optionImagePortrait : null,
-                        isTabletLandscape ? styles.optionImageTablet : null,
-                        { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight },
-                      ]}
-                    />
+                    actionVideoName ? (
+                      <LessonActionMedia
+                        accessibilityLabel={option.label || card.prompt}
+                        height={showHelp ? optionImageHeight * 0.65 : optionImageHeight}
+                        imageUrl={option.image_url}
+                        videoName={actionVideoName}
+                      />
+                    ) : (
+                      <Image
+                        accessible={false}
+                        accessibilityIgnoresInvertColors
+                        resizeMode="contain"
+                        source={{ uri: absoluteMediaUrl(option.image_url) }}
+                        style={[
+                          styles.optionImage,
+                          !isLandscape ? styles.optionImagePortrait : null,
+                          isTabletLandscape ? styles.optionImageTablet : null,
+                          { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight },
+                        ]}
+                      />
+                    )
                   ) : null}
                   {option.label && !option.image_url ? (
                     <>
@@ -398,6 +414,69 @@ export function LessonCardView({
         </>
       )}
     </View>
+  );
+}
+
+const LESSON_ACTION_VIDEOS: Record<string, string> = {
+  boy_is_drinking: 'boy-drinking-scene-veo-v1.mp4',
+  boy_is_eating: 'boy-eating-scene-veo-v1.mp4',
+  boy_is_running: 'boy-running-scene-veo-v1.mp4',
+  boy_is_swimming: 'boy-swimming-scene-veo-v1.mp4',
+  boy_is_walking: 'boy-walking-scene-veo-v1.mp4',
+};
+
+function lessonActionVideo(imageUrl: string): string | null {
+  const filename = imageUrl.split('?')[0].split('/').pop()?.replace(/\.[^.]+$/, '');
+  return filename ? LESSON_ACTION_VIDEOS[filename] || null : null;
+}
+
+function LessonActionMedia({
+  accessibilityLabel,
+  height,
+  imageUrl,
+  videoName,
+}: {
+  accessibilityLabel: string;
+  height: number;
+  imageUrl: string;
+  videoName: string;
+}) {
+  const reduceMotion = useReducedMotion();
+  const [videoFailed, setVideoFailed] = useState(false);
+  const player = useVideoPlayer(absoluteMediaUrl(`/lesson-assets/${videoName}`), (instance) => {
+    instance.loop = true;
+    instance.muted = true;
+    if (!reduceMotion) instance.play();
+  });
+
+  useEffect(() => {
+    if (reduceMotion) {
+      player.pause();
+    } else {
+      player.play();
+    }
+  }, [player, reduceMotion]);
+
+  if (reduceMotion || videoFailed) {
+    return (
+      <Image
+        accessibilityLabel={accessibilityLabel}
+        resizeMode="contain"
+        source={{ uri: absoluteMediaUrl(imageUrl) }}
+        style={[styles.optionImage, styles.optionImagePortrait, { height }]}
+      />
+    );
+  }
+
+  return (
+    <VideoView
+      accessibilityLabel={accessibilityLabel}
+      contentFit="contain"
+      nativeControls={false}
+      onFirstFrameRender={() => setVideoFailed(false)}
+      player={player}
+      style={[styles.optionImage, styles.optionImagePortrait, { height }]}
+    />
   );
 }
 

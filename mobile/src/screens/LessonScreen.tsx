@@ -1598,6 +1598,7 @@ export function LessonScreen({
             gentleFeedback={profile.confidence === 'nervous'}
             key={`lesson-card-${cardRunId}`}
             level={lesson.level}
+            lessonId={lesson.id}
             optionsInteractive={!isAutomaticSingleCard}
             onPronunciationAttempted={pronunciationAttempted}
             onPronunciationPassed={pronunciationPassed}
