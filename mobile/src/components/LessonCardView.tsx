@@ -483,6 +483,7 @@ function LessonActionMedia({
       onFirstFrameRender={() => setVideoFailed(false)}
       player={player}
       pointerEvents="none"
+      surfaceType="textureView"
       style={[styles.optionImage, styles.optionImagePortrait, { height }]}
     />
   );

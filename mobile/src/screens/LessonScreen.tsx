@@ -679,7 +679,7 @@ export function LessonScreen({
 
   useEffect(() => {
     audioPlaybackRequestRef.current += 1;
-    audioPlayer.pause();
+    audioPlayerRef.current.pause();
     singleCardAudioAwaitingRef.current = false;
     singleCardAudioWasPlayingRef.current = false;
     if (singleCardAdvanceTimerRef.current) clearTimeout(singleCardAdvanceTimerRef.current);
@@ -691,7 +691,7 @@ export function LessonScreen({
     promptAutoplayAwaitingRef.current = false;
     promptAutoplayWasPlayingRef.current = false;
     setPromptAutoplayFinished(false);
-  }, [audioPlayer, cardIndex]);
+  }, [cardIndex]);
 
   useEffect(() => {
     setDiagnosticContext({
