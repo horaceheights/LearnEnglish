@@ -711,8 +711,10 @@ export function PronunciationPractice({
         Alert.alert('Micrófono necesario', 'Permite que SpanGlish use el micrófono para continuar automáticamente.');
         return;
       }
-      setDiagnosticOperation('microphone_prepare');
-      await setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
+      // Keep the ready cue in a playback-only session. On iOS, playing a cue
+      // after preparing the recorder can deactivate/reconfigure AVAudioSession
+      // when the cue finishes, leaving the prepared recorder capturing silence.
+      await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
       if (!isCurrentRun(runId)) return;
       heardSpeech.current = false;
       setNoSpeechFailure(false);
@@ -722,8 +724,6 @@ export function PronunciationPractice({
       const streamingToken = nativeStreamingAvailable
         ? await getPronunciationStreamingToken()
         : null;
-      if (!streamingToken) await recorder.prepareToRecordAsync(SPEECH_RECORDING_OPTIONS);
-      if (!isCurrentRun(runId)) return;
       setPhase('ready');
       setMessage('Prepárate…');
       await readyCuePreload;
@@ -756,6 +756,17 @@ export function PronunciationPractice({
         });
       }
       if (!isCurrentRun(runId)) return;
+      setDiagnosticOperation('microphone_prepare');
+      await setAudioModeAsync({
+        allowsRecording: true,
+        playsInSilentMode: true,
+        shouldRouteThroughEarpiece: false,
+      });
+      if (!isCurrentRun(runId)) return;
+      if (!streamingToken) {
+        await recorder.prepareToRecordAsync(SPEECH_RECORDING_OPTIONS);
+        if (!isCurrentRun(runId)) return;
+      }
       if (streamingToken) {
         streamingCapture.current = true;
         streamingStartedAt.current = cueEndedAt;
