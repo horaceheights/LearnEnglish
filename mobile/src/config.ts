@@ -1,4 +1,5 @@
 export const API_BASE_URL = 'https://learnenglish-fxki.onrender.com';
+export const VIDEO_BASE_URL = 'https://learn-english-orcin.vercel.app';
 export const PRIVACY_POLICY_URL = `${API_BASE_URL}/privacy`;
 export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
@@ -69,6 +70,10 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
 export function absoluteMediaUrl(path: string): string {
   if (!path) return '';
   return path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
+}
+
+export function lessonVideoUrl(name: string): string {
+  return `${VIDEO_BASE_URL}/lesson-assets/${encodeURIComponent(name)}`;
 }
 
 export function courseAudioUrl(

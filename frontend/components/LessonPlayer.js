@@ -1585,6 +1585,10 @@ function promptParts(prompt) {
   return prompt.match(/[A-Za-z]+|[^A-Za-z]+/g) || [prompt];
 }
 
+function lessonVideoSrc(name) {
+  return `/lesson-assets/${name}?v=${LESSON_IMAGE_VERSION}`;
+}
+
 const LESSON_ACTION_VIDEOS = {
   "boy_is_drinking": "boy-drinking-scene-veo-v1.mp4",
   "boy_is_eating": "boy-eating-scene-veo-v1.mp4",
@@ -1621,12 +1625,13 @@ function LessonActionMedia({ alt, imageUrl, style, videoName }) {
       muted
       playsInline
       poster={lessonImageSrc(imageUrl)}
-      src={lessonImageSrc(`/lesson-assets/${videoName}`)}
+      src={lessonVideoSrc(videoName)}
       style={{
         ...style,
         objectFit: "contain",
         objectPosition: "center",
         background: "var(--surface-2)",
+        pointerEvents: "none",
       }}
     />
   );

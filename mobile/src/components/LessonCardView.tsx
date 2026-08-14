@@ -2,7 +2,7 @@ import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensio
 import { useEffect, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView } from 'expo-video';
 
-import { absoluteMediaUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { absoluteMediaUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import type { LessonCard } from '../types';
 import { PronunciationPractice } from './PronunciationPractice';
@@ -443,7 +443,7 @@ function LessonActionMedia({
 }) {
   const reduceMotion = useReducedMotion();
   const [videoFailed, setVideoFailed] = useState(false);
-  const player = useVideoPlayer(absoluteMediaUrl(`/lesson-assets/${videoName}`), (instance) => {
+  const player = useVideoPlayer(lessonVideoUrl(videoName), (instance) => {
     instance.loop = true;
     instance.muted = true;
     if (!reduceMotion) instance.play();
@@ -456,6 +456,13 @@ function LessonActionMedia({
       player.play();
     }
   }, [player, reduceMotion]);
+
+  useEffect(() => {
+    const subscription = player.addListener('statusChange', ({ status }) => {
+      if (status === 'error') setVideoFailed(true);
+    });
+    return () => subscription.remove();
+  }, [player]);
 
   if (reduceMotion || videoFailed) {
     return (
@@ -475,6 +482,7 @@ function LessonActionMedia({
       nativeControls={false}
       onFirstFrameRender={() => setVideoFailed(false)}
       player={player}
+      pointerEvents="none"
       style={[styles.optionImage, styles.optionImagePortrait, { height }]}
     />
   );
