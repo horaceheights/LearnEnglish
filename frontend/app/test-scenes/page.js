@@ -14,13 +14,13 @@ const SCENES = {
     title: "Eating",
     sentence: "The boy is eating.",
     still: "/lesson-assets/boy_is_eating.webp",
-    video: "/lesson-assets/boy-eating-scene-veo-v1.mp4",
+    video: "/lesson-assets/boy-eating-scene-v2.mp4",
   },
   sleeping: {
     title: "Sleeping",
     sentence: "The boy is sleeping.",
     still: "/lesson-assets/boy_is_sleeping.webp",
-    video: "/lesson-assets/boy-sleeping-scene-veo-v1.mp4",
+    video: "/lesson-assets/boy-sleeping-scene-v2.mp4",
   },
   walking: {
     title: "Walking",
@@ -32,25 +32,49 @@ const SCENES = {
     title: "Swimming",
     sentence: "The boy is swimming.",
     still: "/lesson-assets/boy_is_swimming.webp",
-    video: "/lesson-assets/boy-swimming-scene-veo-v1.mp4",
+    video: "/lesson-assets/boy-swimming-scene-v2.mp4",
   },
   drinking: {
     title: "Drinking",
     sentence: "The boy is drinking.",
     still: "/lesson-assets/boy_is_drinking.webp",
-    video: "/lesson-assets/boy-drinking-scene-veo-v1.mp4",
+    video: "/lesson-assets/boy-drinking-scene-v2.mp4",
   },
   playing: {
     title: "Playing",
     sentence: "The children are playing.",
     still: "/lesson-assets/family_children_playing.webp",
-    video: "/lesson-assets/children-playing-scene-veo-v1.mp4",
+    video: "/lesson-assets/children-playing-scene-v2.mp4",
   },
   talking: {
     title: "Talking",
     sentence: "The parents are talking.",
     still: "/lesson-assets/family_parents_talking.webp",
-    video: "/lesson-assets/parents-talking-scene-veo-v1.mp4",
+    video: "/lesson-assets/parents-talking-scene-v2.mp4",
+  },
+  reading: {
+    title: "Reading",
+    sentence: "The boy is reading.",
+    still: "/lesson-assets/boy_is_reading.webp",
+    video: "/lesson-assets/boy-reading-scene-v2.mp4",
+  },
+  writing: {
+    title: "Writing",
+    sentence: "The girl is writing.",
+    still: "/lesson-assets/girl_is_writing.webp",
+    video: "/lesson-assets/girl-writing-scene-v2.mp4",
+  },
+  studying: {
+    title: "Studying",
+    sentence: "A brother is studying.",
+    still: "/lesson-assets/family_brother_studying.webp",
+    video: "/lesson-assets/brother-studying-scene-v2.mp4",
+  },
+  cooking: {
+    title: "Cooking",
+    sentence: "The mother is cooking.",
+    still: "/lesson-assets/family_mother_cooking.webp",
+    video: "/lesson-assets/mother-cooking-scene-v2.mp4",
   },
   batchWalking: {
     title: "Batch test: Walking",
@@ -63,6 +87,18 @@ const SCENES = {
     sentence: "The man is running.",
     still: "/lesson-assets/man_is_running.webp",
     video: "/lesson-assets/man-running-batched-omni-test.mp4",
+  },
+  veoLiteWalking: {
+    title: "Approved: Walking",
+    sentence: "The boy is walking.",
+    still: "/lesson-assets/boy_is_walking.webp",
+    video: "/lesson-assets/boy-walking-scene-v2.mp4",
+  },
+  veoLiteRunning: {
+    title: "Approved: Running",
+    sentence: "The boy is running.",
+    still: "/lesson-assets/boy_is_running.webp",
+    video: "/lesson-assets/boy-running-scene-v2.mp4",
   },
 };
 

@@ -1590,11 +1590,18 @@ function lessonVideoSrc(name) {
 }
 
 const LESSON_ACTION_VIDEOS = {
-  "boy_is_drinking": "boy-drinking-scene-veo-v1.mp4",
-  "boy_is_eating": "boy-eating-scene-veo-v1.mp4",
-  "boy_is_running": "boy-running-scene-veo-v1.mp4",
-  "boy_is_swimming": "boy-swimming-scene-veo-v1.mp4",
-  "boy_is_walking": "boy-walking-scene-veo-v1.mp4",
+  "boy_is_drinking": "boy-drinking-scene-v2.mp4",
+  "boy_is_eating": "boy-eating-scene-v2.mp4",
+  "boy_is_reading": "boy-reading-scene-v2.mp4",
+  "boy_is_running": "boy-running-scene-v2.mp4",
+  "boy_is_sleeping": "boy-sleeping-scene-v2.mp4",
+  "boy_is_swimming": "boy-swimming-scene-v2.mp4",
+  "boy_is_walking": "boy-walking-scene-v2.mp4",
+  "family_brother_studying": "brother-studying-scene-v2.mp4",
+  "family_children_playing": "children-playing-scene-v2.mp4",
+  "family_mother_cooking": "mother-cooking-scene-v2.mp4",
+  "family_parents_talking": "parents-talking-scene-v2.mp4",
+  "girl_is_writing": "girl-writing-scene-v2.mp4",
 };
 
 function lessonActionVideo(imageUrl) {
@@ -1621,7 +1628,6 @@ function LessonActionMedia({ alt, imageUrl, style, videoName }) {
     <video
       aria-label={alt}
       autoPlay
-      loop
       muted
       playsInline
       poster={lessonImageSrc(imageUrl)}
@@ -3871,8 +3877,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     if (isCorrect) {
+      const selectedActionVideo = lessonActionVideo(
+        currentCard.options.find((option) => option.id === optionId)?.image_url
+      );
       setLastResult("correct");
-      setAutoAdvanceDelayMs(currentCard.answer_audio_text ? 2600 : 1000);
+      setAutoAdvanceDelayMs(
+        Math.max(currentCard.answer_audio_text ? 2600 : 1000, selectedActionVideo ? 2600 : 0)
+      );
       if (firstTry) {
         setScore((current) => current + 1);
       }
@@ -4557,11 +4568,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 const optionPrompt = optionPracticePrompt(option);
                 const optionLabel = option.label || optionPrompt || option.id;
                 const hasOptionImage = Boolean(option.image_url);
-                const actionVideoName =
-                  activeLesson.id === "lesson-1-people-actions" &&
-                  !isPronunciationCard
-                    ? lessonActionVideo(option.image_url)
-                    : null;
+                const actionVideoName = !isPronunciationCard ? lessonActionVideo(option.image_url) : null;
+                const showActionVideo = Boolean(actionVideoName) && (
+                  currentCard.options.length === 1 ||
+                  (selectedOptionId === option.id && lastResult === "correct")
+                );
                 const isActivePronunciationOption =
                   isPronunciationCard && optionIndex === activePronunciationOptionIndex && lastResult !== "correct";
                 const isCompletedPronunciationOption =
@@ -4748,7 +4759,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       </div>
                     ) : null}
                     {hasOptionImage ? (
-                      actionVideoName ? (
+                      showActionVideo ? (
                         <LessonActionMedia
                           alt={optionLabel}
                           imageUrl={option.image_url}

@@ -251,23 +251,12 @@ export function LessonCardView({
         </View>
       ) : null}
       {card.prompt_image_url ? (
-        lessonActionVideo(card.prompt_image_url) ? (
-          <View style={styles.promptActionMedia}>
-            <LessonActionMedia
-              accessibilityLabel={card.answer_audio_text || card.prompt}
-              height={showHelp ? featureImageHeight * 0.65 : featureImageHeight}
-              imageUrl={card.prompt_image_url}
-              videoName={lessonActionVideo(card.prompt_image_url)!}
-            />
-          </View>
-        ) : (
-          <Image
-            accessibilityLabel={card.answer_audio_text || card.prompt}
-            resizeMode="contain"
-            source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
-            style={[styles.promptImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
-          />
-        )
+        <Image
+          accessibilityLabel={card.answer_audio_text || card.prompt}
+          resizeMode="contain"
+          source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
+          style={[styles.promptImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
+        />
       ) : null}
       {isPronunciation ? (
         <PronunciationPractice
@@ -280,7 +269,7 @@ export function LessonCardView({
               : featureImageHeight}
           imageLabel={card.options[0]?.label || card.prompt}
           imageUrl={card.options[0]?.image_url}
-          videoName={lessonActionVideo(card.options[0]?.image_url)}
+          videoName={null}
           level={level}
           onAttempted={onPronunciationAttempted}
           onPassed={onPronunciationPassed}
@@ -302,6 +291,9 @@ export function LessonCardView({
               const revealWrong = selected && result === 'wrong';
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
               const actionVideoName = lessonActionVideo(option.image_url);
+              const showActionVideo = Boolean(actionVideoName) && (
+                card.options.length === 1 || revealCorrect
+              );
               return (
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
@@ -332,13 +324,13 @@ export function LessonCardView({
                   ]}
                 >
                   {option.image_url ? (
-                    actionVideoName ? (
+                    showActionVideo ? (
                       <LessonActionMedia
                         accessibilityLabel={option.label || card.prompt}
                         height={showHelp ? optionImageHeight * 0.65 : optionImageHeight}
                         imageUrl={option.image_url}
                         onPress={() => onSelect(option.id)}
-                        videoName={actionVideoName}
+                        videoName={actionVideoName!}
                       />
                     ) : (
                       <Image
@@ -445,7 +437,7 @@ function LessonActionMedia({
   const [videoFailed, setVideoFailed] = useState(false);
   const [firstFrameRendered, setFirstFrameRendered] = useState(false);
   const player = useVideoPlayer({ uri: lessonVideoUrl(videoName), useCaching: true }, (instance) => {
-    instance.loop = true;
+    instance.loop = false;
     instance.muted = true;
     if (!reduceMotion) instance.play();
   });
