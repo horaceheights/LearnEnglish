@@ -61,6 +61,7 @@ type Props = {
 
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
 const MAX_AUTOMATIC_ATTEMPTS = 2;
+const GRADING_REVIEW_MS = 3000;
 const NO_SPEECH_LISTEN_MS = 3000;
 const IOS_SPEECH_END_SILENCE_MS = 1200;
 const MAX_NO_SPEECH_ROUNDS = 3;
@@ -477,7 +478,8 @@ export function PronunciationPractice({
       setMessage(`${reason} Seguimos practicando.`);
       return;
     }
-    retryTimer.current = setTimeout(() => playModel(runId), 3000);
+    // Keep the grade and coaching visible before starting the next attempt.
+    retryTimer.current = setTimeout(() => playModel(runId), GRADING_REVIEW_MS);
   }, [isCurrentRun, playModel]);
 
   const handleNoSpeech = useCallback((runId = runIdRef.current) => {
@@ -1321,7 +1323,9 @@ export function PronunciationPractice({
 
   useEffect(() => {
     if (phase !== 'success' || (!passed && !continueAfterCoaching)) return undefined;
-    const timer = setTimeout(onPassed, 3000);
+    // Give the learner time to read the final grade and advice before the
+    // lesson advances to the next slide.
+    const timer = setTimeout(onPassed, GRADING_REVIEW_MS);
     return () => clearTimeout(timer);
   }, [continueAfterCoaching, onPassed, passed, phase]);
 

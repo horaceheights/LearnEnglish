@@ -15,6 +15,7 @@ import {
   View,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Ionicons } from '@expo/vector-icons';
 import {
   createAudioPlayer,
   preload,
@@ -54,7 +55,7 @@ const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
 void Promise.all([preload(SUCCESS_CHIME), preload(TRY_AGAIN_CUE)]).catch((preloadError) => {
   captureDiagnosticError(preloadError, 'feedback_audio_preload', {}, 'warning');
 });
-const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v2';
+const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v3';
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const DOUBLE_TAP_DELAY_MS = 290;
 
@@ -230,6 +231,7 @@ export function LessonScreen({
   const [sentenceHelpStatus, setSentenceHelpStatus] = useState<'loading' | 'pending' | 'seen'>('loading');
   const [sentenceAnchorBottom, setSentenceAnchorBottom] = useState<number | undefined>(undefined);
   const [showSentenceCoachmark, setShowSentenceCoachmark] = useState(false);
+  const [sentenceHelpActivity, setSentenceHelpActivity] = useState(0);
   const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
   const [promptAutoplayFinished, setPromptAutoplayFinished] = useState(false);
   const [completedLessonMode, setCompletedLessonMode] = useState<CompletedLessonMode>(
@@ -546,6 +548,7 @@ export function LessonScreen({
   const currentCard = lesson?.cards[cardIndex];
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
+  const isListen = currentCard?.stage === 'Listen';
   // Pronunciation results remain visible for three seconds inside the practice
   // component, then advance automatically without a swipe-review step.
   const pauseForPronunciationReview = false;
@@ -614,6 +617,7 @@ export function LessonScreen({
   }, [translationOpacity]);
 
   const handlePromptPress = useCallback(() => {
+    setSentenceHelpActivity((current) => current + 1);
     const now = Date.now();
     if (lastPromptTapRef.current && now - lastPromptTapRef.current <= DOUBLE_TAP_DELAY_MS) {
       openSentenceTranslation();
@@ -629,10 +633,25 @@ export function LessonScreen({
     }, DOUBLE_TAP_DELAY_MS);
   }, [openSentenceTranslation, replayPrompt]);
 
+  const handleReplayButtonPress = useCallback(() => {
+    setSentenceHelpActivity((current) => current + 1);
+    setShowSentenceCoachmark(false);
+    replayPrompt();
+  }, [replayPrompt]);
+
   const dismissSentenceCoachmark = useCallback(() => {
     setShowSentenceCoachmark(false);
     setSentenceHelpStatus('seen');
-    if (!qaMode) void AsyncStorage.setItem(sentenceHelpStorageKey, 'seen');
+  }, []);
+
+  const suppressSentenceCoachmark = useCallback(() => {
+    setShowSentenceCoachmark(false);
+    setSentenceHelpStatus('seen');
+    if (!qaMode) {
+      void AsyncStorage.setItem(sentenceHelpStorageKey, 'seen').catch((storageError) => {
+        captureDiagnosticError(storageError, 'save_sentence_help_preference', {}, 'warning');
+      });
+    }
   }, [qaMode, sentenceHelpStorageKey]);
 
   useEffect(() => {
@@ -641,10 +660,14 @@ export function LessonScreen({
       !currentCard ||
       currentCard.options.length < 2 ||
       isPronunciation ||
+      showHelp ||
       !promptAudio.trim() ||
       !promptAutoplayFinished ||
       attemptedCards.has(cardIndex)
-    ) return undefined;
+    ) {
+      setShowSentenceCoachmark(false);
+      return undefined;
+    }
 
     const timer = setTimeout(
       () => updateSentenceAnchor(() => setShowSentenceCoachmark(true)),
@@ -658,7 +681,9 @@ export function LessonScreen({
     isPronunciation,
     promptAudio,
     promptAutoplayFinished,
+    sentenceHelpActivity,
     sentenceHelpStatus,
+    showHelp,
     updateSentenceAnchor,
   ]);
 
@@ -670,6 +695,7 @@ export function LessonScreen({
     lastPromptTapRef.current = 0;
     translationOpacity.stopAnimation();
     translationOpacity.setValue(0);
+    setShowSentenceCoachmark(false);
     setShowSentenceTranslation(false);
   }, [cardIndex, translationOpacity]);
 
@@ -1007,6 +1033,7 @@ export function LessonScreen({
 
   const choose = (optionId: string) => {
     if (!currentCard || result === 'correct') return;
+    setShowSentenceCoachmark(false);
     const correct = optionId === currentCard.correct_option_id;
     const firstTry = !wrongCards.has(cardIndex) && !completedCards.has(cardIndex);
     addDiagnosticBreadcrumb('answer_selected', {
@@ -1550,6 +1577,7 @@ export function LessonScreen({
             styles.promptRow,
             isPortrait ? styles.promptRowPortrait : null,
             isPronunciation ? styles.promptRowPronunciation : null,
+            isListen ? styles.promptRowListen : null,
           ]}>
             <Pressable
               ref={promptTapTargetRef}
@@ -1559,14 +1587,20 @@ export function LessonScreen({
               accessibilityRole="button"
               disabled={!promptAudio.trim()}
               onAccessibilityAction={({ nativeEvent }) => {
-                if (nativeEvent.actionName === 'translate') openSentenceTranslation();
+                if (nativeEvent.actionName === 'translate') {
+                  setSentenceHelpActivity((current) => current + 1);
+                  openSentenceTranslation();
+                }
               }}
-              onLongPress={openSentenceTranslation}
+              onLongPress={() => {
+                setSentenceHelpActivity((current) => current + 1);
+                openSentenceTranslation();
+              }}
               onLayout={() => {
                 if (showSentenceCoachmark) updateSentenceAnchor();
               }}
               onPress={handlePromptPress}
-              style={styles.promptTapTarget}
+              style={[styles.promptTapTarget, isListen ? styles.promptTapTargetListen : null]}
             >
               <Text
                 numberOfLines={2}
@@ -1602,6 +1636,23 @@ export function LessonScreen({
                 </Animated.Text>
               ) : null}
             </Pressable>
+            {isListen ? (
+              <Pressable
+                accessibilityHint="Reproduce la frase otra vez."
+                accessibilityLabel={`Repetir frase: ${promptAudio}`}
+                accessibilityRole="button"
+                disabled={!promptAudio.trim()}
+                hitSlop={6}
+                onPress={handleReplayButtonPress}
+                style={({ pressed }) => [
+                  styles.replayButton,
+                  audioPlayerStatus.playing ? styles.replayButtonPlaying : null,
+                  pressed ? styles.replayButtonPressed : null,
+                ]}
+              >
+                <Ionicons color="#fff" name="volume-high" size={25} />
+              </Pressable>
+            ) : null}
           </View>
         </View>
         <Animated.View
@@ -1662,7 +1713,8 @@ export function LessonScreen({
       )}
       <SentenceHelpOverlay
         anchorBottom={sentenceAnchorBottom}
-        onClose={dismissSentenceCoachmark}
+        onDismiss={dismissSentenceCoachmark}
+        onSuppress={suppressSentenceCoachmark}
         visible={showSentenceCoachmark}
       />
       <Modal
@@ -1812,8 +1864,31 @@ const styles = StyleSheet.create({
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
   promptRowPronunciation: { minHeight: 28 },
+  promptRowListen: { minHeight: 46 },
   promptTapTarget: { width: '100%' },
+  promptTapTargetListen: { paddingRight: 52 },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
+  replayButton: {
+    alignItems: 'center',
+    backgroundColor: '#23856f',
+    borderColor: '#176b5d',
+    borderRadius: 22,
+    borderWidth: 2,
+    elevation: 2,
+    height: 44,
+    justifyContent: 'center',
+    marginTop: -22,
+    position: 'absolute',
+    right: 0,
+    shadowColor: '#173f37',
+    shadowOffset: { height: 2, width: 0 },
+    shadowOpacity: 0.18,
+    shadowRadius: 3,
+    top: '50%',
+    width: 44,
+  },
+  replayButtonPlaying: { backgroundColor: '#176b5d' },
+  replayButtonPressed: { opacity: 0.82, transform: [{ scale: 0.95 }] },
   inlineTranslation: {
     color: '#58656b',
     fontSize: 13,

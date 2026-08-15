@@ -4,11 +4,12 @@ const LISTENING_SQUIRREL = require('../../assets/mascots/serious/listening-frame
 
 type Props = {
   anchorBottom?: number;
-  onClose: () => void;
+  onDismiss: () => void;
+  onSuppress: () => void;
   visible: boolean;
 };
 
-export function SentenceHelpOverlay({ anchorBottom, onClose, visible }: Props) {
+export function SentenceHelpOverlay({ anchorBottom, onDismiss, onSuppress, visible }: Props) {
   const { height, width } = useWindowDimensions();
   const isLandscape = width > height;
   const estimatedHeight = isLandscape ? 150 : 216;
@@ -21,7 +22,7 @@ export function SentenceHelpOverlay({ anchorBottom, onClose, visible }: Props) {
   return (
     <Modal
       animationType="fade"
-      onRequestClose={onClose}
+      onRequestClose={onDismiss}
       statusBarTranslucent
       transparent
       visible={visible}
@@ -30,7 +31,7 @@ export function SentenceHelpOverlay({ anchorBottom, onClose, visible }: Props) {
         <Pressable
           accessibilityLabel="Cerrar ayuda"
           accessibilityRole="button"
-          onPress={onClose}
+          onPress={onDismiss}
           style={StyleSheet.absoluteFill}
         />
         <View pointerEvents="box-none" style={[styles.calloutPositioner, { paddingTop: calloutTop }]}>
@@ -60,13 +61,26 @@ export function SentenceHelpOverlay({ anchorBottom, onClose, visible }: Props) {
                 <Text style={styles.message}>
                   Toca <Text style={styles.emphasis}>dos veces</Text> la palabra para ver su traducción.
                 </Text>
-                <Pressable
-                  accessibilityRole="button"
-                  onPress={onClose}
-                  style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]}
-                >
-                  <Text style={styles.buttonText}>Entendido</Text>
-                </Pressable>
+                <View style={styles.buttonRow}>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={onDismiss}
+                    style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]}
+                  >
+                    <Text style={styles.buttonText}>Entiendo</Text>
+                  </Pressable>
+                  <Pressable
+                    accessibilityRole="button"
+                    onPress={onSuppress}
+                    style={({ pressed }) => [
+                      styles.button,
+                      styles.secondaryButton,
+                      pressed ? styles.buttonPressed : null,
+                    ]}
+                  >
+                    <Text style={styles.secondaryButtonText}>No mostrar</Text>
+                  </Pressable>
+                </View>
               </View>
             </View>
           </View>
@@ -133,17 +147,28 @@ const styles = StyleSheet.create({
   title: { color: '#24333a', fontSize: 22, fontWeight: '900', marginBottom: 5 },
   message: { color: '#46545a', fontSize: 15, lineHeight: 21, marginTop: 2 },
   emphasis: { color: '#d45732', fontWeight: '900' },
+  buttonRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 10,
+  },
   button: {
     alignItems: 'center',
-    alignSelf: 'flex-start',
     backgroundColor: '#287f68',
     borderRadius: 13,
     justifyContent: 'center',
-    marginTop: 10,
     minHeight: 42,
-    minWidth: 112,
-    paddingHorizontal: 18,
+    minWidth: 104,
+    paddingHorizontal: 15,
   },
   buttonPressed: { opacity: 0.8, transform: [{ scale: 0.98 }] },
   buttonText: { color: '#fff', fontSize: 14, fontWeight: '900' },
+  secondaryButton: {
+    backgroundColor: '#fffaf1',
+    borderColor: '#287f68',
+    borderWidth: 2,
+  },
+  secondaryButtonText: { color: '#287f68', fontSize: 14, fontWeight: '900' },
 });
