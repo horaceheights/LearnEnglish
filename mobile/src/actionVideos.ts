@@ -10,7 +10,12 @@ const LESSON_ACTION_VIDEOS: Record<string, string> = {
   family_children_playing: 'children-playing-scene-v2.mp4',
   family_mother_cooking: 'mother-cooking-scene-v2.mp4',
   family_parents_talking: 'parents-talking-scene-v2.mp4',
+  girl_is_drinking: 'girl-drinking-scene-v2.mp4',
+  girl_is_sleeping: 'girl-sleeping-scene-v2.mp4',
+  girl_is_walking: 'girl-walking-scene-v2.mp4',
   girl_is_writing: 'girl-writing-scene-v2.mp4',
+  man_is_swimming: 'man-swimming-scene-v2.mp4',
+  man_is_walking: 'man-walking-scene-v2.mp4',
 };
 
 export function lessonActionVideo(imageUrl?: string): string | null {

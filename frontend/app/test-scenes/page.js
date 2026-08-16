@@ -64,6 +64,30 @@ const SCENES = {
     still: "/lesson-assets/girl_is_writing.webp",
     video: "/lesson-assets/girl-writing-scene-v2.mp4",
   },
+  girlWalking: {
+    title: "Girl walking",
+    sentence: "The girl is walking.",
+    still: "/lesson-assets/girl_is_walking.webp",
+    video: "/lesson-assets/girl-walking-scene-v2.mp4",
+  },
+  girlDrinking: {
+    title: "Girl drinking",
+    sentence: "The girl is drinking.",
+    still: "/lesson-assets/girl_is_drinking.webp",
+    video: "/lesson-assets/girl-drinking-scene-v2.mp4",
+  },
+  girlSleeping: {
+    title: "Girl sleeping",
+    sentence: "The girl is sleeping.",
+    still: "/lesson-assets/girl_is_sleeping.webp",
+    video: "/lesson-assets/girl-sleeping-scene-v2.mp4",
+  },
+  manSwimming: {
+    title: "Man swimming",
+    sentence: "The man is swimming.",
+    still: "/lesson-assets/man_is_swimming.webp",
+    video: "/lesson-assets/man-swimming-scene-v2.mp4",
+  },
   studying: {
     title: "Studying",
     sentence: "A brother is studying.",
