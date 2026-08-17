@@ -141,6 +141,11 @@ export function LessonCardView({
         : Math.max(205, Math.min(340, viewportHeight * 0.57));
   const fallbackCardHeight = Math.max(150, viewportHeight * (isCompactLandscape ? 0.43 : 0.58));
   const availableCardHeight = measuredCardHeight || fallbackCardHeight;
+  // Keep the answer feedback inside the card on short portrait screens. Without
+  // this allowance, stacked image options consume the full measured height and
+  // the retry message is laid out beneath the Android navigation bar.
+  const feedbackReservedHeight = !isPronunciation && optionsInteractive ? 26 : 0;
+  const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
   const textOptionRows = hasTextOnlyOptions
     ? isLandscape && !useTextGrid
       ? 1
@@ -163,12 +168,12 @@ export function LessonCardView({
   // A single image is a teaching slide rather than a choice grid. Let it use
   // the full measured panel; resizeMode="contain" preserves its aspect ratio.
   const optionImageHeight = useSingleImageLayout
-    ? Math.max(68, availableCardHeight - 42)
+    ? Math.max(68, availableOptionsHeight - 42)
     : Math.min(
       responsiveOptionImageHeight,
       usePortraitImageGrid || usePortraitImageStack
-        ? Math.max(68, ((availableCardHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
-        : Math.max(68, (availableCardHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
+        ? Math.max(68, ((availableOptionsHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
+        : Math.max(68, (availableOptionsHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
     );
 
   useEffect(() => {
