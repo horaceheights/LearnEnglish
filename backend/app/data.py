@@ -813,11 +813,11 @@ def people_learn_cards() -> list[LessonCard]:
 def people_recognize_cards() -> list[LessonCard]:
     cards: list[LessonCard] = []
 
-    # Text to image begins with two choices, then expands to four.
+    # Text to image begins with three two-choice cards, then expands to four.
     for index, person in enumerate(PEOPLE_IN_ORDER):
         candidates = (
             [person, PEOPLE_IN_ORDER[(index + 1) % len(PEOPLE_IN_ORDER)]]
-            if index < 2
+            if index < 3
             else PEOPLE_IN_ORDER
         )
         option_ids = stable_shuffle(candidates, f"people-recognize-person-{person}")
@@ -837,7 +837,7 @@ def people_recognize_cards() -> list[LessonCard]:
         correct_id = action_card_id(person, action)
         candidates = (
             [correct_id, sentence_ids[(index + 1) % len(sentence_ids)]]
-            if index < 2
+            if index < 3
             else sentence_ids
         )
         option_ids = stable_shuffle(candidates, f"people-recognize-sentence-{correct_id}")

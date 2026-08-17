@@ -437,8 +437,8 @@ export function LessonCardView({
                 {result === 'correct'
                   ? 'Correcto. Vamos a la siguiente tarjeta…'
                   : gentleFeedback
-                    ? 'No pasa nada. Inténtalo otra vez. Esta tarjeta ya no contará como acierto al primer intento.'
-                    : 'No fue esa. Inténtalo otra vez. Esta tarjeta ya no contará como acierto al primer intento.'}
+                    ? '¡Tú puedes! Inténtalo de nuevo.'
+                    : '¡Ánimo! Inténtalo de nuevo.'}
               </Text>
             </View>
           ) : null}

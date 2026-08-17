@@ -101,6 +101,8 @@ class LessonStructureTests(unittest.TestCase):
         ]
         self.assertEqual(8, len(text_to_image))
         self.assertEqual(4, len(image_to_text))
+        self.assertEqual(6, sum(len(card.options) == 2 for card in cards))
+        self.assertEqual(6, sum(len(card.options) == 4 for card in cards))
         self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
         self.assertTrue(all(not card.answer_audio_text for card in text_to_image))
         self.assertTrue(all(not card.audio_text for card in image_to_text))

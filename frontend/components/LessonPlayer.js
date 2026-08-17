@@ -1489,10 +1489,10 @@ function shouldShowHelp(profile) {
 
 function getWrongFeedback(profile) {
   if (profile?.confidence === "nervous") {
-    return "No pasa nada. Intentalo otra vez. Esta tarjeta ya no contara como acierto al primer intento.";
+    return "¡Tú puedes! Inténtalo de nuevo.";
   }
 
-  return "No fue esa. Intentalo otra vez. Esta tarjeta ya no contara como acierto al primer intento.";
+  return "¡Ánimo! Inténtalo de nuevo.";
 }
 
 function summarizePronunciationScore(result) {
