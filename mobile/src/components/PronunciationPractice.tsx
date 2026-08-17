@@ -4,7 +4,6 @@ import { File } from 'expo-file-system';
 import {
   AudioModule,
   createAudioPlayer,
-  preload,
   RecordingPresets,
   setAudioModeAsync,
   type RecordingOptions,
@@ -232,16 +231,11 @@ export function PronunciationPractice({
   }));
   const modelPlayerRef = useRef(modelPlayer);
   const retiredModelPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
-  const [readyCuePlayer] = useState(() => createAudioPlayer(READY_CUE, {
-    keepAudioSessionActive: true,
-  }));
+  const activeReadyCuePlayerRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, {
     downloadFirst: true,
     keepAudioSessionActive: true,
   });
-  const [readyCuePreload] = useState(() =>
-    preload(READY_CUE).catch(() => undefined),
-  );
   const modelStatus = useAudioPlayerStatus(modelPlayer);
   const [phase, setPhase] = useState<Phase>('model');
   const [message, setMessage] = useState('Escucha la frase.');
@@ -437,35 +431,66 @@ export function PronunciationPractice({
   }, [audioProvider, audioVoice, isCurrentRun, phrase, resetVoiceEvidence]);
 
   const playReadyCueAndWait = useCallback(async (runId: number) => {
-    await readyCuePlayer.seekTo(0).catch(() => undefined);
-    if (!isCurrentRun(runId)) return null;
-    readyCuePlayer.play();
+    const previousCuePlayer = activeReadyCuePlayerRef.current;
+    if (previousCuePlayer) {
+      try {
+        previousCuePlayer.pause();
+        previousCuePlayer.release();
+      } catch {
+        // A completed cue may already have released its native playback state.
+      }
+    }
+    const cuePlayer = createAudioPlayer(READY_CUE, {
+      keepAudioSessionActive: true,
+    });
+    activeReadyCuePlayerRef.current = cuePlayer;
+    cuePlayer.volume = 1;
+    for (
+      let attemptIndex = 0;
+      attemptIndex < 30 && !cuePlayer.isLoaded && isCurrentRun(runId);
+      attemptIndex += 1
+    ) {
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+    if (!isCurrentRun(runId) || !cuePlayer.isLoaded) {
+      if (activeReadyCuePlayerRef.current === cuePlayer) activeReadyCuePlayerRef.current = null;
+      cuePlayer.release();
+      return null;
+    }
+    cuePlayer.play();
     const cueStartedAt = Date.now();
     let playbackStartedAt: number | null = null;
     let expectedDurationMs = 180;
 
     while (Date.now() - cueStartedAt < 1200 && isCurrentRun(runId)) {
-      if (readyCuePlayer.duration > 0) {
-        expectedDurationMs = Math.max(1, readyCuePlayer.duration * 1000);
+      if (cuePlayer.duration > 0) {
+        expectedDurationMs = Math.max(1, cuePlayer.duration * 1000);
       }
-      if (readyCuePlayer.playing && playbackStartedAt === null) {
+      if (cuePlayer.playing && playbackStartedAt === null) {
         playbackStartedAt = Date.now();
       }
       const effectiveStartedAt = playbackStartedAt ?? cueStartedAt;
       const reachedExpectedEnd = Date.now() >= effectiveStartedAt + expectedDurationMs + 25;
-      const reachedPlayerEnd = readyCuePlayer.duration > 0
-        && readyCuePlayer.currentTime >= Math.max(0, readyCuePlayer.duration - 0.01);
+      const reachedPlayerEnd = cuePlayer.duration > 0
+        && cuePlayer.currentTime >= Math.max(0, cuePlayer.duration - 0.01);
       if (reachedExpectedEnd || reachedPlayerEnd) break;
       await new Promise((resolve) => setTimeout(resolve, 20));
     }
-    if (!isCurrentRun(runId)) return null;
-    readyCuePlayer.pause();
+    if (!isCurrentRun(runId)) {
+      if (activeReadyCuePlayerRef.current === cuePlayer) activeReadyCuePlayerRef.current = null;
+      cuePlayer.pause();
+      cuePlayer.release();
+      return null;
+    }
+    cuePlayer.pause();
+    if (activeReadyCuePlayerRef.current === cuePlayer) activeReadyCuePlayerRef.current = null;
+    cuePlayer.release();
     const cueEndedAt = Date.now();
     addDiagnosticBreadcrumb('pronunciation_ready_cue_finished', {
       cue_duration_ms: cueEndedAt - cueStartedAt,
     });
     return cueEndedAt;
-  }, [isCurrentRun, readyCuePlayer]);
+  }, [isCurrentRun]);
 
   const scheduleRetry = useCallback((reason: string, runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
@@ -787,33 +812,17 @@ export function PronunciationPractice({
         : null;
       setPhase('ready');
       setMessage('Prepárate…');
-      await readyCuePreload;
-      if (!isCurrentRun(runId)) return;
-      for (
-        let attemptIndex = 0;
-        attemptIndex < 30 && !readyCuePlayer.isLoaded && isCurrentRun(runId);
-        attemptIndex += 1
-      ) {
-        await new Promise((resolve) => setTimeout(resolve, 50));
-      }
-      if (!isCurrentRun(runId)) return;
       // Ensure no model-audio tail can leak into the learner's microphone
       // window before the ready cue establishes the three-second boundary.
       modelPlayer.pause();
       let cueEndedAt = Date.now();
-      if (readyCuePlayer.isLoaded) {
-        try {
-          const playedCueEndedAt = await playReadyCueAndWait(runId);
-          if (!playedCueEndedAt || !isCurrentRun(runId)) return;
-          cueEndedAt = playedCueEndedAt;
-        } catch (cueError) {
-          addDiagnosticBreadcrumb('pronunciation_ready_cue_skipped', {
-            reason: cueError instanceof Error ? cueError.message : String(cueError),
-          });
-        }
-      } else {
+      try {
+        const playedCueEndedAt = await playReadyCueAndWait(runId);
+        if (!playedCueEndedAt || !isCurrentRun(runId)) return;
+        cueEndedAt = playedCueEndedAt;
+      } catch (cueError) {
         addDiagnosticBreadcrumb('pronunciation_ready_cue_skipped', {
-          reason: 'Ready cue did not load.',
+          reason: cueError instanceof Error ? cueError.message : String(cueError),
         });
       }
       if (!isCurrentRun(runId)) return;
@@ -872,7 +881,7 @@ export function PronunciationPractice({
         runId,
       );
     }
-  }, [isCurrentRun, modelPlayer, phrase, playReadyCueAndWait, readyCuePlayer, readyCuePreload, recorder, resetVoiceEvidence, scheduleRetry]);
+  }, [isCurrentRun, modelPlayer, phrase, playReadyCueAndWait, recorder, resetVoiceEvidence, scheduleRetry]);
 
   useEffect(() => {
     if (!nativeStreamingAvailable) return undefined;
@@ -1199,18 +1208,18 @@ export function PronunciationPractice({
       } catch {
         // The native object may already be unavailable during app teardown.
       }
-      try {
-        readyCuePlayer.pause();
-      } catch {
-        // The native object may already be unavailable during app teardown.
+      const activeReadyCuePlayer = activeReadyCuePlayerRef.current;
+      activeReadyCuePlayerRef.current = null;
+      if (activeReadyCuePlayer) {
+        try {
+          activeReadyCuePlayer.pause();
+          activeReadyCuePlayer.release();
+        } catch {
+          // The native object may already be unavailable during app teardown.
+        }
       }
       try {
         modelPlayerRef.current.release();
-      } catch {
-        // Release is idempotent from the component's point of view.
-      }
-      try {
-        readyCuePlayer.release();
       } catch {
         // Release is idempotent from the component's point of view.
       }
@@ -1223,7 +1232,7 @@ export function PronunciationPractice({
       });
       retiredModelPlayersRef.current = [];
     };
-  }, [readyCuePlayer]);
+  }, []);
 
   useEffect(() => {
     const runId = runIdRef.current + 1;
