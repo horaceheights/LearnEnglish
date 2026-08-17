@@ -93,6 +93,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
   const { isUpdatePending } = Updates.useUpdates();
   const currentVersion = Constants.nativeAppVersion || Updates.runtimeVersion || '1.6.0';
   const currentBuild = Constants.nativeBuildVersion || 'no disponible';
+  const isPreviewBuild = Updates.channel === 'preview';
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
   const useTwoColumns = (isLandscape && viewportWidth >= 700 && fontScale <= 1.2) || viewportWidth >= 900;
@@ -266,6 +267,15 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.page}>
+        {isPreviewBuild ? (
+          <View accessibilityRole="alert" style={styles.previewBanner}>
+            <MaterialIcons color="#7a3e00" name="science" size={20} />
+            <View style={styles.previewBannerCopy}>
+              <Text style={styles.previewBannerTitle}>VERSIÓN DE PRUEBA</Text>
+              <Text style={styles.previewBannerText}>Estos cambios todavía no se han enviado a los testers.</Text>
+            </View>
+          </View>
+        ) : null}
         <View style={styles.topBar}>
           <View style={styles.brandBlock}>
             <Image
@@ -541,6 +551,19 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { alignSelf: 'center', gap: 12, maxWidth: 1080, padding: 14, paddingBottom: 28, width: '100%' },
+  previewBanner: {
+    alignItems: 'center',
+    backgroundColor: '#fff0c7',
+    borderColor: '#e6a84a',
+    borderRadius: 16,
+    borderWidth: 2,
+    flexDirection: 'row',
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+  previewBannerCopy: { flex: 1, marginLeft: 10 },
+  previewBannerTitle: { color: '#7a3e00', fontSize: 11, fontWeight: '900', letterSpacing: 1 },
+  previewBannerText: { color: '#7a4d1d', fontSize: 11, marginTop: 2 },
   topBar: {
     alignItems: 'center',
     backgroundColor: '#fff',

@@ -62,3 +62,4 @@ Deployment notes for `Vercel + Koyeb` are in [DEPLOY.md](C:/Users/gorre/Document
 
 - Spanish tester guide: [GUIA_PRUEBAS_TESTERS_ES.md](GUIA_PRUEBAS_TESTERS_ES.md)
 - Internal engine checklist: [ENGINE_QA_CHECKLIST.md](ENGINE_QA_CHECKLIST.md)
+- Owner-first mobile release flow: [mobile/RELEASE.md](mobile/RELEASE.md)

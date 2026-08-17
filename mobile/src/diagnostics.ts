@@ -81,6 +81,7 @@ export function initializeDiagnostics(): void {
   });
 
   Sentry.setTags({
+    'expo.channel': Updates.channel || 'development',
     'expo.update_id': Updates.updateId || 'embedded',
     'expo.embedded_update': String(Updates.isEmbeddedLaunch),
     'expo.runtime_version': Updates.runtimeVersion || 'unknown',
