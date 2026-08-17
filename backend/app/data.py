@@ -827,7 +827,7 @@ def people_recognize_cards() -> list[LessonCard]:
                 stage="Recognize",
                 correct_option_id=person,
                 options=[person_choice(option_id, "") for option_id in option_ids],
-                audio_text="",
+                audio_text=PEOPLE[person]["label"],
                 answer_audio_text=PEOPLE[person]["label"],
             )
         )
@@ -848,13 +848,13 @@ def people_recognize_cards() -> list[LessonCard]:
                 stage="Recognize",
                 correct_option_id=correct_id,
                 options=[action_choice(option_id, "") for option_id in option_ids],
-                audio_text="",
+                audio_text=sentence,
                 answer_audio_text=sentence,
             )
         )
 
     # Reverse the relationship: the picture becomes the prompt and all choices
-    # are written sentences. No model audio plays until after the answer.
+    # are written sentences, so the answer audio remains post-selection only.
     for person, action in LESSON_1_CORE_SENTENCE_PAIRS:
         correct_id = action_card_id(person, action)
         sentence_options = stable_shuffle(sentence_ids, f"people-recognize-reverse-{correct_id}")
