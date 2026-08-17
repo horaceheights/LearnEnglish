@@ -16,7 +16,7 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { absoluteMediaUrl, courseAudioUrl, lessonVideoUrl, READY_CUE_URL, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { absoluteMediaUrl, courseAudioUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -78,6 +78,7 @@ const VOICE_PEAK_ABOVE_THRESHOLD_DB = 2;
 const MIN_AZURE_SNR_DB = 8;
 const MIN_AZURE_SPEECH_MS = 250;
 const MIN_AZURE_RECOGNITION_CONFIDENCE = 0.2;
+const READY_CUE = require('../../assets/ready-cue.wav');
 const SUCCESS_CHIME = require('../../assets/success-chime.wav');
 
 function showMicrophonePermissionAlert(canAskAgain: boolean) {
@@ -231,7 +232,7 @@ export function PronunciationPractice({
   }));
   const modelPlayerRef = useRef(modelPlayer);
   const retiredModelPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
-  const [readyCuePlayer] = useState(() => createAudioPlayer(READY_CUE_URL, {
+  const [readyCuePlayer] = useState(() => createAudioPlayer(READY_CUE, {
     keepAudioSessionActive: true,
   }));
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, {
@@ -239,7 +240,7 @@ export function PronunciationPractice({
     keepAudioSessionActive: true,
   });
   const [readyCuePreload] = useState(() =>
-    preload(READY_CUE_URL).catch(() => undefined),
+    preload(READY_CUE).catch(() => undefined),
   );
   const modelStatus = useAudioPlayerStatus(modelPlayer);
   const [phase, setPhase] = useState<Phase>('model');
