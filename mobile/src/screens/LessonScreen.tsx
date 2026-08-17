@@ -550,6 +550,7 @@ export function LessonScreen({
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice' || currentCard?.stage === 'Speak';
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isListen = currentCard?.stage === 'Listen';
+  const isStageOnlyHeader = !isPronunciation && !currentCard?.prompt?.trim();
   // Pronunciation results remain visible for three seconds inside the practice
   // component, then advance automatically without a swipe-review step.
   const pauseForPronunciationReview = false;
@@ -1570,14 +1571,16 @@ export function LessonScreen({
           styles.contentHeader,
           useCompactPhoneLayout ? styles.contentHeaderCompact : null,
           isPortrait ? styles.contentHeaderPortrait : null,
+          isStageOnlyHeader ? styles.contentHeaderStageOnly : null,
+          isStageOnlyHeader && isPortrait ? styles.contentHeaderStageOnlyPortrait : null,
           isPronunciation ? styles.contentHeaderPronunciation : null,
           isPronunciation && isPortrait ? styles.contentHeaderPronunciationPortrait : null,
           isCompletedSectionPicker ? styles.reviewContentInactive : null,
         ]}>
-          <Text accessibilityRole="header" style={styles.stage}>
+          <Text accessibilityRole="header" style={[styles.stage, isStageOnlyHeader ? styles.stageOnlyLabel : null]}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
           </Text>
-          <View style={[
+          {!isStageOnlyHeader ? <View style={[
             styles.promptRow,
             isPortrait ? styles.promptRowPortrait : null,
             isPronunciation ? styles.promptRowPronunciation : null,
@@ -1657,7 +1660,7 @@ export function LessonScreen({
                 <Ionicons color="#fff" name="volume-high" size={25} />
               </Pressable>
             ) : null}
-          </View>
+          </View> : null}
         </View>
         <Animated.View
           {...(manualCardNavigation ? cardPanResponder.panHandlers : {})}
@@ -1862,9 +1865,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.09,
     shadowRadius: 6,
   },
+  contentHeaderStageOnly: { paddingBottom: 4, paddingTop: 4 },
+  contentHeaderStageOnlyPortrait: { borderRadius: 16, paddingBottom: 5, paddingTop: 5 },
   contentHeaderPronunciation: { paddingBottom: 3, paddingTop: 3 },
   contentHeaderPronunciationPortrait: { paddingBottom: 5, paddingTop: 5 },
   stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
+  stageOnlyLabel: { lineHeight: 16 },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
   promptRowPronunciation: { minHeight: 28 },

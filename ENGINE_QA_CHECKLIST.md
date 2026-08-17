@@ -70,6 +70,18 @@ Test at least one card from every stage, then run the complete lesson audit.
 - [ ] Auto ON advances exactly once
 - [ ] Last card reaches the completion screen
 
+## Mobile viewport-fit guardrail
+
+Run these checks for every new card pattern before publishing Preview:
+
+- [ ] Test portrait widths of 360, 390, and 412 dp, including an Android device with the system navigation bar visible
+- [ ] A stage-only header uses one compact line and does not reserve an empty prompt row
+- [ ] A prompt image plus four phrase choices fits in the usable screen without overlap or navigation-bar clipping
+- [ ] Long phrase choices remain readable within three lines and do not change the 2x2 grid dimensions
+- [ ] Prompt and answer images use `contain` and never crop heads, hands, or the action being taught
+- [ ] Font scale at 1.15 does not overlap choices; larger accessibility scales remain reachable by scrolling
+- [ ] Capture one Engine QA screenshot for the longest phrase card in portrait before release
+
 ## Activity-stage matrix
 
 ### Action Introduction

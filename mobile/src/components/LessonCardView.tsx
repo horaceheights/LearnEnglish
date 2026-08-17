@@ -60,6 +60,13 @@ export function LessonCardView({
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
   const isTabletLandscape = isLandscape && Math.min(viewportWidth, viewportHeight) >= 540;
   const hasTextOnlyOptions = card.options.length > 0 && card.options.every((option) => !option.image_url);
+  // Image-to-text cards are a recurring lesson pattern. Keep the complete
+  // prompt image and a 2x2 phrase grid inside a phone's usable portrait area.
+  const useDensePortraitTextLayout =
+    !isLandscape &&
+    Boolean(card.prompt_image_url) &&
+    hasTextOnlyOptions &&
+    card.options.length >= 3;
   // Short phone landscape viewports cannot fit two full rows below the prompt image.
   // Keep four text answers in one row there; tablets retain the roomier two-column grid.
   const useTextGrid =
@@ -93,11 +100,15 @@ export function LessonCardView({
         : isCompactLandscape
           ? Math.max(58, Math.min(72, viewportHeight * 0.16))
           : Math.max(72, Math.min(92, viewportHeight * 0.145))
-      : 104
+      : useDensePortraitTextLayout
+        ? Math.max(82, Math.min(94, viewportHeight * 0.1))
+        : 104
     : isLandscape
       ? Math.max(58, viewportHeight * 0.17)
       : 92;
-  const responsiveFeatureImageHeight = isTabletLandscape
+  const responsiveFeatureImageHeight = useDensePortraitTextLayout
+    ? Math.max(170, Math.min(245, viewportHeight * 0.27))
+    : isTabletLandscape
     ? isPronunciation
       ? Math.max(280, Math.min(390, viewportHeight * 0.49))
       : useTextGrid
@@ -255,7 +266,11 @@ export function LessonCardView({
           accessibilityLabel={card.answer_audio_text || card.prompt}
           resizeMode="contain"
           source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
-          style={[styles.promptImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
+          style={[
+            styles.promptImage,
+            useDensePortraitTextLayout ? styles.promptImageDensePortrait : null,
+            { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight },
+          ]}
         />
       ) : null}
       {isPronunciation ? (
@@ -282,6 +297,7 @@ export function LessonCardView({
             styles.options,
             isLandscape ? styles.optionsLandscape : null,
             !isLandscape ? styles.optionsPortrait : null,
+            useDensePortraitTextLayout ? styles.optionsDensePortrait : null,
             isTabletLandscape ? styles.optionsTabletLandscape : null,
           ]}>
             {card.options.map((option, optionIndex) => {
@@ -317,6 +333,7 @@ export function LessonCardView({
                       : null,
                     !isLandscape && option.image_url ? styles.imageOptionPortrait : null,
                     hasTextOnlyOptions ? styles.textOption : null,
+                    useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
                     pressed ? styles.pressed : null,
@@ -354,6 +371,10 @@ export function LessonCardView({
                         style={[styles.optionSpark, { backgroundColor: textTheme.accent }]}
                       />
                       <Text
+                        adjustsFontSizeToFit={useDensePortraitTextLayout}
+                        maxFontSizeMultiplier={useDensePortraitTextLayout ? 1.15 : undefined}
+                        minimumFontScale={useDensePortraitTextLayout ? 0.78 : undefined}
+                        numberOfLines={useDensePortraitTextLayout ? 3 : undefined}
                         style={[
                           styles.optionLabel,
                           styles.textOptionLabel,
@@ -365,9 +386,13 @@ export function LessonCardView({
                                 : textTheme.accent,
                             fontSize: isTabletLandscape
                               ? Math.max(34, Math.min(42, viewportHeight * 0.055))
+                              : useDensePortraitTextLayout
+                                ? Math.max(22, Math.min(26, viewportWidth * 0.064))
                               : Math.max(26, Math.min(34, viewportHeight * 0.052)),
                             lineHeight: isTabletLandscape
                               ? Math.max(40, Math.min(49, viewportHeight * 0.064))
+                              : useDensePortraitTextLayout
+                                ? Math.max(27, Math.min(31, viewportWidth * 0.076))
                               : Math.max(32, Math.min(40, viewportHeight * 0.062)),
                           },
                         ]}
@@ -377,6 +402,7 @@ export function LessonCardView({
                       <View
                         style={[
                           styles.optionUnderline,
+                          useDensePortraitTextLayout ? styles.optionUnderlineDensePortrait : null,
                           {
                             backgroundColor: revealCorrect
                               ? '#3c996c'
@@ -536,6 +562,7 @@ const styles = StyleSheet.create({
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
   promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
+  promptImageDensePortrait: { marginTop: 3 },
   promptActionMedia: { alignSelf: 'center', marginTop: 14, width: '100%' },
   options: {
     flexDirection: 'row',
@@ -546,6 +573,7 @@ const styles = StyleSheet.create({
   },
   optionsLandscape: { gap: 7, marginTop: 5 },
   optionsPortrait: { columnGap: 10, marginTop: 2, rowGap: 10 },
+  optionsDensePortrait: { columnGap: 8, marginTop: 5, rowGap: 8 },
   optionsTabletLandscape: { columnGap: 12, marginTop: 8, rowGap: 10 },
   option: {
     alignItems: 'center',
@@ -612,6 +640,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.14,
     shadowRadius: 4,
   },
+  textOptionDensePortrait: {
+    borderBottomWidth: 4,
+    paddingHorizontal: 9,
+    paddingVertical: 7,
+  },
   optionSpark: {
     borderRadius: 50,
     height: 72,
@@ -622,6 +655,7 @@ const styles = StyleSheet.create({
     width: 72,
   },
   optionUnderline: { borderRadius: 4, height: 5, marginTop: 7, opacity: 0.75, width: 42 },
+  optionUnderlineDensePortrait: { height: 4, marginTop: 5, width: 36 },
   optionLabel: {
     color: '#26372f',
     fontSize: 14,
@@ -633,7 +667,7 @@ const styles = StyleSheet.create({
   textOptionLabel: {
     fontSize: 30,
     fontWeight: '900',
-    letterSpacing: -0.5,
+    letterSpacing: 0,
     lineHeight: 36,
     marginTop: 0,
     textAlign: 'center',
