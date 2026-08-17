@@ -102,7 +102,9 @@ class LessonStructureTests(unittest.TestCase):
         self.assertEqual(8, len(text_to_image))
         self.assertEqual(4, len(image_to_text))
         self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
+        self.assertTrue(all(not card.answer_audio_text for card in text_to_image))
         self.assertTrue(all(not card.audio_text for card in image_to_text))
+        self.assertTrue(all(card.answer_audio_text for card in image_to_text))
 
     def test_lesson_1_listening_hides_the_answer_text(self):
         cards = [card for card in LESSONS["lesson-1-people-actions"].cards if card.stage == "Listen"]

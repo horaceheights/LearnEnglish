@@ -828,7 +828,7 @@ def people_recognize_cards() -> list[LessonCard]:
                 correct_option_id=person,
                 options=[person_choice(option_id, "") for option_id in option_ids],
                 audio_text=PEOPLE[person]["label"],
-                answer_audio_text=PEOPLE[person]["label"],
+                answer_audio_text="",
             )
         )
 
@@ -849,7 +849,7 @@ def people_recognize_cards() -> list[LessonCard]:
                 correct_option_id=correct_id,
                 options=[action_choice(option_id, "") for option_id in option_ids],
                 audio_text=sentence,
-                answer_audio_text=sentence,
+                answer_audio_text="",
             )
         )
 
