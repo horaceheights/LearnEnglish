@@ -310,6 +310,7 @@ export function LessonCardView({
               const showActionVideo = Boolean(actionVideoName) && (
                 card.options.length === 1 || revealCorrect
               );
+              const renderedOptionImageHeight = showHelp ? optionImageHeight * 0.65 : optionImageHeight;
               return (
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
@@ -344,7 +345,7 @@ export function LessonCardView({
                     showActionVideo ? (
                       <LessonActionMedia
                         accessibilityLabel={option.label || card.prompt}
-                        height={showHelp ? optionImageHeight * 0.65 : optionImageHeight}
+                        height={renderedOptionImageHeight}
                         imageUrl={option.image_url}
                         onPress={() => onSelect(option.id)}
                         videoName={actionVideoName!}
@@ -359,9 +360,7 @@ export function LessonCardView({
                           actionVideoName ? styles.actionMedia : styles.optionImage,
                           !actionVideoName && !isLandscape ? styles.optionImagePortrait : null,
                           !actionVideoName && isTabletLandscape ? styles.optionImageTablet : null,
-                          actionVideoName
-                            ? { maxWidth: (showHelp ? optionImageHeight * 0.65 : optionImageHeight) * 1.5 }
-                            : { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight },
+                          { height: renderedOptionImageHeight },
                         ]}
                       />
                     )
@@ -498,13 +497,13 @@ function LessonActionMedia({
         accessibilityLabel={accessibilityLabel}
         resizeMode="cover"
         source={{ uri: absoluteMediaUrl(imageUrl) }}
-        style={[styles.actionMedia, { maxWidth: height * 1.5 }]}
+        style={[styles.actionMedia, { height }]}
       />
     );
   }
 
   return (
-    <View style={[styles.actionMedia, { maxWidth: height * 1.5 }]}>
+    <View style={[styles.actionMedia, { height }]}>
       {!firstFrameRendered ? (
         <Image
           accessible={false}
@@ -616,7 +615,6 @@ const styles = StyleSheet.create({
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {
     alignSelf: 'center',
-    aspectRatio: 1.5,
     backgroundColor: '#f2ebde',
     borderRadius: 17,
     overflow: 'hidden',
