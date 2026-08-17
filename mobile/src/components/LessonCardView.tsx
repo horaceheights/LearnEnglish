@@ -52,8 +52,8 @@ export function LessonCardView({
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
-  const isPronunciation = card.stage === 'Pronunciation Practice';
-  const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar';
+  const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
+  const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar' || card.stage === 'Use';
   const isListenCard = card.stage === 'Listen';
   const isLandscape = viewportWidth > viewportHeight;
   const isCompactLandscape = isLandscape && viewportHeight < 460;

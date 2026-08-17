@@ -2126,7 +2126,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const currentCard = activeLesson.cards[cardIndex];
   const totalCards = activeLesson.cards.length;
   const isPronunciationCard =
-    activeLesson.id === "lesson-3-pronunciation" || currentCard?.stage === "Pronunciation Practice";
+    activeLesson.id === "lesson-3-pronunciation" ||
+    currentCard?.stage === "Pronunciation Practice" ||
+    currentCard?.stage === "Speak";
   const cardPromptText = currentCard ? currentCard.audio_text ?? currentCard.prompt : "";
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
   const isRecognitionLesson =
@@ -2318,18 +2320,24 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     : { color: "var(--muted)", isActive: false };
 
   const renderHighlightedTitle = (text) => {
+    const selectedLabel = currentCard?.options.find((option) => option.id === selectedOptionId)?.label || "";
+    const displayText =
+      currentCard?.stage === "Use" && lastResult === "correct" && selectedLabel
+        ? String(text || "").replace(/_{2,}/, selectedLabel)
+        : text;
     const focusWordsByStage = {
       "More People": new Set(["and", "are"]),
       "New Grammar": new Set(["not"]),
       Grammar: new Set(["is", "are"]),
+      Use: new Set(selectedLabel ? [selectedLabel.toLowerCase()] : []),
     };
     const focusWords = focusWordsByStage[currentCard?.stage];
 
-    if (!focusWords || !text) {
-      return text;
+    if (!focusWords || !displayText) {
+      return displayText;
     }
 
-    return text.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
+    return displayText.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
       if (focusWords.has(part.toLowerCase())) {
         return (
           <span key={`${part}-${index}`} style={newWordHighlightStyle}>
@@ -2997,7 +3005,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     const cardsToPreload = activeLesson.cards.slice(cardIndex, cardIndex + COURSE_AUDIO_PRELOAD_AHEAD);
     const audioItems = cardsToPreload.flatMap((card) => {
-      if (card.stage === "Pronunciation Practice" || activeLesson.id === "lesson-3-pronunciation") {
+      if (
+        card.stage === "Pronunciation Practice" ||
+        card.stage === "Speak" ||
+        activeLesson.id === "lesson-3-pronunciation"
+      ) {
         return (card.options || []).flatMap((option) => {
           const prompt = optionPracticePrompt(option);
           const words = String(prompt || "").match(/[A-Za-z']+/g) || [];
@@ -3939,11 +3951,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const cardStyleFor = (optionId) => {
     const style = { ...styles.cardButton };
     if (selectedOptionId === optionId && lastResult === "correct") {
-      style.borderColor = "var(--green)";
+      style.border = "4px solid var(--green)";
       style.boxShadow = "0 0 0 6px var(--green-soft), 0 12px 30px rgba(22, 33, 39, 0.08)";
     }
     if (selectedOptionId === optionId && lastResult === "wrong") {
-      style.borderColor = "var(--red)";
+      style.border = "4px solid var(--red)";
       style.boxShadow = "0 0 0 6px var(--red-soft), 0 12px 30px rgba(22, 33, 39, 0.08)";
     }
     return style;
@@ -4473,7 +4485,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       textOverflow: "ellipsis",
                     }}
                   >
-                    Pronunciation
+                    {currentCard.stage === "Speak" ? "Speak" : "Pronunciation"}
                   </h1>
                 </button>
               ) : null}
@@ -4516,10 +4528,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   color: "var(--text)",
                   padding: 0,
                   margin: 0,
-                  cursor: "pointer",
+                  cursor: isPronunciationCard || cardPromptText.trim() ? "pointer" : "default",
                   width: "100%",
                 }}
-                aria-label={`Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : currentCard.prompt}`}
+                aria-label={
+                  isPronunciationCard || cardPromptText.trim()
+                    ? `Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : currentCard.prompt}`
+                    : `${currentCard.stage} stage`
+                }
               >
                 {currentCard.stage ? (
                   <div
@@ -4536,7 +4552,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   </div>
                 ) : null}
                 <h1 style={titleStyle}>
-                  {isPronunciationCard ? "Pronunciation Practice" : renderHighlightedTitle(currentCard.prompt)}
+                  {isPronunciationCard
+                    ? currentCard.stage === "Speak" ? "Speak" : "Pronunciation Practice"
+                    : renderHighlightedTitle(currentCard.prompt)}
                 </h1>
               </button>
             ) : null}

@@ -31,6 +31,8 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   }
   if (
     normalizedStage.includes('pronunciation') ||
+    normalizedStage === 'speak' ||
+    normalizedStage === 'learn' ||
     normalizedStage.includes('vocab') ||
     normalizedStage.includes('new word')
   ) {
@@ -38,6 +40,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   }
   if (
     normalizedStage.includes('action') ||
+    normalizedStage === 'use' ||
     normalizedStage.includes('grammar') ||
     normalizedStage.includes('pattern') ||
     normalizedStage.includes('negation')
@@ -46,6 +49,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   }
   if (
     normalizedStage.includes('plural') ||
+    normalizedStage === 'recognize' ||
     normalizedStage.includes('meaning') ||
     normalizedStage.includes('people') ||
     normalizedStage.includes('family') ||

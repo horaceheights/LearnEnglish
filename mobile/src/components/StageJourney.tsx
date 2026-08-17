@@ -39,6 +39,10 @@ const STAGE_COLORS = [
 function stageIcon(stage: string): StageIconName {
   const normalized = stage.toLowerCase();
 
+  if (normalized === 'speak') return 'mic-outline';
+  if (normalized === 'use') return 'extension-puzzle-outline';
+  if (normalized === 'learn') return 'book-outline';
+  if (normalized === 'recognize') return 'images-outline';
   if (normalized.includes('pronunciation')) return 'mic-outline';
   if (normalized.includes('listen')) return 'ear-outline';
   if (normalized.includes('grammar') || normalized.includes('negation')) return 'text-outline';

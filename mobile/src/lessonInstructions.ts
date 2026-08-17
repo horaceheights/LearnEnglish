@@ -7,6 +7,10 @@ const SPANISH_FIRST_LESSONS = new Set([
 ]);
 
 const SPANISH_STAGE_LABELS: Record<string, string> = {
+  'Learn': 'Aprende',
+  'Recognize': 'Reconoce',
+  'Speak': 'Habla',
+  'Use': 'Usa',
   'Action Introduction': 'Presentación de acciones',
   'Family': 'Familia',
   'Family Action Practice': 'Acciones en familia',
@@ -38,6 +42,10 @@ const SPANISH_INSTRUCTION_PROMPTS: Record<string, string> = {
 };
 
 const SHORT_SPANISH_STAGE_LABELS: Record<string, string> = {
+  'Learn': 'Aprende',
+  'Recognize': 'Reconoce',
+  'Speak': 'Habla',
+  'Use': 'Usa',
   'Action Introduction': 'Acciones',
   'Family': 'Familia',
   'Family Action Practice': 'Acciones',
@@ -66,6 +74,10 @@ const SHORT_SPANISH_STAGE_LABELS: Record<string, string> = {
 };
 
 const SHORT_ENGLISH_STAGE_LABELS: Record<string, string> = {
+  'Learn': 'Learn',
+  'Recognize': 'Recognize',
+  'Speak': 'Speak',
+  'Use': 'Use',
   'Action Introduction': 'Actions',
   'Family Action Practice': 'Actions',
   'Family Challenge': 'Challenge',

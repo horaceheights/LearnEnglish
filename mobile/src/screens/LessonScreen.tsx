@@ -312,7 +312,7 @@ export function LessonScreen({
     const text = card.audio_text ?? card.prompt ?? '';
     const requests: Promise<void>[] = [];
     if (text.trim()) {
-      const pronunciation = card.stage === 'Pronunciation Practice';
+      const pronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
       const variant = pronunciation
         ? 'split-ing'
         : text.trim().toLowerCase() === 'what is it?'
@@ -547,8 +547,8 @@ export function LessonScreen({
   ]);
 
   const currentCard = lesson?.cards[cardIndex];
-  const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
-  const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
+  const isPronunciation = currentCard?.stage === 'Pronunciation Practice' || currentCard?.stage === 'Speak';
+  const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isListen = currentCard?.stage === 'Listen';
   // Pronunciation results remain visible for three seconds inside the practice
   // component, then advance automatically without a swipe-review step.
@@ -1345,7 +1345,7 @@ export function LessonScreen({
         ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
         : currentCard.prompt;
     const selectedFocusWords = selectedOption?.label?.toLowerCase().match(/[a-z']+/g) || [];
-    const focus = currentCard.stage === 'Grammar'
+    const focus = currentCard.stage === 'Grammar' || currentCard.stage === 'Use'
       ? new Set(['is', 'are', ...selectedFocusWords])
       : currentCard.stage === 'New Grammar'
         ? new Set(['not', ...selectedFocusWords])

@@ -297,6 +297,17 @@ LESSON_1_SENTENCE_PAIRS = [
     ("woman", "standing"),
 ]
 
+# Lesson 1.1 deliberately introduces one clear sentence for each person and
+# only four visually distinct actions. The remaining action and plural assets
+# stay available for the stepped 1.2 and 1.3 rebuilds.
+LESSON_1_CORE_SENTENCE_PAIRS = [
+    ("boy", "running"),
+    ("girl", "walking"),
+    ("man", "sitting"),
+    ("woman", "standing"),
+]
+LESSON_1_CORE_ACTIONS = [action for _person, action in LESSON_1_CORE_SENTENCE_PAIRS]
+
 LESSON_1_RECOGNITION_GROUPS = [
     ["boy-running", "girl-walking", "man-walking", "woman-standing"],
     ["boy-reading", "girl-writing", "man-swimming", "woman-reading"],
@@ -764,16 +775,190 @@ def text_choice(option_id: str, label: str) -> ChoiceOption:
 
 def people_action_cards() -> list[LessonCard]:
     return [
-        *people_new_vocab_cards(),
-        *people_subject_practice_cards(),
-        *people_action_intro_cards(),
-        *people_meaning_practice_cards(),
-        *people_plural_intro_cards(),
-        *people_plural_challenge_cards(),
-        *people_listen_cards(),
-        *people_pronunciation_cards(),
-        *people_grammar_cards(),
+        *people_learn_cards(),
+        *people_recognize_cards(),
+        *people_core_listen_cards(),
+        *people_core_speak_cards(),
+        *people_use_cards(),
     ]
+
+
+def people_learn_cards() -> list[LessonCard]:
+    cards = [
+        LessonCard(
+            prompt=PEOPLE[person]["label"],
+            stage="Learn",
+            correct_option_id=person,
+            options=[person_choice(person)],
+            audio_text=PEOPLE[person]["label"],
+        )
+        for person in PEOPLE_IN_ORDER
+    ]
+
+    for person, action in LESSON_1_CORE_SENTENCE_PAIRS:
+        option_id = action_card_id(person, action)
+        cards.append(
+            LessonCard(
+                prompt=ACTIONS[action],
+                stage="Learn",
+                correct_option_id=option_id,
+                options=[action_choice(option_id, ACTIONS[action])],
+                audio_text=ACTIONS[action],
+            )
+        )
+
+    return cards
+
+
+def people_recognize_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    # Text to image begins with two choices, then expands to four.
+    for index, person in enumerate(PEOPLE_IN_ORDER):
+        candidates = (
+            [person, PEOPLE_IN_ORDER[(index + 1) % len(PEOPLE_IN_ORDER)]]
+            if index < 2
+            else PEOPLE_IN_ORDER
+        )
+        option_ids = stable_shuffle(candidates, f"people-recognize-person-{person}")
+        cards.append(
+            LessonCard(
+                prompt=PEOPLE[person]["label"],
+                stage="Recognize",
+                correct_option_id=person,
+                options=[person_choice(option_id, "") for option_id in option_ids],
+                audio_text="",
+                answer_audio_text=PEOPLE[person]["label"],
+            )
+        )
+
+    sentence_ids = [action_card_id(person, action) for person, action in LESSON_1_CORE_SENTENCE_PAIRS]
+    for index, (person, action) in enumerate(LESSON_1_CORE_SENTENCE_PAIRS):
+        correct_id = action_card_id(person, action)
+        candidates = (
+            [correct_id, sentence_ids[(index + 1) % len(sentence_ids)]]
+            if index < 2
+            else sentence_ids
+        )
+        option_ids = stable_shuffle(candidates, f"people-recognize-sentence-{correct_id}")
+        sentence = action_sentence(person, action)
+        cards.append(
+            LessonCard(
+                prompt=sentence,
+                stage="Recognize",
+                correct_option_id=correct_id,
+                options=[action_choice(option_id, "") for option_id in option_ids],
+                audio_text="",
+                answer_audio_text=sentence,
+            )
+        )
+
+    # Reverse the relationship: the picture becomes the prompt and all choices
+    # are written sentences. No model audio plays until after the answer.
+    for person, action in LESSON_1_CORE_SENTENCE_PAIRS:
+        correct_id = action_card_id(person, action)
+        sentence_options = stable_shuffle(sentence_ids, f"people-recognize-reverse-{correct_id}")
+        sentence = action_sentence(person, action)
+        cards.append(
+            LessonCard(
+                prompt="",
+                stage="Recognize",
+                correct_option_id=correct_id,
+                options=[
+                    text_choice(option_id, action_sentence(*parse_action_card_id(option_id)))
+                    for option_id in sentence_options
+                ],
+                audio_text="",
+                answer_audio_text=sentence,
+                prompt_image_url=image_url(person_image(person, action)),
+            )
+        )
+
+    return cards
+
+
+def people_core_listen_cards() -> list[LessonCard]:
+    sentence_ids = [action_card_id(person, action) for person, action in LESSON_1_CORE_SENTENCE_PAIRS]
+    cards: list[LessonCard] = []
+
+    # First listen with two choices, then retrieve the same meaning from four.
+    for pass_index, choice_count in enumerate((2, 4), 1):
+        for index, (person, action) in enumerate(LESSON_1_CORE_SENTENCE_PAIRS):
+            correct_id = action_card_id(person, action)
+            candidates = (
+                [correct_id, sentence_ids[(index + 1) % len(sentence_ids)]]
+                if choice_count == 2
+                else sentence_ids
+            )
+            option_ids = stable_shuffle(
+                candidates,
+                f"people-listen-pass-{pass_index}-{correct_id}",
+            )
+            cards.append(
+                LessonCard(
+                    prompt="Listen and choose.",
+                    stage="Listen",
+                    correct_option_id=correct_id,
+                    options=[action_choice(option_id, "") for option_id in option_ids],
+                    audio_text=action_sentence(person, action),
+                )
+            )
+
+    return cards
+
+
+def people_core_speak_cards() -> list[LessonCard]:
+    return [
+        LessonCard(
+            prompt=action_sentence(person, action),
+            stage="Speak",
+            correct_option_id=action_card_id(person, action),
+            options=[
+                action_choice(
+                    action_card_id(person, action),
+                    action_sentence(person, action),
+                )
+            ],
+            audio_text=action_sentence(person, action),
+        )
+        for person, action in LESSON_1_CORE_SENTENCE_PAIRS
+    ]
+
+
+def people_use_cards() -> list[LessonCard]:
+    cards: list[LessonCard] = []
+
+    for person, action in LESSON_1_CORE_SENTENCE_PAIRS:
+        sentence = action_sentence(person, action)
+        people_options = stable_shuffle(PEOPLE_IN_ORDER, f"people-use-person-{person}-{action}")
+        cards.append(
+            LessonCard(
+                prompt=f"The ___ is {action}.",
+                stage="Use",
+                correct_option_id=person,
+                options=[text_choice(option_id, option_id) for option_id in people_options],
+                audio_text="",
+                answer_audio_text=sentence,
+                prompt_image_url=image_url(person_image(person, action)),
+            )
+        )
+
+    for person, action in LESSON_1_CORE_SENTENCE_PAIRS:
+        sentence = action_sentence(person, action)
+        action_options = stable_shuffle(LESSON_1_CORE_ACTIONS, f"people-use-action-{person}-{action}")
+        cards.append(
+            LessonCard(
+                prompt=f"{PEOPLE[person]['label']} is ___.",
+                stage="Use",
+                correct_option_id=action,
+                options=[text_choice(option_id, option_id) for option_id in action_options],
+                audio_text="",
+                answer_audio_text=sentence,
+                prompt_image_url=image_url(person_image(person, action)),
+            )
+        )
+
+    return cards
 
 
 def people_new_vocab_cards() -> list[LessonCard]:
@@ -2155,28 +2340,24 @@ def place_grammar_cards() -> list[LessonCard]:
 
 LESSON_1 = Lesson(
     id="lesson-1-people-actions",
-    title="1.1 People and Actions",
+    title="1.1 People and Core Actions",
     level="Beginner A1",
     unit_id="unit-1",
     unit_title="Unit 1: People, Actions, And Basic Sentences",
     lesson_id="lesson-1",
     lesson_title="Lesson 1: People and Pronouns",
     sub_lesson_id="1.1",
-    sub_lesson_title="People and Actions",
-    goal="Match simple English prompts to the correct picture without translation.",
+    sub_lesson_title="People and Core Actions",
+    goal="Recognize, understand, say, and complete four simple sentences about familiar people and actions.",
     vocabulary=[
+        "the",
+        "is",
         "boy",
         "girl",
         "man",
         "woman",
         "running",
         "walking",
-        "swimming",
-        "eating",
-        "drinking",
-        "reading",
-        "writing",
-        "sleeping",
         "sitting",
         "standing",
     ],

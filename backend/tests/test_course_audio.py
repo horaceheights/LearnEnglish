@@ -1,7 +1,12 @@
 import re
 import unittest
 from array import array
+from contextlib import redirect_stdout
+from io import StringIO
 import math
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from unittest.mock import patch
 
 from backend.app.course_audio import (
     AUDIO_PROFILE_VERSION,
@@ -19,6 +24,8 @@ from backend.app.course_audio import (
     voice_for_variant,
 )
 from backend.app.data import LESSONS
+from scripts import build_frontend_audio_manifest
+from scripts.build_frontend_audio_manifest import expected_audio_items
 
 
 class CourseAudioProfileTests(unittest.TestCase):
@@ -42,6 +49,52 @@ class CourseAudioProfileTests(unittest.TestCase):
         self.assertEqual(5, syllable_count("The girl is writing."))
         self.assertEqual(8, syllable_count("The boy and the girl are running."))
         self.assertEqual(9, syllable_count("The girl and the woman are writing."))
+
+    def test_new_speak_stage_is_included_in_the_static_audio_manifest(self):
+        expected = expected_audio_items()
+        phrases = {
+            "The boy is running.",
+            "The girl is walking.",
+            "The man is sitting.",
+            "The woman is standing.",
+        }
+
+        for phrase in phrases:
+            with self.subTest(phrase=phrase):
+                self.assertIn((phrase, "pronunciation_slow", "en-US", "split-ing"), expected)
+
+    def test_incomplete_audio_cache_does_not_replace_the_static_bundle(self):
+        with TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            static_cache = root / "frontend" / "public" / "audio-cache"
+            static_cache.mkdir(parents=True)
+            existing_audio = static_cache / "existing.mp3"
+            existing_audio.write_bytes(b"known-good-audio")
+            manifest_path = root / "frontend" / "lib" / "courseAudioManifest.json"
+            manifest_path.parent.mkdir(parents=True)
+            manifest_path.write_text('{"existing": "existing.mp3"}\n', encoding="utf-8")
+
+            with (
+                patch.object(build_frontend_audio_manifest, "ROOT", root),
+                patch.object(
+                    build_frontend_audio_manifest,
+                    "expected_audio_items",
+                    return_value={("Missing", "prompt", "en-US", "prompt")},
+                ),
+                patch.object(
+                    build_frontend_audio_manifest,
+                    "cache_path_for",
+                    return_value=root / "backend" / "storage" / "audio-cache" / "missing.mp3",
+                ),
+                redirect_stdout(StringIO()),
+            ):
+                self.assertEqual(1, build_frontend_audio_manifest.main())
+
+            self.assertEqual(b"known-good-audio", existing_audio.read_bytes())
+            self.assertEqual(
+                '{"existing": "existing.mp3"}\n',
+                manifest_path.read_text(encoding="utf-8"),
+            )
 
     def test_short_vocabulary_is_slower_than_full_sentence_pacing(self):
         self.assertEqual(120, target_syllables_per_minute("The man", "prompt", "default"))
