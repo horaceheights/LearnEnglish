@@ -17,6 +17,8 @@ npm run build:preview -- -Platform android
 npm run build:preview -- -Platform ios
 ```
 
+El comando empaqueta únicamente `mobile/`. El backend, el frontend web, el historial de Git y los archivos locales de desarrollo no forman parte de la carga a Expo.
+
 Comparte el enlace de instalación de Preview únicamente con la persona que aprueba los cambios. La app se llama **SpanGlish Preview**, se puede instalar al lado de SpanGlish Production y muestra una franja amarilla indicando que los cambios aún no llegaron a los testers.
 
 ## Flujo normal para cada cambio
