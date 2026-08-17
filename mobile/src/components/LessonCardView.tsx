@@ -15,6 +15,8 @@ const TEXT_OPTION_THEMES = [
   { accent: '#4f5d95', background: '#f0f2fa', border: '#adb5d8' },
 ];
 
+const ACTION_VIDEO_ASPECT_RATIO = 16 / 9;
+
 type Props = {
   audioProvider: CourseAudioProvider;
   audioVoice: CourseAudioVoice;
@@ -78,6 +80,9 @@ export function LessonCardView({
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
   const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
   const useSingleImageLayout = !hasTextOnlyOptions && card.options.length === 1;
+  const useCompactSingleActionVideo = useSingleImageLayout && Boolean(
+    lessonActionVideo(card.options[0]?.image_url),
+  );
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
@@ -299,6 +304,7 @@ export function LessonCardView({
             !isLandscape ? styles.optionsPortrait : null,
             useDensePortraitTextLayout ? styles.optionsDensePortrait : null,
             isTabletLandscape ? styles.optionsTabletLandscape : null,
+            useCompactSingleActionVideo ? styles.singleActionVideoOptions : null,
           ]}>
             {card.options.map((option, optionIndex) => {
               const selected = selectedId === option.id;
@@ -333,6 +339,7 @@ export function LessonCardView({
                         }
                       : null,
                     !isLandscape && option.image_url ? styles.imageOptionPortrait : null,
+                    useCompactSingleActionVideo ? styles.singleActionVideoOption : null,
                     hasTextOnlyOptions ? styles.textOption : null,
                     useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
                     revealCorrect ? styles.correctOption : null,
@@ -348,6 +355,7 @@ export function LessonCardView({
                         height={renderedOptionImageHeight}
                         imageUrl={option.image_url}
                         onPress={() => onSelect(option.id)}
+                        preserveAspectRatio={useSingleImageLayout}
                         videoName={actionVideoName!}
                       />
                     ) : (
@@ -452,12 +460,14 @@ function LessonActionMedia({
   height,
   imageUrl,
   onPress,
+  preserveAspectRatio = false,
   videoName,
 }: {
   accessibilityLabel: string;
   height: number;
   imageUrl: string;
   onPress?: () => void;
+  preserveAspectRatio?: boolean;
   videoName: string;
 }) {
   const reduceMotion = useReducedMotion();
@@ -495,26 +505,32 @@ function LessonActionMedia({
     return (
       <Image
         accessibilityLabel={accessibilityLabel}
-        resizeMode="cover"
+        resizeMode={preserveAspectRatio ? 'contain' : 'cover'}
         source={{ uri: absoluteMediaUrl(imageUrl) }}
-        style={[styles.actionMedia, { height }]}
+        style={[
+          styles.actionMedia,
+          preserveAspectRatio ? styles.singleActionMedia : { height },
+        ]}
       />
     );
   }
 
   return (
-    <View style={[styles.actionMedia, { height }]}>
+    <View style={[
+      styles.actionMedia,
+      preserveAspectRatio ? styles.singleActionMedia : { height },
+    ]}>
       {!firstFrameRendered ? (
         <Image
           accessible={false}
-          resizeMode="cover"
+          resizeMode={preserveAspectRatio ? 'contain' : 'cover'}
           source={{ uri: absoluteMediaUrl(imageUrl) }}
           style={styles.actionMediaLayer}
         />
       ) : null}
       <VideoView
         accessible={false}
-        contentFit="cover"
+        contentFit={preserveAspectRatio ? 'contain' : 'cover'}
         nativeControls={false}
         onFirstFrameRender={() => {
           setFirstFrameRendered(true);
@@ -585,6 +601,11 @@ const styles = StyleSheet.create({
   optionsPortrait: { columnGap: 10, marginTop: 2, rowGap: 10 },
   optionsDensePortrait: { columnGap: 8, marginTop: 5, rowGap: 8 },
   optionsTabletLandscape: { columnGap: 12, marginTop: 8, rowGap: 10 },
+  singleActionVideoOptions: {
+    alignContent: 'center',
+    flex: 1,
+    marginTop: 0,
+  },
   option: {
     alignItems: 'center',
     backgroundColor: '#faf9f5',
@@ -610,6 +631,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 5,
   },
+  singleActionVideoOption: {
+    alignSelf: 'center',
+    width: '90%',
+  },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
@@ -620,6 +645,9 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     position: 'relative',
     width: '100%',
+  },
+  singleActionMedia: {
+    aspectRatio: ACTION_VIDEO_ASPECT_RATIO,
   },
   actionMediaLayer: {
     bottom: 0,
