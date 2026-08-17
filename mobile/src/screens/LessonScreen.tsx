@@ -191,6 +191,7 @@ export function LessonScreen({
   const grammarAudioTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const grammarAnswerAwaitingRef = useRef(false);
   const grammarAnswerWasPlayingRef = useRef(false);
+  const grammarCompletionHandledRef = useRef(false);
   const singleCardAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const singleCardFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const singleCardAudioAwaitingRef = useRef(false);
@@ -801,6 +802,7 @@ export function LessonScreen({
     }
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
+    grammarCompletionHandledRef.current = false;
     if (grammarAudioTimerRef.current) {
       clearTimeout(grammarAudioTimerRef.current);
       grammarAudioTimerRef.current = null;
@@ -821,7 +823,7 @@ export function LessonScreen({
       cardIndex >= reviewStageBounds.end
     ) {
       audioPlaybackRequestRef.current += 1;
-      audioPlayer.pause();
+      audioPlayerRef.current.pause();
       setCompletedLessonMode('sections');
       setReviewStageBounds(null);
       setGrammarCompleted(false);
@@ -838,7 +840,7 @@ export function LessonScreen({
     setGrammarCompleted(false);
     setSelectedId(null);
     setResult(null);
-  }, [audioPlayer, cardIndex, completedLessonMode, lesson, reviewStageBounds]);
+  }, [cardIndex, completedLessonMode, lesson, reviewStageBounds]);
 
   const completeAutomaticSingleCard = useCallback(() => {
     if (!isAutomaticSingleCard || singleCardAdvanceTimerRef.current) return;
@@ -1097,7 +1099,8 @@ export function LessonScreen({
   }, [cardIndex]);
 
   const grammarAnimationComplete = useCallback(() => {
-    if (!currentCard || !isGrammar) return;
+    if (!currentCard || !isGrammar || grammarCompletionHandledRef.current) return;
+    grammarCompletionHandledRef.current = true;
     const selectedOption = currentCard.options.find((option) => option.id === selectedId);
     const completedSentence = selectedOption?.label
       ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
@@ -1137,6 +1140,7 @@ export function LessonScreen({
     }
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
+    grammarCompletionHandledRef.current = false;
     if (grammarAudioTimerRef.current) {
       clearTimeout(grammarAudioTimerRef.current);
       grammarAudioTimerRef.current = null;
