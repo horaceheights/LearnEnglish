@@ -56,7 +56,7 @@ class CourseAudioProfileTests(unittest.TestCase):
             "The boy is running.",
             "The girl is walking.",
             "The man is sitting.",
-            "The woman is standing.",
+            "The man is standing.",
         }
 
         for phrase in phrases:

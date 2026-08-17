@@ -304,7 +304,7 @@ LESSON_1_CORE_SENTENCE_PAIRS = [
     ("boy", "running"),
     ("girl", "walking"),
     ("man", "sitting"),
-    ("woman", "standing"),
+    ("man", "standing"),
 ]
 LESSON_1_CORE_ACTIONS = [action for _person, action in LESSON_1_CORE_SENTENCE_PAIRS]
 

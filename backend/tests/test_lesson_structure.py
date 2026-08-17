@@ -89,6 +89,23 @@ class LessonStructureTests(unittest.TestCase):
         for deferred_word in ["are", "they", "not", "swimming", "sleeping", "reading", "writing"]:
             self.assertNotIn(deferred_word, lesson_text)
 
+    def test_lesson_1_position_change_keeps_the_same_person(self):
+        lesson = LESSONS["lesson-1-people-actions"]
+        position_cards = {
+            card.prompt: card
+            for card in lesson.cards
+            if card.stage == "Learn" and card.prompt in {"Sitting", "Standing"}
+        }
+
+        self.assertEqual({"Sitting", "Standing"}, set(position_cards))
+        self.assertEqual(
+            ["man_is_sitting.webp", "man_is_standing.webp"],
+            [
+                urlparse(position_cards[prompt].options[0].image_url).path.rsplit("/", 1)[-1]
+                for prompt in ["Sitting", "Standing"]
+            ],
+        )
+
     def test_lesson_1_recognition_works_in_both_directions(self):
         cards = [card for card in LESSONS["lesson-1-people-actions"].cards if card.stage == "Recognize"]
         text_to_image = [
