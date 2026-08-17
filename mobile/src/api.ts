@@ -3,6 +3,7 @@ import { fetch } from 'expo/fetch';
 import { File } from 'expo-file-system';
 
 import { API_BASE_URL } from './config';
+import { getPreviewLesson } from './previewLessons';
 import type {
   LearnerProfile,
   LessonFeedbackInput,
@@ -99,6 +100,8 @@ export function getLessons(): Promise<LessonSummary[]> {
 }
 
 export async function getLesson(lessonId: string): Promise<Lesson> {
+  const previewLesson = getPreviewLesson(lessonId);
+  if (previewLesson) return previewLesson;
   return jsonRequest(`/api/lessons/${lessonId}`);
 }
 

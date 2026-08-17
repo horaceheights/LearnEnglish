@@ -1,4 +1,6 @@
+import json
 import unittest
+from pathlib import Path
 from urllib.parse import urlparse
 
 from backend.app.data import LESSON_IMAGE_DIR, LESSONS
@@ -23,6 +25,23 @@ LEGACY_STAGES = [
 
 
 class LessonStructureTests(unittest.TestCase):
+    def test_mobile_preview_snapshot_matches_lesson_1(self):
+        lesson = LESSONS["lesson-1-people-actions"]
+        snapshot_path = (
+            Path(__file__).resolve().parents[2]
+            / "mobile"
+            / "src"
+            / "generated"
+            / "lesson-1-people-actions.json"
+        )
+        snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+        lesson_payload = (
+            lesson.model_dump(mode="json")
+            if hasattr(lesson, "model_dump")
+            else json.loads(lesson.json())
+        )
+        self.assertEqual(lesson_payload, snapshot)
+
     def test_lesson_1_uses_the_five_stage_journey(self):
         lesson = LESSONS["lesson-1-people-actions"]
         stages = list(dict.fromkeys(card.stage for card in lesson.cards))
