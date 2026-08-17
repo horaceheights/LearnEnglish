@@ -61,6 +61,8 @@ type Props = {
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
 const MAX_AUTOMATIC_ATTEMPTS = 2;
 const GRADING_REVIEW_MS = 3000;
+const RECORDING_REVEAL_MS = 650;
+const RECORDING_LOAD_TIMEOUT_MS = 4000;
 const NO_SPEECH_LISTEN_MS = 3000;
 const IOS_SPEECH_END_SILENCE_MS = 1200;
 const MAX_NO_SPEECH_ROUNDS = 3;
@@ -232,6 +234,7 @@ export function PronunciationPractice({
   const modelPlayerRef = useRef(modelPlayer);
   const retiredModelPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
   const activeReadyCuePlayerRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
+  const activeAttemptPlaybackRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, {
     downloadFirst: true,
     keepAudioSessionActive: true,
@@ -245,6 +248,7 @@ export function PronunciationPractice({
   const [recognizedSyllableKeys, setRecognizedSyllableKeys] = useState<string[]>([]);
   const [continueAfterCoaching, setContinueAfterCoaching] = useState(false);
   const [noSpeechFailure, setNoSpeechFailure] = useState(false);
+  const [reviewingRecording, setReviewingRecording] = useState(false);
   const [gradingFrame, setGradingFrame] = useState(0);
   const [listeningFrame, setListeningFrame] = useState(0);
   const attemptRef = useRef(0);
@@ -273,6 +277,7 @@ export function PronunciationPractice({
   const scoredSyllableKeysRef = useRef(new Set<string>());
   const phraseCompleteTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const successChimePlayed = useRef(false);
+  const gradedAdvanceHandled = useRef(false);
   const pulseAnimation = useRef(new Animated.Value(0)).current;
   const successAnimation = useRef(new Animated.Value(1)).current;
   const waveAnimations = useRef(
@@ -361,11 +366,69 @@ export function PronunciationPractice({
     };
   }, [expectedTokens.length]);
 
+  const playAttemptRecording = useCallback(async (recordingUri: string, runId: number) => {
+    await new Promise((resolve) => setTimeout(resolve, RECORDING_REVEAL_MS));
+    if (!isCurrentRun(runId)) return;
+
+    let player: ReturnType<typeof createAudioPlayer> | null = null;
+    try {
+      await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
+      if (!isCurrentRun(runId)) return;
+
+      player = createAudioPlayer(recordingUri, { keepAudioSessionActive: true });
+      activeAttemptPlaybackRef.current = player;
+      const loadStartedAt = Date.now();
+      while (
+        !player.isLoaded
+        && Date.now() - loadStartedAt < RECORDING_LOAD_TIMEOUT_MS
+        && isCurrentRun(runId)
+      ) {
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
+      if (!isCurrentRun(runId) || !player.isLoaded) {
+        throw new Error('The learner recording did not load for playback.');
+      }
+
+      player.play();
+      let playbackStarted = false;
+      const playbackStartedAt = Date.now();
+      const maximumPlaybackMs = Math.max(5000, (player.duration || 30) * 1000 + 2000);
+      while (Date.now() - playbackStartedAt < maximumPlaybackMs && isCurrentRun(runId)) {
+        if (player.playing) playbackStarted = true;
+        const reachedEnd = player.duration > 0
+          && player.currentTime >= Math.max(0, player.duration - 0.05);
+        if (reachedEnd || (playbackStarted && !player.playing)) break;
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
+      addDiagnosticBreadcrumb('pronunciation_recording_played_back', {
+        attempt: attemptRef.current + 1,
+        duration_ms: player.duration > 0 ? Math.round(player.duration * 1000) : undefined,
+      });
+    } catch (playbackError) {
+      addDiagnosticBreadcrumb('pronunciation_recording_playback_failed', {
+        attempt: attemptRef.current + 1,
+        message: playbackError instanceof Error ? playbackError.message : String(playbackError),
+      });
+    } finally {
+      if (activeAttemptPlaybackRef.current === player) activeAttemptPlaybackRef.current = null;
+      if (player) {
+        try {
+          player.pause();
+          player.release();
+        } catch {
+          // Playback may already be released during screen teardown.
+        }
+      }
+    }
+  }, [isCurrentRun]);
+
   const playModel = useCallback(async (runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
     if (streamingCapture.current) void stopNativeSpeech();
     if (retryTimer.current) clearTimeout(retryTimer.current);
     setResult(null);
+    setReviewingRecording(false);
+    gradedAdvanceHandled.current = false;
     successChimePlayed.current = false;
     setContinueAfterCoaching(false);
     setNoSpeechFailure(false);
@@ -508,6 +571,50 @@ export function PronunciationPractice({
     retryTimer.current = setTimeout(() => playModel(runId), GRADING_REVIEW_MS);
   }, [isCurrentRun, playModel]);
 
+  const completeGradedAttempt = useCallback(async (
+    accepted: boolean,
+    feedbackMessage: string,
+    recordingUri: string,
+    runId: number,
+  ) => {
+    if (!isCurrentRun(runId)) return;
+    const reviewStartedAt = Date.now();
+    let shouldAdvance = accepted;
+    setReviewingRecording(true);
+
+    if (accepted) {
+      setPhase('success');
+      setMessage(feedbackMessage);
+    } else {
+      attemptRef.current += 1;
+      setAttempt(attemptRef.current);
+      shouldAdvance = attemptRef.current >= MAX_AUTOMATIC_ATTEMPTS;
+      if (shouldAdvance) {
+        setContinueAfterCoaching(true);
+        setPhase('success');
+        setMessage(`${feedbackMessage} Seguimos practicando.`);
+      } else {
+        setPhase('retry');
+        setMessage(`${feedbackMessage} Volvemos a intentarlo…`);
+      }
+    }
+
+    await playAttemptRecording(recordingUri, runId);
+    const remainingReviewMs = GRADING_REVIEW_MS - (Date.now() - reviewStartedAt);
+    if (remainingReviewMs > 0) {
+      await new Promise((resolve) => setTimeout(resolve, remainingReviewMs));
+    }
+    if (!isCurrentRun(runId)) return;
+
+    setReviewingRecording(false);
+    if (shouldAdvance) {
+      gradedAdvanceHandled.current = true;
+      onPassed();
+    } else {
+      await playModel(runId);
+    }
+  }, [isCurrentRun, onPassed, playAttemptRecording, playModel]);
+
   const handleNoSpeech = useCallback((runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
     noSpeechRound.current += 1;
@@ -633,12 +740,12 @@ export function PronunciationPractice({
         matched_words: liveMatchedCountRef.current,
         total_words: expectedTokens.length,
       });
-      if (accepted) {
-        setPhase('success');
-        setMessage(nextResult.feedback?.messages.es ?? 'Muy bien.');
-        return;
-      }
-      scheduleRetry(nextResult.feedback?.messages.es ?? 'Inténtalo otra vez.', runId);
+      await completeGradedAttempt(
+        accepted,
+        nextResult.feedback?.messages.es ?? (accepted ? 'Muy bien.' : 'Inténtalo otra vez.'),
+        recordingUri,
+        runId,
+      );
     } catch (scoreError) {
       if (!isCurrentRun(runId)) return;
       if (!shouldScore || !heardSpeech.current || isExpectedNoSpeechRecognition(scoreError)) {
@@ -667,7 +774,7 @@ export function PronunciationPractice({
         }
       }
     }
-  }, [evaluateResult, expectedTokens.length, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, scheduleRetry, userId, voiceEvidence]);
+  }, [completeGradedAttempt, evaluateResult, expectedTokens.length, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, scheduleRetry, userId, voiceEvidence]);
 
   const finishCapture = useCallback(async (shouldScore: boolean) => {
     const runId = runIdRef.current;
@@ -749,11 +856,18 @@ export function PronunciationPractice({
           accuracy: typeof nextAccuracy === 'number' ? Math.round(nextAccuracy) : undefined,
           attempt: attemptRef.current + 1,
         });
-        setPhase('success');
-        setMessage(nextResult.feedback?.messages.es ?? 'Muy bien.');
       } else {
-        scheduleRetry(nextResult.feedback?.messages.es ?? 'Inténtalo otra vez.', runId);
+        addDiagnosticBreadcrumb('pronunciation_retry', {
+          accuracy: typeof nextAccuracy === 'number' ? Math.round(nextAccuracy) : undefined,
+          attempt: attemptRef.current + 1,
+        });
       }
+      await completeGradedAttempt(
+        accepted,
+        nextResult.feedback?.messages.es ?? (accepted ? 'Muy bien.' : 'Inténtalo otra vez.'),
+        recordingUri,
+        runId,
+      );
     } catch (scoreError) {
       if (!isCurrentRun(runId)) return;
       if (isExpectedNoSpeechRecognition(scoreError)) {
@@ -782,7 +896,7 @@ export function PronunciationPractice({
         }
       }
     }
-  }, [evaluateResult, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, recorder, scheduleRetry, userId, voiceEvidence]);
+  }, [completeGradedAttempt, evaluateResult, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, recorder, scheduleRetry, userId, voiceEvidence]);
 
   const startListening = useCallback(async () => {
     const runId = runIdRef.current;
@@ -1218,6 +1332,16 @@ export function PronunciationPractice({
           // The native object may already be unavailable during app teardown.
         }
       }
+      const activeAttemptPlayback = activeAttemptPlaybackRef.current;
+      activeAttemptPlaybackRef.current = null;
+      if (activeAttemptPlayback) {
+        try {
+          activeAttemptPlayback.pause();
+          activeAttemptPlayback.release();
+        } catch {
+          // The recording player may already have completed and released itself.
+        }
+      }
       try {
         modelPlayerRef.current.release();
       } catch {
@@ -1332,12 +1456,17 @@ export function PronunciationPractice({
   }, [passed, phase, successChimePlayer]);
 
   useEffect(() => {
-    if (phase !== 'success' || (!passed && !continueAfterCoaching)) return undefined;
+    if (
+      phase !== 'success'
+      || (!passed && !continueAfterCoaching)
+      || reviewingRecording
+      || gradedAdvanceHandled.current
+    ) return undefined;
     // Give the learner time to read the final grade and advice before the
     // lesson advances to the next slide.
     const timer = setTimeout(onPassed, GRADING_REVIEW_MS);
     return () => clearTimeout(timer);
-  }, [continueAfterCoaching, onPassed, passed, phase]);
+  }, [continueAfterCoaching, onPassed, passed, phase, reviewingRecording]);
 
   const statusColor = phase === 'listening'
     ? '#d95c52'
@@ -1422,7 +1551,7 @@ export function PronunciationPractice({
         accessibilityHint="Reproduce nuevamente el ejemplo en inglés"
         accessibilityLabel="Repetir audio"
         accessibilityRole="button"
-        disabled={phase === 'checking' || phase === 'listening' || phase === 'ready'}
+        disabled={phase === 'checking' || phase === 'listening' || phase === 'ready' || reviewingRecording}
         onPress={() => phase === 'permission' ? void startListening() : playModel()}
       >
         {phase === 'listening' ? (
