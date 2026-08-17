@@ -353,13 +353,15 @@ export function LessonCardView({
                       <Image
                         accessible={false}
                         accessibilityIgnoresInvertColors
-                        resizeMode="contain"
+                        resizeMode={actionVideoName ? 'cover' : 'contain'}
                         source={{ uri: absoluteMediaUrl(option.image_url) }}
                         style={[
-                          styles.optionImage,
-                          !isLandscape ? styles.optionImagePortrait : null,
-                          isTabletLandscape ? styles.optionImageTablet : null,
-                          { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight },
+                          actionVideoName ? styles.actionMedia : styles.optionImage,
+                          !actionVideoName && !isLandscape ? styles.optionImagePortrait : null,
+                          !actionVideoName && isTabletLandscape ? styles.optionImageTablet : null,
+                          actionVideoName
+                            ? { maxWidth: (showHelp ? optionImageHeight * 0.65 : optionImageHeight) * 1.5 }
+                            : { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight },
                         ]}
                       />
                     )
@@ -465,13 +467,20 @@ function LessonActionMedia({
   const player = useVideoPlayer({ uri: lessonVideoUrl(videoName), useCaching: true }, (instance) => {
     instance.loop = false;
     instance.muted = true;
-    if (!reduceMotion) instance.play();
+    instance.pause();
   });
+
+  useEffect(() => {
+    setFirstFrameRendered(false);
+    setVideoFailed(false);
+  }, [videoName]);
 
   useEffect(() => {
     if (reduceMotion) {
       player.pause();
+      player.currentTime = 0;
     } else {
+      player.currentTime = 0;
       player.play();
     }
   }, [player, reduceMotion]);
@@ -487,24 +496,26 @@ function LessonActionMedia({
     return (
       <Image
         accessibilityLabel={accessibilityLabel}
-        resizeMode="contain"
+        resizeMode="cover"
         source={{ uri: absoluteMediaUrl(imageUrl) }}
-        style={[styles.optionImage, styles.optionImagePortrait, { height }]}
+        style={[styles.actionMedia, { maxWidth: height * 1.5 }]}
       />
     );
   }
 
   return (
-    <View style={[styles.actionMedia, { height }]}>
-      <Image
-        accessible={false}
-        resizeMode="contain"
-        source={{ uri: absoluteMediaUrl(imageUrl) }}
-        style={styles.actionMediaLayer}
-      />
+    <View style={[styles.actionMedia, { maxWidth: height * 1.5 }]}>
+      {!firstFrameRendered ? (
+        <Image
+          accessible={false}
+          resizeMode="cover"
+          source={{ uri: absoluteMediaUrl(imageUrl) }}
+          style={styles.actionMediaLayer}
+        />
+      ) : null}
       <VideoView
         accessible={false}
-        contentFit="contain"
+        contentFit="cover"
         nativeControls={false}
         onFirstFrameRender={() => {
           setFirstFrameRendered(true);
@@ -604,6 +615,8 @@ const styles = StyleSheet.create({
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {
+    alignSelf: 'center',
+    aspectRatio: 1.5,
     backgroundColor: '#f2ebde',
     borderRadius: 17,
     overflow: 'hidden',
