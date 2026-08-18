@@ -66,6 +66,8 @@ Test at least one card from every stage, then run the complete lesson audit.
 - [ ] Incorrect choice can be retried
 - [ ] First-attempt score increments only once
 - [ ] Help opens and closes without layout overflow
+- [ ] Help names the exact action for the current card (listen, replay, select, repeat, or wait for automatic advance)
+- [ ] Help closes automatically after moving to the next card
 - [ ] Back to Lessons/QA remains visible
 - [ ] Auto OFF permits result inspection
 - [ ] Auto ON advances exactly once

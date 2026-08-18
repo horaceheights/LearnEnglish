@@ -768,6 +768,7 @@ export function LessonScreen({
     lastPromptTapRef.current = 0;
     translationOpacity.stopAnimation();
     translationOpacity.setValue(0);
+    setShowHelp(false);
     setShowSentenceCoachmark(false);
     setShowSentenceTranslation(false);
   }, [cardIndex, translationOpacity]);

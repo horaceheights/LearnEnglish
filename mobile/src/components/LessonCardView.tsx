@@ -5,6 +5,7 @@ import { useVideoPlayer, VideoView } from 'expo-video';
 import { lessonActionVideo } from '../actionVideos';
 import { absoluteMediaUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { lessonHelpText } from '../lessonHelp';
 import type { LessonCard } from '../types';
 import { PronunciationPractice } from './PronunciationPractice';
 
@@ -62,7 +63,6 @@ export function LessonCardView({
   const reduceMotion = useReducedMotion();
   const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar' || card.stage === 'Use';
-  const isListenCard = card.stage === 'Listen';
   const isLandscape = viewportWidth > viewportHeight;
   const isCompactLandscape = isLandscape && viewportHeight < 460;
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
@@ -277,12 +277,8 @@ export function LessonCardView({
       {showHelp ? (
         <View style={styles.help}>
           <Text accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
-          <Text style={styles.helpText}>
-            {isPronunciation
-              ? 'Escucha la frase, repítela cuando aparezca la señal y revisa las palabras marcadas.'
-              : isListenCard
-                ? 'Escucha con atención y toca la imagen que corresponde.'
-                : 'Toca la imagen o palabra que corresponde a la frase.'}
+          <Text accessibilityLiveRegion="polite" style={styles.helpText}>
+            {lessonHelpText(card)}
           </Text>
         </View>
       ) : null}
