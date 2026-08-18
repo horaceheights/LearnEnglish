@@ -43,14 +43,14 @@ The near-term product is therefore the engine itself:
 Mass content production begins only when:
 
 - [ ] Existing lessons complete reliably across the supported device matrix
-- [ ] Core activities are represented by reusable schemas, not lesson-specific code
-- [ ] A new lesson can be assembled mostly from data and existing activity types
+- [x] Core activities are represented by reusable schemas, not lesson-specific code
+- [x] A new lesson can be assembled mostly from data and existing activity types
 - [ ] Progress, retries, help usage, and mastery signals persist correctly
 - [ ] Audio, image, animation, and haptic behavior is consistent
 - [ ] Interrupted lessons resume safely
 - [ ] Backend/network failures recover without losing learner work
 - [ ] Accessibility and text/layout scaling have been tested
-- [ ] Automated content validation catches broken cards and missing media
+- [x] Automated content validation catches broken cards and missing media
 - [ ] Regression and release checklists are repeatable
 
 After this gate passes, the same engine can support rapid, large-scale course
