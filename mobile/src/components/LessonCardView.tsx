@@ -360,7 +360,7 @@ export function LessonCardView({
                         height={renderedOptionImageHeight}
                         imageUrl={option.image_url}
                         onPress={() => onSelect(option.id)}
-                        preserveAspectRatio={useSingleImageLayout}
+                        useCompactFrame={useSingleImageLayout}
                         videoName={actionVideoName!}
                       />
                     ) : (
@@ -465,14 +465,14 @@ function LessonActionMedia({
   height,
   imageUrl,
   onPress,
-  preserveAspectRatio = false,
+  useCompactFrame = false,
   videoName,
 }: {
   accessibilityLabel: string;
   height: number;
   imageUrl: string;
   onPress?: () => void;
-  preserveAspectRatio?: boolean;
+  useCompactFrame?: boolean;
   videoName: string;
 }) {
   const reduceMotion = useReducedMotion();
@@ -510,11 +510,11 @@ function LessonActionMedia({
     return (
       <Image
         accessibilityLabel={accessibilityLabel}
-        resizeMode={preserveAspectRatio ? 'contain' : 'cover'}
+        resizeMode="cover"
         source={{ uri: absoluteMediaUrl(imageUrl) }}
         style={[
           styles.actionMedia,
-          preserveAspectRatio ? styles.singleActionMedia : { height },
+          useCompactFrame ? styles.singleActionMedia : { height },
         ]}
       />
     );
@@ -523,19 +523,19 @@ function LessonActionMedia({
   return (
     <View style={[
       styles.actionMedia,
-      preserveAspectRatio ? styles.singleActionMedia : { height },
+      useCompactFrame ? styles.singleActionMedia : { height },
     ]}>
       {!firstFrameRendered ? (
         <Image
           accessible={false}
-          resizeMode={preserveAspectRatio ? 'contain' : 'cover'}
+          resizeMode="cover"
           source={{ uri: absoluteMediaUrl(imageUrl) }}
           style={styles.actionMediaLayer}
         />
       ) : null}
       <VideoView
         accessible={false}
-        contentFit={preserveAspectRatio ? 'contain' : 'cover'}
+        contentFit="cover"
         nativeControls={false}
         onFirstFrameRender={() => {
           setFirstFrameRendered(true);
