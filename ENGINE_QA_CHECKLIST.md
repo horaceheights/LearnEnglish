@@ -158,6 +158,9 @@ Run these checks for every new card pattern before publishing Preview:
 - [ ] Lock/unlock during pronunciation recording
 - [ ] Background/foreground during grading
 - [ ] Leave lesson during grammar animation
+- [ ] Backgrounding pauses model/answer audio and does not advance a hidden card
+- [ ] Returning to pronunciation restarts the current phrase without awarding a stale result
+- [ ] Returning during grammar or answer audio safely resumes or advances exactly once
 - [ ] Rotate or attempt to rotate during a lesson
 - [ ] Disable internet before loading a lesson
 - [ ] Disable internet during a non-pronunciation lesson

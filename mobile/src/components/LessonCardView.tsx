@@ -23,6 +23,7 @@ type Props = {
   card: LessonCard;
   level: string;
   lessonId: string;
+  isAppActive: boolean;
   isOffline: boolean;
   optionsInteractive?: boolean;
   userId?: string;
@@ -43,6 +44,7 @@ export function LessonCardView({
   card,
   level,
   lessonId,
+  isAppActive,
   isOffline,
   optionsInteractive = true,
   userId,
@@ -298,6 +300,7 @@ export function LessonCardView({
               : featureImageHeight}
           imageLabel={card.options[0]?.label || card.prompt}
           imageUrl={card.options[0]?.image_url}
+          isAppActive={isAppActive}
           isOffline={isOffline}
           videoName={null}
           level={level}

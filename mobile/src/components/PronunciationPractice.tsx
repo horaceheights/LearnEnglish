@@ -51,6 +51,7 @@ type Props = {
   imageHeight: number;
   imageLabel?: string;
   imageUrl?: string;
+  isAppActive: boolean;
   isOffline: boolean;
   videoName?: string | null;
   level: string;
@@ -202,6 +203,7 @@ export function PronunciationPractice({
   imageHeight,
   imageLabel,
   imageUrl,
+  isAppActive,
   isOffline,
   videoName,
   level,
@@ -429,6 +431,53 @@ export function PronunciationPractice({
     }
   }, [isCurrentRun]);
 
+  const discardLocalRecording = useCallback(async () => {
+    try {
+      await recorder.stop();
+      if (recorder.uri) new File(recorder.uri).delete();
+    } catch {
+      // The fallback recorder may not have been prepared or may already be stopped.
+    }
+  }, [recorder]);
+
+  const discardNativeRecording = useCallback(async () => {
+    try {
+      const nativeResult = await stopNativeSpeech();
+      if (nativeResult.uri) new File(nativeResult.uri).delete();
+    } catch {
+      // Native streaming may already be stopped or unavailable.
+    }
+  }, []);
+
+  const stopTransientPlayback = useCallback(() => {
+    try {
+      modelPlayerRef.current.pause();
+      successChimePlayer.pause();
+    } catch {
+      // A short player may already have completed while interruption begins.
+    }
+    const readyCuePlayer = activeReadyCuePlayerRef.current;
+    activeReadyCuePlayerRef.current = null;
+    if (readyCuePlayer) {
+      try {
+        readyCuePlayer.pause();
+        readyCuePlayer.release();
+      } catch {
+        // The cue may already be released.
+      }
+    }
+    const attemptPlayback = activeAttemptPlaybackRef.current;
+    activeAttemptPlaybackRef.current = null;
+    if (attemptPlayback) {
+      try {
+        attemptPlayback.pause();
+        attemptPlayback.release();
+      } catch {
+        // The learner recording may already have completed.
+      }
+    }
+  }, [successChimePlayer]);
+
   const showUnavailableState = useCallback((reason = 'La pronunciación necesita internet para reproducir y calificar tu voz.') => {
     runIdRef.current += 1;
     if (retryTimer.current) clearTimeout(retryTimer.current);
@@ -436,15 +485,11 @@ export function PronunciationPractice({
     modelLoadTimer.current = null;
     if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
     phraseCompleteTimer.current = null;
-    if (streamingCapture.current) void stopNativeSpeech();
+    if (streamingCapture.current) void discardNativeRecording();
     streamingCapture.current = false;
     captureFinishing.current = false;
-    try {
-      modelPlayerRef.current.pause();
-    } catch {
-      // A remote player may still be waiting for its source.
-    }
-    void recorder.stop().catch(() => undefined);
+    stopTransientPlayback();
+    void discardLocalRecording();
     addDiagnosticBreadcrumb('pronunciation_service_unavailable', {
       attempt: attemptRef.current + 1,
     });
@@ -454,15 +499,40 @@ export function PronunciationPractice({
     setServiceUnavailable(true);
     setPhase('retry');
     setMessage(reason);
-  }, [recorder]);
+  }, [discardLocalRecording, discardNativeRecording, stopTransientPlayback]);
+
+  const pauseForInterruption = useCallback(() => {
+    runIdRef.current += 1;
+    if (retryTimer.current) clearTimeout(retryTimer.current);
+    if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
+    modelLoadTimer.current = null;
+    if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
+    phraseCompleteTimer.current = null;
+    if (streamingCapture.current) void discardNativeRecording();
+    streamingCapture.current = false;
+    captureFinishing.current = false;
+    stopTransientPlayback();
+    void discardLocalRecording();
+    addDiagnosticBreadcrumb('pronunciation_interrupted');
+    setResult(null);
+    setReviewingRecording(false);
+    setNoSpeechFailure(false);
+    setServiceUnavailable(false);
+    setPhase('retry');
+    setMessage('La práctica se pausó. Volveremos a empezar esta frase.');
+  }, [discardLocalRecording, discardNativeRecording, stopTransientPlayback]);
 
   const playModel = useCallback(async (runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
+    if (!isAppActive) {
+      pauseForInterruption();
+      return;
+    }
     if (isOffline) {
       showUnavailableState();
       return;
     }
-    if (streamingCapture.current) void stopNativeSpeech();
+    if (streamingCapture.current) void discardNativeRecording();
     if (retryTimer.current) clearTimeout(retryTimer.current);
     if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
     modelLoadTimer.current = null;
@@ -541,7 +611,7 @@ export function PronunciationPractice({
       });
       showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
     }
-  }, [audioProvider, audioVoice, isCurrentRun, isOffline, phrase, resetVoiceEvidence, showUnavailableState]);
+  }, [audioProvider, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
 
   const playReadyCueAndWait = useCallback(async (runId: number) => {
     const previousCuePlayer = activeReadyCuePlayerRef.current;
@@ -951,6 +1021,10 @@ export function PronunciationPractice({
   const startListening = useCallback(async () => {
     const runId = runIdRef.current;
     if (!isCurrentRun(runId)) return;
+    if (!isAppActive) {
+      pauseForInterruption();
+      return;
+    }
     if (isOffline) {
       showUnavailableState();
       return;
@@ -1037,7 +1111,7 @@ export function PronunciationPractice({
       });
     } catch (recordingError) {
       if (!isCurrentRun(runId)) return;
-      if (streamingCapture.current) void stopNativeSpeech();
+      if (streamingCapture.current) void discardNativeRecording();
       streamingCapture.current = false;
       captureDiagnosticError(recordingError, 'microphone_prepare', {
         attempt: attemptRef.current + 1,
@@ -1048,7 +1122,7 @@ export function PronunciationPractice({
         scheduleRetry('No pudimos abrir el micrófono.', runId);
       }
     }
-  }, [isCurrentRun, isOffline, modelPlayer, phrase, playReadyCueAndWait, recorder, resetVoiceEvidence, scheduleRetry, showUnavailableState]);
+  }, [discardNativeRecording, isAppActive, isCurrentRun, isOffline, modelPlayer, pauseForInterruption, phrase, playReadyCueAndWait, recorder, resetVoiceEvidence, scheduleRetry, showUnavailableState]);
 
   useEffect(() => {
     if (!nativeStreamingAvailable) return undefined;
@@ -1370,7 +1444,7 @@ export function PronunciationPractice({
       modelLoadTimer.current = null;
       if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
       phraseCompleteTimer.current = null;
-      if (streamingCapture.current) void stopNativeSpeech();
+      if (streamingCapture.current) void discardNativeRecording();
       streamingCapture.current = false;
       try {
         modelPlayerRef.current.pause();
@@ -1411,7 +1485,7 @@ export function PronunciationPractice({
       });
       retiredModelPlayersRef.current = [];
     };
-  }, []);
+  }, [discardNativeRecording]);
 
   useEffect(() => {
     const runId = runIdRef.current + 1;
@@ -1427,10 +1501,10 @@ export function PronunciationPractice({
       modelLoadTimer.current = null;
       if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
       phraseCompleteTimer.current = null;
-      if (streamingCapture.current) void stopNativeSpeech();
+      if (streamingCapture.current) void discardNativeRecording();
       streamingCapture.current = false;
     };
-  }, [phrase, playModel]);
+  }, [discardNativeRecording, phrase, playModel]);
 
   useEffect(() => {
     if (phase !== 'model') return;

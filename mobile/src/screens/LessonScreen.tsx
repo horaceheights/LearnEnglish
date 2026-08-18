@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Animated,
+  AppState,
   BackHandler,
   Image,
   Modal,
@@ -209,6 +210,7 @@ export function LessonScreen({
   const finishedSessionRef = useRef(false);
   const resumeHydratedRef = useRef(false);
   const cardTransitioningRef = useRef(false);
+  const appWasInterruptedRef = useRef(false);
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
   const promptTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -228,6 +230,7 @@ export function LessonScreen({
   const [result, setResult] = useState<'correct' | 'wrong' | null>(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [isAppActive, setIsAppActive] = useState(AppState.currentState === 'active');
   const [isComplete, setIsComplete] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
@@ -268,6 +271,13 @@ export function LessonScreen({
 
     return () => subscription.remove();
   }, [onExit]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      setIsAppActive(nextState === 'active');
+    });
+    return () => subscription.remove();
+  }, []);
 
   useEffect(() => {
     if (qaMode) {
@@ -348,6 +358,10 @@ export function LessonScreen({
 
   const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
     if (!text.trim()) return;
+    if (!isAppActive || AppState.currentState !== 'active') {
+      addDiagnosticBreadcrumb('audio_playback_skipped_background', { mode, variant });
+      return;
+    }
     if (isOffline) {
       addDiagnosticBreadcrumb('audio_playback_skipped_offline', { mode, variant });
       return;
@@ -402,7 +416,7 @@ export function LessonScreen({
           'warning',
         );
       });
-  }, [audioProvider, audioVoice, ensureAudioPreloaded, isOffline]);
+  }, [audioProvider, audioVoice, ensureAudioPreloaded, isAppActive, isOffline]);
 
   const playSuccessChime = useCallback(async () => {
     try {
@@ -754,7 +768,7 @@ export function LessonScreen({
   }, [cardIndex, currentCard?.prompt, currentCard?.stage, lesson?.cards.length, lessonId, qaMode]);
 
   useEffect(() => {
-    if (isCompletedSectionPicker || !currentCard || isPronunciation || result !== null) return undefined;
+    if (!isAppActive || isCompletedSectionPicker || !currentCard || isPronunciation || result !== null) return undefined;
     promptAutoplayAwaitingRef.current = true;
     promptAutoplayWasPlayingRef.current = false;
     promptAutoplayFallbackTimerRef.current = setTimeout(() => {
@@ -777,7 +791,7 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
     };
-  }, [cardIndex, currentCard, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, promptAudio, result]);
+  }, [cardIndex, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, promptAudio, result]);
 
   useEffect(() => {
     if (!promptAutoplayAwaitingRef.current) return;
@@ -798,6 +812,13 @@ export function LessonScreen({
 
   const advance = useCallback(() => {
     if (!lesson) return;
+    if (AppState.currentState !== 'active') {
+      appWasInterruptedRef.current = true;
+      addDiagnosticBreadcrumb('card_advance_blocked_background', {
+        card_number: cardIndex + 1,
+      });
+      return;
+    }
     addDiagnosticBreadcrumb('card_advanced', {
       from_card: cardIndex + 1,
       to_card: Math.min(cardIndex + 2, lesson.cards.length),
@@ -856,6 +877,10 @@ export function LessonScreen({
   }, [cardIndex, completedLessonMode, lesson, reviewStageBounds]);
 
   const completeAutomaticSingleCard = useCallback((awardScore = true) => {
+    if (AppState.currentState !== 'active') {
+      appWasInterruptedRef.current = true;
+      return;
+    }
     if (!isAutomaticSingleCard || singleCardAdvanceTimerRef.current) return;
     singleCardAudioAwaitingRef.current = false;
     singleCardAudioWasPlayingRef.current = false;
@@ -874,7 +899,114 @@ export function LessonScreen({
   }, [advance, cardIndex, completedCards, isAutomaticSingleCard]);
 
   useEffect(() => {
-    if (!isAutomaticSingleCard || !singleCardAudioAwaitingRef.current) return;
+    if (!isAppActive) {
+      appWasInterruptedRef.current = true;
+      addDiagnosticBreadcrumb('lesson_backgrounded', {
+        card_number: cardIndex + 1,
+      });
+      audioPlaybackRequestRef.current += 1;
+      try {
+        audioPlayerRef.current.pause();
+      } catch {
+        // The player may already be unavailable while Android backgrounds it.
+      }
+      try {
+        successChimePlayer.pause();
+        tryAgainCuePlayer.pause();
+      } catch {
+        // A short feedback cue may already have completed.
+      }
+      if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
+      if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
+      if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+      if (singleCardAdvanceTimerRef.current) clearTimeout(singleCardAdvanceTimerRef.current);
+      if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
+      if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
+      answerAudioTimerRef.current = null;
+      answerAdvanceTimerRef.current = null;
+      grammarAudioTimerRef.current = null;
+      singleCardAdvanceTimerRef.current = null;
+      singleCardFallbackTimerRef.current = null;
+      promptAutoplayFallbackTimerRef.current = null;
+      promptAutoplayAwaitingRef.current = false;
+      promptAutoplayWasPlayingRef.current = false;
+      setShowSentenceCoachmark(false);
+      return;
+    }
+
+    if (!appWasInterruptedRef.current) return;
+    appWasInterruptedRef.current = false;
+    addDiagnosticBreadcrumb('lesson_foregrounded', {
+      card_number: cardIndex + 1,
+    });
+    setCardRunId((current) => current + 1);
+
+    if (qaMode && !qaAutoAdvance) return;
+    if (answerAudioAwaitingRef.current && result === 'correct' && currentCard?.answer_audio_text) {
+      answerAudioStartedRef.current = false;
+      answerAudioWasPlayingRef.current = false;
+      answerAdvanceTimerRef.current = setTimeout(() => {
+        answerAdvanceTimerRef.current = null;
+        if (!answerAudioAwaitingRef.current) return;
+        answerAudioAwaitingRef.current = false;
+        answerAudioStartedRef.current = false;
+        answerAudioWasPlayingRef.current = false;
+        advance();
+      }, COURSE_AUDIO_FALLBACK_MS);
+      playAnswerAfterChime(currentCard.answer_audio_text);
+      return;
+    }
+
+    if (result === 'correct' && currentCard?.answer_audio_text && !isGrammar) {
+      answerAdvanceTimerRef.current = setTimeout(() => {
+        answerAdvanceTimerRef.current = null;
+        advance();
+      }, OFFLINE_ADVANCE_DELAY_MS);
+      return;
+    }
+
+    if (grammarAnswerAwaitingRef.current && result === 'correct' && currentCard) {
+      grammarAnswerWasPlayingRef.current = false;
+      grammarAudioTimerRef.current = setTimeout(() => {
+        grammarAudioTimerRef.current = null;
+        if (!grammarAnswerAwaitingRef.current) return;
+        grammarAnswerAwaitingRef.current = false;
+        grammarAnswerWasPlayingRef.current = false;
+        advance();
+      }, COURSE_AUDIO_FALLBACK_MS);
+      const selectedOption = currentCard.options.find((option) => option.id === selectedId);
+      const completedSentence = selectedOption?.label
+        ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
+        : currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
+      playAudio(currentCard.answer_audio_text || completedSentence, 'prompt', 'answer');
+      return;
+    }
+
+    if (result === 'correct' && isGrammar && grammarCompleted) {
+      grammarAudioTimerRef.current = setTimeout(() => {
+        grammarAudioTimerRef.current = null;
+        advance();
+      }, OFFLINE_ADVANCE_DELAY_MS);
+    }
+  }, [
+    advance,
+    cardIndex,
+    currentCard,
+    grammarCompleted,
+    isGrammar,
+    isAppActive,
+    playAnswerAfterChime,
+    playAudio,
+    qaAutoAdvance,
+    qaMode,
+    result,
+    selectedId,
+    successChimePlayer,
+    tryAgainCuePlayer,
+  ]);
+
+  useEffect(() => {
+    if (!isAppActive || !isAutomaticSingleCard || !singleCardAudioAwaitingRef.current) return;
     if (audioPlayerStatus.playing) singleCardAudioWasPlayingRef.current = true;
     if (audioPlayerStatus.error || (audioPlayerStatus.didJustFinish && singleCardAudioWasPlayingRef.current)) {
       completeAutomaticSingleCard();
@@ -884,20 +1016,21 @@ export function LessonScreen({
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
     completeAutomaticSingleCard,
+    isAppActive,
     isAutomaticSingleCard,
   ]);
 
   useEffect(() => {
-    if (!isAutomaticSingleCard) return undefined;
+    if (!isAppActive || !isAutomaticSingleCard) return undefined;
     singleCardFallbackTimerRef.current = setTimeout(completeAutomaticSingleCard, COURSE_AUDIO_FALLBACK_MS);
     return () => {
       if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
       singleCardFallbackTimerRef.current = null;
     };
-  }, [cardIndex, completeAutomaticSingleCard, isAutomaticSingleCard]);
+  }, [cardIndex, completeAutomaticSingleCard, isAppActive, isAutomaticSingleCard]);
 
   useEffect(() => {
-    if (!isOffline || isCompletedSectionPicker || isPronunciation) return;
+    if (!isAppActive || !isOffline || isCompletedSectionPicker || isPronunciation) return;
 
     audioPlaybackRequestRef.current += 1;
     try {
@@ -956,6 +1089,7 @@ export function LessonScreen({
     grammarCompleted,
     isAutomaticSingleCard,
     isCompletedSectionPicker,
+    isAppActive,
     isOffline,
     isPronunciation,
     qaAutoAdvance,
@@ -965,6 +1099,7 @@ export function LessonScreen({
 
   useEffect(() => {
     if (
+      !isAppActive ||
       result !== 'correct' ||
       !currentCard ||
       isGrammar ||
@@ -980,6 +1115,7 @@ export function LessonScreen({
     automaticAdvanceDelay,
     currentCard,
     isGrammar,
+    isAppActive,
     isPronunciation,
     pauseForPronunciationReview,
     qaAutoAdvance,
@@ -989,6 +1125,7 @@ export function LessonScreen({
 
   useEffect(() => {
     if (
+      !isAppActive ||
       !answerAudioAwaitingRef.current ||
       !answerAudioStartedRef.current ||
       isGrammar ||
@@ -1030,6 +1167,7 @@ export function LessonScreen({
     audioPlayerStatus.didJustFinish,
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
+    isAppActive,
     isGrammar,
     pauseForPronunciationReview,
     qaAutoAdvance,
@@ -1038,7 +1176,7 @@ export function LessonScreen({
   ]);
 
   useEffect(() => {
-    if (!grammarAnswerAwaitingRef.current || !isGrammar || result !== 'correct') return;
+    if (!isAppActive || !grammarAnswerAwaitingRef.current || !isGrammar || result !== 'correct') return;
     if (audioPlayerStatus.error) {
       grammarAnswerAwaitingRef.current = false;
       grammarAnswerWasPlayingRef.current = false;
@@ -1073,6 +1211,7 @@ export function LessonScreen({
     audioPlayerStatus.didJustFinish,
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
+    isAppActive,
     isGrammar,
     pauseForPronunciationReview,
     qaAutoAdvance,
@@ -1189,7 +1328,13 @@ export function LessonScreen({
   }, [cardIndex]);
 
   const grammarAnimationComplete = useCallback(() => {
-    if (!currentCard || !isGrammar || grammarCompletionHandledRef.current) return;
+    if (
+      !isAppActive
+      || AppState.currentState !== 'active'
+      || !currentCard
+      || !isGrammar
+      || grammarCompletionHandledRef.current
+    ) return;
     grammarCompletionHandledRef.current = true;
     const selectedOption = currentCard.options.find((option) => option.id === selectedId);
     const completedSentence = selectedOption?.label
@@ -1214,7 +1359,7 @@ export function LessonScreen({
       'prompt',
       'answer',
     );
-  }, [advance, currentCard, isGrammar, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId]);
+  }, [advance, currentCard, isAppActive, isGrammar, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId]);
 
   const clearCardInteractionState = useCallback(() => {
     answerAudioAwaitingRef.current = false;
@@ -1768,6 +1913,7 @@ export function LessonScreen({
             key={`lesson-card-${cardRunId}`}
             level={lesson.level}
             lessonId={lesson.id}
+            isAppActive={isAppActive}
             isOffline={isOffline}
             optionsInteractive={!isAutomaticSingleCard}
             onPronunciationAttempted={pronunciationAttempted}
