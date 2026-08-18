@@ -15,10 +15,7 @@ $mobileRoot = Split-Path -Parent $PSScriptRoot
 
 Push-Location $mobileRoot
 try {
-  Write-Host 'Comprobando TypeScript...' -ForegroundColor Cyan
-  Invoke-CheckedCommand -FailureMessage 'TypeScript encontró errores. Preview no fue publicado.' -Command {
-    & npx tsc --noEmit
-  }
+  & (Join-Path $PSScriptRoot 'verify-preview.ps1')
 
   Write-Host 'Publicando solamente en Preview...' -ForegroundColor Cyan
   Invoke-CheckedCommand -FailureMessage 'Expo no pudo publicar la actualización de Preview.' -Command {

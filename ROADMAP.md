@@ -51,7 +51,7 @@ Mass content production begins only when:
 - [ ] Backend/network failures recover without losing learner work
 - [ ] Accessibility and text/layout scaling have been tested
 - [x] Automated content validation catches broken cards and missing media
-- [ ] Regression and release checklists are repeatable
+- [x] Regression and release checklists are repeatable
 
 After this gate passes, the same engine can support rapid, large-scale course
 creation without proportionally increasing engineering effort.
@@ -92,8 +92,8 @@ corrupts progress, or produces unreliable learning feedback.
 - [ ] Test small, medium, and large Android landscape dimensions
 - [x] Add production crash reporting and structured diagnostics
 - [x] Show an in-app error screen instead of an unexplained blank screen
-- [ ] Persist the learner's active lesson/card before interruption
-- [ ] Create a repeatable pre-release checklist
+- [~] Persist the learner's active lesson/card before interruption
+- [x] Create a repeatable pre-release checklist
 - [ ] Remove the temporary pronunciation test lesson after pronunciation is finalized
 
 ### P0 exit criteria
@@ -302,13 +302,14 @@ internal-mouth model rather than claiming the camera alone can diagnose it.
 ## Recommended immediate sequence
 
 1. Complete the P0 physical-device lesson audit.
-2. Add crash reporting and structured card-level diagnostics.
-3. Add resume-in-progress.
-4. Finalize the permanent course/activity data schema.
-5. Build reusable drag-and-drop sentence construction.
-6. Add tap-any-word audio.
-7. Add actual microphone-volume visualization.
-8. Begin vocabulary and grammar mastery tracking.
+2. Verify resume-in-progress across force-close, screen lock, and app switching.
+3. Complete the P0 network-loss and backend cold-start audit.
+4. Complete the Android viewport and accessibility matrix.
+5. Finalize the permanent course/activity data schema.
+6. Build reusable drag-and-drop sentence construction.
+7. Add tap-any-word audio.
+8. Add actual microphone-volume visualization.
+9. Begin vocabulary and grammar mastery tracking.
 
 ## Product rule
 

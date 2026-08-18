@@ -32,6 +32,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "verify": "tsc --noEmit",
+    "verify:preview": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-preview.ps1",
     "build:preview": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-preview.ps1",
     "release:preview": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-preview.ps1",
     "release:production": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/promote-preview.ps1",

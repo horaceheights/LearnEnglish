@@ -27,6 +27,15 @@ Comparte el enlace de instalación de Preview únicamente con la persona que apr
 
 El cambio debe estar en un commit y respaldado en GitHub. El comando se detendrá si encuentra archivos sin commit o un commit que todavía no se ha subido.
 
+Antes del commit, se puede ejecutar el mismo preflight que usa la publicación:
+
+```powershell
+cd mobile
+npm run verify:preview
+```
+
+Este comando valida las tarjetas y sus archivos multimedia, comprueba TypeScript y exporta el bundle Android de producción en un directorio temporal.
+
 ### 2. Publicar solamente en Preview
 
 ```powershell
@@ -37,7 +46,7 @@ npm run release:preview -- -Message "Descripción breve del cambio"
 Este comando:
 
 1. Comprueba que Git esté limpio y respaldado en GitHub.
-2. Comprueba TypeScript.
+2. Ejecuta el preflight completo de contenido, TypeScript y bundle Android.
 3. Publica en el canal `preview`.
 4. No modifica `production`.
 
