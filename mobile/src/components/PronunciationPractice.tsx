@@ -57,7 +57,7 @@ type Props = {
   level: string;
   userId?: string;
   onAttempted?: () => void;
-  onPassed: () => void;
+  onPassed: (firstTry: boolean) => void;
   onUnavailable: () => void;
 };
 
@@ -700,6 +700,7 @@ export function PronunciationPractice({
     if (!isCurrentRun(runId)) return;
     const reviewStartedAt = Date.now();
     let shouldAdvance = accepted;
+    const passedOnFirstTry = accepted && attemptRef.current === 0;
     setReviewingRecording(true);
 
     if (accepted) {
@@ -729,7 +730,7 @@ export function PronunciationPractice({
     setReviewingRecording(false);
     if (shouldAdvance) {
       gradedAdvanceHandled.current = true;
-      onPassed();
+      onPassed(passedOnFirstTry);
     } else {
       await playModel(runId);
     }
@@ -1606,7 +1607,8 @@ export function PronunciationPractice({
     ) return undefined;
     // Give the learner time to read the final grade and advice before the
     // lesson advances to the next slide.
-    const timer = setTimeout(onPassed, GRADING_REVIEW_MS);
+    const passedOnFirstTry = passed && attemptRef.current === 0 && !continueAfterCoaching;
+    const timer = setTimeout(() => onPassed(passedOnFirstTry), GRADING_REVIEW_MS);
     return () => clearTimeout(timer);
   }, [continueAfterCoaching, onPassed, passed, phase, reviewingRecording]);
 

@@ -5,6 +5,7 @@ $ErrorActionPreference = 'Stop'
 $repositoryRoot = Get-ReleaseRepositoryRoot
 $mobileRoot = Split-Path -Parent $PSScriptRoot
 $validator = Join-Path $repositoryRoot 'scripts\validate_lesson_cards.py'
+$interactionVerifier = Join-Path $PSScriptRoot 'verify-interaction-paths.ps1'
 $projectPython = Join-Path $repositoryRoot 'venv\Scripts\python.exe'
 $pythonCommand = if (Test-Path -LiteralPath $projectPython) { $projectPython } else { 'python' }
 $temporaryRoot = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
@@ -28,6 +29,11 @@ try {
   Write-Host 'Comprobando TypeScript...' -ForegroundColor Cyan
   Invoke-CheckedCommand -FailureMessage 'TypeScript encontró errores.' -Command {
     & npx tsc --noEmit
+  }
+
+  Write-Host 'Comprobando puntuación, reintentos y finalización...' -ForegroundColor Cyan
+  Invoke-CheckedCommand -FailureMessage 'Las pruebas de interacción encontraron errores.' -Command {
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $interactionVerifier
   }
 
   Write-Host 'Comprobando el bundle Android de producción...' -ForegroundColor Cyan

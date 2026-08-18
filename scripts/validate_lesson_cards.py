@@ -19,6 +19,8 @@ ADULT_ROLE_IDS = {
     "grandmother",
     "grandparents",
 }
+GRAMMAR_STAGES = {"Grammar", "New Grammar", "Use"}
+PRONUNCIATION_STAGES = {"Pronunciation Practice", "Speak"}
 
 
 def referenced_lesson_asset(media_url: str) -> Path | None:
@@ -111,11 +113,39 @@ def validate_family_adult_ambiguity() -> list[str]:
     return errors
 
 
+def validate_interaction_requirements() -> list[str]:
+    errors: list[str] = []
+    for lesson in LESSONS.values():
+        for card_index, card in enumerate(lesson.cards, 1):
+            location = f"{lesson.id} card {card_index} ({card.prompt!r})"
+            for option in card.options:
+                if not (option.label or "").strip() and not (option.image_url or "").strip():
+                    errors.append(
+                        f"{location} has an empty option {option.id!r}; it cannot be selected meaningfully."
+                    )
+
+            if card.stage == "Listen" and not (card.audio_text or "").strip():
+                errors.append(f"{location} is a Listen card without model audio text.")
+
+            if card.stage in GRAMMAR_STAGES:
+                if "__" not in card.prompt:
+                    errors.append(f"{location} is a grammar card without a sentence blank.")
+                if any(not (option.label or "").strip() for option in card.options):
+                    errors.append(f"{location} is a grammar card with an unlabeled word choice.")
+
+            if card.stage in PRONUNCIATION_STAGES and not (
+                (card.audio_text or "").strip() or (card.prompt or "").strip()
+            ):
+                errors.append(f"{location} is a pronunciation card without a phrase.")
+    return errors
+
+
 def main() -> int:
     errors = [
         *validate_option_ids(),
         *validate_duplicate_option_images(),
         *validate_family_adult_ambiguity(),
+        *validate_interaction_requirements(),
         *validate_media_references(),
     ]
     if errors:

@@ -42,6 +42,7 @@ For every defect, capture:
 - [ ] Stage filters show the expected cards
 - [ ] A selected card opens directly
 - [ ] QA header shows lesson, card, stage, and update code
+- [ ] QA header shows the live first-attempt score
 - [ ] Previous opens the prior card
 - [ ] Next opens the following card
 - [ ] Restart resets the current card
@@ -187,6 +188,7 @@ A preview update is ready for broader testing when:
 - [ ] TypeScript check passes
 - [ ] Android production export passes
 - [ ] Automated lesson/media validation passes
+- [x] Automated first-try, retry, duplicate-completion, and skipped-pronunciation scoring checks pass
 - [ ] Representative card from every stage passes
 - [ ] Complete pronunciation test lesson passes
 - [ ] Complete grammar transition test passes

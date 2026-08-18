@@ -33,7 +33,7 @@ type Props = {
   showHelp: boolean;
   onSelect: (optionId: string) => void;
   onPronunciationAttempted?: () => void;
-  onPronunciationPassed: () => void;
+  onPronunciationPassed: (firstTry: boolean) => void;
   onPronunciationUnavailable: () => void;
   onGrammarAnimationComplete: () => void;
 };

@@ -46,6 +46,7 @@ import {
   setDiagnosticOperation,
 } from '../diagnostics';
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
+import { registerCardAttempt, registerCardCompletion } from '../lessonProgress';
 import { useConnectivity } from '../hooks/useConnectivity';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
 import { spanishTranslationFor } from '../sentenceTranslations';
@@ -211,6 +212,8 @@ export function LessonScreen({
   const resumeHydratedRef = useRef(false);
   const cardTransitioningRef = useRef(false);
   const appWasInterruptedRef = useRef(false);
+  const attemptedCardsRef = useRef<Set<number>>(new Set());
+  const completedCardsRef = useRef<Set<number>>(new Set());
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
   const promptTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -511,9 +514,11 @@ export function LessonScreen({
         savedRun?.furthestCardIndex ?? (previouslyCompleted ? nextLesson.cards.length - 1 : nextCardIndex),
       );
       setScore(savedRun?.score ?? 0);
-      setAttemptedCards(new Set(savedRun?.attemptedCards ?? []));
+      attemptedCardsRef.current = new Set(savedRun?.attemptedCards ?? []);
+      completedCardsRef.current = new Set(savedRun?.completedCards ?? []);
+      setAttemptedCards(new Set(attemptedCardsRef.current));
       setWrongCards(new Set(savedRun?.wrongCards ?? []));
-      setCompletedCards(new Set(savedRun?.completedCards ?? []));
+      setCompletedCards(new Set(completedCardsRef.current));
       setSessionId(savedRun?.sessionId ?? '');
       resumeHydratedRef.current = true;
       if (profile.userId && !qaMode) {
@@ -888,15 +893,17 @@ export function LessonScreen({
       clearTimeout(singleCardFallbackTimerRef.current);
       singleCardFallbackTimerRef.current = null;
     }
-    if (!completedCards.has(cardIndex)) {
-      setCompletedCards((current) => new Set(current).add(cardIndex));
-      if (awardScore) setScore((current) => current + 1);
+    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, awardScore);
+    if (completion.newlyCompleted) {
+      completedCardsRef.current = completion.completedCards;
+      setCompletedCards(completion.completedCards);
+      if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
     }
     singleCardAdvanceTimerRef.current = setTimeout(() => {
       singleCardAdvanceTimerRef.current = null;
       advance();
     }, 3000);
-  }, [advance, cardIndex, completedCards, isAutomaticSingleCard]);
+  }, [advance, cardIndex, isAutomaticSingleCard]);
 
   useEffect(() => {
     if (!isAppActive) {
@@ -1253,10 +1260,12 @@ export function LessonScreen({
   };
 
   const choose = (optionId: string) => {
-    if (!currentCard || result === 'correct') return;
+    if (!currentCard || result === 'correct' || completedCardsRef.current.has(cardIndex)) return;
     setShowSentenceCoachmark(false);
     const correct = optionId === currentCard.correct_option_id;
-    const firstTry = !wrongCards.has(cardIndex) && !completedCards.has(cardIndex);
+    const attempt = registerCardAttempt(attemptedCardsRef.current, cardIndex);
+    const { firstTry } = attempt;
+    attemptedCardsRef.current = attempt.attemptedCards;
     addDiagnosticBreadcrumb('answer_selected', {
       card_number: cardIndex + 1,
       first_try: firstTry,
@@ -1264,14 +1273,16 @@ export function LessonScreen({
       option_id: optionId,
     });
     setSelectedId(optionId);
-    setAttemptedCards((current) => new Set(current).add(cardIndex));
+    setAttemptedCards(attempt.attemptedCards);
     recordAttempt(optionId, correct, firstTry);
 
     if (correct) {
       setResult('correct');
-      if (!completedCards.has(cardIndex)) {
-        setCompletedCards((current) => new Set(current).add(cardIndex));
-        if (firstTry) setScore((current) => current + 1);
+      const completion = registerCardCompletion(completedCardsRef.current, cardIndex, firstTry);
+      if (completion.newlyCompleted) {
+        completedCardsRef.current = completion.completedCards;
+        setCompletedCards(completion.completedCards);
+        if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
       }
       void playSuccessChime();
       if (isGrammar) {
@@ -1303,18 +1314,22 @@ export function LessonScreen({
     void playTryAgainCue();
   };
 
-  const pronunciationPassed = useCallback(() => {
+  const pronunciationPassed = useCallback((firstTry: boolean) => {
     if (pronunciationPassHandledRef.current) return;
     pronunciationPassHandledRef.current = true;
-    if (!completedCards.has(cardIndex)) {
-      setCompletedCards((current) => new Set(current).add(cardIndex));
-      setScore((current) => current + 1);
+    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, firstTry);
+    if (completion.newlyCompleted) {
+      completedCardsRef.current = completion.completedCards;
+      setCompletedCards(completion.completedCards);
+      if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
     }
     setResult('correct');
-  }, [cardIndex, completedCards]);
+  }, [cardIndex]);
 
   const pronunciationAttempted = useCallback(() => {
-    setAttemptedCards((current) => new Set(current).add(cardIndex));
+    const attempt = registerCardAttempt(attemptedCardsRef.current, cardIndex);
+    attemptedCardsRef.current = attempt.attemptedCards;
+    setAttemptedCards(attempt.attemptedCards);
   }, [cardIndex]);
 
   const pronunciationUnavailable = useCallback(() => {
@@ -1323,7 +1338,9 @@ export function LessonScreen({
     addDiagnosticBreadcrumb('pronunciation_skipped_unavailable', {
       card_number: cardIndex + 1,
     });
-    setCompletedCards((current) => new Set(current).add(cardIndex));
+    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, false);
+    completedCardsRef.current = completion.completedCards;
+    setCompletedCards(completion.completedCards);
     setResult('correct');
   }, [cardIndex]);
 
@@ -1400,6 +1417,8 @@ export function LessonScreen({
 
   const resetCardState = useCallback(() => {
     clearCardInteractionState();
+    attemptedCardsRef.current = new Set();
+    completedCardsRef.current = new Set();
     setScore(0);
     setAttemptedCards(new Set());
     setWrongCards(new Set());
@@ -1620,7 +1639,7 @@ export function LessonScreen({
   }
 
   if (isComplete) {
-    if (profile.userId) {
+    if (profile.userId && !qaMode) {
       return (
         <SafeAreaView style={styles.safeArea}>
           <StatusBar hidden />
@@ -1660,7 +1679,7 @@ export function LessonScreen({
             <View style={styles.qaIdentity}>
               <Text style={styles.qaLabel}>ENGINE QA · v{Updates.runtimeVersion || '1.5.0'} · {updateCode}</Text>
               <Text numberOfLines={1} style={styles.qaContext}>
-                {lesson.id} · #{cardIndex + 1}/{lesson.cards.length} · {currentCard.stage}
+                {lesson.id} · #{cardIndex + 1}/{lesson.cards.length} · {currentCard.stage} · {score} pts
               </Text>
             </View>
             <View style={styles.qaActions}>

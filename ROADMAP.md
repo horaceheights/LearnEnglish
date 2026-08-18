@@ -86,7 +86,7 @@ corrupts progress, or produces unreliable learning feedback.
 
 - [ ] Run every card in every lesson on a physical Android phone
 - [~] Use the internal Engine QA hub to complete `ENGINE_QA_CHECKLIST.md`
-- [ ] Verify correct, incorrect, retry, help, audio, and completion paths
+- [~] Verify correct, incorrect, retry, help, audio, and completion paths
 - [~] Test leaving during playback, recording, grading, and animation
 - [~] Test screen lock, app switching, calls, lost internet, and backend cold starts
 - [ ] Test small, medium, and large Android landscape dimensions
