@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 import { Alert, Animated, Easing, Image, Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { File } from 'expo-file-system';
 import {
@@ -242,6 +242,8 @@ export function PronunciationPractice({
   const retiredModelPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
   const activeReadyCuePlayerRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
   const activeAttemptPlaybackRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
+  const permissionRequestInFlightRef = useRef(false);
+  const appInterruptionHandledRef = useRef(false);
   const successChimePlayer = useAudioPlayer(SUCCESS_CHIME, {
     downloadFirst: true,
     keepAudioSessionActive: true,
@@ -612,6 +614,21 @@ export function PronunciationPractice({
       showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
     }
   }, [audioProvider, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
+  const playModelEvent = useEffectEvent(playModel);
+
+  useEffect(() => {
+    if (!isAppActive) {
+      if (permissionRequestInFlightRef.current || appInterruptionHandledRef.current) return;
+      appInterruptionHandledRef.current = true;
+      pauseForInterruption();
+      return;
+    }
+    if (!appInterruptionHandledRef.current) return;
+    appInterruptionHandledRef.current = false;
+    const runId = runIdRef.current + 1;
+    runIdRef.current = runId;
+    void playModelEvent(runId);
+  }, [isAppActive, pauseForInterruption]);
 
   const playReadyCueAndWait = useCallback(async (runId: number) => {
     const previousCuePlayer = activeReadyCuePlayerRef.current;
@@ -1032,7 +1049,19 @@ export function PronunciationPractice({
     }
     try {
       setDiagnosticOperation('microphone_permission');
-      const permission = await AudioModule.requestRecordingPermissionsAsync();
+      let permission = await AudioModule.getRecordingPermissionsAsync();
+      if (!permission.granted) {
+        permissionRequestInFlightRef.current = true;
+        addDiagnosticBreadcrumb('pronunciation_permission_requested');
+        try {
+          permission = await AudioModule.requestRecordingPermissionsAsync();
+        } finally {
+          permissionRequestInFlightRef.current = false;
+        }
+        addDiagnosticBreadcrumb('pronunciation_permission_resolved', {
+          granted: permission.granted,
+        });
+      }
       if (!isCurrentRun(runId)) return;
       if (!permission.granted) {
         setPhase('permission');
@@ -1494,7 +1523,7 @@ export function PronunciationPractice({
     attemptRef.current = 0;
     noSpeechRound.current = 0;
     setAttempt(0);
-    playModel(runId);
+    void playModelEvent(runId);
     return () => {
       if (runIdRef.current === runId) runIdRef.current += 1;
       if (retryTimer.current) clearTimeout(retryTimer.current);
@@ -1505,7 +1534,7 @@ export function PronunciationPractice({
       if (streamingCapture.current) void discardNativeRecording();
       streamingCapture.current = false;
     };
-  }, [discardNativeRecording, phrase, playModel]);
+  }, [discardNativeRecording, phrase]);
 
   useEffect(() => {
     if (phase !== 'model') return;

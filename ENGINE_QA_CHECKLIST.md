@@ -139,6 +139,7 @@ Run these checks for every new card pattern before publishing Preview:
 ### Pronunciation Practice
 
 - [ ] Model phrase plays
+- [ ] Model phrase plays once without restarting during the microphone permission flow
 - [ ] Ready beep plays, including on the first card
 - [ ] Recording begins only after the beep
 - [ ] Listening dot and bars animate

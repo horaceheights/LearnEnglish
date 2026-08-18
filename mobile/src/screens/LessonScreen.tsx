@@ -946,6 +946,7 @@ export function LessonScreen({
     addDiagnosticBreadcrumb('lesson_foregrounded', {
       card_number: cardIndex + 1,
     });
+    if (isPronunciation) return;
     setCardRunId((current) => current + 1);
 
     if (qaMode && !qaAutoAdvance) return;
@@ -1002,6 +1003,7 @@ export function LessonScreen({
     grammarCompleted,
     isGrammar,
     isAppActive,
+    isPronunciation,
     playAnswerAfterChime,
     playAudio,
     qaAutoAdvance,

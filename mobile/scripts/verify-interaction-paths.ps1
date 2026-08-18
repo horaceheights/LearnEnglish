@@ -16,6 +16,9 @@ try {
 
   & node tests/lesson-progress.test.cjs (Join-Path $outputDirectory 'lessonProgress.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de puntuación e intentos.' }
+
+  & node tests/pronunciation-lifecycle.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas del ciclo de pronunciación.' }
 } finally {
   Pop-Location
   $resolvedOutputDirectory = [System.IO.Path]::GetFullPath($outputDirectory)
