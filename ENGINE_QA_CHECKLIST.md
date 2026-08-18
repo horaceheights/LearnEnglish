@@ -162,6 +162,9 @@ Run these checks for every new card pattern before publishing Preview:
 - [ ] Disable internet before loading a lesson
 - [ ] Disable internet during a non-pronunciation lesson
 - [ ] Disable internet during pronunciation grading
+- [ ] Uncached lesson audio never blocks answering or card progression while offline
+- [ ] Pronunciation shows retry and continue-without-score controls while offline
+- [ ] Restoring internet allows pronunciation to restart normally
 - [ ] Test after backend cold start
 - [ ] Force-close and reopen the app
 

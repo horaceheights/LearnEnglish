@@ -51,11 +51,13 @@ type Props = {
   imageHeight: number;
   imageLabel?: string;
   imageUrl?: string;
+  isOffline: boolean;
   videoName?: string | null;
   level: string;
   userId?: string;
   onAttempted?: () => void;
   onPassed: () => void;
+  onUnavailable: () => void;
 };
 
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
@@ -63,6 +65,7 @@ const MAX_AUTOMATIC_ATTEMPTS = 2;
 const GRADING_REVIEW_MS = 3000;
 const RECORDING_REVEAL_MS = 650;
 const RECORDING_LOAD_TIMEOUT_MS = 4000;
+const MODEL_AUDIO_LOAD_TIMEOUT_MS = 12000;
 const NO_SPEECH_LISTEN_MS = 3000;
 const IOS_SPEECH_END_SILENCE_MS = 1200;
 const MAX_NO_SPEECH_ROUNDS = 3;
@@ -199,11 +202,13 @@ export function PronunciationPractice({
   imageHeight,
   imageLabel,
   imageUrl,
+  isOffline,
   videoName,
   level,
   userId,
   onAttempted,
   onPassed,
+  onUnavailable,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -248,6 +253,7 @@ export function PronunciationPractice({
   const [recognizedSyllableKeys, setRecognizedSyllableKeys] = useState<string[]>([]);
   const [continueAfterCoaching, setContinueAfterCoaching] = useState(false);
   const [noSpeechFailure, setNoSpeechFailure] = useState(false);
+  const [serviceUnavailable, setServiceUnavailable] = useState(false);
   const [reviewingRecording, setReviewingRecording] = useState(false);
   const [gradingFrame, setGradingFrame] = useState(0);
   const [listeningFrame, setListeningFrame] = useState(0);
@@ -259,6 +265,7 @@ export function PronunciationPractice({
   const silenceStartedAt = useRef<number | null>(null);
   const captureFinishing = useRef(false);
   const modelWasPlaying = useRef(false);
+  const modelLoadTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const retryTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const streamingCapture = useRef(false);
   const streamingStartedAt = useRef(0);
@@ -422,16 +429,50 @@ export function PronunciationPractice({
     }
   }, [isCurrentRun]);
 
+  const showUnavailableState = useCallback((reason = 'La pronunciación necesita internet para reproducir y calificar tu voz.') => {
+    runIdRef.current += 1;
+    if (retryTimer.current) clearTimeout(retryTimer.current);
+    if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
+    modelLoadTimer.current = null;
+    if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
+    phraseCompleteTimer.current = null;
+    if (streamingCapture.current) void stopNativeSpeech();
+    streamingCapture.current = false;
+    captureFinishing.current = false;
+    try {
+      modelPlayerRef.current.pause();
+    } catch {
+      // A remote player may still be waiting for its source.
+    }
+    void recorder.stop().catch(() => undefined);
+    addDiagnosticBreadcrumb('pronunciation_service_unavailable', {
+      attempt: attemptRef.current + 1,
+    });
+    setResult(null);
+    setReviewingRecording(false);
+    setNoSpeechFailure(false);
+    setServiceUnavailable(true);
+    setPhase('retry');
+    setMessage(reason);
+  }, [recorder]);
+
   const playModel = useCallback(async (runId = runIdRef.current) => {
     if (!isCurrentRun(runId)) return;
+    if (isOffline) {
+      showUnavailableState();
+      return;
+    }
     if (streamingCapture.current) void stopNativeSpeech();
     if (retryTimer.current) clearTimeout(retryTimer.current);
+    if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
+    modelLoadTimer.current = null;
     setResult(null);
     setReviewingRecording(false);
     gradedAdvanceHandled.current = false;
     successChimePlayed.current = false;
     setContinueAfterCoaching(false);
     setNoSpeechFailure(false);
+    setServiceUnavailable(false);
     setPhase('model');
     setMessage(attemptRef.current ? 'Escucha otra vez…' : 'Escucha la frase.');
     heardSpeech.current = false;
@@ -482,16 +523,25 @@ export function PronunciationPractice({
       modelPlayerRef.current = nextPlayer;
       setModelPlayer(nextPlayer);
       nextPlayer.play();
+      modelLoadTimer.current = setTimeout(() => {
+        modelLoadTimer.current = null;
+        if (!isCurrentRun(runId) || modelWasPlaying.current) return;
+        captureDiagnosticError(
+          new Error('Pronunciation model audio did not start before the timeout.'),
+          'pronunciation_model_timeout',
+          { attempt: attemptRef.current + 1 },
+          'warning',
+        );
+        showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
+      }, MODEL_AUDIO_LOAD_TIMEOUT_MS);
     } catch (playbackError) {
       if (!isCurrentRun(runId)) return;
       captureDiagnosticError(playbackError, 'pronunciation_model_playback', {
         attempt: attemptRef.current + 1,
       });
-      setPhase('retry');
-      setMessage('No pudimos reproducir la frase.');
-      setNoSpeechFailure(true);
+      showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
     }
-  }, [audioProvider, audioVoice, isCurrentRun, phrase, resetVoiceEvidence]);
+  }, [audioProvider, audioVoice, isCurrentRun, isOffline, phrase, resetVoiceEvidence, showUnavailableState]);
 
   const playReadyCueAndWait = useCallback(async (runId: number) => {
     const previousCuePlayer = activeReadyCuePlayerRef.current;
@@ -761,7 +811,7 @@ export function PronunciationPractice({
         phrase_length: phrase.length,
       });
       if (isExpectedConnectivityError(scoreError)) {
-        scheduleRetry('Revisa tu conexión a internet.', runId);
+        showUnavailableState('No pudimos calificar tu voz. Revisa tu conexión a internet.');
         return;
       }
       handleNoSpeech(runId);
@@ -774,7 +824,7 @@ export function PronunciationPractice({
         }
       }
     }
-  }, [completeGradedAttempt, evaluateResult, expectedTokens.length, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, scheduleRetry, userId, voiceEvidence]);
+  }, [completeGradedAttempt, evaluateResult, expectedTokens.length, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, showUnavailableState, userId, voiceEvidence]);
 
   const finishCapture = useCallback(async (shouldScore: boolean) => {
     const runId = runIdRef.current;
@@ -883,7 +933,7 @@ export function PronunciationPractice({
         phrase_length: phrase.length,
       });
       if (isExpectedConnectivityError(scoreError)) {
-        scheduleRetry('Revisa tu conexión a internet.', runId);
+        showUnavailableState('No pudimos calificar tu voz. Revisa tu conexión a internet.');
         return;
       }
       handleNoSpeech(runId);
@@ -896,11 +946,15 @@ export function PronunciationPractice({
         }
       }
     }
-  }, [completeGradedAttempt, evaluateResult, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, recorder, scheduleRetry, userId, voiceEvidence]);
+  }, [completeGradedAttempt, evaluateResult, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, recorder, showUnavailableState, userId, voiceEvidence]);
 
   const startListening = useCallback(async () => {
     const runId = runIdRef.current;
     if (!isCurrentRun(runId)) return;
+    if (isOffline) {
+      showUnavailableState();
+      return;
+    }
     try {
       setDiagnosticOperation('microphone_permission');
       const permission = await AudioModule.requestRecordingPermissionsAsync();
@@ -988,14 +1042,13 @@ export function PronunciationPractice({
       captureDiagnosticError(recordingError, 'microphone_prepare', {
         attempt: attemptRef.current + 1,
       });
-      scheduleRetry(
-        isExpectedConnectivityError(recordingError)
-          ? 'Tu conexión está débil.'
-          : 'No pudimos abrir el micrófono.',
-        runId,
-      );
+      if (isExpectedConnectivityError(recordingError)) {
+        showUnavailableState('No pudimos iniciar la pronunciación. Revisa tu conexión a internet.');
+      } else {
+        scheduleRetry('No pudimos abrir el micrófono.', runId);
+      }
     }
-  }, [isCurrentRun, modelPlayer, phrase, playReadyCueAndWait, recorder, resetVoiceEvidence, scheduleRetry]);
+  }, [isCurrentRun, isOffline, modelPlayer, phrase, playReadyCueAndWait, recorder, resetVoiceEvidence, scheduleRetry, showUnavailableState]);
 
   useEffect(() => {
     if (!nativeStreamingAvailable) return undefined;
@@ -1313,6 +1366,8 @@ export function PronunciationPractice({
       mountedRef.current = false;
       runIdRef.current += 1;
       if (retryTimer.current) clearTimeout(retryTimer.current);
+      if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
+      modelLoadTimer.current = null;
       if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
       phraseCompleteTimer.current = null;
       if (streamingCapture.current) void stopNativeSpeech();
@@ -1368,6 +1423,8 @@ export function PronunciationPractice({
     return () => {
       if (runIdRef.current === runId) runIdRef.current += 1;
       if (retryTimer.current) clearTimeout(retryTimer.current);
+      if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
+      modelLoadTimer.current = null;
       if (phraseCompleteTimer.current) clearTimeout(phraseCompleteTimer.current);
       phraseCompleteTimer.current = null;
       if (streamingCapture.current) void stopNativeSpeech();
@@ -1377,12 +1434,23 @@ export function PronunciationPractice({
 
   useEffect(() => {
     if (phase !== 'model') return;
-    if (modelStatus.playing) modelWasPlaying.current = true;
+    if (modelStatus.error && (modelLoadTimer.current || modelWasPlaying.current)) {
+      if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
+      modelLoadTimer.current = null;
+      modelWasPlaying.current = false;
+      showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
+      return;
+    }
+    if (modelStatus.playing) {
+      modelWasPlaying.current = true;
+      if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
+      modelLoadTimer.current = null;
+    }
     if (modelStatus.didJustFinish && modelWasPlaying.current) {
       modelWasPlaying.current = false;
       void startListening();
     }
-  }, [modelStatus.didJustFinish, modelStatus.playing, phase, startListening]);
+  }, [modelStatus.didJustFinish, modelStatus.error, modelStatus.playing, phase, showUnavailableState, startListening]);
 
   useEffect(() => {
     if (phase !== 'listening' || streamingCapture.current || !recorderState.isRecording) return;
@@ -1468,7 +1536,9 @@ export function PronunciationPractice({
     return () => clearTimeout(timer);
   }, [continueAfterCoaching, onPassed, passed, phase, reviewingRecording]);
 
-  const statusColor = phase === 'listening'
+  const statusColor = serviceUnavailable
+    ? '#9a5b12'
+    : phase === 'listening'
     ? '#d95c52'
     : phase === 'checking'
       ? '#76559e'
@@ -1627,7 +1697,32 @@ export function PronunciationPractice({
         <Text style={[styles.message, { color: statusColor }]}>{message}</Text>
       </View>
       {attempt > 0 && phase !== 'success' ? <Text style={styles.attempt}>Intento {attempt + 1}</Text> : null}
-      {noSpeechFailure ? (
+      {serviceUnavailable ? (
+        <View style={styles.offlineActions}>
+          <Pressable
+            accessibilityLabel={isOffline ? 'Esperando conexión para reintentar' : 'Reintentar pronunciación'}
+            accessibilityRole="button"
+            disabled={isOffline}
+            onPress={() => void playModel()}
+            style={({ pressed }) => [
+              styles.retryNoSpeech,
+              isOffline ? styles.offlineRetryDisabled : null,
+              pressed ? styles.retryNoSpeechPressed : null,
+            ]}
+          >
+            <Text style={styles.retryNoSpeechText}>{isOffline ? 'Esperando conexión' : 'Reintentar'}</Text>
+          </Pressable>
+          <Pressable
+            accessibilityHint="Continúa la lección sin sumar esta tarjeta al puntaje"
+            accessibilityLabel="Continuar sin calificar pronunciación"
+            accessibilityRole="button"
+            onPress={onUnavailable}
+            style={({ pressed }) => [styles.offlineContinue, pressed ? styles.retryNoSpeechPressed : null]}
+          >
+            <Text style={styles.offlineContinueText}>Continuar sin calificar</Text>
+          </Pressable>
+        </View>
+      ) : noSpeechFailure ? (
         <Pressable
           accessibilityLabel="Reintentar pronunciación"
           accessibilityRole="button"
@@ -1724,6 +1819,10 @@ const styles = StyleSheet.create({
   retryNoSpeech: { alignItems: 'center', alignSelf: 'center', backgroundColor: '#2f8f62', borderRadius: 13, justifyContent: 'center', minHeight: 42, paddingHorizontal: 22 },
   retryNoSpeechPressed: { opacity: 0.78 },
   retryNoSpeechText: { color: '#fff', fontSize: 14, fontWeight: '900' },
+  offlineActions: { alignItems: 'center', flexDirection: 'row', flexWrap: 'wrap', gap: 8, justifyContent: 'center' },
+  offlineRetryDisabled: { backgroundColor: '#899397', opacity: 0.75 },
+  offlineContinue: { alignItems: 'center', backgroundColor: '#fff4dc', borderColor: '#c88b35', borderRadius: 13, borderWidth: 1.5, justifyContent: 'center', minHeight: 42, paddingHorizontal: 18 },
+  offlineContinueText: { color: '#7a480d', fontSize: 13, fontWeight: '900' },
   scorePanel: { alignItems: 'center', borderRadius: 14, flexDirection: 'row', padding: 10 },
   passedPanel: { backgroundColor: '#eaf6ee' },
   practicePanel: { backgroundColor: '#fff3df' },

@@ -48,7 +48,7 @@ Mass content production begins only when:
 - [ ] Progress, retries, help usage, and mastery signals persist correctly
 - [ ] Audio, image, animation, and haptic behavior is consistent
 - [ ] Interrupted lessons resume safely
-- [ ] Backend/network failures recover without losing learner work
+- [~] Backend/network failures recover without losing learner work
 - [ ] Accessibility and text/layout scaling have been tested
 - [x] Automated content validation catches broken cards and missing media
 - [x] Regression and release checklists are repeatable
@@ -88,7 +88,7 @@ corrupts progress, or produces unreliable learning feedback.
 - [~] Use the internal Engine QA hub to complete `ENGINE_QA_CHECKLIST.md`
 - [ ] Verify correct, incorrect, retry, help, audio, and completion paths
 - [ ] Test leaving during playback, recording, grading, and animation
-- [ ] Test screen lock, app switching, calls, lost internet, and backend cold starts
+- [~] Test screen lock, app switching, calls, lost internet, and backend cold starts
 - [ ] Test small, medium, and large Android landscape dimensions
 - [x] Add production crash reporting and structured diagnostics
 - [x] Show an in-app error screen instead of an unexplained blank screen
