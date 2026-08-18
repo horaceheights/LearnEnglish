@@ -110,6 +110,7 @@ ACTIONS = {
 }
 
 PEOPLE_IN_ORDER = ["boy", "girl", "man", "woman"]
+PEOPLE_SPEAK_INTRO_ORDER = ["boy", "girl", "woman", "man"]
 ACTIONS_IN_ORDER = [
     "running",
     "walking",
@@ -908,7 +909,17 @@ def people_core_listen_cards() -> list[LessonCard]:
 
 
 def people_core_speak_cards() -> list[LessonCard]:
-    return [
+    person_cards = [
+        LessonCard(
+            prompt=PEOPLE[person]["label"],
+            stage="Speak",
+            correct_option_id=person,
+            options=[person_choice(person)],
+            audio_text=PEOPLE[person]["label"],
+        )
+        for person in PEOPLE_SPEAK_INTRO_ORDER
+    ]
+    sentence_cards = [
         LessonCard(
             prompt=action_sentence(person, action),
             stage="Speak",
@@ -923,6 +934,7 @@ def people_core_speak_cards() -> list[LessonCard]:
         )
         for person, action in LESSON_1_CORE_SENTENCE_PAIRS
     ]
+    return [*person_cards, *sentence_cards]
 
 
 def people_use_cards() -> list[LessonCard]:

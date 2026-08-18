@@ -60,10 +60,22 @@ class LessonStructureTests(unittest.TestCase):
             for stage in LESSON_1_STAGES
         }
         self.assertEqual(
-            {"Learn": 8, "Recognize": 12, "Listen": 8, "Speak": 4, "Use": 8},
+            {"Learn": 8, "Recognize": 12, "Listen": 8, "Speak": 8, "Use": 8},
             counts,
         )
-        self.assertEqual(40, len(lesson.cards))
+        self.assertEqual(44, len(lesson.cards))
+
+    def test_lesson_1_speaking_starts_with_people_before_sentences(self):
+        speak_cards = [
+            card
+            for card in LESSONS["lesson-1-people-actions"].cards
+            if card.stage == "Speak"
+        ]
+
+        self.assertEqual(
+            ["The boy", "The girl", "The woman", "The man"],
+            [card.prompt for card in speak_cards[:4]],
+        )
 
     def test_lesson_1_vocabulary_stays_within_the_first_step(self):
         lesson = LESSONS["lesson-1-people-actions"]
