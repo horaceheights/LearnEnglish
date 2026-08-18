@@ -32,5 +32,15 @@ assert.match(
   /if \(isPronunciation\) return;\s+setCardRunId/,
   'Pronunciation must recover internally instead of being remounted on foreground.',
 );
+assert.match(
+  lessonScreenSource,
+  /Image\.prefetch\(url\)/,
+  'Lesson images must be prefetched before upcoming cards render.',
+);
+assert.match(
+  lessonScreenSource,
+  /preloadCardAudio\(lesson\.cards\[index\]\);\s+void preloadCardImages\(lesson\.cards\[index\]\)/,
+  'The active and upcoming-card preload loop must include both audio and images.',
+);
 
 console.log('Pronunciation lifecycle checks passed.');

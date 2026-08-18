@@ -38,7 +38,7 @@ import { LessonCardView } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
-import { courseAudioProvider, courseAudioUrl, courseAudioVoice } from '../config';
+import { absoluteMediaUrl, courseAudioProvider, courseAudioUrl, courseAudioVoice } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -208,6 +208,7 @@ export function LessonScreen({
   const audioPlaybackRequestRef = useRef(0);
   const audioPlayerActiveRef = useRef(true);
   const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
+  const imagePreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
   const resumeHydratedRef = useRef(false);
   const cardTransitioningRef = useRef(false);
@@ -359,6 +360,42 @@ export function LessonScreen({
     return Promise.all(requests).then(() => undefined);
   }, [audioProvider, ensureAudioPreloaded, lessonId]);
 
+  const ensureImagePreloaded = useCallback((path: string) => {
+    if (!path || isOffline) return Promise.resolve();
+    const url = absoluteMediaUrl(path);
+    const existing = imagePreloadRef.current.get(url);
+    if (existing) return existing;
+
+    const startedAt = Date.now();
+    const pending = Image.prefetch(url)
+      .then((loaded) => {
+        if (!loaded) throw new Error('React Native did not cache the lesson image.');
+        addDiagnosticBreadcrumb('lesson_image_preloaded', {
+          duration_ms: Date.now() - startedAt,
+        });
+      })
+      .catch((preloadError) => {
+        imagePreloadRef.current.delete(url);
+        captureDiagnosticError(
+          preloadError,
+          'lesson_image_preload',
+          { duration_ms: Date.now() - startedAt, url },
+          'warning',
+        );
+      });
+    imagePreloadRef.current.set(url, pending);
+    return pending;
+  }, [isOffline]);
+
+  const preloadCardImages = useCallback((card?: LessonCard) => {
+    if (!card) return Promise.resolve();
+    const paths = new Set([
+      card.prompt_image_url,
+      ...card.options.map((option) => option.image_url),
+    ]);
+    return Promise.all([...paths].filter(Boolean).map(ensureImagePreloaded)).then(() => undefined);
+  }, [ensureImagePreloaded]);
+
   const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
     if (!text.trim()) return;
     if (!isAppActive || AppState.currentState !== 'active') {
@@ -505,7 +542,10 @@ export function LessonScreen({
       // Keep the loading state visible until the first phrase is ready. This
       // avoids showing a silent card while its audio buffers for the first time.
       await Promise.race([
-        preloadCardAudio(nextLesson.cards[nextCardIndex]),
+        Promise.all([
+          preloadCardAudio(nextLesson.cards[nextCardIndex]),
+          preloadCardImages(nextLesson.cards[nextCardIndex]),
+        ]),
         new Promise<void>((resolve) => setTimeout(resolve, 3500)),
       ]);
       setLesson(nextLesson);
@@ -741,8 +781,9 @@ export function LessonScreen({
     // Prepare the active card (important for QA jumps) plus the next two cards.
     for (let index = cardIndex; index <= Math.min(cardIndex + 2, lesson.cards.length - 1); index += 1) {
       void preloadCardAudio(lesson.cards[index]);
+      void preloadCardImages(lesson.cards[index]);
     }
-  }, [cardIndex, lesson, preloadCardAudio]);
+  }, [cardIndex, lesson, preloadCardAudio, preloadCardImages]);
 
   useEffect(() => {
     audioPlaybackRequestRef.current += 1;

@@ -108,6 +108,7 @@ Run these checks for every new card pattern before publishing Preview:
 ### Listen / Listen To Picture
 
 - [ ] Audio starts without displaying the answer
+- [ ] First Listen card images are visible when the card appears on a cold cache
 - [ ] Replay works
 - [ ] Correct image matches spoken audio
 - [ ] Learner can retry after a wrong choice
