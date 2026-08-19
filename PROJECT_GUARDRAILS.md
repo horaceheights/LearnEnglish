@@ -22,6 +22,7 @@ The detailed A1 syllabus and Unit 1 roadmap live in `COURSE_DESIGN_A1.md`. This 
 - A change to lesson content must regenerate the embedded mobile Preview snapshots.
 - A shared learner-facing behavior must be checked on both web and mobile unless the request is explicitly platform-specific.
 - Do not consider a fix complete because it works on desktop Chrome. Mobile Android Chrome and the Expo Preview app are required checks for mobile-sensitive audio, microphone, video, and layout behavior.
+- Every active lesson-stage header must show the canonical unit and lesson number in a compact line above the stage label, inside the same header surface.
 
 ## 2. Canonical Lesson Engine
 
@@ -233,4 +234,5 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Unit 1 new-vocabulary introductions standardized on yellow text with one brief, reduced-motion-safe emphasis animation.
 - 2026-08-19: Negative posture cards now require the negated posture to be visibly absent, with a validated asset contract for `They are not sitting.`
 - 2026-08-19: Action-video players standardized on edge-to-edge cover with clipped overscan and independently versioned video caches.
+- 2026-08-19: Active lesson headers standardized on a compact `UNIT n | LESSON n.n` context line above the stage label.
 - 2026-08-19: Wrong-answer feedback now pairs encouragement with one concise Spanish learning hint beneath it across web and mobile lessons.

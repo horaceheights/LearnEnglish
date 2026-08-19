@@ -1703,6 +1703,17 @@ function promptParts(prompt) {
   return prompt.match(/[A-Za-z]+|[^A-Za-z]+/g) || [prompt];
 }
 
+function lessonLocationLabel(lesson) {
+  const unitNumber = lesson?.unit_id?.match(/\d+/)?.[0]
+    || lesson?.unit_title?.match(/Unit\s+(\d+)/i)?.[1]
+    || "1";
+  const lessonNumber = lesson?.sub_lesson_id
+    || lesson?.title?.match(/^(\d+(?:\.\d+)?)/)?.[1]
+    || lesson?.id?.match(/lesson-(\d+)/)?.[1]
+    || "1";
+  return `UNIT ${unitNumber} | LESSON ${lessonNumber}`;
+}
+
 function lessonVideoSrc(name) {
   return `/lesson-assets/${name}?v=${LESSON_VIDEO_VERSION}`;
 }
@@ -4615,6 +4626,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   }}
                   aria-label={`Play pronunciation for ${activePronunciationPrompt}`}
                 >
+                  <div
+                    style={{
+                      color: "#8b765d",
+                      fontSize: isMobile ? 8 : 9,
+                      fontWeight: 900,
+                      letterSpacing: "0.08em",
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    {lessonLocationLabel(activeLesson)}
+                  </div>
                   <h1
                     style={{
                       ...titleStyle,
@@ -4675,6 +4697,18 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     : `${currentCard.stage} stage`
                 }
               >
+                <div
+                  style={{
+                    color: "#8b765d",
+                    fontSize: isMobile ? 8 : 9,
+                    fontWeight: 900,
+                    letterSpacing: "0.08em",
+                    lineHeight: 1.1,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {lessonLocationLabel(activeLesson)}
+                </div>
                 {currentCard.stage ? (
                   <div
                     style={{

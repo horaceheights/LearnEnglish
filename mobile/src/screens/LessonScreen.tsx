@@ -109,6 +109,17 @@ function parseSavedLessonRun(value: string | null, cardCount: number): SavedLess
   }
 }
 
+function lessonLocationLabel(lesson: Lesson): string {
+  const unitNumber = lesson.unit_id?.match(/\d+/)?.[0]
+    || lesson.unit_title?.match(/Unit\s+(\d+)/i)?.[1]
+    || '1';
+  const lessonNumber = lesson.sub_lesson_id
+    || lesson.title.match(/^(\d+(?:\.\d+)?)/)?.[1]
+    || lesson.id.match(/lesson-(\d+)/)?.[1]
+    || '1';
+  return `UNIT ${unitNumber} | LESSON ${lessonNumber}`;
+}
+
 type Props = {
   lessonId: string;
   profile: LearnerProfile;
@@ -624,6 +635,7 @@ export function LessonScreen({
   ]);
 
   const currentCard = lesson?.cards[cardIndex];
+  const lessonLocation = lesson ? lessonLocationLabel(lesson) : '';
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice' || currentCard?.stage === 'Speak';
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isListen = currentCard?.stage === 'Listen';
@@ -1958,6 +1970,9 @@ export function LessonScreen({
           isPronunciation && isPortrait ? styles.contentHeaderPronunciationPortrait : null,
           isCompletedSectionPicker ? styles.reviewContentInactive : null,
         ]}>
+          <Text numberOfLines={1} style={styles.lessonLocation}>
+            {lessonLocation}
+          </Text>
           <Text accessibilityRole="header" style={[styles.stage, isStageOnlyHeader ? styles.stageOnlyLabel : null]}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
           </Text>
@@ -2253,6 +2268,7 @@ const styles = StyleSheet.create({
   contentHeaderStageOnlyPortrait: { borderRadius: 16, paddingBottom: 5, paddingTop: 5 },
   contentHeaderPronunciation: { paddingBottom: 3, paddingTop: 3 },
   contentHeaderPronunciationPortrait: { paddingBottom: 5, paddingTop: 5 },
+  lessonLocation: { color: '#8b765d', fontSize: 8, fontWeight: '900', letterSpacing: 0.8, lineHeight: 10, textAlign: 'center' },
   stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
   stageOnlyLabel: { lineHeight: 16 },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },

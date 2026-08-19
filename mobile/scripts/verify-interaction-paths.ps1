@@ -35,6 +35,9 @@ try {
   & node tests/phrase-option-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de diseño horizontal de frases.' }
 
+  & node tests/lesson-context-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de contexto de unidad y lección.' }
+
   & node tests/video-media-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de video unificado.' }
 
