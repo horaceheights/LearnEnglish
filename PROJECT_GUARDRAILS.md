@@ -81,6 +81,7 @@ Every standard lesson follows this visible sequence:
 - Mix related forms instead of batching every `is` item before every `are` item.
 - Include affirmative and negative forms only after each form has been introduced clearly.
 - End with a short completion or mission activity that uses previously learned language.
+- Completion blanks are visual UI only. Never send literal underscores or placeholder characters to TTS. Before selection, speak the incomplete sentence with a short silent pause at the blank; speak the completed answer only after the learner answers.
 
 ## 3. New-Word Learning Journey
 
@@ -154,6 +155,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Static audio exists to reduce first-use delay, provider cost, and robotic fallback behavior.
 - Do not show internal audio-generation or scoring status messages to learners.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
+- Every course-audio boundary must sanitize visual answer blanks into a silent pause. No provider or browser fallback may receive literal underscore runs.
 
 ## 8. Feedback and Interaction
 
@@ -222,3 +224,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Repository guardrail memory established and made mandatory through `AGENTS.md`.
 - 2026-08-19: Image-choice ambiguity rules expanded to cover full-prompt truth, family-category overlap, negative contrasts, and identity context.
 - 2026-08-19: Unit 1 action cards standardized on one paused-video surface, full-size single-card clips, and versioned video URLs.
+- 2026-08-19: Completion-card audio standardized on silent blank pauses; literal placeholders are prohibited at every TTS boundary.

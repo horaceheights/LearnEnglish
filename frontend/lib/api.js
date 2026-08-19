@@ -192,8 +192,16 @@ export async function getPronunciationStreamingToken() {
   return payload;
 }
 
+export function sanitizeCourseAudioText(text) {
+  return String(text || "")
+    .replace(/\s*_{2,}\s*[.,!?]?/g, " ... ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export function getCourseAudioUrl({ text, mode = "prompt", lang = "en-US", variant = "default" }) {
-  const manifestKey = [String(text || "").trim(), mode, lang, variant].join("\n");
+  const spokenText = sanitizeCourseAudioText(text);
+  const manifestKey = [spokenText, mode, lang, variant].join("\n");
   const staticAudioFile = courseAudioManifest[manifestKey];
   if (staticAudioFile) {
     return `/audio-cache/${staticAudioFile}?v=${encodeURIComponent(STATIC_ASSET_VERSION)}`;
@@ -201,7 +209,7 @@ export function getCourseAudioUrl({ text, mode = "prompt", lang = "en-US", varia
 
   const apiBaseUrl = getApiBaseUrl();
   const params = new URLSearchParams({
-    text,
+    text: spokenText,
     mode,
     lang,
     variant,

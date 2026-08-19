@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BACKEND_DIR = ROOT / "backend"
 sys.path.insert(0, str(BACKEND_DIR))
 
-from app.course_audio import cache_path_for, voice_for_variant  # noqa: E402
+from app.course_audio import cache_path_for, sanitize_course_audio_text, voice_for_variant  # noqa: E402
 from app.data import LESSONS  # noqa: E402
 
 
@@ -83,12 +83,14 @@ def expected_audio_items(lessons=None) -> set[tuple[str, str, str, str]]:
                         items.add((word, "pronunciation_slow", "en-US", "split-ing"))
                 continue
 
-            prompt = card.audio_text if card.audio_text is not None else card.prompt
+            prompt = sanitize_course_audio_text(
+                card.audio_text if card.audio_text is not None else card.prompt
+            )
             if prompt and prompt.strip():
                 variant = "question" if prompt.strip().lower() == "what is it?" else "prompt"
                 items.add((prompt, "prompt", "en-US", variant))
             if card.answer_audio_text:
-                items.add((card.answer_audio_text, "prompt", "en-US", "answer"))
+                items.add((sanitize_course_audio_text(card.answer_audio_text), "prompt", "en-US", "answer"))
 
     for phrase in FEEDBACK_PHRASES:
         items.add((phrase, "feedback", "en-US", "feedback"))

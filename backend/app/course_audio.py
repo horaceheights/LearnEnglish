@@ -319,6 +319,12 @@ def audio_instructions(text: str, mode: str, lang: str, variant: str) -> str:
     pace = target_syllables_per_minute(text, mode, variant)
     target_seconds = target_active_seconds(text, mode, variant)
     word_notes = pronunciation_notes(text)
+    placeholder_direction = (
+        "At every ellipsis, pause silently for about half a second. Never say dot, ellipsis, blank, "
+        "underscore, or make a filler sound. "
+        if "..." in text
+        else ""
+    )
     voice_reference = (
         "Always use the same teacher persona and sound like every clip was recorded in one studio session: "
         "a calm adult female teacher with a warm but neutral tone, steady medium pitch, and restrained pitch "
@@ -326,7 +332,7 @@ def audio_instructions(text: str, mode: str, lang: str, variant: str) -> str:
         "Avoid sounding unusually bright, deep, breathy, theatrical, excited, sing-song, or conversational. "
     )
     shared = (
-        voice_reference +
+        voice_reference + placeholder_direction +
         f"The spoken words themselves should last about {target_seconds:.1f} seconds, excluding silence. "
         "Use careful General American pronunciation with correct vowels and consonants. Keep the same measured "
         "syllable pace from the beginning through the final word; never accelerate the predicate or an -ing "
@@ -632,6 +638,12 @@ def cache_path_for(text: str, mode: str, lang: str, variant: str, model: str, vo
     return CACHE_DIR / f"{digest}.{output_format}"
 
 
+def sanitize_course_audio_text(text: str) -> str:
+    """Turn visual answer blanks into a silent spoken pause before TTS."""
+    with_pauses = re.sub(r"\s*_{2,}\s*[.,!?]?", " ... ", str(text or "").strip())
+    return re.sub(r"\s+", " ", with_pauses).strip()
+
+
 def audio_file_response(audio_path: Path, media_type: str, provider: str) -> FileResponse:
     return FileResponse(
         audio_path,
@@ -878,7 +890,7 @@ async def get_course_audio(
     provider: str = "openai",
     narrator: str = "female-teacher",
 ) -> FileResponse:
-    cleaned_text = text.strip()
+    cleaned_text = sanitize_course_audio_text(text)
     if not cleaned_text:
         raise HTTPException(status_code=400, detail="Text is required.")
 

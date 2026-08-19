@@ -11,6 +11,7 @@ import {
   getLesson,
   logCardAttempt,
   preloadCourseAudio,
+  sanitizeCourseAudioText,
   saveLearnerProfile,
   scorePronunciationAudio,
   startLessonSession,
@@ -1253,6 +1254,11 @@ function useSpeech() {
 
   const speakText = useCallback((text, options = {}) => {
     if (typeof window === "undefined") {
+      return 0;
+    }
+
+    text = sanitizeCourseAudioText(text);
+    if (!text) {
       return 0;
     }
 

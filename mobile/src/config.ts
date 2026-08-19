@@ -85,6 +85,13 @@ export function lessonVideoUrl(name: string): string {
   return `${VIDEO_BASE_URL}/lesson-assets/${encodeURIComponent(name)}?v=${LESSON_VIDEO_CACHE_VERSION}`;
 }
 
+export function sanitizeCourseAudioText(text: string): string {
+  return String(text || '')
+    .replace(/\s*_{2,}\s*[.,!?]?/g, ' ... ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 export function courseAudioUrl(
   text: string,
   mode = 'prompt',
@@ -92,8 +99,9 @@ export function courseAudioUrl(
   provider: CourseAudioProvider = 'openai',
   narrator: CourseAudioVoice = 'female-teacher',
 ): string {
+  const spokenText = sanitizeCourseAudioText(text);
   const query = new URLSearchParams({
-    text,
+    text: spokenText,
     mode,
     lang: 'en-US',
     variant,

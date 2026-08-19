@@ -18,6 +18,7 @@ from backend.app.course_audio import (
     cache_path_for,
     normalized_provider,
     premium_voice_for_narrator,
+    sanitize_course_audio_text,
     syllable_count,
     target_active_seconds,
     target_syllables_per_minute,
@@ -29,6 +30,17 @@ from scripts.build_frontend_audio_manifest import expected_audio_items
 
 
 class CourseAudioProfileTests(unittest.TestCase):
+    def test_visual_answer_blanks_become_silent_tts_pauses(self):
+        self.assertEqual("The boy is ...", sanitize_course_audio_text("The boy is ___."))
+        self.assertEqual("They ... reading.", sanitize_course_audio_text("They ___ reading."))
+        self.assertEqual("... boy", sanitize_course_audio_text("___ boy"))
+        self.assertNotIn("_", sanitize_course_audio_text("The ___ is running."))
+
+    def test_static_audio_manifest_never_contains_visual_placeholders(self):
+        expected = expected_audio_items()
+        self.assertFalse(any("_" in text for text, _mode, _lang, _variant in expected))
+        self.assertTrue(any("..." in text for text, _mode, _lang, _variant in expected))
+
     def test_every_current_spoken_word_has_an_audited_syllable_count(self):
         spoken_words: set[str] = set()
         for lesson in LESSONS.values():
