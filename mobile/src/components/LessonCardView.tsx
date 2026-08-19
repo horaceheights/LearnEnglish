@@ -1,4 +1,4 @@
-import { ActivityIndicator, Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useEffect, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView } from 'expo-video';
 
@@ -92,15 +92,6 @@ export function LessonCardView({
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
-  const [settledImageUrls, setSettledImageUrls] = useState<Set<string>>(() => new Set());
-  const cardImageKey = [
-    card.prompt_image_url,
-    ...card.options.map((option) => option.image_url),
-  ].join('|');
-
-  useEffect(() => {
-    setSettledImageUrls(new Set());
-  }, [cardImageKey]);
   const optionWidth =
     usePortraitImageStack
       ? '100%'
@@ -336,9 +327,6 @@ export function LessonCardView({
                 card.options.length === 1 || revealCorrect
               );
               const optionImageUrl = absoluteMediaUrl(option.image_url);
-              const showImagePlaceholder = Boolean(option.image_url)
-                && !showActionVideo
-                && !settledImageUrls.has(optionImageUrl);
               const renderedOptionImageHeight = showHelp ? optionImageHeight * 0.65 : optionImageHeight;
               return (
                 <Pressable
@@ -382,30 +370,18 @@ export function LessonCardView({
                         videoName={actionVideoName!}
                       />
                     ) : (
-                      <>
-                        <Image
-                          accessible={false}
-                          accessibilityIgnoresInvertColors
-                          onError={() => setSettledImageUrls((current) => new Set(current).add(optionImageUrl))}
-                          onLoad={() => setSettledImageUrls((current) => new Set(current).add(optionImageUrl))}
-                          resizeMode={actionVideoName ? 'cover' : 'contain'}
-                          source={{ uri: optionImageUrl }}
-                          style={[
-                            actionVideoName ? styles.actionMedia : styles.optionImage,
-                            !actionVideoName && !isLandscape ? styles.optionImagePortrait : null,
-                            !actionVideoName && isTabletLandscape ? styles.optionImageTablet : null,
-                            { height: renderedOptionImageHeight },
-                          ]}
-                        />
-                        {showImagePlaceholder ? (
-                          <View
-                            pointerEvents="none"
-                            style={[styles.imageLoadingPlaceholder, { height: renderedOptionImageHeight }]}
-                          >
-                            <ActivityIndicator color="#76559e" size="small" />
-                          </View>
-                        ) : null}
-                      </>
+                      <Image
+                        accessible={false}
+                        accessibilityIgnoresInvertColors
+                        resizeMode={actionVideoName ? 'cover' : 'contain'}
+                        source={{ uri: optionImageUrl }}
+                        style={[
+                          actionVideoName ? styles.actionMedia : styles.optionImage,
+                          !actionVideoName && !isLandscape ? styles.optionImagePortrait : null,
+                          !actionVideoName && isTabletLandscape ? styles.optionImageTablet : null,
+                          { height: renderedOptionImageHeight },
+                        ]}
+                      />
                     )
                   ) : null}
                   {option.label && !option.image_url ? (
@@ -671,7 +647,6 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
-  imageLoadingPlaceholder: { alignItems: 'center', justifyContent: 'center', left: 5, position: 'absolute', right: 5, top: 5 },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {

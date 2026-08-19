@@ -59,6 +59,7 @@ Test at least one card from every stage, then run the complete lesson audit.
 
 - [ ] Prompt text fits without clipping
 - [ ] Images remain uncropped and use available space
+- [ ] Loading images use a neutral background without a spinner over any answer
 - [ ] Model audio plays once at the correct time
 - [ ] Tapping the prompt repeats its audio
 - [ ] Correct choice receives clear visual feedback
