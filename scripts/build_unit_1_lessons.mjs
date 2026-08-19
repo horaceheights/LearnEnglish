@@ -47,15 +47,20 @@ const describe = (imageUrl, answer, correct, labels) => card({
   promptImage: imageUrl,
 });
 
-const identityQuestion = (imageUrl, question, correct, labels) => card({
-  prompt: question,
-  stage: 'Recognize',
-  correct,
-  options: labels.map(([id, label]) => text(id, label)),
-  audio: question,
-  answer: '',
-  promptImage: imageUrl,
-});
+const identityQuestion = (imageUrl, question, correct, labels) => {
+  const options = labels.map(([id, label]) => text(id, label));
+  const correctOption = options.find((option) => option.id === correct);
+  if (!correctOption) throw new Error(`Missing identity answer for ${correct}`);
+  return card({
+    prompt: question,
+    stage: 'Recognize',
+    correct,
+    options,
+    audio: question,
+    answer: correctOption.label,
+    promptImage: imageUrl,
+  });
+};
 
 const listen = (audio, correct, options) => card({
   prompt: 'Listen and choose.',

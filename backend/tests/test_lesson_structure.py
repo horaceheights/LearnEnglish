@@ -150,7 +150,7 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
                 self.assertTrue(all(
                     (not card.audio_text and card.answer_audio_text)
-                    or (card.prompt and card.audio_text == card.prompt and not card.answer_audio_text)
+                    or (card.prompt and card.audio_text == card.prompt)
                     for card in image_to_text
                 ))
 
@@ -167,7 +167,10 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(prompt=card.prompt):
                 self.assertIn(card.prompt, {"Who is he?", "Who is she?", "Who are they?"})
                 self.assertEqual(card.prompt, card.audio_text)
-                self.assertFalse(card.answer_audio_text)
+                correct_option = next(
+                    option for option in card.options if option.id == card.correct_option_id
+                )
+                self.assertEqual(correct_option.label, card.answer_audio_text)
 
     def test_listen_hides_text_and_uses_audio_with_image_choices(self):
         for lesson in LESSONS.values():
