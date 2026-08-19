@@ -2364,13 +2364,32 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       Use: new Set(selectedLabel ? [selectedLabel.toLowerCase()] : []),
     };
     const focusWords = focusWordsByStage[currentCard?.stage];
+    const introductionWords = currentCard?.stage === "Learn"
+      ? new Set(
+          (activeLesson.vocabulary || []).flatMap(
+            (entry) => String(entry).toLowerCase().match(/[a-z']+/g) || []
+          )
+        )
+      : new Set();
 
-    if (!focusWords || !displayText) {
+    if ((!focusWords && introductionWords.size === 0) || !displayText) {
       return displayText;
     }
 
     return displayText.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
-      if (focusWords.has(part.toLowerCase())) {
+      const normalizedPart = part.toLowerCase();
+      if (introductionWords.has(normalizedPart)) {
+        return (
+          <span
+            className="new-vocabulary-intro"
+            key={`${cardIndex}-${part}-${index}`}
+            style={newWordHighlightStyle}
+          >
+            {part}
+          </span>
+        );
+      }
+      if (focusWords?.has(normalizedPart)) {
         return (
           <span key={`${part}-${index}`} style={newWordHighlightStyle}>
             {part}

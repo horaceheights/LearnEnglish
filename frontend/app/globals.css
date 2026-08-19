@@ -85,12 +85,37 @@ a {
   }
 }
 
+@keyframes newVocabularyIntro {
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: scale(1, 1);
+  }
+  36% {
+    filter: brightness(1.28);
+    transform: scale(1.06, 1.18);
+  }
+  68% {
+    filter: brightness(1.04);
+    transform: scale(0.99, 0.96);
+  }
+}
+
+.new-vocabulary-intro {
+  animation: newVocabularyIntro 900ms cubic-bezier(0.4, 0, 0.2, 1) 1;
+  color: #d99b00 !important;
+  display: inline-block;
+  text-shadow: 0 0 10px #fff0a8;
+  transform-origin: center bottom;
+}
+
 .pronunciation-success-message {
   animation: pronunciationCelebrate 680ms cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: left center;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .new-vocabulary-intro,
   .pronunciation-success-message {
     animation: none;
   }

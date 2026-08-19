@@ -4,6 +4,7 @@ import {
   Animated,
   AppState,
   BackHandler,
+  Easing,
   Image,
   Modal,
   PanResponder,
@@ -49,6 +50,7 @@ import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '..
 import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
 import { useConnectivity } from '../hooks/useConnectivity';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
@@ -183,6 +185,7 @@ export function LessonScreen({
   });
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isOffline = useConnectivity();
+  const reduceMotion = useReducedMotion();
   const isPortrait = viewportHeight >= viewportWidth;
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
   const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
@@ -218,6 +221,7 @@ export function LessonScreen({
   const completedCardsRef = useRef<Set<number>>(new Set());
   const correctChoiceHandledRef = useRef(false);
   const cardTranslateX = useRef(new Animated.Value(0)).current;
+  const newVocabularyEmphasis = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
   const promptTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const translationHideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -636,6 +640,31 @@ export function LessonScreen({
     isGrammar ? currentCard?.prompt ?? '' : promptAudio,
   );
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
+  const newVocabularyWords = useMemo(() => {
+    if (!lesson || currentCard?.stage !== 'Learn') return new Set<string>();
+    return new Set(
+      lesson.vocabulary.flatMap((entry) => entry.toLowerCase().match(/[a-z']+/g) || []),
+    );
+  }, [currentCard?.stage, lesson]);
+  const hasNewVocabularyInPrompt = useMemo(() => (
+    (currentCard?.prompt.toLowerCase().match(/[a-z']+/g) || [])
+      .some((word) => newVocabularyWords.has(word))
+  ), [currentCard?.prompt, newVocabularyWords]);
+
+  useEffect(() => {
+    newVocabularyEmphasis.stopAnimation();
+    newVocabularyEmphasis.setValue(0);
+    if (!hasNewVocabularyInPrompt || reduceMotion) return undefined;
+
+    const animation = Animated.timing(newVocabularyEmphasis, {
+      duration: 900,
+      easing: Easing.inOut(Easing.cubic),
+      toValue: 1,
+      useNativeDriver: true,
+    });
+    animation.start();
+    return () => animation.stop();
+  }, [cardIndex, cardRunId, hasNewVocabularyInPrompt, newVocabularyEmphasis, reduceMotion]);
 
   const replayPrompt = useCallback(() => {
     if (!promptAudio.trim()) return;
@@ -1670,11 +1699,46 @@ export function LessonScreen({
       : currentCard.stage === 'More People' || normalizedStage.includes('plural')
         ? new Set(['and', 'are'])
         : new Set<string>();
-    return lessonPromptText(lesson.id, displayedPrompt).split(/(\b[A-Za-z']+\b)/g).map((part, index) => (
-      <Text key={`${part}-${index}`} style={focus.has(part.toLowerCase()) ? styles.highlight : undefined}>
-        {part}
-      </Text>
-    ));
+    return lessonPromptText(lesson.id, displayedPrompt).split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
+      const normalizedPart = part.toLowerCase();
+      if (newVocabularyWords.has(normalizedPart)) {
+        return (
+          <Animated.Text
+            key={`${cardIndex}-${part}-${index}`}
+            style={[
+              styles.newVocabulary,
+              {
+                opacity: newVocabularyEmphasis.interpolate({
+                  inputRange: [0, 0.34, 0.68, 1],
+                  outputRange: [1, 0.76, 1, 1],
+                }),
+                transform: [
+                  {
+                    scaleX: newVocabularyEmphasis.interpolate({
+                      inputRange: [0, 0.34, 0.68, 1],
+                      outputRange: [1, 1.06, 0.99, 1],
+                    }),
+                  },
+                  {
+                    scaleY: newVocabularyEmphasis.interpolate({
+                      inputRange: [0, 0.34, 0.68, 1],
+                      outputRange: [1, 1.18, 0.96, 1],
+                    }),
+                  },
+                ],
+              },
+            ]}
+          >
+            {part}
+          </Animated.Text>
+        );
+      }
+      return (
+        <Text key={`${part}-${index}`} style={focus.has(normalizedPart) ? styles.highlight : undefined}>
+          {part}
+        </Text>
+      );
+    });
   };
 
   if (isLoading) {
@@ -2228,6 +2292,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   highlight: { color: '#d99b00', fontWeight: '900' },
+  newVocabulary: {
+    color: '#d99b00',
+    fontWeight: '900',
+    textShadowColor: '#fff0a8',
+    textShadowOffset: { height: 0, width: 0 },
+    textShadowRadius: 8,
+  },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
   coldStart: { color: '#697177', fontSize: 13, lineHeight: 19, marginTop: 7, textAlign: 'center' },

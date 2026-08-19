@@ -98,6 +98,8 @@ A word is not considered learned after one exposure. New language should travel 
 
 Do not force every word through every step in a single lesson when that would make the lesson repetitive. The journey can continue across later lessons, but the roadmap and tests must make that continuation intentional.
 
+- On `Learn` introduction cards, words declared in the lesson vocabulary contract use the shared readable yellow emphasis and one brief shine/stretch animation. The animation plays once per card, never loops, never shifts layout, and respects reduced-motion settings.
+
 ## 4. Mobile Layout Guardrails
 
 - Design for the usable phone viewport, including Android system bars and enlarged font settings.
@@ -225,3 +227,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Image-choice ambiguity rules expanded to cover full-prompt truth, family-category overlap, negative contrasts, and identity context.
 - 2026-08-19: Unit 1 action cards standardized on one paused-video surface, full-size single-card clips, and versioned video URLs.
 - 2026-08-19: Completion-card audio standardized on silent blank pauses; literal placeholders are prohibited at every TTS boundary.
+- 2026-08-19: Unit 1 new-vocabulary introductions standardized on yellow text with one brief, reduced-motion-safe emphasis animation.
