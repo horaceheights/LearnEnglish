@@ -19,4 +19,16 @@ assert.match(
   'Upcoming lesson images must remain preloaded after removing the visible spinner.',
 );
 
+assert.match(
+  lessonScreenSource,
+  /key=\{`lesson-card-\$\{cardIndex\}-\$\{cardRunId\}`\}/,
+  'Every automatic card transition must mount a fresh card view so native images cannot stay blank.',
+);
+
+assert.match(
+  cardViewSource,
+  /key=\{optionRenderKey\}/,
+  'Image options must use content-aware render keys instead of reusing option ids across cards.',
+);
+
 console.log('Calm image-loading UI checks passed.');

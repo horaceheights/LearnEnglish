@@ -327,6 +327,7 @@ export function LessonCardView({
                 card.options.length === 1 || revealCorrect
               );
               const optionImageUrl = absoluteMediaUrl(option.image_url);
+              const optionRenderKey = `${option.id}:${option.image_url ?? ''}:${option.label ?? ''}`;
               const renderedOptionImageHeight = showHelp ? optionImageHeight * 0.65 : optionImageHeight;
               return (
                 <Pressable
@@ -334,7 +335,7 @@ export function LessonCardView({
                   accessibilityRole={optionsInteractive ? 'button' : 'image'}
                   accessibilityState={{ disabled: !optionsInteractive || result === 'correct', selected }}
                   disabled={!optionsInteractive || result === 'correct'}
-                  key={option.id}
+                  key={optionRenderKey}
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
                     styles.option,

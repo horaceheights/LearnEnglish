@@ -115,6 +115,8 @@ Run these checks for every new card pattern before publishing Preview:
 
 - [ ] Audio starts without displaying the answer
 - [ ] First Listen card images are visible when the card appears on a cold cache
+- [ ] Automatically advancing into Listen renders every answer image immediately, without requiring a swipe away and back
+- [ ] Swiping backward and forward does not change which answer images are visible
 - [ ] Replay works
 - [ ] Correct image matches spoken audio
 - [ ] Learner can retry after a wrong choice

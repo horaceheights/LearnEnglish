@@ -1993,7 +1993,7 @@ export function LessonScreen({
             audioVoice={audioVoice}
             card={currentCard}
             gentleFeedback={profile.confidence === 'nervous'}
-            key={`lesson-card-${cardRunId}`}
+            key={`lesson-card-${cardIndex}-${cardRunId}`}
             level={lesson.level}
             lessonId={lesson.id}
             isAppActive={isAppActive}
