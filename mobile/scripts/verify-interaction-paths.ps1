@@ -29,6 +29,9 @@ try {
   & node tests/image-loading-ui.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de carga visual de imágenes.' }
 
+  & node tests/phrase-option-layout.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de diseño horizontal de frases.' }
+
   & node tests/pronunciation-lifecycle.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas del ciclo de pronunciación.' }
 } finally {
