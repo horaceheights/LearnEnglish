@@ -47,6 +47,16 @@ const describe = (imageUrl, answer, correct, labels) => card({
   promptImage: imageUrl,
 });
 
+const identityQuestion = (imageUrl, question, correct, labels) => card({
+  prompt: question,
+  stage: 'Recognize',
+  correct,
+  options: labels.map(([id, label]) => text(id, label)),
+  audio: question,
+  answer: '',
+  promptImage: imageUrl,
+});
+
 const listen = (audio, correct, options) => card({
   prompt: 'Listen and choose.',
   stage: 'Listen',
@@ -413,10 +423,10 @@ const whoLesson = lesson({
     recognize('Who is she? She is the mother.', 'mother', [image('grandmother', assets.grandmother, 'She is the grandmother.'), image('mother', assets.mother, 'She is the mother.')]),
     recognize('Who are they? They are the parents.', 'parents', [image('parents', assets.parents, 'They are the parents.'), image('grandparents', assets.grandparents, 'They are the grandparents.')]),
     recognize('Who are they? They are the children.', 'children', [image('adults', assets.adults, 'They are adults.'), image('children', assets.children, 'They are children.')]),
-    describe(assets.father, 'Who is he? He is the father.', 'father', [['father', 'He is the father.'], ['grandfather', 'He is the grandfather.']]),
-    describe(assets.grandmother, 'Who is she? She is the grandmother.', 'grandmother', [['mother', 'She is the mother.'], ['grandmother', 'She is the grandmother.']]),
-    describe(assets.parents, 'Who are they? They are the parents.', 'parents', [['parents', 'They are the parents.'], ['grandparents', 'They are the grandparents.']]),
-    describe(assets.sisters, 'Who are they? They are the sisters.', 'sisters', [['brothers', 'They are the brothers.'], ['sisters', 'They are the sisters.']]),
+    identityQuestion(assets.father, 'Who is he?', 'father', [['father', 'He is the father.'], ['grandfather', 'He is the grandfather.']]),
+    identityQuestion(assets.grandmother, 'Who is she?', 'grandmother', [['mother', 'She is the mother.'], ['grandmother', 'She is the grandmother.']]),
+    identityQuestion(assets.parents, 'Who are they?', 'parents', [['parents', 'They are the parents.'], ['grandparents', 'They are the grandparents.']]),
+    identityQuestion(assets.sisters, 'Who are they?', 'sisters', [['brothers', 'They are the brothers.'], ['sisters', 'They are the sisters.']]),
 
     listen('Who is he? He is the grandfather.', 'grandfather', [image('father', assets.father, ''), image('grandfather', assets.grandfather, '')]),
     listen('Who is she? She is the mother.', 'mother', [image('mother', assets.mother, ''), image('grandmother', assets.grandmother, '')]),

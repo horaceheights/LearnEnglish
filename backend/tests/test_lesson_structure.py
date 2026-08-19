@@ -148,8 +148,26 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(text_to_image)
                 self.assertTrue(image_to_text)
                 self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
-                self.assertTrue(all(not card.audio_text for card in image_to_text))
-                self.assertTrue(all(card.answer_audio_text for card in image_to_text))
+                self.assertTrue(all(
+                    (not card.audio_text and card.answer_audio_text)
+                    or (card.prompt and card.audio_text == card.prompt and not card.answer_audio_text)
+                    for card in image_to_text
+                ))
+
+    def test_lesson_8_identity_text_choices_ask_the_question_up_front(self):
+        cards = [
+            card
+            for card in LESSONS["lesson-8-who"].cards
+            if card.stage == "Recognize"
+            and card.prompt_image_url
+            and all(not option.image_url and option.label for option in card.options)
+        ]
+        self.assertEqual(4, len(cards))
+        for card in cards:
+            with self.subTest(prompt=card.prompt):
+                self.assertIn(card.prompt, {"Who is he?", "Who is she?", "Who are they?"})
+                self.assertEqual(card.prompt, card.audio_text)
+                self.assertFalse(card.answer_audio_text)
 
     def test_listen_hides_text_and_uses_audio_with_image_choices(self):
         for lesson in LESSONS.values():
@@ -198,7 +216,11 @@ class LessonStructureTests(unittest.TestCase):
         for lesson in LESSONS.values():
             for index, card in enumerate(lesson.cards, 1):
                 audio = card.audio_text or ""
-                if card.stage != "Recognize" or not audio.lower().startswith("who "):
+                if (
+                    card.stage != "Recognize"
+                    or card.prompt_image_url
+                    or not audio.lower().startswith("who ")
+                ):
                     continue
                 with self.subTest(lesson=lesson.id, card=index, audio=audio):
                     self.assertRegex(audio, r"\?\s+(He|She|They) (is|are) ")
