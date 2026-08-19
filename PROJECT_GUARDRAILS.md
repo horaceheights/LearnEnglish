@@ -103,6 +103,7 @@ Do not force every word through every step in a single lesson when that would ma
 ## 4. Mobile Layout Guardrails
 
 - Design for the usable phone viewport, including Android system bars and enlarged font settings.
+- After a wrong lesson choice, keep the encouragement first and place one short Spanish teaching hint directly below it. Explain the relevant rule (`is`, `are`, `not`) when available; otherwise point the learner back to the person, group, or action without adding a long instruction block.
 - Essential choices, feedback, and navigation must fit without being hidden below the system navigation area.
 - Keep the lesson header compact. The stage strip communicates progress without consuming unnecessary vertical space.
 - Portrait phrase-answer tiles are full-width, short horizontal rows stacked at the bottom.
@@ -230,3 +231,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Completion-card audio standardized on silent blank pauses; literal placeholders are prohibited at every TTS boundary.
 - 2026-08-19: Unit 1 new-vocabulary introductions standardized on yellow text with one brief, reduced-motion-safe emphasis animation.
 - 2026-08-19: Negative posture cards now require the negated posture to be visibly absent, with a validated asset contract for `They are not sitting.`
+- 2026-08-19: Wrong-answer feedback now pairs encouragement with one concise Spanish learning hint beneath it across web and mobile lessons.

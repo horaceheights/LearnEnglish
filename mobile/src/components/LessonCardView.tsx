@@ -6,6 +6,7 @@ import { lessonActionVideo } from '../actionVideos';
 import { absoluteMediaUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { lessonHelpText } from '../lessonHelp';
+import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';
 import { PronunciationPractice } from './PronunciationPractice';
 
@@ -90,6 +91,7 @@ export function LessonCardView({
   const useExpandedSingleActionVideo = useSingleImageLayout && Boolean(
     lessonActionVideo(card.options[0]?.image_url),
   );
+  const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedId) : '';
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
@@ -155,7 +157,7 @@ export function LessonCardView({
   // Keep the answer feedback inside the card on short portrait screens. Without
   // this allowance, stacked image options consume the full measured height and
   // the retry message is laid out beneath the Android navigation bar.
-  const feedbackReservedHeight = !isPronunciation && optionsInteractive ? 26 : 0;
+  const feedbackReservedHeight = !isPronunciation && optionsInteractive ? 58 : 0;
   const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
   const textOptionRows = hasTextOnlyOptions
     ? useHorizontalPhraseOptions
@@ -473,6 +475,14 @@ export function LessonCardView({
                     ? '¡Tú puedes! Inténtalo de nuevo.'
                     : '¡Ánimo! Inténtalo de nuevo.'}
               </Text>
+              {result === 'wrong' && mistakeHint ? (
+                <Text style={[
+                  styles.educationHint,
+                  isTabletLandscape ? styles.educationHintTablet : null,
+                ]}>
+                  {mistakeHint}
+                </Text>
+              ) : null}
             </View>
           ) : null}
         </>
@@ -756,6 +766,8 @@ const styles = StyleSheet.create({
   feedback: { gap: 6, marginTop: 5 },
   feedbackText: { fontSize: 13, fontWeight: '800', textAlign: 'center' },
   feedbackTextTablet: { fontSize: 16, lineHeight: 21 },
+  educationHint: { color: '#6f4b24', fontSize: 12, fontWeight: '700', lineHeight: 16, textAlign: 'center' },
+  educationHintTablet: { fontSize: 15, lineHeight: 20 },
   correctText: { color: '#287a57' },
   wrongText: { color: '#a34842' },
   pressed: { opacity: 0.72 },
