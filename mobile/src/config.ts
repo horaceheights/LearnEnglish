@@ -79,8 +79,10 @@ export function absoluteMediaUrl(path: string): string {
   return path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
 }
 
+const LESSON_VIDEO_CACHE_VERSION = '20260819-unified-video-frame-v2';
+
 export function lessonVideoUrl(name: string): string {
-  return `${VIDEO_BASE_URL}/lesson-assets/${encodeURIComponent(name)}`;
+  return `${VIDEO_BASE_URL}/lesson-assets/${encodeURIComponent(name)}?v=${LESSON_VIDEO_CACHE_VERSION}`;
 }
 
 export function courseAudioUrl(

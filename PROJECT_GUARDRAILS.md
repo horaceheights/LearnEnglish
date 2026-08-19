@@ -129,10 +129,13 @@ Do not force every word through every step in a single lesson when that would ma
 
 - Motion is a selective teaching aid, not decoration and not required on every card.
 - Use motion when it clarifies an action or concept that can be ambiguous in a still image, such as running, walking, swimming, reading, writing, studying, talking, working, cooking, playing, eating, drinking, or sleeping.
-- In multi-choice slides, keep choices as still images. After the correct choice, the selected image may play a short two-to-three-second motion confirmation.
+- In multi-choice slides, keep action choices visually still by pausing their video surfaces. After the correct choice, the selected surface may play a short two-to-three-second motion confirmation.
 - A single-card vocabulary introduction may play its teaching clip directly.
+- When an action clip exists, its paused first frame is the card's normal visual surface. Do not render a separate still image and then swap to video after selection; play the already-mounted video surface instead. A still image is allowed only for reduced-motion mode or a genuine video-load failure.
+- Single-card teaching clips use the full available card width and the main visual height. Do not force them into a short 16:9 strip inside a large empty card.
 - Generated clips must be silent. Do not generate talking mouths unless speech itself is the lesson target.
 - Normalize action clips to the shared 16:9 frame, currently 640x360, with no encoded black sidebars.
+- Version video URLs whenever a clip is replaced or normalized so mobile and CDN caches cannot keep serving an obsolete copy with old framing or black bars.
 - The still and video layers must occupy exactly the same frame. Switching to video must not reveal the old image, resize the subject, or create gaps.
 - Preserve the whole subject. Use a blurred side fill when source framing cannot fill 16:9 without cropping important content.
 - Compress clips after generation while preserving enough clarity for the teaching action.
@@ -218,3 +221,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Portrait phrase-answer tiles standardized as stacked horizontal, single-line, auto-sized rows.
 - 2026-08-19: Repository guardrail memory established and made mandatory through `AGENTS.md`.
 - 2026-08-19: Image-choice ambiguity rules expanded to cover full-prompt truth, family-category overlap, negative contrasts, and identity context.
+- 2026-08-19: Unit 1 action cards standardized on one paused-video surface, full-size single-card clips, and versioned video URLs.

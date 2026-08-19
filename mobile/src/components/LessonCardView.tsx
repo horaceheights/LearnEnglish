@@ -16,8 +16,6 @@ const TEXT_OPTION_THEMES = [
   { accent: '#4f5d95', background: '#f0f2fa', border: '#adb5d8' },
 ];
 
-const ACTION_VIDEO_ASPECT_RATIO = 16 / 9;
-
 type Props = {
   audioProvider: CourseAudioProvider;
   audioVoice: CourseAudioVoice;
@@ -89,7 +87,7 @@ export function LessonCardView({
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
   const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
   const useSingleImageLayout = !hasTextOnlyOptions && card.options.length === 1;
-  const useCompactSingleActionVideo = useSingleImageLayout && Boolean(
+  const useExpandedSingleActionVideo = useSingleImageLayout && Boolean(
     lessonActionVideo(card.options[0]?.image_url),
   );
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
@@ -180,8 +178,8 @@ export function LessonCardView({
     Math.max(isPronunciation ? 68 : 70, availableCardHeight - featureReservedHeight),
   );
   const optionRows = useTabletImageGrid || usePortraitImageGrid || usePortraitImageStack ? 2 : 1;
-  // A single image is a teaching slide rather than a choice grid. Let it use
-  // the full measured panel; resizeMode="contain" preserves its aspect ratio.
+  // A single image or teaching clip is the main lesson visual. Let it use the
+  // full measured panel instead of shrinking a 16:9 clip into a short strip.
   const optionImageHeight = useSingleImageLayout
     ? Math.max(68, availableOptionsHeight - 42)
     : Math.min(
@@ -324,7 +322,7 @@ export function LessonCardView({
             useDensePortraitTextLayout ? styles.optionsDensePortrait : null,
             useHorizontalPhraseOptions ? styles.optionsHorizontalPhrases : null,
             isTabletLandscape ? styles.optionsTabletLandscape : null,
-            useCompactSingleActionVideo ? styles.singleActionVideoOptions : null,
+            useExpandedSingleActionVideo ? styles.singleActionVideoOptions : null,
           ]}>
             {card.options.map((option, optionIndex) => {
               const selected = selectedId === option.id;
@@ -333,7 +331,7 @@ export function LessonCardView({
               const revealWrong = selected && result === 'wrong';
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
               const actionVideoName = lessonActionVideo(option.image_url);
-              const showActionVideo = Boolean(actionVideoName) && (
+              const playActionVideo = Boolean(actionVideoName) && (
                 card.options.length === 1 || revealCorrect
               );
               const optionImageUrl = absoluteMediaUrl(option.image_url);
@@ -361,7 +359,7 @@ export function LessonCardView({
                         }
                       : null,
                     !isLandscape && option.image_url ? styles.imageOptionPortrait : null,
-                    useCompactSingleActionVideo ? styles.singleActionVideoOption : null,
+                    useExpandedSingleActionVideo ? styles.singleActionVideoOption : null,
                     hasTextOnlyOptions ? styles.textOption : null,
                     useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
                     useHorizontalPhraseOptions ? styles.textOptionHorizontal : null,
@@ -372,25 +370,26 @@ export function LessonCardView({
                   ]}
                 >
                   {option.image_url ? (
-                    showActionVideo ? (
+                    actionVideoName ? (
                       <LessonActionMedia
                         accessibilityLabel={option.label || card.prompt}
                         height={renderedOptionImageHeight}
                         imageUrl={option.image_url}
                         onPress={() => onSelect(option.id)}
+                        shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
-                        videoName={actionVideoName!}
+                        videoName={actionVideoName}
                       />
                     ) : (
                       <Image
                         accessible={false}
                         accessibilityIgnoresInvertColors
-                        resizeMode={actionVideoName ? 'cover' : 'contain'}
+                        resizeMode="contain"
                         source={{ uri: optionImageUrl }}
                         style={[
-                          actionVideoName ? styles.actionMedia : styles.optionImage,
-                          !actionVideoName && !isLandscape ? styles.optionImagePortrait : null,
-                          !actionVideoName && isTabletLandscape ? styles.optionImageTablet : null,
+                          styles.optionImage,
+                          !isLandscape ? styles.optionImagePortrait : null,
+                          isTabletLandscape ? styles.optionImageTablet : null,
                           { height: renderedOptionImageHeight },
                         ]}
                       />
@@ -487,6 +486,7 @@ function LessonActionMedia({
   height,
   imageUrl,
   onPress,
+  shouldPlay,
   useCompactFrame = false,
   videoName,
 }: {
@@ -494,12 +494,12 @@ function LessonActionMedia({
   height: number;
   imageUrl: string;
   onPress?: () => void;
+  shouldPlay: boolean;
   useCompactFrame?: boolean;
   videoName: string;
 }) {
   const reduceMotion = useReducedMotion();
   const [videoFailed, setVideoFailed] = useState(false);
-  const [firstFrameRendered, setFirstFrameRendered] = useState(false);
   const player = useVideoPlayer({ uri: lessonVideoUrl(videoName), useCaching: true }, (instance) => {
     instance.loop = false;
     instance.muted = true;
@@ -507,19 +507,16 @@ function LessonActionMedia({
   });
 
   useEffect(() => {
-    setFirstFrameRendered(false);
     setVideoFailed(false);
   }, [videoName]);
 
   useEffect(() => {
-    if (reduceMotion) {
-      player.pause();
-      player.currentTime = 0;
-    } else {
-      player.currentTime = 0;
+    player.pause();
+    player.currentTime = 0;
+    if (!reduceMotion && shouldPlay) {
       player.play();
     }
-  }, [player, reduceMotion]);
+  }, [player, reduceMotion, shouldPlay]);
 
   useEffect(() => {
     const subscription = player.addListener('statusChange', ({ status }) => {
@@ -536,7 +533,8 @@ function LessonActionMedia({
         source={{ uri: absoluteMediaUrl(imageUrl) }}
         style={[
           styles.actionMedia,
-          useCompactFrame ? styles.singleActionMedia : { height },
+          useCompactFrame ? styles.singleActionMedia : null,
+          { height },
         ]}
       />
     );
@@ -545,28 +543,20 @@ function LessonActionMedia({
   return (
     <View style={[
       styles.actionMedia,
-      useCompactFrame ? styles.singleActionMedia : { height },
+      useCompactFrame ? styles.singleActionMedia : null,
+      { height },
     ]}>
-      {!firstFrameRendered ? (
-        <Image
-          accessible={false}
-          resizeMode="cover"
-          source={{ uri: absoluteMediaUrl(imageUrl) }}
-          style={styles.actionMediaLayer}
-        />
-      ) : null}
       <VideoView
         accessible={false}
         contentFit="cover"
         nativeControls={false}
         onFirstFrameRender={() => {
-          setFirstFrameRendered(true);
           setVideoFailed(false);
         }}
         player={player}
         pointerEvents="none"
         surfaceType="textureView"
-        style={[styles.actionMediaLayer, !firstFrameRendered ? styles.hiddenVideo : null]}
+        style={styles.actionMediaLayer}
       />
       {onPress ? (
         <Pressable
@@ -661,7 +651,7 @@ const styles = StyleSheet.create({
   },
   singleActionVideoOption: {
     alignSelf: 'center',
-    width: '90%',
+    width: '100%',
   },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
   optionImagePortrait: { borderRadius: 17 },
@@ -675,7 +665,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   singleActionMedia: {
-    aspectRatio: ACTION_VIDEO_ASPECT_RATIO,
+    width: '100%',
   },
   actionMediaLayer: {
     bottom: 0,
@@ -695,7 +685,6 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 2,
   },
-  hiddenVideo: { opacity: 0 },
   textOption: {
     borderBottomWidth: 5,
     elevation: 3,
