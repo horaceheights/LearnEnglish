@@ -140,6 +140,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Single-card teaching clips use the full available card width and the main visual height. Do not force them into a short 16:9 strip inside a large empty card.
 - Generated clips must be silent. Do not generate talking mouths unless speech itself is the lesson target.
 - Normalize action clips to the shared 16:9 frame, currently 640x360, with no encoded black sidebars.
+- Action-video surfaces must fill their clipped card edge-to-edge. Use `cover` plus a slight player-layer overscan on web and native; never use `contain` for lesson action clips because it exposes black sidebars.
 - Version video URLs whenever a clip is replaced or normalized so mobile and CDN caches cannot keep serving an obsolete copy with old framing or black bars.
 - The still and video layers must occupy exactly the same frame. Switching to video must not reveal the old image, resize the subject, or create gaps.
 - Preserve the whole subject. Use a blurred side fill when source framing cannot fill 16:9 without cropping important content.
@@ -231,4 +232,5 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Completion-card audio standardized on silent blank pauses; literal placeholders are prohibited at every TTS boundary.
 - 2026-08-19: Unit 1 new-vocabulary introductions standardized on yellow text with one brief, reduced-motion-safe emphasis animation.
 - 2026-08-19: Negative posture cards now require the negated posture to be visibly absent, with a validated asset contract for `They are not sitting.`
+- 2026-08-19: Action-video players standardized on edge-to-edge cover with clipped overscan and independently versioned video caches.
 - 2026-08-19: Wrong-answer feedback now pairs encouragement with one concise Spanish learning hint beneath it across web and mobile lessons.

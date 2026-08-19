@@ -20,6 +20,7 @@ import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260710-objects-places-1-6";
+const LESSON_VIDEO_VERSION = "20260819-edge-to-edge-v3";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 const DEFAULT_PROFILE = {
@@ -1703,7 +1704,7 @@ function promptParts(prompt) {
 }
 
 function lessonVideoSrc(name) {
-  return `/lesson-assets/${name}?v=${LESSON_IMAGE_VERSION}`;
+  return `/lesson-assets/${name}?v=${LESSON_VIDEO_VERSION}`;
 }
 
 const LESSON_ACTION_VIDEOS = {
@@ -1757,14 +1758,14 @@ function LessonActionMedia({ alt, imageUrl, style, videoName }) {
       autoPlay
       muted
       playsInline
-      poster={lessonImageSrc(imageUrl)}
       src={lessonVideoSrc(videoName)}
       style={{
         ...style,
-        objectFit: "contain",
+        objectFit: "cover",
         objectPosition: "center",
         background: "var(--surface-2)",
         pointerEvents: "none",
+        transform: "scale(1.025)",
       }}
     />
   );
