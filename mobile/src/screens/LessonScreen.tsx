@@ -59,6 +59,7 @@ void Promise.all([preload(SUCCESS_CHIME), preload(TRY_AGAIN_CUE)]).catch((preloa
   captureDiagnosticError(preloadError, 'feedback_audio_preload', {}, 'warning');
 });
 const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v3';
+const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const DOUBLE_TAP_DELAY_MS = 290;
 const COURSE_AUDIO_FALLBACK_MS = 12000;
@@ -773,6 +774,12 @@ export function LessonScreen({
     setShowSentenceCoachmark(false);
     setShowSentenceTranslation(false);
   }, [cardIndex, translationOpacity]);
+
+  useEffect(() => {
+    if (!showHelp) return undefined;
+    const timer = setTimeout(() => setShowHelp(false), HELP_DISPLAY_MS);
+    return () => clearTimeout(timer);
+  }, [showHelp]);
 
   useEffect(() => {
     setFurthestCardIndex((current) => Math.max(current, cardIndex));
