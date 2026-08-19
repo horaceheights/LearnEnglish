@@ -114,6 +114,10 @@ Do not force every word through every step in a single lesson when that would ma
 
 - Images are central to the product, but lessons must also test text and audio without images.
 - The intended answer must be visually unambiguous. Avoid near-duplicate scenes for reading versus studying, smiling versus talking, or standing versus sitting.
+- Judge every option against the complete spoken or written prompt, not its asset name or intended option ID. Every distractor must be visibly false for that complete prompt.
+- Do not use category subsets or supertypes as image distractors when both can satisfy the prompt. Brothers, sisters, and babies are children; parents and grandparents are adults; and a family scene contains children, siblings, parents, and grandparents.
+- Negative image questions should use an exact two-scene contrast, preferably with the same subject visibly doing versus not doing the named action. Do not offer several unrelated scenes that all technically satisfy `not`.
+- A specific identity choice cannot be driven by `Who is he?`, `Who is she?`, or `Who are they?` alone. Include the identifying answer in the audio or establish an unmistakable antecedent before showing choices.
 - Do not crop heads, faces, hands needed for meaning, or the action itself.
 - Preserve the full subject with `contain` or an equivalent normalized frame when cropping would remove meaning.
 - Use consistent aspect ratios and framing for images serving the same card role.
@@ -196,7 +200,7 @@ Required checks for curriculum or shared lesson changes:
 5. Inspect representative phone layouts, including the longest phrase and cards with two and four choices.
 6. Inspect new or normalized images and video frames visually.
 
-Existing automated guardrails cover lesson order, vocabulary contracts, five-stage structure, valid assets and answers, bidirectional recognition, hidden-text listening, single-image speaking, interactive Use cards, media loading, pronunciation lifecycle, and horizontal phrase-option layout. Extend these checks when a new reusable rule is approved.
+Existing automated guardrails cover lesson order, vocabulary contracts, five-stage structure, valid assets and answers, unique visible choices, family-category overlap, exact negative listening contrasts, complete identity prompts, bidirectional recognition, hidden-text listening, single-image speaking, interactive Use cards, media loading, pronunciation lifecycle, and horizontal phrase-option layout. Extend these checks when a new reusable rule is approved.
 
 ## 11. Release Rules
 
@@ -213,3 +217,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-18: New Unit 1 audio pre-generated and bundled rather than deferred to first use.
 - 2026-08-19: Portrait phrase-answer tiles standardized as stacked horizontal, single-line, auto-sized rows.
 - 2026-08-19: Repository guardrail memory established and made mandatory through `AGENTS.md`.
+- 2026-08-19: Image-choice ambiguity rules expanded to cover full-prompt truth, family-category overlap, negative contrasts, and identity context.

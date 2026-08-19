@@ -122,6 +122,10 @@ class LessonStructureTests(unittest.TestCase):
                     self.assertEqual(len(option_ids), len(set(option_ids)))
                     self.assertIn(card.correct_option_id, option_ids)
 
+                option_image_urls = [option.image_url for option in card.options if option.image_url]
+                with self.subTest(lesson=lesson.id, card=index, check="unique visible choices"):
+                    self.assertEqual(len(option_image_urls), len(set(option_image_urls)))
+
                 media_urls = [card.prompt_image_url] if card.prompt_image_url else []
                 media_urls.extend(option.image_url for option in card.options if option.image_url)
                 for media_url in media_urls:
@@ -154,6 +158,50 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.prompt == "Listen and choose." for card in cards))
                 self.assertTrue(all(card.audio_text for card in cards))
                 self.assertTrue(all(all(option.image_url for option in card.options) for card in cards))
+
+    def test_family_image_choices_do_not_use_overlapping_categories(self):
+        forbidden_distractors = {
+            "Children": {"babies", "brothers", "sisters", "family"},
+            "They are children.": {"babies", "brothers", "sisters", "family"},
+            "They are brothers.": {"children", "family"},
+            "They are sisters.": {"children", "family"},
+            "They are the brothers.": {"babies", "children", "family"},
+            "They are the sisters.": {"babies", "children", "family"},
+            "Who are they? They are the brothers.": {"babies", "children", "family"},
+            "Who are they? They are the sisters.": {"babies", "children", "family"},
+            "They are a family.": {
+                "babies", "brothers", "sisters", "children", "parents", "grandparents",
+            },
+        }
+        for lesson in LESSONS.values():
+            for index, card in enumerate(lesson.cards, 1):
+                spoken_text = card.audio_text or card.answer_audio_text or card.prompt
+                forbidden = forbidden_distractors.get(spoken_text)
+                if not forbidden or not all(option.image_url for option in card.options):
+                    continue
+                distractor_ids = {
+                    option.id for option in card.options
+                    if option.id != card.correct_option_id
+                }
+                with self.subTest(lesson=lesson.id, card=index, spoken_text=spoken_text):
+                    self.assertFalse(forbidden & distractor_ids)
+
+    def test_negative_listening_uses_an_exact_binary_contrast(self):
+        for lesson in LESSONS.values():
+            for index, card in enumerate(lesson.cards, 1):
+                if card.stage != "Listen" or " not " not in (card.audio_text or "").lower():
+                    continue
+                with self.subTest(lesson=lesson.id, card=index, audio=card.audio_text):
+                    self.assertEqual(2, len(card.options))
+
+    def test_specific_identity_choices_include_the_answer_in_the_audio(self):
+        for lesson in LESSONS.values():
+            for index, card in enumerate(lesson.cards, 1):
+                audio = card.audio_text or ""
+                if card.stage != "Recognize" or not audio.lower().startswith("who "):
+                    continue
+                with self.subTest(lesson=lesson.id, card=index, audio=audio):
+                    self.assertRegex(audio, r"\?\s+(He|She|They) (is|are) ")
 
     def test_speak_uses_one_clear_image_and_a_model_phrase(self):
         for lesson in LESSONS.values():
