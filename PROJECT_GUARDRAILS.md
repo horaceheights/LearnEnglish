@@ -117,6 +117,7 @@ Do not force every word through every step in a single lesson when that would ma
 
 - Images are central to the product, but lessons must also test text and audio without images.
 - The intended answer must be visually unambiguous. Avoid near-duplicate scenes for reading versus studying, smiling versus talking, or standing versus sitting.
+- For negative action or posture prompts, the correct image must visibly exclude the negated state. Showing people talking while seated is not a valid answer for `They are not sitting`; use a clearly upright or moving scene.
 - Judge every option against the complete spoken or written prompt, not its asset name or intended option ID. Every distractor must be visibly false for that complete prompt.
 - Do not use category subsets or supertypes as image distractors when both can satisfy the prompt. Brothers, sisters, and babies are children; parents and grandparents are adults; and a family scene contains children, siblings, parents, and grandparents.
 - Negative image questions should use an exact two-scene contrast, preferably with the same subject visibly doing versus not doing the named action. Do not offer several unrelated scenes that all technically satisfy `not`.
@@ -228,3 +229,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Unit 1 action cards standardized on one paused-video surface, full-size single-card clips, and versioned video URLs.
 - 2026-08-19: Completion-card audio standardized on silent blank pauses; literal placeholders are prohibited at every TTS boundary.
 - 2026-08-19: Unit 1 new-vocabulary introductions standardized on yellow text with one brief, reduced-motion-safe emphasis animation.
+- 2026-08-19: Negative posture cards now require the negated posture to be visibly absent, with a validated asset contract for `They are not sitting.`

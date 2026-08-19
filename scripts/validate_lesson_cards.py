@@ -21,6 +21,9 @@ ADULT_ROLE_IDS = {
 }
 GRAMMAR_STAGES = {"Grammar", "New Grammar", "Use"}
 PRONUNCIATION_STAGES = {"Pronunciation Practice", "Speak"}
+NEGATIVE_VISUAL_CONTRACTS = {
+    "they are not sitting.": {"they_boy_girl_are_running.webp"},
+}
 
 
 def referenced_lesson_asset(media_url: str) -> Path | None:
@@ -113,6 +116,34 @@ def validate_family_adult_ambiguity() -> list[str]:
     return errors
 
 
+def validate_negative_visual_contracts() -> list[str]:
+    errors: list[str] = []
+    for lesson in LESSONS.values():
+        for card_index, card in enumerate(lesson.cards, 1):
+            target_text = (card.audio_text or card.answer_audio_text or card.prompt or "").strip().lower()
+            allowed_assets = NEGATIVE_VISUAL_CONTRACTS.get(target_text)
+            if not allowed_assets:
+                continue
+
+            if card.prompt_image_url:
+                answer_media = card.prompt_image_url
+            else:
+                answer_option = next(
+                    (option for option in card.options if option.id == card.correct_option_id),
+                    None,
+                )
+                answer_media = answer_option.image_url if answer_option else ""
+
+            asset_name = answer_media.split("?", 1)[0].rsplit("/", 1)[-1]
+            if asset_name not in allowed_assets:
+                errors.append(
+                    f"{lesson.id} card {card_index} ({card.prompt!r}) uses {asset_name!r} for "
+                    f"{target_text!r}; expected one of {sorted(allowed_assets)} so the negated "
+                    "posture is visibly absent."
+                )
+    return errors
+
+
 def validate_interaction_requirements() -> list[str]:
     errors: list[str] = []
     for lesson in LESSONS.values():
@@ -145,6 +176,7 @@ def main() -> int:
         *validate_option_ids(),
         *validate_duplicate_option_images(),
         *validate_family_adult_ambiguity(),
+        *validate_negative_visual_contracts(),
         *validate_interaction_requirements(),
         *validate_media_references(),
     ]
