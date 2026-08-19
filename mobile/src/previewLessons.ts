@@ -1,10 +1,12 @@
 import * as Updates from 'expo-updates';
 
 import lessonOne from './generated/lesson-1-people-actions.json';
+import lessonTwo from './generated/lesson-2-pronouns.json';
 import type { ChoiceOption, Lesson } from './types';
 
 const PREVIEW_LESSONS: Record<string, Lesson> = {
   [lessonOne.id]: lessonOne as Lesson,
+  [lessonTwo.id]: lessonTwo as Lesson,
 };
 
 function shuffledOptions(options: ChoiceOption[]): ChoiceOption[] {
@@ -35,4 +37,9 @@ export function getPreviewLesson(lessonId: string): Lesson | null {
   if (Updates.channel !== 'preview') return null;
   const lesson = PREVIEW_LESSONS[lessonId];
   return lesson ? lessonCopy(lesson) : null;
+}
+
+export function getPreviewLessonMetadata(lessonId: string): Lesson | null {
+  if (Updates.channel !== 'preview') return null;
+  return PREVIEW_LESSONS[lessonId] || null;
 }

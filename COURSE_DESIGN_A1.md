@@ -17,7 +17,7 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 
 ## Current Track Check
 
-Unit 1, `People, Actions, And Basic Sentences`, is on track for early A1. The two built sub-lessons are `1.1 People and Actions` and `1.2 He, She, and They`.
+Unit 1, `People, Family, and Actions`, is the first of seven planned A1 units. It uses ten stepped lessons. The approved rebuild starts with `1.1 People and Core Actions`, followed by the narrower `1.2 He and She` lesson.
 
 What it does well:
 
@@ -37,27 +37,32 @@ What to add next:
 
 ## A1 Course Spine
 
-### Unit 1: People, Actions, And Basic Sentences
+### Unit 1: People, Family, and Actions
 
 Goal: Understand simple subject + action sentences.
 
-Lesson 1: People and Pronouns
+Lessons:
 
-Sub-lessons:
-
-1. 1.1 People and Actions: `boy`, `girl`, `man`, `woman`; `running`, `walking`, `swimming`, `eating`
-2. 1.2 He, She, and They: `he`, `she`, `they`; `He is...`, `She is...`, `They are...`
-3. 1.3 More People: `mother`, `father`, `baby`, `child`, `friend`, `teacher`, `student`
-4. 1.4 Everyday Actions: `drinking`, `reading`, `writing`, `sleeping`, `sitting`, `standing`
-5. 1.5 Review: person + action recognition across old and new images
+1. 1.1 People and Core Actions: `boy`, `girl`, `man`, `woman`; `running`, `walking`, `sitting`, `standing`; `the`, `is`
+2. 1.2 He and She: `he`, `she`; `eating`, `drinking`, `reading`, `writing`; singular noun-to-pronoun substitution
+3. 1.3 Two People: They and Are: `and`, `they`, `are`; `swimming`, `sleeping`
+4. 1.4 Children and Siblings: `a family`, `baby/babies`, `child/children`, `brother/brothers`, `sister/sisters`
+5. 1.5 Parents and Grandparents: `an adult/adults`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`
+6. 1.6 Family Actions: `playing`, `studying`, `working`, `cooking`, `talking`
+7. 1.7 Is, Are, and Not: affirmative and negative `be` for one person and groups
+8. 1.8 Who Is He? Who Are They?: identity questions and short answers
+9. 1.9 Unit 1 Spiral Review: mixed retrieval with no new vocabulary
+10. 1.10 Family Scene Mission: identify people, describe actions, and answer a `Who` question from one scene
 
 Core patterns:
 
 - `The boy is running.`
-- `The woman is eating.`
-- `He is running.`
-- `They are eating.`
-- `The teacher is reading.`
+- `He is eating.`
+- `She is writing.`
+- `The boy and the girl are running.`
+- `They are running.`
+- `He is not cooking.`
+- `Who are they? They are the parents.`
 
 ### Unit 2: Objects, Colors, And Numbers
 
@@ -216,29 +221,30 @@ Avoid:
 
 ## Current Unit 1 Build
 
-Unit 1 currently starts with:
+The approved Unit 1 rebuild currently includes:
 
-- `1.1 People and Actions`
-- `1.2 He, She, and They`
-- `1.3 Family Members`
-- `1.4 Family Action Practice`
-- `1.5 Places Around Me`
+- `1.1 People and Core Actions`: rebuilt in the five-stage shell
+- `1.2 He and She`: next rebuilt lesson
+- `1.3` through `1.10`: planned in the stepped sequence above
+
+The previously built family lessons supply approved assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
 Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
 
 ## Next Build Recommendation
 
-Continue Unit 1 after `1.5 Places Around Me` with short lessons that follow the standard section mix:
+Rebuild each Unit 1 lesson in order using the shared journey:
 
-- new vocabulary
-- recognition practice
-- pronunciation practice
-- grammar practice
-- quick review
+- Learn
+- Recognize
+- Listen
+- Speak
+- Use
 
 Why this is the right next step:
 
 - it keeps lessons predictable for the learner
-- it reinforces the present continuous pattern
-- it gives the app more content before introducing colors, numbers, and location phrases
-- it keeps the learner in concrete visual A1 language
+- it limits each lesson to one major conceptual contrast
+- every new word completes the same learning journey
+- grammar is learned through interactive completion and rearrangement rather than a visible Grammar section
+- people and family remain a coherent narrative before Unit 2 introduces places and objects

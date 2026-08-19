@@ -42,16 +42,102 @@ class LessonStructureTests(unittest.TestCase):
         )
         self.assertEqual(lesson_payload, snapshot)
 
+    def test_mobile_preview_snapshot_matches_lesson_1_2(self):
+        lesson = LESSONS["lesson-2-pronouns"]
+        snapshot_path = (
+            Path(__file__).resolve().parents[2]
+            / "mobile"
+            / "src"
+            / "generated"
+            / "lesson-2-pronouns.json"
+        )
+        snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+        lesson_payload = (
+            lesson.model_dump(mode="json")
+            if hasattr(lesson, "model_dump")
+            else json.loads(lesson.json())
+        )
+        self.assertEqual(lesson_payload, snapshot)
+
     def test_lesson_1_uses_the_five_stage_journey(self):
         lesson = LESSONS["lesson-1-people-actions"]
         stages = list(dict.fromkeys(card.stage for card in lesson.cards))
         self.assertEqual(LESSON_1_STAGES, stages)
 
     def test_unmigrated_lessons_keep_the_legacy_journey(self):
-        for lesson in list(LESSONS.values())[1:]:
+        for lesson in list(LESSONS.values())[2:]:
             with self.subTest(lesson=lesson.id):
                 stages = list(dict.fromkeys(card.stage for card in lesson.cards))
                 self.assertEqual(LEGACY_STAGES, stages)
+
+    def test_lesson_1_2_uses_the_five_stage_journey(self):
+        lesson = LESSONS["lesson-2-pronouns"]
+        stages = list(dict.fromkeys(card.stage for card in lesson.cards))
+        counts = {
+            stage: sum(card.stage == stage for card in lesson.cards)
+            for stage in LESSON_1_STAGES
+        }
+
+        self.assertEqual(LESSON_1_STAGES, stages)
+        self.assertEqual(
+            {"Learn": 8, "Recognize": 10, "Listen": 6, "Speak": 6, "Use": 6},
+            counts,
+        )
+        self.assertEqual(36, len(lesson.cards))
+
+    def test_lesson_1_2_matches_the_unit_roadmap_scope(self):
+        lesson = LESSONS["lesson-2-pronouns"]
+        self.assertEqual("1.2 He and She", lesson.title)
+        self.assertEqual(
+            {"he", "she", "eating", "drinking", "reading", "writing"},
+            set(lesson.vocabulary),
+        )
+        lesson_words = {
+            word.strip(".,?!").lower()
+            for card in lesson.cards
+            for text in [
+                "" if card.prompt == "Listen and choose." else card.prompt,
+                card.audio_text or "",
+                card.answer_audio_text or "",
+            ]
+            for word in text.split()
+        }
+        for deferred_word in ["they", "are", "and", "not", "swimming", "sleeping"]:
+            self.assertNotIn(deferred_word, lesson_words)
+
+    def test_lesson_1_2_recognition_works_in_both_directions(self):
+        cards = [card for card in LESSONS["lesson-2-pronouns"].cards if card.stage == "Recognize"]
+        text_to_image = [
+            card for card in cards
+            if not card.prompt_image_url and all(option.image_url for option in card.options)
+        ]
+        image_to_text = [
+            card for card in cards
+            if card.prompt_image_url and all(not option.image_url for option in card.options)
+        ]
+
+        self.assertEqual(8, len(text_to_image))
+        self.assertEqual(2, len(image_to_text))
+        self.assertEqual(6, sum(len(card.options) == 2 for card in cards))
+        self.assertEqual(4, sum(len(card.options) == 4 for card in cards))
+        self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
+        self.assertTrue(all(not card.audio_text for card in image_to_text))
+        self.assertTrue(all(card.answer_audio_text for card in image_to_text))
+
+    def test_lesson_1_2_listen_speak_and_use_follow_the_shared_shell(self):
+        lesson = LESSONS["lesson-2-pronouns"]
+        listen_cards = [card for card in lesson.cards if card.stage == "Listen"]
+        speak_cards = [card for card in lesson.cards if card.stage == "Speak"]
+        use_cards = [card for card in lesson.cards if card.stage == "Use"]
+
+        self.assertTrue(all(card.prompt == "Listen and choose." for card in listen_cards))
+        self.assertTrue(all(card.audio_text for card in listen_cards))
+        self.assertTrue(all(all(option.image_url for option in card.options) for card in listen_cards))
+        self.assertEqual(["He", "She"], [card.prompt for card in speak_cards[:2]])
+        self.assertTrue(all("___" in card.prompt for card in use_cards))
+        self.assertTrue(all(card.prompt_image_url for card in use_cards))
+        self.assertTrue(all(card.answer_audio_text for card in use_cards))
+        self.assertNotIn("Grammar", {card.stage for card in lesson.cards})
 
     def test_lesson_1_stage_counts_match_the_reduced_design(self):
         lesson = LESSONS["lesson-1-people-actions"]

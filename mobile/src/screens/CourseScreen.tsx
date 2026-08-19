@@ -23,6 +23,7 @@ import { getLessonProgress, getLessons } from '../api';
 import { absoluteMediaUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
+import { getPreviewLessonMetadata } from '../previewLessons';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 import { canUseEasUpdates } from '../updates';
 
@@ -33,8 +34,8 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#ffe8c7',
   },
   'lesson-2-pronouns': {
-    image: 'they_boy_girl.webp',
-    description: 'He, she y they con una o dos personas.',
+    image: 'girl_is_writing.webp',
+    description: 'He y she con acciones claras de una persona.',
     color: '#dff4ef',
   },
   'lesson-4-family-members': {
@@ -81,7 +82,13 @@ type Props = {
 };
 
 function lessonName(lesson: LessonSummary): string {
-  return `${lesson.sub_lesson_id || ''} ${lesson.sub_lesson_title || lesson.title}`.trim();
+  const previewLesson = getPreviewLessonMetadata(lesson.id);
+  const number = previewLesson?.sub_lesson_id || lesson.sub_lesson_id || '';
+  const title = previewLesson?.sub_lesson_title
+    || lesson.sub_lesson_title
+    || previewLesson?.title
+    || lesson.title;
+  return `${number} ${title}`.trim();
 }
 
 function unitName(lesson?: LessonSummary): string {

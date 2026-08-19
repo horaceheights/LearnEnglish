@@ -80,6 +80,7 @@ COURSE_SYLLABLES = {
     "children": 2,
     "choose": 1,
     "cooking": 2,
+    "drinking": 2,
     "eating": 2,
     "family": 3,
     "father": 2,
@@ -124,6 +125,7 @@ COURSE_SYLLABLES = {
 ING_PRONUNCIATION_NOTES = {
     "building": "'building' /ˈbɪl.dɪŋ/",
     "cooking": "'cooking' /ˈkʊk.ɪŋ/",
+    "drinking": "'drinking' /ˈdrɪŋ.kɪŋ/",
     "eating": "'eating' /ˈiː.tɪŋ/",
     "playing": "'playing' /ˈpleɪ.ɪŋ/",
     "reading": "'reading' /ˈriː.dɪŋ/",
