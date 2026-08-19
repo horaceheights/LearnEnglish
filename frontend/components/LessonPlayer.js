@@ -33,15 +33,15 @@ const DEFAULT_PROFILE = {
 const COURSE_MENU_VISUALS = {
   units: {
     "unit-1": {
-      title: "People, Actions, and Basic Sentences",
-      description: "Aprende a reconocer personas, acciones y frases cortas con imagenes claras.",
+      title: "People, Family, and Actions",
+      description: "Aprende personas, familia y acciones con una progresion clara.",
       images: ["boy.webp", "girl_is_reading.webp", "they_boy_girl_are_running.webp"],
       accent: "#ffe1ad",
     },
   },
   lessons: {
     "lesson-1": {
-      description: "Empieza con boy, girl, man, woman; luego une pronombres y acciones.",
+      description: "Avanza desde personas y acciones hasta una mision familiar completa.",
       images: ["man_is_walking.webp", "woman_is_reading.webp"],
     },
   },
@@ -52,24 +52,49 @@ const COURSE_MENU_VISUALS = {
       accent: "#ffe8c7",
     },
     "lesson-2-pronouns": {
-      description: "He, she y they con una o dos personas.",
-      image: "they_boy_girl.webp",
+      description: "He y she con acciones claras de una persona.",
+      image: "girl_is_writing.webp",
       accent: "#dff4ef",
     },
-    "lesson-4-family-members": {
+    "lesson-3-two-people": {
+      description: "They y are para hablar de dos personas.",
+      image: "they_boy_girl_are_running.webp",
+      accent: "#e5eefb",
+    },
+    "lesson-4-children-siblings": {
       description: "Familia cercana: bebes, ninos, hermanos y hermanas.",
       image: "family_all_members.webp",
       accent: "#ffe7bd",
     },
-    "lesson-4-family-members-continued": {
+    "lesson-5-parents-grandparents": {
       description: "Familia: adultos, padres, madres y abuelos.",
       image: "family_grandparents.webp",
       accent: "#f1e4fa",
     },
-    "lesson-6-objects-places": {
-      description: "Objetos y lugares comunes para preparar colores, numeros y ubicaciones.",
-      image: "place_school.webp",
+    "lesson-6-family-actions": {
+      description: "Acciones utiles dentro de la familia.",
+      image: "family_children_playing.webp",
+      accent: "#dff4ef",
+    },
+    "lesson-7-is-are-not": {
+      description: "Is, are y not dentro de frases conocidas.",
+      image: "family_parents_talking.webp",
       accent: "#ffe8c7",
+    },
+    "lesson-8-who": {
+      description: "Preguntas y respuestas para identificar personas.",
+      image: "family_parents.webp",
+      accent: "#e5eefb",
+    },
+    "lesson-9-unit-review": {
+      description: "Repaso mezclado de toda la unidad.",
+      image: "family_all_members.webp",
+      accent: "#f1e4fa",
+    },
+    "lesson-10-family-mission": {
+      description: "Mision final con personas, familia y acciones.",
+      image: "family_all_members.webp",
+      accent: "#ffe1ad",
     },
   },
 };
@@ -1598,7 +1623,11 @@ const LESSON_ACTION_VIDEOS = {
   "boy_is_swimming": "boy-swimming-scene-v2.mp4",
   "boy_is_walking": "boy-walking-scene-v2.mp4",
   "family_brother_studying": "brother-studying-scene-v2.mp4",
+  "family_baby_sleeping": "baby-sleeping-scene-v2.mp4",
+  "family_adults_playing": "adults-playing-scene-v2.mp4",
   "family_children_playing": "children-playing-scene-v2.mp4",
+  "family_children_studying": "children-studying-scene-v2.mp4",
+  "family_father_working": "father-working-scene-v2.mp4",
   "family_mother_cooking": "mother-cooking-scene-v2.mp4",
   "family_parents_talking": "parents-talking-scene-v2.mp4",
   "girl_is_drinking": "girl-drinking-scene-v2.mp4",
@@ -1607,6 +1636,7 @@ const LESSON_ACTION_VIDEOS = {
   "girl_is_writing": "girl-writing-scene-v2.mp4",
   "man_is_swimming": "man-swimming-scene-v2.mp4",
   "man_is_walking": "man-walking-scene-v2.mp4",
+  "they_boy_girl_are_running": "boy-girl-running-scene-v2.mp4",
 };
 
 function lessonActionVideo(imageUrl) {
@@ -2132,11 +2162,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const cardPromptText = currentCard ? currentCard.audio_text ?? currentCard.prompt : "";
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
   const isRecognitionLesson =
-    activeLesson.id === "lesson-1-people-actions" ||
-    activeLesson.id === "lesson-2-pronouns" ||
-    activeLesson.id === "lesson-4-family-members" ||
-    activeLesson.id === "lesson-4-family-members-continued" ||
-    activeLesson.id === "lesson-6-objects-places";
+    activeLesson.unit_id === "unit-1";
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationCard ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =

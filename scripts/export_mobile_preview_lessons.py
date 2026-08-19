@@ -47,7 +47,11 @@ def main() -> None:
         help="Lesson ID to export. May be supplied more than once.",
     )
     args = parser.parse_args()
-    lesson_ids = args.lesson_ids or ["lesson-1-people-actions"]
+    lesson_ids = args.lesson_ids or [
+        lesson.id
+        for lesson in LESSONS.values()
+        if lesson.unit_id == "unit-1"
+    ]
 
     for lesson_id in lesson_ids:
         destination = export_lesson(lesson_id)

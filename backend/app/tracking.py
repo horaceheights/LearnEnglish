@@ -1,5 +1,6 @@
 import json
 import os
+import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -39,7 +40,9 @@ def storage_info() -> dict[str, Any]:
 
 
 def now_iso() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    seconds, nanoseconds = divmod(time.time_ns(), 1_000_000_000)
+    timestamp = datetime.fromtimestamp(seconds, timezone.utc)
+    return f"{timestamp:%Y-%m-%dT%H:%M:%S}.{nanoseconds:09d}+00:00"
 
 
 def init_db() -> None:

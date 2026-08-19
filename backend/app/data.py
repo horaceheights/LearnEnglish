@@ -54,16 +54,25 @@ def load_lesson_from_file(file_path: Path) -> Lesson:
 
 
 def load_all_lessons(lessons_dir: Path = LESSONS_DIR) -> dict[str, Lesson]:
-    lessons: dict[str, Lesson] = {}
+    loaded_lessons: list[Lesson] = []
     if not lessons_dir.exists():
-        return lessons
+        return {}
 
     yaml_files = sorted(lessons_dir.rglob("*.yaml"))
     for file_path in yaml_files:
         lesson = load_lesson_from_file(file_path)
-        lessons[lesson.id] = lesson
+        loaded_lessons.append(lesson)
 
-    return lessons
+    def lesson_order(lesson: Lesson) -> tuple[int, ...]:
+        try:
+            return tuple(int(part) for part in lesson.sub_lesson_id.split("."))
+        except (AttributeError, ValueError):
+            return (999,)
+
+    return {
+        lesson.id: lesson
+        for lesson in sorted(loaded_lessons, key=lesson_order)
+    }
 
 
 LESSONS = load_all_lessons()

@@ -4,8 +4,9 @@ export const PRIVACY_POLICY_URL = `${API_BASE_URL}/privacy`;
 export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
 export const SECOND_LESSON_ID = 'lesson-2-pronouns';
-export const THIRD_LESSON_ID = 'lesson-4-family-members';
-export const FOURTH_LESSON_ID = 'lesson-4-family-members-continued';
+export const THIRD_LESSON_ID = 'lesson-3-two-people';
+export const FOURTH_LESSON_ID = 'lesson-4-children-siblings';
+export const FIFTH_LESSON_ID = 'lesson-5-parents-grandparents';
 // Keep an explicit extension in native audio URLs. AVPlayer on iOS can fail
 // extensionless media endpoints even when their Content-Type is correct.
 export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue.wav`;
@@ -24,7 +25,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   // The approved teacher takes for the complete family set were verified by
   // transcription, so use them for both recognition and listening practice.
   if (
-    (lessonId === THIRD_LESSON_ID || lessonId === FOURTH_LESSON_ID) &&
+    (lessonId === FOURTH_LESSON_ID || lessonId === FIFTH_LESSON_ID) &&
     (normalizedStage.includes('action') || normalizedStage.includes('listen'))
   ) {
     return 'female-teacher';
@@ -62,7 +63,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
     normalizedStage.includes('picture') ||
     normalizedStage.includes('what is it')
   ) {
-    return lessonId === THIRD_LESSON_ID || lessonId === FOURTH_LESSON_ID ? 'female-teacher' : 'male-conversational';
+    return lessonId === FOURTH_LESSON_ID || lessonId === FIFTH_LESSON_ID ? 'female-teacher' : 'male-conversational';
   }
 
   // Keep uncategorized future stages stable while still alternating the cast.

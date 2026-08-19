@@ -23,7 +23,7 @@ import { getLessonProgress, getLessons } from '../api';
 import { absoluteMediaUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
-import { getPreviewLessonMetadata } from '../previewLessons';
+import { getPreviewLessonMetadata, mergePreviewLessonSummaries } from '../previewLessons';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 import { canUseEasUpdates } from '../updates';
 
@@ -38,20 +38,45 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'He y she con acciones claras de una persona.',
     color: '#dff4ef',
   },
-  'lesson-4-family-members': {
+  'lesson-3-two-people': {
+    image: 'they_boy_girl_are_running.webp',
+    description: 'They y are para hablar de dos personas.',
+    color: '#e5eefb',
+  },
+  'lesson-4-children-siblings': {
     image: 'family_all_members.webp',
     description: 'Familia cercana: bebés, niños, hermanos y hermanas.',
     color: '#ffe7bd',
   },
-  'lesson-4-family-members-continued': {
+  'lesson-5-parents-grandparents': {
     image: 'family_grandparents.webp',
     description: 'Familia: adultos, padres, madres y abuelos.',
     color: '#f1e4fa',
   },
-  'lesson-6-objects-places': {
-    image: 'place_school.webp',
-    description: 'Objetos y lugares comunes.',
+  'lesson-6-family-actions': {
+    image: 'family_children_playing.webp',
+    description: 'Acciones útiles dentro de la familia.',
+    color: '#dff4ef',
+  },
+  'lesson-7-is-are-not': {
+    image: 'family_parents_talking.webp',
+    description: 'Is, are y not dentro de frases conocidas.',
     color: '#ffe8c7',
+  },
+  'lesson-8-who': {
+    image: 'family_parents.webp',
+    description: 'Preguntas y respuestas para identificar personas.',
+    color: '#e5eefb',
+  },
+  'lesson-9-unit-review': {
+    image: 'family_all_members.webp',
+    description: 'Repaso mezclado de toda la unidad.',
+    color: '#f1e4fa',
+  },
+  'lesson-10-family-mission': {
+    image: 'family_all_members.webp',
+    description: 'Misión final con personas, familia y acciones.',
+    color: '#ffe1ad',
   },
 };
 
@@ -92,7 +117,7 @@ function lessonName(lesson: LessonSummary): string {
 }
 
 function unitName(lesson?: LessonSummary): string {
-  const title = lesson?.unit_title || 'People, Actions, and Basic Sentences';
+  const title = lesson?.unit_title || 'People, Family, and Actions';
   return title.replace(/^Unit\s+\d+\s*:\s*/i, '');
 }
 
@@ -132,7 +157,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
         getLessons(),
         profile.userId ? getLessonProgress(profile.userId).catch(() => null) : Promise.resolve(null),
       ]);
-      setLessons(nextLessons);
+      setLessons(mergePreviewLessonSummaries(nextLessons));
       setProgressByLesson(
         progressResult
           ? Object.fromEntries(progressResult.map((progress) => [progress.lesson_id, progress]))

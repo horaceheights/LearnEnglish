@@ -1,4 +1,5 @@
 import argparse
+import re
 import subprocess
 import time
 from pathlib import Path
@@ -106,28 +107,67 @@ def generate(client: genai.Client, scene_id: str) -> Path:
 
 def optimize(scene_id: str, raw_path: Path) -> Path:
     output_path = ASSETS / SCENES[scene_id][1]
+    encode_normalized(raw_path, output_path)
+    print(f"scene={scene_id} optimized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
+    return output_path
+
+
+def detected_crop(input_path: Path) -> str:
+    result = subprocess.run(
+        [
+            imageio_ffmpeg.get_ffmpeg_exe(), "-ss", "0.25", "-i", str(input_path),
+            "-t", "1.0", "-vf", "cropdetect=24:16:0", "-f", "null", "-",
+        ],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    matches = re.findall(r"crop=(\d+:\d+:\d+:\d+)", result.stderr)
+    return matches[-1] if matches else "iw:ih:0:0"
+
+
+def encode_normalized(input_path: Path, output_path: Path) -> None:
+    crop = detected_crop(input_path)
+    temporary_path = output_path.with_name(f"{output_path.stem}.normalized.mp4")
+    filter_graph = (
+        f"[0:v]crop={crop},split=2[foreground][background];"
+        "[background]scale=640:360:force_original_aspect_ratio=increase,"
+        "crop=640:360,gblur=sigma=22[canvas];"
+        "[foreground]scale=640:360:force_original_aspect_ratio=decrease[subject];"
+        "[canvas][subject]overlay=(W-w)/2:(H-h)/2"
+    )
     subprocess.run(
         [
-            imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-ss", "0.20", "-i", str(raw_path), "-t", "3.0", "-an",
-            "-vf", "scale=640:-2:flags=lanczos", "-c:v", "libx264", "-preset", "slow",
-            "-crf", "30", "-movflags", "+faststart", "-pix_fmt", "yuv420p", str(output_path),
+            imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-ss", "0.20", "-i", str(input_path), "-t", "3.0", "-an",
+            "-filter_complex", filter_graph, "-c:v", "libx264", "-preset", "slow",
+            "-crf", "30", "-movflags", "+faststart", "-pix_fmt", "yuv420p", str(temporary_path),
         ],
         check=True,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
-    print(f"scene={scene_id} optimized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
-    return output_path
+    temporary_path.replace(output_path)
+
+
+def normalize_existing() -> None:
+    for input_path in sorted(ASSETS.glob("*-scene-v2.mp4")):
+        encode_normalized(input_path, input_path)
+        print(f"normalized={input_path.name} bytes={input_path.stat().st_size}", flush=True)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("scenes", nargs="*", choices=SCENES)
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--normalize-existing", action="store_true")
     args = parser.parse_args()
     scene_ids = list(SCENES) if args.all else args.scenes
-    if not scene_ids:
+    if args.normalize_existing:
+        normalize_existing()
+    if not scene_ids and not args.normalize_existing:
         parser.error("Choose one or more scenes, or use --all.")
+    if not scene_ids:
+        return
     client = genai.Client(api_key=api_key())
     failures = []
     for scene_id in scene_ids:

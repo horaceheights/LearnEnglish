@@ -221,11 +221,22 @@ Avoid:
 
 ## Current Unit 1 Build
 
-The approved Unit 1 rebuild currently includes:
+The approved Unit 1 rebuild now includes all ten roadmap lessons:
 
-- `1.1 People and Core Actions`: rebuilt in the five-stage shell
-- `1.2 He and She`: next rebuilt lesson
-- `1.3` through `1.10`: planned in the stepped sequence above
+| Lesson | Scope | Build status |
+| --- | --- | --- |
+| `1.1` | People and Core Actions | Complete |
+| `1.2` | He and She | Complete |
+| `1.3` | Two People: They and Are | Complete |
+| `1.4` | Children and Siblings | Complete |
+| `1.5` | Parents and Grandparents | Complete |
+| `1.6` | Family Actions | Complete |
+| `1.7` | Is, Are, and Not | Complete |
+| `1.8` | Who Is He? Who Are They? | Complete |
+| `1.9` | Unit 1 Spiral Review | Complete |
+| `1.10` | Family Scene Mission | Complete |
+
+Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
 
 The previously built family lessons supply approved assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
@@ -233,7 +244,7 @@ Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice
 
 ## Next Build Recommendation
 
-Rebuild each Unit 1 lesson in order using the shared journey:
+Review the complete Unit 1 sequence in Expo Preview, then apply the same shared journey to Unit 2:
 
 - Learn
 - Recognize

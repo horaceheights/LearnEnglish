@@ -1,9 +1,14 @@
 const SPANISH_FIRST_LESSONS = new Set([
   'lesson-1-people-actions',
   'lesson-2-pronouns',
-  'lesson-4-family-members',
-  'lesson-4-family-members-continued',
-  'lesson-6-objects-places',
+  'lesson-3-two-people',
+  'lesson-4-children-siblings',
+  'lesson-5-parents-grandparents',
+  'lesson-6-family-actions',
+  'lesson-7-is-are-not',
+  'lesson-8-who',
+  'lesson-9-unit-review',
+  'lesson-10-family-mission',
 ]);
 
 const SPANISH_STAGE_LABELS: Record<string, string> = {
