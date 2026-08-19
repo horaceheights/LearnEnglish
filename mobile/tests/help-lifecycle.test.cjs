@@ -7,6 +7,18 @@ const lessonScreenSource = fs.readFileSync(lessonScreenPath, 'utf8');
 
 assert.match(
   lessonScreenSource,
+  /const DOUBLE_TAP_DELAY_MS = 500;/,
+  'Android must have enough time to deliver both completed presses in a double tap.',
+);
+
+assert.match(
+  lessonScreenSource,
+  /now - lastPromptTapRef\.current <= DOUBLE_TAP_DELAY_MS[\s\S]+?openSentenceTranslation\(\);/,
+  'The second prompt tap must continue opening the Spanish translation.',
+);
+
+assert.match(
+  lessonScreenSource,
   /const HELP_DISPLAY_MS = 5000;/,
   'Lesson help must remain visible for exactly five seconds.',
 );

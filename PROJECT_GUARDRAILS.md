@@ -162,7 +162,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Static audio exists to reduce first-use delay, provider cost, and robotic fallback behavior.
 - Do not show internal audio-generation or scoring status messages to learners.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
-- Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback.
+- Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
 - Every course-audio boundary must sanitize visual answer blanks into a silent pause. No provider or browser fallback may receive literal underscore runs.
 
 ## 8. Feedback and Interaction

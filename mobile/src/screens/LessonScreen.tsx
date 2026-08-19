@@ -63,7 +63,7 @@ void Promise.all([preload(SUCCESS_CHIME), preload(TRY_AGAIN_CUE)]).catch((preloa
 const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v3';
 const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
-const DOUBLE_TAP_DELAY_MS = 290;
+const DOUBLE_TAP_DELAY_MS = 500;
 const COURSE_AUDIO_FALLBACK_MS = 12000;
 const OFFLINE_ADVANCE_DELAY_MS = 900;
 
