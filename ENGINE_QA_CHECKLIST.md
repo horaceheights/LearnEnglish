@@ -69,6 +69,8 @@ Test at least one card from every stage, then run the complete lesson audit.
 - [ ] Help names the exact action for the current card (listen, replay, select, repeat, or wait for automatic advance)
 - [ ] Help closes automatically after moving to the next card
 - [ ] Back to Lessons/QA remains visible
+- [ ] Opening an earlier completed section still accepts answers, shows feedback, and advances
+- [ ] Replaying a completed card does not add score or create another recorded attempt
 - [ ] Auto OFF permits result inspection
 - [ ] Auto ON advances exactly once
 - [ ] Last card reaches the completion screen

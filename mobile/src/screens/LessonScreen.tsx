@@ -46,7 +46,7 @@ import {
   setDiagnosticOperation,
 } from '../diagnostics';
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
-import { registerCardAttempt, registerCardCompletion } from '../lessonProgress';
+import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
 import { useConnectivity } from '../hooks/useConnectivity';
 import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
 import { spanishTranslationFor } from '../sentenceTranslations';
@@ -215,6 +215,7 @@ export function LessonScreen({
   const appWasInterruptedRef = useRef(false);
   const attemptedCardsRef = useRef<Set<number>>(new Set());
   const completedCardsRef = useRef<Set<number>>(new Set());
+  const correctChoiceHandledRef = useRef(false);
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
   const promptTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -884,6 +885,7 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
     grammarCompletionHandledRef.current = false;
+    correctChoiceHandledRef.current = false;
     if (grammarAudioTimerRef.current) {
       clearTimeout(grammarAudioTimerRef.current);
       grammarAudioTimerRef.current = null;
@@ -1304,23 +1306,31 @@ export function LessonScreen({
   };
 
   const choose = (optionId: string) => {
-    if (!currentCard || result === 'correct' || completedCardsRef.current.has(cardIndex)) return;
+    if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
     setShowSentenceCoachmark(false);
     const correct = optionId === currentCard.correct_option_id;
-    const attempt = registerCardAttempt(attemptedCardsRef.current, cardIndex);
-    const { firstTry } = attempt;
-    attemptedCardsRef.current = attempt.attemptedCards;
+    const attempt = prepareCardChoice(
+      attemptedCardsRef.current,
+      completedCardsRef.current,
+      cardIndex,
+    );
+    const { firstTry, reviewingCompletedCard } = attempt;
     addDiagnosticBreadcrumb('answer_selected', {
       card_number: cardIndex + 1,
       first_try: firstTry,
       is_correct: correct,
       option_id: optionId,
+      reviewing_completed_card: reviewingCompletedCard,
     });
     setSelectedId(optionId);
-    setAttemptedCards(attempt.attemptedCards);
-    recordAttempt(optionId, correct, firstTry);
+    if (attempt.shouldRecordAttempt) {
+      attemptedCardsRef.current = attempt.attemptedCards;
+      setAttemptedCards(attempt.attemptedCards);
+      recordAttempt(optionId, correct, firstTry);
+    }
 
     if (correct) {
+      correctChoiceHandledRef.current = true;
       setResult('correct');
       const completion = registerCardCompletion(completedCardsRef.current, cardIndex, firstTry);
       if (completion.newlyCompleted) {
@@ -1353,7 +1363,9 @@ export function LessonScreen({
       return;
     }
 
-    setWrongCards((current) => new Set(current).add(cardIndex));
+    if (!reviewingCompletedCard) {
+      setWrongCards((current) => new Set(current).add(cardIndex));
+    }
     setResult('wrong');
     void playTryAgainCue();
   };
@@ -1437,6 +1449,7 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
     grammarCompletionHandledRef.current = false;
+    correctChoiceHandledRef.current = false;
     if (grammarAudioTimerRef.current) {
       clearTimeout(grammarAudioTimerRef.current);
       grammarAudioTimerRef.current = null;

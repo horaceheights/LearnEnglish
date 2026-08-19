@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 
 const {
+  prepareCardChoice,
   registerCardAttempt,
   registerCardCompletion,
 } = require(process.argv[2]);
@@ -26,5 +27,17 @@ assert.equal(retryCompletion.scoreDelta, 0, 'A completion after a failed try mus
 
 const skippedPronunciation = registerCardCompletion(new Set(), 7, false);
 assert.equal(skippedPronunciation.scoreDelta, 0, 'Skipped pronunciation must complete without scoring.');
+
+const completedCardReview = prepareCardChoice(new Set([3]), new Set([3]), 3);
+assert.equal(completedCardReview.reviewingCompletedCard, true);
+assert.equal(completedCardReview.shouldRecordAttempt, false, 'Review attempts must not be logged as new attempts.');
+assert.equal(completedCardReview.firstTry, false, 'A completed-card review can never earn a first-try point.');
+assert.deepEqual([...completedCardReview.attemptedCards], [3]);
+
+const newCardChoice = prepareCardChoice(new Set([3]), new Set([3]), 4);
+assert.equal(newCardChoice.reviewingCompletedCard, false);
+assert.equal(newCardChoice.shouldRecordAttempt, true);
+assert.equal(newCardChoice.firstTry, true);
+assert.deepEqual([...newCardChoice.attemptedCards], [3, 4]);
 
 console.log('Lesson interaction scoring checks passed.');

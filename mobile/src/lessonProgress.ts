@@ -9,6 +9,11 @@ export type CardCompletion = {
   scoreDelta: 0 | 1;
 };
 
+export type CardChoiceAttempt = CardAttempt & {
+  reviewingCompletedCard: boolean;
+  shouldRecordAttempt: boolean;
+};
+
 export function registerCardAttempt(
   current: ReadonlySet<number>,
   cardIndex: number,
@@ -17,6 +22,27 @@ export function registerCardAttempt(
   const attemptedCards = new Set(current);
   attemptedCards.add(cardIndex);
   return { attemptedCards, firstTry };
+}
+
+export function prepareCardChoice(
+  attemptedCards: ReadonlySet<number>,
+  completedCards: ReadonlySet<number>,
+  cardIndex: number,
+): CardChoiceAttempt {
+  if (completedCards.has(cardIndex)) {
+    return {
+      attemptedCards: new Set(attemptedCards),
+      firstTry: false,
+      reviewingCompletedCard: true,
+      shouldRecordAttempt: false,
+    };
+  }
+
+  return {
+    ...registerCardAttempt(attemptedCards, cardIndex),
+    reviewingCompletedCard: false,
+    shouldRecordAttempt: true,
+  };
 }
 
 export function registerCardCompletion(
