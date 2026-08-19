@@ -105,7 +105,7 @@ Do not force every word through every step in a single lesson when that would ma
 ## 4. Mobile Layout Guardrails
 
 - Design for the usable phone viewport, including Android system bars and enlarged font settings.
-- After a wrong lesson choice, keep the encouragement first and place one short Spanish teaching hint directly below it. Explain the relevant rule (`is`, `are`, `not`) when available; otherwise point the learner back to the person, group, or action without adding a long instruction block.
+- After a wrong lesson choice, keep the encouragement first and place one short Spanish teaching hint directly below it. Explain the relevant rule (`is`, `are`, `not`) when available; otherwise point the learner back to the person, group, or action without adding a long instruction block. Identity-choice hints must name the exact visible mismatch, such as parents versus grandparents, instead of repeating one generic `is/are` explanation across the section.
 - Essential choices, feedback, and navigation must fit without being hidden below the system navigation area.
 - Keep the lesson header compact. The stage strip communicates progress without consuming unnecessary vertical space.
 - Portrait phrase-answer tiles are full-width, short horizontal rows stacked at the bottom.
@@ -162,6 +162,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Static audio exists to reduce first-use delay, provider cost, and robotic fallback behavior.
 - Do not show internal audio-generation or scoring status messages to learners.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
+- Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback.
 - Every course-audio boundary must sanitize visual answer blanks into a silent pause. No provider or browser fallback may receive literal underscore runs.
 
 ## 8. Feedback and Interaction

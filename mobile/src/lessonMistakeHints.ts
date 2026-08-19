@@ -30,6 +30,19 @@ const PLURAL_SUBJECT_LABELS: Record<string, string> = {
   they: '“They” (ellos o ellas)',
 };
 
+const IDENTITY_CHOICE_LABELS: Record<string, string> = {
+  adults: 'a los adultos',
+  brothers: 'a los hermanos',
+  children: 'a los niños',
+  father: 'al padre',
+  grandfather: 'al abuelo',
+  grandmother: 'a la abuela',
+  grandparents: 'a los abuelos',
+  mother: 'a la madre',
+  parents: 'a los padres',
+  sisters: 'a las hermanas',
+};
+
 function normalized(value: string | null | undefined) {
   return String(value || '').trim().toLowerCase().replace(/[?.!,]+$/g, '');
 }
@@ -54,6 +67,19 @@ export function lessonMistakeHint(card: LessonCard, selectedOptionId?: string | 
   const selectedOption = card.options.find((option) => option.id === selectedOptionId);
   const correctChoice = normalized(correctOption?.label || correctOption?.id);
   const selectedChoice = normalized(selectedOption?.label || selectedOption?.id);
+
+  if (
+    card.stage === 'Recognize'
+    && normalized(card.prompt).startsWith('who ')
+    && selectedOption
+    && selectedOption.id !== card.correct_option_id
+  ) {
+    const correctIdentity = IDENTITY_CHOICE_LABELS[card.correct_option_id];
+    const selectedIdentity = IDENTITY_CHOICE_LABELS[selectedOption.id];
+    if (correctIdentity && selectedIdentity) {
+      return `La imagen muestra ${correctIdentity}, no ${selectedIdentity}.`;
+    }
+  }
 
   if (target.includes(' not ') || correctChoice === 'not' || correctChoice.includes('not')) {
     return '“Not” indica que la acción no está ocurriendo.';

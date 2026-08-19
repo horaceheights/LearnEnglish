@@ -47,4 +47,40 @@ assert.match(
   'Non-grammar choices should receive a short visual-action hint.',
 );
 
+const identityCard = {
+  prompt: 'Who are they?',
+  stage: 'Recognize',
+  correct_option_id: 'parents',
+  options: [
+    { id: 'parents', image_url: '', label: 'They are the parents.' },
+    { id: 'grandparents', image_url: '', label: 'They are the grandparents.' },
+  ],
+  audio_text: 'Who are they?',
+  answer_audio_text: 'They are the parents.',
+  prompt_image_url: '/lesson-assets/family_parents.webp',
+};
+
+assert.equal(
+  lessonMistakeHint(identityCard, 'grandparents'),
+  'La imagen muestra a los padres, no a los abuelos.',
+  'Identity choices should explain the exact family-member mismatch.',
+);
+
+assert.equal(
+  lessonMistakeHint({
+    ...identityCard,
+    prompt: 'Who is she? She is the mother.',
+    correct_option_id: 'mother',
+    options: [
+      { id: 'mother', image_url: '/lesson-assets/family_mother.webp', label: 'She is the mother.' },
+      { id: 'grandmother', image_url: '/lesson-assets/family_grandmother.webp', label: 'She is the grandmother.' },
+    ],
+    audio_text: 'Who is she? She is the mother.',
+    answer_audio_text: '',
+    prompt_image_url: '',
+  }, 'grandmother'),
+  'La imagen muestra a la madre, no a la abuela.',
+  'Audio-to-image identity choices should explain the exact mismatch too.',
+);
+
 console.log('Lesson mistake hint checks passed.');

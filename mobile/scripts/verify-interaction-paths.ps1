@@ -11,7 +11,7 @@ $outputDirectory = [System.IO.Path]::Combine(
 Push-Location $mobileRoot
 try {
   [System.IO.Directory]::CreateDirectory($outputDirectory) | Out-Null
-  & npx tsc src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
+  & npx tsc src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
   if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el modelo de progreso.' }
 
   & node tests/lesson-help.test.cjs (Join-Path $outputDirectory 'lessonHelp.js')
@@ -25,6 +25,9 @@ try {
 
   & node tests/lesson-mistake-hints.test.cjs (Join-Path $outputDirectory 'lessonMistakeHints.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de pistas educativas.' }
+
+  & node tests/sentence-translations.test.cjs (Join-Path $outputDirectory 'sentenceTranslations.js') (Join-Path $mobileRoot 'src\generated')
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de traducción de oraciones.' }
 
   & node tests/section-review.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de repaso de secciones completadas.' }

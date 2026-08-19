@@ -1,9 +1,11 @@
 const SUBJECT_TRANSLATIONS: Record<string, string> = {
+  ___: '___',
   'a baby': 'Un bebé',
   'a brother': 'Un hermano',
   'a child': 'Un niño',
   'a father': 'Un padre',
   'a grandfather': 'Un abuelo',
+  'a grandmother': 'Una abuela',
   'a mother': 'Una madre',
   'a sister': 'Una hermana',
   'an adult': 'Un adulto',
@@ -13,6 +15,7 @@ const SUBJECT_TRANSLATIONS: Record<string, string> = {
   parents: 'Los padres',
   she: 'Ella',
   'the adults': 'Los adultos',
+  'the baby': 'El bebé',
   'the boy': 'El niño',
   'the boy and the girl': 'El niño y la niña',
   'the boy and the man': 'El niño y el hombre',
@@ -50,6 +53,7 @@ const ACTION_TRANSLATIONS: Record<string, string> = {
 };
 
 const VOCABULARY_TRANSLATIONS: Record<string, string> = {
+  and: 'Y',
   'a baby': 'Un bebé',
   'a brother': 'Un hermano',
   'a child': 'Un niño',
@@ -61,19 +65,60 @@ const VOCABULARY_TRANSLATIONS: Record<string, string> = {
   'a sister': 'Una hermana',
   'an adult': 'Un adulto',
   adults: 'Adultos',
+  are: 'Son / están',
   babies: 'Bebés',
+  baby: 'Bebé',
+  boy: 'Niño',
   brothers: 'Hermanos',
+  child: 'Niño',
   children: 'Niños',
+  family: 'Familia',
+  father: 'Padre',
+  girl: 'Niña',
+  grandfather: 'Abuelo',
+  grandmother: 'Abuela',
   grandparents: 'Abuelos',
   he: 'Él',
+  is: 'Es / está',
+  'is not': 'No es / no está',
+  man: 'Hombre',
+  mother: 'Madre',
+  not: 'No',
   parents: 'Padres',
   she: 'Ella',
   sisters: 'Hermanas',
+  'the father': 'El padre',
+  'the grandfather': 'El abuelo',
+  'the grandmother': 'La abuela',
+  'the mother': 'La madre',
+  'the parents': 'Los padres',
+  'the grandparents': 'Los abuelos',
+  'the boy and the girl': 'El niño y la niña',
   'the boy': 'El niño',
   'the girl': 'La niña',
   'the man': 'El hombre',
   'the woman': 'La mujer',
   they: 'Ellos',
+  woman: 'Mujer',
+};
+
+const IDENTITY_PREDICATE_TRANSLATIONS: Record<string, string> = {
+  'a child': 'un niño',
+  'a family': 'una familia',
+  adults: 'adultos',
+  babies: 'bebés',
+  brothers: 'hermanos',
+  children: 'niños',
+  sisters: 'hermanas',
+  'the brothers': 'los hermanos',
+  'the children': 'los niños',
+  'the father': 'el padre',
+  'the grandfather': 'el abuelo',
+  'the grandmother': 'la abuela',
+  'the mother': 'la madre',
+  'the parents': 'los padres',
+  'the grandparents': 'los abuelos',
+  'the sisters': 'las hermanas',
 };
 
 const PLACE_TRANSLATIONS: Record<string, { article: 'un' | 'una'; noun: string }> = {
@@ -90,8 +135,25 @@ const PLACE_TRANSLATIONS: Record<string, { article: 'un' | 'una'; noun: string }
 };
 
 const EXACT_TRANSLATIONS: Record<string, string> = {
+  'actions': 'Acciones',
+  'find the children.': 'Encuentra a los niños.',
+  'find the grandparents.': 'Encuentra a los abuelos.',
+  'find the parents.': 'Encuentra a los padres.',
+  'he, she, and they': 'Él, ella y ellos',
+  'is, are, and not': 'Es/está, son/están y no',
   'listen and choose.': 'Ahora escucha y elige.',
+  'meet the family.': 'Conoce a la familia.',
+  'people': 'Personas',
+  'the boy ___ the girl are running.': 'El niño ___ la niña están corriendo.',
+  'who ___ he?': '¿Quién ___ él?',
+  'who ___ she?': '¿Quién ___ ella?',
+  'who ___ they?': '¿Quiénes ___ ellos?',
+  'who are they?': '¿Quiénes son ellos?',
+  'who is he?': '¿Quién es él?',
+  'who is she?': '¿Quién es ella?',
   'what is it?': '¿Qué es?',
+  '___ are reading.': '___ están leyendo.',
+  '___.': '___.',
 };
 
 function sentenceCase(text: string) {
@@ -114,6 +176,17 @@ function translateOneSentence(sentence: string): string | null {
 
   const exact = EXACT_TRANSLATIONS[normalized];
   if (exact) return exact;
+
+  const identityQuestion = [
+    ['who is he?', '¿Quién es él?'],
+    ['who is she?', '¿Quién es ella?'],
+    ['who are they?', '¿Quiénes son ellos?'],
+  ].find(([question]) => normalized.startsWith(`${question} `));
+  if (identityQuestion) {
+    const [question, translatedQuestion] = identityQuestion;
+    const translatedAnswer = translateOneSentence(trimmed.slice(question.length).trim());
+    if (translatedAnswer) return `${translatedQuestion} ${translatedAnswer}`;
+  }
 
   const withoutPeriod = normalized.replace(/\.$/, '');
   const vocabulary = VOCABULARY_TRANSLATIONS[withoutPeriod];
@@ -148,6 +221,54 @@ function translateOneSentence(sentence: string): string | null {
       return `${subject} ${translatedVerb} ${action}.`;
     }
   }
+
+  const identitySentence = withoutPeriod.match(/^(he|she|they|the boy) (is|are) (.+)$/);
+  if (identitySentence) {
+    const [, subjectKey, verb, predicateKey] = identitySentence;
+    const subject = SUBJECT_TRANSLATIONS[subjectKey];
+    const predicate = IDENTITY_PREDICATE_TRANSLATIONS[predicateKey];
+    if (subject && predicate) return `${subject} ${verb === 'is' ? 'es' : 'son'} ${predicate}.`;
+  }
+
+  const definiteBlank = withoutPeriod.match(/^(he|she|they) (is|are) the ___$/);
+  if (definiteBlank) {
+    const [, subjectKey] = definiteBlank;
+    const subject = SUBJECT_TRANSLATIONS[subjectKey];
+    const article = subjectKey === 'she' ? 'la' : subjectKey === 'they' ? 'los' : 'el';
+    return `${subject} ${subjectKey === 'they' ? 'son' : 'es'} ${article} ___.`;
+  }
+
+  const articleBlank = withoutPeriod.match(/^(the boy|they) (is|are) a ___$/);
+  if (articleBlank) {
+    const [, subjectKey] = articleBlank;
+    return `${SUBJECT_TRANSLATIONS[subjectKey]} ${subjectKey === 'they' ? 'son' : 'es'} un/una ___.`;
+  }
+
+  const actionBlankWithVerb = withoutPeriod.match(/^(.+?) (is|are) ___$/);
+  if (actionBlankWithVerb) {
+    const [, subjectKey, verb] = actionBlankWithVerb;
+    const subject = SUBJECT_TRANSLATIONS[subjectKey];
+    if (subject) return `${subject} ${verb === 'is' ? 'es/está' : 'son/están'} ___.`;
+  }
+
+  const missingModifier = withoutPeriod.match(/^(.+?) (is|are) ___ ([a-z]+ing)$/);
+  if (missingModifier) {
+    const [, subjectKey, , actionKey] = missingModifier;
+    const subject = SUBJECT_TRANSLATIONS[subjectKey];
+    const action = actionTranslation(actionKey, subjectKey);
+    if (subject && action) return `${subject} ___ ${action}.`;
+  }
+
+  const missingVerb = withoutPeriod.match(/^(.+?) ___ ([a-z]+ing)$/);
+  if (missingVerb) {
+    const [, subjectKey, actionKey] = missingVerb;
+    const subject = SUBJECT_TRANSLATIONS[subjectKey];
+    const action = actionTranslation(actionKey, subjectKey);
+    if (subject && action) return `${subject} ___ ${action}.`;
+  }
+
+  if (withoutPeriod === 'a ___') return 'Un/una ___.';
+  if (withoutPeriod === '___') return '___.';
 
   return null;
 }
