@@ -22,7 +22,7 @@ const traceSampleRate = Number.isFinite(configuredTraceSampleRate)
 
 export function isExpectedConnectivityError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error ?? '');
-  return /unknownhostexception|unable to resolve host|no address associated with hostname|network request failed|failed to fetch|fetch failed|enotfound|eai_again|no pudimos conectarnos|revisa tu internet|conexi.n.*(?:internet|d.bil)/i.test(message);
+  return /unknownhostexception|sockettimeoutexception|unable to resolve host|no address associated with hostname|network request failed|failed to fetch|fetch failed|enotfound|eai_again|no pudimos conectarnos|revisa tu internet|conexi.n.*(?:internet|d.bil)/i.test(message);
 }
 
 function sentryEventIsConnectivityFailure(
@@ -58,14 +58,10 @@ export function initializeDiagnostics(): void {
         traceFetch: true,
         traceXHR: false,
       }),
-      Sentry.mobileReplayIntegration({
-        maskAllImages: true,
-        maskAllText: true,
-        maskAllVectors: true,
-      }),
     ],
-    replaysOnErrorSampleRate: 1.0,
-    replaysSessionSampleRate: 0.1,
+    // Session Replay is intentionally disabled. It exhausted the account quota
+    // and its own transport failures were being reported as application errors.
+    // Crash, error, and performance telemetry remain enabled below.
     sendDefaultPii: false,
     enableAppStartTracking: true,
     enableCaptureFailedRequests: true,

@@ -47,6 +47,9 @@ try {
   & node tests/audio-placeholder.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de espacios en audio.' }
 
+  & node tests/diagnostics-noise.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de ruido en diagnósticos.' }
+
   & node tests/new-vocabulary-emphasis.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de énfasis para vocabulario nuevo.' }
 
