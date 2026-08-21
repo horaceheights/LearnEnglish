@@ -63,6 +63,10 @@ export function initializeDiagnostics(): void {
     // and its own transport failures were being reported as application errors.
     // Crash, error, and performance telemetry remain enabled below.
     sendDefaultPii: false,
+    // iOS can briefly block the main thread while cold-loading a keyboard
+    // layout. Keep native hang detection, but reserve error events for stalls
+    // that last long enough to indicate a meaningful learner-facing freeze.
+    appHangTimeoutInterval: 4,
     enableAppStartTracking: true,
     enableCaptureFailedRequests: true,
     enableNativeFramesTracking: true,

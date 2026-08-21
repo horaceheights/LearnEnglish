@@ -23,4 +23,16 @@ assert.doesNotMatch(
   'Session Replay sampling must not restart without an explicit diagnostics decision.',
 );
 
+assert.match(
+  diagnosticsSource,
+  /appHangTimeoutInterval:\s*4/,
+  'Native hang detection must ignore brief iOS keyboard cold starts.',
+);
+
+assert.doesNotMatch(
+  diagnosticsSource,
+  /enableAppHangTracking:\s*false/,
+  'Serious native app hangs must remain observable.',
+);
+
 console.log('Diagnostics noise checks passed.');
