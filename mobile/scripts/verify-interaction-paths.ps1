@@ -50,6 +50,9 @@ try {
   & node tests/diagnostics-noise.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de ruido en diagnósticos.' }
 
+  & node tests/playful-loading.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de carga animada.' }
+
   & node tests/new-vocabulary-emphasis.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de énfasis para vocabulario nuevo.' }
 

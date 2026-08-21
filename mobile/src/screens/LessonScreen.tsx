@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
   Animated,
   AppState,
   BackHandler,
@@ -37,6 +36,7 @@ import {
 } from '../api';
 import { LessonCardView } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
+import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
 import { absoluteMediaUrl, courseAudioProvider, courseAudioUrl, courseAudioVoice } from '../config';
@@ -49,7 +49,6 @@ import {
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
 import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
 import { useConnectivity } from '../hooks/useConnectivity';
-import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
@@ -267,7 +266,6 @@ export function LessonScreen({
     previouslyCompleted && !qaMode ? 'prompt' : 'standard',
   );
   const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
-  const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const audioProvider = courseAudioProvider(lessonId);
   const audioVoice = courseAudioVoice(lessonId, lesson?.cards[cardIndex]?.stage || '');
   const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
@@ -1757,9 +1755,7 @@ export function LessonScreen({
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.center}>
-          <ActivityIndicator color="#e96f42" size="large" />
-          <Text accessibilityLiveRegion="polite" style={styles.loadingText}>Cargando la lección…</Text>
-          <Text style={styles.coldStart}>{loadingMessage}</Text>
+          <PlayfulLoading label="Preparando tu lección…" />
         </View>
       </SafeAreaView>
     );
@@ -2316,8 +2312,6 @@ const styles = StyleSheet.create({
     textShadowRadius: 8,
   },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
-  loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
-  coldStart: { color: '#697177', fontSize: 13, lineHeight: 19, marginTop: 7, textAlign: 'center' },
   errorTitle: { color: '#24333a', fontSize: 23, fontWeight: '900', textAlign: 'center' },
   errorText: { color: '#a34842', fontSize: 14, marginTop: 9, textAlign: 'center' },
   primary: { alignItems: 'center', backgroundColor: '#c94d24', borderRadius: 15, justifyContent: 'center', marginTop: 20, minHeight: 54, paddingHorizontal: 26 },

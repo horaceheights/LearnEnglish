@@ -20,9 +20,9 @@ import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getLessonProgress, getLessons } from '../api';
+import { PlayfulLoading } from '../components/PlayfulLoading';
 import { absoluteMediaUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
-import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
 import { getPreviewLessonMetadata, mergePreviewLessonSummaries } from '../previewLessons';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 import { canUseEasUpdates } from '../updates';
@@ -137,7 +137,6 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
   const [recentLessonId, setRecentLessonId] = useState('');
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const [updateStatus, setUpdateStatus] = useState<'idle' | 'checking' | 'downloading'>('idle');
-  const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const currentLesson = useMemo(
     () => {
@@ -457,9 +456,8 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
         ) : null}
 
         {isLoading && !lessons.length && !error ? (
-          <View accessible accessibilityLiveRegion="polite" style={styles.loadingPanel}>
-            <ActivityIndicator color="#e96f42" size="large" />
-            <Text style={styles.loadingText}>{loadingMessage}</Text>
+          <View style={styles.loadingPanel}>
+            <PlayfulLoading label="Preparando tus lecciones…" />
           </View>
         ) : null}
 
@@ -721,8 +719,7 @@ const styles = StyleSheet.create({
   rowArrow: { color: '#b0a79b', fontSize: 22, fontWeight: '700', marginRight: 4 },
   errorPanel: { alignItems: 'center', backgroundColor: '#fbeceb', borderRadius: 16, padding: 15 },
   error: { color: '#a34842', textAlign: 'center' },
-  loadingPanel: { alignItems: 'center', gap: 10, paddingVertical: 30 },
-  loadingText: { color: '#526168', fontSize: 14, lineHeight: 20, maxWidth: 420, textAlign: 'center' },
+  loadingPanel: { alignItems: 'center', paddingVertical: 12 },
   retryButton: { alignItems: 'center', justifyContent: 'center', marginTop: 8, minHeight: 44, minWidth: 96 },
   retry: { color: '#a34842', fontWeight: '900' },
   aiNote: { color: '#8a8176', fontSize: 9, textAlign: 'center' },

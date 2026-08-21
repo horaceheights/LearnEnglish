@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-08-19
+Last reviewed: 2026-08-21
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -167,6 +167,7 @@ Do not force every word through every step in a single lesson when that would ma
 
 ## 8. Feedback and Interaction
 
+- Cold-start, course, and lesson loading surfaces use the shared playful SpanGlish loader. Keep backend lifecycle details such as server wake-up or connection state out of learner-facing loading copy, and respect reduced-motion settings.
 - Correct answers play the established success sound and retain visible word-level feedback where applicable.
 - Wrong answers play the established retry sound and retain the correction/help until the learner acts.
 - Do not apply green, orange, or red pronunciation colors while recording or scoring. Keep words neutral until a real result is available.
@@ -238,3 +239,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Action-video players standardized on edge-to-edge cover with clipped overscan and independently versioned video caches.
 - 2026-08-19: Active lesson headers standardized on a compact `UNIT n | LESSON n.n` context line above the stage label.
 - 2026-08-19: Wrong-answer feedback now pairs encouragement with one concise Spanish learning hint beneath it across web and mobile lessons.
+- 2026-08-21: Learner-facing cold-start and lesson loading standardized on one reduced-motion-safe animated mascot surface with no backend server-status language.

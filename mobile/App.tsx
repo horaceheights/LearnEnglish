@@ -1,6 +1,5 @@
 import { Component, type ErrorInfo, type ReactNode, useEffect, useState } from 'react';
 import {
-  ActivityIndicator,
   Pressable,
   StyleSheet,
   Text,
@@ -10,6 +9,7 @@ import * as Updates from 'expo-updates';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { ConnectivityBanner } from './src/components/ConnectivityBanner';
+import { PlayfulLoading } from './src/components/PlayfulLoading';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -104,7 +104,7 @@ function AppContent() {
   if (isRestoring) {
     return (
       <SafeAreaView style={styles.loading}>
-        <ActivityIndicator color="#e96f42" size="large" />
+        <PlayfulLoading label="Preparando SpanGlish…" />
       </SafeAreaView>
     );
   }
@@ -204,8 +204,7 @@ function StartupUpdateGate({ children }: { children: ReactNode }) {
   if (isCheckingForUpdate) {
     return (
       <SafeAreaView style={styles.loading}>
-        <ActivityIndicator color="#e96f42" size="large" />
-        <Text style={styles.updateText}>Buscando actualizaciones...</Text>
+        <PlayfulLoading label="Preparando SpanGlish…" />
       </SafeAreaView>
     );
   }
@@ -231,7 +230,6 @@ export default function App() {
 const styles = StyleSheet.create({
   appFrame: { backgroundColor: '#fbf7ef', flex: 1 },
   loading: { alignItems: 'center', backgroundColor: '#fbf7ef', flex: 1, justifyContent: 'center' },
-  updateText: { color: '#59686e', fontSize: 13, fontWeight: '700', marginTop: 12 },
   crashPage: { backgroundColor: '#fbf7ef', flex: 1, justifyContent: 'center', padding: 24 },
   crashPanel: { backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 22, borderWidth: 1, padding: 22 },
   crashTitle: { color: '#24333a', fontSize: 22, fontWeight: '900', textAlign: 'center' },
