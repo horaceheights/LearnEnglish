@@ -20,7 +20,7 @@ import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260710-objects-places-1-6";
-const LESSON_VIDEO_VERSION = "20260819-edge-to-edge-v3";
+const LESSON_VIDEO_VERSION = "20260821-video-clarity-v4";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 const DEFAULT_PROFILE = {

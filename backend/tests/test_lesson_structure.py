@@ -295,6 +295,19 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(video=video_name):
                 self.assertTrue((root / "frontend" / "public" / "lesson-assets" / video_name).is_file())
 
+    def test_action_video_normalizer_preserves_source_quality(self):
+        root = Path(__file__).resolve().parents[2]
+        generator_source = (root / "scripts" / "generate_lesson_action_videos.py").read_text(
+            encoding="utf-8"
+        )
+        normalize_existing_source = generator_source.split("def normalize_existing() -> None:", 1)[1].split(
+            "\ndef main() -> None:", 1
+        )[0]
+
+        self.assertIn('"-crf", "20"', generator_source)
+        self.assertIn("RAW_DIR", normalize_existing_source)
+        self.assertNotIn('ASSETS.glob("*-scene-v2.mp4")', normalize_existing_source)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -140,7 +140,7 @@ def encode_normalized(input_path: Path, output_path: Path) -> None:
         [
             imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-ss", "0.20", "-i", str(input_path), "-t", "3.0", "-an",
             "-filter_complex", filter_graph, "-c:v", "libx264", "-preset", "slow",
-            "-crf", "30", "-movflags", "+faststart", "-pix_fmt", "yuv420p", str(temporary_path),
+            "-crf", "20", "-movflags", "+faststart", "-pix_fmt", "yuv420p", str(temporary_path),
         ],
         check=True,
         stdout=subprocess.DEVNULL,
@@ -150,9 +150,14 @@ def encode_normalized(input_path: Path, output_path: Path) -> None:
 
 
 def normalize_existing() -> None:
-    for input_path in sorted(ASSETS.glob("*-scene-v2.mp4")):
-        encode_normalized(input_path, input_path)
-        print(f"normalized={input_path.name} bytes={input_path.stat().st_size}", flush=True)
+    for scene_id, (_, output_name, _) in SCENES.items():
+        raw_path = RAW_DIR / output_name.replace("-v2.mp4", "-raw.mp4")
+        if not raw_path.exists():
+            print(f"scene={scene_id} skipped=no-raw-source", flush=True)
+            continue
+        output_path = ASSETS / output_name
+        encode_normalized(raw_path, output_path)
+        print(f"normalized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
 
 
 def main() -> None:

@@ -147,6 +147,7 @@ Do not force every word through every step in a single lesson when that would ma
 - The still and video layers must occupy exactly the same frame. Switching to video must not reveal the old image, resize the subject, or create gaps.
 - Preserve the whole subject. Use a blurred side fill when source framing cannot fill 16:9 without cropping important content.
 - Compress clips after generation while preserving enough clarity for the teaching action.
+- Normalize clips from their original raw source at the shared 640x360 frame and CRF 20. Never normalize an already compressed lesson export in place; repeated lossy passes visibly soften full-height mobile cards and shorten trimmed clips.
 - To reduce generation cost, prefer one source generation containing two clearly separated actions, then trim it into two focused clips when the provider can follow that prompt reliably.
 - Inspect a contact sheet or representative frames before adding a generated clip to lessons.
 - Do not bulk-generate after a failed or ambiguous sample. Correct the prompt and validate one result first.
@@ -240,3 +241,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Active lesson headers standardized on a compact `UNIT n | LESSON n.n` context line above the stage label.
 - 2026-08-19: Wrong-answer feedback now pairs encouragement with one concise Spanish learning hint beneath it across web and mobile lessons.
 - 2026-08-21: Learner-facing cold-start and lesson loading standardized on one reduced-motion-safe animated mascot surface with no backend server-status language.
+- 2026-08-21: Action-video normalization standardized on CRF 20 from original raw sources; re-normalizing compressed lesson exports is prohibited.
