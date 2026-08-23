@@ -132,7 +132,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not crop heads, faces, hands needed for meaning, or the action itself.
 - Preserve the full subject with `contain` or an equivalent normalized frame when cropping would remove meaning.
 - Use consistent aspect ratios and framing for images serving the same card role.
-- Every newly published A1 lesson has its own explicit lesson-browser image that represents that lesson's primary learning focus. Do not let lessons fall back to a repeated unit-level image; reserve unit-level artwork for the unit menu and unit header.
+- Every A1 lesson and unit has its own explicit title image that represents that lesson or unit's primary learning focus. Title imagery is globally unique across the course: no two lessons, no two units, and no lesson-unit pair may reuse the same picture, including identical picture content saved under different filenames. Reserve each unit-level image for that unit's menu and header only.
 - Reuse established people and family members when continuity helps learners infer meaning.
 - Family compositions must match previously established family members and relationships.
 - Before accepting a generated image, inspect it at the actual mobile card aspect ratio, not only as a source file.
@@ -275,4 +275,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-22: The A1 roadmap standardized on seven units with ten lessons each; every unit ends in a no-new-language spiral review and an integrated mission.
 - 2026-08-22: Course browsing standardized on an all-units overview followed by a single-unit lesson view with an explicit return action; the 70 lessons must not be flattened into the initial menu.
 - 2026-08-22: Embedded A1 Preview lessons standardized on bundled still images with an automated snapshot-to-Metro completeness check, so OTA curriculum releases cannot point at undeployed remote assets.
-- 2026-08-23: Unit 2-7 lesson browsing standardized on one explicit, lesson-specific 3:2 image per lesson; repeated unit-level fallback images are prohibited for lesson rows.
+- 2026-08-23: A1 course browsing standardized on 77 globally unique 3:2 title images across all 70 lessons and 7 units; duplicate picture content is prohibited even when saved under different filenames.

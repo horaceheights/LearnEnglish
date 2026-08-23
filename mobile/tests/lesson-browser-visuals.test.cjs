@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -37,35 +38,46 @@ function webpDimensions(filePath) {
 
 const visualsBlock = courseScreen.match(/const VISUALS:[\s\S]*?\n};/);
 assert.ok(visualsBlock, 'CourseScreen must define explicit lesson visuals.');
+const unitVisualsBlock = courseScreen.match(/const UNIT_VISUALS:[\s\S]*?\n};/);
+assert.ok(unitVisualsBlock, 'CourseScreen must define explicit unit visuals.');
 
-const visualEntries = new Map();
-const entryPattern = /'(lesson-[^']+)':\s*{\s*image:\s*'([^']+)'/g;
-for (const match of visualsBlock[0].matchAll(entryPattern)) {
-  visualEntries.set(match[1], match[2]);
+function visualEntries(block, idPattern) {
+  const entries = new Map();
+  const entryPattern = new RegExp(`'(${idPattern})':\\s*{\\s*image:\\s*'([^']+)'`, 'g');
+  for (const match of block.matchAll(entryPattern)) {
+    entries.set(match[1], match[2]);
+  }
+  return entries;
 }
 
-const newLessons = course.filter((lesson) => /^unit-[2-7]$/.test(lesson.unit_id));
+const lessonVisuals = visualEntries(visualsBlock[0], 'lesson-[^\'\\s]+');
+const unitVisuals = visualEntries(unitVisualsBlock[0], 'unit-\\d+');
+const unitIds = [...new Set(course.map((lesson) => lesson.unit_id))];
+const titleSurfaces = [
+  ...course.map((lesson) => ({ id: lesson.id, image: lessonVisuals.get(lesson.id) })),
+  ...unitIds.map((unitId) => ({ id: unitId, image: unitVisuals.get(unitId) })),
+];
+const usedImages = new Map();
+const usedContent = new Map();
 
-for (const lesson of newLessons) {
-  const image = visualEntries.get(lesson.id);
-  assert.ok(image, `${lesson.id} must have an explicit lesson-browser image.`);
+for (const surface of titleSurfaces) {
+  const { id, image } = surface;
+  assert.ok(image, `${id} must have an explicit title image.`);
   const imagePath = path.join(assetRoot, image);
-  assert.ok(fs.existsSync(imagePath), `${lesson.id} references missing browser image ${image}.`);
-  assert.deepEqual(webpDimensions(imagePath), [1536, 1024], `${lesson.id} browser image ${image} must use the 3:2 course canvas.`);
+  assert.ok(fs.existsSync(imagePath), `${id} references missing title image ${image}.`);
+  assert.deepEqual(webpDimensions(imagePath), [1536, 1024], `${id} title image ${image} must use the 3:2 course canvas.`);
   assert.ok(
     imageSources.includes(`require('../assets/lesson-assets/${image}')`),
-    `${lesson.id} browser image ${image} must use a literal Metro require.`,
+    `${id} title image ${image} must use a literal Metro require.`,
   );
+  assert.ok(!usedImages.has(image), `${id} and ${usedImages.get(image)} reuse title image ${image}.`);
+  usedImages.set(image, id);
+  const contentHash = crypto.createHash('sha256').update(fs.readFileSync(imagePath)).digest('hex');
+  assert.ok(
+    !usedContent.has(contentHash),
+    `${id} and ${usedContent.get(contentHash)} contain the same title picture under different filenames.`,
+  );
+  usedContent.set(contentHash, id);
 }
 
-for (let unitNumber = 2; unitNumber <= 7; unitNumber += 1) {
-  const unitLessons = course.filter((lesson) => lesson.unit_id === `unit-${unitNumber}`);
-  const images = unitLessons.map((lesson) => visualEntries.get(lesson.id));
-  assert.equal(
-    new Set(images).size,
-    unitLessons.length,
-    `Unit ${unitNumber} lessons must not repeat one title image across the unit.`,
-  );
-}
-
-console.log(`Verified explicit, distinct lesson-browser images for ${newLessons.length} Unit 2-7 lessons.`);
+console.log(`Verified ${titleSurfaces.length} globally unique 3:2 lesson and unit title images.`);

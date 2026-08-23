@@ -29,57 +29,57 @@ import { canUseEasUpdates } from '../updates';
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
   'lesson-1-people-actions': {
-    image: 'boy_is_reading.webp',
+    image: 'a1_title_1_1_people_actions.webp',
     description: 'Personas y acciones básicas con imágenes.',
     color: '#ffe8c7',
   },
   'lesson-2-pronouns': {
-    image: 'girl_is_writing.webp',
+    image: 'a1_scene_he-she-split_840e1d0.webp',
     description: 'He y she con acciones claras de una persona.',
     color: '#dff4ef',
   },
   'lesson-3-two-people': {
-    image: 'they_boy_girl_are_running.webp',
+    image: 'a1_title_1_3_two_people.webp',
     description: 'They y are para hablar de dos personas.',
     color: '#e5eefb',
   },
   'lesson-4-children-siblings': {
-    image: 'family_all_members.webp',
+    image: 'a1_title_1_4_children_siblings.webp',
     description: 'Familia cercana: bebés, niños, hermanos y hermanas.',
     color: '#ffe7bd',
   },
   'lesson-5-parents-grandparents': {
-    image: 'family_grandparents.webp',
+    image: 'a1_title_1_5_parents_grandparents.webp',
     description: 'Familia: adultos, padres, madres y abuelos.',
     color: '#f1e4fa',
   },
   'lesson-6-family-actions': {
-    image: 'family_children_playing.webp',
+    image: 'a1_title_1_6_family_actions.webp',
     description: 'Acciones útiles dentro de la familia.',
     color: '#dff4ef',
   },
   'lesson-7-is-are-not': {
-    image: 'family_parents_talking.webp',
+    image: 'a1_title_1_7_is_are_not.webp',
     description: 'Is, are y not dentro de frases conocidas.',
     color: '#ffe8c7',
   },
   'lesson-8-who': {
-    image: 'family_parents.webp',
+    image: 'a1_title_1_8_who.webp',
     description: 'Preguntas y respuestas para identificar personas.',
     color: '#e5eefb',
   },
   'lesson-9-unit-review': {
-    image: 'family_all_members.webp',
+    image: 'a1_title_1_9_review.webp',
     description: 'Repaso mezclado de toda la unidad.',
     color: '#f1e4fa',
   },
   'lesson-10-family-mission': {
-    image: 'family_all_members.webp',
+    image: 'a1_title_1_10_family_mission.webp',
     description: 'Misión final con personas, familia y acciones.',
     color: '#ffe1ad',
   },
   'lesson-2-1-places-around-me': {
-    image: 'a1_scene_park_ce4151f.webp',
+    image: 'a1_scene_a-library_985e108.webp',
     description: 'Lugares familiares del vecindario.',
     color: '#dff4ef',
   },
@@ -134,7 +134,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#e5eefb',
   },
   'lesson-3-2-i-you-and-we': {
-    image: 'a1_scene_we-talking_dcb733a.webp',
+    image: 'a1_scene_we-ana-luis_d8d7dd2.webp',
     description: 'I, you y we según quién habla.',
     color: '#e5eefb',
   },
@@ -164,17 +164,17 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#e5eefb',
   },
   'lesson-3-8-have-and-has': {
-    image: 'a1_scene_i-have-book_25eacad.webp',
+    image: 'a1_scene_you-have-phone_6017478.webp',
     description: 'Posesión sencilla con have y has.',
     color: '#e5eefb',
   },
   'lesson-3-9-unit-3-review': {
-    image: 'a1_scene_origin-ana_1b20c3b.webp',
+    image: 'a1_scene_job-dialogue-driver_acd1aee.webp',
     description: 'Repaso de información personal.',
     color: '#e5eefb',
   },
   'lesson-3-10-introduction-mission': {
-    image: 'a1_scene_meet-ana_8b3f76d.webp',
+    image: 'a1_scene_car-luis_d3399da.webp',
     description: 'Misión para presentarte y conocer a alguien.',
     color: '#e5eefb',
   },
@@ -199,7 +199,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-4-5-morning-routine': {
-    image: 'a1_scene_breakfast_9e3a822.webp',
+    image: 'a1_scene_mission-brush_101d93f.webp',
     description: 'Acciones de la rutina de la mañana.',
     color: '#f1e4fa',
   },
@@ -209,7 +209,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-4-7-simple-present': {
-    image: 'a1_scene_they-work-daily_d85c6f1.webp',
+    image: 'a1_scene_he-working_060cda8.webp',
     description: 'Rutinas habituales en presente simple.',
     color: '#f1e4fa',
   },
@@ -304,12 +304,12 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#dff4ef',
   },
   'lesson-6-6-can-and-cannot': {
-    image: 'a1_scene_you-can-cross-the-street_15d25f7.webp',
+    image: 'a1_scene_blocked-route_9f7c4b8.webp',
     description: 'Lo que puedes y no puedes hacer.',
     color: '#dff4ef',
   },
   'lesson-6-7-simple-requests': {
-    image: 'a1_scene_excuse-me-can-you-help-me_dab207f.webp',
+    image: 'a1_scene_i-am-tired-i-need-help_788b204.webp',
     description: 'Pide ayuda de manera sencilla y amable.',
     color: '#dff4ef',
   },
@@ -374,7 +374,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-7-10-a1-final-mission': {
-    image: 'a1_scene_meet-ana_b81da74.webp',
+    image: 'a1_scene_i-am-tired-i-need-water_e960d38.webp',
     description: 'Misión final con situaciones de todo el curso.',
     color: '#f1e4fa',
   },
@@ -382,13 +382,13 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
 
 const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];
 const UNIT_VISUALS: Record<string, { image: string; description: string; color: string }> = {
-  'unit-1': { image: 'family_all_members.webp', description: 'Personas, familia y acciones.', color: '#ffe1ad' },
-  'unit-2': { image: 'place_park.webp', description: 'Lugares, objetos, números y colores.', color: '#dff4ef' },
-  'unit-3': { image: 'a1_ana.webp', description: 'Presentaciones e información personal.', color: '#e5eefb' },
+  'unit-1': { image: 'a1_title_unit_1.webp', description: 'Personas, familia y acciones.', color: '#ffe1ad' },
+  'unit-2': { image: 'a1_scene_mission-two-blue-cars_84c4ba2.webp', description: 'Lugares, objetos, números y colores.', color: '#dff4ef' },
+  'unit-3': { image: 'a1_scene_job-dialogue-teacher_be7d927.webp', description: 'Presentaciones e información personal.', color: '#e5eefb' },
   'unit-4': { image: 'a1_home.webp', description: 'El hogar y la vida diaria.', color: '#f1e4fa' },
   'unit-5': { image: 'a1_apple.webp', description: 'Comida, bebidas y compras.', color: '#ffe8c7' },
   'unit-6': { image: 'a1_station.webp', description: 'La ciudad, transporte y direcciones.', color: '#dff4ef' },
-  'unit-7': { image: 'a1_ana.webp', description: 'Necesidades diarias e integración A1.', color: '#f1e4fa' },
+  'unit-7': { image: 'a1_scene_food-the-bank-it-is-sunny_6a1f116.webp', description: 'Necesidades diarias e integración A1.', color: '#f1e4fa' },
 };
 const UPDATE_COMPLETED_STORAGE_KEY = 'app:update-completed-message';
 
