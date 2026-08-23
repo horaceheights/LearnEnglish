@@ -78,6 +78,306 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     description: 'Misión final con personas, familia y acciones.',
     color: '#ffe1ad',
   },
+  'lesson-2-1-places-around-me': {
+    image: 'a1_scene_park_ce4151f.webp',
+    description: 'Lugares familiares del vecindario.',
+    color: '#dff4ef',
+  },
+  'lesson-2-2-streets-and-transportation': {
+    image: 'a1_scene_street_d3a9fb0.webp',
+    description: 'Calles, puentes y transporte cotidiano.',
+    color: '#dff4ef',
+  },
+  'lesson-2-3-common-objects': {
+    image: 'a1_scene_book-next-phone_d548267.webp',
+    description: 'Objetos comunes de uso diario.',
+    color: '#dff4ef',
+  },
+  'lesson-2-4-what-is-it': {
+    image: 'a1_scene_it-book_48b6205.webp',
+    description: 'Pregunta e identifica objetos conocidos.',
+    color: '#dff4ef',
+  },
+  'lesson-2-5-this-and-that': {
+    image: 'a1_near-book.webp',
+    description: 'Objetos cercanos y lejanos con this y that.',
+    color: '#dff4ef',
+  },
+  'lesson-2-6-numbers-1-10': {
+    image: 'a1_n1.webp',
+    description: 'Números del uno al diez.',
+    color: '#dff4ef',
+  },
+  'lesson-2-7-basic-colors': {
+    image: 'a1_red.webp',
+    description: 'Seis colores básicos.',
+    color: '#dff4ef',
+  },
+  'lesson-2-8-count-and-describe': {
+    image: 'a1_one-red-car.webp',
+    description: 'Cuenta y describe objetos por color.',
+    color: '#dff4ef',
+  },
+  'lesson-2-9-unit-2-review': {
+    image: 'a1_scene_five-black-phones_734dda6.webp',
+    description: 'Repaso de lugares, objetos, números y colores.',
+    color: '#dff4ef',
+  },
+  'lesson-2-10-around-me-mission': {
+    image: 'a1_scene_mission-park_4a508f3.webp',
+    description: 'Misión de observación en el vecindario.',
+    color: '#dff4ef',
+  },
+  'lesson-3-1-greetings-and-names': {
+    image: 'a1_scene_hello-ana_e4c4db7.webp',
+    description: 'Saludos, despedidas y nombres.',
+    color: '#e5eefb',
+  },
+  'lesson-3-2-i-you-and-we': {
+    image: 'a1_scene_we-talking_dcb733a.webp',
+    description: 'I, you y we según quién habla.',
+    color: '#e5eefb',
+  },
+  'lesson-3-3-am-is-and-are': {
+    image: 'a1_scene_i-reading_941304e.webp',
+    description: 'Am, is y are en frases conocidas.',
+    color: '#e5eefb',
+  },
+  'lesson-3-4-age': {
+    image: 'a1_scene_n20_b3be26c.webp',
+    description: 'Pregunta y responde la edad.',
+    color: '#e5eefb',
+  },
+  'lesson-3-5-countries-and-nationalities': {
+    image: 'a1_scene_mexico-country_c17ee27.webp',
+    description: 'Países, nacionalidades y origen.',
+    color: '#e5eefb',
+  },
+  'lesson-3-6-professions': {
+    image: 'a1_scene_teacher-ana_0e983a0.webp',
+    description: 'Profesiones y trabajos comunes.',
+    color: '#e5eefb',
+  },
+  'lesson-3-7-my-your-his-and-her': {
+    image: 'a1_scene_my-book-ana_7f764c0.webp',
+    description: 'Expresa a quién pertenece algo.',
+    color: '#e5eefb',
+  },
+  'lesson-3-8-have-and-has': {
+    image: 'a1_scene_i-have-book_25eacad.webp',
+    description: 'Posesión sencilla con have y has.',
+    color: '#e5eefb',
+  },
+  'lesson-3-9-unit-3-review': {
+    image: 'a1_scene_origin-ana_1b20c3b.webp',
+    description: 'Repaso de información personal.',
+    color: '#e5eefb',
+  },
+  'lesson-3-10-introduction-mission': {
+    image: 'a1_scene_meet-ana_8b3f76d.webp',
+    description: 'Misión para presentarte y conocer a alguien.',
+    color: '#e5eefb',
+  },
+  'lesson-4-1-rooms-at-home': {
+    image: 'a1_scene_home-cutaway_acf377a.webp',
+    description: 'La casa y sus habitaciones.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-2-furniture-and-home-objects': {
+    image: 'a1_scene_bed_fefe239.webp',
+    description: 'Muebles y objetos del hogar.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-3-where-things-are': {
+    image: 'a1_scene_book-on-table_af51f18.webp',
+    description: 'Ubica objetos dentro de la casa.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-4-there-is-and-there-are': {
+    image: 'a1_scene_one-bed-bedroom_fd49452.webp',
+    description: 'Describe lo que hay en una habitación.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-5-morning-routine': {
+    image: 'a1_scene_breakfast_9e3a822.webp',
+    description: 'Acciones de la rutina de la mañana.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-6-everyday-verbs': {
+    image: 'a1_scene_ana-go-school_83ace0e.webp',
+    description: 'Acciones frecuentes de todos los días.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-7-simple-present': {
+    image: 'a1_scene_they-work-daily_d85c6f1.webp',
+    description: 'Rutinas habituales en presente simple.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-8-days-and-time': {
+    image: 'a1_scene_clock7_598dfdb.webp',
+    description: 'Días de la semana y horas completas.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-9-unit-4-review': {
+    image: 'a1_scene_bedroom_009e058.webp',
+    description: 'Repaso del hogar y la vida diaria.',
+    color: '#f1e4fa',
+  },
+  'lesson-4-10-my-day-mission': {
+    image: 'a1_scene_mission-sequence-school-study_cefe12b.webp',
+    description: 'Misión para contar un día completo.',
+    color: '#f1e4fa',
+  },
+  'lesson-5-1-fruits': {
+    image: 'a1_scene_fruit_f053b8b.webp',
+    description: 'Frutas comunes, colores y cantidades.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-2-food-and-drinks': {
+    image: 'a1_scene_food-and-drinks_bdcf3f2.webp',
+    description: 'Comidas y bebidas frecuentes.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-3-food-quantities': {
+    image: 'a1_scene_three-eggs_e579b07.webp',
+    description: 'Cantidades de alimentos conocidas.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-4-likes-and-dislikes': {
+    image: 'a1_scene_i-like-apples_8f1a9bc.webp',
+    description: 'Expresa gustos y disgustos.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-5-wants-and-needs': {
+    image: 'a1_scene_needs-water_60aec53.webp',
+    description: 'Expresa lo que quieres o necesitas.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-6-meals': {
+    image: 'a1_scene_breakfast_9e3a822.webp',
+    description: 'Desayuno, comida y cena.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-7-prices': {
+    image: 'a1_scene_apple-1_ac43e97.webp',
+    description: 'Pregunta y comprende precios sencillos.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-8-ordering-politely': {
+    image: 'a1_scene_server-hands-drink_9f32830.webp',
+    description: 'Pide bebidas con frases amables.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-9-unit-5-review': {
+    image: 'a1_scene_i-do-not-like-fish_25804e6.webp',
+    description: 'Repaso de comida, compras y preferencias.',
+    color: '#ffe8c7',
+  },
+  'lesson-5-10-cafe-mission': {
+    image: 'a1_scene_juice-please-thank-you_3a701af.webp',
+    description: 'Misión completa en una cafetería.',
+    color: '#ffe8c7',
+  },
+  'lesson-6-1-buildings-and-services': {
+    image: 'a1_scene_a-store_e91614f.webp',
+    description: 'Edificios y servicios de la ciudad.',
+    color: '#dff4ef',
+  },
+  'lesson-6-2-transportation': {
+    image: 'a1_scene_a-train_af72b4a.webp',
+    description: 'Formas de transporte por la ciudad.',
+    color: '#dff4ef',
+  },
+  'lesson-6-3-where-is-it': {
+    image: 'a1_scene_store-next-to-hospital_074b3e6.webp',
+    description: 'Pregunta dónde está un lugar.',
+    color: '#dff4ef',
+  },
+  'lesson-6-4-location-words': {
+    image: 'a1_scene_the-bank-is-on-the-left_2974b35.webp',
+    description: 'Cerca, lejos, izquierda y derecha.',
+    color: '#dff4ef',
+  },
+  'lesson-6-5-simple-directions': {
+    image: 'a1_scene_straight-then-right_df64e4f.webp',
+    description: 'Sigue indicaciones sencillas de ruta.',
+    color: '#dff4ef',
+  },
+  'lesson-6-6-can-and-cannot': {
+    image: 'a1_scene_you-can-cross-the-street_15d25f7.webp',
+    description: 'Lo que puedes y no puedes hacer.',
+    color: '#dff4ef',
+  },
+  'lesson-6-7-simple-requests': {
+    image: 'a1_scene_excuse-me-can-you-help-me_dab207f.webp',
+    description: 'Pide ayuda de manera sencilla y amable.',
+    color: '#dff4ef',
+  },
+  'lesson-6-8-schedules': {
+    image: 'a1_scene_the-bus-leaves-at-eight_d18bc2f.webp',
+    description: 'Horarios sencillos de autobús y tren.',
+    color: '#dff4ef',
+  },
+  'lesson-6-9-unit-6-review': {
+    image: 'a1_scene_store-bank-bus-train_7ae1547.webp',
+    description: 'Repaso de la ciudad y sus rutas.',
+    color: '#dff4ef',
+  },
+  'lesson-6-10-town-mission': {
+    image: 'a1_scene_find-the-station_2ffd5ff.webp',
+    description: 'Misión para llegar a un destino.',
+    color: '#dff4ef',
+  },
+  'lesson-7-1-the-body': {
+    image: 'a1_scene_my-head_bc334a5.webp',
+    description: 'Partes comunes del cuerpo.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-2-feelings-and-needs': {
+    image: 'a1_scene_woman-tired_82a4165.webp',
+    description: 'Estados, sentimientos y necesidades.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-3-clothing': {
+    image: 'a1_scene_a-shirt_7a7157d.webp',
+    description: 'Ropa común y sus colores.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-4-weather': {
+    image: 'a1_scene_rainy_14beca1.webp',
+    description: 'Condiciones básicas del clima.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-5-clothes-for-the-weather': {
+    image: 'a1_scene_it-is-cold-i-need-a-jacket_181fae6.webp',
+    description: 'Elige ropa adecuada para el clima.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-6-hobbies-and-free-time': {
+    image: 'a1_scene_ana-reading_4037ade.webp',
+    description: 'Pasatiempos y actividades de tiempo libre.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-7-invitations-and-responses': {
+    image: 'a1_scene_do-you-want-to-watch-tv_b863d46.webp',
+    description: 'Invitaciones y respuestas sencillas.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-8-help-and-important-phrases': {
+    image: 'a1_scene_i-do-not-understand_d56b045.webp',
+    description: 'Frases importantes para pedir ayuda.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-9-complete-a1-review': {
+    image: 'a1_scene_a-boy-a-book-a-park_b812e12.webp',
+    description: 'Repaso integrado de todo el nivel A1.',
+    color: '#f1e4fa',
+  },
+  'lesson-7-10-a1-final-mission': {
+    image: 'a1_scene_meet-ana_b81da74.webp',
+    description: 'Misión final con situaciones de todo el curso.',
+    color: '#f1e4fa',
+  },
 };
 
 const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];

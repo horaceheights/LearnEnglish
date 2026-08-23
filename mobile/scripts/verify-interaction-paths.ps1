@@ -38,6 +38,9 @@ try {
   & node tests/bundled-a1-images.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes A1 incluidas en Preview.' }
 
+  & node tests/lesson-browser-visuals.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes específicas para cada lección.' }
+
   & node tests/phrase-option-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de diseño horizontal de frases.' }
 
