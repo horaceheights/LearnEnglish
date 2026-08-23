@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-08-21
+Last reviewed: 2026-08-22
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -170,6 +170,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
 - Every course-audio boundary must sanitize visual answer blanks into a silent pause. No provider or browser fallback may receive literal underscore runs.
 - Build blank-prompt audio from exact spoken fragments separated by encoded silence. Do not ask a generative voice model to interpret an underscore, ellipsis, or other placeholder; it may say `dot`, repeat a word, fill the blank, or add a vocalization.
+- Mobile completion prompts must resolve to checked-in fragment-and-silence audio before playback. The remote course-audio URL rejects underscores, ellipses, and blank markers, and Preview verification must fail when any embedded lesson blank lacks a literal bundled-audio mapping. Unknown runtime blanks fall back to silence, never generated speech.
 - Course-audio instructions must require the exact requested words once and an immediate stop after the final word. Reject takes with a preface, repeated or missing word, filler sound, or trailing speech.
 - Before release, transcribe every unique new Use-stage prompt and completed answer and compare its normalized words with the intended phrase. Number digits and number words may be treated as equivalent; added or missing words are failures and the take must be regenerated.
 

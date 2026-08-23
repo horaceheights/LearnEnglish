@@ -86,10 +86,11 @@ export function lessonVideoUrl(name: string): string {
 }
 
 export function sanitizeCourseAudioText(text: string): string {
-  return String(text || '')
-    .replace(/\s*_{2,}\s*[.,!?]?/g, ' ... ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  const spokenText = String(text || '').replace(/\s+/g, ' ').trim();
+  if (/_+|\.{3}|…|\{blank\}/.test(spokenText)) {
+    throw new Error('Completion placeholders require bundled silent-pause audio.');
+  }
+  return spokenText;
 }
 
 export function courseAudioUrl(

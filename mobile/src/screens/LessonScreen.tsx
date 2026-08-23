@@ -18,6 +18,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
 import {
+  type AudioSource,
   createAudioPlayer,
   preload,
   setAudioModeAsync,
@@ -39,7 +40,8 @@ import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
-import { absoluteMediaUrl, courseAudioProvider, courseAudioUrl, courseAudioVoice } from '../config';
+import { absoluteMediaUrl, courseAudioProvider, courseAudioVoice } from '../config';
+import { courseAudioSource } from '../courseAudioSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -221,7 +223,7 @@ export function LessonScreen({
   const promptAutoplayWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
   const audioPlayerActiveRef = useRef(true);
-  const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
+  const audioPreloadRef = useRef<Map<AudioSource, Promise<void>>>(new Map());
   const imagePreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
   const resumeHydratedRef = useRef(false);
@@ -316,23 +318,23 @@ export function LessonScreen({
     return () => { active = false; };
   }, [qaMode, sentenceHelpStorageKey]);
 
-  const ensureAudioPreloaded = useCallback((url: string) => {
+  const ensureAudioPreloaded = useCallback((source: AudioSource) => {
     if (isOffline) {
       addDiagnosticBreadcrumb('audio_preload_skipped_offline');
       return Promise.resolve();
     }
-    const existing = audioPreloadRef.current.get(url);
+    const existing = audioPreloadRef.current.get(source);
     if (existing) return existing;
 
     const startedAt = Date.now();
-    const pending = preload(url)
+    const pending = preload(source)
       .then(() => {
         addDiagnosticBreadcrumb('audio_preloaded', {
           duration_ms: Date.now() - startedAt,
         });
       })
       .catch((preloadError) => {
-        audioPreloadRef.current.delete(url);
+        audioPreloadRef.current.delete(source);
         captureDiagnosticError(
           preloadError,
           'course_audio_preload',
@@ -340,7 +342,7 @@ export function LessonScreen({
           'warning',
         );
       });
-    audioPreloadRef.current.set(url, pending);
+    audioPreloadRef.current.set(source, pending);
     return pending;
   }, [isOffline]);
 
@@ -355,7 +357,7 @@ export function LessonScreen({
         : text.trim().toLowerCase() === 'what is it?'
           ? 'question'
           : 'prompt';
-      requests.push(ensureAudioPreloaded(courseAudioUrl(
+      requests.push(ensureAudioPreloaded(courseAudioSource(
         text,
         pronunciation ? 'pronunciation_slow' : 'prompt',
         variant,
@@ -364,7 +366,7 @@ export function LessonScreen({
       )));
     }
     if (card.answer_audio_text?.trim()) {
-      requests.push(ensureAudioPreloaded(courseAudioUrl(
+      requests.push(ensureAudioPreloaded(courseAudioSource(
         card.answer_audio_text,
         'prompt',
         'answer',
@@ -421,9 +423,9 @@ export function LessonScreen({
       addDiagnosticBreadcrumb('audio_playback_skipped_offline', { mode, variant });
       return;
     }
-    const url = courseAudioUrl(text, mode, variant, audioProvider, audioVoice);
+    const source = courseAudioSource(text, mode, variant, audioProvider, audioVoice);
     const requestId = ++audioPlaybackRequestRef.current;
-    void ensureAudioPreloaded(url)
+    void ensureAudioPreloaded(source)
       .then(async () => {
         if (
           !audioPlayerActiveRef.current ||
@@ -438,7 +440,7 @@ export function LessonScreen({
           audioPlaybackRequestRef.current !== requestId
         ) return;
         addDiagnosticBreadcrumb('audio_started', { mode, variant });
-        const nextPlayer = createAudioPlayer(url, { keepAudioSessionActive: true });
+        const nextPlayer = createAudioPlayer(source, { keepAudioSessionActive: true });
         if (
           !audioPlayerActiveRef.current ||
           audioPlaybackRequestRef.current !== requestId

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 
-import { courseAudioUrl } from '../config';
+import { courseAudioSource } from '../courseAudioSources';
 
 type Props = {
   text: string;
@@ -19,7 +19,7 @@ export function CourseAudioButton({ text, label = 'Escuchar', mode = 'prompt', v
   const play = () => {
     if (!text) return;
     if (loadedText !== text) {
-      player.replace(courseAudioUrl(text, mode, variant));
+      player.replace(courseAudioSource(text, mode, variant));
       setLoadedText(text);
     } else {
       player.seekTo(0);
