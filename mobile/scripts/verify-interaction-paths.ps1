@@ -35,6 +35,9 @@ try {
   & node tests/image-loading-ui.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de carga visual de imágenes.' }
 
+  & node tests/bundled-unit2-images.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes incluidas de la Unidad 2.' }
+
   & node tests/phrase-option-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de diseño horizontal de frases.' }
 

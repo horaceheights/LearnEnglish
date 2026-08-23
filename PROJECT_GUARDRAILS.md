@@ -134,6 +134,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Unit 2 number images use the approved adult-oriented series: realistic brushed-metal numerals plus an exact quantity of separate gold stars. Do not revert to plain dots, flat numerals, or cartoon treatment.
 - When a mission is designed around one coherent scene, derive its card images from that same master. Preserve enough shared environmental context to support meaning, but crop tightly enough that a distractor does not also contain the target answer.
 - Before accepting a generated image, inspect it at the actual mobile card aspect ratio, not only as a source file.
+- New Unit 2 stills referenced by embedded Preview lesson snapshots must also be bundled as mobile assets with literal Metro `require` entries. Do not make an OTA lesson depend on an image that exists only in an undeployed backend or frontend asset folder; retain the remote URL fallback for legacy and action media.
 
 ## 6. Motion and Video Guardrails
 

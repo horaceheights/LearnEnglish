@@ -15,7 +15,8 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { absoluteMediaUrl, courseAudioUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { courseAudioUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { lessonImageSource } from '../lessonImageSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -1698,7 +1699,7 @@ export function PronunciationPractice({
               <Image
                 accessibilityLabel={imageLabel || phrase}
                 resizeMode="contain"
-                source={{ uri: absoluteMediaUrl(imageUrl) }}
+                source={lessonImageSource(imageUrl)}
                 style={styles.practiceMediaLayer}
               />
               <VideoView
@@ -1715,7 +1716,7 @@ export function PronunciationPractice({
             <Image
               accessibilityLabel={imageLabel || phrase}
               resizeMode="contain"
-              source={{ uri: absoluteMediaUrl(imageUrl) }}
+              source={lessonImageSource(imageUrl)}
               style={[styles.practiceImage, { height: imageHeight }, isLandscape ? styles.practiceImageLandscape : null]}
             />
           )}
