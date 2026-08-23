@@ -1,29 +1,11 @@
 import * as Updates from 'expo-updates';
 
-import lessonOne from './generated/lesson-1-people-actions.json';
-import lessonTwo from './generated/lesson-2-pronouns.json';
-import lessonThree from './generated/lesson-3-two-people.json';
-import lessonFour from './generated/lesson-4-children-siblings.json';
-import lessonFive from './generated/lesson-5-parents-grandparents.json';
-import lessonSix from './generated/lesson-6-family-actions.json';
-import lessonSeven from './generated/lesson-7-is-are-not.json';
-import lessonEight from './generated/lesson-8-who.json';
-import lessonNine from './generated/lesson-9-unit-review.json';
-import lessonTen from './generated/lesson-10-family-mission.json';
+import a1Course from './generated/a1-course.json';
 import type { ChoiceOption, Lesson, LessonSummary } from './types';
 
-const PREVIEW_LESSONS: Record<string, Lesson> = {
-  [lessonOne.id]: lessonOne as Lesson,
-  [lessonTwo.id]: lessonTwo as Lesson,
-  [lessonThree.id]: lessonThree as Lesson,
-  [lessonFour.id]: lessonFour as Lesson,
-  [lessonFive.id]: lessonFive as Lesson,
-  [lessonSix.id]: lessonSix as Lesson,
-  [lessonSeven.id]: lessonSeven as Lesson,
-  [lessonEight.id]: lessonEight as Lesson,
-  [lessonNine.id]: lessonNine as Lesson,
-  [lessonTen.id]: lessonTen as Lesson,
-};
+const PREVIEW_LESSONS: Record<string, Lesson> = Object.fromEntries(
+  (a1Course as Lesson[]).map((lesson) => [lesson.id, lesson]),
+);
 
 function shuffledOptions(options: ChoiceOption[]): ChoiceOption[] {
   const shuffled = options.map((option) => ({ ...option }));
@@ -71,8 +53,9 @@ export function mergePreviewLessonSummaries(backendLessons: LessonSummary[]): Le
 
   return summaries
     .sort((left, right) => {
-      const leftNumber = Number(left.sub_lesson_id?.split('.')[1] || 999);
-      const rightNumber = Number(right.sub_lesson_id?.split('.')[1] || 999);
-      return leftNumber - rightNumber;
+      const leftParts = (left.sub_lesson_id || '').split('.').map(Number);
+      const rightParts = (right.sub_lesson_id || '').split('.').map(Number);
+      return (leftParts[0] || 999) - (rightParts[0] || 999)
+        || (leftParts[1] || 999) - (rightParts[1] || 999);
     });
 }

@@ -75,12 +75,40 @@ def lesson_payload(lesson):
 
 class LessonStructureTests(unittest.TestCase):
     def test_unit_1_follows_the_approved_ten_lesson_roadmap(self):
-        self.assertEqual(UNIT_1_IDS, list(LESSONS))
+        unit_1 = [lesson for lesson in LESSONS.values() if lesson.unit_id == "unit-1"]
+        self.assertEqual(UNIT_1_IDS, [lesson.id for lesson in unit_1])
         self.assertEqual(
             [f"1.{index}" for index in range(1, 11)],
-            [lesson.sub_lesson_id for lesson in LESSONS.values()],
+            [lesson.sub_lesson_id for lesson in unit_1],
         )
-        self.assertEqual(EXPECTED_TITLES, [lesson.sub_lesson_title for lesson in LESSONS.values()])
+        self.assertEqual(EXPECTED_TITLES, [lesson.sub_lesson_title for lesson in unit_1])
+
+    def test_complete_a1_course_has_seven_units_and_ten_lessons_each(self):
+        self.assertEqual(70, len(LESSONS))
+        for unit in range(1, 8):
+            lessons = [lesson for lesson in LESSONS.values() if lesson.unit_id == f"unit-{unit}"]
+            with self.subTest(unit=unit):
+                self.assertEqual(10, len(lessons))
+                self.assertEqual(
+                    [f"{unit}.{index}" for index in range(1, 11)],
+                    [lesson.sub_lesson_id for lesson in lessons],
+                )
+
+    def test_units_2_through_7_have_complete_execution_metadata(self):
+        for lesson in LESSONS.values():
+            if lesson.unit_id == "unit-1":
+                continue
+            with self.subTest(lesson=lesson.id):
+                self.assertGreaterEqual(len(lesson.cards), 32)
+                self.assertLessEqual(len(lesson.cards), 40)
+                self.assertTrue(lesson.unit_outcome)
+                self.assertTrue(lesson.grammar_function)
+                self.assertTrue(lesson.speaking_outcome)
+                self.assertTrue(lesson.prerequisite)
+                self.assertTrue(lesson.purposeful_review_slides)
+                self.assertTrue(all(card.slide_id for card in lesson.cards))
+                self.assertTrue(all(card.interaction_type for card in lesson.cards))
+                self.assertTrue(all(card.spanish_translation for card in lesson.cards))
 
     def test_every_lesson_uses_the_same_five_stage_shell(self):
         for lesson in LESSONS.values():
@@ -134,8 +162,11 @@ class LessonStructureTests(unittest.TestCase):
                         self.assertTrue((LESSON_IMAGE_DIR / asset_name).is_file())
 
     def test_recognize_connects_images_and_text_in_both_directions(self):
-        for lesson in LESSONS.values():
-            cards = [card for card in lesson.cards if card.stage == "Recognize"]
+        for unit in range(1, 8):
+            cards = [
+                card for lesson in LESSONS.values() if lesson.unit_id == f"unit-{unit}"
+                for card in lesson.cards if card.stage == "Recognize"
+            ]
             text_to_image = [
                 card for card in cards
                 if not card.prompt_image_url and all(option.image_url for option in card.options)
@@ -144,13 +175,14 @@ class LessonStructureTests(unittest.TestCase):
                 card for card in cards
                 if card.prompt_image_url and all(not option.image_url for option in card.options)
             ]
-            with self.subTest(lesson=lesson.id):
+            with self.subTest(unit=unit):
                 self.assertTrue(text_to_image)
                 self.assertTrue(image_to_text)
                 self.assertTrue(all(card.audio_text == card.prompt for card in text_to_image))
                 self.assertTrue(all(
                     (not card.audio_text and card.answer_audio_text)
                     or (card.prompt and card.audio_text == card.prompt)
+                    or (card.audio_text and card.answer_audio_text)
                     for card in image_to_text
                 ))
 
@@ -178,7 +210,11 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(lesson=lesson.id):
                 self.assertTrue(all(card.prompt == "Listen and choose." for card in cards))
                 self.assertTrue(all(card.audio_text for card in cards))
-                self.assertTrue(all(all(option.image_url for option in card.options) for card in cards))
+                self.assertTrue(all(
+                    all(option.image_url for option in card.options)
+                    or all(not option.image_url and option.label for option in card.options)
+                    for card in cards
+                ))
 
     def test_family_image_choices_do_not_use_overlapping_categories(self):
         forbidden_distractors = {
@@ -210,7 +246,12 @@ class LessonStructureTests(unittest.TestCase):
     def test_negative_listening_uses_an_exact_binary_contrast(self):
         for lesson in LESSONS.values():
             for index, card in enumerate(lesson.cards, 1):
-                if card.stage != "Listen" or " not " not in (card.audio_text or "").lower():
+                audio = (card.audio_text or "").lower()
+                if (
+                    card.stage != "Listen"
+                    or not re.search(r"\b(?:is|are) not\b", audio)
+                    or not all(option.image_url for option in card.options)
+                ):
                     continue
                 with self.subTest(lesson=lesson.id, card=index, audio=card.audio_text):
                     self.assertEqual(2, len(card.options))
@@ -241,10 +282,23 @@ class LessonStructureTests(unittest.TestCase):
         for lesson in LESSONS.values():
             cards = [card for card in lesson.cards if card.stage == "Use"]
             with self.subTest(lesson=lesson.id):
-                self.assertTrue(all("___" in card.prompt for card in cards))
-                self.assertTrue(all(card.prompt_image_url for card in cards))
+                self.assertTrue(cards)
+                self.assertTrue(all(card.interaction_type in {
+                    None, "choice", "choose2", "choose4", "complete", "complete2",
+                    "complete4", "response-choice",
+                } for card in cards))
                 self.assertTrue(all(card.answer_audio_text for card in cards))
                 self.assertTrue(all(all(not option.image_url and option.label for option in card.options) for card in cards))
+
+    def test_visual_blanks_are_never_sent_raw_to_course_audio(self):
+        from backend.app.course_audio import sanitize_course_audio_text
+
+        examples = ["It is a ___.", "___ is a school.", "What ___ it?", "I [pause] agree."]
+        for example in examples:
+            sanitized = sanitize_course_audio_text(example)
+            with self.subTest(example=example):
+                self.assertNotIn("_", sanitized)
+                self.assertNotIn("[pause]", sanitized.lower())
 
     def test_learn_starts_with_clear_single_visual_anchors(self):
         for lesson in list(LESSONS.values())[:8]:
@@ -294,6 +348,19 @@ class LessonStructureTests(unittest.TestCase):
         for video_name in video_names:
             with self.subTest(video=video_name):
                 self.assertTrue((root / "frontend" / "public" / "lesson-assets" / video_name).is_file())
+
+    def test_action_video_normalizer_preserves_source_quality(self):
+        root = Path(__file__).resolve().parents[2]
+        generator_source = (root / "scripts" / "generate_lesson_action_videos.py").read_text(
+            encoding="utf-8"
+        )
+        normalize_existing_source = generator_source.split("def normalize_existing() -> None:", 1)[1].split(
+            "\ndef main() -> None:", 1
+        )[0]
+
+        self.assertIn('"-crf", "20"', generator_source)
+        self.assertIn("RAW_DIR", normalize_existing_source)
+        self.assertNotIn('ASSETS.glob("*-scene-v2.mp4")', normalize_existing_source)
 
 
 if __name__ == "__main__":

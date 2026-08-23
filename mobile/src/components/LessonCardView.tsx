@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { lessonActionVideo } from '../actionVideos';
-import { absoluteMediaUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { lessonImageSource } from '../lessonImageSources';
 import { lessonHelpText } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';
@@ -286,7 +287,7 @@ export function LessonCardView({
         <Image
           accessibilityLabel={card.answer_audio_text || card.prompt}
           resizeMode="contain"
-          source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
+          source={lessonImageSource(card.prompt_image_url)}
           style={[
             styles.promptImage,
             useDensePortraitTextLayout ? styles.promptImageDensePortrait : null,
@@ -336,7 +337,6 @@ export function LessonCardView({
               const playActionVideo = Boolean(actionVideoName) && (
                 card.options.length === 1 || revealCorrect
               );
-              const optionImageUrl = absoluteMediaUrl(option.image_url);
               const optionRenderKey = `${option.id}:${option.image_url ?? ''}:${option.label ?? ''}`;
               const renderedOptionImageHeight = showHelp ? optionImageHeight * 0.65 : optionImageHeight;
               return (
@@ -387,7 +387,7 @@ export function LessonCardView({
                         accessible={false}
                         accessibilityIgnoresInvertColors
                         resizeMode="contain"
-                        source={{ uri: optionImageUrl }}
+                        source={lessonImageSource(option.image_url)}
                         style={[
                           styles.optionImage,
                           !isLandscape ? styles.optionImagePortrait : null,
@@ -540,7 +540,7 @@ function LessonActionMedia({
       <Image
         accessibilityLabel={accessibilityLabel}
         resizeMode="cover"
-        source={{ uri: absoluteMediaUrl(imageUrl) }}
+        source={lessonImageSource(imageUrl)}
         style={[
           styles.actionMedia,
           useCompactFrame ? styles.singleActionMedia : null,

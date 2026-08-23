@@ -21,8 +21,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getLessonProgress, getLessons } from '../api';
 import { PlayfulLoading } from '../components/PlayfulLoading';
-import { absoluteMediaUrl } from '../config';
 import { setDiagnosticContext } from '../diagnostics';
+import { lessonImageSource } from '../lessonImageSources';
 import { getPreviewLessonMetadata, mergePreviewLessonSummaries } from '../previewLessons';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 import { canUseEasUpdates } from '../updates';
@@ -81,6 +81,15 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
 };
 
 const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];
+const UNIT_VISUALS: Record<string, { image: string; description: string; color: string }> = {
+  'unit-1': { image: 'family_all_members.webp', description: 'Personas, familia y acciones.', color: '#ffe1ad' },
+  'unit-2': { image: 'place_park.webp', description: 'Lugares, objetos, números y colores.', color: '#dff4ef' },
+  'unit-3': { image: 'a1_ana.webp', description: 'Presentaciones e información personal.', color: '#e5eefb' },
+  'unit-4': { image: 'a1_home.webp', description: 'El hogar y la vida diaria.', color: '#f1e4fa' },
+  'unit-5': { image: 'a1_apple.webp', description: 'Comida, bebidas y compras.', color: '#ffe8c7' },
+  'unit-6': { image: 'a1_station.webp', description: 'La ciudad, transporte y direcciones.', color: '#dff4ef' },
+  'unit-7': { image: 'a1_ana.webp', description: 'Necesidades diarias e integración A1.', color: '#f1e4fa' },
+};
 const UPDATE_COMPLETED_STORAGE_KEY = 'app:update-completed-message';
 
 type UpdateReceipt = {
@@ -121,6 +130,16 @@ function unitName(lesson?: LessonSummary): string {
   return title.replace(/^Unit\s+\d+\s*:\s*/i, '');
 }
 
+function lessonVisual(lesson?: LessonSummary) {
+  if (!lesson) return DEFAULT_VISUAL;
+  return VISUALS[lesson.id] || UNIT_VISUALS[lesson.unit_id || 'unit-1'] || DEFAULT_VISUAL;
+}
+
+function unitNumber(lesson?: LessonSummary): number {
+  const match = (lesson?.unit_id || lesson?.sub_lesson_id || '1').match(/\d+/);
+  return Number(match?.[0] || 1);
+}
+
 export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
   const { isUpdatePending } = Updates.useUpdates();
   const currentVersion = Constants.nativeAppVersion || Updates.runtimeVersion || '1.6.0';
@@ -135,6 +154,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
   const [isLoading, setIsLoading] = useState(true);
   const [loadingLessonId, setLoadingLessonId] = useState('');
   const [recentLessonId, setRecentLessonId] = useState('');
+  const [selectedUnitId, setSelectedUnitId] = useState<string | null>(null);
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const [updateStatus, setUpdateStatus] = useState<'idle' | 'checking' | 'downloading'>('idle');
   const recentLessonStorageKey = `course:last-lesson:${profile.userId || profile.displayName.trim().toLowerCase()}`;
@@ -146,7 +166,16 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
     },
     [lessons, progressByLesson, recentLessonId],
   );
-  const currentVisual = currentLesson ? VISUALS[currentLesson.id] || DEFAULT_VISUAL : DEFAULT_VISUAL;
+  const currentVisual = lessonVisual(currentLesson);
+  const unitGroups = useMemo(() => {
+    const grouped = new Map<string, LessonSummary[]>();
+    for (const lesson of lessons) {
+      const id = lesson.unit_id || `unit-${unitNumber(lesson)}`;
+      grouped.set(id, [...(grouped.get(id) || []), lesson]);
+    }
+    return [...grouped.entries()].map(([id, unitLessons]) => ({ id, lessons: unitLessons }));
+  }, [lessons]);
+  const selectedUnit = unitGroups.find((unit) => unit.id === selectedUnitId) || null;
 
   const load = async () => {
     setIsLoading(true);
@@ -247,11 +276,15 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
         setIsAccountMenuOpen(false);
         return true;
       }
+      if (selectedUnitId) {
+        setSelectedUnitId(null);
+        return true;
+      }
       confirmExit();
       return true;
     });
     return () => subscription.remove();
-  }, [confirmExit, isAccountMenuOpen]);
+  }, [confirmExit, isAccountMenuOpen, selectedUnitId]);
 
   const checkForUpdates = async () => {
     if (updateStatus !== 'idle') return;
@@ -293,6 +326,63 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
       setUpdateStatus('idle');
       Alert.alert('No pudimos actualizar', 'Revisa tu conexión a internet e inténtalo otra vez.');
     }
+  };
+
+  const renderLessonRow = (lesson: LessonSummary) => {
+    const visual = lessonVisual(lesson);
+    const globalIndex = lessons.findIndex((candidate) => candidate.id === lesson.id);
+    const isCurrent = lesson.id === currentLesson?.id;
+    const progress = progressByLesson[lesson.id];
+    const isLocked = globalIndex > 0 && !progressByLesson[lessons[globalIndex - 1].id]?.passed;
+    const status = isLocked ? 'Bloqueada' : progress?.passed ? 'Completada' : progress ? 'Repetir' : 'Disponible';
+    const scoreLabel = progress
+      ? `Puntaje ${progress.score}/${progress.total_cards} (${progress.percentage}%)`
+      : '';
+    const lessonStepNumber = lesson.sub_lesson_id?.split('.')[1] || String(globalIndex + 1);
+    return (
+      <Pressable
+        accessibilityHint={isLocked ? 'Completa la lección anterior con al menos 80 por ciento' : 'Abre esta lección'}
+        accessibilityLabel={`${lessonName(lesson)}. ${status}.${scoreLabel ? ` ${scoreLabel}.` : ''} ${visual.description}`}
+        accessibilityRole="button"
+        accessibilityState={{ disabled: isLocked }}
+        disabled={isLocked}
+        key={lesson.id}
+        onPress={() => openLesson(lesson.id)}
+        style={({ pressed }) => [
+          styles.lessonRow,
+          useTwoColumns ? styles.lessonRowGrid : null,
+          isCurrent ? styles.lessonRowCurrent : null,
+          isLocked ? styles.lessonRowLocked : null,
+          pressed ? styles.pressed : null,
+        ]}
+      >
+        <View style={[styles.lessonStep, progress?.passed ? styles.lessonStepCompleted : isCurrent ? styles.lessonStepCurrent : null]}>
+          {progress?.passed ? (
+            <MaterialIcons color="#fff" name="check" size={18} />
+          ) : (
+            <Text style={[styles.lessonStepText, isCurrent ? styles.lessonStepTextCurrent : null]}>{lessonStepNumber}</Text>
+          )}
+        </View>
+        <View style={[styles.thumbnail, { backgroundColor: visual.color }]}>
+          <Image resizeMode="contain" source={lessonImageSource(`/lesson-assets/${visual.image}`)} style={styles.image} />
+        </View>
+        <View style={styles.lessonCopy}>
+          <View style={styles.lessonMeta}>
+            <Text style={[styles.lessonStatus, progress?.passed || isCurrent ? styles.lessonStatusCurrent : null]}>{status}</Text>
+            <Text style={styles.lessonLevel}>{lesson.level}</Text>
+          </View>
+          <Text numberOfLines={2} style={styles.lessonTitle}>{lessonName(lesson)}</Text>
+          <Text numberOfLines={1} style={progress ? styles.lessonScore : styles.lessonDescription}>{scoreLabel || visual.description}</Text>
+        </View>
+        {isLocked ? (
+          <MaterialIcons color="#9b958b" name="lock" size={19} />
+        ) : loadingLessonId === lesson.id ? (
+          <ActivityIndicator color="#16766f" size="small" />
+        ) : (
+          <Text style={styles.rowArrow}>&gt;</Text>
+        )}
+      </Pressable>
+    );
   };
 
   return (
@@ -472,7 +562,7 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
             <View style={[styles.continueImagePanel, { backgroundColor: currentVisual.color }]}>
               <Image
                 resizeMode="contain"
-                source={{ uri: absoluteMediaUrl(`/lesson-assets/${currentVisual.image}`) }}
+                source={lessonImageSource(`/lesson-assets/${currentVisual.image}`)}
                 style={styles.image}
               />
             </View>
@@ -492,84 +582,64 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
         ) : null}
 
         {lessons.length ? (
-          <View style={styles.courseSection}>
-            <View style={styles.unitHeader}>
-              <View style={styles.unitNumber}>
-                <Text style={styles.unitNumberText}>1</Text>
+          selectedUnit ? (
+            <View style={styles.courseSection}>
+              <Pressable accessibilityRole="button" onPress={() => setSelectedUnitId(null)} style={styles.allUnitsButton}>
+                <MaterialIcons color="#16766f" name="arrow-back" size={20} />
+                <Text style={styles.allUnitsButtonText}>Todas las unidades</Text>
+              </Pressable>
+              <View style={[styles.unitHeader, { backgroundColor: UNIT_VISUALS[selectedUnit.id]?.color || '#ffe1ad' }]}>
+                <View style={styles.unitNumber}><Text style={styles.unitNumberText}>{unitNumber(selectedUnit.lessons[0])}</Text></View>
+                <View style={styles.unitCopy}>
+                  <Text style={styles.unitEyebrow}>UNIT {unitNumber(selectedUnit.lessons[0])}</Text>
+                  <Text numberOfLines={2} style={styles.unitTitle}>{unitName(selectedUnit.lessons[0])}</Text>
+                  <Text style={styles.unitDescription}>{UNIT_VISUALS[selectedUnit.id]?.description}</Text>
+                </View>
+                <Text style={styles.lessonCount}>{selectedUnit.lessons.length} lecciones</Text>
               </View>
-              <View style={styles.unitCopy}>
-                <Text style={styles.unitEyebrow}>UNIT 1</Text>
-                <Text numberOfLines={2} style={styles.unitTitle}>{unitName(lessons[0])}</Text>
-                <Text style={styles.unitDescription}>Personas, acciones y frases cortas.</Text>
+              <View style={[styles.lessonList, useTwoColumns ? styles.lessonGrid : null]}>
+                {selectedUnit.lessons.map(renderLessonRow)}
               </View>
-              <Text style={styles.lessonCount}>{lessons.length} lecciones</Text>
             </View>
-
-            <View style={[styles.lessonList, useTwoColumns ? styles.lessonGrid : null]}>
-              {lessons.map((lesson, index) => {
-                const visual = VISUALS[lesson.id] || DEFAULT_VISUAL;
-                const isCurrent = lesson.id === currentLesson.id;
-                const progress = progressByLesson[lesson.id];
-                const isLocked = index > 0 && !progressByLesson[lessons[index - 1].id]?.passed;
-                const status = isLocked ? 'Bloqueada' : progress?.passed ? 'Completada' : progress ? 'Repetir' : 'Disponible';
-                const scoreLabel = progress
-                  ? `Puntaje ${progress.score}/${progress.total_cards} (${progress.percentage}%)`
-                  : '';
-                return (
-                  <Pressable
-                    accessibilityHint={isLocked ? 'Completa la lección anterior con al menos 80 por ciento' : 'Abre esta lección'}
-                    accessibilityLabel={`${lessonName(lesson)}. ${status}.${scoreLabel ? ` ${scoreLabel}.` : ''} ${visual.description}`}
-                    accessibilityRole="button"
-                    accessibilityState={{ disabled: isLocked }}
-                    disabled={isLocked}
-                    key={lesson.id}
-                    onPress={() => openLesson(lesson.id)}
-                    style={({ pressed }) => [
-                      styles.lessonRow,
-                      useTwoColumns ? styles.lessonRowGrid : null,
-                      isCurrent ? styles.lessonRowCurrent : null,
-                      isLocked ? styles.lessonRowLocked : null,
-                      pressed ? styles.pressed : null,
-                    ]}
-                  >
-                    <View style={[styles.lessonStep, progress?.passed ? styles.lessonStepCompleted : isCurrent ? styles.lessonStepCurrent : null]}>
-                      {progress?.passed ? (
-                        <MaterialIcons color="#fff" name="check" size={18} />
-                      ) : (
-                        <Text style={[styles.lessonStepText, isCurrent ? styles.lessonStepTextCurrent : null]}>
-                          {index + 1}
-                        </Text>
-                      )}
-                    </View>
-                    <View style={[styles.thumbnail, { backgroundColor: visual.color }]}>
-                      <Image
-                        resizeMode="contain"
-                        source={{ uri: absoluteMediaUrl(`/lesson-assets/${visual.image}`) }}
-                        style={styles.image}
-                      />
-                    </View>
-                    <View style={styles.lessonCopy}>
-                      <View style={styles.lessonMeta}>
-                        <Text style={[styles.lessonStatus, progress?.passed || isCurrent ? styles.lessonStatusCurrent : null]}>{status}</Text>
-                        <Text style={styles.lessonLevel}>{lesson.level}</Text>
+          ) : (
+            <View style={styles.unitsSection}>
+              <View style={styles.unitsHeading}>
+                <View>
+                  <Text style={styles.unitsEyebrow}>CURSO A1 COMPLETO</Text>
+                  <Text style={styles.unitsTitle}>Elige una unidad</Text>
+                </View>
+                <Text style={styles.unitsCount}>{unitGroups.length} unidades</Text>
+              </View>
+              <View style={[styles.unitCards, useTwoColumns ? styles.unitCardsWide : null]}>
+                {unitGroups.map((unit) => {
+                  const firstLesson = unit.lessons[0];
+                  const visual = UNIT_VISUALS[unit.id] || DEFAULT_VISUAL;
+                  const completed = unit.lessons.filter((lesson) => progressByLesson[lesson.id]?.passed).length;
+                  const isCurrentUnit = unit.id === currentLesson?.unit_id;
+                  return (
+                    <Pressable
+                      accessibilityLabel={`Unit ${unitNumber(firstLesson)}. ${unitName(firstLesson)}. ${completed} de ${unit.lessons.length} lecciones completadas.`}
+                      accessibilityRole="button"
+                      key={unit.id}
+                      onPress={() => setSelectedUnitId(unit.id)}
+                      style={({ pressed }) => [styles.unitCard, useTwoColumns ? styles.unitCardWide : null, isCurrentUnit ? styles.unitCardCurrent : null, pressed ? styles.pressed : null]}
+                    >
+                      <View style={[styles.unitCardImage, { backgroundColor: visual.color }]}>
+                        <Image resizeMode="contain" source={lessonImageSource(`/lesson-assets/${visual.image}`)} style={styles.image} />
                       </View>
-                      <Text numberOfLines={2} style={styles.lessonTitle}>{lessonName(lesson)}</Text>
-                      <Text numberOfLines={1} style={progress ? styles.lessonScore : styles.lessonDescription}>
-                        {scoreLabel || visual.description}
-                      </Text>
-                    </View>
-                    {isLocked ? (
-                      <MaterialIcons color="#9b958b" name="lock" size={19} />
-                    ) : loadingLessonId === lesson.id ? (
-                      <ActivityIndicator color="#16766f" size="small" />
-                    ) : (
-                      <Text style={styles.rowArrow}>&gt;</Text>
-                    )}
-                  </Pressable>
-                );
-              })}
+                      <View style={styles.unitCardCopy}>
+                        <Text style={styles.unitCardEyebrow}>UNIT {unitNumber(firstLesson)}</Text>
+                        <Text numberOfLines={2} style={styles.unitCardTitle}>{unitName(firstLesson)}</Text>
+                        <Text numberOfLines={2} style={styles.unitCardDescription}>{visual.description}</Text>
+                        <Text style={styles.unitCardProgress}>{completed}/{unit.lessons.length} completadas</Text>
+                      </View>
+                      <MaterialIcons color="#16766f" name="chevron-right" size={26} />
+                    </Pressable>
+                  );
+                })}
+              </View>
             </View>
-          </View>
+          )
         ) : null}
 
         <Text style={styles.aiNote}>Las voces de práctica pueden ser generadas con IA.</Text>
@@ -679,7 +749,25 @@ const styles = StyleSheet.create({
   continueButton: { alignItems: 'center', backgroundColor: '#e96f42', borderRadius: 18, height: 54, justifyContent: 'center', width: 54 },
   continueArrow: { color: '#fff', fontSize: 13, fontWeight: '900' },
   image: { height: '100%', width: '100%' },
+  unitsSection: { gap: 10 },
+  unitsHeading: { alignItems: 'flex-end', flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 4, paddingTop: 4 },
+  unitsEyebrow: { color: '#16766f', fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },
+  unitsTitle: { color: '#24333a', fontSize: 22, fontWeight: '900', marginTop: 2 },
+  unitsCount: { color: '#697177', fontSize: 10, fontWeight: '800' },
+  unitCards: { gap: 10 },
+  unitCardsWide: { flexDirection: 'row', flexWrap: 'wrap' },
+  unitCard: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 20, borderWidth: 1, flexDirection: 'row', minHeight: 126, padding: 10 },
+  unitCardWide: { flexGrow: 1, width: '48%' },
+  unitCardCurrent: { borderColor: '#79b8aa', borderWidth: 2 },
+  unitCardImage: { borderRadius: 16, height: 102, overflow: 'hidden', width: 122 },
+  unitCardCopy: { flex: 1, marginHorizontal: 12, minWidth: 0 },
+  unitCardEyebrow: { color: '#16766f', fontSize: 9, fontWeight: '900', letterSpacing: 1 },
+  unitCardTitle: { color: '#24333a', fontSize: 17, fontWeight: '900', lineHeight: 21, marginTop: 2 },
+  unitCardDescription: { color: '#697177', fontSize: 10, lineHeight: 14, marginTop: 3 },
+  unitCardProgress: { color: '#16766f', fontSize: 10, fontWeight: '900', marginTop: 5 },
   courseSection: { backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 22, borderWidth: 1, overflow: 'hidden' },
+  allUnitsButton: { alignItems: 'center', backgroundColor: '#f4f1eb', flexDirection: 'row', gap: 7, minHeight: 44, paddingHorizontal: 14 },
+  allUnitsButtonText: { color: '#16766f', fontSize: 12, fontWeight: '900' },
   unitHeader: { alignItems: 'center', backgroundColor: '#ffe1ad', flexDirection: 'row', minHeight: 98, padding: 14 },
   unitNumber: { alignItems: 'center', backgroundColor: '#fff7e9', borderRadius: 18, height: 56, justifyContent: 'center', width: 56 },
   unitNumberText: { color: '#c94d24', fontSize: 24, fontWeight: '900' },

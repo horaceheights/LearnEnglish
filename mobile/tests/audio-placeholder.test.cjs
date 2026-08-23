@@ -11,11 +11,13 @@ assert.match(
   'Course audio must pass through the shared placeholder sanitizer.',
 );
 
+assert.match(configSource, /_\+/, 'One or more visual underscores must be treated as a blank.');
 assert.match(
   configSource,
-  /replace\(\/\\s\*_\{2,\}\\s\*\[\.,!\?\]\?\/g, ' \.\.\. '\)/,
-  'Visual underscore blanks must become silent ellipsis pauses.',
+  /pause\|blank/,
+  'Named pause and blank markers must use the same silent-pause sanitizer.',
 );
+assert.match(configSource, /' \.\.\. '/, 'Visual blanks must become silent ellipsis pauses.');
 
 assert.match(
   configSource,

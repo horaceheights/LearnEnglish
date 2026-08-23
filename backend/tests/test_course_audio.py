@@ -33,8 +33,12 @@ class CourseAudioProfileTests(unittest.TestCase):
     def test_visual_answer_blanks_become_silent_tts_pauses(self):
         self.assertEqual("The boy is ...", sanitize_course_audio_text("The boy is ___."))
         self.assertEqual("They ... reading.", sanitize_course_audio_text("They ___ reading."))
+        self.assertEqual("I am ...", sanitize_course_audio_text("I am [blank]."))
+        self.assertEqual("Please ...", sanitize_course_audio_text("Please [pause]."))
         self.assertEqual("... boy", sanitize_course_audio_text("___ boy"))
         self.assertNotIn("_", sanitize_course_audio_text("The ___ is running."))
+        self.assertNotIn("blank", sanitize_course_audio_text("I need [blank].").lower())
+        self.assertNotIn("pause", sanitize_course_audio_text("Please [pause].").lower())
 
     def test_static_audio_manifest_never_contains_visual_placeholders(self):
         expected = expected_audio_items()
