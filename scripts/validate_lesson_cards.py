@@ -19,7 +19,7 @@ ADULT_ROLE_IDS = {
     "grandmother",
     "grandparents",
 }
-GRAMMAR_STAGES = {"Grammar", "New Grammar", "Use"}
+GRAMMAR_STAGES = {"Grammar", "New Grammar"}
 PRONUNCIATION_STAGES = {"Pronunciation Practice", "Speak"}
 NEGATIVE_VISUAL_CONTRACTS = {
     "they are not sitting.": {"they_boy_girl_are_running.webp"},
@@ -163,6 +163,23 @@ def validate_interaction_requirements() -> list[str]:
                     errors.append(f"{location} is a grammar card without a sentence blank.")
                 if any(not (option.label or "").strip() for option in card.options):
                     errors.append(f"{location} is a grammar card with an unlabeled word choice.")
+
+            if card.stage == "Use":
+                is_completion = "__" in card.prompt
+                is_supported_choice = (
+                    card.prompt.strip().endswith("?")
+                    or card.prompt.strip().lower().startswith("choose ")
+                )
+                if not (is_completion or is_supported_choice):
+                    errors.append(
+                        f"{location} is a Use card without a completion or supported choice prompt."
+                    )
+                if not card.prompt_image_url:
+                    errors.append(f"{location} is a Use card without a context image.")
+                if not (card.answer_audio_text or "").strip():
+                    errors.append(f"{location} is a Use card without completed-answer audio.")
+                if any(option.image_url or not (option.label or "").strip() for option in card.options):
+                    errors.append(f"{location} must use labeled text choices in Use.")
 
             if card.stage in PRONUNCIATION_STAGES and not (
                 (card.audio_text or "").strip() or (card.prompt or "").strip()

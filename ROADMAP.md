@@ -69,7 +69,7 @@ creation without proportionally increasing engineering effort.
 - Visible runtime/update identifier on the home screen
 - Render-hosted backend with automatic deployment
 - Portrait home screen and landscape lessons
-- Five production lessons plus a temporary five-card pronunciation test lesson
+- Twenty production curriculum lessons across Unit 1 and Unit 2, each using Learn -> Recognize -> Listen -> Speak -> Use
 - Shared automatic pronunciation flow with Azure scoring
 - Consolidated lesson header, larger uncropped images, and visible lesson exit
 - Grammar answers animate toward sentence blanks and repeat the completed sentence
@@ -94,7 +94,7 @@ corrupts progress, or produces unreliable learning feedback.
 - [x] Show an in-app error screen instead of an unexplained blank screen
 - [~] Persist the learner's active lesson/card before interruption
 - [x] Create a repeatable pre-release checklist
-- [ ] Remove the temporary pronunciation test lesson after pronunciation is finalized
+- [x] Remove the temporary standalone pronunciation test lesson and keep pronunciation inside each lesson's Speak stage
 
 ### P0 exit criteria
 
@@ -129,6 +129,8 @@ corrupts progress, or produces unreliable learning feedback.
 - [~] Make lesson content data-driven and reusable
 - [~] Validate lesson content automatically before deployment
 - [ ] Separate temporary QA content from production curriculum
+- [x] Implement the ten-lesson Unit 2 dependency chain, per-slide canonical content, exact translations, static images, and bundled audio
+- [x] Encode intentional Unit 2 curriculum recycling through later lessons, mixed review, and the final mission
 
 ---
 

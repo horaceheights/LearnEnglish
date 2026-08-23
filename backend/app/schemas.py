@@ -17,6 +17,7 @@ class LessonCard(BaseModel):
     audio_text: str | None = None
     answer_audio_text: str | None = None
     prompt_image_url: str = ""
+    spanish_translation: str | None = None
 
 
 class Lesson(BaseModel):

@@ -105,7 +105,7 @@ Do not force every word through every step in a single lesson when that would ma
 ## 4. Mobile Layout Guardrails
 
 - Design for the usable phone viewport, including Android system bars and enlarged font settings.
-- After a wrong lesson choice, keep the encouragement first and place one short Spanish teaching hint directly below it. Explain the relevant rule (`is`, `are`, `not`) when available; otherwise point the learner back to the person, group, or action without adding a long instruction block. Identity-choice hints must name the exact visible mismatch, such as parents versus grandparents, instead of repeating one generic `is/are` explanation across the section.
+- After a wrong lesson choice, keep the encouragement first and place one short Spanish teaching hint directly below it. Explain the relevant rule (`is`, `are`, `not`) when available; otherwise point the learner to the evidence that decides the card without adding a long instruction block. For Unit 1 this may be the person, group, or action; for Unit 2 it may be place features, object shape, foreground/background, exact count, color, or number-color-noun order. Identity-choice hints must name the exact visible mismatch, such as parents versus grandparents, instead of repeating one generic `is/are` explanation across the section.
 - Essential choices, feedback, and navigation must fit without being hidden below the system navigation area.
 - Keep the lesson header compact. The stage strip communicates progress without consuming unnecessary vertical space.
 - Portrait phrase-answer tiles are full-width, short horizontal rows stacked at the bottom.
@@ -130,6 +130,9 @@ Do not force every word through every step in a single lesson when that would ma
 - Use consistent aspect ratios and framing for images serving the same card role.
 - Reuse established people and family members when continuity helps learners infer meaning.
 - Family compositions must match previously established family members and relationships.
+- Do not print the target place word inside its teaching image. A hospital may use only a large `H` plus a universal medical symbol; a restaurant must be identifiable from its entrance, dining furniture, and service context without a `RESTAURANT` label.
+- Unit 2 number images use the approved adult-oriented series: realistic brushed-metal numerals plus an exact quantity of separate gold stars. Do not revert to plain dots, flat numerals, or cartoon treatment.
+- When a mission is designed around one coherent scene, derive its card images from that same master. Preserve enough shared environmental context to support meaning, but crop tightly enough that a distractor does not also contain the target answer.
 - Before accepting a generated image, inspect it at the actual mobile card aspect ratio, not only as a source file.
 
 ## 6. Motion and Video Guardrails
@@ -165,6 +168,9 @@ Do not force every word through every step in a single lesson when that would ma
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
 - Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
 - Every course-audio boundary must sanitize visual answer blanks into a silent pause. No provider or browser fallback may receive literal underscore runs.
+- Build blank-prompt audio from exact spoken fragments separated by encoded silence. Do not ask a generative voice model to interpret an underscore, ellipsis, or other placeholder; it may say `dot`, repeat a word, fill the blank, or add a vocalization.
+- Course-audio instructions must require the exact requested words once and an immediate stop after the final word. Reject takes with a preface, repeated or missing word, filler sound, or trailing speech.
+- Before release, transcribe every unique new Use-stage prompt and completed answer and compare its normalized words with the intended phrase. Number digits and number words may be treated as equivalent; added or missing words are failures and the take must be regenerated.
 
 ## 8. Feedback and Interaction
 
@@ -197,13 +203,38 @@ Unit 1 is `People, Family, and Actions` and contains ten lessons in numeric orde
 
 Do not reuse old lesson IDs or reintroduce the removed standalone pronunciation lesson. Pronunciation belongs inside each lesson's Speak stage.
 
-## 10. Authoring and Verification
+## 10. Current Unit 2 Contract
+
+Unit 2 is `Places, Objects, Numbers, and Colors` and contains ten lessons in numeric order:
+
+1. `2.1 Places Around Me`
+2. `2.2 Streets and Transportation`
+3. `2.3 Common Objects`
+4. `2.4 What Is It?`
+5. `2.5 This and That`
+6. `2.6 Numbers 1-10`
+7. `2.7 Basic Colors`
+8. `2.8 Count and Describe`
+9. `2.9 Unit 2 Review`
+10. `2.10 Around Me Mission`
+
+The dependency order is fixed: Unit 1 identity/action language precedes places; places precede transport; transport precedes objects; objects precede `What is it?`; that question precedes `this/that`; numbers and colors precede composed number + color + noun phrases; review precedes the coherent-scene mission.
+
+Do not introduce learner-facing `in`, `on`, `at`, `near`, `far`, or `where` language in Unit 2. Foreground and background are visual evidence for `this/that`, not permission to teach location prepositions. Unit 2 adds no new action video; its new concepts are served by still images and existing Unit 1 action review.
+
+The approved per-slide source is `docs/product/unit-2-curriculum.json`, imported without executing the untrusted course canvas. `scripts/build_unit_2_lessons.mjs` produces the canonical lesson files. Every Unit 2 card carries its exact contextual Spanish translation, and the final mission uses crops from one reviewed neighborhood master scene.
+
+## 11. Authoring and Verification
 
 Primary curriculum sources:
 
 - `COURSE_DESIGN_A1.md`: syllabus, vocabulary progression, and roadmap.
 - `scripts/build_unit_1_lessons.mjs`: reproducible Unit 1 lesson authoring.
+- `docs/product/unit-2-curriculum.json`: approved Unit 2 roadmap, recycling matrix, scene contracts, and per-slide descriptions.
+- `scripts/import_unit_2_canvas_plan.ps1`: JSON-only Unit 2 canvas importer; it never executes canvas code.
+- `scripts/build_unit_2_lessons.mjs`: reproducible Unit 2 lesson authoring.
 - `backend/lessons/unit_1/`: canonical lesson content.
+- `backend/lessons/unit_2/`: canonical Unit 2 lesson content.
 - `mobile/src/generated/`: embedded Preview lesson snapshots.
 
 Required checks for curriculum or shared lesson changes:
@@ -215,9 +246,9 @@ Required checks for curriculum or shared lesson changes:
 5. Inspect representative phone layouts, including the longest phrase and cards with two and four choices.
 6. Inspect new or normalized images and video frames visually.
 
-Existing automated guardrails cover lesson order, vocabulary contracts, five-stage structure, valid assets and answers, unique visible choices, family-category overlap, exact negative listening contrasts, complete identity prompts, bidirectional recognition, hidden-text listening, single-image speaking, interactive Use cards, media loading, pronunciation lifecycle, and horizontal phrase-option layout. Extend these checks when a new reusable rule is approved.
+Existing automated guardrails cover lesson order, vocabulary contracts, five-stage structure, valid assets and answers, unique visible choices, family-category overlap, exact negative listening contrasts, complete identity prompts, bidirectional recognition, hidden-text listening, single-image speaking, interactive Use cards, media loading, pronunciation lifecycle, horizontal phrase-option layout, blank-audio sanitization, and current static-audio references. Unit 2 adds checks for its ten-lesson contract, active new-language practice, dependency recycling, prohibited early location language, contextual Spanish on every card, approved place/number assets, coherent mission crops, and transcript-level Use-audio QA. Extend these checks when a new reusable rule is approved.
 
-## 11. Release Rules
+## 12. Release Rules
 
 - Follow `AGENTS.md` for the exact release workflow.
 - Preview is the default destination after an OTA-compatible mobile change passes verification.
@@ -225,7 +256,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Native dependency, Expo configuration, permission, native module, or app-version changes require a new build rather than an OTA update.
 - Keep generated lesson snapshots, audio manifests, and committed media synchronized with the canonical lesson files.
 
-## 12. Decision Log
+## 13. Decision Log
 
 - 2026-08-18: Unit 1 standardized to ten lessons using the five-stage shell.
 - 2026-08-18: Existing action clips normalized to a consistent 16:9 frame; selective motion retained as a teaching confirmation.
@@ -242,3 +273,8 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-19: Wrong-answer feedback now pairs encouragement with one concise Spanish learning hint beneath it across web and mobile lessons.
 - 2026-08-21: Learner-facing cold-start and lesson loading standardized on one reduced-motion-safe animated mascot surface with no backend server-status language.
 - 2026-08-21: Action-video normalization standardized on CRF 20 from original raw sources; re-normalizing compressed lesson exports is prohibited.
+- 2026-08-22: Unit 2 standardized to ten dependency-ordered lessons using the same five-stage shell, exact per-card Spanish translations, intentional curriculum recycling, and a coherent-scene final mission.
+- 2026-08-22: Unit 2 place images prohibited answer-word labels; hospital uses `H` plus a medical symbol and restaurant meaning comes from dining context.
+- 2026-08-22: Unit 2 numbers standardized on realistic brushed-metal numerals with exact gold-star quantities; plain-dot and cartoon number treatments are retired.
+- 2026-08-22: Unit 2 wrong-answer support standardized on one concise Spanish cue naming the relevant context: place features, object shape, depth, count, color, or phrase order.
+- 2026-08-22: Use-stage blank audio standardized on deterministic spoken-fragment stitching with encoded silence and transcript-level rejection of added, missing, or trailing words.

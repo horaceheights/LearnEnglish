@@ -52,7 +52,11 @@ async def generate_missing_audio(lesson_ids: set[str] | None = None) -> int:
             continue
         key = "\n".join([text.strip(), mode, lang, variant])
         static_name = static_manifest.get(key)
-        static_path = frontend_cache / static_name if static_name else None
+        static_path = (
+            frontend_cache / static_name
+            if static_name == audio_path.name
+            else None
+        )
         if not static_path or not static_path.exists() or static_path.stat().st_size <= 0:
             missing.append((text, mode, lang, variant))
 

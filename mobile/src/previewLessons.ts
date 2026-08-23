@@ -10,6 +10,16 @@ import lessonSeven from './generated/lesson-7-is-are-not.json';
 import lessonEight from './generated/lesson-8-who.json';
 import lessonNine from './generated/lesson-9-unit-review.json';
 import lessonTen from './generated/lesson-10-family-mission.json';
+import lessonEleven from './generated/lesson-11-places-around-me.json';
+import lessonTwelve from './generated/lesson-12-streets-and-transportation.json';
+import lessonThirteen from './generated/lesson-13-common-objects.json';
+import lessonFourteen from './generated/lesson-14-what-is-it.json';
+import lessonFifteen from './generated/lesson-15-this-and-that.json';
+import lessonSixteen from './generated/lesson-16-numbers-1-10.json';
+import lessonSeventeen from './generated/lesson-17-basic-colors.json';
+import lessonEighteen from './generated/lesson-18-count-and-describe.json';
+import lessonNineteen from './generated/lesson-19-unit-2-review.json';
+import lessonTwenty from './generated/lesson-20-around-me-mission.json';
 import type { ChoiceOption, Lesson, LessonSummary } from './types';
 
 const PREVIEW_LESSONS: Record<string, Lesson> = {
@@ -23,6 +33,16 @@ const PREVIEW_LESSONS: Record<string, Lesson> = {
   [lessonEight.id]: lessonEight as Lesson,
   [lessonNine.id]: lessonNine as Lesson,
   [lessonTen.id]: lessonTen as Lesson,
+  [lessonEleven.id]: lessonEleven as Lesson,
+  [lessonTwelve.id]: lessonTwelve as Lesson,
+  [lessonThirteen.id]: lessonThirteen as Lesson,
+  [lessonFourteen.id]: lessonFourteen as Lesson,
+  [lessonFifteen.id]: lessonFifteen as Lesson,
+  [lessonSixteen.id]: lessonSixteen as Lesson,
+  [lessonSeventeen.id]: lessonSeventeen as Lesson,
+  [lessonEighteen.id]: lessonEighteen as Lesson,
+  [lessonNineteen.id]: lessonNineteen as Lesson,
+  [lessonTwenty.id]: lessonTwenty as Lesson,
 };
 
 function shuffledOptions(options: ChoiceOption[]): ChoiceOption[] {
@@ -71,8 +91,12 @@ export function mergePreviewLessonSummaries(backendLessons: LessonSummary[]): Le
 
   return summaries
     .sort((left, right) => {
-      const leftNumber = Number(left.sub_lesson_id?.split('.')[1] || 999);
-      const rightNumber = Number(right.sub_lesson_id?.split('.')[1] || 999);
-      return leftNumber - rightNumber;
+      const [leftUnit = 999, leftNumber = 999] = (left.sub_lesson_id || '')
+        .split('.')
+        .map(Number);
+      const [rightUnit = 999, rightNumber = 999] = (right.sub_lesson_id || '')
+        .split('.')
+        .map(Number);
+      return leftUnit - rightUnit || leftNumber - rightNumber;
     });
 }

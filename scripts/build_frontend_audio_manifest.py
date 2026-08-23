@@ -138,7 +138,11 @@ def main(lesson_ids: set[str] | None = None) -> int:
         )
         key = "\n".join([text.strip(), mode, lang, variant])
         existing_name = existing_manifest.get(key)
-        existing_path = frontend_cache / existing_name if existing_name else None
+        existing_path = (
+            frontend_cache / existing_name
+            if existing_name == audio_path.name
+            else None
+        )
         if existing_path and existing_path.exists() and existing_path.stat().st_size > 0:
             manifest[key] = existing_name
         elif audio_path.exists() and audio_path.stat().st_size > 0:

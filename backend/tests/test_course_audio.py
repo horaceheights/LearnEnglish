@@ -1,4 +1,5 @@
 import re
+import json
 import unittest
 from array import array
 from contextlib import redirect_stdout
@@ -10,6 +11,7 @@ from unittest.mock import patch
 
 from backend.app.course_audio import (
     AUDIO_PROFILE_VERSION,
+    PLACEHOLDER_AUDIO_PROFILE_VERSION,
     COURSE_SYLLABLES,
     ING_PRONUNCIATION_NOTES,
     audio_instructions,
@@ -18,6 +20,7 @@ from backend.app.course_audio import (
     cache_path_for,
     normalized_provider,
     premium_voice_for_narrator,
+    pronunciation_notes,
     sanitize_course_audio_text,
     syllable_count,
     target_active_seconds,
@@ -40,6 +43,44 @@ class CourseAudioProfileTests(unittest.TestCase):
         expected = expected_audio_items()
         self.assertFalse(any("_" in text for text, _mode, _lang, _variant in expected))
         self.assertTrue(any("..." in text for text, _mode, _lang, _variant in expected))
+
+    def test_checked_in_manifest_has_no_legacy_visual_placeholders(self):
+        root = Path(__file__).resolve().parents[2]
+        manifest = json.loads(
+            (root / "frontend" / "lib" / "courseAudioManifest.json").read_text(encoding="utf-8")
+        )
+        spoken_texts = [key.split("\n", 1)[0] for key in manifest]
+        self.assertFalse(any("_" in text for text in spoken_texts))
+
+    def test_unit_2_use_audio_is_sanitized_and_bundled(self):
+        root = Path(__file__).resolve().parents[2]
+        manifest = json.loads(
+            (root / "frontend" / "lib" / "courseAudioManifest.json").read_text(encoding="utf-8")
+        )
+        static_cache = root / "frontend" / "public" / "audio-cache"
+        use_cards = [
+            (lesson.id, card)
+            for lesson in LESSONS.values()
+            if lesson.unit_id == "unit-2"
+            for card in lesson.cards
+            if card.stage == "Use"
+        ]
+        self.assertTrue(use_cards)
+        self.assertTrue(any("_" in card.prompt for _lesson_id, card in use_cards))
+        for lesson_id, card in use_cards:
+            prompt = sanitize_course_audio_text(
+                card.audio_text if card.audio_text is not None else card.prompt
+            )
+            prompt_variant = "question" if prompt.lower() == "what is it?" else "prompt"
+            items = [(prompt, prompt_variant)]
+            if card.answer_audio_text:
+                items.append((sanitize_course_audio_text(card.answer_audio_text), "answer"))
+            for spoken_text, variant in items:
+                with self.subTest(lesson=lesson_id, text=spoken_text, variant=variant):
+                    self.assertNotIn("_", spoken_text)
+                    key = "\n".join([spoken_text, "prompt", "en-US", variant])
+                    self.assertIn(key, manifest)
+                    self.assertTrue((static_cache / manifest[key]).is_file())
 
     def test_every_current_spoken_word_has_an_audited_syllable_count(self):
         spoken_words: set[str] = set()
@@ -139,10 +180,15 @@ class CourseAudioProfileTests(unittest.TestCase):
         self.assertIn("'running'", instructions)
         self.assertIn("brief and natural", instructions)
         self.assertIn("never accelerate", instructions)
+        self.assertIn("exactly once", instructions)
+        self.assertIn("Stop immediately after the final requested word", instructions)
         self.assertNotIn(
             "voiced TH in 'the'",
             audio_instructions("They are reading.", "prompt", "en-US", "default"),
         )
+        self.assertIn("never make it sound like 'boss'", pronunciation_notes("It is a bus."))
+        self.assertIn("crisp CH onset", pronunciation_notes("A chair"))
+        self.assertIn("final /ks/ cluster", pronunciation_notes("green books"))
 
     def test_audio_profile_version_changes_the_cache_key(self):
         current = cache_path_for("The boy", "prompt", "en-US", "default", "model", "voice", "mp3")
@@ -154,6 +200,28 @@ class CourseAudioProfileTests(unittest.TestCase):
         ).hexdigest()
         self.assertNotEqual(f"{legacy}.mp3", current.name)
         self.assertEqual("a1-elevenlabs-cast-v14", AUDIO_PROFILE_VERSION)
+
+    def test_visual_blanks_use_a_separate_stitched_audio_cache_profile(self):
+        placeholder = cache_path_for(
+            "It is a ...", "prompt", "en-US", "prompt", "model", "voice", "mp3"
+        )
+        import hashlib
+
+        expected = hashlib.sha256(
+            "\n".join(
+                [
+                    f"{AUDIO_PROFILE_VERSION}:{PLACEHOLDER_AUDIO_PROFILE_VERSION}",
+                    "It is a ...",
+                    "prompt",
+                    "en-US",
+                    "prompt",
+                    "model",
+                    "voice",
+                    "mp3",
+                ]
+            ).encode("utf-8")
+        ).hexdigest()
+        self.assertEqual(f"{expected}.mp3", placeholder.name)
 
     def test_only_supported_audio_providers_are_accepted(self):
         self.assertEqual("openai", normalized_provider("OpenAI"))

@@ -17,8 +17,13 @@ from app.data import LESSONS  # noqa: E402
 
 def model_payload(model: object) -> dict[str, object]:
     if hasattr(model, "model_dump"):
-        return model.model_dump(mode="json")  # type: ignore[no-any-return, union-attr]
-    return json.loads(model.json())  # type: ignore[no-any-return, union-attr]
+        payload = model.model_dump(mode="json")  # type: ignore[no-any-return, union-attr]
+    else:
+        payload = json.loads(model.json())  # type: ignore[no-any-return, union-attr]
+    for card in payload.get("cards", []):
+        if card.get("spanish_translation") is None:
+            card.pop("spanish_translation", None)
+    return payload
 
 
 def export_lesson(lesson_id: str) -> Path:
@@ -47,11 +52,7 @@ def main() -> None:
         help="Lesson ID to export. May be supplied more than once.",
     )
     args = parser.parse_args()
-    lesson_ids = args.lesson_ids or [
-        lesson.id
-        for lesson in LESSONS.values()
-        if lesson.unit_id == "unit-1"
-    ]
+    lesson_ids = args.lesson_ids or [lesson.id for lesson in LESSONS.values()]
 
     for lesson_id in lesson_ids:
         destination = export_lesson(lesson_id)

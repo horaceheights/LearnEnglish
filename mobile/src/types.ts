@@ -12,6 +12,7 @@ export type LessonCard = {
   audio_text: string | null;
   answer_audio_text: string | null;
   prompt_image_url: string;
+  spanish_translation?: string | null;
 };
 
 export type Lesson = {

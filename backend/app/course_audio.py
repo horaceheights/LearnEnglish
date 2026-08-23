@@ -32,6 +32,7 @@ SUPPORTED_FORMATS = {
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
 AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v14"
+PLACEHOLDER_AUDIO_PROFILE_VERSION = "stitched-silent-pause-v1"
 DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 # Nichalia Schwartz is a professional American teacher/e-learning voice from
 # the ElevenLabs Voice Library. Paid plans can use Voice Library voices by ID.
@@ -69,7 +70,13 @@ COURSE_SYLLABLES = {
     "are": 1,
     "babies": 2,
     "baby": 2,
+    "bag": 1,
+    "bags": 1,
     "bike": 1,
+    "black": 1,
+    "blue": 1,
+    "book": 1,
+    "books": 1,
     "boy": 1,
     "bridge": 1,
     "brother": 2,
@@ -77,20 +84,28 @@ COURSE_SYLLABLES = {
     "building": 2,
     "bus": 1,
     "car": 1,
+    "cars": 1,
+    "chair": 1,
     "child": 1,
     "children": 2,
     "choose": 1,
+    "color": 2,
     "cooking": 2,
     "drinking": 2,
     "eating": 2,
+    "eight": 1,
     "family": 3,
     "father": 2,
+    "five": 1,
     "find": 1,
+    "four": 1,
     "girl": 1,
     "grandfather": 3,
     "grandmother": 3,
     "grandparents": 3,
+    "green": 1,
     "he": 1,
+    "hospital": 3,
     "house": 1,
     "is": 1,
     "it": 1,
@@ -98,17 +113,30 @@ COURSE_SYLLABLES = {
     "man": 1,
     "meet": 1,
     "mother": 2,
+    "nine": 1,
     "not": 1,
+    "number": 2,
+    "one": 1,
     "parents": 2,
     "park": 1,
+    "pen": 1,
+    "pens": 1,
+    "phone": 1,
+    "phones": 1,
+    "phrase": 1,
     "playing": 2,
     "people": 2,
     "reading": 2,
+    "red": 1,
+    "restaurant": 3,
     "running": 2,
     "school": 1,
+    "sentence": 2,
     "she": 1,
+    "seven": 2,
     "sister": 2,
     "sisters": 2,
+    "six": 1,
     "sitting": 2,
     "sleeping": 2,
     "standing": 2,
@@ -117,14 +145,22 @@ COURSE_SYLLABLES = {
     "studying": 3,
     "swimming": 2,
     "talking": 2,
+    "table": 2,
+    "ten": 1,
+    "that": 1,
     "the": 1,
     "they": 1,
+    "this": 1,
+    "three": 1,
+    "two": 1,
     "walking": 2,
     "what": 1,
+    "white": 1,
     "who": 1,
     "woman": 2,
     "working": 2,
     "writing": 2,
+    "yellow": 2,
 }
 
 ING_PRONUNCIATION_NOTES = {
@@ -303,6 +339,14 @@ def pronunciation_notes(text: str) -> str:
         notes.append("Pronounce 'man' as /mæn/ with a clear short-A vowel; do not reduce the vowel.")
     if re.search(r"\bwoman\b", lowered):
         notes.append("Pronounce 'woman' as two even syllables /ˈwʊm.ən/.")
+    if re.search(r"\bbus\b", lowered):
+        notes.append("Pronounce 'bus' as /bʌs/ with the vowel in 'cup'; never make it sound like 'boss'.")
+    if re.search(r"\bchair\b", lowered):
+        notes.append("Pronounce 'chair' as /tʃɛr/ with a crisp CH onset; never make it sound like 'share'.")
+    if re.search(r"\bbooks\b", lowered):
+        notes.append(
+            "Pronounce 'books' as /bʊks/ with a clear final /ks/ cluster; do not drop the K or final S."
+        )
     ing_words = [word for word in ING_PRONUNCIATION_NOTES if re.search(rf"\b{word}\b", lowered)]
     if ing_words:
         models = ", ".join(ING_PRONUNCIATION_NOTES[word] for word in ing_words)
@@ -333,6 +377,8 @@ def audio_instructions(text: str, mode: str, lang: str, variant: str) -> str:
     )
     shared = (
         voice_reference + placeholder_direction +
+        "Speak only the requested words, exactly once. Stop immediately after the final requested word. "
+        "Never add a preface, repeated word, filler vocalization, explanation, or closing sound. "
         f"The spoken words themselves should last about {target_seconds:.1f} seconds, excluding silence. "
         "Use careful General American pronunciation with correct vowels and consonants. Keep the same measured "
         "syllable pace from the beginning through the final word; never accelerate the predicate or an -ing "
@@ -633,7 +679,12 @@ def voice_for_variant(variant: str) -> str:
 
 
 def cache_path_for(text: str, mode: str, lang: str, variant: str, model: str, voice: str, output_format: str) -> Path:
-    key = "\n".join([AUDIO_PROFILE_VERSION, text, mode, lang, variant, model, voice, output_format])
+    profile = (
+        f"{AUDIO_PROFILE_VERSION}:{PLACEHOLDER_AUDIO_PROFILE_VERSION}"
+        if "..." in text
+        else AUDIO_PROFILE_VERSION
+    )
+    key = "\n".join([profile, text, mode, lang, variant, model, voice, output_format])
     digest = hashlib.sha256(key.encode("utf-8")).hexdigest()
     return CACHE_DIR / f"{digest}.{output_format}"
 
@@ -804,14 +855,7 @@ async def _generate_azure_audio(
     return response.content
 
 
-async def _provider_audio(
-    text: str,
-    mode: str,
-    lang: str,
-    variant: str,
-    provider: str,
-    narrator: str,
-) -> FileResponse:
+def _provider_audio_settings(provider: str, narrator: str, variant: str) -> tuple[str, str, str]:
     if provider == "elevenlabs-premium":
         model = os.getenv("ELEVENLABS_PREMIUM_MODEL", "eleven_multilingual_v2")
         voice = premium_voice_for_narrator(narrator)
@@ -830,6 +874,18 @@ async def _provider_audio(
         model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
         voice = voice_for_variant(variant)
         output_format = os.getenv("OPENAI_TTS_FORMAT", "mp3").lower()
+    return model, voice, output_format
+
+
+async def _provider_audio(
+    text: str,
+    mode: str,
+    lang: str,
+    variant: str,
+    provider: str,
+    narrator: str,
+) -> FileResponse:
+    model, voice, output_format = _provider_audio_settings(provider, narrator, variant)
 
     media_type = SUPPORTED_FORMATS.get(output_format)
     if not media_type:
@@ -882,6 +938,57 @@ async def _provider_audio(
     return audio_file_response(audio_path, media_type, provider)
 
 
+async def _provider_audio_with_silent_pauses(
+    text: str,
+    mode: str,
+    lang: str,
+    variant: str,
+    provider: str,
+    narrator: str,
+) -> FileResponse:
+    """Build visual-blank prompts from exact speech segments plus encoded silence."""
+    model, voice, output_format = _provider_audio_settings(provider, narrator, variant)
+    media_type = SUPPORTED_FORMATS.get(output_format)
+    if output_format != "mp3" or not media_type:
+        raise HTTPException(status_code=500, detail="Silent-pause course audio requires MP3 output.")
+
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache_model = f"{provider}:{model}"
+    audio_path = cache_path_for(text, mode, lang, variant, cache_model, voice, output_format)
+    if audio_path.exists() and audio_path.stat().st_size > 0:
+        return audio_file_response(audio_path, media_type, provider)
+
+    lock = _generation_locks.setdefault(audio_path.name, asyncio.Lock())
+    async with lock:
+        if audio_path.exists() and audio_path.stat().st_size > 0:
+            return audio_file_response(audio_path, media_type, provider)
+
+        combined = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.18)
+        segments = text.split("...")
+        for index, segment in enumerate(segments):
+            segment_text = segment.strip()
+            if segment_text:
+                segment_mode = "pronunciation_slow" if pronunciation_notes(segment_text) else mode
+                response = await _provider_audio(
+                    segment_text, segment_mode, lang, variant, provider, narrator
+                )
+                samples = _decoded_mono_samples(Path(response.path).read_bytes())
+                speech_start, speech_end = _active_sample_bounds(samples)
+                padding = round(NORMALIZATION_SAMPLE_RATE * 0.06)
+                combined.extend(
+                    samples[
+                        max(0, speech_start - padding):min(len(samples), speech_end + padding)
+                    ]
+                )
+            if index < len(segments) - 1:
+                combined.extend(
+                    array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.55)
+                )
+        combined.extend(array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.28))
+        audio_path.write_bytes(_encode_mp3(combined))
+    return audio_file_response(audio_path, media_type, provider)
+
+
 async def get_course_audio(
     text: str,
     mode: str,
@@ -903,7 +1010,8 @@ async def get_course_audio(
         # not silently replace a requested cast member with an unrelated voice.
         premium_voice_for_narrator(narrator)
     try:
-        return await _provider_audio(
+        generate = _provider_audio_with_silent_pauses if "..." in cleaned_text else _provider_audio
+        return await generate(
             cleaned_text, mode, lang, variant, requested_provider, narrator
         )
     except HTTPException as provider_error:
@@ -911,7 +1019,8 @@ async def get_course_audio(
             raise
         # A provider experiment must never interrupt a lesson. The fallback has
         # a separate OpenAI cache, so the requested provider is retried later.
-        fallback = await _provider_audio(
+        generate = _provider_audio_with_silent_pauses if "..." in cleaned_text else _provider_audio
+        fallback = await generate(
             cleaned_text, mode, lang, variant, "openai", narrator
         )
         fallback.headers["X-Audio-Fallback-From"] = requested_provider

@@ -30,6 +30,8 @@ def image_url(name: str) -> str:
         cache_version = "?v=20260802-uniform-place-frames-v1"
     elif image_name.startswith("object_"):
         cache_version = "?v=20260801-objects-places-v2"
+    elif image_name.startswith("unit2_"):
+        cache_version = "?v=20260822-unit-2-v1"
     else:
         cache_version = ""
     return f"/lesson-assets/{image_name}{cache_version}"

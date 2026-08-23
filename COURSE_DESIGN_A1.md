@@ -64,22 +64,31 @@ Core patterns:
 - `He is not cooking.`
 - `Who are they? They are the parents.`
 
-### Unit 2: Objects, Colors, And Numbers
+### Unit 2: Places, Objects, Numbers, And Colors
 
-Goal: Recognize and describe common objects.
+Goal: Identify familiar surroundings and describe visible objects with simple A1 language.
 
 Lessons:
 
-1. Common Objects: `book`, `pen`, `phone`, `bag`, `chair`, `table`
-2. Colors: `red`, `blue`, `green`, `yellow`, `black`, `white`
-3. Numbers 1-10
-4. Descriptions: color + object
+1. 2.1 Places Around Me: `park`, `school`, `store`, `house`, `restaurant`, `hospital`, `it`
+2. 2.2 Streets and Transportation: `street`, `bridge`, `bus`, `car`, `bike`
+3. 2.3 Common Objects: `book`, `pen`, `phone`, `bag`, `chair`, `table`
+4. 2.4 What Is It?: `what`; `What is it?`
+5. 2.5 This and That: `this`, `that`, taught through visual foreground/background evidence
+6. 2.6 Numbers 1-10: `one` through `ten`
+7. 2.7 Basic Colors: `red`, `blue`, `green`, `yellow`, `black`, `white`
+8. 2.8 Count and Describe: plural objects and number + color + noun order
+9. 2.9 Unit 2 Review: mixed retrieval with no new language
+10. 2.10 Around Me Mission: integrated retrieval from one coherent neighborhood scene
 
 Core patterns:
 
 - `It is a book.`
-- `The bag is red.`
-- `There are two pens.`
+- `What is it?`
+- `This is a bag.`
+- `That is a chair.`
+- `Two blue cars.`
+- `Four yellow pens.`
 
 ### Unit 3: Food, Drink, Likes, And Wants
 
@@ -242,20 +251,35 @@ The previously built family lessons supply approved assets and cards for the new
 
 Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
 
-## Next Build Recommendation
+## Current Unit 2 Build
 
-Review the complete Unit 1 sequence in Expo Preview, then apply the same shared journey to Unit 2:
+Unit 2 is `Places, Objects, Numbers, and Colors`. It builds directly on Unit 1's people, actions, singular `is`, and identity frames, but it does not introduce location prepositions or `where` yet.
 
-- Learn
-- Recognize
-- Listen
-- Speak
-- Use
+| Lesson | Scope | New language | Speaking outcome | Build status |
+| --- | --- | --- | --- | --- |
+| `2.1` | Places Around Me | park, school, store, house, restaurant, hospital, it | Identify five places and retrieve one Unit 1 action sentence | Complete |
+| `2.2` | Streets and Transportation | street, bridge, bus, car, bike | Identify all five surroundings/transport items | Complete |
+| `2.3` | Common Objects | book, pen, phone, bag, chair, table | Identify six familiar objects | Complete |
+| `2.4` | What Is It? | what; `What is it?` | Produce six supported question-answer exchanges | Complete |
+| `2.5` | This and That | this, that | Contrast four foreground/background object statements using visual depth cues | Complete |
+| `2.6` | Numbers 1-10 | one through ten | Repeat six sampled number words; recycle the rest in later lessons | Complete |
+| `2.7` | Basic Colors | red, blue, green, yellow, black, white | Produce six short color statements | Complete |
+| `2.8` | Count and Describe | books, pens, phones, bags, cars | Produce ordered number + color + noun phrases | Complete |
+| `2.9` | Unit 2 Review | no new language | Retrieve six mixed Unit 2 outcomes | Complete |
+| `2.10` | Around Me Mission | no new language | Deliver six model-supported mission utterances from one coherent scene | Complete |
 
-Why this is the right next step:
+The dependency chain is intentional:
 
-- it keeps lessons predictable for the learner
-- it limits each lesson to one major conceptual contrast
-- every new word completes the same learning journey
-- grammar is learned through interactive completion and rearrangement rather than a visible Grammar section
-- people and family remain a coherent narrative before Unit 2 introduces places and objects
+`Unit 1 people/actions -> place identity -> transport identity -> object identity -> What questions -> this/that -> numbers -> colors -> number + color + noun -> review -> mission`
+
+Every lesson uses `Learn -> Recognize -> Listen -> Speak -> Use`. Early cards use two choices before four; recognition connects images and language in both directions; listening includes hidden-text image choices and, after the pattern is secure, limited audio-to-text retrieval. The Use stage permits both sentence completion and supported question/phrase choice.
+
+Unit 2 recycling is encoded in `docs/product/unit-2-curriculum.json`. Each new-language lesson continues its words or function into active recognition, listening, speaking, or Use, then samples the dependency again in later lessons, the mixed review, and the final mission. The current lesson-pass criterion remains 80 percent. Longitudinal item mastery and adaptive spaced repetition remain engine work; curriculum recycling must not be described as a replacement for that future learner model.
+
+Unit 2 images use clear adult-oriented photography or realistic rendering. The hospital is identified by `H` and a medical symbol without spelling the answer; the restaurant relies on visual dining cues without a word label. Numbers use realistic brushed-metal numerals with exact gold-star quantities, not plain dots or cartoon numbers. The final mission uses crops from one coherent neighborhood master scene so learners keep context while each answer remains unambiguous.
+
+Every Unit 2 card includes its exact contextual Spanish translation for the established translation gesture. Wrong-answer hints point learners to the relevant evidence—place features, object shape, foreground/background, exact count, color, or English number-color-noun order—without introducing untaught location sentences.
+
+## Next Curriculum Decision
+
+Review all ten Unit 2 lessons in Expo Preview, with special attention to phone-size image clarity, exact counts, this/that depth cues, long phrase choices, audio pacing, pronunciation retries, and the final mission. Do not begin Unit 3 implementation until Unit 2 review findings are incorporated into the shared curriculum guardrails.
