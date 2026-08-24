@@ -498,7 +498,10 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                 <Text style={styles.unitNumberText}>1</Text>
               </View>
               <View style={styles.unitCopy}>
-                <Text style={styles.unitEyebrow}>UNIT 1</Text>
+                <View style={styles.unitMeta}>
+                  <Text style={styles.unitEyebrow}>UNIT 1</Text>
+                  <Text style={styles.unitLevel}>{lessons[0].level}</Text>
+                </View>
                 <Text numberOfLines={2} style={styles.unitTitle}>{unitName(lessons[0])}</Text>
                 <Text style={styles.unitDescription}>Personas, acciones y frases cortas.</Text>
               </View>
@@ -562,7 +565,6 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                         >
                           {status}
                         </Text>
-                        <Text style={styles.lessonLevel}>{lesson.level}</Text>
                       </View>
                       <Text numberOfLines={2} style={styles.lessonTitle}>{lessonName(lesson)}</Text>
                       <Text numberOfLines={1} style={progress ? styles.lessonScore : styles.lessonDescription}>
@@ -695,7 +697,9 @@ const styles = StyleSheet.create({
   unitNumber: { alignItems: 'center', backgroundColor: '#fff7e9', borderRadius: 18, height: 56, justifyContent: 'center', width: 56 },
   unitNumberText: { color: '#c94d24', fontSize: 24, fontWeight: '900' },
   unitCopy: { flex: 1, marginHorizontal: 12, minWidth: 0 },
+  unitMeta: { alignItems: 'center', flexDirection: 'row', gap: 7 },
   unitEyebrow: { color: '#8a5a20', fontSize: 9, fontWeight: '900', letterSpacing: 1.2 },
+  unitLevel: { backgroundColor: '#fff7e9', borderRadius: 5, color: '#8a5a20', fontSize: 8, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 6, paddingVertical: 2 },
   unitTitle: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, marginTop: 2 },
   unitDescription: { color: '#6f604e', fontSize: 11, marginTop: 3 },
   lessonCount: { color: '#8a5a20', fontSize: 9, fontWeight: '900' },
@@ -724,7 +728,6 @@ const styles = StyleSheet.create({
   lessonStatus: { color: '#8a8176', fontSize: 9, fontWeight: '900', letterSpacing: 0.5, textTransform: 'uppercase' },
   lessonStatusCurrent: { color: '#c94d24' },
   lessonStatusCompleted: { color: '#16766f' },
-  lessonLevel: { backgroundColor: '#f2ebde', borderRadius: 5, color: '#697177', fontSize: 8, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 5, paddingVertical: 2 },
   lessonTitle: { color: '#24333a', fontSize: 15, fontWeight: '900', lineHeight: 18, marginTop: 3 },
   lessonDescription: { color: '#697177', fontSize: 10, marginTop: 3 },
   lessonScore: { color: '#16766f', fontSize: 11, fontWeight: '900', marginTop: 3 },

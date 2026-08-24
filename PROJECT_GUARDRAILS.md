@@ -116,6 +116,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not use a correct-answer visual treatment until after the learner selects an answer.
 - The SpanGlish lesson logo remains a navigation control back to the lesson home/menu.
 - On the course screen, green is reserved for lessons that have been passed. The current or in-progress lesson uses an orange numbered dot plus orange row and `Disponible` status accents; it must not look completed.
+- Display the course level, such as `Beginner A1`, once in the unit header. Do not repeat the level badge on every lesson row.
 
 ## 5. Image Guardrails
 

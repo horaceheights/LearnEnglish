@@ -59,6 +59,9 @@ try {
   & node tests/course-progress-state.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la distinción visual entre lecciones disponibles y completadas.' }
 
+  & node tests/course-unit-level-label.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la ubicación única del nivel Beginner A1 en la unidad.' }
+
   & node tests/preview-qa-catalog-parity.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la paridad del catálogo entre Preview y Engine QA.' }
 
