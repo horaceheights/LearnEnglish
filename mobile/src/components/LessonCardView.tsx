@@ -416,7 +416,6 @@ export function LessonCardView({
                         shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
                         useThreeByTwoFrame={useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid}
-                        preserveSubject={useExpandedFourImagePortraitGrid}
                         video={actionVideo}
                       />
                     ) : (
@@ -432,7 +431,6 @@ export function LessonCardView({
                         >
                           <OptionMediaImage
                             imageUrl={option.image_url}
-                            preserveSubject={useExpandedFourImagePortraitGrid}
                             sourceOverride={card.options.length === 2 ? actionVideo?.posterSource : undefined}
                           />
                       </View>
@@ -537,7 +535,6 @@ function LessonActionMedia({
   height,
   imageUrl,
   onPress,
-  preserveSubject = false,
   shouldPlay,
   useCompactFrame = false,
   useThreeByTwoFrame = false,
@@ -547,7 +544,6 @@ function LessonActionMedia({
   height: number;
   imageUrl: string;
   onPress?: () => void;
-  preserveSubject?: boolean;
   shouldPlay: boolean;
   useCompactFrame?: boolean;
   useThreeByTwoFrame?: boolean;
@@ -601,10 +597,7 @@ function LessonActionMedia({
           useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
         ]}
       >
-        <OptionMediaImage imageUrl={imageUrl}
-          preserveSubject={preserveSubject}
-          sourceOverride={video.posterSource}
-        />
+        <OptionMediaImage imageUrl={imageUrl} sourceOverride={video.posterSource} />
       </View>
     );
   }
@@ -629,10 +622,7 @@ function LessonActionMedia({
         style={styles.actionMediaLayer}
       />
       {!videoReady ? (
-        <OptionMediaImage imageUrl={imageUrl} poster
-          preserveSubject={preserveSubject}
-          sourceOverride={video.posterSource}
-        />
+        <OptionMediaImage imageUrl={imageUrl} poster sourceOverride={video.posterSource} />
       ) : null}
       {onPress ? (
         <Pressable

@@ -91,8 +91,8 @@ assert.match(
 
 assert.match(
   optionMediaImageSource,
-  /preserveSubject = false[\s\S]*?lessonOptionImageSource\(imageUrl\)[\s\S]*?const shouldContain = preserveSubject \|\| !sourceIsThreeByTwo[\s\S]*?resizeMode=\{shouldContain \? 'contain' : 'cover'\}/,
-  'Still posters must fill only when they are 3:2 and otherwise zoom out to preserve the teaching subject.',
+  /lessonOptionImageSource\(imageUrl\)[\s\S]*?const shouldContain = !sourceIsThreeByTwo[\s\S]*?resizeMode=\{shouldContain \? 'contain' : 'cover'\}/,
+  'Reviewed 3:2 still posters must fill edge-to-edge, with contain reserved for an unexpected legacy fallback.',
 );
 
 assert.match(

@@ -125,6 +125,8 @@ Do not force every word through every step in a single lesson when that would ma
 ## 5. Image Guardrails
 
 - Images are central to the product, but lessons must also test text and audio without images.
+- Every published A1 option image resolves to an exact reviewed 3:2 source or 1536x1024 variant and fills its clipped viewport edge-to-edge across one-, two-, three-, and four-card layouts. `contain` is only an unexpected-asset runtime fallback; automated all-unit QA must report zero catalog images relying on padding.
+- Never stretch, squash, or warp the teaching subject. Extend or outpaint only expendable background, keep the complete subject in the central safe area, and reject black sides, blurred sides, or internal empty space.
 - The intended answer must be visually unambiguous. Avoid near-duplicate scenes for reading versus studying, smiling versus talking, or standing versus sitting.
 - For negative action or posture prompts, the correct image must visibly exclude the negated state. Showing people talking while seated is not a valid answer for `They are not sitting`; use a clearly upright or moving scene.
 - Judge every option against the complete spoken or written prompt, not its asset name or intended option ID. Every distractor must be visibly false for that complete prompt.
@@ -132,7 +134,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Negative image questions should use an exact two-scene contrast, preferably with the same subject visibly doing versus not doing the named action. Do not offer several unrelated scenes that all technically satisfy `not`.
 - A specific identity choice cannot be driven by `Who is he?`, `Who is she?`, or `Who are they?` alone. Include the identifying answer in the audio or establish an unmistakable antecedent before showing choices.
 - Do not crop heads, faces, hands needed for meaning, or the action itself.
-- Preserve the full subject with `contain` or an equivalent normalized frame when cropping would remove meaning.
+- Preserve the full subject through a reviewed normalized 3:2 frame when cropping would remove meaning.
 - Use consistent aspect ratios and framing for images serving the same card role.
 - Reuse established people and family members when continuity helps learners infer meaning.
 - Family compositions must match previously established family members and relationships.
@@ -294,3 +296,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Preview release identity standardized on the seven-character Git commit displayed beside the app version in the update popup and `Actualizar` menu; build and Expo-specific IDs remain hidden there.
 - 2026-08-24: Portrait image-choice stacks standardized on height-aware uniform scaling so wrong-answer encouragement and teaching hints remain above Android navigation without changing the 3:2 media frame.
 - 2026-08-24: Exactly two-choice action-video cards standardized on dedicated first-visible-frame 3:2 posters and reviewed two-card-only video variants; one-, three-, and four-choice media remain unchanged.
+- 2026-08-24: All published A1 option stills standardized on reviewed 3:2 sources or 1536x1024 variants that fill every option tile edge-to-edge; the automated all-unit guardrail requires zero catalog images to depend on padded `contain` rendering.

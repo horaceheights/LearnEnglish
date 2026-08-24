@@ -43,13 +43,13 @@ for (const { card, lessonId } of pronunciationCards) {
 
 assert.match(
   pronunciationSource,
-  /<LessonMediaFrame[\s\S]*?maxHeight=\{imageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?accessibilityLabel=\{imageLabel \|\| phrase\}[\s\S]*?imageUrl=\{imageUrl\}[\s\S]*?preserveSubject/,
+  /<LessonMediaFrame[\s\S]*?maxHeight=\{imageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?accessibilityLabel=\{imageLabel \|\| phrase\}[\s\S]*?imageUrl=\{imageUrl\}/,
   'Every pronunciation image must use the shared option-media image layer.',
 );
 assert.match(
   optionMediaSource,
-  /lessonOptionImageSource\(imageUrl\)[\s\S]*?const shouldContain = preserveSubject \|\| !sourceIsThreeByTwo[\s\S]*?resizeMode=\{shouldContain \? 'contain' : 'cover'\}/,
-  'Pronunciation and choice cards must share subject-preserving media without forcing legacy ratios through a destructive crop.',
+  /lessonOptionImageSource\(imageUrl\)[\s\S]*?const shouldContain = !sourceIsThreeByTwo[\s\S]*?resizeMode=\{shouldContain \? 'contain' : 'cover'\}/,
+  'Pronunciation and choice cards must share normalized edge-to-edge media with a fallback only for unexpected legacy ratios.',
 );
 assert.doesNotMatch(
   optionMediaSource,
@@ -58,9 +58,10 @@ assert.doesNotMatch(
 );
 assert.match(
   cardViewSource,
-  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?preserveSubject=\{useExpandedFourImagePortraitGrid\}/,
-  'Four-image choice grids must continue using the shared subject-preserving image layer.',
+  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=/,
+  'Four-image choice grids must continue using the shared normalized image layer.',
 );
+assert.doesNotMatch(cardViewSource, /preserveSubject=/, 'No option-count layout may opt back into padded catalog rendering.');
 assert.match(
   cardViewSource,
   /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,

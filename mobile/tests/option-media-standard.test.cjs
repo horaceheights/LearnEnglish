@@ -15,57 +15,48 @@ const imageSources = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSourc
 const exporter = fs.readFileSync(path.join(repositoryRoot, 'scripts/export_mobile_preview_lessons.py'), 'utf8');
 
 const optionVariants = {
+  'boy.webp': 'boy_3x2.webp',
+  'family_adults.webp': 'family_adults_3x2.webp',
+  'family_all_members.webp': 'family_all_members_3x2.webp',
+  'family_babies.webp': 'family_babies_3x2.webp',
+  'family_baby.webp': 'family_baby_3x2.webp',
+  'family_baby_sleeping.webp': 'family_baby_sleeping_3x2.webp',
+  'family_brother_studying.webp': 'family_brother_studying_3x2.webp',
+  'family_brothers.webp': 'family_brothers_3x2.webp',
+  'family_children.webp': 'family_children_3x2.webp',
   'family_children_playing.webp': 'family_children_playing_3x2.webp',
+  'family_children_studying.webp': 'family_children_studying_3x2.webp',
+  'family_father.webp': 'family_father_3x2.webp',
   'family_father_working.webp': 'family_father_working_3x2.webp',
+  'family_grandfather.webp': 'family_grandfather_3x2.webp',
+  'family_grandmother.webp': 'family_grandmother_3x2.webp',
+  'family_grandparents.webp': 'family_grandparents_3x2.webp',
   'family_grandparents_sitting.webp': 'family_grandparents_sitting_3x2.webp',
+  'family_grandparents_talking.webp': 'family_grandparents_talking_3x2.webp',
+  'family_mother.webp': 'family_mother_3x2.webp',
   'family_mother_cooking.webp': 'family_mother_cooking_3x2.webp',
+  'family_parents.webp': 'family_parents_3x2.webp',
   'family_parents_talking.webp': 'family_parents_talking_3x2.webp',
+  'family_sisters.webp': 'family_sisters_3x2.webp',
+  'girl.webp': 'girl_3x2.webp',
+  'man.webp': 'man_3x2.webp',
+  'man_is_standing.webp': 'man_is_standing_3x2.webp',
+  'object_backpack.webp': 'object_backpack_3x2.webp',
+  'object_bike.webp': 'object_bike_3x2.webp',
+  'object_book.webp': 'object_book_3x2.webp',
+  'object_car.webp': 'object_car_3x2.webp',
+  'place_bridge.webp': 'place_bridge_3x2.webp',
+  'place_bus.webp': 'place_bus_3x2.webp',
+  'place_house.webp': 'place_house_3x2.webp',
+  'place_park.webp': 'place_park_3x2.webp',
+  'place_street.webp': 'place_street_3x2.webp',
+  'they_boy_girl.webp': 'they_boy_girl_3x2.webp',
+  'they_boy_girl_are_eating.webp': 'they_boy_girl_are_eating_3x2.webp',
+  'they_boy_girl_are_reading.webp': 'they_boy_girl_are_reading_3x2.webp',
+  'they_boy_girl_are_running.webp': 'they_boy_girl_are_running_3x2.webp',
+  'they_boy_girl_are_writing.webp': 'they_boy_girl_are_writing_3x2.webp',
+  'woman.webp': 'woman_3x2.webp',
 };
-
-const topAlignedCrops = new Set([
-  'boy.webp',
-  'family_brothers.webp',
-  'family_children.webp',
-  'family_grandfather.webp',
-  'family_grandmother.webp',
-  'family_grandparents.webp',
-  'family_mother.webp',
-  'family_sisters.webp',
-  'girl.webp',
-  'man.webp',
-  'woman.webp',
-]);
-
-// These reviewed sources have enough non-teaching background for a centered
-// 3:2 crop. New non-3:2 option art must be reviewed and added deliberately.
-const approvedCenterCrops = new Set([
-  'family_adults.webp',
-  'family_all_members.webp',
-  'family_babies.webp',
-  'family_baby.webp',
-  'family_baby_sleeping.webp',
-  'family_brother_studying.webp',
-  'family_children_studying.webp',
-  'family_father.webp',
-  'family_grandparents_talking.webp',
-  'family_parents.webp',
-  'family_parents_talking.webp',
-  'man_is_standing.webp',
-  'object_backpack.webp',
-  'object_bike.webp',
-  'object_book.webp',
-  'object_car.webp',
-  'place_bridge.webp',
-  'place_bus.webp',
-  'place_house.webp',
-  'place_park.webp',
-  'place_street.webp',
-  'they_boy_girl.webp',
-  'they_boy_girl_are_eating.webp',
-  'they_boy_girl_are_reading.webp',
-  'they_boy_girl_are_running.webp',
-  'they_boy_girl_are_writing.webp',
-]);
 
 function webpDimensions(filePath) {
   const data = fs.readFileSync(filePath);
@@ -113,13 +104,13 @@ assert.doesNotMatch(generatedText.join('\n'), /_3x2_pilot\.webp/, 'generated les
 assert.match(cardView, /const useThreeByTwoOptionMedia = card\.options\.some/);
 assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid\}/);
 assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, overflow:\s*'hidden' \}/);
-assert.match(cardView, /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?preserveSubject=\{useExpandedFourImagePortraitGrid\}/);
+assert.doesNotMatch(cardView, /preserveSubject=/, 'four-card layouts must use the same normalized fill policy');
 assert.match(
   cardView,
   /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
 );
 assert.match(optionMediaImage, /const sourceIsThreeByTwo = Boolean\(/);
-assert.match(optionMediaImage, /const shouldContain = preserveSubject \|\| !sourceIsThreeByTwo/);
+assert.match(optionMediaImage, /const shouldContain = !sourceIsThreeByTwo/);
 assert.match(optionMediaImage, /resizeMode=\{shouldContain \? 'contain' : 'cover'\}/);
 assert.doesNotMatch(optionMediaImage, /TOP_ALIGNED_OPTION_MEDIA|topAligned/);
 assert.match(lessonPlayer, /const useThreeByTwoOptionMedia = currentCard\?\.options\?\.some/);
@@ -133,10 +124,6 @@ assert.match(cardView, /useStillOnlyLesson17Comparison[\s\S]*?lessonId === 'less
 assert.match(cardView, /const actionVideo = useStillOnlyLesson17Comparison\s*\?\s*null/);
 assert.match(lessonPlayer, /useStillOnlyLesson17Comparison[\s\S]*?activeLesson\.id === "lesson-7-is-are-not"/);
 assert.match(lessonPlayer, /const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison/);
-
-for (const name of topAlignedCrops) {
-  assert.ok(lessonPlayer.includes(`"${name}"`), `${name} is missing the web top-aligned crop policy`);
-}
 
 for (const [source, variant] of Object.entries(optionVariants)) {
   for (const code of [imageSources, exporter]) {
@@ -156,17 +143,17 @@ for (const [source, variant] of Object.entries(optionVariants)) {
 
 let nonThreeByTwoOptionImages = 0;
 for (const name of [...optionImages].sort()) {
-  const imagePath = path.join(bundledRoot, name);
-  assert.ok(fs.existsSync(imagePath), `${name} is missing from mobile option assets`);
+  const renderedName = optionVariants[name] || name;
+  const imagePath = path.join(bundledRoot, renderedName);
+  assert.ok(fs.existsSync(imagePath), `${renderedName} is missing from mobile option assets`);
   const [width, height] = webpDimensions(imagePath);
   const nearThreeByTwo = Math.abs((width / height) - 1.5) <= 0.005;
-  if (!nearThreeByTwo && !optionVariants[name]) nonThreeByTwoOptionImages += 1;
-  const hasReviewedPolicy = nearThreeByTwo || topAlignedCrops.has(name) || approvedCenterCrops.has(name) || optionVariants[name];
-  assert.ok(hasReviewedPolicy, `${name} (${width}x${height}) needs an explicit safe 3:2 crop or normalized variant`);
+  if (!nearThreeByTwo) nonThreeByTwoOptionImages += 1;
+  assert.ok(nearThreeByTwo, `${name} renders through ${renderedName} at ${width}x${height}; every A1 option image must resolve to 3:2`);
 }
 
-assert.ok(nonThreeByTwoOptionImages > 30, 'the mobile contain guardrail must protect the legacy non-3:2 catalog');
+assert.equal(nonThreeByTwoOptionImages, 0, 'no published A1 option image may rely on the legacy padded contain fallback');
 
 console.log(
-  `Verified subject-preserving option media across ${optionImages.size} A1 images in all ${optionImageUnits.size} units, including ${nonThreeByTwoOptionImages} legacy non-3:2 stills.`,
+  `Verified normalized 3:2 option media across ${optionImages.size} A1 images in all ${optionImageUnits.size} units, with zero padded legacy stills.`,
 );

@@ -50,10 +50,10 @@ assert.match(
   /useExpandedFourImagePortraitGrid\s*\? \{ height: renderedOptionImageHeight \}\s*:\s*styles\.optionImageThreeByTwoFrame/,
   'Four-image portrait grids must use the measured vertical space instead of leaving a large empty area.',
 );
-assert.match(
+assert.doesNotMatch(
   source,
-  /preserveSubject=\{useExpandedFourImagePortraitGrid\}/,
-  'Expanded four-image grids must preserve the complete subject without distortion or cropping.',
+  /preserveSubject=/,
+  'Expanded four-image grids must use the same reviewed edge-to-edge source policy as every other option count.',
 );
 assert.match(
   source,
