@@ -568,7 +568,10 @@ function LessonActionMedia({
     return () => subscription.remove();
   }, [player]);
 
-  if (reduceMotion || videoFailed) {
+  // Android can report a paused video frame as ready while its texture is still
+  // blank. Keep the matching still visible until a correct choice actually
+  // starts playback; single-card teaching clips already enter with shouldPlay.
+  if (!shouldPlay || reduceMotion || videoFailed) {
     return (
       <Image
         accessibilityLabel={accessibilityLabel}

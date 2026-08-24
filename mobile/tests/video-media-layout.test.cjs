@@ -22,7 +22,13 @@ const webActionMediaSource = webPlayerSource.slice(
 assert.match(
   cardViewSource,
   /actionVideo \? \(\s*<LessonActionMedia/,
-  'Mapped action cards must render the video surface before selection, not a separate still image.',
+  'Mapped action cards must use the shared action-media component.',
+);
+
+assert.match(
+  cardViewSource,
+  /if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<Image[\s\S]*?source=\{lessonImageSource\(imageUrl\)\}/,
+  'Multi-choice action cards must keep their matching still visible until playback actually starts.',
 );
 
 assert.match(
@@ -51,7 +57,7 @@ assert.match(
 
 assert.match(
   cardViewSource,
-  /if \(reduceMotion \|\| videoFailed\)[\s\S]*?resizeMode=\{useThreeByTwoFrame \? 'cover' : 'contain'\}[\s\S]*?!videoReady\s*\?\s*\([\s\S]*?resizeMode=\{useThreeByTwoFrame \? 'cover' : 'contain'\}/,
+  /if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?resizeMode=\{useThreeByTwoFrame \? 'cover' : 'contain'\}[\s\S]*?!videoReady\s*\?\s*\([\s\S]*?resizeMode=\{useThreeByTwoFrame \? 'cover' : 'contain'\}/,
   'Video fallbacks and cold-load posters must fill an approved 3:2 option frame while preserving contain elsewhere.',
 );
 

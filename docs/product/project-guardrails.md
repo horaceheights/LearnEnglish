@@ -146,10 +146,10 @@ Do not force every word through every step in a single lesson when that would ma
 
 - Motion is a selective teaching aid, not decoration and not required on every card.
 - Use motion when it clarifies an action or concept that can be ambiguous in a still image, such as running, walking, swimming, reading, writing, studying, talking, working, cooking, playing, eating, drinking, or sleeping.
-- In multi-choice slides, keep action choices visually still by pausing their video surfaces. After the correct choice, the selected surface may play a short two-to-three-second motion confirmation.
-- A paused or playing video-backed option uses the same shared option-media shape, inset, and rounded clipping as a still option on that slide. Do not let the mounted video surface bypass the option viewport standard.
+- In multi-choice slides, show each action choice's matching still image until selection. After the correct choice, the selected surface may play a short two-to-three-second motion confirmation.
+- The still poster and playing video of a video-backed option use the same shared option-media shape, inset, and rounded clipping. Do not let the motion layer bypass the option viewport standard.
 - A single-card vocabulary introduction may play its teaching clip directly, but the video surface is display-only and must not expose a tap target or submit itself as an answer.
-- When an action clip exists, its paused first frame is the card's normal visual surface. Do not render a separate still image and then swap to video after selection; play the already-mounted video surface instead. A still image is allowed only for reduced-motion mode or a genuine video-load failure.
+- On Android, do not rely on a paused video texture as the pre-selection image; it may report ready while remaining blank. Keep the exact matching still poster visible until correct-selection playback starts, then swap within the identical clipped frame. Retain the still for reduced-motion mode or a genuine video-load failure.
 - Single-card teaching clips use the full available card width and the main visual height. Do not force them into a short 16:9 strip inside a large empty card.
 - Generated clips must be silent. Do not generate talking mouths unless speech itself is the lesson target.
 - Normalize action clips to the shared 16:9 frame, currently 640x360, with no encoded black sidebars.
@@ -246,7 +246,7 @@ Required checks for curriculum or shared lesson changes:
 5. Inspect representative phone layouts, including the longest phrase and cards with two and four choices.
 6. Inspect new or normalized images and video frames visually.
 
-For action-video QA, inspect the paused first frame inside the real mobile choice-card crop, not only the raw source or a desktop player. A Preview release must not depend on a remote action clip that is missing or differs from the verified export; bundle the verified clip when the Preview media host cannot guarantee that exact asset.
+For action-video QA, inspect the pre-selection still and the first playing frames inside the real mobile choice-card crop, not only the raw source or a desktop player. A Preview release must not depend on a remote action clip that is missing or differs from the verified export; bundle the verified clip when the Preview media host cannot guarantee that exact asset.
 
 Existing automated guardrails cover lesson order, vocabulary contracts, five-stage structure, valid assets and answers, unique visible choices, family-category overlap, exact negative listening contrasts, complete identity prompts, bidirectional recognition, hidden-text listening, single-image speaking, interactive Use cards, media loading, pronunciation lifecycle, and horizontal phrase-option layout. Extend these checks when a new reusable rule is approved.
 
@@ -293,3 +293,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Negative image-choice confirmations standardized on a post-selection full contrast: spoken and visibly resized in Recognize, spoken only in Listen, with no positive-action reveal before selection.
 - 2026-08-24: Square-source action videos standardized on solid warm-neutral side fill matching still-image cards; black bars and blurred side fill are no longer accepted.
 - 2026-08-24: Lesson option images standardized on one 3:2 media shape across every card count; backgrounds may be extended or outpainted, but subjects and meaningful foreground details must never be stretched or distorted.
+- 2026-08-24: Multi-choice action media standardized on a poster-first mobile lifecycle: the matching still remains visible before selection, and motion replaces it only after correct-selection playback starts inside the same clipped frame.
