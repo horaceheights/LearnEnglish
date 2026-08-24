@@ -142,7 +142,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Motion is a selective teaching aid, not decoration and not required on every card.
 - Use motion when it clarifies an action or concept that can be ambiguous in a still image, such as running, walking, swimming, reading, writing, studying, talking, working, cooking, playing, eating, drinking, or sleeping.
 - In multi-choice slides, keep action choices visually still by pausing their video surfaces. After the correct choice, the selected surface may play a short two-to-three-second motion confirmation.
-- A single-card vocabulary introduction may play its teaching clip directly.
+- A single-card vocabulary introduction may play its teaching clip directly, but the video surface is display-only and must not expose a tap target or submit itself as an answer.
 - When an action clip exists, its paused first frame is the card's normal visual surface. Do not render a separate still image and then swap to video after selection; play the already-mounted video surface instead. A still image is allowed only for reduced-motion mode or a genuine video-load failure.
 - Single-card teaching clips use the full available card width and the main visual height. Do not force them into a short 16:9 strip inside a large empty card.
 - Generated clips must be silent. Do not generate talking mouths unless speech itself is the lesson target.
@@ -279,3 +279,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-22: Embedded A1 Preview lessons standardized on bundled still images with an automated snapshot-to-Metro completeness check, so OTA curriculum releases cannot point at undeployed remote assets.
 - 2026-08-23: A1 course browsing standardized on 77 globally unique 3:2 title images across all 70 lessons and 7 units; duplicate picture content is prohibited even when saved under different filenames.
 - 2026-08-24: Preview and Engine QA catalog parity standardized on the complete 70-lesson A1 course; targeted QA updates may not remove units outside the immediate test scope.
+- 2026-08-24: Automatic single-card teaching videos standardized as display-only surfaces; tapping the clip must not submit or advance the card.

@@ -4,9 +4,11 @@ const path = require('node:path');
 
 const cardViewPath = path.resolve(__dirname, '../src/components/LessonCardView.tsx');
 const configPath = path.resolve(__dirname, '../src/config.ts');
+const lessonScreenPath = path.resolve(__dirname, '../src/screens/LessonScreen.tsx');
 const webPlayerPath = path.resolve(__dirname, '../../frontend/components/LessonPlayer.js');
 const cardViewSource = fs.readFileSync(cardViewPath, 'utf8');
 const configSource = fs.readFileSync(configPath, 'utf8');
+const lessonScreenSource = fs.readFileSync(lessonScreenPath, 'utf8');
 const webPlayerSource = fs.readFileSync(webPlayerPath, 'utf8');
 const webActionMediaSource = webPlayerSource.slice(
   webPlayerSource.indexOf('function LessonActionMedia'),
@@ -23,6 +25,18 @@ assert.match(
   cardViewSource,
   /shouldPlay=\{playActionVideo\}/,
   'The shared video surface must stay paused until a single-card lesson or correct selection plays it.',
+);
+
+assert.match(
+  lessonScreenSource,
+  /optionsInteractive=\{!isAutomaticSingleCard\}/,
+  'Automatic single-card lessons must disable answer selection.',
+);
+
+assert.match(
+  cardViewSource,
+  /onPress=\{optionsInteractive \? \(\) => onSelect\(option\.id\) : undefined\}/,
+  'A single-card video must not retain a nested tap target when answer selection is disabled.',
 );
 
 assert.match(

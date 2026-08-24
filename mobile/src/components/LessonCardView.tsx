@@ -377,7 +377,7 @@ export function LessonCardView({
                         accessibilityLabel={option.label || card.prompt}
                         height={renderedOptionImageHeight}
                         imageUrl={option.image_url}
-                        onPress={() => onSelect(option.id)}
+                        onPress={optionsInteractive ? () => onSelect(option.id) : undefined}
                         shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
                         videoName={actionVideoName}
