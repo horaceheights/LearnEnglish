@@ -387,19 +387,34 @@ export function LessonCardView({
                         useCompactFrame={useSingleImageLayout}
                         video={actionVideo}
                       />
+                    ) : useThreeByTwoOptionMediaPilot ? (
+                      <View
+                        style={[
+                          styles.optionImage,
+                          styles.optionImagePortrait,
+                          styles.optionImageThreeByTwoFrame,
+                          showHelp ? styles.optionImageThreeByTwoHelp : null,
+                        ]}
+                      >
+                        <Image
+                          accessible={false}
+                          accessibilityIgnoresInvertColors
+                          resizeMode="cover"
+                          source={lessonImageSource(option.image_url)}
+                          style={styles.optionImageThreeByTwoFill}
+                        />
+                      </View>
                     ) : (
                       <Image
                         accessible={false}
                         accessibilityIgnoresInvertColors
-                        resizeMode={useThreeByTwoOptionMediaPilot ? 'cover' : 'contain'}
+                        resizeMode="contain"
                         source={lessonImageSource(option.image_url)}
                         style={[
                           styles.optionImage,
                           !isLandscape ? styles.optionImagePortrait : null,
                           isTabletLandscape ? styles.optionImageTablet : null,
-                          useThreeByTwoOptionMediaPilot
-                            ? styles.optionImageThreeByTwo
-                            : { height: renderedOptionImageHeight },
+                          { height: renderedOptionImageHeight },
                         ]}
                       />
                     )
@@ -687,7 +702,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
-  optionImageThreeByTwo: { aspectRatio: 3 / 2 },
+  optionImageThreeByTwoFill: { height: '100%', width: '100%' },
+  optionImageThreeByTwoFrame: { aspectRatio: 3 / 2, overflow: 'hidden' },
+  optionImageThreeByTwoHelp: { width: '65%' },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {
