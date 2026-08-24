@@ -12,6 +12,13 @@ if ([string]::IsNullOrWhiteSpace($Message)) {
 
 Assert-PreviewReleaseLineage
 Assert-CleanReleaseCommit
+$repositoryRoot = Get-ReleaseRepositoryRoot
+$releaseCommit = (& git -C $repositoryRoot rev-parse --short=7 HEAD).Trim()
+if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($releaseCommit)) {
+  throw 'No se pudo obtener el commit para identificar la actualización dentro de la app.'
+}
+$previousReleaseCommit = [Environment]::GetEnvironmentVariable('EXPO_PUBLIC_RELEASE_COMMIT', 'Process')
+[Environment]::SetEnvironmentVariable('EXPO_PUBLIC_RELEASE_COMMIT', $releaseCommit, 'Process')
 $mobileRoot = Split-Path -Parent $PSScriptRoot
 
 Push-Location $mobileRoot
@@ -28,4 +35,5 @@ try {
   Write-Host 'Abre SpanGlish Preview y selecciona Actualizar para probarlo.'
 } finally {
   Pop-Location
+  [Environment]::SetEnvironmentVariable('EXPO_PUBLIC_RELEASE_COMMIT', $previousReleaseCommit, 'Process')
 }

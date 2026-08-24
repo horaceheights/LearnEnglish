@@ -192,7 +192,7 @@ Do not force every word through every step in a single lesson when that would ma
 - A Retry action must restart the complete intended flow, including model playback when that is part of the exercise.
 - Do not allow rapid automatic transitions to hide feedback.
 - User-facing messages are simple and encouraging, with Spanish support for operational or pronunciation guidance at A1.
-- After a cold-start EAS update is successfully activated, show one popup confirming the update and identifying both the previous and current app version, build, and update code. Do not show completion for an update that was downloaded but is not yet running.
+- After a cold-start EAS update is successfully activated, show one popup confirming the update. The popup and the `Actualizar` menu row show only the current app version beside the seven-character Git commit (`Versión 1.6.0 · Commit 455d361`), matching Vercel and Expo. Do not expose build, Expo Update ID, or Group ID on those two surfaces, and do not show completion for an update that was downloaded but is not yet running.
 
 ## 9. Current A1 Course Contract
 
@@ -259,6 +259,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Native dependency, Expo configuration, permission, native module, or app-version changes require a new build rather than an OTA update.
 - Keep generated lesson snapshots, audio manifests, and committed media synchronized with the canonical lesson files.
 - Preview publishes must contain the current canonical `origin/codex/restore-complete-a1-preview` lineage. A feature or media branch may publish only after integrating that line, so a newer OTA cannot silently remove approved units or behavior.
+- The Preview publisher injects the current seven-character Git commit into the OTA bundle so the app, Expo, and Vercel identify the same code snapshot.
 
 ## 12. Decision Log
 
@@ -300,3 +301,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Successful cold-start EAS updates standardized on a one-time confirmation popup with previous and current version, build, and update identifiers.
 - 2026-08-24: Every learner-facing SpanGlish logo standardized as an accessible route home, with exit confirmation during an active lesson.
 - 2026-08-24: Preview publication standardized on one canonical full-course lineage; divergent feature branches must integrate it before publishing to the shared channel.
+- 2026-08-24: Preview release identity standardized on the seven-character Git commit displayed beside the app version in the update popup and `Actualizar` menu; build and Expo-specific IDs remain hidden there.

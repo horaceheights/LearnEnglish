@@ -29,6 +29,8 @@ El cambio debe estar en un commit y respaldado en GitHub. El comando se detendr�
 
 Preview también usa una sola línea canónica: `origin/codex/restore-complete-a1-preview`. Antes de publicar desde otra rama, integra primero la versión más reciente de esa línea. El guard de publicación bloquea ramas divergentes para impedir que una actualización nueva quite unidades o funciones ya aprobadas.
 
+El publicador inserta automáticamente el commit corto de siete caracteres en la actualización. Ese mismo commit aparece junto a la versión en `Actualizar` y en la confirmación posterior; debe coincidir con las columnas `Commit` de Expo y Vercel.
+
 Antes del commit, se puede ejecutar el mismo preflight que usa la publicación:
 
 ```powershell

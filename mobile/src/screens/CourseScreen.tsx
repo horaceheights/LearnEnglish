@@ -27,6 +27,7 @@ import { getPreviewLessonMetadata, mergePreviewLessonSummaries } from '../previe
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
 import {
   canUseEasUpdates,
+  releaseVersionLabel,
   saveUpdateReceiptBeforeReload,
 } from '../updates';
 
@@ -393,10 +394,6 @@ const UNIT_VISUALS: Record<string, { image: string; description: string; color: 
   'unit-6': { image: 'a1_station.webp', description: 'La ciudad, transporte y direcciones.', color: '#dff4ef' },
   'unit-7': { image: 'a1_scene_food-the-bank-it-is-sunny_6a1f116.webp', description: 'Necesidades diarias e integración A1.', color: '#f1e4fa' },
 };
-function installedVersion(version: string, build: string): string {
-  return `Versión ${version} · Build ${build}`;
-}
-
 type Props = {
   profile: LearnerProfile;
   onHome: () => void;
@@ -434,7 +431,6 @@ function unitNumber(lesson?: LessonSummary): number {
 export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
   const { isUpdatePending } = Updates.useUpdates();
   const currentVersion = Constants.nativeAppVersion || Updates.runtimeVersion || '1.6.0';
-  const currentBuild = Constants.nativeBuildVersion || 'no disponible';
   const isPreviewBuild = Updates.channel === 'preview';
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isLandscape = viewportWidth > viewportHeight;
@@ -578,7 +574,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
       const update = await Updates.checkForUpdateAsync();
       if (!update.isAvailable) {
         setUpdateStatus('idle');
-        Alert.alert('SpanGlish está actualizado', `Versión: ${currentVersion}\nBuild: ${currentBuild}`);
+        Alert.alert('SpanGlish está actualizado', releaseVersionLabel(currentVersion));
         return;
       }
 
@@ -586,7 +582,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
       const fetchedUpdate = await Updates.fetchUpdateAsync();
       if (!fetchedUpdate.isNew) {
         setUpdateStatus('idle');
-        Alert.alert('SpanGlish está actualizado', `Versión: ${currentVersion}\nBuild: ${currentBuild}`);
+        Alert.alert('SpanGlish está actualizado', releaseVersionLabel(currentVersion));
         return;
       }
       await saveUpdateReceiptBeforeReload(fetchedUpdate.manifest.id);
@@ -782,7 +778,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                 <View style={styles.menuOptionCopy}>
                   <Text style={styles.menuOptionTitle}>Actualizar</Text>
                   {updateStatus === 'idle' ? (
-                    <Text style={styles.menuVersion}>{installedVersion(currentVersion, currentBuild)}</Text>
+                    <Text style={styles.menuVersion}>{releaseVersionLabel(currentVersion)}</Text>
                   ) : null}
                   <Text style={styles.menuOptionDescription}>
                     {updateStatus === 'checking'

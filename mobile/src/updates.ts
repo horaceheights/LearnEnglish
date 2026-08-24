@@ -10,11 +10,13 @@ import * as Updates from 'expo-updates';
  * are not guaranteed to report the legacy Standalone value.
  */
 export const canUseEasUpdates = Updates.isEnabled;
+export const currentReleaseCommit = (process.env.EXPO_PUBLIC_RELEASE_COMMIT || 'embedded').slice(0, 7);
 
 const UPDATE_COMPLETED_STORAGE_KEY = 'app:update-completed-message';
 
 export type UpdateReceipt = {
   build?: string;
+  commit?: string;
   targetUpdateId?: string;
   updateId: string;
   version: string;
@@ -23,6 +25,7 @@ export type UpdateReceipt = {
 export function getCurrentUpdateReceipt(targetUpdateId?: string): UpdateReceipt {
   return {
     build: Constants.nativeBuildVersion || 'no disponible',
+    commit: currentReleaseCommit,
     targetUpdateId,
     updateId: Updates.updateId || 'embedded',
     version: Constants.nativeAppVersion || Updates.runtimeVersion || '1.6.0',
@@ -40,12 +43,8 @@ async function clearUpdateReceipt(): Promise<void> {
   await AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY);
 }
 
-function updateLabel(updateId: string): string {
-  return updateId === 'embedded' ? 'incluida' : updateId.slice(0, 8);
-}
-
-function detailedVersion(label: string, receipt: UpdateReceipt): string {
-  return `${label}\nVersión: ${receipt.version}\nBuild: ${receipt.build || 'no disponible'}\nActualización: ${updateLabel(receipt.updateId)}`;
+export function releaseVersionLabel(version: string, commit = currentReleaseCommit): string {
+  return `Versión ${version} · Commit ${commit}`;
 }
 
 function parseUpdateReceipt(value: string): UpdateReceipt | 'legacy' | null {
@@ -83,7 +82,7 @@ export async function consumeCompletedUpdateMessage(): Promise<string | null> {
 
   if (previous === 'legacy') {
     await clearUpdateReceipt();
-    return `Versión: ${current.version}\nBuild: ${current.build}`;
+    return releaseVersionLabel(current.version, current.commit);
   }
   if (!previous) {
     await clearUpdateReceipt();
@@ -97,5 +96,5 @@ export async function consumeCompletedUpdateMessage(): Promise<string | null> {
   if (!updateChanged) return null;
 
   await clearUpdateReceipt();
-  return `${detailedVersion('ANTERIOR', previous)}\n\n${detailedVersion('ACTUAL', current)}`;
+  return releaseVersionLabel(current.version, current.commit);
 }
