@@ -399,6 +399,7 @@ function installedVersion(version: string, build: string): string {
 
 type Props = {
   profile: LearnerProfile;
+  onHome: () => void;
   onOpenLesson: (lessonId: string, previouslyCompleted: boolean) => void;
   onViewProfile: () => void;
   onSignOut: () => void;
@@ -430,7 +431,7 @@ function unitNumber(lesson?: LessonSummary): number {
   return Number(match?.[0] || 1);
 }
 
-export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
+export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onSignOut, onOpenQA }: Props) {
   const { isUpdatePending } = Updates.useUpdates();
   const currentVersion = Constants.nativeAppVersion || Updates.runtimeVersion || '1.6.0';
   const currentBuild = Constants.nativeBuildVersion || 'no disponible';
@@ -673,13 +674,20 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
         ) : null}
         <View style={styles.topBar}>
           <View style={styles.brandBlock}>
-            <Image
-              accessible={false}
-              accessibilityIgnoresInvertColors
-              resizeMode="cover"
-              source={require('../../assets/spanglish-header-logo.png')}
-              style={styles.logo}
-            />
+            <Pressable
+              accessibilityLabel="Ir a Inicio"
+              accessibilityRole="button"
+              onPress={onHome}
+              style={({ pressed }) => pressed ? styles.pressed : null}
+            >
+              <Image
+                accessible={false}
+                accessibilityIgnoresInvertColors
+                resizeMode="cover"
+                source={require('../../assets/spanglish-header-logo.png')}
+                style={styles.logo}
+              />
+            </Pressable>
             <View style={styles.greetingBlock}>
               <Text style={styles.routeLabel}>TU RUTA DE INGLÉS</Text>
               <Text numberOfLines={1} style={styles.greeting}>{profile.displayName}</Text>

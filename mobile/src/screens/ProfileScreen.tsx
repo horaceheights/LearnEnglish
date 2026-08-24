@@ -113,6 +113,7 @@ export function ProfileScreen({ profile, onCancel, onSaved, onDeleted }: Props) 
           <BrandHeader
             compact
             eyebrow="Tu cuenta"
+            onLogoPress={onCancel}
             subtitle={isEditing ? 'Actualiza el nombre asociado con tu progreso.' : 'Consulta tu información de aprendizaje.'}
             title={isEditing ? 'Editar perfil' : 'Mi perfil'}
           />

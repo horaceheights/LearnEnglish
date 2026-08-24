@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
+  Alert,
   AppState,
   BackHandler,
   Easing,
@@ -130,6 +131,7 @@ type Props = {
   lessonId: string;
   profile: LearnerProfile;
   onExit: () => void;
+  onHome: () => void;
   initialCardIndex?: number;
   previouslyCompleted?: boolean;
   qaMode?: boolean;
@@ -149,14 +151,17 @@ function BackArrowIcon() {
 function LessonBrandMark({
   compact = false,
   centeredWidth,
+  onPress,
 }: {
   compact?: boolean;
   centeredWidth?: number;
+  onPress: () => void;
 }) {
   return (
-    <View
-      accessible={false}
-      importantForAccessibility="no-hide-descendants"
+    <Pressable
+      accessibilityLabel="Salir de la lección e ir a Inicio"
+      accessibilityRole="button"
+      onPress={onPress}
       style={[
         styles.logoPill,
         compact ? styles.logoPillCompact : null,
@@ -166,12 +171,13 @@ function LessonBrandMark({
       ]}
     >
       <Image
+        accessible={false}
         accessibilityIgnoresInvertColors
         resizeMode="cover"
         source={HEADER_BRAND_LOGO}
         style={styles.brandLogoImage}
       />
-    </View>
+    </Pressable>
   );
 }
 
@@ -179,6 +185,7 @@ export function LessonScreen({
   lessonId,
   profile,
   onExit,
+  onHome,
   initialCardIndex = 0,
   previouslyCompleted = false,
   qaMode = false,
@@ -280,6 +287,24 @@ export function LessonScreen({
   const isCompletedSectionPicker = completedLessonMode === 'prompt' || completedLessonMode === 'sections';
   const showCompletedJourney = previouslyCompleted && completedLessonMode !== 'standard';
 
+  const confirmLessonExit = useCallback((destination: 'home' | 'previous') => {
+    const returningHome = destination === 'home' || !qaMode;
+    Alert.alert(
+      '¿Salir de la lección?',
+      returningHome
+        ? '¿Quieres salir de la lección y volver a Inicio?'
+        : '¿Quieres salir de la lección y volver al panel de QA?',
+      [
+        { style: 'cancel', text: 'Seguir aprendiendo' },
+        {
+          style: 'destructive',
+          text: returningHome ? 'Salir a Inicio' : 'Salir de la lección',
+          onPress: destination === 'home' ? onHome : onExit,
+        },
+      ],
+    );
+  }, [onExit, onHome, qaMode]);
+
   useEffect(() => {
     // Lessons adapt to both orientations. DEFAULT follows the device sensor,
     // while the card renderer provides a dedicated portrait layout.
@@ -291,12 +316,12 @@ export function LessonScreen({
 
   useEffect(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
-      onExit();
+      confirmLessonExit('previous');
       return true;
     });
 
     return () => subscription.remove();
-  }, [onExit]);
+  }, [confirmLessonExit]);
 
   useEffect(() => {
     const subscription = AppState.addEventListener('change', (nextState) => {
@@ -1952,7 +1977,7 @@ export function LessonScreen({
                 <Pressable
                   accessibilityLabel="Volver a lecciones"
                   accessibilityRole="button"
-                  onPress={onExit}
+                  onPress={() => confirmLessonExit('previous')}
                   style={styles.backButton}
                 >
                   <BackArrowIcon />
@@ -1960,6 +1985,7 @@ export function LessonScreen({
                 <LessonBrandMark
                   centeredWidth={portraitBrandWidth}
                   compact={useCompactPortraitBrand}
+                  onPress={() => confirmLessonExit('home')}
                 />
               </>
             ) : (
@@ -1967,12 +1993,15 @@ export function LessonScreen({
                 <Pressable
                   accessibilityLabel="Volver a lecciones"
                   accessibilityRole="button"
-                  onPress={onExit}
+                  onPress={() => confirmLessonExit('previous')}
                   style={[styles.backButton, useCompactPhoneLayout ? styles.backButtonCompact : null]}
                 >
                   <BackArrowIcon />
                 </Pressable>
-                <LessonBrandMark compact={useCompactPhoneLayout} />
+                <LessonBrandMark
+                  compact={useCompactPhoneLayout}
+                  onPress={() => confirmLessonExit('home')}
+                />
               </View>
             )}
             {!isPortrait ? (

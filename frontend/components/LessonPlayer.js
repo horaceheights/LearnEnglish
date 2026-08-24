@@ -259,7 +259,7 @@ function SpanGlishLogo({ compact = false, onClick }) {
   const Wrapper = onClick ? "button" : "div";
   return (
     <Wrapper
-      aria-label="SpanGlish!"
+      aria-label="SpanGlish — Ir a Inicio"
       type={onClick ? "button" : undefined}
       onClick={onClick}
       style={{
@@ -324,7 +324,7 @@ function MiniSpanGlishLogo({ onClick }) {
   const Wrapper = onClick ? "button" : "div";
   return (
     <Wrapper
-      aria-label="SpanGlish!"
+      aria-label="SpanGlish — Ir a Inicio"
       type={onClick ? "button" : undefined}
       onClick={onClick}
       style={{
@@ -3115,6 +3115,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setStarted(false);
   };
 
+  const confirmLessonExit = () => {
+    if (window.confirm('¿Quieres salir de la lección y volver a Inicio?')) {
+      goToLessons();
+    }
+  };
+
+  const goToPublicHome = () => {
+    setIsCreatingProfile(false);
+    setProfileSaveError("");
+  };
+
   const resetPronunciationPractice = () => {
     setPronunciationStatus("Getting ready...");
     setIsPronunciationRecording(false);
@@ -4261,7 +4272,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       <div style={styles.page}>
         <div style={{ maxWidth: "720px", margin: "0 auto", display: "grid", gap: "20px" }}>
           <section style={heroStyle}>
-            <SpanGlishLogo compact={isMobile} />
+            <SpanGlishLogo compact={isMobile} onClick={goToPublicHome} />
             <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
               Bienvenido
             </div>
@@ -4332,7 +4343,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       <div style={styles.page}>
         <div style={{ maxWidth: "720px", margin: "0 auto", display: "grid", gap: "20px" }}>
           <section style={heroStyle}>
-            <SpanGlishLogo compact={isMobile} />
+            <SpanGlishLogo compact={isMobile} onClick={goToPublicHome} />
             <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
               Nuevo usuario
             </div>
@@ -4755,7 +4766,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 gap: compactPracticeHeader ? "8px" : "12px",
               }}
             >
-              <MiniSpanGlishLogo onClick={goToLessons} />
+              <MiniSpanGlishLogo onClick={confirmLessonExit} />
               {compactPracticeHeader ? (
                 <button
                   type="button"
@@ -5199,7 +5210,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 style={isMobile ? styles.iconOnlyButton : { ...styles.subtleButton, width: "auto", padding: "10px 14px" }}
                 aria-label="Volver a lecciones"
                 title="Volver a lecciones"
-                onClick={goToLessons}
+                onClick={confirmLessonExit}
               >
                 {isMobile ? <HomeIcon /> : "Lecciones"}
               </button>

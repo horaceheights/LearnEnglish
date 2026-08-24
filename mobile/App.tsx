@@ -115,7 +115,7 @@ function AppContent() {
   }
 
   if (!profile) {
-    return <LoginScreen onAuthenticated={setProfile} />;
+    return <LoginScreen onAuthenticated={setProfile} onHome={() => setScreen({ name: 'course' })} />;
   }
 
   const hasQaAccess = profile.displayName.trim().toLowerCase() === 'horace';
@@ -126,6 +126,7 @@ function AppContent() {
         initialCardIndex={screen.initialCardIndex}
         lessonId={screen.lessonId}
         onExit={() => setScreen(screen.qaMode ? { name: 'qa' } : { name: 'course' })}
+        onHome={() => setScreen({ name: 'course' })}
         previouslyCompleted={screen.previouslyCompleted}
         profile={profile}
         qaMode={screen.qaMode}
@@ -162,6 +163,7 @@ function AppContent() {
 
   return (
     <CourseScreen
+      onHome={() => setScreen({ name: 'course' })}
       onSignOut={() => {
         void clearLocalProfile();
         setProfile(null);

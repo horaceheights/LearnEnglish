@@ -23,7 +23,7 @@ export function BrandHeader({ eyebrow, title, subtitle, compact = false, promine
   return (
     <View style={[styles.hero, compact ? styles.heroCompact : null, prominentLogo ? styles.heroProminent : null]}>
       {onLogoPress ? (
-        <Pressable accessibilityLabel="SpanGlish" accessibilityRole="button" onPress={onLogoPress}>{logo}</Pressable>
+        <Pressable accessibilityLabel="Ir a Inicio" accessibilityRole="button" onPress={onLogoPress}>{logo}</Pressable>
       ) : logo}
       {eyebrow ? <Text style={styles.eyebrow}>{eyebrow}</Text> : null}
       <Text accessibilityRole="header" style={[styles.title, compact ? styles.titleCompact : null]}>{title}</Text>
