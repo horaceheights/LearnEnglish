@@ -2477,6 +2477,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     color: "#8a4f00",
     fontWeight: 950,
   };
+  const conceptFocusStyle = {
+    ...newWordHighlightStyle,
+    fontSize: "1.18em",
+    lineHeight: 0.9,
+  };
   const sloganStyle = {
     ...titleStyle,
     margin: "4px 0 0",
@@ -2526,13 +2531,21 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     return displayText.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
       const normalizedPart = part.toLowerCase();
+      const isNotConceptFocus = activeLesson?.id === "lesson-7-is-are-not" && normalizedPart === "not";
       if (introductionWords.has(normalizedPart)) {
         return (
           <span
             className="new-vocabulary-intro"
             key={`${cardIndex}-${part}-${index}`}
-            style={newWordHighlightStyle}
+            style={isNotConceptFocus ? conceptFocusStyle : newWordHighlightStyle}
           >
+            {part}
+          </span>
+        );
+      }
+      if (isNotConceptFocus) {
+        return (
+          <span key={`${part}-${index}`} style={conceptFocusStyle}>
             {part}
           </span>
         );

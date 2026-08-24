@@ -101,6 +101,7 @@ A word is not considered learned after one exposure. New language should travel 
 Do not force every word through every step in a single lesson when that would make the lesson repetitive. The journey can continue across later lessons, but the roadmap and tests must make that continuation intentional.
 
 - On `Learn` introduction cards, words declared in the lesson vocabulary contract use the shared readable yellow emphasis and one brief shine/stretch animation. The animation plays once per card, never loops, never shifts layout, and respects reduced-motion settings.
+- When `not` is the active new concept in Lesson 1.7, keep it larger and in the shared yellow new-word treatment throughout visible teaching and recognition prompts. Outside `Learn`, the emphasis is static rather than replaying the introduction animation.
 
 ## 4. Mobile Layout Guardrails
 
@@ -283,3 +284,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-23: A1 course browsing standardized on 77 globally unique 3:2 title images across all 70 lessons and 7 units; duplicate picture content is prohibited even when saved under different filenames.
 - 2026-08-24: Preview and Engine QA catalog parity standardized on the complete 70-lesson A1 course; targeted QA updates may not remove units outside the immediate test scope.
 - 2026-08-24: Automatic single-card teaching videos standardized as display-only surfaces; tapping the clip must not submit or advance the card.
+- 2026-08-24: Lesson 1.7 keeps `not` larger and yellow across visible teaching and recognition prompts, with animation limited to its Learn introduction.

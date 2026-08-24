@@ -1711,6 +1711,21 @@ export function LessonScreen({
     onPanResponderTerminationRequest: () => true,
   }), [canSwipeForward, cardIndex, cardTranslateX, manualCardNavigation, navigateManualCard, settleCard]);
 
+  const promptFontSize = isPronunciation
+    ? isPortrait
+      ? Math.max(21, Math.min(26, viewportWidth * 0.045))
+      : Math.max(18, Math.min(24, viewportHeight * 0.06))
+    : useCompactPhoneLayout
+      ? Math.max(22, Math.min(29, viewportHeight * 0.072))
+      : Math.max(26, Math.min(36, viewportHeight * 0.052));
+  const promptLineHeight = isPronunciation
+    ? isPortrait
+      ? Math.max(25, Math.min(31, viewportWidth * 0.054))
+      : Math.max(22, Math.min(29, viewportHeight * 0.072))
+    : useCompactPhoneLayout
+      ? Math.max(27, Math.min(35, viewportHeight * 0.085))
+      : Math.max(31, Math.min(43, viewportHeight * 0.062));
+
   const renderPrompt = () => {
     if (!currentCard) return '';
     const normalizedStage = currentCard.stage.trim().toLowerCase();
@@ -1729,12 +1744,19 @@ export function LessonScreen({
         : new Set<string>();
     return lessonPromptText(lesson.id, displayedPrompt).split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
       const normalizedPart = part.toLowerCase();
+      const isNotConceptFocus = lesson.id === 'lesson-7-is-are-not' && normalizedPart === 'not';
       if (newVocabularyWords.has(normalizedPart)) {
         return (
           <Animated.Text
             key={`${cardIndex}-${part}-${index}`}
             style={[
               styles.newVocabulary,
+              isNotConceptFocus
+                ? {
+                    fontSize: promptFontSize * 1.22,
+                    lineHeight: promptLineHeight * 1.08,
+                  }
+                : null,
               {
                 opacity: newVocabularyEmphasis.interpolate({
                   inputRange: [0, 0.34, 0.68, 1],
@@ -1759,6 +1781,23 @@ export function LessonScreen({
           >
             {part}
           </Animated.Text>
+        );
+      }
+      if (isNotConceptFocus) {
+        return (
+          <Text
+            key={`${part}-${index}`}
+            style={[
+              styles.newVocabulary,
+              styles.conceptFocus,
+              {
+                fontSize: promptFontSize * 1.22,
+                lineHeight: promptLineHeight * 1.08,
+              },
+            ]}
+          >
+            {part}
+          </Text>
         );
       }
       return (
@@ -2026,20 +2065,8 @@ export function LessonScreen({
                 style={[
                   styles.prompt,
                   {
-                    fontSize: isPronunciation
-                      ? isPortrait
-                        ? Math.max(21, Math.min(26, viewportWidth * 0.045))
-                        : Math.max(18, Math.min(24, viewportHeight * 0.06))
-                      : useCompactPhoneLayout
-                        ? Math.max(22, Math.min(29, viewportHeight * 0.072))
-                        : Math.max(26, Math.min(36, viewportHeight * 0.052)),
-                    lineHeight: isPronunciation
-                      ? isPortrait
-                        ? Math.max(25, Math.min(31, viewportWidth * 0.054))
-                        : Math.max(22, Math.min(29, viewportHeight * 0.072))
-                      : useCompactPhoneLayout
-                        ? Math.max(27, Math.min(35, viewportHeight * 0.085))
-                        : Math.max(31, Math.min(43, viewportHeight * 0.062)),
+                    fontSize: promptFontSize,
+                    lineHeight: promptLineHeight,
                   },
                 ]}
               >
@@ -2331,6 +2358,7 @@ const styles = StyleSheet.create({
     textShadowOffset: { height: 0, width: 0 },
     textShadowRadius: 8,
   },
+  conceptFocus: { letterSpacing: 0.3 },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
   errorTitle: { color: '#24333a', fontSize: 23, fontWeight: '900', textAlign: 'center' },
   errorText: { color: '#a34842', fontSize: 14, marginTop: 9, textAlign: 'center' },
