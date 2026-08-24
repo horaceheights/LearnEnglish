@@ -20,6 +20,10 @@ assert.ok(fs.existsSync(pilotPath), 'the 3:2 grandparents pilot image must be bu
 assert.match(cardView, /useThreeByTwoOptionMediaPilot\s*\?\s*\([\s\S]*?styles\.optionImageThreeByTwoFrame[\s\S]*?resizeMode="cover"/);
 assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{\s*aspectRatio:\s*3\s*\/\s*2,\s*overflow:\s*'hidden'\s*\}/);
 assert.match(cardView, /optionImageThreeByTwoFill:\s*\{\s*height:\s*'100%',\s*width:\s*'100%'\s*\}/);
+assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMediaPilot\}/);
+assert.match(cardView, /useThreeByTwoFrame\s*\?\s*styles\.actionMediaThreeByTwo\s*:\s*\{\s*height\s*\}/);
+assert.match(cardView, /actionMediaThreeByTwo:\s*\{\s*aspectRatio:\s*3\s*\/\s*2\s*\}/);
+assert.match(cardView, /resizeMode=\{useThreeByTwoFrame\s*\?\s*'cover'\s*:\s*'contain'\}/);
 assert.match(lessonPlayer, /useThreeByTwoOptionMediaPilot[\s\S]*?aspectRatio:\s*"3 \/ 2"[\s\S]*?objectFit:\s*"cover"/);
 
 console.log('Lesson 1.7 uses the isolated 3:2 option-media pilot on web and mobile.');

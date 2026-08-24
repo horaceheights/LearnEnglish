@@ -147,6 +147,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Motion is a selective teaching aid, not decoration and not required on every card.
 - Use motion when it clarifies an action or concept that can be ambiguous in a still image, such as running, walking, swimming, reading, writing, studying, talking, working, cooking, playing, eating, drinking, or sleeping.
 - In multi-choice slides, keep action choices visually still by pausing their video surfaces. After the correct choice, the selected surface may play a short two-to-three-second motion confirmation.
+- A paused or playing video-backed option uses the same shared option-media shape, inset, and rounded clipping as a still option on that slide. Do not let the mounted video surface bypass the option viewport standard.
 - A single-card vocabulary introduction may play its teaching clip directly, but the video surface is display-only and must not expose a tap target or submit itself as an answer.
 - When an action clip exists, its paused first frame is the card's normal visual surface. Do not render a separate still image and then swap to video after selection; play the already-mounted video surface instead. A still image is allowed only for reduced-motion mode or a genuine video-load failure.
 - Single-card teaching clips use the full available card width and the main visual height. Do not force them into a short 16:9 strip inside a large empty card.

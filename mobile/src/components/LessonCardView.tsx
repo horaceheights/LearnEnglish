@@ -385,6 +385,7 @@ export function LessonCardView({
                         onPress={optionsInteractive ? () => onSelect(option.id) : undefined}
                         shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
+                        useThreeByTwoFrame={useThreeByTwoOptionMediaPilot}
                         video={actionVideo}
                       />
                     ) : useThreeByTwoOptionMediaPilot ? (
@@ -520,6 +521,7 @@ function LessonActionMedia({
   onPress,
   shouldPlay,
   useCompactFrame = false,
+  useThreeByTwoFrame = false,
   video,
 }: {
   accessibilityLabel: string;
@@ -528,6 +530,7 @@ function LessonActionMedia({
   onPress?: () => void;
   shouldPlay: boolean;
   useCompactFrame?: boolean;
+  useThreeByTwoFrame?: boolean;
   video: LessonActionVideoSource;
 }) {
   const reduceMotion = useReducedMotion();
@@ -567,12 +570,12 @@ function LessonActionMedia({
     return (
       <Image
         accessibilityLabel={accessibilityLabel}
-        resizeMode="contain"
+        resizeMode={useThreeByTwoFrame ? 'cover' : 'contain'}
         source={lessonImageSource(imageUrl)}
         style={[
           styles.actionMedia,
           useCompactFrame ? styles.singleActionMedia : null,
-          { height },
+          useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
         ]}
       />
     );
@@ -582,7 +585,7 @@ function LessonActionMedia({
     <View style={[
       styles.actionMedia,
       useCompactFrame ? styles.singleActionMedia : null,
-      { height },
+      useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
     ]}>
       <VideoView
         accessible={false}
@@ -601,7 +604,7 @@ function LessonActionMedia({
         <Image
           accessibilityIgnoresInvertColors
           accessibilityLabel={accessibilityLabel}
-          resizeMode="contain"
+          resizeMode={useThreeByTwoFrame ? 'cover' : 'contain'}
           source={lessonImageSource(imageUrl)}
           style={styles.actionMediaPoster}
         />
@@ -715,6 +718,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
   },
+  actionMediaThreeByTwo: { aspectRatio: 3 / 2 },
   singleActionMedia: {
     width: '100%',
   },

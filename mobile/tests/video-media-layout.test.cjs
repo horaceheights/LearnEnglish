@@ -51,8 +51,8 @@ assert.match(
 
 assert.match(
   cardViewSource,
-  /if \(reduceMotion \|\| videoFailed\)[\s\S]*?resizeMode="contain"[\s\S]*?!videoReady\s*\?\s*\([\s\S]*?resizeMode="contain"/,
-  'Video fallbacks and cold-load posters must preserve the complete subject without cropping heads.',
+  /if \(reduceMotion \|\| videoFailed\)[\s\S]*?resizeMode=\{useThreeByTwoFrame \? 'cover' : 'contain'\}[\s\S]*?!videoReady\s*\?\s*\([\s\S]*?resizeMode=\{useThreeByTwoFrame \? 'cover' : 'contain'\}/,
+  'Video fallbacks and cold-load posters must fill an approved 3:2 option frame while preserving contain elsewhere.',
 );
 
 assert.match(
