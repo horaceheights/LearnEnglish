@@ -2334,6 +2334,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const isFourOptionCard = optionCount >= 4;
   const isThreeOptionCard = optionCount === 3;
   const isSingleOptionCard = optionCount === 1;
+  // Pilot the approved 3:2 option-media contract only on the reviewed Lesson 1.7
+  // comparison before applying it across the full course catalog.
+  const useThreeByTwoOptionMediaPilot = optionCount === 2 && currentCard?.options?.some(
+    (option) => option.image_url?.includes("family_grandparents_sitting_3x2_pilot.webp")
+  );
   const onboardingFinished = onboardingStepIndex >= ONBOARDING_STEPS.length;
   const activeOnboardingStep =
     onboardingStepIndex >= 0 && onboardingStepIndex < ONBOARDING_STEPS.length
@@ -2435,7 +2440,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
   const responsiveImageStyle = {
     ...styles.image,
-    height: isPronunciationCard && isMobile
+    height: useThreeByTwoOptionMediaPilot
+      ? "auto"
+      : isPronunciationCard && isMobile
       ? "min(25vh, 180px)"
       : isSingleOptionCard
         ? isMobile
@@ -2454,6 +2461,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         : isTablet
           ? "340px"
       : styles.image.height,
+    ...(useThreeByTwoOptionMediaPilot
+      ? { aspectRatio: "3 / 2", objectFit: "cover" }
+      : {}),
   };
   const correctContrastPrompt =
     lastResult === "correct" &&

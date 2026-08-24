@@ -859,6 +859,7 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'family_grandmother.webp': require('../assets/lesson-assets/family_grandmother.webp'),
   'family_grandparents.webp': require('../assets/lesson-assets/family_grandparents.webp'),
   'family_grandparents_sitting.webp': require('../assets/lesson-assets/family_grandparents_sitting.webp'),
+  'family_grandparents_sitting_3x2_pilot.webp': require('../assets/lesson-assets/family_grandparents_sitting_3x2_pilot.webp'),
   'family_grandparents_talking.webp': require('../assets/lesson-assets/family_grandparents_talking.webp'),
   'family_mother.webp': require('../assets/lesson-assets/family_mother.webp'),
   'family_mother_cooking.webp': require('../assets/lesson-assets/family_mother_cooking.webp'),

@@ -89,6 +89,11 @@ export function LessonCardView({
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
   const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
   const useSingleImageLayout = !hasTextOnlyOptions && card.options.length === 1;
+  // Pilot the approved 3:2 option-media contract only on the reviewed Lesson 1.7
+  // comparison before applying it across the full course catalog.
+  const useThreeByTwoOptionMediaPilot = card.options.length === 2 && card.options.some(
+    (option) => option.image_url?.includes('family_grandparents_sitting_3x2_pilot.webp'),
+  );
   const useExpandedSingleActionVideo = useSingleImageLayout && Boolean(
     lessonActionVideo(card.options[0]?.image_url),
   );
@@ -386,13 +391,15 @@ export function LessonCardView({
                       <Image
                         accessible={false}
                         accessibilityIgnoresInvertColors
-                        resizeMode="contain"
+                        resizeMode={useThreeByTwoOptionMediaPilot ? 'cover' : 'contain'}
                         source={lessonImageSource(option.image_url)}
                         style={[
                           styles.optionImage,
                           !isLandscape ? styles.optionImagePortrait : null,
                           isTabletLandscape ? styles.optionImageTablet : null,
-                          { height: renderedOptionImageHeight },
+                          useThreeByTwoOptionMediaPilot
+                            ? styles.optionImageThreeByTwo
+                            : { height: renderedOptionImageHeight },
                         ]}
                       />
                     )
@@ -680,6 +687,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
+  optionImageThreeByTwo: { aspectRatio: 3 / 2 },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {
