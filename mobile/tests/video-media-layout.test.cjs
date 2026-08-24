@@ -21,8 +21,8 @@ const webActionMediaSource = webPlayerSource.slice(
 
 assert.match(
   cardViewSource,
-  /actionVideo \? \(\s*<LessonActionMedia/,
-  'Mapped action cards must use the shared action-media component.',
+  /actionVideo && playActionVideo \? \(\s*<LessonActionMedia/,
+  'Multi-choice cards must not mount the video renderer until selected playback is requested.',
 );
 
 assert.match(

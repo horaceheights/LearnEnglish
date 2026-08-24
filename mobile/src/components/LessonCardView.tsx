@@ -379,7 +379,9 @@ export function LessonCardView({
                   ]}
                 >
                   {option.image_url ? (
-                    actionVideo ? (
+                    // Corrected local clips can claim a blank Android texture before
+                    // playback. Use the ordinary image renderer until motion starts.
+                    actionVideo && playActionVideo ? (
                       <LessonActionMedia
                         accessibilityLabel={option.label || card.prompt}
                         height={renderedOptionImageHeight}
