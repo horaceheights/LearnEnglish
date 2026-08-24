@@ -18,7 +18,6 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
 import {
-  type AudioSource,
   createAudioPlayer,
   preload,
   setAudioModeAsync,
@@ -40,8 +39,13 @@ import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
-import { absoluteMediaUrl, courseAudioProvider, courseAudioVoice } from '../config';
-import { courseAudioSource } from '../courseAudioSources';
+import {
+  absoluteMediaUrl,
+  courseAudioProvider,
+  courseAudioUrl,
+  courseAudioVoice,
+  hasVisualAudioPlaceholder,
+} from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -223,7 +227,7 @@ export function LessonScreen({
   const promptAutoplayWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
   const audioPlayerActiveRef = useRef(true);
-  const audioPreloadRef = useRef<Map<AudioSource, Promise<void>>>(new Map());
+  const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const imagePreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
   const resumeHydratedRef = useRef(false);
@@ -318,23 +322,23 @@ export function LessonScreen({
     return () => { active = false; };
   }, [qaMode, sentenceHelpStorageKey]);
 
-  const ensureAudioPreloaded = useCallback((source: AudioSource) => {
+  const ensureAudioPreloaded = useCallback((url: string) => {
     if (isOffline) {
       addDiagnosticBreadcrumb('audio_preload_skipped_offline');
       return Promise.resolve();
     }
-    const existing = audioPreloadRef.current.get(source);
+    const existing = audioPreloadRef.current.get(url);
     if (existing) return existing;
 
     const startedAt = Date.now();
-    const pending = preload(source)
+    const pending = preload(url)
       .then(() => {
         addDiagnosticBreadcrumb('audio_preloaded', {
           duration_ms: Date.now() - startedAt,
         });
       })
       .catch((preloadError) => {
-        audioPreloadRef.current.delete(source);
+        audioPreloadRef.current.delete(url);
         captureDiagnosticError(
           preloadError,
           'course_audio_preload',
@@ -342,7 +346,7 @@ export function LessonScreen({
           'warning',
         );
       });
-    audioPreloadRef.current.set(source, pending);
+    audioPreloadRef.current.set(url, pending);
     return pending;
   }, [isOffline]);
 
@@ -350,14 +354,14 @@ export function LessonScreen({
     if (!card) return Promise.resolve();
     const text = card.audio_text ?? card.prompt ?? '';
     const requests: Promise<void>[] = [];
-    if (text.trim()) {
+    if (text.trim() && !hasVisualAudioPlaceholder(text)) {
       const pronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
       const variant = pronunciation
         ? 'split-ing'
         : text.trim().toLowerCase() === 'what is it?'
           ? 'question'
           : 'prompt';
-      requests.push(ensureAudioPreloaded(courseAudioSource(
+      requests.push(ensureAudioPreloaded(courseAudioUrl(
         text,
         pronunciation ? 'pronunciation_slow' : 'prompt',
         variant,
@@ -366,7 +370,7 @@ export function LessonScreen({
       )));
     }
     if (card.answer_audio_text?.trim()) {
-      requests.push(ensureAudioPreloaded(courseAudioSource(
+      requests.push(ensureAudioPreloaded(courseAudioUrl(
         card.answer_audio_text,
         'prompt',
         'answer',
@@ -423,9 +427,10 @@ export function LessonScreen({
       addDiagnosticBreadcrumb('audio_playback_skipped_offline', { mode, variant });
       return;
     }
-    const source = courseAudioSource(text, mode, variant, audioProvider, audioVoice);
+    if (hasVisualAudioPlaceholder(text)) return;
+    const url = courseAudioUrl(text, mode, variant, audioProvider, audioVoice);
     const requestId = ++audioPlaybackRequestRef.current;
-    void ensureAudioPreloaded(source)
+    void ensureAudioPreloaded(url)
       .then(async () => {
         if (
           !audioPlayerActiveRef.current ||
@@ -440,7 +445,7 @@ export function LessonScreen({
           audioPlaybackRequestRef.current !== requestId
         ) return;
         addDiagnosticBreadcrumb('audio_started', { mode, variant });
-        const nextPlayer = createAudioPlayer(source, { keepAudioSessionActive: true });
+        const nextPlayer = createAudioPlayer(url, { keepAudioSessionActive: true });
         if (
           !audioPlayerActiveRef.current ||
           audioPlaybackRequestRef.current !== requestId
@@ -648,6 +653,7 @@ export function LessonScreen({
   const isAutomaticSingleCard =
     !isCompletedSectionPicker && manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
+  const promptHasVisualBlank = hasVisualAudioPlaceholder(promptAudio);
   const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
     isGrammar ? currentCard?.prompt ?? '' : promptAudio,
   );
@@ -679,7 +685,7 @@ export function LessonScreen({
   }, [cardIndex, cardRunId, hasNewVocabularyInPrompt, newVocabularyEmphasis, reduceMotion]);
 
   const replayPrompt = useCallback(() => {
-    if (!promptAudio.trim()) return;
+    if (!promptAudio.trim() || promptHasVisualBlank) return;
     if (isPronunciation) {
       playAudio(promptAudio, 'pronunciation_slow', 'split-ing');
       return;
@@ -689,7 +695,7 @@ export function LessonScreen({
       'prompt',
       promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
     );
-  }, [isPronunciation, playAudio, promptAudio]);
+  }, [isPronunciation, playAudio, promptAudio, promptHasVisualBlank]);
 
   const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
     const target = promptTapTargetRef.current;
@@ -776,6 +782,7 @@ export function LessonScreen({
       !currentCard ||
       currentCard.options.length < 2 ||
       isPronunciation ||
+      promptHasVisualBlank ||
       showHelp ||
       !promptAudio.trim() ||
       !promptAutoplayFinished ||
@@ -796,6 +803,7 @@ export function LessonScreen({
     attemptedCards,
     isPronunciation,
     promptAudio,
+    promptHasVisualBlank,
     promptAutoplayFinished,
     sentenceHelpActivity,
     sentenceHelpStatus,
@@ -865,6 +873,12 @@ export function LessonScreen({
 
   useEffect(() => {
     if (!isAppActive || isCompletedSectionPicker || !currentCard || isPronunciation || result !== null) return undefined;
+    if (promptHasVisualBlank) {
+      promptAutoplayAwaitingRef.current = false;
+      promptAutoplayWasPlayingRef.current = false;
+      setPromptAutoplayFinished(true);
+      return undefined;
+    }
     promptAutoplayAwaitingRef.current = true;
     promptAutoplayWasPlayingRef.current = false;
     promptAutoplayFallbackTimerRef.current = setTimeout(() => {
@@ -887,7 +901,7 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
     };
-  }, [cardIndex, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, promptAudio, result]);
+  }, [cardIndex, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, promptAudio, promptHasVisualBlank, result]);
 
   useEffect(() => {
     if (!promptAutoplayAwaitingRef.current) return;
@@ -1982,9 +1996,11 @@ export function LessonScreen({
           ]}>
             <Pressable
               ref={promptTapTargetRef}
-              accessibilityLabel={`Reproducir: ${promptAudio}`}
+              accessibilityLabel={promptHasVisualBlank ? `Frase para completar: ${promptAudio}` : `Reproducir: ${promptAudio}`}
               accessibilityActions={[{ label: 'Mostrar traducción', name: 'translate' }]}
-              accessibilityHint="Toca una vez para repetir. Usa la acción Traducir para ver la frase en español."
+              accessibilityHint={promptHasVisualBlank
+                ? 'El audio de la frase completa se reproduce después de elegir. Usa la acción Traducir para ver la frase en español.'
+                : 'Toca una vez para repetir. Usa la acción Traducir para ver la frase en español.'}
               accessibilityRole="button"
               disabled={!promptAudio.trim()}
               onAccessibilityAction={({ nativeEvent }) => {

@@ -83,7 +83,7 @@ Every standard lesson follows this visible sequence:
 - Mix related forms instead of batching every `is` item before every `are` item.
 - Include affirmative and negative forms only after each form has been introduced clearly.
 - End with a short completion or mission activity that uses previously learned language.
-- Completion blanks are visual UI only. Never send literal underscores or placeholder characters to TTS. Before selection, speak the incomplete sentence with a short silent pause at the blank; speak the completed answer only after the learner answers.
+- Completion blanks are visual UI only. Do not speak the incomplete sentence before selection: unfinished fragments such as `It is a` can produce elongated vowels or invented trailing sounds even without literal placeholder characters. After the learner answers, speak only the fully completed `answer_audio_text`.
 
 ## 3. New-Word Learning Journey
 
@@ -168,9 +168,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not show internal audio-generation or scoring status messages to learners.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
 - Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
-- Every course-audio boundary must sanitize visual answer blanks into a silent pause. No provider or browser fallback may receive literal underscore runs.
-- Build blank-prompt audio from exact spoken fragments separated by encoded silence. Do not ask a generative voice model to interpret an underscore, ellipsis, or other placeholder; it may say `dot`, repeat a word, fill the blank, or add a vocalization.
-- Mobile completion prompts must resolve to checked-in fragment-and-silence audio before playback. The remote course-audio URL rejects underscores, ellipses, and blank markers, and Preview verification must fail when any embedded lesson blank lacks a literal bundled-audio mapping. Unknown runtime blanks fall back to silence, never generated speech.
+- Every course-audio boundary rejects underscores, ellipses, and blank markers. Completion-card prompt preloading, autoplay, and manual replay must all remain silent; only the complete answer may be spoken after selection. Preview verification must enforce both the silent prompt path and the remote URL rejection.
 - Course-audio instructions must require the exact requested words once and an immediate stop after the final word. Reject takes with a preface, repeated or missing word, filler sound, or trailing speech.
 - Before release, transcribe every unique new Use-stage prompt and completed answer and compare its normalized words with the intended phrase. Number digits and number words may be treated as equivalent; added or missing words are failures and the take must be regenerated.
 

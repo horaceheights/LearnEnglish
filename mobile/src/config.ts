@@ -85,10 +85,14 @@ export function lessonVideoUrl(name: string): string {
   return `${VIDEO_BASE_URL}/lesson-assets/${encodeURIComponent(name)}?v=${LESSON_VIDEO_CACHE_VERSION}`;
 }
 
+export function hasVisualAudioPlaceholder(text: string): boolean {
+  return /_+|\.{3}|…|\{blank\}/.test(String(text || ''));
+}
+
 export function sanitizeCourseAudioText(text: string): string {
   const spokenText = String(text || '').replace(/\s+/g, ' ').trim();
-  if (/_+|\.{3}|…|\{blank\}/.test(spokenText)) {
-    throw new Error('Completion placeholders require bundled silent-pause audio.');
+  if (hasVisualAudioPlaceholder(spokenText)) {
+    throw new Error('Completion placeholders are visual only and cannot be sent to course audio.');
   }
   return spokenText;
 }
