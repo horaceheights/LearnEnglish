@@ -14,6 +14,8 @@ ENV_PATH = ROOT / "backend" / ".env"
 ASSETS = ROOT / "frontend" / "public" / "lesson-assets"
 FAMILY_IMAGES = ROOT / "Lessons" / "Lesson1" / "images"
 RAW_DIR = ROOT / "tmp" / "lesson-action-videos"
+SAFE_FOREGROUND_WIDTH = 602
+SAFE_FOREGROUND_HEIGHT = 338
 
 
 SCENES = {
@@ -133,7 +135,8 @@ def encode_normalized(input_path: Path, output_path: Path) -> None:
         f"[0:v]crop={crop},split=2[foreground][background];"
         "[background]scale=640:360:force_original_aspect_ratio=increase,"
         "crop=640:360,gblur=sigma=22[canvas];"
-        "[foreground]scale=640:360:force_original_aspect_ratio=decrease[subject];"
+        f"[foreground]scale={SAFE_FOREGROUND_WIDTH}:{SAFE_FOREGROUND_HEIGHT}:"
+        "force_original_aspect_ratio=decrease[subject];"
         "[canvas][subject]overlay=(W-w)/2:(H-h)/2"
     )
     subprocess.run(

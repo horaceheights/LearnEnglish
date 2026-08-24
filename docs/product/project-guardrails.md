@@ -240,6 +240,8 @@ Required checks for curriculum or shared lesson changes:
 5. Inspect representative phone layouts, including the longest phrase and cards with two and four choices.
 6. Inspect new or normalized images and video frames visually.
 
+For action-video QA, inspect the paused first frame inside the real mobile choice-card crop, not only the raw source or a desktop player. A Preview release must not depend on a remote action clip that is missing or differs from the verified export; bundle the verified clip when the Preview media host cannot guarantee that exact asset.
+
 Existing automated guardrails cover lesson order, vocabulary contracts, five-stage structure, valid assets and answers, unique visible choices, family-category overlap, exact negative listening contrasts, complete identity prompts, bidirectional recognition, hidden-text listening, single-image speaking, interactive Use cards, media loading, pronunciation lifecycle, and horizontal phrase-option layout. Extend these checks when a new reusable rule is approved.
 
 ## 11. Release Rules
@@ -268,6 +270,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-21: Learner-facing cold-start and lesson loading standardized on one reduced-motion-safe animated mascot surface with no backend server-status language.
 - 2026-08-21: Action-video normalization standardized on CRF 20 from original raw sources; re-normalizing compressed lesson exports is prohibited.
 - 2026-08-22: Graded pronunciation failures standardized on persistent feedback and learner-initiated Retry; no-speech recovery may auto-replay for at most three rounds before requiring Retry.
+- 2026-08-24: Action-video QA now includes the paused mobile card crop, and verified clips are bundled when Preview's remote media copy is missing or stale.
 - 2026-08-22: Pronunciation acceptance standardized on the backend's versioned learner-level and exercise-type policy instead of a single product-wide percentage.
 - 2026-08-22: Course audio standardized on provider-neutral semantic roles shared by web and mobile, with ElevenLabs Premium primary, OpenAI fallback, and no hash-selected voices.
 - 2026-08-22: New course still images standardized on one 3:2 landscape canvas so prompt and choice surfaces do not change apparent size between cards.

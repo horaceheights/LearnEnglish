@@ -348,9 +348,10 @@ class LessonStructureTests(unittest.TestCase):
     def test_mobile_action_video_map_only_references_existing_clips(self):
         root = Path(__file__).resolve().parents[2]
         mapping_source = (root / "mobile" / "src" / "actionVideos.ts").read_text(encoding="utf-8")
-        video_names = re.findall(r"'([^']+-scene-v2\.mp4)'", mapping_source)
-        self.assertTrue(video_names)
-        for video_name in video_names:
+        video_references = re.findall(r"'([^']+-scene-v\d+\.mp4)'", mapping_source)
+        self.assertTrue(video_references)
+        for video_reference in set(video_references):
+            video_name = Path(video_reference).name
             with self.subTest(video=video_name):
                 self.assertTrue((root / "frontend" / "public" / "lesson-assets" / video_name).is_file())
 

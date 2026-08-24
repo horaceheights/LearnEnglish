@@ -1,8 +1,8 @@
 import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { useEffect, useRef, useState } from 'react';
-import { useVideoPlayer, VideoView } from 'expo-video';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 
-import { lessonActionVideo } from '../actionVideos';
+import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { lessonImageSource } from '../lessonImageSources';
@@ -333,8 +333,8 @@ export function LessonCardView({
               const revealCorrect = selected && result === 'correct' && correct;
               const revealWrong = selected && result === 'wrong';
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
-              const actionVideoName = lessonActionVideo(option.image_url);
-              const playActionVideo = Boolean(actionVideoName) && (
+              const actionVideo = lessonActionVideo(option.image_url);
+              const playActionVideo = Boolean(actionVideo) && (
                 card.options.length === 1 || revealCorrect
               );
               const optionRenderKey = `${option.id}:${option.image_url ?? ''}:${option.label ?? ''}`;
@@ -372,7 +372,7 @@ export function LessonCardView({
                   ]}
                 >
                   {option.image_url ? (
-                    actionVideoName ? (
+                    actionVideo ? (
                       <LessonActionMedia
                         accessibilityLabel={option.label || card.prompt}
                         height={renderedOptionImageHeight}
@@ -380,7 +380,7 @@ export function LessonCardView({
                         onPress={optionsInteractive ? () => onSelect(option.id) : undefined}
                         shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
-                        videoName={actionVideoName}
+                        video={actionVideo}
                       />
                     ) : (
                       <Image
@@ -498,7 +498,7 @@ function LessonActionMedia({
   onPress,
   shouldPlay,
   useCompactFrame = false,
-  videoName,
+  video,
 }: {
   accessibilityLabel: string;
   height: number;
@@ -506,12 +506,16 @@ function LessonActionMedia({
   onPress?: () => void;
   shouldPlay: boolean;
   useCompactFrame?: boolean;
-  videoName: string;
+  video: LessonActionVideoSource;
 }) {
   const reduceMotion = useReducedMotion();
   const [videoFailed, setVideoFailed] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
-  const player = useVideoPlayer({ uri: lessonVideoUrl(videoName), useCaching: true }, (instance) => {
+  const videoSource = useMemo<VideoSource>(
+    () => video.source ?? { uri: lessonVideoUrl(video.name), useCaching: true },
+    [video.name, video.source],
+  );
+  const player = useVideoPlayer(videoSource, (instance) => {
     instance.loop = false;
     instance.muted = true;
     instance.pause();
@@ -520,7 +524,7 @@ function LessonActionMedia({
   useEffect(() => {
     setVideoFailed(false);
     setVideoReady(false);
-  }, [videoName]);
+  }, [video.name, video.source]);
 
   useEffect(() => {
     player.pause();
@@ -541,7 +545,7 @@ function LessonActionMedia({
     return (
       <Image
         accessibilityLabel={accessibilityLabel}
-        resizeMode="cover"
+        resizeMode="contain"
         source={lessonImageSource(imageUrl)}
         style={[
           styles.actionMedia,
@@ -575,7 +579,7 @@ function LessonActionMedia({
         <Image
           accessibilityIgnoresInvertColors
           accessibilityLabel={accessibilityLabel}
-          resizeMode="cover"
+          resizeMode="contain"
           source={lessonImageSource(imageUrl)}
           style={styles.actionMediaPoster}
         />
