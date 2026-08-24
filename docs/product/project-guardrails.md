@@ -15,6 +15,7 @@ The detailed A1 syllabus and Unit 1 roadmap live in [`course-design-a1.md`](cour
 5. Every recurring regression should gain an automated guardrail when practical.
 6. Preserve unrelated working-tree changes. Never stage, revert, or overwrite them.
 7. When an approved standard changes, update this file in the same commit.
+8. Treat the user's requested scope as a hard boundary. A visual-only request such as adding borders, colors, or rounded corners must not change layout, dimensions, spacing, image fit/crop/zoom, content, navigation, or interaction. If the requested result cannot be implemented without any change outside that scope, stop before editing and ask the user whether to proceed.
 
 ### Cross-platform parity
 
@@ -114,6 +115,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Portrait phrase-answer tiles are full-width, short horizontal rows stacked at the bottom.
 - Phrase tiles use one-line auto-sizing. Never split a word in half to fit a narrow tile.
 - Image choices retain their established image grid or stack layout; the horizontal phrase rule does not convert image choices into text rows.
+- Four image choices in portrait always use the established two-column by two-row grid. Two image choices retain their established stack. Borders, wrappers, feedback-space calculations, and other styling changes must not alter those arrangements or their card widths.
 - Text must remain readable and inside its container on small phones and tablets.
 - A shared component change must be verified against two-option and four-option cards.
 - Do not use a correct-answer visual treatment until after the learner selects an answer.
@@ -311,3 +313,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Speak-stage framing corrected to preserve the complete model subject inside the shared 3:2 frame; portrait identity art must use a subject-preserving fit rather than the option-card top crop.
 - 2026-08-24: Mobile lesson imagery standardized on one shared dark rounded 3:2 frame across prompt scenes, `Completa`, Recognize, image choices, action posters, and Speak in all seven units.
 - 2026-08-24: Mobile legacy non-3:2 lesson stills standardized on subject-preserving `contain` inside the warm rounded frame; exact 3:2 art still fills edge-to-edge, while generic top and center crops that cut off people or teaching content are prohibited.
+- 2026-08-24: Request scope became a hard product rule: styling-only changes may not alter layout, sizing, spacing, image fit, content, navigation, or interaction. Four-image portrait slides remain 2x2; if a requested change requires anything outside its stated scope, implementation pauses for explicit approval.

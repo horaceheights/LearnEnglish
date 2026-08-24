@@ -17,13 +17,28 @@ assert.match(
 );
 assert.match(
   source,
-  /Math\.min\(defaultPortraitImageOptionWidth, \(optionImageHeight \* \(3 \/ 2\)\) \+ 24\)/,
-  'Portrait image choices must scale from the available height without changing the 3:2 ratio.',
+  /const constrainedPortraitImageOptionWidth = usePortraitImageStack\s*\?\s*Math\.min\(portraitImageContentWidth, \(optionImageHeight \* \(3 \/ 2\)\) \+ 24\)/,
+  'Only the established two-card portrait stack may scale from available height.',
 );
 assert.match(
   source,
   /width: constrainedPortraitImageOptionWidth \?\? optionWidth/,
-  'The height-constrained width must be applied to every portrait image option.',
+  'The height-constrained width must fall back to the established layout width.',
+);
+assert.doesNotMatch(
+  source,
+  /constrainedPortraitImageOptionWidth = usePortraitImageStack \|\| usePortraitImageGrid/,
+  'Four-card portrait grids must never inherit the two-card stack width constraint.',
+);
+assert.match(
+  source,
+  /const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card\.options\.length >= 3[\s\S]*?const optionWidth =[\s\S]*?: '48%';/,
+  'Four image choices must retain the established two-column width in portrait.',
+);
+assert.match(
+  source,
+  /options:\s*\{[\s\S]*?flexDirection: 'row'[\s\S]*?flexWrap: 'wrap'[\s\S]*?justifyContent: 'center'/,
+  'Four image choices must retain the wrapping row container required for a 2x2 grid.',
 );
 assert.match(
   source,
@@ -31,4 +46,4 @@ assert.match(
   'The shared option frame must remain 3:2.',
 );
 
-console.log('Portrait image choices preserve visible teaching feedback.');
+console.log('Portrait image choices preserve the two-card stack, four-card 2x2 grid, and visible teaching feedback.');

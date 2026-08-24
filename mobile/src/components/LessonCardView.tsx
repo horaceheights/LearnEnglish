@@ -211,15 +211,11 @@ export function LessonCardView({
         ? Math.max(68, ((availableOptionsHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
         : Math.max(68, (availableOptionsHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
     );
-  // Preserve the shared 3:2 frame while allowing the whole option card to
-  // become narrower when vertical room is the limiting dimension. This scales
-  // the frame uniformly; it does not resize, crop, or distort the source art.
+  // A two-card portrait stack may scale uniformly when height is limited.
+  // Never apply this width constraint to a four-card grid: it must stay 2x2.
   const portraitImageContentWidth = Math.max(0, viewportWidth - 44);
-  const defaultPortraitImageOptionWidth = usePortraitImageStack
-    ? portraitImageContentWidth
-    : portraitImageContentWidth * 0.485;
-  const constrainedPortraitImageOptionWidth = usePortraitImageStack || usePortraitImageGrid
-    ? Math.min(defaultPortraitImageOptionWidth, (optionImageHeight * (3 / 2)) + 24)
+  const constrainedPortraitImageOptionWidth = usePortraitImageStack
+    ? Math.min(portraitImageContentWidth, (optionImageHeight * (3 / 2)) + 24)
     : null;
 
   useEffect(() => {

@@ -15,6 +15,7 @@ The detailed A1 syllabus and Unit 1 roadmap live in `COURSE_DESIGN_A1.md`. This 
 5. Every recurring regression should gain an automated guardrail when practical.
 6. Preserve unrelated working-tree changes. Never stage, revert, or overwrite them.
 7. When an approved standard changes, update this file in the same commit.
+8. Treat the user's requested scope as a hard boundary. A visual-only request such as adding borders, colors, or rounded corners must not change layout, dimensions, spacing, image fit/crop/zoom, content, navigation, or interaction. If the requested result cannot be implemented without any change outside that scope, stop before editing and ask the user whether to proceed.
 
 ### Cross-platform parity
 
