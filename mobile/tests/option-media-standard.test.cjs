@@ -111,9 +111,9 @@ assert.ok(optionImages.size > 700, 'the guardrail must inspect the complete A1 o
 assert.equal(optionImageUnits.size, 7, 'option-image subject preservation must cover all seven units');
 assert.doesNotMatch(generatedText.join('\n'), /_3x2_pilot\.webp/, 'generated lessons must not retain pilot-only media references');
 assert.match(cardView, /const useThreeByTwoOptionMedia = card\.options\.some/);
-assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia\}/);
+assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid\}/);
 assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, overflow:\s*'hidden' \}/);
-assert.match(cardView, /<OptionMediaImage imageUrl=\{option\.image_url\} \/>/);
+assert.match(cardView, /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?preserveSubject=\{useExpandedFourImagePortraitGrid\}/);
 assert.match(optionMediaImage, /const sourceIsThreeByTwo = Boolean\(/);
 assert.match(optionMediaImage, /const shouldContain = preserveSubject \|\| !sourceIsThreeByTwo/);
 assert.match(optionMediaImage, /resizeMode=\{shouldContain \? 'contain' : 'cover'\}/);

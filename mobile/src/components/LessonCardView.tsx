@@ -93,6 +93,7 @@ export function LessonCardView({
     card.options.length >= 3;
   const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
+  const useExpandedFourImagePortraitGrid = usePortraitImageGrid && card.options.length === 4;
   const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
   const useSingleImageLayout = !hasTextOnlyOptions && card.options.length === 1;
   const useThreeByTwoOptionMedia = card.options.some((option) => Boolean(option.image_url));
@@ -414,7 +415,8 @@ export function LessonCardView({
                         onPress={optionsInteractive ? () => onSelect(option.id) : undefined}
                         shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
-                        useThreeByTwoFrame={useThreeByTwoOptionMedia}
+                        useThreeByTwoFrame={useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid}
+                        preserveSubject={useExpandedFourImagePortraitGrid}
                         video={actionVideo}
                       />
                     ) : (
@@ -422,11 +424,16 @@ export function LessonCardView({
                         style={[
                           styles.optionImage,
                           styles.optionImagePortrait,
-                          styles.optionImageThreeByTwoFrame,
+                          useExpandedFourImagePortraitGrid
+                            ? { height: renderedOptionImageHeight }
+                            : styles.optionImageThreeByTwoFrame,
                           showHelp ? styles.optionImageThreeByTwoHelp : null,
                         ]}
                       >
-                        <OptionMediaImage imageUrl={option.image_url} />
+                        <OptionMediaImage
+                          imageUrl={option.image_url}
+                          preserveSubject={useExpandedFourImagePortraitGrid}
+                        />
                       </View>
                     )
                   ) : null}
@@ -529,6 +536,7 @@ function LessonActionMedia({
   height,
   imageUrl,
   onPress,
+  preserveSubject = false,
   shouldPlay,
   useCompactFrame = false,
   useThreeByTwoFrame = false,
@@ -538,6 +546,7 @@ function LessonActionMedia({
   height: number;
   imageUrl: string;
   onPress?: () => void;
+  preserveSubject?: boolean;
   shouldPlay: boolean;
   useCompactFrame?: boolean;
   useThreeByTwoFrame?: boolean;
@@ -591,7 +600,7 @@ function LessonActionMedia({
           useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
         ]}
       >
-        <OptionMediaImage imageUrl={imageUrl} />
+        <OptionMediaImage imageUrl={imageUrl} preserveSubject={preserveSubject} />
       </View>
     );
   }
@@ -616,7 +625,7 @@ function LessonActionMedia({
         style={styles.actionMediaLayer}
       />
       {!videoReady ? (
-        <OptionMediaImage imageUrl={imageUrl} poster />
+        <OptionMediaImage imageUrl={imageUrl} poster preserveSubject={preserveSubject} />
       ) : null}
       {onPress ? (
         <Pressable

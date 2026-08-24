@@ -42,8 +42,23 @@ assert.match(
 );
 assert.match(
   source,
-  /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, overflow:\s*'hidden' \}/,
-  'The shared option frame must remain 3:2.',
+  /const useExpandedFourImagePortraitGrid = usePortraitImageGrid && card\.options\.length === 4/,
+  'Only a four-image portrait grid may use the expanded viewport.',
+);
+assert.match(
+  source,
+  /useExpandedFourImagePortraitGrid\s*\? \{ height: renderedOptionImageHeight \}\s*:\s*styles\.optionImageThreeByTwoFrame/,
+  'Four-image portrait grids must use the measured vertical space instead of leaving a large empty area.',
+);
+assert.match(
+  source,
+  /preserveSubject=\{useExpandedFourImagePortraitGrid\}/,
+  'Expanded four-image grids must preserve the complete subject without distortion or cropping.',
+);
+assert.match(
+  source,
+  /useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid\}/,
+  'Action-backed options must keep the same expanded frame as the still image so selection does not resize the card.',
 );
 
-console.log('Portrait image choices preserve the two-card stack, four-card 2x2 grid, and visible teaching feedback.');
+console.log('Portrait image choices preserve the two-card stack, expanded four-card 2x2 grid, complete subjects, and visible teaching feedback.');
