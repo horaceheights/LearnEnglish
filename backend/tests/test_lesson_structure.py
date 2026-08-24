@@ -176,6 +176,20 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(lesson=lesson_id):
                 self.assertEqual(expected, set(LESSONS[lesson_id].vocabulary))
 
+    def test_lesson_2_reading_completion_uses_three_relevant_options(self):
+        lesson = LESSONS["lesson-2-pronouns"]
+        card = next(
+            card
+            for card in lesson.cards
+            if card.stage == "Use"
+            and card.prompt == "She is ___."
+            and card.correct_option_id == "reading"
+        )
+        self.assertEqual(
+            ["drinking", "reading", "writing"],
+            sorted(option.id for option in card.options),
+        )
+
     def test_preview_snapshots_match_all_lessons(self):
         snapshot_root = Path(__file__).resolve().parents[2] / "mobile" / "src" / "generated"
         for lesson in LESSONS.values():
