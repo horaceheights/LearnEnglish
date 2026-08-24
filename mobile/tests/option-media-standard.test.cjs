@@ -89,6 +89,7 @@ function optionFilename(imageUrl) {
 }
 
 const optionImages = new Set();
+const optionImageUnits = new Set();
 const generatedText = [];
 for (const filename of fs.readdirSync(generatedRoot)) {
   if (!/^lesson-.*\.json$/.test(filename)) continue;
@@ -97,17 +98,25 @@ for (const filename of fs.readdirSync(generatedRoot)) {
   const lesson = JSON.parse(source);
   for (const card of lesson.cards) {
     for (const option of card.options || []) {
-      if (option.image_url) optionImages.add(optionFilename(option.image_url));
+      if (option.image_url) {
+        optionImages.add(optionFilename(option.image_url));
+        optionImageUnits.add(lesson.unit_id);
+      }
     }
   }
 }
 
 assert.ok(optionImages.size > 700, 'the guardrail must inspect the complete A1 option-image catalog');
+assert.equal(optionImageUnits.size, 7, 'option-image subject preservation must cover all seven units');
 assert.doesNotMatch(generatedText.join('\n'), /_3x2_pilot\.webp/, 'generated lessons must not retain pilot-only media references');
 assert.match(cardView, /const useThreeByTwoOptionMedia = card\.options\.some/);
 assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia\}/);
 assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, overflow:\s*'hidden' \}/);
 assert.match(cardView, /<OptionMediaImage imageUrl=\{option\.image_url\} \/>/);
+assert.match(optionMediaImage, /const sourceIsThreeByTwo = Boolean\(/);
+assert.match(optionMediaImage, /const shouldContain = preserveSubject \|\| !sourceIsThreeByTwo/);
+assert.match(optionMediaImage, /resizeMode=\{shouldContain \? 'contain' : 'cover'\}/);
+assert.doesNotMatch(optionMediaImage, /TOP_ALIGNED_OPTION_MEDIA|topAligned/);
 assert.match(lessonPlayer, /const useThreeByTwoOptionMedia = currentCard\?\.options\?\.some/);
 assert.match(lessonPlayer, /useThreeByTwoOptionMedia[\s\S]*?aspectRatio:\s*"3 \/ 2"[\s\S]*?objectFit:\s*"cover"/);
 assert.match(lessonPlayer, /lessonOptionImageSrc\(option\.image_url\)/);
@@ -121,7 +130,6 @@ assert.match(lessonPlayer, /useStillOnlyLesson17Comparison[\s\S]*?activeLesson\.
 assert.match(lessonPlayer, /const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison/);
 
 for (const name of topAlignedCrops) {
-  assert.ok(optionMediaImage.includes(`'${name}'`), `${name} is missing the shared mobile top-aligned crop policy`);
   assert.ok(lessonPlayer.includes(`"${name}"`), `${name} is missing the web top-aligned crop policy`);
 }
 
@@ -141,13 +149,19 @@ for (const [source, variant] of Object.entries(optionVariants)) {
   assert.ok(canonicalBytes.equals(fs.readFileSync(copies[2])), `${variant} web copy drifted from canonical`);
 }
 
+let nonThreeByTwoOptionImages = 0;
 for (const name of [...optionImages].sort()) {
   const imagePath = path.join(bundledRoot, name);
   assert.ok(fs.existsSync(imagePath), `${name} is missing from mobile option assets`);
   const [width, height] = webpDimensions(imagePath);
   const nearThreeByTwo = Math.abs((width / height) - 1.5) <= 0.005;
+  if (!nearThreeByTwo && !optionVariants[name]) nonThreeByTwoOptionImages += 1;
   const hasReviewedPolicy = nearThreeByTwo || topAlignedCrops.has(name) || approvedCenterCrops.has(name) || optionVariants[name];
   assert.ok(hasReviewedPolicy, `${name} (${width}x${height}) needs an explicit safe 3:2 crop or normalized variant`);
 }
 
-console.log(`Verified the shared 3:2 option-media contract across ${optionImages.size} A1 images.`);
+assert.ok(nonThreeByTwoOptionImages > 30, 'the mobile contain guardrail must protect the legacy non-3:2 catalog');
+
+console.log(
+  `Verified subject-preserving option media across ${optionImages.size} A1 images in all ${optionImageUnits.size} units, including ${nonThreeByTwoOptionImages} legacy non-3:2 stills.`,
+);

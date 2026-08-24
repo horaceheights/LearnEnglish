@@ -59,8 +59,8 @@ assert.match(
 
 assert.match(
   optionMediaImageSource,
-  /preserveSubject = false[\s\S]*?lessonOptionImageSource\(imageUrl\)[\s\S]*?resizeMode=\{preserveSubject \? 'contain' : 'cover'\}/,
-  'The reviewed 3:2 still layer must keep cover as its default for image options and video posters.',
+  /preserveSubject = false[\s\S]*?lessonOptionImageSource\(imageUrl\)[\s\S]*?const shouldContain = preserveSubject \|\| !sourceIsThreeByTwo[\s\S]*?resizeMode=\{shouldContain \? 'contain' : 'cover'\}/,
+  'Still posters must fill only when they are 3:2 and otherwise zoom out to preserve the teaching subject.',
 );
 
 assert.match(

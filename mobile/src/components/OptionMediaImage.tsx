@@ -2,24 +2,8 @@ import { Image, StyleSheet } from 'react-native';
 
 import { lessonOptionImageSource } from '../lessonImageSources';
 
-const TOP_ALIGNED_OPTION_MEDIA = new Set([
-  'boy.webp',
-  'family_brothers.webp',
-  'family_children.webp',
-  'family_grandfather.webp',
-  'family_grandmother.webp',
-  'family_grandparents.webp',
-  'family_mother.webp',
-  'family_sisters.webp',
-  'girl.webp',
-  'man.webp',
-  'woman.webp',
-]);
-
-function optionMediaFilename(imageUrl: string): string {
-  const cleanPath = imageUrl.split(/[?#]/, 1)[0];
-  return cleanPath.slice(cleanPath.lastIndexOf('/') + 1);
-}
+const THREE_BY_TWO_ASPECT_RATIO = 3 / 2;
+const ASPECT_RATIO_TOLERANCE = 0.005;
 
 export function OptionMediaImage({
   accessibilityLabel,
@@ -33,25 +17,26 @@ export function OptionMediaImage({
   preserveSubject?: boolean;
 }) {
   const source = lessonOptionImageSource(imageUrl);
-  const topAligned = !preserveSubject && TOP_ALIGNED_OPTION_MEDIA.has(optionMediaFilename(imageUrl));
-  const resolvedSource = topAligned ? Image.resolveAssetSource(source) : null;
-  const sourceAspectRatio = resolvedSource?.width && resolvedSource?.height
-    ? resolvedSource.width / resolvedSource.height
-    : 3 / 2;
+  const resolvedSource = Image.resolveAssetSource(source);
+  const sourceIsThreeByTwo = Boolean(
+    resolvedSource?.width
+      && resolvedSource?.height
+      && Math.abs((resolvedSource.width / resolvedSource.height) - THREE_BY_TWO_ASPECT_RATIO)
+        <= ASPECT_RATIO_TOLERANCE,
+  );
+  // Exact 3:2 artwork already matches the viewport and may fill it edge-to-edge.
+  // Any legacy ratio is zoomed out over the warm frame so no head, face, body,
+  // or teaching action can be lost to a generic crop.
+  const shouldContain = preserveSubject || !sourceIsThreeByTwo;
 
   return (
     <Image
       accessible={Boolean(accessibilityLabel)}
       accessibilityIgnoresInvertColors
       accessibilityLabel={accessibilityLabel}
-      resizeMode={preserveSubject ? 'contain' : 'cover'}
+      resizeMode={shouldContain ? 'contain' : 'cover'}
       source={source}
-      style={[
-        topAligned
-          ? [styles.topAligned, { aspectRatio: sourceAspectRatio }]
-          : styles.fill,
-        poster ? styles.poster : null,
-      ]}
+      style={[styles.fill, poster ? styles.poster : null]}
     />
   );
 }
@@ -59,5 +44,4 @@ export function OptionMediaImage({
 const styles = StyleSheet.create({
   fill: { height: '100%', width: '100%' },
   poster: { zIndex: 1 },
-  topAligned: { left: 0, position: 'absolute', right: 0, top: 0, width: '100%' },
 });
