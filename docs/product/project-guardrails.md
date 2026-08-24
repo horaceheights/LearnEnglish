@@ -294,3 +294,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Square-source action videos standardized on solid warm-neutral side fill matching still-image cards; black bars and blurred side fill are no longer accepted.
 - 2026-08-24: Lesson option images standardized on one 3:2 media shape across every card count; backgrounds may be extended or outpainted, but subjects and meaningful foreground details must never be stretched or distorted.
 - 2026-08-24: Multi-choice action media standardized on a poster-first mobile lifecycle: the matching still remains visible before selection, and motion replaces it only after correct-selection playback starts inside the same clipped frame.
+- 2026-08-24: The existing A1 option-image catalog adopted that 3:2 viewport on web and mobile; unsafe action crops use reviewed 1536x1024 variants, while approved identity crops anchor to the top to keep complete heads in frame.

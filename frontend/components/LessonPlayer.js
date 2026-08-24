@@ -369,6 +369,41 @@ function lessonImageSrc(imageUrl) {
   return `${source}${separator}v=${LESSON_IMAGE_VERSION}`;
 }
 
+const OPTION_MEDIA_VARIANTS = {
+  "family_children_playing.webp": "family_children_playing_3x2.webp",
+  "family_father_working.webp": "family_father_working_3x2.webp",
+  "family_grandparents_sitting.webp": "family_grandparents_sitting_3x2.webp",
+  "family_mother_cooking.webp": "family_mother_cooking_3x2.webp",
+};
+
+const TOP_ALIGNED_OPTION_MEDIA = new Set([
+  "boy.webp",
+  "family_brothers.webp",
+  "family_children.webp",
+  "family_grandfather.webp",
+  "family_grandmother.webp",
+  "family_grandparents.webp",
+  "family_mother.webp",
+  "family_sisters.webp",
+  "girl.webp",
+  "man.webp",
+  "woman.webp",
+]);
+
+function optionMediaFilename(imageUrl) {
+  return String(imageUrl || "").split(/[?#]/, 1)[0].split("/").pop() || "";
+}
+
+function lessonOptionImageSrc(imageUrl) {
+  const filename = optionMediaFilename(imageUrl);
+  const variant = OPTION_MEDIA_VARIANTS[filename];
+  return variant ? lessonImageSrc(`/lesson-assets/${variant}`) : lessonImageSrc(imageUrl);
+}
+
+function optionMediaObjectPosition(imageUrl) {
+  return TOP_ALIGNED_OPTION_MEDIA.has(optionMediaFilename(imageUrl)) ? "center top" : "center";
+}
+
 function menuImageSrc(name) {
   return lessonImageSrc(`/lesson-assets/${name}`);
 }
@@ -1809,7 +1844,7 @@ function LessonActionMedia({ alt, imageUrl, style, videoName }) {
   }, []);
 
   if (reduceMotion) {
-    return <img src={lessonImageSrc(imageUrl)} alt={alt} style={style} />;
+    return <img src={lessonOptionImageSrc(imageUrl)} alt={alt} style={style} />;
   }
 
   return (
@@ -2334,10 +2369,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const isFourOptionCard = optionCount >= 4;
   const isThreeOptionCard = optionCount === 3;
   const isSingleOptionCard = optionCount === 1;
-  // Pilot the approved 3:2 option-media contract only on the reviewed Lesson 1.7
-  // comparison before applying it across the full course catalog.
-  const useThreeByTwoOptionMediaPilot = optionCount === 2 && currentCard?.options?.some(
-    (option) => option.image_url?.includes("family_grandparents_sitting_3x2_pilot.webp")
+  const useThreeByTwoOptionMedia = currentCard?.options?.some((option) => Boolean(option.image_url));
+  // These two Lesson 1.7 comparisons intentionally teach the contrast with
+  // still choices. Other action-backed choices keep their normal video behavior.
+  const useStillOnlyLesson17Comparison = activeLesson.id === "lesson-7-is-are-not" && optionCount === 2 && (
+    currentCard?.options?.some((option) => option.id === "grandparents-sitting") &&
+    currentCard?.options?.some((option) => option.id === "pair-running")
   );
   const onboardingFinished = onboardingStepIndex >= ONBOARDING_STEPS.length;
   const activeOnboardingStep =
@@ -2440,7 +2477,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
   const responsiveImageStyle = {
     ...styles.image,
-    height: useThreeByTwoOptionMediaPilot
+    height: useThreeByTwoOptionMedia
       ? "auto"
       : isPronunciationCard && isMobile
       ? "min(25vh, 180px)"
@@ -2461,7 +2498,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         : isTablet
           ? "340px"
       : styles.image.height,
-    ...(useThreeByTwoOptionMediaPilot
+    ...(useThreeByTwoOptionMedia
       ? { aspectRatio: "3 / 2", objectFit: "cover" }
       : {}),
   };
@@ -4875,9 +4912,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 const optionPrompt = optionPracticePrompt(option);
                 const optionLabel = option.label || optionPrompt || option.id;
                 const hasOptionImage = Boolean(option.image_url);
-                const actionVideoName = !isPronunciationCard && !useThreeByTwoOptionMediaPilot
+                const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison
                   ? lessonActionVideo(option.image_url)
                   : null;
+                const optionImageStyle = hasOptionImage
+                  ? { ...responsiveImageStyle, objectPosition: optionMediaObjectPosition(option.image_url) }
+                  : responsiveImageStyle;
                 const showActionVideo = Boolean(actionVideoName) && (
                   currentCard.options.length === 1 ||
                   (selectedOptionId === option.id && lastResult === "correct")
@@ -5072,11 +5112,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         <LessonActionMedia
                           alt={optionLabel}
                           imageUrl={option.image_url}
-                          style={responsiveImageStyle}
+                          style={optionImageStyle}
                           videoName={actionVideoName}
                         />
                       ) : (
-                        <img src={lessonImageSrc(option.image_url)} alt={optionLabel} style={responsiveImageStyle} />
+                        <img src={lessonOptionImageSrc(option.image_url)} alt={optionLabel} style={optionImageStyle} />
                       )
                     ) : (
                       <div

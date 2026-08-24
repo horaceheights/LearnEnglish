@@ -5,7 +5,7 @@ import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
-import { lessonImageSource } from '../lessonImageSources';
+import { lessonImageSource, lessonOptionImageSource } from '../lessonImageSources';
 import { lessonHelpText } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';
@@ -17,6 +17,25 @@ const TEXT_OPTION_THEMES = [
   { accent: '#96651d', background: '#fff6df', border: '#e3c27d' },
   { accent: '#4f5d95', background: '#f0f2fa', border: '#adb5d8' },
 ];
+
+const TOP_ALIGNED_OPTION_MEDIA = new Set([
+  'boy.webp',
+  'family_brothers.webp',
+  'family_children.webp',
+  'family_grandfather.webp',
+  'family_grandmother.webp',
+  'family_grandparents.webp',
+  'family_mother.webp',
+  'family_sisters.webp',
+  'girl.webp',
+  'man.webp',
+  'woman.webp',
+]);
+
+function optionMediaFilename(imageUrl: string): string {
+  const cleanPath = imageUrl.split(/[?#]/, 1)[0];
+  return cleanPath.slice(cleanPath.lastIndexOf('/') + 1);
+}
 
 type Props = {
   audioProvider: CourseAudioProvider;
@@ -89,10 +108,12 @@ export function LessonCardView({
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
   const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
   const useSingleImageLayout = !hasTextOnlyOptions && card.options.length === 1;
-  // Pilot the approved 3:2 option-media contract only on the reviewed Lesson 1.7
-  // comparison before applying it across the full course catalog.
-  const useThreeByTwoOptionMediaPilot = card.options.length === 2 && card.options.some(
-    (option) => option.image_url?.includes('family_grandparents_sitting_3x2_pilot.webp'),
+  const useThreeByTwoOptionMedia = card.options.some((option) => Boolean(option.image_url));
+  // These two Lesson 1.7 comparisons intentionally teach the contrast with
+  // still choices. Other action-backed choices keep their normal video behavior.
+  const useStillOnlyLesson17Comparison = lessonId === 'lesson-7-is-are-not' && card.options.length === 2 && (
+    card.options.some((option) => option.id === 'grandparents-sitting') &&
+    card.options.some((option) => option.id === 'pair-running')
   );
   const useExpandedSingleActionVideo = useSingleImageLayout && Boolean(
     lessonActionVideo(card.options[0]?.image_url),
@@ -338,7 +359,7 @@ export function LessonCardView({
               const revealCorrect = selected && result === 'correct' && correct;
               const revealWrong = selected && result === 'wrong';
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
-              const actionVideo = useThreeByTwoOptionMediaPilot
+              const actionVideo = useStillOnlyLesson17Comparison
                 ? null
                 : lessonActionVideo(option.image_url);
               const playActionVideo = Boolean(actionVideo) && (
@@ -389,10 +410,10 @@ export function LessonCardView({
                         onPress={optionsInteractive ? () => onSelect(option.id) : undefined}
                         shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
-                        useThreeByTwoFrame={useThreeByTwoOptionMediaPilot}
+                        useThreeByTwoFrame={useThreeByTwoOptionMedia}
                         video={actionVideo}
                       />
-                    ) : useThreeByTwoOptionMediaPilot ? (
+                    ) : (
                       <View
                         style={[
                           styles.optionImage,
@@ -401,27 +422,8 @@ export function LessonCardView({
                           showHelp ? styles.optionImageThreeByTwoHelp : null,
                         ]}
                       >
-                        <Image
-                          accessible={false}
-                          accessibilityIgnoresInvertColors
-                          resizeMode="cover"
-                          source={lessonImageSource(option.image_url)}
-                          style={styles.optionImageThreeByTwoFill}
-                        />
+                        <OptionMediaStillLayer imageUrl={option.image_url} />
                       </View>
-                    ) : (
-                      <Image
-                        accessible={false}
-                        accessibilityIgnoresInvertColors
-                        resizeMode="contain"
-                        source={lessonImageSource(option.image_url)}
-                        style={[
-                          styles.optionImage,
-                          !isLandscape ? styles.optionImagePortrait : null,
-                          isTabletLandscape ? styles.optionImageTablet : null,
-                          { height: renderedOptionImageHeight },
-                        ]}
-                      />
                     )
                   ) : null}
                   {option.label && !option.image_url ? (
@@ -518,6 +520,30 @@ export function LessonCardView({
   );
 }
 
+function OptionMediaStillLayer({ imageUrl, poster = false }: { imageUrl: string; poster?: boolean }) {
+  const source = lessonOptionImageSource(imageUrl);
+  const topAligned = TOP_ALIGNED_OPTION_MEDIA.has(optionMediaFilename(imageUrl));
+  const resolvedSource = topAligned ? Image.resolveAssetSource(source) : null;
+  const sourceAspectRatio = resolvedSource?.width && resolvedSource?.height
+    ? resolvedSource.width / resolvedSource.height
+    : 3 / 2;
+
+  return (
+    <Image
+      accessible={false}
+      accessibilityIgnoresInvertColors
+      resizeMode="cover"
+      source={source}
+      style={[
+        topAligned
+          ? [styles.optionImageTopAligned, { aspectRatio: sourceAspectRatio }]
+          : styles.optionImageThreeByTwoFill,
+        poster ? styles.optionImagePoster : null,
+      ]}
+    />
+  );
+}
+
 function LessonActionMedia({
   accessibilityLabel,
   height,
@@ -575,16 +601,18 @@ function LessonActionMedia({
   // starts playback; single-card teaching clips already enter with shouldPlay.
   if (!shouldPlay || reduceMotion || videoFailed) {
     return (
-      <Image
+      <View
+        accessible
         accessibilityLabel={accessibilityLabel}
-        resizeMode={useThreeByTwoFrame ? 'cover' : 'contain'}
-        source={lessonImageSource(imageUrl)}
+        accessibilityRole="image"
         style={[
           styles.actionMedia,
           useCompactFrame ? styles.singleActionMedia : null,
           useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
         ]}
-      />
+      >
+        <OptionMediaStillLayer imageUrl={imageUrl} />
+      </View>
     );
   }
 
@@ -608,13 +636,7 @@ function LessonActionMedia({
         style={styles.actionMediaLayer}
       />
       {!videoReady ? (
-        <Image
-          accessibilityIgnoresInvertColors
-          accessibilityLabel={accessibilityLabel}
-          resizeMode={useThreeByTwoFrame ? 'cover' : 'contain'}
-          source={lessonImageSource(imageUrl)}
-          style={styles.actionMediaPoster}
-        />
+        <OptionMediaStillLayer imageUrl={imageUrl} poster />
       ) : null}
       {onPress ? (
         <Pressable
@@ -715,6 +737,8 @@ const styles = StyleSheet.create({
   optionImageThreeByTwoFill: { height: '100%', width: '100%' },
   optionImageThreeByTwoFrame: { aspectRatio: 3 / 2, overflow: 'hidden' },
   optionImageThreeByTwoHelp: { width: '65%' },
+  optionImageTopAligned: { left: 0, position: 'absolute', right: 0, top: 0, width: '100%' },
+  optionImagePoster: { zIndex: 1 },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {
@@ -738,16 +762,6 @@ const styles = StyleSheet.create({
     top: 0,
     transform: [{ scale: 1.025 }],
     width: '100%',
-  },
-  actionMediaPoster: {
-    bottom: 0,
-    height: '100%',
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    width: '100%',
-    zIndex: 1,
   },
   actionMediaPressTarget: {
     bottom: 0,

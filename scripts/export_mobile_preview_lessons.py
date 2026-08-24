@@ -21,6 +21,12 @@ COURSE_MENU_IMAGE_NAMES = {
     "a1_apple.webp",
     "a1_station.webp",
 }
+OPTION_MEDIA_VARIANTS = {
+    "family_children_playing.webp": "family_children_playing_3x2.webp",
+    "family_father_working.webp": "family_father_working_3x2.webp",
+    "family_grandparents_sitting.webp": "family_grandparents_sitting_3x2.webp",
+    "family_mother_cooking.webp": "family_mother_cooking_3x2.webp",
+}
 
 sys.path.insert(0, str(BACKEND_ROOT))
 
@@ -68,6 +74,7 @@ def export_course(lesson_ids: list[str]) -> Path:
 
 def lesson_image_names() -> list[str]:
     names: set[str] = set(COURSE_MENU_IMAGE_NAMES)
+    option_names: set[str] = set()
     for lesson in LESSONS.values():
         for card in lesson.cards:
             paths = [card.prompt_image_url, *(option.image_url for option in card.options)]
@@ -76,6 +83,14 @@ def lesson_image_names() -> list[str]:
                 name = Path(clean_path).name
                 if name.endswith(".webp"):
                     names.add(name)
+            for option in card.options:
+                clean_path = str(option.image_url or "").split("?", 1)[0].split("#", 1)[0]
+                name = Path(clean_path).name
+                if name.endswith(".webp"):
+                    option_names.add(name)
+    names.update(
+        variant for source, variant in OPTION_MEDIA_VARIANTS.items() if source in option_names
+    )
     return sorted(names)
 
 
@@ -99,6 +114,9 @@ def export_lesson_images() -> int:
     requires = "\n".join(
         f"  '{name}': require('../assets/lesson-assets/{name}')," for name in names
     )
+    option_variants = "\n".join(
+        f"  '{source}': '{variant}'," for source, variant in OPTION_MEDIA_VARIANTS.items()
+    )
     IMAGE_SOURCE_PATH.write_text(
         "import type { ImageSourcePropType } from 'react-native';\n\n"
         "import { absoluteMediaUrl } from './config';\n\n"
@@ -107,12 +125,20 @@ def export_lesson_images() -> int:
         "const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {\n"
         f"{requires}\n"
         "};\n\n"
+        "const OPTION_MEDIA_VARIANTS: Record<string, string> = {\n"
+        f"{option_variants}\n"
+        "};\n\n"
         "function imageFilename(imageUrl: string): string {\n"
         "  const cleanPath = imageUrl.split(/[?#]/, 1)[0];\n"
         "  return cleanPath.slice(cleanPath.lastIndexOf('/') + 1);\n"
         "}\n\n"
         "export function lessonImageSource(imageUrl: string): ImageSourcePropType {\n"
         "  return BUNDLED_LESSON_IMAGES[imageFilename(imageUrl)] ?? { uri: absoluteMediaUrl(imageUrl) };\n"
+        "}\n\n"
+        "export function lessonOptionImageSource(imageUrl: string): ImageSourcePropType {\n"
+        "  const filename = imageFilename(imageUrl);\n"
+        "  const optionFilename = OPTION_MEDIA_VARIANTS[filename] ?? filename;\n"
+        "  return BUNDLED_LESSON_IMAGES[optionFilename] ?? { uri: absoluteMediaUrl(imageUrl) };\n"
         "}\n",
         encoding="utf-8",
     )

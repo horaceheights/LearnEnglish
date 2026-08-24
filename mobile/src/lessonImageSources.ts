@@ -852,17 +852,20 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'family_brothers.webp': require('../assets/lesson-assets/family_brothers.webp'),
   'family_children.webp': require('../assets/lesson-assets/family_children.webp'),
   'family_children_playing.webp': require('../assets/lesson-assets/family_children_playing.webp'),
+  'family_children_playing_3x2.webp': require('../assets/lesson-assets/family_children_playing_3x2.webp'),
   'family_children_studying.webp': require('../assets/lesson-assets/family_children_studying.webp'),
   'family_father.webp': require('../assets/lesson-assets/family_father.webp'),
   'family_father_working.webp': require('../assets/lesson-assets/family_father_working.webp'),
+  'family_father_working_3x2.webp': require('../assets/lesson-assets/family_father_working_3x2.webp'),
   'family_grandfather.webp': require('../assets/lesson-assets/family_grandfather.webp'),
   'family_grandmother.webp': require('../assets/lesson-assets/family_grandmother.webp'),
   'family_grandparents.webp': require('../assets/lesson-assets/family_grandparents.webp'),
   'family_grandparents_sitting.webp': require('../assets/lesson-assets/family_grandparents_sitting.webp'),
-  'family_grandparents_sitting_3x2_pilot.webp': require('../assets/lesson-assets/family_grandparents_sitting_3x2_pilot.webp'),
+  'family_grandparents_sitting_3x2.webp': require('../assets/lesson-assets/family_grandparents_sitting_3x2.webp'),
   'family_grandparents_talking.webp': require('../assets/lesson-assets/family_grandparents_talking.webp'),
   'family_mother.webp': require('../assets/lesson-assets/family_mother.webp'),
   'family_mother_cooking.webp': require('../assets/lesson-assets/family_mother_cooking.webp'),
+  'family_mother_cooking_3x2.webp': require('../assets/lesson-assets/family_mother_cooking_3x2.webp'),
   'family_parents.webp': require('../assets/lesson-assets/family_parents.webp'),
   'family_parents_talking.webp': require('../assets/lesson-assets/family_parents_talking.webp'),
   'family_sisters.webp': require('../assets/lesson-assets/family_sisters.webp'),
@@ -900,6 +903,13 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'woman_is_writing.webp': require('../assets/lesson-assets/woman_is_writing.webp'),
 };
 
+const OPTION_MEDIA_VARIANTS: Record<string, string> = {
+  'family_children_playing.webp': 'family_children_playing_3x2.webp',
+  'family_father_working.webp': 'family_father_working_3x2.webp',
+  'family_grandparents_sitting.webp': 'family_grandparents_sitting_3x2.webp',
+  'family_mother_cooking.webp': 'family_mother_cooking_3x2.webp',
+};
+
 function imageFilename(imageUrl: string): string {
   const cleanPath = imageUrl.split(/[?#]/, 1)[0];
   return cleanPath.slice(cleanPath.lastIndexOf('/') + 1);
@@ -907,4 +917,10 @@ function imageFilename(imageUrl: string): string {
 
 export function lessonImageSource(imageUrl: string): ImageSourcePropType {
   return BUNDLED_LESSON_IMAGES[imageFilename(imageUrl)] ?? { uri: absoluteMediaUrl(imageUrl) };
+}
+
+export function lessonOptionImageSource(imageUrl: string): ImageSourcePropType {
+  const filename = imageFilename(imageUrl);
+  const optionFilename = OPTION_MEDIA_VARIANTS[filename] ?? filename;
+  return BUNDLED_LESSON_IMAGES[optionFilename] ?? { uri: absoluteMediaUrl(imageUrl) };
 }

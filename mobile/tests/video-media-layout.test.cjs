@@ -27,7 +27,7 @@ assert.match(
 
 assert.match(
   cardViewSource,
-  /if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<Image[\s\S]*?source=\{lessonImageSource\(imageUrl\)\}/,
+  /if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<OptionMediaStillLayer imageUrl=\{imageUrl\}/,
   'Multi-choice action cards must keep their matching still visible until playback actually starts.',
 );
 
@@ -51,14 +51,14 @@ assert.match(
 
 assert.match(
   cardViewSource,
-  /!videoReady\s*\?\s*\(\s*<Image[\s\S]*?source=\{lessonImageSource\(imageUrl\)\}/,
-  'Video cards must show their exact matching still until the first video frame is ready.',
+  /!videoReady\s*\?\s*\(\s*<OptionMediaStillLayer imageUrl=\{imageUrl\} poster/,
+  'Video cards must show their reviewed matching option still until the first video frame is ready.',
 );
 
 assert.match(
   cardViewSource,
-  /if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?resizeMode=\{useThreeByTwoFrame \? 'cover' : 'contain'\}[\s\S]*?!videoReady\s*\?\s*\([\s\S]*?resizeMode=\{useThreeByTwoFrame \? 'cover' : 'contain'\}/,
-  'Video fallbacks and cold-load posters must fill an approved 3:2 option frame while preserving contain elsewhere.',
+  /function OptionMediaStillLayer[\s\S]*?lessonOptionImageSource\(imageUrl\)[\s\S]*?resizeMode="cover"[\s\S]*?if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<OptionMediaStillLayer imageUrl=\{imageUrl\}/,
+  'Video fallbacks and cold-load posters must use the same reviewed 3:2 still layer as image options.',
 );
 
 assert.match(

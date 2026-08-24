@@ -45,8 +45,8 @@ try {
   & node tests/phrase-option-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de diseño horizontal de frases.' }
 
-  & node tests/option-media-pilot.test.cjs
-  if ($LASTEXITCODE -ne 0) { throw 'Falló la prueba piloto de imágenes 3:2 en opciones.' }
+  & node tests/option-media-standard.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la prueba global de imágenes 3:2 en opciones.' }
 
   & node tests/lesson-context-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de contexto de unidad y lección.' }
