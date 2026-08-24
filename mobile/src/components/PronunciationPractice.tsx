@@ -16,7 +16,6 @@ import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
 import { courseAudioUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
-import { lessonImageSource } from '../lessonImageSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -32,6 +31,7 @@ import {
   speechTokens,
 } from '../pronunciationEngine';
 import type { PronunciationResult } from '../types';
+import { OptionMediaImage } from './OptionMediaImage';
 import {
   addSpeechListener,
   nativeStreamingAvailable,
@@ -331,6 +331,9 @@ export function PronunciationPractice({
   const listeningMascotWidth = 94;
   const listeningMascotHeight = 104;
   const isLandscape = viewportWidth > viewportHeight;
+  // The outer border and inset add 24dp around the shared 3:2 media viewport.
+  // Cap by the height reserved by LessonCardView so feedback never falls below the screen.
+  const practiceFrameMaxWidth = Math.max(160, ((Math.max(96, imageHeight) - 24) * 3 / 2) + 24);
   const isCurrentRun = useCallback(
     (runId: number) => mountedRef.current && runIdRef.current === runId,
     [],
@@ -1688,38 +1691,31 @@ export function PronunciationPractice({
         <View style={isLandscape ? styles.landscapeMediaRow : styles.portraitMediaRow}>
           {/* Guardrail: equal side columns keep the centered image and mascot from ever overlapping. */}
           {isLandscape ? <View style={styles.mascotColumn}>{activeMascot}</View> : null}
-          {videoName && !reduceMotion ? (
-            <View
-              style={[
-                styles.practiceMedia,
-                { height: imageHeight },
-                isLandscape ? styles.practiceImageLandscape : null,
-              ]}
-            >
-              <Image
+          <View
+            style={[
+              styles.practiceFrame,
+              { maxWidth: practiceFrameMaxWidth },
+              isLandscape ? styles.practiceFrameLandscape : null,
+            ]}
+          >
+            <View style={styles.practiceMedia}>
+              <OptionMediaImage
                 accessibilityLabel={imageLabel || phrase}
-                resizeMode="contain"
-                source={lessonImageSource(imageUrl)}
-                style={styles.practiceMediaLayer}
+                imageUrl={imageUrl}
               />
-              <VideoView
-                accessible={false}
-                contentFit="contain"
-                nativeControls={false}
-                player={practiceVideoPlayer}
-                pointerEvents="none"
-                surfaceType="textureView"
-                style={styles.practiceMediaLayer}
-              />
+              {videoName && !reduceMotion ? (
+                <VideoView
+                  accessible={false}
+                  contentFit="cover"
+                  nativeControls={false}
+                  player={practiceVideoPlayer}
+                  pointerEvents="none"
+                  surfaceType="textureView"
+                  style={styles.practiceVideoLayer}
+                />
+              ) : null}
             </View>
-          ) : (
-            <Image
-              accessibilityLabel={imageLabel || phrase}
-              resizeMode="contain"
-              source={lessonImageSource(imageUrl)}
-              style={[styles.practiceImage, { height: imageHeight }, isLandscape ? styles.practiceImageLandscape : null]}
-            />
-          )}
+          </View>
           {isLandscape ? <View style={styles.mascotColumn} /> : null}
         </View>
       ) : null}
@@ -1885,23 +1881,37 @@ const styles = StyleSheet.create({
   landscapeMediaRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', width: '100%' },
   mascotColumn: { alignItems: 'center', justifyContent: 'center', width: 112 },
   portraitMediaRow: { alignItems: 'center', width: '100%' },
-  practiceImage: { alignSelf: 'center', width: '100%' },
-  practiceImageLandscape: { flex: 1, minWidth: 0, width: undefined },
-  practiceMedia: {
+  practiceFrame: {
     alignSelf: 'center',
+    backgroundColor: '#fffef9',
+    borderColor: '#172d35',
+    borderRadius: 24,
+    borderWidth: 4,
+    elevation: 3,
+    padding: 8,
+    shadowColor: '#172d35',
+    shadowOffset: { height: 3, width: 0 },
+    shadowOpacity: 0.12,
+    shadowRadius: 5,
+    width: '100%',
+  },
+  practiceFrameLandscape: { flex: 1, minWidth: 0, width: undefined },
+  practiceMedia: {
+    aspectRatio: 3 / 2,
     backgroundColor: '#f2ebde',
     borderRadius: 17,
     overflow: 'hidden',
     position: 'relative',
     width: '100%',
   },
-  practiceMediaLayer: {
+  practiceVideoLayer: {
     bottom: 0,
     height: '100%',
     left: 0,
     position: 'absolute',
     right: 0,
     top: 0,
+    transform: [{ scale: 1.025 }],
     width: '100%',
   },
   phrase: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, textAlign: 'center' },

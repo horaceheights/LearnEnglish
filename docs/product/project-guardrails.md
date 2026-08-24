@@ -138,6 +138,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not crop heads, faces, hands needed for meaning, or the action itself.
 - Preserve the full subject with `contain` or an equivalent normalized frame when cropping would remove meaning.
 - Use consistent aspect ratios and framing for images serving the same card role.
+- Every Speak-stage model image uses the same inset 3:2 option-media treatment as the rest of the lesson: dark outer border, warm-neutral fallback, and rounded outer and inner clipping. Apply this through the shared pronunciation component, never as lesson-specific styling.
 - Every A1 lesson and unit has its own explicit title image that represents that lesson or unit's primary learning focus. Title imagery is globally unique across the course: no two lessons, no two units, and no lesson-unit pair may reuse the same picture, including identical picture content saved under different filenames. Reserve each unit-level image for that unit's menu and header only.
 - Reuse established people and family members when continuity helps learners infer meaning.
 - Family compositions must match previously established family members and relationships.
@@ -304,3 +305,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Preview publication standardized on one canonical full-course lineage; divergent feature branches must integrate it before publishing to the shared channel.
 - 2026-08-24: Preview release identity standardized on the seven-character Git commit displayed beside the app version in the update popup and `Actualizar` menu; build and Expo-specific IDs remain hidden there.
 - 2026-08-24: Portrait image-choice stacks standardized on height-aware uniform scaling so wrong-answer encouragement and teaching hints remain above Android navigation without changing the 3:2 media frame.
+- 2026-08-24: All mobile Speak-stage images standardized on the lesson option frame, including its 3:2 crop policy, dark inset border, and rounded clipping across every unit.

@@ -3,12 +3,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const cardViewPath = path.resolve(__dirname, '../src/components/LessonCardView.tsx');
+const optionMediaImagePath = path.resolve(__dirname, '../src/components/OptionMediaImage.tsx');
 const configPath = path.resolve(__dirname, '../src/config.ts');
 const actionVideosPath = path.resolve(__dirname, '../src/actionVideos.ts');
 const normalizerPath = path.resolve(__dirname, '../../scripts/generate_lesson_action_videos.py');
 const lessonScreenPath = path.resolve(__dirname, '../src/screens/LessonScreen.tsx');
 const webPlayerPath = path.resolve(__dirname, '../../frontend/components/LessonPlayer.js');
 const cardViewSource = fs.readFileSync(cardViewPath, 'utf8');
+const optionMediaImageSource = fs.readFileSync(optionMediaImagePath, 'utf8');
 const configSource = fs.readFileSync(configPath, 'utf8');
 const actionVideosSource = fs.readFileSync(actionVideosPath, 'utf8');
 const normalizerSource = fs.readFileSync(normalizerPath, 'utf8');
@@ -27,7 +29,7 @@ assert.match(
 
 assert.match(
   cardViewSource,
-  /if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<OptionMediaStillLayer imageUrl=\{imageUrl\}/,
+  /if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<OptionMediaImage imageUrl=\{imageUrl\}/,
   'Multi-choice action cards must keep their matching still visible until playback actually starts.',
 );
 
@@ -51,13 +53,13 @@ assert.match(
 
 assert.match(
   cardViewSource,
-  /!videoReady\s*\?\s*\(\s*<OptionMediaStillLayer imageUrl=\{imageUrl\} poster/,
+  /!videoReady\s*\?\s*\(\s*<OptionMediaImage imageUrl=\{imageUrl\} poster/,
   'Video cards must show their reviewed matching option still until the first video frame is ready.',
 );
 
 assert.match(
-  cardViewSource,
-  /function OptionMediaStillLayer[\s\S]*?lessonOptionImageSource\(imageUrl\)[\s\S]*?resizeMode="cover"[\s\S]*?if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<OptionMediaStillLayer imageUrl=\{imageUrl\}/,
+  `${optionMediaImageSource}\n${cardViewSource}`,
+  /lessonOptionImageSource\(imageUrl\)[\s\S]*?resizeMode="cover"[\s\S]*?if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<OptionMediaImage imageUrl=\{imageUrl\}/,
   'Video fallbacks and cold-load posters must use the same reviewed 3:2 still layer as image options.',
 );
 

@@ -95,6 +95,9 @@ try {
 
   & node tests/pronunciation-lifecycle.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas del ciclo de pronunciación.' }
+
+  & node tests/pronunciation-media-frame.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el marco compartido de imágenes de pronunciación.' }
 } finally {
   Pop-Location
   $resolvedOutputDirectory = [System.IO.Path]::GetFullPath($outputDirectory)

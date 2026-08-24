@@ -9,6 +9,7 @@ const bundledRoot = path.join(mobileRoot, 'assets', 'lesson-assets');
 const canonicalRoot = path.join(repositoryRoot, 'Lessons', 'Lesson1', 'images');
 const webRoot = path.join(repositoryRoot, 'frontend', 'public', 'lesson-assets');
 const cardView = fs.readFileSync(path.join(mobileRoot, 'src/components/LessonCardView.tsx'), 'utf8');
+const optionMediaImage = fs.readFileSync(path.join(mobileRoot, 'src/components/OptionMediaImage.tsx'), 'utf8');
 const lessonPlayer = fs.readFileSync(path.join(repositoryRoot, 'frontend/components/LessonPlayer.js'), 'utf8');
 const imageSources = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSources.ts'), 'utf8');
 const exporter = fs.readFileSync(path.join(repositoryRoot, 'scripts/export_mobile_preview_lessons.py'), 'utf8');
@@ -106,7 +107,7 @@ assert.doesNotMatch(generatedText.join('\n'), /_3x2_pilot\.webp/, 'generated les
 assert.match(cardView, /const useThreeByTwoOptionMedia = card\.options\.some/);
 assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia\}/);
 assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, overflow:\s*'hidden' \}/);
-assert.match(cardView, /<OptionMediaStillLayer imageUrl=\{option\.image_url\} \/>/);
+assert.match(cardView, /<OptionMediaImage imageUrl=\{option\.image_url\} \/>/);
 assert.match(lessonPlayer, /const useThreeByTwoOptionMedia = currentCard\?\.options\?\.some/);
 assert.match(lessonPlayer, /useThreeByTwoOptionMedia[\s\S]*?aspectRatio:\s*"3 \/ 2"[\s\S]*?objectFit:\s*"cover"/);
 assert.match(lessonPlayer, /lessonOptionImageSrc\(option\.image_url\)/);
@@ -120,7 +121,7 @@ assert.match(lessonPlayer, /useStillOnlyLesson17Comparison[\s\S]*?activeLesson\.
 assert.match(lessonPlayer, /const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison/);
 
 for (const name of topAlignedCrops) {
-  assert.ok(cardView.includes(`'${name}'`), `${name} is missing the mobile top-aligned crop policy`);
+  assert.ok(optionMediaImage.includes(`'${name}'`), `${name} is missing the shared mobile top-aligned crop policy`);
   assert.ok(lessonPlayer.includes(`"${name}"`), `${name} is missing the web top-aligned crop policy`);
 }
 

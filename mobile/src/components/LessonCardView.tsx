@@ -5,10 +5,11 @@ import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
-import { lessonImageSource, lessonOptionImageSource } from '../lessonImageSources';
+import { lessonImageSource } from '../lessonImageSources';
 import { lessonHelpText } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';
+import { OptionMediaImage } from './OptionMediaImage';
 import { PronunciationPractice } from './PronunciationPractice';
 
 const TEXT_OPTION_THEMES = [
@@ -17,25 +18,6 @@ const TEXT_OPTION_THEMES = [
   { accent: '#96651d', background: '#fff6df', border: '#e3c27d' },
   { accent: '#4f5d95', background: '#f0f2fa', border: '#adb5d8' },
 ];
-
-const TOP_ALIGNED_OPTION_MEDIA = new Set([
-  'boy.webp',
-  'family_brothers.webp',
-  'family_children.webp',
-  'family_grandfather.webp',
-  'family_grandmother.webp',
-  'family_grandparents.webp',
-  'family_mother.webp',
-  'family_sisters.webp',
-  'girl.webp',
-  'man.webp',
-  'woman.webp',
-]);
-
-function optionMediaFilename(imageUrl: string): string {
-  const cleanPath = imageUrl.split(/[?#]/, 1)[0];
-  return cleanPath.slice(cleanPath.lastIndexOf('/') + 1);
-}
 
 type Props = {
   audioProvider: CourseAudioProvider;
@@ -438,7 +420,7 @@ export function LessonCardView({
                           showHelp ? styles.optionImageThreeByTwoHelp : null,
                         ]}
                       >
-                        <OptionMediaStillLayer imageUrl={option.image_url} />
+                        <OptionMediaImage imageUrl={option.image_url} />
                       </View>
                     )
                   ) : null}
@@ -536,30 +518,6 @@ export function LessonCardView({
   );
 }
 
-function OptionMediaStillLayer({ imageUrl, poster = false }: { imageUrl: string; poster?: boolean }) {
-  const source = lessonOptionImageSource(imageUrl);
-  const topAligned = TOP_ALIGNED_OPTION_MEDIA.has(optionMediaFilename(imageUrl));
-  const resolvedSource = topAligned ? Image.resolveAssetSource(source) : null;
-  const sourceAspectRatio = resolvedSource?.width && resolvedSource?.height
-    ? resolvedSource.width / resolvedSource.height
-    : 3 / 2;
-
-  return (
-    <Image
-      accessible={false}
-      accessibilityIgnoresInvertColors
-      resizeMode="cover"
-      source={source}
-      style={[
-        topAligned
-          ? [styles.optionImageTopAligned, { aspectRatio: sourceAspectRatio }]
-          : styles.optionImageThreeByTwoFill,
-        poster ? styles.optionImagePoster : null,
-      ]}
-    />
-  );
-}
-
 function LessonActionMedia({
   accessibilityLabel,
   height,
@@ -627,7 +585,7 @@ function LessonActionMedia({
           useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
         ]}
       >
-        <OptionMediaStillLayer imageUrl={imageUrl} />
+        <OptionMediaImage imageUrl={imageUrl} />
       </View>
     );
   }
@@ -652,7 +610,7 @@ function LessonActionMedia({
         style={styles.actionMediaLayer}
       />
       {!videoReady ? (
-        <OptionMediaStillLayer imageUrl={imageUrl} poster />
+        <OptionMediaImage imageUrl={imageUrl} poster />
       ) : null}
       {onPress ? (
         <Pressable
@@ -750,11 +708,8 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
-  optionImageThreeByTwoFill: { height: '100%', width: '100%' },
   optionImageThreeByTwoFrame: { aspectRatio: 3 / 2, overflow: 'hidden' },
   optionImageThreeByTwoHelp: { width: '65%' },
-  optionImageTopAligned: { left: 0, position: 'absolute', right: 0, top: 0, width: '100%' },
-  optionImagePoster: { zIndex: 1 },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {
