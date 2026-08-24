@@ -144,7 +144,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Use motion when it clarifies an action or concept that can be ambiguous in a still image, such as running, walking, swimming, reading, writing, studying, talking, working, cooking, playing, eating, drinking, or sleeping.
 - In multi-choice slides, keep action choices visually still by pausing their video surfaces. After the correct choice, the selected surface may play a short two-to-three-second motion confirmation.
 - A single-card vocabulary introduction may play its teaching clip directly.
-- When an action clip exists, its paused first frame is the card's normal visual surface. Do not render a separate still image and then swap to video after selection; play the already-mounted video surface instead. A still image is allowed only for reduced-motion mode or a genuine video-load failure.
+- When an action clip exists, its paused first frame is the card's normal visual surface. During cold loading, show the exact matching still as a poster only until the mounted video renders its first frame; the poster and video must share the same crop and dimensions so the transition is invisible. Do not wait until selection to mount or swap to video. A persistent still is allowed only for reduced-motion mode or a genuine video-load failure.
 - Single-card teaching clips use the full available card width and the main visual height. Do not force them into a short 16:9 strip inside a large empty card.
 - Generated clips must be silent. Do not generate talking mouths unless speech itself is the lesson target.
 - Normalize action clips to the shared 16:9 frame, currently 640x360, with no encoded black sidebars.
@@ -277,6 +277,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-21: Action-video normalization standardized on CRF 20 from original raw sources; re-normalizing compressed lesson exports is prohibited.
 - 2026-08-22: Unit 2 standardized to ten dependency-ordered lessons using the same five-stage shell, exact per-card Spanish translations, intentional curriculum recycling, and a coherent-scene final mission.
 - 2026-08-22: Unit 2 place images prohibited answer-word labels; hospital uses `H` plus a medical symbol and restaurant meaning comes from dining context.
+- 2026-08-23: Action-video cards now show their exact matching still during cold loading, then remove it as soon as the mounted video renders its first frame.
 - 2026-08-22: Unit 2 numbers standardized on realistic brushed-metal numerals with exact gold-star quantities; plain-dot and cartoon number treatments are retired.
 - 2026-08-22: Unit 2 wrong-answer support standardized on one concise Spanish cue naming the relevant context: place features, object shape, depth, count, color, or phrase order.
 - 2026-08-23: Use-stage completion prompts remain silent before selection; after a correct choice, audio speaks the full completed prompt, preserving leading context and punctuation instead of playing a fragment or shortened trailing clause.

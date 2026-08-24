@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { lessonActionVideo } from '../actionVideos';
-import { absoluteMediaUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { lessonImageSource } from '../lessonImageSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { lessonHelpText } from '../lessonHelp';
@@ -510,6 +510,7 @@ function LessonActionMedia({
 }) {
   const reduceMotion = useReducedMotion();
   const [videoFailed, setVideoFailed] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
   const player = useVideoPlayer({ uri: lessonVideoUrl(videoName), useCaching: true }, (instance) => {
     instance.loop = false;
     instance.muted = true;
@@ -518,6 +519,7 @@ function LessonActionMedia({
 
   useEffect(() => {
     setVideoFailed(false);
+    setVideoReady(false);
   }, [videoName]);
 
   useEffect(() => {
@@ -540,7 +542,7 @@ function LessonActionMedia({
       <Image
         accessibilityLabel={accessibilityLabel}
         resizeMode="cover"
-        source={{ uri: absoluteMediaUrl(imageUrl) }}
+        source={lessonImageSource(imageUrl)}
         style={[
           styles.actionMedia,
           useCompactFrame ? styles.singleActionMedia : null,
@@ -562,12 +564,22 @@ function LessonActionMedia({
         nativeControls={false}
         onFirstFrameRender={() => {
           setVideoFailed(false);
+          setVideoReady(true);
         }}
         player={player}
         pointerEvents="none"
         surfaceType="textureView"
         style={styles.actionMediaLayer}
       />
+      {!videoReady ? (
+        <Image
+          accessibilityIgnoresInvertColors
+          accessibilityLabel={accessibilityLabel}
+          resizeMode="cover"
+          source={lessonImageSource(imageUrl)}
+          style={styles.actionMediaPoster}
+        />
+      ) : null}
       {onPress ? (
         <Pressable
           accessibilityLabel={accessibilityLabel}
@@ -686,6 +698,16 @@ const styles = StyleSheet.create({
     top: 0,
     transform: [{ scale: 1.025 }],
     width: '100%',
+  },
+  actionMediaPoster: {
+    bottom: 0,
+    height: '100%',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    width: '100%',
+    zIndex: 1,
   },
   actionMediaPressTarget: {
     bottom: 0,

@@ -25,10 +25,16 @@ assert.match(
   'The shared video surface must stay paused until a single-card lesson or correct selection plays it.',
 );
 
-assert.doesNotMatch(
+assert.match(
   cardViewSource,
-  /!firstFrameRendered\s*\?\s*\(\s*<Image/,
-  'Video cards must not layer a different still image beneath the video.',
+  /!videoReady\s*\?\s*\(\s*<Image[\s\S]*?source=\{lessonImageSource\(imageUrl\)\}/,
+  'Video cards must show their exact matching still until the first video frame is ready.',
+);
+
+assert.match(
+  cardViewSource,
+  /onFirstFrameRender=\{\(\) => \{[\s\S]*?setVideoReady\(true\)/,
+  'The cold-load poster must disappear as soon as the mounted video renders its first frame.',
 );
 
 assert.match(

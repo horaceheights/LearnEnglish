@@ -4,6 +4,7 @@ import { absoluteMediaUrl } from './config';
 
 // Metro needs literal require calls so these approved stills travel with every Preview OTA.
 const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
+  'they_boy_girl_are_running.webp': require('../assets/lesson-assets/they_boy_girl_are_running.webp'),
   'unit2_bag.webp': require('../assets/lesson-assets/unit2_bag.webp'),
   'unit2_black.webp': require('../assets/lesson-assets/unit2_black.webp'),
   'unit2_blue.webp': require('../assets/lesson-assets/unit2_blue.webp'),
