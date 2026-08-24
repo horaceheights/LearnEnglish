@@ -115,6 +115,7 @@ Do not force every word through every step in a single lesson when that would ma
 - A shared component change must be verified against two-option and four-option cards.
 - Do not use a correct-answer visual treatment until after the learner selects an answer.
 - The SpanGlish lesson logo remains a navigation control back to the lesson home/menu.
+- On the course screen, green is reserved for lessons that have been passed. The current or in-progress lesson uses an orange numbered dot plus orange row and `Disponible` status accents; it must not look completed.
 
 ## 5. Image Guardrails
 

@@ -550,7 +550,18 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
                     </View>
                     <View style={styles.lessonCopy}>
                       <View style={styles.lessonMeta}>
-                        <Text style={[styles.lessonStatus, progress?.passed || isCurrent ? styles.lessonStatusCurrent : null]}>{status}</Text>
+                        <Text
+                          style={[
+                            styles.lessonStatus,
+                            progress?.passed
+                              ? styles.lessonStatusCompleted
+                              : isCurrent
+                                ? styles.lessonStatusCurrent
+                                : null,
+                          ]}
+                        >
+                          {status}
+                        </Text>
                         <Text style={styles.lessonLevel}>{lesson.level}</Text>
                       </View>
                       <Text numberOfLines={2} style={styles.lessonTitle}>{lessonName(lesson)}</Text>
@@ -700,10 +711,10 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   lessonRowGrid: { borderColor: '#eee8de', borderRadius: 16, borderWidth: 1, flexGrow: 1, width: '48%' },
-  lessonRowCurrent: { backgroundColor: '#eef8f5', borderColor: '#9dcfc4', borderRadius: 16, borderWidth: 1 },
+  lessonRowCurrent: { backgroundColor: '#fff5e8', borderColor: '#e6a84a', borderRadius: 16, borderWidth: 1 },
   lessonRowLocked: { backgroundColor: '#f4f1eb', opacity: 0.68 },
   lessonStep: { alignItems: 'center', backgroundColor: '#f2ebde', borderRadius: 15, height: 30, justifyContent: 'center', width: 30 },
-  lessonStepCurrent: { backgroundColor: '#16766f' },
+  lessonStepCurrent: { backgroundColor: '#e96f42' },
   lessonStepCompleted: { backgroundColor: '#23856f' },
   lessonStepText: { color: '#697177', fontSize: 12, fontWeight: '900' },
   lessonStepTextCurrent: { color: '#fff' },
@@ -711,7 +722,8 @@ const styles = StyleSheet.create({
   lessonCopy: { flex: 1, marginHorizontal: 10, minWidth: 0 },
   lessonMeta: { alignItems: 'center', flexDirection: 'row', gap: 7 },
   lessonStatus: { color: '#8a8176', fontSize: 9, fontWeight: '900', letterSpacing: 0.5, textTransform: 'uppercase' },
-  lessonStatusCurrent: { color: '#16766f' },
+  lessonStatusCurrent: { color: '#c94d24' },
+  lessonStatusCompleted: { color: '#16766f' },
   lessonLevel: { backgroundColor: '#f2ebde', borderRadius: 5, color: '#697177', fontSize: 8, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 5, paddingVertical: 2 },
   lessonTitle: { color: '#24333a', fontSize: 15, fontWeight: '900', lineHeight: 18, marginTop: 3 },
   lessonDescription: { color: '#697177', fontSize: 10, marginTop: 3 },
