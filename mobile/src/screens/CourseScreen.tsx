@@ -25,7 +25,10 @@ import { setDiagnosticContext } from '../diagnostics';
 import { lessonImageSource } from '../lessonImageSources';
 import { getPreviewLessonMetadata, mergePreviewLessonSummaries } from '../previewLessons';
 import type { LearnerProfile, LessonProgress, LessonSummary } from '../types';
-import { canUseEasUpdates } from '../updates';
+import {
+  canUseEasUpdates,
+  saveUpdateReceiptBeforeReload,
+} from '../updates';
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
   'lesson-1-people-actions': {
@@ -390,21 +393,8 @@ const UNIT_VISUALS: Record<string, { image: string; description: string; color: 
   'unit-6': { image: 'a1_station.webp', description: 'La ciudad, transporte y direcciones.', color: '#dff4ef' },
   'unit-7': { image: 'a1_scene_food-the-bank-it-is-sunny_6a1f116.webp', description: 'Necesidades diarias e integración A1.', color: '#f1e4fa' },
 };
-const UPDATE_COMPLETED_STORAGE_KEY = 'app:update-completed-message';
-
-type UpdateReceipt = {
-  build?: string;
-  updateId: string;
-  version: string;
-};
-
 function installedVersion(version: string, build: string): string {
   return `Versión ${version} · Build ${build}`;
-}
-
-function detailedVersion(label: string, version: string, build: string, updateId: string): string {
-  const updateLabel = updateId === 'embedded' ? 'incluida' : updateId.slice(0, 8);
-  return `${label}\nVersión: ${version}\nBuild: ${build}\nActualización: ${updateLabel}`;
 }
 
 type Props = {
@@ -508,27 +498,6 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
       .then((lessonId) => setRecentLessonId(lessonId || ''))
       .catch(() => setRecentLessonId(''));
   }, [recentLessonStorageKey]);
-  useEffect(() => {
-    AsyncStorage.getItem(UPDATE_COMPLETED_STORAGE_KEY)
-      .then((storedReceipt) => {
-        if (!storedReceipt) return;
-        let previous: UpdateReceipt | null = null;
-        try {
-          previous = JSON.parse(storedReceipt) as UpdateReceipt;
-        } catch {
-          // Support the one-time boolean flag written by earlier app versions.
-        }
-        return AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY).then(() => {
-          const currentUpdateId = Updates.updateId || 'embedded';
-          const versionDetails = previous
-            ? `${detailedVersion('ANTERIOR', previous.version, previous.build || currentBuild, previous.updateId)}\n\n${detailedVersion('ACTUAL', currentVersion, currentBuild, currentUpdateId)}`
-            : `Versi\u00f3n: ${currentVersion}\nBuild: ${currentBuild}`;
-          Alert.alert('Actualizaci\u00f3n completada', versionDetails);
-        });
-      })
-      .catch(() => undefined);
-  }, [currentBuild, currentVersion]);
-
   const openLesson = (lessonId: string) => {
     setLoadingLessonId(lessonId);
     setRecentLessonId(lessonId);
@@ -597,14 +566,9 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
       return;
     }
     try {
-      const updateReceipt = JSON.stringify({
-        build: currentBuild,
-        updateId: Updates.updateId || 'embedded',
-        version: currentVersion,
-      } satisfies UpdateReceipt);
       if (isUpdatePending) {
         setUpdateStatus('downloading');
-        await AsyncStorage.setItem(UPDATE_COMPLETED_STORAGE_KEY, updateReceipt);
+        await saveUpdateReceiptBeforeReload();
         await Updates.reloadAsync();
         return;
       }
@@ -618,11 +582,15 @@ export function CourseScreen({ profile, onOpenLesson, onViewProfile, onSignOut, 
       }
 
       setUpdateStatus('downloading');
-      await Updates.fetchUpdateAsync();
-      await AsyncStorage.setItem(UPDATE_COMPLETED_STORAGE_KEY, updateReceipt);
+      const fetchedUpdate = await Updates.fetchUpdateAsync();
+      if (!fetchedUpdate.isNew) {
+        setUpdateStatus('idle');
+        Alert.alert('SpanGlish está actualizado', `Versión: ${currentVersion}\nBuild: ${currentBuild}`);
+        return;
+      }
+      await saveUpdateReceiptBeforeReload(fetchedUpdate.manifest.id);
       await Updates.reloadAsync();
     } catch {
-      await AsyncStorage.removeItem(UPDATE_COMPLETED_STORAGE_KEY).catch(() => undefined);
       setUpdateStatus('idle');
       Alert.alert('No pudimos actualizar', 'Revisa tu conexión a internet e inténtalo otra vez.');
     }

@@ -1,5 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode, useEffect, useState } from 'react';
 import {
+  Alert,
   Pressable,
   StyleSheet,
   Text,
@@ -24,7 +25,11 @@ import { LessonScreen } from './src/screens/LessonScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import type { LearnerProfile } from './src/types';
-import { canUseEasUpdates } from './src/updates';
+import {
+  canUseEasUpdates,
+  consumeCompletedUpdateMessage,
+  saveUpdateReceiptBeforeReload,
+} from './src/updates';
 
 type Screen =
   | { name: 'course' }
@@ -179,19 +184,28 @@ function StartupUpdateGate({ children }: { children: ReactNode }) {
     let isMounted = true;
 
     const applyAvailableUpdate = async () => {
+      let completedUpdateMessage: string | null = null;
       try {
+        completedUpdateMessage = await consumeCompletedUpdateMessage();
         addDiagnosticBreadcrumb('startup_update_check');
         const update = await Updates.checkForUpdateAsync();
         if (!update.isAvailable) return;
 
         addDiagnosticBreadcrumb('startup_update_download');
-        await Updates.fetchUpdateAsync();
+        const fetchedUpdate = await Updates.fetchUpdateAsync();
+        if (!fetchedUpdate.isNew) return;
+        await saveUpdateReceiptBeforeReload(fetchedUpdate.manifest.id);
         addDiagnosticBreadcrumb('startup_update_reload');
         await Updates.reloadAsync();
       } catch (error) {
         captureDiagnosticError(error, 'startup_update');
       } finally {
-        if (isMounted) setIsCheckingForUpdate(false);
+        if (isMounted) {
+          setIsCheckingForUpdate(false);
+          if (completedUpdateMessage) {
+            Alert.alert('Actualización completada', completedUpdateMessage);
+          }
+        }
       }
     };
 

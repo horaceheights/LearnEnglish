@@ -177,6 +177,7 @@ Do not force every word through every step in a single lesson when that would ma
 ## 8. Feedback and Interaction
 
 - Cold-start, course, and lesson loading surfaces use the shared playful SpanGlish loader. Keep backend lifecycle details such as server wake-up or connection state out of learner-facing loading copy, and respect reduced-motion settings.
+- After a cold-start EAS update is successfully activated, show one popup confirming the update and identifying both the previous and current app version, build, and update code. Do not show completion for an update that was downloaded but is not yet running.
 - Correct answers play the established success sound and retain visible word-level feedback where applicable.
 - Wrong answers play the established retry sound and retain the correction/help until the learner acts.
 - Do not apply green, orange, or red pronunciation colors while recording or scoring. Keep words neutral until a real result is available.
@@ -281,3 +282,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-22: Unit 2 numbers standardized on realistic brushed-metal numerals with exact gold-star quantities; plain-dot and cartoon number treatments are retired.
 - 2026-08-22: Unit 2 wrong-answer support standardized on one concise Spanish cue naming the relevant context: place features, object shape, depth, count, color, or phrase order.
 - 2026-08-23: Use-stage completion prompts remain silent before selection; after a correct choice, audio speaks the full completed prompt, preserving leading context and punctuation instead of playing a fragment or shortened trailing clause.
+- 2026-08-24: Successful cold-start EAS updates standardized on a one-time confirmation popup with previous and current version, build, and update identifiers.
