@@ -59,6 +59,11 @@ BUNDLED_SOLID_SIDE_FILL_SCENES = {
 # square scene inside a 16:9 export. A top-anchored 4:3 teaching-action crop
 # compensates for player overscan while keeping faces and gestures visible.
 ACTION_SAFE_FOUR_THREE_CROP_SCENES = {"parents-talking"}
+TWO_CARD_ACTION_VARIANTS = {
+    "brother-studying": "brother-studying-two-card-v1.mp4",
+    "children-playing": "children-playing-two-card-v1.mp4",
+    "father-working": "father-working-two-card-v1.mp4",
+}
 
 
 def raw_name_for(output_name: str) -> str:
@@ -170,11 +175,16 @@ def media_duration(input_path: Path) -> float:
     return (int(hours) * 3600) + (int(minutes) * 60) + float(seconds)
 
 
-def encode_normalized(scene_id: str, input_path: Path, output_path: Path) -> None:
+def encode_normalized(
+    scene_id: str,
+    input_path: Path,
+    output_path: Path,
+    force_action_safe_four_three: bool = False,
+) -> None:
     crop = detected_crop(input_path)
     crop_width, crop_height, crop_x, crop_y = (int(value) for value in crop.split(":"))
     temporary_path = output_path.with_name(f"{output_path.stem}.normalized.mp4")
-    if scene_id in ACTION_SAFE_FOUR_THREE_CROP_SCENES and crop_width / crop_height < 1.6:
+    if (force_action_safe_four_three or scene_id in ACTION_SAFE_FOUR_THREE_CROP_SCENES) and crop_width / crop_height < 1.6:
         action_crop_height = min(crop_height, round(crop_width / (4 / 3)))
         action_width = round(360 * (4 / 3))
         action_margin = (640 - action_width) // 2
@@ -221,16 +231,32 @@ def normalize_existing() -> None:
         print(f"normalized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
 
 
+def normalize_two_card_existing() -> None:
+    for scene_id, output_name in TWO_CARD_ACTION_VARIANTS.items():
+        raw_path = RAW_DIR / raw_name_for(SCENES[scene_id][1])
+        if not raw_path.exists():
+            print(f"scene={scene_id} skipped=no-raw-source", flush=True)
+            continue
+        output_path = ASSETS / output_name
+        encode_normalized(scene_id, raw_path, output_path, force_action_safe_four_three=True)
+        MOBILE_VIDEOS.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(output_path, MOBILE_VIDEOS / output_path.name)
+        print(f"two-card-normalized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("scenes", nargs="*", choices=SCENES)
     parser.add_argument("--all", action="store_true")
     parser.add_argument("--normalize-existing", action="store_true")
+    parser.add_argument("--normalize-two-card-existing", action="store_true")
     args = parser.parse_args()
     scene_ids = list(SCENES) if args.all else args.scenes
     if args.normalize_existing:
         normalize_existing()
-    if not scene_ids and not args.normalize_existing:
+    if args.normalize_two_card_existing:
+        normalize_two_card_existing()
+    if not scene_ids and not args.normalize_existing and not args.normalize_two_card_existing:
         parser.error("Choose one or more scenes, or use --all.")
     if not scene_ids:
         return

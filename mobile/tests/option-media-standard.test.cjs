@@ -113,7 +113,10 @@ assert.doesNotMatch(generatedText.join('\n'), /_3x2_pilot\.webp/, 'generated les
 assert.match(cardView, /const useThreeByTwoOptionMedia = card\.options\.some/);
 assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia\}/);
 assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, overflow:\s*'hidden' \}/);
-assert.match(cardView, /<OptionMediaImage imageUrl=\{option\.image_url\} \/>/);
+assert.match(
+  cardView,
+  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
+);
 assert.match(optionMediaImage, /const sourceIsThreeByTwo = Boolean\(/);
 assert.match(optionMediaImage, /const shouldContain = preserveSubject \|\| !sourceIsThreeByTwo/);
 assert.match(optionMediaImage, /resizeMode=\{shouldContain \? 'contain' : 'cover'\}/);

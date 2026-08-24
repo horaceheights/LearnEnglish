@@ -365,7 +365,7 @@ export function LessonCardView({
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
               const actionVideo = useStillOnlyLesson17Comparison
                 ? null
-                : lessonActionVideo(option.image_url);
+                : lessonActionVideo(option.image_url, card.options.length);
               const playActionVideo = Boolean(actionVideo) && (
                 card.options.length === 1 || revealCorrect
               );
@@ -426,7 +426,10 @@ export function LessonCardView({
                           showHelp ? styles.optionImageThreeByTwoHelp : null,
                         ]}
                       >
-                        <OptionMediaImage imageUrl={option.image_url} />
+                        <OptionMediaImage
+                          imageUrl={option.image_url}
+                          sourceOverride={card.options.length === 2 ? actionVideo?.posterSource : undefined}
+                        />
                       </View>
                     )
                   ) : null}
@@ -591,7 +594,7 @@ function LessonActionMedia({
           useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
         ]}
       >
-        <OptionMediaImage imageUrl={imageUrl} />
+        <OptionMediaImage imageUrl={imageUrl} sourceOverride={video.posterSource} />
       </View>
     );
   }
@@ -616,7 +619,7 @@ function LessonActionMedia({
         style={styles.actionMediaLayer}
       />
       {!videoReady ? (
-        <OptionMediaImage imageUrl={imageUrl} poster />
+        <OptionMediaImage imageUrl={imageUrl} poster sourceOverride={video.posterSource} />
       ) : null}
       {onPress ? (
         <Pressable

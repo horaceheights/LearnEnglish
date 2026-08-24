@@ -1,4 +1,4 @@
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, type ImageSourcePropType } from 'react-native';
 
 import { lessonOptionImageSource } from '../lessonImageSources';
 
@@ -10,13 +10,15 @@ export function OptionMediaImage({
   imageUrl,
   poster = false,
   preserveSubject = false,
+  sourceOverride,
 }: {
   accessibilityLabel?: string;
   imageUrl: string;
   poster?: boolean;
   preserveSubject?: boolean;
+  sourceOverride?: ImageSourcePropType;
 }) {
-  const source = lessonOptionImageSource(imageUrl);
+  const source = sourceOverride ?? lessonOptionImageSource(imageUrl);
   const resolvedSource = Image.resolveAssetSource(source);
   const sourceIsThreeByTwo = Boolean(
     resolvedSource?.width

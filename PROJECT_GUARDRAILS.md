@@ -291,3 +291,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Preview publication standardized on one canonical full-course lineage; divergent feature branches must integrate it before publishing to the shared channel.
 - 2026-08-24: Preview release identity standardized on the seven-character Git commit displayed beside the app version in the update popup and `Actualizar` menu; build and Expo-specific IDs remain hidden there.
 - 2026-08-24: Portrait image-choice stacks standardized on height-aware uniform scaling so wrong-answer encouragement and teaching hints remain above Android navigation without changing the 3:2 media frame.
+- 2026-08-24: Exactly two-choice action-video cards standardized on dedicated first-visible-frame 3:2 posters and reviewed two-card-only video variants; one-, three-, and four-choice media remain unchanged.

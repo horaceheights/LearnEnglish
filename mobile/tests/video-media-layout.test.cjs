@@ -21,6 +21,20 @@ const webActionMediaSource = webPlayerSource.slice(
   webPlayerSource.indexOf('const LIVE_PRONUNCIATION_SYLLABLES'),
 );
 
+function webpDimensions(filePath) {
+  const data = fs.readFileSync(filePath);
+  assert.equal(data.toString('ascii', 0, 4), 'RIFF', `${filePath} is not a RIFF image`);
+  assert.equal(data.toString('ascii', 8, 12), 'WEBP', `${filePath} is not WebP`);
+  const chunk = data.toString('ascii', 12, 16);
+  if (chunk === 'VP8 ') return [data.readUInt16LE(26) & 0x3fff, data.readUInt16LE(28) & 0x3fff];
+  if (chunk === 'VP8X') return [1 + data.readUIntLE(24, 3), 1 + data.readUIntLE(27, 3)];
+  if (chunk === 'VP8L') {
+    const bits = data.readUInt32LE(21);
+    return [1 + (bits & 0x3fff), 1 + ((bits >> 14) & 0x3fff)];
+  }
+  assert.fail(`Unsupported WebP chunk ${chunk} in ${filePath}`);
+}
+
 assert.match(
   cardViewSource,
   /actionVideo && playActionVideo \? \(\s*<LessonActionMedia/,
@@ -37,6 +51,24 @@ assert.match(
   cardViewSource,
   /shouldPlay=\{playActionVideo\}/,
   'The shared video surface must stay paused until a single-card lesson or correct selection plays it.',
+);
+
+assert.match(
+  cardViewSource,
+  /lessonActionVideo\(option\.image_url, card\.options\.length\)/,
+  'Native action media must receive the option count so two-card variants cannot leak to other layouts.',
+);
+
+assert.match(
+  cardViewSource,
+  /sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}/,
+  'Only two-choice native cards may replace the ordinary still with a matched video poster.',
+);
+
+assert.match(
+  optionMediaImageSource,
+  /sourceOverride\?: ImageSourcePropType[\s\S]*?sourceOverride \?\? lessonOptionImageSource\(imageUrl\)/,
+  'The shared still renderer must accept an explicit reviewed video-poster source.',
 );
 
 assert.match(
@@ -120,6 +152,55 @@ const solidSideFillVideos = {
   family_parents_talking: 'parents-talking-scene-v5.mp4',
 };
 
+const twoCardVideoVariants = {
+  family_brother_studying: 'brother-studying-two-card-v1.mp4',
+  family_children_playing: 'children-playing-two-card-v1.mp4',
+  family_father_working: 'father-working-two-card-v1.mp4',
+};
+
+const twoCardPosters = {
+  boy_is_drinking: 'boy_is_drinking-two-card-poster.webp',
+  boy_is_eating: 'boy_is_eating-two-card-poster.webp',
+  boy_is_reading: 'boy_is_reading-two-card-poster.webp',
+  boy_is_running: 'boy_is_running-two-card-poster.webp',
+  boy_is_swimming: 'boy_is_swimming-two-card-poster.webp',
+  family_brother_studying: 'family_brother_studying-two-card-poster.webp',
+  family_children_playing: 'family_children_playing-two-card-poster.webp',
+  family_children_studying: 'family_children_studying-two-card-poster.webp',
+  family_father_working: 'family_father_working-two-card-poster.webp',
+  family_mother_cooking: 'family_mother_cooking-two-card-poster.webp',
+  family_parents_talking: 'family_parents_talking-two-card-poster.webp',
+  girl_is_drinking: 'girl_is_drinking-two-card-poster.webp',
+  girl_is_sleeping: 'girl_is_sleeping-two-card-poster.webp',
+  girl_is_walking: 'girl_is_walking-two-card-poster.webp',
+  girl_is_writing: 'girl_is_writing-two-card-poster.webp',
+  they_boy_girl_are_running: 'they_boy_girl_are_running-two-card-poster.webp',
+};
+
+const lessonActionVideoBlock = actionVideosSource.match(/const LESSON_ACTION_VIDEOS:[^{]+\{([\s\S]*?)\n\};/);
+assert.ok(lessonActionVideoBlock, 'The native lesson action-video map must remain inspectable.');
+const lessonActionImageKeys = new Set(
+  [...lessonActionVideoBlock[1].matchAll(/^\s{2}([a-zA-Z0-9_]+):/gm)].map((match) => match[1]),
+);
+const usedTwoCardActionKeys = new Set();
+const generatedLessonsRoot = path.resolve(__dirname, '../src/generated');
+for (const lessonFilename of fs.readdirSync(generatedLessonsRoot)) {
+  if (!/^lesson-.*\.json$/.test(lessonFilename)) continue;
+  const lesson = JSON.parse(fs.readFileSync(path.join(generatedLessonsRoot, lessonFilename), 'utf8'));
+  for (const card of lesson.cards || []) {
+    if ((card.options || []).length !== 2) continue;
+    for (const option of card.options || []) {
+      const imageKey = path.basename(String(option.image_url || '').split(/[?#]/, 1)[0]).replace(/\.[^.]+$/, '');
+      if (lessonActionImageKeys.has(imageKey)) usedTwoCardActionKeys.add(imageKey);
+    }
+  }
+}
+assert.deepEqual(
+  [...usedTwoCardActionKeys].sort(),
+  Object.keys(twoCardPosters).sort(),
+  'Every action video used by a two-choice A1 card must have exactly one reviewed matching poster.',
+);
+
 for (const [imageKey, filename] of Object.entries(solidSideFillVideos)) {
   const bundledVideoPath = path.resolve(__dirname, '../assets/lesson-videos', filename);
   assert.ok(fs.statSync(bundledVideoPath).size > 0, `${filename} must be present in the Preview bundle.`);
@@ -132,6 +213,38 @@ for (const [imageKey, filename] of Object.entries(solidSideFillVideos)) {
     `${filename} must stay aligned between web and native mappings.`,
   );
 }
+
+for (const [imageKey, filename] of Object.entries(twoCardVideoVariants)) {
+  for (const videoPath of [
+    path.resolve(__dirname, '../assets/lesson-videos', filename),
+    path.resolve(__dirname, '../../frontend/public/lesson-assets', filename),
+  ]) {
+    assert.ok(fs.statSync(videoPath).size > 0, `${filename} must exist in both native and web media.`);
+  }
+  assert.ok(actionVideosSource.includes(`${imageKey}: '${filename}'`), `${filename} is missing from the native two-card map.`);
+  assert.ok(webPlayerSource.includes(`"${imageKey}": "${filename}"`), `${filename} is missing from the web two-card map.`);
+}
+
+for (const [imageKey, filename] of Object.entries(twoCardPosters)) {
+  const nativePoster = path.resolve(__dirname, '../assets/lesson-video-posters', filename);
+  const webPoster = path.resolve(__dirname, '../../frontend/public/lesson-video-posters', filename);
+  assert.deepEqual(webpDimensions(nativePoster), [1536, 1024], `${filename} must use the shared 3:2 canvas.`);
+  assert.deepEqual(webpDimensions(webPoster), [1536, 1024], `${filename} must match across web and native.`);
+  assert.ok(actionVideosSource.includes(`require('../assets/lesson-video-posters/${filename}')`), `${filename} must use a literal Metro require.`);
+  assert.ok(webPlayerSource.includes(`"${imageKey}": "${filename}"`), `${filename} is missing from the web poster map.`);
+}
+
+assert.match(
+  webPlayerSource,
+  /lessonActionVideo\(option\.image_url, currentCard\.options\.length\)[\s\S]*?currentCard\.options\.length === 2 && actionVideoName[\s\S]*?lessonTwoCardActionPosterSrc\(option\.image_url\)/,
+  'Web must scope matched action posters and video variants to exactly two-choice cards.',
+);
+
+assert.match(
+  webActionMediaSource,
+  /poster=\{posterSrc \|\| undefined\}/,
+  'Web playback must retain the matched poster until the first visible video frame.',
+);
 
 assert.match(
   normalizerSource,
@@ -149,6 +262,12 @@ assert.match(
   normalizerSource,
   /ACTION_SAFE_FOUR_THREE_CROP_SCENES = \{"parents-talking"\}[\s\S]*?scene_id in ACTION_SAFE_FOUR_THREE_CROP_SCENES[\s\S]*?action_crop_height[\s\S]*?flags=lanczos/,
   'The reviewed parents-talking pilot must keep its action-safe 4:3 crop without stretching.',
+);
+
+assert.match(
+  normalizerSource,
+  /TWO_CARD_ACTION_VARIANTS = \{[\s\S]*?brother-studying-two-card-v1\.mp4[\s\S]*?children-playing-two-card-v1\.mp4[\s\S]*?father-working-two-card-v1\.mp4[\s\S]*?normalize_two_card_existing/,
+  'Reviewed two-card crop variants must remain reproducible from their original raw clips.',
 );
 
 console.log('Unified video media checks passed.');

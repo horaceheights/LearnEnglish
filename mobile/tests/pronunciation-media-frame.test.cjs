@@ -56,7 +56,10 @@ assert.doesNotMatch(
   /TOP_ALIGNED_OPTION_MEDIA|topAligned/,
   'Lesson images must not retain a generic top crop that can reduce people to partial heads or bodies.',
 );
-assert.match(cardViewSource, /<OptionMediaImage imageUrl=\{option\.image_url\} \/>/);
+assert.match(
+  cardViewSource,
+  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
+);
 assert.match(
   mediaFrameSource,
   /LESSON_MEDIA_FRAME_STYLE = \{[\s\S]*?borderColor: '#172d35'[\s\S]*?borderRadius: 24[\s\S]*?borderWidth: 4[\s\S]*?padding: 8/,
