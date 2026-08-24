@@ -17,6 +17,7 @@ import {
   isCrashReportingConfigured,
   setDiagnosticContext,
 } from '../diagnostics';
+import { mergePreviewLessonSummaries } from '../previewLessons';
 import type { Lesson, LessonSummary } from '../types';
 
 type Props = {
@@ -36,7 +37,7 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
   useEffect(() => {
     setDiagnosticContext({ qaMode: true });
     getLessons()
-      .then(setLessons)
+      .then((backendLessons) => setLessons(mergePreviewLessonSummaries(backendLessons)))
       .catch((loadError) => {
         captureDiagnosticError(loadError, 'qa_load_lessons');
         setError('No se pudo cargar la lista de lecciones.');
