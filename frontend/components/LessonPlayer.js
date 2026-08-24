@@ -4875,7 +4875,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 const optionPrompt = optionPracticePrompt(option);
                 const optionLabel = option.label || optionPrompt || option.id;
                 const hasOptionImage = Boolean(option.image_url);
-                const actionVideoName = !isPronunciationCard ? lessonActionVideo(option.image_url) : null;
+                const actionVideoName = !isPronunciationCard && !useThreeByTwoOptionMediaPilot
+                  ? lessonActionVideo(option.image_url)
+                  : null;
                 const showActionVideo = Boolean(actionVideoName) && (
                   currentCard.options.length === 1 ||
                   (selectedOptionId === option.id && lastResult === "correct")

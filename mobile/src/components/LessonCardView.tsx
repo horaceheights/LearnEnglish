@@ -338,7 +338,9 @@ export function LessonCardView({
               const revealCorrect = selected && result === 'correct' && correct;
               const revealWrong = selected && result === 'wrong';
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
-              const actionVideo = lessonActionVideo(option.image_url);
+              const actionVideo = useThreeByTwoOptionMediaPilot
+                ? null
+                : lessonActionVideo(option.image_url);
               const playActionVideo = Boolean(actionVideo) && (
                 card.options.length === 1 || revealCorrect
               );
