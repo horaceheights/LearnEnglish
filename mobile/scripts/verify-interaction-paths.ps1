@@ -2,6 +2,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $mobileRoot = Split-Path -Parent $PSScriptRoot
+$typescriptCompiler = Join-Path $mobileRoot 'node_modules\typescript\bin\tsc'
 $temporaryRoot = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
 $outputDirectory = [System.IO.Path]::Combine(
   $temporaryRoot,
@@ -11,7 +12,7 @@ $outputDirectory = [System.IO.Path]::Combine(
 Push-Location $mobileRoot
 try {
   [System.IO.Directory]::CreateDirectory($outputDirectory) | Out-Null
-  & npx tsc src/config.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
+  & node $typescriptCompiler src/config.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
   if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el modelo de progreso.' }
 
   & node tests/lesson-help.test.cjs (Join-Path $outputDirectory 'lessonHelp.js')
@@ -35,8 +36,11 @@ try {
   & node tests/image-loading-ui.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de carga visual de imágenes.' }
 
-  & node tests/bundled-unit2-images.test.cjs
-  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes incluidas de la Unidad 2.' }
+  & node tests/bundled-a1-images.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes A1 incluidas en Preview.' }
+
+  & node tests/lesson-browser-visuals.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes específicas para cada lección.' }
 
   & node tests/phrase-option-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de diseño horizontal de frases.' }

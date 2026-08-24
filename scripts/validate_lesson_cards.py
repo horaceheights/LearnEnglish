@@ -1,3 +1,5 @@
+import re
+import struct
 import sys
 from pathlib import Path
 
@@ -159,32 +161,60 @@ def validate_interaction_requirements() -> list[str]:
                 errors.append(f"{location} is a Listen card without model audio text.")
 
             if card.stage in GRAMMAR_STAGES:
-                if "__" not in card.prompt:
+                if not re.search(r"_+|\[\s*blank\s*\]", card.prompt, flags=re.IGNORECASE):
                     errors.append(f"{location} is a grammar card without a sentence blank.")
                 if any(not (option.label or "").strip() for option in card.options):
                     errors.append(f"{location} is a grammar card with an unlabeled word choice.")
 
             if card.stage == "Use":
-                is_completion = "__" in card.prompt
-                is_supported_choice = (
-                    card.prompt.strip().endswith("?")
-                    or card.prompt.strip().lower().startswith("choose ")
-                )
-                if not (is_completion or is_supported_choice):
-                    errors.append(
-                        f"{location} is a Use card without a completion or supported choice prompt."
-                    )
-                if not card.prompt_image_url:
-                    errors.append(f"{location} is a Use card without a context image.")
+                completion = card.interaction_type is None or str(card.interaction_type).startswith("complete")
+                if completion and not re.search(
+                    r"_+|\[\s*blank\s*\]", card.prompt, flags=re.IGNORECASE
+                ):
+                    errors.append(f"{location} is a completion card without a visual sentence blank.")
+                if any(not (option.label or "").strip() for option in card.options):
+                    errors.append(f"{location} is an interactive Use card with an unlabeled choice.")
                 if not (card.answer_audio_text or "").strip():
-                    errors.append(f"{location} is a Use card without completed-answer audio.")
-                if any(option.image_url or not (option.label or "").strip() for option in card.options):
-                    errors.append(f"{location} must use labeled text choices in Use.")
+                    errors.append(f"{location} is an interactive Use card without completed-answer audio.")
 
             if card.stage in PRONUNCIATION_STAGES and not (
                 (card.audio_text or "").strip() or (card.prompt or "").strip()
             ):
                 errors.append(f"{location} is a pronunciation card without a phrase.")
+    return errors
+
+
+def webp_dimensions(path: Path) -> tuple[int, int] | None:
+    data = path.read_bytes()
+    if len(data) < 30 or data[:4] != b"RIFF" or data[8:12] != b"WEBP":
+        return None
+    offset = 12
+    while offset + 8 <= len(data):
+        chunk_type = data[offset:offset + 4]
+        chunk_size = struct.unpack_from("<I", data, offset + 4)[0]
+        payload = data[offset + 8:offset + 8 + chunk_size]
+        if chunk_type == b"VP8X" and len(payload) >= 10:
+            return int.from_bytes(payload[4:7], "little") + 1, int.from_bytes(payload[7:10], "little") + 1
+        if chunk_type == b"VP8L" and len(payload) >= 5 and payload[0] == 0x2F:
+            bits = int.from_bytes(payload[1:5], "little")
+            return (bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1
+        if chunk_type == b"VP8 " and len(payload) >= 10:
+            marker = payload.find(b"\x9d\x01\x2a")
+            if marker >= 0 and marker + 7 <= len(payload):
+                width, height = struct.unpack_from("<HH", payload, marker + 3)
+                return width & 0x3FFF, height & 0x3FFF
+        offset += 8 + chunk_size + (chunk_size % 2)
+    return None
+
+
+def validate_a1_image_ratio() -> list[str]:
+    errors: list[str] = []
+    for path in LESSON_ASSET_DIR.glob("a1_*.webp"):
+        dimensions = webp_dimensions(path)
+        if dimensions != (1536, 1024):
+            errors.append(
+                f"{path.name} has dimensions {dimensions}; all new A1 stills must be 1536x1024 (3:2)."
+            )
     return errors
 
 
@@ -196,6 +226,7 @@ def main() -> int:
         *validate_negative_visual_contracts(),
         *validate_interaction_requirements(),
         *validate_media_references(),
+        *validate_a1_image_ratio(),
     ]
     if errors:
         print("Lesson card validation failed:")

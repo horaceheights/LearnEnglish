@@ -194,7 +194,7 @@ export async function getPronunciationStreamingToken() {
 
 export function sanitizeCourseAudioText(text) {
   return String(text || "")
-    .replace(/\s*_{2,}\s*[.,!?]?/g, " ... ")
+    .replace(/\s*(?:_+|\[\s*(?:pause|blank)\s*\])\s*[.,!?]?/gi, " ... ")
     .replace(/\s+/g, " ")
     .trim();
 }

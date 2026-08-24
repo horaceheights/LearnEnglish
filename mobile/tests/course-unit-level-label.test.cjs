@@ -9,7 +9,7 @@ const source = fs.readFileSync(
 
 assert.match(
   source,
-  /<View style=\{styles\.unitMeta\}>[\s\S]*?<Text style=\{styles\.unitEyebrow\}>UNIT 1<\/Text>[\s\S]*?<Text style=\{styles\.unitLevel\}>\{lessons\[0\]\.level\}<\/Text>/,
+  /<View style=\{styles\.unitMeta\}>[\s\S]*?<Text style=\{styles\.unitEyebrow\}>UNIT \{unitNumber\(selectedUnit\.lessons\[0\]\)\}<\/Text>[\s\S]*?<Text style=\{styles\.unitLevel\}>\{selectedUnit\.lessons\[0\]\.level\}<\/Text>/,
   'The unit header must show the level from the unit lesson metadata.',
 );
 assert.doesNotMatch(

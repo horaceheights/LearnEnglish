@@ -6,6 +6,8 @@ $repositoryRoot = Get-ReleaseRepositoryRoot
 $mobileRoot = Split-Path -Parent $PSScriptRoot
 $validator = Join-Path $repositoryRoot 'scripts\validate_lesson_cards.py'
 $interactionVerifier = Join-Path $PSScriptRoot 'verify-interaction-paths.ps1'
+$typescriptCompiler = Join-Path $mobileRoot 'node_modules\typescript\bin\tsc'
+$expoCli = Join-Path $mobileRoot 'node_modules\expo\bin\cli'
 $projectPython = Join-Path $repositoryRoot 'venv\Scripts\python.exe'
 $pythonCommand = if (Test-Path -LiteralPath $projectPython) { $projectPython } else { 'python' }
 $temporaryRoot = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
@@ -28,7 +30,7 @@ Push-Location $mobileRoot
 try {
   Write-Host 'Comprobando TypeScript...' -ForegroundColor Cyan
   Invoke-CheckedCommand -FailureMessage 'TypeScript encontró errores.' -Command {
-    & npx tsc --noEmit
+    & node $typescriptCompiler --noEmit
   }
 
   Write-Host 'Comprobando puntuación, reintentos y finalización...' -ForegroundColor Cyan
@@ -40,7 +42,7 @@ try {
   [System.IO.Directory]::CreateDirectory($exportDirectory) | Out-Null
   try {
     Invoke-CheckedCommand -FailureMessage 'Expo no pudo exportar el bundle Android.' -Command {
-      & npx expo export --platform android --output-dir $exportDirectory
+      & node $expoCli export --platform android --output-dir $exportDirectory
     }
   } finally {
     $resolvedExportDirectory = [System.IO.Path]::GetFullPath($exportDirectory)

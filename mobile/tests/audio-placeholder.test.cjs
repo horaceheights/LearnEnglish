@@ -42,12 +42,13 @@ assert.match(
 let completionCardCount = 0;
 for (const filename of fs.readdirSync(generatedRoot)) {
   if (!filename.endsWith('.json')) continue;
-  const lesson = JSON.parse(fs.readFileSync(path.join(generatedRoot, filename), 'utf8'));
-  for (const card of lesson.cards) {
+  const payload = JSON.parse(fs.readFileSync(path.join(generatedRoot, filename), 'utf8'));
+  const lessons = Array.isArray(payload) ? payload : [payload];
+  for (const lesson of lessons) for (const card of lesson.cards) {
     const promptAudio = card.audio_text ?? card.prompt ?? '';
     const visualPrompt = card.prompt ?? '';
-    if (!/_{2,}|\.{3}|…|\{blank\}/.test(visualPrompt)
-      && !/_{2,}|\.{3}|…|\{blank\}/.test(promptAudio)) continue;
+    if (!/_{2,}|\.{3}|…|\{blank\}|\[blank\]/i.test(visualPrompt)
+      && !/_{2,}|\.{3}|…|\{blank\}|\[blank\]/i.test(promptAudio)) continue;
     completionCardCount += 1;
     assert.ok(
       card.answer_audio_text?.trim(),
@@ -55,7 +56,7 @@ for (const filename of fs.readdirSync(generatedRoot)) {
     );
     assert.doesNotMatch(
       card.answer_audio_text,
-      /_+|\.{3}|…|\{blank\}/,
+      /_+|\.{3}|…|\{blank\}|\[blank\]/i,
       `${filename} sends a placeholder in completed answer audio.`,
     );
     const correctOption = card.options.find((option) => option.id === card.correct_option_id);
@@ -63,7 +64,7 @@ for (const filename of fs.readdirSync(generatedRoot)) {
       correctOption?.label?.trim(),
       `${filename} cannot build complete answer audio without a labeled correct option.`,
     );
-    const completedPrompt = visualPrompt.replace(/_{2,}/, correctOption.label);
+    const completedPrompt = visualPrompt.replace(/_{2,}|\.{3}|…|\{blank\}|\[blank\]/i, correctOption.label);
     const normalizeCompletion = (text) => String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
     assert.equal(
       normalizeCompletion(card.answer_audio_text),

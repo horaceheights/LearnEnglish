@@ -44,7 +44,7 @@ assert.match(
 );
 assert.match(
   source,
-  /<MaterialIcons color="#fff" name="check" size=\{18\} \/>[\s\S]*?\{index \+ 1\}/,
+  /<MaterialIcons color="#fff" name="check" size=\{18\} \/>[\s\S]*?\{lessonStepNumber\}/,
   'Only passed lessons should show a check; current lessons must retain their lesson number.',
 );
 

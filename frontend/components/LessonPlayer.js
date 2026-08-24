@@ -40,6 +40,42 @@ const COURSE_MENU_VISUALS = {
       images: ["boy.webp", "girl_is_reading.webp", "they_boy_girl_are_running.webp"],
       accent: "#ffe1ad",
     },
+    "unit-2": {
+      title: "Places, Objects, Numbers, and Colors",
+      description: "Conecta lugares con personas, acciones, objetos, numeros, colores y distancia.",
+      images: ["a1_school.webp", "a1_phone.webp", "a1_n3.webp"],
+      accent: "#dceef8",
+    },
+    "unit-3": {
+      title: "Me and Other People",
+      description: "Presentate, pregunta por otras personas y habla de edad, origen, trabajo y pertenencias.",
+      images: ["a1_ana.webp", "a1_luis.webp", "a1_teacher.webp"],
+      accent: "#f1e4fa",
+    },
+    "unit-4": {
+      title: "Home and Daily Life",
+      description: "Describe la casa, la ubicacion de objetos y las rutinas de cada dia.",
+      images: ["a1_home.webp", "a1_kitchen.webp", "a1_bed.webp"],
+      accent: "#e2f1dc",
+    },
+    "unit-5": {
+      title: "Food, Drinks, and Shopping",
+      description: "Habla de comida, gustos, necesidades, precios y pedidos sencillos.",
+      images: ["a1_apple.webp", "a1_rice.webp", "a1_coffee.webp"],
+      accent: "#ffe5bd",
+    },
+    "unit-6": {
+      title: "Around Town",
+      description: "Ubica servicios, usa transporte, pide ayuda y sigue direcciones y horarios.",
+      images: ["a1_bank.webp", "a1_station.webp", "a1_taxi.webp"],
+      accent: "#dff4ef",
+    },
+    "unit-7": {
+      title: "Everyday Needs and A1 Integration",
+      description: "Integra cuerpo, sentimientos, ropa, clima, pasatiempos y frases de ayuda.",
+      images: ["a1_happy.webp", "a1_umbrella.webp", "a1_watch_tv.webp"],
+      accent: "#f6e3d6",
+    },
   },
   lessons: {
     "lesson-1": {
@@ -341,12 +377,25 @@ function getUnitVisual(unitId) {
   return COURSE_MENU_VISUALS.units[unitId] || COURSE_MENU_VISUALS.units["unit-1"];
 }
 
-function getLessonVisual(lessonId) {
-  return COURSE_MENU_VISUALS.lessons[lessonId] || COURSE_MENU_VISUALS.lessons["lesson-1"];
+function getLessonVisual(lessonId, unitId) {
+  const explicitVisual = COURSE_MENU_VISUALS.lessons[lessonId];
+  if (explicitVisual) return explicitVisual;
+  const unitVisual = getUnitVisual(unitId);
+  return {
+    description: unitVisual.description,
+    images: unitVisual.images.slice(0, 2),
+  };
 }
 
-function getSubLessonVisual(lessonId) {
-  return COURSE_MENU_VISUALS.subLessons[lessonId] || COURSE_MENU_VISUALS.subLessons["lesson-1-people-actions"];
+function getSubLessonVisual(lessonId, unitId) {
+  const explicitVisual = COURSE_MENU_VISUALS.subLessons[lessonId];
+  if (explicitVisual) return explicitVisual;
+  const unitVisual = getUnitVisual(unitId);
+  return {
+    description: "Practica esta parte de la ruta con imagenes, escucha y produccion oral.",
+    image: unitVisual.images[0],
+    accent: unitVisual.accent,
+  };
 }
 
 function isSecureRecordingContext() {
@@ -2200,6 +2249,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [lessonSessionId, setLessonSessionId] = useState(null);
   const [loadingLessonId, setLoadingLessonId] = useState(null);
   const [lessonLoadError, setLessonLoadError] = useState("");
+  const [selectedUnitId, setSelectedUnitId] = useState(null);
   const [pronunciationStatus, setPronunciationStatus] = useState("Getting ready...");
   const [isPronunciationRecording, setIsPronunciationRecording] = useState(false);
   const [isPronunciationScoring, setIsPronunciationScoring] = useState(false);
@@ -4336,12 +4386,33 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
             {lessonLoadError ? <div style={{ color: "var(--red)", fontWeight: 700 }}>{lessonLoadError}</div> : null}
 
-            {curriculumUnits.map((unit) => {
+            {selectedUnitId ? (
+              <button
+                type="button"
+                onClick={() => setSelectedUnitId(null)}
+                style={{
+                  justifySelf: "start",
+                  border: "1px solid var(--line)",
+                  borderRadius: "999px",
+                  background: "var(--surface)",
+                  padding: "10px 16px",
+                  color: "var(--teal)",
+                  fontWeight: 800,
+                  cursor: "pointer",
+                }}
+              >
+                ← Todas las unidades
+              </button>
+            ) : null}
+
+            {curriculumUnits.filter((unit) => !selectedUnitId || unit.id === selectedUnitId).map((unit) => {
               const unitVisual = getUnitVisual(unit.id);
 
               return (
                 <section key={unit.id} style={{ display: "grid", gap: "16px" }}>
-                  <div
+                  <button
+                    type="button"
+                    onClick={() => setSelectedUnitId(unit.id)}
                     style={{
                       border: "1px solid var(--line)",
                       borderRadius: "28px",
@@ -4353,7 +4424,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       gap: "20px",
                       alignItems: "center",
                       overflow: "hidden",
+                      width: "100%",
+                      textAlign: "left",
+                      color: "inherit",
+                      font: "inherit",
+                      cursor: selectedUnitId ? "default" : "pointer",
                     }}
+                    aria-label={`${unit.title}: ${unitVisual.title}. Ver lecciones`}
                   >
                     <div style={{ display: "grid", gap: "10px" }}>
                       <div style={{ fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--muted)" }}>
@@ -4382,7 +4459,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           style={{
                             position: "absolute",
                             width: isMobile ? "42%" : "44%",
-                            aspectRatio: "4 / 3",
+                            aspectRatio: "3 / 2",
                             objectFit: "contain",
                             objectPosition: "center",
                             borderRadius: "18px",
@@ -4396,10 +4473,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         />
                       ))}
                     </div>
-                  </div>
+                  </button>
 
-                  {unit.lessons.map((lessonGroup) => {
-                    const lessonVisual = getLessonVisual(lessonGroup.id);
+                  {selectedUnitId === unit.id ? unit.lessons.map((lessonGroup) => {
+                    const lessonVisual = getLessonVisual(lessonGroup.id, unit.id);
 
                     return (
                       <section key={lessonGroup.id} style={{ display: "grid", gap: "12px" }}>
@@ -4451,7 +4528,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           }}
                         >
                           {lessonGroup.subLessons.map((lessonSummary) => {
-                            const subLessonVisual = getSubLessonVisual(lessonSummary.id);
+                            const subLessonVisual = getSubLessonVisual(lessonSummary.id, unit.id);
                             const subLessonTitle = `${lessonSummary.sub_lesson_id || lessonSummary.title} ${lessonSummary.sub_lesson_title || ""}`;
 
                             return (
@@ -4540,7 +4617,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         </div>
                       </section>
                     );
-                  })}
+                  }) : null}
                 </section>
               );
             })}

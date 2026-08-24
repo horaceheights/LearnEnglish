@@ -86,7 +86,7 @@ export function lessonVideoUrl(name: string): string {
 }
 
 export function hasVisualAudioPlaceholder(text: string): boolean {
-  return /_+|\.{3}|…|\{blank\}/.test(String(text || ''));
+  return /_+|\.{3}|…|\{blank\}|\[blank\]/i.test(String(text || ''));
 }
 
 export function sanitizeCourseAudioText(text: string): string {

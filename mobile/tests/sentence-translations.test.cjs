@@ -14,11 +14,15 @@ assert.equal(
 
 const missing = [];
 for (const filename of fs.readdirSync(generatedDirectory)) {
-  if (!/^lesson-(?:[3-9]|10)-.*\.json$/.test(filename)) continue;
+  if (!/^lesson-.*\.json$/.test(filename)) continue;
   const lesson = JSON.parse(fs.readFileSync(path.join(generatedDirectory, filename), 'utf8'));
   for (const [index, card] of lesson.cards.entries()) {
     if (!card.prompt || !card.prompt.trim()) continue;
-    if (spanishTranslationFor(card.prompt) === 'Traducción no disponible todavía.') {
+    const perCardTranslation = String(card.spanish_translation || '').trim();
+    if (
+      !perCardTranslation &&
+      spanishTranslationFor(card.prompt) === 'Traducción no disponible todavía.'
+    ) {
       missing.push(`${filename} card ${index + 1}: ${card.prompt}`);
     }
   }

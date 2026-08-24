@@ -4,8 +4,8 @@ import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { lessonActionVideo } from '../actionVideos';
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
-import { lessonImageSource } from '../lessonImageSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { lessonImageSource } from '../lessonImageSources';
 import { lessonHelpText } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';

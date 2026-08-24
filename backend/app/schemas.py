@@ -1,6 +1,6 @@
 from typing import Any
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ChoiceOption(BaseModel):
@@ -10,6 +10,8 @@ class ChoiceOption(BaseModel):
 
 
 class LessonCard(BaseModel):
+    slide_id: str | None = None
+    interaction_type: str | None = None
     prompt: str
     stage: str
     correct_option_id: str
@@ -18,6 +20,7 @@ class LessonCard(BaseModel):
     answer_audio_text: str | None = None
     prompt_image_url: str = ""
     spanish_translation: str | None = None
+    pedagogy_note: str | None = None
 
 
 class Lesson(BaseModel):
@@ -26,12 +29,18 @@ class Lesson(BaseModel):
     level: str
     unit_id: str
     unit_title: str
+    unit_outcome: str = ""
     lesson_id: str
     lesson_title: str
     sub_lesson_id: str
     sub_lesson_title: str
     goal: str
     vocabulary: list[str]
+    review_vocabulary: list[str] = Field(default_factory=list)
+    grammar_function: str = ""
+    prerequisite: str = ""
+    speaking_outcome: str = ""
+    purposeful_review_slides: list[str] = Field(default_factory=list)
     cards: list[LessonCard]
 
 
