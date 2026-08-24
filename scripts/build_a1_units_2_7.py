@@ -181,6 +181,24 @@ def find_correct_option_id(options: list[dict[str, Any]], raw_options: list[str]
     raise ValueError(f"Correct option {correct!r} is missing from {raw_options!r}")
 
 
+def limit_text_tile_options(
+    options: list[dict[str, Any]], correct_option_id: str
+) -> list[dict[str, Any]]:
+    """Keep text-only answer sets to one answer plus two authored distractors."""
+    if len(options) <= 3 or any((option.get("image_url") or "").strip() for option in options):
+        return options
+
+    kept: list[dict[str, Any]] = []
+    distractors = 0
+    for option in options:
+        if option["id"] == correct_option_id:
+            kept.append(option)
+        elif distractors < 2:
+            kept.append(option)
+            distractors += 1
+    return kept
+
+
 def completed_answer(prompt: str, correct: str) -> str:
     if re.search(r"___|\[\s*blank\s*\]", prompt, flags=re.IGNORECASE):
         return re.sub(r"___|\[\s*blank\s*\]", correct, prompt, count=1, flags=re.IGNORECASE)
@@ -230,6 +248,7 @@ def build_card(
         raise ValueError(f"{lesson['id']} {stage} {slide_id} has no selectable option")
     raw_for_correct = [correct] if interaction in SINGLE_INTERACTIONS else choices
     correct_id = find_correct_option_id(options, raw_for_correct, correct)
+    options = limit_text_tile_options(options, correct_id)
 
     answer_audio: str | None = None
     if interaction in {"i2t2", "i2t4", "recognize-text"}:

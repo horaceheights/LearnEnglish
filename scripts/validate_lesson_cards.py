@@ -103,6 +103,20 @@ def validate_option_ids() -> list[str]:
     return errors
 
 
+def validate_text_tile_option_limit() -> list[str]:
+    errors: list[str] = []
+    for lesson in LESSONS.values():
+        for card_index, card in enumerate(lesson.cards, 1):
+            if not card.options or any((option.image_url or "").strip() for option in card.options):
+                continue
+            if len(card.options) > 3:
+                errors.append(
+                    f"{lesson.id} card {card_index} ({card.prompt!r}) has {len(card.options)} "
+                    "text tiles; text-only answer sets allow at most three."
+                )
+    return errors
+
+
 def validate_family_adult_ambiguity() -> list[str]:
     errors: list[str] = []
     for lesson in LESSONS.values():
@@ -221,6 +235,7 @@ def validate_a1_image_ratio() -> list[str]:
 def main() -> int:
     errors = [
         *validate_option_ids(),
+        *validate_text_tile_option_limit(),
         *validate_duplicate_option_images(),
         *validate_family_adult_ambiguity(),
         *validate_negative_visual_contracts(),

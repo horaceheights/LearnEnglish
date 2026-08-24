@@ -167,6 +167,15 @@ class LessonStructureTests(unittest.TestCase):
                     with self.subTest(lesson=lesson.id, card=index, asset=asset_name):
                         self.assertTrue((LESSON_IMAGE_DIR / asset_name).is_file())
 
+    def test_text_only_cards_have_at_most_three_options(self):
+        for lesson in LESSONS.values():
+            for index, card in enumerate(lesson.cards, 1):
+                if not card.options or any(option.image_url for option in card.options):
+                    continue
+                with self.subTest(lesson=lesson.id, card=index):
+                    self.assertLessEqual(len(card.options), 3)
+                    self.assertIn(card.correct_option_id, [option.id for option in card.options])
+
     def test_recognize_connects_images_and_text_in_both_directions(self):
         for unit in range(1, 8):
             cards = [

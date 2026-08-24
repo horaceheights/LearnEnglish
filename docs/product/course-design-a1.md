@@ -241,7 +241,7 @@ Early A1:
 
 Middle A1:
 
-- three or four choices
+- at most three choices when answers are text tiles; image choices may use four after smaller contrasts are established
 - mixed old and new vocabulary
 - simple question prompts
 - small contrasts like `he/she`, `in/on`, singular/plural

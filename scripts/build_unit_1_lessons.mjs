@@ -8,12 +8,23 @@ const stages = ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'];
 const image = (id, imageUrl, label) => ({ id, image_url: imageUrl, label });
 const text = (id, label) => ({ id, image_url: '', label });
 
+function limitTextTileOptions(options, correct) {
+  if (options.length <= 3 || options.some((option) => option.image_url)) return options;
+
+  let distractors = 0;
+  return options.filter((option) => {
+    if (option.id === correct) return true;
+    distractors += 1;
+    return distractors <= 2;
+  });
+}
+
 function card({ prompt, stage, correct, options, audio = null, answer = null, promptImage = '' }) {
   return {
     prompt,
     stage,
     correct_option_id: correct,
-    options,
+    options: limitTextTileOptions(options, correct),
     audio_text: audio,
     answer_audio_text: answer,
     prompt_image_url: promptImage,

@@ -114,6 +114,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Portrait phrase-answer tiles are full-width, short horizontal rows stacked at the bottom.
 - Phrase tiles use one-line auto-sizing. Never split a word in half to fit a narrow tile.
 - Image choices retain their established image grid or stack layout; the horizontal phrase rule does not convert image choices into text rows.
+- Every text-only answer set uses at most three tiles across Recognize, Listen, and Use. Preserve the correct answer plus the first two authored distractors in their original relative order; this rule never changes image-choice counts or layouts.
 - Text must remain readable and inside its container on small phones and tablets.
 - A shared component change must be verified against two-option and four-option cards.
 - Do not use a correct-answer visual treatment until after the learner selects an answer.
