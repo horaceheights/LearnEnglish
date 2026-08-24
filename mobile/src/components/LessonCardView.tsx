@@ -181,10 +181,16 @@ export function LessonCardView({
         : Math.max(205, Math.min(340, viewportHeight * 0.57));
   const fallbackCardHeight = Math.max(150, viewportHeight * (isCompactLandscape ? 0.43 : 0.58));
   const availableCardHeight = measuredCardHeight || fallbackCardHeight;
-  // Keep the answer feedback inside the card on short portrait screens. Without
-  // this allowance, stacked image options consume the full measured height and
-  // the retry message is laid out beneath the Android navigation bar.
-  const feedbackReservedHeight = !isPronunciation && optionsInteractive ? 58 : 0;
+  // Keep the answer feedback inside the card on short portrait screens. Two
+  // full-width 3:2 choices otherwise size themselves from width and can push a
+  // two-line teaching hint beneath the Android navigation bar.
+  const needsPortraitImageFeedbackSpace =
+    !isLandscape && !hasTextOnlyOptions && optionsInteractive && card.options.length >= 2;
+  const feedbackReservedHeight = !isPronunciation && optionsInteractive
+    ? needsPortraitImageFeedbackSpace
+      ? 76
+      : 58
+    : 0;
   const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
   const textOptionRows = hasTextOnlyOptions
     ? useHorizontalPhraseOptions
@@ -217,6 +223,16 @@ export function LessonCardView({
         ? Math.max(68, ((availableOptionsHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
         : Math.max(68, (availableOptionsHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
     );
+  // Preserve the shared 3:2 frame while allowing the whole option card to
+  // become narrower when vertical room is the limiting dimension. This scales
+  // the frame uniformly; it does not resize, crop, or distort the source art.
+  const portraitImageContentWidth = Math.max(0, viewportWidth - 44);
+  const defaultPortraitImageOptionWidth = usePortraitImageStack
+    ? portraitImageContentWidth
+    : portraitImageContentWidth * 0.485;
+  const constrainedPortraitImageOptionWidth = usePortraitImageStack || usePortraitImageGrid
+    ? Math.min(defaultPortraitImageOptionWidth, (optionImageHeight * (3 / 2)) + 24)
+    : null;
 
   useEffect(() => {
     if (!isGrammar || result !== 'correct' || !selectedId) return undefined;
@@ -380,7 +396,7 @@ export function LessonCardView({
                     {
                       minHeight: optionMinHeight,
                       padding: isTabletLandscape ? 8 : 5,
-                      width: optionWidth,
+                      width: constrainedPortraitImageOptionWidth ?? optionWidth,
                     },
                     hasTextOnlyOptions
                       ? {

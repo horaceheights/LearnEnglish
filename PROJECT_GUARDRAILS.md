@@ -107,6 +107,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Design for the usable phone viewport, including Android system bars and enlarged font settings.
 - After a wrong lesson choice, keep the encouragement first and place one short Spanish teaching hint directly below it. Explain the relevant rule (`is`, `are`, `not`) when available; otherwise point the learner to the evidence that decides the card without adding a long instruction block. For Unit 1 this may be the person, group, or action; for Unit 2 it may be place features, object shape, foreground/background, exact count, color, or number-color-noun order. Identity-choice hints must name the exact visible mismatch, such as parents versus grandparents, instead of repeating one generic `is/are` explanation across the section.
 - Essential choices, feedback, and navigation must fit without being hidden below the system navigation area.
+- On portrait image-choice cards, reserve enough vertical room for the encouragement and a two-line teaching hint. When a 3:2 option stack would exceed the usable height, scale every option card uniformly from its available height while preserving the 3:2 frame; never hide the hint, distort the image, or change lesson content to make it fit.
 - Keep the lesson header compact. The stage strip communicates progress without consuming unnecessary vertical space.
 - Portrait phrase-answer tiles are full-width, short horizontal rows stacked at the bottom.
 - Phrase tiles use one-line auto-sizing. Never split a word in half to fit a narrow tile.
@@ -288,3 +289,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Every learner-facing SpanGlish logo standardized as an accessible route home, with exit confirmation during an active lesson.
 - 2026-08-24: Preview publication standardized on one canonical full-course lineage; divergent feature branches must integrate it before publishing to the shared channel.
 - 2026-08-24: Preview release identity standardized on the seven-character Git commit displayed beside the app version in the update popup and `Actualizar` menu; build and Expo-specific IDs remain hidden there.
+- 2026-08-24: Portrait image-choice stacks standardized on height-aware uniform scaling so wrong-answer encouragement and teaching hints remain above Android navigation without changing the 3:2 media frame.
