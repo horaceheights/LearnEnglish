@@ -56,6 +56,9 @@ try {
   & node tests/playful-loading.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de carga animada.' }
 
+  & node tests/preview-qa-catalog-parity.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la paridad del catálogo entre Preview y Engine QA.' }
+
   & node tests/new-vocabulary-emphasis.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de énfasis para vocabulario nuevo.' }
 
