@@ -114,6 +114,10 @@ assert.match(cardView, /const useThreeByTwoOptionMedia = card\.options\.some/);
 assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid\}/);
 assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, overflow:\s*'hidden' \}/);
 assert.match(cardView, /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?preserveSubject=\{useExpandedFourImagePortraitGrid\}/);
+assert.match(
+  cardView,
+  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
+);
 assert.match(optionMediaImage, /const sourceIsThreeByTwo = Boolean\(/);
 assert.match(optionMediaImage, /const shouldContain = preserveSubject \|\| !sourceIsThreeByTwo/);
 assert.match(optionMediaImage, /resizeMode=\{shouldContain \? 'contain' : 'cover'\}/);

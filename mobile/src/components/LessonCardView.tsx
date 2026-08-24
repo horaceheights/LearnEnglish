@@ -366,7 +366,7 @@ export function LessonCardView({
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
               const actionVideo = useStillOnlyLesson17Comparison
                 ? null
-                : lessonActionVideo(option.image_url);
+                : lessonActionVideo(option.image_url, card.options.length);
               const playActionVideo = Boolean(actionVideo) && (
                 card.options.length === 1 || revealCorrect
               );
@@ -429,11 +429,12 @@ export function LessonCardView({
                             : styles.optionImageThreeByTwoFrame,
                           showHelp ? styles.optionImageThreeByTwoHelp : null,
                         ]}
-                      >
-                        <OptionMediaImage
-                          imageUrl={option.image_url}
-                          preserveSubject={useExpandedFourImagePortraitGrid}
-                        />
+                        >
+                          <OptionMediaImage
+                            imageUrl={option.image_url}
+                            preserveSubject={useExpandedFourImagePortraitGrid}
+                            sourceOverride={card.options.length === 2 ? actionVideo?.posterSource : undefined}
+                          />
                       </View>
                     )
                   ) : null}
@@ -600,7 +601,10 @@ function LessonActionMedia({
           useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
         ]}
       >
-        <OptionMediaImage imageUrl={imageUrl} preserveSubject={preserveSubject} />
+        <OptionMediaImage imageUrl={imageUrl}
+          preserveSubject={preserveSubject}
+          sourceOverride={video.posterSource}
+        />
       </View>
     );
   }
@@ -625,7 +629,10 @@ function LessonActionMedia({
         style={styles.actionMediaLayer}
       />
       {!videoReady ? (
-        <OptionMediaImage imageUrl={imageUrl} poster preserveSubject={preserveSubject} />
+        <OptionMediaImage imageUrl={imageUrl} poster
+          preserveSubject={preserveSubject}
+          sourceOverride={video.posterSource}
+        />
       ) : null}
       {onPress ? (
         <Pressable

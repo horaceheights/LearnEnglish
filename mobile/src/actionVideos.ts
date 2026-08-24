@@ -1,5 +1,6 @@
 export type LessonActionVideo = {
   name: string;
+  posterSource?: number;
   source?: number;
 };
 
@@ -10,6 +11,37 @@ const LOCAL_ACTION_VIDEOS: Record<string, number> = {
   family_mother_cooking: require('../assets/lesson-videos/mother-cooking-scene-v3.mp4'),
   family_parents_talking: require('../assets/lesson-videos/parents-talking-scene-v5.mp4'),
   girl_is_walking: require('../assets/lesson-videos/girl-walking-scene-v3.mp4'),
+};
+
+const LOCAL_TWO_CARD_ACTION_VIDEOS: Record<string, number> = {
+  family_brother_studying: require('../assets/lesson-videos/brother-studying-two-card-v1.mp4'),
+  family_children_playing: require('../assets/lesson-videos/children-playing-two-card-v1.mp4'),
+  family_father_working: require('../assets/lesson-videos/father-working-two-card-v1.mp4'),
+};
+
+const TWO_CARD_ACTION_VIDEOS: Record<string, string> = {
+  family_brother_studying: 'brother-studying-two-card-v1.mp4',
+  family_children_playing: 'children-playing-two-card-v1.mp4',
+  family_father_working: 'father-working-two-card-v1.mp4',
+};
+
+const TWO_CARD_ACTION_POSTERS: Record<string, number> = {
+  boy_is_drinking: require('../assets/lesson-video-posters/boy_is_drinking-two-card-poster.webp'),
+  boy_is_eating: require('../assets/lesson-video-posters/boy_is_eating-two-card-poster.webp'),
+  boy_is_reading: require('../assets/lesson-video-posters/boy_is_reading-two-card-poster.webp'),
+  boy_is_running: require('../assets/lesson-video-posters/boy_is_running-two-card-poster.webp'),
+  boy_is_swimming: require('../assets/lesson-video-posters/boy_is_swimming-two-card-poster.webp'),
+  family_brother_studying: require('../assets/lesson-video-posters/family_brother_studying-two-card-poster.webp'),
+  family_children_playing: require('../assets/lesson-video-posters/family_children_playing-two-card-poster.webp'),
+  family_children_studying: require('../assets/lesson-video-posters/family_children_studying-two-card-poster.webp'),
+  family_father_working: require('../assets/lesson-video-posters/family_father_working-two-card-poster.webp'),
+  family_mother_cooking: require('../assets/lesson-video-posters/family_mother_cooking-two-card-poster.webp'),
+  family_parents_talking: require('../assets/lesson-video-posters/family_parents_talking-two-card-poster.webp'),
+  girl_is_drinking: require('../assets/lesson-video-posters/girl_is_drinking-two-card-poster.webp'),
+  girl_is_sleeping: require('../assets/lesson-video-posters/girl_is_sleeping-two-card-poster.webp'),
+  girl_is_walking: require('../assets/lesson-video-posters/girl_is_walking-two-card-poster.webp'),
+  girl_is_writing: require('../assets/lesson-video-posters/girl_is_writing-two-card-poster.webp'),
+  they_boy_girl_are_running: require('../assets/lesson-video-posters/they_boy_girl_are_running-two-card-poster.webp'),
 };
 
 const LESSON_ACTION_VIDEOS: Record<string, string> = {
@@ -37,13 +69,19 @@ const LESSON_ACTION_VIDEOS: Record<string, string> = {
   they_boy_girl_are_running: 'boy-girl-running-scene-v2.mp4',
 };
 
-export function lessonActionVideo(imageUrl?: string): LessonActionVideo | null {
+export function lessonActionVideo(imageUrl?: string, optionCount?: number): LessonActionVideo | null {
   const filename = imageUrl?.split('?')[0].split('/').pop()?.replace(/\.[^.]+$/, '');
-  const name = filename ? LESSON_ACTION_VIDEOS[filename] : null;
+  const useTwoCardVariant = optionCount === 2;
+  const name = filename
+    ? (useTwoCardVariant ? TWO_CARD_ACTION_VIDEOS[filename] : null) ?? LESSON_ACTION_VIDEOS[filename]
+    : null;
   if (!filename || !name) return null;
 
   return {
     name,
-    source: LOCAL_ACTION_VIDEOS[filename],
+    posterSource: useTwoCardVariant ? TWO_CARD_ACTION_POSTERS[filename] : undefined,
+    source: useTwoCardVariant
+      ? LOCAL_TWO_CARD_ACTION_VIDEOS[filename] ?? LOCAL_ACTION_VIDEOS[filename]
+      : LOCAL_ACTION_VIDEOS[filename],
   };
 }

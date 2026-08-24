@@ -62,6 +62,11 @@ assert.match(
   'Four-image choice grids must continue using the shared subject-preserving image layer.',
 );
 assert.match(
+  cardViewSource,
+  /<OptionMediaImage[\s\S]*?imageUrl=\{option\.image_url\}[\s\S]*?sourceOverride=\{card\.options\.length === 2 \? actionVideo\?\.posterSource : undefined\}[\s\S]*?\/>/,
+  'Two-image choices must continue using their matching action-video poster source.',
+);
+assert.match(
   mediaFrameSource,
   /LESSON_MEDIA_FRAME_STYLE = \{[\s\S]*?borderColor: '#172d35'[\s\S]*?borderRadius: 24[\s\S]*?borderWidth: 4[\s\S]*?padding: 8/,
   'Pronunciation media must use the established dark inset option frame with rounded corners.',

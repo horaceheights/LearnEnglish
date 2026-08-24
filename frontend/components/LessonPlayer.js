@@ -20,7 +20,7 @@ import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260710-objects-places-1-6";
-const LESSON_VIDEO_VERSION = "20260824-parents-match-v6";
+const LESSON_VIDEO_VERSION = "20260824-two-card-match-v7";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 const DEFAULT_PROFILE = {
@@ -1828,12 +1828,44 @@ const LESSON_ACTION_VIDEOS = {
   "they_boy_girl_are_running": "boy-girl-running-scene-v2.mp4",
 };
 
-function lessonActionVideo(imageUrl) {
+const TWO_CARD_ACTION_VIDEOS = {
+  "family_brother_studying": "brother-studying-two-card-v1.mp4",
+  "family_children_playing": "children-playing-two-card-v1.mp4",
+  "family_father_working": "father-working-two-card-v1.mp4",
+};
+
+const TWO_CARD_ACTION_POSTERS = {
+  "boy_is_drinking": "boy_is_drinking-two-card-poster.webp",
+  "boy_is_eating": "boy_is_eating-two-card-poster.webp",
+  "boy_is_reading": "boy_is_reading-two-card-poster.webp",
+  "boy_is_running": "boy_is_running-two-card-poster.webp",
+  "boy_is_swimming": "boy_is_swimming-two-card-poster.webp",
+  "family_brother_studying": "family_brother_studying-two-card-poster.webp",
+  "family_children_playing": "family_children_playing-two-card-poster.webp",
+  "family_children_studying": "family_children_studying-two-card-poster.webp",
+  "family_father_working": "family_father_working-two-card-poster.webp",
+  "family_mother_cooking": "family_mother_cooking-two-card-poster.webp",
+  "family_parents_talking": "family_parents_talking-two-card-poster.webp",
+  "girl_is_drinking": "girl_is_drinking-two-card-poster.webp",
+  "girl_is_sleeping": "girl_is_sleeping-two-card-poster.webp",
+  "girl_is_walking": "girl_is_walking-two-card-poster.webp",
+  "girl_is_writing": "girl_is_writing-two-card-poster.webp",
+  "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster.webp",
+};
+
+function lessonActionVideo(imageUrl, optionCount) {
   const normalized = String(imageUrl || "").split("?")[0].split("/").pop()?.replace(/\.[^.]+$/, "");
-  return normalized ? LESSON_ACTION_VIDEOS[normalized] : null;
+  if (!normalized) return null;
+  return (optionCount === 2 ? TWO_CARD_ACTION_VIDEOS[normalized] : null) || LESSON_ACTION_VIDEOS[normalized] || null;
 }
 
-function LessonActionMedia({ alt, imageUrl, style, videoName }) {
+function lessonTwoCardActionPosterSrc(imageUrl) {
+  const normalized = String(imageUrl || "").split("?")[0].split("/").pop()?.replace(/\.[^.]+$/, "");
+  const posterName = normalized ? TWO_CARD_ACTION_POSTERS[normalized] : null;
+  return posterName ? `/lesson-video-posters/${posterName}?v=${LESSON_VIDEO_VERSION}` : null;
+}
+
+function LessonActionMedia({ alt, imageUrl, posterSrc, style, videoName }) {
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -1845,7 +1877,7 @@ function LessonActionMedia({ alt, imageUrl, style, videoName }) {
   }, []);
 
   if (reduceMotion) {
-    return <img src={lessonOptionImageSrc(imageUrl)} alt={alt} style={style} />;
+    return <img src={posterSrc || lessonOptionImageSrc(imageUrl)} alt={alt} style={style} />;
   }
 
   return (
@@ -1854,6 +1886,7 @@ function LessonActionMedia({ alt, imageUrl, style, videoName }) {
       autoPlay
       muted
       playsInline
+      poster={posterSrc || undefined}
       src={lessonVideoSrc(videoName)}
       style={{
         ...style,
@@ -4178,7 +4211,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     if (isCorrect) {
       const selectedActionVideo = lessonActionVideo(
-        currentCard.options.find((option) => option.id === optionId)?.image_url
+        currentCard.options.find((option) => option.id === optionId)?.image_url,
+        currentCard.options.length
       );
       setLastResult("correct");
       setAutoAdvanceDelayMs(
@@ -4925,7 +4959,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 const optionLabel = option.label || optionPrompt || option.id;
                 const hasOptionImage = Boolean(option.image_url);
                 const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison
-                  ? lessonActionVideo(option.image_url)
+                  ? lessonActionVideo(option.image_url, currentCard.options.length)
+                  : null;
+                const actionPosterSrc = currentCard.options.length === 2 && actionVideoName
+                  ? lessonTwoCardActionPosterSrc(option.image_url)
                   : null;
                 const optionImageStyle = hasOptionImage
                   ? { ...responsiveImageStyle, objectPosition: optionMediaObjectPosition(option.image_url) }
@@ -5124,11 +5161,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         <LessonActionMedia
                           alt={optionLabel}
                           imageUrl={option.image_url}
+                          posterSrc={actionPosterSrc}
                           style={optionImageStyle}
                           videoName={actionVideoName}
                         />
                       ) : (
-                        <img src={lessonOptionImageSrc(option.image_url)} alt={optionLabel} style={optionImageStyle} />
+                        <img src={actionPosterSrc || lessonOptionImageSrc(option.image_url)} alt={optionLabel} style={optionImageStyle} />
                       )
                     ) : (
                       <div
