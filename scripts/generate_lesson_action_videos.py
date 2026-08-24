@@ -1,5 +1,6 @@
 import argparse
 import re
+import shutil
 import subprocess
 import time
 from pathlib import Path
@@ -14,12 +15,14 @@ ENV_PATH = ROOT / "backend" / ".env"
 ASSETS = ROOT / "frontend" / "public" / "lesson-assets"
 FAMILY_IMAGES = ROOT / "Lessons" / "Lesson1" / "images"
 RAW_DIR = ROOT / "tmp" / "lesson-action-videos"
+MOBILE_VIDEOS = ROOT / "mobile" / "assets" / "lesson-videos"
 SAFE_FOREGROUND_WIDTH = 602
 SAFE_FOREGROUND_HEIGHT = 338
+SOLID_SIDE_FILL_COLOR = "0xf2ebde"
 
 
 SCENES = {
-    "girl-walking": ("girl_is_walking", "girl-walking-scene-v2.mp4", "walks forward with several relaxed, natural steps; her feet alternate and her arms swing gently"),
+    "girl-walking": ("girl_is_walking", "girl-walking-scene-v3.mp4", "walks forward with several relaxed, natural steps; her feet alternate and her arms swing gently"),
     "girl-drinking": ("girl_is_drinking", "girl-drinking-scene-v2.mp4", "raises the existing glass, takes one clear sip, and lowers it naturally"),
     "girl-sleeping": ("girl_is_sleeping", "girl-sleeping-scene-v2.mp4", "remains asleep while her chest and shoulders rise and fall subtly with calm breathing"),
     "man-swimming": ("man_is_swimming", "man-swimming-scene-v2.mp4", "clearly swims using a natural stroke, with visible arm movement, a gentle kick, and realistic water ripples"),
@@ -32,12 +35,29 @@ SCENES = {
     "pair-boy-man-eating": ("they_boy_man_are_eating", "boy-man-eating-scene-v2.mp4", "both people clearly take a bite of their existing food and chew naturally"),
     "pair-girl-woman-writing": ("they_girl_woman_are_writing", "girl-woman-writing-scene-v2.mp4", "both people unmistakably write on their existing pages with clear, continuous pencil or pen strokes"),
     "baby-sleeping": ("family_baby_sleeping", "baby-sleeping-scene-v2.mp4", "remains asleep while the chest rises and falls subtly with calm breathing"),
-    "father-working": ("family_father_working", "father-working-scene-v2.mp4", "unmistakably works at the construction site by extending the existing tape measure along the wooden board, checking it, and making one careful mark"),
+    "brother-studying": ("family_brother_studying", "brother-studying-scene-v3.mp4", "clearly studies by looking between the learning materials and writing short answers with focused, purposeful movement"),
+    "children-playing": ("family_children_playing", "children-playing-scene-v3.mp4", "both children actively play with the existing toys using clear, purposeful hand and body movement"),
+    "father-working": ("family_father_working", "father-working-scene-v4.mp4", "unmistakably works at the construction site by extending the existing tape measure along the wooden board, checking it, and making one careful mark"),
+    "mother-cooking": ("family_mother_cooking", "mother-cooking-scene-v3.mp4", "clearly cooks by stirring the existing food in the pan with natural hand movement"),
+    "parents-talking": ("family_parents_talking", "parents-talking-scene-v3.mp4", "have a friendly conversation, taking turns making small hand gestures toward each other; their interaction must clearly show talking"),
     "adults-playing": ("family_adults_playing", "adults-playing-scene-v2.mp4", "both adults actively play the activity already shown, with clear purposeful hand and body movement"),
     "grandparents-talking": ("family_grandparents_talking", "grandparents-talking-scene-v2.mp4", "have a friendly conversation, taking turns making small hand gestures toward each other; their interaction must clearly show talking"),
     "children-studying": ("family_children_studying", "children-studying-scene-v2.mp4", "both children clearly study: they look between their learning materials and write short answers with focused, purposeful movement"),
     "sister-reading": ("girl_is_reading", "girl-reading-scene-v2.mp4", "unmistakably reads the existing open book; her eyes track the lines and one hand gently begins turning a page"),
 }
+
+BUNDLED_SOLID_SIDE_FILL_SCENES = {
+    "brother-studying",
+    "children-playing",
+    "father-working",
+    "girl-walking",
+    "mother-cooking",
+    "parents-talking",
+}
+
+
+def raw_name_for(output_name: str) -> str:
+    return re.sub(r"-v\d+\.mp4$", "-raw.mp4", output_name)
 
 
 def api_key() -> str:
@@ -60,7 +80,7 @@ def source_path(stem: str) -> Path:
 def generate(client: genai.Client, scene_id: str) -> Path:
     image_stem, output_name, action = SCENES[scene_id]
     RAW_DIR.mkdir(parents=True, exist_ok=True)
-    raw_path = RAW_DIR / output_name.replace("-v2.mp4", "-raw.mp4")
+    raw_path = RAW_DIR / raw_name_for(output_name)
     if raw_path.exists():
         print(f"scene={scene_id} reuse-raw={raw_path.name}", flush=True)
         return raw_path
@@ -110,6 +130,9 @@ def generate(client: genai.Client, scene_id: str) -> Path:
 def optimize(scene_id: str, raw_path: Path) -> Path:
     output_path = ASSETS / SCENES[scene_id][1]
     encode_normalized(raw_path, output_path)
+    if scene_id in BUNDLED_SOLID_SIDE_FILL_SCENES:
+        MOBILE_VIDEOS.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(output_path, MOBILE_VIDEOS / output_path.name)
     print(f"scene={scene_id} optimized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
     return output_path
 
@@ -128,20 +151,40 @@ def detected_crop(input_path: Path) -> str:
     return matches[-1] if matches else "iw:ih:0:0"
 
 
+def media_duration(input_path: Path) -> float:
+    result = subprocess.run(
+        [imageio_ffmpeg.get_ffmpeg_exe(), "-i", str(input_path), "-f", "null", "-"],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    match = re.search(r"Duration: (\d+):(\d+):(\d+(?:\.\d+)?)", result.stderr)
+    if not match:
+        return 3.0
+    hours, minutes, seconds = match.groups()
+    return (int(hours) * 3600) + (int(minutes) * 60) + float(seconds)
+
+
 def encode_normalized(input_path: Path, output_path: Path) -> None:
     crop = detected_crop(input_path)
+    crop_width, crop_height, _, _ = (int(value) for value in crop.split(":"))
     temporary_path = output_path.with_name(f"{output_path.stem}.normalized.mp4")
-    filter_graph = (
-        f"[0:v]crop={crop},split=2[foreground][background];"
-        "[background]scale=640:360:force_original_aspect_ratio=increase,"
-        "crop=640:360,gblur=sigma=22[canvas];"
-        f"[foreground]scale={SAFE_FOREGROUND_WIDTH}:{SAFE_FOREGROUND_HEIGHT}:"
-        "force_original_aspect_ratio=decrease[subject];"
-        "[canvas][subject]overlay=(W-w)/2:(H-h)/2"
-    )
+    if crop_width / crop_height < 1.6:
+        filter_graph = (
+            f"color=c={SOLID_SIDE_FILL_COLOR}:s=640x360[canvas];"
+            f"[0:v]crop={crop},scale={SAFE_FOREGROUND_WIDTH}:{SAFE_FOREGROUND_HEIGHT}:"
+            "force_original_aspect_ratio=decrease[subject];"
+            "[canvas][subject]overlay=(W-w)/2:(H-h)/2:shortest=1"
+        )
+    else:
+        filter_graph = (
+            f"[0:v]crop={crop},scale=640:360:force_original_aspect_ratio=increase,"
+            "crop=640:360"
+        )
+    trim_start = 0.0 if media_duration(input_path) < 2.5 else 0.2
     subprocess.run(
         [
-            imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-ss", "0.20", "-i", str(input_path), "-t", "3.0", "-an",
+            imageio_ffmpeg.get_ffmpeg_exe(), "-y", "-ss", f"{trim_start:.2f}", "-i", str(input_path), "-t", "3.0", "-an",
             "-filter_complex", filter_graph, "-c:v", "libx264", "-preset", "slow",
             "-crf", "20", "-movflags", "+faststart", "-pix_fmt", "yuv420p", str(temporary_path),
         ],
@@ -154,12 +197,12 @@ def encode_normalized(input_path: Path, output_path: Path) -> None:
 
 def normalize_existing() -> None:
     for scene_id, (_, output_name, _) in SCENES.items():
-        raw_path = RAW_DIR / output_name.replace("-v2.mp4", "-raw.mp4")
+        raw_path = RAW_DIR / raw_name_for(output_name)
         if not raw_path.exists():
             print(f"scene={scene_id} skipped=no-raw-source", flush=True)
             continue
         output_path = ASSETS / output_name
-        encode_normalized(raw_path, output_path)
+        optimize(scene_id, raw_path)
         print(f"normalized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
 
 

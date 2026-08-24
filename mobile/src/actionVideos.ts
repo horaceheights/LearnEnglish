@@ -3,9 +3,13 @@ export type LessonActionVideo = {
   source?: number;
 };
 
-const LOCAL_FAMILY_ACTION_VIDEOS: Record<string, number> = {
-  family_father_working: require('../assets/lesson-videos/father-working-scene-v3.mp4'),
-  family_mother_cooking: require('../assets/lesson-videos/mother-cooking-scene-v2.mp4'),
+const LOCAL_ACTION_VIDEOS: Record<string, number> = {
+  family_brother_studying: require('../assets/lesson-videos/brother-studying-scene-v3.mp4'),
+  family_children_playing: require('../assets/lesson-videos/children-playing-scene-v3.mp4'),
+  family_father_working: require('../assets/lesson-videos/father-working-scene-v4.mp4'),
+  family_mother_cooking: require('../assets/lesson-videos/mother-cooking-scene-v3.mp4'),
+  family_parents_talking: require('../assets/lesson-videos/parents-talking-scene-v3.mp4'),
+  girl_is_walking: require('../assets/lesson-videos/girl-walking-scene-v3.mp4'),
 };
 
 const LESSON_ACTION_VIDEOS: Record<string, string> = {
@@ -16,17 +20,17 @@ const LESSON_ACTION_VIDEOS: Record<string, string> = {
   boy_is_sleeping: 'boy-sleeping-scene-v2.mp4',
   boy_is_swimming: 'boy-swimming-scene-v2.mp4',
   boy_is_walking: 'boy-walking-scene-v2.mp4',
-  family_brother_studying: 'brother-studying-scene-v2.mp4',
+  family_brother_studying: 'brother-studying-scene-v3.mp4',
   family_baby_sleeping: 'baby-sleeping-scene-v2.mp4',
   family_adults_playing: 'adults-playing-scene-v2.mp4',
-  family_children_playing: 'children-playing-scene-v2.mp4',
+  family_children_playing: 'children-playing-scene-v3.mp4',
   family_children_studying: 'children-studying-scene-v2.mp4',
-  family_father_working: 'father-working-scene-v3.mp4',
-  family_mother_cooking: 'mother-cooking-scene-v2.mp4',
-  family_parents_talking: 'parents-talking-scene-v2.mp4',
+  family_father_working: 'father-working-scene-v4.mp4',
+  family_mother_cooking: 'mother-cooking-scene-v3.mp4',
+  family_parents_talking: 'parents-talking-scene-v3.mp4',
   girl_is_drinking: 'girl-drinking-scene-v2.mp4',
   girl_is_sleeping: 'girl-sleeping-scene-v2.mp4',
-  girl_is_walking: 'girl-walking-scene-v2.mp4',
+  girl_is_walking: 'girl-walking-scene-v3.mp4',
   girl_is_writing: 'girl-writing-scene-v2.mp4',
   man_is_swimming: 'man-swimming-scene-v2.mp4',
   man_is_walking: 'man-walking-scene-v2.mp4',
@@ -40,6 +44,6 @@ export function lessonActionVideo(imageUrl?: string): LessonActionVideo | null {
 
   return {
     name,
-    source: LOCAL_FAMILY_ACTION_VIDEOS[filename],
+    source: LOCAL_ACTION_VIDEOS[filename],
   };
 }

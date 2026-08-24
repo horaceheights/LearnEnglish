@@ -152,7 +152,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Action-video surfaces must fill their clipped card edge-to-edge. Use `cover` plus a slight player-layer overscan on web and native; never use `contain` for lesson action clips because it exposes black sidebars.
 - Version video URLs whenever a clip is replaced or normalized so mobile and CDN caches cannot keep serving an obsolete copy with old framing or black bars.
 - The still and video layers must occupy exactly the same frame. Switching to video must not reveal the old image, resize the subject, or create gaps.
-- Preserve the whole subject. Use a blurred side fill when source framing cannot fill 16:9 without cropping important content.
+- Preserve the whole subject. When square or portrait source framing cannot fill 16:9 without cropping important content, center it over the shared solid warm-neutral card background (`#f2ebde`). Do not use black bars or blurred side fill.
 - Compress clips after generation while preserving enough clarity for the teaching action.
 - Normalize clips from their original raw source at the shared 640x360 frame and CRF 20. Never normalize an already compressed lesson export in place; repeated lossy passes visibly soften full-height mobile cards and shorten trimmed clips.
 - To reduce generation cost, prefer one source generation containing two clearly separated actions, then trim it into two focused clips when the provider can follow that prompt reliably.
@@ -287,3 +287,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Automatic single-card teaching videos standardized as display-only surfaces; tapping the clip must not submit or advance the card.
 - 2026-08-24: Lesson 1.7 keeps `not` larger and yellow across visible teaching and recognition prompts, with animation limited to its Learn introduction.
 - 2026-08-24: Negative image-choice confirmations standardized on a post-selection full contrast: spoken and visibly resized in Recognize, spoken only in Listen, with no positive-action reveal before selection.
+- 2026-08-24: Square-source action videos standardized on solid warm-neutral side fill matching still-image cards; black bars and blurred side fill are no longer accepted.

@@ -97,27 +97,38 @@ assert.match(
   'Lesson video URLs must be versioned so corrected media replaces stale mobile caches.',
 );
 
-assert.match(
-  actionVideosSource,
-  /family_father_working:\s*require\('\.\.\/assets\/lesson-videos\/father-working-scene-v3\.mp4'\)/,
-  'The father-working card must bundle its safe-framed clip so Preview cannot fall back to a cropped square poster.',
-);
+const solidSideFillVideos = {
+  family_brother_studying: 'brother-studying-scene-v3.mp4',
+  family_children_playing: 'children-playing-scene-v3.mp4',
+  family_father_working: 'father-working-scene-v4.mp4',
+  girl_is_walking: 'girl-walking-scene-v3.mp4',
+  family_mother_cooking: 'mother-cooking-scene-v3.mp4',
+  family_parents_talking: 'parents-talking-scene-v3.mp4',
+};
 
-for (const filename of ['father-working-scene-v3.mp4', 'mother-cooking-scene-v2.mp4']) {
+for (const [imageKey, filename] of Object.entries(solidSideFillVideos)) {
   const bundledVideoPath = path.resolve(__dirname, '../assets/lesson-videos', filename);
   assert.ok(fs.statSync(bundledVideoPath).size > 0, `${filename} must be present in the Preview bundle.`);
+  assert.ok(
+    actionVideosSource.includes(`require('../assets/lesson-videos/${filename}')`),
+    `${filename} must use a literal Metro require.`,
+  );
+  assert.ok(
+    webPlayerSource.includes(`"${imageKey}": "${filename}"`),
+    `${filename} must stay aligned between web and native mappings.`,
+  );
 }
 
 assert.match(
   normalizerSource,
-  /SAFE_FOREGROUND_HEIGHT = 338[\s\S]*?force_original_aspect_ratio=decrease\[subject\]/,
-  'Normalized portrait action footage must retain a vertical safe inset for the mobile cover crop.',
+  /SOLID_SIDE_FILL_COLOR = "0xf2ebde"[\s\S]*?crop_width \/ crop_height < 1\.6[\s\S]*?force_original_aspect_ratio=decrease\[subject\]/,
+  'Square-source action footage must retain a safe inset over the shared warm-neutral background.',
 );
 
-assert.match(
-  actionVideosSource,
-  /family_mother_cooking:\s*require\('\.\.\/assets\/lesson-videos\/mother-cooking-scene-v2\.mp4'\)/,
-  'The mother-cooking card must bundle the normalized clip so Preview cannot load the stale black-sidebar export.',
+assert.doesNotMatch(
+  normalizerSource,
+  /gblur|boxblur/,
+  'Action-video normalization must not use blurred side fill.',
 );
 
 console.log('Unified video media checks passed.');
