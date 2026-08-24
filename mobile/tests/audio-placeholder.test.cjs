@@ -33,13 +33,21 @@ assert.match(
   'Blank completion cards must enable interaction without starting prompt audio.',
 );
 
+assert.match(
+  lessonScreenSource,
+  /const promptHasVisualBlank = hasVisualAudioPlaceholder\(currentCard\?\.prompt \?\? ''\)[\s\S]*?\|\| hasVisualAudioPlaceholder\(promptAudio\);/,
+  'Blank detection must inspect the displayed prompt even when legacy audio_text is empty.',
+);
+
 let completionCardCount = 0;
 for (const filename of fs.readdirSync(generatedRoot)) {
   if (!filename.endsWith('.json')) continue;
   const lesson = JSON.parse(fs.readFileSync(path.join(generatedRoot, filename), 'utf8'));
   for (const card of lesson.cards) {
     const promptAudio = card.audio_text ?? card.prompt ?? '';
-    if (!/_{2,}|\.{3}|…|\{blank\}/.test(promptAudio)) continue;
+    const visualPrompt = card.prompt ?? '';
+    if (!/_{2,}|\.{3}|…|\{blank\}/.test(visualPrompt)
+      && !/_{2,}|\.{3}|…|\{blank\}/.test(promptAudio)) continue;
     completionCardCount += 1;
     assert.ok(
       card.answer_audio_text?.trim(),
@@ -49,6 +57,18 @@ for (const filename of fs.readdirSync(generatedRoot)) {
       card.answer_audio_text,
       /_+|\.{3}|…|\{blank\}/,
       `${filename} sends a placeholder in completed answer audio.`,
+    );
+    const correctOption = card.options.find((option) => option.id === card.correct_option_id);
+    assert.ok(
+      correctOption?.label?.trim(),
+      `${filename} cannot build complete answer audio without a labeled correct option.`,
+    );
+    const completedPrompt = visualPrompt.replace(/_{2,}/, correctOption.label);
+    const normalizeCompletion = (text) => String(text || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    assert.equal(
+      normalizeCompletion(card.answer_audio_text),
+      normalizeCompletion(completedPrompt),
+      `${filename} must speak the entire completed prompt, including context before the blank.`,
     );
   }
 }
@@ -72,4 +92,4 @@ if (compiledConfigPath) {
   );
 }
 
-console.log(`Verified ${completionCardCount} silent visual-blank cards with completed-answer-only audio.`);
+console.log(`Verified ${completionCardCount} silent visual-blank cards with full completed-prompt audio.`);

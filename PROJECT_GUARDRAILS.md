@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-08-22
+Last reviewed: 2026-08-23
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -83,7 +83,7 @@ Every standard lesson follows this visible sequence:
 - Mix related forms instead of batching every `is` item before every `are` item.
 - Include affirmative and negative forms only after each form has been introduced clearly.
 - End with a short completion or mission activity that uses previously learned language.
-- Completion blanks are visual UI only. Do not speak the incomplete sentence before selection: unfinished fragments such as `It is a` can produce elongated vowels or invented trailing sounds even without literal placeholder characters. After the learner answers, speak only the fully completed `answer_audio_text`.
+- Completion blanks are visual UI only. Do not speak the incomplete sentence before selection: unfinished fragments such as `It is a` can produce elongated vowels or invented trailing sounds even without literal placeholder characters. After the learner answers, speak the entire completed card text exactly as it appears after filling the blank, including any context before the blank; `answer_audio_text` must contain that full completion rather than only the inserted word or trailing clause.
 
 ## 3. New-Word Learning Journey
 
@@ -168,7 +168,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not show internal audio-generation or scoring status messages to learners.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
 - Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
-- Every course-audio boundary rejects underscores, ellipses, and blank markers. Completion-card prompt preloading, autoplay, and manual replay must all remain silent; only the complete answer may be spoken after selection. Preview verification must enforce both the silent prompt path and the remote URL rejection.
+- Every course-audio boundary rejects underscores, ellipses, and blank markers. Completion-card prompt preloading, autoplay, and manual replay must all remain silent; only the entire completed card text may be spoken after selection. Preview verification must enforce the silent prompt path, the remote URL rejection, and preservation of all visible context around the blank.
 - Course-audio instructions must require the exact requested words once and an immediate stop after the final word. Reject takes with a preface, repeated or missing word, filler sound, or trailing speech.
 - Before release, transcribe every unique new Use-stage prompt and completed answer and compare its normalized words with the intended phrase. Number digits and number words may be treated as equivalent; added or missing words are failures and the take must be regenerated.
 
@@ -277,4 +277,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-22: Unit 2 place images prohibited answer-word labels; hospital uses `H` plus a medical symbol and restaurant meaning comes from dining context.
 - 2026-08-22: Unit 2 numbers standardized on realistic brushed-metal numerals with exact gold-star quantities; plain-dot and cartoon number treatments are retired.
 - 2026-08-22: Unit 2 wrong-answer support standardized on one concise Spanish cue naming the relevant context: place features, object shape, depth, count, color, or phrase order.
-- 2026-08-22: Use-stage blank audio standardized on deterministic spoken-fragment stitching with encoded silence and transcript-level rejection of added, missing, or trailing words.
+- 2026-08-23: Use-stage completion prompts remain silent before selection; after a correct choice, audio speaks the full completed prompt, preserving leading context and punctuation instead of playing a fragment or shortened trailing clause.

@@ -653,7 +653,8 @@ export function LessonScreen({
   const isAutomaticSingleCard =
     !isCompletedSectionPicker && manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
-  const promptHasVisualBlank = hasVisualAudioPlaceholder(promptAudio);
+  const promptHasVisualBlank = hasVisualAudioPlaceholder(currentCard?.prompt ?? '')
+    || hasVisualAudioPlaceholder(promptAudio);
   const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
     isGrammar ? currentCard?.prompt ?? '' : promptAudio,
   );
