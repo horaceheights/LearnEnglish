@@ -54,6 +54,12 @@ try {
   & node tests/logo-home-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de navegación del logo a Inicio.' }
 
+  & node tests/startup-update-notification.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de confirmación de actualización.' }
+
+  & node tests/preview-release-lineage.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la línea canónica de Preview.' }
+
   & node tests/video-media-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de video unificado.' }
 

@@ -10,6 +10,7 @@ if ([string]::IsNullOrWhiteSpace($Message)) {
   throw 'Incluye una descripción. Ejemplo: npm run release:preview -- -Message "Corregir audio de gramática"'
 }
 
+Assert-PreviewReleaseLineage
 Assert-CleanReleaseCommit
 $mobileRoot = Split-Path -Parent $PSScriptRoot
 

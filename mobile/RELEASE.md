@@ -27,6 +27,8 @@ Comparte el enlace de instalación de Preview únicamente con la persona que apr
 
 El cambio debe estar en un commit y respaldado en GitHub. El comando se detendrá si encuentra archivos sin commit o un commit que todavía no se ha subido.
 
+Preview también usa una sola línea canónica: `origin/codex/restore-complete-a1-preview`. Antes de publicar desde otra rama, integra primero la versión más reciente de esa línea. El guard de publicación bloquea ramas divergentes para impedir que una actualización nueva quite unidades o funciones ya aprobadas.
+
 Antes del commit, se puede ejecutar el mismo preflight que usa la publicación:
 
 ```powershell

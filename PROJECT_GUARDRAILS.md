@@ -258,6 +258,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Never publish or promote to Production without explicit user approval after Preview testing.
 - Native dependency, Expo configuration, permission, native module, or app-version changes require a new build rather than an OTA update.
 - Keep generated lesson snapshots, audio manifests, and committed media synchronized with the canonical lesson files.
+- Preview publishes must contain the current canonical `origin/codex/restore-complete-a1-preview` lineage. A feature or media branch may publish only after integrating that line, so a newer OTA cannot silently remove approved units or behavior.
 
 ## 13. Decision Log
 
@@ -283,3 +284,5 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-22: Unit 2 wrong-answer support standardized on one concise Spanish cue naming the relevant context: place features, object shape, depth, count, color, or phrase order.
 - 2026-08-23: Use-stage completion prompts remain silent before selection; after a correct choice, audio speaks the full completed prompt, preserving leading context and punctuation instead of playing a fragment or shortened trailing clause.
 - 2026-08-24: Successful cold-start EAS updates standardized on a one-time confirmation popup with previous and current version, build, and update identifiers.
+- 2026-08-24: Every learner-facing SpanGlish logo standardized as an accessible route home, with exit confirmation during an active lesson.
+- 2026-08-24: Preview publication standardized on one canonical full-course lineage; divergent feature branches must integrate it before publishing to the shared channel.

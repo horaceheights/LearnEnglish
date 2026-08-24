@@ -116,7 +116,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Text must remain readable and inside its container on small phones and tablets.
 - A shared component change must be verified against two-option and four-option cards.
 - Do not use a correct-answer visual treatment until after the learner selects an answer.
-- The SpanGlish lesson logo remains a navigation control back to the lesson home/menu.
+- Every learner-facing SpanGlish logo is an accessible navigation control back to home. During an active lesson, ask for confirmation before abandoning the lesson.
 
 ## 5. Image Guardrails
 
@@ -192,6 +192,7 @@ Do not force every word through every step in a single lesson when that would ma
 - A Retry action must restart the complete intended flow, including model playback when that is part of the exercise.
 - Do not allow rapid automatic transitions to hide feedback.
 - User-facing messages are simple and encouraging, with Spanish support for operational or pronunciation guidance at A1.
+- After a cold-start EAS update is successfully activated, show one popup confirming the update and identifying both the previous and current app version, build, and update code. Do not show completion for an update that was downloaded but is not yet running.
 
 ## 9. Current A1 Course Contract
 
@@ -257,6 +258,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Never publish or promote to Production without explicit user approval after Preview testing.
 - Native dependency, Expo configuration, permission, native module, or app-version changes require a new build rather than an OTA update.
 - Keep generated lesson snapshots, audio manifests, and committed media synchronized with the canonical lesson files.
+- Preview publishes must contain the current canonical `origin/codex/restore-complete-a1-preview` lineage. A feature or media branch may publish only after integrating that line, so a newer OTA cannot silently remove approved units or behavior.
 
 ## 12. Decision Log
 
@@ -295,3 +297,6 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Lesson option images standardized on one 3:2 media shape across every card count; backgrounds may be extended or outpainted, but subjects and meaningful foreground details must never be stretched or distorted.
 - 2026-08-24: Multi-choice action media standardized on a poster-first mobile lifecycle: the matching still remains visible before selection, and motion replaces it only after correct-selection playback starts inside the same clipped frame.
 - 2026-08-24: The existing A1 option-image catalog adopted that 3:2 viewport on web and mobile; unsafe action crops use reviewed 1536x1024 variants, while approved identity crops anchor to the top to keep complete heads in frame.
+- 2026-08-24: Successful cold-start EAS updates standardized on a one-time confirmation popup with previous and current version, build, and update identifiers.
+- 2026-08-24: Every learner-facing SpanGlish logo standardized as an accessible route home, with exit confirmation during an active lesson.
+- 2026-08-24: Preview publication standardized on one canonical full-course lineage; divergent feature branches must integrate it before publishing to the shared channel.

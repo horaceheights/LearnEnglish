@@ -38,6 +38,23 @@ function Assert-CleanReleaseCommit {
   Write-Host "Commit verificado: $commit" -ForegroundColor Green
 }
 
+function Assert-PreviewReleaseLineage {
+  $repositoryRoot = Get-ReleaseRepositoryRoot
+  $canonicalBranch = 'origin/codex/restore-complete-a1-preview'
+
+  & git -C $repositoryRoot rev-parse --verify --quiet $canonicalBranch | Out-Null
+  if ($LASTEXITCODE -ne 0) {
+    throw "No se encontró la línea canónica de Preview ($canonicalBranch). Ejecuta git fetch origin antes de publicar."
+  }
+
+  & git -C $repositoryRoot merge-base --is-ancestor $canonicalBranch HEAD
+  if ($LASTEXITCODE -ne 0) {
+    throw "Publicación bloqueada: este commit no contiene la línea canónica de Preview ($canonicalBranch). Integra primero la versión Preview más reciente para no perder funciones ni unidades."
+  }
+
+  Write-Host "Línea canónica de Preview verificada: $canonicalBranch" -ForegroundColor Green
+}
+
 function Invoke-CheckedCommand {
   param(
     [Parameter(Mandatory = $true)]
