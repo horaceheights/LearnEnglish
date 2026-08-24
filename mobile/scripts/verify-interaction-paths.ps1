@@ -48,6 +48,9 @@ try {
   & node tests/option-media-standard.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la prueba global de imágenes 3:2 en opciones.' }
 
+  & node tests/lesson-media-frame.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación global de marcos para imágenes de lecciones.' }
+
   & node tests/image-choice-feedback-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de espacio para pistas bajo opciones visuales.' }
 

@@ -138,6 +138,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not crop heads, faces, hands needed for meaning, or the action itself.
 - Preserve the full subject with `contain` or an equivalent normalized frame when cropping would remove meaning.
 - Use consistent aspect ratios and framing for images serving the same card role.
+- Every learner-facing mobile lesson image uses the shared dark inset frame with rounded outer and inner clipping. This includes prompt or scene images in Recognize and Use (`Completa`), image choices, action posters, and Speak model images across every unit. Do not render a raw prompt image directly into the lesson card.
 - Every Speak-stage model image uses the same inset 3:2 option-media treatment as the rest of the lesson: dark outer border, warm-neutral fallback, and rounded outer and inner clipping. Preserve the complete model subject inside that frame with a subject-preserving fit or a reviewed 3:2 variant; never reuse an option-card crop that reduces a person to only part of the head or body. Apply this through the shared pronunciation component, never as lesson-specific styling.
 - Every A1 lesson and unit has its own explicit title image that represents that lesson or unit's primary learning focus. Title imagery is globally unique across the course: no two lessons, no two units, and no lesson-unit pair may reuse the same picture, including identical picture content saved under different filenames. Reserve each unit-level image for that unit's menu and header only.
 - Reuse established people and family members when continuity helps learners infer meaning.
@@ -307,3 +308,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Portrait image-choice stacks standardized on height-aware uniform scaling so wrong-answer encouragement and teaching hints remain above Android navigation without changing the 3:2 media frame.
 - 2026-08-24: All mobile Speak-stage images standardized on the lesson option frame, including its 3:2 crop policy, dark inset border, and rounded clipping across every unit.
 - 2026-08-24: Speak-stage framing corrected to preserve the complete model subject inside the shared 3:2 frame; portrait identity art must use a subject-preserving fit rather than the option-card top crop.
+- 2026-08-24: Mobile lesson imagery standardized on one shared dark rounded 3:2 frame across prompt scenes, `Completa`, Recognize, image choices, action posters, and Speak in all seven units.

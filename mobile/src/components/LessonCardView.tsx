@@ -9,6 +9,11 @@ import { lessonImageSource } from '../lessonImageSources';
 import { lessonHelpText } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';
+import {
+  LESSON_MEDIA_FRAME_STYLE,
+  LESSON_MEDIA_VIEWPORT_STYLE,
+  LessonMediaFrame,
+} from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
 import { PronunciationPractice } from './PronunciationPractice';
 
@@ -194,6 +199,7 @@ export function LessonCardView({
     responsiveFeatureImageHeight,
     Math.max(isPronunciation ? 68 : 70, availableCardHeight - featureReservedHeight),
   );
+  const promptImageHeight = showHelp ? featureImageHeight * 0.65 : featureImageHeight;
   const optionRows = useTabletImageGrid || usePortraitImageGrid || usePortraitImageStack ? 2 : 1;
   // A single image or teaching clip is the main lesson visual. Let it use the
   // full measured panel instead of shrinking a 16:9 clip into a short strip.
@@ -308,16 +314,20 @@ export function LessonCardView({
         </View>
       ) : null}
       {card.prompt_image_url ? (
-        <Image
-          accessibilityLabel={card.answer_audio_text || card.prompt}
-          resizeMode="contain"
-          source={lessonImageSource(card.prompt_image_url)}
-          style={[
-            styles.promptImage,
-            useDensePortraitTextLayout ? styles.promptImageDensePortrait : null,
-            { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight },
+        <LessonMediaFrame
+          frameStyle={[
+            styles.promptImageFrame,
+            useDensePortraitTextLayout ? styles.promptImageFrameDensePortrait : null,
           ]}
-        />
+          maxHeight={promptImageHeight}
+        >
+          <Image
+            accessibilityLabel={card.answer_audio_text || card.prompt}
+            resizeMode="contain"
+            source={lessonImageSource(card.prompt_image_url)}
+            style={styles.promptImage}
+          />
+        </LessonMediaFrame>
       ) : null}
       {isPronunciation ? (
         <PronunciationPractice
@@ -386,7 +396,7 @@ export function LessonCardView({
                           borderColor: textTheme.border,
                         }
                       : null,
-                    !isLandscape && option.image_url ? styles.imageOptionPortrait : null,
+                    option.image_url ? styles.imageOptionFrame : null,
                     useExpandedSingleActionVideo ? styles.singleActionVideoOption : null,
                     hasTextOnlyOptions ? styles.textOption : null,
                     useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
@@ -658,9 +668,9 @@ const styles = StyleSheet.create({
   flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
-  promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
-  promptImageDensePortrait: { marginTop: 3 },
-  promptActionMedia: { alignSelf: 'center', marginTop: 14, width: '100%' },
+  promptImage: { height: '100%', width: '100%' },
+  promptImageFrame: { marginTop: 14 },
+  promptImageFrameDensePortrait: { marginTop: 3 },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -691,32 +701,21 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '48%',
   },
-  imageOptionPortrait: {
-    backgroundColor: '#fffef9',
-    borderColor: '#172d35',
-    borderRadius: 24,
-    borderWidth: 4,
-    elevation: 3,
-    padding: 8,
-    shadowColor: '#172d35',
-    shadowOffset: { height: 3, width: 0 },
-    shadowOpacity: 0.12,
-    shadowRadius: 5,
+  imageOptionFrame: {
+    ...LESSON_MEDIA_FRAME_STYLE,
   },
   singleActionVideoOption: {
     alignSelf: 'center',
     width: '100%',
   },
-  optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
+  optionImage: { ...LESSON_MEDIA_VIEWPORT_STYLE, width: '100%' },
   optionImageThreeByTwoFrame: { aspectRatio: 3 / 2, overflow: 'hidden' },
   optionImageThreeByTwoHelp: { width: '65%' },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {
+    ...LESSON_MEDIA_VIEWPORT_STYLE,
     alignSelf: 'center',
-    backgroundColor: '#f2ebde',
-    borderRadius: 17,
-    overflow: 'hidden',
     position: 'relative',
     width: '100%',
   },

@@ -12,6 +12,10 @@ const optionMediaSource = fs.readFileSync(
   path.join(mobileRoot, 'src/components/OptionMediaImage.tsx'),
   'utf8',
 );
+const mediaFrameSource = fs.readFileSync(
+  path.join(mobileRoot, 'src/components/LessonMediaFrame.tsx'),
+  'utf8',
+);
 const cardViewSource = fs.readFileSync(
   path.join(mobileRoot, 'src/components/LessonCardView.tsx'),
   'utf8',
@@ -36,7 +40,7 @@ for (const { card, lessonId } of pronunciationCards) {
 
 assert.match(
   pronunciationSource,
-  /<View style=\{styles\.practiceMedia\}>[\s\S]*?<OptionMediaImage[\s\S]*?accessibilityLabel=\{imageLabel \|\| phrase\}[\s\S]*?imageUrl=\{imageUrl\}[\s\S]*?preserveSubject/,
+  /<LessonMediaFrame[\s\S]*?maxHeight=\{imageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?accessibilityLabel=\{imageLabel \|\| phrase\}[\s\S]*?imageUrl=\{imageUrl\}[\s\S]*?preserveSubject/,
   'Every pronunciation image must use the shared option-media image layer.',
 );
 assert.match(
@@ -51,13 +55,13 @@ assert.match(
 );
 assert.match(cardViewSource, /<OptionMediaImage imageUrl=\{option\.image_url\} \/>/);
 assert.match(
-  pronunciationSource,
-  /practiceFrame:\s*\{[\s\S]*?borderColor: '#172d35'[\s\S]*?borderRadius: 24[\s\S]*?borderWidth: 4[\s\S]*?padding: 8/,
+  mediaFrameSource,
+  /LESSON_MEDIA_FRAME_STYLE = \{[\s\S]*?borderColor: '#172d35'[\s\S]*?borderRadius: 24[\s\S]*?borderWidth: 4[\s\S]*?padding: 8/,
   'Pronunciation media must use the established dark inset option frame with rounded corners.',
 );
 assert.match(
-  pronunciationSource,
-  /practiceMedia:\s*\{[\s\S]*?aspectRatio: 3 \/ 2[\s\S]*?borderRadius: 17[\s\S]*?overflow: 'hidden'/,
+  mediaFrameSource,
+  /media:\s*\{[\s\S]*?LESSON_MEDIA_VIEWPORT_STYLE[\s\S]*?aspectRatio: 3 \/ 2/,
   'Pronunciation media must use rounded 3:2 inner clipping.',
 );
 assert.doesNotMatch(
