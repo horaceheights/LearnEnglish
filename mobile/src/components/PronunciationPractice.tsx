@@ -1702,6 +1702,7 @@ export function PronunciationPractice({
               <OptionMediaImage
                 accessibilityLabel={imageLabel || phrase}
                 imageUrl={imageUrl}
+                preserveSubject
               />
               {videoName && !reduceMotion ? (
                 <VideoView

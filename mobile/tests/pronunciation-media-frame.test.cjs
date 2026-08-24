@@ -36,13 +36,18 @@ for (const { card, lessonId } of pronunciationCards) {
 
 assert.match(
   pronunciationSource,
-  /<View style=\{styles\.practiceMedia\}>[\s\S]*?<OptionMediaImage[\s\S]*?accessibilityLabel=\{imageLabel \|\| phrase\}[\s\S]*?imageUrl=\{imageUrl\}/,
+  /<View style=\{styles\.practiceMedia\}>[\s\S]*?<OptionMediaImage[\s\S]*?accessibilityLabel=\{imageLabel \|\| phrase\}[\s\S]*?imageUrl=\{imageUrl\}[\s\S]*?preserveSubject/,
   'Every pronunciation image must use the shared option-media image layer.',
 );
 assert.match(
   optionMediaSource,
-  /lessonOptionImageSource\(imageUrl\)[\s\S]*?resizeMode="cover"/,
-  'Pronunciation and choice cards must share normalized assets and crop behavior.',
+  /lessonOptionImageSource\(imageUrl\)[\s\S]*?resizeMode=\{preserveSubject \? 'contain' : 'cover'\}/,
+  'Pronunciation and choice cards must share normalized assets without forcing portrait model images through a destructive crop.',
+);
+assert.match(
+  optionMediaSource,
+  /const topAligned = !preserveSubject && TOP_ALIGNED_OPTION_MEDIA/,
+  'Subject-preserving pronunciation images must bypass the option-card top crop.',
 );
 assert.match(cardViewSource, /<OptionMediaImage imageUrl=\{option\.image_url\} \/>/);
 assert.match(

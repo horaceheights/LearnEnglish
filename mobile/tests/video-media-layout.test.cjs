@@ -58,8 +58,14 @@ assert.match(
 );
 
 assert.match(
-  `${optionMediaImageSource}\n${cardViewSource}`,
-  /lessonOptionImageSource\(imageUrl\)[\s\S]*?resizeMode="cover"[\s\S]*?if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<OptionMediaImage imageUrl=\{imageUrl\}/,
+  optionMediaImageSource,
+  /preserveSubject = false[\s\S]*?lessonOptionImageSource\(imageUrl\)[\s\S]*?resizeMode=\{preserveSubject \? 'contain' : 'cover'\}/,
+  'The reviewed 3:2 still layer must keep cover as its default for image options and video posters.',
+);
+
+assert.match(
+  cardViewSource,
+  /if \(!shouldPlay \|\| reduceMotion \|\| videoFailed\)[\s\S]*?<OptionMediaImage imageUrl=\{imageUrl\}/,
   'Video fallbacks and cold-load posters must use the same reviewed 3:2 still layer as image options.',
 );
 

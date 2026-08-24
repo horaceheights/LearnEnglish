@@ -25,13 +25,15 @@ export function OptionMediaImage({
   accessibilityLabel,
   imageUrl,
   poster = false,
+  preserveSubject = false,
 }: {
   accessibilityLabel?: string;
   imageUrl: string;
   poster?: boolean;
+  preserveSubject?: boolean;
 }) {
   const source = lessonOptionImageSource(imageUrl);
-  const topAligned = TOP_ALIGNED_OPTION_MEDIA.has(optionMediaFilename(imageUrl));
+  const topAligned = !preserveSubject && TOP_ALIGNED_OPTION_MEDIA.has(optionMediaFilename(imageUrl));
   const resolvedSource = topAligned ? Image.resolveAssetSource(source) : null;
   const sourceAspectRatio = resolvedSource?.width && resolvedSource?.height
     ? resolvedSource.width / resolvedSource.height
@@ -42,7 +44,7 @@ export function OptionMediaImage({
       accessible={Boolean(accessibilityLabel)}
       accessibilityIgnoresInvertColors
       accessibilityLabel={accessibilityLabel}
-      resizeMode="cover"
+      resizeMode={preserveSubject ? 'contain' : 'cover'}
       source={source}
       style={[
         topAligned
