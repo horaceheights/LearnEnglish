@@ -39,7 +39,7 @@ SCENES = {
     "children-playing": ("family_children_playing", "children-playing-scene-v3.mp4", "both children actively play with the existing toys using clear, purposeful hand and body movement"),
     "father-working": ("family_father_working", "father-working-scene-v4.mp4", "unmistakably works at the construction site by extending the existing tape measure along the wooden board, checking it, and making one careful mark"),
     "mother-cooking": ("family_mother_cooking", "mother-cooking-scene-v3.mp4", "clearly cooks by stirring the existing food in the pan with natural hand movement"),
-    "parents-talking": ("family_parents_talking", "parents-talking-scene-v3.mp4", "have a friendly conversation, taking turns making small hand gestures toward each other; their interaction must clearly show talking"),
+    "parents-talking": ("family_parents_talking", "parents-talking-scene-v4.mp4", "have a friendly conversation, taking turns making small hand gestures toward each other; their interaction must clearly show talking"),
     "adults-playing": ("family_adults_playing", "adults-playing-scene-v2.mp4", "both adults actively play the activity already shown, with clear purposeful hand and body movement"),
     "grandparents-talking": ("family_grandparents_talking", "grandparents-talking-scene-v2.mp4", "have a friendly conversation, taking turns making small hand gestures toward each other; their interaction must clearly show talking"),
     "children-studying": ("family_children_studying", "children-studying-scene-v2.mp4", "both children clearly study: they look between their learning materials and write short answers with focused, purposeful movement"),
@@ -54,6 +54,11 @@ BUNDLED_SOLID_SIDE_FILL_SCENES = {
     "mother-cooking",
     "parents-talking",
 }
+
+# Reviewed exception for the parents-talking pilot: the source animation is a
+# square scene inside a 16:9 export. A top-anchored 3:2 teaching-action crop
+# keeps both faces and the complete conversational gestures at a useful scale.
+ACTION_SAFE_THREE_TWO_CROP_SCENES = {"parents-talking"}
 
 
 def raw_name_for(output_name: str) -> str:
@@ -129,7 +134,7 @@ def generate(client: genai.Client, scene_id: str) -> Path:
 
 def optimize(scene_id: str, raw_path: Path) -> Path:
     output_path = ASSETS / SCENES[scene_id][1]
-    encode_normalized(raw_path, output_path)
+    encode_normalized(scene_id, raw_path, output_path)
     if scene_id in BUNDLED_SOLID_SIDE_FILL_SCENES:
         MOBILE_VIDEOS.mkdir(parents=True, exist_ok=True)
         shutil.copy2(output_path, MOBILE_VIDEOS / output_path.name)
@@ -165,11 +170,21 @@ def media_duration(input_path: Path) -> float:
     return (int(hours) * 3600) + (int(minutes) * 60) + float(seconds)
 
 
-def encode_normalized(input_path: Path, output_path: Path) -> None:
+def encode_normalized(scene_id: str, input_path: Path, output_path: Path) -> None:
     crop = detected_crop(input_path)
-    crop_width, crop_height, _, _ = (int(value) for value in crop.split(":"))
+    crop_width, crop_height, crop_x, crop_y = (int(value) for value in crop.split(":"))
     temporary_path = output_path.with_name(f"{output_path.stem}.normalized.mp4")
-    if crop_width / crop_height < 1.6:
+    if scene_id in ACTION_SAFE_THREE_TWO_CROP_SCENES and crop_width / crop_height < 1.6:
+        action_crop_height = min(crop_height, round(crop_width / 1.5))
+        action_width = round(360 * 1.5)
+        action_margin = (640 - action_width) // 2
+        filter_graph = (
+            f"[0:v]crop={crop_width}:{action_crop_height}:{crop_x}:{crop_y},"
+            f"scale={action_width}:360:flags=lanczos[subject];"
+            f"color=c={SOLID_SIDE_FILL_COLOR}:s=640x360[canvas];"
+            f"[canvas][subject]overlay={action_margin}:0:shortest=1"
+        )
+    elif crop_width / crop_height < 1.6:
         filter_graph = (
             f"color=c={SOLID_SIDE_FILL_COLOR}:s=640x360[canvas];"
             f"[0:v]crop={crop},scale={SAFE_FOREGROUND_WIDTH}:{SAFE_FOREGROUND_HEIGHT}:"
