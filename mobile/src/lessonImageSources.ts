@@ -868,6 +868,7 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'family_mother_cooking_3x2.webp': require('../assets/lesson-assets/family_mother_cooking_3x2.webp'),
   'family_parents.webp': require('../assets/lesson-assets/family_parents.webp'),
   'family_parents_talking.webp': require('../assets/lesson-assets/family_parents_talking.webp'),
+  'family_parents_talking_3x2.webp': require('../assets/lesson-assets/family_parents_talking_3x2.webp'),
   'family_sisters.webp': require('../assets/lesson-assets/family_sisters.webp'),
   'girl.webp': require('../assets/lesson-assets/girl.webp'),
   'girl_is_drinking.webp': require('../assets/lesson-assets/girl_is_drinking.webp'),
@@ -908,6 +909,7 @@ const OPTION_MEDIA_VARIANTS: Record<string, string> = {
   'family_father_working.webp': 'family_father_working_3x2.webp',
   'family_grandparents_sitting.webp': 'family_grandparents_sitting_3x2.webp',
   'family_mother_cooking.webp': 'family_mother_cooking_3x2.webp',
+  'family_parents_talking.webp': 'family_parents_talking_3x2.webp',
 };
 
 function imageFilename(imageUrl: string): string {

@@ -19,6 +19,7 @@ const optionVariants = {
   'family_father_working.webp': 'family_father_working_3x2.webp',
   'family_grandparents_sitting.webp': 'family_grandparents_sitting_3x2.webp',
   'family_mother_cooking.webp': 'family_mother_cooking_3x2.webp',
+  'family_parents_talking.webp': 'family_parents_talking_3x2.webp',
 };
 
 const topAlignedCrops = new Set([

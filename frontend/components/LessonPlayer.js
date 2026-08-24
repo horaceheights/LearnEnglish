@@ -20,7 +20,7 @@ import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260710-objects-places-1-6";
-const LESSON_VIDEO_VERSION = "20260824-parents-scale-v5";
+const LESSON_VIDEO_VERSION = "20260824-parents-match-v6";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 const DEFAULT_PROFILE = {
@@ -374,6 +374,7 @@ const OPTION_MEDIA_VARIANTS = {
   "family_father_working.webp": "family_father_working_3x2.webp",
   "family_grandparents_sitting.webp": "family_grandparents_sitting_3x2.webp",
   "family_mother_cooking.webp": "family_mother_cooking_3x2.webp",
+  "family_parents_talking.webp": "family_parents_talking_3x2.webp",
 };
 
 const TOP_ALIGNED_OPTION_MEDIA = new Set([
@@ -1817,7 +1818,7 @@ const LESSON_ACTION_VIDEOS = {
   "family_children_studying": "children-studying-scene-v2.mp4",
   "family_father_working": "father-working-scene-v4.mp4",
   "family_mother_cooking": "mother-cooking-scene-v3.mp4",
-  "family_parents_talking": "parents-talking-scene-v4.mp4",
+  "family_parents_talking": "parents-talking-scene-v5.mp4",
   "girl_is_drinking": "girl-drinking-scene-v2.mp4",
   "girl_is_sleeping": "girl-sleeping-scene-v2.mp4",
   "girl_is_walking": "girl-walking-scene-v3.mp4",

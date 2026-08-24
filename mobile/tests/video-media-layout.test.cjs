@@ -117,7 +117,7 @@ const solidSideFillVideos = {
   family_father_working: 'father-working-scene-v4.mp4',
   girl_is_walking: 'girl-walking-scene-v3.mp4',
   family_mother_cooking: 'mother-cooking-scene-v3.mp4',
-  family_parents_talking: 'parents-talking-scene-v4.mp4',
+  family_parents_talking: 'parents-talking-scene-v5.mp4',
 };
 
 for (const [imageKey, filename] of Object.entries(solidSideFillVideos)) {
@@ -147,8 +147,8 @@ assert.doesNotMatch(
 
 assert.match(
   normalizerSource,
-  /ACTION_SAFE_THREE_TWO_CROP_SCENES = \{"parents-talking"\}[\s\S]*?scene_id in ACTION_SAFE_THREE_TWO_CROP_SCENES[\s\S]*?action_crop_height[\s\S]*?flags=lanczos/,
-  'The reviewed parents-talking pilot must keep its action-safe 3:2 crop without stretching.',
+  /ACTION_SAFE_FOUR_THREE_CROP_SCENES = \{"parents-talking"\}[\s\S]*?scene_id in ACTION_SAFE_FOUR_THREE_CROP_SCENES[\s\S]*?action_crop_height[\s\S]*?flags=lanczos/,
+  'The reviewed parents-talking pilot must keep its action-safe 4:3 crop without stretching.',
 );
 
 console.log('Unified video media checks passed.');
