@@ -26,6 +26,7 @@ OPTION_MEDIA_VARIANTS = {
     "family_father_working.webp": "family_father_working_3x2.webp",
     "family_grandparents_sitting.webp": "family_grandparents_sitting_3x2.webp",
     "family_mother_cooking.webp": "family_mother_cooking_3x2.webp",
+    "family_parents_talking.webp": "family_parents_talking_3x2.webp",
 }
 
 sys.path.insert(0, str(BACKEND_ROOT))
