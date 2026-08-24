@@ -1,6 +1,7 @@
 import json
 import re
 import unittest
+from collections import Counter
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -260,6 +261,30 @@ class LessonStructureTests(unittest.TestCase):
                     continue
                 with self.subTest(lesson=lesson.id, card=index, audio=card.audio_text):
                     self.assertEqual(2, len(card.options))
+
+    def test_lesson_1_7_negative_image_choices_confirm_the_positive_action(self):
+        lesson = LESSONS["lesson-7-is-are-not"]
+        actual = Counter(
+            (card.audio_text, card.answer_audio_text)
+            for card in lesson.cards
+            if (
+                card.stage in {"Recognize", "Listen"}
+                and re.search(r"\b(?:is|are) not\b", card.audio_text or "", re.IGNORECASE)
+                and all(option.image_url for option in card.options)
+            )
+        )
+        expected = Counter({
+            ("He is not cooking.", "He is not cooking, he is working."): 2,
+            ("She is not reading.", "She is not reading, she is writing."): 1,
+            ("They are not sitting.", "They are not sitting, they are running."): 2,
+            (
+                "The children are not studying.",
+                "The children are not studying, they are playing.",
+            ): 1,
+            ("They are not studying.", "They are not studying, they are playing."): 1,
+            ("She is not drinking.", "She is not drinking, she is writing."): 1,
+        })
+        self.assertEqual(expected, actual)
 
     def test_specific_identity_choices_include_the_answer_in_the_audio(self):
         for lesson in LESSONS.values():

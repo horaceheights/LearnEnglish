@@ -75,6 +75,9 @@ try {
   & node tests/new-vocabulary-emphasis.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de énfasis para vocabulario nuevo.' }
 
+  & node tests/negative-contrast-feedback.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de confirmación completa para negaciones.' }
+
   & node tests/pronunciation-lifecycle.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas del ciclo de pronunciación.' }
 } finally {

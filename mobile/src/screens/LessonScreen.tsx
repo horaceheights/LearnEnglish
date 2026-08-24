@@ -654,6 +654,14 @@ export function LessonScreen({
   const isAutomaticSingleCard =
     !isCompletedSectionPicker && manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
   const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
+  const correctContrastPrompt =
+    result === 'correct'
+    && currentCard?.stage === 'Recognize'
+    && currentCard?.answer_audio_text?.includes(',')
+    && /\b(?:is|are) not\b/i.test(promptAudio)
+      ? currentCard.answer_audio_text.trim()
+      : '';
+  const visiblePromptAudio = correctContrastPrompt || promptAudio;
   const promptHasVisualBlank = hasVisualAudioPlaceholder(currentCard?.prompt ?? '')
     || hasVisualAudioPlaceholder(promptAudio);
   const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
@@ -687,17 +695,17 @@ export function LessonScreen({
   }, [cardIndex, cardRunId, hasNewVocabularyInPrompt, newVocabularyEmphasis, reduceMotion]);
 
   const replayPrompt = useCallback(() => {
-    if (!promptAudio.trim() || promptHasVisualBlank) return;
+    if (!visiblePromptAudio.trim() || promptHasVisualBlank) return;
     if (isPronunciation) {
-      playAudio(promptAudio, 'pronunciation_slow', 'split-ing');
+      playAudio(visiblePromptAudio, 'pronunciation_slow', 'split-ing');
       return;
     }
     playAudio(
-      promptAudio,
+      visiblePromptAudio,
       'prompt',
-      promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
+      visiblePromptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
     );
-  }, [isPronunciation, playAudio, promptAudio, promptHasVisualBlank]);
+  }, [isPronunciation, playAudio, promptHasVisualBlank, visiblePromptAudio]);
 
   const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
     const target = promptTapTargetRef.current;
@@ -1711,29 +1719,32 @@ export function LessonScreen({
     onPanResponderTerminationRequest: () => true,
   }), [canSwipeForward, cardIndex, cardTranslateX, manualCardNavigation, navigateManualCard, settleCard]);
 
-  const promptFontSize = isPronunciation
+  const basePromptFontSize = isPronunciation
     ? isPortrait
       ? Math.max(21, Math.min(26, viewportWidth * 0.045))
       : Math.max(18, Math.min(24, viewportHeight * 0.06))
     : useCompactPhoneLayout
       ? Math.max(22, Math.min(29, viewportHeight * 0.072))
       : Math.max(26, Math.min(36, viewportHeight * 0.052));
-  const promptLineHeight = isPronunciation
+  const basePromptLineHeight = isPronunciation
     ? isPortrait
       ? Math.max(25, Math.min(31, viewportWidth * 0.054))
       : Math.max(22, Math.min(29, viewportHeight * 0.072))
     : useCompactPhoneLayout
       ? Math.max(27, Math.min(35, viewportHeight * 0.085))
       : Math.max(31, Math.min(43, viewportHeight * 0.062));
+  const promptFontSize = basePromptFontSize * (correctContrastPrompt ? 0.76 : 1);
+  const promptLineHeight = basePromptLineHeight * (correctContrastPrompt ? 0.82 : 1);
 
   const renderPrompt = () => {
     if (!currentCard) return '';
     const normalizedStage = currentCard.stage.trim().toLowerCase();
     const selectedOption = currentCard.options.find((option) => option.id === selectedId);
-    const displayedPrompt =
+    const displayedPrompt = correctContrastPrompt || (
       isGrammar && grammarCompleted && selectedOption?.label
         ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
-        : currentCard.prompt;
+        : currentCard.prompt
+    );
     const selectedFocusWords = selectedOption?.label?.toLowerCase().match(/[a-z']+/g) || [];
     const focus = currentCard.stage === 'Grammar' || currentCard.stage === 'Use'
       ? new Set(['is', 'are', ...selectedFocusWords])
@@ -2037,13 +2048,13 @@ export function LessonScreen({
           ]}>
             <Pressable
               ref={promptTapTargetRef}
-              accessibilityLabel={promptHasVisualBlank ? `Frase para completar: ${promptAudio}` : `Reproducir: ${promptAudio}`}
+              accessibilityLabel={promptHasVisualBlank ? `Frase para completar: ${visiblePromptAudio}` : `Reproducir: ${visiblePromptAudio}`}
               accessibilityActions={[{ label: 'Mostrar traducción', name: 'translate' }]}
               accessibilityHint={promptHasVisualBlank
                 ? 'El audio de la frase completa se reproduce después de elegir. Usa la acción Traducir para ver la frase en español.'
                 : 'Toca una vez para repetir. Usa la acción Traducir para ver la frase en español.'}
               accessibilityRole="button"
-              disabled={!promptAudio.trim()}
+              disabled={!visiblePromptAudio.trim()}
               onAccessibilityAction={({ nativeEvent }) => {
                 if (nativeEvent.actionName === 'translate') {
                   setSentenceHelpActivity((current) => current + 1);
@@ -2085,9 +2096,9 @@ export function LessonScreen({
             {isListen ? (
               <Pressable
                 accessibilityHint="Reproduce la frase otra vez."
-                accessibilityLabel={`Repetir frase: ${promptAudio}`}
+                accessibilityLabel={`Repetir frase: ${visiblePromptAudio}`}
                 accessibilityRole="button"
-                disabled={!promptAudio.trim()}
+                disabled={!visiblePromptAudio.trim()}
                 hitSlop={6}
                 onPress={handleReplayButtonPress}
                 style={({ pressed }) => [

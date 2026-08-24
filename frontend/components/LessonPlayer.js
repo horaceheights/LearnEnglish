@@ -2453,17 +2453,28 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         ? "min(36vh, 240px)"
         : isTablet
           ? "340px"
-          : styles.image.height,
+      : styles.image.height,
   };
+  const correctContrastPrompt =
+    lastResult === "correct" &&
+    currentCard?.stage === "Recognize" &&
+    currentCard?.answer_audio_text?.includes(",") &&
+    /\b(?:is|are) not\b/i.test(cardPromptText)
+      ? currentCard.answer_audio_text.trim()
+      : "";
   const titleStyle = {
     margin: compactPracticeHeader ? 0 : "6px 0 0",
     fontSize: compactPracticeHeader
       ? isMobile
         ? "1.02rem"
         : "1.22rem"
-      : isMobile
-        ? "1.42rem"
-        : "clamp(1.65rem, 2.35vw, 2.32rem)",
+      : correctContrastPrompt
+        ? isMobile
+          ? "1.08rem"
+          : "clamp(1.25rem, 1.8vw, 1.72rem)"
+        : isMobile
+          ? "1.42rem"
+          : "clamp(1.65rem, 2.35vw, 2.32rem)",
     lineHeight: 1.12,
     letterSpacing: 0,
   };
@@ -2506,10 +2517,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   const renderHighlightedTitle = (text) => {
     const selectedLabel = currentCard?.options.find((option) => option.id === selectedOptionId)?.label || "";
-    const displayText =
+    const displayText = correctContrastPrompt || (
       currentCard?.stage === "Use" && lastResult === "correct" && selectedLabel
         ? String(text || "").replace(/_{2,}/, selectedLabel)
-        : text;
+        : text
+    );
     const focusWordsByStage = {
       "More People": new Set(["and", "are"]),
       "New Grammar": new Set(["not"]),

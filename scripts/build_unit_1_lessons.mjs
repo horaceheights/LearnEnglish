@@ -28,13 +28,13 @@ const learn = (prompt, id, imageUrl, label = prompt) => card({
   audio: prompt,
 });
 
-const recognize = (prompt, correct, options) => card({
+const recognize = (prompt, correct, options, answer = '') => card({
   prompt,
   stage: 'Recognize',
   correct,
   options,
   audio: prompt,
-  answer: '',
+  answer,
 });
 
 const describe = (imageUrl, answer, correct, labels) => card({
@@ -62,13 +62,13 @@ const identityQuestion = (imageUrl, question, correct, labels) => {
   });
 };
 
-const listen = (audio, correct, options) => card({
+const listen = (audio, correct, options, answer = '') => card({
   prompt: 'Listen and choose.',
   stage: 'Listen',
   correct,
   options,
   audio,
-  answer: '',
+  answer,
 });
 
 const speak = (prompt, id, imageUrl) => card({
@@ -376,21 +376,21 @@ const isAreNot = lesson({
     learn('They are not sitting.', 'pair-not-sitting', assets.pairRunning),
     learn('The children are not studying.', 'children-not-studying', assets.childrenPlaying),
 
-    recognize('He is not cooking.', 'father-working', [image('father-working', assets.fatherWorking, 'He is not cooking.'), image('mother-cooking', assets.motherCooking, 'She is cooking.')]),
-    recognize('She is not reading.', 'girl-writing', [image('woman-reading', assets.womanReading, 'She is reading.'), image('girl-writing', assets.girlWriting, 'She is not reading.')]),
-    recognize('They are not sitting.', 'pair-running', [image('grandparents-sitting', assets.grandparentsSitting, 'They are sitting.'), image('pair-running', assets.pairRunning, 'They are not sitting.')]),
-    recognize('The children are not studying.', 'children-playing', [image('children-studying', assets.childrenStudying, 'The children are studying.'), image('children-playing', assets.childrenPlaying, 'The children are not studying.')]),
+    recognize('He is not cooking.', 'father-working', [image('father-working', assets.fatherWorking, 'He is not cooking.'), image('mother-cooking', assets.motherCooking, 'She is cooking.')], 'He is not cooking, he is working.'),
+    recognize('She is not reading.', 'girl-writing', [image('woman-reading', assets.womanReading, 'She is reading.'), image('girl-writing', assets.girlWriting, 'She is not reading.')], 'She is not reading, she is writing.'),
+    recognize('They are not sitting.', 'pair-running', [image('grandparents-sitting', assets.grandparentsSitting, 'They are sitting.'), image('pair-running', assets.pairRunning, 'They are not sitting.')], 'They are not sitting, they are running.'),
+    recognize('The children are not studying.', 'children-playing', [image('children-studying', assets.childrenStudying, 'The children are studying.'), image('children-playing', assets.childrenPlaying, 'The children are not studying.')], 'The children are not studying, they are playing.'),
     describe(assets.fatherWorking, 'He is working.', 'is', [['is', 'He is working.'], ['are', 'He are working.']]),
     describe(assets.childrenPlaying, 'They are playing.', 'are', [['is', 'They is playing.'], ['are', 'They are playing.']]),
     describe(assets.girlWriting, 'She is not reading.', 'not-reading', [['reading', 'She is reading.'], ['not-reading', 'She is not reading.']]),
     describe(assets.grandparentsTalking, 'They are not sleeping.', 'not-sleeping', [['sleeping', 'They are sleeping.'], ['not-sleeping', 'They are not sleeping.']]),
 
-    listen('He is not cooking.', 'father-working', [image('father-working', assets.fatherWorking, ''), image('mother-cooking', assets.motherCooking, '')]),
-    listen('They are not studying.', 'children-playing', [image('children-studying', assets.childrenStudying, ''), image('children-playing', assets.childrenPlaying, '')]),
+    listen('He is not cooking.', 'father-working', [image('father-working', assets.fatherWorking, ''), image('mother-cooking', assets.motherCooking, '')], 'He is not cooking, he is working.'),
+    listen('They are not studying.', 'children-playing', [image('children-studying', assets.childrenStudying, ''), image('children-playing', assets.childrenPlaying, '')], 'They are not studying, they are playing.'),
     listen('She is cooking.', 'mother-cooking', [image('girl-writing', assets.girlWriting, ''), image('mother-cooking', assets.motherCooking, '')]),
     listen('They are talking.', 'parents-talking', [image('parents-talking', assets.parentsTalking, ''), image('grandparents-sitting', assets.grandparentsSitting, '')]),
-    listen('She is not drinking.', 'girl-writing', [image('girl-drinking', assets.girlDrinking, ''), image('girl-writing', assets.girlWriting, '')]),
-    listen('They are not sitting.', 'pair-running', [image('grandparents-sitting', assets.grandparentsSitting, ''), image('pair-running', assets.pairRunning, '')]),
+    listen('She is not drinking.', 'girl-writing', [image('girl-drinking', assets.girlDrinking, ''), image('girl-writing', assets.girlWriting, '')], 'She is not drinking, she is writing.'),
+    listen('They are not sitting.', 'pair-running', [image('grandparents-sitting', assets.grandparentsSitting, ''), image('pair-running', assets.pairRunning, '')], 'They are not sitting, they are running.'),
 
     speak('He is working.', 'father-working', assets.fatherWorking),
     speak('They are playing.', 'children-playing', assets.childrenPlaying),

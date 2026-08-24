@@ -54,6 +54,7 @@ Every standard lesson follows this visible sequence:
 - Correct-answer placement must not stay in one predictable position.
 - Never reveal the correct answer through a different border, fill, loading state, or layout before selection.
 - Text-answer cards must not depend on images alone; learners must also recognize written language.
+- On a negative image-choice card whose correct image shows one unambiguous positive action, keep the short negative sentence before selection. After a correct Recognize choice, replace the prompt with and speak the full contrast (`He is not cooking, he is working.`). Scale the completed prompt down responsively so it remains inside the two-line lesson header. In Listen, speak the same full contrast after a correct choice but keep the answer text hidden. Do not reveal the positive action before selection in either stage.
 
 ### Listen
 
@@ -285,3 +286,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Preview and Engine QA catalog parity standardized on the complete 70-lesson A1 course; targeted QA updates may not remove units outside the immediate test scope.
 - 2026-08-24: Automatic single-card teaching videos standardized as display-only surfaces; tapping the clip must not submit or advance the card.
 - 2026-08-24: Lesson 1.7 keeps `not` larger and yellow across visible teaching and recognition prompts, with animation limited to its Learn introduction.
+- 2026-08-24: Negative image-choice confirmations standardized on a post-selection full contrast: spoken and visibly resized in Recognize, spoken only in Listen, with no positive-action reveal before selection.
