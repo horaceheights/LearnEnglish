@@ -1,0 +1,46 @@
+{
+  "manifestVersion": 1,
+  "baselineCommit": "657ab19487e37851de1229c08219d44d59ab199b",
+  "catalog": {
+    "path": "mobile/src/generated/a1-course.json",
+    "expectedGitBlob": "19ecdf64f6d0d85b8f742b2d5c15cbb993431e99",
+    "lessonCount": 70,
+    "unitCount": 7,
+    "lessonsByUnit": {
+      "unit-1": 10,
+      "unit-2": 10,
+      "unit-3": 10,
+      "unit-4": 10,
+      "unit-5": 10,
+      "unit-6": 10,
+      "unit-7": 10
+    }
+  },
+  "requiredReleaseIdentityFiles": [
+    {
+      "path": "mobile/src/updates.ts",
+      "expectedGitBlob": "4fde689132980f21a231d1be1442750f60ec57fe",
+      "requiredMarkers": [
+        "process.env.EXPO_PUBLIC_RELEASE_COMMIT",
+        "releaseVersionLabel"
+      ]
+    },
+    {
+      "path": "mobile/src/screens/CourseScreen.tsx",
+      "expectedGitBlob": "f234ea9543cf70b5d7458946dee023dc519f1fc2",
+      "requiredMarkers": [
+        "releaseVersionLabel(currentVersion)",
+        "<Text style={styles.menuVersion}>"
+      ]
+    },
+    {
+      "path": "mobile/scripts/publish-preview.ps1",
+      "expectedGitBlob": "a6d257448d85151ce4834c054b9dee10039ddeea",
+      "requiredMarkers": [
+        "Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_SHA'",
+        "EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA",
+        "PSObject.Properties['gitCommitHash']"
+      ]
+    }
+  ]
+}

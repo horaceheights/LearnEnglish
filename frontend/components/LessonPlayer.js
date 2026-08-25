@@ -6,11 +6,13 @@ import {
   getApiBaseUrl,
   getCourseAudioUrl,
   getPronunciationStreamingToken,
+  hasVisualAudioPlaceholder,
   interpretAzurePronunciation,
   getLearnerByName,
   getLesson,
   logCardAttempt,
   preloadCourseAudio,
+  sanitizeCourseAudioText,
   saveLearnerProfile,
   scorePronunciationAudio,
   startLessonSession,
@@ -19,6 +21,7 @@ import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260710-objects-places-1-6";
+const LESSON_VIDEO_VERSION = "20260824-two-card-match-v7";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 const DEFAULT_PROFILE = {
@@ -33,15 +36,51 @@ const DEFAULT_PROFILE = {
 const COURSE_MENU_VISUALS = {
   units: {
     "unit-1": {
-      title: "People, Actions, and Basic Sentences",
-      description: "Aprende a reconocer personas, acciones y frases cortas con imagenes claras.",
+      title: "People, Family, and Actions",
+      description: "Aprende personas, familia y acciones con una progresion clara.",
       images: ["boy.webp", "girl_is_reading.webp", "they_boy_girl_are_running.webp"],
       accent: "#ffe1ad",
+    },
+    "unit-2": {
+      title: "Places, Objects, Numbers, and Colors",
+      description: "Conecta lugares con personas, acciones, objetos, numeros, colores y distancia.",
+      images: ["a1_school.webp", "a1_phone.webp", "a1_n3.webp"],
+      accent: "#dceef8",
+    },
+    "unit-3": {
+      title: "Me and Other People",
+      description: "Presentate, pregunta por otras personas y habla de edad, origen, trabajo y pertenencias.",
+      images: ["a1_ana.webp", "a1_luis.webp", "a1_teacher.webp"],
+      accent: "#f1e4fa",
+    },
+    "unit-4": {
+      title: "Home and Daily Life",
+      description: "Describe la casa, la ubicacion de objetos y las rutinas de cada dia.",
+      images: ["a1_home.webp", "a1_kitchen.webp", "a1_bed.webp"],
+      accent: "#e2f1dc",
+    },
+    "unit-5": {
+      title: "Food, Drinks, and Shopping",
+      description: "Habla de comida, gustos, necesidades, precios y pedidos sencillos.",
+      images: ["a1_apple.webp", "a1_rice.webp", "a1_coffee.webp"],
+      accent: "#ffe5bd",
+    },
+    "unit-6": {
+      title: "Around Town",
+      description: "Ubica servicios, usa transporte, pide ayuda y sigue direcciones y horarios.",
+      images: ["a1_bank.webp", "a1_station.webp", "a1_taxi.webp"],
+      accent: "#dff4ef",
+    },
+    "unit-7": {
+      title: "Everyday Needs and A1 Integration",
+      description: "Integra cuerpo, sentimientos, ropa, clima, pasatiempos y frases de ayuda.",
+      images: ["a1_happy.webp", "a1_umbrella.webp", "a1_watch_tv.webp"],
+      accent: "#f6e3d6",
     },
   },
   lessons: {
     "lesson-1": {
-      description: "Empieza con boy, girl, man, woman; luego une pronombres y acciones.",
+      description: "Avanza desde personas y acciones hasta una mision familiar completa.",
       images: ["man_is_walking.webp", "woman_is_reading.webp"],
     },
   },
@@ -52,24 +91,49 @@ const COURSE_MENU_VISUALS = {
       accent: "#ffe8c7",
     },
     "lesson-2-pronouns": {
-      description: "He, she y they con una o dos personas.",
-      image: "they_boy_girl.webp",
+      description: "He y she con acciones claras de una persona.",
+      image: "girl_is_writing.webp",
       accent: "#dff4ef",
     },
-    "lesson-4-family-members": {
+    "lesson-3-two-people": {
+      description: "They y are para hablar de dos personas.",
+      image: "they_boy_girl_are_running.webp",
+      accent: "#e5eefb",
+    },
+    "lesson-4-children-siblings": {
       description: "Familia cercana: bebes, ninos, hermanos y hermanas.",
       image: "family_all_members.webp",
       accent: "#ffe7bd",
     },
-    "lesson-4-family-members-continued": {
+    "lesson-5-parents-grandparents": {
       description: "Familia: adultos, padres, madres y abuelos.",
       image: "family_grandparents.webp",
       accent: "#f1e4fa",
     },
-    "lesson-6-objects-places": {
-      description: "Objetos y lugares comunes para preparar colores, numeros y ubicaciones.",
-      image: "place_school.webp",
+    "lesson-6-family-actions": {
+      description: "Acciones utiles dentro de la familia.",
+      image: "family_children_playing.webp",
+      accent: "#dff4ef",
+    },
+    "lesson-7-is-are-not": {
+      description: "Is, are y not dentro de frases conocidas.",
+      image: "family_parents_talking.webp",
       accent: "#ffe8c7",
+    },
+    "lesson-8-who": {
+      description: "Preguntas y respuestas para identificar personas.",
+      image: "family_parents.webp",
+      accent: "#e5eefb",
+    },
+    "lesson-9-unit-review": {
+      description: "Repaso mezclado de toda la unidad.",
+      image: "family_all_members.webp",
+      accent: "#f1e4fa",
+    },
+    "lesson-10-family-mission": {
+      description: "Mision final con personas, familia y acciones.",
+      image: "family_all_members.webp",
+      accent: "#ffe1ad",
     },
   },
 };
@@ -128,7 +192,7 @@ const styles = {
   image: {
     width: "100%",
     height: "380px",
-    objectFit: "contain",
+    objectFit: "cover",
     objectPosition: "center",
     display: "block",
     borderRadius: "18px",
@@ -196,7 +260,7 @@ function SpanGlishLogo({ compact = false, onClick }) {
   const Wrapper = onClick ? "button" : "div";
   return (
     <Wrapper
-      aria-label="SpanGlish!"
+      aria-label="SpanGlish — Ir a Inicio"
       type={onClick ? "button" : undefined}
       onClick={onClick}
       style={{
@@ -261,7 +325,7 @@ function MiniSpanGlishLogo({ onClick }) {
   const Wrapper = onClick ? "button" : "div";
   return (
     <Wrapper
-      aria-label="SpanGlish!"
+      aria-label="SpanGlish — Ir a Inicio"
       type={onClick ? "button" : undefined}
       onClick={onClick}
       style={{
@@ -306,6 +370,78 @@ function lessonImageSrc(imageUrl) {
   return `${source}${separator}v=${LESSON_IMAGE_VERSION}`;
 }
 
+const OPTION_MEDIA_VARIANTS = {
+  "boy.webp": "boy_3x2.webp",
+  "family_adults.webp": "family_adults_3x2.webp",
+  "family_all_members.webp": "family_all_members_3x2.webp",
+  "family_babies.webp": "family_babies_3x2.webp",
+  "family_baby.webp": "family_baby_3x2.webp",
+  "family_baby_sleeping.webp": "family_baby_sleeping_3x2.webp",
+  "family_brother_studying.webp": "family_brother_studying_3x2.webp",
+  "family_brothers.webp": "family_brothers_3x2.webp",
+  "family_children.webp": "family_children_3x2.webp",
+  "family_children_playing.webp": "family_children_playing_3x2.webp",
+  "family_children_studying.webp": "family_children_studying_3x2.webp",
+  "family_father.webp": "family_father_3x2.webp",
+  "family_father_working.webp": "family_father_working_3x2.webp",
+  "family_grandfather.webp": "family_grandfather_3x2.webp",
+  "family_grandmother.webp": "family_grandmother_3x2.webp",
+  "family_grandparents.webp": "family_grandparents_3x2.webp",
+  "family_grandparents_sitting.webp": "family_grandparents_sitting_3x2.webp",
+  "family_grandparents_talking.webp": "family_grandparents_talking_3x2.webp",
+  "family_mother.webp": "family_mother_3x2.webp",
+  "family_mother_cooking.webp": "family_mother_cooking_3x2.webp",
+  "family_parents.webp": "family_parents_3x2.webp",
+  "family_parents_talking.webp": "family_parents_talking_3x2.webp",
+  "family_sisters.webp": "family_sisters_3x2.webp",
+  "girl.webp": "girl_3x2.webp",
+  "man.webp": "man_3x2.webp",
+  "man_is_standing.webp": "man_is_standing_3x2.webp",
+  "object_backpack.webp": "object_backpack_3x2.webp",
+  "object_bike.webp": "object_bike_3x2.webp",
+  "object_book.webp": "object_book_3x2.webp",
+  "object_car.webp": "object_car_3x2.webp",
+  "place_bridge.webp": "place_bridge_3x2.webp",
+  "place_bus.webp": "place_bus_3x2.webp",
+  "place_house.webp": "place_house_3x2.webp",
+  "place_park.webp": "place_park_3x2.webp",
+  "place_street.webp": "place_street_3x2.webp",
+  "they_boy_girl.webp": "they_boy_girl_3x2.webp",
+  "they_boy_girl_are_eating.webp": "they_boy_girl_are_eating_3x2.webp",
+  "they_boy_girl_are_reading.webp": "they_boy_girl_are_reading_3x2.webp",
+  "they_boy_girl_are_running.webp": "they_boy_girl_are_running_3x2.webp",
+  "they_boy_girl_are_writing.webp": "they_boy_girl_are_writing_3x2.webp",
+  "woman.webp": "woman_3x2.webp",
+};
+
+const TOP_ALIGNED_OPTION_MEDIA = new Set([
+  "boy.webp",
+  "family_brothers.webp",
+  "family_children.webp",
+  "family_grandfather.webp",
+  "family_grandmother.webp",
+  "family_grandparents.webp",
+  "family_mother.webp",
+  "family_sisters.webp",
+  "girl.webp",
+  "man.webp",
+  "woman.webp",
+]);
+
+function optionMediaFilename(imageUrl) {
+  return String(imageUrl || "").split(/[?#]/, 1)[0].split("/").pop() || "";
+}
+
+function lessonOptionImageSrc(imageUrl) {
+  const filename = optionMediaFilename(imageUrl);
+  const variant = OPTION_MEDIA_VARIANTS[filename];
+  return variant ? lessonImageSrc(`/lesson-assets/${variant}`) : lessonImageSrc(imageUrl);
+}
+
+function optionMediaObjectPosition(imageUrl) {
+  return TOP_ALIGNED_OPTION_MEDIA.has(optionMediaFilename(imageUrl)) ? "center top" : "center";
+}
+
 function menuImageSrc(name) {
   return lessonImageSrc(`/lesson-assets/${name}`);
 }
@@ -314,12 +450,25 @@ function getUnitVisual(unitId) {
   return COURSE_MENU_VISUALS.units[unitId] || COURSE_MENU_VISUALS.units["unit-1"];
 }
 
-function getLessonVisual(lessonId) {
-  return COURSE_MENU_VISUALS.lessons[lessonId] || COURSE_MENU_VISUALS.lessons["lesson-1"];
+function getLessonVisual(lessonId, unitId) {
+  const explicitVisual = COURSE_MENU_VISUALS.lessons[lessonId];
+  if (explicitVisual) return explicitVisual;
+  const unitVisual = getUnitVisual(unitId);
+  return {
+    description: unitVisual.description,
+    images: unitVisual.images.slice(0, 2),
+  };
 }
 
-function getSubLessonVisual(lessonId) {
-  return COURSE_MENU_VISUALS.subLessons[lessonId] || COURSE_MENU_VISUALS.subLessons["lesson-1-people-actions"];
+function getSubLessonVisual(lessonId, unitId) {
+  const explicitVisual = COURSE_MENU_VISUALS.subLessons[lessonId];
+  if (explicitVisual) return explicitVisual;
+  const unitVisual = getUnitVisual(unitId);
+  return {
+    description: "Practica esta parte de la ruta con imagenes, escucha y produccion oral.",
+    image: unitVisual.images[0],
+    accent: unitVisual.accent,
+  };
 }
 
 function isSecureRecordingContext() {
@@ -1231,6 +1380,14 @@ function useSpeech() {
       return 0;
     }
 
+    const isCompletionPrompt = hasVisualAudioPlaceholder(text);
+    if (!isCompletionPrompt) {
+      text = sanitizeCourseAudioText(text);
+    }
+    if (!text) {
+      return 0;
+    }
+
     speechSequenceRef.current += 1;
     const sequenceId = speechSequenceRef.current;
     clearSpeechTimers();
@@ -1239,9 +1396,21 @@ function useSpeech() {
       window.speechSynthesis.cancel();
     }
 
-    const useFallback = () => speakWithBrowserVoice(text, options, sequenceId);
+    const useFallback = () => {
+      if (isCompletionPrompt) {
+        // Browser voices must never receive a visual placeholder or an
+        // unfinished phrase. A provider/alignment failure is safely silent.
+        if (typeof options.onEnd === "function") options.onEnd();
+        return 0;
+      }
+      return speakWithBrowserVoice(text, options, sequenceId);
+    };
 
     if (options.disableCourseAudio) {
+      return useFallback();
+    }
+
+    if (isCompletionPrompt && options.wordByWord) {
       return useFallback();
     }
 
@@ -1362,12 +1531,20 @@ function useSpeech() {
       return Math.max(2600, slowHighlightMs + estimatedRepeatMs + (shouldRepeatFull ? options.repeatFullPauseMs ?? 350 : 0));
     }
 
-    const url = getCourseAudioUrl({
-      text,
-      mode: options.voiceMode === "feedback" ? "feedback" : "prompt",
-      lang,
-      variant: options.voiceMode || "default",
-    });
+    let url;
+    try {
+      url = getCourseAudioUrl({
+        text,
+        fullText: options.completionFullText,
+        blankText: options.completionBlankText,
+        mode: options.voiceMode === "feedback" ? "feedback" : "prompt",
+        lang,
+        variant: options.voiceMode || "default",
+      });
+    } catch (error) {
+      console.info("Completion prompt audio contract rejected", error);
+      return useFallback();
+    }
 
     playAudioUrl(url, sequenceId)
       .then(() => {
@@ -1378,11 +1555,14 @@ function useSpeech() {
       .catch((error) => {
         console.info("Course audio unavailable, falling back to browser speech", error);
         if (speechSequenceRef.current === sequenceId) {
-          speakWithBrowserVoice(text, options, sequenceId);
+          useFallback();
         }
       });
 
-    return Math.max(900, text.length * 120);
+    const audibleLength = String(text)
+      .replace(/_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/gi, "")
+      .length;
+    return Math.max(900, audibleLength * 120 + (isCompletionPrompt ? 550 : 0));
   }, [
     clearSpeechTimers,
     playAudioUrl,
@@ -1489,10 +1669,96 @@ function shouldShowHelp(profile) {
 
 function getWrongFeedback(profile) {
   if (profile?.confidence === "nervous") {
-    return "No pasa nada. Intentalo otra vez. Esta tarjeta ya no contara como acierto al primer intento.";
+    return "¡Tú puedes! Inténtalo de nuevo.";
   }
 
-  return "No fue esa. Intentalo otra vez. Esta tarjeta ya no contara como acierto al primer intento.";
+  return "¡Ánimo! Inténtalo de nuevo.";
+}
+
+const SINGULAR_HINT_SUBJECTS = {
+  "a baby": "“A baby” (un bebé)",
+  "a brother": "“A brother” (un hermano)",
+  "a child": "“A child” (un niño)",
+  "a sister": "“A sister” (una hermana)",
+  he: "“He” (él)",
+  she: "“She” (ella)",
+  "the baby": "“The baby” (el bebé)",
+  "the boy": "“The boy” (el niño)",
+  "the father": "“The father” (el padre)",
+  "the girl": "“The girl” (la niña)",
+  "the grandfather": "“The grandfather” (el abuelo)",
+  "the grandmother": "“The grandmother” (la abuela)",
+  "the man": "“The man” (el hombre)",
+  "the mother": "“The mother” (la madre)",
+  "the woman": "“The woman” (la mujer)",
+};
+
+const PLURAL_HINT_SUBJECTS = {
+  children: "“Children” (los niños)",
+  "the adults": "“The adults” (los adultos)",
+  "the boy and the girl": "“The boy and the girl” (el niño y la niña)",
+  "the brothers": "“The brothers” (los hermanos)",
+  "the children": "“The children” (los niños)",
+  "the grandparents": "“The grandparents” (los abuelos)",
+  "the parents": "“The parents” (los padres)",
+  "the sisters": "“The sisters” (las hermanas)",
+  they: "“They” (ellos o ellas)",
+};
+
+function normalizedHintText(value) {
+  return String(value || "").trim().toLowerCase().replace(/[?.!,]+$/g, "");
+}
+
+function hintSubject(text, verb) {
+  const directSubject = text.match(new RegExp(`^(.+?)\\s+${verb}\\b`))?.[1]?.trim();
+  if (directSubject && directSubject !== "who") return directSubject;
+  if (/\bthey\b/.test(text)) return "they";
+  if (/\bhe\b/.test(text)) return "he";
+  if (/\bshe\b/.test(text)) return "she";
+  return "";
+}
+
+function getLessonMistakeHint(card, selectedOptionId) {
+  if (!card) return "Observa otra vez la persona, el grupo o la acción.";
+  const correctOption = card.options.find((option) => option.id === card.correct_option_id);
+  const selectedOption = card.options.find((option) => option.id === selectedOptionId);
+  const target = normalizedHintText(
+    card.answer_audio_text || card.audio_text || correctOption?.label || card.prompt
+  );
+  const correctChoice = normalizedHintText(correctOption?.label || correctOption?.id);
+  const selectedChoice = normalizedHintText(selectedOption?.label || selectedOption?.id);
+
+  if (target.includes(" not ") || correctChoice === "not" || correctChoice.includes("not")) {
+    return "“Not” indica que la acción no está ocurriendo.";
+  }
+
+  const expectedVerb = correctChoice === "is" || correctChoice === "are"
+    ? correctChoice
+    : /\bare\b/.test(target)
+      ? "are"
+      : /\bis\b/.test(target)
+        ? "is"
+        : null;
+
+  if (expectedVerb === "is") {
+    const label = SINGULAR_HINT_SUBJECTS[hintSubject(target, "is")];
+    return label
+      ? `${label} es singular; usamos “is”.`
+      : "Usamos “is” cuando hablamos de una sola persona.";
+  }
+
+  if (expectedVerb === "are") {
+    const label = PLURAL_HINT_SUBJECTS[hintSubject(target, "are")];
+    return label
+      ? `${label} es plural; usamos “are”.`
+      : "Usamos “are” cuando hablamos de dos o más personas.";
+  }
+
+  if (selectedChoice && correctChoice && selectedChoice !== correctChoice) {
+    return "Mira de nuevo quién aparece y qué está haciendo.";
+  }
+
+  return "Observa otra vez la persona, el grupo o la acción.";
 }
 
 function summarizePronunciationScore(result) {
@@ -1585,8 +1851,19 @@ function promptParts(prompt) {
   return prompt.match(/[A-Za-z]+|[^A-Za-z]+/g) || [prompt];
 }
 
+function lessonLocationLabel(lesson) {
+  const unitNumber = lesson?.unit_id?.match(/\d+/)?.[0]
+    || lesson?.unit_title?.match(/Unit\s+(\d+)/i)?.[1]
+    || "1";
+  const lessonNumber = lesson?.sub_lesson_id
+    || lesson?.title?.match(/^(\d+(?:\.\d+)?)/)?.[1]
+    || lesson?.id?.match(/lesson-(\d+)/)?.[1]
+    || "1";
+  return `UNIT ${unitNumber} | LESSON ${lessonNumber}`;
+}
+
 function lessonVideoSrc(name) {
-  return `/lesson-assets/${name}?v=${LESSON_IMAGE_VERSION}`;
+  return `/lesson-assets/${name}?v=${LESSON_VIDEO_VERSION}`;
 }
 
 const LESSON_ACTION_VIDEOS = {
@@ -1597,24 +1874,61 @@ const LESSON_ACTION_VIDEOS = {
   "boy_is_sleeping": "boy-sleeping-scene-v2.mp4",
   "boy_is_swimming": "boy-swimming-scene-v2.mp4",
   "boy_is_walking": "boy-walking-scene-v2.mp4",
-  "family_brother_studying": "brother-studying-scene-v2.mp4",
-  "family_children_playing": "children-playing-scene-v2.mp4",
-  "family_mother_cooking": "mother-cooking-scene-v2.mp4",
-  "family_parents_talking": "parents-talking-scene-v2.mp4",
+  "family_brother_studying": "brother-studying-scene-v3.mp4",
+  "family_baby_sleeping": "baby-sleeping-scene-v2.mp4",
+  "family_adults_playing": "adults-playing-scene-v2.mp4",
+  "family_children_playing": "children-playing-scene-v3.mp4",
+  "family_children_studying": "children-studying-scene-v2.mp4",
+  "family_father_working": "father-working-scene-v4.mp4",
+  "family_mother_cooking": "mother-cooking-scene-v3.mp4",
+  "family_parents_talking": "parents-talking-scene-v5.mp4",
   "girl_is_drinking": "girl-drinking-scene-v2.mp4",
   "girl_is_sleeping": "girl-sleeping-scene-v2.mp4",
-  "girl_is_walking": "girl-walking-scene-v2.mp4",
+  "girl_is_walking": "girl-walking-scene-v3.mp4",
   "girl_is_writing": "girl-writing-scene-v2.mp4",
   "man_is_swimming": "man-swimming-scene-v2.mp4",
   "man_is_walking": "man-walking-scene-v2.mp4",
+  "they_boy_girl_are_running": "boy-girl-running-scene-v2.mp4",
 };
 
-function lessonActionVideo(imageUrl) {
+const TWO_CARD_ACTION_VIDEOS = {
+  "family_brother_studying": "brother-studying-two-card-v1.mp4",
+  "family_children_playing": "children-playing-two-card-v1.mp4",
+  "family_father_working": "father-working-two-card-v1.mp4",
+};
+
+const TWO_CARD_ACTION_POSTERS = {
+  "boy_is_drinking": "boy_is_drinking-two-card-poster.webp",
+  "boy_is_eating": "boy_is_eating-two-card-poster.webp",
+  "boy_is_reading": "boy_is_reading-two-card-poster.webp",
+  "boy_is_running": "boy_is_running-two-card-poster.webp",
+  "boy_is_swimming": "boy_is_swimming-two-card-poster.webp",
+  "family_brother_studying": "family_brother_studying-two-card-poster.webp",
+  "family_children_playing": "family_children_playing-two-card-poster.webp",
+  "family_children_studying": "family_children_studying-two-card-poster.webp",
+  "family_father_working": "family_father_working-two-card-poster.webp",
+  "family_mother_cooking": "family_mother_cooking-two-card-poster.webp",
+  "family_parents_talking": "family_parents_talking-two-card-poster.webp",
+  "girl_is_drinking": "girl_is_drinking-two-card-poster.webp",
+  "girl_is_sleeping": "girl_is_sleeping-two-card-poster.webp",
+  "girl_is_walking": "girl_is_walking-two-card-poster.webp",
+  "girl_is_writing": "girl_is_writing-two-card-poster.webp",
+  "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster.webp",
+};
+
+function lessonActionVideo(imageUrl, optionCount) {
   const normalized = String(imageUrl || "").split("?")[0].split("/").pop()?.replace(/\.[^.]+$/, "");
-  return normalized ? LESSON_ACTION_VIDEOS[normalized] : null;
+  if (!normalized) return null;
+  return (optionCount === 2 ? TWO_CARD_ACTION_VIDEOS[normalized] : null) || LESSON_ACTION_VIDEOS[normalized] || null;
 }
 
-function LessonActionMedia({ alt, imageUrl, style, videoName }) {
+function lessonTwoCardActionPosterSrc(imageUrl) {
+  const normalized = String(imageUrl || "").split("?")[0].split("/").pop()?.replace(/\.[^.]+$/, "");
+  const posterName = normalized ? TWO_CARD_ACTION_POSTERS[normalized] : null;
+  return posterName ? `/lesson-video-posters/${posterName}?v=${LESSON_VIDEO_VERSION}` : null;
+}
+
+function LessonActionMedia({ alt, imageUrl, posterSrc, style, videoName }) {
   const [reduceMotion, setReduceMotion] = useState(false);
 
   useEffect(() => {
@@ -1626,7 +1940,7 @@ function LessonActionMedia({ alt, imageUrl, style, videoName }) {
   }, []);
 
   if (reduceMotion) {
-    return <img src={lessonImageSrc(imageUrl)} alt={alt} style={style} />;
+    return <img src={posterSrc || lessonOptionImageSrc(imageUrl)} alt={alt} style={style} />;
   }
 
   return (
@@ -1635,14 +1949,15 @@ function LessonActionMedia({ alt, imageUrl, style, videoName }) {
       autoPlay
       muted
       playsInline
-      poster={lessonImageSrc(imageUrl)}
+      poster={posterSrc || undefined}
       src={lessonVideoSrc(videoName)}
       style={{
         ...style,
-        objectFit: "contain",
+        objectFit: "cover",
         objectPosition: "center",
         background: "var(--surface-2)",
         pointerEvents: "none",
+        transform: "scale(1.025)",
       }}
     />
   );
@@ -2066,6 +2381,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [lessonSessionId, setLessonSessionId] = useState(null);
   const [loadingLessonId, setLoadingLessonId] = useState(null);
   const [lessonLoadError, setLessonLoadError] = useState("");
+  const [selectedUnitId, setSelectedUnitId] = useState(null);
   const [pronunciationStatus, setPronunciationStatus] = useState("Getting ready...");
   const [isPronunciationRecording, setIsPronunciationRecording] = useState(false);
   const [isPronunciationScoring, setIsPronunciationScoring] = useState(false);
@@ -2126,15 +2442,28 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const currentCard = activeLesson.cards[cardIndex];
   const totalCards = activeLesson.cards.length;
   const isPronunciationCard =
-    activeLesson.id === "lesson-3-pronunciation" || currentCard?.stage === "Pronunciation Practice";
-  const cardPromptText = currentCard ? currentCard.audio_text ?? currentCard.prompt : "";
+    activeLesson.id === "lesson-3-pronunciation" ||
+    currentCard?.stage === "Pronunciation Practice" ||
+    currentCard?.stage === "Speak";
+  const authoredCardPromptHasVisualBlank = hasVisualAudioPlaceholder(currentCard?.prompt);
+  const cardPromptText = currentCard
+    ? authoredCardPromptHasVisualBlank && !currentCard.audio_text?.trim()
+      ? currentCard.prompt
+      : currentCard.audio_text ?? currentCard.prompt
+    : "";
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
-  const isRecognitionLesson =
-    activeLesson.id === "lesson-1-people-actions" ||
-    activeLesson.id === "lesson-2-pronouns" ||
-    activeLesson.id === "lesson-4-family-members" ||
-    activeLesson.id === "lesson-4-family-members-continued" ||
-    activeLesson.id === "lesson-6-objects-places";
+  const cardPromptHasVisualBlank = authoredCardPromptHasVisualBlank
+    || hasVisualAudioPlaceholder(cardPromptText);
+  const cardCorrectOption = currentCard?.options.find(
+    (option) => option.id === currentCard.correct_option_id
+  );
+  const cardCompletionFullText = cardPromptHasVisualBlank
+    ? currentCard?.answer_audio_text || ""
+    : "";
+  const cardCompletionBlankText = cardPromptHasVisualBlank
+    ? cardCorrectOption?.label || ""
+    : "";
+  const isRecognitionLesson = activeLesson.unit_id === "unit-1";
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationCard ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =
@@ -2152,6 +2481,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const isFourOptionCard = optionCount >= 4;
   const isThreeOptionCard = optionCount === 3;
   const isSingleOptionCard = optionCount === 1;
+  const useThreeByTwoOptionMedia = currentCard?.options?.some((option) => Boolean(option.image_url));
+  // These two Lesson 1.7 comparisons intentionally teach the contrast with
+  // still choices. Other action-backed choices keep their normal video behavior.
+  const useStillOnlyLesson17Comparison = activeLesson.id === "lesson-7-is-are-not" && optionCount === 2 && (
+    currentCard?.options?.some((option) => option.id === "grandparents-sitting") &&
+    currentCard?.options?.some((option) => option.id === "pair-running")
+  );
   const onboardingFinished = onboardingStepIndex >= ONBOARDING_STEPS.length;
   const activeOnboardingStep =
     onboardingStepIndex >= 0 && onboardingStepIndex < ONBOARDING_STEPS.length
@@ -2253,7 +2589,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
   const responsiveImageStyle = {
     ...styles.image,
-    height: isPronunciationCard && isMobile
+    height: useThreeByTwoOptionMedia
+      ? "auto"
+      : isPronunciationCard && isMobile
       ? "min(25vh, 180px)"
       : isSingleOptionCard
         ? isMobile
@@ -2271,17 +2609,31 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         ? "min(36vh, 240px)"
         : isTablet
           ? "340px"
-          : styles.image.height,
+      : styles.image.height,
+    ...(useThreeByTwoOptionMedia
+      ? { aspectRatio: "3 / 2", objectFit: "cover" }
+      : {}),
   };
+  const correctContrastPrompt =
+    lastResult === "correct" &&
+    currentCard?.stage === "Recognize" &&
+    currentCard?.answer_audio_text?.includes(",") &&
+    /\b(?:is|are) not\b/i.test(cardPromptText)
+      ? currentCard.answer_audio_text.trim()
+      : "";
   const titleStyle = {
     margin: compactPracticeHeader ? 0 : "6px 0 0",
     fontSize: compactPracticeHeader
       ? isMobile
         ? "1.02rem"
         : "1.22rem"
-      : isMobile
-        ? "1.42rem"
-        : "clamp(1.65rem, 2.35vw, 2.32rem)",
+      : correctContrastPrompt
+        ? isMobile
+          ? "1.08rem"
+          : "clamp(1.25rem, 1.8vw, 1.72rem)"
+        : isMobile
+          ? "1.42rem"
+          : "clamp(1.65rem, 2.35vw, 2.32rem)",
     lineHeight: 1.12,
     letterSpacing: 0,
   };
@@ -2294,6 +2646,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     boxShadow: "inset 0 -0.18em 0 rgba(233, 111, 66, 0.22)",
     color: "#8a4f00",
     fontWeight: 950,
+  };
+  const conceptFocusStyle = {
+    ...newWordHighlightStyle,
+    fontSize: "1.18em",
+    lineHeight: 0.9,
   };
   const sloganStyle = {
     ...titleStyle,
@@ -2318,19 +2675,53 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     : { color: "var(--muted)", isActive: false };
 
   const renderHighlightedTitle = (text) => {
+    const selectedLabel = currentCard?.options.find((option) => option.id === selectedOptionId)?.label || "";
+    const displayText = correctContrastPrompt || (
+      currentCard?.stage === "Use" && lastResult === "correct" && selectedLabel
+        ? String(text || "").replace(/_{2,}/, selectedLabel)
+        : text
+    );
     const focusWordsByStage = {
       "More People": new Set(["and", "are"]),
       "New Grammar": new Set(["not"]),
       Grammar: new Set(["is", "are"]),
+      Use: new Set(selectedLabel ? [selectedLabel.toLowerCase()] : []),
     };
     const focusWords = focusWordsByStage[currentCard?.stage];
+    const introductionWords = currentCard?.stage === "Learn"
+      ? new Set(
+          (activeLesson.vocabulary || []).flatMap(
+            (entry) => String(entry).toLowerCase().match(/[a-z']+/g) || []
+          )
+        )
+      : new Set();
 
-    if (!focusWords || !text) {
-      return text;
+    if ((!focusWords && introductionWords.size === 0) || !displayText) {
+      return displayText;
     }
 
-    return text.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
-      if (focusWords.has(part.toLowerCase())) {
+    return displayText.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
+      const normalizedPart = part.toLowerCase();
+      const isNotConceptFocus = activeLesson?.id === "lesson-7-is-are-not" && normalizedPart === "not";
+      if (introductionWords.has(normalizedPart)) {
+        return (
+          <span
+            className="new-vocabulary-intro"
+            key={`${cardIndex}-${part}-${index}`}
+            style={isNotConceptFocus ? conceptFocusStyle : newWordHighlightStyle}
+          >
+            {part}
+          </span>
+        );
+      }
+      if (isNotConceptFocus) {
+        return (
+          <span key={`${part}-${index}`} style={conceptFocusStyle}>
+            {part}
+          </span>
+        );
+      }
+      if (focusWords?.has(normalizedPart)) {
         return (
           <span key={`${part}-${index}`} style={newWordHighlightStyle}>
             {part}
@@ -2836,6 +3227,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setStarted(false);
   };
 
+  const confirmLessonExit = () => {
+    if (window.confirm('¿Quieres salir de la lección y volver a Inicio?')) {
+      goToLessons();
+    }
+  };
+
+  const goToPublicHome = () => {
+    setIsCreatingProfile(false);
+    setProfileSaveError("");
+  };
+
   const resetPronunciationPractice = () => {
     setPronunciationStatus("Getting ready...");
     setIsPronunciationRecording(false);
@@ -2959,7 +3361,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }, [cardIndex, activeLesson.id]);
 
   useEffect(() => {
-    if (!isRecognitionLesson || isPronunciationCard || !started || isComplete || !currentCard || lastResult !== null) {
+    if (
+      (!isRecognitionLesson && !cardPromptHasVisualBlank)
+      || isPronunciationCard
+      || !started
+      || isComplete
+      || !currentCard
+      || lastResult !== null
+    ) {
       return undefined;
     }
 
@@ -2971,7 +3380,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     const timeoutId = window.setTimeout(() => {
       if (cardPromptText.trim()) {
-        speakText(cardPromptText, { voiceMode: cardPromptVoiceMode });
+        speakText(cardPromptText, {
+          voiceMode: cardPromptVoiceMode,
+          completionFullText: cardCompletionFullText,
+          completionBlankText: cardCompletionBlankText,
+        });
       }
     }, 120);
 
@@ -2981,6 +3394,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     cardIndex,
     cardPromptText,
     cardPromptVoiceMode,
+    cardCompletionBlankText,
+    cardCompletionFullText,
+    cardPromptHasVisualBlank,
     currentCard,
     isComplete,
     isPronunciationCard,
@@ -2997,7 +3413,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     const cardsToPreload = activeLesson.cards.slice(cardIndex, cardIndex + COURSE_AUDIO_PRELOAD_AHEAD);
     const audioItems = cardsToPreload.flatMap((card) => {
-      if (card.stage === "Pronunciation Practice" || activeLesson.id === "lesson-3-pronunciation") {
+      if (
+        card.stage === "Pronunciation Practice" ||
+        card.stage === "Speak" ||
+        activeLesson.id === "lesson-3-pronunciation"
+      ) {
         return (card.options || []).flatMap((option) => {
           const prompt = optionPracticePrompt(option);
           const words = String(prompt || "").match(/[A-Za-z']+/g) || [];
@@ -3016,13 +3436,22 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         });
       }
 
-      const promptAudioText = card.audio_text ?? card.prompt;
+      const hasCompletionBlank = hasVisualAudioPlaceholder(card.prompt)
+        || hasVisualAudioPlaceholder(card.audio_text);
+      const promptAudioText = hasCompletionBlank && !card.audio_text?.trim()
+        ? card.prompt
+        : card.audio_text ?? card.prompt;
+      const correctOption = card.options.find((option) => option.id === card.correct_option_id);
       return card.prompt
         ? [
             {
               text: promptAudioText,
+              fullText: hasCompletionBlank ? card.answer_audio_text : undefined,
+              blankText: hasCompletionBlank ? correctOption?.label : undefined,
               mode: "prompt",
-              variant: String(promptAudioText).trim().toLowerCase() === "what is it?" ? "question" : "prompt",
+              variant: hasCompletionBlank
+                ? "completion-prompt"
+                : String(promptAudioText).trim().toLowerCase() === "what is it?" ? "question" : "prompt",
             },
             ...(card.answer_audio_text
               ? [
@@ -3038,17 +3467,29 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     });
 
     const uniqueAudioItems = Array.from(
-      new Map(audioItems.filter((item) => item.text?.trim()).map((item) => [`${item.mode}|${item.variant}|${item.text}`, item])).values()
+      new Map(audioItems.filter((item) => item.text?.trim()).map((item) => [
+        `${item.mode}|${item.variant}|${item.text}|${item.fullText || ""}|${item.blankText || ""}`,
+        item,
+      ])).values()
     );
 
     uniqueAudioItems.forEach((item) => {
-      const key = `${activeLesson.id}|${item.mode}|${item.variant}|${item.text}`;
+      const key = [
+        activeLesson.id,
+        item.mode,
+        item.variant,
+        item.text,
+        item.fullText || "",
+        item.blankText || "",
+      ].join("|");
       if (preloadedAudioKeysRef.current.has(key)) {
         return;
       }
       preloadedAudioKeysRef.current.add(key);
       preloadCourseAudio({
         text: item.text,
+        fullText: item.fullText,
+        blankText: item.blankText,
         mode: item.mode,
         lang: "en-US",
         variant: item.variant,
@@ -3883,7 +4324,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     if (isCorrect) {
       const selectedActionVideo = lessonActionVideo(
-        currentCard.options.find((option) => option.id === optionId)?.image_url
+        currentCard.options.find((option) => option.id === optionId)?.image_url,
+        currentCard.options.length
       );
       setLastResult("correct");
       setAutoAdvanceDelayMs(
@@ -3939,11 +4381,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const cardStyleFor = (optionId) => {
     const style = { ...styles.cardButton };
     if (selectedOptionId === optionId && lastResult === "correct") {
-      style.borderColor = "var(--green)";
+      style.border = "4px solid var(--green)";
       style.boxShadow = "0 0 0 6px var(--green-soft), 0 12px 30px rgba(22, 33, 39, 0.08)";
     }
     if (selectedOptionId === optionId && lastResult === "wrong") {
-      style.borderColor = "var(--red)";
+      style.border = "4px solid var(--red)";
       style.boxShadow = "0 0 0 6px var(--red-soft), 0 12px 30px rgba(22, 33, 39, 0.08)";
     }
     return style;
@@ -3978,7 +4420,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       <div style={styles.page}>
         <div style={{ maxWidth: "720px", margin: "0 auto", display: "grid", gap: "20px" }}>
           <section style={heroStyle}>
-            <SpanGlishLogo compact={isMobile} />
+            <SpanGlishLogo compact={isMobile} onClick={goToPublicHome} />
             <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
               Bienvenido
             </div>
@@ -4049,7 +4491,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       <div style={styles.page}>
         <div style={{ maxWidth: "720px", margin: "0 auto", display: "grid", gap: "20px" }}>
           <section style={heroStyle}>
-            <SpanGlishLogo compact={isMobile} />
+            <SpanGlishLogo compact={isMobile} onClick={goToPublicHome} />
             <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
               Nuevo usuario
             </div>
@@ -4175,12 +4617,33 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
             {lessonLoadError ? <div style={{ color: "var(--red)", fontWeight: 700 }}>{lessonLoadError}</div> : null}
 
-            {curriculumUnits.map((unit) => {
+            {selectedUnitId ? (
+              <button
+                type="button"
+                onClick={() => setSelectedUnitId(null)}
+                style={{
+                  justifySelf: "start",
+                  border: "1px solid var(--line)",
+                  borderRadius: "999px",
+                  background: "var(--surface)",
+                  padding: "10px 16px",
+                  color: "var(--teal)",
+                  fontWeight: 800,
+                  cursor: "pointer",
+                }}
+              >
+                ← Todas las unidades
+              </button>
+            ) : null}
+
+            {curriculumUnits.filter((unit) => !selectedUnitId || unit.id === selectedUnitId).map((unit) => {
               const unitVisual = getUnitVisual(unit.id);
 
               return (
                 <section key={unit.id} style={{ display: "grid", gap: "16px" }}>
-                  <div
+                  <button
+                    type="button"
+                    onClick={() => setSelectedUnitId(unit.id)}
                     style={{
                       border: "1px solid var(--line)",
                       borderRadius: "28px",
@@ -4192,7 +4655,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       gap: "20px",
                       alignItems: "center",
                       overflow: "hidden",
+                      width: "100%",
+                      textAlign: "left",
+                      color: "inherit",
+                      font: "inherit",
+                      cursor: selectedUnitId ? "default" : "pointer",
                     }}
+                    aria-label={`${unit.title}: ${unitVisual.title}. Ver lecciones`}
                   >
                     <div style={{ display: "grid", gap: "10px" }}>
                       <div style={{ fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--muted)" }}>
@@ -4221,8 +4690,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           style={{
                             position: "absolute",
                             width: isMobile ? "42%" : "44%",
-                            aspectRatio: "4 / 3",
-                            objectFit: "contain",
+                            aspectRatio: "3 / 2",
+                            objectFit: "cover",
                             objectPosition: "center",
                             borderRadius: "18px",
                             border: "5px solid rgba(255, 255, 255, 0.82)",
@@ -4235,10 +4704,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         />
                       ))}
                     </div>
-                  </div>
+                  </button>
 
-                  {unit.lessons.map((lessonGroup) => {
-                    const lessonVisual = getLessonVisual(lessonGroup.id);
+                  {selectedUnitId === unit.id ? unit.lessons.map((lessonGroup) => {
+                    const lessonVisual = getLessonVisual(lessonGroup.id, unit.id);
 
                     return (
                       <section key={lessonGroup.id} style={{ display: "grid", gap: "12px" }}>
@@ -4266,7 +4735,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                                 style={{
                                   width: 68,
                                   height: 52,
-                                  objectFit: "contain",
+                                  objectFit: "cover",
                                   objectPosition: "center",
                                   background: "var(--surface-2)",
                                   borderRadius: "14px",
@@ -4290,7 +4759,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           }}
                         >
                           {lessonGroup.subLessons.map((lessonSummary) => {
-                            const subLessonVisual = getSubLessonVisual(lessonSummary.id);
+                            const subLessonVisual = getSubLessonVisual(lessonSummary.id, unit.id);
                             const subLessonTitle = `${lessonSummary.sub_lesson_id || lessonSummary.title} ${lessonSummary.sub_lesson_title || ""}`;
 
                             return (
@@ -4330,7 +4799,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                                       width: "100%",
                                       height: "100%",
                                       minHeight: 140,
-                                      objectFit: "contain",
+                                      objectFit: "cover",
                                       objectPosition: "center",
                                       display: "block",
                                     }}
@@ -4379,7 +4848,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         </div>
                       </section>
                     );
-                  })}
+                  }) : null}
                 </section>
               );
             })}
@@ -4445,7 +4914,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 gap: compactPracticeHeader ? "8px" : "12px",
               }}
             >
-              <MiniSpanGlishLogo onClick={goToLessons} />
+              <MiniSpanGlishLogo onClick={confirmLessonExit} />
               {compactPracticeHeader ? (
                 <button
                   type="button"
@@ -4465,6 +4934,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   }}
                   aria-label={`Play pronunciation for ${activePronunciationPrompt}`}
                 >
+                  <div
+                    style={{
+                      color: "#8b765d",
+                      fontSize: isMobile ? 8 : 9,
+                      fontWeight: 900,
+                      letterSpacing: "0.08em",
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    {lessonLocationLabel(activeLesson)}
+                  </div>
                   <h1
                     style={{
                       ...titleStyle,
@@ -4473,7 +4953,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       textOverflow: "ellipsis",
                     }}
                   >
-                    Pronunciation
+                    {currentCard.stage === "Speak" ? "Speak" : "Pronunciation"}
                   </h1>
                 </button>
               ) : null}
@@ -4507,7 +4987,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   isPronunciationCard
                     ? playPronunciationModel(activePronunciationPrompt)
                     : cardPromptText.trim()
-                      ? speakText(cardPromptText, { voiceMode: cardPromptVoiceMode })
+                      ? speakText(cardPromptText, {
+                          voiceMode: cardPromptVoiceMode,
+                          completionFullText: cardCompletionFullText,
+                          completionBlankText: cardCompletionBlankText,
+                        })
                       : undefined
                 }
                 style={{
@@ -4516,11 +5000,27 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   color: "var(--text)",
                   padding: 0,
                   margin: 0,
-                  cursor: "pointer",
+                  cursor: isPronunciationCard || cardPromptText.trim() ? "pointer" : "default",
                   width: "100%",
                 }}
-                aria-label={`Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : currentCard.prompt}`}
+                aria-label={
+                  isPronunciationCard || cardPromptText.trim()
+                    ? `Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : currentCard.prompt}`
+                    : `${currentCard.stage} stage`
+                }
               >
+                <div
+                  style={{
+                    color: "#8b765d",
+                    fontSize: isMobile ? 8 : 9,
+                    fontWeight: 900,
+                    letterSpacing: "0.08em",
+                    lineHeight: 1.1,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {lessonLocationLabel(activeLesson)}
+                </div>
                 {currentCard.stage ? (
                   <div
                     style={{
@@ -4536,7 +5036,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   </div>
                 ) : null}
                 <h1 style={titleStyle}>
-                  {isPronunciationCard ? "Pronunciation Practice" : renderHighlightedTitle(currentCard.prompt)}
+                  {isPronunciationCard
+                    ? currentCard.stage === "Speak" ? "Speak" : "Pronunciation Practice"
+                    : renderHighlightedTitle(currentCard.prompt)}
                 </h1>
               </button>
             ) : null}
@@ -4556,13 +5058,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 }}
               >
                 <img
-                  src={lessonImageSrc(currentCard.prompt_image_url)}
+                  src={lessonOptionImageSrc(currentCard.prompt_image_url)}
                   alt={currentCard.prompt}
                   style={{
                     display: "block",
                     width: "100%",
-                    aspectRatio: "16 / 9",
-                    objectFit: "contain",
+                    aspectRatio: "3 / 2",
+                    objectFit: "cover",
                     objectPosition: "center",
                   }}
                 />
@@ -4573,7 +5075,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 const optionPrompt = optionPracticePrompt(option);
                 const optionLabel = option.label || optionPrompt || option.id;
                 const hasOptionImage = Boolean(option.image_url);
-                const actionVideoName = !isPronunciationCard ? lessonActionVideo(option.image_url) : null;
+                const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison
+                  ? lessonActionVideo(option.image_url, currentCard.options.length)
+                  : null;
+                const actionPosterSrc = currentCard.options.length === 2 && actionVideoName
+                  ? lessonTwoCardActionPosterSrc(option.image_url)
+                  : null;
+                const optionImageStyle = hasOptionImage
+                  ? { ...responsiveImageStyle, objectPosition: optionMediaObjectPosition(option.image_url) }
+                  : responsiveImageStyle;
                 const showActionVideo = Boolean(actionVideoName) && (
                   currentCard.options.length === 1 ||
                   (selectedOptionId === option.id && lastResult === "correct")
@@ -4768,11 +5278,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         <LessonActionMedia
                           alt={optionLabel}
                           imageUrl={option.image_url}
-                          style={responsiveImageStyle}
+                          posterSrc={actionPosterSrc}
+                          style={optionImageStyle}
                           videoName={actionVideoName}
                         />
                       ) : (
-                        <img src={lessonImageSrc(option.image_url)} alt={optionLabel} style={responsiveImageStyle} />
+                        <img src={actionPosterSrc || lessonOptionImageSrc(option.image_url)} alt={optionLabel} style={optionImageStyle} />
                       )
                     ) : (
                       <div
@@ -4807,7 +5318,18 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               ) : null}
               {lastResult === "wrong" ? (
                 <div style={{ ...styles.feedback, background: "var(--red-soft)", color: "var(--red)" }}>
-                  {getWrongFeedback(profile)}
+                  <div>{getWrongFeedback(profile)}</div>
+                  <div
+                    style={{
+                      color: "#6f4b24",
+                      fontSize: isMobile ? 13 : 15,
+                      fontWeight: 750,
+                      lineHeight: 1.35,
+                      marginTop: 4,
+                    }}
+                  >
+                    {getLessonMistakeHint(currentCard, selectedOptionId)}
+                  </div>
                 </div>
               ) : null}
             </div>
@@ -4844,7 +5366,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 style={isMobile ? styles.iconOnlyButton : { ...styles.subtleButton, width: "auto", padding: "10px 14px" }}
                 aria-label="Volver a lecciones"
                 title="Volver a lecciones"
-                onClick={goToLessons}
+                onClick={confirmLessonExit}
               >
                 {isMobile ? <HomeIcon /> : "Lecciones"}
               </button>

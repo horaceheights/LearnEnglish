@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 
-import { courseAudioUrl } from '../config';
+import { courseAudioUrl, hasVisualAudioPlaceholder } from '../config';
 
 type Props = {
   text: string;
@@ -17,7 +17,7 @@ export function CourseAudioButton({ text, label = 'Escuchar', mode = 'prompt', v
   const [loadedText, setLoadedText] = useState('');
 
   const play = () => {
-    if (!text) return;
+    if (!text || hasVisualAudioPlaceholder(text)) return;
     if (loadedText !== text) {
       player.replace(courseAudioUrl(text, mode, variant));
       setLoadedText(text);
@@ -31,7 +31,7 @@ export function CourseAudioButton({ text, label = 'Escuchar', mode = 'prompt', v
     <Pressable
       accessibilityLabel={`Reproducir audio: ${text}`}
       accessibilityRole="button"
-      disabled={!text}
+      disabled={!text || hasVisualAudioPlaceholder(text)}
       onPress={play}
       style={({ pressed }) => [styles.button, pressed ? styles.pressed : null]}
     >

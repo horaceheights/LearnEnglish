@@ -4,8 +4,9 @@ export const PRIVACY_POLICY_URL = `${API_BASE_URL}/privacy`;
 export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
 export const SECOND_LESSON_ID = 'lesson-2-pronouns';
-export const THIRD_LESSON_ID = 'lesson-4-family-members';
-export const FOURTH_LESSON_ID = 'lesson-4-family-members-continued';
+export const THIRD_LESSON_ID = 'lesson-3-two-people';
+export const FOURTH_LESSON_ID = 'lesson-4-children-siblings';
+export const FIFTH_LESSON_ID = 'lesson-5-parents-grandparents';
 // Keep an explicit extension in native audio URLs. AVPlayer on iOS can fail
 // extensionless media endpoints even when their Content-Type is correct.
 export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue.wav`;
@@ -24,13 +25,15 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   // The approved teacher takes for the complete family set were verified by
   // transcription, so use them for both recognition and listening practice.
   if (
-    (lessonId === THIRD_LESSON_ID || lessonId === FOURTH_LESSON_ID) &&
+    (lessonId === FOURTH_LESSON_ID || lessonId === FIFTH_LESSON_ID) &&
     (normalizedStage.includes('action') || normalizedStage.includes('listen'))
   ) {
     return 'female-teacher';
   }
   if (
     normalizedStage.includes('pronunciation') ||
+    normalizedStage === 'speak' ||
+    normalizedStage === 'learn' ||
     normalizedStage.includes('vocab') ||
     normalizedStage.includes('new word')
   ) {
@@ -38,6 +41,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   }
   if (
     normalizedStage.includes('action') ||
+    normalizedStage === 'use' ||
     normalizedStage.includes('grammar') ||
     normalizedStage.includes('pattern') ||
     normalizedStage.includes('negation')
@@ -46,6 +50,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   }
   if (
     normalizedStage.includes('plural') ||
+    normalizedStage === 'recognize' ||
     normalizedStage.includes('meaning') ||
     normalizedStage.includes('people') ||
     normalizedStage.includes('family') ||
@@ -58,7 +63,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
     normalizedStage.includes('picture') ||
     normalizedStage.includes('what is it')
   ) {
-    return lessonId === THIRD_LESSON_ID || lessonId === FOURTH_LESSON_ID ? 'female-teacher' : 'male-conversational';
+    return lessonId === FOURTH_LESSON_ID || lessonId === FIFTH_LESSON_ID ? 'female-teacher' : 'male-conversational';
   }
 
   // Keep uncategorized future stages stable while still alternating the cast.
@@ -74,8 +79,63 @@ export function absoluteMediaUrl(path: string): string {
   return path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
 }
 
+const LESSON_VIDEO_CACHE_VERSION = '20260824-two-card-match-v7';
+
 export function lessonVideoUrl(name: string): string {
-  return `${VIDEO_BASE_URL}/lesson-assets/${encodeURIComponent(name)}`;
+  return `${VIDEO_BASE_URL}/lesson-assets/${encodeURIComponent(name)}?v=${LESSON_VIDEO_CACHE_VERSION}`;
+}
+
+export function hasVisualAudioPlaceholder(text: string): boolean {
+  return /_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/i.test(String(text || ''));
+}
+
+export function completionPromptAudioUrl(
+  visualPrompt: string,
+  fullText: string,
+  blankText: string,
+  mode = 'prompt',
+  variant = 'completion-prompt',
+  provider: CourseAudioProvider = 'elevenlabs-premium',
+  narrator: CourseAudioVoice = 'female-teacher',
+): string {
+  const visual = String(visualPrompt || '');
+  const completed = String(fullText || '').trim();
+  const answer = String(blankText || '').trim();
+  const placeholders = [...visual.matchAll(/_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/gi)];
+  if (placeholders.length !== 1) {
+    throw new Error('Completion prompt audio requires exactly one visual placeholder.');
+  }
+  if (!completed || !answer || hasVisualAudioPlaceholder(completed) || hasVisualAudioPlaceholder(answer)) {
+    throw new Error('Completion prompt audio requires clean completed and blank text.');
+  }
+
+  const placeholder = placeholders[0];
+  const prefix = visual.slice(0, placeholder.index);
+  const suffix = visual.slice((placeholder.index ?? 0) + placeholder[0].length);
+  if (`${prefix}${answer}${suffix}`.trim() !== completed) {
+    throw new Error('Completion prompt audio must match the full completed sentence exactly.');
+  }
+
+  const query = new URLSearchParams({
+    visual_prompt: visual,
+    full_text: completed,
+    blank_text: answer,
+    mode,
+    lang: 'en-US',
+    variant,
+    profile: COURSE_AUDIO_PROFILE,
+    provider,
+    narrator,
+  });
+  return `${API_BASE_URL}/api/audio/course-completion.mp3?${query.toString()}`;
+}
+
+export function sanitizeCourseAudioText(text: string): string {
+  const spokenText = String(text || '').replace(/\s+/g, ' ').trim();
+  if (hasVisualAudioPlaceholder(spokenText)) {
+    throw new Error('Completion placeholders are visual only and cannot be sent to course audio.');
+  }
+  return spokenText;
 }
 
 export function courseAudioUrl(
@@ -85,8 +145,9 @@ export function courseAudioUrl(
   provider: CourseAudioProvider = 'openai',
   narrator: CourseAudioVoice = 'female-teacher',
 ): string {
+  const spokenText = sanitizeCourseAudioText(text);
   const query = new URLSearchParams({
-    text,
+    text: spokenText,
     mode,
     lang: 'en-US',
     variant,

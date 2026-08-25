@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef, useState } from "react";
 import styles from "./scene-test.module.css";
 
@@ -157,7 +158,9 @@ export default function SceneTestPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <img src="/spanglish-logo.svg" alt="SpanGlish" />
+        <Link href="/" aria-label="SpanGlish — Ir a Inicio">
+          <img src="/spanglish-logo.svg" alt="" />
+        </Link>
         <div>
           <span>Scene evaluation</span>
           <h1>{scene.title}</h1>

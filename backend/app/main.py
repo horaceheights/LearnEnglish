@@ -11,6 +11,7 @@ from .diagnostics import initialize_diagnostics
 from .course_audio import (
     audio_debug,
     get_course_audio,
+    get_course_completion_audio,
     ready_cue_wav,
 )
 from .data import LESSONS, LESSON_IMAGE_DIR
@@ -177,6 +178,30 @@ async def read_course_audio(
 ):
     return await get_course_audio(
         text=text,
+        mode=mode,
+        lang=lang,
+        variant=variant,
+        provider=provider,
+        narrator=narrator,
+    )
+
+
+@app.get("/api/audio/course-completion")
+@app.get("/api/audio/course-completion.mp3")
+async def read_course_completion_audio(
+    visual_prompt: str,
+    full_text: str,
+    blank_text: str,
+    mode: str = "prompt",
+    lang: str = "en-US",
+    variant: str = "prompt",
+    provider: str = "elevenlabs-premium",
+    narrator: str = "female-teacher",
+):
+    return await get_course_completion_audio(
+        visual_prompt=visual_prompt,
+        full_text=full_text,
+        blank_text=blank_text,
         mode=mode,
         lang=lang,
         variant=variant,

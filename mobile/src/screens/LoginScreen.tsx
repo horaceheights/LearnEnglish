@@ -18,9 +18,12 @@ import { ACCOUNT_DELETION_URL, PRIVACY_POLICY_URL } from '../config';
 import { DEFAULT_PROFILE, persistProfile, profileFromUser } from '../profile';
 import type { LearnerProfile } from '../types';
 
-type Props = { onAuthenticated: (profile: LearnerProfile) => void };
+type Props = {
+  onAuthenticated: (profile: LearnerProfile) => void;
+  onHome: () => void;
+};
 
-export function LoginScreen({ onAuthenticated }: Props) {
+export function LoginScreen({ onAuthenticated, onHome }: Props) {
   const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [busyAction, setBusyAction] = useState<'login' | 'create' | null>(null);
@@ -63,6 +66,7 @@ export function LoginScreen({ onAuthenticated }: Props) {
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.page}>
         <BrandHeader
           eyebrow="Bienvenido"
+          onLogoPress={onHome}
           subtitle="Entra con tu nombre para continuar tu práctica."
           title="Aprende inglés de forma natural"
         />

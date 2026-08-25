@@ -1,0 +1,102 @@
+# Publicar SpanGlish sin saltarse las pruebas
+
+SpanGlish tiene dos destinos de actualización:
+
+- **Preview:** solamente Horace. Aquí se prueba cada cambio primero.
+- **Production:** testers internos. No recibe cambios hasta que Preview sea aprobado.
+
+Un push a una rama de trabajo no publica una actualización móvil. Preview se publica únicamente desde la rama protegida `release/preview`, mediante GitHub Actions y su ambiente protegido `preview-release`.
+
+## Configuración inicial por teléfono
+
+Preview se compila en la nube de Expo; no necesita el servidor local de Metro. Crea e instala un build una vez por plataforma:
+
+```powershell
+cd mobile
+npm run build:preview -- -Platform android
+npm run build:preview -- -Platform ios
+```
+
+El comando empaqueta únicamente `mobile/`. El backend, el frontend web, el historial de Git y los archivos locales de desarrollo no forman parte de la carga a Expo.
+
+Comparte el enlace de instalación de Preview únicamente con la persona que aprueba los cambios. La app se llama **SpanGlish Preview**, se puede instalar al lado de SpanGlish Production y muestra una franja amarilla indicando que los cambios aún no llegaron a los testers.
+
+## Flujo normal para cada cambio
+
+### 1. Guardar el cambio
+
+El cambio debe estar en un commit y respaldado en GitHub. Nunca se publica desde la rama de la tarea ni desde un worktree local.
+
+Preview usa una sola autoridad canónica: `origin/release/preview`. La rama aprobada debe contener la versión vigente antes de recibir un cambio. Los controles comprueban que el candidato sea exactamente el head remoto de esa rama, conserve el curso completo de 70 lecciones y siete unidades de diez, mantenga la identidad del commit y coincida con el manifiesto de integridad versionado.
+
+El publicador inserta automáticamente el commit corto de siete caracteres en la actualización. Ese mismo commit aparece junto a la versión en `Actualizar` y en la confirmación posterior; debe coincidir con las columnas `Commit` de Expo y Vercel.
+
+Antes del commit, se puede ejecutar el mismo preflight que usa la publicación:
+
+```powershell
+cd mobile
+npm run verify:preview
+```
+
+Este comando valida las tarjetas y sus archivos multimedia, comprueba TypeScript y exporta el bundle Android de producción en un directorio temporal.
+
+### 2. Integrar en la rama protegida
+
+Abre un pull request hacia `release/preview`. El check **Preview release integrity** debe terminar correctamente antes de integrar. No hagas force-push ni elimines la rama protegida.
+
+### 3. Publicar solamente en Preview
+
+En GitHub Actions, ejecuta **Publish SpanGlish Preview** desde `release/preview`. El workflow no acepta otra rama y usa el secreto `EXPO_TOKEN` del ambiente protegido `preview-release`.
+
+El workflow:
+
+1. Comprueba que el commit sea exactamente el head remoto de `release/preview`.
+2. Valida la línea canónica, el manifiesto de integridad, 70 lecciones, siete unidades de diez y la identidad visible del commit.
+3. Ejecuta el preflight completo de contenido, TypeScript y bundle Android.
+4. Publica en el canal `preview` sin permitir dos publicaciones simultáneas.
+5. Consulta Expo después de publicar y comprueba que el update corresponda al mismo commit.
+6. No modifica `production`.
+
+`npm run release:preview`, `eas update` y `npx eas-cli update` están prohibidos como publicación local. Si GitHub Actions o su secreto no están disponibles, la publicación queda bloqueada; no se usa la sesión local de Expo como atajo.
+
+### 4. Probar en el teléfono
+
+En **SpanGlish Preview**:
+
+1. Abre Configuración.
+2. Selecciona **Actualizar**.
+3. Prueba el cambio y las funciones esenciales.
+4. Copia el `Group ID` que mostró Expo al publicar.
+
+### 5. Aprobar para los testers
+
+Solamente después de aprobar Preview:
+
+```powershell
+npm run release:production -- -GroupId "UUID-DE-PREVIEW" -Confirm
+```
+
+El comando confirma que el ID corresponde al Preview más reciente y luego republica ese mismo bundle en `production`. No vuelve a compilar los archivos locales.
+
+## Cuándo hace falta un build nuevo
+
+Las modificaciones solamente de TypeScript/JavaScript, textos, lecciones, imágenes y audio normalmente usan `release:preview`.
+
+Se necesita un build nuevo cuando cambia cualquiera de estos elementos:
+
+- dependencias nativas o versión de Expo;
+- permisos o plugins en la configuración;
+- código de los módulos nativos de voz;
+- versión visible de la aplicación.
+
+En ese caso, incrementa la versión de la app y crea el build de Preview antes del build de Production.
+
+## Si un cambio falla
+
+No lo promociones. Corrige el problema y publica otro Preview. Si un problema ya llegó a Production, usa el panel de Expo o `eas update:rollback` para regresar al update anterior.
+
+Si Preview muestra menos de siete unidades, no muestra el commit o apunta a un commit distinto al workflow, detén las pruebas. No intentes corregirlo publicando desde otra rama: restaura el último grupo aprobado mediante el flujo protegido y registra el incidente.
+
+## Limitación actual del backend
+
+Preview y Production todavía usan el mismo backend de Render. Este flujo protege las actualizaciones de la app móvil, pero los cambios del backend necesitarán posteriormente un servicio y una base de datos de staging separados antes de aceptar usuarios de pago.

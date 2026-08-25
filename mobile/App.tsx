@@ -1,6 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode, useEffect, useState } from 'react';
 import {
-  ActivityIndicator,
+  Alert,
   Pressable,
   StyleSheet,
   Text,
@@ -10,6 +10,7 @@ import * as Updates from 'expo-updates';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { ConnectivityBanner } from './src/components/ConnectivityBanner';
+import { PlayfulLoading } from './src/components/PlayfulLoading';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -24,7 +25,11 @@ import { LessonScreen } from './src/screens/LessonScreen';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import type { LearnerProfile } from './src/types';
-import { canUseEasUpdates } from './src/updates';
+import {
+  canUseEasUpdates,
+  consumeCompletedUpdateMessage,
+  saveUpdateReceiptBeforeReload,
+} from './src/updates';
 
 type Screen =
   | { name: 'course' }
@@ -104,13 +109,13 @@ function AppContent() {
   if (isRestoring) {
     return (
       <SafeAreaView style={styles.loading}>
-        <ActivityIndicator color="#e96f42" size="large" />
+        <PlayfulLoading label="Preparando SpanGlish…" />
       </SafeAreaView>
     );
   }
 
   if (!profile) {
-    return <LoginScreen onAuthenticated={setProfile} />;
+    return <LoginScreen onAuthenticated={setProfile} onHome={() => setScreen({ name: 'course' })} />;
   }
 
   const hasQaAccess = profile.displayName.trim().toLowerCase() === 'horace';
@@ -121,6 +126,7 @@ function AppContent() {
         initialCardIndex={screen.initialCardIndex}
         lessonId={screen.lessonId}
         onExit={() => setScreen(screen.qaMode ? { name: 'qa' } : { name: 'course' })}
+        onHome={() => setScreen({ name: 'course' })}
         previouslyCompleted={screen.previouslyCompleted}
         profile={profile}
         qaMode={screen.qaMode}
@@ -157,6 +163,7 @@ function AppContent() {
 
   return (
     <CourseScreen
+      onHome={() => setScreen({ name: 'course' })}
       onSignOut={() => {
         void clearLocalProfile();
         setProfile(null);
@@ -179,19 +186,28 @@ function StartupUpdateGate({ children }: { children: ReactNode }) {
     let isMounted = true;
 
     const applyAvailableUpdate = async () => {
+      let completedUpdateMessage: string | null = null;
       try {
+        completedUpdateMessage = await consumeCompletedUpdateMessage();
         addDiagnosticBreadcrumb('startup_update_check');
         const update = await Updates.checkForUpdateAsync();
         if (!update.isAvailable) return;
 
         addDiagnosticBreadcrumb('startup_update_download');
-        await Updates.fetchUpdateAsync();
+        const fetchedUpdate = await Updates.fetchUpdateAsync();
+        if (!fetchedUpdate.isNew) return;
+        await saveUpdateReceiptBeforeReload(fetchedUpdate.manifest.id);
         addDiagnosticBreadcrumb('startup_update_reload');
         await Updates.reloadAsync();
       } catch (error) {
         captureDiagnosticError(error, 'startup_update');
       } finally {
-        if (isMounted) setIsCheckingForUpdate(false);
+        if (isMounted) {
+          setIsCheckingForUpdate(false);
+          if (completedUpdateMessage) {
+            Alert.alert('Actualización completada', completedUpdateMessage);
+          }
+        }
       }
     };
 
@@ -204,8 +220,7 @@ function StartupUpdateGate({ children }: { children: ReactNode }) {
   if (isCheckingForUpdate) {
     return (
       <SafeAreaView style={styles.loading}>
-        <ActivityIndicator color="#e96f42" size="large" />
-        <Text style={styles.updateText}>Buscando actualizaciones...</Text>
+        <PlayfulLoading label="Preparando SpanGlish…" />
       </SafeAreaView>
     );
   }
@@ -231,7 +246,6 @@ export default function App() {
 const styles = StyleSheet.create({
   appFrame: { backgroundColor: '#fbf7ef', flex: 1 },
   loading: { alignItems: 'center', backgroundColor: '#fbf7ef', flex: 1, justifyContent: 'center' },
-  updateText: { color: '#59686e', fontSize: 13, fontWeight: '700', marginTop: 12 },
   crashPage: { backgroundColor: '#fbf7ef', flex: 1, justifyContent: 'center', padding: 24 },
   crashPanel: { backgroundColor: '#fff', borderColor: '#e7ded0', borderRadius: 22, borderWidth: 1, padding: 22 },
   crashTitle: { color: '#24333a', fontSize: 22, fontWeight: '900', textAlign: 'center' },

@@ -43,15 +43,15 @@ The near-term product is therefore the engine itself:
 Mass content production begins only when:
 
 - [ ] Existing lessons complete reliably across the supported device matrix
-- [ ] Core activities are represented by reusable schemas, not lesson-specific code
-- [ ] A new lesson can be assembled mostly from data and existing activity types
+- [x] Core activities are represented by reusable schemas, not lesson-specific code
+- [x] A new lesson can be assembled mostly from data and existing activity types
 - [ ] Progress, retries, help usage, and mastery signals persist correctly
 - [ ] Audio, image, animation, and haptic behavior is consistent
 - [ ] Interrupted lessons resume safely
-- [ ] Backend/network failures recover without losing learner work
+- [~] Backend/network failures recover without losing learner work
 - [ ] Accessibility and text/layout scaling have been tested
-- [ ] Automated content validation catches broken cards and missing media
-- [ ] Regression and release checklists are repeatable
+- [x] Automated content validation catches broken cards and missing media
+- [x] Regression and release checklists are repeatable
 
 After this gate passes, the same engine can support rapid, large-scale course
 creation without proportionally increasing engineering effort.
@@ -69,7 +69,7 @@ creation without proportionally increasing engineering effort.
 - Visible runtime/update identifier on the home screen
 - Render-hosted backend with automatic deployment
 - Portrait home screen and landscape lessons
-- Five production lessons plus a temporary five-card pronunciation test lesson
+- Twenty production curriculum lessons across Unit 1 and Unit 2, each using Learn -> Recognize -> Listen -> Speak -> Use
 - Shared automatic pronunciation flow with Azure scoring
 - Consolidated lesson header, larger uncropped images, and visible lesson exit
 - Grammar answers animate toward sentence blanks and repeat the completed sentence
@@ -86,15 +86,15 @@ corrupts progress, or produces unreliable learning feedback.
 
 - [ ] Run every card in every lesson on a physical Android phone
 - [~] Use the internal Engine QA hub to complete `ENGINE_QA_CHECKLIST.md`
-- [ ] Verify correct, incorrect, retry, help, audio, and completion paths
-- [ ] Test leaving during playback, recording, grading, and animation
-- [ ] Test screen lock, app switching, calls, lost internet, and backend cold starts
+- [~] Verify correct, incorrect, retry, help, audio, and completion paths
+- [~] Test leaving during playback, recording, grading, and animation
+- [~] Test screen lock, app switching, calls, lost internet, and backend cold starts
 - [ ] Test small, medium, and large Android landscape dimensions
 - [x] Add production crash reporting and structured diagnostics
 - [x] Show an in-app error screen instead of an unexplained blank screen
-- [ ] Persist the learner's active lesson/card before interruption
-- [ ] Create a repeatable pre-release checklist
-- [ ] Remove the temporary pronunciation test lesson after pronunciation is finalized
+- [~] Persist the learner's active lesson/card before interruption
+- [x] Create a repeatable pre-release checklist
+- [x] Remove the temporary standalone pronunciation test lesson and keep pronunciation inside each lesson's Speak stage
 
 ### P0 exit criteria
 
@@ -129,6 +129,8 @@ corrupts progress, or produces unreliable learning feedback.
 - [~] Make lesson content data-driven and reusable
 - [~] Validate lesson content automatically before deployment
 - [ ] Separate temporary QA content from production curriculum
+- [x] Implement the ten-lesson Unit 2 dependency chain, per-slide canonical content, exact translations, static images, and bundled audio
+- [x] Encode intentional Unit 2 curriculum recycling through later lessons, mixed review, and the final mission
 
 ---
 
@@ -302,13 +304,14 @@ internal-mouth model rather than claiming the camera alone can diagnose it.
 ## Recommended immediate sequence
 
 1. Complete the P0 physical-device lesson audit.
-2. Add crash reporting and structured card-level diagnostics.
-3. Add resume-in-progress.
-4. Finalize the permanent course/activity data schema.
-5. Build reusable drag-and-drop sentence construction.
-6. Add tap-any-word audio.
-7. Add actual microphone-volume visualization.
-8. Begin vocabulary and grammar mastery tracking.
+2. Verify resume-in-progress across force-close, screen lock, and app switching.
+3. Complete the P0 network-loss and backend cold-start audit.
+4. Complete the Android viewport and accessibility matrix.
+5. Finalize the permanent course/activity data schema.
+6. Build reusable drag-and-drop sentence construction.
+7. Add tap-any-word audio.
+8. Add actual microphone-volume visualization.
+9. Begin vocabulary and grammar mastery tracking.
 
 ## Product rule
 

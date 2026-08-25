@@ -1,0 +1,209 @@
+from __future__ import annotations
+
+import argparse
+import json
+import shutil
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+BACKEND_ROOT = ROOT / "backend"
+OUTPUT_ROOT = ROOT / "mobile" / "src" / "generated"
+LESSON_IMAGE_ROOT = ROOT / "Lessons" / "Lesson1" / "images"
+MOBILE_IMAGE_ROOT = ROOT / "mobile" / "assets" / "lesson-assets"
+IMAGE_SOURCE_PATH = ROOT / "mobile" / "src" / "lessonImageSources.ts"
+COURSE_MENU_IMAGE_NAMES = {
+    "family_all_members.webp",
+    "place_park.webp",
+    "a1_ana.webp",
+    "a1_home.webp",
+    "a1_apple.webp",
+    "a1_station.webp",
+}
+OPTION_MEDIA_VARIANTS = {
+    "boy.webp": "boy_3x2.webp",
+    "family_adults.webp": "family_adults_3x2.webp",
+    "family_all_members.webp": "family_all_members_3x2.webp",
+    "family_babies.webp": "family_babies_3x2.webp",
+    "family_baby.webp": "family_baby_3x2.webp",
+    "family_baby_sleeping.webp": "family_baby_sleeping_3x2.webp",
+    "family_brother_studying.webp": "family_brother_studying_3x2.webp",
+    "family_brothers.webp": "family_brothers_3x2.webp",
+    "family_children.webp": "family_children_3x2.webp",
+    "family_children_playing.webp": "family_children_playing_3x2.webp",
+    "family_children_studying.webp": "family_children_studying_3x2.webp",
+    "family_father.webp": "family_father_3x2.webp",
+    "family_father_working.webp": "family_father_working_3x2.webp",
+    "family_grandfather.webp": "family_grandfather_3x2.webp",
+    "family_grandmother.webp": "family_grandmother_3x2.webp",
+    "family_grandparents.webp": "family_grandparents_3x2.webp",
+    "family_grandparents_sitting.webp": "family_grandparents_sitting_3x2.webp",
+    "family_grandparents_talking.webp": "family_grandparents_talking_3x2.webp",
+    "family_mother.webp": "family_mother_3x2.webp",
+    "family_mother_cooking.webp": "family_mother_cooking_3x2.webp",
+    "family_parents.webp": "family_parents_3x2.webp",
+    "family_parents_talking.webp": "family_parents_talking_3x2.webp",
+    "family_sisters.webp": "family_sisters_3x2.webp",
+    "girl.webp": "girl_3x2.webp",
+    "man.webp": "man_3x2.webp",
+    "man_is_standing.webp": "man_is_standing_3x2.webp",
+    "object_backpack.webp": "object_backpack_3x2.webp",
+    "object_bike.webp": "object_bike_3x2.webp",
+    "object_book.webp": "object_book_3x2.webp",
+    "object_car.webp": "object_car_3x2.webp",
+    "place_bridge.webp": "place_bridge_3x2.webp",
+    "place_bus.webp": "place_bus_3x2.webp",
+    "place_house.webp": "place_house_3x2.webp",
+    "place_park.webp": "place_park_3x2.webp",
+    "place_street.webp": "place_street_3x2.webp",
+    "they_boy_girl.webp": "they_boy_girl_3x2.webp",
+    "they_boy_girl_are_eating.webp": "they_boy_girl_are_eating_3x2.webp",
+    "they_boy_girl_are_reading.webp": "they_boy_girl_are_reading_3x2.webp",
+    "they_boy_girl_are_running.webp": "they_boy_girl_are_running_3x2.webp",
+    "they_boy_girl_are_writing.webp": "they_boy_girl_are_writing_3x2.webp",
+    "woman.webp": "woman_3x2.webp",
+}
+
+sys.path.insert(0, str(BACKEND_ROOT))
+
+from app.data import LESSONS  # noqa: E402
+
+
+def model_payload(model: object) -> dict[str, object]:
+    if hasattr(model, "model_dump"):
+        payload = model.model_dump(mode="json")  # type: ignore[no-any-return, union-attr]
+    else:
+        payload = json.loads(model.json())  # type: ignore[no-any-return, union-attr]
+    for card in payload.get("cards", []):
+        if card.get("spanish_translation") is None:
+            card.pop("spanish_translation", None)
+    return payload
+
+
+def export_lesson(lesson_id: str) -> Path:
+    lesson = LESSONS.get(lesson_id)
+    if lesson is None:
+        raise SystemExit(f"Unknown lesson: {lesson_id}")
+
+    OUTPUT_ROOT.mkdir(parents=True, exist_ok=True)
+    destination = OUTPUT_ROOT / f"{lesson_id}.json"
+    destination.write_text(
+        json.dumps(model_payload(lesson), ensure_ascii=True, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return destination
+
+
+def export_course(lesson_ids: list[str]) -> Path:
+    destination = OUTPUT_ROOT / "a1-course.json"
+    destination.write_text(
+        json.dumps(
+            [model_payload(LESSONS[lesson_id]) for lesson_id in lesson_ids],
+            ensure_ascii=True,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return destination
+
+
+def lesson_image_names() -> list[str]:
+    names: set[str] = set(COURSE_MENU_IMAGE_NAMES)
+    option_names: set[str] = set()
+    for lesson in LESSONS.values():
+        for card in lesson.cards:
+            paths = [card.prompt_image_url, *(option.image_url for option in card.options)]
+            for image_url in paths:
+                clean_path = str(image_url or "").split("?", 1)[0].split("#", 1)[0]
+                name = Path(clean_path).name
+                if name.endswith(".webp"):
+                    names.add(name)
+            for option in card.options:
+                clean_path = str(option.image_url or "").split("?", 1)[0].split("#", 1)[0]
+                name = Path(clean_path).name
+                if name.endswith(".webp"):
+                    option_names.add(name)
+    names.update(
+        variant for source, variant in OPTION_MEDIA_VARIANTS.items() if source in option_names
+    )
+    return sorted(names)
+
+
+def export_lesson_images() -> int:
+    names = lesson_image_names()
+    missing = [name for name in names if not (LESSON_IMAGE_ROOT / name).is_file()]
+    if missing:
+        raise SystemExit(f"Missing canonical lesson images: {', '.join(missing)}")
+
+    MOBILE_IMAGE_ROOT.mkdir(parents=True, exist_ok=True)
+    for name in names:
+        source = LESSON_IMAGE_ROOT / name
+        destination = MOBILE_IMAGE_ROOT / name
+        if not destination.exists() or destination.stat().st_size != source.stat().st_size:
+            shutil.copy2(source, destination)
+
+    # Course-browser title art is reviewed and bundled directly in the mobile
+    # asset set; it is intentionally not derived from an individual lesson card.
+    names = sorted(set(names) | {path.name for path in MOBILE_IMAGE_ROOT.glob("a1_title_*.webp")})
+
+    requires = "\n".join(
+        f"  '{name}': require('../assets/lesson-assets/{name}')," for name in names
+    )
+    option_variants = "\n".join(
+        f"  '{source}': '{variant}'," for source, variant in OPTION_MEDIA_VARIANTS.items()
+    )
+    IMAGE_SOURCE_PATH.write_text(
+        "import type { ImageSourcePropType } from 'react-native';\n\n"
+        "import { absoluteMediaUrl } from './config';\n\n"
+        "// Generated by scripts/export_mobile_preview_lessons.py. Metro requires\n"
+        "// literal require calls so every approved A1 still travels with Preview OTA updates.\n"
+        "const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {\n"
+        f"{requires}\n"
+        "};\n\n"
+        "const OPTION_MEDIA_VARIANTS: Record<string, string> = {\n"
+        f"{option_variants}\n"
+        "};\n\n"
+        "function imageFilename(imageUrl: string): string {\n"
+        "  const cleanPath = imageUrl.split(/[?#]/, 1)[0];\n"
+        "  return cleanPath.slice(cleanPath.lastIndexOf('/') + 1);\n"
+        "}\n\n"
+        "export function lessonImageSource(imageUrl: string): ImageSourcePropType {\n"
+        "  return BUNDLED_LESSON_IMAGES[imageFilename(imageUrl)] ?? { uri: absoluteMediaUrl(imageUrl) };\n"
+        "}\n\n"
+        "export function lessonOptionImageSource(imageUrl: string): ImageSourcePropType {\n"
+        "  const filename = imageFilename(imageUrl);\n"
+        "  const optionFilename = OPTION_MEDIA_VARIANTS[filename] ?? filename;\n"
+        "  return BUNDLED_LESSON_IMAGES[optionFilename] ?? { uri: absoluteMediaUrl(imageUrl) };\n"
+        "}\n",
+        encoding="utf-8",
+    )
+    return len(names)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Export reviewed backend lessons for the Expo Preview app."
+    )
+    parser.add_argument(
+        "--lesson-id",
+        action="append",
+        dest="lesson_ids",
+        default=[],
+        help="Lesson ID to export. May be supplied more than once.",
+    )
+    args = parser.parse_args()
+    lesson_ids = args.lesson_ids or [lesson.id for lesson in LESSONS.values()]
+
+    for lesson_id in lesson_ids:
+        destination = export_lesson(lesson_id)
+        print(destination.relative_to(ROOT))
+    course_destination = export_course(lesson_ids)
+    print(course_destination.relative_to(ROOT))
+    image_count = export_lesson_images()
+    print(f"Bundled {image_count} approved A1 lesson images for Expo Preview.")
+
+
+if __name__ == "__main__":
+    main()

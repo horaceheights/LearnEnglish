@@ -42,6 +42,7 @@ For every defect, capture:
 - [ ] Stage filters show the expected cards
 - [ ] A selected card opens directly
 - [ ] QA header shows lesson, card, stage, and update code
+- [ ] QA header shows the live first-attempt score
 - [ ] Previous opens the prior card
 - [ ] Next opens the following card
 - [ ] Restart resets the current card
@@ -58,6 +59,7 @@ Test at least one card from every stage, then run the complete lesson audit.
 
 - [ ] Prompt text fits without clipping
 - [ ] Images remain uncropped and use available space
+- [ ] Loading images use a neutral background without a spinner over any answer
 - [ ] Model audio plays once at the correct time
 - [ ] Tapping the prompt repeats its audio
 - [ ] Correct choice receives clear visual feedback
@@ -65,10 +67,27 @@ Test at least one card from every stage, then run the complete lesson audit.
 - [ ] Incorrect choice can be retried
 - [ ] First-attempt score increments only once
 - [ ] Help opens and closes without layout overflow
+- [ ] Help closes automatically after five seconds
+- [ ] Help names the exact action for the current card (listen, replay, select, repeat, or wait for automatic advance)
+- [ ] Help closes automatically after moving to the next card
 - [ ] Back to Lessons/QA remains visible
+- [ ] Opening an earlier completed section still accepts answers, shows feedback, and advances
+- [ ] Replaying a completed card does not add score or create another recorded attempt
 - [ ] Auto OFF permits result inspection
 - [ ] Auto ON advances exactly once
 - [ ] Last card reaches the completion screen
+
+## Mobile viewport-fit guardrail
+
+Run these checks for every new card pattern before publishing Preview:
+
+- [ ] Test portrait widths of 360, 390, and 412 dp, including an Android device with the system navigation bar visible
+- [ ] A stage-only header uses one compact line and does not reserve an empty prompt row
+- [ ] A prompt image plus four phrase choices fits in the usable screen without overlap or navigation-bar clipping
+- [ ] Long phrase choices remain readable within three lines and do not change the 2x2 grid dimensions
+- [ ] Prompt and answer images use `contain` and never crop heads, hands, or the action being taught
+- [ ] Font scale at 1.15 does not overlap choices; larger accessibility scales remain reachable by scrolling
+- [ ] Capture one Engine QA screenshot for the longest phrase card in portrait before release
 
 ## Activity-stage matrix
 
@@ -95,6 +114,9 @@ Test at least one card from every stage, then run the complete lesson audit.
 ### Listen / Listen To Picture
 
 - [ ] Audio starts without displaying the answer
+- [ ] First Listen card images are visible when the card appears on a cold cache
+- [ ] Automatically advancing into Listen renders every answer image immediately, without requiring a swipe away and back
+- [ ] Swiping backward and forward does not change which answer images are visible
 - [ ] Replay works
 - [ ] Correct image matches spoken audio
 - [ ] Learner can retry after a wrong choice
@@ -126,6 +148,7 @@ Test at least one card from every stage, then run the complete lesson audit.
 ### Pronunciation Practice
 
 - [ ] Model phrase plays
+- [ ] Model phrase plays once without restarting during the microphone permission flow
 - [ ] Ready beep plays, including on the first card
 - [ ] Recording begins only after the beep
 - [ ] Listening dot and bars animate
@@ -146,10 +169,16 @@ Test at least one card from every stage, then run the complete lesson audit.
 - [ ] Lock/unlock during pronunciation recording
 - [ ] Background/foreground during grading
 - [ ] Leave lesson during grammar animation
+- [ ] Backgrounding pauses model/answer audio and does not advance a hidden card
+- [ ] Returning to pronunciation restarts the current phrase without awarding a stale result
+- [ ] Returning during grammar or answer audio safely resumes or advances exactly once
 - [ ] Rotate or attempt to rotate during a lesson
 - [ ] Disable internet before loading a lesson
 - [ ] Disable internet during a non-pronunciation lesson
 - [ ] Disable internet during pronunciation grading
+- [ ] Uncached lesson audio never blocks answering or card progression while offline
+- [ ] Pronunciation shows retry and continue-without-score controls while offline
+- [ ] Restoring internet allows pronunciation to restart normally
 - [ ] Test after backend cold start
 - [ ] Force-close and reopen the app
 
@@ -169,6 +198,7 @@ A preview update is ready for broader testing when:
 - [ ] TypeScript check passes
 - [ ] Android production export passes
 - [ ] Automated lesson/media validation passes
+- [x] Automated first-try, retry, duplicate-completion, and skipped-pronunciation scoring checks pass
 - [ ] Representative card from every stage passes
 - [ ] Complete pronunciation test lesson passes
 - [ ] Complete grammar transition test passes

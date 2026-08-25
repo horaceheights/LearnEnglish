@@ -8,7 +8,9 @@ export function ConnectivityBanner() {
 
   return (
     <View accessible accessibilityLiveRegion="assertive" accessibilityRole="alert" style={styles.banner}>
-      <Text style={styles.text}>Sin conexión. Revisa tu internet para cargar lecciones y revisar pronunciación.</Text>
+      <Text style={styles.text}>
+        Sin conexión. El audio no guardado puede no sonar; la lección seguirá y la pronunciación puede omitirse sin puntaje.
+      </Text>
     </View>
   );
 }

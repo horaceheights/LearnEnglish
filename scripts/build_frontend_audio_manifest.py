@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import re
@@ -10,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BACKEND_DIR = ROOT / "backend"
 sys.path.insert(0, str(BACKEND_DIR))
 
-from app.course_audio import cache_path_for, voice_for_variant  # noqa: E402
+from app.course_audio import cache_path_for, sanitize_course_audio_text, voice_for_variant  # noqa: E402
 from app.data import LESSONS  # noqa: E402
 
 
@@ -41,6 +42,47 @@ FEEDBACK_PHRASES = [
     "Excellent",
     "Try again",
 ]
+VISUAL_COMPLETION_PLACEHOLDER_PATTERN = re.compile(
+    r"(?:_+|\[\s*(?:blank|pause)\s*\]|\{\s*blank\s*\}|\.{3,}|…)",
+    flags=re.IGNORECASE,
+)
+
+
+def has_visual_completion_placeholder(text: str | None) -> bool:
+    return bool(VISUAL_COMPLETION_PLACEHOLDER_PATTERN.search(str(text or "")))
+
+
+def without_visual_placeholder_entries(
+    manifest: dict[str, str],
+) -> tuple[dict[str, str], set[str], int]:
+    retained: dict[str, str] = {}
+    removed_audio_names: set[str] = set()
+    removed_entries = 0
+    for key, audio_name in manifest.items():
+        spoken_text = str(key).split("\n", 1)[0]
+        if has_visual_completion_placeholder(spoken_text):
+            removed_entries += 1
+            if isinstance(audio_name, str):
+                removed_audio_names.add(audio_name)
+            continue
+        retained[key] = audio_name
+
+    removed_audio_names -= {
+        audio_name for audio_name in retained.values() if isinstance(audio_name, str)
+    }
+    return retained, removed_audio_names, removed_entries
+
+
+def prune_unreferenced_audio_files(frontend_cache: Path, audio_names: set[str]) -> int:
+    removed_files = 0
+    for audio_name in audio_names:
+        if Path(audio_name).name != audio_name or not audio_name.lower().endswith(".mp3"):
+            continue
+        audio_path = frontend_cache / audio_name
+        if audio_path.is_file():
+            audio_path.unlink()
+            removed_files += 1
+    return removed_files
 
 
 def pronunciation_prompt_from_option(option_id: str) -> str:
@@ -67,11 +109,12 @@ def words(text: str) -> list[str]:
     return re.findall(r"[A-Za-z']+", text or "")
 
 
-def expected_audio_items() -> set[tuple[str, str, str, str]]:
+def expected_audio_items(lessons=None) -> set[tuple[str, str, str, str]]:
     items: set[tuple[str, str, str, str]] = set()
-    for lesson in LESSONS.values():
+    lesson_source = LESSONS.values() if lessons is None else lessons
+    for lesson in lesson_source:
         for card in lesson.cards:
-            if card.stage == "Pronunciation Practice" or lesson.id == "lesson-3-pronunciation":
+            if card.stage in {"Pronunciation Practice", "Speak"} or lesson.id == "lesson-3-pronunciation":
                 for option in card.options:
                     prompt = option_practice_prompt(option)
                     if not prompt:
@@ -81,12 +124,22 @@ def expected_audio_items() -> set[tuple[str, str, str, str]]:
                         items.add((word, "pronunciation_slow", "en-US", "split-ing"))
                 continue
 
-            prompt = card.audio_text if card.audio_text is not None else card.prompt
-            if prompt and prompt.strip():
-                variant = "question" if prompt.strip().lower() == "what is it?" else "prompt"
-                items.add((prompt, "prompt", "en-US", variant))
+            raw_prompt = card.audio_text if card.audio_text is not None else card.prompt
+            is_completion_prompt = has_visual_completion_placeholder(
+                card.prompt
+            ) or has_visual_completion_placeholder(raw_prompt)
+            if not is_completion_prompt:
+                prompt = sanitize_course_audio_text(raw_prompt)
+                if prompt and prompt.strip():
+                    variant = "question" if prompt.strip().lower() == "what is it?" else "prompt"
+                    items.add((prompt, "prompt", "en-US", variant))
             if card.answer_audio_text:
-                items.add((card.answer_audio_text, "prompt", "en-US", "answer"))
+                answer = sanitize_course_audio_text(card.answer_audio_text)
+                if has_visual_completion_placeholder(answer):
+                    raise ValueError(
+                        f"Completed answer audio still contains a visual placeholder: {answer!r}"
+                    )
+                items.add((answer, "prompt", "en-US", "answer"))
 
     for phrase in FEEDBACK_PHRASES:
         items.add((phrase, "feedback", "en-US", "feedback"))
@@ -94,25 +147,61 @@ def expected_audio_items() -> set[tuple[str, str, str, str]]:
     return items
 
 
-def main() -> int:
+def main(lesson_ids: set[str] | None = None) -> int:
     frontend_cache = ROOT / "frontend" / "public" / "audio-cache"
     manifest_path = ROOT / "frontend" / "lib" / "courseAudioManifest.json"
     model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
-    voice = os.getenv("OPENAI_TTS_VOICE", "coral")
     output_format = os.getenv("OPENAI_TTS_FORMAT", "mp3").lower()
+    cache_model = f"openai:{model}"
 
-    frontend_cache.mkdir(parents=True, exist_ok=True)
-    manifest: dict[str, str] = {}
+    if lesson_ids:
+        unknown_lessons = sorted(lesson_ids - LESSONS.keys())
+        if unknown_lessons:
+            print(json.dumps({"error": "Unknown lesson ids.", "lesson_ids": unknown_lessons}, indent=2))
+            return 2
+        selected_lessons = [LESSONS[lesson_id] for lesson_id in sorted(lesson_ids)]
+    else:
+        selected_lessons = None
+
+    if manifest_path.exists():
+        try:
+            existing_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            existing_manifest = {}
+    else:
+        existing_manifest = {}
+
+    (
+        retained_existing_manifest,
+        prunable_placeholder_audio,
+        pruned_placeholder_entries,
+    ) = without_visual_placeholder_entries(existing_manifest)
+    manifest: dict[str, str] = dict(retained_existing_manifest) if lesson_ids else {}
+    audio_sources: dict[str, Path] = {}
     missing: list[dict[str, str]] = []
 
-    for text, mode, lang, variant in sorted(expected_audio_items()):
-        audio_path = cache_path_for(text, mode, lang, variant, model, voice_for_variant(variant), output_format)
+    for text, mode, lang, variant in sorted(expected_audio_items(selected_lessons)):
+        audio_path = cache_path_for(
+            text,
+            mode,
+            lang,
+            variant,
+            cache_model,
+            voice_for_variant(variant),
+            output_format,
+        )
         key = "\n".join([text.strip(), mode, lang, variant])
-        if audio_path.exists() and audio_path.stat().st_size > 0:
-            destination = frontend_cache / audio_path.name
-            if not destination.exists() or destination.stat().st_size != audio_path.stat().st_size:
-                shutil.copy2(audio_path, destination)
+        existing_name = existing_manifest.get(key)
+        existing_path = (
+            frontend_cache / existing_name
+            if existing_name == audio_path.name
+            else None
+        )
+        if existing_path and existing_path.exists() and existing_path.stat().st_size > 0:
+            manifest[key] = existing_name
+        elif audio_path.exists() and audio_path.stat().st_size > 0:
             manifest[key] = audio_path.name
+            audio_sources[audio_path.name] = audio_path
         else:
             missing.append(
                 {
@@ -124,17 +213,45 @@ def main() -> int:
                 }
             )
 
-    referenced_files = set(manifest.values())
-    for audio_file in frontend_cache.glob("*.mp3"):
-        if audio_file.name not in referenced_files:
-            audio_file.unlink()
+    # Never replace a known-good static bundle with an incomplete one. This can
+    # happen after an audio-profile change before the new cache is generated.
+    pruned_placeholder_files = 0
+    if not missing:
+        frontend_cache.mkdir(parents=True, exist_ok=True)
+        for audio_name, audio_path in audio_sources.items():
+            destination = frontend_cache / audio_name
+            if not destination.exists() or destination.stat().st_size != audio_path.stat().st_size:
+                shutil.copy2(audio_path, destination)
 
-    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        pruned_placeholder_files = prune_unreferenced_audio_files(
+            frontend_cache,
+            prunable_placeholder_audio - set(manifest.values()),
+        )
+        if not lesson_ids:
+            referenced_files = set(manifest.values())
+            for audio_file in frontend_cache.glob("*.mp3"):
+                if audio_file.name not in referenced_files:
+                    audio_file.unlink()
+    elif pruned_placeholder_entries:
+        # Missing unrelated clips must not preserve forbidden placeholder TTS.
+        # Keep every other known-good entry and delete only newly orphaned MP3s.
+        manifest_path.write_text(
+            json.dumps(retained_existing_manifest, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        pruned_placeholder_files = prune_unreferenced_audio_files(
+            frontend_cache,
+            prunable_placeholder_audio,
+        )
     print(
         json.dumps(
             {
-                "manifest_entries": len(manifest),
+                "scope": sorted(lesson_ids) if lesson_ids else "all-lessons",
+                "manifest_entries": len(manifest if not missing else retained_existing_manifest),
                 "static_files": len(list(frontend_cache.glob("*.mp3"))),
+                "pruned_placeholder_entries": pruned_placeholder_entries,
+                "pruned_placeholder_files": pruned_placeholder_files,
                 "missing_expected": len(missing),
                 "missing": missing,
             },
@@ -145,4 +262,12 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    parser = argparse.ArgumentParser(description="Build the static course-audio manifest.")
+    parser.add_argument(
+        "--lesson-id",
+        action="append",
+        dest="lesson_ids",
+        help="Update only this lesson and preserve the rest of the static bundle.",
+    )
+    arguments = parser.parse_args()
+    raise SystemExit(main(set(arguments.lesson_ids) if arguments.lesson_ids else None))

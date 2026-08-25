@@ -1,3 +1,5 @@
+# build-preview.ps1 sets EAS_PROJECT_ROOT to this mobile directory, so these
+# patterns are intentionally relative to mobile/.
 node_modules/
 .expo/
 .claude/
@@ -18,6 +20,7 @@ assets/play-store-*.png
 /android/
 /ios/
 .kotlin/
+modules/*/android/build/
 *.tsbuildinfo
 .env
 .env.*

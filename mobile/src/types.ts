@@ -5,6 +5,8 @@ export type ChoiceOption = {
 };
 
 export type LessonCard = {
+  slide_id?: string | null;
+  interaction_type?: string | null;
   prompt: string;
   stage: string;
   correct_option_id: string;
@@ -12,6 +14,8 @@ export type LessonCard = {
   audio_text: string | null;
   answer_audio_text: string | null;
   prompt_image_url: string;
+  spanish_translation?: string | null;
+  pedagogy_note?: string | null;
 };
 
 export type Lesson = {
@@ -20,12 +24,18 @@ export type Lesson = {
   level: string;
   unit_id?: string;
   unit_title?: string;
+  unit_outcome?: string;
   lesson_id?: string;
   lesson_title?: string;
   sub_lesson_id?: string;
   sub_lesson_title?: string;
   goal: string;
   vocabulary: string[];
+  review_vocabulary?: string[];
+  grammar_function?: string;
+  prerequisite?: string;
+  speaking_outcome?: string;
+  purposeful_review_slides?: string[];
   cards: LessonCard[];
 };
 

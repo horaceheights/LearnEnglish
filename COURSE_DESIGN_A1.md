@@ -17,7 +17,7 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 
 ## Current Track Check
 
-Unit 1, `People, Actions, And Basic Sentences`, is on track for early A1. The two built sub-lessons are `1.1 People and Actions` and `1.2 He, She, and They`.
+Unit 1, `People, Family, and Actions`, is the first of seven planned A1 units. It uses ten stepped lessons. The approved rebuild starts with `1.1 People and Core Actions`, followed by the narrower `1.2 He and She` lesson.
 
 What it does well:
 
@@ -37,44 +37,58 @@ What to add next:
 
 ## A1 Course Spine
 
-### Unit 1: People, Actions, And Basic Sentences
+### Unit 1: People, Family, and Actions
 
 Goal: Understand simple subject + action sentences.
 
-Lesson 1: People and Pronouns
+Lessons:
 
-Sub-lessons:
-
-1. 1.1 People and Actions: `boy`, `girl`, `man`, `woman`; `running`, `walking`, `swimming`, `eating`
-2. 1.2 He, She, and They: `he`, `she`, `they`; `He is...`, `She is...`, `They are...`
-3. 1.3 More People: `mother`, `father`, `baby`, `child`, `friend`, `teacher`, `student`
-4. 1.4 Everyday Actions: `drinking`, `reading`, `writing`, `sleeping`, `sitting`, `standing`
-5. 1.5 Review: person + action recognition across old and new images
+1. 1.1 People and Core Actions: `boy`, `girl`, `man`, `woman`; `running`, `walking`, `sitting`, `standing`; `the`, `is`
+2. 1.2 He and She: `he`, `she`; `eating`, `drinking`, `reading`, `writing`; singular noun-to-pronoun substitution
+3. 1.3 Two People: They and Are: `and`, `they`, `are`; `swimming`, `sleeping`
+4. 1.4 Children and Siblings: `a family`, `baby/babies`, `child/children`, `brother/brothers`, `sister/sisters`
+5. 1.5 Parents and Grandparents: `an adult/adults`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`
+6. 1.6 Family Actions: `playing`, `studying`, `working`, `cooking`, `talking`
+7. 1.7 Is, Are, and Not: affirmative and negative `be` for one person and groups
+8. 1.8 Who Is He? Who Are They?: identity questions and short answers
+9. 1.9 Unit 1 Spiral Review: mixed retrieval with no new vocabulary
+10. 1.10 Family Scene Mission: identify people, describe actions, and answer a `Who` question from one scene
 
 Core patterns:
 
 - `The boy is running.`
-- `The woman is eating.`
-- `He is running.`
-- `They are eating.`
-- `The teacher is reading.`
+- `He is eating.`
+- `She is writing.`
+- `The boy and the girl are running.`
+- `They are running.`
+- `He is not cooking.`
+- `Who are they? They are the parents.`
 
-### Unit 2: Objects, Colors, And Numbers
+### Unit 2: Places, Objects, Numbers, And Colors
 
-Goal: Recognize and describe common objects.
+Goal: Identify familiar surroundings and describe visible objects with simple A1 language.
 
 Lessons:
 
-1. Common Objects: `book`, `pen`, `phone`, `bag`, `chair`, `table`
-2. Colors: `red`, `blue`, `green`, `yellow`, `black`, `white`
-3. Numbers 1-10
-4. Descriptions: color + object
+1. 2.1 Places Around Me: `park`, `school`, `store`, `house`, `restaurant`, `hospital`, `it`
+2. 2.2 Streets and Transportation: `street`, `bridge`, `bus`, `car`, `bike`
+3. 2.3 Common Objects: `book`, `pen`, `phone`, `bag`, `chair`, `table`
+4. 2.4 What Is It?: `what`; `What is it?`
+5. 2.5 This and That: `this`, `that`, taught through visual foreground/background evidence
+6. 2.6 Numbers 1-10: `one` through `ten`
+7. 2.7 Basic Colors: `red`, `blue`, `green`, `yellow`, `black`, `white`
+8. 2.8 Count and Describe: plural objects and number + color + noun order
+9. 2.9 Unit 2 Review: mixed retrieval with no new language
+10. 2.10 Around Me Mission: integrated retrieval from one coherent neighborhood scene
 
 Core patterns:
 
 - `It is a book.`
-- `The bag is red.`
-- `There are two pens.`
+- `What is it?`
+- `This is a bag.`
+- `That is a chair.`
+- `Two blue cars.`
+- `Four yellow pens.`
 
 ### Unit 3: Food, Drink, Likes, And Wants
 
@@ -216,29 +230,56 @@ Avoid:
 
 ## Current Unit 1 Build
 
-Unit 1 currently starts with:
+The approved Unit 1 rebuild now includes all ten roadmap lessons:
 
-- `1.1 People and Actions`
-- `1.2 He, She, and They`
-- `1.3 Family Members`
-- `1.4 Family Action Practice`
-- `1.5 Places Around Me`
+| Lesson | Scope | Build status |
+| --- | --- | --- |
+| `1.1` | People and Core Actions | Complete |
+| `1.2` | He and She | Complete |
+| `1.3` | Two People: They and Are | Complete |
+| `1.4` | Children and Siblings | Complete |
+| `1.5` | Parents and Grandparents | Complete |
+| `1.6` | Family Actions | Complete |
+| `1.7` | Is, Are, and Not | Complete |
+| `1.8` | Who Is He? Who Are They? | Complete |
+| `1.9` | Unit 1 Spiral Review | Complete |
+| `1.10` | Family Scene Mission | Complete |
+
+Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
+
+The previously built family lessons supply approved assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
 Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
 
-## Next Build Recommendation
+## Current Unit 2 Build
 
-Continue Unit 1 after `1.5 Places Around Me` with short lessons that follow the standard section mix:
+Unit 2 is `Places, Objects, Numbers, and Colors`. It builds directly on Unit 1's people, actions, singular `is`, and identity frames, but it does not introduce location prepositions or `where` yet.
 
-- new vocabulary
-- recognition practice
-- pronunciation practice
-- grammar practice
-- quick review
+| Lesson | Scope | New language | Speaking outcome | Build status |
+| --- | --- | --- | --- | --- |
+| `2.1` | Places Around Me | park, school, store, house, restaurant, hospital, it | Identify five places and retrieve one Unit 1 action sentence | Complete |
+| `2.2` | Streets and Transportation | street, bridge, bus, car, bike | Identify all five surroundings/transport items | Complete |
+| `2.3` | Common Objects | book, pen, phone, bag, chair, table | Identify six familiar objects | Complete |
+| `2.4` | What Is It? | what; `What is it?` | Produce six supported question-answer exchanges | Complete |
+| `2.5` | This and That | this, that | Contrast four foreground/background object statements using visual depth cues | Complete |
+| `2.6` | Numbers 1-10 | one through ten | Repeat six sampled number words; recycle the rest in later lessons | Complete |
+| `2.7` | Basic Colors | red, blue, green, yellow, black, white | Produce six short color statements | Complete |
+| `2.8` | Count and Describe | books, pens, phones, bags, cars | Produce ordered number + color + noun phrases | Complete |
+| `2.9` | Unit 2 Review | no new language | Retrieve six mixed Unit 2 outcomes | Complete |
+| `2.10` | Around Me Mission | no new language | Deliver six model-supported mission utterances from one coherent scene | Complete |
 
-Why this is the right next step:
+The dependency chain is intentional:
 
-- it keeps lessons predictable for the learner
-- it reinforces the present continuous pattern
-- it gives the app more content before introducing colors, numbers, and location phrases
-- it keeps the learner in concrete visual A1 language
+`Unit 1 people/actions -> place identity -> transport identity -> object identity -> What questions -> this/that -> numbers -> colors -> number + color + noun -> review -> mission`
+
+Every lesson uses `Learn -> Recognize -> Listen -> Speak -> Use`. Early cards use two choices before four; recognition connects images and language in both directions; listening includes hidden-text image choices and, after the pattern is secure, limited audio-to-text retrieval. The Use stage permits both sentence completion and supported question/phrase choice.
+
+Unit 2 recycling is encoded in `docs/product/unit-2-curriculum.json`. Each new-language lesson continues its words or function into active recognition, listening, speaking, or Use, then samples the dependency again in later lessons, the mixed review, and the final mission. The current lesson-pass criterion remains 80 percent. Longitudinal item mastery and adaptive spaced repetition remain engine work; curriculum recycling must not be described as a replacement for that future learner model.
+
+Unit 2 images use clear adult-oriented photography or realistic rendering. The hospital is identified by `H` and a medical symbol without spelling the answer; the restaurant relies on visual dining cues without a word label. Numbers use realistic brushed-metal numerals with exact gold-star quantities, not plain dots or cartoon numbers. The final mission uses crops from one coherent neighborhood master scene so learners keep context while each answer remains unambiguous.
+
+Every Unit 2 card includes its exact contextual Spanish translation for the established translation gesture. Wrong-answer hints point learners to the relevant evidence—place features, object shape, foreground/background, exact count, color, or English number-color-noun order—without introducing untaught location sentences.
+
+## Next Curriculum Decision
+
+Review all ten Unit 2 lessons in Expo Preview, with special attention to phone-size image clarity, exact counts, this/that depth cues, long phrase choices, audio pacing, pronunciation retries, and the final mission. Do not begin Unit 3 implementation until Unit 2 review findings are incorporated into the shared curriculum guardrails.

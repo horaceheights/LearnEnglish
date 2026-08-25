@@ -1,11 +1,19 @@
-import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { useEffect, useRef, useState } from 'react';
-import { useVideoPlayer, VideoView } from 'expo-video';
+import { Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 
-import { lessonActionVideo } from '../actionVideos';
-import { absoluteMediaUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
+import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { lessonHelpText } from '../lessonHelp';
+import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';
+import {
+  LESSON_MEDIA_FRAME_STYLE,
+  LESSON_MEDIA_VIEWPORT_STYLE,
+  LessonMediaFrame,
+} from './LessonMediaFrame';
+import { OptionMediaImage } from './OptionMediaImage';
 import { PronunciationPractice } from './PronunciationPractice';
 
 const TEXT_OPTION_THEMES = [
@@ -21,6 +29,8 @@ type Props = {
   card: LessonCard;
   level: string;
   lessonId: string;
+  isAppActive: boolean;
+  isOffline: boolean;
   optionsInteractive?: boolean;
   userId?: string;
   selectedId: string | null;
@@ -29,7 +39,8 @@ type Props = {
   showHelp: boolean;
   onSelect: (optionId: string) => void;
   onPronunciationAttempted?: () => void;
-  onPronunciationPassed: () => void;
+  onPronunciationPassed: (firstTry: boolean) => void;
+  onPronunciationUnavailable: () => void;
   onGrammarAnimationComplete: () => void;
 };
 
@@ -39,6 +50,8 @@ export function LessonCardView({
   card,
   level,
   lessonId,
+  isAppActive,
+  isOffline,
   optionsInteractive = true,
   userId,
   selectedId,
@@ -48,18 +61,28 @@ export function LessonCardView({
   onSelect,
   onPronunciationAttempted,
   onPronunciationPassed,
+  onPronunciationUnavailable,
   onGrammarAnimationComplete,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
-  const isPronunciation = card.stage === 'Pronunciation Practice';
-  const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar';
-  const isListenCard = card.stage === 'Listen';
+  const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
+  const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar' || card.stage === 'Use';
   const isLandscape = viewportWidth > viewportHeight;
   const isCompactLandscape = isLandscape && viewportHeight < 460;
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
   const isTabletLandscape = isLandscape && Math.min(viewportWidth, viewportHeight) >= 540;
   const hasTextOnlyOptions = card.options.length > 0 && card.options.every((option) => !option.image_url);
+  // Phrase choices need the full phone width. Stacking them as short horizontal
+  // rows keeps each sentence on one line and prevents Android from splitting words.
+  const useHorizontalPhraseOptions = !isLandscape && hasTextOnlyOptions;
+  // Image-to-text cards are a recurring lesson pattern. Keep the complete
+  // prompt image and a 2x2 phrase grid inside a phone's usable portrait area.
+  const useDensePortraitTextLayout =
+    !isLandscape &&
+    Boolean(card.prompt_image_url) &&
+    hasTextOnlyOptions &&
+    card.options.length >= 3;
   // Short phone landscape viewports cannot fit two full rows below the prompt image.
   // Keep four text answers in one row there; tablets retain the roomier two-column grid.
   const useTextGrid =
@@ -69,13 +92,27 @@ export function LessonCardView({
     card.options.length >= 3;
   const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
+  const useExpandedFourImagePortraitGrid = usePortraitImageGrid && card.options.length === 4;
   const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
   const useSingleImageLayout = !hasTextOnlyOptions && card.options.length === 1;
+  const useThreeByTwoOptionMedia = card.options.some((option) => Boolean(option.image_url));
+  // These two Lesson 1.7 comparisons intentionally teach the contrast with
+  // still choices. Other action-backed choices keep their normal video behavior.
+  const useStillOnlyLesson17Comparison = lessonId === 'lesson-7-is-are-not' && card.options.length === 2 && (
+    card.options.some((option) => option.id === 'grandparents-sitting') &&
+    card.options.some((option) => option.id === 'pair-running')
+  );
+  const useExpandedSingleActionVideo = useSingleImageLayout && Boolean(
+    lessonActionVideo(card.options[0]?.image_url),
+  );
+  const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedId) : '';
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
   const optionWidth =
-    usePortraitImageStack
+    useHorizontalPhraseOptions
+      ? '100%'
+      : usePortraitImageStack
       ? '100%'
       : useTextGrid || useTabletImageGrid
       ? '48.5%'
@@ -87,17 +124,23 @@ export function LessonCardView({
           ? '100%'
           : '48%';
   const optionMinHeight = hasTextOnlyOptions
-    ? isLandscape
+    ? useHorizontalPhraseOptions
+      ? Math.max(52, Math.min(62, viewportHeight * 0.07))
+      : isLandscape
       ? isTabletLandscape
         ? Math.max(96, Math.min(124, viewportHeight * 0.16))
         : isCompactLandscape
           ? Math.max(58, Math.min(72, viewportHeight * 0.16))
           : Math.max(72, Math.min(92, viewportHeight * 0.145))
-      : 104
+      : useDensePortraitTextLayout
+        ? Math.max(82, Math.min(94, viewportHeight * 0.1))
+        : 104
     : isLandscape
       ? Math.max(58, viewportHeight * 0.17)
       : 92;
-  const responsiveFeatureImageHeight = isTabletLandscape
+  const responsiveFeatureImageHeight = useDensePortraitTextLayout
+    ? Math.max(170, Math.min(245, viewportHeight * 0.27))
+    : isTabletLandscape
     ? isPronunciation
       ? Math.max(280, Math.min(390, viewportHeight * 0.49))
       : useTextGrid
@@ -125,8 +168,21 @@ export function LessonCardView({
         : Math.max(205, Math.min(340, viewportHeight * 0.57));
   const fallbackCardHeight = Math.max(150, viewportHeight * (isCompactLandscape ? 0.43 : 0.58));
   const availableCardHeight = measuredCardHeight || fallbackCardHeight;
+  // Keep the answer feedback inside the card on short portrait screens. Two
+  // full-width 3:2 choices otherwise size themselves from width and can push a
+  // two-line teaching hint beneath the Android navigation bar.
+  const needsPortraitImageFeedbackSpace =
+    !isLandscape && !hasTextOnlyOptions && optionsInteractive && card.options.length >= 2;
+  const feedbackReservedHeight = !isPronunciation && optionsInteractive
+    ? needsPortraitImageFeedbackSpace
+      ? 76
+      : 58
+    : 0;
+  const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
   const textOptionRows = hasTextOnlyOptions
-    ? isLandscape && !useTextGrid
+    ? useHorizontalPhraseOptions
+      ? card.options.length
+      : isLandscape && !useTextGrid
       ? 1
       : Math.ceil(card.options.length / 2)
     : 0;
@@ -143,17 +199,24 @@ export function LessonCardView({
     responsiveFeatureImageHeight,
     Math.max(isPronunciation ? 68 : 70, availableCardHeight - featureReservedHeight),
   );
+  const promptImageHeight = showHelp ? featureImageHeight * 0.65 : featureImageHeight;
   const optionRows = useTabletImageGrid || usePortraitImageGrid || usePortraitImageStack ? 2 : 1;
-  // A single image is a teaching slide rather than a choice grid. Let it use
-  // the full measured panel; resizeMode="contain" preserves its aspect ratio.
+  // A single image or teaching clip is the main lesson visual. Let it use the
+  // full measured panel instead of shrinking a 16:9 clip into a short strip.
   const optionImageHeight = useSingleImageLayout
-    ? Math.max(68, availableCardHeight - 42)
+    ? Math.max(68, availableOptionsHeight - 42)
     : Math.min(
       responsiveOptionImageHeight,
       usePortraitImageGrid || usePortraitImageStack
-        ? Math.max(68, ((availableCardHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
-        : Math.max(68, (availableCardHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
+        ? Math.max(68, ((availableOptionsHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
+        : Math.max(68, (availableOptionsHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
     );
+  // A two-card portrait stack may scale uniformly when height is limited.
+  // Never apply this width constraint to a four-card grid: it must stay 2x2.
+  const portraitImageContentWidth = Math.max(0, viewportWidth - 44);
+  const constrainedPortraitImageOptionWidth = usePortraitImageStack
+    ? Math.min(portraitImageContentWidth, (optionImageHeight * (3 / 2)) + 24)
+    : null;
 
   useEffect(() => {
     if (!isGrammar || result !== 'correct' || !selectedId) return undefined;
@@ -241,22 +304,24 @@ export function LessonCardView({
       {showHelp ? (
         <View style={styles.help}>
           <Text accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
-          <Text style={styles.helpText}>
-            {isPronunciation
-              ? 'Escucha la frase, repítela cuando aparezca la señal y revisa las palabras marcadas.'
-              : isListenCard
-                ? 'Escucha con atención y toca la imagen que corresponde.'
-                : 'Toca la imagen o palabra que corresponde a la frase.'}
+          <Text accessibilityLiveRegion="polite" style={styles.helpText}>
+            {lessonHelpText(card)}
           </Text>
         </View>
       ) : null}
       {card.prompt_image_url ? (
-        <Image
-          accessibilityLabel={card.answer_audio_text || card.prompt}
-          resizeMode="contain"
-          source={{ uri: absoluteMediaUrl(card.prompt_image_url) }}
-          style={[styles.promptImage, { height: showHelp ? featureImageHeight * 0.65 : featureImageHeight }]}
-        />
+        <LessonMediaFrame
+          frameStyle={[
+            styles.promptImageFrame,
+            useDensePortraitTextLayout ? styles.promptImageFrameDensePortrait : null,
+          ]}
+          maxHeight={promptImageHeight}
+        >
+          <OptionMediaImage
+            accessibilityLabel={card.answer_audio_text || card.prompt}
+            imageUrl={card.prompt_image_url}
+          />
+        </LessonMediaFrame>
       ) : null}
       {isPronunciation ? (
         <PronunciationPractice
@@ -269,10 +334,13 @@ export function LessonCardView({
               : featureImageHeight}
           imageLabel={card.options[0]?.label || card.prompt}
           imageUrl={card.options[0]?.image_url}
+          isAppActive={isAppActive}
+          isOffline={isOffline}
           videoName={null}
           level={level}
           onAttempted={onPronunciationAttempted}
           onPassed={onPronunciationPassed}
+          onUnavailable={onPronunciationUnavailable}
           phrase={card.audio_text || card.prompt}
           userId={userId}
         />
@@ -282,7 +350,10 @@ export function LessonCardView({
             styles.options,
             isLandscape ? styles.optionsLandscape : null,
             !isLandscape ? styles.optionsPortrait : null,
+            useDensePortraitTextLayout ? styles.optionsDensePortrait : null,
+            useHorizontalPhraseOptions ? styles.optionsHorizontalPhrases : null,
             isTabletLandscape ? styles.optionsTabletLandscape : null,
+            useExpandedSingleActionVideo ? styles.singleActionVideoOptions : null,
           ]}>
             {card.options.map((option, optionIndex) => {
               const selected = selectedId === option.id;
@@ -290,24 +361,28 @@ export function LessonCardView({
               const revealCorrect = selected && result === 'correct' && correct;
               const revealWrong = selected && result === 'wrong';
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
-              const actionVideoName = lessonActionVideo(option.image_url);
-              const showActionVideo = Boolean(actionVideoName) && (
+              const actionVideo = useStillOnlyLesson17Comparison
+                ? null
+                : lessonActionVideo(option.image_url, card.options.length);
+              const playActionVideo = Boolean(actionVideo) && (
                 card.options.length === 1 || revealCorrect
               );
+              const optionRenderKey = `${option.id}:${option.image_url ?? ''}:${option.label ?? ''}`;
+              const renderedOptionImageHeight = showHelp ? optionImageHeight * 0.65 : optionImageHeight;
               return (
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
                   accessibilityRole={optionsInteractive ? 'button' : 'image'}
                   accessibilityState={{ disabled: !optionsInteractive || result === 'correct', selected }}
                   disabled={!optionsInteractive || result === 'correct'}
-                  key={option.id}
+                  key={optionRenderKey}
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
                     styles.option,
                     {
                       minHeight: optionMinHeight,
                       padding: isTabletLandscape ? 8 : 5,
-                      width: optionWidth,
+                      width: constrainedPortraitImageOptionWidth ?? optionWidth,
                     },
                     hasTextOnlyOptions
                       ? {
@@ -315,8 +390,11 @@ export function LessonCardView({
                           borderColor: textTheme.border,
                         }
                       : null,
-                    !isLandscape && option.image_url ? styles.imageOptionPortrait : null,
+                    option.image_url ? styles.imageOptionFrame : null,
+                    useExpandedSingleActionVideo ? styles.singleActionVideoOption : null,
                     hasTextOnlyOptions ? styles.textOption : null,
+                    useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
+                    useHorizontalPhraseOptions ? styles.textOptionHorizontal : null,
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
                     pressed ? styles.pressed : null,
@@ -324,27 +402,35 @@ export function LessonCardView({
                   ]}
                 >
                   {option.image_url ? (
-                    showActionVideo ? (
+                    // Corrected local clips can claim a blank Android texture before
+                    // playback. Use the ordinary image renderer until motion starts.
+                    actionVideo && playActionVideo ? (
                       <LessonActionMedia
                         accessibilityLabel={option.label || card.prompt}
-                        height={showHelp ? optionImageHeight * 0.65 : optionImageHeight}
+                        height={renderedOptionImageHeight}
                         imageUrl={option.image_url}
-                        onPress={() => onSelect(option.id)}
-                        videoName={actionVideoName!}
+                        onPress={optionsInteractive ? () => onSelect(option.id) : undefined}
+                        shouldPlay={playActionVideo}
+                        useCompactFrame={useSingleImageLayout}
+                        useThreeByTwoFrame={useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid}
+                        video={actionVideo}
                       />
                     ) : (
-                      <Image
-                        accessible={false}
-                        accessibilityIgnoresInvertColors
-                        resizeMode="contain"
-                        source={{ uri: absoluteMediaUrl(option.image_url) }}
+                      <View
                         style={[
                           styles.optionImage,
-                          !isLandscape ? styles.optionImagePortrait : null,
-                          isTabletLandscape ? styles.optionImageTablet : null,
-                          { height: showHelp ? optionImageHeight * 0.65 : optionImageHeight },
+                          styles.optionImagePortrait,
+                          useExpandedFourImagePortraitGrid
+                            ? { height: renderedOptionImageHeight }
+                            : styles.optionImageThreeByTwoFrame,
+                          showHelp ? styles.optionImageThreeByTwoHelp : null,
                         ]}
-                      />
+                        >
+                          <OptionMediaImage
+                            imageUrl={option.image_url}
+                            sourceOverride={card.options.length === 2 ? actionVideo?.posterSource : undefined}
+                          />
+                      </View>
                     )
                   ) : null}
                   {option.label && !option.image_url ? (
@@ -354,6 +440,10 @@ export function LessonCardView({
                         style={[styles.optionSpark, { backgroundColor: textTheme.accent }]}
                       />
                       <Text
+                        adjustsFontSizeToFit={useDensePortraitTextLayout || useHorizontalPhraseOptions}
+                        maxFontSizeMultiplier={useHorizontalPhraseOptions ? 1.1 : useDensePortraitTextLayout ? 1.15 : undefined}
+                        minimumFontScale={useHorizontalPhraseOptions ? 0.55 : useDensePortraitTextLayout ? 0.78 : undefined}
+                        numberOfLines={useHorizontalPhraseOptions ? 1 : useDensePortraitTextLayout ? 3 : undefined}
                         style={[
                           styles.optionLabel,
                           styles.textOptionLabel,
@@ -365,9 +455,17 @@ export function LessonCardView({
                                 : textTheme.accent,
                             fontSize: isTabletLandscape
                               ? Math.max(34, Math.min(42, viewportHeight * 0.055))
+                              : useHorizontalPhraseOptions
+                                ? Math.max(21, Math.min(28, viewportWidth * 0.068))
+                              : useDensePortraitTextLayout
+                                ? Math.max(22, Math.min(26, viewportWidth * 0.064))
                               : Math.max(26, Math.min(34, viewportHeight * 0.052)),
                             lineHeight: isTabletLandscape
                               ? Math.max(40, Math.min(49, viewportHeight * 0.064))
+                              : useHorizontalPhraseOptions
+                                ? Math.max(26, Math.min(34, viewportWidth * 0.082))
+                              : useDensePortraitTextLayout
+                                ? Math.max(27, Math.min(31, viewportWidth * 0.076))
                               : Math.max(32, Math.min(40, viewportHeight * 0.062)),
                           },
                         ]}
@@ -377,6 +475,7 @@ export function LessonCardView({
                       <View
                         style={[
                           styles.optionUnderline,
+                          useDensePortraitTextLayout ? styles.optionUnderlineDensePortrait : null,
                           {
                             backgroundColor: revealCorrect
                               ? '#3c996c'
@@ -409,9 +508,17 @@ export function LessonCardView({
                 {result === 'correct'
                   ? 'Correcto. Vamos a la siguiente tarjeta…'
                   : gentleFeedback
-                    ? 'No pasa nada. Inténtalo otra vez. Esta tarjeta ya no contará como acierto al primer intento.'
-                    : 'No fue esa. Inténtalo otra vez. Esta tarjeta ya no contará como acierto al primer intento.'}
+                    ? '¡Tú puedes! Inténtalo de nuevo.'
+                    : '¡Ánimo! Inténtalo de nuevo.'}
               </Text>
+              {result === 'wrong' && mistakeHint ? (
+                <Text style={[
+                  styles.educationHint,
+                  isTabletLandscape ? styles.educationHintTablet : null,
+                ]}>
+                  {mistakeHint}
+                </Text>
+              ) : null}
             </View>
           ) : null}
         </>
@@ -425,30 +532,45 @@ function LessonActionMedia({
   height,
   imageUrl,
   onPress,
-  videoName,
+  shouldPlay,
+  useCompactFrame = false,
+  useThreeByTwoFrame = false,
+  video,
 }: {
   accessibilityLabel: string;
   height: number;
   imageUrl: string;
   onPress?: () => void;
-  videoName: string;
+  shouldPlay: boolean;
+  useCompactFrame?: boolean;
+  useThreeByTwoFrame?: boolean;
+  video: LessonActionVideoSource;
 }) {
   const reduceMotion = useReducedMotion();
   const [videoFailed, setVideoFailed] = useState(false);
-  const [firstFrameRendered, setFirstFrameRendered] = useState(false);
-  const player = useVideoPlayer({ uri: lessonVideoUrl(videoName), useCaching: true }, (instance) => {
+  const [videoReady, setVideoReady] = useState(false);
+  const videoSource = useMemo<VideoSource>(
+    () => video.source ?? { uri: lessonVideoUrl(video.name), useCaching: true },
+    [video.name, video.source],
+  );
+  const player = useVideoPlayer(videoSource, (instance) => {
     instance.loop = false;
     instance.muted = true;
-    if (!reduceMotion) instance.play();
+    instance.pause();
   });
 
   useEffect(() => {
-    if (reduceMotion) {
-      player.pause();
-    } else {
+    setVideoFailed(false);
+    setVideoReady(false);
+  }, [video.name, video.source]);
+
+  useEffect(() => {
+    player.pause();
+    player.currentTime = 0;
+    if (!reduceMotion && shouldPlay) {
       player.play();
     }
-  }, [player, reduceMotion]);
+  }, [player, reduceMotion, shouldPlay]);
 
   useEffect(() => {
     const subscription = player.addListener('statusChange', ({ status }) => {
@@ -457,38 +579,48 @@ function LessonActionMedia({
     return () => subscription.remove();
   }, [player]);
 
-  if (reduceMotion || videoFailed) {
+  // Android can report a paused video frame as ready while its texture is still
+  // blank. Keep the matching still visible until a correct choice actually
+  // starts playback; single-card teaching clips already enter with shouldPlay.
+  if (!shouldPlay || reduceMotion || videoFailed) {
     return (
-      <Image
+      <View
+        accessible
         accessibilityLabel={accessibilityLabel}
-        resizeMode="contain"
-        source={{ uri: absoluteMediaUrl(imageUrl) }}
-        style={[styles.optionImage, styles.optionImagePortrait, { height }]}
-      />
+        accessibilityRole="image"
+        style={[
+          styles.actionMedia,
+          useCompactFrame ? styles.singleActionMedia : null,
+          useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
+        ]}
+      >
+        <OptionMediaImage imageUrl={imageUrl} sourceOverride={video.posterSource} />
+      </View>
     );
   }
 
   return (
-    <View style={[styles.actionMedia, { height }]}>
-      <Image
-        accessible={false}
-        resizeMode="contain"
-        source={{ uri: absoluteMediaUrl(imageUrl) }}
-        style={styles.actionMediaLayer}
-      />
+    <View style={[
+      styles.actionMedia,
+      useCompactFrame ? styles.singleActionMedia : null,
+      useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
+    ]}>
       <VideoView
         accessible={false}
-        contentFit="contain"
+        contentFit="cover"
         nativeControls={false}
         onFirstFrameRender={() => {
-          setFirstFrameRendered(true);
           setVideoFailed(false);
+          setVideoReady(true);
         }}
         player={player}
         pointerEvents="none"
         surfaceType="textureView"
-        style={[styles.actionMediaLayer, !firstFrameRendered ? styles.hiddenVideo : null]}
+        style={styles.actionMediaLayer}
       />
+      {!videoReady ? (
+        <OptionMediaImage imageUrl={imageUrl} poster sourceOverride={video.posterSource} />
+      ) : null}
       {onPress ? (
         <Pressable
           accessibilityLabel={accessibilityLabel}
@@ -535,8 +667,8 @@ const styles = StyleSheet.create({
   flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
-  promptImage: { alignSelf: 'center', height: 180, marginTop: 14, width: '100%' },
-  promptActionMedia: { alignSelf: 'center', marginTop: 14, width: '100%' },
+  promptImageFrame: { marginTop: 14 },
+  promptImageFrameDensePortrait: { marginTop: 3 },
   options: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -546,7 +678,14 @@ const styles = StyleSheet.create({
   },
   optionsLandscape: { gap: 7, marginTop: 5 },
   optionsPortrait: { columnGap: 10, marginTop: 2, rowGap: 10 },
+  optionsDensePortrait: { columnGap: 8, marginTop: 5, rowGap: 8 },
+  optionsHorizontalPhrases: { alignContent: 'flex-start', marginTop: 5, rowGap: 7 },
   optionsTabletLandscape: { columnGap: 12, marginTop: 8, rowGap: 10 },
+  singleActionVideoOptions: {
+    alignContent: 'center',
+    flex: 1,
+    marginTop: 0,
+  },
   option: {
     alignItems: 'center',
     backgroundColor: '#faf9f5',
@@ -560,26 +699,26 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '48%',
   },
-  imageOptionPortrait: {
-    backgroundColor: '#fffef9',
-    borderColor: '#172d35',
-    borderRadius: 24,
-    borderWidth: 4,
-    elevation: 3,
-    padding: 8,
-    shadowColor: '#172d35',
-    shadowOffset: { height: 3, width: 0 },
-    shadowOpacity: 0.12,
-    shadowRadius: 5,
+  imageOptionFrame: {
+    ...LESSON_MEDIA_FRAME_STYLE,
   },
-  optionImage: { backgroundColor: '#f2ebde', borderRadius: 11, width: '100%' },
+  singleActionVideoOption: {
+    alignSelf: 'center',
+    width: '100%',
+  },
+  optionImage: { ...LESSON_MEDIA_VIEWPORT_STYLE, width: '100%' },
+  optionImageThreeByTwoFrame: { aspectRatio: 3 / 2, overflow: 'hidden' },
+  optionImageThreeByTwoHelp: { width: '65%' },
   optionImagePortrait: { borderRadius: 17 },
   optionImageTablet: { borderRadius: 14 },
   actionMedia: {
-    backgroundColor: '#f2ebde',
-    borderRadius: 17,
-    overflow: 'hidden',
+    ...LESSON_MEDIA_VIEWPORT_STYLE,
+    alignSelf: 'center',
     position: 'relative',
+    width: '100%',
+  },
+  actionMediaThreeByTwo: { aspectRatio: 3 / 2 },
+  singleActionMedia: {
     width: '100%',
   },
   actionMediaLayer: {
@@ -589,6 +728,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     top: 0,
+    transform: [{ scale: 1.025 }],
     width: '100%',
   },
   actionMediaPressTarget: {
@@ -600,7 +740,6 @@ const styles = StyleSheet.create({
     top: 0,
     zIndex: 2,
   },
-  hiddenVideo: { opacity: 0 },
   textOption: {
     borderBottomWidth: 5,
     elevation: 3,
@@ -612,6 +751,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.14,
     shadowRadius: 4,
   },
+  textOptionDensePortrait: {
+    borderBottomWidth: 4,
+    paddingHorizontal: 9,
+    paddingVertical: 7,
+  },
+  textOptionHorizontal: {
+    borderBottomWidth: 4,
+    paddingHorizontal: 38,
+    paddingVertical: 6,
+  },
   optionSpark: {
     borderRadius: 50,
     height: 72,
@@ -622,6 +771,7 @@ const styles = StyleSheet.create({
     width: 72,
   },
   optionUnderline: { borderRadius: 4, height: 5, marginTop: 7, opacity: 0.75, width: 42 },
+  optionUnderlineDensePortrait: { height: 4, marginTop: 5, width: 36 },
   optionLabel: {
     color: '#26372f',
     fontSize: 14,
@@ -633,7 +783,7 @@ const styles = StyleSheet.create({
   textOptionLabel: {
     fontSize: 30,
     fontWeight: '900',
-    letterSpacing: -0.5,
+    letterSpacing: 0,
     lineHeight: 36,
     marginTop: 0,
     textAlign: 'center',
@@ -661,6 +811,8 @@ const styles = StyleSheet.create({
   feedback: { gap: 6, marginTop: 5 },
   feedbackText: { fontSize: 13, fontWeight: '800', textAlign: 'center' },
   feedbackTextTablet: { fontSize: 16, lineHeight: 21 },
+  educationHint: { color: '#6f4b24', fontSize: 12, fontWeight: '700', lineHeight: 16, textAlign: 'center' },
+  educationHintTablet: { fontSize: 15, lineHeight: 20 },
   correctText: { color: '#287a57' },
   wrongText: { color: '#a34842' },
   pressed: { opacity: 0.72 },

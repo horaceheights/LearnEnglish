@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
   Animated,
+  Alert,
+  AppState,
   BackHandler,
+  Easing,
   Image,
   Modal,
   PanResponder,
@@ -20,6 +22,7 @@ import {
   createAudioPlayer,
   preload,
   setAudioModeAsync,
+  type AudioSource,
   useAudioPlayer,
   useAudioPlayerStatus,
 } from 'expo-audio';
@@ -35,9 +38,16 @@ import {
 } from '../api';
 import { LessonCardView } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
+import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
-import { courseAudioProvider, courseAudioUrl, courseAudioVoice } from '../config';
+import {
+  absoluteMediaUrl,
+  courseAudioProvider,
+  courseAudioVoice,
+  hasVisualAudioPlaceholder,
+} from '../config';
+import { completionPromptAudioSource, courseAudioSource } from '../courseAudioSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -45,7 +55,9 @@ import {
   setDiagnosticOperation,
 } from '../diagnostics';
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
-import { useProgressiveLoadingMessage } from '../hooks/useProgressiveLoadingMessage';
+import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
+import { useConnectivity } from '../hooks/useConnectivity';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
@@ -56,8 +68,11 @@ void Promise.all([preload(SUCCESS_CHIME), preload(TRY_AGAIN_CUE)]).catch((preloa
   captureDiagnosticError(preloadError, 'feedback_audio_preload', {}, 'warning');
 });
 const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v3';
+const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
-const DOUBLE_TAP_DELAY_MS = 290;
+const DOUBLE_TAP_DELAY_MS = 500;
+const COURSE_AUDIO_FALLBACK_MS = 12000;
+const OFFLINE_ADVANCE_DELAY_MS = 900;
 
 type SavedLessonRun = {
   attemptedCards: number[];
@@ -101,10 +116,22 @@ function parseSavedLessonRun(value: string | null, cardCount: number): SavedLess
   }
 }
 
+function lessonLocationLabel(lesson: Lesson): string {
+  const unitNumber = lesson.unit_id?.match(/\d+/)?.[0]
+    || lesson.unit_title?.match(/Unit\s+(\d+)/i)?.[1]
+    || '1';
+  const lessonNumber = lesson.sub_lesson_id
+    || lesson.title.match(/^(\d+(?:\.\d+)?)/)?.[1]
+    || lesson.id.match(/lesson-(\d+)/)?.[1]
+    || '1';
+  return `UNIT ${unitNumber} | LESSON ${lessonNumber}`;
+}
+
 type Props = {
   lessonId: string;
   profile: LearnerProfile;
   onExit: () => void;
+  onHome: () => void;
   initialCardIndex?: number;
   previouslyCompleted?: boolean;
   qaMode?: boolean;
@@ -124,14 +151,17 @@ function BackArrowIcon() {
 function LessonBrandMark({
   compact = false,
   centeredWidth,
+  onPress,
 }: {
   compact?: boolean;
   centeredWidth?: number;
+  onPress: () => void;
 }) {
   return (
-    <View
-      accessible={false}
-      importantForAccessibility="no-hide-descendants"
+    <Pressable
+      accessibilityLabel="Salir de la lección e ir a Inicio"
+      accessibilityRole="button"
+      onPress={onPress}
       style={[
         styles.logoPill,
         compact ? styles.logoPillCompact : null,
@@ -141,12 +171,13 @@ function LessonBrandMark({
       ]}
     >
       <Image
+        accessible={false}
         accessibilityIgnoresInvertColors
         resizeMode="cover"
         source={HEADER_BRAND_LOGO}
         style={styles.brandLogoImage}
       />
-    </View>
+    </Pressable>
   );
 }
 
@@ -154,6 +185,7 @@ export function LessonScreen({
   lessonId,
   profile,
   onExit,
+  onHome,
   initialCardIndex = 0,
   previouslyCompleted = false,
   qaMode = false,
@@ -176,6 +208,8 @@ export function LessonScreen({
     keepAudioSessionActive: true,
   });
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
+  const isOffline = useConnectivity();
+  const reduceMotion = useReducedMotion();
   const isPortrait = viewportHeight >= viewportWidth;
   const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
   const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
@@ -201,11 +235,17 @@ export function LessonScreen({
   const promptAutoplayWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
   const audioPlayerActiveRef = useRef(true);
-  const audioPreloadRef = useRef<Map<string, Promise<void>>>(new Map());
+  const audioPreloadRef = useRef<Map<AudioSource, Promise<void>>>(new Map());
+  const imagePreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
   const resumeHydratedRef = useRef(false);
   const cardTransitioningRef = useRef(false);
+  const appWasInterruptedRef = useRef(false);
+  const attemptedCardsRef = useRef<Set<number>>(new Set());
+  const completedCardsRef = useRef<Set<number>>(new Set());
+  const correctChoiceHandledRef = useRef(false);
   const cardTranslateX = useRef(new Animated.Value(0)).current;
+  const newVocabularyEmphasis = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
   const promptTapTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const translationHideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -224,6 +264,7 @@ export function LessonScreen({
   const [result, setResult] = useState<'correct' | 'wrong' | null>(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [isAppActive, setIsAppActive] = useState(AppState.currentState === 'active');
   const [isComplete, setIsComplete] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
@@ -239,13 +280,30 @@ export function LessonScreen({
     previouslyCompleted && !qaMode ? 'prompt' : 'standard',
   );
   const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
-  const loadingMessage = useProgressiveLoadingMessage(isLoading);
   const audioProvider = courseAudioProvider(lessonId);
   const audioVoice = courseAudioVoice(lessonId, lesson?.cards[cardIndex]?.stage || '');
   const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
   const isCompletedSectionPicker = completedLessonMode === 'prompt' || completedLessonMode === 'sections';
   const showCompletedJourney = previouslyCompleted && completedLessonMode !== 'standard';
+
+  const confirmLessonExit = useCallback((destination: 'home' | 'previous') => {
+    const returningHome = destination === 'home' || !qaMode;
+    Alert.alert(
+      '¿Salir de la lección?',
+      returningHome
+        ? '¿Quieres salir de la lección y volver a Inicio?'
+        : '¿Quieres salir de la lección y volver al panel de QA?',
+      [
+        { style: 'cancel', text: 'Seguir aprendiendo' },
+        {
+          style: 'destructive',
+          text: returningHome ? 'Salir a Inicio' : 'Salir de la lección',
+          onPress: destination === 'home' ? onHome : onExit,
+        },
+      ],
+    );
+  }, [onExit, onHome, qaMode]);
 
   useEffect(() => {
     // Lessons adapt to both orientations. DEFAULT follows the device sensor,
@@ -258,12 +316,19 @@ export function LessonScreen({
 
   useEffect(() => {
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
-      onExit();
+      confirmLessonExit('previous');
       return true;
     });
 
     return () => subscription.remove();
-  }, [onExit]);
+  }, [confirmLessonExit]);
+
+  useEffect(() => {
+    const subscription = AppState.addEventListener('change', (nextState) => {
+      setIsAppActive(nextState === 'active');
+    });
+    return () => subscription.remove();
+  }, []);
 
   useEffect(() => {
     if (qaMode) {
@@ -283,19 +348,23 @@ export function LessonScreen({
     return () => { active = false; };
   }, [qaMode, sentenceHelpStorageKey]);
 
-  const ensureAudioPreloaded = useCallback((url: string) => {
-    const existing = audioPreloadRef.current.get(url);
+  const ensureAudioPreloaded = useCallback((source: AudioSource) => {
+    if (isOffline && typeof source === 'string') {
+      addDiagnosticBreadcrumb('audio_preload_skipped_offline');
+      return Promise.resolve();
+    }
+    const existing = audioPreloadRef.current.get(source);
     if (existing) return existing;
 
     const startedAt = Date.now();
-    const pending = preload(url)
+    const pending = preload(source)
       .then(() => {
         addDiagnosticBreadcrumb('audio_preloaded', {
           duration_ms: Date.now() - startedAt,
         });
       })
       .catch((preloadError) => {
-        audioPreloadRef.current.delete(url);
+        audioPreloadRef.current.delete(source);
         captureDiagnosticError(
           preloadError,
           'course_audio_preload',
@@ -303,22 +372,31 @@ export function LessonScreen({
           'warning',
         );
       });
-    audioPreloadRef.current.set(url, pending);
+    audioPreloadRef.current.set(source, pending);
     return pending;
-  }, []);
+  }, [isOffline]);
 
   const preloadCardAudio = useCallback((card?: LessonCard) => {
     if (!card) return Promise.resolve();
     const text = card.audio_text ?? card.prompt ?? '';
     const requests: Promise<void>[] = [];
-    if (text.trim()) {
-      const pronunciation = card.stage === 'Pronunciation Practice';
+    const hasCompletionBlank = hasVisualAudioPlaceholder(card.prompt)
+      || hasVisualAudioPlaceholder(text);
+    if (hasCompletionBlank) {
+      const completionSource = completionPromptAudioSource(
+        card,
+        audioProvider,
+        courseAudioVoice(lessonId, card.stage),
+      );
+      if (completionSource) requests.push(ensureAudioPreloaded(completionSource));
+    } else if (text.trim()) {
+      const pronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
       const variant = pronunciation
         ? 'split-ing'
         : text.trim().toLowerCase() === 'what is it?'
           ? 'question'
           : 'prompt';
-      requests.push(ensureAudioPreloaded(courseAudioUrl(
+      requests.push(ensureAudioPreloaded(courseAudioSource(
         text,
         pronunciation ? 'pronunciation_slow' : 'prompt',
         variant,
@@ -327,7 +405,7 @@ export function LessonScreen({
       )));
     }
     if (card.answer_audio_text?.trim()) {
-      requests.push(ensureAudioPreloaded(courseAudioUrl(
+      requests.push(ensureAudioPreloaded(courseAudioSource(
         card.answer_audio_text,
         'prompt',
         'answer',
@@ -338,11 +416,53 @@ export function LessonScreen({
     return Promise.all(requests).then(() => undefined);
   }, [audioProvider, ensureAudioPreloaded, lessonId]);
 
-  const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
-    if (!text.trim()) return;
-    const url = courseAudioUrl(text, mode, variant, audioProvider, audioVoice);
+  const ensureImagePreloaded = useCallback((path: string) => {
+    if (!path || isOffline) return Promise.resolve();
+    const url = absoluteMediaUrl(path);
+    const existing = imagePreloadRef.current.get(url);
+    if (existing) return existing;
+
+    const startedAt = Date.now();
+    const pending = Image.prefetch(url)
+      .then((loaded) => {
+        if (!loaded) throw new Error('React Native did not cache the lesson image.');
+        addDiagnosticBreadcrumb('lesson_image_preloaded', {
+          duration_ms: Date.now() - startedAt,
+        });
+      })
+      .catch((preloadError) => {
+        imagePreloadRef.current.delete(url);
+        captureDiagnosticError(
+          preloadError,
+          'lesson_image_preload',
+          { duration_ms: Date.now() - startedAt, url },
+          'warning',
+        );
+      });
+    imagePreloadRef.current.set(url, pending);
+    return pending;
+  }, [isOffline]);
+
+  const preloadCardImages = useCallback((card?: LessonCard) => {
+    if (!card) return Promise.resolve();
+    const paths = new Set([
+      card.prompt_image_url,
+      ...card.options.map((option) => option.image_url),
+    ]);
+    return Promise.all([...paths].filter(Boolean).map(ensureImagePreloaded)).then(() => undefined);
+  }, [ensureImagePreloaded]);
+
+  const playAudioSource = useCallback((source: AudioSource, mode = 'prompt', variant = 'default') => {
+    if (!isAppActive || AppState.currentState !== 'active') {
+      addDiagnosticBreadcrumb('audio_playback_skipped_background', { mode, variant });
+      return;
+    }
+    if (isOffline && typeof source === 'string') {
+      addDiagnosticBreadcrumb('audio_playback_skipped_offline', { mode, variant });
+      return;
+    }
     const requestId = ++audioPlaybackRequestRef.current;
-    void ensureAudioPreloaded(url)
+    void ensureAudioPreloaded(source)
       .then(async () => {
         if (
           !audioPlayerActiveRef.current ||
@@ -357,7 +477,7 @@ export function LessonScreen({
           audioPlaybackRequestRef.current !== requestId
         ) return;
         addDiagnosticBreadcrumb('audio_started', { mode, variant });
-        const nextPlayer = createAudioPlayer(url, { keepAudioSessionActive: true });
+        const nextPlayer = createAudioPlayer(source, { keepAudioSessionActive: true });
         if (
           !audioPlayerActiveRef.current ||
           audioPlaybackRequestRef.current !== requestId
@@ -390,7 +510,16 @@ export function LessonScreen({
           'warning',
         );
       });
-  }, [audioProvider, audioVoice, ensureAudioPreloaded]);
+  }, [ensureAudioPreloaded, isAppActive, isOffline]);
+
+  const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
+    if (!text.trim() || hasVisualAudioPlaceholder(text)) return;
+    playAudioSource(
+      courseAudioSource(text, mode, variant, audioProvider, audioVoice),
+      mode,
+      variant,
+    );
+  }, [audioProvider, audioVoice, playAudioSource]);
 
   const playSuccessChime = useCallback(async () => {
     try {
@@ -476,7 +605,10 @@ export function LessonScreen({
       // Keep the loading state visible until the first phrase is ready. This
       // avoids showing a silent card while its audio buffers for the first time.
       await Promise.race([
-        preloadCardAudio(nextLesson.cards[nextCardIndex]),
+        Promise.all([
+          preloadCardAudio(nextLesson.cards[nextCardIndex]),
+          preloadCardImages(nextLesson.cards[nextCardIndex]),
+        ]),
         new Promise<void>((resolve) => setTimeout(resolve, 3500)),
       ]);
       setLesson(nextLesson);
@@ -485,9 +617,11 @@ export function LessonScreen({
         savedRun?.furthestCardIndex ?? (previouslyCompleted ? nextLesson.cards.length - 1 : nextCardIndex),
       );
       setScore(savedRun?.score ?? 0);
-      setAttemptedCards(new Set(savedRun?.attemptedCards ?? []));
+      attemptedCardsRef.current = new Set(savedRun?.attemptedCards ?? []);
+      completedCardsRef.current = new Set(savedRun?.completedCards ?? []);
+      setAttemptedCards(new Set(attemptedCardsRef.current));
       setWrongCards(new Set(savedRun?.wrongCards ?? []));
-      setCompletedCards(new Set(savedRun?.completedCards ?? []));
+      setCompletedCards(new Set(completedCardsRef.current));
       setSessionId(savedRun?.sessionId ?? '');
       resumeHydratedRef.current = true;
       if (profile.userId && !qaMode) {
@@ -547,9 +681,11 @@ export function LessonScreen({
   ]);
 
   const currentCard = lesson?.cards[cardIndex];
-  const isPronunciation = currentCard?.stage === 'Pronunciation Practice';
-  const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar';
+  const lessonLocation = lesson ? lessonLocationLabel(lesson) : '';
+  const isPronunciation = currentCard?.stage === 'Pronunciation Practice' || currentCard?.stage === 'Speak';
+  const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isListen = currentCard?.stage === 'Listen';
+  const isStageOnlyHeader = !isPronunciation && !currentCard?.prompt?.trim();
   // Pronunciation results remain visible for three seconds inside the practice
   // component, then advance automatically without a swipe-review step.
   const pauseForPronunciationReview = false;
@@ -557,24 +693,71 @@ export function LessonScreen({
   const automaticAdvanceDelay = manualCardNavigation ? 2000 : 0;
   const isAutomaticSingleCard =
     !isCompletedSectionPicker && manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
-  const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
-  const sentenceTranslation = spanishTranslationFor(
+  const authoredPromptHasVisualBlank = hasVisualAudioPlaceholder(currentCard?.prompt ?? '');
+  const promptAudio = authoredPromptHasVisualBlank && !currentCard?.audio_text?.trim()
+    ? currentCard?.prompt ?? ''
+    : currentCard?.audio_text ?? currentCard?.prompt ?? '';
+  const correctContrastPrompt =
+    result === 'correct'
+    && currentCard?.stage === 'Recognize'
+    && currentCard?.answer_audio_text?.includes(',')
+    && /\b(?:is|are) not\b/i.test(promptAudio)
+      ? currentCard.answer_audio_text.trim()
+      : '';
+  const visiblePromptAudio = correctContrastPrompt || promptAudio;
+  const promptHasVisualBlank = authoredPromptHasVisualBlank
+    || hasVisualAudioPlaceholder(promptAudio);
+  const completionPromptSource = promptHasVisualBlank && currentCard
+    ? completionPromptAudioSource(currentCard, audioProvider, audioVoice)
+    : null;
+  const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
     isGrammar ? currentCard?.prompt ?? '' : promptAudio,
   );
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
+  const newVocabularyWords = useMemo(() => {
+    if (!lesson || currentCard?.stage !== 'Learn') return new Set<string>();
+    return new Set(
+      lesson.vocabulary.flatMap((entry) => entry.toLowerCase().match(/[a-z']+/g) || []),
+    );
+  }, [currentCard?.stage, lesson]);
+  const hasNewVocabularyInPrompt = useMemo(() => (
+    (currentCard?.prompt.toLowerCase().match(/[a-z']+/g) || [])
+      .some((word) => newVocabularyWords.has(word))
+  ), [currentCard?.prompt, newVocabularyWords]);
+
+  useEffect(() => {
+    newVocabularyEmphasis.stopAnimation();
+    newVocabularyEmphasis.setValue(0);
+    if (!hasNewVocabularyInPrompt || reduceMotion) return undefined;
+
+    const animation = Animated.timing(newVocabularyEmphasis, {
+      duration: 900,
+      easing: Easing.inOut(Easing.cubic),
+      toValue: 1,
+      useNativeDriver: true,
+    });
+    animation.start();
+    return () => animation.stop();
+  }, [cardIndex, cardRunId, hasNewVocabularyInPrompt, newVocabularyEmphasis, reduceMotion]);
 
   const replayPrompt = useCallback(() => {
-    if (!promptAudio.trim()) return;
+    if (!visiblePromptAudio.trim()) return;
+    if (promptHasVisualBlank) {
+      if (completionPromptSource) {
+        playAudioSource(completionPromptSource, 'prompt', 'completion-prompt');
+      }
+      return;
+    }
     if (isPronunciation) {
-      playAudio(promptAudio, 'pronunciation_slow', 'split-ing');
+      playAudio(visiblePromptAudio, 'pronunciation_slow', 'split-ing');
       return;
     }
     playAudio(
-      promptAudio,
+      visiblePromptAudio,
       'prompt',
-      promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
+      visiblePromptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
     );
-  }, [isPronunciation, playAudio, promptAudio]);
+  }, [completionPromptSource, isPronunciation, playAudio, playAudioSource, promptHasVisualBlank, visiblePromptAudio]);
 
   const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
     const target = promptTapTargetRef.current;
@@ -661,6 +844,7 @@ export function LessonScreen({
       !currentCard ||
       currentCard.options.length < 2 ||
       isPronunciation ||
+      promptHasVisualBlank ||
       showHelp ||
       !promptAudio.trim() ||
       !promptAutoplayFinished ||
@@ -681,6 +865,7 @@ export function LessonScreen({
     attemptedCards,
     isPronunciation,
     promptAudio,
+    promptHasVisualBlank,
     promptAutoplayFinished,
     sentenceHelpActivity,
     sentenceHelpStatus,
@@ -696,9 +881,16 @@ export function LessonScreen({
     lastPromptTapRef.current = 0;
     translationOpacity.stopAnimation();
     translationOpacity.setValue(0);
+    setShowHelp(false);
     setShowSentenceCoachmark(false);
     setShowSentenceTranslation(false);
   }, [cardIndex, translationOpacity]);
+
+  useEffect(() => {
+    if (!showHelp) return undefined;
+    const timer = setTimeout(() => setShowHelp(false), HELP_DISPLAY_MS);
+    return () => clearTimeout(timer);
+  }, [showHelp]);
 
   useEffect(() => {
     setFurthestCardIndex((current) => Math.max(current, cardIndex));
@@ -709,8 +901,9 @@ export function LessonScreen({
     // Prepare the active card (important for QA jumps) plus the next two cards.
     for (let index = cardIndex; index <= Math.min(cardIndex + 2, lesson.cards.length - 1); index += 1) {
       void preloadCardAudio(lesson.cards[index]);
+      void preloadCardImages(lesson.cards[index]);
     }
-  }, [cardIndex, lesson, preloadCardAudio]);
+  }, [cardIndex, lesson, preloadCardAudio, preloadCardImages]);
 
   useEffect(() => {
     audioPlaybackRequestRef.current += 1;
@@ -741,22 +934,32 @@ export function LessonScreen({
   }, [cardIndex, currentCard?.prompt, currentCard?.stage, lesson?.cards.length, lessonId, qaMode]);
 
   useEffect(() => {
-    if (isCompletedSectionPicker || !currentCard || isPronunciation || result !== null) return undefined;
+    if (!isAppActive || isCompletedSectionPicker || !currentCard || isPronunciation || result !== null) return undefined;
+    if (promptHasVisualBlank && !completionPromptSource) {
+      promptAutoplayAwaitingRef.current = false;
+      promptAutoplayWasPlayingRef.current = false;
+      setPromptAutoplayFinished(true);
+      return undefined;
+    }
     promptAutoplayAwaitingRef.current = true;
     promptAutoplayWasPlayingRef.current = false;
     promptAutoplayFallbackTimerRef.current = setTimeout(() => {
       promptAutoplayFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
       setPromptAutoplayFinished(true);
-    }, 10000);
+    }, COURSE_AUDIO_FALLBACK_MS);
     const timer = setTimeout(() => {
       singleCardAudioAwaitingRef.current = isAutomaticSingleCard;
       singleCardAudioWasPlayingRef.current = false;
-      playAudio(
-        promptAudio,
-        'prompt',
-        promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
-      );
+      if (completionPromptSource) {
+        playAudioSource(completionPromptSource, 'prompt', 'completion-prompt');
+      } else {
+        playAudio(
+          promptAudio,
+          'prompt',
+          promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
+        );
+      }
     }, 120);
     return () => {
       clearTimeout(timer);
@@ -764,7 +967,7 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
     };
-  }, [cardIndex, currentCard, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, promptAudio, result]);
+  }, [cardIndex, completionPromptSource, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, playAudioSource, promptAudio, promptHasVisualBlank, result]);
 
   useEffect(() => {
     if (!promptAutoplayAwaitingRef.current) return;
@@ -785,6 +988,13 @@ export function LessonScreen({
 
   const advance = useCallback(() => {
     if (!lesson) return;
+    if (AppState.currentState !== 'active') {
+      appWasInterruptedRef.current = true;
+      addDiagnosticBreadcrumb('card_advance_blocked_background', {
+        card_number: cardIndex + 1,
+      });
+      return;
+    }
     addDiagnosticBreadcrumb('card_advanced', {
       from_card: cardIndex + 1,
       to_card: Math.min(cardIndex + 2, lesson.cards.length),
@@ -803,6 +1013,7 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
     grammarCompletionHandledRef.current = false;
+    correctChoiceHandledRef.current = false;
     if (grammarAudioTimerRef.current) {
       clearTimeout(grammarAudioTimerRef.current);
       grammarAudioTimerRef.current = null;
@@ -842,7 +1053,11 @@ export function LessonScreen({
     setResult(null);
   }, [cardIndex, completedLessonMode, lesson, reviewStageBounds]);
 
-  const completeAutomaticSingleCard = useCallback(() => {
+  const completeAutomaticSingleCard = useCallback((awardScore = true) => {
+    if (AppState.currentState !== 'active') {
+      appWasInterruptedRef.current = true;
+      return;
+    }
     if (!isAutomaticSingleCard || singleCardAdvanceTimerRef.current) return;
     singleCardAudioAwaitingRef.current = false;
     singleCardAudioWasPlayingRef.current = false;
@@ -850,18 +1065,129 @@ export function LessonScreen({
       clearTimeout(singleCardFallbackTimerRef.current);
       singleCardFallbackTimerRef.current = null;
     }
-    if (!completedCards.has(cardIndex)) {
-      setCompletedCards((current) => new Set(current).add(cardIndex));
-      setScore((current) => current + 1);
+    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, awardScore);
+    if (completion.newlyCompleted) {
+      completedCardsRef.current = completion.completedCards;
+      setCompletedCards(completion.completedCards);
+      if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
     }
     singleCardAdvanceTimerRef.current = setTimeout(() => {
       singleCardAdvanceTimerRef.current = null;
       advance();
     }, 3000);
-  }, [advance, cardIndex, completedCards, isAutomaticSingleCard]);
+  }, [advance, cardIndex, isAutomaticSingleCard]);
 
   useEffect(() => {
-    if (!isAutomaticSingleCard || !singleCardAudioAwaitingRef.current) return;
+    if (!isAppActive) {
+      appWasInterruptedRef.current = true;
+      addDiagnosticBreadcrumb('lesson_backgrounded', {
+        card_number: cardIndex + 1,
+      });
+      audioPlaybackRequestRef.current += 1;
+      try {
+        audioPlayerRef.current.pause();
+      } catch {
+        // The player may already be unavailable while Android backgrounds it.
+      }
+      try {
+        successChimePlayer.pause();
+        tryAgainCuePlayer.pause();
+      } catch {
+        // A short feedback cue may already have completed.
+      }
+      if (answerAudioTimerRef.current) clearTimeout(answerAudioTimerRef.current);
+      if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
+      if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+      if (singleCardAdvanceTimerRef.current) clearTimeout(singleCardAdvanceTimerRef.current);
+      if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
+      if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
+      answerAudioTimerRef.current = null;
+      answerAdvanceTimerRef.current = null;
+      grammarAudioTimerRef.current = null;
+      singleCardAdvanceTimerRef.current = null;
+      singleCardFallbackTimerRef.current = null;
+      promptAutoplayFallbackTimerRef.current = null;
+      promptAutoplayAwaitingRef.current = false;
+      promptAutoplayWasPlayingRef.current = false;
+      setShowSentenceCoachmark(false);
+      return;
+    }
+
+    if (!appWasInterruptedRef.current) return;
+    appWasInterruptedRef.current = false;
+    addDiagnosticBreadcrumb('lesson_foregrounded', {
+      card_number: cardIndex + 1,
+    });
+    if (isPronunciation) return;
+    setCardRunId((current) => current + 1);
+
+    if (qaMode && !qaAutoAdvance) return;
+    if (answerAudioAwaitingRef.current && result === 'correct' && currentCard?.answer_audio_text) {
+      answerAudioStartedRef.current = false;
+      answerAudioWasPlayingRef.current = false;
+      answerAdvanceTimerRef.current = setTimeout(() => {
+        answerAdvanceTimerRef.current = null;
+        if (!answerAudioAwaitingRef.current) return;
+        answerAudioAwaitingRef.current = false;
+        answerAudioStartedRef.current = false;
+        answerAudioWasPlayingRef.current = false;
+        advance();
+      }, COURSE_AUDIO_FALLBACK_MS);
+      playAnswerAfterChime(currentCard.answer_audio_text);
+      return;
+    }
+
+    if (result === 'correct' && currentCard?.answer_audio_text && !isGrammar) {
+      answerAdvanceTimerRef.current = setTimeout(() => {
+        answerAdvanceTimerRef.current = null;
+        advance();
+      }, OFFLINE_ADVANCE_DELAY_MS);
+      return;
+    }
+
+    if (grammarAnswerAwaitingRef.current && result === 'correct' && currentCard) {
+      grammarAnswerWasPlayingRef.current = false;
+      grammarAudioTimerRef.current = setTimeout(() => {
+        grammarAudioTimerRef.current = null;
+        if (!grammarAnswerAwaitingRef.current) return;
+        grammarAnswerAwaitingRef.current = false;
+        grammarAnswerWasPlayingRef.current = false;
+        advance();
+      }, COURSE_AUDIO_FALLBACK_MS);
+      const selectedOption = currentCard.options.find((option) => option.id === selectedId);
+      const completedSentence = selectedOption?.label
+        ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
+        : currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
+      playAudio(currentCard.answer_audio_text || completedSentence, 'prompt', 'answer');
+      return;
+    }
+
+    if (result === 'correct' && isGrammar && grammarCompleted) {
+      grammarAudioTimerRef.current = setTimeout(() => {
+        grammarAudioTimerRef.current = null;
+        advance();
+      }, OFFLINE_ADVANCE_DELAY_MS);
+    }
+  }, [
+    advance,
+    cardIndex,
+    currentCard,
+    grammarCompleted,
+    isGrammar,
+    isAppActive,
+    isPronunciation,
+    playAnswerAfterChime,
+    playAudio,
+    qaAutoAdvance,
+    qaMode,
+    result,
+    selectedId,
+    successChimePlayer,
+    tryAgainCuePlayer,
+  ]);
+
+  useEffect(() => {
+    if (!isAppActive || !isAutomaticSingleCard || !singleCardAudioAwaitingRef.current) return;
     if (audioPlayerStatus.playing) singleCardAudioWasPlayingRef.current = true;
     if (audioPlayerStatus.error || (audioPlayerStatus.didJustFinish && singleCardAudioWasPlayingRef.current)) {
       completeAutomaticSingleCard();
@@ -871,20 +1197,90 @@ export function LessonScreen({
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
     completeAutomaticSingleCard,
+    isAppActive,
     isAutomaticSingleCard,
   ]);
 
   useEffect(() => {
-    if (!isAutomaticSingleCard) return undefined;
-    singleCardFallbackTimerRef.current = setTimeout(completeAutomaticSingleCard, 8000);
+    if (!isAppActive || !isAutomaticSingleCard) return undefined;
+    singleCardFallbackTimerRef.current = setTimeout(completeAutomaticSingleCard, COURSE_AUDIO_FALLBACK_MS);
     return () => {
       if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
       singleCardFallbackTimerRef.current = null;
     };
-  }, [cardIndex, completeAutomaticSingleCard, isAutomaticSingleCard]);
+  }, [cardIndex, completeAutomaticSingleCard, isAppActive, isAutomaticSingleCard]);
+
+  useEffect(() => {
+    if (!isAppActive || !isOffline || isCompletedSectionPicker || isPronunciation) return;
+
+    audioPlaybackRequestRef.current += 1;
+    try {
+      audioPlayerRef.current.pause();
+    } catch {
+      // The player may still be waiting for an unavailable remote source.
+    }
+    promptAutoplayAwaitingRef.current = false;
+    promptAutoplayWasPlayingRef.current = false;
+    if (promptAutoplayFallbackTimerRef.current) {
+      clearTimeout(promptAutoplayFallbackTimerRef.current);
+      promptAutoplayFallbackTimerRef.current = null;
+    }
+    setPromptAutoplayFinished(true);
+
+    if (isAutomaticSingleCard) {
+      addDiagnosticBreadcrumb('single_card_completed_without_audio', {
+        card_number: cardIndex + 1,
+      });
+      completeAutomaticSingleCard(false);
+      return;
+    }
+
+    if (answerAudioAwaitingRef.current && result === 'correct') {
+      answerAudioAwaitingRef.current = false;
+      answerAudioStartedRef.current = false;
+      answerAudioWasPlayingRef.current = false;
+      if (answerAudioTimerRef.current) {
+        clearTimeout(answerAudioTimerRef.current);
+        answerAudioTimerRef.current = null;
+      }
+      if (answerAdvanceTimerRef.current) clearTimeout(answerAdvanceTimerRef.current);
+      if (!(qaMode && !qaAutoAdvance)) {
+        answerAdvanceTimerRef.current = setTimeout(() => {
+          answerAdvanceTimerRef.current = null;
+          advance();
+        }, OFFLINE_ADVANCE_DELAY_MS);
+      }
+    }
+
+    if (grammarAnswerAwaitingRef.current && result === 'correct') {
+      grammarAnswerAwaitingRef.current = false;
+      grammarAnswerWasPlayingRef.current = false;
+      if (grammarAudioTimerRef.current) clearTimeout(grammarAudioTimerRef.current);
+      if (!(qaMode && !qaAutoAdvance)) {
+        grammarAudioTimerRef.current = setTimeout(() => {
+          grammarAudioTimerRef.current = null;
+          advance();
+        }, OFFLINE_ADVANCE_DELAY_MS);
+      }
+    }
+  }, [
+    advance,
+    cardIndex,
+    completeAutomaticSingleCard,
+    grammarCompleted,
+    isAutomaticSingleCard,
+    isCompletedSectionPicker,
+    isAppActive,
+    isOffline,
+    isPronunciation,
+    qaAutoAdvance,
+    qaMode,
+    result,
+  ]);
 
   useEffect(() => {
     if (
+      !isAppActive ||
       result !== 'correct' ||
       !currentCard ||
       isGrammar ||
@@ -900,6 +1296,7 @@ export function LessonScreen({
     automaticAdvanceDelay,
     currentCard,
     isGrammar,
+    isAppActive,
     isPronunciation,
     pauseForPronunciationReview,
     qaAutoAdvance,
@@ -909,6 +1306,7 @@ export function LessonScreen({
 
   useEffect(() => {
     if (
+      !isAppActive ||
       !answerAudioAwaitingRef.current ||
       !answerAudioStartedRef.current ||
       isGrammar ||
@@ -950,6 +1348,7 @@ export function LessonScreen({
     audioPlayerStatus.didJustFinish,
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
+    isAppActive,
     isGrammar,
     pauseForPronunciationReview,
     qaAutoAdvance,
@@ -958,7 +1357,7 @@ export function LessonScreen({
   ]);
 
   useEffect(() => {
-    if (!grammarAnswerAwaitingRef.current || !isGrammar || result !== 'correct') return;
+    if (!isAppActive || !grammarAnswerAwaitingRef.current || !isGrammar || result !== 'correct') return;
     if (audioPlayerStatus.error) {
       grammarAnswerAwaitingRef.current = false;
       grammarAnswerWasPlayingRef.current = false;
@@ -993,6 +1392,7 @@ export function LessonScreen({
     audioPlayerStatus.didJustFinish,
     audioPlayerStatus.error,
     audioPlayerStatus.playing,
+    isAppActive,
     isGrammar,
     pauseForPronunciationReview,
     qaAutoAdvance,
@@ -1034,25 +1434,37 @@ export function LessonScreen({
   };
 
   const choose = (optionId: string) => {
-    if (!currentCard || result === 'correct') return;
+    if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
     setShowSentenceCoachmark(false);
     const correct = optionId === currentCard.correct_option_id;
-    const firstTry = !wrongCards.has(cardIndex) && !completedCards.has(cardIndex);
+    const attempt = prepareCardChoice(
+      attemptedCardsRef.current,
+      completedCardsRef.current,
+      cardIndex,
+    );
+    const { firstTry, reviewingCompletedCard } = attempt;
     addDiagnosticBreadcrumb('answer_selected', {
       card_number: cardIndex + 1,
       first_try: firstTry,
       is_correct: correct,
       option_id: optionId,
+      reviewing_completed_card: reviewingCompletedCard,
     });
     setSelectedId(optionId);
-    setAttemptedCards((current) => new Set(current).add(cardIndex));
-    recordAttempt(optionId, correct, firstTry);
+    if (attempt.shouldRecordAttempt) {
+      attemptedCardsRef.current = attempt.attemptedCards;
+      setAttemptedCards(attempt.attemptedCards);
+      recordAttempt(optionId, correct, firstTry);
+    }
 
     if (correct) {
+      correctChoiceHandledRef.current = true;
       setResult('correct');
-      if (!completedCards.has(cardIndex)) {
-        setCompletedCards((current) => new Set(current).add(cardIndex));
-        if (firstTry) setScore((current) => current + 1);
+      const completion = registerCardCompletion(completedCardsRef.current, cardIndex, firstTry);
+      if (completion.newlyCompleted) {
+        completedCardsRef.current = completion.completedCards;
+        setCompletedCards(completion.completedCards);
+        if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
       }
       void playSuccessChime();
       if (isGrammar) {
@@ -1072,34 +1484,58 @@ export function LessonScreen({
             answerAudioWasPlayingRef.current = false;
             if (qaMode && !qaAutoAdvance) return;
             advance();
-          }, 60000);
+          }, COURSE_AUDIO_FALLBACK_MS);
         }
         playAnswerAfterChime(currentCard.answer_audio_text);
       }
       return;
     }
 
-    setWrongCards((current) => new Set(current).add(cardIndex));
+    if (!reviewingCompletedCard) {
+      setWrongCards((current) => new Set(current).add(cardIndex));
+    }
     setResult('wrong');
     void playTryAgainCue();
   };
 
-  const pronunciationPassed = useCallback(() => {
+  const pronunciationPassed = useCallback((firstTry: boolean) => {
     if (pronunciationPassHandledRef.current) return;
     pronunciationPassHandledRef.current = true;
-    if (!completedCards.has(cardIndex)) {
-      setCompletedCards((current) => new Set(current).add(cardIndex));
-      setScore((current) => current + 1);
+    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, firstTry);
+    if (completion.newlyCompleted) {
+      completedCardsRef.current = completion.completedCards;
+      setCompletedCards(completion.completedCards);
+      if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
     }
     setResult('correct');
-  }, [cardIndex, completedCards]);
+  }, [cardIndex]);
 
   const pronunciationAttempted = useCallback(() => {
-    setAttemptedCards((current) => new Set(current).add(cardIndex));
+    const attempt = registerCardAttempt(attemptedCardsRef.current, cardIndex);
+    attemptedCardsRef.current = attempt.attemptedCards;
+    setAttemptedCards(attempt.attemptedCards);
+  }, [cardIndex]);
+
+  const pronunciationUnavailable = useCallback(() => {
+    if (pronunciationPassHandledRef.current) return;
+    pronunciationPassHandledRef.current = true;
+    addDiagnosticBreadcrumb('pronunciation_skipped_unavailable', {
+      card_number: cardIndex + 1,
+    });
+    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, false);
+    completedCardsRef.current = completion.completedCards;
+    setCompletedCards(completion.completedCards);
+    setResult('correct');
   }, [cardIndex]);
 
   const grammarAnimationComplete = useCallback(() => {
-    if (!currentCard || !isGrammar || grammarCompletionHandledRef.current) return;
+    if (
+      !isAppActive
+      || AppState.currentState !== 'active'
+      || !currentCard
+      || !isGrammar
+      || grammarCompletionHandledRef.current
+    ) return;
     grammarCompletionHandledRef.current = true;
     const selectedOption = currentCard.options.find((option) => option.id === selectedId);
     const completedSentence = selectedOption?.label
@@ -1117,14 +1553,14 @@ export function LessonScreen({
         grammarAnswerWasPlayingRef.current = false;
         if (qaMode && !qaAutoAdvance) return;
         advance();
-      }, 60000);
+      }, COURSE_AUDIO_FALLBACK_MS);
     }
     playAudio(
       currentCard.answer_audio_text || completedSentence,
       'prompt',
       'answer',
     );
-  }, [advance, currentCard, isGrammar, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId]);
+  }, [advance, currentCard, isAppActive, isGrammar, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId]);
 
   const clearCardInteractionState = useCallback(() => {
     answerAudioAwaitingRef.current = false;
@@ -1141,6 +1577,7 @@ export function LessonScreen({
     grammarAnswerAwaitingRef.current = false;
     grammarAnswerWasPlayingRef.current = false;
     grammarCompletionHandledRef.current = false;
+    correctChoiceHandledRef.current = false;
     if (grammarAudioTimerRef.current) {
       clearTimeout(grammarAudioTimerRef.current);
       grammarAudioTimerRef.current = null;
@@ -1165,6 +1602,8 @@ export function LessonScreen({
 
   const resetCardState = useCallback(() => {
     clearCardInteractionState();
+    attemptedCardsRef.current = new Set();
+    completedCardsRef.current = new Set();
     setScore(0);
     setAttemptedCards(new Set());
     setWrongCards(new Set());
@@ -1336,36 +1775,111 @@ export function LessonScreen({
     onPanResponderTerminationRequest: () => true,
   }), [canSwipeForward, cardIndex, cardTranslateX, manualCardNavigation, navigateManualCard, settleCard]);
 
+  const basePromptFontSize = isPronunciation
+    ? isPortrait
+      ? Math.max(21, Math.min(26, viewportWidth * 0.045))
+      : Math.max(18, Math.min(24, viewportHeight * 0.06))
+    : useCompactPhoneLayout
+      ? Math.max(22, Math.min(29, viewportHeight * 0.072))
+      : Math.max(26, Math.min(36, viewportHeight * 0.052));
+  const basePromptLineHeight = isPronunciation
+    ? isPortrait
+      ? Math.max(25, Math.min(31, viewportWidth * 0.054))
+      : Math.max(22, Math.min(29, viewportHeight * 0.072))
+    : useCompactPhoneLayout
+      ? Math.max(27, Math.min(35, viewportHeight * 0.085))
+      : Math.max(31, Math.min(43, viewportHeight * 0.062));
+  const promptFontSize = basePromptFontSize * (correctContrastPrompt ? 0.76 : 1);
+  const promptLineHeight = basePromptLineHeight * (correctContrastPrompt ? 0.82 : 1);
+
   const renderPrompt = () => {
     if (!currentCard) return '';
     const normalizedStage = currentCard.stage.trim().toLowerCase();
     const selectedOption = currentCard.options.find((option) => option.id === selectedId);
-    const displayedPrompt =
+    const displayedPrompt = correctContrastPrompt || (
       isGrammar && grammarCompleted && selectedOption?.label
         ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
-        : currentCard.prompt;
+        : currentCard.prompt
+    );
     const selectedFocusWords = selectedOption?.label?.toLowerCase().match(/[a-z']+/g) || [];
-    const focus = currentCard.stage === 'Grammar'
+    const focus = currentCard.stage === 'Grammar' || currentCard.stage === 'Use'
       ? new Set(['is', 'are', ...selectedFocusWords])
       : currentCard.stage === 'New Grammar'
         ? new Set(['not', ...selectedFocusWords])
       : currentCard.stage === 'More People' || normalizedStage.includes('plural')
         ? new Set(['and', 'are'])
         : new Set<string>();
-    return lessonPromptText(lesson.id, displayedPrompt).split(/(\b[A-Za-z']+\b)/g).map((part, index) => (
-      <Text key={`${part}-${index}`} style={focus.has(part.toLowerCase()) ? styles.highlight : undefined}>
-        {part}
-      </Text>
-    ));
+    return lessonPromptText(lesson.id, displayedPrompt).split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
+      const normalizedPart = part.toLowerCase();
+      const isNotConceptFocus = lesson.id === 'lesson-7-is-are-not' && normalizedPart === 'not';
+      if (newVocabularyWords.has(normalizedPart)) {
+        return (
+          <Animated.Text
+            key={`${cardIndex}-${part}-${index}`}
+            style={[
+              styles.newVocabulary,
+              isNotConceptFocus
+                ? {
+                    fontSize: promptFontSize * 1.22,
+                    lineHeight: promptLineHeight * 1.08,
+                  }
+                : null,
+              {
+                opacity: newVocabularyEmphasis.interpolate({
+                  inputRange: [0, 0.34, 0.68, 1],
+                  outputRange: [1, 0.76, 1, 1],
+                }),
+                transform: [
+                  {
+                    scaleX: newVocabularyEmphasis.interpolate({
+                      inputRange: [0, 0.34, 0.68, 1],
+                      outputRange: [1, 1.06, 0.99, 1],
+                    }),
+                  },
+                  {
+                    scaleY: newVocabularyEmphasis.interpolate({
+                      inputRange: [0, 0.34, 0.68, 1],
+                      outputRange: [1, 1.18, 0.96, 1],
+                    }),
+                  },
+                ],
+              },
+            ]}
+          >
+            {part}
+          </Animated.Text>
+        );
+      }
+      if (isNotConceptFocus) {
+        return (
+          <Text
+            key={`${part}-${index}`}
+            style={[
+              styles.newVocabulary,
+              styles.conceptFocus,
+              {
+                fontSize: promptFontSize * 1.22,
+                lineHeight: promptLineHeight * 1.08,
+              },
+            ]}
+          >
+            {part}
+          </Text>
+        );
+      }
+      return (
+        <Text key={`${part}-${index}`} style={focus.has(normalizedPart) ? styles.highlight : undefined}>
+          {part}
+        </Text>
+      );
+    });
   };
 
   if (isLoading) {
     return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.center}>
-          <ActivityIndicator color="#e96f42" size="large" />
-          <Text accessibilityLiveRegion="polite" style={styles.loadingText}>Cargando la lección…</Text>
-          <Text style={styles.coldStart}>{loadingMessage}</Text>
+          <PlayfulLoading label="Preparando tu lección…" />
         </View>
       </SafeAreaView>
     );
@@ -1385,7 +1899,7 @@ export function LessonScreen({
   }
 
   if (isComplete) {
-    if (profile.userId) {
+    if (profile.userId && !qaMode) {
       return (
         <SafeAreaView style={styles.safeArea}>
           <StatusBar hidden />
@@ -1425,7 +1939,7 @@ export function LessonScreen({
             <View style={styles.qaIdentity}>
               <Text style={styles.qaLabel}>ENGINE QA · v{Updates.runtimeVersion || '1.5.0'} · {updateCode}</Text>
               <Text numberOfLines={1} style={styles.qaContext}>
-                {lesson.id} · #{cardIndex + 1}/{lesson.cards.length} · {currentCard.stage}
+                {lesson.id} · #{cardIndex + 1}/{lesson.cards.length} · {currentCard.stage} · {score} pts
               </Text>
             </View>
             <View style={styles.qaActions}>
@@ -1494,7 +2008,7 @@ export function LessonScreen({
                 <Pressable
                   accessibilityLabel="Volver a lecciones"
                   accessibilityRole="button"
-                  onPress={onExit}
+                  onPress={() => confirmLessonExit('previous')}
                   style={styles.backButton}
                 >
                   <BackArrowIcon />
@@ -1502,6 +2016,7 @@ export function LessonScreen({
                 <LessonBrandMark
                   centeredWidth={portraitBrandWidth}
                   compact={useCompactPortraitBrand}
+                  onPress={() => confirmLessonExit('home')}
                 />
               </>
             ) : (
@@ -1509,12 +2024,15 @@ export function LessonScreen({
                 <Pressable
                   accessibilityLabel="Volver a lecciones"
                   accessibilityRole="button"
-                  onPress={onExit}
+                  onPress={() => confirmLessonExit('previous')}
                   style={[styles.backButton, useCompactPhoneLayout ? styles.backButtonCompact : null]}
                 >
                   <BackArrowIcon />
                 </Pressable>
-                <LessonBrandMark compact={useCompactPhoneLayout} />
+                <LessonBrandMark
+                  compact={useCompactPhoneLayout}
+                  onPress={() => confirmLessonExit('home')}
+                />
               </View>
             )}
             {!isPortrait ? (
@@ -1570,14 +2088,19 @@ export function LessonScreen({
           styles.contentHeader,
           useCompactPhoneLayout ? styles.contentHeaderCompact : null,
           isPortrait ? styles.contentHeaderPortrait : null,
+          isStageOnlyHeader ? styles.contentHeaderStageOnly : null,
+          isStageOnlyHeader && isPortrait ? styles.contentHeaderStageOnlyPortrait : null,
           isPronunciation ? styles.contentHeaderPronunciation : null,
           isPronunciation && isPortrait ? styles.contentHeaderPronunciationPortrait : null,
           isCompletedSectionPicker ? styles.reviewContentInactive : null,
         ]}>
-          <Text accessibilityRole="header" style={styles.stage}>
+          <Text numberOfLines={1} style={styles.lessonLocation}>
+            {lessonLocation}
+          </Text>
+          <Text accessibilityRole="header" style={[styles.stage, isStageOnlyHeader ? styles.stageOnlyLabel : null]}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
           </Text>
-          <View style={[
+          {!isStageOnlyHeader ? <View style={[
             styles.promptRow,
             isPortrait ? styles.promptRowPortrait : null,
             isPronunciation ? styles.promptRowPronunciation : null,
@@ -1585,11 +2108,13 @@ export function LessonScreen({
           ]}>
             <Pressable
               ref={promptTapTargetRef}
-              accessibilityLabel={`Reproducir: ${promptAudio}`}
+              accessibilityLabel={promptHasVisualBlank ? `Frase para completar: ${visiblePromptAudio}` : `Reproducir: ${visiblePromptAudio}`}
               accessibilityActions={[{ label: 'Mostrar traducción', name: 'translate' }]}
-              accessibilityHint="Toca una vez para repetir. Usa la acción Traducir para ver la frase en español."
+              accessibilityHint={promptHasVisualBlank
+                ? 'Toca una vez para repetir la parte visible con una pausa silenciosa. Usa la acción Traducir para ver la frase en español.'
+                : 'Toca una vez para repetir. Usa la acción Traducir para ver la frase en español.'}
               accessibilityRole="button"
-              disabled={!promptAudio.trim()}
+              disabled={!visiblePromptAudio.trim()}
               onAccessibilityAction={({ nativeEvent }) => {
                 if (nativeEvent.actionName === 'translate') {
                   setSentenceHelpActivity((current) => current + 1);
@@ -1611,20 +2136,8 @@ export function LessonScreen({
                 style={[
                   styles.prompt,
                   {
-                    fontSize: isPronunciation
-                      ? isPortrait
-                        ? Math.max(21, Math.min(26, viewportWidth * 0.045))
-                        : Math.max(18, Math.min(24, viewportHeight * 0.06))
-                      : useCompactPhoneLayout
-                        ? Math.max(22, Math.min(29, viewportHeight * 0.072))
-                        : Math.max(26, Math.min(36, viewportHeight * 0.052)),
-                    lineHeight: isPronunciation
-                      ? isPortrait
-                        ? Math.max(25, Math.min(31, viewportWidth * 0.054))
-                        : Math.max(22, Math.min(29, viewportHeight * 0.072))
-                      : useCompactPhoneLayout
-                        ? Math.max(27, Math.min(35, viewportHeight * 0.085))
-                        : Math.max(31, Math.min(43, viewportHeight * 0.062)),
+                    fontSize: promptFontSize,
+                    lineHeight: promptLineHeight,
                   },
                 ]}
               >
@@ -1643,9 +2156,9 @@ export function LessonScreen({
             {isListen ? (
               <Pressable
                 accessibilityHint="Reproduce la frase otra vez."
-                accessibilityLabel={`Repetir frase: ${promptAudio}`}
+                accessibilityLabel={`Repetir frase: ${visiblePromptAudio}`}
                 accessibilityRole="button"
-                disabled={!promptAudio.trim()}
+                disabled={!visiblePromptAudio.trim()}
                 hitSlop={6}
                 onPress={handleReplayButtonPress}
                 style={({ pressed }) => [
@@ -1657,7 +2170,7 @@ export function LessonScreen({
                 <Ionicons color="#fff" name="volume-high" size={25} />
               </Pressable>
             ) : null}
-          </View>
+          </View> : null}
         </View>
         <Animated.View
           {...(manualCardNavigation ? cardPanResponder.panHandlers : {})}
@@ -1673,12 +2186,15 @@ export function LessonScreen({
             audioVoice={audioVoice}
             card={currentCard}
             gentleFeedback={profile.confidence === 'nervous'}
-            key={`lesson-card-${cardRunId}`}
+            key={`lesson-card-${cardIndex}-${cardRunId}`}
             level={lesson.level}
             lessonId={lesson.id}
+            isAppActive={isAppActive}
+            isOffline={isOffline}
             optionsInteractive={!isAutomaticSingleCard}
             onPronunciationAttempted={pronunciationAttempted}
             onPronunciationPassed={pronunciationPassed}
+            onPronunciationUnavailable={pronunciationUnavailable}
             onGrammarAnimationComplete={grammarAnimationComplete}
             onSelect={choose}
             result={result}
@@ -1862,9 +2378,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.09,
     shadowRadius: 6,
   },
+  contentHeaderStageOnly: { paddingBottom: 4, paddingTop: 4 },
+  contentHeaderStageOnlyPortrait: { borderRadius: 16, paddingBottom: 5, paddingTop: 5 },
   contentHeaderPronunciation: { paddingBottom: 3, paddingTop: 3 },
   contentHeaderPronunciationPortrait: { paddingBottom: 5, paddingTop: 5 },
+  lessonLocation: { color: '#8b765d', fontSize: 8, fontWeight: '900', letterSpacing: 0.8, lineHeight: 10, textAlign: 'center' },
   stage: { color: '#4d5559', fontSize: 10, fontWeight: '900', letterSpacing: 1.1, textAlign: 'center' },
+  stageOnlyLabel: { lineHeight: 16 },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
   promptRowPronunciation: { minHeight: 28 },
@@ -1902,9 +2422,15 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   highlight: { color: '#d99b00', fontWeight: '900' },
+  newVocabulary: {
+    color: '#d99b00',
+    fontWeight: '900',
+    textShadowColor: '#fff0a8',
+    textShadowOffset: { height: 0, width: 0 },
+    textShadowRadius: 8,
+  },
+  conceptFocus: { letterSpacing: 0.3 },
   center: { alignItems: 'center', flex: 1, justifyContent: 'center', paddingHorizontal: 28 },
-  loadingText: { color: '#24333a', fontSize: 19, fontWeight: '900', marginTop: 16 },
-  coldStart: { color: '#697177', fontSize: 13, lineHeight: 19, marginTop: 7, textAlign: 'center' },
   errorTitle: { color: '#24333a', fontSize: 23, fontWeight: '900', textAlign: 'center' },
   errorText: { color: '#a34842', fontSize: 14, marginTop: 9, textAlign: 'center' },
   primary: { alignItems: 'center', backgroundColor: '#c94d24', borderRadius: 15, justifyContent: 'center', marginTop: 20, minHeight: 54, paddingHorizontal: 26 },
