@@ -533,9 +533,9 @@ const missionLesson = lesson({
     learn('Find the grandparents.', 'grandparents', assets.grandparents, 'They are the grandparents.'),
 
     describe(assets.family, 'They are a family.', 'family', [['family', 'They are a family.'], ['children', 'They are children.']]),
-    describe(assets.children, 'Who are they? They are the children.', 'children', [['children', 'They are the children.'], ['parents', 'They are the parents.']]),
-    describe(assets.parents, 'Who are they? They are the parents.', 'parents', [['parents', 'They are the parents.'], ['grandparents', 'They are the grandparents.']]),
-    describe(assets.grandparents, 'Who are they? They are the grandparents.', 'grandparents', [['parents', 'They are the parents.'], ['grandparents', 'They are the grandparents.']]),
+    identityQuestion(assets.children, 'Who are they?', 'children', [['children', 'They are the children.'], ['parents', 'They are the parents.']]),
+    identityQuestion(assets.parents, 'Who are they?', 'parents', [['parents', 'They are the parents.'], ['grandparents', 'They are the grandparents.']]),
+    identityQuestion(assets.grandparents, 'Who are they?', 'grandparents', [['parents', 'They are the parents.'], ['grandparents', 'They are the grandparents.']]),
     recognize('The children are playing.', 'children-playing', [image('children-playing', assets.childrenPlaying, 'The children are playing.'), image('children-studying', assets.childrenStudying, 'The children are studying.')]),
     recognize('The father is working.', 'father-working', [image('mother-cooking', assets.motherCooking, 'The mother is cooking.'), image('father-working', assets.fatherWorking, 'The father is working.')]),
     recognize('The mother is cooking.', 'mother-cooking', [image('father-working', assets.fatherWorking, 'The father is working.'), image('mother-cooking', assets.motherCooking, 'The mother is cooking.')]),

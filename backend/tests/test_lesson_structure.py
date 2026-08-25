@@ -219,6 +219,24 @@ class LessonStructureTests(unittest.TestCase):
                 )
                 self.assertEqual(correct_option.label, card.answer_audio_text)
 
+    def test_lesson_10_identity_text_choices_ask_the_question_up_front(self):
+        cards = [
+            card
+            for card in LESSONS["lesson-10-family-mission"].cards
+            if card.stage == "Recognize"
+            and card.prompt_image_url
+            and card.prompt == "Who are they?"
+        ]
+        self.assertEqual(3, len(cards))
+        for card in cards:
+            with self.subTest(image=card.prompt_image_url):
+                self.assertEqual("Who are they?", card.audio_text)
+                correct_option = next(
+                    option for option in card.options if option.id == card.correct_option_id
+                )
+                self.assertEqual(correct_option.label, card.answer_audio_text)
+                self.assertNotIn("Who are they?", card.answer_audio_text)
+
     def test_listen_hides_text_and_uses_audio_with_image_choices(self):
         for lesson in LESSONS.values():
             cards = [card for card in lesson.cards if card.stage == "Listen"]
