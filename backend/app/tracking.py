@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from pydantic import BaseModel, Field
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.engine import RowMapping
 
 from .data import LESSONS
@@ -69,9 +69,23 @@ def init_db() -> None:
                     lesson_id TEXT NOT NULL,
                     started_at TEXT NOT NULL,
                     finished_at TEXT,
+                    finished_order BIGINT,
                     score INTEGER DEFAULT 0,
                     total_cards INTEGER DEFAULT 0,
                     FOREIGN KEY (user_id) REFERENCES users (id)
+                )
+                """
+            )
+        )
+        session_columns = {column["name"] for column in inspect(db).get_columns("lesson_sessions")}
+        if "finished_order" not in session_columns:
+            db.execute(text("ALTER TABLE lesson_sessions ADD COLUMN finished_order BIGINT"))
+        db.execute(
+            text(
+                """
+                CREATE TABLE IF NOT EXISTS tracking_counters (
+                    name TEXT PRIMARY KEY,
+                    value BIGINT NOT NULL
                 )
                 """
             )
@@ -414,6 +428,27 @@ def finish_session(session_id: str, payload: SessionFinish) -> dict[str, Any] | 
         )
         if result.rowcount == 0:
             return None
+        finished_order = db.execute(
+            text(
+                """
+                INSERT INTO tracking_counters (name, value)
+                VALUES ('lesson_session_finish', 1)
+                ON CONFLICT (name) DO UPDATE
+                SET value = tracking_counters.value + 1
+                RETURNING value
+                """
+            )
+        ).scalar_one()
+        db.execute(
+            text(
+                """
+                UPDATE lesson_sessions
+                SET finished_order = :finished_order
+                WHERE id = :session_id
+                """
+            ),
+            {"finished_order": finished_order, "session_id": session_id},
+        )
     return {"id": session_id, "finished_at": timestamp, "score": payload.score, "total_cards": payload.total_cards}
 
 
@@ -432,6 +467,7 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
                         score,
                         total_cards,
                         finished_at,
+                        finished_order,
                         MAX(
                             CASE
                                 WHEN total_cards > 0 AND (score * 100.0) / total_cards >= 80 THEN 1
@@ -440,7 +476,11 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
                         ) OVER (PARTITION BY lesson_id) AS passed,
                         ROW_NUMBER() OVER (
                             PARTITION BY lesson_id
-                            ORDER BY finished_at DESC, id DESC
+                            ORDER BY
+                                CASE WHEN finished_order IS NULL THEN 0 ELSE 1 END DESC,
+                                finished_order DESC,
+                                finished_at DESC,
+                                id DESC
                         ) AS session_rank
                     FROM lesson_sessions
                     WHERE user_id = :user_id
