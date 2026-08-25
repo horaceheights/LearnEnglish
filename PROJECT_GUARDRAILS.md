@@ -70,6 +70,7 @@ Every standard lesson follows this visible sequence:
 - The microphone animation starts when recording actually starts, not before the beep.
 - Play one clear ready beep. Do not emit an extra beep during the transition to the next card.
 - Show grading feedback as soon as recording and evaluation finish.
+- Once every live pronunciation syllable is visibly recognized, leave the listening state immediately and show a neutral processing state while authoritative grading finishes. Native recording finalization must have a bounded timeout and recover to a learner-facing Retry; it may never remain on `Te escucho…` indefinitely.
 - A1 scoring is intentionally forgiving. The current target is approximately a 30 percent beginner threshold, with completeness and understandable sounds valued above matching the model's speed or intonation.
 - Do not require the learner to copy the guide's exact rhythm or pitch.
 - Highlight words as the learner progresses through the sentence when timing data is available.

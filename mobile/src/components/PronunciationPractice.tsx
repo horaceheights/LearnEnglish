@@ -69,6 +69,8 @@ const GRADING_REVIEW_MS = 3000;
 const RECORDING_REVEAL_MS = 650;
 const RECORDING_LOAD_TIMEOUT_MS = 4000;
 const MODEL_AUDIO_LOAD_TIMEOUT_MS = 12000;
+const NATIVE_CAPTURE_STOP_TIMEOUT_MS = 7000;
+const NATIVE_CAPTURE_STOP_TIMEOUT_MESSAGE = 'Native pronunciation capture did not stop before the timeout.';
 const NO_SPEECH_LISTEN_MS = 3000;
 const IOS_SPEECH_END_SILENCE_MS = 1200;
 const MAX_NO_SPEECH_ROUNDS = 3;
@@ -197,6 +199,20 @@ const GRADING_MASCOT_FRAMES = [
 ] as const;
 
 const GRADING_MASCOT_FRAME_MS = [240, 160, 160, 190, 320, 650] as const;
+
+async function withTimeout<T>(operation: Promise<T>, timeoutMs: number, timeoutMessage: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  try {
+    return await Promise.race([
+      operation,
+      new Promise<T>((_, reject) => {
+        timer = setTimeout(() => reject(new Error(timeoutMessage)), timeoutMs);
+      }),
+    ]);
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
 
 export function PronunciationPractice({
   audioProvider,
@@ -799,6 +815,12 @@ export function PronunciationPractice({
     streamingCapture.current = false;
     if (shouldScore) {
       setDiagnosticOperation('pronunciation_grading_streaming');
+      setPhase('checking');
+      setMessage('Un momento…');
+      addDiagnosticBreadcrumb('pronunciation_capture_finalizing', {
+        matched_words: liveMatchedCountRef.current,
+        total_words: expectedTokens.length,
+      });
     } else {
       // Older dev clients can take several seconds to resolve stopAsync.
       // Show the intended silence feedback immediately while they finish.
@@ -808,8 +830,15 @@ export function PronunciationPractice({
     let recordingUri = '';
     try {
       const recorderStopStartedAt = Date.now();
-      const nativeResult = await stopNativeSpeech();
+      const nativeResult = await withTimeout(
+        stopNativeSpeech(),
+        NATIVE_CAPTURE_STOP_TIMEOUT_MS,
+        NATIVE_CAPTURE_STOP_TIMEOUT_MESSAGE,
+      );
       const recorderFinalizeMs = Date.now() - recorderStopStartedAt;
+      addDiagnosticBreadcrumb('pronunciation_capture_finalized', {
+        duration_ms: recorderFinalizeMs,
+      });
       recordingUri = nativeResult.uri;
       if (!isCurrentRun(runId)) return;
       if (!shouldScore || !heardSpeech.current) {
@@ -888,6 +917,17 @@ export function PronunciationPractice({
       );
     } catch (scoreError) {
       if (!isCurrentRun(runId)) return;
+      if (
+        scoreError instanceof Error
+        && scoreError.message === NATIVE_CAPTURE_STOP_TIMEOUT_MESSAGE
+      ) {
+        captureDiagnosticError(scoreError, 'pronunciation_capture_finalize_timeout', {
+          attempt: attemptRef.current + 1,
+          phrase_length: phrase.length,
+        });
+        showUnavailableState('La grabación tardó demasiado en finalizar. Toca Reintentar.');
+        return;
+      }
       if (!shouldScore || !heardSpeech.current || isExpectedNoSpeechRecognition(scoreError)) {
         addDiagnosticBreadcrumb('pronunciation_no_speech', {
           attempt: attemptRef.current + 1,
@@ -1304,6 +1344,33 @@ export function PronunciationPractice({
       stateSubscription.remove();
     };
   }, [expectedSyllables, expectedTokens, finishNativeCapture, phrase, recordActiveVoiceSample, voiceEvidence]);
+
+  useEffect(() => {
+    if (
+      phase !== 'listening'
+      || !streamingCapture.current
+      || captureFinishing.current
+      || expectedSyllables.length === 0
+      || phraseCompleteTimer.current
+    ) return;
+
+    const allSyllablesRecognized = expectedSyllables.every(
+      (syllable) => recognizedSyllableKeySet.has(syllable.key),
+    );
+    if (!allSyllablesRecognized) return;
+
+    // Native result and React state updates can arrive in either order. Once
+    // the visible assessment is complete, independently close the capture and
+    // let the backend perform the authoritative grade.
+    liveProgressComplete.current = true;
+    addDiagnosticBreadcrumb('pronunciation_visible_progress_complete', {
+      syllables: expectedSyllables.length,
+    });
+    phraseCompleteTimer.current = setTimeout(() => {
+      phraseCompleteTimer.current = null;
+      void finishNativeCapture();
+    }, 250);
+  }, [expectedSyllables, finishNativeCapture, phase, recognizedSyllableKeySet]);
 
   useEffect(() => {
     if (phase !== 'listening' || !streamingCapture.current) return undefined;

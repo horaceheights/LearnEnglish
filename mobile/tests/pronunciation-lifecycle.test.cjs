@@ -28,6 +28,21 @@ assert.match(
   'The microphone permission dialog must not be treated as a lesson interruption.',
 );
 assert.match(
+  pronunciationSource,
+  /const allSyllablesRecognized = expectedSyllables\.every[\s\S]*?void finishNativeCapture\(\)/,
+  'All visibly recognized syllables must independently finish the live capture.',
+);
+assert.match(
+  pronunciationSource,
+  /setPhase\('checking'\);\s+setMessage\('Un momento…'\);[\s\S]*?withTimeout\(\s*stopNativeSpeech\(\),\s*NATIVE_CAPTURE_STOP_TIMEOUT_MS/,
+  'Native capture finalization must leave the listening state immediately and use a bounded wait.',
+);
+assert.match(
+  pronunciationSource,
+  /pronunciation_capture_finalize_timeout[\s\S]*?La grabación tardó demasiado en finalizar\. Toca Reintentar\./,
+  'A native stop timeout must recover to a learner-facing retry instead of hanging.',
+);
+assert.match(
   lessonScreenSource,
   /if \(isPronunciation\) return;\s+setCardRunId/,
   'Pronunciation must recover internally instead of being remounted on foreground.',

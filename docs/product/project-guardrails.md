@@ -71,6 +71,7 @@ Every standard lesson follows this visible sequence:
 - The microphone animation starts when recording actually starts, not before the beep.
 - Play one clear ready beep. Do not emit an extra beep during the transition to the next card.
 - Show grading feedback as soon as recording and evaluation finish.
+- Once every live pronunciation syllable is visibly recognized, leave the listening state immediately and show a neutral processing state while authoritative grading finishes. Native recording finalization must have a bounded timeout and recover to a learner-facing Retry; it may never remain on `Te escucho…` indefinitely.
 - A1 scoring is intentionally forgiving, but it is not one fixed percentage. The backend policy for the learner level and exercise type is authoritative; completeness and understandable sounds are valued above matching the model's speed or intonation. Exact thresholds belong in the versioned pronunciation policy, not duplicated in product copy.
 - Do not require the learner to copy the guide's exact rhythm or pitch.
 - Highlight words as the learner progresses through the sentence when timing data is available.
@@ -322,4 +323,5 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Request scope became a hard product rule: styling-only changes may not alter layout, sizing, spacing, image fit, content, navigation, or interaction. Four-image portrait slides remain 2x2; if a requested change requires anything outside its stated scope, implementation pauses for explicit approval.
 - 2026-08-24: Four-image portrait grids retained the required 2x2 layout but restored a taller, height-aware image viewport to use otherwise empty lesson space. Native image proportions and complete subjects remain preserved; all other option-count layouts stay unchanged.
 - 2026-08-24: Text-only answer sets standardized on at most three tiles across all A1 units. The correct answer and first two authored distractors retain their relative order; image-choice counts and layouts remain unchanged.
+- 2026-08-24: Completed live pronunciation progress standardized on an immediate transition from listening to neutral processing, with an independent all-syllables completion safeguard and a bounded native-stop recovery instead of indefinite `Te escucho…` stalls.
 - 2026-08-24: A1 scene contracts standardized on literal semantic media: generic person/object fallbacks are prohibited, selectable options contain one answer concept per tile, and missing scenes require a reviewed dedicated 3:2 asset or a failing media build.
