@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.pool import StaticPool
 
 from backend.app import tracking
@@ -18,6 +18,39 @@ class TrackingDatabaseConfigurationTests(unittest.TestCase):
     def test_pool_rejects_stale_connections(self):
         self.assertTrue(engine.pool._pre_ping)
         self.assertEqual(300, engine.pool._recycle)
+
+    def test_init_db_migrates_legacy_sessions_to_deterministic_finish_order(self):
+        legacy_engine = create_engine(
+            "sqlite://",
+            connect_args={"check_same_thread": False},
+            poolclass=StaticPool,
+        )
+        try:
+            with legacy_engine.begin() as db:
+                db.execute(
+                    text(
+                        """
+                        CREATE TABLE lesson_sessions (
+                            id TEXT PRIMARY KEY,
+                            user_id TEXT NOT NULL,
+                            lesson_id TEXT NOT NULL,
+                            started_at TEXT NOT NULL,
+                            finished_at TEXT,
+                            score INTEGER DEFAULT 0,
+                            total_cards INTEGER DEFAULT 0
+                        )
+                        """
+                    )
+                )
+
+            with patch.object(tracking, "engine", legacy_engine):
+                tracking.init_db()
+
+            columns = {column["name"] for column in inspect(legacy_engine).get_columns("lesson_sessions")}
+            self.assertIn("finished_order", columns)
+            self.assertIn("tracking_counters", inspect(legacy_engine).get_table_names())
+        finally:
+            legacy_engine.dispose()
 
 
 class AdminSummaryTests(unittest.TestCase):
@@ -97,15 +130,19 @@ class AdminSummaryTests(unittest.TestCase):
         self.assertIsNotNone(progress[0]["completed_at"])
 
     def test_lesson_progress_keeps_pass_after_a_lower_retry(self):
-        user = tracking.create_or_update_user(UserCreate(display_name="Passed Learner"))
-        passed = tracking.create_session(
-            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
-        )
-        retry = tracking.create_session(
-            SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
-        )
-        tracking.finish_session(passed["id"], SessionFinish(score=8, total_cards=10))
-        tracking.finish_session(retry["id"], SessionFinish(score=6, total_cards=10))
+        with (
+            patch.object(tracking, "now_iso", return_value="2026-08-25T12:00:00.000000000+00:00"),
+            patch.object(tracking.uuid, "uuid4", side_effect=["user-id", "zz-passed", "aa-retry"]),
+        ):
+            user = tracking.create_or_update_user(UserCreate(display_name="Passed Learner"))
+            passed = tracking.create_session(
+                SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+            )
+            retry = tracking.create_session(
+                SessionCreate(user_id=user["id"], lesson_id="lesson-1-people-actions", total_cards=10)
+            )
+            tracking.finish_session(passed["id"], SessionFinish(score=8, total_cards=10))
+            tracking.finish_session(retry["id"], SessionFinish(score=6, total_cards=10))
 
         progress = tracking.get_lesson_progress(user["id"])[0]
 
