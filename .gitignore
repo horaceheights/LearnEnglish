@@ -1,21 +1,24 @@
 __pycache__/
 *.py[cod]
 *.pyo
+.pytest_cache/
 
 venv/
 .venv/
 
 tmp/
+.agents/
 .codex-remote-attachments/
+.codex-*-check/
+*.log
 backend/learnenglish.db
 backend/storage/*
 !backend/storage/audio-cache/
 !backend/storage/audio-cache/*.mp3
 
-frontend/node_modules/
+node_modules/
 frontend/.next/
 
-Lessons/Lesson1/deck/build/node_modules/
 Lessons/Lesson1/deck/outputs/~$*.pptx
 
 .DS_Store
@@ -26,4 +29,4 @@ Thumbs.db
 !.env.example
 .streamlit/secrets.toml
 
-package-lock.json
+/package-lock.json

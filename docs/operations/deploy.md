@@ -1,4 +1,4 @@
-# Deploy Learn English
+# Deploy SpanGlish
 
 This app is set up to deploy with:
 

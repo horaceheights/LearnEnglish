@@ -1,6 +1,6 @@
 # Guía breve para probar SpanGlish
 
-Usa la app como lo harías normalmente y revisa estos puntos:
+Usa la app como lo harías normalmente y revisa estos puntos de prueba:
 
 - [ ] Puedes crear un usuario y volver a entrar con tu nombre.
 - [ ] Las lecciones, imágenes y textos se ven bien.

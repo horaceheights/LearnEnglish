@@ -1,13 +1,21 @@
 # Project memory
 
 - Before changing curriculum, lesson behavior, shared UI, audio, pronunciation, media, or release code, read `docs/product/project-guardrails.md` and the relevant section of `docs/product/course-design-a1.md`.
-- Treat `docs/product/project-guardrails.md` as durable product memory. Inspect existing behavior and usages before replacing an established pattern. Keep the legacy root `PROJECT_GUARDRAILS.md` mirror synchronized when it contains the same rule.
+- Treat `docs/product/project-guardrails.md` as durable product memory. Inspect existing behavior and usages before replacing an established pattern.
 - Use `docs/planning/roadmap.md` for priorities, `docs/qa/` for verification, and `docs/operations/` plus `mobile/RELEASE.md` for deployment and release work. Start with `docs/README.md` when unsure.
 - When the user approves a reusable standard or changes an existing one, update the project guardrails in the same commit and add or update an automated guardrail when practical.
 - If a request conflicts with an existing guardrail, call out the conflict before implementation and let the newest explicit user decision control.
 - Do not refactor unrelated code while completing a task. Report unrelated problems separately unless they prevent completion.
 - Before implementing a fix, check earlier fixes and guardrails for conflicts or regression risk; challenge contradictory fixes before changing behavior.
 - Preserve unrelated working-tree changes. Never stage, revert, overwrite, or discard them.
+
+# Repository hygiene
+
+- Treat `origin/main` as the canonical integration line and keep the primary checkout on an up-to-date local `main` when no recovery operation is in progress.
+- Start task branches from a freshly fetched `origin/main`; do not continue new work on a stale feature or release worktree.
+- Run `scripts/audit-repository-hygiene.ps1` at the start and end of branch, recovery, or release work.
+- After a task is integrated, remove its clean worktree and delete its fully merged local and remote task branches. Never remove a dirty worktree or an unmerged branch until its local-only state is reviewed and preserved in a named commit or tag.
+- Do not force-push, rewrite, prune, or discard repository state without first naming the exact affected refs or paths to the user.
 
 # Release workflow
 

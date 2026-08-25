@@ -17,6 +17,15 @@ The detailed A1 syllabus and Unit 1 roadmap live in [`course-design-a1.md`](cour
 7. When an approved standard changes, update this file in the same commit.
 8. Treat the user's requested scope as a hard boundary. A visual-only request such as adding borders, colors, or rounded corners must not change layout, dimensions, spacing, image fit/crop/zoom, content, navigation, or interaction. If the requested result cannot be implemented without any change outside that scope, stop before editing and ask the user whether to proceed.
 
+### Repository hygiene
+
+- `origin/main` is the canonical integration line. The primary checkout returns to an up-to-date local `main` after recovery or task work; it must not remain parked on a stale feature branch.
+- New task branches start from a freshly fetched `origin/main`. A divergent release or feature worktree is never a safe base merely because it contains a recent local change.
+- At task start and completion, run the read-only repository hygiene audit and inspect branch divergence, registered worktrees, and dirty state.
+- Once work is integrated, remove its clean worktree and retire its fully merged task branches. Dirty worktrees and unmerged branches require an explicit local-state review and a recoverable named snapshot before removal.
+- Repository cleanup never changes `release/preview`, Expo channels, Production, or deployed state unless release work is explicitly requested and approved through the release workflow.
+- Force-pushes, history rewrites, and silent discards are prohibited. Name the exact refs or paths before any destructive cleanup.
+
 ### Cross-platform parity
 
 - Canonical lesson content lives in the backend lesson files. Web and mobile must present the same lesson order, prompts, answers, stage behavior, and media intent.

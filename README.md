@@ -62,10 +62,11 @@ The app will run on `http://localhost:3000`.
 
 ## Deploy
 
-Deployment notes for `Vercel + Koyeb` are in [DEPLOY.md](C:/Users/gorre/Documents/Code%20Projects/LearnEnglish/DEPLOY.md).
+Deployment notes for `Vercel + Koyeb` are in the [deployment guide](docs/operations/deploy.md).
 
 ## Testing
 
-- Spanish tester guide: [GUIA_PRUEBAS_TESTERS_ES.md](GUIA_PRUEBAS_TESTERS_ES.md)
-- Internal engine checklist: [ENGINE_QA_CHECKLIST.md](ENGINE_QA_CHECKLIST.md)
+- Documentation index: [docs/README.md](docs/README.md)
+- Spanish tester guide: [docs/qa/guia-pruebas-testers-es.md](docs/qa/guia-pruebas-testers-es.md)
+- Internal engine checklist: [docs/qa/engine-qa-checklist.md](docs/qa/engine-qa-checklist.md)
 - Owner-first mobile release flow: [mobile/RELEASE.md](mobile/RELEASE.md)

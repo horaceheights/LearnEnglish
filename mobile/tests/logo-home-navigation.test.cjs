@@ -14,9 +14,7 @@ const profileSource = source('../src/screens/ProfileScreen.tsx');
 const brandHeaderSource = source('../src/components/BrandHeader.tsx');
 const webSource = source('../../frontend/components/LessonPlayer.js');
 const webSceneSource = source('../../frontend/app/test-scenes/page.js');
-const guardrailSource = fs.existsSync(path.resolve(__dirname, '../../docs/product/project-guardrails.md'))
-  ? source('../../docs/product/project-guardrails.md')
-  : source('../../PROJECT_GUARDRAILS.md');
+const guardrailSource = source('../../docs/product/project-guardrails.md');
 
 assert.match(appSource, /<LoginScreen[\s\S]*?onHome=\{\(\) => setScreen\(\{ name: 'course' \}\)\}/);
 assert.match(appSource, /<LessonScreen[\s\S]*?onHome=\{\(\) => setScreen\(\{ name: 'course' \}\)\}/);

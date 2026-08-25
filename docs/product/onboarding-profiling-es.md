@@ -5,7 +5,7 @@ Borrador editable del flujo actual de perfilado para la app.
 ## Nota general
 
 - Las preguntas 1 a 5 son de una sola respuesta.
-- La pregunta 6 es de seleccion multiple.
+- La pregunta 6 es de selección múltiple.
 
 ---
 

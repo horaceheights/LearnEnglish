@@ -1,6 +1,6 @@
 # SpanGlish Engine QA Checklist
 
-Use this checklist with the in-app **Engine QA** hub. QA mode uses the real
+Use this checklist from the in-app **Engine QA** hub. QA mode uses the real
 lesson player but does not create learner sessions or card-attempt records.
 
 ## Permanent QA parity guardrail
