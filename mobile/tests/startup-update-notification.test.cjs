@@ -39,8 +39,10 @@ test('the Actualizar menu shows the same version and commit without other identi
   assert.doesNotMatch(courseSource, /installedVersion|currentBuild|Build:/);
 });
 
-test('Preview publishing injects the same short Git commit shown by Expo and Vercel', () => {
-  assert.match(publishSource, /git -C \$repositoryRoot rev-parse --short=7 HEAD/);
-  assert.match(publishSource, /EXPO_PUBLIC_RELEASE_COMMIT/);
+test('Preview publishing injects the exact GitHub commit and displays its short label', () => {
+  assert.match(publishSource, /Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_SHA'/);
+  assert.match(publishSource, /EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA/);
+  assert.doesNotMatch(publishSource, /rev-parse --short=7 HEAD/);
   assert.match(updatesSource, /process\.env\.EXPO_PUBLIC_RELEASE_COMMIT/);
+  assert.match(updatesSource, /EXPO_PUBLIC_RELEASE_COMMIT \|\| 'embedded'\)\.slice\(0, 7\)/);
 });

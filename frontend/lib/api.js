@@ -192,14 +192,62 @@ export async function getPronunciationStreamingToken() {
   return payload;
 }
 
-export function sanitizeCourseAudioText(text) {
-  return String(text || "")
-    .replace(/\s*(?:_+|\[\s*(?:pause|blank)\s*\])\s*[.,!?]?/gi, " ... ")
-    .replace(/\s+/g, " ")
-    .trim();
+export function hasVisualAudioPlaceholder(text) {
+  return /_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/i.test(String(text || ""));
 }
 
-export function getCourseAudioUrl({ text, mode = "prompt", lang = "en-US", variant = "default" }) {
+export function sanitizeCourseAudioText(text) {
+  const spokenText = String(text || "").replace(/\s+/g, " ").trim();
+  if (hasVisualAudioPlaceholder(spokenText)) {
+    throw new Error("Completion placeholders are visual only and cannot use ordinary course audio.");
+  }
+  return spokenText;
+}
+
+function completionAudioFields(text, fullText, blankText) {
+  const visualPrompt = String(text || "");
+  const completed = String(fullText || "").trim();
+  const answer = String(blankText || "").trim();
+  const placeholders = [...visualPrompt.matchAll(/_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/gi)];
+  if (placeholders.length !== 1 || !completed || !answer) {
+    throw new Error("Completion prompt audio requires one blank and a full completed sentence.");
+  }
+  if (hasVisualAudioPlaceholder(completed) || hasVisualAudioPlaceholder(answer)) {
+    throw new Error("Completion answer text cannot contain a visual placeholder.");
+  }
+  const placeholder = placeholders[0];
+  const prefix = visualPrompt.slice(0, placeholder.index);
+  const suffix = visualPrompt.slice((placeholder.index ?? 0) + placeholder[0].length);
+  if (`${prefix}${answer}${suffix}`.trim() !== completed) {
+    throw new Error("Completion prompt audio must match the full completed sentence exactly.");
+  }
+  return { answer, completed, visualPrompt };
+}
+
+export function getCourseAudioUrl({
+  text,
+  fullText,
+  blankText,
+  mode = "prompt",
+  lang = "en-US",
+  variant = "default",
+}) {
+  if (hasVisualAudioPlaceholder(text)) {
+    const completion = completionAudioFields(text, fullText, blankText);
+    const apiBaseUrl = getApiBaseUrl();
+    const params = new URLSearchParams({
+      visual_prompt: completion.visualPrompt,
+      full_text: completion.completed,
+      blank_text: completion.answer,
+      mode,
+      lang,
+      variant: "completion-prompt",
+      provider: "elevenlabs-premium",
+      narrator: "female-teacher",
+    });
+    return `${apiBaseUrl}/api/audio/course-completion.mp3?${params.toString()}`;
+  }
+
   const spokenText = sanitizeCourseAudioText(text);
   const manifestKey = [spokenText, mode, lang, variant].join("\n");
   const staticAudioFile = courseAudioManifest[manifestKey];
@@ -217,8 +265,22 @@ export function getCourseAudioUrl({ text, mode = "prompt", lang = "en-US", varia
   return `${apiBaseUrl}/api/audio/course?${params.toString()}`;
 }
 
-export async function preloadCourseAudio({ text, mode = "prompt", lang = "en-US", variant = "default" }) {
-  const response = await fetch(getCourseAudioUrl({ text, mode, lang, variant }), {
+export async function preloadCourseAudio({
+  text,
+  fullText,
+  blankText,
+  mode = "prompt",
+  lang = "en-US",
+  variant = "default",
+}) {
+  const response = await fetch(getCourseAudioUrl({
+    text,
+    fullText,
+    blankText,
+    mode,
+    lang,
+    variant,
+  }), {
     cache: "force-cache",
   });
 

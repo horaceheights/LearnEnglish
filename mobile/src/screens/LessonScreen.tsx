@@ -47,7 +47,7 @@ import {
   courseAudioVoice,
   hasVisualAudioPlaceholder,
 } from '../config';
-import { courseAudioSource } from '../courseAudioSources';
+import { completionPromptAudioSource, courseAudioSource } from '../courseAudioSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -380,7 +380,16 @@ export function LessonScreen({
     if (!card) return Promise.resolve();
     const text = card.audio_text ?? card.prompt ?? '';
     const requests: Promise<void>[] = [];
-    if (text.trim() && !hasVisualAudioPlaceholder(text)) {
+    const hasCompletionBlank = hasVisualAudioPlaceholder(card.prompt)
+      || hasVisualAudioPlaceholder(text);
+    if (hasCompletionBlank) {
+      const completionSource = completionPromptAudioSource(
+        card,
+        audioProvider,
+        courseAudioVoice(lessonId, card.stage),
+      );
+      if (completionSource) requests.push(ensureAudioPreloaded(completionSource));
+    } else if (text.trim()) {
       const pronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
       const variant = pronunciation
         ? 'split-ing'
@@ -443,14 +452,11 @@ export function LessonScreen({
     return Promise.all([...paths].filter(Boolean).map(ensureImagePreloaded)).then(() => undefined);
   }, [ensureImagePreloaded]);
 
-  const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
-    if (!text.trim()) return;
+  const playAudioSource = useCallback((source: AudioSource, mode = 'prompt', variant = 'default') => {
     if (!isAppActive || AppState.currentState !== 'active') {
       addDiagnosticBreadcrumb('audio_playback_skipped_background', { mode, variant });
       return;
     }
-    if (hasVisualAudioPlaceholder(text)) return;
-    const source = courseAudioSource(text, mode, variant, audioProvider, audioVoice);
     if (isOffline && typeof source === 'string') {
       addDiagnosticBreadcrumb('audio_playback_skipped_offline', { mode, variant });
       return;
@@ -504,7 +510,16 @@ export function LessonScreen({
           'warning',
         );
       });
-  }, [audioProvider, audioVoice, ensureAudioPreloaded, isAppActive, isOffline]);
+  }, [ensureAudioPreloaded, isAppActive, isOffline]);
+
+  const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
+    if (!text.trim() || hasVisualAudioPlaceholder(text)) return;
+    playAudioSource(
+      courseAudioSource(text, mode, variant, audioProvider, audioVoice),
+      mode,
+      variant,
+    );
+  }, [audioProvider, audioVoice, playAudioSource]);
 
   const playSuccessChime = useCallback(async () => {
     try {
@@ -678,7 +693,10 @@ export function LessonScreen({
   const automaticAdvanceDelay = manualCardNavigation ? 2000 : 0;
   const isAutomaticSingleCard =
     !isCompletedSectionPicker && manualCardNavigation && !isPronunciation && currentCard?.options.length === 1;
-  const promptAudio = currentCard?.audio_text ?? currentCard?.prompt ?? '';
+  const authoredPromptHasVisualBlank = hasVisualAudioPlaceholder(currentCard?.prompt ?? '');
+  const promptAudio = authoredPromptHasVisualBlank && !currentCard?.audio_text?.trim()
+    ? currentCard?.prompt ?? ''
+    : currentCard?.audio_text ?? currentCard?.prompt ?? '';
   const correctContrastPrompt =
     result === 'correct'
     && currentCard?.stage === 'Recognize'
@@ -687,8 +705,11 @@ export function LessonScreen({
       ? currentCard.answer_audio_text.trim()
       : '';
   const visiblePromptAudio = correctContrastPrompt || promptAudio;
-  const promptHasVisualBlank = hasVisualAudioPlaceholder(currentCard?.prompt ?? '')
+  const promptHasVisualBlank = authoredPromptHasVisualBlank
     || hasVisualAudioPlaceholder(promptAudio);
+  const completionPromptSource = promptHasVisualBlank && currentCard
+    ? completionPromptAudioSource(currentCard, audioProvider, audioVoice)
+    : null;
   const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
     isGrammar ? currentCard?.prompt ?? '' : promptAudio,
   );
@@ -720,7 +741,13 @@ export function LessonScreen({
   }, [cardIndex, cardRunId, hasNewVocabularyInPrompt, newVocabularyEmphasis, reduceMotion]);
 
   const replayPrompt = useCallback(() => {
-    if (!visiblePromptAudio.trim() || promptHasVisualBlank) return;
+    if (!visiblePromptAudio.trim()) return;
+    if (promptHasVisualBlank) {
+      if (completionPromptSource) {
+        playAudioSource(completionPromptSource, 'prompt', 'completion-prompt');
+      }
+      return;
+    }
     if (isPronunciation) {
       playAudio(visiblePromptAudio, 'pronunciation_slow', 'split-ing');
       return;
@@ -730,7 +757,7 @@ export function LessonScreen({
       'prompt',
       visiblePromptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
     );
-  }, [isPronunciation, playAudio, promptHasVisualBlank, visiblePromptAudio]);
+  }, [completionPromptSource, isPronunciation, playAudio, playAudioSource, promptHasVisualBlank, visiblePromptAudio]);
 
   const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
     const target = promptTapTargetRef.current;
@@ -908,7 +935,7 @@ export function LessonScreen({
 
   useEffect(() => {
     if (!isAppActive || isCompletedSectionPicker || !currentCard || isPronunciation || result !== null) return undefined;
-    if (promptHasVisualBlank) {
+    if (promptHasVisualBlank && !completionPromptSource) {
       promptAutoplayAwaitingRef.current = false;
       promptAutoplayWasPlayingRef.current = false;
       setPromptAutoplayFinished(true);
@@ -924,11 +951,15 @@ export function LessonScreen({
     const timer = setTimeout(() => {
       singleCardAudioAwaitingRef.current = isAutomaticSingleCard;
       singleCardAudioWasPlayingRef.current = false;
-      playAudio(
-        promptAudio,
-        'prompt',
-        promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
-      );
+      if (completionPromptSource) {
+        playAudioSource(completionPromptSource, 'prompt', 'completion-prompt');
+      } else {
+        playAudio(
+          promptAudio,
+          'prompt',
+          promptAudio.trim().toLowerCase() === 'what is it?' ? 'question' : 'prompt',
+        );
+      }
     }, 120);
     return () => {
       clearTimeout(timer);
@@ -936,7 +967,7 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
     };
-  }, [cardIndex, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, promptAudio, promptHasVisualBlank, result]);
+  }, [cardIndex, completionPromptSource, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, playAudioSource, promptAudio, promptHasVisualBlank, result]);
 
   useEffect(() => {
     if (!promptAutoplayAwaitingRef.current) return;
@@ -2080,7 +2111,7 @@ export function LessonScreen({
               accessibilityLabel={promptHasVisualBlank ? `Frase para completar: ${visiblePromptAudio}` : `Reproducir: ${visiblePromptAudio}`}
               accessibilityActions={[{ label: 'Mostrar traducción', name: 'translate' }]}
               accessibilityHint={promptHasVisualBlank
-                ? 'El audio de la frase completa se reproduce después de elegir. Usa la acción Traducir para ver la frase en español.'
+                ? 'Toca una vez para repetir la parte visible con una pausa silenciosa. Usa la acción Traducir para ver la frase en español.'
                 : 'Toca una vez para repetir. Usa la acción Traducir para ver la frase en español.'}
               accessibilityRole="button"
               disabled={!visiblePromptAudio.trim()}

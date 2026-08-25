@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-08-22
+Last reviewed: 2026-08-25
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -86,7 +86,7 @@ Every standard lesson follows this visible sequence:
 - Mix related forms instead of batching every `is` item before every `are` item.
 - Include affirmative and negative forms only after each form has been introduced clearly.
 - End with a short completion or mission activity that uses previously learned language.
-- Completion blanks are visual UI only. Never send literal underscores or placeholder characters to TTS. Before selection, speak the incomplete sentence with a short silent pause at the blank; speak the completed answer only after the learner answers.
+- Completion blanks are visual UI only. Before selection, speak the visible sentence context with a short silent pause at the blank; after selection, speak the completed answer. To create the prompt audio, synthesize the authored, grammatically complete `answer_audio_text` exactly once with an alignment-capable provider, validate the answer span, and physically replace that span with at least 550 ms of digital silence. Never send underscores, ellipses, blank markers, or incomplete sentence fragments to any TTS provider.
 
 ## 3. New-Word Learning Journey
 
@@ -187,8 +187,9 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not show internal audio-generation or scoring terminology to learners. A visible neutral processing state such as `Un momento...` is allowed.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
 - Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
-- Every course-audio boundary must sanitize visual answer blanks into a silent pause. No provider or browser fallback may receive literal underscore runs.
-- Treat `_`, repeated underscores, `[pause]`, and equivalent visual blank markers as control data, never speech content. Strip or convert them to timed silence before synthesis, and audit generated completion audio through the end of each clip for unexpected trailing speech, filler, or gibberish before release.
+- Every ordinary course-audio boundary rejects visual answer blanks. Completion prompt audio uses a dedicated masked-audio path: synthesize only the exact full completed sentence, use validated provider timing to locate the inserted answer, then replace that audio interval with digital zero samples. Beginning, middle, and ending blanks must use the same path.
+- Treat `_`, repeated underscores, ellipses, `[pause]`, `[blank]`, and equivalent markers as control data, never speech content. Never synthesize prefix/suffix fragments and never use device or browser speech as a completion fallback. Missing, ambiguous, or invalid timing must return a known valid silent clip rather than unmasked, partial, or guessed speech.
+- Static course-audio generation and transcript audits exclude visual-blank prompts from ordinary TTS while retaining their complete `answer_audio_text`. Preview verification must cover beginning, middle, and ending blanks and prove that no raw placeholder or incomplete fragment can reach a provider.
 
 ## 8. Feedback and Interaction
 
@@ -269,7 +270,11 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Never publish or promote to Production without explicit user approval after Preview testing.
 - Native dependency, Expo configuration, permission, native module, or app-version changes require a new build rather than an OTA update.
 - Keep generated lesson snapshots, audio manifests, and committed media synchronized with the canonical lesson files.
-- Preview publishes must contain the current canonical `origin/codex/restore-complete-a1-preview` lineage. A feature or media branch may publish only after integrating that line, so a newer OTA cannot silently remove approved units or behavior.
+- The protected remote branch `release/preview` is the sole Preview release authority. Task branches and local worktrees may verify and push changes, but they may never publish directly to the shared Expo channel.
+- Preview publication runs only through the protected GitHub Actions environment. The local publisher fails closed outside that workflow; an unavailable CI credential or workflow is a release blocker, never permission to fall back to a locally authenticated Expo session.
+- A release candidate must be the exact remote head of `release/preview`, descend from the approved complete-course baseline, and preserve the versioned release-integrity manifest. The manifest locks the aggregate course fingerprint, 70 unique lessons, Units 1 through 7, and exactly ten lessons per unit unless a deliberate curriculum release updates those values.
+- Release verification must require the commit label and update UI, run the complete Preview preflight, serialize Preview publications so two jobs cannot race, and verify the live EAS update group against the GitHub commit after publication.
+- Repository guards are defense in depth, not the release authority: a stale checkout can also contain stale scripts. Server-side branch/environment protection and a CI-only Expo token are required to prevent an old checkout from bypassing current repository checks.
 - The Preview publisher injects the current seven-character Git commit into the OTA bundle so the app, Expo, and Vercel identify the same code snapshot.
 
 ## 12. Decision Log
@@ -325,3 +330,5 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Text-only answer sets standardized on at most three tiles across all A1 units. The correct answer and first two authored distractors retain their relative order; image-choice counts and layouts remain unchanged.
 - 2026-08-24: Completed live pronunciation progress standardized on an immediate transition from listening to neutral processing, with an independent all-syllables completion safeguard and a bounded native-stop recovery instead of indefinite `Te escucho…` stalls.
 - 2026-08-24: A1 scene contracts standardized on literal semantic media: generic person/object fallbacks are prohibited, selectable options contain one answer concept per tile, and missing scenes require a reviewed dedicated 3:2 asset or a failing media build.
+- 2026-08-25: Completion prompts resumed upfront speech using deterministic full-sentence masking. The system synthesizes `answer_audio_text` once, replaces only the timing-aligned answer span with at least 550 ms of digital silence, and fails to a known silent clip when alignment is unavailable; fragment synthesis, placeholder sanitization into spoken punctuation, and browser fallback are prohibited.
+- 2026-08-25: After a newer OTA from a stale divergent branch replaced the complete seven-unit Preview with an older tree, Preview publication moved to the protected `release/preview` authority. CI now owns publishing, exact course topology and fingerprints are release invariants, and local or task-branch publication is prohibited.

@@ -6,6 +6,7 @@ import {
   getApiBaseUrl,
   getCourseAudioUrl,
   getPronunciationStreamingToken,
+  hasVisualAudioPlaceholder,
   interpretAzurePronunciation,
   getLearnerByName,
   getLesson,
@@ -1379,7 +1380,10 @@ function useSpeech() {
       return 0;
     }
 
-    text = sanitizeCourseAudioText(text);
+    const isCompletionPrompt = hasVisualAudioPlaceholder(text);
+    if (!isCompletionPrompt) {
+      text = sanitizeCourseAudioText(text);
+    }
     if (!text) {
       return 0;
     }
@@ -1392,9 +1396,21 @@ function useSpeech() {
       window.speechSynthesis.cancel();
     }
 
-    const useFallback = () => speakWithBrowserVoice(text, options, sequenceId);
+    const useFallback = () => {
+      if (isCompletionPrompt) {
+        // Browser voices must never receive a visual placeholder or an
+        // unfinished phrase. A provider/alignment failure is safely silent.
+        if (typeof options.onEnd === "function") options.onEnd();
+        return 0;
+      }
+      return speakWithBrowserVoice(text, options, sequenceId);
+    };
 
     if (options.disableCourseAudio) {
+      return useFallback();
+    }
+
+    if (isCompletionPrompt && options.wordByWord) {
       return useFallback();
     }
 
@@ -1515,12 +1531,20 @@ function useSpeech() {
       return Math.max(2600, slowHighlightMs + estimatedRepeatMs + (shouldRepeatFull ? options.repeatFullPauseMs ?? 350 : 0));
     }
 
-    const url = getCourseAudioUrl({
-      text,
-      mode: options.voiceMode === "feedback" ? "feedback" : "prompt",
-      lang,
-      variant: options.voiceMode || "default",
-    });
+    let url;
+    try {
+      url = getCourseAudioUrl({
+        text,
+        fullText: options.completionFullText,
+        blankText: options.completionBlankText,
+        mode: options.voiceMode === "feedback" ? "feedback" : "prompt",
+        lang,
+        variant: options.voiceMode || "default",
+      });
+    } catch (error) {
+      console.info("Completion prompt audio contract rejected", error);
+      return useFallback();
+    }
 
     playAudioUrl(url, sequenceId)
       .then(() => {
@@ -1531,11 +1555,14 @@ function useSpeech() {
       .catch((error) => {
         console.info("Course audio unavailable, falling back to browser speech", error);
         if (speechSequenceRef.current === sequenceId) {
-          speakWithBrowserVoice(text, options, sequenceId);
+          useFallback();
         }
       });
 
-    return Math.max(900, text.length * 120);
+    const audibleLength = String(text)
+      .replace(/_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/gi, "")
+      .length;
+    return Math.max(900, audibleLength * 120 + (isCompletionPrompt ? 550 : 0));
   }, [
     clearSpeechTimers,
     playAudioUrl,
@@ -2418,10 +2445,25 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     activeLesson.id === "lesson-3-pronunciation" ||
     currentCard?.stage === "Pronunciation Practice" ||
     currentCard?.stage === "Speak";
-  const cardPromptText = currentCard ? currentCard.audio_text ?? currentCard.prompt : "";
+  const authoredCardPromptHasVisualBlank = hasVisualAudioPlaceholder(currentCard?.prompt);
+  const cardPromptText = currentCard
+    ? authoredCardPromptHasVisualBlank && !currentCard.audio_text?.trim()
+      ? currentCard.prompt
+      : currentCard.audio_text ?? currentCard.prompt
+    : "";
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
-  const isRecognitionLesson =
-    activeLesson.unit_id === "unit-1";
+  const cardPromptHasVisualBlank = authoredCardPromptHasVisualBlank
+    || hasVisualAudioPlaceholder(cardPromptText);
+  const cardCorrectOption = currentCard?.options.find(
+    (option) => option.id === currentCard.correct_option_id
+  );
+  const cardCompletionFullText = cardPromptHasVisualBlank
+    ? currentCard?.answer_audio_text || ""
+    : "";
+  const cardCompletionBlankText = cardPromptHasVisualBlank
+    ? cardCorrectOption?.label || ""
+    : "";
+  const isRecognitionLesson = activeLesson.unit_id === "unit-1";
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationCard ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =
@@ -3319,7 +3361,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }, [cardIndex, activeLesson.id]);
 
   useEffect(() => {
-    if (!isRecognitionLesson || isPronunciationCard || !started || isComplete || !currentCard || lastResult !== null) {
+    if (
+      (!isRecognitionLesson && !cardPromptHasVisualBlank)
+      || isPronunciationCard
+      || !started
+      || isComplete
+      || !currentCard
+      || lastResult !== null
+    ) {
       return undefined;
     }
 
@@ -3331,7 +3380,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     const timeoutId = window.setTimeout(() => {
       if (cardPromptText.trim()) {
-        speakText(cardPromptText, { voiceMode: cardPromptVoiceMode });
+        speakText(cardPromptText, {
+          voiceMode: cardPromptVoiceMode,
+          completionFullText: cardCompletionFullText,
+          completionBlankText: cardCompletionBlankText,
+        });
       }
     }, 120);
 
@@ -3341,6 +3394,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     cardIndex,
     cardPromptText,
     cardPromptVoiceMode,
+    cardCompletionBlankText,
+    cardCompletionFullText,
+    cardPromptHasVisualBlank,
     currentCard,
     isComplete,
     isPronunciationCard,
@@ -3380,13 +3436,22 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         });
       }
 
-      const promptAudioText = card.audio_text ?? card.prompt;
+      const hasCompletionBlank = hasVisualAudioPlaceholder(card.prompt)
+        || hasVisualAudioPlaceholder(card.audio_text);
+      const promptAudioText = hasCompletionBlank && !card.audio_text?.trim()
+        ? card.prompt
+        : card.audio_text ?? card.prompt;
+      const correctOption = card.options.find((option) => option.id === card.correct_option_id);
       return card.prompt
         ? [
             {
               text: promptAudioText,
+              fullText: hasCompletionBlank ? card.answer_audio_text : undefined,
+              blankText: hasCompletionBlank ? correctOption?.label : undefined,
               mode: "prompt",
-              variant: String(promptAudioText).trim().toLowerCase() === "what is it?" ? "question" : "prompt",
+              variant: hasCompletionBlank
+                ? "completion-prompt"
+                : String(promptAudioText).trim().toLowerCase() === "what is it?" ? "question" : "prompt",
             },
             ...(card.answer_audio_text
               ? [
@@ -3402,17 +3467,29 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     });
 
     const uniqueAudioItems = Array.from(
-      new Map(audioItems.filter((item) => item.text?.trim()).map((item) => [`${item.mode}|${item.variant}|${item.text}`, item])).values()
+      new Map(audioItems.filter((item) => item.text?.trim()).map((item) => [
+        `${item.mode}|${item.variant}|${item.text}|${item.fullText || ""}|${item.blankText || ""}`,
+        item,
+      ])).values()
     );
 
     uniqueAudioItems.forEach((item) => {
-      const key = `${activeLesson.id}|${item.mode}|${item.variant}|${item.text}`;
+      const key = [
+        activeLesson.id,
+        item.mode,
+        item.variant,
+        item.text,
+        item.fullText || "",
+        item.blankText || "",
+      ].join("|");
       if (preloadedAudioKeysRef.current.has(key)) {
         return;
       }
       preloadedAudioKeysRef.current.add(key);
       preloadCourseAudio({
         text: item.text,
+        fullText: item.fullText,
+        blankText: item.blankText,
         mode: item.mode,
         lang: "en-US",
         variant: item.variant,
@@ -4910,7 +4987,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   isPronunciationCard
                     ? playPronunciationModel(activePronunciationPrompt)
                     : cardPromptText.trim()
-                      ? speakText(cardPromptText, { voiceMode: cardPromptVoiceMode })
+                      ? speakText(cardPromptText, {
+                          voiceMode: cardPromptVoiceMode,
+                          completionFullText: cardCompletionFullText,
+                          completionBlankText: cardCompletionBlankText,
+                        })
                       : undefined
                 }
                 style={{

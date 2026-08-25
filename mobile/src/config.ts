@@ -86,7 +86,48 @@ export function lessonVideoUrl(name: string): string {
 }
 
 export function hasVisualAudioPlaceholder(text: string): boolean {
-  return /_+|\.{3}|…|\{blank\}|\[blank\]/i.test(String(text || ''));
+  return /_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/i.test(String(text || ''));
+}
+
+export function completionPromptAudioUrl(
+  visualPrompt: string,
+  fullText: string,
+  blankText: string,
+  mode = 'prompt',
+  variant = 'completion-prompt',
+  provider: CourseAudioProvider = 'elevenlabs-premium',
+  narrator: CourseAudioVoice = 'female-teacher',
+): string {
+  const visual = String(visualPrompt || '');
+  const completed = String(fullText || '').trim();
+  const answer = String(blankText || '').trim();
+  const placeholders = [...visual.matchAll(/_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/gi)];
+  if (placeholders.length !== 1) {
+    throw new Error('Completion prompt audio requires exactly one visual placeholder.');
+  }
+  if (!completed || !answer || hasVisualAudioPlaceholder(completed) || hasVisualAudioPlaceholder(answer)) {
+    throw new Error('Completion prompt audio requires clean completed and blank text.');
+  }
+
+  const placeholder = placeholders[0];
+  const prefix = visual.slice(0, placeholder.index);
+  const suffix = visual.slice((placeholder.index ?? 0) + placeholder[0].length);
+  if (`${prefix}${answer}${suffix}`.trim() !== completed) {
+    throw new Error('Completion prompt audio must match the full completed sentence exactly.');
+  }
+
+  const query = new URLSearchParams({
+    visual_prompt: visual,
+    full_text: completed,
+    blank_text: answer,
+    mode,
+    lang: 'en-US',
+    variant,
+    profile: COURSE_AUDIO_PROFILE,
+    provider,
+    narrator,
+  });
+  return `${API_BASE_URL}/api/audio/course-completion.mp3?${query.toString()}`;
 }
 
 export function sanitizeCourseAudioText(text: string): string {

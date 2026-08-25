@@ -69,6 +69,9 @@ try {
   & node tests/preview-release-lineage.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la línea canónica de Preview.' }
 
+  & node tests/preview-release-authority.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la autoridad protegida de publicación de Preview.' }
+
   & node tests/video-media-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de video unificado.' }
 

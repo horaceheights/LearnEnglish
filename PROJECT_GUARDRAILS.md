@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-08-23
+Last reviewed: 2026-08-25
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -85,7 +85,7 @@ Every standard lesson follows this visible sequence:
 - Mix related forms instead of batching every `is` item before every `are` item.
 - Include affirmative and negative forms only after each form has been introduced clearly.
 - End with a short completion or mission activity that uses previously learned language.
-- Completion blanks are visual UI only. Do not speak the incomplete sentence before selection: unfinished fragments such as `It is a` can produce elongated vowels or invented trailing sounds even without literal placeholder characters. After the learner answers, speak the entire completed card text exactly as it appears after filling the blank, including any context before the blank; `answer_audio_text` must contain that full completion rather than only the inserted word or trailing clause.
+- Completion blanks are visual UI only. Before selection, speak the visible sentence context with a short silent pause at the blank; after selection, speak the completed answer. To create the prompt audio, synthesize the authored, grammatically complete `answer_audio_text` exactly once with an alignment-capable provider, validate the answer span, and physically replace that span with at least 550 ms of digital silence. Never send underscores, ellipses, blank markers, or incomplete sentence fragments to any TTS provider.
 
 ## 3. New-Word Learning Journey
 
@@ -168,8 +168,8 @@ Do not force every word through every step in a single lesson when that would ma
 
 ## 7. Audio Guardrails
 
-- OpenAI course audio is the primary lesson voice. Browser speech synthesis is fallback only.
-- Use one friendly, clear guide voice unless a card intentionally needs distinct question and answer voices.
+- Course audio uses provider-neutral semantic roles. The approved primary provider is ElevenLabs Premium and the approved ordinary-audio fallback is OpenAI; device or browser speech synthesis is an emergency fallback only. Azure is the pronunciation-assessment provider, not the current lesson-narration provider.
+- Web and mobile must resolve the same semantic role for the same canonical card. Completion prompt audio may use only a provider path that returns validated alignment; it has no browser or fragment fallback.
 - A1 delivery is clear and moderately slow, with understandable word separation, but not unnaturally slow.
 - Pronunciation model audio may emphasize syllables, especially `-ing`, but the listener activates only after playback ends.
 - When new lesson content is added, pre-generate all expected audio and update both the backend cache and static frontend audio manifest before release.
@@ -177,7 +177,8 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not show internal audio-generation or scoring status messages to learners.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
 - Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
-- Every course-audio boundary rejects underscores, ellipses, and blank markers. Completion-card prompt preloading, autoplay, and manual replay must all remain silent; only the entire completed card text may be spoken after selection. Preview verification must enforce the silent prompt path, the remote URL rejection, and preservation of all visible context around the blank.
+- Every ordinary course-audio boundary rejects underscores, ellipses, and blank markers. Completion-card preloading, autoplay, and manual replay use only the dedicated masked-audio path: synthesize the exact full completed sentence once, validate the provider timing for the inserted answer, and replace that interval with at least 550 ms of digital zero samples. Beginning, middle, and ending blanks must follow the same rule.
+- Never synthesize prefix/suffix fragments or send a visual placeholder to a provider or browser voice. Missing, ambiguous, or invalid alignment must return a known valid silent clip. Static audio generation excludes visual-blank prompts from ordinary TTS while retaining complete answer audio, and Preview verification must enforce these boundaries.
 - Course-audio instructions must require the exact requested words once and an immediate stop after the final word. Reject takes with a preface, repeated or missing word, filler sound, or trailing speech.
 - Before release, transcribe every unique new Use-stage prompt and completed answer and compare its normalized words with the intended phrase. Number digits and number words may be treated as equivalent; added or missing words are failures and the take must be regenerated.
 
@@ -265,7 +266,11 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Never publish or promote to Production without explicit user approval after Preview testing.
 - Native dependency, Expo configuration, permission, native module, or app-version changes require a new build rather than an OTA update.
 - Keep generated lesson snapshots, audio manifests, and committed media synchronized with the canonical lesson files.
-- Preview publishes must contain the current canonical `origin/codex/restore-complete-a1-preview` lineage. A feature or media branch may publish only after integrating that line, so a newer OTA cannot silently remove approved units or behavior.
+- The protected remote branch `release/preview` is the sole Preview release authority. Task branches and local worktrees may verify and push changes, but they may never publish directly to the shared Expo channel.
+- Preview publication runs only through the protected GitHub Actions environment. The local publisher fails closed outside that workflow; an unavailable CI credential or workflow is a release blocker, never permission to fall back to a locally authenticated Expo session.
+- A release candidate must be the exact remote head of `release/preview`, descend from the approved complete-course baseline, and preserve the versioned release-integrity manifest. The manifest locks the aggregate course fingerprint, 70 unique lessons, Units 1 through 7, and exactly ten lessons per unit unless a deliberate curriculum release updates those values.
+- Release verification must require the commit label and update UI, run the complete Preview preflight, serialize Preview publications so two jobs cannot race, and verify the live EAS update group against the GitHub commit after publication.
+- Repository guards are defense in depth, not the release authority: a stale checkout can also contain stale scripts. Server-side branch/environment protection and a CI-only Expo token are required to prevent an old checkout from bypassing current repository checks.
 - The Preview publisher injects the current seven-character Git commit into the OTA bundle so the app, Expo, and Vercel identify the same code snapshot.
 
 ## 13. Decision Log
@@ -298,3 +303,5 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Portrait image-choice stacks standardized on height-aware uniform scaling so wrong-answer encouragement and teaching hints remain above Android navigation without changing the 3:2 media frame.
 - 2026-08-24: Exactly two-choice action-video cards standardized on dedicated first-visible-frame 3:2 posters and reviewed two-card-only video variants; one-, three-, and four-choice media remain unchanged.
 - 2026-08-24: Full-bleed A1 imagery expanded from option cards to every learner-facing course surface across all 70 lessons, seven units, five stages, prompt/choice/model/poster roles, and unit/lesson thumbnails; automated QA inventories each role and requires zero course images to depend on padded `contain` rendering.
+- 2026-08-25: After a newer OTA from a stale divergent branch replaced the complete seven-unit Preview with an older 20-lesson tree, Preview publication moved to the protected `release/preview` authority. CI now owns publishing, exact course topology and fingerprints are release invariants, and local or task-branch publication is prohibited.
+- 2026-08-25: Completion prompts resumed upfront speech using deterministic full-sentence masking. The system synthesizes `answer_audio_text` once, replaces only the timing-aligned answer span with at least 550 ms of digital silence, and fails to a known silent clip when alignment is unavailable; fragment synthesis, placeholder sanitization into spoken punctuation, and browser fallback are prohibited.

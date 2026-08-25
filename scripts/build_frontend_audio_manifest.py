@@ -42,6 +42,47 @@ FEEDBACK_PHRASES = [
     "Excellent",
     "Try again",
 ]
+VISUAL_COMPLETION_PLACEHOLDER_PATTERN = re.compile(
+    r"(?:_+|\[\s*(?:blank|pause)\s*\]|\{\s*blank\s*\}|\.{3,}|…)",
+    flags=re.IGNORECASE,
+)
+
+
+def has_visual_completion_placeholder(text: str | None) -> bool:
+    return bool(VISUAL_COMPLETION_PLACEHOLDER_PATTERN.search(str(text or "")))
+
+
+def without_visual_placeholder_entries(
+    manifest: dict[str, str],
+) -> tuple[dict[str, str], set[str], int]:
+    retained: dict[str, str] = {}
+    removed_audio_names: set[str] = set()
+    removed_entries = 0
+    for key, audio_name in manifest.items():
+        spoken_text = str(key).split("\n", 1)[0]
+        if has_visual_completion_placeholder(spoken_text):
+            removed_entries += 1
+            if isinstance(audio_name, str):
+                removed_audio_names.add(audio_name)
+            continue
+        retained[key] = audio_name
+
+    removed_audio_names -= {
+        audio_name for audio_name in retained.values() if isinstance(audio_name, str)
+    }
+    return retained, removed_audio_names, removed_entries
+
+
+def prune_unreferenced_audio_files(frontend_cache: Path, audio_names: set[str]) -> int:
+    removed_files = 0
+    for audio_name in audio_names:
+        if Path(audio_name).name != audio_name or not audio_name.lower().endswith(".mp3"):
+            continue
+        audio_path = frontend_cache / audio_name
+        if audio_path.is_file():
+            audio_path.unlink()
+            removed_files += 1
+    return removed_files
 
 
 def pronunciation_prompt_from_option(option_id: str) -> str:
@@ -83,14 +124,22 @@ def expected_audio_items(lessons=None) -> set[tuple[str, str, str, str]]:
                         items.add((word, "pronunciation_slow", "en-US", "split-ing"))
                 continue
 
-            prompt = sanitize_course_audio_text(
-                card.audio_text if card.audio_text is not None else card.prompt
-            )
-            if prompt and prompt.strip():
-                variant = "question" if prompt.strip().lower() == "what is it?" else "prompt"
-                items.add((prompt, "prompt", "en-US", variant))
+            raw_prompt = card.audio_text if card.audio_text is not None else card.prompt
+            is_completion_prompt = has_visual_completion_placeholder(
+                card.prompt
+            ) or has_visual_completion_placeholder(raw_prompt)
+            if not is_completion_prompt:
+                prompt = sanitize_course_audio_text(raw_prompt)
+                if prompt and prompt.strip():
+                    variant = "question" if prompt.strip().lower() == "what is it?" else "prompt"
+                    items.add((prompt, "prompt", "en-US", variant))
             if card.answer_audio_text:
-                items.add((sanitize_course_audio_text(card.answer_audio_text), "prompt", "en-US", "answer"))
+                answer = sanitize_course_audio_text(card.answer_audio_text)
+                if has_visual_completion_placeholder(answer):
+                    raise ValueError(
+                        f"Completed answer audio still contains a visual placeholder: {answer!r}"
+                    )
+                items.add((answer, "prompt", "en-US", "answer"))
 
     for phrase in FEEDBACK_PHRASES:
         items.add((phrase, "feedback", "en-US", "feedback"))
@@ -122,7 +171,12 @@ def main(lesson_ids: set[str] | None = None) -> int:
     else:
         existing_manifest = {}
 
-    manifest: dict[str, str] = dict(existing_manifest) if lesson_ids else {}
+    (
+        retained_existing_manifest,
+        prunable_placeholder_audio,
+        pruned_placeholder_entries,
+    ) = without_visual_placeholder_entries(existing_manifest)
+    manifest: dict[str, str] = dict(retained_existing_manifest) if lesson_ids else {}
     audio_sources: dict[str, Path] = {}
     missing: list[dict[str, str]] = []
 
@@ -161,6 +215,7 @@ def main(lesson_ids: set[str] | None = None) -> int:
 
     # Never replace a known-good static bundle with an incomplete one. This can
     # happen after an audio-profile change before the new cache is generated.
+    pruned_placeholder_files = 0
     if not missing:
         frontend_cache.mkdir(parents=True, exist_ok=True)
         for audio_name, audio_path in audio_sources.items():
@@ -168,19 +223,35 @@ def main(lesson_ids: set[str] | None = None) -> int:
             if not destination.exists() or destination.stat().st_size != audio_path.stat().st_size:
                 shutil.copy2(audio_path, destination)
 
+        manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        pruned_placeholder_files = prune_unreferenced_audio_files(
+            frontend_cache,
+            prunable_placeholder_audio - set(manifest.values()),
+        )
         if not lesson_ids:
             referenced_files = set(manifest.values())
             for audio_file in frontend_cache.glob("*.mp3"):
                 if audio_file.name not in referenced_files:
                     audio_file.unlink()
-
-        manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    elif pruned_placeholder_entries:
+        # Missing unrelated clips must not preserve forbidden placeholder TTS.
+        # Keep every other known-good entry and delete only newly orphaned MP3s.
+        manifest_path.write_text(
+            json.dumps(retained_existing_manifest, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        pruned_placeholder_files = prune_unreferenced_audio_files(
+            frontend_cache,
+            prunable_placeholder_audio,
+        )
     print(
         json.dumps(
             {
                 "scope": sorted(lesson_ids) if lesson_ids else "all-lessons",
-                "manifest_entries": len(manifest),
+                "manifest_entries": len(manifest if not missing else retained_existing_manifest),
                 "static_files": len(list(frontend_cache.glob("*.mp3"))),
+                "pruned_placeholder_entries": pruned_placeholder_entries,
+                "pruned_placeholder_files": pruned_placeholder_files,
                 "missing_expected": len(missing),
                 "missing": missing,
             },

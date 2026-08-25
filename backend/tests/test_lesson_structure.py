@@ -347,15 +347,22 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.answer_audio_text for card in cards))
                 self.assertTrue(all(all(not option.image_url and option.label for option in card.options) for card in cards))
 
-    def test_visual_blanks_are_never_sent_raw_to_course_audio(self):
+    def test_shared_course_audio_boundary_rejects_visual_blanks(self):
         from backend.app.course_audio import sanitize_course_audio_text
 
-        examples = ["It is a ___.", "___ is a school.", "What ___ it?", "I [pause] agree."]
+        examples = [
+            "It is a ___.",
+            "___ is a school.",
+            "What ___ it?",
+            "I [pause] agree.",
+            "I [blank] agree.",
+            "It is a {blank}.",
+            "It is a ...",
+            "It is a …",
+        ]
         for example in examples:
-            sanitized = sanitize_course_audio_text(example)
-            with self.subTest(example=example):
-                self.assertNotIn("_", sanitized)
-                self.assertNotIn("[pause]", sanitized.lower())
+            with self.subTest(example=example), self.assertRaises(ValueError):
+                sanitize_course_audio_text(example)
 
     def test_learn_starts_with_clear_single_visual_anchors(self):
         for lesson in list(LESSONS.values())[:8]:

@@ -9,10 +9,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BACKEND_DIR = ROOT / "backend"
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(BACKEND_DIR))
 
 from app.course_audio import sanitize_course_audio_text  # noqa: E402
 from app.data import LESSONS  # noqa: E402
+from scripts.build_frontend_audio_manifest import (  # noqa: E402
+    has_visual_completion_placeholder,
+)
 
 
 def normalized_words(text: str) -> list[str]:
@@ -46,11 +50,15 @@ def selected_use_audio(lesson_ids: set[str] | None) -> list[tuple[str, str, str]
         for card in lesson.cards:
             if card.stage != "Use":
                 continue
-            prompt = sanitize_course_audio_text(
-                card.audio_text if card.audio_text is not None else card.prompt
-            )
-            prompt_variant = "question" if prompt.lower() == "what is it?" else "prompt"
-            candidates = [(prompt, prompt_variant, f"{lesson.id} Use prompt")]
+            raw_prompt = card.audio_text if card.audio_text is not None else card.prompt
+            is_completion_prompt = has_visual_completion_placeholder(
+                card.prompt
+            ) or has_visual_completion_placeholder(raw_prompt)
+            candidates = []
+            if not is_completion_prompt:
+                prompt = sanitize_course_audio_text(raw_prompt)
+                prompt_variant = "question" if prompt.lower() == "what is it?" else "prompt"
+                candidates.append((prompt, prompt_variant, f"{lesson.id} Use prompt"))
             if card.answer_audio_text:
                 candidates.append(
                     (
@@ -103,7 +111,7 @@ def main() -> int:
     failures = []
     checked = []
     for text, variant, source in items:
-        if "_" in text:
+        if has_visual_completion_placeholder(text):
             failures.append({"source": source, "expected": text, "error": "literal placeholder"})
             continue
         manifest_key = "\n".join([text, "prompt", "en-US", variant])

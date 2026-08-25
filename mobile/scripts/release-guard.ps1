@@ -40,19 +40,43 @@ function Assert-CleanReleaseCommit {
 
 function Assert-PreviewReleaseLineage {
   $repositoryRoot = Get-ReleaseRepositoryRoot
-  $canonicalBranch = 'origin/codex/restore-complete-a1-preview'
+  $authorityBranch = 'origin/release/preview'
 
-  & git -C $repositoryRoot rev-parse --verify --quiet $canonicalBranch | Out-Null
+  & git -C $repositoryRoot rev-parse --verify --quiet $authorityBranch | Out-Null
   if ($LASTEXITCODE -ne 0) {
-    throw "No se encontró la línea canónica de Preview ($canonicalBranch). Ejecuta git fetch origin antes de publicar."
+    throw "No se encontró la autoridad de Preview ($authorityBranch). Ejecuta git fetch origin release/preview antes de publicar."
   }
 
-  & git -C $repositoryRoot merge-base --is-ancestor $canonicalBranch HEAD
-  if ($LASTEXITCODE -ne 0) {
-    throw "Publicación bloqueada: este commit no contiene la línea canónica de Preview ($canonicalBranch). Integra primero la versión Preview más reciente para no perder funciones ni unidades."
+  $headCommit = (& git -C $repositoryRoot rev-parse HEAD).Trim()
+  if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($headCommit)) {
+    throw 'No se pudo identificar el commit que se intenta publicar.'
   }
 
-  Write-Host "Línea canónica de Preview verificada: $canonicalBranch" -ForegroundColor Green
+  $authorityCommit = (& git -C $repositoryRoot rev-parse $authorityBranch).Trim()
+  if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($authorityCommit)) {
+    throw "No se pudo identificar el commit autorizado en $authorityBranch."
+  }
+
+  if ($headCommit -ne $authorityCommit) {
+    throw "Publicación bloqueada: HEAD ($($headCommit.Substring(0, 7))) debe ser exactamente el commit autorizado por $authorityBranch ($($authorityCommit.Substring(0, 7))). Integra y verifica el cambio, después actualiza la rama dedicada release/preview antes de publicar."
+  }
+
+  Assert-PreviewReleaseIntegrity
+  Write-Host "Autoridad de Preview verificada: $authorityBranch en $($headCommit.Substring(0, 7))" -ForegroundColor Green
+}
+
+function Assert-PreviewReleaseIntegrity {
+  $repositoryRoot = Get-ReleaseRepositoryRoot
+  $integrityVerifier = Join-Path $repositoryRoot 'mobile\scripts\verify-release-integrity.cjs'
+
+  if (-not (Test-Path -LiteralPath $integrityVerifier)) {
+    throw "Publicación bloqueada: falta el verificador de integridad ($integrityVerifier)."
+  }
+
+  & node $integrityVerifier --repository-root $repositoryRoot
+  if ($LASTEXITCODE -ne 0) {
+    throw 'Publicación bloqueada: el contenido de Preview no coincide con el manifiesto versionado de integridad.'
+  }
 }
 
 function Invoke-CheckedCommand {

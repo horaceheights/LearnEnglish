@@ -5,7 +5,7 @@ SpanGlish tiene dos destinos de actualización:
 - **Preview:** solamente Horace. Aquí se prueba cada cambio primero.
 - **Production:** testers internos. No recibe cambios hasta que Preview sea aprobado.
 
-Un push a GitHub no publica una actualización móvil. La publicación ocurre solamente mediante los comandos descritos aquí.
+Un push a una rama de trabajo no publica una actualización móvil. Preview se publica únicamente desde la rama protegida `release/preview`, mediante GitHub Actions y su ambiente protegido `preview-release`.
 
 ## Configuración inicial por teléfono
 
@@ -25,9 +25,9 @@ Comparte el enlace de instalación de Preview únicamente con la persona que apr
 
 ### 1. Guardar el cambio
 
-El cambio debe estar en un commit y respaldado en GitHub. El comando se detendrá si encuentra archivos sin commit o un commit que todavía no se ha subido.
+El cambio debe estar en un commit y respaldado en GitHub. Nunca se publica desde la rama de la tarea ni desde un worktree local.
 
-Preview también usa una sola línea canónica: `origin/codex/restore-complete-a1-preview`. Antes de publicar desde otra rama, integra primero la versión más reciente de esa línea. El guard de publicación bloquea ramas divergentes para impedir que una actualización nueva quite unidades o funciones ya aprobadas.
+Preview usa una sola autoridad canónica: `origin/release/preview`. La rama aprobada debe contener la versión vigente antes de recibir un cambio. Los controles comprueban que el candidato sea exactamente el head remoto de esa rama, conserve el curso completo de 70 lecciones y siete unidades de diez, mantenga la identidad del commit y coincida con el manifiesto de integridad versionado.
 
 El publicador inserta automáticamente el commit corto de siete caracteres en la actualización. Ese mismo commit aparece junto a la versión en `Actualizar` y en la confirmación posterior; debe coincidir con las columnas `Commit` de Expo y Vercel.
 
@@ -40,21 +40,26 @@ npm run verify:preview
 
 Este comando valida las tarjetas y sus archivos multimedia, comprueba TypeScript y exporta el bundle Android de producción en un directorio temporal.
 
-### 2. Publicar solamente en Preview
+### 2. Integrar en la rama protegida
 
-```powershell
-cd mobile
-npm run release:preview -- -Message "Descripción breve del cambio"
-```
+Abre un pull request hacia `release/preview`. El check **Preview release integrity** debe terminar correctamente antes de integrar. No hagas force-push ni elimines la rama protegida.
 
-Este comando:
+### 3. Publicar solamente en Preview
 
-1. Comprueba que Git esté limpio y respaldado en GitHub.
-2. Ejecuta el preflight completo de contenido, TypeScript y bundle Android.
-3. Publica en el canal `preview`.
-4. No modifica `production`.
+En GitHub Actions, ejecuta **Publish SpanGlish Preview** desde `release/preview`. El workflow no acepta otra rama y usa el secreto `EXPO_TOKEN` del ambiente protegido `preview-release`.
 
-### 3. Probar en el teléfono
+El workflow:
+
+1. Comprueba que el commit sea exactamente el head remoto de `release/preview`.
+2. Valida la línea canónica, el manifiesto de integridad, 70 lecciones, siete unidades de diez y la identidad visible del commit.
+3. Ejecuta el preflight completo de contenido, TypeScript y bundle Android.
+4. Publica en el canal `preview` sin permitir dos publicaciones simultáneas.
+5. Consulta Expo después de publicar y comprueba que el update corresponda al mismo commit.
+6. No modifica `production`.
+
+`npm run release:preview`, `eas update` y `npx eas-cli update` están prohibidos como publicación local. Si GitHub Actions o su secreto no están disponibles, la publicación queda bloqueada; no se usa la sesión local de Expo como atajo.
+
+### 4. Probar en el teléfono
 
 En **SpanGlish Preview**:
 
@@ -63,7 +68,7 @@ En **SpanGlish Preview**:
 3. Prueba el cambio y las funciones esenciales.
 4. Copia el `Group ID` que mostró Expo al publicar.
 
-### 4. Aprobar para los testers
+### 5. Aprobar para los testers
 
 Solamente después de aprobar Preview:
 
@@ -89,6 +94,8 @@ En ese caso, incrementa la versión de la app y crea el build de Preview antes d
 ## Si un cambio falla
 
 No lo promociones. Corrige el problema y publica otro Preview. Si un problema ya llegó a Production, usa el panel de Expo o `eas update:rollback` para regresar al update anterior.
+
+Si Preview muestra menos de siete unidades, no muestra el commit o apunta a un commit distinto al workflow, detén las pruebas. No intentes corregirlo publicando desde otra rama: restaura el último grupo aprobado mediante el flujo protegido y registra el incidente.
 
 ## Limitación actual del backend
 

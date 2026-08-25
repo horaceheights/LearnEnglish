@@ -23,6 +23,10 @@ ADULT_ROLE_IDS = {
 }
 GRAMMAR_STAGES = {"Grammar", "New Grammar"}
 PRONUNCIATION_STAGES = {"Pronunciation Practice", "Speak"}
+VISUAL_COMPLETION_PLACEHOLDER_PATTERN = re.compile(
+    r"(?:_+|\[\s*(?:blank|pause)\s*\]|\{\s*blank\s*\}|\.{3,}|…)",
+    flags=re.IGNORECASE,
+)
 NEGATIVE_VISUAL_CONTRACTS = {
     "they are not sitting.": {"they_boy_girl_are_running.webp"},
 }
@@ -175,21 +179,40 @@ def validate_interaction_requirements() -> list[str]:
                 errors.append(f"{location} is a Listen card without model audio text.")
 
             if card.stage in GRAMMAR_STAGES:
-                if not re.search(r"_+|\[\s*blank\s*\]", card.prompt, flags=re.IGNORECASE):
+                if not VISUAL_COMPLETION_PLACEHOLDER_PATTERN.search(card.prompt):
                     errors.append(f"{location} is a grammar card without a sentence blank.")
                 if any(not (option.label or "").strip() for option in card.options):
                     errors.append(f"{location} is a grammar card with an unlabeled word choice.")
 
             if card.stage == "Use":
                 completion = card.interaction_type is None or str(card.interaction_type).startswith("complete")
-                if completion and not re.search(
-                    r"_+|\[\s*blank\s*\]", card.prompt, flags=re.IGNORECASE
-                ):
-                    errors.append(f"{location} is a completion card without a visual sentence blank.")
+                placeholders = list(VISUAL_COMPLETION_PLACEHOLDER_PATTERN.finditer(card.prompt))
+                if completion and len(placeholders) != 1:
+                    errors.append(
+                        f"{location} must contain exactly one visual sentence blank; "
+                        f"found {len(placeholders)}."
+                    )
                 if any(not (option.label or "").strip() for option in card.options):
                     errors.append(f"{location} is an interactive Use card with an unlabeled choice.")
                 if not (card.answer_audio_text or "").strip():
                     errors.append(f"{location} is an interactive Use card without completed-answer audio.")
+                if completion and len(placeholders) == 1:
+                    correct_option = next(
+                        (option for option in card.options if option.id == card.correct_option_id),
+                        None,
+                    )
+                    if correct_option and (correct_option.label or "").strip():
+                        placeholder = placeholders[0]
+                        completed = (
+                            card.prompt[:placeholder.start()]
+                            + correct_option.label
+                            + card.prompt[placeholder.end():]
+                        )
+                        if card.answer_audio_text != completed:
+                            errors.append(
+                                f"{location} answer_audio_text must exactly equal the full sentence "
+                                "with the correct answer inserted."
+                            )
 
             if card.stage in PRONUNCIATION_STAGES and not (
                 (card.audio_text or "").strip() or (card.prompt or "").strip()

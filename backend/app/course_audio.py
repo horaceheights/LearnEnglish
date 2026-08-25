@@ -1,9 +1,11 @@
 import hashlib
 import os
 import re
+import base64
 from pathlib import Path
 import asyncio
 from array import array
+from dataclasses import dataclass
 from fractions import Fraction
 from io import BytesIO
 import math
@@ -15,7 +17,7 @@ from xml.sax.saxutils import escape as xml_escape
 import av
 import httpx
 from fastapi import HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
@@ -31,8 +33,15 @@ SUPPORTED_FORMATS = {
 }
 _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
+_silent_completion_audio: bytes | None = None
 AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v14"
-PLACEHOLDER_AUDIO_PROFILE_VERSION = "stitched-silent-pause-v1"
+COMPLETION_PROMPT_AUDIO_PROFILE_VERSION = "full-sentence-answer-mask-v1"
+COMPLETION_PLACEHOLDER_PATTERN = re.compile(
+    r"(?:_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\])",
+    flags=re.IGNORECASE,
+)
+COMPLETION_PLACEHOLDER_SILENCE_SECONDS = 0.55
+COMPLETION_TRAILING_SILENCE_SECONDS = 0.28
 DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 # Nichalia Schwartz is a professional American teacher/e-learning voice from
 # the ElevenLabs Voice Library. Paid plans can use Voice Library voices by ID.
@@ -56,6 +65,16 @@ MAX_TEMPO_SPEEDUP = 1.60
 MAX_PITCH_SHIFT = 1.12
 ELEVENLABS_PREMIUM_PROMPT_SPEED = 0.70
 ELEVENLABS_PREMIUM_PRONUNCIATION_SPEED = 0.70
+
+
+@dataclass(frozen=True)
+class CompletionPromptContract:
+    prefix: str
+    blank_text: str
+    suffix: str
+    answer_start: int
+    answer_end: int
+    ending_blank: bool
 
 # The first course deliberately uses a small vocabulary. Keeping its irregular
 # syllable counts explicit makes pacing deterministic instead of treating
@@ -620,12 +639,6 @@ def audio_instructions(text: str, mode: str, lang: str, variant: str) -> str:
     pace = target_syllables_per_minute(text, mode, variant)
     target_seconds = target_active_seconds(text, mode, variant)
     word_notes = pronunciation_notes(text)
-    placeholder_direction = (
-        "At every ellipsis, pause silently for about half a second. Never say dot, ellipsis, blank, "
-        "underscore, or make a filler sound. "
-        if "..." in text
-        else ""
-    )
     voice_reference = (
         "Always use the same teacher persona and sound like every clip was recorded in one studio session: "
         "a calm adult female teacher with a warm but neutral tone, steady medium pitch, and restrained pitch "
@@ -633,7 +646,7 @@ def audio_instructions(text: str, mode: str, lang: str, variant: str) -> str:
         "Avoid sounding unusually bright, deep, breathy, theatrical, excited, sing-song, or conversational. "
     )
     shared = (
-        voice_reference + placeholder_direction +
+        voice_reference +
         "Speak only the requested words, exactly once. Stop immediately after the final requested word. "
         "Never add a preface, repeated word, filler vocalization, explanation, or closing sound. "
         f"The spoken words themselves should last about {target_seconds:.1f} seconds, excluding silence. "
@@ -893,6 +906,135 @@ def _encode_mp3(samples: array) -> bytes:
     return output.getvalue()
 
 
+def _validated_elevenlabs_alignment(
+    payload: object,
+    full_text: str,
+) -> tuple[bytes, tuple[float, ...], tuple[float, ...]]:
+    """Extract only an exact, finite, monotonic character alignment."""
+    if not isinstance(payload, dict):
+        raise ValueError("ElevenLabs timestamp response must be an object.")
+    encoded_audio = payload.get("audio_base64")
+    alignment = payload.get("alignment")
+    if not isinstance(encoded_audio, str) or not encoded_audio:
+        raise ValueError("ElevenLabs timestamp response is missing audio.")
+    if not isinstance(alignment, dict):
+        raise ValueError("ElevenLabs timestamp response is missing alignment.")
+
+    characters = alignment.get("characters")
+    starts = alignment.get("character_start_times_seconds")
+    ends = alignment.get("character_end_times_seconds")
+    if not isinstance(characters, list) or not isinstance(starts, list) or not isinstance(ends, list):
+        raise ValueError("ElevenLabs character alignment is incomplete.")
+    if len(characters) != len(full_text) or len(starts) != len(characters) or len(ends) != len(characters):
+        raise ValueError("ElevenLabs character alignment has the wrong length.")
+    if any(not isinstance(character, str) or len(character) != 1 for character in characters):
+        raise ValueError("ElevenLabs character alignment contains an invalid character.")
+    if "".join(characters) != full_text:
+        raise ValueError("ElevenLabs character alignment does not exactly match full_text.")
+
+    checked_starts: list[float] = []
+    checked_ends: list[float] = []
+    previous_start = -1.0
+    previous_end = -1.0
+    for raw_start, raw_end in zip(starts, ends):
+        if (
+            isinstance(raw_start, bool)
+            or isinstance(raw_end, bool)
+            or not isinstance(raw_start, (int, float))
+            or not isinstance(raw_end, (int, float))
+        ):
+            raise ValueError("ElevenLabs character alignment contains a nonnumeric time.")
+        start = float(raw_start)
+        end = float(raw_end)
+        if not math.isfinite(start) or not math.isfinite(end) or start < 0 or end < start:
+            raise ValueError("ElevenLabs character alignment contains an invalid time.")
+        if start < previous_start or end < previous_end:
+            raise ValueError("ElevenLabs character alignment is not monotonic.")
+        checked_starts.append(start)
+        checked_ends.append(end)
+        previous_start = start
+        previous_end = end
+
+    try:
+        audio_bytes = base64.b64decode(encoded_audio, validate=True)
+    except (ValueError, TypeError) as error:
+        raise ValueError("ElevenLabs timestamp response contains invalid audio.") from error
+    if not audio_bytes:
+        raise ValueError("ElevenLabs timestamp response contains empty audio.")
+    return audio_bytes, tuple(checked_starts), tuple(checked_ends)
+
+
+def mask_completion_answer_samples(
+    samples: array,
+    character_start_times: tuple[float, ...],
+    character_end_times: tuple[float, ...],
+    answer_start: int,
+    answer_end: int,
+    *,
+    ending_blank: bool,
+) -> array:
+    """Physically remove the spoken answer and replace it with digital zeroes."""
+    if not samples:
+        raise ValueError("Completion prompt audio contains no decoded samples.")
+    if (
+        len(character_start_times) != len(character_end_times)
+        or answer_start < 0
+        or answer_start >= answer_end
+        or answer_end > len(character_start_times)
+    ):
+        raise ValueError("Completion answer alignment bounds are invalid.")
+
+    target_start_seconds = character_start_times[answer_start]
+    target_end_seconds = character_end_times[answer_end - 1]
+    audio_seconds = len(samples) / NORMALIZATION_SAMPLE_RATE
+    if (
+        target_start_seconds < 0
+        or target_end_seconds <= target_start_seconds
+        or character_end_times[-1] > audio_seconds + 0.05
+    ):
+        raise ValueError("Completion answer alignment is outside the decoded audio.")
+
+    mask_start = max(
+        0,
+        min(len(samples), math.floor(target_start_seconds * NORMALIZATION_SAMPLE_RATE)),
+    )
+    mask_end = max(
+        mask_start + 1,
+        min(len(samples), math.ceil(target_end_seconds * NORMALIZATION_SAMPLE_RATE)),
+    )
+    aligned_audio_end = max(
+        mask_end,
+        min(
+            len(samples),
+            math.ceil(character_end_times[-1] * NORMALIZATION_SAMPLE_RATE),
+        ),
+    )
+    pause_samples = max(
+        mask_end - mask_start,
+        round(COMPLETION_PLACEHOLDER_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE),
+    )
+    masked = array("h", samples[:mask_start])
+    masked.extend(array("h", [0]) * pause_samples)
+    if ending_blank:
+        # Never retain anything after a final answer. This removes provider
+        # filler, repetitions, or vocal tails even when its alignment omitted
+        # those sounds.
+        masked.extend(
+            array("h", [0])
+            * round(COMPLETION_TRAILING_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE)
+        )
+    else:
+        # Keep only the aligned suffix. Any provider sound after the final
+        # aligned character is untrusted (filler, repetition, or a vocal tail)
+        # and is replaced with deterministic silence.
+        masked.extend(samples[mask_end:aligned_audio_end])
+        masked.extend(
+            array("h", [0])
+            * round(COMPLETION_TRAILING_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE)
+        )
+    return masked
+
+
 def normalize_course_audio(
     audio_bytes: bytes,
     text: str,
@@ -936,25 +1078,93 @@ def voice_for_variant(variant: str) -> str:
 
 
 def cache_path_for(text: str, mode: str, lang: str, variant: str, model: str, voice: str, output_format: str) -> Path:
-    profile = (
-        f"{AUDIO_PROFILE_VERSION}:{PLACEHOLDER_AUDIO_PROFILE_VERSION}"
-        if "..." in text
-        else AUDIO_PROFILE_VERSION
+    key = "\n".join(
+        [AUDIO_PROFILE_VERSION, text, mode, lang, variant, model, voice, output_format]
     )
-    key = "\n".join([profile, text, mode, lang, variant, model, voice, output_format])
     digest = hashlib.sha256(key.encode("utf-8")).hexdigest()
     return CACHE_DIR / f"{digest}.{output_format}"
 
 
-def sanitize_course_audio_text(text: str) -> str:
-    """Turn visual answer blanks into a silent spoken pause before TTS."""
-    with_pauses = re.sub(
-        r"\s*(?:_+|\[\s*(?:pause|blank)\s*\])\s*[.,!?]?",
-        " ... ",
-        str(text or "").strip(),
-        flags=re.IGNORECASE,
+def completion_prompt_contract(
+    visual_prompt: str,
+    full_text: str,
+    blank_text: str,
+) -> CompletionPromptContract:
+    """Validate and locate one visual completion blank inside its full answer.
+
+    This contract is intentionally exact. The server must never guess which
+    occurrence of a word to mute or normalize learner-facing punctuation.
+    """
+    prompt = str(visual_prompt or "")
+    completed = str(full_text or "")
+    answer = str(blank_text or "")
+    if not prompt or not completed or not answer:
+        raise ValueError("visual_prompt, full_text, and blank_text are required.")
+    if max(len(prompt), len(completed), len(answer)) > 500:
+        raise ValueError("Completion prompt audio text is too long.")
+    placeholders = list(COMPLETION_PLACEHOLDER_PATTERN.finditer(prompt))
+    if len(placeholders) != 1:
+        raise ValueError("visual_prompt must contain exactly one completion placeholder.")
+    if COMPLETION_PLACEHOLDER_PATTERN.search(completed) or COMPLETION_PLACEHOLDER_PATTERN.search(answer):
+        raise ValueError("Completed and blank text cannot contain a visual placeholder.")
+
+    placeholder = placeholders[0]
+    prefix = prompt[:placeholder.start()]
+    suffix = prompt[placeholder.end():]
+    if f"{prefix}{answer}{suffix}" != completed:
+        raise ValueError("full_text must exactly equal visual_prompt with blank_text inserted.")
+
+    answer_start = len(prefix)
+    answer_end = answer_start + len(answer)
+    return CompletionPromptContract(
+        prefix=prefix,
+        blank_text=answer,
+        suffix=suffix,
+        answer_start=answer_start,
+        answer_end=answer_end,
+        ending_blank=not bool(re.search(r"[A-Za-z0-9']", suffix)),
     )
-    return re.sub(r"\s+", " ", with_pauses).strip()
+
+
+def completion_prompt_cache_path(
+    visual_prompt: str,
+    full_text: str,
+    blank_text: str,
+    mode: str,
+    lang: str,
+    variant: str,
+    provider: str,
+    model: str,
+    voice: str,
+) -> Path:
+    key = "\n".join(
+        [
+            AUDIO_PROFILE_VERSION,
+            COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
+            visual_prompt,
+            full_text,
+            blank_text,
+            mode,
+            lang,
+            variant,
+            provider,
+            model,
+            voice,
+            "mp3",
+        ]
+    )
+    digest = hashlib.sha256(key.encode("utf-8")).hexdigest()
+    return CACHE_DIR / f"{digest}.mp3"
+
+
+def sanitize_course_audio_text(text: str) -> str:
+    """Normalize clean course text and reject every visual placeholder."""
+    cleaned_text = re.sub(r"\s+", " ", str(text or "").strip())
+    if COMPLETION_PLACEHOLDER_PATTERN.search(cleaned_text):
+        raise ValueError(
+            "Visual completion placeholders cannot cross the course-audio text boundary."
+        )
+    return cleaned_text
 
 
 def audio_file_response(audio_path: Path, media_type: str, provider: str) -> FileResponse:
@@ -966,6 +1176,41 @@ def audio_file_response(audio_path: Path, media_type: str, provider: str) -> Fil
             "Cache-Control": "public, max-age=31536000, immutable",
             "X-Audio-Profile": AUDIO_PROFILE_VERSION,
             "X-Audio-Provider": provider,
+        },
+    )
+
+
+def completion_audio_file_response(audio_path: Path, provider: str) -> FileResponse:
+    return FileResponse(
+        audio_path,
+        media_type="audio/mpeg",
+        filename=audio_path.name,
+        headers={
+            "Cache-Control": "public, max-age=31536000, immutable",
+            "X-Audio-Profile": COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
+            "X-Audio-Provider": provider,
+        },
+    )
+
+
+def silent_completion_audio_response(reason: str) -> Response:
+    global _silent_completion_audio
+    if _silent_completion_audio is None:
+        silent_samples = array("h", [0]) * round(
+            NORMALIZATION_SAMPLE_RATE
+            * (COMPLETION_PLACEHOLDER_SILENCE_SECONDS + COMPLETION_TRAILING_SILENCE_SECONDS)
+        )
+        _silent_completion_audio = _encode_mp3(silent_samples)
+    return Response(
+        content=_silent_completion_audio,
+        media_type="audio/mpeg",
+        headers={
+            # A temporary provider or alignment failure must be retried rather
+            # than cached forever as the successful clip.
+            "Cache-Control": "no-store",
+            "X-Audio-Profile": COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
+            "X-Audio-Fail-Silent": "true",
+            "X-Audio-Fail-Silent-Reason": reason,
         },
     )
 
@@ -1077,6 +1322,55 @@ async def _generate_elevenlabs_audio(
             detail=f"ElevenLabs audio request failed with status {response.status_code}.{suffix}",
         )
     return response.content
+
+
+async def _generate_elevenlabs_aligned_audio(
+    client: httpx.AsyncClient,
+    full_text: str,
+    model: str,
+    voice: str,
+    *,
+    premium: bool,
+    mode: str,
+) -> tuple[bytes, tuple[float, ...], tuple[float, ...]]:
+    """Synthesize one complete sentence and return its exact character timing."""
+    api_key = elevenlabs_api_key()
+    if not api_key:
+        raise HTTPException(status_code=503, detail="ElevenLabs course audio is not configured.")
+    voice_settings = {
+        "stability": 0.55 if premium else 0.85,
+        "similarity_boost": 0.80 if premium else 0.78,
+        "style": 0.0,
+        "use_speaker_boost": True,
+        "speed": (
+            ELEVENLABS_PREMIUM_PRONUNCIATION_SPEED
+            if premium and mode == "pronunciation_slow"
+            else ELEVENLABS_PREMIUM_PROMPT_SPEED if premium else 1.0
+        ),
+    }
+    response = await client.post(
+        f"{ELEVENLABS_SPEECH_URL}/{voice}/with-timestamps",
+        params={"output_format": "mp3_44100_128"},
+        json={
+            # Never send visual_prompt, underscores, blank markers, ellipses,
+            # or an acoustically unfinished fragment to the provider.
+            "text": full_text,
+            "model_id": model,
+            "seed": 1101,
+            "voice_settings": voice_settings,
+        },
+        headers={
+            "xi-api-key": api_key,
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+    )
+    if response.status_code >= 400:
+        raise HTTPException(
+            status_code=502,
+            detail=f"ElevenLabs aligned audio request failed with status {response.status_code}.",
+        )
+    return _validated_elevenlabs_alignment(response.json(), full_text)
 
 
 async def _generate_azure_audio(
@@ -1200,55 +1494,92 @@ async def _provider_audio(
     return audio_file_response(audio_path, media_type, provider)
 
 
-async def _provider_audio_with_silent_pauses(
-    text: str,
-    mode: str,
-    lang: str,
-    variant: str,
-    provider: str,
-    narrator: str,
-) -> FileResponse:
-    """Build visual-blank prompts from exact speech segments plus encoded silence."""
-    model, voice, output_format = _provider_audio_settings(provider, narrator, variant)
-    media_type = SUPPORTED_FORMATS.get(output_format)
-    if output_format != "mp3" or not media_type:
-        raise HTTPException(status_code=500, detail="Silent-pause course audio requires MP3 output.")
+async def get_course_completion_audio(
+    visual_prompt: str,
+    full_text: str,
+    blank_text: str,
+    mode: str = "prompt",
+    lang: str = "en-US",
+    variant: str = "prompt",
+    provider: str = "elevenlabs-premium",
+    narrator: str = "female-teacher",
+) -> FileResponse | Response:
+    """Speak a partial completion prompt by muting its answer in full audio.
+
+    ElevenLabs receives exactly one complete, natural sentence. The answer is
+    removed afterward from decoded PCM using exact character timestamps. Any
+    provider, alignment, or decoding uncertainty produces only local silence.
+    """
+    try:
+        contract = completion_prompt_contract(visual_prompt, full_text, blank_text)
+    except ValueError as error:
+        raise HTTPException(status_code=400, detail=str(error)) from error
+
+    requested_provider = str(provider or "").strip().lower()
+    if requested_provider not in {"elevenlabs", "elevenlabs-premium"}:
+        return silent_completion_audio_response("unsupported-provider")
+
+    try:
+        model, voice, output_format = _provider_audio_settings(
+            requested_provider,
+            narrator,
+            variant,
+        )
+    except HTTPException:
+        return silent_completion_audio_response("unsupported-narrator")
+    if output_format != "mp3":
+        return silent_completion_audio_response("unsupported-format")
 
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
-    cache_model = f"{provider}:{model}"
-    audio_path = cache_path_for(text, mode, lang, variant, cache_model, voice, output_format)
+    audio_path = completion_prompt_cache_path(
+        visual_prompt,
+        full_text,
+        blank_text,
+        mode,
+        lang,
+        variant,
+        requested_provider,
+        model,
+        voice,
+    )
     if audio_path.exists() and audio_path.stat().st_size > 0:
-        return audio_file_response(audio_path, media_type, provider)
+        return completion_audio_file_response(audio_path, requested_provider)
 
     lock = _generation_locks.setdefault(audio_path.name, asyncio.Lock())
     async with lock:
         if audio_path.exists() and audio_path.stat().st_size > 0:
-            return audio_file_response(audio_path, media_type, provider)
+            return completion_audio_file_response(audio_path, requested_provider)
+        try:
+            async with httpx.AsyncClient(timeout=45.0) as client:
+                audio_bytes, character_starts, character_ends = (
+                    await _generate_elevenlabs_aligned_audio(
+                        client,
+                        full_text,
+                        model,
+                        voice,
+                        premium=requested_provider == "elevenlabs-premium",
+                        mode=mode,
+                    )
+                )
+            samples = _decoded_mono_samples(audio_bytes)
+            masked_samples = mask_completion_answer_samples(
+                samples,
+                character_starts,
+                character_ends,
+                contract.answer_start,
+                contract.answer_end,
+                ending_blank=contract.ending_blank,
+            )
+            completed_audio = _encode_mp3(masked_samples)
+            temporary_path = audio_path.with_suffix(".tmp")
+            temporary_path.write_bytes(completed_audio)
+            temporary_path.replace(audio_path)
+        except (HTTPException, httpx.HTTPError):
+            return silent_completion_audio_response("provider-failure")
+        except (ValueError, TypeError, KeyError, OSError, av.FFmpegError):
+            return silent_completion_audio_response("invalid-audio-or-alignment")
 
-        combined = array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.18)
-        segments = text.split("...")
-        for index, segment in enumerate(segments):
-            segment_text = segment.strip()
-            if segment_text:
-                segment_mode = "pronunciation_slow" if pronunciation_notes(segment_text) else mode
-                response = await _provider_audio(
-                    segment_text, segment_mode, lang, variant, provider, narrator
-                )
-                samples = _decoded_mono_samples(Path(response.path).read_bytes())
-                speech_start, speech_end = _active_sample_bounds(samples)
-                padding = round(NORMALIZATION_SAMPLE_RATE * 0.06)
-                combined.extend(
-                    samples[
-                        max(0, speech_start - padding):min(len(samples), speech_end + padding)
-                    ]
-                )
-            if index < len(segments) - 1:
-                combined.extend(
-                    array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.55)
-                )
-        combined.extend(array("h", [0]) * round(NORMALIZATION_SAMPLE_RATE * 0.28))
-        audio_path.write_bytes(_encode_mp3(combined))
-    return audio_file_response(audio_path, media_type, provider)
+    return completion_audio_file_response(audio_path, requested_provider)
 
 
 async def get_course_audio(
@@ -1259,7 +1590,13 @@ async def get_course_audio(
     provider: str = "openai",
     narrator: str = "female-teacher",
 ) -> FileResponse:
-    cleaned_text = sanitize_course_audio_text(text)
+    try:
+        cleaned_text = sanitize_course_audio_text(text)
+    except ValueError as error:
+        raise HTTPException(
+            status_code=400,
+            detail="Visual completion placeholders require /api/audio/course-completion.mp3.",
+        ) from error
     if not cleaned_text:
         raise HTTPException(status_code=400, detail="Text is required.")
 
@@ -1272,8 +1609,7 @@ async def get_course_audio(
         # not silently replace a requested cast member with an unrelated voice.
         premium_voice_for_narrator(narrator)
     try:
-        generate = _provider_audio_with_silent_pauses if "..." in cleaned_text else _provider_audio
-        return await generate(
+        return await _provider_audio(
             cleaned_text, mode, lang, variant, requested_provider, narrator
         )
     except HTTPException as provider_error:
@@ -1281,8 +1617,7 @@ async def get_course_audio(
             raise
         # A provider experiment must never interrupt a lesson. The fallback has
         # a separate OpenAI cache, so the requested provider is retried later.
-        generate = _provider_audio_with_silent_pauses if "..." in cleaned_text else _provider_audio
-        fallback = await generate(
+        fallback = await _provider_audio(
             cleaned_text, mode, lang, variant, "openai", narrator
         )
         fallback.headers["X-Audio-Fallback-From"] = requested_provider
