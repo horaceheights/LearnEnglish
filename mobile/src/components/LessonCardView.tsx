@@ -1,11 +1,10 @@
-import { Animated, Easing, Image, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
-import { lessonImageSource } from '../lessonImageSources';
 import { lessonHelpText } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';
@@ -318,11 +317,9 @@ export function LessonCardView({
           ]}
           maxHeight={promptImageHeight}
         >
-          <Image
+          <OptionMediaImage
             accessibilityLabel={card.answer_audio_text || card.prompt}
-            resizeMode="contain"
-            source={lessonImageSource(card.prompt_image_url)}
-            style={styles.promptImage}
+            imageUrl={card.prompt_image_url}
           />
         </LessonMediaFrame>
       ) : null}
@@ -670,7 +667,6 @@ const styles = StyleSheet.create({
   flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
-  promptImage: { height: '100%', width: '100%' },
   promptImageFrame: { marginTop: 14 },
   promptImageFrameDensePortrait: { marginTop: 3 },
   options: {

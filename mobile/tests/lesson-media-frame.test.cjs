@@ -16,8 +16,34 @@ const mediaFrameSource = fs.readFileSync(
   path.join(mobileRoot, 'src/components/LessonMediaFrame.tsx'),
   'utf8',
 );
+const imageSources = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSources.ts'), 'utf8');
+const lessonPlayerSource = fs.readFileSync(
+  path.join(mobileRoot, '..', 'frontend/components/LessonPlayer.js'),
+  'utf8',
+);
+const bundledRoot = path.join(mobileRoot, 'assets', 'lesson-assets');
+
+const mediaVariants = new Map(
+  [...imageSources.matchAll(/'([^']+\.webp)': '([^']+_3x2\.webp)'/g)]
+    .map((match) => [match[1], match[2]]),
+);
+
+function webpDimensions(filePath) {
+  const data = fs.readFileSync(filePath);
+  assert.equal(data.toString('ascii', 0, 4), 'RIFF', `${filePath} is not a RIFF image`);
+  assert.equal(data.toString('ascii', 8, 12), 'WEBP', `${filePath} is not WebP`);
+  const chunk = data.toString('ascii', 12, 16);
+  if (chunk === 'VP8 ') return [data.readUInt16LE(26) & 0x3fff, data.readUInt16LE(28) & 0x3fff];
+  if (chunk === 'VP8X') return [1 + data.readUIntLE(24, 3), 1 + data.readUIntLE(27, 3)];
+  if (chunk === 'VP8L') {
+    const bits = data.readUInt32LE(21);
+    return [1 + (bits & 0x3fff), 1 + ((bits >> 14) & 0x3fff)];
+  }
+  assert.fail(`Unsupported WebP chunk ${chunk} in ${filePath}`);
+}
 
 const promptImageCards = [];
+const promptImages = new Set();
 const units = new Set();
 const stageCounts = new Map();
 const lessonFiles = fs.readdirSync(generatedRoot).filter((filename) => /^lesson-.*\.json$/.test(filename));
@@ -27,6 +53,7 @@ for (const filename of lessonFiles) {
   for (const card of lesson.cards) {
     if (!card.prompt_image_url) continue;
     promptImageCards.push({ card, lessonId: lesson.id });
+    promptImages.add(path.basename(String(card.prompt_image_url).split(/[?#]/, 1)[0]));
     units.add(lesson.unit_id);
     stageCounts.set(card.stage, (stageCounts.get(card.stage) || 0) + 1);
   }
@@ -38,11 +65,30 @@ assert.ok(promptImageCards.length >= 758, 'the frame audit must cover the comple
 assert.ok((stageCounts.get('Use') || 0) >= 508, 'Completa/Use prompt images must remain in the global frame audit');
 assert.ok((stageCounts.get('Recognize') || 0) >= 250, 'Recognize prompt images must remain in the global frame audit');
 
+let paddedPromptImages = 0;
+for (const name of [...promptImages].sort()) {
+  const renderedName = mediaVariants.get(name) || name;
+  const imagePath = path.join(bundledRoot, renderedName);
+  assert.ok(fs.existsSync(imagePath), `${name} resolves to missing prompt image ${renderedName}`);
+  const [width, height] = webpDimensions(imagePath);
+  const nearThreeByTwo = Math.abs((width / height) - 1.5) <= 0.005;
+  if (!nearThreeByTwo) paddedPromptImages += 1;
+  assert.ok(nearThreeByTwo, `${name} renders through ${renderedName} at ${width}x${height}; every prompt image must resolve to 3:2`);
+}
+assert.equal(paddedPromptImages, 0, 'no Learn, Recognize, Listen, Speak, or Use prompt image may rely on padded contain rendering');
+
 assert.match(
   cardViewSource,
-  /\{card\.prompt_image_url \? \(\s*<LessonMediaFrame[\s\S]*?maxHeight=\{promptImageHeight\}[\s\S]*?<Image[\s\S]*?resizeMode="contain"[\s\S]*?source=\{lessonImageSource\(card\.prompt_image_url\)\}/,
-  'Every prompt image, including Completa, must render inside the shared lesson-media frame.',
+  /\{card\.prompt_image_url \? \(\s*<LessonMediaFrame[\s\S]*?maxHeight=\{promptImageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?imageUrl=\{card\.prompt_image_url\}/,
+  'Every prompt image, including Completa, must use the shared normalized full-bleed image layer.',
 );
+assert.doesNotMatch(cardViewSource, /lessonImageSource\(card\.prompt_image_url\)/, 'mobile prompt images must not bypass normalized media mapping');
+assert.match(
+  lessonPlayerSource,
+  /src=\{lessonOptionImageSrc\(currentCard\.prompt_image_url\)\}[\s\S]*?aspectRatio: "3 \/ 2"[\s\S]*?objectFit: "cover"/,
+  'Web prompt images must use the same mapped 3:2 full-bleed policy.',
+);
+assert.doesNotMatch(lessonPlayerSource, /lessonImageSrc\(currentCard\.prompt_image_url\)/, 'web prompt images must not bypass normalized media mapping');
 assert.match(
   cardViewSource,
   /option\.image_url \? styles\.imageOptionFrame : null[\s\S]*?imageOptionFrame:\s*\{[\s\S]*?LESSON_MEDIA_FRAME_STYLE/,
@@ -74,4 +120,4 @@ assert.match(
   'The shared framed viewport must remain 3:2.',
 );
 
-console.log(`Verified shared lesson-image framing across ${promptImageCards.length} prompt cards in all ${units.size} A1 units.`);
+console.log(`Verified full-bleed normalized lesson imagery across ${promptImageCards.length} prompt cards and ${promptImages.size} prompt assets in all ${units.size} A1 units.`);

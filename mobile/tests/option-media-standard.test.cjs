@@ -82,6 +82,7 @@ function optionFilename(imageUrl) {
 
 const optionImages = new Set();
 const optionImageUnits = new Set();
+const optionImageStages = new Set();
 const generatedText = [];
 for (const filename of fs.readdirSync(generatedRoot)) {
   if (!/^lesson-.*\.json$/.test(filename)) continue;
@@ -93,6 +94,7 @@ for (const filename of fs.readdirSync(generatedRoot)) {
       if (option.image_url) {
         optionImages.add(optionFilename(option.image_url));
         optionImageUnits.add(lesson.unit_id);
+        optionImageStages.add(card.stage);
       }
     }
   }
@@ -100,6 +102,11 @@ for (const filename of fs.readdirSync(generatedRoot)) {
 
 assert.ok(optionImages.size > 700, 'the guardrail must inspect the complete A1 option-image catalog');
 assert.equal(optionImageUnits.size, 7, 'option-image subject preservation must cover all seven units');
+assert.deepEqual(
+  [...optionImageStages].sort(),
+  ['Learn', 'Listen', 'Recognize', 'Speak'],
+  'full-bleed option and model imagery must cover every section that authors image options; Use images are prompt media audited separately',
+);
 assert.doesNotMatch(generatedText.join('\n'), /_3x2_pilot\.webp/, 'generated lessons must not retain pilot-only media references');
 assert.match(cardView, /const useThreeByTwoOptionMedia = card\.options\.some/);
 assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid\}/);
@@ -155,5 +162,5 @@ for (const name of [...optionImages].sort()) {
 assert.equal(nonThreeByTwoOptionImages, 0, 'no published A1 option image may rely on the legacy padded contain fallback');
 
 console.log(
-  `Verified normalized 3:2 option media across ${optionImages.size} A1 images in all ${optionImageUnits.size} units, with zero padded legacy stills.`,
+  `Verified normalized 3:2 option/model media across ${optionImages.size} A1 images, all ${optionImageUnits.size} units, and all ${optionImageStages.size} lesson sections, with zero padded legacy stills.`,
 );

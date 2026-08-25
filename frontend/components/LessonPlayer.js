@@ -191,7 +191,7 @@ const styles = {
   image: {
     width: "100%",
     height: "380px",
-    objectFit: "contain",
+    objectFit: "cover",
     objectPosition: "center",
     display: "block",
     borderRadius: "18px",
@@ -4614,7 +4614,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                             position: "absolute",
                             width: isMobile ? "42%" : "44%",
                             aspectRatio: "3 / 2",
-                            objectFit: "contain",
+                            objectFit: "cover",
                             objectPosition: "center",
                             borderRadius: "18px",
                             border: "5px solid rgba(255, 255, 255, 0.82)",
@@ -4658,7 +4658,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                                 style={{
                                   width: 68,
                                   height: 52,
-                                  objectFit: "contain",
+                                  objectFit: "cover",
                                   objectPosition: "center",
                                   background: "var(--surface-2)",
                                   borderRadius: "14px",
@@ -4722,7 +4722,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                                       width: "100%",
                                       height: "100%",
                                       minHeight: 140,
-                                      objectFit: "contain",
+                                      objectFit: "cover",
                                       objectPosition: "center",
                                       display: "block",
                                     }}
@@ -4977,13 +4977,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 }}
               >
                 <img
-                  src={lessonImageSrc(currentCard.prompt_image_url)}
+                  src={lessonOptionImageSrc(currentCard.prompt_image_url)}
                   alt={currentCard.prompt}
                   style={{
                     display: "block",
                     width: "100%",
-                    aspectRatio: "16 / 9",
-                    objectFit: "contain",
+                    aspectRatio: "3 / 2",
+                    objectFit: "cover",
                     objectPosition: "center",
                   }}
                 />

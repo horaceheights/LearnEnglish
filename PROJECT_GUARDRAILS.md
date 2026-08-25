@@ -125,7 +125,7 @@ Do not force every word through every step in a single lesson when that would ma
 ## 5. Image Guardrails
 
 - Images are central to the product, but lessons must also test text and audio without images.
-- Every published A1 option image resolves to an exact reviewed 3:2 source or 1536x1024 variant and fills its clipped viewport edge-to-edge across one-, two-, three-, and four-card layouts. `contain` is only an unexpected-asset runtime fallback; automated all-unit QA must report zero catalog images relying on padding.
+- Every learner-facing A1 course image resolves to an exact reviewed 3:2 source or 1536x1024 variant and fills its clipped viewport edge-to-edge across all seven units, 70 lessons, five stages, prompt/choice/model/poster roles, one- through four-card layouts, and unit/lesson thumbnails. `contain` is limited to non-course UI illustrations such as mascots or an unexpected-asset runtime fallback; automated all-unit, all-section QA must report zero course images relying on padding.
 - Never stretch, squash, or warp the teaching subject. Extend or outpaint only expendable background, keep the complete subject in the central safe area, and reject black sides, blurred sides, or internal empty space.
 - The intended answer must be visually unambiguous. Avoid near-duplicate scenes for reading versus studying, smiling versus talking, or standing versus sitting.
 - For negative action or posture prompts, the correct image must visibly exclude the negated state. Showing people talking while seated is not a valid answer for `They are not sitting`; use a clearly upright or moving scene.
@@ -296,4 +296,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Preview release identity standardized on the seven-character Git commit displayed beside the app version in the update popup and `Actualizar` menu; build and Expo-specific IDs remain hidden there.
 - 2026-08-24: Portrait image-choice stacks standardized on height-aware uniform scaling so wrong-answer encouragement and teaching hints remain above Android navigation without changing the 3:2 media frame.
 - 2026-08-24: Exactly two-choice action-video cards standardized on dedicated first-visible-frame 3:2 posters and reviewed two-card-only video variants; one-, three-, and four-choice media remain unchanged.
-- 2026-08-24: All published A1 option stills standardized on reviewed 3:2 sources or 1536x1024 variants that fill every option tile edge-to-edge; the automated all-unit guardrail requires zero catalog images to depend on padded `contain` rendering.
+- 2026-08-24: Full-bleed A1 imagery expanded from option cards to every learner-facing course surface across all 70 lessons, seven units, five stages, prompt/choice/model/poster roles, and unit/lesson thumbnails; automated QA inventories each role and requires zero course images to depend on padded `contain` rendering.

@@ -629,7 +629,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
           )}
         </View>
         <View style={[styles.thumbnail, { backgroundColor: visual.color }]}>
-          <Image resizeMode="contain" source={lessonImageSource(`/lesson-assets/${visual.image}`)} style={styles.image} />
+          <Image resizeMode="cover" source={lessonImageSource(`/lesson-assets/${visual.image}`)} style={styles.image} />
         </View>
           <View style={styles.lessonCopy}>
           <View style={styles.lessonMeta}>
@@ -839,7 +839,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
           >
             <View style={[styles.continueImagePanel, { backgroundColor: currentVisual.color }]}>
               <Image
-                resizeMode="contain"
+                resizeMode="cover"
                 source={lessonImageSource(`/lesson-assets/${currentVisual.image}`)}
                 style={styles.image}
               />
@@ -906,7 +906,7 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                       style={({ pressed }) => [styles.unitCard, useTwoColumns ? styles.unitCardWide : null, isCurrentUnit ? styles.unitCardCurrent : null, pressed ? styles.pressed : null]}
                     >
                       <View style={[styles.unitCardImage, { backgroundColor: visual.color }]}>
-                        <Image resizeMode="contain" source={lessonImageSource(`/lesson-assets/${visual.image}`)} style={styles.image} />
+                        <Image resizeMode="cover" source={lessonImageSource(`/lesson-assets/${visual.image}`)} style={styles.image} />
                       </View>
                       <View style={styles.unitCardCopy}>
                         <Text style={styles.unitCardEyebrow}>UNIT {unitNumber(firstLesson)}</Text>

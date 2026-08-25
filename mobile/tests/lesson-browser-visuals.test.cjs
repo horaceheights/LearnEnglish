@@ -6,6 +6,7 @@ const path = require('node:path');
 const mobileRoot = path.resolve(__dirname, '..');
 const course = JSON.parse(fs.readFileSync(path.join(mobileRoot, 'src', 'generated', 'a1-course.json'), 'utf8'));
 const courseScreen = fs.readFileSync(path.join(mobileRoot, 'src', 'screens', 'CourseScreen.tsx'), 'utf8');
+const lessonPlayer = fs.readFileSync(path.join(mobileRoot, '..', 'frontend', 'components', 'LessonPlayer.js'), 'utf8');
 const imageSources = fs.readFileSync(path.join(mobileRoot, 'src', 'lessonImageSources.ts'), 'utf8');
 const assetRoot = path.join(mobileRoot, 'assets', 'lesson-assets');
 
@@ -81,3 +82,25 @@ for (const surface of titleSurfaces) {
 }
 
 console.log(`Verified ${titleSurfaces.length} globally unique 3:2 lesson and unit title images.`);
+
+assert.equal(
+  (courseScreen.match(/<Image resizeMode="cover" source=\{lessonImageSource\(`/g) || []).length,
+  2,
+  'Mobile unit and lesson thumbnails must fill their clipped surfaces.',
+);
+assert.match(
+  courseScreen,
+  /<Image[\s\S]*?resizeMode="cover"[\s\S]*?source=\{lessonImageSource\(`\/lesson-assets\/\$\{currentVisual\.image\}`\)\}/,
+  'The mobile continue-card thumbnail must fill its clipped surface.',
+);
+assert.doesNotMatch(courseScreen, /resizeMode="contain"[\s\S]*?lessonImageSource/, 'No mobile course thumbnail may use padded contain rendering.');
+assert.equal(
+  (lessonPlayer.match(/objectFit: "cover"/g) || []).length >= 7,
+  true,
+  'Web lesson, unit, prompt, and option images must use full-bleed cover rendering.',
+);
+assert.doesNotMatch(
+  lessonPlayer,
+  /menuImageSrc\([^)]*\)[\s\S]{0,500}?objectFit: "contain"/,
+  'No web course thumbnail may use padded contain rendering.',
+);
