@@ -63,7 +63,7 @@ EXPECTED_STAGE_COUNTS = {
     "lesson-6-family-actions": {"Learn": 10, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 6},
     "lesson-7-is-are-not": {"Learn": 6, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
     "lesson-8-who": {"Learn": 6, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 6},
-    "lesson-9-unit-review": {"Learn": 4, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
+    "lesson-9-unit-review": {"Learn": 6, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
     "lesson-10-family-mission": {"Learn": 4, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
 }
 

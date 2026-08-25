@@ -170,6 +170,11 @@ const assets = {
   grandparents: 'family_grandparents.webp',
   grandparentsSitting: 'family_grandparents_sitting.webp',
   grandparentsTalking: 'family_grandparents_talking.webp',
+  grammarAnd: 'a1_grammar_and.webp',
+  grammarIs: 'a1_grammar_is.webp',
+  grammarAre: 'a1_grammar_are.webp',
+  grammarNot: 'a1_grammar_not.webp',
+  grammarHeSheThey: 'a1_grammar_he_she_they.webp',
 };
 
 const twoPeople = lesson({
@@ -179,7 +184,7 @@ const twoPeople = lesson({
   goal: 'Connect two familiar people with and, replace them with they, and use are for two people.',
   vocabulary: ['and', 'they', 'are', 'swimming', 'sleeping'],
   cards: [
-    learn('And', 'pair', assets.pair, 'The boy and the girl'),
+    learn('And', 'grammar-and', assets.grammarAnd, 'The boy and the girl'),
     learn('They', 'pair', assets.pair, 'They'),
     learn('Are', 'pair-running', assets.pairRunning, 'They are running.'),
     learn('Swimming', 'boy-swimming', assets.boySwimming),
@@ -476,8 +481,10 @@ const reviewLesson = lesson({
   cards: [
     learn('People', 'family', assets.family, 'A family'),
     learn('Actions', 'children-playing', assets.childrenPlaying, 'The children are playing.'),
-    learn('He, she, and they', 'family-pronouns', assets.family),
-    learn('Is, are, and not', 'parents-talking', assets.parentsTalking),
+    learn('He, she, and they', 'grammar-pronouns', assets.grammarHeSheThey),
+    learn('Is', 'grammar-is', assets.grammarIs, 'She is reading.'),
+    learn('Are', 'grammar-are', assets.grammarAre, 'They are running.'),
+    learn('Not', 'grammar-not', assets.grammarNot, 'Not'),
 
     recognize('She is writing.', 'girl-writing', [image('girl-writing', assets.girlWriting, 'She is writing.'), image('boy-reading', assets.boyReading, 'He is reading.')]),
     recognize('They are running.', 'pair-running', [image('pair-reading', assets.pairReading, 'They are reading.'), image('pair-running', assets.pairRunning, 'They are running.')]),

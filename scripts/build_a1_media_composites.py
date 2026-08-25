@@ -445,15 +445,10 @@ def build_asset(item: dict[str, object]) -> None:
                     panel = panel.resize((round(panel.width * 0.58), round(panel.height * 0.58)), Image.Resampling.LANCZOS)
                 final.paste(panel, (start_x + index * (panel_w + gap), 150), panel)
     else:
-        fallback_files = ["a1_ana.webp"]
-        if any(word in text.lower() for word in ("we", "they", "pair", "people")):
-            fallback_files.append("a1_luis.webp")
-        panel_w = 620 if len(fallback_files) > 1 else 900
-        start_x = (SIZE[0] - (len(fallback_files) * panel_w + (len(fallback_files) - 1) * 30)) // 2
-        for index, filename in enumerate(fallback_files):
-            panel = placed_source(filename, (panel_w, 730))
-            if panel:
-                final.paste(panel, (start_x + index * (panel_w + 30), 150), panel)
+        raise RuntimeError(
+            f"No literal source or reviewed generated asset exists for {destination.name}: "
+            f"{concept!r}. Generic person or object fallbacks are prohibited."
+        )
     draw_overlays(final, concept)
     destination.parent.mkdir(parents=True, exist_ok=True)
     final.save(destination, format="WEBP", quality=88, method=6)
@@ -468,7 +463,10 @@ def main() -> None:
     if args.force:
         for item in assets:
             path = ASSET_ROOT / str(item["filename"])
-            if item["source"] != "existing" and path.is_file():
+            concept = str(item["concept"])
+            description = str(item["description"])
+            reproducible_sources = source_files(concept) or source_files(description)
+            if item["source"] != "existing" and reproducible_sources and path.is_file():
                 path.unlink()
     for item in assets:
         build_asset(item)

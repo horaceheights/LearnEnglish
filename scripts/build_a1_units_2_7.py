@@ -72,6 +72,16 @@ EXISTING_ASSETS = {
     "hospital": "a1_hospital.webp",
     "ana-profile": "a1_ana.webp",
     "luis-profile": "a1_luis.webp",
+    "name-ana": "a1_scene_ana_name.webp",
+    "age-ana": "a1_scene_ana_age_20.webp",
+    "origin-ana": "a1_scene_ana_mexico.webp",
+    "job-ana": "a1_scene_ana_teacher_book.webp",
+    "book-ana": "a1_scene_ana_teacher_book.webp",
+    "ana-teacher-book": "a1_scene_ana_teacher_book.webp",
+    "name-luis": "a1_scene_luis_name.webp",
+    "age-luis": "a1_scene_luis_age_18.webp",
+    "origin-luis": "a1_scene_luis_usa.webp",
+    "job-luis": "a1_scene_luis_driver.webp",
 }
 
 
