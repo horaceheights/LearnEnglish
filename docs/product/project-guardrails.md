@@ -285,6 +285,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Release verification must require the commit label and update UI, run the complete Preview preflight, serialize Preview publications so two jobs cannot race, and verify the live EAS update group against the GitHub commit after publication.
 - Repository guards are defense in depth, not the release authority: a stale checkout can also contain stale scripts. Server-side branch/environment protection and a CI-only Expo token are required to prevent an old checkout from bypassing current repository checks.
 - The Preview publisher injects the current seven-character Git commit into the OTA bundle so the app, Expo, and Vercel identify the same code snapshot.
+- Backend access-control changes must remain compatible with every active mobile channel. Do not enforce a new client credential on the shared backend until the matching client code has reached Preview and Production; server-only admin credentials must never be committed, bundled, or given a source-code fallback.
 
 ## 12. Decision Log
 
@@ -341,3 +342,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: A1 scene contracts standardized on literal semantic media: generic person/object fallbacks are prohibited, selectable options contain one answer concept per tile, and missing scenes require a reviewed dedicated 3:2 asset or a failing media build.
 - 2026-08-25: Completion prompts resumed upfront speech using deterministic full-sentence masking. The system synthesizes `answer_audio_text` once, replaces only the timing-aligned answer span with at least 550 ms of digital silence, and fails to a known silent clip when alignment is unavailable; fragment synthesis, placeholder sanitization into spoken punctuation, and browser fallback are prohibited.
 - 2026-08-25: After a newer OTA from a stale divergent branch replaced the complete seven-unit Preview with an older tree, Preview publication moved to the protected `release/preview` authority. CI now owns publishing, exact course topology and fingerprints are release invariants, and local or task-branch publication is prohibited.
+- 2026-08-26: Shared-backend API-key rollout standardized on a compatibility window: app-key enforcement remains disabled while `APP_API_KEY` is unset, admin endpoints fail closed, and enforcement begins only after matching client code reaches every active mobile channel.
