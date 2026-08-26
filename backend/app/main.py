@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
+from .api_auth import api_request_is_authorized
 from .diagnostics import initialize_diagnostics
 from .course_audio import (
     audio_debug,
@@ -51,12 +52,12 @@ initialize_diagnostics()
 app = FastAPI(title="Learn English API", version="0.1.0")
 init_db()
 
-APP_API_KEY = os.getenv("APP_API_KEY", "")
-ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "")
+APP_API_KEY = os.getenv("APP_API_KEY", "").strip()
+ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "").strip()
 if not APP_API_KEY:
-    print("WARNING: APP_API_KEY is not set; the public API is currently unauthenticated.")
+    print("WARNING: APP_API_KEY is not set; app-key enforcement is disabled for legacy clients.")
 if not ADMIN_API_KEY:
-    print("WARNING: ADMIN_API_KEY is not set; admin endpoints are currently unauthenticated.")
+    print("WARNING: ADMIN_API_KEY is not set; admin endpoints are unavailable.")
 
 
 @app.on_event("shutdown")
@@ -85,9 +86,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-# Paths any client may call with no key at all (uptime checks, legal pages).
-_OPEN_PATHS = {"/api/health", "/privacy", "/delete-account"}
 
 # Per-path request ceilings for the endpoints that call metered, paid
 # providers (Azure pronunciation, OpenAI/ElevenLabs TTS). Generous enough
@@ -137,22 +135,23 @@ async def guard_api_requests(request: Request, call_next):
     - /api/admin/* needs the separate, stronger admin key (never shipped in
       either app) -- this is an operator-only surface.
     - Every other /api/* route (except the open health/legal paths) needs
-      the app key that ships inside the mobile app and web frontend. This
-      does not identify which learner is calling; it only proves the call
-      came from one of our own clients rather than a stranger's script.
+      the app key that ships inside the mobile app and web frontend once
+      APP_API_KEY is configured. Leaving it unset keeps legacy clients
+      working during a staged rollout. A valid admin key may also authorize
+      these routes for server-side admin mutations.
     - Paid, metered endpoints are additionally rate-limited per IP address
       regardless of whether the key check passes, as a second layer against
       a leaked key being hammered.
     """
     path = request.url.path
-
-    if path.startswith("/api/admin"):
-        if not ADMIN_API_KEY or request.headers.get("x-admin-key") != ADMIN_API_KEY:
-            return JSONResponse(status_code=401, content={"detail": "Not authorized."})
-    elif path.startswith("/api/") and path not in _OPEN_PATHS:
-        provided_key = request.headers.get("x-app-key") or request.query_params.get("key")
-        if not APP_API_KEY or provided_key != APP_API_KEY:
-            return JSONResponse(status_code=401, content={"detail": "Not authorized."})
+    if not api_request_is_authorized(
+        path,
+        configured_app_key=APP_API_KEY,
+        configured_admin_key=ADMIN_API_KEY,
+        provided_app_key=request.headers.get("x-app-key") or request.query_params.get("key"),
+        provided_admin_key=request.headers.get("x-admin-key"),
+    ):
+        return JSONResponse(status_code=401, content={"detail": "Not authorized."})
 
     if _is_rate_limited(request):
         return JSONResponse(

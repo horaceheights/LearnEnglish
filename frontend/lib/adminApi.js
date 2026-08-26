@@ -4,7 +4,13 @@ import { getApiBaseUrl } from "./api";
 // doing so would bundle ADMIN_API_KEY into the browser. Admin reads go
 // through server components; admin mutations go through server actions
 // (see app/admin/actions.js).
-const ADMIN_API_KEY = process.env.ADMIN_API_KEY || "5L3OJg9ZEfdCkC3XI_jEnJ83cqod4WMA";
+function getAdminApiKey() {
+  const adminApiKey = process.env.ADMIN_API_KEY?.trim();
+  if (!adminApiKey) {
+    throw new Error("ADMIN_API_KEY is not configured for the frontend server.");
+  }
+  return adminApiKey;
+}
 
 async function adminRequest(path, options = {}) {
   const apiBaseUrl = getApiBaseUrl();
@@ -12,7 +18,7 @@ async function adminRequest(path, options = {}) {
     ...options,
     headers: {
       "Content-Type": "application/json",
-      "X-Admin-Key": ADMIN_API_KEY,
+      "X-Admin-Key": getAdminApiKey(),
       ...(options.headers || {}),
     },
   });
