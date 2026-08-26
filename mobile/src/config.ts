@@ -1,4 +1,9 @@
 export const API_BASE_URL = 'https://learnenglish-fxki.onrender.com';
+// Identifies this app to the backend so a stranger's script can't call
+// the API directly. It is not a per-user secret -- it ships inside the
+// compiled app like any client-embedded key -- but it stops opportunistic
+// abuse of the paid speech/audio endpoints and of learner data endpoints.
+export const APP_API_KEY = 'Lka_Ecgoda6om-OagWcyG0AK-zrmiD1c';
 export const VIDEO_BASE_URL = 'https://learn-english-orcin.vercel.app';
 export const PRIVACY_POLICY_URL = `${API_BASE_URL}/privacy`;
 export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
@@ -9,7 +14,7 @@ export const FOURTH_LESSON_ID = 'lesson-4-children-siblings';
 export const FIFTH_LESSON_ID = 'lesson-5-parents-grandparents';
 // Keep an explicit extension in native audio URLs. AVPlayer on iOS can fail
 // extensionless media endpoints even when their Content-Type is correct.
-export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue.wav`;
+export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue.wav?key=${APP_API_KEY}`;
 export const COURSE_AUDIO_PROFILE = 'a1-elevenlabs-cast-v14';
 export type CourseAudioProvider = 'openai' | 'elevenlabs' | 'elevenlabs-premium' | 'azure';
 export type CourseAudioVoice = 'female-teacher' | 'female-warm' | 'male-warm' | 'male-conversational';
@@ -126,6 +131,7 @@ export function completionPromptAudioUrl(
     profile: COURSE_AUDIO_PROFILE,
     provider,
     narrator,
+    key: APP_API_KEY,
   });
   return `${API_BASE_URL}/api/audio/course-completion.mp3?${query.toString()}`;
 }
@@ -154,6 +160,7 @@ export function courseAudioUrl(
     profile: COURSE_AUDIO_PROFILE,
     provider,
     narrator,
+    key: APP_API_KEY,
   });
   return `${API_BASE_URL}/api/audio/course.mp3?${query.toString()}`;
 }

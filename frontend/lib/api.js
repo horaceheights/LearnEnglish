@@ -1,5 +1,9 @@
 import courseAudioManifest from "./courseAudioManifest.json";
 
+// Identifies this (internal, testing-only) frontend to the backend so a
+// stranger's script can't call the API directly. Not a per-user secret.
+const APP_API_KEY = process.env.NEXT_PUBLIC_APP_API_KEY || "Lka_Ecgoda6om-OagWcyG0AK-zrmiD1c";
+
 const API_BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
 const STATIC_ASSET_VERSION = process.env.NEXT_PUBLIC_STATIC_ASSET_VERSION || "20260710-mobile-direct-audio";
 
@@ -26,6 +30,7 @@ async function apiRequest(path, options = {}) {
     ...options,
     headers: {
       "Content-Type": "application/json",
+      "X-App-Key": APP_API_KEY,
       ...(options.headers || {}),
     },
   });
@@ -43,6 +48,7 @@ export async function getLessons() {
   try {
     response = await fetch(`${apiBaseUrl}/api/lessons`, {
       cache: "no-store",
+      headers: { "X-App-Key": APP_API_KEY },
     });
   } catch (error) {
     throw new Error(
@@ -63,6 +69,7 @@ export async function getLesson(lessonId) {
   try {
     response = await fetch(`${apiBaseUrl}/api/lessons/${lessonId}`, {
       cache: "no-store",
+      headers: { "X-App-Key": APP_API_KEY },
     });
   } catch (error) {
     throw new Error(
@@ -147,6 +154,7 @@ export async function scorePronunciationAudio({ text, audioBlob, userId, questio
   const response = await fetch(`${apiBaseUrl}/api/pronunciation/score`, {
     method: "POST",
     body: formData,
+    headers: { "X-App-Key": APP_API_KEY },
   });
   const payload = await response.json();
 
@@ -179,6 +187,7 @@ export async function getPronunciationStreamingToken() {
   const apiBaseUrl = getApiBaseUrl();
   const response = await fetch(`${apiBaseUrl}/api/pronunciation/token`, {
     cache: "no-store",
+    headers: { "X-App-Key": APP_API_KEY },
   });
   const payload = await response.json();
 
@@ -244,6 +253,7 @@ export function getCourseAudioUrl({
       variant: "completion-prompt",
       provider: "elevenlabs-premium",
       narrator: "female-teacher",
+      key: APP_API_KEY,
     });
     return `${apiBaseUrl}/api/audio/course-completion.mp3?${params.toString()}`;
   }
@@ -261,6 +271,7 @@ export function getCourseAudioUrl({
     mode,
     lang,
     variant,
+    key: APP_API_KEY,
   });
   return `${apiBaseUrl}/api/audio/course?${params.toString()}`;
 }
@@ -291,10 +302,6 @@ export async function preloadCourseAudio({
   return response.blob();
 }
 
-export async function getAdminSummary() {
-  return apiRequest("/api/admin/summary", { cache: "no-store" });
-}
-
 export async function interpretAzurePronunciation({ expectedText, payload, level, exerciseType }) {
   return apiRequest("/api/pronunciation/interpret-azure", {
     method: "POST",
@@ -304,17 +311,5 @@ export async function interpretAzurePronunciation({ expectedText, payload, level
       level,
       exercise_type: exerciseType,
     }),
-  });
-}
-
-export async function resetLearnerProgress(userId) {
-  return apiRequest(`/api/users/${encodeURIComponent(userId)}/activity`, {
-    method: "DELETE",
-  });
-}
-
-export async function deleteLearner(userId) {
-  return apiRequest(`/api/users/${encodeURIComponent(userId)}`, {
-    method: "DELETE",
   });
 }

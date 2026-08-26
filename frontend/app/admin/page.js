@@ -1,4 +1,4 @@
-import { getAdminSummary } from "../../lib/api";
+import { getAdminSummary } from "../../lib/adminApi";
 import LearnerActions from "./LearnerActions";
 
 const border = "1px solid #dbcdb3";

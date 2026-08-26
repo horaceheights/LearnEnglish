@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { deleteLearner, resetLearnerProgress } from "../../lib/api";
+import { deleteLearnerAction as deleteLearner, resetLearnerProgressAction as resetLearnerProgress } from "./actions";
 
 const buttonStyle = {
   border: "1px solid #cdbf9f",
