@@ -34,7 +34,7 @@ _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
 _silent_completion_audio: bytes | None = None
 AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v14"
-COMPLETION_PROMPT_AUDIO_PROFILE_VERSION = "visible-fragments-phonetic-ending-v3"
+COMPLETION_PROMPT_AUDIO_PROFILE_VERSION = "visible-fragments-provider-fallback-v4"
 COMPLETION_ENDING_ARTICLE_MODEL = "eleven_flash_v2"
 COMPLETION_ENDING_ARTICLE_MARKUP = (
     '<phoneme alphabet="cmu-arpabet" ph="EY1">a</phoneme>'
@@ -46,6 +46,7 @@ COMPLETION_PLACEHOLDER_PATTERN = re.compile(
 COMPLETION_PLACEHOLDER_SILENCE_SECONDS = 0.55
 COMPLETION_TRAILING_SILENCE_SECONDS = 0.28
 COMPLETION_FRAGMENT_PADDING_SECONDS = 0.08
+COMPLETION_GENERATION_ATTEMPTS = 2
 DEFAULT_ELEVENLABS_BUILTIN_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"
 # Nichalia Schwartz is a professional American teacher/e-learning voice from
 # the ElevenLabs Voice Library. Paid plans can use Voice Library voices by ID.
@@ -1054,6 +1055,38 @@ def completion_fragment_model(fragment: str | None, default_model: str) -> str:
     return default_model
 
 
+def completion_fragment_units_for_openai(fragment: str | None) -> tuple[str, ...]:
+    """Convert controls and isolate a trailing one-word clause when necessary."""
+    if fragment is None:
+        return ()
+    prepared = fragment.replace(COMPLETION_ENDING_ARTICLE_MARKUP, "a")
+    # OpenAI can elide a one-word clause embedded after a complete sentence
+    # (for example the "I" in "It is hot. I,"). Synthesize that visible word
+    # independently and join it back to the preceding visible speech.
+    isolated_clause = re.fullmatch(r"(.+[.!?])\s+([A-Za-z']+),", prepared)
+    if isolated_clause:
+        return (isolated_clause.group(1), f"{isolated_clause.group(2)}?")
+    return (prepared,)
+
+
+def assemble_visible_fragment_samples(fragment_audio: list[bytes]) -> array:
+    """Join independently synthesized visible units with a natural short gap."""
+    joined = array("h")
+    separator = array("h", [0]) * round(0.10 * NORMALIZATION_SAMPLE_RATE)
+    padding = round(COMPLETION_FRAGMENT_PADDING_SECONDS * NORMALIZATION_SAMPLE_RATE)
+    for index, audio_bytes in enumerate(fragment_audio):
+        decoded = _decoded_mono_samples(audio_bytes)
+        if not decoded:
+            raise ValueError("Completion prompt fragment contains no decoded samples.")
+        speech_start, speech_end = _active_sample_bounds(decoded)
+        if speech_end <= speech_start:
+            raise ValueError("Completion prompt fragment contains no audible speech.")
+        if index:
+            joined.extend(separator)
+        joined.extend(decoded[max(0, speech_start - padding):min(len(decoded), speech_end + padding)])
+    return joined
+
+
 def assemble_completion_fragment_samples(
     prefix_audio: bytes | None,
     suffix_audio: bytes | None,
@@ -1139,15 +1172,27 @@ def audio_file_response(audio_path: Path, media_type: str, provider: str) -> Fil
 
 
 def completion_audio_file_response(audio_path: Path, provider: str) -> FileResponse:
+    provider_path = audio_path.with_suffix(".provider")
+    actual_provider = provider
+    try:
+        if provider_path.is_file():
+            recorded_provider = provider_path.read_text(encoding="utf-8").strip()
+            if recorded_provider in {"openai", "elevenlabs", "elevenlabs-premium"}:
+                actual_provider = recorded_provider
+    except OSError:
+        pass
+    headers = {
+        "Cache-Control": "public, max-age=31536000, immutable",
+        "X-Audio-Profile": COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
+        "X-Audio-Provider": actual_provider,
+    }
+    if actual_provider != provider:
+        headers["X-Audio-Fallback-From"] = provider
     return FileResponse(
         audio_path,
         media_type="audio/mpeg",
         filename=audio_path.name,
-        headers={
-            "Cache-Control": "public, max-age=31536000, immutable",
-            "X-Audio-Profile": COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
-            "X-Audio-Provider": provider,
-        },
+        headers=headers,
     )
 
 
@@ -1225,6 +1270,33 @@ async def _generate_openai_audio(
     return response.content
 
 
+async def _generate_openai_completion_fragment_audio(
+    client: httpx.AsyncClient,
+    fragment: str,
+    mode: str,
+    lang: str,
+    variant: str,
+    model: str,
+    voice: str,
+) -> bytes:
+    unit_audio = [
+        await _generate_openai_audio(
+            client,
+            unit,
+            mode,
+            lang,
+            variant,
+            model,
+            voice,
+            "mp3",
+        )
+        for unit in completion_fragment_units_for_openai(fragment)
+    ]
+    if len(unit_audio) == 1:
+        return unit_audio[0]
+    return _encode_mp3(assemble_visible_fragment_samples(unit_audio))
+
+
 async def _generate_elevenlabs_audio(
     client: httpx.AsyncClient,
     text: str,
@@ -1232,6 +1304,7 @@ async def _generate_elevenlabs_audio(
     voice: str,
     premium: bool = False,
     mode: str = "prompt",
+    seed: int = 1101,
 ) -> bytes:
     api_key = elevenlabs_api_key()
     if not api_key:
@@ -1255,7 +1328,7 @@ async def _generate_elevenlabs_audio(
         json={
             "text": text,
             "model_id": model,
-            "seed": 1101,
+            "seed": seed,
             "voice_settings": voice_settings,
         },
         headers={
@@ -1458,42 +1531,104 @@ async def get_course_completion_audio(
     async with lock:
         if audio_path.exists() and audio_path.stat().st_size > 0:
             return completion_audio_file_response(audio_path, requested_provider)
+        prefix_fragment, suffix_fragment = completion_prompt_fragments(contract)
+        completed_audio: bytes | None = None
+        generated_provider = requested_provider
+        failure_reason = "provider-failure"
         try:
-            prefix_fragment, suffix_fragment = completion_prompt_fragments(contract)
             async with httpx.AsyncClient(timeout=45.0) as client:
-                prefix_audio = (
-                    await _generate_elevenlabs_audio(
-                        client,
-                        prefix_fragment,
-                        completion_fragment_model(prefix_fragment, model),
-                        voice,
-                        premium=requested_provider == "elevenlabs-premium",
-                        mode=mode,
-                    )
-                    if prefix_fragment
-                    else None
-                )
-                suffix_audio = (
-                    await _generate_elevenlabs_audio(
-                        client,
-                        suffix_fragment,
-                        completion_fragment_model(suffix_fragment, model),
-                        voice,
-                        premium=requested_provider == "elevenlabs-premium",
-                        mode=mode,
-                    )
-                    if suffix_fragment
-                    else None
-                )
-            completed_audio = _encode_mp3(
-                assemble_completion_fragment_samples(prefix_audio, suffix_audio)
-            )
+                for attempt in range(COMPLETION_GENERATION_ATTEMPTS):
+                    try:
+                        seed = 1101 + attempt
+                        prefix_audio = (
+                            await _generate_elevenlabs_audio(
+                                client,
+                                prefix_fragment,
+                                completion_fragment_model(prefix_fragment, model),
+                                voice,
+                                premium=requested_provider == "elevenlabs-premium",
+                                mode=mode,
+                                seed=seed,
+                            )
+                            if prefix_fragment
+                            else None
+                        )
+                        suffix_audio = (
+                            await _generate_elevenlabs_audio(
+                                client,
+                                suffix_fragment,
+                                completion_fragment_model(suffix_fragment, model),
+                                voice,
+                                premium=requested_provider == "elevenlabs-premium",
+                                mode=mode,
+                                seed=seed,
+                            )
+                            if suffix_fragment
+                            else None
+                        )
+                        completed_audio = _encode_mp3(
+                            assemble_completion_fragment_samples(prefix_audio, suffix_audio)
+                        )
+                        break
+                    except (HTTPException, httpx.HTTPError):
+                        failure_reason = "provider-failure"
+                    except (ValueError, TypeError, KeyError, OSError, av.FFmpegError):
+                        failure_reason = "invalid-fragment-audio"
+
+                if completed_audio is None:
+                    try:
+                        openai_model = os.getenv("OPENAI_TTS_MODEL", "gpt-4o-mini-tts")
+                        openai_voice = voice_for_variant(variant)
+                        prefix_audio = (
+                            await _generate_openai_completion_fragment_audio(
+                                client,
+                                prefix_fragment,
+                                mode,
+                                lang,
+                                variant,
+                                openai_model,
+                                openai_voice,
+                            )
+                            if prefix_fragment
+                            else None
+                        )
+                        suffix_audio = (
+                            await _generate_openai_completion_fragment_audio(
+                                client,
+                                suffix_fragment,
+                                mode,
+                                lang,
+                                variant,
+                                openai_model,
+                                openai_voice,
+                            )
+                            if suffix_fragment
+                            else None
+                        )
+                        completed_audio = _encode_mp3(
+                            assemble_completion_fragment_samples(prefix_audio, suffix_audio)
+                        )
+                        generated_provider = "openai"
+                    except (HTTPException, httpx.HTTPError):
+                        failure_reason = "provider-failure"
+                    except (ValueError, TypeError, KeyError, OSError, av.FFmpegError):
+                        failure_reason = "invalid-fragment-audio"
+        except httpx.HTTPError:
+            failure_reason = "provider-failure"
+
+        if completed_audio is None:
+            return silent_completion_audio_response(failure_reason)
+
+        try:
             temporary_path = audio_path.with_suffix(".tmp")
             temporary_path.write_bytes(completed_audio)
             temporary_path.replace(audio_path)
-        except (HTTPException, httpx.HTTPError):
-            return silent_completion_audio_response("provider-failure")
-        except (ValueError, TypeError, KeyError, OSError, av.FFmpegError):
+            if generated_provider != requested_provider:
+                audio_path.with_suffix(".provider").write_text(
+                    generated_provider,
+                    encoding="utf-8",
+                )
+        except OSError:
             return silent_completion_audio_response("invalid-fragment-audio")
 
     return completion_audio_file_response(audio_path, requested_provider)

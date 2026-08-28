@@ -15,7 +15,7 @@ export const FIFTH_LESSON_ID = 'lesson-5-parents-grandparents';
 // Keep an explicit extension in native audio URLs. AVPlayer on iOS can fail
 // extensionless media endpoints even when their Content-Type is correct.
 export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue.wav?key=${APP_API_KEY}`;
-export const COURSE_AUDIO_PROFILE = 'a1-elevenlabs-cast-v14';
+export const COURSE_AUDIO_PROFILE = 'a1-elevenlabs-cast-v15-liam-use';
 export type CourseAudioProvider = 'openai' | 'elevenlabs' | 'elevenlabs-premium' | 'azure';
 export type CourseAudioVoice = 'female-teacher' | 'female-warm' | 'male-warm' | 'male-conversational';
 
@@ -25,10 +25,10 @@ export function courseAudioProvider(_lessonId: string): CourseAudioProvider {
 
 export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVoice {
   const normalizedStage = stage.trim().toLowerCase();
-  // The male-warm voice produced malformed multilingual audio for several
-  // short Lesson 1.3 nouns (for example, extra speech after "A sister").
-  // The approved teacher takes for the complete family set were verified by
-  // transcription, so use them for both recognition and listening practice.
+  // Brian (male-warm) produced malformed multilingual audio throughout the
+  // A1 catalog, especially for short Use answers and completion fragments.
+  // Keep him out of every active course route; Liam is the verified male
+  // narrator for conversational and Use-stage playback.
   if (
     (lessonId === FOURTH_LESSON_ID || lessonId === FIFTH_LESSON_ID) &&
     (normalizedStage.includes('action') || normalizedStage.includes('listen'))
@@ -51,7 +51,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
     normalizedStage.includes('pattern') ||
     normalizedStage.includes('negation')
   ) {
-    return lessonId === SECOND_LESSON_ID ? 'male-conversational' : 'male-warm';
+    return 'male-conversational';
   }
   if (
     normalizedStage.includes('plural') ||
@@ -75,7 +75,7 @@ export function courseAudioVoice(lessonId: string, stage: string): CourseAudioVo
   const checksum = `${lessonId}:${normalizedStage}`
     .split('')
     .reduce((total, character) => total + character.charCodeAt(0), 0);
-  const cast: CourseAudioVoice[] = ['female-warm', 'male-warm', 'female-teacher', 'male-conversational'];
+  const cast: CourseAudioVoice[] = ['female-warm', 'female-teacher', 'male-conversational'];
   return cast[checksum % cast.length];
 }
 
