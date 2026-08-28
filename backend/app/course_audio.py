@@ -34,7 +34,7 @@ _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
 _silent_completion_audio: bytes | None = None
 AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v14"
-COMPLETION_PROMPT_AUDIO_PROFILE_VERSION = "visible-fragments-v1"
+COMPLETION_PROMPT_AUDIO_PROFILE_VERSION = "visible-fragments-emphasized-ending-v2"
 COMPLETION_PLACEHOLDER_PATTERN = re.compile(
     r"(?:_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\])",
     flags=re.IGNORECASE,
@@ -1023,8 +1023,20 @@ def completion_prompt_fragments(
         prefix_fragment = re.sub(r"[\s.,!?;:…]+$", "", prefix).strip()
         if prefix_fragment:
             # A comma gives middle blanks a natural boundary before the fixed
-            # digital pause. Ending blanks use a rising elicitation tone.
-            prefix_fragment = f"{prefix_fragment}{',' if suffix_fragment else '?'}"
+            # digital pause. Ending blanks use a rising elicitation tone. Quote
+            # a final article "a" so ElevenLabs gives that real word extra
+            # weight without receiving a fake spelling or placeholder sound.
+            if suffix_fragment:
+                prefix_fragment = f"{prefix_fragment},"
+            elif re.search(r"\ba$", prefix_fragment, flags=re.IGNORECASE):
+                prefix_fragment = re.sub(
+                    r"\b(a)$",
+                    r'"\1"?',
+                    prefix_fragment,
+                    flags=re.IGNORECASE,
+                )
+            else:
+                prefix_fragment = f"{prefix_fragment}?"
 
     return prefix_fragment, suffix_fragment
 

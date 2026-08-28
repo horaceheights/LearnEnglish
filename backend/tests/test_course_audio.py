@@ -139,7 +139,7 @@ class CourseAudioProfileTests(unittest.TestCase):
         middle = completion_prompt_contract("Who ___ they?", "Who are they?", "are")
         beginning = completion_prompt_contract("___ are they?", "Who are they?", "Who")
 
-        self.assertEqual(("It is a?", None), completion_prompt_fragments(ending))
+        self.assertEqual(('It is "a"?', None), completion_prompt_fragments(ending))
         self.assertEqual(("Who,", "they?"), completion_prompt_fragments(middle))
         self.assertEqual((None, "are they?"), completion_prompt_fragments(beginning))
         self.assertNotIn("restaurant", completion_prompt_fragments(ending))
@@ -412,7 +412,7 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
         with patch("backend.app.course_audio.elevenlabs_api_key", return_value="test-key"):
             audio = await _generate_elevenlabs_audio(
                 client,
-                "It is a?",
+                'It is "a"?',
                 "eleven_multilingual_v2",
                 "teacher-voice",
                 premium=True,
@@ -422,7 +422,7 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(b"visible-fragment-mp3", audio)
         request = client.post.await_args
         self.assertTrue(request.args[0].endswith("/teacher-voice"))
-        self.assertEqual("It is a?", request.kwargs["json"]["text"])
+        self.assertEqual('It is "a"?', request.kwargs["json"]["text"])
         self.assertNotIn("restaurant", request.kwargs["json"]["text"])
         self.assertEqual("audio/mpeg", request.kwargs["headers"]["Accept"])
 
@@ -469,7 +469,7 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
     async def test_completion_endpoint_never_sends_the_missing_answer_to_tts(self):
         fragment_audio = _encode_mp3(array("h", [9000]) * 2_400)
         cases = (
-            ("It is a ___.", "It is a restaurant.", "restaurant", ["It is a?"]),
+            ("It is a ___.", "It is a restaurant.", "restaurant", ['It is "a"?']),
             ("Who ___ they?", "Who are they?", "are", ["Who,", "they?"]),
             ("___ are they?", "Who are they?", "Who", ["are they?"]),
         )
