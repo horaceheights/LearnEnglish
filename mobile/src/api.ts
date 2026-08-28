@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/react-native';
 import { fetch } from 'expo/fetch';
 import { File } from 'expo-file-system';
 
-import { API_BASE_URL } from './config';
+import { API_BASE_URL, APP_API_KEY } from './config';
 import { getPreviewLesson } from './previewLessons';
 import type {
   LearnerProfile,
@@ -28,6 +28,7 @@ function tracedHeaders(headers: HeadersInit | undefined, span: Sentry.Span): Hea
   const context = span.spanContext();
   const sampled = (context.traceFlags & 1) === 1 ? '1' : '0';
   traced.set('sentry-trace', `${context.traceId}-${context.spanId}-${sampled}`);
+  traced.set('X-App-Key', APP_API_KEY);
   return traced;
 }
 

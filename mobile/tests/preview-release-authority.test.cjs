@@ -132,7 +132,10 @@ test('a direct local publisher invocation stops before any Expo command', () => 
 test('the publisher verifies Expo reports the same GitHub commit after upload', () => {
   assert.match(publishScriptSource, /function Assert-PublishedPreviewCommit/);
   assert.match(publishScriptSource, /eas update:list --branch preview --limit 1 --non-interactive --json/);
+  assert.match(publishScriptSource, /eas update:view \$observedGroup --json/);
   assert.match(publishScriptSource, /PSObject\.Properties\['gitCommitHash'\]/);
+  assert.match(publishScriptSource, /\$observedPlatforms -contains 'android'/);
+  assert.match(publishScriptSource, /\$observedPlatforms -contains 'ios'/);
   assert.match(publishScriptSource, /Assert-PublishedPreviewCommit -ExpectedCommit \$releaseCommit/);
 });
 

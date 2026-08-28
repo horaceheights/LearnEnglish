@@ -122,35 +122,71 @@ function Assert-PublishedPreviewCommit {
   $attemptCount = 5
   $lastObservation = 'Expo todavía no devolvió un update.'
   for ($attempt = 1; $attempt -le $attemptCount; $attempt += 1) {
-    $jsonLines = @(& eas update:list --branch preview --limit 1 --non-interactive --json)
-    $queryExitCode = $LASTEXITCODE
+    $summaryLines = @(& eas update:list --branch preview --limit 1 --non-interactive --json)
+    $summaryExitCode = $LASTEXITCODE
 
-    if ($queryExitCode -eq 0) {
+    if ($summaryExitCode -eq 0) {
       try {
-        $response = ($jsonLines -join [Environment]::NewLine) | ConvertFrom-Json
-        $currentPage = @($response.currentPage)
+        $summary = ($summaryLines -join [Environment]::NewLine) | ConvertFrom-Json
+        $currentPage = @($summary.currentPage)
         if ($currentPage.Count -gt 0) {
-          $latestUpdate = $currentPage[0]
-          $commitProperty = $latestUpdate.PSObject.Properties['gitCommitHash']
-          $groupProperty = $latestUpdate.PSObject.Properties['group']
-          $observedCommit = if ($null -ne $commitProperty) { [string]$commitProperty.Value } else { '' }
+          $latestSummary = $currentPage[0]
+          $groupProperty = $latestSummary.PSObject.Properties['group']
           $observedGroup = if ($null -ne $groupProperty) { [string]$groupProperty.Value } else { '<sin grupo>' }
-          $lastObservation = "grupo $observedGroup, commit $observedCommit"
 
-          if ([string]::Equals(
-            $observedCommit,
-            $ExpectedCommit,
-            [System.StringComparison]::OrdinalIgnoreCase
-          )) {
-            Write-Host "Expo verificado: grupo $observedGroup, commit $($ExpectedCommit.Substring(0, 7))." -ForegroundColor Green
-            return
+          if ($observedGroup -eq '<sin grupo>') {
+            $lastObservation = 'el resumen de Expo no incluyó un grupo.'
+          } else {
+            # update:list intentionally returns summary rows without gitCommitHash.
+            # Verify the immutable per-platform records from update:view instead.
+            $detailLines = @(& eas update:view $observedGroup --json)
+            $detailExitCode = $LASTEXITCODE
+            if ($detailExitCode -eq 0) {
+              $groupUpdates = @(($detailLines -join [Environment]::NewLine) | ConvertFrom-Json)
+              $observedCommits = @()
+              $observedPlatforms = @()
+              $allMetadataMatches = $groupUpdates.Count -gt 0
+
+              foreach ($groupUpdate in $groupUpdates) {
+                $commitProperty = $groupUpdate.PSObject.Properties['gitCommitHash']
+                $platformProperty = $groupUpdate.PSObject.Properties['platform']
+                $branchProperty = $groupUpdate.PSObject.Properties['branch']
+                $updateGroupProperty = $groupUpdate.PSObject.Properties['group']
+                $observedCommit = if ($null -ne $commitProperty) { [string]$commitProperty.Value } else { '' }
+                $observedPlatform = if ($null -ne $platformProperty) { [string]$platformProperty.Value } else { '' }
+                $observedBranch = if ($null -ne $branchProperty) { [string]$branchProperty.Value } else { '' }
+                $updateGroup = if ($null -ne $updateGroupProperty) { [string]$updateGroupProperty.Value } else { '' }
+                $observedCommits += $observedCommit
+                $observedPlatforms += $observedPlatform
+
+                if (
+                  -not [string]::Equals($observedCommit, $ExpectedCommit, [System.StringComparison]::OrdinalIgnoreCase) -or
+                  -not [string]::Equals($observedBranch, 'preview', [System.StringComparison]::OrdinalIgnoreCase) -or
+                  -not [string]::Equals($updateGroup, $observedGroup, [System.StringComparison]::OrdinalIgnoreCase)
+                ) {
+                  $allMetadataMatches = $false
+                }
+              }
+
+              $commitSummary = @($observedCommits | Sort-Object -Unique) -join ','
+              $platformSummary = @($observedPlatforms | Sort-Object -Unique) -join ','
+              $lastObservation = "grupo $observedGroup, commits $commitSummary, plataformas $platformSummary"
+              $hasBothPlatforms = $observedPlatforms -contains 'android' -and $observedPlatforms -contains 'ios'
+
+              if ($allMetadataMatches -and $hasBothPlatforms) {
+                Write-Host "Expo verificado: grupo $observedGroup, commit $($ExpectedCommit.Substring(0, 7)), Android e iOS." -ForegroundColor Green
+                return
+              }
+            } else {
+              $lastObservation = "update:view terminó con código $detailExitCode para el grupo $observedGroup"
+            }
           }
         }
       } catch {
         $lastObservation = "respuesta JSON inválida: $($_.Exception.Message)"
       }
     } else {
-      $lastObservation = "la consulta de Expo terminó con código $queryExitCode"
+      $lastObservation = "update:list terminó con código $summaryExitCode"
     }
 
     if ($attempt -lt $attemptCount) {

@@ -20,13 +20,13 @@ assert.match(
 assert.match(
   configSource,
   /\/api\/audio\/course-completion\.mp3[?]\$\{query\.toString\(\)\}/,
-  'Completion prompts must use the dedicated masked-audio endpoint.',
+  'Completion prompts must use the dedicated visible-fragment endpoint.',
 );
 
 assert.match(
   lessonScreenSource,
   /const hasCompletionBlank = hasVisualAudioPlaceholder\(card\.prompt\)[\s\S]*?completionPromptAudioSource\(/,
-  'Completion prompts must preload the dedicated masked-audio source.',
+  'Completion prompts must preload the dedicated visible-fragment source.',
 );
 
 assert.match(
@@ -175,8 +175,8 @@ if (compiledConfigPath) {
   assert.throws(
     () => completionPromptAudioUrl('They ___ a ___.', 'They are a family.', 'are'),
     /requires exactly one visual placeholder/,
-    'Multiple placeholders must never reach the masked-audio endpoint.',
+    'Multiple placeholders must never reach the completion-audio endpoint.',
   );
 }
 
-console.log(`Verified ${completionCardCount} masked visual-blank cards with full completed-prompt context.`);
+console.log(`Verified ${completionCardCount} visual-blank cards with validated completion context.`);

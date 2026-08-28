@@ -1,12 +1,14 @@
 import os
+import time
 from pathlib import Path
 import random
 
-from fastapi import FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse, Response
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 
+from .api_auth import api_request_is_authorized
 from .diagnostics import initialize_diagnostics
 from .course_audio import (
     audio_debug,
@@ -50,6 +52,13 @@ initialize_diagnostics()
 app = FastAPI(title="Learn English API", version="0.1.0")
 init_db()
 
+APP_API_KEY = os.getenv("APP_API_KEY", "").strip()
+ADMIN_API_KEY = os.getenv("ADMIN_API_KEY", "").strip()
+if not APP_API_KEY:
+    print("WARNING: APP_API_KEY is not set; app-key enforcement is disabled for legacy clients.")
+if not ADMIN_API_KEY:
+    print("WARNING: ADMIN_API_KEY is not set; admin endpoints are unavailable.")
+
 
 @app.on_event("shutdown")
 async def shutdown_clients():
@@ -76,6 +85,81 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# Per-path request ceilings for the endpoints that call metered, paid
+# providers (Azure pronunciation, OpenAI/ElevenLabs TTS). Generous enough
+# that a real learner never notices; tight enough to stop scripted abuse.
+# (path, requests allowed, window in seconds)
+_RATE_LIMITS: dict[str, tuple[int, float]] = {
+    "/api/pronunciation/score": (30, 60.0),
+    "/api/pronunciation/interpret-azure": (30, 60.0),
+    "/api/pronunciation/token": (30, 60.0),
+    "/api/audio/course": (90, 60.0),
+    "/api/audio/course.mp3": (90, 60.0),
+    "/api/audio/course-completion": (90, 60.0),
+    "/api/audio/course-completion.mp3": (90, 60.0),
+    "/api/feedback/transcribe": (15, 60.0),
+}
+
+_rate_limit_hits: dict[tuple[str, str], list[float]] = {}
+
+
+def _client_ip(request: Request) -> str:
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
+def _is_rate_limited(request: Request) -> bool:
+    limit = _RATE_LIMITS.get(request.url.path)
+    if not limit:
+        return False
+    max_requests, window_seconds = limit
+    key = (request.url.path, _client_ip(request))
+    now = time.monotonic()
+    hits = [hit for hit in _rate_limit_hits.get(key, []) if now - hit < window_seconds]
+    if len(hits) >= max_requests:
+        _rate_limit_hits[key] = hits
+        return True
+    hits.append(now)
+    _rate_limit_hits[key] = hits
+    return False
+
+
+@app.middleware("http")
+async def guard_api_requests(request: Request, call_next):
+    """Keep the public internet out of learner data and metered providers.
+
+    - /api/admin/* needs the separate, stronger admin key (never shipped in
+      either app) -- this is an operator-only surface.
+    - Every other /api/* route (except the open health/legal paths) needs
+      the app key that ships inside the mobile app and web frontend once
+      APP_API_KEY is configured. Leaving it unset keeps legacy clients
+      working during a staged rollout. A valid admin key may also authorize
+      these routes for server-side admin mutations.
+    - Paid, metered endpoints are additionally rate-limited per IP address
+      regardless of whether the key check passes, as a second layer against
+      a leaked key being hammered.
+    """
+    path = request.url.path
+    if not api_request_is_authorized(
+        path,
+        configured_app_key=APP_API_KEY,
+        configured_admin_key=ADMIN_API_KEY,
+        provided_app_key=request.headers.get("x-app-key") or request.query_params.get("key"),
+        provided_admin_key=request.headers.get("x-admin-key"),
+    ):
+        return JSONResponse(status_code=401, content={"detail": "Not authorized."})
+
+    if _is_rate_limited(request):
+        return JSONResponse(
+            status_code=429,
+            content={"detail": "Demasiadas solicitudes. Espera un momento e intentalo de nuevo."},
+        )
+
+    return await call_next(request)
 
 
 if LESSON_IMAGE_DIR.exists():

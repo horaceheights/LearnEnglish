@@ -1,4 +1,3 @@
-import base64
 import re
 import json
 import unittest
@@ -23,16 +22,17 @@ from backend.app.course_audio import (
     NORMALIZATION_SAMPLE_RATE,
     _decoded_mono_samples,
     _encode_mp3,
-    _generate_elevenlabs_aligned_audio,
+    _generate_elevenlabs_audio,
+    assemble_completion_fragment_samples,
     audio_instructions,
     _median_fundamental_hz,
     _normalize_pitch,
     cache_path_for,
     completion_prompt_cache_path,
     completion_prompt_contract,
+    completion_prompt_fragments,
     get_course_audio,
     get_course_completion_audio,
-    mask_completion_answer_samples,
     normalized_provider,
     premium_voice_for_narrator,
     pronunciation_notes,
@@ -66,6 +66,11 @@ class CourseAudioProfileTests(unittest.TestCase):
                     card.answer_audio_text,
                     f"{contract.prefix}{contract.blank_text}{contract.suffix}",
                 )
+                for fragment in completion_prompt_fragments(contract):
+                    if fragment is None:
+                        continue
+                    self.assertIsNone(COMPLETION_PLACEHOLDER_PATTERN.search(fragment))
+                    self.assertNotEqual(card.answer_audio_text, fragment)
                 completion_cards.append((lesson.id, card.prompt))
 
         self.assertEqual(428, len(completion_cards))
@@ -125,55 +130,38 @@ class CourseAudioProfileTests(unittest.TestCase):
         ).hexdigest()
         self.assertEqual(f"{expected}.mp3", path.name)
 
-    def test_completion_answer_masking_handles_beginning_middle_and_end(self):
-        samples = array("h", [9000]) * NORMALIZATION_SAMPLE_RATE
-        starts = (0.10, 0.30, 0.60)
-        ends = (0.20, 0.40, 0.72)
-        minimum_pause = round(
-            COMPLETION_PLACEHOLDER_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE
+    def test_completion_fragments_handle_beginning_middle_and_end(self):
+        ending = completion_prompt_contract(
+            "It is a ___.",
+            "It is a restaurant.",
+            "restaurant",
         )
-        trailing_silence = round(
-            COMPLETION_TRAILING_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE
-        )
+        middle = completion_prompt_contract("Who ___ they?", "Who are they?", "are")
+        beginning = completion_prompt_contract("___ are they?", "Who are they?", "Who")
 
-        beginning = mask_completion_answer_samples(
-            samples,
-            starts,
-            ends,
-            0,
-            1,
-            ending_blank=False,
-        )
-        beginning_start = round(0.10 * NORMALIZATION_SAMPLE_RATE)
-        self.assertEqual({0}, set(beginning[beginning_start:beginning_start + minimum_pause]))
-        self.assertIn(9000, beginning[beginning_start + minimum_pause:])
-        self.assertEqual({0}, set(beginning[-trailing_silence:]))
+        self.assertEqual(("It is a?", None), completion_prompt_fragments(ending))
+        self.assertEqual(("Who,", "they?"), completion_prompt_fragments(middle))
+        self.assertEqual((None, "are they?"), completion_prompt_fragments(beginning))
+        self.assertNotIn("restaurant", completion_prompt_fragments(ending))
 
-        middle = mask_completion_answer_samples(
-            samples,
-            starts,
-            ends,
-            1,
-            2,
-            ending_blank=False,
-        )
-        middle_start = round(0.30 * NORMALIZATION_SAMPLE_RATE)
-        self.assertEqual({0}, set(middle[middle_start:middle_start + minimum_pause]))
-        self.assertEqual(9000, middle[middle_start - 1])
-        self.assertIn(9000, middle[middle_start + minimum_pause:])
-        self.assertEqual({0}, set(middle[-trailing_silence:]))
+    def test_completion_fragments_are_stitched_around_fixed_silence(self):
+        prefix_samples = array("h", [9000]) * 2_400
+        suffix_samples = array("h", [7000]) * 1_200
+        with patch(
+            "backend.app.course_audio._decoded_mono_samples",
+            side_effect=[prefix_samples, suffix_samples],
+        ):
+            stitched = assemble_completion_fragment_samples(b"prefix", b"suffix")
 
-        ending = mask_completion_answer_samples(
-            samples,
-            starts,
-            ends,
-            2,
-            3,
-            ending_blank=True,
-        )
-        ending_start = round(0.60 * NORMALIZATION_SAMPLE_RATE)
-        self.assertEqual(9000, ending[ending_start - 1])
-        self.assertEqual({0}, set(ending[ending_start:]))
+        leading = round(0.18 * NORMALIZATION_SAMPLE_RATE)
+        pause = round(COMPLETION_PLACEHOLDER_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE)
+        trailing = round(COMPLETION_TRAILING_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE)
+        self.assertEqual({0}, set(stitched[:leading]))
+        self.assertIn(9000, stitched[leading:leading + len(prefix_samples)])
+        pause_start = leading + len(prefix_samples)
+        self.assertEqual({0}, set(stitched[pause_start:pause_start + pause]))
+        self.assertIn(7000, stitched[pause_start + pause:-trailing])
+        self.assertEqual({0}, set(stitched[-trailing:]))
 
     def test_shared_audio_sanitizer_rejects_every_visual_placeholder(self):
         self.assertEqual(
@@ -415,48 +403,36 @@ class CourseAudioProfileTests(unittest.TestCase):
 
 
 class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
-    async def test_elevenlabs_request_contains_only_the_full_sentence(self):
-        full_text = "They are the parents."
-        alignment = {
-            "characters": list(full_text),
-            "character_start_times_seconds": [index * 0.05 for index in range(len(full_text))],
-            "character_end_times_seconds": [(index + 1) * 0.05 for index in range(len(full_text))],
-        }
+    async def test_elevenlabs_request_contains_only_the_visible_fragment(self):
         response = Mock(status_code=200)
-        response.json.return_value = {
-            "audio_base64": base64.b64encode(b"complete-sentence-mp3").decode("ascii"),
-            "alignment": alignment,
-        }
+        response.content = b"visible-fragment-mp3"
         client = AsyncMock()
         client.post.return_value = response
 
         with patch("backend.app.course_audio.elevenlabs_api_key", return_value="test-key"):
-            audio, starts, ends = await _generate_elevenlabs_aligned_audio(
+            audio = await _generate_elevenlabs_audio(
                 client,
-                full_text,
+                "It is a?",
                 "eleven_multilingual_v2",
                 "teacher-voice",
                 premium=True,
                 mode="prompt",
             )
 
-        self.assertEqual(b"complete-sentence-mp3", audio)
-        self.assertEqual(len(full_text), len(starts))
-        self.assertEqual(len(full_text), len(ends))
+        self.assertEqual(b"visible-fragment-mp3", audio)
         request = client.post.await_args
-        self.assertTrue(request.args[0].endswith("/teacher-voice/with-timestamps"))
-        self.assertEqual(full_text, request.kwargs["json"]["text"])
-        self.assertNotIn("visual_prompt", request.kwargs["json"])
-        self.assertNotIn("_", request.kwargs["json"]["text"])
-        self.assertEqual("application/json", request.kwargs["headers"]["Accept"])
+        self.assertTrue(request.args[0].endswith("/teacher-voice"))
+        self.assertEqual("It is a?", request.kwargs["json"]["text"])
+        self.assertNotIn("restaurant", request.kwargs["json"]["text"])
+        self.assertEqual("audio/mpeg", request.kwargs["headers"]["Accept"])
 
-    async def test_invalid_alignment_fails_silent_without_fragment_fallback(self):
+    async def test_invalid_fragment_fails_silent(self):
         with (
             TemporaryDirectory() as temp_dir,
             patch("backend.app.course_audio.CACHE_DIR", Path(temp_dir)),
             patch(
-                "backend.app.course_audio._generate_elevenlabs_aligned_audio",
-                new=AsyncMock(side_effect=ValueError("mismatched alignment")),
+                "backend.app.course_audio._generate_elevenlabs_audio",
+                new=AsyncMock(side_effect=ValueError("invalid fragment")),
             ) as generate,
         ):
             response = await get_course_completion_audio(
@@ -466,7 +442,7 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
             )
 
         self.assertEqual("true", response.headers["X-Audio-Fail-Silent"])
-        self.assertEqual("invalid-audio-or-alignment", response.headers["X-Audio-Fail-Silent-Reason"])
+        self.assertEqual("invalid-fragment-audio", response.headers["X-Audio-Fail-Silent-Reason"])
         self.assertEqual("no-store", response.headers["Cache-Control"])
         self.assertEqual(1, generate.await_count)
         self.assertTrue(generate.await_args.kwargs["premium"])
@@ -476,7 +452,7 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_unsupported_provider_fails_silent_without_synthesis(self):
         with patch(
-            "backend.app.course_audio._generate_elevenlabs_aligned_audio",
+            "backend.app.course_audio._generate_elevenlabs_audio",
             new=AsyncMock(),
         ) as generate:
             response = await get_course_completion_audio(
@@ -489,6 +465,38 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual("true", response.headers["X-Audio-Fail-Silent"])
         self.assertEqual("unsupported-provider", response.headers["X-Audio-Fail-Silent-Reason"])
         generate.assert_not_awaited()
+
+    async def test_completion_endpoint_never_sends_the_missing_answer_to_tts(self):
+        fragment_audio = _encode_mp3(array("h", [9000]) * 2_400)
+        cases = (
+            ("It is a ___.", "It is a restaurant.", "restaurant", ["It is a?"]),
+            ("Who ___ they?", "Who are they?", "are", ["Who,", "they?"]),
+            ("___ are they?", "Who are they?", "Who", ["are they?"]),
+        )
+
+        for visual_prompt, full_text, blank_text, expected_fragments in cases:
+            with (
+                self.subTest(visual_prompt=visual_prompt),
+                TemporaryDirectory() as temp_dir,
+                patch("backend.app.course_audio.CACHE_DIR", Path(temp_dir)),
+                patch(
+                    "backend.app.course_audio._generate_elevenlabs_audio",
+                    new=AsyncMock(return_value=fragment_audio),
+                ) as generate,
+            ):
+                response = await get_course_completion_audio(
+                    visual_prompt=visual_prompt,
+                    full_text=full_text,
+                    blank_text=blank_text,
+                )
+
+                sent_texts = [call.args[1] for call in generate.await_args_list]
+                self.assertEqual(expected_fragments, sent_texts)
+                self.assertNotIn(full_text, sent_texts)
+                self.assertEqual(
+                    COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
+                    response.headers["x-audio-profile"],
+                )
 
     async def test_ordinary_course_endpoint_rejects_every_visual_placeholder(self):
         with patch(

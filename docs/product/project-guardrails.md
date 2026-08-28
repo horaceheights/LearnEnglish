@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-08-25
+Last reviewed: 2026-08-28
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -16,6 +16,15 @@ The detailed A1 syllabus and Unit 1 roadmap live in [`course-design-a1.md`](cour
 6. Preserve unrelated working-tree changes. Never stage, revert, or overwrite them.
 7. When an approved standard changes, update this file in the same commit.
 8. Treat the user's requested scope as a hard boundary. A visual-only request such as adding borders, colors, or rounded corners must not change layout, dimensions, spacing, image fit/crop/zoom, content, navigation, or interaction. If the requested result cannot be implemented without any change outside that scope, stop before editing and ask the user whether to proceed.
+
+### Repository hygiene
+
+- `origin/main` is the canonical integration line. The primary checkout returns to an up-to-date local `main` after recovery or task work; it must not remain parked on a stale feature branch.
+- New task branches start from a freshly fetched `origin/main`. A divergent release or feature worktree is never a safe base merely because it contains a recent local change.
+- At task start and completion, run the read-only repository hygiene audit and inspect branch divergence, registered worktrees, and dirty state.
+- Once work is integrated, remove its clean worktree and retire its fully merged task branches. Dirty worktrees and unmerged branches require an explicit local-state review and a recoverable named snapshot before removal.
+- Repository cleanup never changes `release/preview`, Expo channels, Production, or deployed state unless release work is explicitly requested and approved through the release workflow.
+- Force-pushes, history rewrites, and silent discards are prohibited. Name the exact refs or paths before any destructive cleanup.
 
 ### Cross-platform parity
 
@@ -86,7 +95,7 @@ Every standard lesson follows this visible sequence:
 - Mix related forms instead of batching every `is` item before every `are` item.
 - Include affirmative and negative forms only after each form has been introduced clearly.
 - End with a short completion or mission activity that uses previously learned language.
-- Completion blanks are visual UI only. Before selection, speak the visible sentence context with a short silent pause at the blank; after selection, speak the completed answer. To create the prompt audio, synthesize the authored, grammatically complete `answer_audio_text` exactly once with an alignment-capable provider, validate the answer span, and physically replace that span with at least 550 ms of digital silence. Never send underscores, ellipses, blank markers, or incomplete sentence fragments to any TTS provider.
+- Completion blanks are visual UI only. Before selection, speak only the visible sentence fragments with at least 550 ms of digital silence at the blank; after selection, speak the completed answer. Never synthesize the missing answer as part of the prompt. Ending blanks use a rising elicitation tone on the visible prefix; middle blanks use comma punctuation on the prefix plus the fixed silent gap before the visible suffix. Never send underscores, ellipses, `[pause]`, `[blank]`, `{blank}`, or equivalent markers to any TTS provider.
 
 ## 3. New-Word Learning Journey
 
@@ -187,9 +196,9 @@ Do not force every word through every step in a single lesson when that would ma
 - Do not show internal audio-generation or scoring terminology to learners. A visible neutral processing state such as `Un momento...` is allowed.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
 - Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
-- Every ordinary course-audio boundary rejects visual answer blanks. Completion prompt audio uses a dedicated masked-audio path: synthesize only the exact full completed sentence, use validated provider timing to locate the inserted answer, then replace that audio interval with digital zero samples. Beginning, middle, and ending blanks must use the same path.
-- Treat `_`, repeated underscores, ellipses, `[pause]`, `[blank]`, and equivalent markers as control data, never speech content. Never synthesize prefix/suffix fragments and never use device or browser speech as a completion fallback. Missing, ambiguous, or invalid timing must return a known valid silent clip rather than unmasked, partial, or guessed speech.
-- Static course-audio generation and transcript audits exclude visual-blank prompts from ordinary TTS while retaining their complete `answer_audio_text`. Preview verification must cover beginning, middle, and ending blanks and prove that no raw placeholder or incomplete fragment can reach a provider.
+- Every ordinary course-audio boundary rejects visual answer blanks. Completion prompt audio uses a dedicated visible-fragment path: derive the exact prefix and suffix from the validated prompt contract, synthesize only those visible words, and stitch them around deterministic digital silence. The completed `answer_audio_text` is validation and post-selection audio only; it must never be submitted as the incomplete prompt. Beginning, middle, and ending blanks use this same path.
+- Treat `_`, repeated underscores, ellipses, `[pause]`, `[blank]`, `{blank}`, and equivalent markers as control data, never speech content. The completion provider may receive only nonempty visible fragments with safe punctuation guidance: comma before a middle gap or a question mark for an ending elicitation. Never use device or browser speech as a completion fallback. Missing or invalid fragment audio must return a known valid silent clip rather than raw-placeholder, completed-answer, partial, or guessed speech.
+- Static course-audio generation and transcript audits exclude visual-blank prompts from ordinary TTS while retaining their complete `answer_audio_text`. Preview verification must cover beginning, middle, and ending blanks across the complete course and prove that no raw placeholder or missing-answer word can reach the prompt provider.
 
 ## 8. Feedback and Interaction
 
@@ -276,6 +285,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Release verification must require the commit label and update UI, run the complete Preview preflight, serialize Preview publications so two jobs cannot race, and verify the live EAS update group against the GitHub commit after publication.
 - Repository guards are defense in depth, not the release authority: a stale checkout can also contain stale scripts. Server-side branch/environment protection and a CI-only Expo token are required to prevent an old checkout from bypassing current repository checks.
 - The Preview publisher injects the current seven-character Git commit into the OTA bundle so the app, Expo, and Vercel identify the same code snapshot.
+- Backend access-control changes must remain compatible with every active mobile channel. Do not enforce a new client credential on the shared backend until the matching client code has reached Preview and Production; server-only admin credentials must never be committed, bundled, or given a source-code fallback.
 
 ## 12. Decision Log
 
@@ -330,5 +340,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-24: Text-only answer sets standardized on at most three tiles across all A1 units. The correct answer and first two authored distractors retain their relative order; image-choice counts and layouts remain unchanged.
 - 2026-08-24: Completed live pronunciation progress standardized on an immediate transition from listening to neutral processing, with an independent all-syllables completion safeguard and a bounded native-stop recovery instead of indefinite `Te escucho…` stalls.
 - 2026-08-24: A1 scene contracts standardized on literal semantic media: generic person/object fallbacks are prohibited, selectable options contain one answer concept per tile, and missing scenes require a reviewed dedicated 3:2 asset or a failing media build.
-- 2026-08-25: Completion prompts resumed upfront speech using deterministic full-sentence masking. The system synthesizes `answer_audio_text` once, replaces only the timing-aligned answer span with at least 550 ms of digital silence, and fails to a known silent clip when alignment is unavailable; fragment synthesis, placeholder sanitization into spoken punctuation, and browser fallback are prohibited.
+- 2026-08-25: Completion prompts resumed upfront speech using deterministic full-sentence masking. This timing-based approach was superseded on 2026-08-28 after phoneme leakage was heard at answer boundaries.
+- 2026-08-28: Completion prompts standardized on visible-fragment synthesis. Missing answers and visual markers never enter the prompt TTS request; ending prefixes use rising elicitation punctuation, middle prefixes use comma punctuation, and beginning/middle/ending fragments are stitched around at least 550 ms of digital silence. Invalid fragment generation fails to a known silent clip, and device/browser completion fallback remains prohibited.
 - 2026-08-25: After a newer OTA from a stale divergent branch replaced the complete seven-unit Preview with an older tree, Preview publication moved to the protected `release/preview` authority. CI now owns publishing, exact course topology and fingerprints are release invariants, and local or task-branch publication is prohibited.
+- 2026-08-26: Shared-backend API-key rollout standardized on a compatibility window: app-key enforcement remains disabled while `APP_API_KEY` is unset, admin endpoints fail closed, and enforcement begins only after matching client code reaches every active mobile channel.

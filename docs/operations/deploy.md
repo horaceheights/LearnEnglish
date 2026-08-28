@@ -1,4 +1,4 @@
-# Deploy Learn English
+# Deploy SpanGlish
 
 This app is set up to deploy with:
 
@@ -74,6 +74,30 @@ SENTRY_ENVIRONMENT=production
 The DSN may be the existing React Native project DSN or a backend project in
 the same Sentry organization. Request bodies are not collected, so learner
 recordings and pronunciation text are excluded from Sentry.
+
+12. Configure API access keys in stages. `ADMIN_API_KEY` is a server-only
+secret shared by the backend and the Vercel server runtime. Generate a new,
+random value for it and never commit it or expose it through a `NEXT_PUBLIC_*`
+variable:
+
+```text
+ADMIN_API_KEY=your-new-server-only-admin-key
+```
+
+`APP_API_KEY` is a client-embedded abuse-deterrence value, not user
+authentication. During a compatibility rollout, leave the backend variable
+unset until the matching web and mobile client code has reached every active
+release channel. While it is unset, ordinary API routes remain compatible with
+legacy clients and the metered-route rate limits remain active. Once all active
+clients send the matching value, configure it on the backend and restart:
+
+```text
+APP_API_KEY=the-value-shipped-by-the-active-clients
+```
+
+The frontend server also needs `ADMIN_API_KEY`. The public web client uses
+`NEXT_PUBLIC_APP_API_KEY` when overriding its versioned app-key default. Never
+put the admin key in a browser or mobile variable.
 
 `OPENAI_API_KEY` must be the raw key only, starting with `sk-`. Do not include labels such as `openAI`, quotes, extra spaces, or line breaks.
 
