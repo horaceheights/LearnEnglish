@@ -11,6 +11,8 @@ lesson player but does not create learner sessions or card-attempt records.
 - **Auto OFF** may pause transitions for inspection, but it must not substitute an older lesson flow.
 - Every learner-facing change is incomplete until it is verified in both the normal lesson entry and Engine QA.
 - Any new `qaMode` condition must be justified as a testing control or persistence safeguard, never as a separate UI implementation.
+- The QA hub must expose the full course through a compact Unit → Lesson → Stage → Card navigator. It shows only the selected unit's ten lessons and must not put all 70 lessons before the card list.
+- The last QA lesson, stage, and card are QA-only local state. Returning from the lesson player or reopening Engine QA restores that location without touching learner progress.
 
 ## Test session record
 
@@ -38,9 +40,13 @@ For every defect, capture:
 ## QA controls
 
 - [ ] Engine QA opens from the home screen
+- [ ] All seven unit buttons are reachable without vertical scrolling
+- [ ] Selecting a unit shows exactly its ten lesson buttons
 - [ ] Lesson selection loads the correct lesson
 - [ ] Stage filters show the expected cards
 - [ ] A selected card opens directly
+- [ ] Returning from a card restores and highlights the same unit, lesson, stage, and card
+- [ ] QA instructions and the Sentry test remain available under **Herramientas QA**
 - [ ] QA header shows lesson, card, stage, and update code
 - [ ] QA header shows the live first-attempt score
 - [ ] Previous opens the prior card

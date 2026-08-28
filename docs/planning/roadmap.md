@@ -74,7 +74,7 @@ creation without proportionally increasing engineering effort.
 - Consolidated lesson header, larger uncropped images, and visible lesson exit
 - Grammar answers animate toward sentence blanks and repeat the completed sentence
 - In-app error boundary replaces unexplained blank screens
-- Internal Engine QA hub can jump directly to lessons, stages, and cards
+- Internal Engine QA hub can jump directly to lessons, stages, and cards through a compact unit-first navigator that restores the last QA location
 - Persistent QA checklist: [`../qa/engine-qa-checklist.md`](../qa/engine-qa-checklist.md)
 
 ---

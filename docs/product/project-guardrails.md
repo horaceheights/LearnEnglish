@@ -250,6 +250,8 @@ The course browser must preserve the curriculum hierarchy. Its default view show
 
 Every Preview and Engine QA release must embed the same complete A1 catalog: Units 1-7 with exactly ten lessons per unit (70 lessons total). A targeted QA or audio update may change individual lessons, but it must never publish a partial catalog or replace the complete catalog with only the lessons under test.
 
+Engine QA uses a compact `Unit -> Lesson -> Stage -> Card` location navigator over that complete catalog. All seven units remain directly reachable, but the hub renders only the selected unit's ten lessons before the stage and card controls; it must never restore a flattened 70-lesson stack. The last QA location is stored only in the QA namespace and restored after returning from the real lesson player or reopening the hub. Instructions and diagnostic tools remain available without displacing the primary navigator.
+
 ## 10. Authoring and Verification
 
 Primary curriculum sources:
@@ -345,5 +347,6 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-25: Completion prompts resumed upfront speech using deterministic full-sentence masking. This timing-based approach was superseded on 2026-08-28 after phoneme leakage was heard at answer boundaries.
 - 2026-08-28: Completion prompts standardized on visible-fragment synthesis. Missing answers and visual markers never enter the prompt TTS request; ending prefixes use rising elicitation punctuation, a final visible article `a` receives safe quotation emphasis, middle prefixes use comma punctuation, and beginning/middle/ending fragments are stitched around at least 550 ms of digital silence. Invalid fragment generation fails to a known silent clip, and device/browser completion fallback remains prohibited.
 - 2026-08-28: Concurrent coding work standardized on isolated task branches and worktrees, pre-edit overlap inspection, preservation of unrelated changes, and fresh `release/preview` integration plus repeated release checks before Preview merge or publication. Unsafe overlaps require explicit user direction, and stale snapshots may never be published.
+- 2026-08-28: Engine QA navigation standardized on a compact, restorable `Unit -> Lesson -> Stage -> Card` path. The hub keeps all seven units reachable, renders only one unit's ten lessons at a time, remembers QA-only location state, and keeps diagnostics secondary to card browsing.
 - 2026-08-25: After a newer OTA from a stale divergent branch replaced the complete seven-unit Preview with an older tree, Preview publication moved to the protected `release/preview` authority. CI now owns publishing, exact course topology and fingerprints are release invariants, and local or task-branch publication is prohibited.
 - 2026-08-26: Shared-backend API-key rollout standardized on a compatibility window: app-key enforcement remains disabled while `APP_API_KEY` is unset, admin endpoints fail closed, and enforcement begins only after matching client code reaches every active mobile channel.
