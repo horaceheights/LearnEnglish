@@ -26,6 +26,26 @@ USE_INTERACTIONS = {
 }
 NO_IMAGE_MARKERS = ("no image", "no teaching image", "speaker control only")
 
+# These landscape masters lose an answer-critical cue when a centered 4:5 crop is
+# used by the portrait four-card grid. Their sibling variants keep the cue inside
+# the shared center safe area without changing one- and two-card compositions.
+FOUR_CARD_REFRAMES = {
+    "a1_n3.webp", "a1_n4.webp", "a1_n5.webp", "a1_n6.webp",
+    "a1_n7.webp", "a1_n8.webp", "a1_n9.webp", "a1_n10.webp",
+    "a1_table.webp",
+    "a1_scene_n13_e92ef3e.webp", "a1_scene_n14_f713285.webp",
+    "a1_scene_n15_35e4ec4.webp", "a1_scene_n16_e4aa4eb.webp",
+    "a1_scene_n17_9b96027.webp", "a1_scene_n18_bdd888e.webp",
+    "a1_scene_bag-6_431210e.webp", "a1_scene_bag-7_378b7f0.webp",
+    "a1_scene_bag-8_7f5b9cb.webp", "a1_scene_bag-9_adb8071.webp",
+    "a1_scene_coffee-5_c9b98e0.webp", "a1_scene_coffee-6_1ea48e3.webp",
+    "a1_scene_coffee-7_6481821.webp", "a1_scene_coffee-8_90b7ae7.webp",
+    "a1_scene_tea-8_43e62f6.webp", "a1_scene_juice-8_437a2f8.webp",
+    "a1_scene_five-black-phones_734dda6.webp",
+    "a1_scene_six-white-bags_f412a8a.webp",
+    "a1_scene_five-blue-chairs_2a951fc.webp",
+}
+
 EXISTING_ASSETS = {
     "boy": "boy.webp",
     "boy-running": "boy_is_running.webp",
@@ -151,6 +171,31 @@ class AssetCatalog:
             item["card_refs"].append(card_ref)
         return filename
 
+    def add_four_card_variant(self, filename: str, card_ref: str) -> str:
+        if filename not in FOUR_CARD_REFRAMES:
+            return filename
+        variant = filename.removesuffix(".webp") + "_four-card.webp"
+        key = f"four-card:{filename}"
+        item = self.items.setdefault(
+            key,
+            {
+                "asset_id": key,
+                "concept": filename.removesuffix(".webp"),
+                "description": (
+                    "Four-card portrait-safe reframe; preserve the answer-critical "
+                    "number, count, price, or complete object in the centered 4:5 crop."
+                ),
+                "filename": variant,
+                "ratio": "3:2",
+                "dimensions": [1536, 1024],
+                "source": "four-card-safe-area-variant",
+                "card_refs": [],
+            },
+        )
+        if card_ref not in item["card_refs"]:
+            item["card_refs"].append(card_ref)
+        return variant
+
 
 def no_image(description: str) -> bool:
     lowered = description.lower()
@@ -259,6 +304,12 @@ def build_card(
     raw_for_correct = [correct] if interaction in SINGLE_INTERACTIONS else choices
     correct_id = find_correct_option_id(options, raw_for_correct, correct)
     options = limit_text_tile_options(options, correct_id)
+    if len(options) == 4 and all((option.get("image_url") or "").strip() for option in options):
+        card_ref = f"{lesson['id']}|{stage}|{slide_id}"
+        for option in options:
+            option["image_url"] = catalog.add_four_card_variant(
+                str(option["image_url"]), card_ref
+            )
 
     answer_audio: str | None = None
     if interaction in {"i2t2", "i2t4", "recognize-text"}:
