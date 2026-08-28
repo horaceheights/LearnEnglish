@@ -15,6 +15,8 @@ from backend.app.course_audio import (
     AUDIO_PROFILE_VERSION,
     COMPLETION_PLACEHOLDER_PATTERN,
     COMPLETION_PLACEHOLDER_SILENCE_SECONDS,
+    COMPLETION_ENDING_ARTICLE_MARKUP,
+    COMPLETION_ENDING_ARTICLE_MODEL,
     COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
     COMPLETION_TRAILING_SILENCE_SECONDS,
     COURSE_SYLLABLES,
@@ -30,6 +32,7 @@ from backend.app.course_audio import (
     cache_path_for,
     completion_prompt_cache_path,
     completion_prompt_contract,
+    completion_fragment_model,
     completion_prompt_fragments,
     get_course_audio,
     get_course_completion_audio,
@@ -139,10 +142,26 @@ class CourseAudioProfileTests(unittest.TestCase):
         middle = completion_prompt_contract("Who ___ they?", "Who are they?", "are")
         beginning = completion_prompt_contract("___ are they?", "Who are they?", "Who")
 
-        self.assertEqual(('It is "a"?', None), completion_prompt_fragments(ending))
+        self.assertEqual(
+            (f"It is {COMPLETION_ENDING_ARTICLE_MARKUP}?", None),
+            completion_prompt_fragments(ending),
+        )
         self.assertEqual(("Who,", "they?"), completion_prompt_fragments(middle))
         self.assertEqual((None, "are they?"), completion_prompt_fragments(beginning))
         self.assertNotIn("restaurant", completion_prompt_fragments(ending))
+
+    def test_only_phonetic_ending_article_uses_flash_model(self):
+        self.assertEqual(
+            COMPLETION_ENDING_ARTICLE_MODEL,
+            completion_fragment_model(
+                f"It is {COMPLETION_ENDING_ARTICLE_MARKUP}?",
+                "eleven_multilingual_v2",
+            ),
+        )
+        self.assertEqual(
+            "eleven_multilingual_v2",
+            completion_fragment_model("Who,", "eleven_multilingual_v2"),
+        )
 
     def test_completion_fragments_are_stitched_around_fixed_silence(self):
         prefix_samples = array("h", [9000]) * 2_400
@@ -412,8 +431,8 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
         with patch("backend.app.course_audio.elevenlabs_api_key", return_value="test-key"):
             audio = await _generate_elevenlabs_audio(
                 client,
-                'It is "a"?',
-                "eleven_multilingual_v2",
+                f"It is {COMPLETION_ENDING_ARTICLE_MARKUP}?",
+                COMPLETION_ENDING_ARTICLE_MODEL,
                 "teacher-voice",
                 premium=True,
                 mode="prompt",
@@ -422,7 +441,11 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(b"visible-fragment-mp3", audio)
         request = client.post.await_args
         self.assertTrue(request.args[0].endswith("/teacher-voice"))
-        self.assertEqual('It is "a"?', request.kwargs["json"]["text"])
+        self.assertEqual(
+            f"It is {COMPLETION_ENDING_ARTICLE_MARKUP}?",
+            request.kwargs["json"]["text"],
+        )
+        self.assertEqual(COMPLETION_ENDING_ARTICLE_MODEL, request.kwargs["json"]["model_id"])
         self.assertNotIn("restaurant", request.kwargs["json"]["text"])
         self.assertEqual("audio/mpeg", request.kwargs["headers"]["Accept"])
 
@@ -468,17 +491,34 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_completion_endpoint_never_sends_the_missing_answer_to_tts(self):
         fragment_audio = _encode_mp3(array("h", [9000]) * 2_400)
+        default_model = "eleven_multilingual_v2"
         cases = (
-            ("It is a ___.", "It is a restaurant.", "restaurant", ['It is "a"?']),
-            ("Who ___ they?", "Who are they?", "are", ["Who,", "they?"]),
-            ("___ are they?", "Who are they?", "Who", ["are they?"]),
+            (
+                "It is a ___.",
+                "It is a restaurant.",
+                "restaurant",
+                [f"It is {COMPLETION_ENDING_ARTICLE_MARKUP}?"],
+                [COMPLETION_ENDING_ARTICLE_MODEL],
+            ),
+            (
+                "Who ___ they?",
+                "Who are they?",
+                "are",
+                ["Who,", "they?"],
+                [default_model, default_model],
+            ),
+            ("___ are they?", "Who are they?", "Who", ["are they?"], [default_model]),
         )
 
-        for visual_prompt, full_text, blank_text, expected_fragments in cases:
+        for visual_prompt, full_text, blank_text, expected_fragments, expected_models in cases:
             with (
                 self.subTest(visual_prompt=visual_prompt),
                 TemporaryDirectory() as temp_dir,
                 patch("backend.app.course_audio.CACHE_DIR", Path(temp_dir)),
+                patch(
+                    "backend.app.course_audio._provider_audio_settings",
+                    return_value=(default_model, "teacher-voice", "mp3"),
+                ),
                 patch(
                     "backend.app.course_audio._generate_elevenlabs_audio",
                     new=AsyncMock(return_value=fragment_audio),
@@ -491,7 +531,9 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
                 )
 
                 sent_texts = [call.args[1] for call in generate.await_args_list]
+                sent_models = [call.args[2] for call in generate.await_args_list]
                 self.assertEqual(expected_fragments, sent_texts)
+                self.assertEqual(expected_models, sent_models)
                 self.assertNotIn(full_text, sent_texts)
                 self.assertEqual(
                     COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,

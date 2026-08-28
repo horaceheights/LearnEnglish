@@ -34,7 +34,11 @@ _generation_locks: dict[str, asyncio.Lock] = {}
 _ready_cue: bytes | None = None
 _silent_completion_audio: bytes | None = None
 AUDIO_PROFILE_VERSION = "a1-elevenlabs-cast-v14"
-COMPLETION_PROMPT_AUDIO_PROFILE_VERSION = "visible-fragments-emphasized-ending-v2"
+COMPLETION_PROMPT_AUDIO_PROFILE_VERSION = "visible-fragments-phonetic-ending-v3"
+COMPLETION_ENDING_ARTICLE_MODEL = "eleven_flash_v2"
+COMPLETION_ENDING_ARTICLE_MARKUP = (
+    '<phoneme alphabet="cmu-arpabet" ph="EY1">a</phoneme>'
+)
 COMPLETION_PLACEHOLDER_PATTERN = re.compile(
     r"(?:_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\])",
     flags=re.IGNORECASE,
@@ -1003,9 +1007,11 @@ def completion_prompt_fragments(
     """Return only learner-visible speech on each side of the blank.
 
     A rising question mark gives an ending blank such as ``It is a?`` the
-    requested eliciting tone. A comma gives a middle blank a natural boundary
-    before the fixed silent gap. These are punctuation guidance for TTS, not
-    spoken placeholders. The missing answer is never included.
+    requested eliciting tone. The final article uses supported phoneme markup
+    so it is reliably pronounced as the English strong form /eɪ/ ("ay"),
+    rather than being guessed as "ee". A comma gives a middle blank a natural
+    boundary before the fixed silent gap. These are non-spoken controls for
+    TTS, not placeholders. The missing answer is never included.
     """
 
     prefix = contract.prefix.strip()
@@ -1023,15 +1029,15 @@ def completion_prompt_fragments(
         prefix_fragment = re.sub(r"[\s.,!?;:…]+$", "", prefix).strip()
         if prefix_fragment:
             # A comma gives middle blanks a natural boundary before the fixed
-            # digital pause. Ending blanks use a rising elicitation tone. Quote
-            # a final article "a" so ElevenLabs gives that real word extra
-            # weight without receiving a fake spelling or placeholder sound.
+            # digital pause. Ending blanks use a rising elicitation tone. Use
+            # supported CMU markup for the final article so it has the exact
+            # English strong form /eɪ/ without fake spelling or a placeholder.
             if suffix_fragment:
                 prefix_fragment = f"{prefix_fragment},"
             elif re.search(r"\ba$", prefix_fragment, flags=re.IGNORECASE):
                 prefix_fragment = re.sub(
                     r"\b(a)$",
-                    r'"\1"?',
+                    f"{COMPLETION_ENDING_ARTICLE_MARKUP}?",
                     prefix_fragment,
                     flags=re.IGNORECASE,
                 )
@@ -1039,6 +1045,13 @@ def completion_prompt_fragments(
                 prefix_fragment = f"{prefix_fragment}?"
 
     return prefix_fragment, suffix_fragment
+
+
+def completion_fragment_model(fragment: str | None, default_model: str) -> str:
+    """Use the phoneme-capable model only for the marked ending article."""
+    if fragment and COMPLETION_ENDING_ARTICLE_MARKUP in fragment:
+        return COMPLETION_ENDING_ARTICLE_MODEL
+    return default_model
 
 
 def assemble_completion_fragment_samples(
@@ -1452,7 +1465,7 @@ async def get_course_completion_audio(
                     await _generate_elevenlabs_audio(
                         client,
                         prefix_fragment,
-                        model,
+                        completion_fragment_model(prefix_fragment, model),
                         voice,
                         premium=requested_provider == "elevenlabs-premium",
                         mode=mode,
@@ -1464,7 +1477,7 @@ async def get_course_completion_audio(
                     await _generate_elevenlabs_audio(
                         client,
                         suffix_fragment,
-                        model,
+                        completion_fragment_model(suffix_fragment, model),
                         voice,
                         premium=requested_provider == "elevenlabs-premium",
                         mode=mode,
