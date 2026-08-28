@@ -78,6 +78,9 @@ try {
   & node tests/lesson-1-3-media.test.cjs (Join-Path $outputDirectory 'config.js')
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imagen y pronunciación de la lección 1.3.' }
 
+  & node tests/lesson-2-6-audio.test.cjs (Join-Path $outputDirectory 'config.js')
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación del audio corregido de One en la lección 2.6.' }
+
   & node tests/audio-placeholder.test.cjs (Join-Path $outputDirectory 'config.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de espacios en audio.' }
 
