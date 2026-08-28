@@ -51,6 +51,9 @@ try {
   & node tests/option-media-standard.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la prueba global de imágenes 3:2 en opciones.' }
 
+  & node tests/four-card-media-review.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la revisión semántica de imágenes para la cuadrícula 2x2.' }
+
   & node tests/lesson-media-frame.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación global de marcos para imágenes de lecciones.' }
 

@@ -92,7 +92,7 @@ export function LessonCardView({
     card.options.length >= 3;
   const useTabletImageGrid = isTabletLandscape && !hasTextOnlyOptions && card.options.length === 4;
   const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card.options.length >= 3;
-  const useExpandedFourImagePortraitGrid = usePortraitImageGrid && card.options.length === 4;
+  const useFourImagePortraitGrid = usePortraitImageGrid && card.options.length === 4;
   const usePortraitImageStack = !isLandscape && !hasTextOnlyOptions && card.options.length === 2;
   const useSingleImageLayout = !hasTextOnlyOptions && card.options.length === 1;
   const useThreeByTwoOptionMedia = card.options.some((option) => Boolean(option.image_url));
@@ -412,7 +412,8 @@ export function LessonCardView({
                         onPress={optionsInteractive ? () => onSelect(option.id) : undefined}
                         shouldPlay={playActionVideo}
                         useCompactFrame={useSingleImageLayout}
-                        useThreeByTwoFrame={useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid}
+                        useFourByFiveFrame={useFourImagePortraitGrid}
+                        useThreeByTwoFrame={useThreeByTwoOptionMedia && !useFourImagePortraitGrid}
                         video={actionVideo}
                       />
                     ) : (
@@ -420,8 +421,8 @@ export function LessonCardView({
                         style={[
                           styles.optionImage,
                           styles.optionImagePortrait,
-                          useExpandedFourImagePortraitGrid
-                            ? { height: renderedOptionImageHeight }
+                          useFourImagePortraitGrid
+                            ? styles.optionImageFourByFiveFrame
                             : styles.optionImageThreeByTwoFrame,
                           showHelp ? styles.optionImageThreeByTwoHelp : null,
                         ]}
@@ -534,6 +535,7 @@ function LessonActionMedia({
   onPress,
   shouldPlay,
   useCompactFrame = false,
+  useFourByFiveFrame = false,
   useThreeByTwoFrame = false,
   video,
 }: {
@@ -543,6 +545,7 @@ function LessonActionMedia({
   onPress?: () => void;
   shouldPlay: boolean;
   useCompactFrame?: boolean;
+  useFourByFiveFrame?: boolean;
   useThreeByTwoFrame?: boolean;
   video: LessonActionVideoSource;
 }) {
@@ -591,7 +594,11 @@ function LessonActionMedia({
         style={[
           styles.actionMedia,
           useCompactFrame ? styles.singleActionMedia : null,
-          useThreeByTwoFrame ? styles.actionMediaThreeByTwo : { height },
+          useFourByFiveFrame
+            ? styles.actionMediaFourByFive
+            : useThreeByTwoFrame
+              ? styles.actionMediaThreeByTwo
+              : { height },
         ]}
       >
         <OptionMediaImage imageUrl={imageUrl} sourceOverride={video.posterSource} />
@@ -707,6 +714,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   optionImage: { ...LESSON_MEDIA_VIEWPORT_STYLE, width: '100%' },
+  optionImageFourByFiveFrame: { aspectRatio: 4 / 5, overflow: 'hidden' },
   optionImageThreeByTwoFrame: { aspectRatio: 3 / 2, overflow: 'hidden' },
   optionImageThreeByTwoHelp: { width: '65%' },
   optionImagePortrait: { borderRadius: 17 },
@@ -717,6 +725,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
   },
+  actionMediaFourByFive: { aspectRatio: 4 / 5 },
   actionMediaThreeByTwo: { aspectRatio: 3 / 2 },
   singleActionMedia: {
     width: '100%',

@@ -64,7 +64,7 @@ For every defect, capture:
 Test at least one card from every stage, then run the complete lesson audit.
 
 - [ ] Prompt text fits without clipping
-- [ ] Images remain uncropped and use available space
+- [ ] Images use their approved role-specific crop and preserve every answer-critical cue
 - [ ] Loading images use a neutral background without a spinner over any answer
 - [ ] Model audio plays once at the correct time
 - [ ] Tapping the prompt repeats its audio
@@ -91,7 +91,9 @@ Run these checks for every new card pattern before publishing Preview:
 - [ ] A stage-only header uses one compact line and does not reserve an empty prompt row
 - [ ] A prompt image plus four phrase choices fits in the usable screen without overlap or navigation-bar clipping
 - [ ] Long phrase choices remain readable within three lines and do not change the 2x2 grid dimensions
-- [ ] Prompt and answer images use `contain` and never crop heads, hands, or the action being taught
+- [ ] One-, two-, and three-card media retain the approved 3:2 treatment; four-image portrait choices retain a fixed 2x2 grid with fixed 4:5 media viewports
+- [ ] A four-card window-like crop may omit nonessential scene edges, but the concept remains unmistakable and no numeral, count, price, action, spatial relationship, or identifying structure is hidden or changed
+- [ ] New or changed four-card media has a reviewed 4:5 contact-sheet crop and a current hash in `docs/product/a1-four-card-media-review.json`
 - [ ] Font scale at 1.15 does not overlap choices; larger accessibility scales remain reachable by scrolling
 - [ ] Capture one Engine QA screenshot for the longest phrase card in portrait before release
 

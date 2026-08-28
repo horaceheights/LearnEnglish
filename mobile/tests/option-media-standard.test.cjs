@@ -109,7 +109,9 @@ assert.deepEqual(
 );
 assert.doesNotMatch(generatedText.join('\n'), /_3x2_pilot\.webp/, 'generated lessons must not retain pilot-only media references');
 assert.match(cardView, /const useThreeByTwoOptionMedia = card\.options\.some/);
-assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid\}/);
+assert.match(cardView, /useFourByFiveFrame=\{useFourImagePortraitGrid\}/);
+assert.match(cardView, /useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useFourImagePortraitGrid\}/);
+assert.match(cardView, /optionImageFourByFiveFrame:\s*\{ aspectRatio:\s*4 \/ 5, overflow:\s*'hidden' \}/);
 assert.match(cardView, /optionImageThreeByTwoFrame:\s*\{ aspectRatio:\s*3 \/ 2, overflow:\s*'hidden' \}/);
 assert.doesNotMatch(cardView, /preserveSubject=/, 'four-card layouts must use the same normalized fill policy');
 assert.match(
