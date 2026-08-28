@@ -13,6 +13,7 @@
 
 - Treat `origin/main` as the canonical integration line and keep the primary checkout on an up-to-date local `main` when no recovery operation is in progress.
 - Start task branches from a freshly fetched `origin/main`; do not continue new work on a stale feature or release worktree.
+- Assume other coding tasks may be running concurrently. Use an isolated branch/worktree, inspect active worktrees and overlapping files before editing, and preserve unrelated changes. Before merging into or publishing from `release/preview`, fetch and incorporate the latest remote `release/preview`, then rerun release checks. If overlapping changes cannot be combined safely, stop and ask the user. Never publish a stale snapshot.
 - Run `scripts/audit-repository-hygiene.ps1` at the start and end of branch, recovery, or release work.
 - After a task is integrated, remove its clean worktree and delete its fully merged local and remote task branches. Never remove a dirty worktree or an unmerged branch until its local-only state is reviewed and preserved in a named commit or tag.
 - Do not force-push, rewrite, prune, or discard repository state without first naming the exact affected refs or paths to the user.
