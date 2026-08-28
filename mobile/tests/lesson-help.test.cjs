@@ -99,4 +99,10 @@ assert.match(
   'Unknown text-choice stages must receive a structure-aware fallback.',
 );
 
+assert.match(
+  lessonHelpText(card()),
+  /Recuerda: toca la frase una vez para repetirla y dos veces para ver su traducción\.$/,
+  'Every help response must remind learners about the one-tap replay and two-tap translation gestures.',
+);
+
 console.log('Lesson help instruction checks passed.');
