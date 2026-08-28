@@ -122,7 +122,7 @@ test('the versioned manifest locks the complete recovery baseline and release id
   );
   assert.equal(
     integrityManifest.requiredReleaseIdentityFiles.at(-1).expectedGitBlob,
-    'a6d257448d85151ce4834c054b9dee10039ddeea',
+    '82bb78ac74dd6736a587c0a3b17e6e8c9ccdaa8f',
   );
 });
 
