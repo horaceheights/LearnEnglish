@@ -15,7 +15,8 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { courseAudioUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { courseAudioSource } from '../courseAudioSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -590,7 +591,7 @@ export function PronunciationPractice({
       });
       if (!isCurrentRun(runId)) return;
       const nextPlayer = createAudioPlayer(
-        courseAudioUrl(
+        courseAudioSource(
           phrase,
           'pronunciation_slow',
           'split-ing',

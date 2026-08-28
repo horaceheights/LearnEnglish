@@ -12,7 +12,9 @@ import type { LessonCard } from './types';
 // can replace a malformed generated clip immediately in a Preview OTA.
 const BUNDLED_COURSE_AUDIO: Record<string, AudioSource> = {
   'Are\nprompt\nprompt\nfemale-teacher': require('../assets/course-audio/are-female-teacher.mp3'),
+  'One\nprompt\nprompt\nfemale-teacher': require('../assets/course-audio/one-corrected.mp3'),
   'One\nprompt\nprompt\nfemale-warm': require('../assets/course-audio/one-corrected.mp3'),
+  'One\npronunciation_slow\nsplit-ing\nfemale-teacher': require('../assets/course-audio/one-corrected.mp3'),
   'They\nprompt\nprompt\nfemale-warm': require('../assets/course-audio/they-female-warm.mp3'),
 };
 
