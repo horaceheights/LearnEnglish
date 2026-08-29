@@ -6,6 +6,7 @@ const APP_API_KEY = process.env.NEXT_PUBLIC_APP_API_KEY || "Lka_Ecgoda6om-OagWcy
 
 const API_BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000").replace(/\/$/, "");
 const STATIC_ASSET_VERSION = process.env.NEXT_PUBLIC_STATIC_ASSET_VERSION || "20260710-mobile-direct-audio";
+const CORRECTED_ONE_ASSET_VERSION = "20260828-one-corrected-v1";
 
 export function getApiBaseUrl() {
   if (typeof window !== "undefined") {
@@ -262,7 +263,10 @@ export function getCourseAudioUrl({
   const manifestKey = [spokenText, mode, lang, variant].join("\n");
   const staticAudioFile = courseAudioManifest[manifestKey];
   if (staticAudioFile) {
-    return `/audio-cache/${staticAudioFile}?v=${encodeURIComponent(STATIC_ASSET_VERSION)}`;
+    const assetVersion = spokenText === "One"
+      ? `${STATIC_ASSET_VERSION}-${CORRECTED_ONE_ASSET_VERSION}`
+      : STATIC_ASSET_VERSION;
+    return `/audio-cache/${staticAudioFile}?v=${encodeURIComponent(assetVersion)}`;
   }
 
   const apiBaseUrl = getApiBaseUrl();
