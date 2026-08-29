@@ -60,6 +60,9 @@ try {
   & node tests/lesson-context-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de contexto de unidad y lección.' }
 
+  & node tests/tablet-lesson-layout.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de diseño para encabezados grandes en teléfonos y tabletas.' }
+
   & node tests/logo-home-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de navegación del logo a Inicio.' }
 

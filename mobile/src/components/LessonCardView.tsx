@@ -207,7 +207,7 @@ export function LessonCardView({
     ? Math.max(68, availableOptionsHeight - 42)
     : Math.min(
       responsiveOptionImageHeight,
-      usePortraitImageGrid || usePortraitImageStack
+      useTabletImageGrid || usePortraitImageGrid || usePortraitImageStack
         ? Math.max(68, ((availableOptionsHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
         : Math.max(68, (availableOptionsHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
     );
@@ -216,6 +216,36 @@ export function LessonCardView({
   const portraitImageContentWidth = Math.max(0, viewportWidth - 44);
   const constrainedPortraitImageOptionWidth = usePortraitImageStack
     ? Math.min(portraitImageContentWidth, (optionImageHeight * (3 / 2)) + 24)
+    : null;
+  // Landscape image frames must respect the height left after the shared lesson
+  // header. Without this cap, a 3:2 frame derives its height from the full
+  // tablet width, which can overflow one-card visuals and the second row of a
+  // four-card tablet grid. The column count preserves every established layout,
+  // including the working two-card row.
+  const landscapeImageGap = isTabletLandscape ? 12 : 7;
+  const landscapeImageColumnCount = useTabletImageGrid
+    ? 2
+    : Math.max(1, card.options.length);
+  const landscapeImageContentWidth = Math.max(
+    96,
+    viewportWidth - (isTabletLandscape ? 56 : 32),
+  );
+  const landscapeImageColumnWidth = Math.max(
+    96,
+    (
+      landscapeImageContentWidth
+      - (Math.max(0, landscapeImageColumnCount - 1) * landscapeImageGap)
+    ) / landscapeImageColumnCount,
+  );
+  const heightAwareThreeByTwoFrameWidth = Math.max(
+    96,
+    (optionImageHeight * (3 / 2)) + 24,
+  );
+  const constrainedLandscapeImageOptionWidth = isLandscape && !hasTextOnlyOptions
+    ? Math.min(landscapeImageColumnWidth, heightAwareThreeByTwoFrameWidth)
+    : null;
+  const tabletImageGridWidth = useTabletImageGrid && constrainedLandscapeImageOptionWidth
+    ? (constrainedLandscapeImageOptionWidth * 2) + landscapeImageGap
     : null;
 
   useEffect(() => {
@@ -354,6 +384,9 @@ export function LessonCardView({
             useHorizontalPhraseOptions ? styles.optionsHorizontalPhrases : null,
             isTabletLandscape ? styles.optionsTabletLandscape : null,
             useExpandedSingleActionVideo ? styles.singleActionVideoOptions : null,
+            tabletImageGridWidth
+              ? { alignSelf: 'center', width: tabletImageGridWidth }
+              : null,
           ]}>
             {card.options.map((option, optionIndex) => {
               const selected = selectedId === option.id;
@@ -382,7 +415,9 @@ export function LessonCardView({
                     {
                       minHeight: optionMinHeight,
                       padding: isTabletLandscape ? 8 : 5,
-                      width: constrainedPortraitImageOptionWidth ?? optionWidth,
+                      width: constrainedPortraitImageOptionWidth
+                        ?? constrainedLandscapeImageOptionWidth
+                        ?? optionWidth,
                     },
                     hasTextOnlyOptions
                       ? {
