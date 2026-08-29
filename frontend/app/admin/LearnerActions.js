@@ -9,7 +9,7 @@ const buttonStyle = {
   border: "1px solid #cdbf9f",
   borderRadius: 10,
   padding: "7px 10px",
-  background: "#fffdf9",
+  background: "#fff",
   color: "#29444d",
   fontSize: 12,
   fontWeight: 700,
@@ -47,7 +47,7 @@ export default function LearnerActions({ learner }) {
   }
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 7, minWidth: 142 }}>
       <button
         type="button"
         disabled={Boolean(working)}
