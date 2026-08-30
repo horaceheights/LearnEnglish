@@ -106,12 +106,29 @@ def main() -> None:
     parser.add_argument("--units", type=int, nargs="+", default=list(range(1, 8)))
     parser.add_argument("--page-size", type=int, default=24)
     parser.add_argument("--columns", type=int, default=4)
+    parser.add_argument(
+        "--profiles",
+        nargs="+",
+        help="Only render contracts that contain one of these runtime render profiles.",
+    )
     args = parser.parse_args()
 
     payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    eligible_assets = payload["assets"]
+    if args.profiles:
+        requested_profiles = set(args.profiles)
+        eligible_assets = [
+            item
+            for item in eligible_assets
+            if any(
+                isinstance(context, dict)
+                and context.get("render_profile") in requested_profiles
+                for context in item.get("review_contexts", [])
+            )
+        ]
     for unit in args.units:
         assets = sorted(
-            (item for item in payload["assets"] if unit_number(item) == unit),
+            (item for item in eligible_assets if unit_number(item) == unit),
             key=lambda item: (str(item["concept"]), str(item["filename"])),
         )
         unit_pages = pages(assets, args.page_size)
@@ -121,7 +138,7 @@ def main() -> None:
             print(destination)
         print(f"Unit {unit}: rendered {len(assets)} assets across {len(unit_pages)} pages.")
 
-        crops = browser_crop_items(payload["assets"], unit)
+        crops = browser_crop_items(eligible_assets, unit)
         crop_pages = pages(crops, args.page_size)
         for page_number, page_items in enumerate(crop_pages, 1):
             destination = args.output / f"unit-{unit}-browser-crops-{page_number:02d}.jpg"
