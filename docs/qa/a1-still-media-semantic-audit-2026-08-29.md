@@ -2,7 +2,7 @@
 
 ## Status
 
-The all-unit still-media implementation and agent-assisted pre-approval QA pass is complete. It is not human semantic approval. The corrected course remains intentionally blocked from release until a human reviewer records approval for every semantic contract in `a1-media-semantic-approvals.json` and re-reviews the merged Preview line's complete fixed-4:5 four-card crop inventory.
+The all-unit still-media implementation and agent-assisted pre-approval QA pass is complete. It is not human semantic approval. Under the two-stage policy approved on 2026-08-30, the corrected course may enter protected internal Preview with explicit pending-review warnings so it can be inspected in the real app. It remains intentionally blocked from Production until a human reviewer records approval for every semantic contract in `a1-media-semantic-approvals.json` and re-reviews the merged Preview line's complete fixed-4:5 four-card crop inventory.
 
 - Course topology: 70 lessons in seven units of ten.
 - Learner-facing still uses bound by the runtime inventory: 3,375.
@@ -11,7 +11,7 @@ The all-unit still-media implementation and agent-assisted pre-approval QA pass 
 - Mobile course-browser crop contexts: 147 (70 lesson rows, 70 continue cards, and seven unit cards).
 - Two-choice pre-play action-poster contexts: 74; the two Lesson 1.7 still-only comparison usages intentionally do not use a poster override.
 - Human approval registry: 0 approved, 1,775 pending, 0 rejected.
-- Release result: blocked by the pending semantic approvals and stale four-card crop-review evidence; there are no structural, parity, dimension, missing-file, or runtime-contract validation errors.
+- Release result: eligible only for protected internal Preview with warnings; Production is blocked by the pending semantic approvals and stale four-card crop-review evidence. There are no structural, parity, dimension, missing-file, rejected-review, or runtime-contract validation errors.
 
 This registry covers lesson prompt stills, correct options, distractors, Speak model stills, final client-resolved variants, the dedicated two-choice still posters actually shown before video playback, and every real mobile course-browser unit/lesson/continue crop. Action video semantics remain covered by the separate motion and frame-inspection rules in `project-guardrails.md`; approving a poster still never approves its video.
 
@@ -38,7 +38,7 @@ The builder is now option-authoritative. Every option uses its own concept or ex
 
 `project-guardrails.md` now requires a human visual review of every lesson still and every final client-resolved still variant against the complete teaching contract. A filename, prompt, generator description, manifest entry, dimensions check, or source approval is explicitly insufficient.
 
-Approval is bound to the complete runtime contract and the cryptographic hash of the exact final bytes. It also binds a role/layout-specific render policy, normalized implementation-source signature, fixed browser viewport where applicable, fit, and focal position. Any prompt, audio, answer, distractor-set, role, source, crop, pixels, renderer, viewport, fit, focal position, encoding, variant, or hash change returns the contract to pending. Missing, pending, rejected, stale, or hash-mismatched approval blocks validation and release.
+Approval is bound to the complete runtime contract and the cryptographic hash of the exact final bytes. It also binds a role/layout-specific render policy, normalized implementation-source signature, fixed browser viewport where applicable, fit, and focal position. Any prompt, audio, answer, distractor-set, role, source, crop, pixels, renderer, viewport, fit, focal position, encoding, variant, or hash change returns the contract to pending. Production remains fail-closed for missing, pending, rejected, stale, or hash-mismatched approval. The explicit Preview policy downgrades only current `pending` decisions and pending four-card crop evidence to visible warnings; missing, malformed, stale, mismatched, rejected, ambiguous, or structurally unsafe media still blocks Preview.
 
 Two-choice action options resolve to the dedicated first-visible-frame poster path used by both clients. Sixteen poster files now have canonical lesson-media copies, byte-identical mobile/web publication copies, literal Metro requires, and separate approval contracts. Ten Unit 1 title files that previously existed only in the mobile bundle also now have canonical sources.
 
@@ -51,13 +51,13 @@ Routine Preview verification now runs `mobile/tests/lesson-media-semantics.test.
 - Agent-assisted pixel review of all 147 actual mobile course-browser crops: pass across Units 1–7, with no wrong object, quantity, color, identity, action, or critical crop. Minor edge trims retained the complete teaching cue.
 - Agent-assisted pixel review of all 34 labeled two-choice action-poster contracts: pass, with no contradictory object, quantity, color, action, identity, or unusable crop. These two visual-review passes are pre-approval evidence only and did not modify the human approval registry.
 - Agent-assisted review of the final 17 exact-runtime four-card sheets: pass across all 335 distinct assets and 528 uses after the last repair rebuild. This is pre-approval evidence only.
-- The existing four-card crop-review manifest correctly fails closed because the effective inventory and hashes changed. Automation did not rewrite that human-review evidence.
+- The existing four-card crop-review manifest remains a strict Production blocker because the effective inventory and hashes changed. Preview reports that pending evidence as a warning and automation does not rewrite or approve it.
 - Focused Python contract, approval-registry, option-authority, thumbnail-framing, action-poster, and byte-sync tests: pass.
 - Runtime contract tests, including prompt-variant resolution and fail-closed mismatch handling: pass.
 - Mobile TypeScript check: pass.
-- `verify-interaction-paths.ps1` passes every check before stopping at the intentionally stale human four-card review manifest. The remaining checks were run directly and pass, including TypeScript, 77 unique unit/lesson title images, 833 normalized option/model images, 758 prompt cards, 408 prompt assets, layout, release-authority, audio, pronunciation, and catalog-parity checks.
+- `verify-interaction-paths.ps1` remains strict by default and stops at the intentionally stale human four-card review manifest. `verify-preview.ps1` now invokes its explicit Preview policy, which reports that evidence as a warning while still running the remaining checks. The remaining checks pass, including TypeScript, 77 unique unit/lesson title images, 833 normalized option/model images, 758 prompt cards, 408 prompt assets, layout, release-authority, audio, pronunciation, and catalog-parity checks.
 - Frontend production build: pass.
 - Lesson structure suite: 25 checks pass; the remaining audio-boundary check could not import the required pinned `av` dependency in this worktree's borrowed Python environment and is unrelated to still media.
-- Full `validate_lesson_cards.py`: all implementation checks pass; its only expected failure is the 1,775 pending human approvals.
+- Full `validate_lesson_cards.py`: all implementation checks pass. Its default Production policy has the expected failure for 1,775 pending human approvals; `--semantic-review-policy preview` reports those same current decisions as warnings.
 
 No approval entries were marked approved by automation or by this repair pass.

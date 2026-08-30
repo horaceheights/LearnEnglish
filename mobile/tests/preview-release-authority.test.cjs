@@ -12,6 +12,21 @@ const publishScriptSource = fs.readFileSync(
   path.join(repositoryRoot, 'mobile/scripts/publish-preview.ps1'),
   'utf8',
 );
+const promoteScriptSource = fs.readFileSync(
+  path.join(repositoryRoot, 'mobile/scripts/promote-preview.ps1'),
+  'utf8',
+);
+const previewVerifierSource = fs.readFileSync(
+  path.join(repositoryRoot, 'mobile/scripts/verify-preview.ps1'),
+  'utf8',
+);
+const interactionVerifierSource = fs.readFileSync(
+  path.join(repositoryRoot, 'mobile/scripts/verify-interaction-paths.ps1'),
+  'utf8',
+);
+const mobilePackage = JSON.parse(
+  fs.readFileSync(path.join(repositoryRoot, 'mobile/package.json'), 'utf8'),
+);
 const codeownersSource = fs.readFileSync(path.join(repositoryRoot, '.github/CODEOWNERS'), 'utf8');
 const pinnedActions = {
   checkout: 'd23441a48e516b6c34aea4fa41551a30e30af803',
@@ -139,14 +154,58 @@ test('the publisher verifies Expo reports the same GitHub commit after upload', 
   assert.match(publishScriptSource, /Assert-PublishedPreviewCommit -ExpectedCommit \$releaseCommit/);
 });
 
+test('Preview permits only explicit pending-review advisories', () => {
+  assert.equal(
+    mobilePackage.scripts['verify:preview'],
+    'powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-preview.ps1',
+  );
+  assert.match(previewVerifierSource, /\[string\]\$ReviewPolicy = 'Preview'/);
+  assert.match(
+    previewVerifierSource,
+    /validate_lesson_cards\.py[\s\S]*?--semantic-review-policy \$semanticReviewPolicy/,
+  );
+  assert.match(
+    previewVerifierSource,
+    /verify-interaction-paths\.ps1[\s\S]*?-ReviewPolicy \$ReviewPolicy/,
+  );
+  assert.match(interactionVerifierSource, /\[string\]\$ReviewPolicy = 'Production'/);
+  assert.match(
+    interactionVerifierSource,
+    /if \(\$ReviewPolicy -eq 'Preview'\)[\s\S]*?'--allow-pending-review'/,
+  );
+});
+
+test('Production promotion reruns strict review against the exact tested Preview commit', () => {
+  assert.equal(
+    mobilePackage.scripts['verify:production'],
+    'powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-preview.ps1 -ReviewPolicy Production',
+  );
+  assert.match(promoteScriptSource, /Assert-CleanReleaseCommit/);
+  assert.match(promoteScriptSource, /npm run verify:production/);
+  assert.match(promoteScriptSource, /eas-cli update:view \$ExpectedGroup --json/);
+  assert.match(promoteScriptSource, /PSObject\.Properties\['gitCommitHash'\]/);
+  assert.match(promoteScriptSource, /\$observedPlatforms -contains 'android'/);
+  assert.match(promoteScriptSource, /\$observedPlatforms -contains 'ios'/);
+  assert.match(
+    promoteScriptSource,
+    /npm run verify:production[\s\S]*?Assert-TestedPreviewGroup[\s\S]*?eas-cli update:republish/,
+    'Strict Production verification and immutable Preview binding must finish before promotion.',
+  );
+});
+
 test('CODEOWNERS protects the complete Preview release trust boundary', () => {
   for (const protectedPath of [
     '/.github/CODEOWNERS',
     '/.github/workflows/',
     '/mobile/release-integrity.json',
+    '/scripts/validate_lesson_cards.py',
+    '/mobile/scripts/promote-preview.ps1',
     '/mobile/scripts/publish-preview.ps1',
     '/mobile/scripts/release-guard.ps1',
+    '/mobile/scripts/verify-interaction-paths.ps1',
+    '/mobile/scripts/verify-preview.ps1',
     '/mobile/scripts/verify-release-integrity.cjs',
+    '/mobile/tests/four-card-media-review.test.cjs',
     '/mobile/tests/preview-release-authority.test.cjs',
     '/mobile/tests/preview-release-lineage.test.cjs',
   ]) {
