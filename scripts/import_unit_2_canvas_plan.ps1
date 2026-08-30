@@ -74,12 +74,21 @@ foreach ($lesson in $unit.lessons) {
 $lesson21 = $unit.lessons | Where-Object { $_.id -eq "2.1" }
 $lesson21.scene_contract.hospital = "hospital exterior identified only by a large H and universal medical symbol; never spell HOSPITAL in the image"
 $lesson21.scene_contract.restaurant = "unmistakable restaurant exterior with entrance, dining tables, and warm service cues; no written RESTAURANT label"
+$lesson21.scene_contract.store = "small storefront with display windows, visible shelves, and a green awning; no written STORE label and not a restaurant"
 
 $lesson26 = $unit.lessons | Where-Object { $_.id -eq "2.6" }
 for ($number = 1; $number -le 10; $number += 1) {
     $key = "n$number"
-    $lesson26.scene_contract.$key = "photorealistic brushed-metal numeral $number with exactly $number separate gold stars on a dark adult studio background; no plain dot counter and no cartoon treatment"
+    $starLabel = if ($number -eq 1) { "star" } else { "stars" }
+    $lesson26.scene_contract.$key = "photorealistic brushed-metal numeral $number with exactly $number separate gold $starLabel on a dark adult studio background; no plain dot counter and no cartoon treatment"
 }
+
+$lesson27 = $unit.lessons | Where-Object { $_.id -eq "2.7" }
+foreach ($color in @("red", "blue", "green", "black")) {
+    $lesson27.scene_contract.$color = "large $color circular color puck centered on a neutral light background"
+}
+$lesson27.scene_contract.n2 = "reuse the established number-two card: photorealistic brushed-metal numeral 2 with exactly 2 separate gold stars on a dark adult studio background; no plain dot counter and no cartoon treatment"
+$lesson27.scene_contract.n4 = "reuse the established number-four card: photorealistic brushed-metal numeral 4 with exactly 4 separate gold stars on a dark adult studio background; no plain dot counter and no cartoon treatment"
 
 $payload = [ordered]@{
     source = [ordered]@{
