@@ -5,6 +5,7 @@ import tempfile
 import unittest
 from copy import deepcopy
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts import render_four_card_media_audit as audit
 
@@ -253,6 +254,36 @@ class FourCardMediaAuditTests(unittest.TestCase):
         with contextlib.redirect_stderr(io.StringIO()):
             with self.assertRaises(SystemExit):
                 audit.build_argument_parser().parse_args(["--write-review-manifest"])
+
+    def test_main_reports_external_output_paths_absolutely(self) -> None:
+        manifest_path = self.root / "manifest.json"
+        manifest_path.write_text("{}\n", encoding="utf-8")
+        external_root = self.root / "external-review-output"
+        inventory_path = external_root / "four-card-inventory.json"
+        sheet_path = external_root / "four-card-crops-01.png"
+        stdout = io.StringIO()
+
+        with (
+            patch.object(audit, "MEDIA_MANIFEST_PATH", manifest_path),
+            patch.object(audit, "runtime_four_card_contexts", return_value=[]),
+            patch.object(audit, "build_review_entries", return_value=[]),
+            patch.object(
+                audit,
+                "review_packet",
+                return_value={"unique_effective_asset_count": 0},
+            ),
+            patch.object(
+                audit,
+                "publish_review_aid",
+                return_value=(inventory_path, [sheet_path]),
+            ),
+            contextlib.redirect_stdout(stdout),
+        ):
+            self.assertEqual(audit.main(["--output-dir", str(external_root)]), 0)
+
+        output = stdout.getvalue()
+        self.assertIn(str(inventory_path.resolve()), output)
+        self.assertIn(str(sheet_path.resolve()), output)
 
     def test_project_guardrail_requires_unambiguous_non_authoritative_review_aids(self) -> None:
         guardrails = (

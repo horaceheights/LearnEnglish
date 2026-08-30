@@ -63,6 +63,16 @@ def normalized_text(value: object) -> str:
     return "" if value is None else str(value)
 
 
+def reported_path(path: Path) -> Path:
+    """Prefer repository-relative output, while preserving valid external paths."""
+
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(ROOT.resolve())
+    except ValueError:
+        return resolved
+
+
 def canonical_json_bytes(value: object) -> bytes:
     return json.dumps(
         value,
@@ -637,9 +647,9 @@ def main(argv: list[str] | None = None) -> int:
         f"{len(sheets)} contact sheets."
     )
     print("Review aid only: no approval manifest was read or written.")
-    print(inventory_path.relative_to(ROOT))
+    print(reported_path(inventory_path))
     for sheet in sheets:
-        print(sheet.relative_to(ROOT))
+        print(reported_path(sheet))
     return 0
 
 
