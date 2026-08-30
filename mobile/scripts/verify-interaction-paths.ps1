@@ -63,6 +63,9 @@ try {
   & node tests/lesson-context-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de contexto de unidad y lección.' }
 
+  & node tests/tablet-lesson-layout.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de diseño para encabezados grandes en teléfonos y tabletas.' }
+
   & node tests/logo-home-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de navegación del logo a Inicio.' }
 
@@ -81,6 +84,8 @@ try {
   & node tests/lesson-1-3-media.test.cjs (Join-Path $outputDirectory 'config.js')
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imagen y pronunciación de la lección 1.3.' }
 
+  & node tests/correct-answer-audio.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la confirmación hablada después de una respuesta correcta.' }
   & node tests/audio-placeholder.test.cjs (Join-Path $outputDirectory 'config.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de espacios en audio.' }
 
