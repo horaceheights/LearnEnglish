@@ -22,17 +22,17 @@ const interactionVerifier = fs.readFileSync(
 
 assert.match(
   lessonScreen,
-  /lessonLocation:\s*\{[^}]*fontSize:\s*24[^}]*lineHeight:\s*30/,
-  'The unit and lesson context must remain three times the former 8 dp label size.',
+  /lessonLocation:\s*\{[^}]*fontSize:\s*16[^}]*lineHeight:\s*20/,
+  'The unit and lesson context must remain twice the original 8 dp label size.',
 );
 assert.match(
   lessonScreen,
-  /stage:\s*\{[^}]*fontSize:\s*30[^}]*lineHeight:\s*36/,
-  'Every active lesson section must remain three times the former 10 dp label size.',
+  /stage:\s*\{[^}]*fontSize:\s*20[^}]*lineHeight:\s*24/,
+  'Every active lesson section must remain twice the original 10 dp label size.',
 );
 assert.match(
   lessonScreen,
-  /stageOnlyLabel:\s*\{\s*lineHeight:\s*36\s*\}/,
+  /stageOnlyLabel:\s*\{\s*lineHeight:\s*24\s*\}/,
   'Stage-only Learn cards must not clip the enlarged section label.',
 );
 
@@ -53,13 +53,23 @@ assert.match(
 );
 assert.match(
   cardView,
+  /const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape/,
+  'Landscape tablet teaching videos must not override the shared height-aware single-card width cap.',
+);
+assert.match(
+  cardView,
+  /useFullWidthSingleActionVideo \? styles\.singleActionVideoOption : null/,
+  'The full-width teaching-video style must remain scoped to phones.',
+);
+assert.match(
+  cardView,
   /tabletImageGridWidth[\s\S]*?alignSelf:\s*'center',[\s\S]*?width:\s*tabletImageGridWidth/,
   'A height-capped tablet grid must stay centered and exactly two columns wide.',
 );
 
 assert.match(
   guardrails,
-  /mobile unit\/lesson context at 24 dp and the active section label at 30 dp on both phones and tablets/,
+  /mobile unit\/lesson context at 16 dp and the active section label at 20 dp on both phones and tablets/,
   'The approved phone and tablet header scale must be durable product memory.',
 );
 assert.match(

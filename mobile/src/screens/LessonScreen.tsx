@@ -85,6 +85,17 @@ type SavedLessonRun = {
   wrongCards: number[];
 };
 
+function correctSelectionAudioText(card: LessonCard, optionId?: string | null): string {
+  const selectedOption = card.options.find((option) => (
+    option.id === (optionId || card.correct_option_id)
+  ));
+  return card.answer_audio_text?.trim()
+    || selectedOption?.label?.trim()
+    || card.audio_text?.trim()
+    || card.prompt?.trim()
+    || '';
+}
+
 function validCardIndexes(indexes: unknown, cardCount: number) {
   if (!Array.isArray(indexes)) return [];
   return indexes.filter((index): index is number => (
@@ -404,9 +415,10 @@ export function LessonScreen({
         courseAudioVoice(lessonId, card.stage),
       )));
     }
-    if (card.answer_audio_text?.trim()) {
+    const answerText = correctSelectionAudioText(card);
+    if (answerText) {
       requests.push(ensureAudioPreloaded(courseAudioSource(
-        card.answer_audio_text,
+        answerText,
         'prompt',
         'answer',
         audioProvider,
@@ -685,6 +697,9 @@ export function LessonScreen({
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice' || currentCard?.stage === 'Speak';
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isListen = currentCard?.stage === 'Listen';
+  const correctAnswerAudio = currentCard
+    ? correctSelectionAudioText(currentCard, selectedId)
+    : '';
   const isStageOnlyHeader = !isPronunciation && !currentCard?.prompt?.trim();
   // Pronunciation results remain visible for three seconds inside the practice
   // component, then advance automatically without a swipe-review step.
@@ -1122,7 +1137,7 @@ export function LessonScreen({
     setCardRunId((current) => current + 1);
 
     if (qaMode && !qaAutoAdvance) return;
-    if (answerAudioAwaitingRef.current && result === 'correct' && currentCard?.answer_audio_text) {
+    if (answerAudioAwaitingRef.current && result === 'correct' && correctAnswerAudio) {
       answerAudioStartedRef.current = false;
       answerAudioWasPlayingRef.current = false;
       answerAdvanceTimerRef.current = setTimeout(() => {
@@ -1133,11 +1148,11 @@ export function LessonScreen({
         answerAudioWasPlayingRef.current = false;
         advance();
       }, COURSE_AUDIO_FALLBACK_MS);
-      playAnswerAfterChime(currentCard.answer_audio_text);
+      playAnswerAfterChime(correctAnswerAudio);
       return;
     }
 
-    if (result === 'correct' && currentCard?.answer_audio_text && !isGrammar) {
+    if (result === 'correct' && correctAnswerAudio && !isGrammar) {
       answerAdvanceTimerRef.current = setTimeout(() => {
         answerAdvanceTimerRef.current = null;
         advance();
@@ -1171,6 +1186,7 @@ export function LessonScreen({
   }, [
     advance,
     cardIndex,
+    correctAnswerAudio,
     currentCard,
     grammarCompleted,
     isGrammar,
@@ -1284,7 +1300,7 @@ export function LessonScreen({
       result !== 'correct' ||
       !currentCard ||
       isGrammar ||
-      Boolean(currentCard.answer_audio_text) ||
+      Boolean(correctAnswerAudio) ||
       pauseForPronunciationReview ||
       (qaMode && !qaAutoAdvance)
     ) return undefined;
@@ -1294,6 +1310,7 @@ export function LessonScreen({
   }, [
     advance,
     automaticAdvanceDelay,
+    correctAnswerAudio,
     currentCard,
     isGrammar,
     isAppActive,
@@ -1470,7 +1487,8 @@ export function LessonScreen({
       if (isGrammar) {
         return;
       }
-      if (currentCard.answer_audio_text) {
+      const answerText = correctSelectionAudioText(currentCard, optionId);
+      if (answerText) {
         answerAudioAwaitingRef.current = true;
         answerAudioStartedRef.current = false;
         answerAudioWasPlayingRef.current = false;
@@ -1486,7 +1504,7 @@ export function LessonScreen({
             advance();
           }, COURSE_AUDIO_FALLBACK_MS);
         }
-        playAnswerAfterChime(currentCard.answer_audio_text);
+        playAnswerAfterChime(answerText);
       }
       return;
     }
@@ -2382,9 +2400,9 @@ const styles = StyleSheet.create({
   contentHeaderStageOnlyPortrait: { borderRadius: 16, paddingBottom: 5, paddingTop: 5 },
   contentHeaderPronunciation: { paddingBottom: 3, paddingTop: 3 },
   contentHeaderPronunciationPortrait: { paddingBottom: 5, paddingTop: 5 },
-  lessonLocation: { color: '#8b765d', fontSize: 24, fontWeight: '900', letterSpacing: 0.8, lineHeight: 30, textAlign: 'center' },
-  stage: { color: '#4d5559', fontSize: 30, fontWeight: '900', letterSpacing: 1.1, lineHeight: 36, textAlign: 'center' },
-  stageOnlyLabel: { lineHeight: 36 },
+  lessonLocation: { color: '#8b765d', fontSize: 16, fontWeight: '900', letterSpacing: 0.8, lineHeight: 20, textAlign: 'center' },
+  stage: { color: '#4d5559', fontSize: 20, fontWeight: '900', letterSpacing: 1.1, lineHeight: 24, textAlign: 'center' },
+  stageOnlyLabel: { lineHeight: 24 },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
   promptRowPronunciation: { minHeight: 28 },
