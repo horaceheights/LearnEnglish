@@ -64,7 +64,7 @@ For every defect, capture:
 Test at least one card from every stage, then run the complete lesson audit.
 
 - [ ] Prompt text fits without clipping
-- [ ] Images remain uncropped and use available space
+- [ ] Images fill the shared 3:2 frame without cropping a head, face, hand, body, or teaching action
 - [ ] Loading images use a neutral background without a spinner over any answer
 - [ ] Model audio plays once at the correct time
 - [ ] Tapping the prompt repeats its audio
@@ -89,9 +89,9 @@ Run these checks for every new card pattern before publishing Preview:
 
 - [ ] Test portrait widths of 360, 390, and 412 dp, including an Android device with the system navigation bar visible
 - [ ] A stage-only header uses one compact line and does not reserve an empty prompt row
-- [ ] A prompt image plus four phrase choices fits in the usable screen without overlap or navigation-bar clipping
-- [ ] Long phrase choices remain readable within three lines and do not change the 2x2 grid dimensions
-- [ ] Prompt and answer images use `contain` and never crop heads, hands, or the action being taught
+- [ ] A prompt image plus the longest supported text-answer set (at most three stacked tiles) fits without overlap or navigation-bar clipping
+- [ ] Phrase tiles remain full-width, horizontally stacked, and readable with one-line auto-sizing
+- [ ] Course images fill the shared 3:2 viewport edge-to-edge while preserving the complete teaching subject in the source safe area
 - [ ] Font scale at 1.15 does not overlap choices; larger accessibility scales remain reachable by scrolling
 - [ ] Capture one Engine QA screenshot for the longest phrase card in portrait before release
 
@@ -162,7 +162,8 @@ Run these checks for every new card pattern before publishing Preview:
 - [ ] Checking state remains visible
 - [ ] Score and recognized sentence render
 - [ ] Weak word feedback renders when available
-- [ ] Failed attempt automatically retries
+- [ ] A graded failure keeps feedback visible and waits for the learner to choose Retry
+- [ ] A no-speech result replays automatically for no more than three recovery rounds, then waits for Retry
 - [ ] Accepted attempt advances only once
 - [ ] Restart works before, during, and after an attempt
 - [ ] Leaving during recording does not crash
@@ -206,7 +207,7 @@ A preview update is ready for broader testing when:
 - [ ] Automated lesson/media validation passes
 - [x] Automated first-try, retry, duplicate-completion, and skipped-pronunciation scoring checks pass
 - [ ] Representative card from every stage passes
-- [ ] Complete pronunciation test lesson passes
+- [ ] The complete Speak stage passes in a representative lesson from every unit
 - [ ] Complete grammar transition test passes
 - [ ] No open crash-level regression exists
 - [x] Sentry source maps are uploaded for the build/update
