@@ -7,6 +7,14 @@ import sys
 from pathlib import Path
 from typing import Any
 
+try:
+    from scripts.a1_media_runtime_contracts import (
+        card_media_usages,
+        course_browser_media_usages,
+    )
+except ModuleNotFoundError:  # Direct `python scripts/...` execution.
+    from a1_media_runtime_contracts import card_media_usages, course_browser_media_usages
+
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = ROOT / "docs" / "product" / "a1-course-canvas.json"
 LESSONS_ROOT = ROOT / "backend" / "lessons"
@@ -62,6 +70,11 @@ EXISTING_ASSETS = {
     "two-blue-cars": "a1_two-blue-cars.webp",
     "three-green-books": "a1_three-green-books.webp",
     "four-yellow-pens": "a1_four-yellow-pens.webp",
+    "mission-two-blue-cars": "unit2_mission_two_blue_cars.webp",
+    "mission-three-green-books": "unit2_mission_three_green_books.webp",
+    "mission-four-yellow-pens": "unit2_mission_four_yellow_pens.webp",
+    "near-red-book": "unit2_near_red_book.webp",
+    "six-white-bags": "unit2_six_white_bags.webp",
     "n1": "a1_n1.webp", "n2": "a1_n2.webp", "n3": "a1_n3.webp",
     "n4": "a1_n4.webp", "n5": "a1_n5.webp", "n6": "a1_n6.webp",
     "n7": "a1_n7.webp", "n8": "a1_n8.webp", "n9": "a1_n9.webp",
@@ -127,13 +140,19 @@ class AssetCatalog:
         description: str,
         card_ref: str,
         explicit: bool,
-    ) -> str:
+    ) -> tuple[str, str]:
         if explicit and concept in EXISTING_ASSETS:
             filename = EXISTING_ASSETS[concept]
-            key = f"existing:{concept}"
+            base_key = f"existing:{concept}"
         else:
-            key = asset_key(unit_number, lesson_id, concept)
-            filename = f"a1_scene_{key}.webp"
+            base_key = asset_key(unit_number, lesson_id, concept)
+            filename = f"a1_scene_{base_key}.webp"
+
+        # One filename may be intentionally reused, but each distinct authored
+        # semantic contract must remain separately reviewable. Never let a
+        # first-use catalog merge hide a later, incompatible description.
+        description_digest = hashlib.sha1(description.encode("utf-8")).hexdigest()[:10]
+        key = f"{base_key}__{description_digest}"
         item = self.items.setdefault(
             key,
             {
@@ -143,13 +162,62 @@ class AssetCatalog:
                 "filename": filename,
                 "ratio": "3:2",
                 "dimensions": [1536, 1024],
-                "source": "existing" if key.startswith("existing:") else "composite-or-generated",
+                "source": (
+                    "existing"
+                    if base_key.startswith("existing:")
+                    else "composite-or-generated"
+                ),
                 "card_refs": [],
+                "review_contexts": [],
             },
         )
         if card_ref not in item["card_refs"]:
             item["card_refs"].append(card_ref)
-        return filename
+        return filename, key
+
+    def add_review_context(self, key: str, context: dict[str, Any]) -> None:
+        item = self.items.get(key)
+        if item is None:
+            raise ValueError(f"Unknown media catalog binding {key!r}")
+        if context not in item["review_contexts"]:
+            item["review_contexts"].append(context)
+
+    def add_runtime_contract(
+        self,
+        *,
+        filename: str,
+        concept: str,
+        description: str,
+        context: dict[str, Any],
+        source: str,
+    ) -> None:
+        signature = "\n".join((filename, concept, description))
+        key = f"runtime_{hashlib.sha1(signature.encode('utf-8')).hexdigest()[:16]}"
+        card_ref = "|".join(
+            (
+                str(context.get("sub_lesson_id") or "<none>"),
+                str(context.get("stage") or "<none>"),
+                context["slide_id"] or "<none>",
+            )
+        )
+        item = self.items.setdefault(
+            key,
+            {
+                "asset_id": key,
+                "concept": concept,
+                "description": description,
+                "filename": filename,
+                "ratio": "3:2",
+                "dimensions": [1536, 1024],
+                "source": source,
+                "card_refs": [],
+                "review_contexts": [],
+            },
+        )
+        if card_ref not in item["card_refs"]:
+            item["card_refs"].append(card_ref)
+        if context not in item["review_contexts"]:
+            item["review_contexts"].append(context)
 
 
 def no_image(description: str) -> bool:
@@ -165,11 +233,11 @@ def scene_filename(
     row: list[Any],
     concept: str,
     description: str,
-) -> str:
+) -> tuple[str, str]:
     contract = explicit_scene_contract(lesson)
     explicit = concept in contract
     final_description = contract.get(concept, description or concept)
-    filename = catalog.add(
+    filename, binding_key = catalog.add(
         unit_number=unit_number,
         lesson_id=str(lesson["id"]),
         concept=concept,
@@ -177,7 +245,7 @@ def scene_filename(
         card_ref=f"{lesson['id']}|{stage}|{row[0]}",
         explicit=explicit,
     )
-    return filename
+    return filename, binding_key
 
 
 def option_id(label: str, index: int) -> str:
@@ -230,19 +298,29 @@ def build_card(
     choices = list_value(raw_options)
     options: list[dict[str, Any]] = []
     prompt_image = ""
+    option_bindings: dict[str, tuple[str, str]] = {}
+    prompt_binding: tuple[str, str] | None = None
 
     if interaction in SINGLE_INTERACTIONS:
         concept = visual if unit_number <= 4 and visual not in {"choice-grid", ""} else correct
-        filename = scene_filename(
+        filename, binding_key = scene_filename(
             catalog, unit_number, lesson, stage, row, concept, visual
         )
-        options = [{"id": option_id(correct, 0), "image_url": filename, "label": correct}]
+        single_option_id = option_id(correct, 0)
+        options = [{"id": single_option_id, "image_url": filename, "label": correct}]
+        option_bindings[single_option_id] = (binding_key, concept)
     elif interaction in IMAGE_INTERACTIONS:
         for index, choice in enumerate(choices):
-            filename = scene_filename(
-                catalog, unit_number, lesson, stage, row, choice, visual
+            # An option image depicts that option. The card-level `visual` text
+            # often describes only the correct answer, so using it for every
+            # distractor creates internally contradictory media contracts.
+            # Rich per-option scene contracts still override this fallback.
+            filename, binding_key = scene_filename(
+                catalog, unit_number, lesson, stage, row, choice, choice
             )
-            options.append({"id": option_id(choice, index), "image_url": filename, "label": None})
+            choice_option_id = option_id(choice, index)
+            options.append({"id": choice_option_id, "image_url": filename, "label": None})
+            option_bindings[choice_option_id] = (binding_key, choice)
     else:
         options = [
             {"id": option_id(choice, index), "image_url": "", "label": choice}
@@ -250,9 +328,10 @@ def build_card(
         ]
         if interaction not in {"a2t2", "a2t4", "listen-text"} and not no_image(visual):
             concept = visual if unit_number <= 4 else correct
-            prompt_image = scene_filename(
+            prompt_image, binding_key = scene_filename(
                 catalog, unit_number, lesson, stage, row, concept, visual
             )
+            prompt_binding = (binding_key, concept)
 
     if not options:
         raise ValueError(f"{lesson['id']} {stage} {slide_id} has no selectable option")
@@ -266,7 +345,7 @@ def build_card(
     elif interaction in USE_INTERACTIONS:
         answer_audio = completed_answer(prompt, correct)
 
-    return {
+    card = {
         "slide_id": str(slide_id),
         "interaction_type": str(interaction),
         "prompt": prompt,
@@ -279,6 +358,40 @@ def build_card(
         "spanish_translation": str(spanish),
         "pedagogy_note": str(note),
     }
+
+    lesson_identity = {
+        "id": lesson_identifier(lesson),
+        "sub_lesson_id": str(lesson["id"]),
+    }
+    for usage in card_media_usages(lesson_identity, card):
+        context = usage["context"]
+        if context["media_role"] == "prompt":
+            if prompt_binding is None:
+                raise ValueError(f"{lesson['id']} {stage} {slide_id} lost its prompt binding")
+            binding_key, concept = prompt_binding
+        else:
+            option_binding = option_bindings.get(context["option_id"])
+            if option_binding is None:
+                raise ValueError(
+                    f"{lesson['id']} {stage} {slide_id} lost option binding "
+                    f"{context['option_id']!r}"
+                )
+            binding_key, concept = option_binding
+        if usage["rendered_filename"] == usage["source_filename"]:
+            catalog.add_review_context(binding_key, context)
+        else:
+            catalog.add_runtime_contract(
+                filename=usage["rendered_filename"],
+                concept=concept,
+                description=(
+                    f"Client-rendered 3:2 option variant for {concept}; it must preserve "
+                    "the complete source concept without changing identity, count, color, "
+                    "action, relation, polarity, or time."
+                ),
+                context=context,
+                source="client-rendered-variant",
+            )
+    return card
 
 
 def metadata(lesson: dict[str, Any], snake: str, camel: str, default: Any = None) -> Any:
@@ -317,6 +430,90 @@ def build_lesson(catalog: AssetCatalog, unit: dict[str, Any], lesson: dict[str, 
     }
 
 
+def add_unit_one_runtime_contracts(catalog: AssetCatalog) -> None:
+    """Add the established Unit 1 stills and their final 3:2 render variants.
+
+    Unit 1 predates the Units 2-7 canvas, but the semantic gate covers the full
+    70-lesson course. Runtime card contexts are therefore the authority for its
+    source filenames, correct/distractor roles, and client-resolved variants.
+    """
+
+    sys.path.insert(0, str(ROOT / "backend"))
+    from app.data import load_all_lessons  # noqa: PLC0415
+
+    lessons = load_all_lessons()
+    for lesson_model in lessons.values():
+        lesson_payload = lesson_model.model_dump(mode="json")
+        if not str(lesson_payload.get("sub_lesson_id", "")).startswith("1."):
+            continue
+        for card in lesson_payload.get("cards", []):
+            for usage in card_media_usages(lesson_payload, card):
+                context = usage["context"]
+                if context["media_role"] == "prompt":
+                    concept = (
+                        context["prompt"]
+                        or context["audio_text"]
+                        or context["correct_option_id"]
+                        or Path(usage["rendered_filename"]).stem
+                    )
+                else:
+                    concept = (
+                        context["option_label"]
+                        or context["option_id"]
+                        or Path(usage["rendered_filename"]).stem
+                    )
+                description = (
+                    f"Unit 1 learner-facing still for {concept}; the exact subject, action, "
+                    "identity, relationship, quantity, polarity, and card role must match "
+                    "the bound runtime context."
+                )
+                if usage["rendered_filename"] == usage["source_filename"]:
+                    catalog.add_runtime_contract(
+                        filename=usage["source_filename"],
+                        concept=concept,
+                        description=description,
+                        context=context,
+                        source="unit-1-runtime",
+                    )
+                else:
+                    catalog.add_runtime_contract(
+                        filename=usage["rendered_filename"],
+                        concept=concept,
+                        description=(
+                            f"Client-rendered 3:2 Unit 1 option variant for {concept}; it "
+                            "must preserve the complete source concept and bound card role."
+                        ),
+                        context=context,
+                        source="client-rendered-variant",
+                    )
+
+
+def add_course_browser_runtime_contracts(catalog: AssetCatalog) -> None:
+    """Bind all 70 lesson and seven unit thumbnails to semantic review."""
+
+    sys.path.insert(0, str(ROOT / "backend"))
+    from app.data import load_all_lessons  # noqa: PLC0415
+
+    lesson_payloads = [
+        lesson_model.model_dump(mode="json")
+        for lesson_model in load_all_lessons().values()
+    ]
+    for usage in course_browser_media_usages(lesson_payloads):
+        context = usage["context"]
+        concept = f"{context['surface_label']}: {context['prompt']}"
+        catalog.add_runtime_contract(
+            filename=usage["rendered_filename"],
+            concept=concept,
+            description=(
+                f"Course-browser {context['media_role'].replace('_', ' ')} for "
+                f"{context['surface_label']}; the image must accurately represent "
+                f"{context['prompt']} at the bound full-bleed 3:2 crop."
+            ),
+            context=context,
+            source="course-browser-runtime",
+        )
+
+
 def main() -> None:
     plan = json.loads(PLAN.read_text(encoding="utf-8"))
     catalog = AssetCatalog()
@@ -339,17 +536,28 @@ def main() -> None:
             if stale not in expected:
                 stale.unlink()
 
+    add_unit_one_runtime_contracts(catalog)
+    add_course_browser_runtime_contracts(catalog)
+
+    published_assets = sorted(
+        (
+            item
+            for item in catalog.items.values()
+            if item["review_contexts"]
+        ),
+        key=lambda item: item["asset_id"],
+    )
     manifest_payload = {
-        "schema_version": 1,
+        "schema_version": 3,
         "shared_ratio": "3:2",
         "dimensions": [1536, 1024],
-        "assets": sorted(catalog.items.values(), key=lambda item: item["asset_id"]),
+        "assets": published_assets,
     }
     MANIFEST.write_text(
         json.dumps(manifest_payload, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    print(f"Built {len(output_files)} lessons and {len(catalog.items)} media contracts.")
+    print(f"Built {len(output_files)} lessons and {len(published_assets)} media contracts.")
 
 
 if __name__ == "__main__":

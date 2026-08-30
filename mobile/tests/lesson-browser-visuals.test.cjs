@@ -9,6 +9,10 @@ const courseScreen = fs.readFileSync(path.join(mobileRoot, 'src', 'screens', 'Co
 const lessonPlayer = fs.readFileSync(path.join(mobileRoot, '..', 'frontend', 'components', 'LessonPlayer.js'), 'utf8');
 const imageSources = fs.readFileSync(path.join(mobileRoot, 'src', 'lessonImageSources.ts'), 'utf8');
 const assetRoot = path.join(mobileRoot, 'assets', 'lesson-assets');
+const semanticRegistry = JSON.parse(fs.readFileSync(
+  path.join(mobileRoot, '..', 'docs', 'qa', 'a1-media-semantic-approvals.json'),
+  'utf8',
+));
 
 function webpDimensions(filePath) {
   const data = fs.readFileSync(filePath);
@@ -44,9 +48,12 @@ assert.ok(unitVisualsBlock, 'CourseScreen must define explicit unit visuals.');
 
 function visualEntries(block, idPattern) {
   const entries = new Map();
-  const entryPattern = new RegExp(`'(${idPattern})':\\s*{\\s*image:\\s*'([^']+)'`, 'g');
+  const entryPattern = new RegExp(
+    `'(${idPattern})':\\s*{\\s*image:\\s*'([^']+)',\\s*description:\\s*'([^']+)'`,
+    'g',
+  );
   for (const match of block.matchAll(entryPattern)) {
-    entries.set(match[1], match[2]);
+    entries.set(match[1], { image: match[2], description: match[3] });
   }
   return entries;
 }
@@ -55,15 +62,16 @@ const lessonVisuals = visualEntries(visualsBlock[0], 'lesson-[^\'\\s]+');
 const unitVisuals = visualEntries(unitVisualsBlock[0], 'unit-\\d+');
 const unitIds = [...new Set(course.map((lesson) => lesson.unit_id))];
 const titleSurfaces = [
-  ...course.map((lesson) => ({ id: lesson.id, image: lessonVisuals.get(lesson.id) })),
-  ...unitIds.map((unitId) => ({ id: unitId, image: unitVisuals.get(unitId) })),
+  ...course.map((lesson) => ({ id: lesson.id, kind: 'lesson', visual: lessonVisuals.get(lesson.id) })),
+  ...unitIds.map((unitId) => ({ id: unitId, kind: 'unit', visual: unitVisuals.get(unitId) })),
 ];
 const usedImages = new Map();
 const usedContent = new Map();
 
 for (const surface of titleSurfaces) {
-  const { id, image } = surface;
-  assert.ok(image, `${id} must have an explicit title image.`);
+  const { id, visual } = surface;
+  assert.ok(visual, `${id} must have an explicit title image and semantic description.`);
+  const { image } = visual;
   const imagePath = path.join(assetRoot, image);
   assert.ok(fs.existsSync(imagePath), `${id} references missing title image ${image}.`);
   assert.deepEqual(webpDimensions(imagePath), [1536, 1024], `${id} title image ${image} must use the 3:2 course canvas.`);
@@ -79,6 +87,35 @@ for (const surface of titleSurfaces) {
     `${id} and ${usedContent.get(contentHash)} contain the same title picture under different filenames.`,
   );
   usedContent.set(contentHash, id);
+}
+
+const browserContexts = semanticRegistry.approvals.flatMap((row) => row.review_contexts)
+  .filter((context) => context.context_type === 'course_browser');
+assert.equal(browserContexts.length, 147, 'Semantic approval must cover all 147 real mobile browser thumbnail framings.');
+for (const surface of titleSurfaces) {
+  const expectedRoles = surface.kind === 'unit'
+    ? new Map([['unit_thumbnail', [122, 102]]])
+    : new Map([
+      ['lesson_thumbnail', [68, 62]],
+      ['continue_thumbnail', [94, 88]],
+    ]);
+  const contexts = browserContexts.filter((context) => context.lesson_id === surface.id);
+  assert.equal(contexts.length, expectedRoles.size, `${surface.id} must bind every browser crop to semantic review.`);
+  for (const context of contexts) {
+    const expectedViewport = expectedRoles.get(context.media_role);
+    assert.ok(expectedViewport, `${surface.id} has unexpected browser role ${context.media_role}.`);
+    assert.equal(context.source_filename, surface.visual.image, `${surface.id} semantic source must match CourseScreen.`);
+    assert.equal(context.rendered_filename, surface.visual.image, `${surface.id} semantic render must match CourseScreen.`);
+    assert.equal(context.prompt, surface.visual.description, `${surface.id} semantic description must match CourseScreen.`);
+    assert.deepEqual(
+      [context.viewport_width, context.viewport_height],
+      expectedViewport,
+      `${surface.id} ${context.media_role} must bind its actual viewport.`,
+    );
+    assert.equal(context.resize_mode, 'cover', `${surface.id} must bind cover rendering.`);
+    assert.equal(context.object_position, 'center', `${surface.id} must bind centered framing.`);
+    assert.match(context.render_signature_sha256, /^[0-9a-f]{64}$/, `${surface.id} must bind the renderer signature.`);
+  }
 }
 
 console.log(`Verified ${titleSurfaces.length} globally unique 3:2 lesson and unit title images.`);

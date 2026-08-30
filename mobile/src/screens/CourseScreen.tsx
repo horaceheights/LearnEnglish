@@ -387,7 +387,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
 const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];
 const UNIT_VISUALS: Record<string, { image: string; description: string; color: string }> = {
   'unit-1': { image: 'a1_title_unit_1.webp', description: 'Personas, familia y acciones.', color: '#ffe1ad' },
-  'unit-2': { image: 'a1_scene_mission-two-blue-cars_84c4ba2.webp', description: 'Lugares, objetos, números y colores.', color: '#dff4ef' },
+  'unit-2': { image: 'unit2_mission_two_blue_cars.webp', description: 'Lugares, objetos, números y colores.', color: '#dff4ef' },
   'unit-3': { image: 'a1_scene_job-dialogue-teacher_be7d927.webp', description: 'Presentaciones e información personal.', color: '#e5eefb' },
   'unit-4': { image: 'a1_home.webp', description: 'El hogar y la vida diaria.', color: '#f1e4fa' },
   'unit-5': { image: 'a1_apple.webp', description: 'Comida, bebidas y compras.', color: '#ffe8c7' },
