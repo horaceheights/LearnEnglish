@@ -90,6 +90,22 @@ foreach ($color in @("red", "blue", "green", "black")) {
 $lesson27.scene_contract.n2 = "reuse the established number-two card: photorealistic brushed-metal numeral 2 with exactly 2 separate gold stars on a dark adult studio background; no plain dot counter and no cartoon treatment"
 $lesson27.scene_contract.n4 = "reuse the established number-four card: photorealistic brushed-metal numeral 4 with exactly 4 separate gold stars on a dark adult studio background; no plain dot counter and no cartoon treatment"
 
+# Scene-contract prose describes established reuse, never formal human review
+# status. Only the hash-bound semantic approval registry may claim approval.
+foreach ($lesson in $unit.lessons) {
+    foreach ($property in $lesson.scene_contract.PSObject.Properties) {
+        if ($property.Value -isnot [string]) {
+            continue
+        }
+        if ($property.Value.StartsWith("same approved ")) {
+            $property.Value = "reuse the established " + $property.Value.Substring("same approved ".Length)
+        }
+        elseif ($property.Value.StartsWith("approved ")) {
+            $property.Value = "reuse the established " + $property.Value.Substring("approved ".Length)
+        }
+    }
+}
+
 $payload = [ordered]@{
     source = [ordered]@{
         filename = [System.IO.Path]::GetFileName($resolvedCanvasPath)

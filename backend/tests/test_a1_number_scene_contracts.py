@@ -63,6 +63,26 @@ class A1NumberSceneContractTests(unittest.TestCase):
                 self.assertNotIn("approved", description.lower())
                 self.assertNotIn("dot", description.split(";", 1)[0].lower())
 
+    def test_scene_contract_prose_never_claims_formal_approval(self) -> None:
+        for payload_name, payload in (("canvas", self.canvas), ("unit-2", self.unit_2)):
+            units = payload.get("units")
+            if isinstance(units, list):
+                lessons = [
+                    item
+                    for unit in units
+                    if isinstance(unit, dict)
+                    for item in unit.get("lessons", [])
+                    if isinstance(item, dict)
+                ]
+            else:
+                unit = payload.get("unit", {})
+                lessons = unit.get("lessons", []) if isinstance(unit, dict) else []
+
+            for item in lessons:
+                for key, description in item.get("scene_contract", {}).items():
+                    with self.subTest(payload=payload_name, lesson=item.get("id"), key=key):
+                        self.assertNotIn("approved", str(description).lower())
+
 
 if __name__ == "__main__":
     unittest.main()
