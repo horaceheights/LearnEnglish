@@ -26,7 +26,7 @@ The builder is now option-authoritative. Every option uses its own concept or ex
 ## Repairs
 
 - Unit 1: all final client-resolved prompt and option stills passed an agent-assisted labeled pixel QA pass. Contact-sheet generation now uses manifest contracts, resolves the actual final variant, and separately renders real browser crop shapes; this pass did not grant human approval.
-- Unit 2: replaced the rejected near red book, six white bags, two blue cars, three green books, and four yellow pens assets with exact literal scenes. The distant book was also rebuilt so the book remains unmistakable at card size while retaining a long-distance cue. The Unit 2 menu image now uses the verified two-blue-cars asset.
+- Unit 2: replaced the incorrect near red book, six white bags, two blue cars, three green books, and four yellow pens assets with exact literal scenes. The distant book was also rebuilt so the book remains unmistakable at card size while retaining a long-distance cue. The Unit 2 menu image now uses the corrected literal two-blue-cars asset. These repairs remain pre-approval evidence until human review is recorded.
 - Units 3–5: rebuilt 186 high-risk semantic assets, followed by 18 contextual-review corrections for Canada identity, seven-day meaning, affirmative cues, priced drinks, person-specific quantities, and visually distinct `want` versus `like` scenes.
 - Unit 6: rebuilt the high-risk transport, route, access, signal, schedule, help, and spatial-relation scenes, including the final contextual corrections for ordered transport, open versus blocked walking, named-place relations, left/right reference pairs, and literal walking.
 - Unit 7: rebuilt the high-risk identity, action, weather, clothing, meal, need, and polarity scenes, including the final contextual corrections for Ana continuity, parents in a family scene, town-map help, and active reading and writing.
@@ -57,7 +57,7 @@ Routine Preview verification now runs `mobile/tests/lesson-media-semantics.test.
 - Mobile TypeScript check: pass.
 - `verify-interaction-paths.ps1` passes every check before stopping at the intentionally stale human four-card review manifest. The remaining checks were run directly and pass, including TypeScript, 77 unique unit/lesson title images, 833 normalized option/model images, 758 prompt cards, 408 prompt assets, layout, release-authority, audio, pronunciation, and catalog-parity checks.
 - Frontend production build: pass.
-- Lesson structure suite: 25 checks pass; the remaining audio-boundary check could not import the optional local `av` package in this worktree's borrowed Python environment and is unrelated to still media.
+- Lesson structure suite: 25 checks pass; the remaining audio-boundary check could not import the required pinned `av` dependency in this worktree's borrowed Python environment and is unrelated to still media.
 - Full `validate_lesson_cards.py`: all implementation checks pass; its only expected failure is the 1,775 pending human approvals.
 
 No approval entries were marked approved by automation or by this repair pass.

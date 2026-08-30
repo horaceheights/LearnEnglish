@@ -28,6 +28,8 @@ const VOCABULARY_STAGES = new Set([
   'New Words',
 ]);
 
+const PROMPT_GESTURE_REMINDER = 'Recuerda: toca la frase una vez para repetirla y dos veces para ver su traducción.';
+
 function hasOnlyTextOptions(card: LessonCard) {
   return card.options.length > 0 && card.options.every((option) => !option.image_url);
 }
@@ -40,7 +42,7 @@ function hasImageOptions(card: LessonCard) {
  * Gives the learner the exact action required by the current card without
  * revealing its answer. Card structure is used as a fallback for new stages.
  */
-export function lessonHelpText(card: LessonCard) {
+function cardHelpInstruction(card: LessonCard) {
   if (PRONUNCIATION_STAGES.has(card.stage)) {
     return 'Escucha el ejemplo. Después de la señal, repite la frase en voz alta; la app grabará y calificará tu pronunciación.';
   }
@@ -89,4 +91,8 @@ export function lessonHelpText(card: LessonCard) {
   }
 
   return 'Lee la indicación y todas las opciones. Toca la palabra o frase correcta.';
+}
+
+export function lessonHelpText(card: LessonCard) {
+  return `${cardHelpInstruction(card)} ${PROMPT_GESTURE_REMINDER}`;
 }

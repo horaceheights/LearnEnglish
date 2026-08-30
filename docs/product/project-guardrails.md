@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-08-29
+Last reviewed: 2026-08-30
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -46,6 +46,7 @@ Every standard lesson follows this visible sequence:
 - A separate grammar-heavy mode may be designed later, but it is not part of the current lesson shell.
 - The shell, stage order, navigation, feedback, and visual language should remain predictable across lessons.
 - Content difficulty progresses in small steps. A lesson should rely only on language introduced or reinforced earlier.
+- Every ordinary mobile choice outside the dedicated grammar-completion and pronunciation flows must provide spoken confirmation after a correct selection. Speak the authored `answer_audio_text` when present; otherwise speak the correct option label. A correct mobile selection must never turn green and then remain silent when covered by this rule, even when the fallback label repeats the prompt.
 
 ### Learn
 
@@ -71,7 +72,6 @@ Every standard lesson follows this visible sequence:
 ### Listen
 
 - Play the prompt audio before the learner selects an answer.
-- Do not replay the same prompt after a correct selection unless the card explicitly has different answer audio for a pedagogical reason.
 - Include an icon-only speaker replay control. Do not add explanatory text beside it.
 - Include both audio-to-image and, where useful, audio-to-text recognition.
 - Keep answer text hidden when the activity is intended to test listening against images.
@@ -124,7 +124,8 @@ Do not force every word through every step in a single lesson when that would ma
 - Essential choices, feedback, and navigation must fit without being hidden below the system navigation area.
 - On portrait image-choice cards, reserve enough vertical room for the encouragement and a two-line teaching hint. When a 3:2 option stack would exceed the usable height, scale every option card uniformly from its available height while preserving the 3:2 frame; never hide the hint, distort the image, or change lesson content to make it fit.
 - Four-image portrait choices remain a 2x2 grid and use one fixed 4:5 media viewport with a centered full-bleed crop. A window-like partial scene is acceptable when the answer remains unmistakable. Numbers, counts, prices, actions, spatial relationships, and other answer-critical cues must remain fully understandable; use a dedicated four-card reframe when the shared crop would hide or change them. Never stretch, distort, or convert the grid to another layout. This exception does not change one-, two-, or three-card layouts.
-- Keep the stage-progress strip compact, but render the mobile unit/lesson context at 24 dp and the active section label at 30 dp on both phones and tablets. These labels remain in normal layout flow: the card area must measure the height left below them, and no one-, two-, three-, or four-card layout may overlap the header or extend beneath Android system navigation.
+- Keep the stage-progress strip compact, but render the mobile unit/lesson context at 16 dp and the active section label at 20 dp on both phones and tablets. These values are twice the original 8/10 dp scale. The labels remain in normal layout flow: the card area must measure the height left below them, and no one-, two-, three-, or four-card layout may overlap the header or extend beneath Android system navigation.
+- Automatic single-card teaching videos in landscape tablet layouts use the same height-aware 3:2 width cap as non-video single cards. They must remain centered with visible side margins below the lesson header and may not re-expand to the full card width; phones retain the established full-width teaching-video presentation when it fits the usable viewport.
 - Portrait phrase-answer tiles are full-width, short horizontal rows stacked at the bottom.
 - Phrase tiles use one-line auto-sizing. Never split a word in half to fit a narrow tile.
 - Image choices retain their established image grid or stack layout; the horizontal phrase rule does not convert image choices into text rows.
@@ -208,7 +209,7 @@ Do not force every word through every step in a single lesson when that would ma
 - If reverse-transcription or listening review shows that a deterministic short-word take is ambiguous, enumerate every approved `text + mode + variant + narrator` key in scope and replace each with the reviewed bundled take. A word-wide correction must cover its standalone Learn, Recognize, Listen, and Speak occurrences across web and mobile while leaving longer phrases containing that word unchanged. Pin the approved asset in automated QA; never use an unscoped text-only override.
 - Do not show internal audio-generation or scoring terminology to learners. A visible neutral processing state such as `Un momento...` is allowed.
 - Target phrases and individual pronunciation words remain tappable for audio replay where that interaction is available.
-- Every learner-facing lesson prompt supports the established double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps.
+- Every learner-facing lesson prompt supports the established single-tap audio replay and double-tap Spanish translation. New lesson prompts must not ship with the generic `Traducción no disponible todavía.` fallback. Keep the double-tap window usable with Android's completed-press timing; do not shorten it to a desktop-fast interval that turns ordinary double taps into two replay taps. Whenever the learner opens the card help button, the help message must also remind them that one tap repeats the phrase and two taps show its translation.
 - Every ordinary course-audio boundary rejects visual answer blanks. Completion prompt audio uses a dedicated visible-fragment path: derive the exact prefix and suffix from the validated prompt contract, synthesize only those visible words, and stitch them around deterministic digital silence. The completed `answer_audio_text` is validation and post-selection audio only; it must never be submitted as the incomplete prompt. Beginning, middle, and ending blanks use this same path.
 - Treat `_`, repeated underscores, ellipses, `[pause]`, `[blank]`, `{blank}`, and equivalent markers as control data, never speech content. The completion provider may receive only nonempty visible fragments with safe punctuation guidance: comma before a middle gap or a question mark for an ending elicitation. Never use device or browser speech as a completion fallback. Missing or invalid fragment audio must return a known valid silent clip rather than raw-placeholder, completed-answer, partial, or guessed speech.
 - Static course-audio generation and transcript audits exclude visual-blank prompts from ordinary TTS while retaining their complete `answer_audio_text`. Preview verification must cover beginning, middle, and ending blanks across the complete course and prove that no raw placeholder or missing-answer word can reach the prompt provider.
@@ -361,6 +362,9 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-28: A full 2,330-request deployed-audio audit retired Brian from active A1 playback after 32 of 33 confirmed failures clustered on that voice. Liam now owns every Use and conversational route. Completion-fragment generation receives one different-seed ElevenLabs retry, then sends only the same visible fragments to the approved OpenAI fallback before the silent fail-safe; the omitted answer remains digital silence throughout.
 - 2026-08-28: Concurrent coding work standardized on isolated task branches and worktrees, pre-edit overlap inspection, preservation of unrelated changes, and fresh `release/preview` integration plus repeated release checks before Preview merge or publication. Unsafe overlaps require explicit user direction, and stale snapshots may never be published.
 - 2026-08-29: Mobile lesson headers standardized on a 24 dp unit/lesson context line and a 30 dp active-section label across phones and tablets. Landscape image frames now derive their maximum width from the measured height remaining below that header, preserving established option counts and arrangements while preventing header or Android-navigation overlap.
+- 2026-08-29: Automatic single-card teaching videos stopped overriding the height-aware 3:2 width cap on landscape tablets. They now match non-video single-card sizing with visible side margins, while the established phone presentation remains unchanged.
+- 2026-08-29: The mobile lesson header scale was revised from 24/30 dp to 16/20 dp, exactly twice the original unit/lesson and section-label sizes, on phones and tablets.
+- 2026-08-29: Ordinary correct mobile selections standardized on spoken confirmation after the success chime. Authored answer audio remains authoritative; cards without it speak the correct option label instead of turning green silently.
 - 2026-08-28: Engine QA navigation standardized on a compact, restorable `Unit -> Lesson -> Stage -> Card` path. The hub keeps all seven units reachable, renders only one unit's ten lessons at a time, remembers QA-only location state, and keeps diagnostics secondary to card browsing.
 - 2026-08-28: Ambiguous deterministic short-word audio standardized on enumerated exact-key bundled replacements after reverse-transcription and listening review. The corrected `One` take now covers every standalone Learn, Recognize, and Speak slide on web and mobile, is hash-pinned in QA, and does not replace longer `One ...` phrases.
 - 2026-08-25: After a newer OTA from a stale divergent branch replaced the complete seven-unit Preview with an older tree, Preview publication moved to the protected `release/preview` authority. CI now owns publishing, exact course topology and fingerprints are release invariants, and local or task-branch publication is prohibited.

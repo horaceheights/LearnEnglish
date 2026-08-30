@@ -64,7 +64,7 @@ For every defect, capture:
 Test at least one card from every stage, then run the complete lesson audit.
 
 - [ ] Prompt text fits without clipping
-- [ ] Images use their approved role-specific crop and preserve every answer-critical cue
+- [ ] Images fill their approved role-specific viewport and preserve every answer-critical head, face, hand, body, action, count, color, identity, relation, and other teaching cue
 - [ ] Loading images use a neutral background without a spinner over any answer
 - [ ] Model audio plays once at the correct time
 - [ ] Tapping the prompt repeats its audio
@@ -89,8 +89,8 @@ Run these checks for every new card pattern before publishing Preview:
 
 - [ ] Test portrait widths of 360, 390, and 412 dp, including an Android device with the system navigation bar visible
 - [ ] A stage-only header uses one compact line and does not reserve an empty prompt row
-- [ ] A prompt image plus four phrase choices fits in the usable screen without overlap or navigation-bar clipping
-- [ ] Long phrase choices remain readable within three lines and do not change the 2x2 grid dimensions
+- [ ] A prompt image plus the longest supported text-answer set (at most three stacked tiles) fits without overlap or navigation-bar clipping
+- [ ] Phrase tiles remain full-width, horizontally stacked, and readable with one-line auto-sizing
 - [ ] One-, two-, and three-card media retain the approved 3:2 treatment; four-image portrait choices retain a fixed 2x2 grid with fixed 4:5 media viewports
 - [ ] A four-card window-like crop may omit nonessential scene edges, but the concept remains unmistakable and no numeral, count, price, action, spatial relationship, or identifying structure is hidden or changed
 - [ ] New or changed four-card media has a reviewed 4:5 contact-sheet crop and a current hash in `docs/product/a1-four-card-media-review.json`
@@ -149,7 +149,7 @@ Run these checks for every new card pattern before publishing Preview:
 
 ### Picture To Text / What Is It?
 
-- [ ] Large prompt image is uncropped
+- [ ] Large prompt image fills its approved viewport without losing any answer-critical or teaching cue
 - [ ] Text choices fit and remain readable
 - [ ] Question audio and answer audio use the correct timing/voice
 
@@ -164,7 +164,8 @@ Run these checks for every new card pattern before publishing Preview:
 - [ ] Checking state remains visible
 - [ ] Score and recognized sentence render
 - [ ] Weak word feedback renders when available
-- [ ] Failed attempt automatically retries
+- [ ] A graded failure keeps feedback visible and waits for the learner to choose Retry
+- [ ] A no-speech result replays automatically for no more than three recovery rounds, then waits for Retry
 - [ ] Accepted attempt advances only once
 - [ ] Restart works before, during, and after an attempt
 - [ ] Leaving during recording does not crash
@@ -208,8 +209,8 @@ A preview update is ready for broader testing when:
 - [ ] Automated lesson/media validation passes
 - [x] Automated first-try, retry, duplicate-completion, and skipped-pronunciation scoring checks pass
 - [ ] Representative card from every stage passes
-- [ ] Complete pronunciation test lesson passes
+- [ ] The complete Speak stage passes in a representative lesson from every unit
 - [ ] Complete grammar transition test passes
 - [ ] No open crash-level regression exists
-- [x] Sentry source maps are uploaded for the build/update
+- [ ] Sentry source maps are uploaded and verified for this named build/update
 - [ ] Update code and change summary are recorded

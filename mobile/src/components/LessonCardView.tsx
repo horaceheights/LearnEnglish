@@ -105,6 +105,10 @@ export function LessonCardView({
   const useExpandedSingleActionVideo = useSingleImageLayout && Boolean(
     lessonActionVideo(card.options[0]?.image_url),
   );
+  // Phone teaching clips retain their established full-width presentation.
+  // Landscape tablets instead use the same height-aware 3:2 width cap as a
+  // non-video single card so the clip leaves visible margins below the header.
+  const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape;
   const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedId) : '';
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
@@ -426,7 +430,7 @@ export function LessonCardView({
                         }
                       : null,
                     option.image_url ? styles.imageOptionFrame : null,
-                    useExpandedSingleActionVideo ? styles.singleActionVideoOption : null,
+                    useFullWidthSingleActionVideo ? styles.singleActionVideoOption : null,
                     hasTextOnlyOptions ? styles.textOption : null,
                     useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
                     useHorizontalPhraseOptions ? styles.textOptionHorizontal : null,
