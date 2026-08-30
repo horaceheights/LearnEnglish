@@ -1925,7 +1925,7 @@ function lessonActionVideo(imageUrl, optionCount) {
 function lessonTwoCardActionPosterSrc(imageUrl) {
   const normalized = String(imageUrl || "").split("?")[0].split("/").pop()?.replace(/\.[^.]+$/, "");
   const posterName = normalized ? TWO_CARD_ACTION_POSTERS[normalized] : null;
-  return posterName ? `/lesson-video-posters/${posterName}?v=${LESSON_VIDEO_VERSION}` : null;
+  return posterName ? `/lesson-assets/${posterName}?v=${LESSON_VIDEO_VERSION}` : null;
 }
 
 function LessonActionMedia({ alt, imageUrl, posterSrc, style, videoName }) {
