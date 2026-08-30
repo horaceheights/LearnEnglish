@@ -1,3 +1,4 @@
+import argparse
 import json
 import re
 import struct
@@ -352,13 +353,55 @@ def _summarize_context_keys(
     return ", ".join(labels)
 
 
-def validate_a1_media_semantic_approvals() -> list[str]:
-    """Fail closed unless every manifest contract has current human approval.
+def semantic_review_decision_findings(
+    pending_contracts: list[dict[str, object]],
+    rejected_contracts: list[dict[str, object]],
+    review_policy: str,
+) -> tuple[list[str], list[str]]:
+    """Classify review decisions without weakening malformed/stale contract checks."""
+
+    if review_policy not in {"preview", "production"}:
+        raise ValueError(f"Unsupported semantic review policy: {review_policy!r}.")
+
+    errors: list[str] = []
+    warnings: list[str] = []
+    if pending_contracts:
+        message = (
+            f"A1 media semantic review has {len(pending_contracts)} pending contracts: "
+            f"{_summarize_contracts(pending_contracts)}."
+        )
+        if review_policy == "preview":
+            warnings.append(
+                f"Preview-only advisory: {message} Human approval is still required "
+                "before Production."
+            )
+        else:
+            errors.append(message)
+    if rejected_contracts:
+        errors.append(
+            f"A1 media semantic review has {len(rejected_contracts)} rejected contracts: "
+            f"{_summarize_contracts(rejected_contracts)}."
+        )
+    return errors, warnings
+
+
+def validate_a1_media_semantic_approvals(
+    review_policy: str = "production",
+    warnings: list[str] | None = None,
+) -> list[str]:
+    """Validate contracts strictly, allowing only pending decisions in Preview.
 
     Approval binds the full semantic contract and exact canonical image bytes.
     Canonical, mobile, and frontend copies are all required and byte-identical.
+    Missing, malformed, stale, hash-mismatched, orphaned, and rejected records
+    always fail. Pending decisions are warnings only under the explicit Preview
+    policy and remain release blockers under the default Production policy.
     """
 
+    if review_policy not in {"preview", "production"}:
+        raise ValueError(f"Unsupported semantic review policy: {review_policy!r}.")
+
+    warning_sink = warnings if warnings is not None else []
     errors: list[str] = []
     if not A1_MEDIA_MANIFEST.is_file():
         return [
@@ -579,16 +622,19 @@ def validate_a1_media_semantic_approvals() -> list[str]:
             f"A1 media semantic approval registry is missing {len(missing_contracts)} canonical "
             f"contracts: {_summarize_contracts(missing_contracts)}."
         )
-    if pending_contracts:
+    decision_errors, decision_warnings = semantic_review_decision_findings(
+        pending_contracts,
+        rejected_contracts,
+        review_policy,
+    )
+    errors.extend(decision_errors)
+    if decision_warnings and warnings is None:
         errors.append(
-            f"A1 media semantic review has {len(pending_contracts)} pending contracts: "
-            f"{_summarize_contracts(pending_contracts)}."
+            "Preview semantic-review warnings were not surfaced by the caller; "
+            "refusing to pass silently."
         )
-    if rejected_contracts:
-        errors.append(
-            f"A1 media semantic review has {len(rejected_contracts)} rejected contracts: "
-            f"{_summarize_contracts(rejected_contracts)}."
-        )
+    else:
+        warning_sink.extend(decision_warnings)
     return errors
 
 
@@ -669,7 +715,19 @@ def validate_mobile_a1_semantic_parity() -> list[str]:
     return errors
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Validate A1 lesson cards and media.")
+    parser.add_argument(
+        "--semantic-review-policy",
+        choices=("preview", "production"),
+        default="production",
+        help=(
+            "Preview reports pending human semantic approvals as warnings; "
+            "Production (the default) requires every approval to be current."
+        ),
+    )
+    arguments = parser.parse_args(argv)
+    warnings: list[str] = []
     errors = [
         *validate_option_ids(),
         *validate_text_tile_option_limit(),
@@ -679,9 +737,16 @@ def main() -> int:
         *validate_interaction_requirements(),
         *validate_media_references(),
         *validate_a1_image_ratio(),
-        *validate_a1_media_semantic_approvals(),
+        *validate_a1_media_semantic_approvals(
+            arguments.semantic_review_policy,
+            warnings,
+        ),
         *validate_mobile_a1_semantic_parity(),
     ]
+    if warnings:
+        print("Lesson card validation warnings:")
+        for warning in warnings:
+            print(f"- WARNING: {warning}")
     if errors:
         print("Lesson card validation failed:")
         for error in errors:
