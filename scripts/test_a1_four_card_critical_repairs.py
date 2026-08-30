@@ -27,7 +27,12 @@ def rgb(hex_color: str) -> tuple[int, int, int]:
 
 def color_count(image: Image.Image, hex_color: str) -> int:
     expected = rgb(hex_color)
-    return sum(pixel == expected for pixel in image.convert("RGB").get_flattened_data())
+    data = image.convert("RGB").tobytes()
+    red, green, blue = expected
+    return sum(
+        data[offset] == red and data[offset + 1] == green and data[offset + 2] == blue
+        for offset in range(0, len(data), 3)
+    )
 
 
 def color_bbox(image: Image.Image, hex_color: str) -> tuple[int, int, int, int]:
