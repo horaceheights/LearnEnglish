@@ -34725,9 +34725,9 @@
       ]
     },
     {
-      "asset_id": "existing:far-bag__58a847a046",
+      "asset_id": "existing:far-bag__d49dd14e38",
       "concept": "far-bag",
-      "description": "same bag across room with strong depth cue",
+      "description": "same paired scene; left hand keeps holding the near bag while right hand points from below at the readable identical far bag without overlapping or touching it",
       "filename": "a1_far-bag.webp",
       "ratio": "3:2",
       "dimensions": [
@@ -34785,9 +34785,9 @@
       ]
     },
     {
-      "asset_id": "existing:far-book__ab202247ca",
+      "asset_id": "existing:far-book__4dd1571124",
       "concept": "far-book",
-      "description": "same book sits alone across the room; no foreground object",
+      "description": "same paired scene; left hand keeps holding the near book while right hand points from below at the identical far book without overlapping or touching it",
       "filename": "a1_far-book.webp",
       "ratio": "3:2",
       "dimensions": [
@@ -35361,9 +35361,9 @@
       ]
     },
     {
-      "asset_id": "existing:far-chair__ddc6e0a781",
+      "asset_id": "existing:far-chair__b55a3c6d27",
       "concept": "far-chair",
-      "description": "same chair at far wall with strong depth cue",
+      "description": "same paired scene and strong size contrast; left hand keeps gripping the large near chair while right hand points from below at the smaller identical far chair without overlapping or touching it",
       "filename": "a1_far-chair.webp",
       "ratio": "3:2",
       "dimensions": [
@@ -35546,9 +35546,9 @@
       ]
     },
     {
-      "asset_id": "existing:far-phone__9569bd4ffb",
+      "asset_id": "existing:far-phone__925ef41451",
       "concept": "far-phone",
-      "description": "same phone visibly across the table/room, small but identifiable",
+      "description": "same paired scene; left hand keeps holding the near phone while right hand points from below at the identical far phone without overlapping or touching it",
       "filename": "a1_far-phone.webp",
       "ratio": "3:2",
       "dimensions": [
@@ -41829,9 +41829,9 @@
       ]
     },
     {
-      "asset_id": "existing:near-bag__ec09c9c902",
+      "asset_id": "existing:near-bag__fc2dd8b5bf",
       "concept": "near-bag",
-      "description": "hand touches bag filling foreground",
+      "description": "paired first-person demonstrative scene; left hand holds the near bag while right hand points at it; identical far bag remains clearly readable",
       "filename": "a1_near-bag.webp",
       "ratio": "3:2",
       "dimensions": [
@@ -42014,9 +42014,69 @@
       ]
     },
     {
-      "asset_id": "existing:near-book__7b9663825f",
+      "asset_id": "existing:near-book__bac1f8118e",
       "concept": "near-book",
-      "description": "first-person hand holds one book filling the foreground; room background blurred",
+      "description": "approved near-book demonstrative scene",
+      "filename": "a1_near-book.webp",
+      "ratio": "3:2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "source": "existing",
+      "card_refs": [
+        "4.1|Recognize|R7"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-4-1-rooms-at-home",
+          "unit_id": "unit-4",
+          "sub_lesson_id": "4.1",
+          "stage": "Recognize",
+          "slide_id": "R7",
+          "interaction_type": "i2t2",
+          "surface_label": null,
+          "prompt": "Choose the sentence.",
+          "audio_text": "Choose the sentence.",
+          "answer_audio_text": "This is a book.",
+          "spanish_translation": "Elige la oración.",
+          "correct_option_id": "this-is-a-book-2",
+          "options": [
+            {
+              "id": "that-is-a-book-1",
+              "label": "That is a book.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "this-is-a-book-2",
+              "label": "This is a book.",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": true
+            }
+          ],
+          "media_role": "prompt",
+          "option_id": null,
+          "option_label": null,
+          "is_correct": null,
+          "source_filename": "a1_near-book.webp",
+          "rendered_filename": "a1_near-book.webp",
+          "render_profile": "lesson-prompt-3x2-v1",
+          "render_signature_sha256": "800e9f1556c138ed6d08bf74ef34bfc343e2e351393b53f49e9fbfbb5d33fc57",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ]
+    },
+    {
+      "asset_id": "existing:near-book__e59415bb9c",
+      "concept": "near-book",
+      "description": "paired first-person demonstrative scene; left hand holds the near book while right hand points at it; identical far book remains visible",
       "filename": "a1_near-book.webp",
       "ratio": "3:2",
       "dimensions": [
@@ -42361,69 +42421,9 @@
       ]
     },
     {
-      "asset_id": "existing:near-book__bac1f8118e",
-      "concept": "near-book",
-      "description": "approved near-book demonstrative scene",
-      "filename": "a1_near-book.webp",
-      "ratio": "3:2",
-      "dimensions": [
-        1536,
-        1024
-      ],
-      "source": "existing",
-      "card_refs": [
-        "4.1|Recognize|R7"
-      ],
-      "review_contexts": [
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-4-1-rooms-at-home",
-          "unit_id": "unit-4",
-          "sub_lesson_id": "4.1",
-          "stage": "Recognize",
-          "slide_id": "R7",
-          "interaction_type": "i2t2",
-          "surface_label": null,
-          "prompt": "Choose the sentence.",
-          "audio_text": "Choose the sentence.",
-          "answer_audio_text": "This is a book.",
-          "spanish_translation": "Elige la oración.",
-          "correct_option_id": "this-is-a-book-2",
-          "options": [
-            {
-              "id": "that-is-a-book-1",
-              "label": "That is a book.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            },
-            {
-              "id": "this-is-a-book-2",
-              "label": "This is a book.",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": true
-            }
-          ],
-          "media_role": "prompt",
-          "option_id": null,
-          "option_label": null,
-          "is_correct": null,
-          "source_filename": "a1_near-book.webp",
-          "rendered_filename": "a1_near-book.webp",
-          "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "800e9f1556c138ed6d08bf74ef34bfc343e2e351393b53f49e9fbfbb5d33fc57",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        }
-      ]
-    },
-    {
-      "asset_id": "existing:near-chair__c7155e41a2",
+      "asset_id": "existing:near-chair__fe2bbfefdb",
       "concept": "near-chair",
-      "description": "chair immediately beside viewer/foreground, fills frame",
+      "description": "paired first-person demonstrative scene; left hand grips the near chair while right hand points at it; near chair is substantially larger than the identical far chair",
       "filename": "a1_near-chair.webp",
       "ratio": "3:2",
       "dimensions": [
@@ -42481,9 +42481,9 @@
       ]
     },
     {
-      "asset_id": "existing:near-phone__a21530c7c8",
+      "asset_id": "existing:near-phone__38d8224213",
       "concept": "near-phone",
-      "description": "first-person hand holds phone close to camera",
+      "description": "paired first-person demonstrative scene; left hand holds the near phone while right hand points at it; identical far phone remains visible",
       "filename": "a1_near-phone.webp",
       "ratio": "3:2",
       "dimensions": [

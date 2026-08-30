@@ -5,6 +5,7 @@ const path = require('node:path');
 const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
 const course = require(path.join(mobileRoot, 'src', 'generated', 'a1-course.json'));
+const mediaManifest = require(path.join(repositoryRoot, 'docs', 'product', 'a1-media-manifest.json'));
 const imageSources = fs.readFileSync(path.join(mobileRoot, 'src', 'lessonImageSources.ts'), 'utf8');
 const courseScreen = fs.readFileSync(path.join(mobileRoot, 'src', 'screens', 'CourseScreen.tsx'), 'utf8');
 const mediaBuilder = fs.readFileSync(path.join(repositoryRoot, 'scripts', 'build_a1_media_composites.py'), 'utf8');
@@ -101,7 +102,47 @@ assert.ok(
   'the Unit 2 browser image must use the exact corrected two-blue-cars replacement',
 );
 
-const requiredAssets = [
+const requiredAssets = [];
+
+const demonstrativeContracts = new Map(
+  mediaManifest.assets
+    .filter((asset) => (
+      /^(near|far)-(book|phone|bag|chair)$/.test(asset.concept)
+      && asset.review_contexts.some((context) => context.sub_lesson_id === '2.5')
+    ))
+    .map((asset) => [asset.concept, asset]),
+);
+const demonstrativeNouns = ['book', 'phone', 'bag', 'chair'];
+for (const noun of demonstrativeNouns) {
+  const near = demonstrativeContracts.get(`near-${noun}`);
+  const far = demonstrativeContracts.get(`far-${noun}`);
+  assert.ok(near, `missing near-${noun} demonstrative contract`);
+  assert.ok(far, `missing far-${noun} demonstrative contract`);
+  assert.match(near.description, /left hand (?:holds|grips) the near .+ while right hand points at it/);
+  assert.match(near.description, /identical far|identical far chair/);
+  assert.match(
+    far.description,
+    new RegExp(`left hand keeps (?:holding|gripping) (?:the )?(?:large )?near ${noun} while right hand points from below at .*identical far ${noun}`),
+  );
+  assert.match(far.description, /without overlapping or touching it/);
+
+  for (const filename of [near.filename, far.filename]) {
+    const canonicalPath = path.join(repositoryRoot, 'Lessons', 'Lesson1', 'images', filename);
+    const mobilePath = path.join(mobileRoot, 'assets', 'lesson-assets', filename);
+    assert.ok(fs.existsSync(canonicalPath), `${filename} must exist in canonical lesson assets`);
+    assert.ok(fs.existsSync(mobilePath), `${filename} must exist in bundled mobile assets`);
+    assert.deepEqual(
+      fs.readFileSync(mobilePath),
+      fs.readFileSync(canonicalPath),
+      `${filename} mobile copy must match the reviewed canonical asset`,
+    );
+  }
+}
+assert.match(demonstrativeContracts.get('near-chair').description, /near chair is substantially larger/);
+assert.match(demonstrativeContracts.get('far-chair').description, /strong size contrast/);
+assert.match(demonstrativeContracts.get('near-bag').description, /far bag remains clearly readable/);
+
+requiredAssets.push(
   'a1_grammar_and.webp',
   'a1_grammar_he_she_they.webp',
   'a1_grammar_is.webp',
@@ -120,7 +161,7 @@ const requiredAssets = [
   'unit2_mission_two_blue_cars.webp',
   'unit2_mission_three_green_books.webp',
   'unit2_mission_four_yellow_pens.webp',
-];
+);
 
 for (const filename of requiredAssets) {
   for (const root of [
