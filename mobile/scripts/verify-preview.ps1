@@ -1,3 +1,8 @@
+param(
+  [ValidateSet('Preview', 'Production')]
+  [string]$ReviewPolicy = 'Preview'
+)
+
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'release-guard.ps1')
@@ -10,17 +15,18 @@ $typescriptCompiler = Join-Path $mobileRoot 'node_modules\typescript\bin\tsc'
 $expoCli = Join-Path $mobileRoot 'node_modules\expo\bin\cli'
 $projectPython = Join-Path $repositoryRoot 'venv\Scripts\python.exe'
 $pythonCommand = if (Test-Path -LiteralPath $projectPython) { $projectPython } else { 'python' }
+$semanticReviewPolicy = $ReviewPolicy.ToLowerInvariant()
 $temporaryRoot = [System.IO.Path]::GetFullPath([System.IO.Path]::GetTempPath())
 $exportDirectory = [System.IO.Path]::Combine(
   $temporaryRoot,
   "spanglish-preview-check-$([System.Guid]::NewGuid().ToString('N'))"
 )
 
-Write-Host 'Validando tarjetas y archivos multimedia...' -ForegroundColor Cyan
+Write-Host "Validando tarjetas y archivos multimedia (política $ReviewPolicy)..." -ForegroundColor Cyan
 Push-Location $repositoryRoot
 try {
   Invoke-CheckedCommand -FailureMessage 'La validación de contenido encontró errores.' -Command {
-    & $pythonCommand $validator
+    & $pythonCommand $validator --semantic-review-policy $semanticReviewPolicy
   }
 } finally {
   Pop-Location
@@ -35,7 +41,7 @@ try {
 
   Write-Host 'Comprobando puntuación, reintentos y finalización...' -ForegroundColor Cyan
   Invoke-CheckedCommand -FailureMessage 'Las pruebas de interacción encontraron errores.' -Command {
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $interactionVerifier
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $interactionVerifier -ReviewPolicy $ReviewPolicy
   }
 
   Write-Host 'Comprobando el bundle Android de producción...' -ForegroundColor Cyan
@@ -57,4 +63,4 @@ try {
   Pop-Location
 }
 
-Write-Host 'Preflight de Preview completado.' -ForegroundColor Green
+Write-Host "Preflight de $ReviewPolicy completado." -ForegroundColor Green

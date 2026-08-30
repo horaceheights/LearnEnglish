@@ -1,0 +1,63 @@
+# A1 still-media semantic audit — 2026-08-29
+
+## Status
+
+The all-unit still-media implementation and agent-assisted pre-approval QA pass is complete. It is not human semantic approval. Under the two-stage policy approved on 2026-08-30, the corrected course may enter protected internal Preview with explicit pending-review warnings so it can be inspected in the real app. It remains intentionally blocked from Production until a human reviewer records approval for every semantic contract in `a1-media-semantic-approvals.json` and re-reviews the merged Preview line's complete fixed-4:5 four-card crop inventory.
+
+- Course topology: 70 lessons in seven units of ten.
+- Learner-facing still uses bound by the runtime inventory: 3,375.
+- Semantic contract rows covering those usages: 1,775.
+- Distinct final rendered still files: 952.
+- Mobile course-browser crop contexts: 147 (70 lesson rows, 70 continue cards, and seven unit cards).
+- Two-choice pre-play action-poster contexts: 74; the two Lesson 1.7 still-only comparison usages intentionally do not use a poster override.
+- Human approval registry: 0 approved, 1,775 pending, 0 rejected.
+- Release result: eligible only for protected internal Preview with warnings; Production is blocked by the pending semantic approvals and stale four-card crop-review evidence. There are no structural, parity, dimension, missing-file, rejected-review, or runtime-contract validation errors.
+
+This registry covers lesson prompt stills, correct options, distractors, Speak model stills, final client-resolved variants, the dedicated two-choice still posters actually shown before video playback, and every real mobile course-browser unit/lesson/continue crop. Action video semantics remain covered by the separate motion and frame-inspection rules in `project-guardrails.md`; approving a poster still never approves its video.
+
+## Incident and root cause
+
+Lesson 2.10 exposed one blue pen while the authored answer choices claimed unrelated quantities and colors, and one white car while the prompt claimed two colored cars. These were not isolated bad filenames.
+
+The shared Unit 2–7 builder passed the correct answer's scene description into every option renderer. Distractors therefore inherited correct-answer semantics even when their labels, IDs, and intended answers differed. Reused concept metadata could then hide the contradiction by keeping only the first description associated with a filename.
+
+The builder is now option-authoritative. Every option uses its own concept or explicit per-option scene contract, incompatible reused contracts stay independently reviewable, and a full runtime context binds the prompt, audio, answer, complete distractor set, selected role, source filename, actual final rendered filename, render profile and framing signature, and exact file hash.
+
+## Repairs
+
+- Unit 1: all final client-resolved prompt and option stills passed an agent-assisted labeled pixel QA pass. Contact-sheet generation now uses manifest contracts, resolves the actual final variant, and separately renders real browser crop shapes; this pass did not grant human approval.
+- Unit 2: replaced the incorrect near red book, six white bags, two blue cars, three green books, and four yellow pens assets with exact literal scenes. The distant book was also rebuilt so the book remains unmistakable at card size while retaining a long-distance cue. The Unit 2 menu image now uses the corrected literal two-blue-cars asset. These repairs remain pre-approval evidence until human review is recorded.
+- Units 3–5: rebuilt 186 high-risk semantic assets, followed by 18 contextual-review corrections for Canada identity, seven-day meaning, affirmative cues, priced drinks, person-specific quantities, and visually distinct `want` versus `like` scenes.
+- Unit 6: rebuilt the high-risk transport, route, access, signal, schedule, help, and spatial-relation scenes, including the final contextual corrections for ordered transport, open versus blocked walking, named-place relations, left/right reference pairs, and literal walking.
+- Unit 7: rebuilt the high-risk identity, action, weather, clothing, meal, need, and polarity scenes, including the final contextual corrections for Ana continuity, parents in a family scene, town-map help, and active reading and writing.
+- Exact-runtime four-card audit: inspected 335 distinct rendered assets across all 528 live four-card option uses on 17 fixed-4:5 contact sheets. The repair set now includes 109 new deterministic portrait-safe variants for counts, colors, people, flags, places, meals, schedules, directions, spatial relations, actions, and polarity. A second full-sheet pass found and corrected late failures including clipped nationality flags, generic bank imagery, a shirt-like jacket, missing signals and arrows, ambiguous meal times, and two cards whose spoken/visible prompts allowed multiple correct answers.
+- Unit 1 sibling distractors now use an exclusive singular/plural and boy/girl matrix, including exact option IDs and correct-answer bindings for `A brother`, `Brothers`, and `Sisters`; babies and generic child groups are no longer used as overlapping sibling distractors.
+- Unit 6 card contracts now require `The boy cannot cross the street.` where an adult pair is a distractor, and `The pharmacy is on the right.` where three different places appear on the right. Hidden correct IDs no longer disambiguate what learners actually see or hear.
+
+## Fail-closed guardrail
+
+`project-guardrails.md` now requires a human visual review of every lesson still and every final client-resolved still variant against the complete teaching contract. A filename, prompt, generator description, manifest entry, dimensions check, or source approval is explicitly insufficient.
+
+Approval is bound to the complete runtime contract and the cryptographic hash of the exact final bytes. It also binds a role/layout-specific render policy, normalized implementation-source signature, fixed browser viewport where applicable, fit, and focal position. Any prompt, audio, answer, distractor-set, role, source, crop, pixels, renderer, viewport, fit, focal position, encoding, variant, or hash change returns the contract to pending. Production remains fail-closed for missing, pending, rejected, stale, or hash-mismatched approval. The explicit Preview policy downgrades only current `pending` decisions and pending four-card crop evidence to visible warnings; missing, malformed, stale, mismatched, rejected, ambiguous, or structurally unsafe media still blocks Preview.
+
+Two-choice action options resolve to the dedicated first-visible-frame poster path used by both clients. Sixteen poster files now have canonical lesson-media copies, byte-identical mobile/web publication copies, literal Metro requires, and separate approval contracts. Ten Unit 1 title files that previously existed only in the mobile bundle also now have canonical sources.
+
+Preview-line integration now accounts for 137 canonical portrait-safe four-card files: 136 registry-bound sibling variants plus the explicit corrected six-white-bags override. Their render profile records the real fixed centered 4:5 mobile crop alongside the web 3:2 frame. Every effective variant is synchronized byte-for-byte to canonical, mobile, and frontend publication roots; a missing frontend copy now fails validation instead of remaining optional.
+
+Routine Preview verification now runs `mobile/tests/lesson-media-semantics.test.cjs`. The Python validator also checks all 70 backend lessons against the embedded mobile course, literal Metro requires, final 3:2 resolution, byte-for-byte mobile/frontend parity, full runtime contexts, and the approval registry.
+
+## Verification performed
+
+- Agent-assisted pixel review of all 147 actual mobile course-browser crops: pass across Units 1–7, with no wrong object, quantity, color, identity, action, or critical crop. Minor edge trims retained the complete teaching cue.
+- Agent-assisted pixel review of all 34 labeled two-choice action-poster contracts: pass, with no contradictory object, quantity, color, action, identity, or unusable crop. These two visual-review passes are pre-approval evidence only and did not modify the human approval registry.
+- Agent-assisted review of the final 17 exact-runtime four-card sheets: pass across all 335 distinct assets and 528 uses after the last repair rebuild. This is pre-approval evidence only.
+- The existing four-card crop-review manifest remains a strict Production blocker because the effective inventory and hashes changed. Preview reports that pending evidence as a warning and automation does not rewrite or approve it.
+- Focused Python contract, approval-registry, option-authority, thumbnail-framing, action-poster, and byte-sync tests: pass.
+- Runtime contract tests, including prompt-variant resolution and fail-closed mismatch handling: pass.
+- Mobile TypeScript check: pass.
+- `verify-interaction-paths.ps1` remains strict by default and stops at the intentionally stale human four-card review manifest. `verify-preview.ps1` now invokes its explicit Preview policy, which reports that evidence as a warning while still running the remaining checks. The remaining checks pass, including TypeScript, 77 unique unit/lesson title images, 833 normalized option/model images, 758 prompt cards, 408 prompt assets, layout, release-authority, audio, pronunciation, and catalog-parity checks.
+- Frontend production build: pass.
+- Lesson structure suite: 25 checks pass; the remaining audio-boundary check could not import the required pinned `av` dependency in this worktree's borrowed Python environment and is unrelated to still media.
+- Full `validate_lesson_cards.py`: all implementation checks pass. Its default Production policy has the expected failure for 1,775 pending human approvals; `--semantic-review-policy preview` reports those same current decisions as warnings.
+
+No approval entries were marked approved by automation or by this repair pass.

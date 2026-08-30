@@ -11,6 +11,8 @@ const mobileRoot = path.join(root, 'mobile', 'assets', 'lesson-assets');
 const frontendRoot = path.join(root, 'frontend', 'public', 'lesson-assets');
 const imageSourcesPath = path.join(root, 'mobile', 'src', 'lessonImageSources.ts');
 const reviewPath = path.join(root, 'docs', 'product', 'a1-four-card-media-review.json');
+const allowPendingReview = process.argv.includes('--allow-pending-review');
+const validDispositions = new Set(['center-crop-approved', 'dedicated-four-card-reframe']);
 
 function filename(imageUrl) {
   return String(imageUrl || '').split(/[?#]/, 1)[0].split('/').pop();
@@ -47,21 +49,82 @@ function fourCardAssets() {
   return [...assets].sort();
 }
 
-test('every effective four-card image has a current semantic-crop review', () => {
+function summarize(values, limit = 12) {
+  const preview = values.slice(0, limit).join(', ');
+  return values.length > limit ? `${preview}, and ${values.length - limit} more` : preview;
+}
+
+function loadStructurallyValidReview() {
+  assert.ok(fs.existsSync(reviewPath), 'the four-card semantic-crop review manifest is required');
   const review = JSON.parse(fs.readFileSync(reviewPath, 'utf8'));
+  assert.equal(review.schema_version, 1);
   assert.equal(review.portrait_viewport, '4:5');
-  assert.deepEqual(fourCardAssets(), Object.keys(review.assets).sort());
+  assert.equal(review.master_ratio, '3:2');
+  assert.ok(review.assets && typeof review.assets === 'object' && !Array.isArray(review.assets));
 
   for (const [asset, record] of Object.entries(review.assets)) {
+    assert.ok(record && typeof record === 'object' && !Array.isArray(record), `${asset} has an invalid review record`);
+    assert.match(record.sha256, /^[0-9a-f]{64}$/, `${asset} has an invalid review hash`);
+    assert.ok(validDispositions.has(record.disposition), `${asset} has an invalid review disposition`);
+    if (asset.endsWith('_four-card.webp')) {
+      assert.equal(record.disposition, 'dedicated-four-card-reframe', `${asset} must be reviewed as a dedicated reframe`);
+    }
+  }
+  return review;
+}
+
+function currentReviewIssues(review) {
+  const currentAssets = fourCardAssets();
+  const reviewedAssets = Object.keys(review.assets).sort();
+  const currentSet = new Set(currentAssets);
+  const reviewedSet = new Set(reviewedAssets);
+  const missingReviews = currentAssets.filter((asset) => !reviewedSet.has(asset));
+  const staleReviews = reviewedAssets.filter((asset) => !currentSet.has(asset));
+  const staleHashes = [];
+
+  for (const asset of currentAssets) {
     const canonical = path.join(canonicalRoot, asset);
     const mobile = path.join(mobileRoot, asset);
     const frontend = path.join(frontendRoot, asset);
-    assert.equal(sha256(canonical), record.sha256, `${asset} changed and needs crop review`);
-    assert.equal(sha256(mobile), record.sha256, `${asset} mobile copy is stale`);
-    if (record.disposition === 'dedicated-four-card-reframe') {
-      assert.equal(sha256(frontend), record.sha256, `${asset} frontend copy is stale`);
-    }
+    assert.ok(fs.existsSync(canonical), `${asset} is missing from canonical lesson media`);
+    assert.ok(fs.existsSync(mobile), `${asset} is missing from bundled mobile media`);
+    assert.ok(fs.existsSync(frontend), `${asset} is missing from frontend media`);
+
+    const currentHash = sha256(canonical);
+    assert.equal(sha256(mobile), currentHash, `${asset} mobile copy differs from canonical`);
+    assert.equal(sha256(frontend), currentHash, `${asset} frontend copy differs from canonical`);
+
+    const record = review.assets[asset];
+    if (record && record.sha256 !== currentHash) staleHashes.push(asset);
   }
+
+  const issues = [];
+  if (missingReviews.length) {
+    issues.push(`${missingReviews.length} assets have no crop review (${summarize(missingReviews)})`);
+  }
+  if (staleReviews.length) {
+    issues.push(`${staleReviews.length} review records are no longer used (${summarize(staleReviews)})`);
+  }
+  if (staleHashes.length) {
+    issues.push(`${staleHashes.length} assets changed after crop review (${summarize(staleHashes)})`);
+  }
+  return issues;
+}
+
+test('every effective four-card image has a current semantic-crop review', (t) => {
+  const review = loadStructurallyValidReview();
+  const issues = currentReviewIssues(review);
+  if (!issues.length) return;
+
+  const message = `Four-card semantic-crop review is pending: ${issues.join('; ')}.`;
+  if (allowPendingReview) {
+    const warning = `PREVIEW ONLY — ${message} Production remains blocked until the manifest is current.`;
+    console.warn(warning);
+    t.diagnostic(warning);
+    return;
+  }
+
+  assert.fail(message);
 });
 
 test('dedicated four-card reframes are not reused by smaller option sets', () => {

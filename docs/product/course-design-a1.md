@@ -17,7 +17,9 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 
 ## Current Track Check
 
-Unit 1, `People, Family, and Actions`, is the first of seven planned A1 units. It uses ten stepped lessons. The approved rebuild starts with `1.1 People and Core Actions`, followed by the narrower `1.2 He and She` lesson.
+The A1 track now contains seven implemented units of ten lessons each. Unit 1,
+`People, Family, and Actions`, begins the sequence with `1.1 People and Core
+Actions`, followed by the narrower `1.2 He and She` lesson.
 
 What it does well:
 
@@ -27,13 +29,13 @@ What it does well:
 - repeats one structure across multiple people and actions
 - keeps the task simple: match English prompt to picture
 
-What to add next:
+What the shared engine now adds across the track:
 
-- audio for every prompt
-- a small number of review cards that mix old and new vocabulary
-- more distractor variety over time, not only same action with different person
-- an authoring format so lessons are not hardcoded in Python
-- lightweight production practice after recognition is stable
+- prompt and answer audio with stage-specific timing
+- purposeful review cards that mix old and new vocabulary
+- varied distractors covered by fail-closed semantic contracts; formal human approvals remain pending
+- canonical YAML authoring with generated mobile snapshots
+- Speak and Use production after recognition and listening practice
 
 ## A1 Course Spine
 
@@ -302,7 +304,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 
 Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
 
-The previously built family lessons supply approved assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
+The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
 Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
 

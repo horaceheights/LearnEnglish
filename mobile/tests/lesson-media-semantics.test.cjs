@@ -7,6 +7,7 @@ const repositoryRoot = path.resolve(mobileRoot, '..');
 const course = require(path.join(mobileRoot, 'src', 'generated', 'a1-course.json'));
 const mediaManifest = require(path.join(repositoryRoot, 'docs', 'product', 'a1-media-manifest.json'));
 const imageSources = fs.readFileSync(path.join(mobileRoot, 'src', 'lessonImageSources.ts'), 'utf8');
+const courseScreen = fs.readFileSync(path.join(mobileRoot, 'src', 'screens', 'CourseScreen.tsx'), 'utf8');
 const mediaBuilder = fs.readFileSync(path.join(repositoryRoot, 'scripts', 'build_a1_media_composites.py'), 'utf8');
 
 assert.equal(course.length, 70, 'semantic media QA must cover all 70 A1 lessons');
@@ -23,6 +24,37 @@ const learnMedia = (number) => new Map(
     .map((card) => [card.prompt, path.basename(card.options[0]?.image_url || '')]),
 );
 
+const cardFor = (number, stage, prompt) => {
+  const result = lesson(number).cards.find((card) => card.stage === stage && card.prompt === prompt);
+  assert.ok(result, `missing ${number} ${stage} card ${JSON.stringify(prompt)}`);
+  return result;
+};
+
+const cardBySlide = (number, stage, slideId) => {
+  const result = lesson(number).cards.find(
+    (card) => card.stage === stage && card.slide_id === slideId,
+  );
+  assert.ok(result, `missing ${number} ${stage} slide ${slideId}`);
+  return result;
+};
+
+const mediaFilenames = (value, filenames = []) => {
+  if (Array.isArray(value)) {
+    for (const item of value) mediaFilenames(item, filenames);
+    return filenames;
+  }
+  if (!value || typeof value !== 'object') return filenames;
+
+  for (const [key, item] of Object.entries(value)) {
+    if ((key === 'image_url' || key === 'prompt_image_url') && typeof item === 'string' && item) {
+      filenames.push(path.basename(item.split(/[?#]/, 1)[0]));
+    } else {
+      mediaFilenames(item, filenames);
+    }
+  }
+  return filenames;
+};
+
 const unitOneReview = learnMedia('1.9');
 assert.equal(unitOneReview.has('Is, are, and not'), false, 'grammar review concepts must not share one unrelated scene');
 assert.equal(unitOneReview.get('He, she, and they'), 'a1_grammar_he_she_they.webp');
@@ -30,6 +62,75 @@ assert.equal(unitOneReview.get('Is'), 'a1_grammar_is.webp');
 assert.equal(unitOneReview.get('Are'), 'a1_grammar_are.webp');
 assert.equal(unitOneReview.get('Not'), 'a1_grammar_not.webp');
 assert.equal(learnMedia('1.3').get('And'), 'a1_grammar_and.webp');
+
+const siblingOptionMatrix = (prompt) => {
+  const card = cardFor('1.4', 'Recognize', prompt);
+  return {
+    correctOptionId: card.correct_option_id,
+    options: card.options.map((option) => ({
+      id: option.id,
+      image: path.basename(option.image_url),
+    })),
+  };
+};
+const singularBrotherMatrix = siblingOptionMatrix('A brother');
+assert.deepEqual(singularBrotherMatrix, {
+  correctOptionId: 'brother',
+  options: [
+    { id: 'sister', image: 'girl.webp' },
+    { id: 'brother', image: 'boy.webp' },
+    { id: 'brothers', image: 'family_brothers.webp' },
+    { id: 'sisters', image: 'family_sisters.webp' },
+  ],
+}, 'the singular brother choice must bind the exclusive gender/number matrix to the right answer');
+const pluralBrotherMatrix = siblingOptionMatrix('Brothers');
+assert.deepEqual(pluralBrotherMatrix, {
+  correctOptionId: 'brothers',
+  options: [
+    { id: 'sisters', image: 'family_sisters.webp' },
+    { id: 'brother', image: 'boy.webp' },
+    { id: 'sister', image: 'girl.webp' },
+    { id: 'brothers', image: 'family_brothers.webp' },
+  ],
+}, 'the plural brothers choice must bind the exclusive gender/number matrix to the right answer');
+const pluralSisterMatrix = siblingOptionMatrix('Sisters');
+assert.deepEqual(pluralSisterMatrix, {
+  correctOptionId: 'sisters',
+  options: [
+    { id: 'brothers', image: 'family_brothers.webp' },
+    { id: 'sisters', image: 'family_sisters.webp' },
+    { id: 'brother', image: 'boy.webp' },
+    { id: 'sister', image: 'girl.webp' },
+  ],
+}, 'the plural sisters choice must bind the exclusive gender/number matrix to the right answer');
+for (const ambiguousFamilyDistractor of ['family_babies.webp', 'family_children.webp']) {
+  assert.equal(
+    [singularBrotherMatrix, pluralBrotherMatrix, pluralSisterMatrix]
+      .flatMap((matrix) => matrix.options)
+      .some((option) => option.image === ambiguousFamilyDistractor),
+    false,
+    `${ambiguousFamilyDistractor} can contain siblings and must not be used as a visibly false sibling distractor`,
+  );
+}
+
+const boyCannotCross = cardBySlide('6.6', 'Recognize', 'R8');
+assert.equal(boyCannotCross.prompt, 'The boy cannot cross the street.');
+assert.equal(boyCannotCross.audio_text, 'The boy cannot cross the street.');
+assert.equal(boyCannotCross.correct_option_id, 'boy-waits-at-red-signal-3');
+assert.equal(
+  boyCannotCross.options.find((option) => option.id === 'pair-waits-at-red-signal-4')?.image_url,
+  '/lesson-assets/a1_scene_pair-waits-at-red-signal_5078634_four-card.webp',
+  'the adult-pair distractor is valid only while the prompt explicitly requires the boy',
+);
+
+const pharmacyOnRight = cardBySlide('6.7', 'Listen', 'A5');
+assert.equal(pharmacyOnRight.audio_text, 'The pharmacy is on the right.');
+assert.equal(pharmacyOnRight.correct_option_id, 'pharmacy-right-4');
+assert.equal(
+  pharmacyOnRight.options.filter((option) => option.id.includes('-right-')).length,
+  3,
+  'the audio must name the place because three authored options are on the right',
+);
 
 for (const number of ['3.9', '3.10']) {
   const media = learnMedia(number);
@@ -39,9 +140,69 @@ for (const number of ['3.9', '3.10']) {
 }
 assert.equal(learnMedia('3.9').get('My name is Ana.'), 'a1_scene_ana_name.webp');
 
+const requiredUnitTwoReplacementsByLesson = new Map([
+  [
+    '2.8',
+    [
+      'unit2_near_red_book.webp',
+      'unit2_six_white_bags.webp',
+      'a1_scene_six-white-bags_f412a8a_four-card.webp',
+    ],
+  ],
+  [
+    '2.9',
+    ['unit2_six_white_bags.webp', 'a1_scene_six-white-bags_f412a8a_four-card.webp'],
+  ],
+  [
+    '2.10',
+    [
+      'unit2_mission_two_blue_cars.webp',
+      'unit2_mission_three_green_books.webp',
+      'unit2_mission_four_yellow_pens.webp',
+    ],
+  ],
+]);
+
+for (const [number, expectedFilenames] of requiredUnitTwoReplacementsByLesson) {
+  const filenames = new Set(mediaFilenames(lesson(number)));
+  for (const filename of expectedFilenames) {
+    assert.ok(filenames.has(filename), `lesson ${number} must use corrected semantic asset ${filename}`);
+  }
+}
+
+const rejectedUnitTwoAssets = [
+  'a1_scene_mission-two-blue-cars_84c4ba2.webp',
+  'a1_scene_mission-three-green-books_d248942.webp',
+  'a1_scene_mission-four-yellow-pens_fe7d7c4.webp',
+  'a1_scene_near-red-book_0e763e1.webp',
+  'a1_scene_six-white-bags_f412a8a.webp',
+];
+const allCourseMedia = new Set(mediaFilenames(course));
+for (const filename of rejectedUnitTwoAssets) {
+  assert.equal(
+    allCourseMedia.has(filename),
+    false,
+    `${filename} failed semantic review and must not be referenced by any of the 70 lessons`,
+  );
+  assert.equal(
+    courseScreen.includes(filename),
+    false,
+    `${filename} failed semantic review and must not return as a unit or lesson browser image`,
+  );
+}
+assert.ok(
+  courseScreen.includes("'unit-2': { image: 'unit2_mission_two_blue_cars.webp'"),
+  'the Unit 2 browser image must use the exact corrected two-blue-cars replacement',
+);
+
+const requiredAssets = [];
+
 const demonstrativeContracts = new Map(
   mediaManifest.assets
-    .filter((asset) => /^(near|far)-(book|phone|bag|chair)$/.test(asset.concept))
+    .filter((asset) => (
+      /^(near|far)-(book|phone|bag|chair)$/.test(asset.concept)
+      && asset.review_contexts.some((context) => context.sub_lesson_id === '2.5')
+    ))
     .map((asset) => [asset.concept, asset]),
 );
 const demonstrativeNouns = ['book', 'phone', 'bag', 'chair'];
@@ -74,7 +235,7 @@ assert.match(demonstrativeContracts.get('near-chair').description, /near chair i
 assert.match(demonstrativeContracts.get('far-chair').description, /strong size contrast/);
 assert.match(demonstrativeContracts.get('near-bag').description, /far bag remains clearly readable/);
 
-const reviewedAssets = [
+requiredAssets.push(
   'a1_grammar_and.webp',
   'a1_grammar_he_she_they.webp',
   'a1_grammar_is.webp',
@@ -88,9 +249,14 @@ const reviewedAssets = [
   'a1_scene_luis_age_18.webp',
   'a1_scene_luis_usa.webp',
   'a1_scene_luis_driver.webp',
-];
+  'unit2_near_red_book.webp',
+  'unit2_six_white_bags.webp',
+  'unit2_mission_two_blue_cars.webp',
+  'unit2_mission_three_green_books.webp',
+  'unit2_mission_four_yellow_pens.webp',
+);
 
-for (const filename of reviewedAssets) {
+for (const filename of requiredAssets) {
   for (const root of [
     path.join(mobileRoot, 'assets', 'lesson-assets'),
     path.join(repositoryRoot, 'Lessons', 'Lesson1', 'images'),
@@ -103,6 +269,19 @@ for (const filename of reviewedAssets) {
     new RegExp(`['"]${filename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]\\s*:\\s*require\\(`),
     `${filename} must be bundled through a literal Metro require`,
   );
+}
+
+const semanticAssetFilenames = [...new Set(mediaManifest.assets.map((asset) => asset.filename))];
+for (const filename of semanticAssetFilenames) {
+  const canonicalPath = path.join(repositoryRoot, 'Lessons', 'Lesson1', 'images', filename);
+  const mobilePath = path.join(mobileRoot, 'assets', 'lesson-assets', filename);
+  const frontendPath = path.join(repositoryRoot, 'frontend', 'public', 'lesson-assets', filename);
+  assert.ok(fs.existsSync(canonicalPath), `${filename} semantic canonical asset must exist`);
+  assert.ok(fs.existsSync(mobilePath), `${filename} semantic mobile copy must exist`);
+  assert.ok(fs.existsSync(frontendPath), `${filename} semantic frontend copy must exist`);
+  const canonicalBytes = fs.readFileSync(canonicalPath);
+  assert.deepEqual(fs.readFileSync(mobilePath), canonicalBytes, `${filename} mobile copy must be exact`);
+  assert.deepEqual(fs.readFileSync(frontendPath), canonicalBytes, `${filename} frontend copy must be exact`);
 }
 
 assert.doesNotMatch(mediaBuilder, /fallback_files\s*=/, 'generic Ana/Luis media fallback must not return');

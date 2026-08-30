@@ -1,8 +1,14 @@
 # SpanGlish Product Roadmap
 
+Last reviewed: 2026-08-30
+
 This is the persistent source of truth for product priorities. When work is
 completed, update this file in the same commit. When asked "what is next?",
 select the highest-value unfinished item whose dependencies are complete.
+
+Statuses reflect checked-in implementation, automated guardrails, and recorded
+QA. Do not mark a physical-device or manual test complete based only on code or
+an automated test.
 
 ## Product vision
 
@@ -23,8 +29,9 @@ The product should:
 
 ## Engine-first strategy
 
-Do not scale course content massively until the reusable learning engine is
-robust. New content created before the engine stabilizes would multiply
+The complete 70-lesson A1 curriculum is now authored and serves as the engine's
+verification catalog. Do not begin another mass content expansion until the
+reusable learning engine is robust; otherwise new content would multiply
 inconsistent interactions, incomplete analytics, and future migration work.
 
 The near-term product is therefore the engine itself:
@@ -40,16 +47,16 @@ The near-term product is therefore the engine itself:
 
 ### Content-scaling gate
 
-Mass content production begins only when:
+Further mass content production begins only when:
 
 - [ ] Existing lessons complete reliably across the supported device matrix
 - [x] Core activities are represented by reusable schemas, not lesson-specific code
 - [x] A new lesson can be assembled mostly from data and existing activity types
-- [ ] Progress, retries, help usage, and mastery signals persist correctly
-- [ ] Audio, image, animation, and haptic behavior is consistent
-- [ ] Interrupted lessons resume safely
+- [~] Progress, retries, and first-attempt scores persist; help and mastery signals remain incomplete
+- [~] Shared audio, image, animation, and feedback behavior is guarded; haptics remain incomplete
+- [~] Interrupted lesson state resumes locally; physical interruption verification remains incomplete
 - [~] Backend/network failures recover without losing learner work
-- [ ] Accessibility and text/layout scaling have been tested
+- [~] Reduced-motion and responsive layout behavior exist; the accessibility/device matrix remains incomplete
 - [x] Automated content validation catches broken cards and missing media
 - [x] Regression and release checklists are repeatable
 
@@ -65,16 +72,20 @@ creation without proportionally increasing engineering effort.
 
 ## Current baseline
 
-- Android internal-preview APK with EAS over-the-air updates
-- Visible runtime/update identifier on the home screen
+- Android internal-preview build with EAS over-the-air updates
+- Protected Preview publication from the exact `release/preview` commit, with release-integrity checks
+- Visible app version and seven-character release commit in update surfaces
 - Render-hosted backend with automatic deployment
-- Portrait home screen and landscape lessons
-- Twenty production curriculum lessons across Unit 1 and Unit 2, each using Learn -> Recognize -> Listen -> Speak -> Use
+- Unit-first course browser with progress states for the current and completed lessons
+- Complete A1 curriculum: 70 lessons in seven units of ten, each using Learn -> Recognize -> Listen -> Speak -> Use
+- Canonical YAML lessons plus an embedded mobile catalog bound to fail-closed release-integrity checks
 - Shared automatic pronunciation flow with Azure scoring
-- Consolidated lesson header, larger uncropped images, and visible lesson exit
+- Local in-progress lesson resume with first-attempt state preserved
+- Consolidated lesson header, shared 3:2 course imagery, and confirmed lesson exit
 - Grammar answers animate toward sentence blanks and repeat the completed sentence
+- Completion prompts synthesize only the visible prefix and suffix fragments, stitched around at least 550 ms of digital silence; the missing answer never enters prompt TTS
 - In-app error boundary replaces unexplained blank screens
-- Internal Engine QA hub can jump directly to lessons, stages, and cards through a compact unit-first navigator that restores the last QA location
+- Internal Engine QA hub can jump directly to all 70 lessons, stages, and cards through a compact unit-first navigator that restores the last QA location
 - Persistent QA checklist: [`../qa/engine-qa-checklist.md`](../qa/engine-qa-checklist.md)
 
 ---
@@ -92,9 +103,10 @@ corrupts progress, or produces unreliable learning feedback.
 - [ ] Test small, medium, and large Android landscape dimensions
 - [x] Add production crash reporting and structured diagnostics
 - [x] Show an in-app error screen instead of an unexplained blank screen
-- [~] Persist the learner's active lesson/card before interruption
+- [~] Persist and restore the learner's active lesson/card locally; complete the physical interruption audit
 - [x] Create a repeatable pre-release checklist
 - [x] Remove the temporary standalone pronunciation test lesson and keep pronunciation inside each lesson's Speak stage
+- [x] Enforce the 70-lesson catalog, course fingerprint, release identity, and canonical Preview ancestry before publication
 
 ### P0 exit criteria
 
@@ -110,10 +122,10 @@ corrupts progress, or produces unreliable learning feedback.
 
 - [ ] Implement production authentication and account recovery
 - [~] Synchronize learner profile and session data
-- [~] Save lesson completion and first-attempt scores
-- [ ] Resume unfinished lessons
-- [ ] Show completed lessons, current unit, and total course progress
-- [ ] Track learning time and attempt history
+- [x] Save lesson completion and first-attempt scores
+- [~] Resume unfinished lessons from local state; verify force-close and device-interruption recovery
+- [~] Show completed lessons and current-unit progress; add a clear total-course progress summary
+- [~] Store attempt history and session timestamps; expose learner-facing learning-time history
 
 ### Learner controls
 
@@ -126,11 +138,12 @@ corrupts progress, or produces unreliable learning feedback.
 ### Content architecture
 
 - [ ] Finalize Course → Unit → Lesson → Sublesson → Activity → Card hierarchy
-- [~] Make lesson content data-driven and reusable
-- [~] Validate lesson content automatically before deployment
-- [ ] Separate temporary QA content from production curriculum
-- [x] Implement the ten-lesson Unit 2 dependency chain, per-slide canonical content, exact translations, static images, and bundled audio
-- [x] Encode intentional Unit 2 curriculum recycling through later lessons, mixed review, and the final mission
+- [x] Make lesson content data-driven and reusable through canonical YAML and shared schemas
+- [x] Validate lesson structure, answers, translations, media, and embedded snapshots automatically before deployment
+- [x] Keep QA on the production lesson catalog while isolating QA sessions and analytics
+- [x] Implement the complete 70-lesson A1 dependency chain across seven units of ten
+- [x] Encode intentional curriculum recycling through later lessons, unit reviews, and final missions
+- [x] Present the seven-unit hierarchy without flattening all 70 lessons into the initial menu
 
 ---
 
@@ -151,9 +164,9 @@ Build each interaction once, then create future lessons mostly through content.
 - [ ] Find the incorrect word
 - [ ] Singular/plural pairing
 - [ ] Timed listening challenges
-- [~] Pronunciation activities
+- [x] Pronunciation activities
 - [ ] Short conversational response activities
-- [ ] Shared animation, sound, haptic, help, scoring, analytics, and offline contracts
+- [~] Shared animation, sound, help, scoring, analytics, and offline contracts; haptics remain unimplemented
 
 ### P2 exit criteria
 
@@ -198,34 +211,34 @@ application code.
 
 ## P5 — Pronunciation 2.0
 
-- [~] Automatic model → cue → record → grade → retry/pass flow
-- [~] Microphone/listening animation
+- [x] Automatic model → cue → record → grade → retry/pass flow
+- [x] Microphone/listening animation
 - [ ] Drive the visualizer directly from actual microphone volume
 - [ ] Highlight words in sync with model playback
 - [ ] Tap an individual word to hear it
 - [ ] Offer slow and normal-speed playback
-- [ ] Display syllable breakdown
-- [~] Identify the weakest word
+- [x] Display syllable breakdown and live recognized-syllable progress
+- [x] Identify the weakest word
 - [ ] Show phoneme feedback only when confidence is sufficient
 - [ ] Replay the learner's recording
 - [ ] Compare model and learner recordings
 - [ ] Show improvement across attempts
 - [ ] Keep a personal difficult-word list
 - [ ] Trigger focused practice after repeated difficulty
-- [ ] Convert scores into specific, supportive coaching
+- [~] Convert scores into specific, supportive coaching
 
 ---
 
 ## P6 — Offline use and performance
 
-- [ ] Cache current and next-card images/audio
+- [x] Preload current and next-card images/audio
 - [ ] Download complete lesson or unit packs
-- [ ] Complete eligible activities offline
+- [~] Complete eligible non-pronunciation cards offline after lesson data is available
 - [ ] Queue progress and analytics locally
 - [ ] Synchronize safely when connectivity returns
-- [ ] Clearly mark activities that require internet
+- [~] Mark pronunciation as unavailable offline; identify other network-dependent audio and actions
 - [ ] Reduce app and EAS update sizes
-- [ ] Optimize image dimensions and formats
+- [~] Standardize course imagery on contract-bound WebP assets; complete hash-bound human semantic approval and continue size and delivery optimization
 - [ ] Remove ordinary lesson-navigation dependence on Render availability
 - [ ] Move production backend to an appropriate always-on plan when justified
 
@@ -307,11 +320,12 @@ internal-mouth model rather than claiming the camera alone can diagnose it.
 2. Verify resume-in-progress across force-close, screen lock, and app switching.
 3. Complete the P0 network-loss and backend cold-start audit.
 4. Complete the Android viewport and accessibility matrix.
-5. Finalize the permanent course/activity data schema.
-6. Build reusable drag-and-drop sentence construction.
-7. Add tap-any-word audio.
-8. Add actual microphone-volume visualization.
-9. Begin vocabulary and grammar mastery tracking.
+5. Finalize the permanent course/activity hierarchy and post-Preview mastery policy.
+6. Queue progress and analytics locally, then synchronize safely after reconnecting.
+7. Build reusable drag-and-drop sentence construction.
+8. Add tap-any-word audio.
+9. Add actual microphone-volume visualization.
+10. Begin vocabulary and grammar mastery tracking.
 
 ## Product rule
 
