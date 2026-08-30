@@ -226,11 +226,15 @@ for (const [imageKey, filename] of Object.entries(twoCardVideoVariants)) {
 }
 
 for (const [imageKey, filename] of Object.entries(twoCardPosters)) {
-  const nativePoster = path.resolve(__dirname, '../assets/lesson-video-posters', filename);
-  const webPoster = path.resolve(__dirname, '../../frontend/public/lesson-video-posters', filename);
+  const canonicalPoster = path.resolve(__dirname, '../../Lessons/Lesson1/images', filename);
+  const nativePoster = path.resolve(__dirname, '../assets/lesson-assets', filename);
+  const webPoster = path.resolve(__dirname, '../../frontend/public/lesson-assets', filename);
+  assert.deepEqual(webpDimensions(canonicalPoster), [1536, 1024], `${filename} must have a canonical 3:2 source.`);
   assert.deepEqual(webpDimensions(nativePoster), [1536, 1024], `${filename} must use the shared 3:2 canvas.`);
   assert.deepEqual(webpDimensions(webPoster), [1536, 1024], `${filename} must match across web and native.`);
-  assert.ok(actionVideosSource.includes(`require('../assets/lesson-video-posters/${filename}')`), `${filename} must use a literal Metro require.`);
+  assert.deepEqual(fs.readFileSync(nativePoster), fs.readFileSync(canonicalPoster), `${filename} native bytes must match canonical media.`);
+  assert.deepEqual(fs.readFileSync(webPoster), fs.readFileSync(canonicalPoster), `${filename} web bytes must match canonical media.`);
+  assert.ok(actionVideosSource.includes(`require('../assets/lesson-assets/${filename}')`), `${filename} must use a literal Metro require.`);
   assert.ok(webPlayerSource.includes(`"${imageKey}": "${filename}"`), `${filename} is missing from the web poster map.`);
 }
 

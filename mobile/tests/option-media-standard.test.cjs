@@ -13,6 +13,7 @@ const optionMediaImage = fs.readFileSync(path.join(mobileRoot, 'src/components/O
 const lessonPlayer = fs.readFileSync(path.join(repositoryRoot, 'frontend/components/LessonPlayer.js'), 'utf8');
 const imageSources = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSources.ts'), 'utf8');
 const exporter = fs.readFileSync(path.join(repositoryRoot, 'scripts/export_mobile_preview_lessons.py'), 'utf8');
+const runtimeContracts = fs.readFileSync(path.join(repositoryRoot, 'scripts/a1_media_runtime_contracts.py'), 'utf8');
 
 const optionVariants = {
   'boy.webp': 'boy_3x2.webp',
@@ -134,8 +135,14 @@ assert.match(cardView, /const actionVideo = useStillOnlyLesson17Comparison\s*\?\
 assert.match(lessonPlayer, /useStillOnlyLesson17Comparison[\s\S]*?activeLesson\.id === "lesson-7-is-are-not"/);
 assert.match(lessonPlayer, /const actionVideoName = !isPronunciationCard && !useStillOnlyLesson17Comparison/);
 
+assert.match(
+  exporter,
+  /from (?:scripts\.)?a1_media_runtime_contracts import \([\s\S]*?OPTION_MEDIA_VARIANTS,[\s\S]*?TWO_CARD_ACTION_POSTERS,/,
+  'the mobile exporter must consume the authoritative still-variant and action-poster maps',
+);
+
 for (const [source, variant] of Object.entries(optionVariants)) {
-  for (const code of [imageSources, exporter]) {
+  for (const code of [imageSources, runtimeContracts]) {
     assert.ok(code.includes(source) && code.includes(variant), `${source} -> ${variant} is missing from generated mobile policy`);
   }
   assert.ok(lessonPlayer.includes(source) && lessonPlayer.includes(variant), `${source} -> ${variant} is missing from web policy`);

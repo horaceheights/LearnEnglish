@@ -39,6 +39,9 @@ try {
   & node tests/bundled-a1-images.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes A1 incluidas en Preview.' }
 
+  & node tests/lesson-media-semantics.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección semántica de imágenes de lecciones.' }
+
   & node tests/lesson-browser-visuals.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes específicas para cada lección.' }
 
