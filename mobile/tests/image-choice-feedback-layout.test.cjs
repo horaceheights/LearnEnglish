@@ -22,8 +22,8 @@ assert.match(
 );
 assert.match(
   source,
-  /width: constrainedPortraitImageOptionWidth \?\? optionWidth/,
-  'The height-constrained width must fall back to the established layout width.',
+  /width:\s*constrainedPortraitImageOptionWidth\s*\?\? constrainedLandscapeImageOptionWidth\s*\?\? optionWidth/,
+  'Height-constrained portrait and landscape widths must fall back to the established layout width.',
 );
 assert.doesNotMatch(
   source,
