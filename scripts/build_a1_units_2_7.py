@@ -166,6 +166,17 @@ FOUR_CARD_REFRAMES = {
     "a1_scene_bus-leaves-9-00_8cee9f4.webp",
     "a1_scene_luis-american_5a29f49.webp",
     "a1_scene_sofia-canadian_adf798e.webp",
+    # Final answer-critical review: use label-free, action-literal assessment
+    # scenes and keep count/speaker/music cues inside the fixed 4:5 crop.
+    "a1_three-green-books.webp",
+    "a1_scene_invites-music_0c739d4.webp",
+    "a1_scene_i-have-book_25eacad.webp",
+    "a1_scene_cook-sofia_ecb7eca.webp",
+    "a1_scene_doctor-diego_1c7ef5a.webp",
+    "a1_scene_driver-luis_111aa43.webp",
+    "a1_scene_farmer-ana_f823cb6.webp",
+    "a1_scene_nurse-sofia_63f2a9c.webp",
+    "a1_scene_teacher-ana_0e983a0.webp",
 }
 
 # The earlier base six-bag asset failed semantic review, but its dedicated
