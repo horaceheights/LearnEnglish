@@ -24,6 +24,20 @@ const learnMedia = (number) => new Map(
     .map((card) => [card.prompt, path.basename(card.options[0]?.image_url || '')]),
 );
 
+const cardFor = (number, stage, prompt) => {
+  const result = lesson(number).cards.find((card) => card.stage === stage && card.prompt === prompt);
+  assert.ok(result, `missing ${number} ${stage} card ${JSON.stringify(prompt)}`);
+  return result;
+};
+
+const cardBySlide = (number, stage, slideId) => {
+  const result = lesson(number).cards.find(
+    (card) => card.stage === stage && card.slide_id === slideId,
+  );
+  assert.ok(result, `missing ${number} ${stage} slide ${slideId}`);
+  return result;
+};
+
 const mediaFilenames = (value, filenames = []) => {
   if (Array.isArray(value)) {
     for (const item of value) mediaFilenames(item, filenames);
@@ -48,6 +62,75 @@ assert.equal(unitOneReview.get('Is'), 'a1_grammar_is.webp');
 assert.equal(unitOneReview.get('Are'), 'a1_grammar_are.webp');
 assert.equal(unitOneReview.get('Not'), 'a1_grammar_not.webp');
 assert.equal(learnMedia('1.3').get('And'), 'a1_grammar_and.webp');
+
+const siblingOptionMatrix = (prompt) => {
+  const card = cardFor('1.4', 'Recognize', prompt);
+  return {
+    correctOptionId: card.correct_option_id,
+    options: card.options.map((option) => ({
+      id: option.id,
+      image: path.basename(option.image_url),
+    })),
+  };
+};
+const singularBrotherMatrix = siblingOptionMatrix('A brother');
+assert.deepEqual(singularBrotherMatrix, {
+  correctOptionId: 'brother',
+  options: [
+    { id: 'sister', image: 'girl.webp' },
+    { id: 'brother', image: 'boy.webp' },
+    { id: 'brothers', image: 'family_brothers.webp' },
+    { id: 'sisters', image: 'family_sisters.webp' },
+  ],
+}, 'the singular brother choice must bind the exclusive gender/number matrix to the right answer');
+const pluralBrotherMatrix = siblingOptionMatrix('Brothers');
+assert.deepEqual(pluralBrotherMatrix, {
+  correctOptionId: 'brothers',
+  options: [
+    { id: 'sisters', image: 'family_sisters.webp' },
+    { id: 'brother', image: 'boy.webp' },
+    { id: 'sister', image: 'girl.webp' },
+    { id: 'brothers', image: 'family_brothers.webp' },
+  ],
+}, 'the plural brothers choice must bind the exclusive gender/number matrix to the right answer');
+const pluralSisterMatrix = siblingOptionMatrix('Sisters');
+assert.deepEqual(pluralSisterMatrix, {
+  correctOptionId: 'sisters',
+  options: [
+    { id: 'brothers', image: 'family_brothers.webp' },
+    { id: 'sisters', image: 'family_sisters.webp' },
+    { id: 'brother', image: 'boy.webp' },
+    { id: 'sister', image: 'girl.webp' },
+  ],
+}, 'the plural sisters choice must bind the exclusive gender/number matrix to the right answer');
+for (const ambiguousFamilyDistractor of ['family_babies.webp', 'family_children.webp']) {
+  assert.equal(
+    [singularBrotherMatrix, pluralBrotherMatrix, pluralSisterMatrix]
+      .flatMap((matrix) => matrix.options)
+      .some((option) => option.image === ambiguousFamilyDistractor),
+    false,
+    `${ambiguousFamilyDistractor} can contain siblings and must not be used as a visibly false sibling distractor`,
+  );
+}
+
+const boyCannotCross = cardBySlide('6.6', 'Recognize', 'R8');
+assert.equal(boyCannotCross.prompt, 'The boy cannot cross the street.');
+assert.equal(boyCannotCross.audio_text, 'The boy cannot cross the street.');
+assert.equal(boyCannotCross.correct_option_id, 'boy-waits-at-red-signal-3');
+assert.equal(
+  boyCannotCross.options.find((option) => option.id === 'pair-waits-at-red-signal-4')?.image_url,
+  '/lesson-assets/a1_scene_pair-waits-at-red-signal_5078634_four-card.webp',
+  'the adult-pair distractor is valid only while the prompt explicitly requires the boy',
+);
+
+const pharmacyOnRight = cardBySlide('6.7', 'Listen', 'A5');
+assert.equal(pharmacyOnRight.audio_text, 'The pharmacy is on the right.');
+assert.equal(pharmacyOnRight.correct_option_id, 'pharmacy-right-4');
+assert.equal(
+  pharmacyOnRight.options.filter((option) => option.id.includes('-right-')).length,
+  3,
+  'the audio must name the place because three authored options are on the right',
+);
 
 for (const number of ['3.9', '3.10']) {
   const media = learnMedia(number);
@@ -186,6 +269,19 @@ for (const filename of requiredAssets) {
     new RegExp(`['"]${filename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]\\s*:\\s*require\\(`),
     `${filename} must be bundled through a literal Metro require`,
   );
+}
+
+const semanticAssetFilenames = [...new Set(mediaManifest.assets.map((asset) => asset.filename))];
+for (const filename of semanticAssetFilenames) {
+  const canonicalPath = path.join(repositoryRoot, 'Lessons', 'Lesson1', 'images', filename);
+  const mobilePath = path.join(mobileRoot, 'assets', 'lesson-assets', filename);
+  const frontendPath = path.join(repositoryRoot, 'frontend', 'public', 'lesson-assets', filename);
+  assert.ok(fs.existsSync(canonicalPath), `${filename} semantic canonical asset must exist`);
+  assert.ok(fs.existsSync(mobilePath), `${filename} semantic mobile copy must exist`);
+  assert.ok(fs.existsSync(frontendPath), `${filename} semantic frontend copy must exist`);
+  const canonicalBytes = fs.readFileSync(canonicalPath);
+  assert.deepEqual(fs.readFileSync(mobilePath), canonicalBytes, `${filename} mobile copy must be exact`);
+  assert.deepEqual(fs.readFileSync(frontendPath), canonicalBytes, `${filename} frontend copy must be exact`);
 }
 
 assert.doesNotMatch(mediaBuilder, /fallback_files\s*=/, 'generic Ana/Luis media fallback must not return');

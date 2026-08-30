@@ -356,8 +356,7 @@ def validate_a1_media_semantic_approvals() -> list[str]:
     """Fail closed unless every manifest contract has current human approval.
 
     Approval binds the full semantic contract and exact canonical image bytes.
-    Canonical and mobile copies are required to be byte-identical. The frontend
-    copy is checked whenever that optional publication copy exists.
+    Canonical, mobile, and frontend copies are all required and byte-identical.
     """
 
     errors: list[str] = []
@@ -451,11 +450,9 @@ def validate_a1_media_semantic_approvals() -> list[str]:
                 f"Semantic-review asset {filename!r} differs between canonical and mobile copies."
             )
 
-        if (
-            frontend_path.is_file()
-            and asset_hashes[filename]
-            and sha256_file(frontend_path) != asset_hashes[filename]
-        ):
+        if not frontend_path.is_file():
+            errors.append(f"Semantic-review frontend asset copy is missing: {filename!r}.")
+        elif asset_hashes[filename] and sha256_file(frontend_path) != asset_hashes[filename]:
             errors.append(
                 f"Semantic-review asset {filename!r} differs between canonical and frontend copies."
             )

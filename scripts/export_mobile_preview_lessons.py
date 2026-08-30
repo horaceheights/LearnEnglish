@@ -25,6 +25,7 @@ BACKEND_ROOT = ROOT / "backend"
 OUTPUT_ROOT = ROOT / "mobile" / "src" / "generated"
 LESSON_IMAGE_ROOT = ROOT / "Lessons" / "Lesson1" / "images"
 MOBILE_IMAGE_ROOT = ROOT / "mobile" / "assets" / "lesson-assets"
+FRONTEND_IMAGE_ROOT = ROOT / "frontend" / "public" / "lesson-assets"
 IMAGE_SOURCE_PATH = ROOT / "mobile" / "src" / "lessonImageSources.ts"
 COURSE_MENU_IMAGE_NAMES = {
     "family_all_members.webp",
@@ -114,10 +115,11 @@ def export_lesson_images() -> int:
         raise SystemExit(f"Missing canonical lesson images: {', '.join(missing)}")
 
     MOBILE_IMAGE_ROOT.mkdir(parents=True, exist_ok=True)
+    FRONTEND_IMAGE_ROOT.mkdir(parents=True, exist_ok=True)
     for name in names:
         source = LESSON_IMAGE_ROOT / name
-        destination = MOBILE_IMAGE_ROOT / name
-        copy_lesson_image_if_changed(source, destination)
+        copy_lesson_image_if_changed(source, MOBILE_IMAGE_ROOT / name)
+        copy_lesson_image_if_changed(source, FRONTEND_IMAGE_ROOT / name)
 
     requires = "\n".join(
         f"  '{name}': require('../assets/lesson-assets/{name}')," for name in names
