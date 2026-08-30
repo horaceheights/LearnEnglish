@@ -17,7 +17,9 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 
 ## Current Track Check
 
-Unit 1, `People, Family, and Actions`, is the first of seven planned A1 units. It uses ten stepped lessons. The approved rebuild starts with `1.1 People and Core Actions`, followed by the narrower `1.2 He and She` lesson.
+The A1 track now contains seven implemented units of ten lessons each. Unit 1,
+`People, Family, and Actions`, begins the sequence with `1.1 People and Core
+Actions`, followed by the narrower `1.2 He and She` lesson.
 
 What it does well:
 
@@ -27,13 +29,13 @@ What it does well:
 - repeats one structure across multiple people and actions
 - keeps the task simple: match English prompt to picture
 
-What to add next:
+What the shared engine now adds across the track:
 
-- audio for every prompt
-- a small number of review cards that mix old and new vocabulary
-- more distractor variety over time, not only same action with different person
-- an authoring format so lessons are not hardcoded in Python
-- lightweight production practice after recognition is stable
+- prompt and answer audio with stage-specific timing
+- purposeful review cards that mix old and new vocabulary
+- varied, semantically validated distractors
+- canonical YAML authoring with generated mobile snapshots
+- Speak and Use production after recognition and listening practice
 
 ## A1 Course Spine
 
