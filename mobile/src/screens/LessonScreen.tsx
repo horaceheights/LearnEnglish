@@ -1565,14 +1565,22 @@ export function LessonScreen({
   const pronunciationPassed = useCallback((firstTry: boolean) => {
     if (pronunciationPassHandledRef.current) return;
     pronunciationPassHandledRef.current = true;
+    addDiagnosticBreadcrumb('pronunciation_passed', {
+      card_number: cardIndex + 1,
+      first_try: firstTry,
+    });
     const completion = registerCardCompletion(completedCardsRef.current, cardIndex, firstTry);
     if (completion.newlyCompleted) {
       completedCardsRef.current = completion.completedCards;
       setCompletedCards(completion.completedCards);
       if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
     }
-    setResult('correct');
-  }, [cardIndex]);
+    if (qaMode && !qaAutoAdvance) {
+      setResult('correct');
+      return;
+    }
+    advance();
+  }, [advance, cardIndex, qaAutoAdvance, qaMode]);
 
   const pronunciationAttempted = useCallback(() => {
     const attempt = registerCardAttempt(attemptedCardsRef.current, cardIndex);
