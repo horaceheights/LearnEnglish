@@ -56,6 +56,7 @@ import {
 } from '../diagnostics';
 import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
 import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
+import { preloadPronunciationAudioWithRetry } from '../pronunciationAudioGate';
 import { useConnectivity } from '../hooks/useConnectivity';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
@@ -246,7 +247,7 @@ export function LessonScreen({
   const promptAutoplayWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
   const audioPlayerActiveRef = useRef(true);
-  const audioPreloadRef = useRef<Map<AudioSource, Promise<void>>>(new Map());
+  const audioPreloadRef = useRef<Map<AudioSource, Promise<boolean>>>(new Map());
   const imagePreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
   const resumeHydratedRef = useRef(false);
@@ -287,6 +288,7 @@ export function LessonScreen({
   const [sentenceHelpActivity, setSentenceHelpActivity] = useState(0);
   const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
   const [promptAutoplayFinished, setPromptAutoplayFinished] = useState(false);
+  const [pronunciationAudioReadyKey, setPronunciationAudioReadyKey] = useState<string | null>(null);
   const [completedLessonMode, setCompletedLessonMode] = useState<CompletedLessonMode>(
     previouslyCompleted && !qaMode ? 'prompt' : 'standard',
   );
@@ -362,7 +364,7 @@ export function LessonScreen({
   const ensureAudioPreloaded = useCallback((source: AudioSource) => {
     if (isOffline && typeof source === 'string') {
       addDiagnosticBreadcrumb('audio_preload_skipped_offline');
-      return Promise.resolve();
+      return Promise.resolve(true);
     }
     const existing = audioPreloadRef.current.get(source);
     if (existing) return existing;
@@ -373,6 +375,7 @@ export function LessonScreen({
         addDiagnosticBreadcrumb('audio_preloaded', {
           duration_ms: Date.now() - startedAt,
         });
+        return true;
       })
       .catch((preloadError) => {
         audioPreloadRef.current.delete(source);
@@ -382,15 +385,16 @@ export function LessonScreen({
           { duration_ms: Date.now() - startedAt },
           'warning',
         );
+        return false;
       });
     audioPreloadRef.current.set(source, pending);
     return pending;
   }, [isOffline]);
 
   const preloadCardAudio = useCallback((card?: LessonCard) => {
-    if (!card) return Promise.resolve();
+    if (!card) return Promise.resolve(true);
     const text = card.audio_text ?? card.prompt ?? '';
-    const requests: Promise<void>[] = [];
+    const requests: Promise<boolean>[] = [];
     const hasCompletionBlank = hasVisualAudioPlaceholder(card.prompt)
       || hasVisualAudioPlaceholder(text);
     if (hasCompletionBlank) {
@@ -425,7 +429,7 @@ export function LessonScreen({
         courseAudioVoice(lessonId, card.stage),
       )));
     }
-    return Promise.all(requests).then(() => undefined);
+    return Promise.all(requests).then((results) => results.every(Boolean));
   }, [audioProvider, ensureAudioPreloaded, lessonId]);
 
   const ensureImagePreloaded = useCallback((path: string) => {
@@ -695,6 +699,12 @@ export function LessonScreen({
   const currentCard = lesson?.cards[cardIndex];
   const lessonLocation = lesson ? lessonLocationLabel(lesson) : '';
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice' || currentCard?.stage === 'Speak';
+  const pronunciationAudioGateKey = isPronunciation && currentCard
+    ? `${lessonId}:${cardIndex}:${cardRunId}:${audioVoice}:${currentCard.audio_text ?? currentCard.prompt}`
+    : null;
+  const isPronunciationAudioReady = !pronunciationAudioGateKey
+    || isOffline
+    || pronunciationAudioReadyKey === pronunciationAudioGateKey;
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isListen = currentCard?.stage === 'Listen';
   const correctAnswerAudio = currentCard
@@ -739,6 +749,42 @@ export function LessonScreen({
     (currentCard?.prompt.toLowerCase().match(/[a-z']+/g) || [])
       .some((word) => newVocabularyWords.has(word))
   ), [currentCard?.prompt, newVocabularyWords]);
+
+  useEffect(() => {
+    if (!pronunciationAudioGateKey || !currentCard || isOffline) {
+      setPronunciationAudioReadyKey(pronunciationAudioGateKey);
+      return undefined;
+    }
+
+    let active = true;
+    setPronunciationAudioReadyKey(null);
+    const fallbackTimer = setTimeout(() => {
+      if (!active) return;
+      addDiagnosticBreadcrumb('pronunciation_audio_gate_timeout', {
+        card_number: cardIndex + 1,
+      });
+      setPronunciationAudioReadyKey(pronunciationAudioGateKey);
+    }, COURSE_AUDIO_FALLBACK_MS);
+
+    void preloadPronunciationAudioWithRetry(
+      () => preloadCardAudio(currentCard),
+      2,
+    ).then((preloadResult) => {
+      if (!active) return;
+      clearTimeout(fallbackTimer);
+      addDiagnosticBreadcrumb('pronunciation_audio_gate_ready', {
+        attempts: preloadResult.attempts,
+        card_number: cardIndex + 1,
+        loaded: preloadResult.loaded,
+      });
+      setPronunciationAudioReadyKey(pronunciationAudioGateKey);
+    });
+
+    return () => {
+      active = false;
+      clearTimeout(fallbackTimer);
+    };
+  }, [cardIndex, currentCard, isOffline, preloadCardAudio, pronunciationAudioGateKey]);
 
   useEffect(() => {
     newVocabularyEmphasis.stopAnimation();
@@ -2199,7 +2245,11 @@ export function LessonScreen({
             manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
           ]}
         >
-          <LessonCardView
+          {isPronunciation && !isPronunciationAudioReady ? (
+            <View style={styles.center}>
+              <PlayfulLoading label="Preparando pronunciación…" />
+            </View>
+          ) : <LessonCardView
             audioProvider={audioProvider}
             audioVoice={audioVoice}
             card={currentCard}
@@ -2219,7 +2269,7 @@ export function LessonScreen({
             selectedId={selectedId}
             showHelp={showHelp}
             userId={profile.userId}
-          />
+          />}
         </Animated.View>
     </>
   );
