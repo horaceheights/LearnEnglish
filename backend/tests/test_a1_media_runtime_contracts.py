@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import copy
 import json
+import tempfile
 import unittest
 from pathlib import Path
 
 from scripts.a1_media_runtime_contracts import (
     card_media_usages,
     course_browser_media_usages,
+    renderer_contract_source,
     render_profile_sha256,
     validate_review_context,
 )
@@ -209,6 +211,35 @@ class A1MediaRuntimeContractTests(unittest.TestCase):
         stale["render_signature_sha256"] = "0" * 64
         with self.assertRaisesRegex(ValueError, "render signature is stale"):
             validate_review_context(stale)
+
+    def test_explicit_nonvisual_blocks_do_not_change_renderer_source(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            source_path = Path(temporary_directory) / "Renderer.tsx"
+            source_path.write_text("before\nafter\n", encoding="utf-8")
+            baseline = renderer_contract_source(source_path)
+            source_path.write_text(
+                "before\n"
+                "// media-contract-ignore-start: lifecycle-watchdog\n"
+                "const watchdog = setTimeout(advance, 8000);\n"
+                "// media-contract-ignore-end: lifecycle-watchdog\n"
+                "after\n",
+                encoding="utf-8",
+            )
+
+            self.assertEqual(renderer_contract_source(source_path), baseline)
+
+    def test_nonvisual_ignore_blocks_fail_closed_when_mismatched(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            source_path = Path(temporary_directory) / "Renderer.tsx"
+            source_path.write_text(
+                "// media-contract-ignore-start: lifecycle-watchdog\n"
+                "const watchdog = setTimeout(advance, 8000);\n"
+                "// media-contract-ignore-end: different-tag\n",
+                encoding="utf-8",
+            )
+
+            with self.assertRaisesRegex(ValueError, "mismatched media-contract ignore block"):
+                renderer_contract_source(source_path)
 
     def test_course_browser_covers_every_real_thumbnail_framing(self) -> None:
         root = Path(__file__).resolve().parents[2]
