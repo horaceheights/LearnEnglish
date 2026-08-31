@@ -107,6 +107,11 @@ def main() -> None:
     parser.add_argument("--page-size", type=int, default=24)
     parser.add_argument("--columns", type=int, default=4)
     parser.add_argument(
+        "--unique-files",
+        action="store_true",
+        help="Render each runtime filename once even when it has multiple semantic contracts.",
+    )
+    parser.add_argument(
         "--profiles",
         nargs="+",
         help="Only render contracts that contain one of these runtime render profiles.",
@@ -131,6 +136,9 @@ def main() -> None:
             (item for item in eligible_assets if unit_number(item) == unit),
             key=lambda item: (str(item["concept"]), str(item["filename"])),
         )
+        if args.unique_files:
+            assets = list({str(item["filename"]): item for item in assets}.values())
+            assets.sort(key=lambda item: (str(item["concept"]), str(item["filename"])))
         unit_pages = pages(assets, args.page_size)
         for page_number, page_items in enumerate(unit_pages, 1):
             destination = args.output / f"unit-{unit}-page-{page_number:02d}.jpg"
