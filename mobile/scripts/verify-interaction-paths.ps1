@@ -12,7 +12,7 @@ $outputDirectory = [System.IO.Path]::Combine(
 Push-Location $mobileRoot
 try {
   [System.IO.Directory]::CreateDirectory($outputDirectory) | Out-Null
-  & node $typescriptCompiler src/config.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
+  & node $typescriptCompiler src/config.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
   if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el modelo de progreso.' }
 
   & node tests/lesson-help.test.cjs (Join-Path $outputDirectory 'lessonHelp.js')
@@ -115,6 +115,9 @@ try {
 
   & node tests/pronunciation-lifecycle.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas del ciclo de pronunciación.' }
+
+  & node tests/pronunciation-audio-gate.test.cjs (Join-Path $outputDirectory 'pronunciationAudioGate.js')
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la precarga consecutiva de modelos de pronunciación.' }
 
   & node tests/pronunciation-media-frame.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el marco compartido de imágenes de pronunciación.' }

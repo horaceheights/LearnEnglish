@@ -13,6 +13,16 @@ assert.match(
   'Phrase startup must use an Effect Event for the latest model callback.',
 );
 assert.match(
+  lessonScreenSource,
+  /preloadPronunciationAudioWithRetry\([\s\S]*?\(\) => preloadCardAudio\(currentCard\)[\s\S]*?2/,
+  'Every Speak card must finish its model-audio preload with one retry before mounting.',
+);
+assert.match(
+  lessonScreenSource,
+  /isPronunciation && !isPronunciationAudioReady[\s\S]*?<PlayfulLoading[\s\S]*?: <LessonCardView/,
+  'Pronunciation must remain behind the audio-ready gate while a Speak clip is cold.',
+);
+assert.match(
   pronunciationSource,
   /playModelEvent\(runId\)/,
   'Phrase startup must call the model Effect Event.',

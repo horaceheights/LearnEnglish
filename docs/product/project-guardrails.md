@@ -79,6 +79,7 @@ Every standard lesson follows this visible sequence:
 ### Speak
 
 - The model audio must finish completely before the ready beep and microphone activation.
+- Every Speak card must finish preloading its model clip before mounting the pronunciation player. If preload fails, retry once before falling back to the player’s learner-facing recovery. Verification must exercise at least two consecutive Speak cards so first-card-only success cannot pass release checks.
 - The microphone animation starts when recording actually starts, not before the beep.
 - Play one clear ready beep. Do not emit an extra beep during the transition to the next card.
 - Show grading feedback as soon as recording and evaluation finish.
@@ -364,3 +365,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-29: Course-media semantic approval became fail-closed. Every correct image and distractor must be visually reviewed against its complete teaching contract, with approval bound to the exact contract and file hash; filenames, prompts, manifests, generator metadata, and approval of source or derived variants are not substitutes, and missing or stale approval blocks release.
 - 2026-08-29: Image-option contracts became independent and option-authoritative after shared correct-answer descriptions were found contaminating distractor generation. The option concept and explicit per-option scene contract now outrank shared card framing, and automated coverage prevents the target description from being reused for distractors.
 - 2026-08-29: Semantic approval expanded to the 147 real mobile course-browser thumbnail framings and to the dedicated two-choice action posters actually shown before playback. Approval now includes a conservative render-policy and renderer-source signature so crop, fit, viewport, focal-position, or renderer drift returns the affected contract to pending.
+- 2026-08-31: Pronunciation model playback standardized on a pre-mount audio-ready gate with one preload retry, plus a consecutive-Speak-card regression test, after a Preview-only cold-player race stopped later cards from starting.
