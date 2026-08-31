@@ -208,6 +208,41 @@ RENDER_PROFILE_FILES = {
     )
     for profile in RENDER_PROFILE_SPECS
 }
+MEDIA_CONTRACT_IGNORE_START = b"// media-contract-ignore-start:"
+MEDIA_CONTRACT_IGNORE_END = b"// media-contract-ignore-end:"
+
+
+def renderer_contract_source(path: Path) -> bytes:
+    """Return renderer source while excluding reviewed nonvisual guard blocks."""
+
+    normalized = path.read_bytes().replace(b"\r\n", b"\n")
+    kept_lines: list[bytes] = []
+    ignored_tag: bytes | None = None
+    for line_number, line in enumerate(normalized.splitlines(keepends=True), 1):
+        if MEDIA_CONTRACT_IGNORE_START in line:
+            if ignored_tag is not None:
+                raise ValueError(
+                    f"nested media-contract ignore block in {path} at line {line_number}"
+                )
+            ignored_tag = line.split(MEDIA_CONTRACT_IGNORE_START, 1)[1].strip()
+            if not ignored_tag:
+                raise ValueError(
+                    f"unnamed media-contract ignore block in {path} at line {line_number}"
+                )
+            continue
+        if MEDIA_CONTRACT_IGNORE_END in line:
+            closing_tag = line.split(MEDIA_CONTRACT_IGNORE_END, 1)[1].strip()
+            if ignored_tag is None or closing_tag != ignored_tag:
+                raise ValueError(
+                    f"mismatched media-contract ignore block in {path} at line {line_number}"
+                )
+            ignored_tag = None
+            continue
+        if ignored_tag is None:
+            kept_lines.append(line)
+    if ignored_tag is not None:
+        raise ValueError(f"unterminated media-contract ignore block in {path}")
+    return b"".join(kept_lines)
 
 
 @lru_cache(maxsize=None)
@@ -232,8 +267,9 @@ def render_profile_sha256(profile: str) -> str:
         digest.update(relative_path.encode("utf-8"))
         digest.update(b"\0")
         # Git may materialize CRLF or LF on different reviewers' machines. The
-        # renderer signature binds source semantics, not checkout line endings.
-        digest.update(path.read_bytes().replace(b"\r\n", b"\n"))
+        # renderer signature binds visual source semantics, not checkout line
+        # endings or explicitly reviewed nonvisual lifecycle guard blocks.
+        digest.update(renderer_contract_source(path))
         digest.update(b"\0")
     return digest.hexdigest()
 

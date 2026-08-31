@@ -71,6 +71,9 @@ const RECORDING_LOAD_TIMEOUT_MS = 4000;
 const MODEL_AUDIO_LOAD_TIMEOUT_MS = 12000;
 const NATIVE_CAPTURE_STOP_TIMEOUT_MS = 7000;
 const NATIVE_CAPTURE_STOP_TIMEOUT_MESSAGE = 'Native pronunciation capture did not stop before the timeout.';
+// media-contract-ignore-start: pronunciation-success-watchdog
+const SUCCESS_ADVANCE_WATCHDOG_MS = 8000;
+// media-contract-ignore-end: pronunciation-success-watchdog
 const NO_SPEECH_LISTEN_MS = 3000;
 const IOS_SPEECH_END_SILENCE_MS = 1200;
 const MAX_NO_SPEECH_ROUNDS = 3;
@@ -1696,6 +1699,32 @@ export function PronunciationPractice({
       });
   }, [passed, phase, successChimePlayer]);
 
+  // media-contract-ignore-start: pronunciation-success-watchdog
+  useEffect(() => {
+    if (
+      phase !== 'success'
+      || (!passed && !continueAfterCoaching)
+      || gradedAdvanceHandled.current
+    ) return undefined;
+
+    // Learner-recording replay is helpful feedback, but it is optional. Android
+    // audio-session promises and duration state have both stalled in the wild,
+    // so neither may keep a successfully graded card on screen indefinitely.
+    const passedOnFirstTry = passed && attemptRef.current === 0 && !continueAfterCoaching;
+    const timer = setTimeout(() => {
+      if (gradedAdvanceHandled.current) return;
+      gradedAdvanceHandled.current = true;
+      captureDiagnosticError(
+        new Error('Pronunciation success did not advance before the watchdog deadline.'),
+        'pronunciation_success_advance_timeout',
+        { attempt: attemptRef.current + 1, passed },
+        'warning',
+      );
+      onPassed(passedOnFirstTry);
+    }, SUCCESS_ADVANCE_WATCHDOG_MS);
+    return () => clearTimeout(timer);
+  }, [continueAfterCoaching, onPassed, passed, phase]);
+  // media-contract-ignore-end: pronunciation-success-watchdog
   useEffect(() => {
     if (
       phase !== 'success'

@@ -53,6 +53,16 @@ assert.match(
   'A native stop timeout must recover to a learner-facing retry instead of hanging.',
 );
 assert.match(
+  pronunciationSource,
+  /phase !== 'success'[\s\S]*?pronunciation_success_advance_timeout[\s\S]*?onPassed\(passedOnFirstTry\)[\s\S]*?SUCCESS_ADVANCE_WATCHDOG_MS/,
+  'A successful grade must have an independent deadline when optional recording playback stalls.',
+);
+assert.match(
+  lessonScreenSource,
+  /const pronunciationPassed = useCallback[\s\S]*?pronunciation_passed[\s\S]*?if \(qaMode && !qaAutoAdvance\)[\s\S]*?advance\(\);/,
+  'The production pass callback must advance directly instead of relying on a second result effect.',
+);
+assert.match(
   lessonScreenSource,
   /if \(isPronunciation\) return;\s+setCardRunId/,
   'Pronunciation must recover internally instead of being remounted on foreground.',
