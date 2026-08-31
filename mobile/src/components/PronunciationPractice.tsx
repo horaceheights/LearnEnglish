@@ -6,6 +6,7 @@ import {
   createAudioPlayer,
   RecordingPresets,
   setAudioModeAsync,
+  type AudioSource,
   type RecordingOptions,
   useAudioPlayer,
   useAudioPlayerStatus,
@@ -15,7 +16,7 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { courseAudioUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { lessonVideoUrl } from '../config';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -47,8 +48,7 @@ import {
 } from '../../modules/spanglish-speech/src';
 
 type Props = {
-  audioProvider: CourseAudioProvider;
-  audioVoice: CourseAudioVoice;
+  modelAudioSource: AudioSource | null;
   phrase: string;
   imageHeight: number;
   imageLabel?: string;
@@ -215,8 +215,7 @@ async function withTimeout<T>(operation: Promise<T>, timeoutMs: number, timeoutM
 }
 
 export function PronunciationPractice({
-  audioProvider,
-  audioVoice,
+  modelAudioSource,
   phrase,
   imageHeight,
   imageLabel,
@@ -589,16 +588,11 @@ export function PronunciationPractice({
         playsInSilentMode: true,
       });
       if (!isCurrentRun(runId)) return;
-      const nextPlayer = createAudioPlayer(
-        courseAudioUrl(
-          phrase,
-          'pronunciation_slow',
-          'split-ing',
-          audioProvider,
-          audioVoice,
-        ),
-        { keepAudioSessionActive: true },
-      );
+      if (!modelAudioSource) {
+        showUnavailableState();
+        return;
+      }
+      const nextPlayer = createAudioPlayer(modelAudioSource, { keepAudioSessionActive: true });
       if (!isCurrentRun(runId)) {
         nextPlayer.release();
         return;
@@ -631,7 +625,7 @@ export function PronunciationPractice({
       });
       showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
     }
-  }, [audioProvider, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
+  }, [discardNativeRecording, isAppActive, isCurrentRun, isOffline, modelAudioSource, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
   const playModelEvent = useEffectEvent(playModel);
 
   useEffect(() => {

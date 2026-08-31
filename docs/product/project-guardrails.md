@@ -195,7 +195,12 @@ Do not force every word through every step in a single lesson when that would ma
 
 ## 7. Audio Guardrails
 
-- Course audio uses provider-neutral semantic roles. The approved primary provider is ElevenLabs Premium and the approved provider fallback is OpenAI; device or browser speech synthesis is an emergency fallback only.
+- Learner playback is read-only. Every learner-facing course clip has an immutable asset ID bound to the canonical lesson ID, card position, semantic purpose, approved spoken text, playback mode, and exact canonical image reference. Text-only cards use a stable rendered-card binding. Changing any bound field creates a new asset ID.
+- Approved course clips live in persistent static storage. The paid Render service mounts `/var/data/course-audio`; startup may idempotently copy reviewed repository audio onto that disk, but learner requests must never generate, repair, overwrite, or call a metered speech provider. A missing asset fails closed and is a release blocker.
+- Provider generation is an explicit operator-only/offline workflow with a declared budget and review step. Do not expose text-to-speech generation through a learner-accessible endpoint, cache miss, preload, replay, pronunciation attempt, or browser/device fallback.
+- Web and mobile must request course audio by the card's immutable asset ID. Physical audio bytes may be reused only when each card retains its own exact asset binding and audit record.
+- Replacing an approved take without changing its words or image still requires a new card-audio profile version so the asset ID changes and immutable client/CDN caches cannot retain the rejected recording.
+- Course-audio production uses provider-neutral semantic roles. ElevenLabs Premium and OpenAI are operator-side production options; device or browser speech synthesis is permitted only for non-card operational feedback and never as a substitute for a bound lesson clip.
 - Web and mobile must resolve the same semantic role for the same canonical card. The standard roles are `teacher`, `question`, and `answer`; named character roles require an explicit content assignment. Never choose a learner-facing voice from a card, lesson, or text hash.
 - Provider voice IDs, model versions, and role-to-voice mappings belong in the versioned audio profile rather than lesson content or this guardrail.
 - A1 delivery is clear and moderately slow, with understandable word separation, but not unnaturally slow.

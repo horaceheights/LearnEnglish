@@ -43,11 +43,13 @@ import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
 import {
   absoluteMediaUrl,
-  courseAudioProvider,
-  courseAudioVoice,
   hasVisualAudioPlaceholder,
 } from '../config';
-import { completionPromptAudioSource, courseAudioSource } from '../courseAudioSources';
+import {
+  completionPromptAudioSource,
+  courseAudioAssetSource,
+  findCourseAudioAsset,
+} from '../courseAudioSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -291,8 +293,6 @@ export function LessonScreen({
     previouslyCompleted && !qaMode ? 'prompt' : 'standard',
   );
   const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
-  const audioProvider = courseAudioProvider(lessonId);
-  const audioVoice = courseAudioVoice(lessonId, lesson?.cards[cardIndex]?.stage || '');
   const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
   const isCompletedSectionPicker = completedLessonMode === 'prompt' || completedLessonMode === 'sections';
@@ -389,44 +389,10 @@ export function LessonScreen({
 
   const preloadCardAudio = useCallback((card?: LessonCard) => {
     if (!card) return Promise.resolve();
-    const text = card.audio_text ?? card.prompt ?? '';
-    const requests: Promise<void>[] = [];
-    const hasCompletionBlank = hasVisualAudioPlaceholder(card.prompt)
-      || hasVisualAudioPlaceholder(text);
-    if (hasCompletionBlank) {
-      const completionSource = completionPromptAudioSource(
-        card,
-        audioProvider,
-        courseAudioVoice(lessonId, card.stage),
-      );
-      if (completionSource) requests.push(ensureAudioPreloaded(completionSource));
-    } else if (text.trim()) {
-      const pronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
-      const variant = pronunciation
-        ? 'split-ing'
-        : text.trim().toLowerCase() === 'what is it?'
-          ? 'question'
-          : 'prompt';
-      requests.push(ensureAudioPreloaded(courseAudioSource(
-        text,
-        pronunciation ? 'pronunciation_slow' : 'prompt',
-        variant,
-        audioProvider,
-        courseAudioVoice(lessonId, card.stage),
-      )));
-    }
-    const answerText = correctSelectionAudioText(card);
-    if (answerText) {
-      requests.push(ensureAudioPreloaded(courseAudioSource(
-        answerText,
-        'prompt',
-        'answer',
-        audioProvider,
-        courseAudioVoice(lessonId, card.stage),
-      )));
-    }
-    return Promise.all(requests).then(() => undefined);
-  }, [audioProvider, ensureAudioPreloaded, lessonId]);
+    return Promise.all(
+      card.audio_assets.map((asset) => ensureAudioPreloaded(courseAudioAssetSource(asset))),
+    ).then(() => undefined);
+  }, [ensureAudioPreloaded]);
 
   const ensureImagePreloaded = useCallback((path: string) => {
     if (!path || isOffline) return Promise.resolve();
@@ -526,12 +492,16 @@ export function LessonScreen({
 
   const playAudio = useCallback((text: string, mode = 'prompt', variant = 'default') => {
     if (!text.trim() || hasVisualAudioPlaceholder(text)) return;
-    playAudioSource(
-      courseAudioSource(text, mode, variant, audioProvider, audioVoice),
-      mode,
-      variant,
-    );
-  }, [audioProvider, audioVoice, playAudioSource]);
+    const card = lesson?.cards[cardIndex];
+    if (!card) return;
+    const purpose = variant === 'answer' ? 'answer' : 'prompt';
+    const asset = findCourseAudioAsset(card, purpose, mode, variant, text);
+    if (!asset) {
+      addDiagnosticBreadcrumb('course_audio_asset_missing', { mode, variant });
+      return;
+    }
+    playAudioSource(courseAudioAssetSource(asset), mode, variant);
+  }, [cardIndex, lesson, playAudioSource]);
 
   const playSuccessChime = useCallback(async () => {
     try {
@@ -723,7 +693,7 @@ export function LessonScreen({
   const promptHasVisualBlank = authoredPromptHasVisualBlank
     || hasVisualAudioPlaceholder(promptAudio);
   const completionPromptSource = promptHasVisualBlank && currentCard
-    ? completionPromptAudioSource(currentCard, audioProvider, audioVoice)
+    ? completionPromptAudioSource(currentCard)
     : null;
   const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
     isGrammar ? currentCard?.prompt ?? '' : promptAudio,
@@ -2200,8 +2170,6 @@ export function LessonScreen({
           ]}
         >
           <LessonCardView
-            audioProvider={audioProvider}
-            audioVoice={audioVoice}
             card={currentCard}
             gentleFeedback={profile.confidence === 'nervous'}
             key={`lesson-card-${cardIndex}-${cardRunId}`}

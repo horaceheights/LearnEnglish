@@ -3,6 +3,7 @@ from typing import Any
 import yaml
 
 from .schemas import ChoiceOption, Lesson, LessonCard
+from .card_audio_assets import bind_lesson_audio_assets
 
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
@@ -52,7 +53,7 @@ def load_lesson_from_file(file_path: Path) -> Lesson:
                     elif "image" in option and option["image"]:
                         option["image_url"] = image_url(option["image"])
 
-    return Lesson(**data)
+    return bind_lesson_audio_assets(Lesson(**data))
 
 
 def load_all_lessons(lessons_dir: Path = LESSONS_DIR) -> dict[str, Lesson]:

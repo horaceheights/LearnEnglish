@@ -9,6 +9,15 @@ class ChoiceOption(BaseModel):
     label: str | None = None
 
 
+class CourseAudioAsset(BaseModel):
+    id: str
+    purpose: str
+    text: str
+    mode: str
+    variant: str
+    image_ref: str
+
+
 class LessonCard(BaseModel):
     slide_id: str | None = None
     interaction_type: str | None = None
@@ -21,6 +30,7 @@ class LessonCard(BaseModel):
     prompt_image_url: str = ""
     spanish_translation: str | None = None
     pedagogy_note: str | None = None
+    audio_assets: list[CourseAudioAsset] = Field(default_factory=list)
 
 
 class Lesson(BaseModel):

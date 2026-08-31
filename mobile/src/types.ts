@@ -4,6 +4,15 @@ export type ChoiceOption = {
   label: string | null;
 };
 
+export type CourseAudioAsset = {
+  id: string;
+  purpose: 'prompt' | 'answer' | string;
+  text: string;
+  mode: string;
+  variant: string;
+  image_ref: string;
+};
+
 export type LessonCard = {
   slide_id?: string | null;
   interaction_type?: string | null;
@@ -16,6 +25,7 @@ export type LessonCard = {
   prompt_image_url: string;
   spanish_translation?: string | null;
   pedagogy_note?: string | null;
+  audio_assets: CourseAudioAsset[];
 };
 
 export type Lesson = {

@@ -234,6 +234,7 @@ function completionAudioFields(text, fullText, blankText) {
 }
 
 export function getCourseAudioUrl({
+  assetId,
   text,
   fullText,
   blankText,
@@ -241,21 +242,13 @@ export function getCourseAudioUrl({
   lang = "en-US",
   variant = "default",
 }) {
+  if (assetId) {
+    const params = new URLSearchParams({ key: APP_API_KEY });
+    return `${getApiBaseUrl()}/api/audio/assets/${encodeURIComponent(assetId)}.mp3?${params.toString()}`;
+  }
   if (hasVisualAudioPlaceholder(text)) {
-    const completion = completionAudioFields(text, fullText, blankText);
-    const apiBaseUrl = getApiBaseUrl();
-    const params = new URLSearchParams({
-      visual_prompt: completion.visualPrompt,
-      full_text: completion.completed,
-      blank_text: completion.answer,
-      mode,
-      lang,
-      variant: "completion-prompt",
-      provider: "elevenlabs-premium",
-      narrator: "female-teacher",
-      key: APP_API_KEY,
-    });
-    return `${apiBaseUrl}/api/audio/course-completion.mp3?${params.toString()}`;
+    completionAudioFields(text, fullText, blankText);
+    throw new Error("Completion prompt audio requires a persistent card asset ID.");
   }
 
   const spokenText = sanitizeCourseAudioText(text);
@@ -265,18 +258,11 @@ export function getCourseAudioUrl({
     return `/audio-cache/${staticAudioFile}?v=${encodeURIComponent(STATIC_ASSET_VERSION)}`;
   }
 
-  const apiBaseUrl = getApiBaseUrl();
-  const params = new URLSearchParams({
-    text: spokenText,
-    mode,
-    lang,
-    variant,
-    key: APP_API_KEY,
-  });
-  return `${apiBaseUrl}/api/audio/course?${params.toString()}`;
+  throw new Error("Course audio is not approved in the static manifest and has no persistent asset ID.");
 }
 
 export async function preloadCourseAudio({
+  assetId,
   text,
   fullText,
   blankText,
@@ -285,6 +271,7 @@ export async function preloadCourseAudio({
   variant = "default",
 }) {
   const response = await fetch(getCourseAudioUrl({
+    assetId,
     text,
     fullText,
     blankText,

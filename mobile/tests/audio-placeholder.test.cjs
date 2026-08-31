@@ -13,20 +13,20 @@ const compiledConfigPath = process.argv[2];
 
 assert.match(
   configSource,
-  /throw new Error\('Completion placeholders are visual only and cannot be sent to course audio\.'\)/,
-  'The ordinary course-audio URL boundary must reject every completion placeholder.',
+  /\/api\/audio\/assets\/\$\{encodeURIComponent\(assetId\)\}\.mp3/,
+  'Mobile course audio must resolve immutable persistent asset IDs.',
 );
 
-assert.match(
+assert.doesNotMatch(
   configSource,
-  /\/api\/audio\/course-completion\.mp3[?]\$\{query\.toString\(\)\}/,
-  'Completion prompts must use the dedicated visible-fragment endpoint.',
+  /\/api\/audio\/course(?:-completion)?\.mp3/,
+  'Mobile must not retain a learner-facing live TTS URL.',
 );
 
 assert.match(
   lessonScreenSource,
-  /const hasCompletionBlank = hasVisualAudioPlaceholder\(card\.prompt\)[\s\S]*?completionPromptAudioSource\(/,
-  'Completion prompts must preload the dedicated visible-fragment source.',
+  /card\.audio_assets\.map\(\(asset\) => ensureAudioPreloaded\(courseAudioAssetSource\(asset\)\)\)/,
+  'Preloading must read only the assets already bound to the card.',
 );
 
 assert.match(
@@ -49,8 +49,8 @@ assert.match(
 
 assert.match(
   frontendLessonPlayerSource,
-  /playAudioUrl\(url, sequenceId\)[\s\S]*?\.catch\(\(error\) => \{[\s\S]*?if \(speechSequenceRef\.current === sequenceId\) \{\s*useFallback\(\);/,
-  'Completion endpoint failures must use the placeholder-aware silent fallback, never raw browser TTS.',
+  /if \(options\.audioAssetId\) \{[\s\S]*?Never substitute a different[\s\S]*?return 0;/,
+  'Missing persistent card audio must fail silent instead of using browser TTS.',
 );
 
 assert.match(
@@ -73,12 +73,24 @@ assert.match(
 
 let completionCardCount = 0;
 let emptyAudioTextCompletionCardCount = 0;
+const persistentAssetIds = new Set();
 const completionBlankPositions = { beginning: 0, middle: 0, ending: 0 };
 for (const filename of fs.readdirSync(generatedRoot)) {
-  if (!filename.endsWith('.json')) continue;
+  if (filename !== 'a1-course.json') continue;
   const payload = JSON.parse(fs.readFileSync(path.join(generatedRoot, filename), 'utf8'));
   const lessons = Array.isArray(payload) ? payload : [payload];
   for (const lesson of lessons) for (const card of lesson.cards) {
+    assert.ok(card.audio_assets?.length, `${filename} has a card without persistent audio assets.`);
+    for (const asset of card.audio_assets) {
+      assert.ok(!persistentAssetIds.has(asset.id), `${filename} repeats persistent asset ID ${asset.id}.`);
+      persistentAssetIds.add(asset.id);
+      assert.ok(
+        asset.image_ref === card.prompt_image_url
+          || card.options.some((option) => option.image_url === asset.image_ref)
+          || asset.image_ref.startsWith('text-only:'),
+        `${filename} has audio that is not bound to the card's canonical visual.`,
+      );
+    }
     const promptAudio = card.audio_text ?? card.prompt ?? '';
     const visualPrompt = card.prompt ?? '';
     if (!/_{2,}|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/i.test(visualPrompt)
@@ -130,53 +142,10 @@ for (const [position, count] of Object.entries(completionBlankPositions)) {
 }
 
 if (compiledConfigPath) {
-  const { completionPromptAudioUrl, courseAudioUrl } = require(path.resolve(compiledConfigPath));
-  assert.throws(
-    () => courseAudioUrl('It is a ___.'),
-    /Completion placeholders are visual only/,
-    'Literal underscores must be rejected before the remote audio URL is built.',
-  );
-  assert.throws(
-    () => courseAudioUrl('It is a ...'),
-    /Completion placeholders are visual only/,
-    'Ellipsis placeholders must be rejected before the remote audio URL is built.',
-  );
-  assert.doesNotThrow(
-    () => courseAudioUrl('It is a park.'),
-    'Completed answers without placeholders must remain valid remote audio requests.',
-  );
-
-  for (const [visualPrompt, fullText, blankText] of [
-    ['___ are reading.', 'They are reading.', 'They'],
-    ['Who ___ they?', 'Who are they?', 'are'],
-    ['They are a ___.', 'They are a family.', 'family'],
-  ]) {
-    const url = new URL(completionPromptAudioUrl(
-      visualPrompt,
-      fullText,
-      blankText,
-      'prompt',
-      'completion-prompt',
-      'elevenlabs-premium',
-      'female-teacher',
-    ));
-    assert.equal(url.pathname, '/api/audio/course-completion.mp3');
-    assert.equal(url.searchParams.get('visual_prompt'), visualPrompt);
-    assert.equal(url.searchParams.get('full_text'), fullText);
-    assert.equal(url.searchParams.get('blank_text'), blankText);
-    assert.equal(url.searchParams.get('provider'), 'elevenlabs-premium');
-  }
-
-  assert.throws(
-    () => completionPromptAudioUrl('They are a ___.', 'They are the parents.', 'family'),
-    /must match the full completed sentence exactly/,
-    'A mismatched full sentence must fail silent before playback.',
-  );
-  assert.throws(
-    () => completionPromptAudioUrl('They ___ a ___.', 'They are a family.', 'are'),
-    /requires exactly one visual placeholder/,
-    'Multiple placeholders must never reach the completion-audio endpoint.',
-  );
+  const { courseAudioAssetUrl } = require(path.resolve(compiledConfigPath));
+  const url = new URL(courseAudioAssetUrl('lesson-test-c001-prompt-1234567890abcdef'));
+  assert.equal(url.pathname, '/api/audio/assets/lesson-test-c001-prompt-1234567890abcdef.mp3');
+  assert.ok(url.searchParams.get('key'));
 }
 
 console.log(`Verified ${completionCardCount} visual-blank cards with validated completion context.`);

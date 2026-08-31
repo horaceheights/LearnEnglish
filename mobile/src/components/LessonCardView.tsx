@@ -3,7 +3,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
-import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { courseAudioAssetSource, findCourseAudioAsset } from '../courseAudioSources';
+import { lessonVideoUrl } from '../config';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { lessonHelpText } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
@@ -24,8 +25,6 @@ const TEXT_OPTION_THEMES = [
 ];
 
 type Props = {
-  audioProvider: CourseAudioProvider;
-  audioVoice: CourseAudioVoice;
   card: LessonCard;
   level: string;
   lessonId: string;
@@ -45,8 +44,6 @@ type Props = {
 };
 
 export function LessonCardView({
-  audioProvider,
-  audioVoice,
   card,
   level,
   lessonId,
@@ -359,8 +356,10 @@ export function LessonCardView({
       ) : null}
       {isPronunciation ? (
         <PronunciationPractice
-          audioProvider={audioProvider}
-          audioVoice={audioVoice}
+          modelAudioSource={(() => {
+            const asset = findCourseAudioAsset(card, 'prompt', 'pronunciation_slow', 'split-ing');
+            return asset ? courseAudioAssetSource(asset) : null;
+          })()}
           imageHeight={showHelp
             ? featureImageHeight * 0.65
             : result

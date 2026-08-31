@@ -24,6 +24,7 @@ const LESSON_IMAGE_VERSION = "20260710-objects-places-1-6";
 const LESSON_VIDEO_VERSION = "20260824-two-card-match-v7";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
+const MISSING_CARD_AUDIO_ASSET_ID = "missing-card-audio-asset";
 const DEFAULT_PROFILE = {
   level: "new",
   immediateGoal: "unsure",
@@ -1397,6 +1398,12 @@ function useSpeech() {
     }
 
     const useFallback = () => {
+      if (options.audioAssetId) {
+        // Approved card audio is fail-closed. Never substitute a different
+        // browser voice for a missing or rejected persistent clip.
+        if (typeof options.onEnd === "function") options.onEnd();
+        return 0;
+      }
       if (isCompletionPrompt) {
         // Browser voices must never receive a visual placeholder or an
         // unfinished phrase. A provider/alignment failure is safely silent.
@@ -1469,6 +1476,7 @@ function useSpeech() {
         ? Math.max(1000, repeatWords.reduce((total, part) => total + part.text.length * 95 + part.pauseAfterMs, 0))
         : 0;
       const slowUrl = getCourseAudioUrl({
+        assetId: options.audioAssetId,
         text,
         mode: "pronunciation_slow",
         lang,
@@ -1499,6 +1507,7 @@ function useSpeech() {
           clearSpeechTimers();
           if (shouldRepeatFull) {
             const repeatUrl = getCourseAudioUrl({
+              assetId: options.audioAssetId,
               text,
               mode: "pronunciation_repeat",
               lang,
@@ -1534,6 +1543,7 @@ function useSpeech() {
     let url;
     try {
       url = getCourseAudioUrl({
+        assetId: options.audioAssetId,
         text,
         fullText: options.completionFullText,
         blankText: options.completionBlankText,
@@ -2130,6 +2140,19 @@ function pronunciationPromptFromOption(optionId) {
 
 function optionPracticePrompt(option) {
   return option?.label || pronunciationPromptFromOption(option?.id);
+}
+
+function cardAudioAsset(card, { purpose, text, mode, variant } = {}) {
+  const normalizedText = String(text || "").trim();
+  const assets = card?.audio_assets || [];
+  const exact = assets.find((asset) =>
+    (!purpose || asset.purpose === purpose) &&
+    (!mode || asset.mode === mode) &&
+    (!variant || asset.variant === variant) &&
+    (!normalizedText || asset.text === normalizedText)
+  );
+  if (exact || normalizedText) return exact || null;
+  return purpose ? assets.find((asset) => asset.purpose === purpose) : null;
 }
 
 function pronunciationThresholds(level) {
@@ -2773,7 +2796,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     </div>
   );
   const playPronunciationModel = (text, optionId = activePronunciationOption?.id) => {
+    const asset = cardAudioAsset(currentCard, {
+      text,
+      mode: "pronunciation_slow",
+      variant: "split-ing",
+    });
     return speakText(text, {
+      audioAssetId: asset?.id || MISSING_CARD_AUDIO_ASSET_ID,
       voiceMode: "prompt",
       wordByWord: true,
       splitIngWords: true,
@@ -3381,6 +3410,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     const timeoutId = window.setTimeout(() => {
       if (cardPromptText.trim()) {
         speakText(cardPromptText, {
+          audioAssetId: cardAudioAsset(currentCard, { purpose: "prompt" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
           voiceMode: cardPromptVoiceMode,
           completionFullText: cardCompletionFullText,
           completionBlankText: cardCompletionBlankText,
@@ -3412,84 +3442,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     const cardsToPreload = activeLesson.cards.slice(cardIndex, cardIndex + COURSE_AUDIO_PRELOAD_AHEAD);
-    const audioItems = cardsToPreload.flatMap((card) => {
-      if (
-        card.stage === "Pronunciation Practice" ||
-        card.stage === "Speak" ||
-        activeLesson.id === "lesson-3-pronunciation"
-      ) {
-        return (card.options || []).flatMap((option) => {
-          const prompt = optionPracticePrompt(option);
-          const words = String(prompt || "").match(/[A-Za-z']+/g) || [];
-          return [
-            {
-              text: prompt,
-              mode: "pronunciation_slow",
-              variant: "split-ing",
-            },
-            ...words.map((word) => ({
-              text: word,
-              mode: "pronunciation_slow",
-              variant: "split-ing",
-            })),
-          ];
-        });
-      }
+    const audioItems = cardsToPreload.flatMap((card) => card.audio_assets || []);
 
-      const hasCompletionBlank = hasVisualAudioPlaceholder(card.prompt)
-        || hasVisualAudioPlaceholder(card.audio_text);
-      const promptAudioText = hasCompletionBlank && !card.audio_text?.trim()
-        ? card.prompt
-        : card.audio_text ?? card.prompt;
-      const correctOption = card.options.find((option) => option.id === card.correct_option_id);
-      return card.prompt
-        ? [
-            {
-              text: promptAudioText,
-              fullText: hasCompletionBlank ? card.answer_audio_text : undefined,
-              blankText: hasCompletionBlank ? correctOption?.label : undefined,
-              mode: "prompt",
-              variant: hasCompletionBlank
-                ? "completion-prompt"
-                : String(promptAudioText).trim().toLowerCase() === "what is it?" ? "question" : "prompt",
-            },
-            ...(card.answer_audio_text
-              ? [
-                  {
-                    text: card.answer_audio_text,
-                    mode: "prompt",
-                    variant: "answer",
-                  },
-                ]
-              : []),
-          ]
-        : [];
-    });
-
-    const uniqueAudioItems = Array.from(
-      new Map(audioItems.filter((item) => item.text?.trim()).map((item) => [
-        `${item.mode}|${item.variant}|${item.text}|${item.fullText || ""}|${item.blankText || ""}`,
-        item,
-      ])).values()
-    );
-
-    uniqueAudioItems.forEach((item) => {
-      const key = [
-        activeLesson.id,
-        item.mode,
-        item.variant,
-        item.text,
-        item.fullText || "",
-        item.blankText || "",
-      ].join("|");
+    audioItems.forEach((item) => {
+      const key = item.id;
       if (preloadedAudioKeysRef.current.has(key)) {
         return;
       }
       preloadedAudioKeysRef.current.add(key);
       preloadCourseAudio({
+        assetId: item.id,
         text: item.text,
-        fullText: item.fullText,
-        blankText: item.blankText,
         mode: item.mode,
         lang: "en-US",
         variant: item.variant,
@@ -4100,6 +4063,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     };
 
     const speechDelay = speakText(activePronunciationPrompt, {
+      audioAssetId: cardAudioAsset(currentCard, {
+        text: activePronunciationPrompt,
+        mode: "pronunciation_slow",
+        variant: "split-ing",
+      })?.id || MISSING_CARD_AUDIO_ASSET_ID,
       voiceMode: "prompt",
       wordByWord: true,
       splitIngWords: true,
@@ -4344,6 +4312,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       if (currentCard.answer_audio_text) {
         window.setTimeout(() => {
           const answerSpeechMs = speakText(currentCard.answer_audio_text, {
+            audioAssetId: cardAudioAsset(currentCard, { purpose: "answer" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
             voiceMode: "answer",
             rate: 0.74,
             volume: 1,
@@ -4988,6 +4957,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     ? playPronunciationModel(activePronunciationPrompt)
                     : cardPromptText.trim()
                       ? speakText(cardPromptText, {
+                          audioAssetId: cardAudioAsset(currentCard, { purpose: "prompt" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
                           voiceMode: cardPromptVoiceMode,
                           completionFullText: cardCompletionFullText,
                           completionBlankText: cardCompletionBlankText,
