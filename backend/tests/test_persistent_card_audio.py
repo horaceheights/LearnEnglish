@@ -33,10 +33,14 @@ from backend.app.course_audio_profile import (
     render_profile_for,
 )
 from backend.app.course_audio_receipts import (
+    APPROVED_ONE_AUDIO_BINDING_NOTE,
+    APPROVED_ONE_AUDIO_SHA256,
     LEGACY_STATIC_SOURCE,
+    REVIEWED_EXACT_OVERRIDE_SOURCE,
     probe_mp3,
     receipt_path,
     sha256_bytes,
+    validate_stored_asset,
     validate_provenance,
 )
 from backend.app.course_audio_registry import (
@@ -56,6 +60,7 @@ from scripts.render_course_audio_assets import (
     fragment_stage_path,
     generate_take,
     load_staged_fragment,
+    matching_take_id,
     main as render_audio_main,
     request_audio,
     selected_assets,
@@ -224,6 +229,159 @@ class PersistentCardAudioTests(unittest.TestCase):
         self.assertEqual(REVIEWED_HELLO_SHA256, recognize_take.take_id)
         self.assertEqual(REVIEWED_HELLO_SHA256, sha256_bytes(learn_take.payload))
         self.assertEqual(learn_take.payload, recognize_take.payload)
+
+    def test_all_six_standalone_one_assets_use_the_exact_reviewed_correction(self):
+        assets = [
+            asset
+            for lesson in LESSONS.values()
+            for card in lesson.cards
+            for asset in card.audio_assets
+            if asset.text == "One"
+        ]
+        self.assertEqual(6, len(assets))
+
+        registry = load_approved_take_registry()
+        resolved = [resolve_approved_take(asset, registry) for asset in assets]
+        self.assertTrue(all(take is not None for take in resolved))
+        self.assertEqual(
+            {APPROVED_ONE_AUDIO_SHA256},
+            {take.take_id for take in resolved if take is not None},
+        )
+        self.assertEqual(
+            {APPROVED_ONE_AUDIO_SHA256},
+            {sha256_bytes(take.payload) for take in resolved if take is not None},
+        )
+
+        for take in resolved:
+            self.assertEqual(REVIEWED_EXACT_OVERRIDE_SOURCE, take.provenance["source"])
+            self.assertEqual(
+                APPROVED_ONE_AUDIO_SHA256,
+                take.provenance["approved_audio_sha256"],
+            )
+            for unknown_field in (
+                "provider",
+                "model_id",
+                "voice_id",
+                "narrator",
+                "seed",
+                "generated_at",
+                "request_id",
+                "trace_id",
+                "character_cost",
+            ):
+                self.assertIsNone(take.provenance[unknown_field])
+
+    def test_reviewed_exact_override_rejects_wrong_bytes_text_and_contract(self):
+        asset = next(
+            asset
+            for lesson in LESSONS.values()
+            for card in lesson.cards
+            for asset in card.audio_assets
+            if asset.text == "One"
+        )
+        resolved = resolve_approved_take(asset, load_approved_take_registry())
+        provenance = {
+            key: value
+            for key, value in resolved.provenance.items()
+            if key != "registry_binding"
+        }
+        validate_provenance(
+            asset,
+            provenance,
+            audio_sha256=APPROVED_ONE_AUDIO_SHA256,
+        )
+
+        with self.assertRaisesRegex(ValueError, "pinned approved checksum"):
+            validate_provenance(asset, provenance, audio_sha256="0" * 64)
+        with self.assertRaisesRegex(ValueError, "text does not match"):
+            validate_provenance(
+                copied_asset(asset, text="Two"),
+                provenance,
+                audio_sha256=APPROVED_ONE_AUDIO_SHA256,
+            )
+        with self.assertRaisesRegex(ValueError, "contract is outside"):
+            validate_provenance(
+                copied_asset(asset, speaker_role="ana"),
+                provenance,
+                audio_sha256=APPROVED_ONE_AUDIO_SHA256,
+            )
+        unexpected = copy.deepcopy(provenance)
+        unexpected["provider_requests"] = 1
+        with self.assertRaisesRegex(ValueError, "unexpected provenance fields"):
+            validate_provenance(
+                asset,
+                unexpected,
+                audio_sha256=APPROVED_ONE_AUDIO_SHA256,
+            )
+        wrong_source_commit = copy.deepcopy(provenance)
+        wrong_source_commit["source_commit"] = "0" * 40
+        with self.assertRaisesRegex(ValueError, "pinned source_commit"):
+            validate_provenance(
+                asset,
+                wrong_source_commit,
+                audio_sha256=APPROVED_ONE_AUDIO_SHA256,
+            )
+        wrong_binding = copy.deepcopy(provenance)
+        wrong_binding["registry_binding"] = {
+            "take_id": APPROVED_ONE_AUDIO_SHA256,
+            "approved_at": provenance["approved_at"],
+            "approval_note": "invented approval note",
+        }
+        with self.assertRaisesRegex(ValueError, "pinned registry binding"):
+            validate_provenance(
+                asset,
+                wrong_binding,
+                audio_sha256=APPROVED_ONE_AUDIO_SHA256,
+            )
+
+    def test_reviewed_one_registry_take_installs_and_validates_end_to_end(self):
+        asset = next(
+            asset
+            for lesson in LESSONS.values()
+            for card in lesson.cards
+            for asset in card.audio_assets
+            if asset.text == "One"
+        )
+        resolved = resolve_approved_take(asset, load_approved_take_registry())
+
+        with TemporaryDirectory() as directory, patch.dict(
+            "os.environ", {"COURSE_AUDIO_STORAGE_DIR": directory}
+        ):
+            installed = install_asset_once(asset, resolved.payload, resolved.provenance)
+            audio_path = Path(directory) / f"{asset.id}.mp3"
+            valid, reason, receipt = validate_stored_asset(asset, audio_path)
+
+        self.assertTrue(installed["stored"])
+        self.assertTrue(valid, reason)
+        self.assertEqual(
+            APPROVED_ONE_AUDIO_SHA256,
+            receipt["registry_binding"]["take_id"],
+        )
+
+    def test_renderer_reuses_exact_one_take_without_rewriting_its_approval(self):
+        assets = [
+            asset
+            for lesson in LESSONS.values()
+            for card in lesson.cards
+            for asset in card.audio_assets
+            if asset.text == "One"
+        ]
+        job = RenderJob(kind="ordinary", assets=assets, text="One")
+        registry = copy.deepcopy(load_approved_take_registry())
+
+        take_id = matching_take_id(registry, job)
+        self.assertEqual(APPROVED_ONE_AUDIO_SHA256, take_id)
+        bind_take(registry, take_id, job, "generic renderer reuse note")
+
+        for asset in assets:
+            self.assertEqual(
+                APPROVED_ONE_AUDIO_BINDING_NOTE,
+                registry["bindings"][asset.id]["approval_note"],
+            )
+            self.assertEqual(
+                APPROVED_ONE_AUDIO_SHA256,
+                resolve_approved_take(asset, registry).take_id,
+            )
 
     def test_reviewed_fixture_is_a_real_decodable_mp3(self):
         media = probe_mp3(reviewed_hello_bytes())

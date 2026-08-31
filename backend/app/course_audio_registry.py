@@ -143,15 +143,15 @@ def resolve_approved_take(
         raise ApprovedTakeRegistryError(f"Approved take media probe does not match: {take_id}.")
     if binding.get("approved_at") != provenance.get("approved_at"):
         raise ApprovedTakeRegistryError(f"Approved binding date does not match take {take_id}.")
+    try:
+        validate_provenance(asset, provenance, audio_sha256=actual_sha256)
+    except ValueError as error:
+        raise ApprovedTakeRegistryError(str(error)) from error
     provenance["registry_binding"] = {
         "take_id": take_id,
         "approved_at": binding.get("approved_at"),
         "approval_note": binding.get("approval_note", ""),
     }
-    try:
-        validate_provenance(asset, provenance)
-    except ValueError as error:
-        raise ApprovedTakeRegistryError(str(error)) from error
     return ResolvedApprovedTake(take_id=take_id, payload=payload, provenance=provenance)
 
 

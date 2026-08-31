@@ -33,7 +33,12 @@ from backend.app.course_audio_profile import (  # noqa: E402
     NEUTRAL_SPEAKER_ROLES,
     render_profile_for,
 )
-from backend.app.course_audio_receipts import probe_mp3, sha256_bytes  # noqa: E402
+from backend.app.course_audio_receipts import (  # noqa: E402
+    REVIEWED_EXACT_OVERRIDE_SOURCE,
+    binding_note_for_provenance,
+    probe_mp3,
+    sha256_bytes,
+)
 from backend.app.course_audio_registry import (  # noqa: E402
     ApprovedTakeRegistryError,
     approved_audio_dir,
@@ -220,7 +225,13 @@ def matching_take_id(registry: dict[str, Any], job: RenderJob) -> str | None:
         if take.get("text") != job.text:
             continue
         provenance = take.get("provenance") or {}
-        if provenance.get("voice_id") != job.profile.voice_id:
+        is_reviewed_exact_override = (
+            provenance.get("source") == REVIEWED_EXACT_OVERRIDE_SOURCE
+        )
+        if (
+            not is_reviewed_exact_override
+            and provenance.get("voice_id") != job.profile.voice_id
+        ):
             continue
         if take.get("profile_id") != job.assets[0].profile_id:
             continue
@@ -249,6 +260,9 @@ def matching_take_id(registry: dict[str, Any], job: RenderJob) -> str | None:
                     asset.id: {
                         "take_id": take_id,
                         "approved_at": take.get("provenance", {}).get("approved_at"),
+                        "approval_note": binding_note_for_provenance(
+                            take.get("provenance") or {}, ""
+                        ),
                     }
                 },
             }
@@ -313,6 +327,7 @@ def bind_take(registry: dict[str, Any], take_id: str, job: RenderJob, note: str)
     take = registry["takes"][take_id]
     merge_take_compatibility(take, job)
     approved_at = take["provenance"].get("approved_at")
+    note = binding_note_for_provenance(take["provenance"], note)
     for asset in job.assets:
         existing = registry["bindings"].get(asset.id)
         if existing and existing.get("take_id") != take_id:
