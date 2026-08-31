@@ -48,11 +48,6 @@ class A1NumberSceneContractTests(unittest.TestCase):
         repeated = {
             ("2.7", "n2"): 2,
             ("2.7", "n4"): 4,
-            ("3.3", "n3"): 3,
-            ("3.4", "n6"): 6,
-            ("3.4", "n8"): 8,
-            ("3.4", "n10"): 10,
-            ("3.9", "n7"): 7,
         }
 
         for (lesson_id, key), number in repeated.items():
@@ -62,6 +57,24 @@ class A1NumberSceneContractTests(unittest.TestCase):
                 self.assertIn(f"exactly {number} separate gold stars", description)
                 self.assertNotIn("approved", description.lower())
                 self.assertNotIn("dot", description.split(";", 1)[0].lower())
+
+    def test_unit3_number_cards_use_real_people_and_physical_numerals(self) -> None:
+        person_cards = {
+            ("3.3", "n3"): 3,
+            ("3.4", "n6"): 6,
+            ("3.4", "n8"): 8,
+            ("3.4", "n10"): 10,
+            ("3.9", "n7"): 7,
+        }
+
+        for (lesson_id, key), number in person_cards.items():
+            with self.subTest(lesson_id=lesson_id, key=key):
+                description = lesson(self.canvas, lesson_id)["scene_contract"][key]
+                self.assertIn("photoreal community-center registration", description)
+                self.assertIn("holds one physical card", description)
+                self.assertIn(f"large numeral {number}", description)
+                self.assertNotIn("approved", description.lower())
+                self.assertNotIn("star", description.lower())
 
     def test_scene_contract_prose_never_claims_formal_approval(self) -> None:
         for payload_name, payload in (("canvas", self.canvas), ("unit-2", self.unit_2)):

@@ -1043,7 +1043,7 @@ def main() -> None:
         for item in assets:
             path = ASSET_ROOT / str(item["filename"])
             if (
-                item["source"] != "existing"
+                item["source"] not in {"existing", "reviewed-photoreal"}
                 and path.is_file()
                 and has_literal_contract(str(item["concept"]), str(item["description"]))
             ):
@@ -1054,7 +1054,11 @@ def main() -> None:
             concept = str(item["concept"])
             description = str(item["description"])
             reproducible_sources = source_files(concept) or source_files(description)
-            if item["source"] != "existing" and reproducible_sources and path.is_file():
+            if (
+                item["source"] not in {"existing", "reviewed-photoreal"}
+                and reproducible_sources
+                and path.is_file()
+            ):
                 path.unlink()
     for item in assets:
         build_asset(item)
