@@ -79,6 +79,7 @@ Every standard lesson follows this visible sequence:
 ### Speak
 
 - The model audio must finish completely before the ready beep and microphone activation.
+- Every Speak card must finish preloading its model clip before mounting the pronunciation player. If preload fails, retry once before falling back to the player’s learner-facing recovery. Verification must exercise at least two consecutive Speak cards so first-card-only success cannot pass release checks.
 - The microphone animation starts when recording actually starts, not before the beep.
 - Play one clear ready beep. Do not emit an extra beep during the transition to the next card.
 - Show grading feedback as soon as recording and evaluation finish.
@@ -389,3 +390,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-30: Unit 3 standardized on photorealistic real people in coherent real-world scenarios. Dialogue images must communicate speaker, listener, and exchange through natural visual evidence, and recurring people now carry an explicit identity, role, relationship, setting, timeline, prop, and visual-pattern continuity contract across every approved scene. Continuity applies within a visible sequence, not across unrelated contexts; first-time learner comprehension controls when a natural new setting or new people communicate the concept more clearly.
 - 2026-08-30: The human visual cast became intentionally expansive. Named characters recur only for meaningful sequences or identity tasks; unrelated concepts should introduce varied real people and settings whenever that makes the course more engaging without weakening semantic clarity.
 - 2026-08-31: Agent-assisted visual QA became sufficient to move a structurally valid candidate with current pending semantic decisions into protected internal Preview for device testing. This does not record human approval and does not relax Production: promotion still requires exact-commit Preview testing and complete human semantic approval.
+- 2026-08-31: Pronunciation model playback standardized on a pre-mount audio-ready gate with one preload retry, plus a consecutive-Speak-card regression test, after a Preview-only cold-player race stopped later cards from starting.
