@@ -20,6 +20,9 @@ PLAN = ROOT / "docs" / "product" / "a1-course-canvas.json"
 LESSONS_ROOT = ROOT / "backend" / "lessons"
 ASSET_ROOT = ROOT / "Lessons" / "Lesson1" / "images"
 MANIFEST = ROOT / "docs" / "product" / "a1-media-manifest.json"
+REVIEWED_PHOTOREAL_REGISTRY = (
+    ROOT / "docs" / "product" / "a1-reviewed-photoreal-media.json"
+)
 STAGES = ["Learn", "Recognize", "Listen", "Speak", "Use"]
 
 IMAGE_INTERACTIONS = {
@@ -33,6 +36,27 @@ USE_INTERACTIONS = {
     "complete", "complete2", "complete4", "choose2", "choose4", "choice", "response-choice"
 }
 NO_IMAGE_MARKERS = ("no image", "no teaching image", "speaker control only")
+
+
+def load_reviewed_photoreal_filenames() -> frozenset[str]:
+    if not REVIEWED_PHOTOREAL_REGISTRY.is_file():
+        raise FileNotFoundError(
+            "Reviewed photoreal media registry is required: "
+            f"{REVIEWED_PHOTOREAL_REGISTRY}"
+        )
+    payload = json.loads(REVIEWED_PHOTOREAL_REGISTRY.read_text(encoding="utf-8"))
+    filenames = payload.get("files")
+    if not isinstance(filenames, list) or not all(
+        isinstance(filename, str) and filename.endswith(".webp")
+        for filename in filenames
+    ):
+        raise ValueError(
+            f"Invalid reviewed-photoreal registry: {REVIEWED_PHOTOREAL_REGISTRY}"
+        )
+    return frozenset(filenames)
+
+
+REVIEWED_PHOTOREAL_FILENAMES = load_reviewed_photoreal_filenames()
 
 EXISTING_ASSETS = {
     "boy": "boy.webp",
@@ -163,7 +187,10 @@ class AssetCatalog:
                 "ratio": "3:2",
                 "dimensions": [1536, 1024],
                 "source": (
-                    "existing"
+                    "reviewed-photoreal"
+                    if filename in REVIEWED_PHOTOREAL_FILENAMES
+                    or (unit_number == 3 and explicit)
+                    else "existing"
                     if base_key.startswith("existing:")
                     else "composite-or-generated"
                 ),
@@ -209,7 +236,11 @@ class AssetCatalog:
                 "filename": filename,
                 "ratio": "3:2",
                 "dimensions": [1536, 1024],
-                "source": source,
+                "source": (
+                    "reviewed-photoreal"
+                    if filename in REVIEWED_PHOTOREAL_FILENAMES
+                    else source
+                ),
                 "card_refs": [],
                 "review_contexts": [],
             },
