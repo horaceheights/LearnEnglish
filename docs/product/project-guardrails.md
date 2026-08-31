@@ -67,11 +67,12 @@ Every standard lesson follows this visible sequence:
 - Never reveal the correct answer through a different border, fill, loading state, or layout before selection.
 - Text-answer cards must not depend on images alone; learners must also recognize written language.
 - On a negative image-choice card whose correct image shows one unambiguous positive action, keep the short negative sentence before selection. After a correct Recognize choice, replace the prompt with and speak the full contrast (`He is not cooking, he is working.`). Scale the completed prompt down responsively so it remains inside the two-line lesson header. In Listen, speak the same full contrast after a correct choice but keep the answer text hidden. Do not reveal the positive action before selection in either stage.
+- When a Recognize statement is spoken before the learner chooses its matching image, a correct selection plays the success cue without replaying that same statement. Post-answer speech in Recognize is opt-in through authored `answer_audio_text` and is reserved for audio that adds information, such as a question-to-answer response or a negative-to-positive full contrast.
 
 ### Listen
 
 - Play the prompt audio before the learner selects an answer.
-- A correct mobile selection must never turn green and then remain silent. Speak the authored `answer_audio_text` when present; otherwise speak the correct option label. This confirmation supersedes the older silent fallback even when the label repeats the listening prompt.
+- After a correct choice, play the success cue but do not replay the same prompt. Speak post-answer audio only when the card explicitly authors different `answer_audio_text` for a pedagogical reason, such as completing a negative-to-positive contrast.
 - Include an icon-only speaker replay control. Do not add explanatory text beside it.
 - Include both audio-to-image and, where useful, audio-to-text recognition.
 - Keep answer text hidden when the activity is intended to test listening against images.
@@ -359,6 +360,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-29: Automatic single-card teaching videos stopped overriding the height-aware 3:2 width cap on landscape tablets. They now match non-video single-card sizing with visible side margins, while the established phone presentation remains unchanged.
 - 2026-08-29: The mobile lesson header scale was revised from 24/30 dp to 16/20 dp, exactly twice the original unit/lesson and section-label sizes, on phones and tablets.
 - 2026-08-29: Ordinary correct mobile selections standardized on spoken confirmation after the success chime. Authored answer audio remains authoritative; cards without it speak the correct option label instead of turning green silently.
+- 2026-08-31: The broad mobile correct-label fallback was retired for both Recognize and Listen. A prompt already spoken before selection now gets only the success cue when correct; authored question answers and full contrasts still play because they add new information.
 - 2026-08-28: Engine QA navigation standardized on a compact, restorable `Unit -> Lesson -> Stage -> Card` path. The hub keeps all seven units reachable, renders only one unit's ten lessons at a time, remembers QA-only location state, and keeps diagnostics secondary to card browsing.
 - 2026-08-25: After a newer OTA from a stale divergent branch replaced the complete seven-unit Preview with an older tree, Preview publication moved to the protected `release/preview` authority. CI now owns publishing, exact course topology and fingerprints are release invariants, and local or task-branch publication is prohibited.
 - 2026-08-26: Shared-backend API-key rollout standardized on a compatibility window: app-key enforcement remains disabled while `APP_API_KEY` is unset, admin endpoints fail closed, and enforcement begins only after matching client code reaches every active mobile channel.
