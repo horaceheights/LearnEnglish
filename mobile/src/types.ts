@@ -11,6 +11,10 @@ export type CourseAudioAsset = {
   mode: string;
   variant: string;
   image_ref: string;
+  semantic_role: string;
+  speaker_role: string;
+  profile_id: string;
+  revision: number;
 };
 
 export type LessonCard = {
@@ -25,6 +29,10 @@ export type LessonCard = {
   prompt_image_url: string;
   spanish_translation?: string | null;
   pedagogy_note?: string | null;
+  audio_speaker?: string | null;
+  answer_audio_speaker?: string | null;
+  audio_revision?: number;
+  answer_audio_revision?: number;
   audio_assets: CourseAudioAsset[];
 };
 

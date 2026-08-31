@@ -1,3 +1,4 @@
+import json
 import os
 import time
 from pathlib import Path
@@ -306,8 +307,20 @@ def read_course_audio_asset_inventory():
 
 
 @app.put("/api/admin/audio/assets/{asset_id}")
-async def upload_course_audio_asset(asset_id: str, file: UploadFile = File(...)):
-    return await store_approved_asset(asset_id, file, LESSONS)
+async def upload_course_audio_asset(
+    asset_id: str,
+    file: UploadFile = File(...),
+    provenance: str = Form(...),
+):
+    if len(provenance.encode("utf-8")) > 32 * 1024:
+        raise HTTPException(status_code=413, detail="Course audio provenance is too large.")
+    try:
+        parsed_provenance = json.loads(provenance)
+    except json.JSONDecodeError as error:
+        raise HTTPException(status_code=422, detail="Course audio provenance must be valid JSON.") from error
+    if not isinstance(parsed_provenance, dict):
+        raise HTTPException(status_code=422, detail="Course audio provenance must be a JSON object.")
+    return await store_approved_asset(asset_id, file, parsed_provenance, LESSONS)
 
 
 @app.get("/api/audio/ready-cue")

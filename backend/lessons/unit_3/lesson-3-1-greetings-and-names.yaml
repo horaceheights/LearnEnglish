@@ -52,6 +52,9 @@
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
+      "audio_revision": 2,
+      "answer_audio_revision": 2,
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
       "pedagogy_note": "introduces hello"
@@ -71,6 +74,7 @@
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
       "pedagogy_note": "second speaker/context"
@@ -90,6 +94,7 @@
       ],
       "audio_text": "Good morning.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Buenos días.",
       "pedagogy_note": "introduces morning greeting with time cue"
@@ -109,6 +114,7 @@
       ],
       "audio_text": "Goodbye.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Adiós.",
       "pedagogy_note": "introduces closing with departure cue"
@@ -130,7 +136,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo te llamas?",
-      "pedagogy_note": "fixed chunk; no possessive analysis"
+      "pedagogy_note": "fixed chunk; no possessive analysis",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "L6",
@@ -147,6 +154,7 @@
       ],
       "audio_text": "My name is Ana.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Me llamo Ana.",
       "pedagogy_note": "fixed answer chunk"
@@ -209,6 +217,7 @@
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
       "pedagogy_note": "arrival vs departure; do not pair hello with good morning because both can be true"
@@ -233,6 +242,7 @@
       ],
       "audio_text": "Goodbye.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Adiós.",
       "pedagogy_note": "departure cue"
@@ -257,6 +267,7 @@
       ],
       "audio_text": "Good morning.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Buenos días.",
       "pedagogy_note": "morning time cue plus greeting posture"
@@ -281,6 +292,7 @@
       ],
       "audio_text": "What is your name?",
       "answer_audio_text": "My name is Ana.",
+      "answer_audio_speaker": "ana",
       "prompt_image_url": "a1_scene_ana-badge_785def3.webp",
       "spanish_translation": "¿Cómo te llamas?",
       "pedagogy_note": "question shown/played before choices; play chosen answer only after correct selection"
@@ -305,6 +317,7 @@
       ],
       "audio_text": "What is your name?",
       "answer_audio_text": "My name is Luis.",
+      "answer_audio_speaker": "luis",
       "prompt_image_url": "a1_scene_luis-badge_80bb288.webp",
       "spanish_translation": "¿Cómo te llamas?",
       "pedagogy_note": "name badge makes referent explicit"
@@ -406,6 +419,7 @@
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "text hidden; arrival/departure contrast"
@@ -430,6 +444,7 @@
       ],
       "audio_text": "Good morning.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "text hidden"
@@ -454,6 +469,7 @@
       ],
       "audio_text": "Goodbye.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "text hidden"
@@ -502,6 +518,7 @@
       ],
       "audio_text": "My name is Luis.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "answer recognition"
@@ -545,6 +562,7 @@
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
       "pedagogy_note": "greeting"
@@ -564,6 +582,7 @@
       ],
       "audio_text": "Good morning.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Buenos días.",
       "pedagogy_note": "greeting"
@@ -583,6 +602,7 @@
       ],
       "audio_text": "Goodbye.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Adiós.",
       "pedagogy_note": "closing"
@@ -604,7 +624,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo te llamas?",
-      "pedagogy_note": "fixed question"
+      "pedagogy_note": "fixed question",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "S5",
@@ -621,6 +642,7 @@
       ],
       "audio_text": "My name is Ana.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Me llamo Ana.",
       "pedagogy_note": "scenario answer, not a claim about learner"
@@ -664,6 +686,7 @@
       ],
       "audio_text": "Choose the word.",
       "answer_audio_text": "Hello.",
+      "answer_audio_speaker": "ana",
       "prompt_image_url": "a1_scene_hello-ana_e4c4db7.webp",
       "spanish_translation": "Elige la palabra.",
       "pedagogy_note": "arrival scene supplies meaning without leaking untaught instruction language"
@@ -688,6 +711,7 @@
       ],
       "audio_text": "Choose the word.",
       "answer_audio_text": "Goodbye.",
+      "answer_audio_speaker": "luis",
       "prompt_image_url": "a1_scene_goodbye-luis_ba18b88.webp",
       "spanish_translation": "Elige la palabra.",
       "pedagogy_note": "departure scene supplies meaning without leaking untaught instruction language"
@@ -714,7 +738,8 @@
       "answer_audio_text": "What is your name?",
       "prompt_image_url": "a1_scene_name-dialogue-ana_04d12f0.webp",
       "spanish_translation": "¿Cuál es tu ___?",
-      "pedagogy_note": "fixed chunk completion"
+      "pedagogy_note": "fixed chunk completion",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "U4",
@@ -736,6 +761,7 @@
       ],
       "audio_text": "My ___ is Ana.",
       "answer_audio_text": "My name is Ana.",
+      "audio_speaker": "ana",
       "prompt_image_url": "a1_scene_ana-badge_785def3.webp",
       "spanish_translation": "Mi ___ es Ana.",
       "pedagogy_note": "fixed chunk completion"
@@ -760,6 +786,7 @@
       ],
       "audio_text": "What is your name?",
       "answer_audio_text": "My name is Luis.",
+      "answer_audio_speaker": "luis",
       "prompt_image_url": "a1_scene_luis-badge_80bb288.webp",
       "spanish_translation": "¿Cómo te llamas?",
       "pedagogy_note": "supported answer"

@@ -16,6 +16,10 @@ class CourseAudioAsset(BaseModel):
     mode: str
     variant: str
     image_ref: str
+    semantic_role: str
+    speaker_role: str
+    profile_id: str
+    revision: int
 
 
 class LessonCard(BaseModel):
@@ -30,6 +34,10 @@ class LessonCard(BaseModel):
     prompt_image_url: str = ""
     spanish_translation: str | None = None
     pedagogy_note: str | None = None
+    audio_speaker: str | None = None
+    answer_audio_speaker: str | None = None
+    audio_revision: int = Field(default=1, ge=1)
+    answer_audio_revision: int = Field(default=1, ge=1)
     audio_assets: list[CourseAudioAsset] = Field(default_factory=list)
 
 
