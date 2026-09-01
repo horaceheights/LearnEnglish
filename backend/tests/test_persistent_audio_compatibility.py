@@ -16,6 +16,7 @@ from backend.app.persistent_audio_assets import (
     LEGACY_AUDIO_DIR,
     LEGACY_MANIFEST_PATH,
     asset_index,
+    elevenlabs_storage_dir,
     read_asset,
     seed_static_assets,
     storage_status,
@@ -115,6 +116,7 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
     def test_shared_backend_exposes_persistent_and_legacy_production_routes(self):
         paths = {route.path for route in main.app.routes}
         self.assertIn("/api/audio/assets/{asset_id}.mp3", paths)
+        self.assertIn("/api/audio/assets-v2/{asset_id}.mp3", paths)
         self.assertIn("/api/audio/course.mp3", paths)
         self.assertIn("/api/audio/course-completion.mp3", paths)
 
@@ -125,6 +127,13 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
         self.assertEqual(1, service["disk"]["sizeGB"])
         env = {item["key"]: item.get("value") for item in service["envVars"]}
         self.assertEqual("/var/data/course-audio", env["COURSE_AUDIO_STORAGE_DIR"])
+
+    def test_elevenlabs_assets_use_a_cache_busted_subdirectory(self):
+        with patch.dict(os.environ, {"COURSE_AUDIO_STORAGE_DIR": "/var/data/course-audio"}):
+            self.assertEqual(
+                Path("/var/data/course-audio/elevenlabs-v2"),
+                elevenlabs_storage_dir(),
+            )
 
 
 if __name__ == "__main__":
