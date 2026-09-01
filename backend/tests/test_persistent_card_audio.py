@@ -985,15 +985,13 @@ class PersistentCardAudioTests(unittest.TestCase):
         env = {item["key"]: item.get("value") for item in service["envVars"]}
         self.assertEqual("/var/data/course-audio", env["COURSE_AUDIO_STORAGE_DIR"])
 
-    def test_legacy_learner_tts_routes_are_gone(self):
-        from backend.app.main import read_course_audio, read_course_completion_audio
+    def test_legacy_production_routes_remain_during_preview_migration(self):
+        from backend.app import main
 
-        with self.assertRaises(HTTPException) as ordinary:
-            asyncio.run(read_course_audio("The boy."))
-        with self.assertRaises(HTTPException) as completion:
-            asyncio.run(read_course_completion_audio("It is a ___.", "It is a park.", "park"))
-        self.assertEqual(410, ordinary.exception.status_code)
-        self.assertEqual(410, completion.exception.status_code)
+        paths = {route.path for route in main.app.routes}
+        self.assertIn("/api/audio/course.mp3", paths)
+        self.assertIn("/api/audio/course-completion.mp3", paths)
+        self.assertIn("/api/audio/assets-v2/{asset_id}.mp3", paths)
 
 
 if __name__ == "__main__":

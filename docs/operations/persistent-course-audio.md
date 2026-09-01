@@ -1,6 +1,8 @@
 # Persistent Course Audio
 
-Learner playback is read-only. Render mounts the paid persistent disk at `/var/data/course-audio`, and the backend serves only immutable IDs from `/api/audio/assets/{asset_id}.mp3`. The legacy text-to-speech routes return HTTP 410 and must never be restored as a learner cache-miss fallback.
+Learner playback for persistent-audio clients is read-only. Render mounts the paid persistent disk at `/var/data/course-audio`, and verified ElevenLabs clients request only immutable IDs from `/api/audio/assets-v2/{asset_id}.mp3`. They never fall back to a text-to-speech route on a cache miss.
+
+The shared Render backend temporarily retains the legacy course-audio routes solely for the already-shipped Production app. This is a migration compatibility window, not a fallback for Preview: Preview uses immutable assets, while Production continues using its established routes until a separately approved Production release migrates it. Remove the legacy routes only after every active Production client has moved to immutable IDs.
 
 ## Canonical bindings and approved takes
 
@@ -24,23 +26,23 @@ Provider voice IDs and exact request settings remain in the versioned audio prof
 
 ## Runtime seeding and validation
 
-At service startup, the backend validates the approved registry and idempotently installs reviewed takes onto the persistent disk. It may also import eligible reviewed legacy-manifest audio for neutral, non-completion assets. Named-character audio and completion prompts may never claim voice-unknown legacy provenance. Existing immutable disk files are never replaced.
+At service startup, the backend validates the exact versioned Preview catalog and idempotently installs reviewed takes onto the persistent disk in a background worker so legacy Production traffic remains available during the first seed. It may also import eligible reviewed legacy-manifest audio for neutral, non-completion assets. Named-character audio and completion prompts may never claim voice-unknown legacy provenance. Existing immutable disk files are never replaced.
+
+The catalog is exported from the exact published Preview commit, rather than from the live Production lesson loader. This keeps Preview's image/audio bindings stable without changing the Production curriculum on the shared backend. Historical superseded registry bindings remain audit history but are not active catalog assets.
+
+The cache-busted `elevenlabs-v2` catalog reuses exact approved ElevenLabs takes first. An explicitly approved operator migration may render each remaining contract once with the pinned ElevenLabs Premium profile and immediately persist the resulting bytes and provider receipt. Learner requests never start generation, and provider-unknown legacy files are never admitted into this catalog.
 
 Each installed MP3 has an immutable JSON receipt beside it. The receipt binds the audio SHA-256 and byte count to the canonical asset ID, profile, semantic and speaker roles, revision, purpose, text, mode, variant, image reference, provider/model/voice settings, stored-media probe, processing history, timestamps, approval, and any available provider request, trace, and character-cost metadata. A missing receipt, undecodable MP3, checksum mismatch, profile mismatch, registry mismatch, or canonical-contract mismatch makes the asset invalid rather than available.
 
 Render makes a persistent disk available only at runtime, not during build or pre-deploy, so seeding belongs in application startup. See [Render persistent disks](https://render.com/docs/disks) and the [Blueprint disk fields](https://render.com/docs/blueprint-spec).
 
-## Inventory and reviewed upload
+## Inventory and reviewed repository source
 
 Use the admin inventory with the `X-Admin-Key` header:
 
 `GET /api/admin/audio/assets`
 
-It returns total, available, missing, and invalid counts plus the canonical contract for unavailable assets. Treat both `missing` and `invalid` as release blockers. Upload only a reviewed, decodable MP3 to its listed ID:
-
-`PUT /api/admin/audio/assets/{asset_id}` with multipart fields `file` and `provenance`, where `provenance` is the JSON object captured from the approved render/import workflow.
-
-The upload decodes and probes the MP3, validates the provenance against the pinned profile, derives canonical receipt fields server-side, and installs the bytes and receipt with create-once semantics. Re-uploading the same approved bytes is idempotent; different bytes or provenance cannot overwrite an existing immutable ID. The endpoint never calls a speech provider.
+It returns separate legacy and `elevenlabs_v2` inventories. Treat any missing, invalid, or provider-error entry in the v2 inventory as a release blocker. Reviewed repository takes enter through the versioned `backend/approved-course-audio/` catalog, registry, and content-addressed MP3 files; migration-generated takes are persisted once with their provider receipts. Learner requests never call a speech provider.
 
 ## Bounded offline rendering
 
@@ -54,6 +56,6 @@ A completion whose blank covers the entire spoken line has no learner-visible fr
 
 Never overwrite an installed asset. Increase that card's audio revision (or deliberately introduce a new profile), rebuild canonical and mobile lesson payloads, approve the replacement take, and bind it to the new asset ID. The old binding is superseded. Do not globally delete the old content-addressed MP3 when another approved binding uses the same exact bytes; any later garbage collection must first prove that the blob has no live approved reference.
 
-A Preview release is blocked until the complete canonical inventory reports `missing == 0` and `invalid == 0`, registry validation has no errors, receipts match the current profile and revisions, and regenerated mobile payloads contain the same IDs as the backend.
+A Preview release is blocked until the matching backend route and persistent disk are deployed, all 4,794 catalog assets are present, `missing == 0`, `invalid == 0`, provider errors are empty, receipts match the current profile and revisions, and regenerated mobile payloads contain the same IDs as the backend. Do not publish a mobile client that requests `/api/audio/assets-v2/` before this backend gate passes.
 
 Do not publish Preview from a task branch. After inventory coverage is complete, follow the protected `release/preview` GitHub Actions workflow described in the release guardrails.
