@@ -35,6 +35,7 @@ from scripts.a1_media_runtime_contracts import (  # noqa: E402
     REVIEW_CONTEXT_FIELDS,
     card_media_usages,
     course_browser_media_usages,
+    render_profile_sha256,
 )
 
 
@@ -308,14 +309,34 @@ def _lesson_payload(model: object) -> dict[str, object]:
     return json.loads(model.json())  # type: ignore[no-any-return, union-attr]
 
 
-def _context_counter_key(filename: str, context: dict[str, object]) -> tuple[str, str]:
+def _context_counter_key(
+    filename: str,
+    context: dict[str, object],
+    *,
+    ignore_render_signature: bool = False,
+) -> tuple[str, str]:
+    comparison_context = context
+    if ignore_render_signature:
+        comparison_context = {
+            field: value
+            for field, value in context.items()
+            if field != "render_signature_sha256"
+        }
     return (
         filename,
-        json.dumps(context, ensure_ascii=False, separators=(",", ":"), sort_keys=True),
+        json.dumps(
+            comparison_context,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ),
     )
 
 
-def _runtime_media_context_counts() -> Counter[tuple[str, str]]:
+def _runtime_media_context_counts(
+    *,
+    ignore_render_signature: bool = False,
+) -> Counter[tuple[str, str]]:
     counts: Counter[tuple[str, str]] = Counter()
     lesson_payloads: list[dict[str, object]] = []
     for lesson_model in LESSONS.values():
@@ -330,11 +351,19 @@ def _runtime_media_context_counts() -> Counter[tuple[str, str]]:
             for usage in card_media_usages(lesson, card):
                 context = usage["context"]
                 rendered_filename = usage["rendered_filename"]
-                counts[_context_counter_key(rendered_filename, context)] += 1
+                counts[_context_counter_key(
+                    rendered_filename,
+                    context,
+                    ignore_render_signature=ignore_render_signature,
+                )] += 1
     for usage in course_browser_media_usages(lesson_payloads):
         context = usage["context"]
         rendered_filename = usage["rendered_filename"]
-        counts[_context_counter_key(rendered_filename, context)] += 1
+        counts[_context_counter_key(
+            rendered_filename,
+            context,
+            ignore_render_signature=ignore_render_signature,
+        )] += 1
     return counts
 
 
@@ -389,13 +418,14 @@ def validate_a1_media_semantic_approvals(
     review_policy: str = "production",
     warnings: list[str] | None = None,
 ) -> list[str]:
-    """Validate contracts strictly, allowing only pending decisions in Preview.
+    """Validate contracts strictly, allowing review-state drift in Preview.
 
     Approval binds the full semantic contract and exact canonical image bytes.
     Canonical, mobile, and frontend copies are all required and byte-identical.
-    Missing, malformed, stale, hash-mismatched, orphaned, and rejected records
-    always fail. Pending decisions are warnings only under the explicit Preview
-    policy and remain release blockers under the default Production policy.
+    Missing assets, malformed contracts, asset/hash mismatches, orphaned rows,
+    and rejected records always fail. Pending decisions and renderer-source
+    signature drift are warnings only under the explicit Preview policy and
+    remain release blockers under the default Production policy.
     """
 
     if review_policy not in {"preview", "production"}:
@@ -448,12 +478,29 @@ def validate_a1_media_semantic_approvals(
     asset_hashes: dict[str, str | None] = {}
     checked_filenames: set[str] = set()
     manifest_context_counts: Counter[tuple[str, str]] = Counter()
+    stale_render_profiles: Counter[str] = Counter()
     for index, asset in enumerate(manifest["assets"], 1):
         if not isinstance(asset, dict):
             errors.append(f"A1 media manifest asset {index} is not an object.")
             continue
+        for review_context in asset.get("review_contexts", []):
+            if not isinstance(review_context, dict):
+                continue
+            render_profile = review_context.get("render_profile")
+            signature = review_context.get("render_signature_sha256")
+            if not isinstance(render_profile, str) or not isinstance(signature, str):
+                continue
+            try:
+                expected_signature = render_profile_sha256(render_profile)
+            except ValueError:
+                continue
+            if signature != expected_signature:
+                stale_render_profiles[render_profile] += 1
         try:
-            contract = semantic_contract(asset)
+            contract = semantic_contract(
+                asset,
+                allow_stale_render_signatures=review_policy == "preview",
+            )
         except ValueError as exc:
             errors.append(f"A1 media manifest asset {index} is invalid: {exc}.")
             continue
@@ -469,7 +516,11 @@ def validate_a1_media_semantic_approvals(
 
         for review_context in contract["review_contexts"]:
             manifest_context_counts[
-                _context_counter_key(contract["filename"], review_context)
+                _context_counter_key(
+                    contract["filename"],
+                    review_context,
+                    ignore_render_signature=review_policy == "preview",
+                )
             ] += 1
 
         filename = contract["filename"]
@@ -501,7 +552,9 @@ def validate_a1_media_semantic_approvals(
             )
 
     try:
-        runtime_context_counts = _runtime_media_context_counts()
+        runtime_context_counts = _runtime_media_context_counts(
+            ignore_render_signature=review_policy == "preview",
+        )
     except ValueError as exc:
         errors.append(f"Runtime semantic media inventory is invalid: {exc}.")
         runtime_context_counts = Counter()
@@ -551,7 +604,10 @@ def validate_a1_media_semantic_approvals(
         rows_by_declared_hash[declared_contract_sha256] = row
 
         try:
-            row_contract = semantic_contract(row)
+            row_contract = semantic_contract(
+                row,
+                allow_stale_render_signatures=review_policy == "preview",
+            )
         except ValueError as exc:
             errors.append(f"A1 media semantic approval row {index} is invalid: {exc}.")
             continue
@@ -635,6 +691,17 @@ def validate_a1_media_semantic_approvals(
         )
     else:
         warning_sink.extend(decision_warnings)
+    if stale_render_profiles and review_policy == "preview":
+        profile_summary = ", ".join(
+            f"{profile} ({count})"
+            for profile, count in sorted(stale_render_profiles.items())
+        )
+        warning_sink.append(
+            "Preview-only advisory: renderer-source changes made "
+            f"{sum(stale_render_profiles.values())} semantic review contexts pending "
+            f"across {profile_summary}. Review the exact runtime framing in Preview; "
+            "Production remains blocked until current signatures are reviewed."
+        )
     return errors
 
 
@@ -728,7 +795,8 @@ def main(argv: list[str] | None = None) -> int:
         choices=("preview", "production"),
         default="production",
         help=(
-            "Preview reports pending human semantic approvals as warnings; "
+            "Preview reports pending human semantic approvals and stale renderer "
+            "signatures as warnings; "
             "Production (the default) requires every approval to be current."
         ),
     )

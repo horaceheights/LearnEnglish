@@ -24,6 +24,15 @@ const interactionVerifierSource = fs.readFileSync(
   path.join(repositoryRoot, 'mobile/scripts/verify-interaction-paths.ps1'),
   'utf8',
 );
+const semanticValidatorSource = fs.readFileSync(
+  path.join(repositoryRoot, 'scripts/validate_lesson_cards.py'),
+  'utf8',
+);
+const projectGuardrailsSource = fs.readFileSync(
+  path.join(repositoryRoot, 'docs/product/project-guardrails.md'),
+  'utf8',
+);
+const releaseGuideSource = fs.readFileSync(path.join(repositoryRoot, 'mobile/RELEASE.md'), 'utf8');
 const mobilePackage = JSON.parse(
   fs.readFileSync(path.join(repositoryRoot, 'mobile/package.json'), 'utf8'),
 );
@@ -154,7 +163,7 @@ test('the publisher verifies Expo reports the same GitHub commit after upload', 
   assert.match(publishScriptSource, /Assert-PublishedPreviewCommit -ExpectedCommit \$releaseCommit/);
 });
 
-test('Preview permits only explicit pending-review advisories', () => {
+test('Preview uses human-review advisories without introducing a preapproval gate', () => {
   assert.equal(
     mobilePackage.scripts['verify:preview'],
     'powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-preview.ps1',
@@ -172,6 +181,18 @@ test('Preview permits only explicit pending-review advisories', () => {
   assert.match(
     interactionVerifierSource,
     /if \(\$ReviewPolicy -eq 'Preview'\)[\s\S]*?'--allow-pending-review'/,
+  );
+  assert.match(
+    semanticValidatorSource,
+    /allow_stale_render_signatures=review_policy == "preview"/,
+  );
+  assert.match(
+    projectGuardrailsSource,
+    /Human pre-approval is not a default prerequisite[\s\S]*?only when the user explicitly requests it before implementation begins/,
+  );
+  assert.match(
+    releaseGuideSource,
+    /No se requiere una preaprobación humana[\s\S]*?Solamente se agrega una preaprobación cuando Horace la pide explícitamente antes de comenzar el cambio/,
   );
 });
 

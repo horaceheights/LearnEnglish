@@ -23,6 +23,8 @@ Comparte el enlace de instalación de Preview únicamente con la persona que apr
 
 ## Flujo normal para cada cambio
 
+No se requiere una preaprobación humana antes de implementar o publicar en Preview: Preview es el entorno normal de revisión. Solamente se agrega una preaprobación cuando Horace la pide explícitamente antes de comenzar el cambio. Los controles automáticos de integridad siguen siendo obligatorios y Production conserva su aprobación explícita separada.
+
 ### 1. Guardar el cambio
 
 El cambio debe estar en un commit y respaldado en GitHub. Nunca se publica desde la rama de la tarea ni desde un worktree local.
@@ -40,7 +42,7 @@ npm run verify:preview
 
 Este comando valida las tarjetas y sus archivos multimedia, comprueba TypeScript y exporta el bundle Android de producción en un directorio temporal.
 
-La política de Preview permite únicamente que una decisión humana vigente marcada `pending` y la evidencia de recorte 4:5 todavía pendiente aparezcan como advertencias. La advertencia sirve para que la revisión pueda hacerse en la app real; no significa que la imagen esté aprobada. Un rechazo, contrato o archivo ausente, hash semántico o de archivo obsoleto, copia distinta, respuesta ambigua, medio inválido o curso incompleto sigue deteniendo Preview. Solamente las diferencias pendientes del manifiesto específico de recortes 4:5 reciben la excepción de advertencia.
+La política de Preview permite que una decisión humana marcada `pending`, la evidencia de recorte 4:5 pendiente y una firma de renderizador obsoleta por cambios de interfaz aparezcan como advertencias. La advertencia sirve para que la revisión pueda hacerse en la app real; no significa que la imagen esté aprobada. Un rechazo, contrato o archivo ausente, hash semántico, de bytes o de vínculo de activo obsoleto que no sea solamente la firma del renderizador, copia distinta, respuesta ambigua, medio inválido o curso incompleto sigue deteniendo Preview.
 
 ### 2. Integrar en la rama protegida
 

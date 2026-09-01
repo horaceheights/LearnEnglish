@@ -657,7 +657,11 @@ def course_browser_media_usages(
     return usages
 
 
-def validate_review_context(value: object) -> dict[str, Any]:
+def validate_review_context(
+    value: object,
+    *,
+    allow_stale_render_signature: bool = False,
+) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError("review context must be an object")
     if set(value) != set(REVIEW_CONTEXT_FIELDS):
@@ -722,7 +726,7 @@ def validate_review_context(value: object) -> dict[str, Any]:
             f"{expected_profile!r}, not {render_profile!r}"
         )
     expected_signature = render_profile_sha256(render_profile)
-    if signature != expected_signature:
+    if signature != expected_signature and not allow_stale_render_signature:
         raise ValueError(
             f"review context render signature is stale for {render_profile!r}"
         )

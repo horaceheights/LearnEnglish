@@ -814,6 +814,11 @@ export function LessonScreen({
       : null;
   const lessonLocation = lesson ? lessonLocationLabel(lesson) : '';
   const activeStageColor = lessonStageColorForCard(lesson?.cards ?? [], cardIndex);
+  const isTheyPhrasePilotCard = isPortrait
+    && lesson?.id === 'lesson-3-two-people'
+    && currentCard?.stage === 'Recognize'
+    && currentCard.prompt.trim() === 'They'
+    && currentCard.correct_option_id === 'pair';
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice' || currentCard?.stage === 'Speak';
   const pronunciationModelText = currentCard?.audio_text?.trim() || currentCard?.prompt?.trim() || '';
   const pronunciationModelAsset = isPronunciation && currentCard
@@ -894,6 +899,9 @@ export function LessonScreen({
   const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
     isGrammar ? currentCard?.prompt ?? '' : promptAudio,
   );
+  const visibleSentenceTranslation = isTheyPhrasePilotCard
+    ? 'Ellos / Ellas'
+    : sentenceTranslation;
   const updateCode = Updates.updateId?.slice(0, 8) || 'embedded';
   const newVocabularyWords = useMemo(() => {
     if (!lesson || currentCard?.stage !== 'Learn') return new Set<string>();
@@ -1031,6 +1039,11 @@ export function LessonScreen({
 
   const handlePromptPress = useCallback(() => {
     setSentenceHelpActivity((current) => current + 1);
+    if (isTheyPhrasePilotCard) {
+      setShowSentenceCoachmark(false);
+      openSentenceTranslation();
+      return;
+    }
     const now = Date.now();
     if (lastPromptTapRef.current && now - lastPromptTapRef.current <= DOUBLE_TAP_DELAY_MS) {
       openSentenceTranslation();
@@ -1044,7 +1057,7 @@ export function LessonScreen({
       lastPromptTapRef.current = 0;
       replayPrompt();
     }, DOUBLE_TAP_DELAY_MS);
-  }, [openSentenceTranslation, replayPrompt]);
+  }, [isTheyPhrasePilotCard, openSentenceTranslation, replayPrompt]);
 
   const handleReplayButtonPress = useCallback(() => {
     setSentenceHelpActivity((current) => current + 1);
@@ -2333,7 +2346,11 @@ export function LessonScreen({
             </Pressable>
           </View>
           {isPortrait ? (
-            <View style={[styles.lessonStatus, styles.lessonStatusPortrait]}>
+            <View style={[
+              styles.lessonStatus,
+              styles.lessonStatusPortrait,
+              isTheyPhrasePilotCard ? styles.lessonStatusPhrasePilot : null,
+            ]}>
               <StageJourney
                 allComplete={showCompletedJourney}
                 cards={lesson.cards}
@@ -2343,6 +2360,16 @@ export function LessonScreen({
                 maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
                 onStagePress={openStage}
               />
+            </View>
+          ) : null}
+          {isTheyPhrasePilotCard ? (
+            <View style={styles.pilotLessonContext}>
+              <Text numberOfLines={1} style={styles.lessonLocation}>
+                {lessonLocation}
+              </Text>
+              <Text accessibilityRole="header" style={[styles.stage, styles.pilotStage]}>
+                {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
+              </Text>
             </View>
           ) : null}
         </View>
@@ -2363,39 +2390,50 @@ export function LessonScreen({
           isPronunciation ? styles.contentHeaderPronunciation : null,
           isPronunciation && isPortrait ? styles.contentHeaderPronunciationPortrait : null,
           useCompactHeaderInstruction ? styles.contentHeaderCompactInstruction : null,
+          isTheyPhrasePilotCard ? styles.contentHeaderPhrasePilot : null,
           isCompletedSectionPicker ? styles.reviewContentInactive : null,
         ]}>
-          <Text numberOfLines={1} style={styles.lessonLocation}>
-            {lessonLocation}
-          </Text>
-          <Text accessibilityRole="header" style={[styles.stage,
-            isStageOnlyHeader ? styles.stageOnlyLabel : null,
-            activeStageColor ? { color: activeStageColor } : null,
-          ]}>
-            {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
-          </Text>
+          {!isTheyPhrasePilotCard ? (
+            <>
+              <Text numberOfLines={1} style={styles.lessonLocation}>
+                {lessonLocation}
+              </Text>
+              <Text accessibilityRole="header" style={[
+                styles.stage,
+                isStageOnlyHeader ? styles.stageOnlyLabel : null,
+                activeStageColor ? { color: activeStageColor } : null,
+              ]}>
+                {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
+              </Text>
+            </>
+          ) : null}
           {!isStageOnlyHeader ? <View style={[
             styles.promptRow,
             isPortrait ? styles.promptRowPortrait : null,
             isPronunciation ? styles.promptRowPronunciation : null,
             isListen ? styles.promptRowListen : null,
             useCompactHeaderInstruction ? styles.promptRowCompactInstruction : null,
+            isTheyPhrasePilotCard ? styles.promptRowPhrasePilot : null,
           ]}>
             <Pressable
               ref={promptTapTargetRef}
-              accessibilityLabel={useCompactRecognizeInstruction
-                ? 'Instrucción: Elige la frase correcta'
-                : promptHasVisualBlank
-                  ? `Frase para completar: ${visiblePromptAudio}`
-                  : `Reproducir: ${visiblePromptAudio}`}
+              accessibilityLabel={isTheyPhrasePilotCard
+                ? `Mostrar traducción de ${visiblePromptAudio}`
+                : useCompactRecognizeInstruction
+                  ? 'Instrucción: Elige la frase correcta'
+                  : promptHasVisualBlank
+                    ? `Frase para completar: ${visiblePromptAudio}`
+                    : `Reproducir: ${visiblePromptAudio}`}
               accessibilityActions={useCompactRecognizeInstruction
                 ? []
                 : [{ label: 'Mostrar traducción', name: 'translate' }]}
-              accessibilityHint={useCompactRecognizeInstruction
-                ? undefined
-                : promptHasVisualBlank
-                  ? 'Toca una vez para repetir la parte visible con una pausa silenciosa. Usa la acción Traducir para ver la frase en español.'
-                  : 'Toca una vez para repetir. Usa la acción Traducir para ver la frase en español.'}
+              accessibilityHint={isTheyPhrasePilotCard
+                ? 'Toca una vez para ver la traducción en español.'
+                : useCompactRecognizeInstruction
+                  ? undefined
+                  : promptHasVisualBlank
+                    ? 'Toca una vez para repetir la parte visible con una pausa silenciosa. Usa la acción Traducir para ver la frase en español.'
+                    : 'Toca una vez para repetir. Usa la acción Traducir para ver la frase en español.'}
               accessibilityRole={useCompactRecognizeInstruction ? 'text' : 'button'}
               disabled={!visiblePromptAudio.trim()}
               onAccessibilityAction={({ nativeEvent }) => {
@@ -2416,15 +2454,17 @@ export function LessonScreen({
                 styles.promptTapTarget,
                 isListen ? styles.promptTapTargetListen : null,
                 useCompactListenInstruction ? styles.promptTapTargetListenInstruction : null,
+                isTheyPhrasePilotCard ? styles.promptTapTargetPhrasePilot : null,
               ]}
             >
               <Text
-                adjustsFontSizeToFit={!useCompactHeaderInstruction}
-                minimumFontScale={useCompactHeaderInstruction ? undefined : 0.45}
+                adjustsFontSizeToFit={isTheyPhrasePilotCard || !useCompactHeaderInstruction}
+                minimumFontScale={isTheyPhrasePilotCard ? 0.66 : useCompactHeaderInstruction ? undefined : 0.45}
                 numberOfLines={2}
                 style={[
                   styles.prompt,
                   useCompactHeaderInstruction ? styles.promptCompactInstruction : null,
+                  isTheyPhrasePilotCard ? styles.promptPhrasePilot : null,
                   {
                     fontSize: promptFontSize,
                     lineHeight: promptLineHeight,
@@ -2439,25 +2479,36 @@ export function LessonScreen({
                   numberOfLines={2}
                   style={[styles.inlineTranslation, { opacity: translationOpacity }]}
                 >
-                  {sentenceTranslation}
+                  {visibleSentenceTranslation}
                 </Animated.Text>
               ) : null}
             </Pressable>
-            {isListen ? (
+            {isListen || isTheyPhrasePilotCard ? (
               <Pressable
                 accessibilityHint="Reproduce la frase otra vez."
-                accessibilityLabel={`Repetir frase: ${visiblePromptAudio}`}
+                accessibilityLabel={isTheyPhrasePilotCard
+                  ? `Repetir: ${visiblePromptAudio}`
+                  : `Repetir frase: ${visiblePromptAudio}`}
                 accessibilityRole="button"
                 disabled={!visiblePromptAudio.trim()}
                 hitSlop={6}
                 onPress={handleReplayButtonPress}
                 style={({ pressed }) => [
-                  styles.replayButton,
-                  courseAudioPlaybackStatus.playing ? styles.replayButtonPlaying : null,
+                  isTheyPhrasePilotCard ? styles.pilotReplayButton : styles.replayButton,
+                  !isTheyPhrasePilotCard && courseAudioPlaybackStatus.playing ? styles.replayButtonPlaying : null,
                   pressed ? styles.replayButtonPressed : null,
                 ]}
               >
-                <Ionicons color="#fff" name="volume-high" size={25} />
+                {isTheyPhrasePilotCard ? (
+                  <View style={[
+                    styles.pilotReplayIcon,
+                    courseAudioPlaybackStatus.playing ? styles.pilotReplayIconPlaying : null,
+                  ]}>
+                    <Ionicons color="#fff" name="volume-high" size={16} />
+                  </View>
+                ) : (
+                  <Ionicons color="#fff" name="volume-high" size={25} />
+                )}
               </Pressable>
             ) : null}
           </View> : null}
@@ -2496,6 +2547,7 @@ export function LessonScreen({
             result={result}
             selectedId={selectedId}
             showHelp={showHelp}
+            promptInteractionMode={isTheyPhrasePilotCard ? 'translation-on-tap' : 'gestures'}
             userId={profile.userId}
           />}
         </Animated.View>
@@ -2531,6 +2583,7 @@ export function LessonScreen({
         anchorBottom={sentenceAnchorBottom}
         onDismiss={dismissSentenceCoachmark}
         onSuppress={suppressSentenceCoachmark}
+        promptInteractionMode={isTheyPhrasePilotCard ? 'translation-on-tap' : 'gestures'}
         visible={showSentenceCoachmark}
       />
       <Modal
@@ -2655,6 +2708,8 @@ const styles = StyleSheet.create({
   backArrowHead: { borderBottomColor: 'transparent', borderBottomWidth: 7, borderRightColor: '#f06d3f', borderRightWidth: 10, borderTopColor: 'transparent', borderTopWidth: 7, height: 0, left: 0, position: 'absolute', top: 3, width: 0 },
   lessonStatus: { alignItems: 'stretch', flex: 1, justifyContent: 'center', marginHorizontal: 3 },
   lessonStatusPortrait: { flex: 0, height: 50, marginHorizontal: 0, marginTop: 6, width: '100%' },
+  lessonStatusPhrasePilot: { flexBasis: 50, flexShrink: 0, minHeight: 50 },
+  pilotLessonContext: { alignItems: 'center', marginTop: 4, paddingBottom: 1 },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
   helpButtonCompact: { borderRadius: 20, height: 40, width: 40 },
   helpButtonActive: { backgroundColor: '#f4c95d' },
@@ -2679,8 +2734,10 @@ const styles = StyleSheet.create({
   contentHeaderPronunciation: { paddingBottom: 3, paddingTop: 3 },
   contentHeaderPronunciationPortrait: { paddingBottom: 5, paddingTop: 5 },
   contentHeaderCompactInstruction: { paddingBottom: 6, paddingTop: 6 },
+  contentHeaderPhrasePilot: { justifyContent: 'center', minHeight: 76, overflow: 'visible', paddingBottom: 5, paddingTop: 5 },
   lessonLocation: { color: '#8b765d', fontSize: 16, fontWeight: '900', letterSpacing: 0.8, lineHeight: 20, textAlign: 'center' },
   stage: { color: '#4d5559', fontSize: 20, fontWeight: '900', letterSpacing: 1.1, lineHeight: 24, textAlign: 'center' },
+  pilotStage: { color: '#d45732' },
   stageOnlyLabel: { lineHeight: 24 },
   promptRow: { justifyContent: 'center', minHeight: 38, position: 'relative' },
   promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
@@ -2692,6 +2749,42 @@ const styles = StyleSheet.create({
   promptTapTargetListenInstruction: { paddingHorizontal: 52, paddingRight: 52 },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
   promptCompactInstruction: { fontWeight: '900' },
+  promptRowPhrasePilot: { minHeight: 64, overflow: 'visible' },
+  promptTapTargetPhrasePilot: { paddingHorizontal: 24 },
+  promptPhrasePilot: { color: '#24333a', fontWeight: '800' },
+  pilotReplayButton: {
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderColor: '#ead6b5',
+    borderRadius: 22,
+    borderWidth: 1,
+    elevation: 3,
+    height: 44,
+    justifyContent: 'center',
+    marginTop: -22,
+    position: 'absolute',
+    right: -8,
+    shadowColor: '#173f37',
+    shadowOffset: { height: 2, width: 0 },
+    shadowOpacity: 0.16,
+    shadowRadius: 4,
+    top: '50%',
+    width: 44,
+    zIndex: 3,
+  },
+  pilotReplayIcon: {
+    alignItems: 'center',
+    backgroundColor: '#23856f',
+    borderColor: '#176b5d',
+    borderRadius: 14,
+    borderWidth: 1,
+    height: 28,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 0,
+    width: 28,
+  },
+  pilotReplayIconPlaying: { backgroundColor: '#176b5d' },
   replayButton: {
     alignItems: 'center',
     backgroundColor: '#23856f',

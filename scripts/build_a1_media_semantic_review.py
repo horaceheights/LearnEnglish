@@ -57,7 +57,11 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def semantic_contract(asset: dict[str, Any]) -> dict[str, Any]:
+def semantic_contract(
+    asset: dict[str, Any],
+    *,
+    allow_stale_render_signatures: bool = False,
+) -> dict[str, Any]:
     """Return and validate the manifest fields that require visual approval."""
 
     filename = asset.get("filename")
@@ -82,7 +86,10 @@ def semantic_contract(asset: dict[str, Any]) -> dict[str, Any]:
     normalized_contexts = []
     for index, review_context in enumerate(review_contexts, 1):
         try:
-            normalized_contexts.append(validate_review_context(review_context))
+            normalized_contexts.append(validate_review_context(
+                review_context,
+                allow_stale_render_signature=allow_stale_render_signatures,
+            ))
         except ValueError as exc:
             raise ValueError(
                 f"review_context {index} for {filename!r} is invalid: {exc}"

@@ -120,6 +120,22 @@ class A1MediaSemanticReviewTests(unittest.TestCase):
                 self.assertEqual(changed["approvals"][0]["decision"], "pending")
                 self.assertIsNone(changed["approvals"][0]["reviewer"])
 
+    def test_preview_can_surface_a_stale_renderer_signature_without_approving_it(self) -> None:
+        changed = copy.deepcopy(self.asset)
+        changed["review_contexts"][0]["render_signature_sha256"] = "0" * 64
+
+        with self.assertRaisesRegex(ValueError, "render signature is stale"):
+            semantic_review.semantic_contract(changed)
+
+        preview_contract = semantic_review.semantic_contract(
+            changed,
+            allow_stale_render_signatures=True,
+        )
+        self.assertEqual(
+            preview_contract["review_contexts"][0]["render_signature_sha256"],
+            "0" * 64,
+        )
+
     def test_every_learner_facing_card_change_invalidates_the_contract(self) -> None:
         original = semantic_review.semantic_contract(self.asset)
         original_hash = semantic_review.semantic_contract_sha256(original)

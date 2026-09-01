@@ -39,8 +39,8 @@ assert.ok(
 
 assert.match(
   screenSource,
-  /<Text\s+adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{useCompactHeaderInstruction \? undefined : 0\.45\}\s+numberOfLines=\{2\}/,
-  'Authored lesson headers must use native largest-text-that-fits behavior within two lines.',
+  /<Text\s+adjustsFontSizeToFit=\{isTheyPhrasePilotCard \|\| !useCompactHeaderInstruction\}\s+minimumFontScale=\{isTheyPhrasePilotCard \? 0\.66 : useCompactHeaderInstruction \? undefined : 0\.45\}\s+numberOfLines=\{2\}/,
+  'Authored lesson headers, including the pilot phrase box, must use native largest-text-that-fits behavior within two lines.',
 );
 assert.match(
   screenSource,

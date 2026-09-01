@@ -105,4 +105,10 @@ assert.match(
   'Every help response must remind learners about the one-tap replay and two-tap translation gestures.',
 );
 
+assert.match(
+  lessonHelpText(card(), 'translation-on-tap'),
+  /Recuerda: toca la frase para ver su traducción y el botón de sonido para escucharla otra vez\.$/,
+  'Dedicated replay controls must replace the legacy gesture reminder.',
+);
+
 console.log('Lesson help instruction checks passed.');
