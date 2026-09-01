@@ -1,4 +1,5 @@
 import os
+import threading
 import time
 from pathlib import Path
 import random
@@ -15,6 +16,13 @@ from .course_audio import (
     get_course_audio,
     get_course_completion_audio,
     ready_cue_wav,
+)
+from .persistent_audio_assets import (
+    read_asset as read_persistent_audio_asset,
+    seed_static_assets as seed_persistent_audio_assets,
+    seed_status as persistent_audio_seed_status,
+    storage_dir as persistent_audio_storage_dir,
+    storage_status as persistent_audio_storage_status,
 )
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .legal import account_deletion_html, privacy_policy_html
@@ -58,6 +66,28 @@ if not APP_API_KEY:
     print("WARNING: APP_API_KEY is not set; app-key enforcement is disabled for legacy clients.")
 if not ADMIN_API_KEY:
     print("WARNING: ADMIN_API_KEY is not set; admin endpoints are unavailable.")
+
+
+@app.on_event("startup")
+def prepare_persistent_course_audio() -> None:
+    if not os.getenv("COURSE_AUDIO_STORAGE_DIR", "").strip():
+        print("Persistent course-audio startup seed skipped: COURSE_AUDIO_STORAGE_DIR is unset.")
+        return
+
+    def seed_in_background() -> None:
+        try:
+            status = seed_persistent_audio_assets()
+            print(f"Persistent course audio ready at {persistent_audio_storage_dir()}: {status}")
+        except Exception as error:
+            # Keep the already-shipped Production client online on the shared
+            # backend while health reports that persistent assets are unready.
+            print(f"Persistent course-audio seed failed: {error!r}")
+
+    threading.Thread(
+        target=seed_in_background,
+        name="persistent-course-audio-seed",
+        daemon=True,
+    ).start()
 
 
 @app.on_event("shutdown")
@@ -247,7 +277,14 @@ async def pronunciation_token():
 
 @app.get("/api/audio/health")
 def audio_health():
-    return audio_debug()
+    return {
+        **audio_debug(),
+        "persistent_assets": persistent_audio_seed_status(),
+        "persistent_asset_dir": str(persistent_audio_storage_dir()),
+        # The already-shipped Production client still uses the legacy routes.
+        # Persistent clients never use them as a cache-miss fallback.
+        "legacy_production_audio_enabled": True,
+    }
 
 
 @app.get("/api/audio/course")
@@ -292,6 +329,16 @@ async def read_course_completion_audio(
         provider=provider,
         narrator=narrator,
     )
+
+
+@app.get("/api/audio/assets/{asset_id}.mp3")
+def read_course_audio_asset(asset_id: str):
+    return read_persistent_audio_asset(asset_id)
+
+
+@app.get("/api/admin/audio/assets")
+def read_course_audio_asset_inventory():
+    return persistent_audio_storage_status()
 
 
 @app.get("/api/audio/ready-cue")

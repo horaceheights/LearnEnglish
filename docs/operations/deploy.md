@@ -120,7 +120,20 @@ The audio health endpoint should return `"openai_audio_configured": true`, and t
 
 ## Shipping Pregenerated Course Audio
 
-Generated course audio can be shipped with the frontend from `frontend/public/audio-cache/*.mp3`. The frontend uses `frontend/lib/courseAudioManifest.json` to play those static Vercel files first, then falls back to the Render backend only when a clip is missing. This avoids mobile audio lag from Render and avoids paying OpenAI again for the same lesson prompts after each deploy.
+### Persistent immutable audio migration
+
+The current mobile Preview requests `/api/audio/assets/{asset_id}.mp3`. Before publishing any such client:
+
+1. Export the immutable catalog from the exact intended Preview commit.
+2. Commit the reviewed registry and content-addressed MP3 takes.
+3. Attach the 1 GB Render SSD at `/var/data/course-audio` and set `COURSE_AUDIO_STORAGE_DIR` to that path.
+4. Deploy the compatible backend while retaining legacy course-audio routes for the already-shipped Production app.
+5. Wait for `/api/admin/audio/assets` to report the complete expected total with `missing == 0` and `invalid == 0`.
+6. Only then publish the mobile Preview through the protected release workflow.
+
+Persistent clients never fall back to live TTS or device speech. The shared backend's legacy routes are temporary Production compatibility and may be removed only after Production is explicitly migrated.
+
+For the legacy web and Production delivery path, generated course audio can be shipped with the frontend from `frontend/public/audio-cache/*.mp3`. Those legacy clients use `frontend/lib/courseAudioManifest.json` to play static Vercel files first, then use the compatibility Render route when a clip is missing. Persistent clients do not use that fallback. This avoids mobile audio lag from Render and avoids paying OpenAI again for the same lesson prompts after each deploy.
 
 Backend cache files in `backend/storage/audio-cache/*.mp3` can still be kept as the source cache for generation, but the mobile app should prefer the frontend static files.
 
