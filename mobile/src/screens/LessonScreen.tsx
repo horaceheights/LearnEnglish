@@ -539,10 +539,23 @@ export function LessonScreen({
 
   const playSuccessChime = useCallback(async () => {
     try {
+      // The cue can be the first sound after launch or after a recording card.
+      // Configure playback here so muted iPads and tablets leaving a recording
+      // session do not route the correct-answer chime silently.
+      await setAudioModeAsync({
+        allowsRecording: false,
+        playsInSilentMode: true,
+      });
       await successChimePlayer.seekTo(0);
       successChimePlayer.play();
-    } catch {
+    } catch (playbackError) {
       // Feedback audio should never interrupt the lesson flow.
+      captureDiagnosticError(
+        playbackError,
+        'success_chime_playback',
+        {},
+        'warning',
+      );
     }
   }, [successChimePlayer]);
 

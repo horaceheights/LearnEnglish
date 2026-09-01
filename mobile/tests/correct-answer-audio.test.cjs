@@ -6,6 +6,10 @@ const lessonScreen = fs.readFileSync(
   path.resolve(__dirname, '../src/screens/LessonScreen.tsx'),
   'utf8',
 );
+const pronunciationPractice = fs.readFileSync(
+  path.resolve(__dirname, '../src/components/PronunciationPractice.tsx'),
+  'utf8',
+);
 const guardrails = fs.readFileSync(
   path.resolve(__dirname, '../../docs/product/project-guardrails.md'),
   'utf8',
@@ -31,6 +35,18 @@ assert.match(
   lessonScreen,
   /const answerText = correctSelectionAudioText\(currentCard, optionId\)[\s\S]*?playAnswerAfterChime\(answerText\)/,
   'A correct choice must speak the resolved answer after the success chime.',
+);
+
+assert.match(
+  lessonScreen,
+  /const playSuccessChime = useCallback\(async \(\) => \{[\s\S]*?await setAudioModeAsync\(\{[\s\S]*?allowsRecording: false,[\s\S]*?playsInSilentMode: true,[\s\S]*?\}\);[\s\S]*?await successChimePlayer\.seekTo\(0\);[\s\S]*?successChimePlayer\.play\(\)/,
+  'The success chime must establish audible playback mode before seeking or playing on tablets.',
+);
+
+assert.match(
+  pronunciationPractice,
+  /phase !== 'success'[\s\S]*?setAudioModeAsync\(\{[\s\S]*?allowsRecording: false,[\s\S]*?playsInSilentMode: true,[\s\S]*?\}\)[\s\S]*?successChimePlayer\.seekTo\(0\)[\s\S]*?successChimePlayer\.play\(\)/,
+  'The pronunciation success chime must leave recording mode before playing on tablets.',
 );
 
 assert.match(
