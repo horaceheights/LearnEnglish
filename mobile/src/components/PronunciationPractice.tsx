@@ -1794,10 +1794,20 @@ export function PronunciationPractice({
   useEffect(() => {
     if (phase !== 'success' || !passed || successChimePlayed.current) return;
     successChimePlayed.current = true;
-    void successChimePlayer.seekTo(0)
+    void setAudioModeAsync({
+      allowsRecording: false,
+      playsInSilentMode: true,
+    })
+      .then(() => successChimePlayer.seekTo(0))
       .then(() => successChimePlayer.play())
-      .catch(() => {
+      .catch((playbackError) => {
         // Celebration audio should never interrupt automatic lesson progress.
+        captureDiagnosticError(
+          playbackError,
+          'pronunciation_success_chime_playback',
+          {},
+          'warning',
+        );
       });
   }, [passed, phase, successChimePlayer]);
 
