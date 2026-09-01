@@ -94,11 +94,18 @@ type SavedLessonRun = {
 };
 
 function correctSelectionAudioText(card: LessonCard, optionId?: string | null): string {
+  const authoredAnswer = card.answer_audio_text?.trim();
+  if (authoredAnswer) return authoredAnswer;
+
+  // Recognize and Listen prompts already play before the learner chooses.
+  // Repeating the selected label adds no new information; question/answer and
+  // contrast cards opt in above with authored answer audio.
+  if (card.stage === 'Recognize' || card.stage === 'Listen') return '';
+
   const selectedOption = card.options.find((option) => (
     option.id === (optionId || card.correct_option_id)
   ));
-  return card.answer_audio_text?.trim()
-    || selectedOption?.label?.trim()
+  return selectedOption?.label?.trim()
     || card.audio_text?.trim()
     || card.prompt?.trim()
     || '';
