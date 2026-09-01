@@ -12,6 +12,8 @@ class ChoiceOption(BaseModel):
 
 
 class CourseAudioAsset(BaseModel):
+    """Immutable audio contract published by an approved lesson release."""
+
     id: str
     purpose: str
     text: str

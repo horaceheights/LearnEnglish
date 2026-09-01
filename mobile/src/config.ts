@@ -31,7 +31,7 @@ export function hasVisualAudioPlaceholder(text: string): boolean {
 
 export function courseAudioAssetUrl(assetId: string): string {
   const query = new URLSearchParams({ key: APP_API_KEY });
-  return `${API_BASE_URL}/api/audio/assets/${encodeURIComponent(assetId)}.mp3?${query.toString()}`;
+  return `${API_BASE_URL}/api/audio/assets-v2/${encodeURIComponent(assetId)}.mp3?${query.toString()}`;
 }
 
 export function courseAudioAssetVoice(assetId: string): CourseAudioVoice {

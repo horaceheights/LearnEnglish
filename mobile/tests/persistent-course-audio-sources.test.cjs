@@ -16,7 +16,7 @@ const {
 } = require(path.resolve(compiledAudioSourcesPath));
 
 const assetId = 'lesson-test-c001-prompt-1234567890abcdef';
-const expectedPath = `/api/audio/assets/${assetId}.mp3`;
+const expectedPath = `/api/audio/assets-v2/${assetId}.mp3`;
 const persistentSource = courseAudioSource(
   'Hello',
   'pronunciation_slow',
@@ -70,7 +70,7 @@ assert.equal(
 );
 assert.equal(
   new URL(completionPromptAudioSource(card)).pathname,
-  `/api/audio/assets/${completionAsset.id}.mp3`,
+  `/api/audio/assets-v2/${completionAsset.id}.mp3`,
   'Completion playback must resolve its pre-rendered masked clip.',
 );
 

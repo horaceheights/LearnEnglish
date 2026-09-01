@@ -1,5 +1,6 @@
-import json
+import asyncio
 import os
+import threading
 import time
 from pathlib import Path
 import random
@@ -13,14 +14,21 @@ from .api_auth import api_request_is_authorized
 from .diagnostics import initialize_diagnostics
 from .course_audio import (
     audio_debug,
+    get_course_audio,
+    get_course_completion_audio,
     ready_cue_wav,
 )
-from .card_audio_assets import (
-    read_asset,
-    seed_static_assets,
-    storage_dir,
-    storage_status,
-    store_approved_asset,
+from .persistent_audio_assets import (
+    elevenlabs_seed_status as persistent_elevenlabs_seed_status,
+    elevenlabs_storage_dir as persistent_elevenlabs_storage_dir,
+    elevenlabs_storage_status as persistent_elevenlabs_storage_status,
+    read_asset as read_persistent_audio_asset,
+    read_elevenlabs_asset as read_persistent_elevenlabs_asset,
+    seed_elevenlabs_assets as seed_persistent_elevenlabs_assets,
+    seed_static_assets as seed_persistent_audio_assets,
+    seed_status as persistent_audio_seed_status,
+    storage_dir as persistent_audio_storage_dir,
+    storage_status as persistent_audio_storage_status,
 )
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .legal import account_deletion_html, privacy_policy_html
@@ -68,8 +76,29 @@ if not ADMIN_API_KEY:
 
 @app.on_event("startup")
 def prepare_persistent_course_audio() -> None:
-    status = seed_static_assets(LESSONS)
-    print(f"Persistent course audio ready at {storage_dir()}: {status}")
+    if not os.getenv("COURSE_AUDIO_STORAGE_DIR", "").strip():
+        print("Persistent course-audio startup seed skipped: COURSE_AUDIO_STORAGE_DIR is unset.")
+        return
+
+    def seed_in_background() -> None:
+        try:
+            status = seed_persistent_audio_assets()
+            print(f"Persistent course audio ready at {persistent_audio_storage_dir()}: {status}")
+            elevenlabs_status = asyncio.run(seed_persistent_elevenlabs_assets())
+            print(
+                "Persistent ElevenLabs course audio ready at "
+                f"{persistent_elevenlabs_storage_dir()}: {elevenlabs_status}"
+            )
+        except Exception as error:
+            # Keep the already-shipped Production client online on the shared
+            # backend while health reports that persistent assets are unready.
+            print(f"Persistent course-audio seed failed: {error!r}")
+
+    threading.Thread(
+        target=seed_in_background,
+        name="persistent-course-audio-seed",
+        daemon=True,
+    ).start()
 
 
 @app.on_event("shutdown")
@@ -107,6 +136,10 @@ _RATE_LIMITS: dict[str, tuple[int, float]] = {
     "/api/pronunciation/score": (30, 60.0),
     "/api/pronunciation/interpret-azure": (30, 60.0),
     "/api/pronunciation/token": (30, 60.0),
+    "/api/audio/course": (90, 60.0),
+    "/api/audio/course.mp3": (90, 60.0),
+    "/api/audio/course-completion": (90, 60.0),
+    "/api/audio/course-completion.mp3": (90, 60.0),
     "/api/feedback/transcribe": (15, 60.0),
 }
 
@@ -257,8 +290,13 @@ async def pronunciation_token():
 def audio_health():
     return {
         **audio_debug(),
-        "learner_generation_enabled": False,
-        "persistent_asset_dir": str(storage_dir()),
+        "persistent_assets": persistent_audio_seed_status(),
+        "persistent_asset_dir": str(persistent_audio_storage_dir()),
+        "persistent_elevenlabs_assets": persistent_elevenlabs_seed_status(),
+        "persistent_elevenlabs_asset_dir": str(persistent_elevenlabs_storage_dir()),
+        # The already-shipped Production client still uses the legacy routes.
+        # Persistent clients never use them as a cache-miss fallback.
+        "legacy_production_audio_enabled": True,
     }
 
 
@@ -272,9 +310,13 @@ async def read_course_audio(
     provider: str = "openai",
     narrator: str = "female-teacher",
 ):
-    raise HTTPException(
-        status_code=410,
-        detail="Live learner audio generation is disabled. Use a card audio asset ID.",
+    return await get_course_audio(
+        text=text,
+        mode=mode,
+        lang=lang,
+        variant=variant,
+        provider=provider,
+        narrator=narrator,
     )
 
 
@@ -290,37 +332,34 @@ async def read_course_completion_audio(
     provider: str = "elevenlabs-premium",
     narrator: str = "female-teacher",
 ):
-    raise HTTPException(
-        status_code=410,
-        detail="Live learner audio generation is disabled. Use a card audio asset ID.",
+    return await get_course_completion_audio(
+        visual_prompt=visual_prompt,
+        full_text=full_text,
+        blank_text=blank_text,
+        mode=mode,
+        lang=lang,
+        variant=variant,
+        provider=provider,
+        narrator=narrator,
     )
 
 
 @app.get("/api/audio/assets/{asset_id}.mp3")
 def read_course_audio_asset(asset_id: str):
-    return read_asset(asset_id, LESSONS)
+    return read_persistent_audio_asset(asset_id)
+
+
+@app.get("/api/audio/assets-v2/{asset_id}.mp3")
+def read_course_audio_asset_v2(asset_id: str):
+    return read_persistent_elevenlabs_asset(asset_id)
 
 
 @app.get("/api/admin/audio/assets")
 def read_course_audio_asset_inventory():
-    return storage_status(LESSONS)
-
-
-@app.put("/api/admin/audio/assets/{asset_id}")
-async def upload_course_audio_asset(
-    asset_id: str,
-    file: UploadFile = File(...),
-    provenance: str = Form(...),
-):
-    if len(provenance.encode("utf-8")) > 32 * 1024:
-        raise HTTPException(status_code=413, detail="Course audio provenance is too large.")
-    try:
-        parsed_provenance = json.loads(provenance)
-    except json.JSONDecodeError as error:
-        raise HTTPException(status_code=422, detail="Course audio provenance must be valid JSON.") from error
-    if not isinstance(parsed_provenance, dict):
-        raise HTTPException(status_code=422, detail="Course audio provenance must be a JSON object.")
-    return await store_approved_asset(asset_id, file, parsed_provenance, LESSONS)
+    return {
+        "legacy": persistent_audio_storage_status(),
+        "elevenlabs_v2": persistent_elevenlabs_storage_status(),
+    }
 
 
 @app.get("/api/audio/ready-cue")

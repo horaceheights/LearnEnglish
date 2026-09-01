@@ -13,7 +13,7 @@ const compiledConfigPath = process.argv[2];
 
 assert.match(
   configSource,
-  /\/api\/audio\/assets\/\$\{encodeURIComponent\(assetId\)\}\.mp3/,
+  /\/api\/audio\/assets-v2\/\$\{encodeURIComponent\(assetId\)\}\.mp3/,
   'Mobile course audio must resolve immutable persistent asset IDs.',
 );
 
@@ -308,7 +308,7 @@ for (const [position, count] of Object.entries(completionBlankPositions)) {
 if (compiledConfigPath) {
   const { courseAudioAssetUrl } = require(path.resolve(compiledConfigPath));
   const url = new URL(courseAudioAssetUrl('lesson-test-c001-prompt-1234567890abcdef'));
-  assert.equal(url.pathname, '/api/audio/assets/lesson-test-c001-prompt-1234567890abcdef.mp3');
+  assert.equal(url.pathname, '/api/audio/assets-v2/lesson-test-c001-prompt-1234567890abcdef.mp3');
   assert.ok(url.searchParams.get('key'));
 }
 
