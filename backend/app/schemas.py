@@ -9,6 +9,21 @@ class ChoiceOption(BaseModel):
     label: str | None = None
 
 
+class CourseAudioAsset(BaseModel):
+    """Immutable audio contract published by an approved lesson release."""
+
+    id: str
+    purpose: str
+    text: str
+    mode: str
+    variant: str
+    image_ref: str
+    semantic_role: str
+    speaker_role: str
+    profile_id: str
+    revision: int
+
+
 class LessonCard(BaseModel):
     slide_id: str | None = None
     interaction_type: str | None = None
