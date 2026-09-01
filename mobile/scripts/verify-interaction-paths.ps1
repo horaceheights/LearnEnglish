@@ -78,6 +78,9 @@ try {
   & node tests/lesson-section-header-color.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de colores compartidos entre secciones y recorrido.' }
 
+  & node tests/lesson-header-text-fit.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de ajuste dinámico del texto del encabezado.' }
+
   & node tests/logo-home-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de navegación del logo a Inicio.' }
 

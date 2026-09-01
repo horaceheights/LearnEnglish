@@ -2249,6 +2249,8 @@ export function LessonScreen({
               ]}
             >
               <Text
+                adjustsFontSizeToFit={!useCompactHeaderInstruction}
+                minimumFontScale={useCompactHeaderInstruction ? undefined : 0.45}
                 numberOfLines={2}
                 style={[
                   styles.prompt,
