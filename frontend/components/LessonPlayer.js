@@ -24,6 +24,7 @@ const LESSON_IMAGE_VERSION = "20260710-objects-places-1-6";
 const LESSON_VIDEO_VERSION = "20260824-two-card-match-v7";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
+const MISSING_CARD_AUDIO_ASSET_ID = "missing-card-audio-asset";
 const DEFAULT_PROFILE = {
   level: "new",
   immediateGoal: "unsure",
@@ -1397,6 +1398,12 @@ function useSpeech() {
     }
 
     const useFallback = () => {
+      if (options.audioAssetId) {
+        // Approved card audio is fail-closed. Never substitute a different
+        // browser voice for a missing or rejected persistent clip.
+        if (typeof options.onEnd === "function") options.onEnd();
+        return 0;
+      }
       if (isCompletionPrompt) {
         // Browser voices must never receive a visual placeholder or an
         // unfinished phrase. A provider/alignment failure is safely silent.
@@ -1469,6 +1476,7 @@ function useSpeech() {
         ? Math.max(1000, repeatWords.reduce((total, part) => total + part.text.length * 95 + part.pauseAfterMs, 0))
         : 0;
       const slowUrl = getCourseAudioUrl({
+        assetId: options.audioAssetId,
         text,
         mode: "pronunciation_slow",
         lang,
@@ -1499,6 +1507,7 @@ function useSpeech() {
           clearSpeechTimers();
           if (shouldRepeatFull) {
             const repeatUrl = getCourseAudioUrl({
+              assetId: options.audioAssetId,
               text,
               mode: "pronunciation_repeat",
               lang,
@@ -1523,7 +1532,11 @@ function useSpeech() {
           console.info("Course audio unavailable, falling back to browser speech", error);
           clearSpeechTimers();
           if (speechSequenceRef.current === sequenceId) {
-            speakWithBrowserVoice(text, options, sequenceId);
+            if (options.audioAssetId) {
+              if (typeof options.onEnd === "function") options.onEnd();
+            } else {
+              speakWithBrowserVoice(text, options, sequenceId);
+            }
           }
         }
       })();
@@ -1534,6 +1547,7 @@ function useSpeech() {
     let url;
     try {
       url = getCourseAudioUrl({
+        assetId: options.audioAssetId,
         text,
         fullText: options.completionFullText,
         blankText: options.completionBlankText,
@@ -1572,7 +1586,19 @@ function useSpeech() {
     stopAudioPlayback,
   ]);
 
-  return useMemo(() => ({ speakText, playMediaTone }), [playMediaTone, speakText]);
+  const stopSpeech = useCallback(() => {
+    speechSequenceRef.current += 1;
+    clearSpeechTimers();
+    stopAudioPlayback();
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  }, [clearSpeechTimers, stopAudioPlayback]);
+
+  return useMemo(
+    () => ({ speakText, playMediaTone, stopSpeech }),
+    [playMediaTone, speakText, stopSpeech]
+  );
 }
 
 function useViewportWidth() {
@@ -2132,6 +2158,40 @@ function optionPracticePrompt(option) {
   return option?.label || pronunciationPromptFromOption(option?.id);
 }
 
+function cardAudioAsset(card, { purpose, text, mode, variant } = {}) {
+  const normalizedText = String(text || "").trim();
+  const assets = card?.audio_assets || [];
+  const exact = assets.find((asset) =>
+    (!purpose || asset.purpose === purpose) &&
+    (!mode || asset.mode === mode) &&
+    (!variant || asset.variant === variant) &&
+    (!normalizedText || asset.text === normalizedText)
+  );
+  if (exact || normalizedText) return exact || null;
+  return purpose ? assets.find((asset) => asset.purpose === purpose) : null;
+}
+
+function cardAudioTurnSequence(card, purpose = "prompt") {
+  const turns = purpose === "answer" ? card?.answer_audio_turns : card?.audio_turns;
+  if (!turns?.length) return null;
+
+  const claimedAssetIds = new Set();
+  const sequence = [];
+  for (const [index, turn] of turns.entries()) {
+    const turnPurpose = `${purpose}-turn-${index + 1}`;
+    const matches = (card?.audio_assets || []).filter((asset) =>
+      asset.purpose === turnPurpose &&
+      asset.text === turn.text &&
+      asset.speaker_role === turn.speaker_role &&
+      asset.image_ref === turn.image_url
+    );
+    if (matches.length !== 1 || claimedAssetIds.has(matches[0].id)) return null;
+    claimedAssetIds.add(matches[0].id);
+    sequence.push({ asset: matches[0], turn });
+  }
+  return sequence;
+}
+
 function pronunciationThresholds(level) {
   if (String(level || "").toUpperCase().includes("A1")) {
     return {
@@ -2414,9 +2474,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const pronunciationCardKeyRef = useRef("");
   const pronunciationToneKeyRef = useRef("");
   const spokenPromptKeyRef = useRef("");
+  const courseTurnRunRef = useRef(0);
   const preloadedAudioKeysRef = useRef(new Set());
   const playTone = useTone();
-  const { speakText, playMediaTone } = useSpeech();
+  const { speakText, playMediaTone, stopSpeech } = useSpeech();
   const viewportWidth = useViewportWidth();
   const isTablet = viewportWidth <= 1080;
   const isMobile = viewportWidth <= 760;
@@ -2440,6 +2501,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }, [playMediaTone, playTone]);
 
   const currentCard = activeLesson.cards[cardIndex];
+  const [activeTurnImageUrl, setActiveTurnImageUrl] = useState(null);
   const totalCards = activeLesson.cards.length;
   const isPronunciationCard =
     activeLesson.id === "lesson-3-pronunciation" ||
@@ -2464,6 +2526,36 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     ? cardCorrectOption?.label || ""
     : "";
   const isRecognitionLesson = activeLesson.unit_id === "unit-1";
+
+  const playCourseTurnSequence = useCallback((sequence, options = {}) => {
+    if (!sequence?.length) {
+      if (typeof options.onEnd === "function") options.onEnd();
+      return 0;
+    }
+
+    const runId = courseTurnRunRef.current + 1;
+    courseTurnRunRef.current = runId;
+    const playTurn = (index) => {
+      if (courseTurnRunRef.current !== runId) return;
+      if (index >= sequence.length) {
+        if (typeof options.onEnd === "function") options.onEnd();
+        return;
+      }
+      const { asset, turn } = sequence[index];
+      setActiveTurnImageUrl(turn.image_url);
+      speakText(turn.text, {
+        ...options,
+        audioAssetId: asset.id,
+        wordByWord: false,
+        onEnd: () => playTurn(index + 1),
+      });
+    };
+    playTurn(0);
+    return sequence.reduce(
+      (total, { turn }) => total + Math.max(900, String(turn.text || "").length * 120),
+      0
+    );
+  }, [speakText]);
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationCard ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =
@@ -2773,7 +2865,24 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     </div>
   );
   const playPronunciationModel = (text, optionId = activePronunciationOption?.id) => {
+    const turns = cardAudioTurnSequence(currentCard, "prompt");
+    if (currentCard?.audio_turns?.length) {
+      if (!turns) {
+        console.info("Course audio turn contract rejected", currentCard.prompt);
+        return 0;
+      }
+      return playCourseTurnSequence(turns, {
+        voiceMode: "prompt",
+        onEnd: () => setModelSpeechPart(null),
+      });
+    }
+    const asset = cardAudioAsset(currentCard, {
+      text,
+      mode: "pronunciation_slow",
+      variant: "split-ing",
+    });
     return speakText(text, {
+      audioAssetId: asset?.id || MISSING_CARD_AUDIO_ASSET_ID,
       voiceMode: "prompt",
       wordByWord: true,
       splitIngWords: true,
@@ -3354,15 +3463,18 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   useEffect(() => {
     resetPronunciationPractice();
     spokenPromptKeyRef.current = "";
+    courseTurnRunRef.current += 1;
+    stopSpeech();
+    setActiveTurnImageUrl(null);
 
     return () => {
       stopPronunciationCapture();
     };
-  }, [cardIndex, activeLesson.id]);
+  }, [activeLesson.id, cardIndex, stopSpeech]);
 
   useEffect(() => {
     if (
-      (!isRecognitionLesson && !cardPromptHasVisualBlank)
+      (!isRecognitionLesson && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
       || isPronunciationCard
       || !started
       || isComplete
@@ -3380,11 +3492,21 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     const timeoutId = window.setTimeout(() => {
       if (cardPromptText.trim()) {
-        speakText(cardPromptText, {
-          voiceMode: cardPromptVoiceMode,
-          completionFullText: cardCompletionFullText,
-          completionBlankText: cardCompletionBlankText,
-        });
+        const turns = cardAudioTurnSequence(currentCard, "prompt");
+        if (currentCard.audio_turns?.length) {
+          if (turns) {
+            playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode });
+          } else {
+            console.info("Course audio turn contract rejected", currentCard.prompt);
+          }
+        } else {
+          speakText(cardPromptText, {
+            audioAssetId: cardAudioAsset(currentCard, { purpose: "prompt" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
+            voiceMode: cardPromptVoiceMode,
+            completionFullText: cardCompletionFullText,
+            completionBlankText: cardCompletionBlankText,
+          });
+        }
       }
     }, 120);
 
@@ -3402,6 +3524,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     isPronunciationCard,
     isRecognitionLesson,
     lastResult,
+    playCourseTurnSequence,
     speakText,
     started,
   ]);
@@ -3412,84 +3535,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     const cardsToPreload = activeLesson.cards.slice(cardIndex, cardIndex + COURSE_AUDIO_PRELOAD_AHEAD);
-    const audioItems = cardsToPreload.flatMap((card) => {
-      if (
-        card.stage === "Pronunciation Practice" ||
-        card.stage === "Speak" ||
-        activeLesson.id === "lesson-3-pronunciation"
-      ) {
-        return (card.options || []).flatMap((option) => {
-          const prompt = optionPracticePrompt(option);
-          const words = String(prompt || "").match(/[A-Za-z']+/g) || [];
-          return [
-            {
-              text: prompt,
-              mode: "pronunciation_slow",
-              variant: "split-ing",
-            },
-            ...words.map((word) => ({
-              text: word,
-              mode: "pronunciation_slow",
-              variant: "split-ing",
-            })),
-          ];
-        });
-      }
+    const audioItems = cardsToPreload.flatMap((card) => card.audio_assets || []);
 
-      const hasCompletionBlank = hasVisualAudioPlaceholder(card.prompt)
-        || hasVisualAudioPlaceholder(card.audio_text);
-      const promptAudioText = hasCompletionBlank && !card.audio_text?.trim()
-        ? card.prompt
-        : card.audio_text ?? card.prompt;
-      const correctOption = card.options.find((option) => option.id === card.correct_option_id);
-      return card.prompt
-        ? [
-            {
-              text: promptAudioText,
-              fullText: hasCompletionBlank ? card.answer_audio_text : undefined,
-              blankText: hasCompletionBlank ? correctOption?.label : undefined,
-              mode: "prompt",
-              variant: hasCompletionBlank
-                ? "completion-prompt"
-                : String(promptAudioText).trim().toLowerCase() === "what is it?" ? "question" : "prompt",
-            },
-            ...(card.answer_audio_text
-              ? [
-                  {
-                    text: card.answer_audio_text,
-                    mode: "prompt",
-                    variant: "answer",
-                  },
-                ]
-              : []),
-          ]
-        : [];
-    });
-
-    const uniqueAudioItems = Array.from(
-      new Map(audioItems.filter((item) => item.text?.trim()).map((item) => [
-        `${item.mode}|${item.variant}|${item.text}|${item.fullText || ""}|${item.blankText || ""}`,
-        item,
-      ])).values()
-    );
-
-    uniqueAudioItems.forEach((item) => {
-      const key = [
-        activeLesson.id,
-        item.mode,
-        item.variant,
-        item.text,
-        item.fullText || "",
-        item.blankText || "",
-      ].join("|");
+    audioItems.forEach((item) => {
+      const key = item.id;
       if (preloadedAudioKeysRef.current.has(key)) {
         return;
       }
       preloadedAudioKeysRef.current.add(key);
       preloadCourseAudio({
+        assetId: item.id,
         text: item.text,
-        fullText: item.fullText,
-        blankText: item.blankText,
         mode: item.mode,
         lang: "en-US",
         variant: item.variant,
@@ -4099,7 +4155,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       }
     };
 
-    const speechDelay = speakText(activePronunciationPrompt, {
+    const turnSequence = cardAudioTurnSequence(currentCard, "prompt");
+    const modelOptions = {
       voiceMode: "prompt",
       wordByWord: true,
       splitIngWords: true,
@@ -4116,7 +4173,25 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         setModelSpeechPart(null);
         scheduleListeningStart(isRetry ? 240 : 140);
       },
-    });
+    };
+    let speechDelay = 0;
+    if (currentCard.audio_turns?.length) {
+      if (turnSequence) {
+        speechDelay = playCourseTurnSequence(turnSequence, modelOptions);
+      } else {
+        console.info("Course audio turn contract rejected", currentCard.prompt);
+        modelOptions.onEnd();
+      }
+    } else {
+      speechDelay = speakText(activePronunciationPrompt, {
+        ...modelOptions,
+        audioAssetId: cardAudioAsset(currentCard, {
+          text: activePronunciationPrompt,
+          mode: "pronunciation_slow",
+          variant: "split-ing",
+        })?.id || MISSING_CARD_AUDIO_ASSET_ID,
+      });
+    }
     const startDelay = Math.min(Math.max(speechDelay + 8000, 10000), 16000);
     pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
   };
@@ -4343,11 +4418,27 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       ]);
       if (currentCard.answer_audio_text) {
         window.setTimeout(() => {
-          const answerSpeechMs = speakText(currentCard.answer_audio_text, {
-            voiceMode: "answer",
-            rate: 0.74,
-            volume: 1,
-          });
+          const answerTurns = cardAudioTurnSequence(currentCard, "answer");
+          let answerSpeechMs = 0;
+          if (currentCard.answer_audio_turns?.length) {
+            if (answerTurns) {
+              answerSpeechMs = playCourseTurnSequence(answerTurns, {
+                voiceMode: "answer",
+                rate: 0.74,
+                volume: 1,
+                onEnd: () => setAutoAdvanceDelayMs(450),
+              });
+            } else {
+              console.info("Course answer audio turn contract rejected", currentCard.prompt);
+            }
+          } else {
+            answerSpeechMs = speakText(currentCard.answer_audio_text, {
+              audioAssetId: cardAudioAsset(currentCard, { purpose: "answer" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
+              voiceMode: "answer",
+              rate: 0.74,
+              volume: 1,
+            });
+          }
           setAutoAdvanceDelayMs(Math.max(1800, answerSpeechMs + 450));
         }, 0);
       } else {
@@ -4983,17 +5074,25 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             {!compactPracticeHeader ? (
               <button
                 type="button"
-                onClick={() =>
-                  isPronunciationCard
-                    ? playPronunciationModel(activePronunciationPrompt)
-                    : cardPromptText.trim()
-                      ? speakText(cardPromptText, {
-                          voiceMode: cardPromptVoiceMode,
-                          completionFullText: cardCompletionFullText,
-                          completionBlankText: cardCompletionBlankText,
-                        })
-                      : undefined
-                }
+                onClick={() => {
+                  if (isPronunciationCard) {
+                    playPronunciationModel(activePronunciationPrompt);
+                    return;
+                  }
+                  if (!cardPromptText.trim()) return;
+                  const turns = cardAudioTurnSequence(currentCard, "prompt");
+                  if (currentCard.audio_turns?.length) {
+                    if (turns) playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode });
+                    else console.info("Course audio turn contract rejected", currentCard.prompt);
+                    return;
+                  }
+                  speakText(cardPromptText, {
+                    audioAssetId: cardAudioAsset(currentCard, { purpose: "prompt" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
+                    voiceMode: cardPromptVoiceMode,
+                    completionFullText: cardCompletionFullText,
+                    completionBlankText: cardCompletionBlankText,
+                  });
+                }}
                 style={{
                   border: 0,
                   background: "transparent",
@@ -5045,7 +5144,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           </section>
 
           <section style={boardStyle}>
-            {currentCard.prompt_image_url ? (
+            {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
                 style={{
                   width: "min(100%, 760px)",
@@ -5058,7 +5157,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 }}
               >
                 <img
-                  src={lessonOptionImageSrc(currentCard.prompt_image_url)}
+                  src={lessonOptionImageSrc(activeTurnImageUrl || currentCard.prompt_image_url)}
                   alt={currentCard.prompt}
                   style={{
                     display: "block",

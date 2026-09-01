@@ -7,14 +7,14 @@ const lessonScreenSource = fs.readFileSync(lessonScreenPath, 'utf8');
 
 assert.match(
   lessonScreenSource,
-  /const DOUBLE_TAP_DELAY_MS = 500;/,
-  'Android must have enough time to deliver both completed presses in a double tap.',
+  /const handlePromptPress = useCallback\(\(\) => \{[\s\S]*?if \(useCompactHeaderInstruction \|\| !visiblePromptAudio\.trim\(\)\) return;[\s\S]*?openSentenceTranslation\(\);/,
+  'One tap on authored English content must open its Spanish translation.',
 );
 
-assert.match(
+assert.doesNotMatch(
   lessonScreenSource,
-  /now - lastPromptTapRef\.current <= DOUBLE_TAP_DELAY_MS[\s\S]+?openSentenceTranslation\(\);/,
-  'The second prompt tap must continue opening the Spanish translation.',
+  /DOUBLE_TAP_DELAY_MS|lastPromptTapRef|promptTapTimerRef/,
+  'The shared phrase box must not retain the old delayed double-tap gesture.',
 );
 
 assert.match(

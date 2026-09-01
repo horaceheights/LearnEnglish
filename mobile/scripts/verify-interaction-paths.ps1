@@ -1,3 +1,8 @@
+param(
+  [ValidateSet('Preview', 'Production')]
+  [string]$ReviewPolicy = 'Production'
+)
+
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
@@ -12,7 +17,7 @@ $outputDirectory = [System.IO.Path]::Combine(
 Push-Location $mobileRoot
 try {
   [System.IO.Directory]::CreateDirectory($outputDirectory) | Out-Null
-  & node $typescriptCompiler src/config.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
+  & node $typescriptCompiler src/config.ts src/courseAudioSources.ts src/types.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
   if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el modelo de progreso.' }
 
   & node tests/lesson-help.test.cjs (Join-Path $outputDirectory 'lessonHelp.js')
@@ -54,6 +59,13 @@ try {
   & node tests/option-media-standard.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la prueba global de imágenes 3:2 en opciones.' }
 
+  $fourCardReviewArguments = @('tests/four-card-media-review.test.cjs')
+  if ($ReviewPolicy -eq 'Preview') {
+    $fourCardReviewArguments += '--allow-pending-review'
+  }
+  & node @fourCardReviewArguments
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la revisión semántica de imágenes para la cuadrícula 2x2.' }
+
   & node tests/lesson-media-frame.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación global de marcos para imágenes de lecciones.' }
 
@@ -63,8 +75,29 @@ try {
   & node tests/lesson-context-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de contexto de unidad y lección.' }
 
+  & node tests/all-unit-phrase-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección genérica de la caja de frase en todas las unidades.' }
+
   & node tests/tablet-lesson-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de diseño para encabezados grandes en teléfonos y tabletas.' }
+
+  & node tests/listen-instruction-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección del encabezado compacto de comprensión auditiva.' }
+
+  & node tests/recognize-instruction-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la instrucción compacta para elegir frases.' }
+
+  & node tests/speak-instruction-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la instrucción compacta de pronunciación.' }
+
+  & node tests/lesson-section-header-color.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de colores compartidos entre secciones y recorrido.' }
+
+  & node tests/lesson-header-text-fit.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de ajuste dinámico del texto del encabezado.' }
+
+  & node tests/completion-equivalence-emphasis.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de énfasis para equivalencias entre sustantivos y pronombres.' }
 
   & node tests/logo-home-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de navegación del logo a Inicio.' }
@@ -83,6 +116,15 @@ try {
 
   & node tests/lesson-1-3-media.test.cjs (Join-Path $outputDirectory 'config.js')
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imagen y pronunciación de la lección 1.3.' }
+
+  & node tests/lesson-2-6-audio.test.cjs (Join-Path $outputDirectory 'config.js')
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación del audio corregido de One en la lección 2.6.' }
+
+  & node tests/course-audio-cast.test.cjs (Join-Path $outputDirectory 'config.js')
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación completa del reparto de voces del curso.' }
+
+  & node tests/persistent-course-audio-sources.test.cjs (Join-Path $outputDirectory 'courseAudioSources.js')
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el límite estricto de audio persistente del curso.' }
 
   & node tests/correct-answer-audio.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la confirmación hablada después de una respuesta correcta.' }

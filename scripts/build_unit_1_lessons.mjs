@@ -249,9 +249,9 @@ const childrenSiblings = lesson({
     recognize('Babies', 'babies', [image('child', assets.boy, 'A child'), image('babies', assets.babies, 'Babies')]),
     recognize('A child', 'child', [image('child', assets.boy, 'A child'), image('children', assets.children, 'Children')]),
     recognize('Children', 'children', [image('children', assets.children, 'Children'), image('baby', assets.baby, 'A baby')]),
-    recognize('A brother', 'brother', [image('sister', assets.sister, 'A sister'), image('brother', assets.brother, 'A brother'), image('babies', assets.babies, 'Babies'), image('children', assets.children, 'Children')]),
-    recognize('Sisters', 'sisters', [image('brothers', assets.brothers, 'Brothers'), image('sisters', assets.sisters, 'Sisters'), image('baby', assets.baby, 'A baby'), image('brother', assets.brother, 'A brother')]),
-    recognize('Brothers', 'brothers', [image('sisters', assets.sisters, 'Sisters'), image('brother', assets.brother, 'A brother'), image('babies', assets.babies, 'Babies'), image('brothers', assets.brothers, 'Brothers')]),
+    recognize('A brother', 'brother', [image('sister', assets.sister, 'A sister'), image('brother', assets.brother, 'A brother'), image('brothers', assets.brothers, 'Brothers'), image('sisters', assets.sisters, 'Sisters')]),
+    recognize('Sisters', 'sisters', [image('brothers', assets.brothers, 'Brothers'), image('sisters', assets.sisters, 'Sisters'), image('brother', assets.brother, 'A brother'), image('sister', assets.sister, 'A sister')]),
+    recognize('Brothers', 'brothers', [image('sisters', assets.sisters, 'Sisters'), image('brother', assets.brother, 'A brother'), image('sister', assets.sister, 'A sister'), image('brothers', assets.brothers, 'Brothers')]),
     describe(assets.family, 'They are a family.', 'family', [['family', 'They are a family.'], ['babies', 'They are babies.']]),
     describe(assets.sisters, 'They are sisters.', 'sisters', [['brothers', 'They are brothers.'], ['sisters', 'They are sisters.']]),
 

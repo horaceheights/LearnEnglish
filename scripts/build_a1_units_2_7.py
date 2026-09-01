@@ -20,6 +20,9 @@ PLAN = ROOT / "docs" / "product" / "a1-course-canvas.json"
 LESSONS_ROOT = ROOT / "backend" / "lessons"
 ASSET_ROOT = ROOT / "Lessons" / "Lesson1" / "images"
 MANIFEST = ROOT / "docs" / "product" / "a1-media-manifest.json"
+REVIEWED_PHOTOREAL_REGISTRY = (
+    ROOT / "docs" / "product" / "a1-reviewed-photoreal-media.json"
+)
 STAGES = ["Learn", "Recognize", "Listen", "Speak", "Use"]
 
 IMAGE_INTERACTIONS = {
@@ -33,6 +36,181 @@ USE_INTERACTIONS = {
     "complete", "complete2", "complete4", "choose2", "choose4", "choice", "response-choice"
 }
 NO_IMAGE_MARKERS = ("no image", "no teaching image", "speaker control only")
+
+# These landscape masters lose an answer-critical cue when a centered 4:5 crop is
+# used by the portrait four-card grid. Their sibling variants keep the cue inside
+# the shared center safe area without changing one- and two-card compositions.
+FOUR_CARD_REFRAMES = {
+    "a1_n3.webp", "a1_n4.webp", "a1_n5.webp", "a1_n6.webp",
+    "a1_n7.webp", "a1_n8.webp", "a1_n9.webp", "a1_n10.webp",
+    "a1_table.webp",
+    "a1_scene_n13_e92ef3e.webp", "a1_scene_n14_f713285.webp",
+    "a1_scene_n15_35e4ec4.webp", "a1_scene_n16_e4aa4eb.webp",
+    "a1_scene_n17_9b96027.webp", "a1_scene_n18_bdd888e.webp",
+    "a1_scene_bag-6_431210e.webp", "a1_scene_bag-7_378b7f0.webp",
+    "a1_scene_bag-8_7f5b9cb.webp", "a1_scene_bag-9_adb8071.webp",
+    "a1_scene_coffee-5_c9b98e0.webp", "a1_scene_coffee-6_1ea48e3.webp",
+    "a1_scene_coffee-7_6481821.webp", "a1_scene_coffee-8_90b7ae7.webp",
+    "a1_scene_tea-8_43e62f6.webp", "a1_scene_juice-8_437a2f8.webp",
+    "a1_scene_five-black-phones_734dda6.webp",
+    "a1_scene_five-blue-chairs_2a951fc.webp",
+    # Full-course fixed-4:5 audit repairs (2026-08-30). These contracts are
+    # correct in landscape but lose an answer-critical cue in the shared crop.
+    "a1_scene_afternoon_7a10f39.webp",
+    "a1_scene_ana-mexican_1fca9cc.webp",
+    "a1_scene_asks-hospital_fd7a80d.webp",
+    "a1_scene_book-next-to-table_11e545b.webp",
+    "a1_scene_book-on-table_493a24c.webp",
+    "a1_scene_book-under-table_3882341.webp",
+    "a1_scene_boy-wants-chicken_33caa20.webp",
+    "a1_scene_boy-wants-two-eggs_e6f44b3.webp",
+    "a1_scene_bus-arrives-8-00-night_ac2fbb8.webp",
+    "a1_scene_bus-arrives-8-night_aa53495.webp",
+    "a1_scene_bus-leaves-6-night_59526f5.webp",
+    "a1_scene_bus-leaves-7-night_937441f.webp",
+    "a1_scene_bus-leaves-8-00-night_4e10422.webp",
+    "a1_scene_bus-leaves-8-night_094ebc0.webp",
+    "a1_scene_coffee-for-breakfast_54853c5.webp",
+    "a1_scene_cold-and-sunny_e290276.webp",
+    "a1_scene_diego-spanish_5d1c02d.webp",
+    "a1_scene_does-not-like-fish_6232056.webp",
+    "a1_scene_does-not-like-rice_90d5dff.webp",
+    "a1_scene_five-oranges_c241081.webp",
+    "a1_scene_five-strawberries_858ca75.webp",
+    "a1_scene_four-blue-chairs_f3183f0.webp",
+    "a1_scene_four-oranges_9e38f8c.webp",
+    "a1_scene_four-red-chairs_0275a9d.webp",
+    "a1_scene_four-strawberries_f01534e.webp",
+    "a1_scene_four-yellow-bananas_d84c53d.webp",
+    "a1_scene_hot-and-cloudy_801561e.webp",
+    "a1_scene_hot-and-sunny_c88d51f.webp",
+    "a1_scene_hot-jacket_586235b.webp",
+    "a1_scene_hot-shirt_78da229.webp",
+    "a1_scene_juice-for-dinner_d082ab8.webp",
+    "a1_scene_left-only-hospital_4f9affe.webp",
+    "a1_scene_library-far-from-bank_1f22e2f.webp",
+    "a1_scene_library-far-from-park_49a2d48.webp",
+    "a1_scene_library-near-bank_1865f7e.webp",
+    "a1_scene_library-near-park_7111386.webp",
+    "a1_scene_library-next-to-park_1233b17.webp",
+    "a1_scene_library-next-to-school_e805256.webp",
+    "a1_scene_library-right_6b435ec.webp",
+    "a1_scene_man-wants-two-red-apples_772ff8a.webp",
+    "a1_scene_one-egg-for-breakfast_fad7e29.webp",
+    "a1_scene_pair-can-go-by-bus_69469a0.webp",
+    "a1_scene_pair-can-go-by-train_67f6004.webp",
+    "a1_scene_pair-cannot-go-by-bus_547b3cc.webp",
+    "a1_scene_pair-needs-water_0ff58e2.webp",
+    "a1_scene_pair-waits-at-red-signal_5078634.webp",
+    "a1_scene_pair-wants-chicken_a4f08a9.webp",
+    "a1_scene_pair-wants-fish_dedf2c8.webp",
+    "a1_scene_pair-wants-three-eggs_00d5e99.webp",
+    "a1_scene_pair-wants-two-apples_35e65ce.webp",
+    "a1_scene_pair-wants-two-eggs_0cb7c59.webp",
+    "a1_scene_pharmacy-left_1fc90a7.webp",
+    "a1_scene_pharmacy-right_99d73fd.webp",
+    "a1_scene_rejects-tv_58b4949.webp",
+    "a1_scene_right-only-station_b733a34.webp",
+    "a1_scene_station-far-from-park_d5dce5a.webp",
+    "a1_scene_station-near-park_e8f4e0e.webp",
+    "a1_scene_station-next-to-park_e1bf534.webp",
+    "a1_scene_store-far-from-park_0ed30ee.webp",
+    "a1_scene_store-near-bank_dd64fd0.webp",
+    "a1_scene_store-next-to-park_eafcb41.webp",
+    "a1_scene_straight-left-bank_11f5a88.webp",
+    "a1_scene_straight-left-hospital_d4ea009.webp",
+    "a1_scene_straight-left-station_7883bc6.webp",
+    "a1_scene_straight-right-bank_2dc8386.webp",
+    "a1_scene_straight-right-hospital_9271c5a.webp",
+    "a1_scene_straight-right-station_6e3de89.webp",
+    "a1_scene_tea-for-breakfast_98a3941.webp",
+    "a1_scene_tea-for-lunch_c98eac2.webp",
+    "a1_scene_three-eggs-for-breakfast_38c5f42.webp",
+    "a1_scene_train-arrives-9-00_e656d46.webp",
+    "a1_scene_train-leaves-8-00-night_c9b7ada.webp",
+    "a1_scene_train-leaves-8-00_4f3f6e6.webp",
+    "a1_scene_train-leaves-9-00_499abf3.webp",
+    "a1_scene_turn-right-cross-station_338607c.webp",
+    "a1_scene_woman-happy_259eb14.webp",
+    "a1_scene_woman-wants-three-red-apples_dfcb889.webp",
+    "a1_scene_woman-wants-two-green-apples_2751439.webp",
+    "a1_scene_woman-wants-two-red-apples_ba4c073.webp",
+    "a1_scene_you-have-phone_6017478.webp",
+    "unit2_mission_two_blue_cars.webp",
+    # Late findings from the independent post-repair tile audit. Keep these in
+    # the same fail-closed binding set so a rebuild cannot silently fall back to
+    # the landscape master that lost the tested cue in the fixed 4:5 crop.
+    "a1_scene_ana-come-home_ad0dbb5.webp",
+    "a1_scene_ana-go-school_83ace0e.webp",
+    "a1_scene_asks-bank_0295ac7.webp",
+    "a1_scene_asks-bathroom_03032c0.webp",
+    "a1_scene_asks-station_745494e.webp",
+    "a1_scene_boy-waits-at-red-signal_bc0177a.webp",
+    "a1_scene_bus-arrives-6-morning_62e5453.webp",
+    "a1_scene_bus-leaves-6-morning_45cf1bf.webp",
+    "a1_scene_bus-leaves-8-00-morning_ffdbcde.webp",
+    "a1_scene_bus-leaves-8-morning_ca11581.webp",
+    "a1_scene_does-not-like-music_d5c6ed9.webp",
+    "a1_scene_does-not-like-two-red-apples_d28d501.webp",
+    "a1_scene_girl-waits-at-red-signal_c77147f.webp",
+    "a1_scene_he-has-car_b3fa0ff.webp",
+    "a1_scene_one-person-can-go-by-bus_7eed7a1.webp",
+    "a1_scene_rain-boots_c3ee514.webp",
+    "a1_scene_rain-umbrella_60133ed.webp",
+    "a1_scene_she-has-bike_b6f7660.webp",
+    "a1_scene_three-green-pears_341c468.webp",
+    "a1_scene_two-eggs-for-breakfast_a51ebe1.webp",
+    "a1_scene_two-eggs-for-lunch_8e8ae04.webp",
+    # Final exact-runtime audit repairs.
+    "a1_scene_ana-wake_d91086e.webp",
+    "a1_scene_bank-right_cad19dd.webp",
+    "a1_scene_bank_bdd240c.webp",
+    "a1_scene_boy-crosses-at-green_4befcaf.webp",
+    "a1_scene_bus-leaves-9-00_8cee9f4.webp",
+    "a1_scene_luis-american_5a29f49.webp",
+    "a1_scene_sofia-canadian_adf798e.webp",
+    # Final answer-critical review: use label-free, action-literal assessment
+    # scenes and keep count/speaker/music cues inside the fixed 4:5 crop.
+    "a1_three-green-books.webp",
+    "a1_scene_invites-music_0c739d4.webp",
+    "a1_scene_i-have-book_25eacad.webp",
+    "a1_scene_cook-sofia_ecb7eca.webp",
+    "a1_scene_doctor-diego_1c7ef5a.webp",
+    "a1_scene_driver-luis_111aa43.webp",
+    "a1_scene_farmer-ana_f823cb6.webp",
+    "a1_scene_nurse-sofia_63f2a9c.webp",
+    "a1_scene_teacher-ana_0e983a0.webp",
+}
+
+# The earlier base six-bag asset failed semantic review, but its dedicated
+# portrait-safe derivative is a separate, verified image that literally shows
+# six white bags. Bind that derivative to the corrected canonical concept so a
+# future course rebuild preserves both the semantic repair and the four-card
+# crop instead of resurrecting the rejected base file.
+FOUR_CARD_VARIANT_OVERRIDES = {
+    "unit2_six_white_bags.webp": "a1_scene_six-white-bags_f412a8a_four-card.webp",
+}
+
+
+def load_reviewed_photoreal_filenames() -> frozenset[str]:
+    if not REVIEWED_PHOTOREAL_REGISTRY.is_file():
+        raise FileNotFoundError(
+            "Reviewed photoreal media registry is required: "
+            f"{REVIEWED_PHOTOREAL_REGISTRY}"
+        )
+    payload = json.loads(REVIEWED_PHOTOREAL_REGISTRY.read_text(encoding="utf-8"))
+    filenames = payload.get("files")
+    if not isinstance(filenames, list) or not all(
+        isinstance(filename, str) and filename.endswith(".webp")
+        for filename in filenames
+    ):
+        raise ValueError(
+            f"Invalid reviewed-photoreal registry: {REVIEWED_PHOTOREAL_REGISTRY}"
+        )
+    return frozenset(filenames)
+
+
+REVIEWED_PHOTOREAL_FILENAMES = load_reviewed_photoreal_filenames()
 
 EXISTING_ASSETS = {
     "boy": "boy.webp",
@@ -163,7 +341,10 @@ class AssetCatalog:
                 "ratio": "3:2",
                 "dimensions": [1536, 1024],
                 "source": (
-                    "existing"
+                    "reviewed-photoreal"
+                    if filename in REVIEWED_PHOTOREAL_FILENAMES
+                    or (unit_number == 3 and explicit)
+                    else "existing"
                     if base_key.startswith("existing:")
                     else "composite-or-generated"
                 ),
@@ -209,7 +390,11 @@ class AssetCatalog:
                 "filename": filename,
                 "ratio": "3:2",
                 "dimensions": [1536, 1024],
-                "source": source,
+                "source": (
+                    "reviewed-photoreal"
+                    if filename in REVIEWED_PHOTOREAL_FILENAMES
+                    else source
+                ),
                 "card_refs": [],
                 "review_contexts": [],
             },
@@ -218,6 +403,49 @@ class AssetCatalog:
             item["card_refs"].append(card_ref)
         if context not in item["review_contexts"]:
             item["review_contexts"].append(context)
+
+    def add_four_card_variant(
+        self,
+        filename: str,
+        card_ref: str,
+        binding_key: str,
+        concept: str,
+    ) -> tuple[str, str]:
+        if filename in FOUR_CARD_VARIANT_OVERRIDES:
+            variant = FOUR_CARD_VARIANT_OVERRIDES[filename]
+        elif filename in FOUR_CARD_REFRAMES:
+            variant = filename.removesuffix(".webp") + "_four-card.webp"
+        else:
+            return filename, binding_key
+
+        source_item = self.items.get(binding_key)
+        if source_item is None:
+            raise ValueError(f"Unknown four-card source binding {binding_key!r}")
+        source_description = str(source_item["description"])
+        key = f"four-card:{binding_key}:{variant}"
+        item = self.items.setdefault(
+            key,
+            {
+                "asset_id": key,
+                "concept": concept,
+                "description": (
+                    "Four-card portrait-safe reframe of this exact teaching contract; "
+                    "preserve every answer-critical object, count or quantity, color, "
+                    "identity or relationship, action, spatial relation, polarity, time "
+                    "or schedule, and whole-scene cue in the centered 4:5 crop. Source "
+                    f"contract: {source_description}"
+                ),
+                "filename": variant,
+                "ratio": "3:2",
+                "dimensions": [1536, 1024],
+                "source": "four-card-safe-area-variant",
+                "card_refs": [],
+                "review_contexts": [],
+            },
+        )
+        if card_ref not in item["card_refs"]:
+            item["card_refs"].append(card_ref)
+        return variant, key
 
 
 def no_image(description: str) -> bool:
@@ -338,6 +566,16 @@ def build_card(
     raw_for_correct = [correct] if interaction in SINGLE_INTERACTIONS else choices
     correct_id = find_correct_option_id(options, raw_for_correct, correct)
     options = limit_text_tile_options(options, correct_id)
+    if len(options) == 4 and all((option.get("image_url") or "").strip() for option in options):
+        card_ref = f"{lesson['id']}|{stage}|{slide_id}"
+        for option in options:
+            option_id_value = str(option["id"])
+            binding_key, concept = option_bindings[option_id_value]
+            variant_filename, variant_binding_key = catalog.add_four_card_variant(
+                str(option["image_url"]), card_ref, binding_key, concept
+            )
+            option["image_url"] = variant_filename
+            option_bindings[option_id_value] = (variant_binding_key, concept)
 
     answer_audio: str | None = None
     if interaction in {"i2t2", "i2t4", "recognize-text"}:

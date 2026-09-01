@@ -1,15 +1,24 @@
 import { Image, Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
+import type { PromptInteractionMode } from '../lessonHelp';
+
 const LISTENING_SQUIRREL = require('../../assets/mascots/serious/listening-frames-normalized/listening-06.png');
 
 type Props = {
   anchorBottom?: number;
   onDismiss: () => void;
   onSuppress: () => void;
+  promptInteractionMode?: PromptInteractionMode;
   visible: boolean;
 };
 
-export function SentenceHelpOverlay({ anchorBottom, onDismiss, onSuppress, visible }: Props) {
+export function SentenceHelpOverlay({
+  anchorBottom,
+  onDismiss,
+  onSuppress,
+  promptInteractionMode = 'gestures',
+  visible,
+}: Props) {
   const { height, width } = useWindowDimensions();
   const isLandscape = width > height;
   const estimatedHeight = isLandscape ? 150 : 216;
@@ -56,10 +65,22 @@ export function SentenceHelpOverlay({ anchorBottom, onDismiss, onSuppress, visib
                   ¿Necesitas ayuda?
                 </Text>
                 <Text style={styles.message}>
-                  Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.
+                  {promptInteractionMode === 'visual-instruction' ? (
+                    <>La instrucción en español es <Text style={styles.emphasis}>solo visual</Text>.</>
+                  ) : promptInteractionMode === 'translation-on-tap' ? (
+                    <>Toca la <Text style={styles.emphasis}>frase</Text> para ver su traducción.</>
+                  ) : (
+                    <>Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.</>
+                  )}
                 </Text>
                 <Text style={styles.message}>
-                  Toca <Text style={styles.emphasis}>dos veces</Text> la palabra para ver su traducción.
+                  {promptInteractionMode === 'visual-instruction' ? (
+                    <>Usa el <Text style={styles.emphasis}>botón de sonido</Text> para escuchar la frase en inglés cuando esté disponible.</>
+                  ) : promptInteractionMode === 'translation-on-tap' ? (
+                    <>Toca el <Text style={styles.emphasis}>botón de sonido</Text> para escucharla otra vez.</>
+                  ) : (
+                    <>Toca <Text style={styles.emphasis}>dos veces</Text> la palabra para ver su traducción.</>
+                  )}
                 </Text>
                 <View style={styles.buttonRow}>
                   <Pressable

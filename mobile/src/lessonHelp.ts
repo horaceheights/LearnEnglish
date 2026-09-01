@@ -29,6 +29,10 @@ const VOCABULARY_STAGES = new Set([
 ]);
 
 const PROMPT_GESTURE_REMINDER = 'Recuerda: toca la frase una vez para repetirla y dos veces para ver su traducción.';
+const DEDICATED_REPLAY_REMINDER = 'Recuerda: toca la frase para ver su traducción y el botón de sonido para escucharla otra vez.';
+const VISUAL_INSTRUCTION_REMINDER = 'Recuerda: la instrucción en español es solo visual. Usa el botón de sonido para escuchar la frase en inglés cuando esté disponible.';
+
+export type PromptInteractionMode = 'gestures' | 'translation-on-tap' | 'visual-instruction';
 
 function hasOnlyTextOptions(card: LessonCard) {
   return card.options.length > 0 && card.options.every((option) => !option.image_url);
@@ -93,6 +97,14 @@ function cardHelpInstruction(card: LessonCard) {
   return 'Lee la indicación y todas las opciones. Toca la palabra o frase correcta.';
 }
 
-export function lessonHelpText(card: LessonCard) {
-  return `${cardHelpInstruction(card)} ${PROMPT_GESTURE_REMINDER}`;
+export function lessonHelpText(
+  card: LessonCard,
+  promptInteractionMode: PromptInteractionMode = 'gestures',
+) {
+  const promptReminder = promptInteractionMode === 'visual-instruction'
+    ? VISUAL_INSTRUCTION_REMINDER
+    : promptInteractionMode === 'translation-on-tap'
+      ? DEDICATED_REPLAY_REMINDER
+      : PROMPT_GESTURE_REMINDER;
+  return `${cardHelpInstruction(card)} ${promptReminder}`;
 }
