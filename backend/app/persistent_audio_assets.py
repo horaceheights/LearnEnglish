@@ -51,6 +51,16 @@ _last_seed_status: dict[str, object] = {
     "total": 0,
     "registry_errors": ["Persistent course audio has not been seeded yet."],
 }
+_last_elevenlabs_seed_status: dict[str, object] = {
+    "present": 0,
+    "copied": 0,
+    "generated": 0,
+    "missing": 0,
+    "invalid": 0,
+    "total": 0,
+    "errors": ["ElevenLabs course audio has not been seeded yet."],
+}
+ELEVENLABS_STORAGE_VERSION = "elevenlabs-v2"
 
 
 class ImmutableAssetConflict(RuntimeError):
@@ -60,6 +70,10 @@ class ImmutableAssetConflict(RuntimeError):
 def storage_dir() -> Path:
     configured = os.getenv("COURSE_AUDIO_STORAGE_DIR", "").strip()
     return Path(configured) if configured else DEFAULT_STORAGE_DIR
+
+
+def elevenlabs_storage_dir() -> Path:
+    return storage_dir() / ELEVENLABS_STORAGE_VERSION
 
 
 @lru_cache(maxsize=1)
@@ -127,6 +141,7 @@ def install_asset_once(
     provenance: dict[str, object],
     *,
     allow_legacy_neutral: bool = False,
+    destination: Path | None = None,
 ) -> dict[str, object]:
     """Install approved bytes and an image/card-bound receipt without overwriting."""
     actual_media = probe_mp3(payload)
@@ -140,7 +155,7 @@ def install_asset_once(
         provenance,
         allow_legacy_neutral=allow_legacy_neutral,
     )
-    target = asset_path(asset.id)
+    target = (destination or storage_dir()) / f"{asset.id}.mp3"
     sidecar = receipt_path(target)
     desired_sha256 = sha256_bytes(payload)
 
@@ -312,11 +327,120 @@ def seed_status() -> dict[str, object]:
     return dict(_last_seed_status)
 
 
+async def seed_elevenlabs_assets() -> dict[str, object]:
+    """Install only verified ElevenLabs takes under a cache-busted directory."""
+    global _last_elevenlabs_seed_status
+
+    from .course_audio import get_course_audio
+
+    destination = elevenlabs_storage_dir()
+    destination.mkdir(parents=True, exist_ok=True)
+    index = asset_index()
+    registry = load_approved_take_registry()
+    errors: list[str] = []
+    copied = 0
+    generated = 0
+    present = 0
+    missing = 0
+    invalid = 0
+
+    for asset in index.values():
+        target = destination / f"{asset.id}.mp3"
+        valid, _, _ = validate_stored_asset(asset, target)
+        if valid:
+            present += 1
+            continue
+        try:
+            approved_take = resolve_approved_take(asset, registry)
+            if approved_take is not None:
+                install_asset_once(
+                    asset,
+                    approved_take.payload,
+                    approved_take.provenance,
+                    destination=destination,
+                )
+                copied += 1
+            else:
+                profile = render_profile_for(asset.speaker_role, asset.mode)
+                response = await get_course_audio(
+                    text=asset.text,
+                    mode=asset.mode,
+                    lang="en-US",
+                    variant=asset.variant,
+                    provider=profile.provider,
+                    narrator=profile.narrator,
+                )
+                if (
+                    response.headers.get("x-audio-provider") != profile.provider
+                    or response.headers.get("x-audio-fallback-from")
+                ):
+                    raise ValueError("Production did not return the approved ElevenLabs provider.")
+                payload = Path(response.path).read_bytes()
+                timestamp = datetime.now(timezone.utc).isoformat()
+                provenance = {
+                    **profile.as_provenance_contract(),
+                    "source": "generated-persistent-course-audio-v2",
+                    "stored_media": probe_mp3(payload),
+                    "processing": [
+                        "Generated once through the Production ElevenLabs course-audio path.",
+                        "Stored under a cache-busted persistent path; no legacy audio was used.",
+                    ],
+                    "generated_at": timestamp,
+                    "approved_at": timestamp,
+                    "request_id": None,
+                    "trace_id": None,
+                    "character_cost": None,
+                }
+                install_asset_once(asset, payload, provenance, destination=destination)
+                generated += 1
+        except Exception as error:
+            invalid += 1
+            errors.append(f"{asset.id}: {error}")
+        else:
+            valid, reason, _ = validate_stored_asset(asset, target)
+            if not valid:
+                invalid += 1
+                errors.append(f"{asset.id}: {reason}")
+
+        _last_elevenlabs_seed_status = {
+            "present": present,
+            "copied": copied,
+            "generated": generated,
+            "missing": missing,
+            "invalid": invalid,
+            "total": len(index),
+            "errors": sorted(set(errors)),
+        }
+
+    _last_elevenlabs_seed_status = {
+        "present": present,
+        "copied": copied,
+        "generated": generated,
+        "missing": missing,
+        "invalid": invalid,
+        "total": len(index),
+        "errors": sorted(set(errors)),
+    }
+    return dict(_last_elevenlabs_seed_status)
+
+
+def elevenlabs_seed_status() -> dict[str, object]:
+    return dict(_last_elevenlabs_seed_status)
+
+
 def read_asset(asset_id: str) -> FileResponse:
+    return _read_asset_from(asset_id, storage_dir())
+
+
+def read_elevenlabs_asset(asset_id: str) -> FileResponse:
+    return _read_asset_from(asset_id, elevenlabs_storage_dir())
+
+
+def _read_asset_from(asset_id: str, directory: Path) -> FileResponse:
     asset = asset_index().get(asset_id)
     if asset is None:
         raise HTTPException(status_code=404, detail="Course audio asset not found.")
-    path = asset_path(asset_id)
+    path = directory / f"{asset_id}.mp3"
     valid, _, _ = validate_stored_asset(asset, path)
     if not valid:
         # Learner requests are read-only and never call a paid provider.
@@ -329,12 +453,22 @@ def read_asset(asset_id: str) -> FileResponse:
 
 
 def storage_status() -> dict[str, object]:
+    return _storage_status_for(storage_dir())
+
+
+def elevenlabs_storage_status() -> dict[str, object]:
+    return _storage_status_for(elevenlabs_storage_dir())
+
+
+def _storage_status_for(directory: Path) -> dict[str, object]:
     index = asset_index()
     available: list[str] = []
     unavailable: list[str] = []
     invalid: list[dict[str, str]] = []
     for asset_id, asset in index.items():
-        valid, reason, _ = validate_stored_asset(asset, asset_path(asset_id))
+        valid, reason, _ = validate_stored_asset(
+            asset, directory / f"{asset_id}.mp3"
+        )
         if valid:
             available.append(asset_id)
             continue
@@ -343,7 +477,7 @@ def storage_status() -> dict[str, object]:
             invalid.append({"asset_id": asset_id, "reason": reason})
     return {
         "profile": COURSE_AUDIO_PROFILE_ID,
-        "storage_dir": str(storage_dir()),
+        "storage_dir": str(directory),
         "total": len(index),
         "available": len(available),
         "missing": len(unavailable),
