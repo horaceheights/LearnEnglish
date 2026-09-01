@@ -42,10 +42,12 @@ type Props = {
   showHelp: boolean;
   onSelect: (optionId: string) => void;
   onPronunciationAttempted?: () => void;
+  onPronunciationReplayAvailabilityChange?: (available: boolean) => void;
   onPronunciationPassed: (firstTry: boolean) => void;
   onPronunciationUnavailable: () => void;
   onGrammarAnimationComplete: () => void;
   promptInteractionMode?: PromptInteractionMode;
+  pronunciationReplayRequestId?: number;
 };
 
 export function LessonCardView({
@@ -66,10 +68,12 @@ export function LessonCardView({
   showHelp,
   onSelect,
   onPronunciationAttempted,
+  onPronunciationReplayAvailabilityChange,
   onPronunciationPassed,
   onPronunciationUnavailable,
   onGrammarAnimationComplete,
   promptInteractionMode = 'gestures',
+  pronunciationReplayRequestId = 0,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -381,9 +385,11 @@ export function LessonCardView({
           videoName={null}
           level={level}
           onAttempted={onPronunciationAttempted}
+          onHeaderReplayAvailabilityChange={onPronunciationReplayAvailabilityChange}
           onPassed={onPronunciationPassed}
           onUnavailable={onPronunciationUnavailable}
           phrase={card.audio_text || card.prompt}
+          headerReplayRequestId={pronunciationReplayRequestId}
           userId={userId}
         />
       ) : (

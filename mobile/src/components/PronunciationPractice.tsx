@@ -67,6 +67,8 @@ type Props = {
   level: string;
   userId?: string;
   onAttempted?: () => void;
+  headerReplayRequestId?: number;
+  onHeaderReplayAvailabilityChange?: (available: boolean) => void;
   onPassed: (firstTry: boolean) => void;
   onUnavailable: () => void;
 };
@@ -239,6 +241,8 @@ export function PronunciationPractice({
   level,
   userId,
   onAttempted,
+  headerReplayRequestId = 0,
+  onHeaderReplayAvailabilityChange,
   onPassed,
   onUnavailable,
 }: Props) {
@@ -695,6 +699,25 @@ export function PronunciationPractice({
     }
   }, [audioProvider, audioTurns, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
   const playModelEvent = useEffectEvent(playModel);
+  const headerReplayAvailable = isAppActive
+    && !isOffline
+    && phase !== 'ready'
+    && phase !== 'listening'
+    && phase !== 'checking'
+    && phase !== 'success'
+    && !reviewingRecording;
+  const lastHeaderReplayRequestRef = useRef(headerReplayRequestId);
+
+  useEffect(() => {
+    onHeaderReplayAvailabilityChange?.(headerReplayAvailable);
+  }, [headerReplayAvailable, onHeaderReplayAvailabilityChange]);
+
+  useEffect(() => {
+    if (headerReplayRequestId === lastHeaderReplayRequestRef.current) return;
+    lastHeaderReplayRequestRef.current = headerReplayRequestId;
+    if (!headerReplayAvailable) return;
+    void playModelEvent(runIdRef.current);
+  }, [headerReplayAvailable, headerReplayRequestId]);
 
   useEffect(() => {
     if (!isAppActive) {

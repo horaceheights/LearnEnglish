@@ -86,13 +86,13 @@ assert.doesNotMatch(
 );
 assert.match(
   guardrails,
-  /every mobile Speak card[\s\S]*bold 14 dp instruction `¡Escucha y repite!`[\s\S]*complete Spanish exclamation punctuation in every unit/,
+  /Section instructions in the middle importance box are visual-only Spanish text[\s\S]*Speak \(including legacy `Pronunciation Practice`\) uses bold 14 dp `¡Escucha y repite!`/,
   'Durable product memory must define the all-unit compact Speak instruction.',
 );
 assert.match(
   guardrails,
-  /model phrase remains in the pronunciation card below the header[\s\S]*middle section label remains the shared Speak teal/,
-  'Durable product memory must protect the model phrase and section color roles.',
+  /Speak speaker replays the actual English model through the pronunciation lifecycle[\s\S]*cannot conflict with microphone capture/,
+  'Durable product memory must protect English replay and the pronunciation lifecycle.',
 );
 assert.match(
   interactionVerifier,

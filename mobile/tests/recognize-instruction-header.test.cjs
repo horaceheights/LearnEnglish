@@ -72,8 +72,8 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /const isStageOnlyHeader = !isPronunciation\s*&& !currentCard\?\.prompt\?\.trim\(\)\s*&& !useCompactRecognizeInstruction;/,
-  'An empty Recognize prompt must render the new third line instead of the two-line stage-only header.',
+  /styles\.contentHeaderPhraseBox[\s\S]*?\{isPronunciation \? pronunciationInstruction\(\) : renderPrompt\(\)\}/,
+  'An empty Recognize prompt must render its instruction in the shared importance box.',
 );
 assert.match(
   screenSource,
@@ -87,12 +87,12 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /accessibilityRole=\{useCompactRecognizeInstruction \? 'text' : 'button'\}/,
+  /accessibilityRole=\{useCompactHeaderInstruction \? 'text' : 'button'\}/,
   'The visual Recognize instruction must not expose a disabled replay button role.',
 );
 assert.match(
   screenSource,
-  /accessibilityActions=\{useCompactRecognizeInstruction\s*\? \[\]\s*:/,
+  /accessibilityActions=\{useCompactHeaderInstruction\s*\? \[\]\s*:/,
   'The visual Recognize instruction must not advertise unavailable replay or translation actions.',
 );
 assert.doesNotMatch(
@@ -102,13 +102,13 @@ assert.doesNotMatch(
 );
 assert.match(
   guardrails,
-  /Recognize card with an empty authored prompt[\s\S]*bold 14 dp instruction `¡Elige la frase correcta!`[\s\S]*never key it to a lesson, card index, answer count, option copy, or image identity/,
+  /Recognize with an empty authored prompt uses bold 14 dp `¡Elige la frase correcta!`[\s\S]*never from a specific slide/,
   'Durable product memory must define the reusable Recognize instruction contract.',
 );
 assert.match(
   guardrails,
-  /Do not add a replay control because this is a visual choice instruction rather than authored prompt audio/,
-  'Durable product memory must preserve the no-replay behavior for this visual instruction.',
+  /keep the speaker visible but disabled before a correct selection[\s\S]*enable it to replay the selected correct English sentence/,
+  'Durable product memory must preserve gated English replay without speaking the visual instruction.',
 );
 assert.match(
   interactionVerifier,

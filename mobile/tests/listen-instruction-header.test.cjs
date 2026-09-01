@@ -82,7 +82,7 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /promptTapTargetListenInstruction:\s*\{\s*paddingHorizontal:\s*52,\s*paddingRight:\s*52\s*\}/,
+  /promptTapTargetPhraseBox:\s*\{\s*paddingHorizontal:\s*44\s*\}/,
   'Replay-button space must be balanced so the instruction is centered across the full header.',
 );
 assert.match(
@@ -97,12 +97,12 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /authored stage and prompt are exactly `Listen` and `Listen and choose\.`[\s\S]*bold 14 dp `¡Escucha y elige!`[\s\S]*never key it to a lesson, card index, option count, or image identity/,
+  /Section instructions in the middle importance box are visual-only Spanish text[\s\S]*Listen uses bold 14 dp `¡Escucha y elige!`[\s\S]*never from a specific slide/,
   'Durable product memory must define the reusable Listen instruction contract and its scope.',
 );
 assert.match(
   guardrails,
-  /compact Listen instruction is not a general third-line restyle[\s\S]*preserve its exact copy, established responsive type scale, and header geometry/,
+  /middle importance box shows authored English learning content[\s\S]*Preserve its exact copy and start at the established responsive size/,
   'Durable product memory must protect authored learning phrases from the compact instruction style.',
 );
 assert.match(

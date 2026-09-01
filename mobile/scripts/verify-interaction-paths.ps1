@@ -75,8 +75,8 @@ try {
   & node tests/lesson-context-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de contexto de unidad y lección.' }
 
-  & node tests/pilot-phrase-header.test.cjs
-  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección del encabezado piloto de la frase.' }
+  & node tests/all-unit-phrase-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección genérica de la caja de frase en todas las unidades.' }
 
   & node tests/tablet-lesson-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de diseño para encabezados grandes en teléfonos y tabletas.' }

@@ -111,4 +111,10 @@ assert.match(
   'Dedicated replay controls must replace the legacy gesture reminder.',
 );
 
+assert.match(
+  lessonHelpText(card({ prompt: '' }), 'visual-instruction'),
+  /la instrucción en español es solo visual.+botón de sonido.+frase en inglés cuando esté disponible\.$/,
+  'Visual Spanish instructions must never be described as spoken prompt audio.',
+);
+
 console.log('Lesson help instruction checks passed.');
