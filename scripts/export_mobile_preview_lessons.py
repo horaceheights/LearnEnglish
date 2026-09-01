@@ -25,6 +25,7 @@ BACKEND_ROOT = ROOT / "backend"
 OUTPUT_ROOT = ROOT / "mobile" / "src" / "generated"
 LESSON_IMAGE_ROOT = ROOT / "Lessons" / "Lesson1" / "images"
 MOBILE_IMAGE_ROOT = ROOT / "mobile" / "assets" / "lesson-assets"
+FRONTEND_IMAGE_ROOT = ROOT / "frontend" / "public" / "lesson-assets"
 IMAGE_SOURCE_PATH = ROOT / "mobile" / "src" / "lessonImageSources.ts"
 COURSE_MENU_IMAGE_NAMES = {
     "family_all_members.webp",
@@ -48,6 +49,10 @@ def model_payload(model: object) -> dict[str, object]:
     for card in payload.get("cards", []):
         if card.get("spanish_translation") is None:
             card.pop("spanish_translation", None)
+        if not card.get("audio_turns"):
+            card.pop("audio_turns", None)
+        if not card.get("answer_audio_turns"):
+            card.pop("answer_audio_turns", None)
     return payload
 
 
@@ -84,7 +89,12 @@ def lesson_image_names() -> list[str]:
     option_names: set[str] = set()
     for lesson in LESSONS.values():
         for card in lesson.cards:
-            paths = [card.prompt_image_url, *(option.image_url for option in card.options)]
+            paths = [
+                card.prompt_image_url,
+                *(option.image_url for option in card.options),
+                *(turn.image_url for turn in card.audio_turns),
+                *(turn.image_url for turn in card.answer_audio_turns),
+            ]
             for image_url in paths:
                 clean_path = str(image_url or "").split("?", 1)[0].split("#", 1)[0]
                 name = Path(clean_path).name
@@ -114,10 +124,11 @@ def export_lesson_images() -> int:
         raise SystemExit(f"Missing canonical lesson images: {', '.join(missing)}")
 
     MOBILE_IMAGE_ROOT.mkdir(parents=True, exist_ok=True)
+    FRONTEND_IMAGE_ROOT.mkdir(parents=True, exist_ok=True)
     for name in names:
         source = LESSON_IMAGE_ROOT / name
-        destination = MOBILE_IMAGE_ROOT / name
-        copy_lesson_image_if_changed(source, destination)
+        copy_lesson_image_if_changed(source, MOBILE_IMAGE_ROOT / name)
+        copy_lesson_image_if_changed(source, FRONTEND_IMAGE_ROOT / name)
 
     requires = "\n".join(
         f"  '{name}': require('../assets/lesson-assets/{name}')," for name in names

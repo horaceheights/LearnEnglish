@@ -11,6 +11,10 @@ assert.equal(
   spanishTranslationFor('Who are they? They are the parents.'),
   '¿Quiénes son ellos? Ellos son los padres.',
 );
+assert.equal(
+  spanishTranslationFor('The girl is sitting and ___ is writing.'),
+  'La niña está sentada y ___ está escribiendo.',
+);
 
 const missing = [];
 for (const filename of fs.readdirSync(generatedDirectory)) {

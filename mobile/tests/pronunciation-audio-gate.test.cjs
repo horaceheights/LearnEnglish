@@ -23,6 +23,14 @@ const { preloadPronunciationAudioWithRetry } = require(gateModulePath);
   });
   assert.deepEqual(recovered, { attempts: 2, loaded: true });
 
+  let exhaustedAttempts = 0;
+  const exhausted = await preloadPronunciationAudioWithRetry(async () => {
+    exhaustedAttempts += 1;
+    return false;
+  });
+  assert.deepEqual(exhausted, { attempts: 2, error: undefined, loaded: false });
+  assert.equal(exhaustedAttempts, 2, 'A failed model preload must stop after one retry.');
+
   console.log('Pronunciation audio gate checks passed.');
 })().catch((error) => {
   console.error(error);

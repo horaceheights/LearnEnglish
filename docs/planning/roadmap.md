@@ -78,7 +78,7 @@ creation without proportionally increasing engineering effort.
 - Render-hosted backend with automatic deployment
 - Unit-first course browser with progress states for the current and completed lessons
 - Complete A1 curriculum: 70 lessons in seven units of ten, each using Learn -> Recognize -> Listen -> Speak -> Use
-- Canonical YAML lessons plus an embedded, release-verified mobile Preview catalog
+- Canonical YAML lessons plus an embedded mobile catalog bound to fail-closed release-integrity checks
 - Shared automatic pronunciation flow with Azure scoring
 - Local in-progress lesson resume with first-attempt state preserved
 - Consolidated lesson header, shared 3:2 course imagery, and confirmed lesson exit
@@ -238,7 +238,7 @@ application code.
 - [ ] Synchronize safely when connectivity returns
 - [~] Mark pronunciation as unavailable offline; identify other network-dependent audio and actions
 - [ ] Reduce app and EAS update sizes
-- [~] Standardize course imagery on reviewed WebP assets; continue size and delivery optimization
+- [~] Standardize course imagery on contract-bound WebP assets; complete hash-bound human semantic approval and continue size and delivery optimization
 - [ ] Remove ordinary lesson-navigation dependence on Render availability
 - [ ] Move production backend to an appropriate always-on plan when justified
 

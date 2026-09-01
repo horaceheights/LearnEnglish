@@ -164,10 +164,13 @@ RENDER_PROFILE_SPECS = {
         "clip": "rounded frame; no overflow",
         "transform": "none",
     },
-    "lesson-option-four-height-aware-v1": {
+    "lesson-option-four-mobile-4x5-web-3x2-v1": {
         "surfaces": ["mobile LessonCardView", "web LessonPlayer"],
-        "viewport": "height-aware 2x2 option grid preserving complete subjects",
-        "fit": "cover only for normalized 3:2 assets; reviewed safe containment otherwise",
+        "viewport": (
+            "mobile fixed centered 4:5 option windows in a 2x2 grid; "
+            "web responsive 3:2 option frames"
+        ),
+        "fit": "centered cover from an exact reviewed 3:2 master or four-card reframe",
         "clip": "rounded frame; no overflow",
         "transform": "none",
     },
@@ -436,7 +439,7 @@ def card_media_usages(
         if rendered_filename in TWO_CARD_ACTION_POSTERS.values():
             option_profile = "two-card-action-poster-3x2-v1"
         elif len(options) == 4:
-            option_profile = "lesson-option-four-height-aware-v1"
+            option_profile = "lesson-option-four-mobile-4x5-web-3x2-v1"
         else:
             option_profile = "lesson-option-1to3-3x2-v1"
         usages.append(
@@ -710,7 +713,7 @@ def validate_review_context(value: object) -> dict[str, Any]:
     elif str(value["rendered_filename"]) in TWO_CARD_ACTION_POSTERS.values():
         expected_profile = "two-card-action-poster-3x2-v1"
     elif isinstance(value["options"], list) and len(value["options"]) == 4:
-        expected_profile = "lesson-option-four-height-aware-v1"
+        expected_profile = "lesson-option-four-mobile-4x5-web-3x2-v1"
     else:
         expected_profile = "lesson-option-1to3-3x2-v1"
     if render_profile != expected_profile:

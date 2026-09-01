@@ -46,6 +46,12 @@ const LISTEN_AND_CHOOSE_PROMPT = 'Listen and choose.';
 const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase correcta!';
 const LISTEN_AND_REPEAT_INSTRUCTION = '¡Escucha y repite!';
 const EQUIVALENT_SUBJECT_PRONOUNS = new Set(['he', 'she', 'they', 'it']);
+const PRONOUN_BE_FORMS: Record<string, string> = {
+  he: 'is',
+  it: 'is',
+  she: 'is',
+  they: 'are',
+};
 const SUBJECT_FOCUS_STOP_WORDS = new Set(['a', 'an', 'and', 'the']);
 
 const SPANISH_INSTRUCTION_PROMPTS: Record<string, string> = {
@@ -150,25 +156,19 @@ export function lessonHeaderPromptText(lessonId: string, stage: string, prompt: 
 }
 
 export function completionEquivalenceFocusWords(prompt: string, selectedAnswer: string) {
-  if (!EQUIVALENT_SUBJECT_PRONOUNS.has(selectedAnswer.trim().toLowerCase())) return [];
+  const normalizedAnswer = selectedAnswer.trim().toLowerCase();
+  if (!EQUIVALENT_SUBJECT_PRONOUNS.has(normalizedAnswer)) return [];
 
-  const clauses = prompt.split(',');
-  if (clauses.length !== 2) return [];
+  const clauses = prompt.trim().match(
+    /^(.+?)\s+(is|are)\s+(.+?)(?:,\s*|\s+and\s+)(?:_{2,}|\[blank\])\s+(is|are)\s+(.+)$/i,
+  );
+  if (!clauses) return [];
 
-  const antecedentClause = clauses[0].trim().match(/^(.+?)\s+(is|are)\s+(.+)$/i);
-  const pronounClause = clauses[1].trim().match(/^(?:_{2,}|\[blank\])\s+(is|are)\s+(.+)$/i);
-  if (!antecedentClause || !pronounClause) return [];
+  const antecedentBe = clauses[2].toLowerCase();
+  const pronounBe = clauses[4].toLowerCase();
+  if (antecedentBe !== pronounBe || PRONOUN_BE_FORMS[normalizedAnswer] !== pronounBe) return [];
 
-  const normalizePredicate = (value: string) => value
-    .toLowerCase()
-    .replace(/[.!?]+$/, '')
-    .trim();
-  if (
-    antecedentClause[2].toLowerCase() !== pronounClause[1].toLowerCase()
-    || normalizePredicate(antecedentClause[3]) !== normalizePredicate(pronounClause[2])
-  ) return [];
-
-  return (antecedentClause[1].toLowerCase().match(/[a-z']+/g) || [])
+  return (clauses[1].toLowerCase().match(/[a-z']+/g) || [])
     .filter((word) => !SUBJECT_FOCUS_STOP_WORDS.has(word));
 }
 

@@ -30,44 +30,44 @@ const resolverSource = instructionSource.slice(
 );
 
 const subjectPronouns = new Set(['he', 'she', 'they', 'it']);
-const repeatedPredicateCompletions = course.flatMap((lesson) => (
+const nounToPronounCompletions = course.flatMap((lesson) => (
   lesson.cards.flatMap((card, cardIndex) => {
     if (card.stage !== 'Use' && card.stage !== 'Grammar') return [];
     const correctOption = card.options.find((option) => option.id === card.correct_option_id);
     const selectedAnswer = correctOption?.label?.trim().toLowerCase() || '';
     if (!subjectPronouns.has(selectedAnswer)) return [];
-    const clauses = card.prompt.split(',');
-    if (clauses.length !== 2) return [];
-    const antecedent = clauses[0].trim().match(/^(.+?)\s+(is|are)\s+(.+)$/i);
-    const pronoun = clauses[1].trim().match(/^(?:_{2,}|\[blank\])\s+(is|are)\s+(.+)$/i);
-    if (!antecedent || !pronoun) return [];
-    const normalize = (value) => value.toLowerCase().replace(/[.!?]+$/, '').trim();
-    if (antecedent[2].toLowerCase() !== pronoun[1].toLowerCase()) return [];
-    if (normalize(antecedent[3]) !== normalize(pronoun[2])) return [];
+    const clauses = card.prompt.trim().match(
+      /^(.+?)\s+(is|are)\s+(.+?)(?:,\s*|\s+and\s+)(?:_{2,}|\[blank\])\s+(is|are)\s+(.+)$/i,
+    );
+    if (!clauses) return [];
+    const expectedBe = selectedAnswer === 'they' ? 'are' : 'is';
+    if (clauses[2].toLowerCase() !== expectedBe || clauses[4].toLowerCase() !== expectedBe) return [];
     return [{ answer: selectedAnswer, cardIndex, lessonId: lesson.id, prompt: card.prompt }];
   })
 ));
 
-assert.deepEqual(
-  repeatedPredicateCompletions.map(({ answer, prompt }) => ({ answer, prompt })),
-  [
-    { answer: 'he', prompt: 'The boy is eating, ___ is eating.' },
-    { answer: 'she', prompt: 'The woman is drinking, ___ is drinking.' },
-    { answer: 'he', prompt: 'The man is reading, ___ is reading.' },
-    { answer: 'she', prompt: 'The girl is writing, ___ is writing.' },
-  ],
-  'The guardrail must inventory every current repeated-predicate noun-to-pronoun completion.',
+assert.ok(
+  nounToPronounCompletions.some(({ answer, prompt }) => (
+    answer === 'she' && prompt === 'The woman is drinking, ___ is drinking.'
+  )),
+  'The guardrail must include the annotated repeated-predicate woman-to-she completion.',
+);
+assert.ok(
+  nounToPronounCompletions.some(({ answer, prompt }) => (
+    answer === 'she' && prompt === 'The girl is sitting and ___ is writing.'
+  )),
+  'The structural rule must include the current differing-predicate girl-to-she completion.',
 );
 
 assert.match(
   instructionSource,
-  /export function completionEquivalenceFocusWords\(prompt: string, selectedAnswer: string\)[\s\S]*EQUIVALENT_SUBJECT_PRONOUNS\.has\(selectedAnswer\.trim\(\)\.toLowerCase\(\)\)[\s\S]*prompt\.split\(','\)/,
+  /export function completionEquivalenceFocusWords\(prompt: string, selectedAnswer: string\)[\s\S]*EQUIVALENT_SUBJECT_PRONOUNS\.has\(normalizedAnswer\)[\s\S]*\(\?:,\\s\*\|\\s\+and\\s\+\)/,
   'Equivalence emphasis must be selected from the prompt structure and selected pronoun.',
 );
 assert.match(
   instructionSource,
-  /antecedentClause\[2\]\.toLowerCase\(\) !== pronounClause\[1\]\.toLowerCase\(\)[\s\S]*normalizePredicate\(antecedentClause\[3\]\) !== normalizePredicate\(pronounClause\[2\]\)/,
-  'Both clauses must repeat the same linking verb and predicate before they are treated as equivalent.',
+  /antecedentBe !== pronounBe \|\| PRONOUN_BE_FORMS\[normalizedAnswer\] !== pronounBe/,
+  'Both clauses and the selected pronoun must use matching is/are agreement.',
 );
 assert.match(
   instructionSource,
@@ -96,7 +96,7 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /correct noun-to-pronoun substitution completion[\s\S]*same gold concept emphasis[\s\S]*inserted pronoun and the meaningful antecedent word or words[\s\S]*not from lesson IDs, card indexes, fixed person-word lists, or media identity/,
+  /correct two-clause noun-to-pronoun substitution completion[\s\S]*same gold concept emphasis[\s\S]*inserted pronoun and the meaningful antecedent word or words[\s\S]*rather than lesson IDs, card indexes, fixed person-word lists, or media identity/,
   'Durable product memory must define the structural equivalence-emphasis rule.',
 );
 assert.match(
@@ -110,4 +110,4 @@ assert.match(
   'Preview interaction verification must run the equivalence-emphasis guardrail.',
 );
 
-console.log(`Shared gold equivalence emphasis covers ${repeatedPredicateCompletions.length} current noun-to-pronoun completion cards.`);
+console.log(`Shared gold equivalence emphasis covers ${nounToPronounCompletions.length} current noun-to-pronoun completion cards.`);

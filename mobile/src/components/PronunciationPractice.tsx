@@ -3,10 +3,12 @@ import { Alert, Animated, Easing, Image, Linking, Pressable, StyleSheet, Text, u
 import { File } from 'expo-file-system';
 import {
   AudioModule,
+  createAudioPlaylist,
   createAudioPlayer,
   RecordingPresets,
   setAudioModeAsync,
   type RecordingOptions,
+  useAudioPlaylistStatus,
   useAudioPlayer,
   useAudioPlayerStatus,
   useAudioRecorder,
@@ -15,7 +17,12 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { courseAudioUrl, lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import {
+  courseAudioAssetSource,
+  courseAudioSource,
+  type CourseAudioTurnPlayback,
+} from '../courseAudioSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
@@ -48,6 +55,7 @@ import {
 
 type Props = {
   audioProvider: CourseAudioProvider;
+  audioTurns?: CourseAudioTurnPlayback[] | null;
   audioVoice: CourseAudioVoice;
   phrase: string;
   imageHeight: number;
@@ -219,6 +227,7 @@ async function withTimeout<T>(operation: Promise<T>, timeoutMs: number, timeoutM
 
 export function PronunciationPractice({
   audioProvider,
+  audioTurns = null,
   audioVoice,
   phrase,
   imageHeight,
@@ -261,6 +270,13 @@ export function PronunciationPractice({
   }));
   const modelPlayerRef = useRef(modelPlayer);
   const retiredModelPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
+  const [modelPlaylist, setModelPlaylist] = useState(() => createAudioPlaylist({
+    loop: 'none',
+    sources: [],
+  }));
+  const modelPlaylistRef = useRef(modelPlaylist);
+  const retiredModelPlaylistsRef = useRef<ReturnType<typeof createAudioPlaylist>[]>([]);
+  const modelPlaylistStatus = useAudioPlaylistStatus(modelPlaylist);
   const activeReadyCuePlayerRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
   const activeAttemptPlaybackRef = useRef<ReturnType<typeof createAudioPlayer> | null>(null);
   const permissionRequestInFlightRef = useRef(false);
@@ -270,6 +286,11 @@ export function PronunciationPractice({
     keepAudioSessionActive: true,
   });
   const modelStatus = useAudioPlayerStatus(modelPlayer);
+  const [modelSequenceActive, setModelSequenceActive] = useState(false);
+  const [activeModelTurnImageUrl, setActiveModelTurnImageUrl] = useState<string | null>(null);
+  const activeModelStatus = modelSequenceActive
+    ? { ...modelPlaylistStatus, error: null }
+    : modelStatus;
   const [phase, setPhase] = useState<Phase>('model');
   const [message, setMessage] = useState('Escucha la frase.');
   const [result, setResult] = useState<PronunciationResult | null>(null);
@@ -475,6 +496,7 @@ export function PronunciationPractice({
   const stopTransientPlayback = useCallback(() => {
     try {
       modelPlayerRef.current.pause();
+      modelPlaylistRef.current.pause();
       successChimePlayer.pause();
     } catch {
       // A short player may already have completed while interruption begins.
@@ -592,8 +614,45 @@ export function PronunciationPractice({
         playsInSilentMode: true,
       });
       if (!isCurrentRun(runId)) return;
+      if (audioTurns?.length) {
+        const nextPlaylist = createAudioPlaylist({
+          loop: 'none',
+          sources: audioTurns.map(({ asset }) => courseAudioAssetSource(asset)),
+        });
+        if (!isCurrentRun(runId)) {
+          nextPlaylist.release();
+          return;
+        }
+        const previousPlaylist = modelPlaylistRef.current;
+        try {
+          modelPlayerRef.current.pause();
+          previousPlaylist.pause();
+        } catch {
+          // A previous model clip or sequence may already have ended.
+        }
+        retiredModelPlaylistsRef.current.push(previousPlaylist);
+        modelPlaylistRef.current = nextPlaylist;
+        setModelPlaylist(nextPlaylist);
+        setModelSequenceActive(true);
+        setActiveModelTurnImageUrl(audioTurns[0].turn.image_url);
+        nextPlaylist.play();
+        modelLoadTimer.current = setTimeout(() => {
+          modelLoadTimer.current = null;
+          if (!isCurrentRun(runId) || modelWasPlaying.current) return;
+          captureDiagnosticError(
+            new Error('Pronunciation model sequence did not start before the timeout.'),
+            'pronunciation_model_timeout',
+            { attempt: attemptRef.current + 1 },
+            'warning',
+          );
+          showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
+        }, MODEL_AUDIO_LOAD_TIMEOUT_MS);
+        return;
+      }
+      setModelSequenceActive(false);
+      setActiveModelTurnImageUrl(null);
       const nextPlayer = createAudioPlayer(
-        courseAudioUrl(
+        courseAudioSource(
           phrase,
           'pronunciation_slow',
           'split-ing',
@@ -634,7 +693,7 @@ export function PronunciationPractice({
       });
       showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
     }
-  }, [audioProvider, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
+  }, [audioProvider, audioTurns, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
   const playModelEvent = useEffectEvent(playModel);
 
   useEffect(() => {
@@ -1550,6 +1609,7 @@ export function PronunciationPractice({
       streamingCapture.current = false;
       try {
         modelPlayerRef.current.pause();
+        modelPlaylistRef.current.pause();
       } catch {
         // The native object may already be unavailable during app teardown.
       }
@@ -1586,6 +1646,19 @@ export function PronunciationPractice({
         }
       });
       retiredModelPlayersRef.current = [];
+      try {
+        modelPlaylistRef.current.release();
+      } catch {
+        // Release is idempotent from the component's point of view.
+      }
+      retiredModelPlaylistsRef.current.forEach((playlist) => {
+        try {
+          playlist.release();
+        } catch {
+          // Retired playlists may already be unavailable during teardown.
+        }
+      });
+      retiredModelPlaylistsRef.current = [];
     };
   }, [discardNativeRecording]);
 
@@ -1609,24 +1682,30 @@ export function PronunciationPractice({
   }, [discardNativeRecording, phrase]);
 
   useEffect(() => {
+    if (!modelSequenceActive || !audioTurns?.length) return;
+    const turn = audioTurns[modelPlaylistStatus.currentIndex];
+    if (turn) setActiveModelTurnImageUrl(turn.turn.image_url);
+  }, [audioTurns, modelPlaylistStatus.currentIndex, modelSequenceActive]);
+
+  useEffect(() => {
     if (phase !== 'model') return;
-    if (modelStatus.error && (modelLoadTimer.current || modelWasPlaying.current)) {
+    if (activeModelStatus.error && (modelLoadTimer.current || modelWasPlaying.current)) {
       if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
       modelLoadTimer.current = null;
       modelWasPlaying.current = false;
       showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
       return;
     }
-    if (modelStatus.playing) {
+    if (activeModelStatus.playing) {
       modelWasPlaying.current = true;
       if (modelLoadTimer.current) clearTimeout(modelLoadTimer.current);
       modelLoadTimer.current = null;
     }
-    if (modelStatus.didJustFinish && modelWasPlaying.current) {
+    if (activeModelStatus.didJustFinish && modelWasPlaying.current) {
       modelWasPlaying.current = false;
       void startListening();
     }
-  }, [modelStatus.didJustFinish, modelStatus.error, modelStatus.playing, phase, showUnavailableState, startListening]);
+  }, [activeModelStatus.didJustFinish, activeModelStatus.error, activeModelStatus.playing, phase, showUnavailableState, startListening]);
 
   useEffect(() => {
     if (phase !== 'listening' || streamingCapture.current || !recorderState.isRecording) return;
@@ -1781,7 +1860,7 @@ export function PronunciationPractice({
 
   return (
     <View style={styles.container}>
-      {imageUrl ? (
+      {activeModelTurnImageUrl || imageUrl ? (
         <View style={isLandscape ? styles.landscapeMediaRow : styles.portraitMediaRow}>
           {/* Guardrail: equal side columns keep the centered image and mascot from ever overlapping. */}
           {isLandscape ? <View style={styles.mascotColumn}>{activeMascot}</View> : null}
@@ -1791,7 +1870,7 @@ export function PronunciationPractice({
           >
             <OptionMediaImage
               accessibilityLabel={imageLabel || phrase}
-              imageUrl={imageUrl}
+              imageUrl={activeModelTurnImageUrl || imageUrl || ''}
             />
             {videoName && !reduceMotion ? (
               <VideoView

@@ -33,7 +33,7 @@ What the shared engine now adds across the track:
 
 - prompt and answer audio with stage-specific timing
 - purposeful review cards that mix old and new vocabulary
-- varied, semantically validated distractors
+- varied distractors covered by fail-closed semantic contracts; formal human approvals remain pending
 - canonical YAML authoring with generated mobile snapshots
 - Speak and Use production after recognition and listening practice
 
@@ -304,7 +304,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 
 Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
 
-The previously built family lessons supply approved assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
+The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
 Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
 
