@@ -55,6 +55,7 @@ import {
   setDiagnosticOperation,
 } from '../diagnostics';
 import {
+  completionEquivalenceFocusWords,
   lessonHeaderPromptText,
   lessonStageLabel,
   pronunciationInstruction,
@@ -1901,8 +1902,11 @@ export function LessonScreen({
         : currentCard.prompt
     );
     const selectedFocusWords = selectedOption?.label?.toLowerCase().match(/[a-z']+/g) || [];
+    const equivalenceFocusWords = grammarCompleted && selectedOption?.label
+      ? completionEquivalenceFocusWords(currentCard.prompt, selectedOption.label)
+      : [];
     const focus = currentCard.stage === 'Grammar' || currentCard.stage === 'Use'
-      ? new Set(['is', 'are', ...selectedFocusWords])
+      ? new Set(['is', 'are', ...selectedFocusWords, ...equivalenceFocusWords])
       : currentCard.stage === 'New Grammar'
         ? new Set(['not', ...selectedFocusWords])
       : currentCard.stage === 'More People' || normalizedStage.includes('plural')

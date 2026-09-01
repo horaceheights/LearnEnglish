@@ -81,6 +81,9 @@ try {
   & node tests/lesson-header-text-fit.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de ajuste dinámico del texto del encabezado.' }
 
+  & node tests/completion-equivalence-emphasis.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de énfasis para equivalencias entre sustantivos y pronombres.' }
+
   & node tests/logo-home-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de navegación del logo a Inicio.' }
 

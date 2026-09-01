@@ -45,6 +45,8 @@ const SPANISH_STAGE_LABELS: Record<string, string> = {
 const LISTEN_AND_CHOOSE_PROMPT = 'Listen and choose.';
 const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase correcta!';
 const LISTEN_AND_REPEAT_INSTRUCTION = '¡Escucha y repite!';
+const EQUIVALENT_SUBJECT_PRONOUNS = new Set(['he', 'she', 'they', 'it']);
+const SUBJECT_FOCUS_STOP_WORDS = new Set(['a', 'an', 'and', 'the']);
 
 const SPANISH_INSTRUCTION_PROMPTS: Record<string, string> = {
   [LISTEN_AND_CHOOSE_PROMPT]: '¡Escucha y elige!',
@@ -145,6 +147,29 @@ export function usesCompactSpeakInstruction(stage: string) {
 export function lessonHeaderPromptText(lessonId: string, stage: string, prompt: string) {
   if (usesCompactRecognizeInstruction(stage, prompt)) return CHOOSE_CORRECT_PHRASE_INSTRUCTION;
   return lessonPromptText(lessonId, prompt);
+}
+
+export function completionEquivalenceFocusWords(prompt: string, selectedAnswer: string) {
+  if (!EQUIVALENT_SUBJECT_PRONOUNS.has(selectedAnswer.trim().toLowerCase())) return [];
+
+  const clauses = prompt.split(',');
+  if (clauses.length !== 2) return [];
+
+  const antecedentClause = clauses[0].trim().match(/^(.+?)\s+(is|are)\s+(.+)$/i);
+  const pronounClause = clauses[1].trim().match(/^(?:_{2,}|\[blank\])\s+(is|are)\s+(.+)$/i);
+  if (!antecedentClause || !pronounClause) return [];
+
+  const normalizePredicate = (value: string) => value
+    .toLowerCase()
+    .replace(/[.!?]+$/, '')
+    .trim();
+  if (
+    antecedentClause[2].toLowerCase() !== pronounClause[1].toLowerCase()
+    || normalizePredicate(antecedentClause[3]) !== normalizePredicate(pronounClause[2])
+  ) return [];
+
+  return (antecedentClause[1].toLowerCase().match(/[a-z']+/g) || [])
+    .filter((word) => !SUBJECT_FOCUS_STOP_WORDS.has(word));
 }
 
 export function pronunciationInstruction() {
