@@ -39,8 +39,8 @@ assert.ok(
 
 assert.match(
   screenSource,
-  /<Text\s+adjustsFontSizeToFit=\{isTheyPhrasePilotCard \|\| !useCompactHeaderInstruction\}\s+minimumFontScale=\{isTheyPhrasePilotCard \? 0\.66 : useCompactHeaderInstruction \? undefined : 0\.45\}\s+numberOfLines=\{2\}/,
-  'Authored lesson headers, including the pilot phrase box, must use native largest-text-that-fits behavior within two lines.',
+  /<Text\s+adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{useCompactHeaderInstruction \? undefined : 0\.45\}\s+numberOfLines=\{2\}/,
+  'Authored lesson phrases must use native largest-text-that-fits behavior within two lines.',
 );
 assert.match(
   screenSource,
@@ -54,12 +54,12 @@ assert.doesNotMatch(
 );
 assert.match(
   guardrails,
-  /Authored third-line lesson text must start at its established responsive size[\s\S]*native largest-text-that-fits behavior[\s\S]*never use one smaller fixed size for every phrase[\s\S]*never permit clipping, overflow, or an ellipsis/,
+  /middle importance box shows authored English learning content[\s\S]*start at the established responsive size[\s\S]*native largest-text-that-fits behavior[\s\S]*never use one smaller fixed size for every phrase[\s\S]*never permit clipping, overflow, or an ellipsis/,
   'Durable product memory must define adaptive fitting rather than a fixed smaller font.',
 );
 assert.match(
   guardrails,
-  /compact Spanish instruction lines remain fixed at 14 dp because they are a separate instruction standard/,
+  /Listen uses bold 14 dp `¡Escucha y elige!`[\s\S]*Speak.*bold 14 dp `¡Escucha y repite!`[\s\S]*Recognize.*bold 14 dp `¡Elige la frase correcta!`/,
   'Durable product memory must keep compact instruction typography separate from authored phrase fitting.',
 );
 assert.match(

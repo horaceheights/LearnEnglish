@@ -74,8 +74,8 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /<Text accessibilityRole="header" style=\{\[styles\.stage,[\s\S]*activeStageColor \? \{ color: activeStageColor \} : null,[\s\S]*\]\}>/,
-  'The middle section label must receive the active journey-segment color.',
+  /<Text accessibilityRole="header" style=\{\[[\s\S]*?styles\.stage,[\s\S]*?activeStageColor \? \{ color: activeStageColor \} : null,[\s\S]*?\]\}>/,
+  'The illustrated-panel section label must receive the active journey-segment color.',
 );
 assert.doesNotMatch(
   screenSource,
@@ -98,8 +98,8 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Matching the middle section label to its journey-segment color does not authorize changing the third line/,
-  'Durable product memory must protect learning phrases from the middle-line color rule.',
+  /Color every active mobile section label with the exact color of its matching journey segment/,
+  'Durable product memory must protect the shared section-color rule.',
 );
 assert.match(
   interactionVerifier,
