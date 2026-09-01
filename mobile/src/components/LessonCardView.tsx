@@ -6,7 +6,7 @@ import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } 
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
-import { lessonHelpText } from '../lessonHelp';
+import { lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import type { LessonCard } from '../types';
 import {
@@ -45,6 +45,7 @@ type Props = {
   onPronunciationPassed: (firstTry: boolean) => void;
   onPronunciationUnavailable: () => void;
   onGrammarAnimationComplete: () => void;
+  promptInteractionMode?: PromptInteractionMode;
 };
 
 export function LessonCardView({
@@ -68,6 +69,7 @@ export function LessonCardView({
   onPronunciationPassed,
   onPronunciationUnavailable,
   onGrammarAnimationComplete,
+  promptInteractionMode = 'gestures',
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -344,7 +346,7 @@ export function LessonCardView({
         <View style={styles.help}>
           <Text accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
           <Text accessibilityLiveRegion="polite" style={styles.helpText}>
-            {lessonHelpText(card)}
+            {lessonHelpText(card, promptInteractionMode)}
           </Text>
         </View>
       ) : null}

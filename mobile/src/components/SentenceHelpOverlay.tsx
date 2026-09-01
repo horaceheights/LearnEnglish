@@ -6,10 +6,17 @@ type Props = {
   anchorBottom?: number;
   onDismiss: () => void;
   onSuppress: () => void;
+  promptInteractionMode?: 'gestures' | 'translation-on-tap';
   visible: boolean;
 };
 
-export function SentenceHelpOverlay({ anchorBottom, onDismiss, onSuppress, visible }: Props) {
+export function SentenceHelpOverlay({
+  anchorBottom,
+  onDismiss,
+  onSuppress,
+  promptInteractionMode = 'gestures',
+  visible,
+}: Props) {
   const { height, width } = useWindowDimensions();
   const isLandscape = width > height;
   const estimatedHeight = isLandscape ? 150 : 216;
@@ -56,10 +63,18 @@ export function SentenceHelpOverlay({ anchorBottom, onDismiss, onSuppress, visib
                   ¿Necesitas ayuda?
                 </Text>
                 <Text style={styles.message}>
-                  Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.
+                  {promptInteractionMode === 'translation-on-tap' ? (
+                    <>Toca la <Text style={styles.emphasis}>frase</Text> para ver su traducción.</>
+                  ) : (
+                    <>Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.</>
+                  )}
                 </Text>
                 <Text style={styles.message}>
-                  Toca <Text style={styles.emphasis}>dos veces</Text> la palabra para ver su traducción.
+                  {promptInteractionMode === 'translation-on-tap' ? (
+                    <>Toca el <Text style={styles.emphasis}>botón de sonido</Text> para escucharla otra vez.</>
+                  ) : (
+                    <>Toca <Text style={styles.emphasis}>dos veces</Text> la palabra para ver su traducción.</>
+                  )}
                 </Text>
                 <View style={styles.buttonRow}>
                   <Pressable
