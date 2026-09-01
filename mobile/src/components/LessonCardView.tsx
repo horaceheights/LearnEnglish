@@ -4,6 +4,7 @@ import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
+import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { lessonHelpText } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
@@ -26,12 +27,14 @@ const TEXT_OPTION_THEMES = [
 type Props = {
   audioProvider: CourseAudioProvider;
   audioVoice: CourseAudioVoice;
+  activeTurnImageUrl?: string | null;
   card: LessonCard;
   level: string;
   lessonId: string;
   isAppActive: boolean;
   isOffline: boolean;
   optionsInteractive?: boolean;
+  pronunciationAudioTurns?: CourseAudioTurnPlayback[] | null;
   userId?: string;
   selectedId: string | null;
   result: 'correct' | 'wrong' | null;
@@ -47,12 +50,14 @@ type Props = {
 export function LessonCardView({
   audioProvider,
   audioVoice,
+  activeTurnImageUrl = null,
   card,
   level,
   lessonId,
   isAppActive,
   isOffline,
   optionsInteractive = true,
+  pronunciationAudioTurns = null,
   userId,
   selectedId,
   result,
@@ -343,7 +348,7 @@ export function LessonCardView({
           </Text>
         </View>
       ) : null}
-      {card.prompt_image_url ? (
+      {activeTurnImageUrl || card.prompt_image_url ? (
         <LessonMediaFrame
           frameStyle={[
             styles.promptImageFrame,
@@ -353,12 +358,13 @@ export function LessonCardView({
         >
           <OptionMediaImage
             accessibilityLabel={card.answer_audio_text || card.prompt}
-            imageUrl={card.prompt_image_url}
+            imageUrl={activeTurnImageUrl || card.prompt_image_url}
           />
         </LessonMediaFrame>
       ) : null}
       {isPronunciation ? (
         <PronunciationPractice
+          audioTurns={pronunciationAudioTurns}
           audioProvider={audioProvider}
           audioVoice={audioVoice}
           imageHeight={showHelp

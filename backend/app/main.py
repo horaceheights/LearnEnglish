@@ -1,3 +1,4 @@
+import json
 import os
 import time
 from pathlib import Path
@@ -12,9 +13,14 @@ from .api_auth import api_request_is_authorized
 from .diagnostics import initialize_diagnostics
 from .course_audio import (
     audio_debug,
-    get_course_audio,
-    get_course_completion_audio,
     ready_cue_wav,
+)
+from .card_audio_assets import (
+    read_asset,
+    seed_static_assets,
+    storage_dir,
+    storage_status,
+    store_approved_asset,
 )
 from .data import LESSONS, LESSON_IMAGE_DIR
 from .legal import account_deletion_html, privacy_policy_html
@@ -60,6 +66,12 @@ if not ADMIN_API_KEY:
     print("WARNING: ADMIN_API_KEY is not set; admin endpoints are unavailable.")
 
 
+@app.on_event("startup")
+def prepare_persistent_course_audio() -> None:
+    status = seed_static_assets(LESSONS)
+    print(f"Persistent course audio ready at {storage_dir()}: {status}")
+
+
 @app.on_event("shutdown")
 async def shutdown_clients():
     await close_pronunciation_clients()
@@ -95,10 +107,6 @@ _RATE_LIMITS: dict[str, tuple[int, float]] = {
     "/api/pronunciation/score": (30, 60.0),
     "/api/pronunciation/interpret-azure": (30, 60.0),
     "/api/pronunciation/token": (30, 60.0),
-    "/api/audio/course": (90, 60.0),
-    "/api/audio/course.mp3": (90, 60.0),
-    "/api/audio/course-completion": (90, 60.0),
-    "/api/audio/course-completion.mp3": (90, 60.0),
     "/api/feedback/transcribe": (15, 60.0),
 }
 
@@ -247,7 +255,11 @@ async def pronunciation_token():
 
 @app.get("/api/audio/health")
 def audio_health():
-    return audio_debug()
+    return {
+        **audio_debug(),
+        "learner_generation_enabled": False,
+        "persistent_asset_dir": str(storage_dir()),
+    }
 
 
 @app.get("/api/audio/course")
@@ -260,13 +272,9 @@ async def read_course_audio(
     provider: str = "openai",
     narrator: str = "female-teacher",
 ):
-    return await get_course_audio(
-        text=text,
-        mode=mode,
-        lang=lang,
-        variant=variant,
-        provider=provider,
-        narrator=narrator,
+    raise HTTPException(
+        status_code=410,
+        detail="Live learner audio generation is disabled. Use a card audio asset ID.",
     )
 
 
@@ -282,16 +290,37 @@ async def read_course_completion_audio(
     provider: str = "elevenlabs-premium",
     narrator: str = "female-teacher",
 ):
-    return await get_course_completion_audio(
-        visual_prompt=visual_prompt,
-        full_text=full_text,
-        blank_text=blank_text,
-        mode=mode,
-        lang=lang,
-        variant=variant,
-        provider=provider,
-        narrator=narrator,
+    raise HTTPException(
+        status_code=410,
+        detail="Live learner audio generation is disabled. Use a card audio asset ID.",
     )
+
+
+@app.get("/api/audio/assets/{asset_id}.mp3")
+def read_course_audio_asset(asset_id: str):
+    return read_asset(asset_id, LESSONS)
+
+
+@app.get("/api/admin/audio/assets")
+def read_course_audio_asset_inventory():
+    return storage_status(LESSONS)
+
+
+@app.put("/api/admin/audio/assets/{asset_id}")
+async def upload_course_audio_asset(
+    asset_id: str,
+    file: UploadFile = File(...),
+    provenance: str = Form(...),
+):
+    if len(provenance.encode("utf-8")) > 32 * 1024:
+        raise HTTPException(status_code=413, detail="Course audio provenance is too large.")
+    try:
+        parsed_provenance = json.loads(provenance)
+    except json.JSONDecodeError as error:
+        raise HTTPException(status_code=422, detail="Course audio provenance must be valid JSON.") from error
+    if not isinstance(parsed_provenance, dict):
+        raise HTTPException(status_code=422, detail="Course audio provenance must be a JSON object.")
+    return await store_approved_asset(asset_id, file, parsed_provenance, LESSONS)
 
 
 @app.get("/api/audio/ready-cue")

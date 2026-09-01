@@ -49,6 +49,10 @@ def model_payload(model: object) -> dict[str, object]:
     for card in payload.get("cards", []):
         if card.get("spanish_translation") is None:
             card.pop("spanish_translation", None)
+        if not card.get("audio_turns"):
+            card.pop("audio_turns", None)
+        if not card.get("answer_audio_turns"):
+            card.pop("answer_audio_turns", None)
     return payload
 
 
@@ -85,7 +89,12 @@ def lesson_image_names() -> list[str]:
     option_names: set[str] = set()
     for lesson in LESSONS.values():
         for card in lesson.cards:
-            paths = [card.prompt_image_url, *(option.image_url for option in card.options)]
+            paths = [
+                card.prompt_image_url,
+                *(option.image_url for option in card.options),
+                *(turn.image_url for turn in card.audio_turns),
+                *(turn.image_url for turn in card.answer_audio_turns),
+            ]
             for image_url in paths:
                 clean_path = str(image_url or "").split("?", 1)[0].split("#", 1)[0]
                 name = Path(clean_path).name

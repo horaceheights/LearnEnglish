@@ -56,7 +56,6 @@ ELEVENLABS_PREMIUM_CAST = {
     "female-teacher": DEFAULT_ELEVENLABS_PREMIUM_VOICE_ID,
     # Natural default voices available to paid API accounts.
     "female-warm": "EXAVITQu4vr4xnSDxMaL",  # Sarah
-    "male-warm": "nPczCjzI2devNBz1zQrb",  # Brian
     "male-conversational": "TX3LPaxmHKxFdv7VOQHJ",  # Liam
 }
 PROMPT_TARGET_SPM = 150

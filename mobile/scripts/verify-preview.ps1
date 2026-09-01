@@ -10,6 +10,8 @@ $ErrorActionPreference = 'Stop'
 $repositoryRoot = Get-ReleaseRepositoryRoot
 $mobileRoot = Split-Path -Parent $PSScriptRoot
 $validator = Join-Path $repositoryRoot 'scripts\validate_lesson_cards.py'
+$audioCastValidator = Join-Path $repositoryRoot 'scripts\validate_course_audio_cast.py'
+$persistentAudioValidator = Join-Path $repositoryRoot 'scripts\validate_persistent_course_audio.py'
 $interactionVerifier = Join-Path $PSScriptRoot 'verify-interaction-paths.ps1'
 $typescriptCompiler = Join-Path $mobileRoot 'node_modules\typescript\bin\tsc'
 $expoCli = Join-Path $mobileRoot 'node_modules\expo\bin\cli'
@@ -27,6 +29,12 @@ Push-Location $repositoryRoot
 try {
   Invoke-CheckedCommand -FailureMessage 'La validación de contenido encontró errores.' -Command {
     & $pythonCommand $validator --semantic-review-policy $semanticReviewPolicy
+  }
+  Invoke-CheckedCommand -FailureMessage 'La asignación de voces del curso encontró errores.' -Command {
+    & $pythonCommand $audioCastValidator
+  }
+  Invoke-CheckedCommand -FailureMessage 'El audio persistente del curso está incompleto o es inválido.' -Command {
+    & $pythonCommand $persistentAudioValidator
   }
 } finally {
   Pop-Location

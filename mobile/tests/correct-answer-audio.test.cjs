@@ -23,8 +23,20 @@ assert.match(
 
 assert.match(
   lessonScreen,
-  /const answerText = correctSelectionAudioText\(card\)[\s\S]*?ensureAudioPreloaded\(courseAudioSource\([\s\S]*?answerText/,
-  'The correct-answer fallback must preload with the rest of the active card audio.',
+  /const preloadCardAudio = useCallback\(\(card\?: LessonCard\) => \{[\s\S]*?card\.audio_assets\.map\(\(asset\) => ensureAudioPreloaded\(courseAudioAssetSource\(asset\)\)\)/,
+  'Every card-bound answer asset must preload through its persistent asset ID.',
+);
+
+assert.match(
+  lessonScreen,
+  /const purpose = variant === 'answer' \? 'answer' : 'prompt';[\s\S]*?findCourseAudioAsset\(card, purpose, mode, variant, text\)[\s\S]*?playAudioSource\(courseAudioAssetSource\(asset\), mode, variant\)/,
+  'Answer playback must resolve the active card answer asset and never synthesize from text.',
+);
+
+assert.match(
+  lessonScreen,
+  /const playAnswerAfterChime = useCallback\(\(text: string\) => \{[\s\S]*?playAudio\(text, 'prompt', 'answer'\);/,
+  'The post-chime answer path must select the persistent answer variant.',
 );
 
 assert.match(

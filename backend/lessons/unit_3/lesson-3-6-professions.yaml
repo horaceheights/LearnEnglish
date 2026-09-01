@@ -171,7 +171,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cuál es tu trabajo?",
-      "pedagogy_note": "fixed job question"
+      "pedagogy_note": "fixed job question",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "L8",
@@ -188,6 +189,18 @@
       ],
       "audio_text": "What is your job? I am a teacher.",
       "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "What is your job?",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp"
+        },
+        {
+          "text": "I am a teacher.",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_teacher-ana_0e983a0.webp"
+        }
+      ],
       "prompt_image_url": "",
       "spanish_translation": "¿Cuál es tu trabajo? Soy maestra.",
       "pedagogy_note": "complete exchange"
@@ -349,7 +362,8 @@
       "answer_audio_text": "I am a nurse.",
       "prompt_image_url": "a1_scene_nurse-sofia_63f2a9c.webp",
       "spanish_translation": "¿Cuál es tu trabajo?",
-      "pedagogy_note": "question shown/played before choices"
+      "pedagogy_note": "question shown/played before choices",
+      "answer_audio_speaker": "female-character"
     },
     {
       "slide_id": "R7",
@@ -373,7 +387,9 @@
       "answer_audio_text": "I am from Mexico.",
       "prompt_image_url": "a1_scene_ana_mexico.webp",
       "spanish_translation": "¿De dónde eres?",
-      "pedagogy_note": "3.5 review"
+      "pedagogy_note": "3.5 review",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "ana"
     },
     {
       "slide_id": "R8",
@@ -397,7 +413,8 @@
       "answer_audio_text": "I am eighteen years old.",
       "prompt_image_url": "a1_scene_age-luis-18_7f71348.webp",
       "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "3.4 review"
+      "pedagogy_note": "3.4 review",
+      "answer_audio_speaker": "luis"
     },
     {
       "slide_id": "N1",
@@ -421,7 +438,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
+      "pedagogy_note": "text hidden",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "N2",
@@ -570,7 +588,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Soy maestra.",
-      "pedagogy_note": "profession statement"
+      "pedagogy_note": "profession statement",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "S2",
@@ -644,6 +663,18 @@
       ],
       "audio_text": "What is your job? I am a teacher.",
       "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "What is your job?",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_job-dialogue-teacher_be7d927.webp"
+        },
+        {
+          "text": "I am a teacher.",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_teacher-ana_0e983a0.webp"
+        }
+      ],
       "prompt_image_url": "",
       "spanish_translation": "¿Cuál es tu trabajo? Soy maestra.",
       "pedagogy_note": "complete exchange"
@@ -663,6 +694,18 @@
       ],
       "audio_text": "What is your job? I am a driver.",
       "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "What is your job?",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_job-dialogue-driver_acd1aee.webp"
+        },
+        {
+          "text": "I am a driver.",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_driver-luis_111aa43.webp"
+        }
+      ],
       "prompt_image_url": "",
       "spanish_translation": "¿Cuál es tu trabajo? Soy conductor.",
       "pedagogy_note": "complete exchange"
@@ -694,7 +737,8 @@
       "answer_audio_text": "I am a teacher.",
       "prompt_image_url": "a1_scene_teacher-ana_0e983a0.webp",
       "spanish_translation": "Soy ___.",
-      "pedagogy_note": "profession slot"
+      "pedagogy_note": "profession slot",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U2",
@@ -776,7 +820,8 @@
       "answer_audio_text": "What is your job?",
       "prompt_image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
       "spanish_translation": "¿Cuál es tu ___?",
-      "pedagogy_note": "question chunk"
+      "pedagogy_note": "question chunk",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U5",
@@ -800,7 +845,9 @@
       "answer_audio_text": "I am a driver.",
       "prompt_image_url": "a1_scene_job-dialogue-driver_acd1aee.webp",
       "spanish_translation": "¿Cuál es tu trabajo?",
-      "pedagogy_note": "unambiguous function contrast"
+      "pedagogy_note": "unambiguous function contrast",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "luis"
     },
     {
       "slide_id": "U6",
@@ -829,7 +876,8 @@
       "answer_audio_text": "I am from Mexico.",
       "prompt_image_url": "a1_scene_ana_mexico.webp",
       "spanish_translation": "Soy de ___.",
-      "pedagogy_note": "3.5 review"
+      "pedagogy_note": "3.5 review",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U7",
