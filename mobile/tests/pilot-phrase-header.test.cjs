@@ -55,8 +55,18 @@ assert.match(
 
 assert.match(
   mobileScreenSource,
-  /pilotReplayButton:[\s\S]*?height: 44[\s\S]*?right: -8[\s\S]*?width: 44/,
-  'The pilot replay touch surface must overlap the phrase-card edge at the approved size.',
+  /pilotReplayButton:[\s\S]*?backgroundColor: 'transparent'[\s\S]*?height: 44[\s\S]*?right: -8[\s\S]*?width: 44/,
+  'The pilot replay touch surface must remain transparent and overlap the phrase-card edge at the approved size.',
+);
+
+const pilotReplayButtonStyle = mobileScreenSource.match(
+  /pilotReplayButton: \{([\s\S]*?)\n  \},\n  pilotReplayIcon:/,
+)?.[1] ?? '';
+
+assert.doesNotMatch(
+  pilotReplayButtonStyle,
+  /borderColor|borderWidth|elevation|shadowColor|shadowOffset|shadowOpacity|shadowRadius/,
+  'The invisible pilot replay touch target must not draw the white cutout, border, elevation, or shadow.',
 );
 
 assert.match(
