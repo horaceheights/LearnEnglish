@@ -4,6 +4,7 @@ import type { ComponentProps } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import { lessonStageShortLabel } from '../lessonInstructions';
+import { LESSON_STAGE_COLORS, lessonStageColorForSegment } from '../lessonStageTheme';
 import type { LessonCard } from '../types';
 
 type Props = {
@@ -24,17 +25,6 @@ type StageSegment = {
 };
 
 type StageIconName = ComponentProps<typeof Ionicons>['name'];
-
-const STAGE_COLORS = [
-  '#4f7cac',
-  '#df765b',
-  '#8865b4',
-  '#279487',
-  '#d99b20',
-  '#577590',
-  '#b85d87',
-  '#638b52',
-];
 
 function stageIcon(stage: string): StageIconName {
   const normalized = stage.toLowerCase();
@@ -102,8 +92,8 @@ export function StageJourney({
           const isActive = index === activeSegmentIndex;
           const isComplete = allComplete || index < activeSegmentIndex;
           const isUnlocked = segment.start <= maxVisitedIndex;
-          const color = STAGE_COLORS[index % STAGE_COLORS.length];
-          const foregroundColor = color === '#d99b20' ? '#3d2a00' : '#fff';
+          const color = lessonStageColorForSegment(index);
+          const foregroundColor = color === LESSON_STAGE_COLORS[4] ? '#3d2a00' : '#fff';
           return (
             <Pressable
               accessibilityLabel={`Ir a la sección ${segment.label}${isComplete ? ', completada' : isActive ? ', sección actual' : !isUnlocked ? ', bloqueada' : ''}`}

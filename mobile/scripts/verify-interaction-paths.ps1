@@ -78,6 +78,24 @@ try {
   & node tests/tablet-lesson-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de diseño para encabezados grandes en teléfonos y tabletas.' }
 
+  & node tests/listen-instruction-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección del encabezado compacto de comprensión auditiva.' }
+
+  & node tests/recognize-instruction-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la instrucción compacta para elegir frases.' }
+
+  & node tests/speak-instruction-header.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la instrucción compacta de pronunciación.' }
+
+  & node tests/lesson-section-header-color.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de colores compartidos entre secciones y recorrido.' }
+
+  & node tests/lesson-header-text-fit.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de ajuste dinámico del texto del encabezado.' }
+
+  & node tests/completion-equivalence-emphasis.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de énfasis para equivalencias entre sustantivos y pronombres.' }
+
   & node tests/logo-home-navigation.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de navegación del logo a Inicio.' }
 
