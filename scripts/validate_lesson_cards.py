@@ -643,8 +643,14 @@ def _mobile_export_payload(model: object) -> dict[str, object]:
     cards = payload.get("cards") or []
     if isinstance(cards, list):
         for card in cards:
-            if isinstance(card, dict) and card.get("spanish_translation") is None:
+            if not isinstance(card, dict):
+                continue
+            if card.get("spanish_translation") is None:
                 card.pop("spanish_translation", None)
+            if not card.get("audio_turns"):
+                card.pop("audio_turns", None)
+            if not card.get("answer_audio_turns"):
+                card.pop("answer_audio_turns", None)
     return payload
 
 

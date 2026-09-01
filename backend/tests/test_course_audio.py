@@ -442,14 +442,15 @@ class CourseAudioProfileTests(unittest.TestCase):
         self.assertEqual("elevenlabs-premium", normalized_provider(" ElevenLabs-Premium "))
         self.assertEqual("azure", normalized_provider(" Azure "))
 
-    def test_premium_cast_has_distinct_male_and_female_narrators(self):
+    def test_premium_cast_has_distinct_active_male_and_female_narrators(self):
         voices = {
             premium_voice_for_narrator("female-teacher"),
             premium_voice_for_narrator("female-warm"),
-            premium_voice_for_narrator("male-warm"),
             premium_voice_for_narrator("male-conversational"),
         }
-        self.assertEqual(4, len(voices))
+        self.assertEqual(3, len(voices))
+        with self.assertRaises(HTTPException):
+            premium_voice_for_narrator("male-warm")
 
     def test_every_variant_uses_the_same_teacher_voice(self):
         self.assertEqual(voice_for_variant("default"), voice_for_variant("question"))

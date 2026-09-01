@@ -256,7 +256,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "introduces fixed age question"
+      "pedagogy_note": "introduces fixed age question",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "L12",
@@ -275,7 +276,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Tengo veinte años.",
-      "pedagogy_note": "introduces age answer frame; exceptional Learn count prevents leakage"
+      "pedagogy_note": "introduces age answer frame; exceptional Learn count prevents leakage",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "R1",
@@ -463,7 +465,8 @@
       "answer_audio_text": "I am twenty years old.",
       "prompt_image_url": "a1_scene_age-ana-20_7acc289.webp",
       "spanish_translation": "¿Cuántos años tienes?",
-      "pedagogy_note": "question shown/played before choices"
+      "pedagogy_note": "question shown/played before choices",
+      "answer_audio_speaker": "ana"
     },
     {
       "slide_id": "R8",
@@ -607,7 +610,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden; the handwritten numeral on Ana's physical survey form provides age evidence"
+      "pedagogy_note": "text hidden; the handwritten numeral on Ana's physical survey form provides age evidence",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "N6",
@@ -724,6 +728,18 @@
       ],
       "audio_text": "How old are you? I am twenty years old.",
       "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "How old are you?",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_age-luis-asks-ana_132f348.webp"
+        },
+        {
+          "text": "I am twenty years old.",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_age-ana-answers-20_a9aeaf1.webp"
+        }
+      ],
       "prompt_image_url": "",
       "spanish_translation": "¿Cuántos años tienes? Tengo veinte años.",
       "pedagogy_note": "complete exchange"
@@ -743,6 +759,18 @@
       ],
       "audio_text": "How old are you? I am eighteen years old.",
       "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "How old are you?",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_age-ana-asks-luis_4f56eef.webp"
+        },
+        {
+          "text": "I am eighteen years old.",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_age-luis-answers-18_27d08d5.webp"
+        }
+      ],
       "prompt_image_url": "",
       "spanish_translation": "¿Cuántos años tienes? Tengo dieciocho años.",
       "pedagogy_note": "complete exchange; answer phrase was introduced structurally in L12"
@@ -856,7 +884,8 @@
       "answer_audio_text": "How old are you?",
       "prompt_image_url": "a1_scene_age-question-ana_8cb0ea5.webp",
       "spanish_translation": "¿Cuántos años ___?",
-      "pedagogy_note": "fixed question completion"
+      "pedagogy_note": "fixed question completion",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "U5",
@@ -880,7 +909,8 @@
       "answer_audio_text": "How old are you?",
       "prompt_image_url": "a1_scene_age-question-luis_c9558de.webp",
       "spanish_translation": "¿Cuántos años ___?",
-      "pedagogy_note": "be agreement"
+      "pedagogy_note": "be agreement",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U6",
@@ -909,7 +939,8 @@
       "answer_audio_text": "I am twenty years old.",
       "prompt_image_url": "a1_scene_age-ana-20_7acc289.webp",
       "spanish_translation": "Tengo ___ años.",
-      "pedagogy_note": "age answer"
+      "pedagogy_note": "age answer",
+      "audio_speaker": "ana"
     },
     {
       "slide_id": "U7",
@@ -938,7 +969,8 @@
       "answer_audio_text": "I am eighteen years old.",
       "prompt_image_url": "a1_scene_age-luis-18_7f71348.webp",
       "spanish_translation": "Tengo ___ años.",
-      "pedagogy_note": "age answer"
+      "pedagogy_note": "age answer",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "U8",
@@ -962,7 +994,8 @@
       "answer_audio_text": "I am twenty years old.",
       "prompt_image_url": "a1_scene_age-ana-20_7acc289.webp",
       "spanish_translation": "Yo ___ veinte años.",
-      "pedagogy_note": "3.3 review"
+      "pedagogy_note": "3.3 review",
+      "audio_speaker": "ana"
     }
   ]
 }

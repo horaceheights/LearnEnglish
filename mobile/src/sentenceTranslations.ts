@@ -145,7 +145,7 @@ const EXACT_TRANSLATIONS: Record<string, string> = {
   'meet the family.': 'Conoce a la familia.',
   'people': 'Personas',
   'the boy is eating, ___ is eating.': 'El niño está comiendo, ___ está comiendo.',
-  'the girl is writing, ___ is writing.': 'La niña está escribiendo, ___ está escribiendo.',
+  'the girl is sitting and ___ is writing.': 'La niña está sentada y ___ está escribiendo.',
   'the man is reading, ___ is reading.': 'El hombre está leyendo, ___ está leyendo.',
   'the woman is drinking, ___ is drinking.': 'La mujer está bebiendo, ___ está bebiendo.',
   'the boy ___ the girl are running.': 'El niño ___ la niña están corriendo.',

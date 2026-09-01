@@ -5,7 +5,13 @@ services:
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    disk:
+      name: course-audio
+      mountPath: /var/data/course-audio
+      sizeGB: 1
     envVars:
+      - key: COURSE_AUDIO_STORAGE_DIR
+        value: /var/data/course-audio
       - key: APP_API_KEY
         sync: false
       - key: ADMIN_API_KEY
