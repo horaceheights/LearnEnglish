@@ -71757,6 +71757,133 @@
           "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
         }
       }
+    },
+    "f709d5cebac4fd601f2bc589978ed0a6189068c8b4cd44ab08fa39dd1429c5e8": {
+      "file": "takes/f709d5cebac4fd601f2bc589978ed0a6189068c8b4cd44ab08fa39dd1429c5e8.mp3",
+      "audio_sha256": "f709d5cebac4fd601f2bc589978ed0a6189068c8b4cd44ab08fa39dd1429c5e8",
+      "bytes": 46413,
+      "text": "The girl is sitting and she is writing.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "captured-legacy-render-backend",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Captured byte-for-byte from the configured legacy Render backend during the persistent-audio migration.",
+          "The backend generated only visible completion fragments and stitched them around deterministic digital silence."
+        ],
+        "generated_at": null,
+        "captured_at": "2026-09-01T01:40:56.022975+00:00",
+        "approved_at": "2026-09-01T01:40:55.372964+00:00",
+        "request_id": null,
+        "trace_id": null,
+        "character_cost": null,
+        "character_cost_upper_bound": 35,
+        "provider_requests": [
+          {
+            "source": "legacy-render-backend",
+            "provider": "elevenlabs-premium",
+            "audio_profile": "visible-fragments-phonetic-ending-v3"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "The girl is sitting and ___ is writing.",
+        "full_text": "The girl is sitting and she is writing.",
+        "blank_text": "she"
+      }
+    },
+    "1ea53124c04d1d1f1306e5de9610be3a38133d6a8add9e608e9e8f564204921d": {
+      "file": "takes/1ea53124c04d1d1f1306e5de9610be3a38133d6a8add9e608e9e8f564204921d.mp3",
+      "audio_sha256": "1ea53124c04d1d1f1306e5de9610be3a38133d6a8add9e608e9e8f564204921d",
+      "bytes": 38637,
+      "text": "The girl is sitting and she is writing.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "captured-legacy-render-backend",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Captured byte-for-byte from the configured legacy Render backend during the persistent-audio migration.",
+          "The backend used the pinned ElevenLabs profile and course_audio.normalize_course_audio pipeline."
+        ],
+        "generated_at": null,
+        "captured_at": "2026-09-01T01:40:58.948066+00:00",
+        "approved_at": "2026-09-01T01:40:55.372964+00:00",
+        "request_id": null,
+        "trace_id": null,
+        "character_cost": null,
+        "character_cost_upper_bound": 39,
+        "provider_requests": [
+          {
+            "source": "legacy-render-backend",
+            "provider": "elevenlabs-premium",
+            "audio_profile": "a1-elevenlabs-cast-v14"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
     }
   },
   "bindings": {
@@ -89539,6 +89666,16 @@
       "take_id": "8632b841b607501f9c0b1e9a27654666b298b7d260181c45c405c68c65dd415a",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-2-pronouns-c034-prompt-d09af41f3a75c09fcf82": {
+      "take_id": "f709d5cebac4fd601f2bc589978ed0a6189068c8b4cd44ab08fa39dd1429c5e8",
+      "approved_at": "2026-09-01T01:40:55.372964+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-pronouns-c034-answer-156f449a6145583a6ca2": {
+      "take_id": "1ea53124c04d1d1f1306e5de9610be3a38133d6a8add9e608e9e8f564204921d",
+      "approved_at": "2026-09-01T01:40:55.372964+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     }
   }
 }
