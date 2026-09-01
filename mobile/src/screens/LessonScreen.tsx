@@ -54,7 +54,15 @@ import {
   setDiagnosticContext,
   setDiagnosticOperation,
 } from '../diagnostics';
-import { lessonPromptText, lessonStageLabel, pronunciationInstruction } from '../lessonInstructions';
+import {
+  lessonHeaderPromptText,
+  lessonStageLabel,
+  pronunciationInstruction,
+  usesCompactListenInstruction,
+  usesCompactRecognizeInstruction,
+  usesCompactSpeakInstruction,
+} from '../lessonInstructions';
+import { lessonStageColorForCard } from '../lessonStageTheme';
 import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
 import { preloadPronunciationAudioWithRetry } from '../pronunciationAudioGate';
 import { useConnectivity } from '../hooks/useConnectivity';
@@ -698,6 +706,7 @@ export function LessonScreen({
 
   const currentCard = lesson?.cards[cardIndex];
   const lessonLocation = lesson ? lessonLocationLabel(lesson) : '';
+  const activeStageColor = lessonStageColorForCard(lesson?.cards ?? [], cardIndex);
   const isPronunciation = currentCard?.stage === 'Pronunciation Practice' || currentCard?.stage === 'Speak';
   const pronunciationAudioGateKey = isPronunciation && currentCard
     ? `${lessonId}:${cardIndex}:${cardRunId}:${audioVoice}:${currentCard.audio_text ?? currentCard.prompt}`
@@ -707,10 +716,24 @@ export function LessonScreen({
     || pronunciationAudioReadyKey === pronunciationAudioGateKey;
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isListen = currentCard?.stage === 'Listen';
+  const useCompactListenInstruction = usesCompactListenInstruction(
+    currentCard?.stage ?? '',
+    currentCard?.prompt ?? '',
+  );
+  const useCompactRecognizeInstruction = usesCompactRecognizeInstruction(
+    currentCard?.stage ?? '',
+    currentCard?.prompt ?? '',
+  );
+  const useCompactSpeakInstruction = usesCompactSpeakInstruction(currentCard?.stage ?? '');
+  const useCompactHeaderInstruction = useCompactListenInstruction
+    || useCompactRecognizeInstruction
+    || useCompactSpeakInstruction;
   const correctAnswerAudio = currentCard
     ? correctSelectionAudioText(currentCard, selectedId)
     : '';
-  const isStageOnlyHeader = !isPronunciation && !currentCard?.prompt?.trim();
+  const isStageOnlyHeader = !isPronunciation
+    && !currentCard?.prompt?.trim()
+    && !useCompactRecognizeInstruction;
   // Pronunciation results remain visible for three seconds inside the practice
   // component, then advance automatically without a swipe-review step.
   const pauseForPronunciationReview = false;
@@ -1861,8 +1884,12 @@ export function LessonScreen({
     : useCompactPhoneLayout
       ? Math.max(27, Math.min(35, viewportHeight * 0.085))
       : Math.max(31, Math.min(43, viewportHeight * 0.062));
-  const promptFontSize = basePromptFontSize * (correctContrastPrompt ? 0.76 : 1);
-  const promptLineHeight = basePromptLineHeight * (correctContrastPrompt ? 0.82 : 1);
+  const promptFontSize = useCompactHeaderInstruction
+    ? 14
+    : basePromptFontSize * (correctContrastPrompt ? 0.76 : 1);
+  const promptLineHeight = useCompactHeaderInstruction
+    ? 18
+    : basePromptLineHeight * (correctContrastPrompt ? 0.82 : 1);
 
   const renderPrompt = () => {
     if (!currentCard) return '';
@@ -1881,7 +1908,8 @@ export function LessonScreen({
       : currentCard.stage === 'More People' || normalizedStage.includes('plural')
         ? new Set(['and', 'are'])
         : new Set<string>();
-    return lessonPromptText(lesson.id, displayedPrompt).split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
+    const localizedPrompt = lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt);
+    return localizedPrompt.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
       const normalizedPart = part.toLowerCase();
       const isNotConceptFocus = lesson.id === 'lesson-7-is-are-not' && normalizedPart === 'not';
       if (newVocabularyWords.has(normalizedPart)) {
@@ -2164,12 +2192,16 @@ export function LessonScreen({
           isStageOnlyHeader && isPortrait ? styles.contentHeaderStageOnlyPortrait : null,
           isPronunciation ? styles.contentHeaderPronunciation : null,
           isPronunciation && isPortrait ? styles.contentHeaderPronunciationPortrait : null,
+          useCompactHeaderInstruction ? styles.contentHeaderCompactInstruction : null,
           isCompletedSectionPicker ? styles.reviewContentInactive : null,
         ]}>
           <Text numberOfLines={1} style={styles.lessonLocation}>
             {lessonLocation}
           </Text>
-          <Text accessibilityRole="header" style={[styles.stage, isStageOnlyHeader ? styles.stageOnlyLabel : null]}>
+          <Text accessibilityRole="header" style={[styles.stage,
+            isStageOnlyHeader ? styles.stageOnlyLabel : null,
+            activeStageColor ? { color: activeStageColor } : null,
+          ]}>
             {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
           </Text>
           {!isStageOnlyHeader ? <View style={[
@@ -2177,15 +2209,24 @@ export function LessonScreen({
             isPortrait ? styles.promptRowPortrait : null,
             isPronunciation ? styles.promptRowPronunciation : null,
             isListen ? styles.promptRowListen : null,
+            useCompactHeaderInstruction ? styles.promptRowCompactInstruction : null,
           ]}>
             <Pressable
               ref={promptTapTargetRef}
-              accessibilityLabel={promptHasVisualBlank ? `Frase para completar: ${visiblePromptAudio}` : `Reproducir: ${visiblePromptAudio}`}
-              accessibilityActions={[{ label: 'Mostrar traducción', name: 'translate' }]}
-              accessibilityHint={promptHasVisualBlank
-                ? 'Toca una vez para repetir la parte visible con una pausa silenciosa. Usa la acción Traducir para ver la frase en español.'
-                : 'Toca una vez para repetir. Usa la acción Traducir para ver la frase en español.'}
-              accessibilityRole="button"
+              accessibilityLabel={useCompactRecognizeInstruction
+                ? 'Instrucción: Elige la frase correcta'
+                : promptHasVisualBlank
+                  ? `Frase para completar: ${visiblePromptAudio}`
+                  : `Reproducir: ${visiblePromptAudio}`}
+              accessibilityActions={useCompactRecognizeInstruction
+                ? []
+                : [{ label: 'Mostrar traducción', name: 'translate' }]}
+              accessibilityHint={useCompactRecognizeInstruction
+                ? undefined
+                : promptHasVisualBlank
+                  ? 'Toca una vez para repetir la parte visible con una pausa silenciosa. Usa la acción Traducir para ver la frase en español.'
+                  : 'Toca una vez para repetir. Usa la acción Traducir para ver la frase en español.'}
+              accessibilityRole={useCompactRecognizeInstruction ? 'text' : 'button'}
               disabled={!visiblePromptAudio.trim()}
               onAccessibilityAction={({ nativeEvent }) => {
                 if (nativeEvent.actionName === 'translate') {
@@ -2201,19 +2242,24 @@ export function LessonScreen({
                 if (showSentenceCoachmark) updateSentenceAnchor();
               }}
               onPress={handlePromptPress}
-              style={[styles.promptTapTarget, isListen ? styles.promptTapTargetListen : null]}
+              style={[
+                styles.promptTapTarget,
+                isListen ? styles.promptTapTargetListen : null,
+                useCompactListenInstruction ? styles.promptTapTargetListenInstruction : null,
+              ]}
             >
               <Text
                 numberOfLines={2}
                 style={[
                   styles.prompt,
+                  useCompactHeaderInstruction ? styles.promptCompactInstruction : null,
                   {
                     fontSize: promptFontSize,
                     lineHeight: promptLineHeight,
                   },
                 ]}
               >
-                {isPronunciation ? pronunciationInstruction(lesson.id) : renderPrompt()}
+                {isPronunciation ? pronunciationInstruction() : renderPrompt()}
               </Text>
               {showSentenceTranslation ? (
                 <Animated.Text
@@ -2458,6 +2504,7 @@ const styles = StyleSheet.create({
   contentHeaderStageOnlyPortrait: { borderRadius: 16, paddingBottom: 5, paddingTop: 5 },
   contentHeaderPronunciation: { paddingBottom: 3, paddingTop: 3 },
   contentHeaderPronunciationPortrait: { paddingBottom: 5, paddingTop: 5 },
+  contentHeaderCompactInstruction: { paddingBottom: 6, paddingTop: 6 },
   lessonLocation: { color: '#8b765d', fontSize: 16, fontWeight: '900', letterSpacing: 0.8, lineHeight: 20, textAlign: 'center' },
   stage: { color: '#4d5559', fontSize: 20, fontWeight: '900', letterSpacing: 1.1, lineHeight: 24, textAlign: 'center' },
   stageOnlyLabel: { lineHeight: 24 },
@@ -2465,9 +2512,12 @@ const styles = StyleSheet.create({
   promptRowPortrait: { alignItems: 'center', flexDirection: 'column-reverse', gap: 3 },
   promptRowPronunciation: { minHeight: 28 },
   promptRowListen: { minHeight: 46 },
+  promptRowCompactInstruction: { minHeight: 44 },
   promptTapTarget: { width: '100%' },
   promptTapTargetListen: { paddingRight: 52 },
+  promptTapTargetListenInstruction: { paddingHorizontal: 52, paddingRight: 52 },
   prompt: { color: '#111', fontWeight: '900', textAlign: 'center' },
+  promptCompactInstruction: { fontWeight: '900' },
   replayButton: {
     alignItems: 'center',
     backgroundColor: '#23856f',
