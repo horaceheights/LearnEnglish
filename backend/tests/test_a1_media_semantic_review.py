@@ -136,6 +136,25 @@ class A1MediaSemanticReviewTests(unittest.TestCase):
             "0" * 64,
         )
 
+    def test_preview_can_synchronize_a_stale_renderer_signature_without_changing_it(self) -> None:
+        changed_manifest = copy.deepcopy(self.manifest)
+        changed_manifest["assets"][0]["review_contexts"][0][
+            "render_signature_sha256"
+        ] = "0" * 64
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            asset_dir = Path(temporary_directory)
+            (asset_dir / self.asset["filename"]).write_bytes(b"preview image")
+            with patch.object(semantic_review, "CANONICAL_ASSET_DIR", asset_dir):
+                registry = semantic_review.synchronized_registry(
+                    changed_manifest,
+                    allow_stale_render_signatures=True,
+                )
+
+        context = registry["approvals"][0]["review_contexts"][0]
+        self.assertEqual(context["render_signature_sha256"], "0" * 64)
+        self.assertEqual(registry["approvals"][0]["decision"], "pending")
+
     def test_every_learner_facing_card_change_invalidates_the_contract(self) -> None:
         original = semantic_review.semantic_contract(self.asset)
         original_hash = semantic_review.semantic_contract_sha256(original)

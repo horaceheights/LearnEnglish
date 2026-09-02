@@ -54,7 +54,7 @@ EXPECTED_VOCABULARY = {
     "lesson-10-family-mission": set(),
 }
 EXPECTED_STAGE_COUNTS = {
-    "lesson-1-people-actions": {"Learn": 8, "Recognize": 8, "Listen": 6, "Speak": 5, "Use": 5},
+    "lesson-1-people-actions": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-2-pronouns": {"Learn": 8, "Recognize": 10, "Listen": 6, "Speak": 6, "Use": 6},
     "lesson-3-two-people": {"Learn": 9, "Recognize": 10, "Listen": 6, "Speak": 6, "Use": 6},
     "lesson-4-children-siblings": {"Learn": 9, "Recognize": 9, "Listen": 6, "Speak": 6, "Use": 6},
@@ -75,6 +75,8 @@ def lesson_payload(lesson):
     for card in payload.get("cards", []):
         if card.get("spanish_translation") is None:
             card.pop("spanish_translation", None)
+        if not card.get("correct_option_ids"):
+            card.pop("correct_option_ids", None)
         if not card.get("audio_turns"):
             card.pop("audio_turns", None)
         if not card.get("answer_audio_turns"):
@@ -406,7 +408,9 @@ class LessonStructureTests(unittest.TestCase):
                 "She",
                 "She is a girl.",
                 "A man",
+                "He is a man.",
                 "A woman",
+                "She is a woman.",
             ],
             [card.prompt for card in lesson.cards if card.stage == "Learn"],
         )
@@ -438,6 +442,7 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(person=person):
                 self.assertIn(f"{person}.webp", referenced_images)
                 self.assertIn(f"a1_l1_{person}_alt.webp", referenced_images)
+                self.assertIn(f"a1_l1_{person}_transfer.webp", referenced_images)
         course_source = (
             Path(__file__).resolve().parents[2]
             / "mobile"
@@ -446,6 +451,57 @@ class LessonStructureTests(unittest.TestCase):
             / "CourseScreen.tsx"
         ).read_text(encoding="utf-8")
         self.assertIn("image: 'a1_l1_people_together.webp'", course_source)
+
+    def test_lesson_1_repeats_one_story_order_through_every_stage(self):
+        lesson = LESSONS["lesson-1-people-actions"]
+        person_rank = {"boy": 0, "girl": 1, "man": 2, "woman": 3}
+
+        for stage in STAGES:
+            targets = []
+            for card in lesson.cards:
+                if card.stage != stage:
+                    continue
+                correct_option = next(
+                    option for option in card.options if option.id == card.correct_option_id
+                )
+                targets.append(" ".join([
+                    card.answer_audio_text or "",
+                    card.audio_text or "",
+                    card.prompt or "",
+                    correct_option.label or "",
+                    correct_option.image_url or "",
+                ]))
+            ranks = [
+                next(
+                    person_rank[person]
+                    for person in person_rank
+                    if re.search(
+                        rf"\b{person}\b",
+                        re.sub(r"[^a-z]+", " ", target.lower()),
+                    )
+                )
+                for target in targets
+            ]
+            with self.subTest(stage=stage):
+                self.assertEqual(sorted(ranks), ranks)
+
+        self.assertGreaterEqual(
+            len({card.interaction_type for card in lesson.cards if card.stage == "Recognize"}),
+            3,
+        )
+        self.assertGreaterEqual(
+            len({card.interaction_type for card in lesson.cards if card.stage == "Listen"}),
+            3,
+        )
+
+    def test_lesson_1_closes_with_ordered_two_word_completions(self):
+        cards = [
+            card for card in LESSONS["lesson-1-people-actions"].cards
+            if card.correct_option_ids
+        ]
+        self.assertEqual(["U5", "U7"], [card.slide_id for card in cards])
+        self.assertEqual([["he", "a"], ["she", "a"]], [card.correct_option_ids for card in cards])
+        self.assertTrue(all(card.prompt.count("___") == 2 for card in cards))
 
     def test_new_words_continue_into_active_stages(self):
         expected_examples = {

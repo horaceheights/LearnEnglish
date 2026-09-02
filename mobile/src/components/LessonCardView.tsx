@@ -23,6 +23,7 @@ const TEXT_OPTION_THEMES = [
   { accent: '#96651d', background: '#fff6df', border: '#e3c27d' },
   { accent: '#4f5d95', background: '#f0f2fa', border: '#adb5d8' },
 ];
+const EMPTY_SELECTED_IDS: string[] = [];
 
 type Props = {
   audioProvider: CourseAudioProvider;
@@ -37,6 +38,7 @@ type Props = {
   pronunciationAudioTurns?: CourseAudioTurnPlayback[] | null;
   userId?: string;
   selectedId: string | null;
+  selectedIds?: string[];
   result: 'correct' | 'wrong' | null;
   gentleFeedback: boolean;
   showHelp: boolean;
@@ -63,6 +65,7 @@ export function LessonCardView({
   pronunciationAudioTurns = null,
   userId,
   selectedId,
+  selectedIds = EMPTY_SELECTED_IDS,
   result,
   gentleFeedback,
   showHelp,
@@ -84,9 +87,16 @@ export function LessonCardView({
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
   const isTabletLandscape = isLandscape && Math.min(viewportWidth, viewportHeight) >= 540;
   const hasTextOnlyOptions = card.options.length > 0 && card.options.every((option) => !option.image_url);
+  const useCompactCompletionTiles = isGrammar
+    && hasTextOnlyOptions
+    && card.options.length === 3
+    && card.options.every((option) => (
+      (option.label?.trim().length || 0) <= 12
+      && (option.label?.trim().split(/\s+/).length || 0) <= 2
+    ));
   // Phrase choices need the full phone width. Stacking them as short horizontal
   // rows keeps each sentence on one line and prevents Android from splitting words.
-  const useHorizontalPhraseOptions = !isLandscape && hasTextOnlyOptions;
+  const useHorizontalPhraseOptions = !isLandscape && hasTextOnlyOptions && !useCompactCompletionTiles;
   // Image-to-text cards are a recurring lesson pattern. Keep the complete
   // prompt image and a 2x2 phrase grid inside a phone's usable portrait area.
   const useDensePortraitTextLayout =
@@ -125,7 +135,9 @@ export function LessonCardView({
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
   const optionWidth =
-    useHorizontalPhraseOptions
+    useCompactCompletionTiles
+      ? '31%'
+      : useHorizontalPhraseOptions
       ? '100%'
       : usePortraitImageStack
       ? '100%'
@@ -139,7 +151,9 @@ export function LessonCardView({
           ? '100%'
           : '48%';
   const optionMinHeight = hasTextOnlyOptions
-    ? useHorizontalPhraseOptions
+    ? useCompactCompletionTiles
+      ? Math.max(64, Math.min(82, viewportHeight * 0.09))
+      : useHorizontalPhraseOptions
       ? Math.max(52, Math.min(62, viewportHeight * 0.07))
       : isLandscape
       ? isTabletLandscape
@@ -195,7 +209,9 @@ export function LessonCardView({
     : 0;
   const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
   const textOptionRows = hasTextOnlyOptions
-    ? useHorizontalPhraseOptions
+    ? useCompactCompletionTiles
+      ? 1
+      : useHorizontalPhraseOptions
       ? card.options.length
       : isLandscape && !useTextGrid
       ? 1
@@ -262,11 +278,22 @@ export function LessonCardView({
   const tabletImageGridWidth = useTabletImageGrid && constrainedLandscapeImageOptionWidth
     ? (constrainedLandscapeImageOptionWidth * 2) + landscapeImageGap
     : null;
+  const effectiveSelectedIds = useMemo(
+    () => selectedIds.length
+      ? selectedIds
+      : selectedId
+        ? [selectedId]
+        : [],
+    [selectedId, selectedIds],
+  );
 
   useEffect(() => {
-    if (!isGrammar || result !== 'correct' || !selectedId) return undefined;
-    const selectedOption = card.options.find((option) => option.id === selectedId);
-    if (!selectedOption?.label) {
+    if (!isGrammar || result !== 'correct' || effectiveSelectedIds.length === 0) return undefined;
+    const selectedLabels = effectiveSelectedIds.flatMap((optionId) => {
+      const label = card.options.find((option) => option.id === optionId)?.label?.trim();
+      return label ? [label] : [];
+    });
+    if (selectedLabels.length === 0) {
       onGrammarAnimationComplete();
       return undefined;
     }
@@ -277,7 +304,7 @@ export function LessonCardView({
       return undefined;
     }
 
-    setFlyingAnswer(selectedOption.label);
+    setFlyingAnswer(selectedLabels.join('  ·  '));
     flyingAnswerAnimation.setValue(0);
     const animation = Animated.timing(flyingAnswerAnimation, {
       duration: 700,
@@ -298,7 +325,7 @@ export function LessonCardView({
     onGrammarAnimationComplete,
     reduceMotion,
     result,
-    selectedId,
+    effectiveSelectedIds,
   ]);
 
   return (
@@ -407,10 +434,16 @@ export function LessonCardView({
               : null,
           ]}>
             {card.options.map((option, optionIndex) => {
-              const selected = selectedId === option.id;
-              const correct = option.id === card.correct_option_id;
+              const selected = effectiveSelectedIds.includes(option.id);
+              const correct = card.correct_option_ids?.length
+                ? card.correct_option_ids.includes(option.id)
+                : option.id === card.correct_option_id;
               const revealCorrect = selected && result === 'correct' && correct;
               const revealWrong = selected && result === 'wrong';
+              const revealPending = selected && result === null;
+              const optionDisabled = !optionsInteractive
+                || result === 'correct'
+                || (revealPending && effectiveSelectedIds.length < (card.correct_option_ids?.length || 1));
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
               const actionVideo = useStillOnlyLesson17Comparison
                 ? null
@@ -424,8 +457,8 @@ export function LessonCardView({
                 <Pressable
                   accessibilityLabel={option.label || `Answer option ${option.id}`}
                   accessibilityRole={optionsInteractive ? 'button' : 'image'}
-                  accessibilityState={{ disabled: !optionsInteractive || result === 'correct', selected }}
-                  disabled={!optionsInteractive || result === 'correct'}
+                  accessibilityState={{ disabled: optionDisabled, selected }}
+                  disabled={optionDisabled}
                   key={optionRenderKey}
                   onPress={() => onSelect(option.id)}
                   style={({ pressed }) => [
@@ -448,6 +481,7 @@ export function LessonCardView({
                     hasTextOnlyOptions ? styles.textOption : null,
                     useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
                     useHorizontalPhraseOptions ? styles.textOptionHorizontal : null,
+                    revealPending ? styles.pendingOption : null,
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
                     pressed ? styles.pressed : null,
@@ -853,6 +887,7 @@ const styles = StyleSheet.create({
     textShadowOffset: { height: 1, width: 0 },
     textShadowRadius: 1,
   },
+  pendingOption: { backgroundColor: '#fff6df', borderColor: '#d6a83b' },
   correctOption: { backgroundColor: '#eaf6ee', borderColor: '#3c996c' },
   wrongOption: { backgroundColor: '#fbeceb', borderColor: '#c95e55' },
   feedbackIcon: {

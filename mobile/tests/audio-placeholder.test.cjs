@@ -188,9 +188,9 @@ for (const filename of fs.readdirSync(generatedRoot)) {
       && !/_{2,}|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/i.test(promptAudio)) continue;
     completionCardCount += 1;
     if (!String(card.audio_text || '').trim()) emptyAudioTextCompletionCardCount += 1;
-    const placeholderMatch = visualPrompt.match(
-      /_{2,}|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/i,
-    );
+    const placeholderPattern = /_{2,}|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/gi;
+    const placeholderMatches = [...visualPrompt.matchAll(placeholderPattern)];
+    const placeholderMatch = placeholderMatches[0];
     assert.ok(placeholderMatch, `${filename} must keep the visual blank in card.prompt.`);
     const blankStart = placeholderMatch.index;
     const blankEnd = blankStart + placeholderMatch[0].length;
@@ -210,14 +210,26 @@ for (const filename of fs.readdirSync(generatedRoot)) {
       /_+|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/i,
       `${filename} sends a placeholder in completed answer audio.`,
     );
-    const correctOption = card.options.find((option) => option.id === card.correct_option_id);
-    assert.ok(
-      correctOption?.label?.trim(),
-      `${filename} cannot build complete answer audio without a labeled correct option.`,
+    const correctOptionIds = card.correct_option_ids?.length
+      ? card.correct_option_ids
+      : [card.correct_option_id];
+    assert.equal(
+      placeholderMatches.length,
+      correctOptionIds.length,
+      `${filename} must declare one ordered answer for every visible blank.`,
     );
+    const correctLabels = correctOptionIds.map((correctOptionId) => {
+      const correctOption = card.options.find((option) => option.id === correctOptionId);
+      assert.ok(
+        correctOption?.label?.trim(),
+        `${filename} cannot build complete answer audio without labeled ordered options.`,
+      );
+      return correctOption.label;
+    });
+    let correctLabelIndex = 0;
     const completedPrompt = visualPrompt.replace(
-      /_{2,}|\.{3}|…|\{\s*blank\s*\}|\[\s*(?:blank|pause)\s*\]/i,
-      correctOption.label,
+      placeholderPattern,
+      () => correctLabels[correctLabelIndex++],
     );
     assert.equal(
       card.answer_audio_text,

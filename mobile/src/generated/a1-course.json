@@ -24,7 +24,7 @@
     "review_vocabulary": [],
     "grammar_function": "A + singular person; He/She is a + singular person.",
     "prerequisite": "No prior English is required; this is the first course lesson.",
-    "speaking_outcome": "Say four short identity phrases with a boy, girl, man, or woman.",
+    "speaking_outcome": "Say short identity phrases and connect a person noun to he or she.",
     "purposeful_review_slides": [],
     "cards": [
       {
@@ -373,6 +373,55 @@
       {
         "slide_id": "L8",
         "interaction_type": "teach",
+        "prompt": "He is a man.",
+        "stage": "Learn",
+        "correct_option_id": "man-alt",
+        "options": [
+          {
+            "id": "man-alt",
+            "image_url": "/lesson-assets/a1_l1_man_alt.webp",
+            "label": "He is a man."
+          }
+        ],
+        "audio_text": "He is a man.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "\u00c9l es un hombre.",
+        "pedagogy_note": "The adult male immediately receives the same he-is-a identity frame learned with the boy.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c008-prompt-cd85df37c86a350f1c8c",
+            "purpose": "prompt",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "/lesson-assets/a1_l1_man_alt.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c008-answer-b4386d1313295a4e1036",
+            "purpose": "answer",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_man_alt.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "L9",
+        "interaction_type": "teach",
         "prompt": "A woman",
         "stage": "Learn",
         "correct_option_id": "woman-base",
@@ -387,14 +436,14 @@
         "answer_audio_text": null,
         "prompt_image_url": "",
         "spanish_translation": "Una mujer",
-        "pedagogy_note": "The fourth person completes the cast and prepares age and pronoun contrasts.",
+        "pedagogy_note": "The fourth person completes the cast after the man.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c008-prompt-22782eec49562502863f",
+            "id": "lesson-1-people-actions-c009-prompt-56a2f3c0749188b19a4b",
             "purpose": "prompt",
             "text": "A woman",
             "mode": "prompt",
@@ -406,12 +455,61 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c008-answer-8432c5095421a475664f",
+            "id": "lesson-1-people-actions-c009-answer-e7dc0272dc0bf393fd7c",
             "purpose": "answer",
             "text": "A woman",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/woman.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "L10",
+        "interaction_type": "teach",
+        "prompt": "She is a woman.",
+        "stage": "Learn",
+        "correct_option_id": "woman-alt",
+        "options": [
+          {
+            "id": "woman-alt",
+            "image_url": "/lesson-assets/a1_l1_woman_alt.webp",
+            "label": "She is a woman."
+          }
+        ],
+        "audio_text": "She is a woman.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "Ella es una mujer.",
+        "pedagogy_note": "The adult female immediately receives the matching she-is-a identity frame.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c010-prompt-c13677abfd1b1e0d307a",
+            "purpose": "prompt",
+            "text": "She is a woman.",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "/lesson-assets/a1_l1_woman_alt.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c010-answer-21dfc8fb35e969fd051c",
+            "purpose": "answer",
+            "text": "She is a woman.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_woman_alt.webp",
             "semantic_role": "answer",
             "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -448,7 +546,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c009-prompt-12263ca4ff9b0ba8a521",
+            "id": "lesson-1-people-actions-c011-prompt-44abd7575b06cb923725",
             "purpose": "prompt",
             "text": "A boy",
             "mode": "prompt",
@@ -460,7 +558,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c009-answer-fd5bdaa0031e73971a3b",
+            "id": "lesson-1-people-actions-c011-answer-ba7f744b9ab3b78e0be9",
             "purpose": "answer",
             "text": "A boy",
             "mode": "prompt",
@@ -475,6 +573,53 @@
       },
       {
         "slide_id": "R2",
+        "interaction_type": "i2t3",
+        "prompt": "",
+        "stage": "Recognize",
+        "correct_option_id": "he-boy",
+        "options": [
+          {
+            "id": "he-man",
+            "image_url": "",
+            "label": "He is a man."
+          },
+          {
+            "id": "she-girl",
+            "image_url": "",
+            "label": "She is a girl."
+          },
+          {
+            "id": "he-boy",
+            "image_url": "",
+            "label": "He is a boy."
+          }
+        ],
+        "audio_text": "",
+        "answer_audio_text": "He is a boy.",
+        "prompt_image_url": "/lesson-assets/a1_l1_boy_transfer.webp",
+        "spanish_translation": "Elige la frase para el ni\u00f1o.",
+        "pedagogy_note": "The boy story immediately grows from the noun to the complete sentence in a new format.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c012-answer-15a30015fb13f0f5dfda",
+            "purpose": "answer",
+            "text": "He is a boy.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_boy_transfer.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "R3",
         "interaction_type": "t2i2",
         "prompt": "A girl",
         "stage": "Recognize",
@@ -502,7 +647,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c010-prompt-69e9778eab78c4a1fa6c",
+            "id": "lesson-1-people-actions-c013-prompt-99f1bfe236a778e5adbc",
             "purpose": "prompt",
             "text": "A girl",
             "mode": "prompt",
@@ -514,7 +659,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c010-answer-a9d1041f5fe5d3a90b54",
+            "id": "lesson-1-people-actions-c013-answer-a72946644be036a936e4",
             "purpose": "answer",
             "text": "A girl",
             "mode": "prompt",
@@ -528,7 +673,54 @@
         ]
       },
       {
-        "slide_id": "R3",
+        "slide_id": "R4",
+        "interaction_type": "i2t3",
+        "prompt": "",
+        "stage": "Recognize",
+        "correct_option_id": "she-girl",
+        "options": [
+          {
+            "id": "he-boy",
+            "image_url": "",
+            "label": "He is a boy."
+          },
+          {
+            "id": "she-girl",
+            "image_url": "",
+            "label": "She is a girl."
+          },
+          {
+            "id": "she-woman",
+            "image_url": "",
+            "label": "She is a woman."
+          }
+        ],
+        "audio_text": "",
+        "answer_audio_text": "She is a girl.",
+        "prompt_image_url": "/lesson-assets/a1_l1_girl_transfer.webp",
+        "spanish_translation": "Elige la frase para la ni\u00f1a.",
+        "pedagogy_note": "The girl now receives the same noun-to-sentence treatment as the boy.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c014-answer-99e4ca7d70d65c2b2032",
+            "purpose": "answer",
+            "text": "She is a girl.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_girl_transfer.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "R5",
         "interaction_type": "t2i4",
         "prompt": "A man",
         "stage": "Recognize",
@@ -566,7 +758,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c011-prompt-4e7fc2dab91923bcca71",
+            "id": "lesson-1-people-actions-c015-prompt-90d0afc00640d61a10f4",
             "purpose": "prompt",
             "text": "A man",
             "mode": "prompt",
@@ -578,7 +770,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c011-answer-2e2a5197a6a4d4149e45",
+            "id": "lesson-1-people-actions-c015-answer-a29874174ad40b234889",
             "purpose": "answer",
             "text": "A man",
             "mode": "prompt",
@@ -592,7 +784,108 @@
         ]
       },
       {
-        "slide_id": "R4",
+        "slide_id": "R6",
+        "interaction_type": "t2i2",
+        "prompt": "He is a man.",
+        "stage": "Recognize",
+        "correct_option_id": "man-alt",
+        "options": [
+          {
+            "id": "boy-alt",
+            "image_url": "/lesson-assets/a1_l1_boy_alt.webp",
+            "label": "He is a boy."
+          },
+          {
+            "id": "man-alt",
+            "image_url": "/lesson-assets/a1_l1_man_alt.webp",
+            "label": "He is a man."
+          }
+        ],
+        "audio_text": "He is a man.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "\u00c9l es un hombre.",
+        "pedagogy_note": "The known he-is-a frame grows from boy to man.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c016-prompt-254f59b707881b481df0",
+            "purpose": "prompt",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "/lesson-assets/a1_l1_man_alt.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c016-answer-fdb9504b28e211f6e482",
+            "purpose": "answer",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_man_alt.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "R7",
+        "interaction_type": "i2t3",
+        "prompt": "",
+        "stage": "Recognize",
+        "correct_option_id": "he-man",
+        "options": [
+          {
+            "id": "she-woman",
+            "image_url": "",
+            "label": "She is a woman."
+          },
+          {
+            "id": "he-boy",
+            "image_url": "",
+            "label": "He is a boy."
+          },
+          {
+            "id": "he-man",
+            "image_url": "",
+            "label": "He is a man."
+          }
+        ],
+        "audio_text": "",
+        "answer_audio_text": "He is a man.",
+        "prompt_image_url": "/lesson-assets/a1_l1_man_transfer.webp",
+        "spanish_translation": "Elige la frase para el hombre.",
+        "pedagogy_note": "The man is retrieved from a fresh image before the story moves to the woman.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c017-answer-9e0f84248cf692d90b95",
+            "purpose": "answer",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_man_transfer.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "R8",
         "interaction_type": "t2i4",
         "prompt": "A woman",
         "stage": "Recognize",
@@ -623,14 +916,14 @@
         "answer_audio_text": null,
         "prompt_image_url": "",
         "spanish_translation": "Una mujer",
-        "pedagogy_note": "The cast repeats with new clothing and a new answer position.",
+        "pedagogy_note": "The four-person contrast returns at the final story character.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c012-prompt-ed0479e2479e66d835a1",
+            "id": "lesson-1-people-actions-c018-prompt-3f79b34702981b14466f",
             "purpose": "prompt",
             "text": "A woman",
             "mode": "prompt",
@@ -642,7 +935,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c012-answer-353b50a1ce6be4fdd298",
+            "id": "lesson-1-people-actions-c018-answer-05ed26142efecbce86f4",
             "purpose": "answer",
             "text": "A woman",
             "mode": "prompt",
@@ -656,61 +949,7 @@
         ]
       },
       {
-        "slide_id": "R5",
-        "interaction_type": "t2i2",
-        "prompt": "He is a man.",
-        "stage": "Recognize",
-        "correct_option_id": "man-alt",
-        "options": [
-          {
-            "id": "boy-alt",
-            "image_url": "/lesson-assets/a1_l1_boy_alt.webp",
-            "label": "He is a boy."
-          },
-          {
-            "id": "man-alt",
-            "image_url": "/lesson-assets/a1_l1_man_alt.webp",
-            "label": "He is a man."
-          }
-        ],
-        "audio_text": "He is a man.",
-        "answer_audio_text": null,
-        "prompt_image_url": "",
-        "spanish_translation": "\u00c9l es un hombre.",
-        "pedagogy_note": "The known he-is-a frame grows from boy to man.",
-        "audio_speaker": null,
-        "answer_audio_speaker": null,
-        "audio_revision": 1,
-        "answer_audio_revision": 1,
-        "audio_assets": [
-          {
-            "id": "lesson-1-people-actions-c013-prompt-57d3367ab28da79b527d",
-            "purpose": "prompt",
-            "text": "He is a man.",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_l1_man_alt.webp",
-            "semantic_role": "teacher",
-            "speaker_role": "teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-1-people-actions-c013-answer-1e159ed686c49eae188d",
-            "purpose": "answer",
-            "text": "He is a man.",
-            "mode": "prompt",
-            "variant": "answer",
-            "image_ref": "/lesson-assets/a1_l1_man_alt.webp",
-            "semantic_role": "answer",
-            "speaker_role": "answer",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          }
-        ]
-      },
-      {
-        "slide_id": "R6",
+        "slide_id": "R9",
         "interaction_type": "t2i2",
         "prompt": "She is a woman.",
         "stage": "Recognize",
@@ -738,7 +977,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c014-prompt-fa13856c35bed99864ea",
+            "id": "lesson-1-people-actions-c019-prompt-2349303a16ee42cede0f",
             "purpose": "prompt",
             "text": "She is a woman.",
             "mode": "prompt",
@@ -750,7 +989,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c014-answer-08c02ce10b7969dbfba7",
+            "id": "lesson-1-people-actions-c019-answer-7015a98a10da4448a1d5",
             "purpose": "answer",
             "text": "She is a woman.",
             "mode": "prompt",
@@ -764,54 +1003,7 @@
         ]
       },
       {
-        "slide_id": "R7",
-        "interaction_type": "i2t3",
-        "prompt": "",
-        "stage": "Recognize",
-        "correct_option_id": "he-boy",
-        "options": [
-          {
-            "id": "he-man",
-            "image_url": "",
-            "label": "He is a man."
-          },
-          {
-            "id": "she-girl",
-            "image_url": "",
-            "label": "She is a girl."
-          },
-          {
-            "id": "he-boy",
-            "image_url": "",
-            "label": "He is a boy."
-          }
-        ],
-        "audio_text": "",
-        "answer_audio_text": "He is a boy.",
-        "prompt_image_url": "/lesson-assets/a1_l1_boy_alt.webp",
-        "spanish_translation": "Elige la frase para el ni\u00f1o.",
-        "pedagogy_note": "Direction reverses from words-to-image to image-to-sentence.",
-        "audio_speaker": null,
-        "answer_audio_speaker": null,
-        "audio_revision": 1,
-        "answer_audio_revision": 1,
-        "audio_assets": [
-          {
-            "id": "lesson-1-people-actions-c015-answer-f3a68699cb2598e1fe47",
-            "purpose": "answer",
-            "text": "He is a boy.",
-            "mode": "prompt",
-            "variant": "answer",
-            "image_ref": "/lesson-assets/a1_l1_boy_alt.webp",
-            "semantic_role": "answer",
-            "speaker_role": "answer",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          }
-        ]
-      },
-      {
-        "slide_id": "R8",
+        "slide_id": "R10",
         "interaction_type": "i2t3",
         "prompt": "",
         "stage": "Recognize",
@@ -835,7 +1027,7 @@
         ],
         "audio_text": "",
         "answer_audio_text": "She is a woman.",
-        "prompt_image_url": "/lesson-assets/a1_l1_woman_alt.webp",
+        "prompt_image_url": "/lesson-assets/a1_l1_woman_transfer.webp",
         "spanish_translation": "Elige la frase para la mujer.",
         "pedagogy_note": "Recognition ends on the adult counterpart, ready for audio-only retrieval.",
         "audio_speaker": null,
@@ -844,12 +1036,12 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c016-answer-2b1d4d5dc06c9f2db042",
+            "id": "lesson-1-people-actions-c020-answer-4c4956504d8cc232f2db",
             "purpose": "answer",
             "text": "She is a woman.",
             "mode": "prompt",
             "variant": "answer",
-            "image_ref": "/lesson-assets/a1_l1_woman_alt.webp",
+            "image_ref": "/lesson-assets/a1_l1_woman_transfer.webp",
             "semantic_role": "answer",
             "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -886,7 +1078,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c017-prompt-d1e573cbccbd9833d9cb",
+            "id": "lesson-1-people-actions-c021-prompt-dad3c5d185be6d7e6a9e",
             "purpose": "prompt",
             "text": "A boy",
             "mode": "prompt",
@@ -898,7 +1090,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c017-answer-dd74add7c0727cdf5dcf",
+            "id": "lesson-1-people-actions-c021-answer-0a60fe166462557c191b",
             "purpose": "answer",
             "text": "A boy",
             "mode": "prompt",
@@ -913,168 +1105,6 @@
       },
       {
         "slide_id": "N2",
-        "interaction_type": "a2i2",
-        "prompt": "Listen and choose.",
-        "stage": "Listen",
-        "correct_option_id": "girl-alt",
-        "options": [
-          {
-            "id": "girl-alt",
-            "image_url": "/lesson-assets/a1_l1_girl_alt.webp",
-            "label": "A girl"
-          },
-          {
-            "id": "woman-alt",
-            "image_url": "/lesson-assets/a1_l1_woman_alt.webp",
-            "label": "A woman"
-          }
-        ],
-        "audio_text": "A girl",
-        "answer_audio_text": null,
-        "prompt_image_url": "",
-        "spanish_translation": "Escucha y elige.",
-        "pedagogy_note": "The female age contrast immediately mirrors the previous card.",
-        "audio_speaker": null,
-        "answer_audio_speaker": null,
-        "audio_revision": 1,
-        "answer_audio_revision": 1,
-        "audio_assets": [
-          {
-            "id": "lesson-1-people-actions-c018-prompt-e1c23bd64ca3afced6f4",
-            "purpose": "prompt",
-            "text": "A girl",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/a1_l1_girl_alt.webp",
-            "semantic_role": "teacher",
-            "speaker_role": "teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-1-people-actions-c018-answer-0e0ce5385e36048b667d",
-            "purpose": "answer",
-            "text": "A girl",
-            "mode": "prompt",
-            "variant": "answer",
-            "image_ref": "/lesson-assets/a1_l1_girl_alt.webp",
-            "semantic_role": "answer",
-            "speaker_role": "answer",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          }
-        ]
-      },
-      {
-        "slide_id": "N3",
-        "interaction_type": "a2i2",
-        "prompt": "Listen and choose.",
-        "stage": "Listen",
-        "correct_option_id": "man-base",
-        "options": [
-          {
-            "id": "boy-base",
-            "image_url": "/lesson-assets/boy.webp",
-            "label": "He is a boy."
-          },
-          {
-            "id": "man-base",
-            "image_url": "/lesson-assets/man.webp",
-            "label": "He is a man."
-          }
-        ],
-        "audio_text": "He is a man.",
-        "answer_audio_text": null,
-        "prompt_image_url": "",
-        "spanish_translation": "Escucha y elige.",
-        "pedagogy_note": "The learner now retrieves the complete male identity sentence by ear.",
-        "audio_speaker": null,
-        "answer_audio_speaker": null,
-        "audio_revision": 1,
-        "answer_audio_revision": 1,
-        "audio_assets": [
-          {
-            "id": "lesson-1-people-actions-c019-prompt-aebdf2a5f566451d8ebf",
-            "purpose": "prompt",
-            "text": "He is a man.",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/man.webp",
-            "semantic_role": "teacher",
-            "speaker_role": "teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-1-people-actions-c019-answer-c04d41b4cf9165e2b1c1",
-            "purpose": "answer",
-            "text": "He is a man.",
-            "mode": "prompt",
-            "variant": "answer",
-            "image_ref": "/lesson-assets/man.webp",
-            "semantic_role": "answer",
-            "speaker_role": "answer",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          }
-        ]
-      },
-      {
-        "slide_id": "N4",
-        "interaction_type": "a2i2",
-        "prompt": "Listen and choose.",
-        "stage": "Listen",
-        "correct_option_id": "woman-base",
-        "options": [
-          {
-            "id": "woman-base",
-            "image_url": "/lesson-assets/woman.webp",
-            "label": "She is a woman."
-          },
-          {
-            "id": "girl-base",
-            "image_url": "/lesson-assets/girl.webp",
-            "label": "She is a girl."
-          }
-        ],
-        "audio_text": "She is a woman.",
-        "answer_audio_text": null,
-        "prompt_image_url": "",
-        "spanish_translation": "Escucha y elige.",
-        "pedagogy_note": "The complete female identity sentence follows in the same structure.",
-        "audio_speaker": null,
-        "answer_audio_speaker": null,
-        "audio_revision": 1,
-        "answer_audio_revision": 1,
-        "audio_assets": [
-          {
-            "id": "lesson-1-people-actions-c020-prompt-02aacb6a8a3f6933309f",
-            "purpose": "prompt",
-            "text": "She is a woman.",
-            "mode": "prompt",
-            "variant": "prompt",
-            "image_ref": "/lesson-assets/woman.webp",
-            "semantic_role": "teacher",
-            "speaker_role": "teacher",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          },
-          {
-            "id": "lesson-1-people-actions-c020-answer-a1c02bf9a9b860306d46",
-            "purpose": "answer",
-            "text": "She is a woman.",
-            "mode": "prompt",
-            "variant": "answer",
-            "image_ref": "/lesson-assets/woman.webp",
-            "semantic_role": "answer",
-            "speaker_role": "answer",
-            "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 1
-          }
-        ]
-      },
-      {
-        "slide_id": "N5",
         "interaction_type": "a2i4",
         "prompt": "Listen and choose.",
         "stage": "Listen",
@@ -1105,14 +1135,14 @@
         "answer_audio_text": null,
         "prompt_image_url": "",
         "spanish_translation": "Escucha y elige.",
-        "pedagogy_note": "All four people return for a larger listening choice.",
+        "pedagogy_note": "The complete boy sentence follows the noun while the choice set expands.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c021-prompt-830c32dac0bb8b32a1a8",
+            "id": "lesson-1-people-actions-c022-prompt-6f7a09a69aff8a4dd4e0",
             "purpose": "prompt",
             "text": "He is a boy.",
             "mode": "prompt",
@@ -1124,7 +1154,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c021-answer-d0a8ef13b4c402e493e2",
+            "id": "lesson-1-people-actions-c022-answer-a71385953f9f12de18bc",
             "purpose": "answer",
             "text": "He is a boy.",
             "mode": "prompt",
@@ -1138,7 +1168,61 @@
         ]
       },
       {
-        "slide_id": "N6",
+        "slide_id": "N3",
+        "interaction_type": "a2i2",
+        "prompt": "Listen and choose.",
+        "stage": "Listen",
+        "correct_option_id": "girl-alt",
+        "options": [
+          {
+            "id": "girl-alt",
+            "image_url": "/lesson-assets/a1_l1_girl_alt.webp",
+            "label": "A girl"
+          },
+          {
+            "id": "woman-alt",
+            "image_url": "/lesson-assets/a1_l1_woman_alt.webp",
+            "label": "A woman"
+          }
+        ],
+        "audio_text": "A girl",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "Escucha y elige.",
+        "pedagogy_note": "The female age contrast immediately mirrors the previous card.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c023-prompt-98419d7e23951c63573a",
+            "purpose": "prompt",
+            "text": "A girl",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "/lesson-assets/a1_l1_girl_alt.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c023-answer-81ca436a2409723db653",
+            "purpose": "answer",
+            "text": "A girl",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_girl_alt.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "N4",
         "interaction_type": "a2i4",
         "prompt": "Listen and choose.",
         "stage": "Listen",
@@ -1169,14 +1253,14 @@
         "answer_audio_text": null,
         "prompt_image_url": "",
         "spanish_translation": "Escucha y elige.",
-        "pedagogy_note": "Listening closes with the girl who followed the boy in the opening story.",
+        "pedagogy_note": "The complete girl sentence mirrors the boy sequence in a four-image format.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c022-prompt-0739289a83fc17d476bd",
+            "id": "lesson-1-people-actions-c024-prompt-cd1f6ec2dc27681e2fc9",
             "purpose": "prompt",
             "text": "She is a girl.",
             "mode": "prompt",
@@ -1188,12 +1272,238 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c022-answer-1608f82125ea679a73bc",
+            "id": "lesson-1-people-actions-c024-answer-2cfb241d4fbf8cb27530",
             "purpose": "answer",
             "text": "She is a girl.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/girl.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "N5",
+        "interaction_type": "a2i2",
+        "prompt": "Listen and choose.",
+        "stage": "Listen",
+        "correct_option_id": "man-base",
+        "options": [
+          {
+            "id": "boy-base",
+            "image_url": "/lesson-assets/boy.webp",
+            "label": "He is a boy."
+          },
+          {
+            "id": "man-base",
+            "image_url": "/lesson-assets/man.webp",
+            "label": "He is a man."
+          }
+        ],
+        "audio_text": "He is a man.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "Escucha y elige.",
+        "pedagogy_note": "The learner now retrieves the complete male identity sentence by ear.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c025-prompt-153e5ca098237e331300",
+            "purpose": "prompt",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "/lesson-assets/man.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c025-answer-e168598e22b331674aed",
+            "purpose": "answer",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/man.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "N6",
+        "interaction_type": "a2t3",
+        "prompt": "Listen and choose.",
+        "stage": "Listen",
+        "correct_option_id": "he-man",
+        "options": [
+          {
+            "id": "he-boy",
+            "image_url": "",
+            "label": "He is a boy."
+          },
+          {
+            "id": "he-man",
+            "image_url": "",
+            "label": "He is a man."
+          },
+          {
+            "id": "she-woman",
+            "image_url": "",
+            "label": "She is a woman."
+          }
+        ],
+        "audio_text": "He is a man.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "Escucha y elige.",
+        "pedagogy_note": "The man is now recognized from audio among complete written sentences.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c026-prompt-42fa61a3ad2b1a0fd5da",
+            "purpose": "prompt",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "text-only:9189cdc34b69e2c07a64",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c026-answer-891537baf177441eeb7f",
+            "purpose": "answer",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "text-only:9189cdc34b69e2c07a64",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "N7",
+        "interaction_type": "a2i2",
+        "prompt": "Listen and choose.",
+        "stage": "Listen",
+        "correct_option_id": "woman-base",
+        "options": [
+          {
+            "id": "woman-base",
+            "image_url": "/lesson-assets/woman.webp",
+            "label": "She is a woman."
+          },
+          {
+            "id": "girl-base",
+            "image_url": "/lesson-assets/girl.webp",
+            "label": "She is a girl."
+          }
+        ],
+        "audio_text": "She is a woman.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "Escucha y elige.",
+        "pedagogy_note": "The complete female identity sentence follows in the same structure.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c027-prompt-602ed0c35a2db6f7261d",
+            "purpose": "prompt",
+            "text": "She is a woman.",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "/lesson-assets/woman.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c027-answer-93f7aa145d89596e8820",
+            "purpose": "answer",
+            "text": "She is a woman.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/woman.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "N8",
+        "interaction_type": "a2t3",
+        "prompt": "Listen and choose.",
+        "stage": "Listen",
+        "correct_option_id": "she-woman",
+        "options": [
+          {
+            "id": "he-man",
+            "image_url": "",
+            "label": "He is a man."
+          },
+          {
+            "id": "she-girl",
+            "image_url": "",
+            "label": "She is a girl."
+          },
+          {
+            "id": "she-woman",
+            "image_url": "",
+            "label": "She is a woman."
+          }
+        ],
+        "audio_text": "She is a woman.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "Escucha y elige.",
+        "pedagogy_note": "Listening closes by retrieving the woman sentence in a different response format.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c028-prompt-f9648a3b32fb3954b2ca",
+            "purpose": "prompt",
+            "text": "She is a woman.",
+            "mode": "prompt",
+            "variant": "prompt",
+            "image_ref": "text-only:94727522bc817d122437",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c028-answer-e4dd213d395206795a53",
+            "purpose": "answer",
+            "text": "She is a woman.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "text-only:94727522bc817d122437",
             "semantic_role": "answer",
             "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1225,7 +1535,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c023-prompt-bef6659db161735d4023",
+            "id": "lesson-1-people-actions-c029-prompt-d72358319396b4813b61",
             "purpose": "prompt",
             "text": "A boy",
             "mode": "pronunciation_slow",
@@ -1237,7 +1547,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c023-answer-84bd42bf53630da2feaa",
+            "id": "lesson-1-people-actions-c029-answer-283833c58cc5d6fd08c1",
             "purpose": "answer",
             "text": "A boy",
             "mode": "prompt",
@@ -1252,6 +1562,55 @@
       },
       {
         "slide_id": "S2",
+        "interaction_type": "speak",
+        "prompt": "He is a boy.",
+        "stage": "Speak",
+        "correct_option_id": "boy-alt",
+        "options": [
+          {
+            "id": "boy-alt",
+            "image_url": "/lesson-assets/a1_l1_boy_alt.webp",
+            "label": "He is a boy."
+          }
+        ],
+        "audio_text": "He is a boy.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "\u00c9l es un ni\u00f1o.",
+        "pedagogy_note": "The boy story grows immediately from noun phrase to full sentence.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c030-prompt-eec0dba31cf8b67d5c97",
+            "purpose": "prompt",
+            "text": "He is a boy.",
+            "mode": "pronunciation_slow",
+            "variant": "split-ing",
+            "image_ref": "/lesson-assets/a1_l1_boy_alt.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c030-answer-5fdbf94fc909f1660522",
+            "purpose": "answer",
+            "text": "He is a boy.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_boy_alt.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "S3",
         "interaction_type": "speak",
         "prompt": "She is a girl.",
         "stage": "Speak",
@@ -1274,7 +1633,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c024-prompt-5cae209e2870bec66648",
+            "id": "lesson-1-people-actions-c031-prompt-4bae88b5c113225d1947",
             "purpose": "prompt",
             "text": "She is a girl.",
             "mode": "pronunciation_slow",
@@ -1286,7 +1645,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c024-answer-48a001b9a98cc5e6e264",
+            "id": "lesson-1-people-actions-c031-answer-d9788edc227e14be4df0",
             "purpose": "answer",
             "text": "She is a girl.",
             "mode": "prompt",
@@ -1300,7 +1659,7 @@
         ]
       },
       {
-        "slide_id": "S3",
+        "slide_id": "S4",
         "interaction_type": "speak",
         "prompt": "He is a man.",
         "stage": "Speak",
@@ -1323,7 +1682,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c025-prompt-9191c29b9fa9f48ea9b5",
+            "id": "lesson-1-people-actions-c032-prompt-d99cb719c3642acc483c",
             "purpose": "prompt",
             "text": "He is a man.",
             "mode": "pronunciation_slow",
@@ -1335,7 +1694,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c025-answer-b45a2d108cbe49344b07",
+            "id": "lesson-1-people-actions-c032-answer-2f22a26e08dd8f701232",
             "purpose": "answer",
             "text": "He is a man.",
             "mode": "prompt",
@@ -1349,7 +1708,56 @@
         ]
       },
       {
-        "slide_id": "S4",
+        "slide_id": "S5",
+        "interaction_type": "speak",
+        "prompt": "A man. He is a man.",
+        "stage": "Speak",
+        "correct_option_id": "man-transfer",
+        "options": [
+          {
+            "id": "man-transfer",
+            "image_url": "/lesson-assets/a1_l1_man_transfer.webp",
+            "label": "A man. He is a man."
+          }
+        ],
+        "audio_text": "A man. He is a man.",
+        "answer_audio_text": null,
+        "prompt_image_url": "",
+        "spanish_translation": "Un hombre. \u00c9l es un hombre.",
+        "pedagogy_note": "Two familiar thoughts connect the adult noun to its pronoun in one spoken turn.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c033-prompt-4fa215830fb944ee9db0",
+            "purpose": "prompt",
+            "text": "A man. He is a man.",
+            "mode": "pronunciation_slow",
+            "variant": "split-ing",
+            "image_ref": "/lesson-assets/a1_l1_man_transfer.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c033-answer-5d3f227eda6294c619bc",
+            "purpose": "answer",
+            "text": "A man. He is a man.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_man_transfer.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "S6",
         "interaction_type": "speak",
         "prompt": "She is a woman.",
         "stage": "Speak",
@@ -1372,7 +1780,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c026-prompt-36fe7c3bcfff7aa4a124",
+            "id": "lesson-1-people-actions-c034-prompt-659494a9cbeb58912da4",
             "purpose": "prompt",
             "text": "She is a woman.",
             "mode": "pronunciation_slow",
@@ -1384,7 +1792,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c026-answer-ca5dedeade79ad15076c",
+            "id": "lesson-1-people-actions-c034-answer-37f8000c45ea279797a3",
             "purpose": "answer",
             "text": "She is a woman.",
             "mode": "prompt",
@@ -1398,47 +1806,47 @@
         ]
       },
       {
-        "slide_id": "S5",
+        "slide_id": "S7",
         "interaction_type": "speak",
-        "prompt": "He is a boy.",
+        "prompt": "A woman. She is a woman.",
         "stage": "Speak",
-        "correct_option_id": "boy-alt",
+        "correct_option_id": "woman-transfer",
         "options": [
           {
-            "id": "boy-alt",
-            "image_url": "/lesson-assets/a1_l1_boy_alt.webp",
-            "label": "He is a boy."
+            "id": "woman-transfer",
+            "image_url": "/lesson-assets/a1_l1_woman_transfer.webp",
+            "label": "A woman. She is a woman."
           }
         ],
-        "audio_text": "He is a boy.",
+        "audio_text": "A woman. She is a woman.",
         "answer_audio_text": null,
         "prompt_image_url": "",
-        "spanish_translation": "\u00c9l es un ni\u00f1o.",
-        "pedagogy_note": "The boy returns in new clothes so the learner produces his complete identity independently.",
+        "spanish_translation": "Una mujer. Ella es una mujer.",
+        "pedagogy_note": "The final spoken turn mirrors the man pattern and completes the story.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c027-prompt-70bfd38bad1ffd668744",
+            "id": "lesson-1-people-actions-c035-prompt-7655fc5c8ed23d0517c7",
             "purpose": "prompt",
-            "text": "He is a boy.",
+            "text": "A woman. She is a woman.",
             "mode": "pronunciation_slow",
             "variant": "split-ing",
-            "image_ref": "/lesson-assets/a1_l1_boy_alt.webp",
+            "image_ref": "/lesson-assets/a1_l1_woman_transfer.webp",
             "semantic_role": "teacher",
             "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c027-answer-0462b854dcb8e1f82ba4",
+            "id": "lesson-1-people-actions-c035-answer-486157813dcdce1859d4",
             "purpose": "answer",
-            "text": "He is a boy.",
+            "text": "A woman. She is a woman.",
             "mode": "prompt",
             "variant": "answer",
-            "image_ref": "/lesson-assets/a1_l1_boy_alt.webp",
+            "image_ref": "/lesson-assets/a1_l1_woman_transfer.webp",
             "semantic_role": "answer",
             "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1475,7 +1883,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c028-prompt-43c10c19beaa2c3a2e7a",
+            "id": "lesson-1-people-actions-c036-prompt-6b2e60d1788b955d2101",
             "purpose": "prompt",
             "text": "He is a boy.",
             "mode": "prompt",
@@ -1487,7 +1895,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c028-answer-11b654454a2e322e7c6c",
+            "id": "lesson-1-people-actions-c036-answer-0f0971edfcb863e0e98d",
             "purpose": "answer",
             "text": "He is a boy.",
             "mode": "prompt",
@@ -1502,6 +1910,65 @@
       },
       {
         "slide_id": "U2",
+        "interaction_type": "complete4",
+        "prompt": "He is a ___.",
+        "stage": "Use",
+        "correct_option_id": "boy",
+        "options": [
+          {
+            "id": "man",
+            "image_url": "",
+            "label": "man"
+          },
+          {
+            "id": "woman",
+            "image_url": "",
+            "label": "woman"
+          },
+          {
+            "id": "boy",
+            "image_url": "",
+            "label": "boy"
+          }
+        ],
+        "audio_text": "He is a ___.",
+        "answer_audio_text": "He is a boy.",
+        "prompt_image_url": "/lesson-assets/a1_l1_boy_transfer.webp",
+        "spanish_translation": "\u00c9l es un ___.",
+        "pedagogy_note": "The second boy card completes the same full sentence from its final noun.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c037-prompt-50c68dd329e451d4a6bd",
+            "purpose": "prompt",
+            "text": "He is a boy.",
+            "mode": "prompt",
+            "variant": "completion-prompt",
+            "image_ref": "/lesson-assets/a1_l1_boy_transfer.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c037-answer-5d40f62ea2f5924ec34f",
+            "purpose": "answer",
+            "text": "He is a boy.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_boy_transfer.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "U3",
         "interaction_type": "complete2",
         "prompt": "___ is a girl.",
         "stage": "Use",
@@ -1529,7 +1996,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c029-prompt-f4fcb67272eab55712c4",
+            "id": "lesson-1-people-actions-c038-prompt-1a56b65c6ecbb0966190",
             "purpose": "prompt",
             "text": "She is a girl.",
             "mode": "prompt",
@@ -1541,7 +2008,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c029-answer-0233eb11dd685961609d",
+            "id": "lesson-1-people-actions-c038-answer-69f95512a38439be2296",
             "purpose": "answer",
             "text": "She is a girl.",
             "mode": "prompt",
@@ -1555,7 +2022,7 @@
         ]
       },
       {
-        "slide_id": "U3",
+        "slide_id": "U4",
         "interaction_type": "complete2",
         "prompt": "He ___ a man.",
         "stage": "Use",
@@ -1583,7 +2050,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c030-prompt-3da38f435f198a43bdc3",
+            "id": "lesson-1-people-actions-c039-prompt-c4acb1606f19bcb45d89",
             "purpose": "prompt",
             "text": "He is a man.",
             "mode": "prompt",
@@ -1595,7 +2062,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c030-answer-a88dbd43b745248f9c7a",
+            "id": "lesson-1-people-actions-c039-answer-ff2fd4aad42e7479e672",
             "purpose": "answer",
             "text": "He is a man.",
             "mode": "prompt",
@@ -1609,7 +2076,70 @@
         ]
       },
       {
-        "slide_id": "U4",
+        "slide_id": "U5",
+        "interaction_type": "complete4",
+        "prompt": "___ is ___ man.",
+        "stage": "Use",
+        "correct_option_id": "he",
+        "correct_option_ids": [
+          "he",
+          "a"
+        ],
+        "options": [
+          {
+            "id": "she",
+            "image_url": "",
+            "label": "She"
+          },
+          {
+            "id": "he",
+            "image_url": "",
+            "label": "He"
+          },
+          {
+            "id": "a",
+            "image_url": "",
+            "label": "a"
+          }
+        ],
+        "audio_text": "___ is ___ man.",
+        "answer_audio_text": "He is a man.",
+        "prompt_image_url": "/lesson-assets/a1_l1_man_transfer.webp",
+        "spanish_translation": "___ es ___ hombre.",
+        "pedagogy_note": "Two non-contiguous blanks now require the learner to build the complete man sentence in order.",
+        "audio_speaker": null,
+        "answer_audio_speaker": null,
+        "audio_revision": 1,
+        "answer_audio_revision": 1,
+        "audio_assets": [
+          {
+            "id": "lesson-1-people-actions-c040-prompt-2c9c5b54f9d928fee5b5",
+            "purpose": "prompt",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "completion-prompt",
+            "image_ref": "/lesson-assets/a1_l1_man_transfer.webp",
+            "semantic_role": "teacher",
+            "speaker_role": "teacher",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          },
+          {
+            "id": "lesson-1-people-actions-c040-answer-9a505dc43251f67a1a7a",
+            "purpose": "answer",
+            "text": "He is a man.",
+            "mode": "prompt",
+            "variant": "answer",
+            "image_ref": "/lesson-assets/a1_l1_man_transfer.webp",
+            "semantic_role": "answer",
+            "speaker_role": "answer",
+            "profile_id": "a1-elevenlabs-character-cast-v1",
+            "revision": 1
+          }
+        ]
+      },
+      {
+        "slide_id": "U6",
         "interaction_type": "complete2",
         "prompt": "She is ___ woman.",
         "stage": "Use",
@@ -1637,7 +2167,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c031-prompt-ed90b77fd0cf22849ca1",
+            "id": "lesson-1-people-actions-c041-prompt-ab3d43f5b4fd46dc5141",
             "purpose": "prompt",
             "text": "She is a woman.",
             "mode": "prompt",
@@ -1649,7 +2179,7 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c031-answer-c5d8c29ac7ae9f3043d8",
+            "id": "lesson-1-people-actions-c041-answer-cdbfecce7a473dc1c2c6",
             "purpose": "answer",
             "text": "She is a woman.",
             "mode": "prompt",
@@ -1663,57 +2193,61 @@
         ]
       },
       {
-        "slide_id": "U5",
+        "slide_id": "U7",
         "interaction_type": "complete4",
-        "prompt": "He is a ___.",
+        "prompt": "___ is ___ woman.",
         "stage": "Use",
-        "correct_option_id": "boy",
+        "correct_option_id": "she",
+        "correct_option_ids": [
+          "she",
+          "a"
+        ],
         "options": [
           {
-            "id": "man",
+            "id": "a",
             "image_url": "",
-            "label": "man"
+            "label": "a"
           },
           {
-            "id": "woman",
+            "id": "he",
             "image_url": "",
-            "label": "woman"
+            "label": "He"
           },
           {
-            "id": "boy",
+            "id": "she",
             "image_url": "",
-            "label": "boy"
+            "label": "She"
           }
         ],
-        "audio_text": "He is a ___.",
-        "answer_audio_text": "He is a boy.",
-        "prompt_image_url": "/lesson-assets/a1_l1_boy_alt.webp",
-        "spanish_translation": "\u00c9l es un ___.",
-        "pedagogy_note": "The lesson resolves by recognizing the same boy despite his changed clothing.",
+        "audio_text": "___ is ___ woman.",
+        "answer_audio_text": "She is a woman.",
+        "prompt_image_url": "/lesson-assets/a1_l1_woman_transfer.webp",
+        "spanish_translation": "___ es ___ mujer.",
+        "pedagogy_note": "The lesson resolves with the matching two-step woman sentence and the same ordered construction skill.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c032-prompt-d523eba1a712c151c877",
+            "id": "lesson-1-people-actions-c042-prompt-1abd739a48769c3c799c",
             "purpose": "prompt",
-            "text": "He is a boy.",
+            "text": "She is a woman.",
             "mode": "prompt",
             "variant": "completion-prompt",
-            "image_ref": "/lesson-assets/a1_l1_boy_alt.webp",
+            "image_ref": "/lesson-assets/a1_l1_woman_transfer.webp",
             "semantic_role": "teacher",
             "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c032-answer-dad245b2eda78283767e",
+            "id": "lesson-1-people-actions-c042-answer-2329eab80ddacc993bfd",
             "purpose": "answer",
-            "text": "He is a boy.",
+            "text": "She is a woman.",
             "mode": "prompt",
             "variant": "answer",
-            "image_ref": "/lesson-assets/a1_l1_boy_alt.webp",
+            "image_ref": "/lesson-assets/a1_l1_woman_transfer.webp",
             "semantic_role": "answer",
             "speaker_role": "answer",
             "profile_id": "a1-elevenlabs-character-cast-v1",

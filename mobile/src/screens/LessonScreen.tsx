@@ -119,6 +119,24 @@ function correctSelectionAudioText(card: LessonCard, optionId?: string | null): 
     || '';
 }
 
+function orderedCorrectOptionIds(card: LessonCard): string[] {
+  return card.correct_option_ids?.length
+    ? card.correct_option_ids
+    : [card.correct_option_id];
+}
+
+function optionLabelsForIds(card: LessonCard, optionIds: string[]): string[] {
+  return optionIds.flatMap((optionId) => {
+    const label = card.options.find((option) => option.id === optionId)?.label?.trim();
+    return label ? [label] : [];
+  });
+}
+
+function fillCompletionPrompt(prompt: string, labels: string[]): string {
+  let labelIndex = 0;
+  return prompt.replace(/_{2,}/g, (blank) => labels[labelIndex++] || blank);
+}
+
 function validCardIndexes(indexes: unknown, cardCount: number) {
   if (!Array.isArray(indexes)) return [];
   return indexes.filter((index): index is number => (
@@ -300,6 +318,7 @@ export function LessonScreen({
   const [wrongCards, setWrongCards] = useState<Set<number>>(() => new Set());
   const [completedCards, setCompletedCards] = useState<Set<number>>(() => new Set());
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [result, setResult] = useState<'correct' | 'wrong' | null>(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -1298,6 +1317,7 @@ export function LessonScreen({
       setReviewStageBounds(null);
       setGrammarCompleted(false);
       setSelectedId(null);
+      setSelectedIds([]);
       setResult(null);
       return;
     }
@@ -1309,6 +1329,7 @@ export function LessonScreen({
     pronunciationPassHandledRef.current = false;
     setGrammarCompleted(false);
     setSelectedId(null);
+    setSelectedIds([]);
     setResult(null);
   }, [cardIndex, completedLessonMode, lesson, reviewStageBounds]);
 
@@ -1416,10 +1437,10 @@ export function LessonScreen({
         grammarAnswerWasPlayingRef.current = false;
         advance();
       }, COURSE_AUDIO_FALLBACK_MS);
-      const selectedOption = currentCard.options.find((option) => option.id === selectedId);
-      const completedSentence = selectedOption?.label
-        ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
-        : currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
+      const completedSentence = fillCompletionPrompt(
+        currentCard.prompt,
+        optionLabelsForIds(currentCard, selectedIds.length ? selectedIds : selectedId ? [selectedId] : []),
+      ) || currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
       playAudio(currentCard.answer_audio_text || completedSentence, 'prompt', 'answer');
       return;
     }
@@ -1445,6 +1466,7 @@ export function LessonScreen({
     qaMode,
     result,
     selectedId,
+    selectedIds,
     successChimePlayer,
     tryAgainCuePlayer,
   ]);
@@ -1678,7 +1700,12 @@ export function LessonScreen({
       ));
   }, [isComplete, lesson, qaMode, score, sessionId]);
 
-  const recordAttempt = (optionId: string, isCorrect: boolean, firstTry: boolean) => {
+  const recordAttempt = (
+    optionId: string,
+    correctOptionId: string,
+    isCorrect: boolean,
+    firstTry: boolean,
+  ) => {
     if (qaMode || !lesson || !currentCard || !profile.userId || !sessionId) return;
     void logCardAttempt({
       sessionId,
@@ -1687,7 +1714,7 @@ export function LessonScreen({
       cardIndex,
       prompt: currentCard.prompt,
       selectedOptionId: optionId,
-      correctOptionId: currentCard.correct_option_id,
+      correctOptionId,
       isCorrect,
       firstTry,
     }).catch((attemptError) => captureDiagnosticError(
@@ -1701,7 +1728,31 @@ export function LessonScreen({
   const choose = (optionId: string) => {
     if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
     setShowSentenceCoachmark(false);
-    const correct = optionId === currentCard.correct_option_id;
+    const correctOptionIds = orderedCorrectOptionIds(currentCard);
+    const isMultiBlankCompletion = correctOptionIds.length > 1;
+    const continuingSelection = isMultiBlankCompletion && result !== 'wrong'
+      ? selectedIds
+      : [];
+    if (isMultiBlankCompletion && continuingSelection.includes(optionId)) return;
+    const nextSelectedIds = isMultiBlankCompletion
+      ? [...continuingSelection, optionId]
+      : [optionId];
+    setSelectedId(optionId);
+    setSelectedIds(nextSelectedIds);
+    setResult(null);
+    if (nextSelectedIds.length < correctOptionIds.length) {
+      addDiagnosticBreadcrumb('answer_sequence_progressed', {
+        card_number: cardIndex + 1,
+        selected_count: nextSelectedIds.length,
+        required_count: correctOptionIds.length,
+      });
+      return;
+    }
+    const correct = nextSelectedIds.every((selectedOptionId, index) => (
+      selectedOptionId === correctOptionIds[index]
+    ));
+    const selectedOptionKey = nextSelectedIds.join('|');
+    const correctOptionKey = correctOptionIds.join('|');
     const attempt = prepareCardChoice(
       attemptedCardsRef.current,
       completedCardsRef.current,
@@ -1712,14 +1763,13 @@ export function LessonScreen({
       card_number: cardIndex + 1,
       first_try: firstTry,
       is_correct: correct,
-      option_id: optionId,
+      option_id: selectedOptionKey,
       reviewing_completed_card: reviewingCompletedCard,
     });
-    setSelectedId(optionId);
     if (attempt.shouldRecordAttempt) {
       attemptedCardsRef.current = attempt.attemptedCards;
       setAttemptedCards(attempt.attemptedCards);
-      recordAttempt(optionId, correct, firstTry);
+      recordAttempt(selectedOptionKey, correctOptionKey, correct, firstTry);
     }
 
     if (correct) {
@@ -1811,10 +1861,10 @@ export function LessonScreen({
       || grammarCompletionHandledRef.current
     ) return;
     grammarCompletionHandledRef.current = true;
-    const selectedOption = currentCard.options.find((option) => option.id === selectedId);
-    const completedSentence = selectedOption?.label
-      ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
-      : currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
+    const completedSentence = fillCompletionPrompt(
+      currentCard.prompt,
+      optionLabelsForIds(currentCard, selectedIds.length ? selectedIds : selectedId ? [selectedId] : []),
+    ) || currentCard.answer_audio_text || currentCard.audio_text || currentCard.prompt;
     setGrammarCompleted(true);
     grammarAnswerAwaitingRef.current = true;
     grammarAnswerWasPlayingRef.current = false;
@@ -1834,7 +1884,7 @@ export function LessonScreen({
       'prompt',
       'answer',
     );
-  }, [advance, currentCard, isAppActive, isGrammar, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId]);
+  }, [advance, currentCard, isAppActive, isGrammar, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId, selectedIds]);
 
   const clearCardInteractionState = useCallback(() => {
     answerAudioAwaitingRef.current = false;
@@ -1869,6 +1919,7 @@ export function LessonScreen({
     pronunciationPassHandledRef.current = false;
     setGrammarCompleted(false);
     setSelectedId(null);
+    setSelectedIds([]);
     setResult(null);
     setIsComplete(false);
     setCardRunId((current) => current + 1);
@@ -2080,14 +2131,18 @@ export function LessonScreen({
     if (!currentCard) return '';
     const normalizedStage = currentCard.stage.trim().toLowerCase();
     const selectedOption = currentCard.options.find((option) => option.id === selectedId);
+    const selectedLabels = optionLabelsForIds(
+      currentCard,
+      selectedIds.length ? selectedIds : selectedOption ? [selectedOption.id] : [],
+    );
     const displayedPrompt = correctContrastPrompt || (
-      isGrammar && grammarCompleted && selectedOption?.label
-        ? currentCard.prompt.replace(/_{2,}/, selectedOption.label)
+      isGrammar && selectedLabels.length
+        ? fillCompletionPrompt(currentCard.prompt, selectedLabels)
         : currentCard.prompt
     );
-    const selectedFocusWords = selectedOption?.label?.toLowerCase().match(/[a-z']+/g) || [];
-    const equivalenceFocusWords = grammarCompleted && selectedOption?.label
-      ? completionEquivalenceFocusWords(currentCard.prompt, selectedOption.label)
+    const selectedFocusWords = selectedLabels.flatMap((label) => label.toLowerCase().match(/[a-z']+/g) || []);
+    const equivalenceFocusWords = grammarCompleted && selectedLabels.length === 1
+      ? completionEquivalenceFocusWords(currentCard.prompt, selectedLabels[0])
       : [];
     const focus = currentCard.stage === 'Grammar' || currentCard.stage === 'Use'
       ? new Set(['is', 'are', ...selectedFocusWords, ...equivalenceFocusWords])
@@ -2529,6 +2584,7 @@ export function LessonScreen({
             onSelect={choose}
             result={result}
             selectedId={selectedId}
+            selectedIds={selectedIds}
             showHelp={showHelp}
             promptInteractionMode={promptInteractionMode}
             pronunciationReplayRequestId={pronunciationReplayRequestId}

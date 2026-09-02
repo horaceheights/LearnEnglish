@@ -56,6 +56,8 @@ from scripts.render_course_audio_assets import (
     add_generated_take,
     bind_take,
     blank_text_for,
+    blank_texts_for,
+    capture_legacy_backend_take,
     deterministic_completion_silence,
     fragment_request_contract,
     fragment_stage_path,
@@ -659,6 +661,69 @@ class PersistentCardAudioTests(unittest.TestCase):
         self.assertEqual(babies_take.payload, pants_take.payload)
         self.assertEqual("Babies.", registry["takes"][babies_take_id]["text"])
         self.assertEqual("Pants.", registry["takes"][pants_take_id]["text"])
+
+    def test_ordered_multi_blank_completion_builds_one_gap_per_answer(self):
+        card = next(
+            card for card in LESSONS["lesson-1-people-actions"].cards
+            if card.slide_id == "U5"
+        )
+        asset = next(
+            asset for asset in card.audio_assets
+            if asset.variant == "completion-prompt"
+        )
+        blanks = blank_texts_for(card, asset.text)
+        job = RenderJob(
+            kind="completion",
+            assets=[asset],
+            text=asset.text,
+            visual_prompt=card.prompt,
+            blank_texts=blanks,
+        )
+
+        self.assertEqual(("He", "a"), blanks)
+        self.assertEqual((None, "is,", "man."), job.completion_fragments())
+        self.assertEqual(
+            {
+                "visual_prompt": "___ is ___ man.",
+                "full_text": "He is a man.",
+                "blank_texts": ["He", "a"],
+            },
+            job.completion_contract_metadata,
+        )
+        self.assertEqual(["is,", "man."], [text for text, _model in job.request_fragments()])
+
+        payload = reviewed_hello_bytes()
+
+        class FakeResponse:
+            content = payload
+            headers = {
+                "x-audio-provider": COURSE_AUDIO_PROVIDER,
+                "x-audio-profile": COURSE_AUDIO_PROFILE_ID,
+            }
+
+            @staticmethod
+            def raise_for_status() -> None:
+                return None
+
+        class FakeClient:
+            def __init__(self) -> None:
+                self.texts: list[str] = []
+
+            def get(self, _url: str, params: dict[str, object]):
+                self.texts.append(str(params["text"]))
+                return FakeResponse()
+
+        client = FakeClient()
+        captured, provenance = capture_legacy_backend_take(
+            client,
+            "https://example.invalid",
+            job,
+            "2026-09-02T12:00:00-06:00",
+        )
+        self.assertEqual(["is,", "man."], client.texts)
+        self.assertTrue(probe_mp3(captured))
+        self.assertEqual(2, len(provenance["provider_requests"]))
+        self.assertIn("one deterministic digital-silence gap per blank", provenance["processing"][1])
 
     def test_direct_provider_fragment_is_staged_and_reused_without_another_request(self):
         asset = next(

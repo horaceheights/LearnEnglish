@@ -55,6 +55,7 @@ class LessonCard(BaseModel):
     prompt: str
     stage: str
     correct_option_id: str
+    correct_option_ids: list[str] = Field(default_factory=list)
     options: list[ChoiceOption]
     audio_text: str | None = None
     answer_audio_text: str | None = None

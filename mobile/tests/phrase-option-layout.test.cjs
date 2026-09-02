@@ -7,8 +7,14 @@ const cardViewSource = fs.readFileSync(cardViewPath, 'utf8');
 
 assert.match(
   cardViewSource,
-  /const useHorizontalPhraseOptions = !isLandscape && hasTextOnlyOptions;/,
-  'Portrait phrase choices must use the shared horizontal-row layout.',
+  /const useHorizontalPhraseOptions = !isLandscape && hasTextOnlyOptions && !useCompactCompletionTiles;/,
+  'Portrait phrase choices must use the shared horizontal-row layout outside compact word-tile completions.',
+);
+
+assert.match(
+  cardViewSource,
+  /useCompactCompletionTiles\s*\? '31%'/,
+  'Three short completion words must share one visible responsive row.',
 );
 
 assert.match(

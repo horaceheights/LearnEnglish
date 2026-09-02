@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
@@ -752,7 +753,67 @@ def add_course_browser_runtime_contracts(catalog: AssetCatalog) -> None:
         )
 
 
+def is_unit_one_lesson_context(context: object) -> bool:
+    return (
+        isinstance(context, dict)
+        and context.get("context_type") == "lesson_card"
+        and str(context.get("sub_lesson_id") or "").startswith("1.")
+    )
+
+
+def refresh_unit_one_runtime_manifest() -> None:
+    """Refresh Unit 1 runtime bindings without rebuilding Units 2-7."""
+
+    manifest_payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    retained_assets: list[dict[str, Any]] = []
+    for raw_item in manifest_payload.get("assets", []):
+        item = dict(raw_item)
+        review_contexts = [
+            context
+            for context in item.get("review_contexts", [])
+            if not is_unit_one_lesson_context(context)
+        ]
+        if not review_contexts:
+            continue
+        item["review_contexts"] = review_contexts
+        item["card_refs"] = [
+            card_ref
+            for card_ref in item.get("card_refs", [])
+            if not str(card_ref).startswith("1.")
+        ]
+        retained_assets.append(item)
+
+    unit_one_catalog = AssetCatalog()
+    add_unit_one_runtime_contracts(unit_one_catalog)
+    unit_one_assets = [
+        item for item in unit_one_catalog.items.values() if item["review_contexts"]
+    ]
+    manifest_payload["assets"] = sorted(
+        [*retained_assets, *unit_one_assets],
+        key=lambda item: item["asset_id"],
+    )
+    MANIFEST.write_text(
+        json.dumps(manifest_payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    print(
+        f"Refreshed {len(unit_one_assets)} Unit 1 runtime media contracts "
+        "without rebuilding Units 2-7."
+    )
+
+
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Build A1 lesson and media contracts.")
+    parser.add_argument(
+        "--unit-one-runtime-only",
+        action="store_true",
+        help="Refresh only Unit 1 runtime media bindings in the existing manifest.",
+    )
+    args = parser.parse_args()
+    if args.unit_one_runtime_only:
+        refresh_unit_one_runtime_manifest()
+        return
+
     plan = json.loads(PLAN.read_text(encoding="utf-8"))
     catalog = AssetCatalog()
     output_files: list[Path] = []
