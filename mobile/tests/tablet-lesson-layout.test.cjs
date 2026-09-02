@@ -136,6 +136,21 @@ assert.match(
 );
 assert.match(
   guardrails,
+  /Vocabulary and grammar allocations across lessons 1 through 8 are movable/,
+  'Lesson boundaries must not block the approved cumulative story progression.',
+);
+assert.match(
+  guardrails,
+  /explicitly introduce every required content word and supporting function word/,
+  'Articles, prepositions, and other supporting language must be taught before use.',
+);
+assert.match(
+  guardrails,
+  /The girl is running in the park\./,
+  'The cumulative sentence ladder must remain part of the durable course contract.',
+);
+assert.match(
+  guardrails,
   /Lesson 9 is a comprehensive, no-new-language review[\s\S]*?at least 70 percent/,
   'Lesson 9 must own comprehensive unit review and meet the approved coverage floor.',
 );
@@ -168,6 +183,11 @@ assert.match(
   qaChecklist,
   /## Narrative sequence guardrail[\s\S]*?For every adjacent pair[\s\S]*?Greetings precede introductions and information exchange/,
   'Engine QA must review adjacent-slide continuity as well as conversational chronology.',
+);
+assert.match(
+  qaChecklist,
+  /## Prerequisite and cumulative-sentence guardrail[\s\S]*?No prompt, answer, distractor, audio line, speaking target, or mission step uses a word or structure before its intentional introduction/,
+  'Engine QA must reject unintroduced supporting language in cumulative sentences.',
 );
 assert.match(
   previewLessons,

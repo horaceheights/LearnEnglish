@@ -125,6 +125,14 @@ Review every changed lesson from its first card to its last in authored order:
 - [ ] Every mission card establishes the goal, reveals needed information, overcomes an obstacle, performs required language, or resolves the story
 - [ ] Runtime delivery preserves authored card order and randomizes only the permitted answer positions
 
+## Prerequisite and cumulative-sentence guardrail
+
+- [ ] The unit mastery map identifies the first teaching slide for every content word, article, pronoun, form of `be`, preposition, place/object noun, and other function word used later
+- [ ] No prompt, answer, distractor, audio line, speaking target, or mission step uses a word or structure before its intentional introduction
+- [ ] When vocabulary or grammar moves between lessons 1-8, every prerequisite, review target, downstream lesson, and Lesson 9 coverage calculation is updated with it
+- [ ] Longer sentences grow through small meaningful additions of already introduced language instead of appearing fully formed; for example, `girl` → `the girl` → `running` → `The girl is running` → `park` → `in the park` → `The girl is running in the park.`
+- [ ] Each cumulative sentence remains visually literal, continues the established scene or story, and gives the learner more communicative power rather than merely adding length
+
 ## Activity-stage matrix
 
 ### Action Introduction

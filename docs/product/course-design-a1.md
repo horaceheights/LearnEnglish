@@ -68,7 +68,7 @@ Core patterns:
 
 ### Unit 2: Places, Objects, Numbers, and Colors
 
-Goal: Identify familiar places, transport, and objects, then count and describe them without introducing location prepositions prematurely.
+Goal: Expand familiar places, transport, and objects, then count, locate, and describe them. If an essential place or location chunk was introduced earlier to support a coherent story, treat it as a prerequisite and deepen it here rather than artificially withholding or reteaching it.
 
 Lessons:
 
@@ -235,6 +235,8 @@ Current standard lesson size:
 ### Ten-lesson unit rhythm
 
 - Lessons 1-8 form one forward-moving construction chain. A unit can progress from subjects to actions, then places or objects, then attributes such as colors and quantities, so familiar words do more work each time they return.
+- Vocabulary and grammar may move between lessons 1-8 when needed for that chain. Every moved item carries its prerequisite, declared teaching target, and downstream dependency with it; old lesson boundaries never outrank understandable story flow.
+- Introduce the small supporting words needed to make the story grammatical before using them in a cumulative sentence. Articles, pronouns, forms of `be`, prepositions, and place or object nouns are teaching content, not invisible glue. A sentence ladder may grow from `girl` to `the girl`, `running`, `The girl is running`, `park`, `in the park`, and `The girl is running in the park.`
 - Within every lesson, the slides form a linked chain rather than a collection of cards about the same topic. Each slide continues, answers, applies, contrasts, deepens, or resolves the previous slide and creates a natural reason for the following slide; this applies across section boundaries as well as within a section.
 - Repetition in lessons 1-8 is repetition with growth: keep the useful vocabulary, but change the combination, sentence structure, communicative purpose, scene, or required response. Do not copy a prior teaching or assessment card into the next lesson merely to review it.
 - Lesson 9 retrieves at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets from lessons 1-8. It may be longer than a standard lesson when needed, uses no new language, and presents newly authored images, combinations, prompts, and setups. It may use clearly separated story stations, but it must not replay the same content-image pair from the lessons it reviews.
