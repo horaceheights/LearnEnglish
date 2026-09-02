@@ -154,6 +154,8 @@ def pending_row(contract: dict[str, Any], asset_sha256: str | None) -> dict[str,
 def synchronized_registry(
     manifest: dict[str, Any],
     existing_registry: dict[str, Any] | None = None,
+    *,
+    allow_stale_render_signatures: bool = False,
 ) -> dict[str, Any]:
     """Synchronize contracts without ever granting semantic approval.
 
@@ -177,7 +179,10 @@ def synchronized_registry(
     for index, asset in enumerate(assets, 1):
         if not isinstance(asset, dict):
             raise ValueError(f"manifest asset {index} must be an object")
-        contract = semantic_contract(asset)
+        contract = semantic_contract(
+            asset,
+            allow_stale_render_signatures=allow_stale_render_signatures,
+        )
         contract_sha256 = semantic_contract_sha256(contract)
         if contract_sha256 in seen_contracts:
             raise ValueError(
@@ -231,11 +236,23 @@ def main() -> int:
         action="store_true",
         help="Fail when the checked-in registry is not synchronized; do not write it.",
     )
+    parser.add_argument(
+        "--allow-stale-render-signatures",
+        action="store_true",
+        help=(
+            "Allow Preview-only synchronization while unchanged manifest rows still "
+            "carry older renderer signatures; Production validation remains strict."
+        ),
+    )
     args = parser.parse_args()
 
     manifest = load_json_object(MANIFEST)
     existing = load_json_object(REGISTRY) if REGISTRY.is_file() else None
-    synchronized = synchronized_registry(manifest, existing)
+    synchronized = synchronized_registry(
+        manifest,
+        existing,
+        allow_stale_render_signatures=args.allow_stale_render_signatures,
+    )
     rendered = serialized_registry(synchronized)
 
     if args.check:

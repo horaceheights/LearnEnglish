@@ -125,12 +125,42 @@ def validate_option_ids() -> list[str]:
                     f"{lesson.id} card {card_index} ({card.prompt!r}) has duplicate option ids: {option_ids}."
                 )
 
-            correct_count = option_ids.count(card.correct_option_id)
-            if correct_count != 1:
-                errors.append(
-                    f"{lesson.id} card {card_index} ({card.prompt!r}) expected correct option "
-                    f"{card.correct_option_id!r} exactly once, found {correct_count}."
-                )
+            correct_option_ids = list(card.correct_option_ids or [])
+            if correct_option_ids:
+                if len(correct_option_ids) < 2:
+                    errors.append(
+                        f"{lesson.id} card {card_index} ({card.prompt!r}) multi-answer completion "
+                        "must declare at least two ordered correct option IDs."
+                    )
+                if len(correct_option_ids) != len(set(correct_option_ids)):
+                    errors.append(
+                        f"{lesson.id} card {card_index} ({card.prompt!r}) has repeated ordered "
+                        f"correct option IDs: {correct_option_ids}."
+                    )
+                if card.correct_option_id != correct_option_ids[0]:
+                    errors.append(
+                        f"{lesson.id} card {card_index} ({card.prompt!r}) must keep "
+                        "correct_option_id aligned with the first ordered answer."
+                    )
+                if not str(card.interaction_type or "").startswith("complete"):
+                    errors.append(
+                        f"{lesson.id} card {card_index} ({card.prompt!r}) declares ordered "
+                        "correct answers outside a completion interaction."
+                    )
+                for correct_option_id in correct_option_ids:
+                    correct_count = option_ids.count(correct_option_id)
+                    if correct_count != 1:
+                        errors.append(
+                            f"{lesson.id} card {card_index} ({card.prompt!r}) expected ordered "
+                            f"correct option {correct_option_id!r} exactly once, found {correct_count}."
+                        )
+            else:
+                correct_count = option_ids.count(card.correct_option_id)
+                if correct_count != 1:
+                    errors.append(
+                        f"{lesson.id} card {card_index} ({card.prompt!r}) expected correct option "
+                        f"{card.correct_option_id!r} exactly once, found {correct_count}."
+                    )
     return errors
 
 
@@ -214,31 +244,37 @@ def validate_interaction_requirements() -> list[str]:
             if card.stage == "Use":
                 completion = card.interaction_type is None or str(card.interaction_type).startswith("complete")
                 placeholders = list(VISUAL_COMPLETION_PLACEHOLDER_PATTERN.finditer(card.prompt))
-                if completion and len(placeholders) != 1:
+                ordered_correct_ids = list(card.correct_option_ids or [])
+                expected_placeholders = len(ordered_correct_ids) if ordered_correct_ids else 1
+                if completion and len(placeholders) != expected_placeholders:
                     errors.append(
-                        f"{location} must contain exactly one visual sentence blank; "
-                        f"found {len(placeholders)}."
+                        f"{location} must contain exactly {expected_placeholders} visual sentence "
+                        f"blank{'s' if expected_placeholders != 1 else ''}; found {len(placeholders)}."
                     )
                 if any(not (option.label or "").strip() for option in card.options):
                     errors.append(f"{location} is an interactive Use card with an unlabeled choice.")
                 if not (card.answer_audio_text or "").strip():
                     errors.append(f"{location} is an interactive Use card without completed-answer audio.")
-                if completion and len(placeholders) == 1:
-                    correct_option = next(
-                        (option for option in card.options if option.id == card.correct_option_id),
-                        None,
-                    )
-                    if correct_option and (correct_option.label or "").strip():
-                        placeholder = placeholders[0]
-                        completed = (
-                            card.prompt[:placeholder.start()]
-                            + correct_option.label
-                            + card.prompt[placeholder.end():]
+                if completion and len(placeholders) == expected_placeholders:
+                    correct_ids = ordered_correct_ids or [card.correct_option_id]
+                    correct_labels = []
+                    for correct_id in correct_ids:
+                        correct_option = next(
+                            (option for option in card.options if option.id == correct_id),
+                            None,
+                        )
+                        if correct_option and (correct_option.label or "").strip():
+                            correct_labels.append(correct_option.label)
+                    if len(correct_labels) == expected_placeholders:
+                        label_iterator = iter(correct_labels)
+                        completed = VISUAL_COMPLETION_PLACEHOLDER_PATTERN.sub(
+                            lambda _: next(label_iterator),
+                            card.prompt,
                         )
                         if card.answer_audio_text != completed:
                             errors.append(
                                 f"{location} answer_audio_text must exactly equal the full sentence "
-                                "with the correct answer inserted."
+                                "with every ordered correct answer inserted."
                             )
 
             if card.stage in PRONUNCIATION_STAGES and not (
@@ -714,6 +750,8 @@ def _mobile_export_payload(model: object) -> dict[str, object]:
                 continue
             if card.get("spanish_translation") is None:
                 card.pop("spanish_translation", None)
+            if not card.get("correct_option_ids"):
+                card.pop("correct_option_ids", None)
             if not card.get("audio_turns"):
                 card.pop("audio_turns", None)
             if not card.get("answer_audio_turns"):

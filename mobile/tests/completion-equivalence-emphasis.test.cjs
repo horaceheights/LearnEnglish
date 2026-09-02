@@ -81,7 +81,7 @@ assert.doesNotMatch(
 );
 assert.match(
   screenSource,
-  /const equivalenceFocusWords = grammarCompleted && selectedOption\?\.label\s*\? completionEquivalenceFocusWords\(currentCard\.prompt, selectedOption\.label\)\s*: \[\];/,
+  /const equivalenceFocusWords = grammarCompleted && selectedLabels\.length === 1\s*\? completionEquivalenceFocusWords\(currentCard\.prompt, selectedLabels\[0\]\)\s*: \[\];/,
   'Antecedent emphasis must remain hidden until the completion is finished.',
 );
 assert.match(

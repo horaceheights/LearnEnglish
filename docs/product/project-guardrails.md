@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-09-02
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -56,6 +56,8 @@ Every standard lesson follows this visible sequence:
 - Every adjacent pair of cards needs an understandable bridge. The following card must naturally continue, answer, apply, contrast, deepen, or resolve something established by the previous card while preparing the learner for what comes next. Sharing a topic or vocabulary list is not enough when the cards otherwise feel interchangeable or random.
 - This sequence rule applies to every section and interaction type, not only conversations. In a conversation, a greeting comes before a name introduction or information exchange, and a goodbye or other closing comes after that exchange; in a scene, task, concept sequence, or game, setup comes before action, action before consequence, and preparation before application.
 - Section boundaries do not reset the story logic. The end of `Learn` should prepare `Recognize`, `Recognize` should prepare listening, listening should prepare speaking, and speaking should prepare meaningful use, even when the interaction format changes.
+- Every section retells the lesson's same reviewed concept or story progression in the same meaningful order. The learner should recognize the arc while the task changes from introduction to recognition, listening, speaking, and construction; a section may compress or deepen the arc, but it must not scramble it into a new unrelated sequence.
+- Interaction variation is part of every standard lesson contract. Use the formats appropriate to each stage—including changes in direction, option-set size, audio/image/text modality, and response construction—so practice does not feel like the same card repeated five times. Variation must preserve the shared story order and must never introduce unprepared language merely to make a card different.
 - Preserve causal and visual continuity within a scene. Introduce the people, place, objects, or goal before asking the learner to act on them, and do not jump between unrelated speakers, locations, times, or tasks without a clear transition.
 - A review lesson may use several clearly separated stations or micro-scenes instead of one continuous story, but every station must have its own coherent order and the sequence of stations must be purposeful rather than random. In a mission lesson, every assessed card must help establish the goal, reveal needed information, overcome an obstacle, perform the required language, or resolve the story.
 - Builders, importers, and content rewrites must preserve the reviewed card sequence exactly. Grouping cards by vocabulary, interaction type, media, or implementation convenience may not override narrative or pedagogical order.
@@ -116,6 +118,8 @@ Every standard lesson follows this visible sequence:
 - Include affirmative and negative forms only after each form has been introduced clearly.
 - End with a short completion or mission activity that uses previously learned language.
 - Completion blanks are visual UI only. Before selection, speak only the visible sentence fragments with at least 550 ms of digital silence at the blank; after selection, speak the completed answer. Never synthesize the missing answer as part of the prompt. Ending blanks use a rising elicitation tone on the visible prefix; when that prefix ends in the article `a`, quote that real word in the provider text to give it extra weight without inventing a pronunciation. Middle blanks use comma punctuation on the prefix plus the fixed silent gap before the visible suffix. Never send underscores, ellipses, `[pause]`, `[blank]`, `{blank}`, or equivalent markers to any TTS provider.
+- A multi-blank completion declares one ordered correct option ID per visible blank. Each tap fills the next blank and leaves the chosen tile visibly selected; validation occurs only after the final required tile. Learners cannot reuse one tile twice during an unfinished attempt, and a wrong completed sequence resets cleanly when they begin again. Prompt audio preserves every visible fragment and inserts one fixed silent gap per blank without leaking any answer word. All tiles, partial construction state, and feedback must remain visible and comfortably tappable at supported screen sizes.
+- Three short one- or two-word completion tiles may use one responsive row so the image, construction, choices, and feedback remain visible together. On wide screens, the paired prompt image stays centered in a bounded 3:2 frame instead of consuming the full lesson width and pushing the tile bank below the viewport. This compact tile-bank exception does not apply to phrase or sentence choices, which retain their established full-width portrait rows, and every tile still meets the minimum touch-target contract.
 
 ## 3. New-Word Learning Journey
 
@@ -375,6 +379,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 
 ## 12. Decision Log
 
+- 2026-09-02: Standard lesson stages now preserve one shared concept/story order while changing interaction direction, option depth, modality, and construction demands. The Lesson 1.1 pilot expands to 42 cards and introduces ordered two-tile completion, with one visible, silent audio gap per blank and responsive partial-selection feedback on mobile and web.
 - 2026-09-01: Preview review timing standardized on no human pre-approval by default. Changes proceed to protected Preview after automated structural verification so Horace can review them in the real app; a pre-approval checkpoint exists only when requested explicitly before implementation. Pending decisions and renderer-source signature drift warn without being auto-approved in Preview, while Production retains its separate explicit approval and strict current-signature requirements.
 - 2026-08-18: Unit 1 standardized to ten lessons using the five-stage shell.
 - 2026-08-18: Existing action clips normalized to a consistent 16:9 frame; selective motion retained as a teaching confirmation.

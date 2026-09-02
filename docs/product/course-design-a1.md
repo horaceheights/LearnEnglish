@@ -227,9 +227,9 @@ Each A1 lesson should follow this shape:
 5. Cumulative construction: combine useful earlier language with the lesson's new element to create a richer utterance or situation.
 6. Optional help: give Spanish support only when the learner asks or repeatedly misses.
 
-Current standard lesson size:
+Current restructuring target:
 
-- 32-40 total cards for a complete `Learn -> Recognize -> Listen -> Speak -> Use` lesson
+- at least 40 total cards for each restructured standard `Learn -> Recognize -> Listen -> Speak -> Use` lesson; Lesson 1.1 establishes a 42-card pilot while later lessons retain their baseline counts until reviewed one at a time
 - new vocabulary is limited by the lesson contract rather than introduced incidentally through distractors
 - lessons 1-8 may reuse earlier vocabulary only as part of the current lesson's larger construction, meaning, contrast, or situation; they do not insert standalone prior-lesson review cards
 - lesson 9 is the unit's comprehensive no-new-language review, while lesson 10 is a distinct applied story or challenge rather than another review
@@ -240,6 +240,7 @@ Current standard lesson size:
 - Vocabulary and grammar may move between lessons 1-8 of the same unit when needed for that chain. Every moved item carries its prerequisite, declared teaching target, and downstream dependency with it; old lesson boundaries never outrank understandable story flow, but later-unit language does not move forward without a separate curriculum decision.
 - Introduce the small supporting words needed to make the story grammatical before using them in a cumulative sentence. Articles, pronouns, forms of `be`, prepositions, and place or object nouns are teaching content, not invisible glue. Unit 1 may grow `girl` into `The girl is running.` Unit 2 then introduces `park` and `in the park` before expanding it to `The girl is running in the park.`
 - Within every lesson, the slides form a linked chain rather than a collection of cards about the same topic. Each slide continues, answers, applies, contrasts, deepens, or resolves the previous slide and creates a natural reason for the following slide; this applies across section boundaries as well as within a section.
+- Learn, Recognize, Listen, Speak, and Use preserve the same reviewed concept or story order. Each section changes the learner's task and may compress or deepen the arc, but it does not reshuffle its subjects, events, or logic. Every restructured lesson also varies direction, option depth, modality, and construction where those interactions fit the stage.
 - Repetition in lessons 1-8 is repetition with growth: keep the useful vocabulary, but change the combination, sentence structure, communicative purpose, scene, or required response. Do not copy a prior teaching or assessment card into the next lesson merely to review it.
 - Lesson 9 retrieves at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets from lessons 1-8. It may be longer than a standard lesson when needed, uses no new language, and presents newly authored images, combinations, prompts, and setups. It may use clearly separated story stations, but it must not replay the same content-image pair from the lessons it reviews.
 - Lesson 10 is the unit-closing mission: one coherent story, practical goal, or challenge in which learned language is the tool for succeeding. It is not a second review deck. Every interaction advances the mission, and the ending provides a clear sense of resolution and readiness for the next unit.
@@ -304,7 +305,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 
 | Lesson | Scope | Build status |
 | --- | --- | --- |
-| `1.1` | Meet the People | Pilot ready for learner review |
+| `1.1` | Meet the People | 42-card pilot ready for learner review |
 | `1.2` | He and She | Complete |
 | `1.3` | Two People: They and Are | Complete |
 | `1.4` | Children and Siblings | Complete |

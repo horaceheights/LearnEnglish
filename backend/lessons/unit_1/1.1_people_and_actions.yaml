@@ -21,7 +21,7 @@ vocabulary:
 review_vocabulary: []
 grammar_function: 'A + singular person; He/She is a + singular person.'
 prerequisite: No prior English is required; this is the first course lesson.
-speaking_outcome: Say four short identity phrases with a boy, girl, man, or woman.
+speaking_outcome: Say short identity phrases and connect a person noun to he or she.
 purposeful_review_slides: []
 cards:
 - slide_id: L1
@@ -110,6 +110,18 @@ cards:
   pedagogy_note: The story now introduces the adult male counterpart to the boy.
 - slide_id: L8
   interaction_type: teach
+  prompt: He is a man.
+  stage: Learn
+  correct_option_id: man-alt
+  options:
+  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  audio_text: He is a man.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Él es un hombre.
+  pedagogy_note: The adult male immediately receives the same he-is-a identity frame learned with the boy.
+- slide_id: L9
+  interaction_type: teach
   prompt: A woman
   stage: Learn
   correct_option_id: woman-base
@@ -119,7 +131,19 @@ cards:
   answer_audio_text: null
   prompt_image_url: ''
   spanish_translation: Una mujer
-  pedagogy_note: The fourth person completes the cast and prepares age and pronoun contrasts.
+  pedagogy_note: The fourth person completes the cast after the man.
+- slide_id: L10
+  interaction_type: teach
+  prompt: She is a woman.
+  stage: Learn
+  correct_option_id: woman-alt
+  options:
+  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: She is a woman.}
+  audio_text: She is a woman.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Ella es una mujer.
+  pedagogy_note: The adult female immediately receives the matching she-is-a identity frame.
 - slide_id: R1
   interaction_type: t2i2
   prompt: A boy
@@ -134,6 +158,20 @@ cards:
   spanish_translation: Un niño
   pedagogy_note: The learner first separates child from adult within the male pair.
 - slide_id: R2
+  interaction_type: i2t3
+  prompt: ''
+  stage: Recognize
+  correct_option_id: he-boy
+  options:
+  - {id: he-man, image_url: '', label: He is a man.}
+  - {id: she-girl, image_url: '', label: She is a girl.}
+  - {id: he-boy, image_url: '', label: He is a boy.}
+  audio_text: ''
+  answer_audio_text: He is a boy.
+  prompt_image_url: /lesson-assets/a1_l1_boy_transfer.webp
+  spanish_translation: Elige la frase para el niño.
+  pedagogy_note: The boy story immediately grows from the noun to the complete sentence in a new format.
+- slide_id: R3
   interaction_type: t2i2
   prompt: A girl
   stage: Recognize
@@ -146,7 +184,21 @@ cards:
   prompt_image_url: ''
   spanish_translation: Una niña
   pedagogy_note: The matching female age contrast follows naturally.
-- slide_id: R3
+- slide_id: R4
+  interaction_type: i2t3
+  prompt: ''
+  stage: Recognize
+  correct_option_id: she-girl
+  options:
+  - {id: he-boy, image_url: '', label: He is a boy.}
+  - {id: she-girl, image_url: '', label: She is a girl.}
+  - {id: she-woman, image_url: '', label: She is a woman.}
+  audio_text: ''
+  answer_audio_text: She is a girl.
+  prompt_image_url: /lesson-assets/a1_l1_girl_transfer.webp
+  spanish_translation: Elige la frase para la niña.
+  pedagogy_note: The girl now receives the same noun-to-sentence treatment as the boy.
+- slide_id: R5
   interaction_type: t2i4
   prompt: A man
   stage: Recognize
@@ -161,7 +213,34 @@ cards:
   prompt_image_url: ''
   spanish_translation: Un hombre
   pedagogy_note: All four people now appear together as distinct visual categories.
-- slide_id: R4
+- slide_id: R6
+  interaction_type: t2i2
+  prompt: He is a man.
+  stage: Recognize
+  correct_option_id: man-alt
+  options:
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
+  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  audio_text: He is a man.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Él es un hombre.
+  pedagogy_note: The known he-is-a frame grows from boy to man.
+- slide_id: R7
+  interaction_type: i2t3
+  prompt: ''
+  stage: Recognize
+  correct_option_id: he-man
+  options:
+  - {id: she-woman, image_url: '', label: She is a woman.}
+  - {id: he-boy, image_url: '', label: He is a boy.}
+  - {id: he-man, image_url: '', label: He is a man.}
+  audio_text: ''
+  answer_audio_text: He is a man.
+  prompt_image_url: /lesson-assets/a1_l1_man_transfer.webp
+  spanish_translation: Elige la frase para el hombre.
+  pedagogy_note: The man is retrieved from a fresh image before the story moves to the woman.
+- slide_id: R8
   interaction_type: t2i4
   prompt: A woman
   stage: Recognize
@@ -175,21 +254,8 @@ cards:
   answer_audio_text: null
   prompt_image_url: ''
   spanish_translation: Una mujer
-  pedagogy_note: The cast repeats with new clothing and a new answer position.
-- slide_id: R5
-  interaction_type: t2i2
-  prompt: He is a man.
-  stage: Recognize
-  correct_option_id: man-alt
-  options:
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
-  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
-  audio_text: He is a man.
-  answer_audio_text: null
-  prompt_image_url: ''
-  spanish_translation: Él es un hombre.
-  pedagogy_note: The known he-is-a frame grows from boy to man.
-- slide_id: R6
+  pedagogy_note: The four-person contrast returns at the final story character.
+- slide_id: R9
   interaction_type: t2i2
   prompt: She is a woman.
   stage: Recognize
@@ -202,21 +268,7 @@ cards:
   prompt_image_url: ''
   spanish_translation: Ella es una mujer.
   pedagogy_note: The matching she-is-a frame grows from girl to woman.
-- slide_id: R7
-  interaction_type: i2t3
-  prompt: ''
-  stage: Recognize
-  correct_option_id: he-boy
-  options:
-  - {id: he-man, image_url: '', label: He is a man.}
-  - {id: she-girl, image_url: '', label: She is a girl.}
-  - {id: he-boy, image_url: '', label: He is a boy.}
-  audio_text: ''
-  answer_audio_text: He is a boy.
-  prompt_image_url: /lesson-assets/a1_l1_boy_alt.webp
-  spanish_translation: Elige la frase para el niño.
-  pedagogy_note: Direction reverses from words-to-image to image-to-sentence.
-- slide_id: R8
+- slide_id: R10
   interaction_type: i2t3
   prompt: ''
   stage: Recognize
@@ -227,7 +279,7 @@ cards:
   - {id: she-girl, image_url: '', label: She is a girl.}
   audio_text: ''
   answer_audio_text: She is a woman.
-  prompt_image_url: /lesson-assets/a1_l1_woman_alt.webp
+  prompt_image_url: /lesson-assets/a1_l1_woman_transfer.webp
   spanish_translation: Elige la frase para la mujer.
   pedagogy_note: Recognition ends on the adult counterpart, ready for audio-only retrieval.
 - slide_id: N1
@@ -244,45 +296,6 @@ cards:
   spanish_translation: Escucha y elige.
   pedagogy_note: Audio removes the visible target text while preserving the first age contrast.
 - slide_id: N2
-  interaction_type: a2i2
-  prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: girl-alt
-  options:
-  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: A girl}
-  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: A woman}
-  audio_text: A girl
-  answer_audio_text: null
-  prompt_image_url: ''
-  spanish_translation: Escucha y elige.
-  pedagogy_note: The female age contrast immediately mirrors the previous card.
-- slide_id: N3
-  interaction_type: a2i2
-  prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: man-base
-  options:
-  - {id: boy-base, image_url: /lesson-assets/boy.webp, label: He is a boy.}
-  - {id: man-base, image_url: /lesson-assets/man.webp, label: He is a man.}
-  audio_text: He is a man.
-  answer_audio_text: null
-  prompt_image_url: ''
-  spanish_translation: Escucha y elige.
-  pedagogy_note: The learner now retrieves the complete male identity sentence by ear.
-- slide_id: N4
-  interaction_type: a2i2
-  prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: woman-base
-  options:
-  - {id: woman-base, image_url: /lesson-assets/woman.webp, label: She is a woman.}
-  - {id: girl-base, image_url: /lesson-assets/girl.webp, label: She is a girl.}
-  audio_text: She is a woman.
-  answer_audio_text: null
-  prompt_image_url: ''
-  spanish_translation: Escucha y elige.
-  pedagogy_note: The complete female identity sentence follows in the same structure.
-- slide_id: N5
   interaction_type: a2i4
   prompt: Listen and choose.
   stage: Listen
@@ -296,8 +309,21 @@ cards:
   answer_audio_text: null
   prompt_image_url: ''
   spanish_translation: Escucha y elige.
-  pedagogy_note: All four people return for a larger listening choice.
-- slide_id: N6
+  pedagogy_note: The complete boy sentence follows the noun while the choice set expands.
+- slide_id: N3
+  interaction_type: a2i2
+  prompt: Listen and choose.
+  stage: Listen
+  correct_option_id: girl-alt
+  options:
+  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: A girl}
+  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: A woman}
+  audio_text: A girl
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Escucha y elige.
+  pedagogy_note: The female age contrast immediately mirrors the previous card.
+- slide_id: N4
   interaction_type: a2i4
   prompt: Listen and choose.
   stage: Listen
@@ -311,7 +337,61 @@ cards:
   answer_audio_text: null
   prompt_image_url: ''
   spanish_translation: Escucha y elige.
-  pedagogy_note: Listening closes with the girl who followed the boy in the opening story.
+  pedagogy_note: The complete girl sentence mirrors the boy sequence in a four-image format.
+- slide_id: N5
+  interaction_type: a2i2
+  prompt: Listen and choose.
+  stage: Listen
+  correct_option_id: man-base
+  options:
+  - {id: boy-base, image_url: /lesson-assets/boy.webp, label: He is a boy.}
+  - {id: man-base, image_url: /lesson-assets/man.webp, label: He is a man.}
+  audio_text: He is a man.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Escucha y elige.
+  pedagogy_note: The learner now retrieves the complete male identity sentence by ear.
+- slide_id: N6
+  interaction_type: a2t3
+  prompt: Listen and choose.
+  stage: Listen
+  correct_option_id: he-man
+  options:
+  - {id: he-boy, image_url: '', label: He is a boy.}
+  - {id: he-man, image_url: '', label: He is a man.}
+  - {id: she-woman, image_url: '', label: She is a woman.}
+  audio_text: He is a man.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Escucha y elige.
+  pedagogy_note: The man is now recognized from audio among complete written sentences.
+- slide_id: N7
+  interaction_type: a2i2
+  prompt: Listen and choose.
+  stage: Listen
+  correct_option_id: woman-base
+  options:
+  - {id: woman-base, image_url: /lesson-assets/woman.webp, label: She is a woman.}
+  - {id: girl-base, image_url: /lesson-assets/girl.webp, label: She is a girl.}
+  audio_text: She is a woman.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Escucha y elige.
+  pedagogy_note: The complete female identity sentence follows in the same structure.
+- slide_id: N8
+  interaction_type: a2t3
+  prompt: Listen and choose.
+  stage: Listen
+  correct_option_id: she-woman
+  options:
+  - {id: he-man, image_url: '', label: He is a man.}
+  - {id: she-girl, image_url: '', label: She is a girl.}
+  - {id: she-woman, image_url: '', label: She is a woman.}
+  audio_text: She is a woman.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Escucha y elige.
+  pedagogy_note: Listening closes by retrieving the woman sentence in a different response format.
 - slide_id: S1
   interaction_type: speak
   prompt: A boy
@@ -326,6 +406,18 @@ cards:
   pedagogy_note: Production begins with the shortest familiar boy phrase.
 - slide_id: S2
   interaction_type: speak
+  prompt: He is a boy.
+  stage: Speak
+  correct_option_id: boy-alt
+  options:
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
+  audio_text: He is a boy.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Él es un niño.
+  pedagogy_note: The boy story grows immediately from noun phrase to full sentence.
+- slide_id: S3
+  interaction_type: speak
   prompt: She is a girl.
   stage: Speak
   correct_option_id: girl-alt
@@ -336,7 +428,7 @@ cards:
   prompt_image_url: ''
   spanish_translation: Ella es una niña.
   pedagogy_note: The learner expands from a noun phrase to the complete girl sentence.
-- slide_id: S3
+- slide_id: S4
   interaction_type: speak
   prompt: He is a man.
   stage: Speak
@@ -348,7 +440,19 @@ cards:
   prompt_image_url: ''
   spanish_translation: Él es un hombre.
   pedagogy_note: The same frame transfers from the child to the adult man.
-- slide_id: S4
+- slide_id: S5
+  interaction_type: speak
+  prompt: A man. He is a man.
+  stage: Speak
+  correct_option_id: man-transfer
+  options:
+  - {id: man-transfer, image_url: /lesson-assets/a1_l1_man_transfer.webp, label: A man. He is a man.}
+  audio_text: A man. He is a man.
+  answer_audio_text: null
+  prompt_image_url: ''
+  spanish_translation: Un hombre. Él es un hombre.
+  pedagogy_note: Two familiar thoughts connect the adult noun to its pronoun in one spoken turn.
+- slide_id: S6
   interaction_type: speak
   prompt: She is a woman.
   stage: Speak
@@ -360,18 +464,18 @@ cards:
   prompt_image_url: ''
   spanish_translation: Ella es una mujer.
   pedagogy_note: The adult woman completes the four-person production set.
-- slide_id: S5
+- slide_id: S7
   interaction_type: speak
-  prompt: He is a boy.
+  prompt: A woman. She is a woman.
   stage: Speak
-  correct_option_id: boy-alt
+  correct_option_id: woman-transfer
   options:
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
-  audio_text: He is a boy.
+  - {id: woman-transfer, image_url: /lesson-assets/a1_l1_woman_transfer.webp, label: A woman. She is a woman.}
+  audio_text: A woman. She is a woman.
   answer_audio_text: null
   prompt_image_url: ''
-  spanish_translation: Él es un niño.
-  pedagogy_note: The boy returns in new clothes so the learner produces his complete identity independently.
+  spanish_translation: Una mujer. Ella es una mujer.
+  pedagogy_note: The final spoken turn mirrors the man pattern and completes the story.
 - slide_id: U1
   interaction_type: complete2
   prompt: ___ is a boy.
@@ -386,6 +490,20 @@ cards:
   spanish_translation: ___ es un niño.
   pedagogy_note: The learner supplies the pronoun for the first person in the story.
 - slide_id: U2
+  interaction_type: complete4
+  prompt: He is a ___.
+  stage: Use
+  correct_option_id: boy
+  options:
+  - {id: man, image_url: '', label: man}
+  - {id: woman, image_url: '', label: woman}
+  - {id: boy, image_url: '', label: boy}
+  audio_text: He is a ___.
+  answer_audio_text: He is a boy.
+  prompt_image_url: /lesson-assets/a1_l1_boy_transfer.webp
+  spanish_translation: Él es un ___.
+  pedagogy_note: The second boy card completes the same full sentence from its final noun.
+- slide_id: U3
   interaction_type: complete2
   prompt: ___ is a girl.
   stage: Use
@@ -398,7 +516,7 @@ cards:
   prompt_image_url: /lesson-assets/girl.webp
   spanish_translation: ___ es una niña.
   pedagogy_note: The matching girl completion follows with the answer position changed.
-- slide_id: U3
+- slide_id: U4
   interaction_type: complete2
   prompt: He ___ a man.
   stage: Use
@@ -411,7 +529,22 @@ cards:
   prompt_image_url: /lesson-assets/a1_l1_man_alt.webp
   spanish_translation: Él ___ un hombre.
   pedagogy_note: Attention moves from the pronoun to the linking word is.
-- slide_id: U4
+- slide_id: U5
+  interaction_type: complete4
+  prompt: ___ is ___ man.
+  stage: Use
+  correct_option_id: he
+  correct_option_ids: [he, a]
+  options:
+  - {id: she, image_url: '', label: She}
+  - {id: he, image_url: '', label: He}
+  - {id: a, image_url: '', label: a}
+  audio_text: ___ is ___ man.
+  answer_audio_text: He is a man.
+  prompt_image_url: /lesson-assets/a1_l1_man_transfer.webp
+  spanish_translation: ___ es ___ hombre.
+  pedagogy_note: Two non-contiguous blanks now require the learner to build the complete man sentence in order.
+- slide_id: U6
   interaction_type: complete2
   prompt: She is ___ woman.
   stage: Use
@@ -424,17 +557,18 @@ cards:
   prompt_image_url: /lesson-assets/a1_l1_woman_alt.webp
   spanish_translation: Ella es ___ mujer.
   pedagogy_note: The next completion focuses on the article that introduced every person.
-- slide_id: U5
+- slide_id: U7
   interaction_type: complete4
-  prompt: He is a ___.
+  prompt: ___ is ___ woman.
   stage: Use
-  correct_option_id: boy
+  correct_option_id: she
+  correct_option_ids: [she, a]
   options:
-  - {id: man, image_url: '', label: man}
-  - {id: woman, image_url: '', label: woman}
-  - {id: boy, image_url: '', label: boy}
-  audio_text: He is a ___.
-  answer_audio_text: He is a boy.
-  prompt_image_url: /lesson-assets/a1_l1_boy_alt.webp
-  spanish_translation: Él es un ___.
-  pedagogy_note: The lesson resolves by recognizing the same boy despite his changed clothing.
+  - {id: a, image_url: '', label: a}
+  - {id: he, image_url: '', label: He}
+  - {id: she, image_url: '', label: She}
+  audio_text: ___ is ___ woman.
+  answer_audio_text: She is a woman.
+  prompt_image_url: /lesson-assets/a1_l1_woman_transfer.webp
+  spanish_translation: ___ es ___ mujer.
+  pedagogy_note: The lesson resolves with the matching two-step woman sentence and the same ordered construction skill.

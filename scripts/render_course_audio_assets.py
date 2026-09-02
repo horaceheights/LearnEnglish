@@ -22,10 +22,11 @@ from backend.app.card_audio_assets import VISUAL_PLACEHOLDER_PATTERN, asset_inde
 from backend.app.course_audio import (  # noqa: E402
     COMPLETION_PLACEHOLDER_PATTERN,
     _encode_mp3,
-    assemble_completion_fragment_samples,
+    assemble_completion_sequence_samples,
     completion_fragment_model,
     completion_prompt_contract,
-    completion_prompt_fragments,
+    completion_sequence_contract,
+    completion_sequence_fragments,
     normalize_course_audio,
 )
 from backend.app.course_audio_profile import (  # noqa: E402
@@ -61,6 +62,13 @@ class RenderJob:
     text: str = ""
     visual_prompt: str | None = None
     blank_text: str | None = None
+    blank_texts: tuple[str, ...] = ()
+
+    @property
+    def ordered_blank_texts(self) -> tuple[str, ...]:
+        if self.blank_texts:
+            return self.blank_texts
+        return (self.blank_text,) if self.blank_text else ()
 
     @property
     def profile(self):
@@ -68,27 +76,35 @@ class RenderJob:
         return render_profile_for(asset.speaker_role, asset.mode)
 
     @property
-    def completion_contract_metadata(self) -> dict[str, str] | None:
+    def completion_contract_metadata(self) -> dict[str, Any] | None:
         if self.kind != "completion":
             return None
-        return {
+        metadata: dict[str, Any] = {
             "visual_prompt": self.visual_prompt or "",
             "full_text": self.text,
-            "blank_text": self.blank_text or "",
         }
+        if len(self.ordered_blank_texts) == 1:
+            metadata["blank_text"] = self.ordered_blank_texts[0]
+        else:
+            metadata["blank_texts"] = list(self.ordered_blank_texts)
+        return metadata
+
+    def completion_fragments(self) -> tuple[str | None, ...]:
+        if self.kind != "completion":
+            return ()
+        contract = completion_sequence_contract(
+            self.visual_prompt or "",
+            self.text,
+            self.ordered_blank_texts,
+        )
+        return completion_sequence_fragments(contract)
 
     def request_fragments(self) -> list[tuple[str, str]]:
         if self.kind == "ordinary":
             return [(self.text, self.profile.model_id)]
-        contract = completion_prompt_contract(
-            self.visual_prompt or "",
-            self.text,
-            self.blank_text or "",
-        )
-        prefix, suffix = completion_prompt_fragments(contract)
         return [
             (fragment, completion_fragment_model(fragment, self.profile.model_id))
-            for fragment in (prefix, suffix)
+            for fragment in self.completion_fragments()
             if fragment
         ]
 
@@ -126,6 +142,19 @@ def blank_text_for(card: LessonCard, full_text: str) -> str:
     blank = full_text[len(prefix) : end]
     completion_prompt_contract(prompt, full_text, blank)
     return blank
+
+
+def blank_texts_for(card: LessonCard, full_text: str) -> tuple[str, ...]:
+    correct_ids = list(card.correct_option_ids or [])
+    if not correct_ids:
+        return (blank_text_for(card, full_text),)
+    labels_by_id = {
+        option.id: (option.label or "")
+        for option in card.options
+    }
+    answers = tuple(labels_by_id.get(option_id, "") for option_id in correct_ids)
+    completion_sequence_contract(card.prompt, full_text, answers)
+    return answers
 
 
 def selected_assets(args: argparse.Namespace) -> list[tuple[CourseAudioAsset, LessonCard]]:
@@ -207,15 +236,16 @@ def render_jobs(args: argparse.Namespace) -> list[RenderJob]:
         if asset.variant == "completion-prompt":
             if not VISUAL_PLACEHOLDER_PATTERN.search(card.prompt):
                 raise ValueError(f"Completion asset has no visual placeholder: {asset.id}")
-            blank = blank_text_for(card, asset.text)
-            key = ("completion", profile.voice_id, card.prompt, asset.text, blank)
+            blanks = blank_texts_for(card, asset.text)
+            key = ("completion", profile.voice_id, card.prompt, asset.text, *blanks)
             job = grouped.setdefault(
                 key,
                 RenderJob(
                     kind="completion",
                     text=asset.text,
                     visual_prompt=card.prompt,
-                    blank_text=blank,
+                    blank_text=blanks[0] if len(blanks) == 1 else None,
+                    blank_texts=blanks,
                 ),
             )
         else:
@@ -561,7 +591,9 @@ def deterministic_completion_silence(
     if job.kind != "completion" or job.request_fragments():
         raise ValueError("Deterministic silence is only valid for a completion with no visible speech.")
     generated_at = datetime.now(timezone.utc).isoformat()
-    payload = _encode_mp3(assemble_completion_fragment_samples(None, None))
+    payload = _encode_mp3(assemble_completion_sequence_samples(
+        [None] * (len(job.ordered_blank_texts) + 1)
+    ))
     provenance = {
         "source": "deterministic-completion-silence",
         **job.profile.as_provenance_contract(),
@@ -633,22 +665,18 @@ def generate_take(
             "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved.",
         ]
     else:
-        contract = completion_prompt_contract(
-            job.visual_prompt or "",
-            job.text,
-            job.blank_text or "",
-        )
-        prefix, suffix = completion_prompt_fragments(contract)
+        visible_fragments = job.completion_fragments()
         cursor = 0
-        prefix_audio = fragments[cursor] if prefix else None
-        cursor += 1 if prefix else 0
-        suffix_audio = fragments[cursor] if suffix else None
+        fragment_audio: list[bytes | None] = []
+        for fragment in visible_fragments:
+            fragment_audio.append(fragments[cursor] if fragment else None)
+            cursor += 1 if fragment else 0
         final_payload = _encode_mp3(
-            assemble_completion_fragment_samples(prefix_audio, suffix_audio)
+            assemble_completion_sequence_samples(fragment_audio)
         )
         processing = [
-            "Generated only the learner-visible fragments; the missing answer was never sent to ElevenLabs.",
-            "Stitched visible fragments around deterministic digital silence at 24 kHz mono, 96 kbps MP3.",
+            "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+            "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3.",
         ]
 
     stored_media = probe_mp3(final_payload)
@@ -729,6 +757,74 @@ def capture_legacy_backend_take(
             "The backend used the pinned ElevenLabs profile and course_audio.normalize_course_audio pipeline.",
         ]
     else:
+        if len(job.ordered_blank_texts) != 1:
+            visible_fragments = job.completion_fragments()
+            fragment_payloads: list[bytes | None] = []
+            provider_requests: list[dict[str, Any]] = []
+            for fragment in visible_fragments:
+                if not fragment:
+                    fragment_payloads.append(None)
+                    continue
+                fragment_model = completion_fragment_model(fragment, profile.model_id)
+                if fragment_model != profile.model_id:
+                    raise ValueError(
+                        "The legacy course endpoint cannot preserve this completion fragment's "
+                        "specialized model; use direct offline ElevenLabs rendering."
+                    )
+                fragment_response = client.get(
+                    f"{base_url}/api/audio/course.mp3",
+                    params={
+                        "text": fragment,
+                        "mode": job.assets[0].mode,
+                        "lang": "en-US",
+                        "variant": job.assets[0].variant,
+                        "provider": profile.provider,
+                        "narrator": profile.narrator,
+                    },
+                )
+                fragment_response.raise_for_status()
+                if fragment_response.headers.get("x-audio-fail-silent", "").lower() == "true":
+                    raise ValueError(
+                        "Legacy Render backend returned fail-closed silence: "
+                        + fragment_response.headers.get("x-audio-fail-silent-reason", "unknown")
+                    )
+                if fragment_response.headers.get("x-audio-provider") != profile.provider:
+                    raise ValueError(
+                        "Legacy Render backend did not return the requested ElevenLabs provider."
+                    )
+                probe_mp3(fragment_response.content)
+                fragment_payloads.append(fragment_response.content)
+                provider_requests.append({
+                    "source": "legacy-render-backend",
+                    "provider": fragment_response.headers.get("x-audio-provider"),
+                    "audio_profile": fragment_response.headers.get("x-audio-profile"),
+                    "text": fragment,
+                    "model_id": fragment_model,
+                })
+
+            payload = _encode_mp3(assemble_completion_sequence_samples(fragment_payloads))
+            provenance = {
+                "source": "captured-legacy-render-backend",
+                **profile.as_provenance_contract(),
+                "stored_media": probe_mp3(payload),
+                "processing": [
+                    "Captured each learner-visible fragment from the configured legacy Render backend using the pinned ElevenLabs profile.",
+                    "Missing answers were never sent to the provider; visible fragments were stitched locally around one deterministic digital-silence gap per blank.",
+                ],
+                "generated_at": None,
+                "captured_at": captured_at,
+                "approved_at": approved_at,
+                "request_id": None,
+                "trace_id": None,
+                "character_cost": None,
+                "character_cost_upper_bound": job.estimated_character_cost(),
+                "provider_requests": provider_requests,
+                "review": {
+                    "status": "approved-profile-render",
+                    "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31.",
+                },
+            }
+            return payload, provenance
         response = client.get(
             f"{base_url}/api/audio/course-completion.mp3",
             params={

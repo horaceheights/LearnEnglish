@@ -1744,6 +1744,26 @@ function hintSubject(text, verb) {
   return "";
 }
 
+function orderedCorrectOptionIds(card) {
+  return card?.correct_option_ids?.length
+    ? card.correct_option_ids
+    : card?.correct_option_id
+      ? [card.correct_option_id]
+      : [];
+}
+
+function optionLabelsForIds(card, optionIds) {
+  return optionIds.flatMap((optionId) => {
+    const label = card?.options?.find((option) => option.id === optionId)?.label?.trim();
+    return label ? [label] : [];
+  });
+}
+
+function fillCompletionPrompt(prompt, labels) {
+  let labelIndex = 0;
+  return String(prompt || "").replace(/_{2,}/g, (blank) => labels[labelIndex++] || blank);
+}
+
 function getLessonMistakeHint(card, selectedOptionId) {
   if (!card) return "Observa otra vez la persona, el grupo o la acción.";
   const correctOption = card.options.find((option) => option.id === card.correct_option_id);
@@ -2434,6 +2454,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [score, setScore] = useState(0);
   const [wrongAttempts, setWrongAttempts] = useState({});
   const [selectedOptionId, setSelectedOptionId] = useState(null);
+  const [selectedOptionIds, setSelectedOptionIds] = useState([]);
   const [lastResult, setLastResult] = useState(null);
   const [isComplete, setIsComplete] = useState(false);
   const [autoAdvanceDelayMs, setAutoAdvanceDelayMs] = useState(700);
@@ -2573,6 +2594,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const isFourOptionCard = optionCount >= 4;
   const isThreeOptionCard = optionCount === 3;
   const isSingleOptionCard = optionCount === 1;
+  const useCompactCompletionTiles = cardPromptHasVisualBlank
+    && isThreeOptionCard
+    && currentCard.options.every((option) => (
+      (option.label?.trim().length || 0) <= 12
+      && (option.label?.trim().split(/\s+/).length || 0) <= 2
+    ));
   const useThreeByTwoOptionMedia = currentCard?.options?.some((option) => Boolean(option.image_url));
   // These two Lesson 1.7 comparisons intentionally teach the contrast with
   // still choices. Other action-backed choices keep their normal video behavior.
@@ -2666,13 +2693,21 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     ...styles.choiceGrid,
     gridTemplateColumns: isSingleOptionCard
       ? "minmax(0, 720px)"
+      : useCompactCompletionTiles
+        ? "repeat(3, minmax(0, 1fr))"
       : isFourOptionCard
         ? "repeat(2, minmax(0, 1fr))"
         : isMobile
           ? "1fr"
           : styles.choiceGrid.gridTemplateColumns,
     justifyContent: isSingleOptionCard ? "center" : undefined,
-    gap: isPronunciationCard && isMobile ? "10px" : isFourOptionCard ? (isMobile ? "8px" : "12px") : styles.choiceGrid.gap,
+    gap: useCompactCompletionTiles
+      ? (isMobile ? "8px" : "12px")
+      : isPronunciationCard && isMobile
+        ? "10px"
+        : isFourOptionCard
+          ? (isMobile ? "8px" : "12px")
+          : styles.choiceGrid.gap,
   };
   const centeredThirdOptionStyle = {
     gridColumn: "1 / -1",
@@ -2767,17 +2802,24 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     : { color: "var(--muted)", isActive: false };
 
   const renderHighlightedTitle = (text) => {
-    const selectedLabel = currentCard?.options.find((option) => option.id === selectedOptionId)?.label || "";
+    const selectedLabels = optionLabelsForIds(
+      currentCard,
+      selectedOptionIds.length
+        ? selectedOptionIds
+        : selectedOptionId
+          ? [selectedOptionId]
+          : []
+    );
     const displayText = correctContrastPrompt || (
-      currentCard?.stage === "Use" && lastResult === "correct" && selectedLabel
-        ? String(text || "").replace(/_{2,}/, selectedLabel)
+      currentCard?.stage === "Use" && selectedLabels.length
+        ? fillCompletionPrompt(text, selectedLabels)
         : text
     );
     const focusWordsByStage = {
       "More People": new Set(["and", "are"]),
       "New Grammar": new Set(["not"]),
       Grammar: new Set(["is", "are"]),
-      Use: new Set(selectedLabel ? [selectedLabel.toLowerCase()] : []),
+      Use: new Set(selectedLabels.flatMap((label) => label.toLowerCase().match(/[a-z']+/g) || [])),
     };
     const focusWords = focusWordsByStage[currentCard?.stage];
     const introductionWords = currentCard?.stage === "Learn"
@@ -3323,6 +3365,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setScore(0);
     setWrongAttempts({});
     setSelectedOptionId(null);
+    setSelectedOptionIds([]);
     setLastResult(null);
     setIsComplete(false);
     setLessonSessionId(null);
@@ -3454,6 +3497,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         setCardIndex((current) => current + 1);
       }
       setSelectedOptionId(null);
+      setSelectedOptionIds([]);
       setLastResult(null);
     }, autoAdvanceDelayMs);
 
@@ -4379,9 +4423,30 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       return;
     }
 
-    const isCorrect = optionId === currentCard.correct_option_id;
-    const firstTry = !wrongAttempts[cardIndex];
+    const correctOptionIds = orderedCorrectOptionIds(currentCard);
+    const isMultiBlankCompletion = correctOptionIds.length > 1;
+    const continuingSelection = isMultiBlankCompletion && lastResult !== "wrong"
+      ? selectedOptionIds
+      : [];
+    if (isMultiBlankCompletion && continuingSelection.includes(optionId)) {
+      return;
+    }
+    const nextSelectedOptionIds = isMultiBlankCompletion
+      ? [...continuingSelection, optionId]
+      : [optionId];
     setSelectedOptionId(optionId);
+    setSelectedOptionIds(nextSelectedOptionIds);
+    setLastResult(null);
+    if (nextSelectedOptionIds.length < correctOptionIds.length) {
+      return;
+    }
+
+    const isCorrect = nextSelectedOptionIds.every((selectedId, index) => (
+      selectedId === correctOptionIds[index]
+    ));
+    const selectedOptionKey = nextSelectedOptionIds.join("|");
+    const correctOptionKey = correctOptionIds.join("|");
+    const firstTry = !wrongAttempts[cardIndex];
 
     if (profile?.userId && lessonSessionId) {
       logCardAttempt({
@@ -4390,8 +4455,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         lessonId: activeLesson.id,
         cardIndex,
         prompt: currentCard.prompt,
-        selectedOptionId: optionId,
-        correctOptionId: currentCard.correct_option_id,
+        selectedOptionId: selectedOptionKey,
+        correctOptionId: correctOptionKey,
         isCorrect,
         firstTry,
       }).catch((error) => console.error("Could not log card attempt", error));
@@ -4471,11 +4536,18 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   const cardStyleFor = (optionId) => {
     const style = { ...styles.cardButton };
-    if (selectedOptionId === optionId && lastResult === "correct") {
+    const isSelected = selectedOptionIds.length
+      ? selectedOptionIds.includes(optionId)
+      : selectedOptionId === optionId;
+    if (isSelected && lastResult === null) {
+      style.border = "4px solid #d6a83b";
+      style.boxShadow = "0 0 0 6px rgba(255, 214, 102, 0.24), 0 12px 30px rgba(22, 33, 39, 0.08)";
+    }
+    if (isSelected && lastResult === "correct") {
       style.border = "4px solid var(--green)";
       style.boxShadow = "0 0 0 6px var(--green-soft), 0 12px 30px rgba(22, 33, 39, 0.08)";
     }
-    if (selectedOptionId === optionId && lastResult === "wrong") {
+    if (isSelected && lastResult === "wrong") {
       style.border = "4px solid var(--red)";
       style.boxShadow = "0 0 0 6px var(--red-soft), 0 12px 30px rgba(22, 33, 39, 0.08)";
     }
@@ -5147,7 +5219,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
                 style={{
-                  width: "min(100%, 760px)",
+                  width: useCompactCompletionTiles ? "min(100%, 450px)" : "min(100%, 760px)",
                   margin: isMobile ? "0 auto 10px" : "0 auto 16px",
                   borderRadius: isMobile ? "18px" : "22px",
                   overflow: "hidden",
@@ -5183,9 +5255,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 const optionImageStyle = hasOptionImage
                   ? { ...responsiveImageStyle, objectPosition: optionMediaObjectPosition(option.image_url) }
                   : responsiveImageStyle;
+                const isSelectedChoice = selectedOptionIds.length
+                  ? selectedOptionIds.includes(option.id)
+                  : selectedOptionId === option.id;
+                const isPartialSequenceSelection = orderedCorrectOptionIds(currentCard).length > 1
+                  && lastResult === null
+                  && isSelectedChoice;
                 const showActionVideo = Boolean(actionVideoName) && (
                   currentCard.options.length === 1 ||
-                  (selectedOptionId === option.id && lastResult === "correct")
+                  (isSelectedChoice && lastResult === "correct")
                 );
                 const isActivePronunciationOption =
                   isPronunciationCard && optionIndex === activePronunciationOptionIndex && lastResult !== "correct";
@@ -5219,7 +5297,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     style={{
                       ...cardStyleFor(option.id),
                       ...pronunciationCardStyle,
-                      ...(isThreeOptionCard && !isMobile && optionIndex === 2 ? centeredThirdOptionStyle : {}),
+                      ...(isThreeOptionCard && !useCompactCompletionTiles && !isMobile && optionIndex === 2
+                        ? centeredThirdOptionStyle
+                        : {}),
                       borderRadius: isMobile ? "18px" : styles.cardButton.borderRadius,
                       padding: isPronunciationCard
                         ? isMobile
@@ -5234,7 +5314,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                             : styles.cardButton.padding,
                     }}
                     onClick={isPronunciationCard ? undefined : () => handleChoice(option.id)}
-                    {...(!isPronunciationCard ? { disabled: lastResult === "correct" } : {})}
+                    {...(!isPronunciationCard
+                      ? { disabled: lastResult === "correct" || isPartialSequenceSelection }
+                      : {})}
                   >
                     {isPronunciationCard ? (
                       <div
@@ -5387,14 +5469,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     ) : (
                       <div
                         style={{
-                          minHeight: isMobile ? 116 : 172,
+                          minHeight: useCompactCompletionTiles ? (isMobile ? 64 : 82) : isMobile ? 116 : 172,
                           display: "grid",
                           placeItems: "center",
                           borderRadius: isMobile ? "14px" : "18px",
                           background: "linear-gradient(135deg, #fffdf9, #fff4df)",
                           border: "1px solid rgba(218, 178, 119, 0.56)",
                           color: "var(--text)",
-                          fontSize: isMobile ? 26 : 38,
+                          fontSize: useCompactCompletionTiles ? (isMobile ? 22 : 30) : isMobile ? 26 : 38,
                           fontWeight: 900,
                           lineHeight: 1.12,
                           textAlign: "center",
