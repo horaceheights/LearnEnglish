@@ -3,6 +3,7 @@ from typing import Any
 import yaml
 
 from .schemas import ChoiceOption, Lesson, LessonCard
+from .card_audio_assets import bind_lesson_audio_assets
 
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
@@ -45,6 +46,13 @@ def load_lesson_from_file(file_path: Path) -> Lesson:
         for card_data in data["cards"]:
             if "prompt_image_url" in card_data and card_data["prompt_image_url"]:
                 card_data["prompt_image_url"] = image_url(card_data["prompt_image_url"])
+            for turn_field in ("audio_turns", "answer_audio_turns"):
+                turns = card_data.get(turn_field)
+                if not isinstance(turns, list):
+                    continue
+                for turn in turns:
+                    if isinstance(turn, dict) and turn.get("image_url"):
+                        turn["image_url"] = image_url(turn["image_url"])
             if "options" in card_data and isinstance(card_data["options"], list):
                 for option in card_data["options"]:
                     if "image_url" in option and option["image_url"]:
@@ -52,7 +60,7 @@ def load_lesson_from_file(file_path: Path) -> Lesson:
                     elif "image" in option and option["image"]:
                         option["image_url"] = image_url(option["image"])
 
-    return Lesson(**data)
+    return bind_lesson_audio_assets(Lesson(**data))
 
 
 def load_all_lessons(lessons_dir: Path = LESSONS_DIR) -> dict[str, Lesson]:

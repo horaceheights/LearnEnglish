@@ -61,9 +61,9 @@ for (const filename of lessonFiles) {
 
 assert.equal(lessonFiles.length, 70, 'the frame audit must inspect all 70 A1 lessons');
 assert.equal(units.size, 7, 'prompt-image framing must cover all seven units');
-assert.ok(promptImageCards.length >= 758, 'the frame audit must cover the complete prompt-image catalog');
-assert.ok((stageCounts.get('Use') || 0) >= 508, 'Completa/Use prompt images must remain in the global frame audit');
-assert.ok((stageCounts.get('Recognize') || 0) >= 250, 'Recognize prompt images must remain in the global frame audit');
+assert.ok(promptImageCards.length >= 753, 'the frame audit must cover the complete prompt-image catalog');
+assert.ok((stageCounts.get('Use') || 0) >= 505, 'Completa/Use prompt images must remain in the global frame audit');
+assert.ok((stageCounts.get('Recognize') || 0) >= 248, 'Recognize prompt images must remain in the global frame audit');
 
 let paddedPromptImages = 0;
 for (const name of [...promptImages].sort()) {
@@ -79,14 +79,14 @@ assert.equal(paddedPromptImages, 0, 'no Learn, Recognize, Listen, Speak, or Use 
 
 assert.match(
   cardViewSource,
-  /\{card\.prompt_image_url \? \(\s*<LessonMediaFrame[\s\S]*?maxHeight=\{promptImageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?imageUrl=\{card\.prompt_image_url\}/,
-  'Every prompt image, including Completa, must use the shared normalized full-bleed image layer.',
+  /\{activeTurnImageUrl \|\| card\.prompt_image_url \? \(\s*<LessonMediaFrame[\s\S]*?maxHeight=\{promptImageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?imageUrl=\{activeTurnImageUrl \|\| card\.prompt_image_url\}/,
+  'Every prompt or active conversation-turn image must use the shared normalized full-bleed image layer.',
 );
 assert.doesNotMatch(cardViewSource, /lessonImageSource\(card\.prompt_image_url\)/, 'mobile prompt images must not bypass normalized media mapping');
 assert.match(
   lessonPlayerSource,
-  /src=\{lessonOptionImageSrc\(currentCard\.prompt_image_url\)\}[\s\S]*?aspectRatio: "3 \/ 2"[\s\S]*?objectFit: "cover"/,
-  'Web prompt images must use the same mapped 3:2 full-bleed policy.',
+  /src=\{lessonOptionImageSrc\(activeTurnImageUrl \|\| currentCard\.prompt_image_url\)\}[\s\S]*?aspectRatio: "3 \/ 2"[\s\S]*?objectFit: "cover"/,
+  'Web prompt and active conversation-turn images must use the same mapped 3:2 full-bleed policy.',
 );
 assert.doesNotMatch(lessonPlayerSource, /lessonImageSrc\(currentCard\.prompt_image_url\)/, 'web prompt images must not bypass normalized media mapping');
 assert.match(

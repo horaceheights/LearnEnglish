@@ -42,8 +42,20 @@ const SPANISH_STAGE_LABELS: Record<string, string> = {
   'What Is It?': 'Aprende a preguntar',
 };
 
+const LISTEN_AND_CHOOSE_PROMPT = 'Listen and choose.';
+const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase correcta!';
+const LISTEN_AND_REPEAT_INSTRUCTION = '¡Escucha y repite!';
+const EQUIVALENT_SUBJECT_PRONOUNS = new Set(['he', 'she', 'they', 'it']);
+const PRONOUN_BE_FORMS: Record<string, string> = {
+  he: 'is',
+  it: 'is',
+  she: 'is',
+  they: 'are',
+};
+const SUBJECT_FOCUS_STOP_WORDS = new Set(['a', 'an', 'and', 'the']);
+
 const SPANISH_INSTRUCTION_PROMPTS: Record<string, string> = {
-  'Listen and choose.': 'Ahora escucha y elige.',
+  [LISTEN_AND_CHOOSE_PROMPT]: '¡Escucha y elige!',
 };
 
 const SHORT_SPANISH_STAGE_LABELS: Record<string, string> = {
@@ -120,12 +132,46 @@ export function lessonStageShortLabel(lessonId: string, stage: string) {
 }
 
 export function lessonPromptText(lessonId: string, prompt: string) {
+  const instruction = SPANISH_INSTRUCTION_PROMPTS[prompt.trim()];
+  if (instruction) return instruction;
   if (!usesSpanishInstructions(lessonId)) return prompt;
-  return SPANISH_INSTRUCTION_PROMPTS[prompt] || prompt;
+  return prompt;
 }
 
-export function pronunciationInstruction(lessonId: string) {
-  return usesSpanishInstructions(lessonId)
-    ? 'Ahora escucha y repite.'
-    : 'Pronunciation Practice';
+export function usesCompactListenInstruction(stage: string, prompt: string) {
+  return stage === 'Listen' && prompt.trim() === LISTEN_AND_CHOOSE_PROMPT;
+}
+
+export function usesCompactRecognizeInstruction(stage: string, prompt: string) {
+  return stage === 'Recognize' && !prompt.trim();
+}
+
+export function usesCompactSpeakInstruction(stage: string) {
+  return stage === 'Speak' || stage === 'Pronunciation Practice';
+}
+
+export function lessonHeaderPromptText(lessonId: string, stage: string, prompt: string) {
+  if (usesCompactRecognizeInstruction(stage, prompt)) return CHOOSE_CORRECT_PHRASE_INSTRUCTION;
+  return lessonPromptText(lessonId, prompt);
+}
+
+export function completionEquivalenceFocusWords(prompt: string, selectedAnswer: string) {
+  const normalizedAnswer = selectedAnswer.trim().toLowerCase();
+  if (!EQUIVALENT_SUBJECT_PRONOUNS.has(normalizedAnswer)) return [];
+
+  const clauses = prompt.trim().match(
+    /^(.+?)\s+(is|are)\s+(.+?)(?:,\s*|\s+and\s+)(?:_{2,}|\[blank\])\s+(is|are)\s+(.+)$/i,
+  );
+  if (!clauses) return [];
+
+  const antecedentBe = clauses[2].toLowerCase();
+  const pronounBe = clauses[4].toLowerCase();
+  if (antecedentBe !== pronounBe || PRONOUN_BE_FORMS[normalizedAnswer] !== pronounBe) return [];
+
+  return (clauses[1].toLowerCase().match(/[a-z']+/g) || [])
+    .filter((word) => !SUBJECT_FOCUS_STOP_WORDS.has(word));
+}
+
+export function pronunciationInstruction() {
+  return LISTEN_AND_REPEAT_INSTRUCTION;
 }

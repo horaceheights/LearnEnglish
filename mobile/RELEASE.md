@@ -2,8 +2,8 @@
 
 SpanGlish tiene dos destinos de actualización:
 
-- **Preview:** solamente Horace. Aquí se prueba cada cambio primero.
-- **Production:** testers internos. No recibe cambios hasta que Preview sea aprobado.
+- **Preview:** solamente Horace. Aquí se prueba cada cambio primero y pueden aparecer advertencias por revisiones visuales humanas todavía pendientes.
+- **Production:** testers internos. No recibe cambios hasta que Preview sea aprobado y todas las revisiones visuales estén vigentes.
 
 Un push a una rama de trabajo no publica una actualización móvil. Preview se publica únicamente desde la rama protegida `release/preview`, mediante GitHub Actions y su ambiente protegido `preview-release`.
 
@@ -23,6 +23,8 @@ Comparte el enlace de instalación de Preview únicamente con la persona que apr
 
 ## Flujo normal para cada cambio
 
+No se requiere una preaprobación humana antes de implementar o publicar en Preview: Preview es el entorno normal de revisión. Solamente se agrega una preaprobación cuando Horace la pide explícitamente antes de comenzar el cambio. Los controles automáticos de integridad siguen siendo obligatorios y Production conserva su aprobación explícita separada.
+
 ### 1. Guardar el cambio
 
 El cambio debe estar en un commit y respaldado en GitHub. Nunca se publica desde la rama de la tarea ni desde un worktree local.
@@ -39,6 +41,8 @@ npm run verify:preview
 ```
 
 Este comando valida las tarjetas y sus archivos multimedia, comprueba TypeScript y exporta el bundle Android de producción en un directorio temporal.
+
+La política de Preview permite que una decisión humana marcada `pending`, la evidencia de recorte 4:5 pendiente y una firma de renderizador obsoleta por cambios de interfaz aparezcan como advertencias. La advertencia sirve para que la revisión pueda hacerse en la app real; no significa que la imagen esté aprobada. Un rechazo, contrato o archivo ausente, hash semántico, de bytes o de vínculo de activo obsoleto que no sea solamente la firma del renderizador, copia distinta, respuesta ambigua, medio inválido o curso incompleto sigue deteniendo Preview.
 
 ### 2. Integrar en la rama protegida
 
@@ -66,17 +70,27 @@ En **SpanGlish Preview**:
 1. Abre Configuración.
 2. Selecciona **Actualizar**.
 3. Prueba el cambio y las funciones esenciales.
-4. Copia el `Group ID` que mostró Expo al publicar.
+4. Revisa las imágenes pendientes en su encuadre real y registra las decisiones humanas sin aprobarlas automáticamente.
+5. Copia el `Group ID` que mostró Expo al publicar.
 
 ### 5. Aprobar para los testers
 
-Solamente después de aprobar Preview:
+Production usa una política distinta y estricta. Antes de promover, debe haber cero decisiones `pending` o `rejected`, todos los hashes y contratos deben estar vigentes y el manifiesto de recortes 4:5 debe coincidir exactamente con los archivos actuales. Se puede comprobar sin promover nada:
+
+```powershell
+cd mobile
+npm run verify:production
+```
+
+Si las aprobaciones humanas se guardaron después del Preview probado, esas aprobaciones forman un commit nuevo. Integra y publica ese commit otra vez en Preview, pruébalo y usa el nuevo `Group ID`; nunca promociones el grupo anterior.
+
+Solamente después de aprobar ese Preview exacto:
 
 ```powershell
 npm run release:production -- -GroupId "UUID-DE-PREVIEW" -Confirm
 ```
 
-El comando confirma que el ID corresponde al Preview más reciente y luego republica ese mismo bundle en `production`. No vuelve a compilar los archivos locales.
+El comando vuelve a ejecutar la política estricta, exige un checkout limpio y respaldado en GitHub, confirma que el ID corresponde al Preview más reciente y que sus updates inmutables de Android e iOS contienen exactamente el commit local, y después republica ese mismo bundle en `production`. No compila ni promueve archivos locales diferentes del Preview probado.
 
 ## Cuándo hace falta un build nuevo
 

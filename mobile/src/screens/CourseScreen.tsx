@@ -33,8 +33,8 @@ import {
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
   'lesson-1-people-actions': {
-    image: 'a1_title_1_1_people_actions.webp',
-    description: 'Personas y acciones básicas con imágenes.',
+    image: 'a1_l1_people_together.webp',
+    description: 'Conoce a cuatro personas y forma frases con he, she e is.',
     color: '#ffe8c7',
   },
   'lesson-2-pronouns': {
@@ -378,7 +378,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-7-10-a1-final-mission': {
-    image: 'a1_scene_i-am-tired-i-need-water_e960d38.webp',
+    image: 'a1_scene_my-name-my-day_d5d5c59.webp',
     description: 'Misión final con situaciones de todo el curso.',
     color: '#f1e4fa',
   },

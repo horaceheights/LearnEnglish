@@ -46,12 +46,15 @@
       "options": [
         {
           "id": "hello-1",
-          "image_url": "a1_scene_hello-ana_e4c4db7.webp",
+          "image_url": "a1_scene_hello-ana-speaker_591cb45.webp",
           "label": "Hello."
         }
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
+      "audio_revision": 2,
+      "answer_audio_revision": 2,
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
       "pedagogy_note": "introduces hello"
@@ -65,12 +68,13 @@
       "options": [
         {
           "id": "hello-1",
-          "image_url": "a1_scene_hello-luis_a1da00c.webp",
+          "image_url": "a1_scene_hello-luis-speaker_3e5e175.webp",
           "label": "Hello."
         }
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
       "pedagogy_note": "second speaker/context"
@@ -84,12 +88,13 @@
       "options": [
         {
           "id": "good-morning-1",
-          "image_url": "a1_scene_morning-ana_ce80ea3.webp",
+          "image_url": "a1_scene_morning-ana-speaker_716da9f.webp",
           "label": "Good morning."
         }
       ],
       "audio_text": "Good morning.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Buenos días.",
       "pedagogy_note": "introduces morning greeting with time cue"
@@ -103,12 +108,13 @@
       "options": [
         {
           "id": "goodbye-1",
-          "image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+          "image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": "Goodbye."
         }
       ],
       "audio_text": "Goodbye.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Adiós.",
       "pedagogy_note": "introduces closing with departure cue"
@@ -130,7 +136,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo te llamas?",
-      "pedagogy_note": "fixed chunk; no possessive analysis"
+      "pedagogy_note": "fixed chunk; no possessive analysis",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "L6",
@@ -147,6 +154,7 @@
       ],
       "audio_text": "My name is Ana.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Me llamo Ana.",
       "pedagogy_note": "fixed answer chunk"
@@ -166,6 +174,18 @@
       ],
       "audio_text": "What is your name? My name is Ana.",
       "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "What is your name?",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_name-dialogue-ana_04d12f0.webp"
+        },
+        {
+          "text": "My name is Ana.",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_ana-badge_785def3.webp"
+        }
+      ],
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo te llamas? Me llamo Ana.",
       "pedagogy_note": "complete exchange"
@@ -185,6 +205,18 @@
       ],
       "audio_text": "What is your name? My name is Luis.",
       "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "What is your name?",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_name-dialogue-luis_8ac00a9.webp"
+        },
+        {
+          "text": "My name is Luis.",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_luis-badge_80bb288.webp"
+        }
+      ],
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo te llamas? Me llamo Luis.",
       "pedagogy_note": "complete exchange with second name"
@@ -198,17 +230,18 @@
       "options": [
         {
           "id": "hello-ana-1",
-          "image_url": "a1_scene_hello-ana_e4c4db7.webp",
+          "image_url": "a1_scene_hello-ana-speaker_591cb45.webp",
           "label": null
         },
         {
           "id": "goodbye-luis-2",
-          "image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+          "image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": null
         }
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
       "pedagogy_note": "arrival vs departure; do not pair hello with good morning because both can be true"
@@ -222,17 +255,18 @@
       "options": [
         {
           "id": "goodbye-luis-1",
-          "image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+          "image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": null
         },
         {
           "id": "hello-luis-2",
-          "image_url": "a1_scene_hello-luis_a1da00c.webp",
+          "image_url": "a1_scene_hello-luis-speaker_3e5e175.webp",
           "label": null
         }
       ],
       "audio_text": "Goodbye.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Adiós.",
       "pedagogy_note": "departure cue"
@@ -246,17 +280,18 @@
       "options": [
         {
           "id": "goodbye-luis-1",
-          "image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+          "image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": null
         },
         {
           "id": "morning-ana-2",
-          "image_url": "a1_scene_morning-ana_ce80ea3.webp",
+          "image_url": "a1_scene_morning-ana-speaker_716da9f.webp",
           "label": null
         }
       ],
       "audio_text": "Good morning.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Buenos días.",
       "pedagogy_note": "morning time cue plus greeting posture"
@@ -281,6 +316,7 @@
       ],
       "audio_text": "What is your name?",
       "answer_audio_text": "My name is Ana.",
+      "answer_audio_speaker": "ana",
       "prompt_image_url": "a1_scene_ana-badge_785def3.webp",
       "spanish_translation": "¿Cómo te llamas?",
       "pedagogy_note": "question shown/played before choices; play chosen answer only after correct selection"
@@ -305,6 +341,7 @@
       ],
       "audio_text": "What is your name?",
       "answer_audio_text": "My name is Luis.",
+      "answer_audio_speaker": "luis",
       "prompt_image_url": "a1_scene_luis-badge_80bb288.webp",
       "spanish_translation": "¿Cómo te llamas?",
       "pedagogy_note": "name badge makes referent explicit"
@@ -334,6 +371,18 @@
       ],
       "audio_text": "Choose the words.",
       "answer_audio_text": "What is your name? My name is Ana.",
+      "answer_audio_turns": [
+        {
+          "text": "What is your name?",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_name-dialogue-ana_04d12f0.webp"
+        },
+        {
+          "text": "My name is Ana.",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_ana-badge_785def3.webp"
+        }
+      ],
       "prompt_image_url": "a1_scene_name-dialogue-ana_04d12f0.webp",
       "spanish_translation": "Elige las palabras.",
       "pedagogy_note": "only fixed chunks tested; last option uses known Who but is not the pictured exchange"
@@ -395,17 +444,18 @@
       "options": [
         {
           "id": "goodbye-luis-1",
-          "image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+          "image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": null
         },
         {
           "id": "hello-ana-2",
-          "image_url": "a1_scene_hello-ana_e4c4db7.webp",
+          "image_url": "a1_scene_hello-ana-speaker_591cb45.webp",
           "label": null
         }
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "text hidden; arrival/departure contrast"
@@ -419,17 +469,18 @@
       "options": [
         {
           "id": "morning-ana-1",
-          "image_url": "a1_scene_morning-ana_ce80ea3.webp",
+          "image_url": "a1_scene_morning-ana-speaker_716da9f.webp",
           "label": null
         },
         {
           "id": "goodbye-luis-2",
-          "image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+          "image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": null
         }
       ],
       "audio_text": "Good morning.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "text hidden"
@@ -443,17 +494,18 @@
       "options": [
         {
           "id": "hello-luis-1",
-          "image_url": "a1_scene_hello-luis_a1da00c.webp",
+          "image_url": "a1_scene_hello-luis-speaker_3e5e175.webp",
           "label": null
         },
         {
           "id": "goodbye-luis-2",
-          "image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+          "image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": null
         }
       ],
       "audio_text": "Goodbye.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "text hidden"
@@ -502,6 +554,7 @@
       ],
       "audio_text": "My name is Luis.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "answer recognition"
@@ -539,12 +592,13 @@
       "options": [
         {
           "id": "hello-1",
-          "image_url": "a1_scene_hello-ana_e4c4db7.webp",
+          "image_url": "a1_scene_hello-ana-speaker_591cb45.webp",
           "label": "Hello."
         }
       ],
       "audio_text": "Hello.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Hola.",
       "pedagogy_note": "greeting"
@@ -558,12 +612,13 @@
       "options": [
         {
           "id": "good-morning-1",
-          "image_url": "a1_scene_morning-ana_ce80ea3.webp",
+          "image_url": "a1_scene_morning-ana-speaker_716da9f.webp",
           "label": "Good morning."
         }
       ],
       "audio_text": "Good morning.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Buenos días.",
       "pedagogy_note": "greeting"
@@ -577,12 +632,13 @@
       "options": [
         {
           "id": "goodbye-1",
-          "image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+          "image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
           "label": "Goodbye."
         }
       ],
       "audio_text": "Goodbye.",
       "answer_audio_text": null,
+      "audio_speaker": "luis",
       "prompt_image_url": "",
       "spanish_translation": "Adiós.",
       "pedagogy_note": "closing"
@@ -604,7 +660,8 @@
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo te llamas?",
-      "pedagogy_note": "fixed question"
+      "pedagogy_note": "fixed question",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "S5",
@@ -621,6 +678,7 @@
       ],
       "audio_text": "My name is Ana.",
       "answer_audio_text": null,
+      "audio_speaker": "ana",
       "prompt_image_url": "",
       "spanish_translation": "Me llamo Ana.",
       "pedagogy_note": "scenario answer, not a claim about learner"
@@ -640,6 +698,18 @@
       ],
       "audio_text": "What is your name? My name is Luis.",
       "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "What is your name?",
+          "speaker_role": "ana",
+          "image_url": "a1_scene_name-dialogue-luis_8ac00a9.webp"
+        },
+        {
+          "text": "My name is Luis.",
+          "speaker_role": "luis",
+          "image_url": "a1_scene_luis-badge_80bb288.webp"
+        }
+      ],
       "prompt_image_url": "",
       "spanish_translation": "¿Cómo te llamas? Me llamo Luis.",
       "pedagogy_note": "complete exchange"
@@ -664,7 +734,8 @@
       ],
       "audio_text": "Choose the word.",
       "answer_audio_text": "Hello.",
-      "prompt_image_url": "a1_scene_hello-ana_e4c4db7.webp",
+      "answer_audio_speaker": "ana",
+      "prompt_image_url": "a1_scene_hello-ana-speaker_591cb45.webp",
       "spanish_translation": "Elige la palabra.",
       "pedagogy_note": "arrival scene supplies meaning without leaking untaught instruction language"
     },
@@ -688,7 +759,8 @@
       ],
       "audio_text": "Choose the word.",
       "answer_audio_text": "Goodbye.",
-      "prompt_image_url": "a1_scene_goodbye-luis_ba18b88.webp",
+      "answer_audio_speaker": "luis",
+      "prompt_image_url": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
       "spanish_translation": "Elige la palabra.",
       "pedagogy_note": "departure scene supplies meaning without leaking untaught instruction language"
     },
@@ -714,7 +786,8 @@
       "answer_audio_text": "What is your name?",
       "prompt_image_url": "a1_scene_name-dialogue-ana_04d12f0.webp",
       "spanish_translation": "¿Cuál es tu ___?",
-      "pedagogy_note": "fixed chunk completion"
+      "pedagogy_note": "fixed chunk completion",
+      "audio_speaker": "luis"
     },
     {
       "slide_id": "U4",
@@ -736,6 +809,7 @@
       ],
       "audio_text": "My ___ is Ana.",
       "answer_audio_text": "My name is Ana.",
+      "audio_speaker": "ana",
       "prompt_image_url": "a1_scene_ana-badge_785def3.webp",
       "spanish_translation": "Mi ___ es Ana.",
       "pedagogy_note": "fixed chunk completion"
@@ -760,6 +834,7 @@
       ],
       "audio_text": "What is your name?",
       "answer_audio_text": "My name is Luis.",
+      "answer_audio_speaker": "luis",
       "prompt_image_url": "a1_scene_luis-badge_80bb288.webp",
       "spanish_translation": "¿Cómo te llamas?",
       "pedagogy_note": "supported answer"

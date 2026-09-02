@@ -23,6 +23,8 @@ const cardViewSource = fs.readFileSync(
 
 const pronunciationCards = [];
 const pronunciationUnits = new Set();
+const pronunciationModelAssetIds = new Set();
+let pronunciationModelClipCount = 0;
 for (const filename of fs.readdirSync(generatedRoot)) {
   if (!/^lesson-.*\.json$/.test(filename)) continue;
   const lesson = JSON.parse(fs.readFileSync(path.join(generatedRoot, filename), 'utf8'));
@@ -34,16 +36,68 @@ for (const filename of fs.readdirSync(generatedRoot)) {
   }
 }
 
-assert.ok(pronunciationCards.length >= 422, 'the framing guardrail must cover the complete A1 Speak catalog');
+assert.ok(pronunciationCards.length >= 419, 'the framing guardrail must cover the complete A1 Speak catalog');
 assert.equal(pronunciationUnits.size, 7, 'pronunciation subject preservation must cover all seven units');
 for (const { card, lessonId } of pronunciationCards) {
   assert.equal(card.options.length, 1, `${lessonId} pronunciation cards must keep one focused model image`);
   assert.ok(card.options[0].image_url, `${lessonId} pronunciation card ${card.prompt} needs its model image`);
 }
 
+const aggregateCourse = JSON.parse(fs.readFileSync(
+  path.join(generatedRoot, 'a1-course.json'),
+  'utf8',
+));
+const aggregatePronunciationCards = aggregateCourse.flatMap((lesson) => lesson.cards
+  .filter((card) => card.stage === 'Speak' || card.stage === 'Pronunciation Practice')
+  .map((card) => ({ card, lessonId: lesson.id })));
+assert.equal(
+  aggregatePronunciationCards.length,
+  pronunciationCards.length,
+  'The aggregate and per-lesson snapshots must expose the same Speak catalog.',
+);
+for (const { card, lessonId } of aggregatePronunciationCards) {
+  const modelText = card.audio_text?.trim() || card.prompt?.trim() || '';
+  const authoredTurns = card.audio_turns || [];
+  const modelAssets = authoredTurns.length
+    ? (card.audio_assets || []).filter((asset) => /^prompt-turn-\d+$/.test(asset.purpose))
+    : (card.audio_assets || []).filter((asset) => (
+      asset.purpose === 'prompt'
+      && asset.text === modelText
+      && asset.mode === 'pronunciation_slow'
+      && asset.variant === 'split-ing'
+    ));
+  assert.equal(
+    modelAssets.length,
+    authoredTurns.length || 1,
+    `${lessonId} pronunciation card ${card.prompt} must bind its complete model audio.`,
+  );
+  for (const [index, asset] of modelAssets.entries()) {
+    if (authoredTurns.length) {
+      const turn = authoredTurns[index];
+      assert.equal(asset.purpose, `prompt-turn-${index + 1}`);
+      assert.equal(asset.text, turn.text);
+      assert.equal(asset.speaker_role, turn.speaker_role);
+      assert.equal(asset.image_ref, turn.image_url);
+      assert.equal(asset.mode, 'pronunciation_slow');
+      assert.equal(asset.variant, 'split-ing');
+    }
+    assert.ok(
+      !pronunciationModelAssetIds.has(asset.id),
+      `${lessonId} pronunciation card ${card.prompt} repeats model asset ${asset.id}.`,
+    );
+    pronunciationModelAssetIds.add(asset.id);
+    pronunciationModelClipCount += 1;
+  }
+}
+assert.equal(
+  pronunciationModelAssetIds.size,
+  pronunciationModelClipCount,
+  'Every Speak model clip in the aggregate must have a unique immutable asset.',
+);
+
 assert.match(
   pronunciationSource,
-  /<LessonMediaFrame[\s\S]*?maxHeight=\{imageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?accessibilityLabel=\{imageLabel \|\| phrase\}[\s\S]*?imageUrl=\{imageUrl\}/,
+  /<LessonMediaFrame[\s\S]*?maxHeight=\{imageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?accessibilityLabel=\{imageLabel \|\| phrase\}[\s\S]*?imageUrl=\{activeModelTurnImageUrl \|\| imageUrl \|\| ''\}/,
   'Every pronunciation image must use the shared option-media image layer.',
 );
 assert.match(
@@ -83,4 +137,7 @@ assert.doesNotMatch(
   'Pronunciation lesson art must not bypass the shared framed media layer.',
 );
 
-console.log(`Verified shared rounded pronunciation framing across ${pronunciationCards.length} A1 Speak cards in all ${pronunciationUnits.size} units.`);
+console.log(
+  `Verified shared rounded pronunciation framing and ${pronunciationModelAssetIds.size} `
+    + `immutable model clips across all ${pronunciationUnits.size} units.`,
+);

@@ -1,0 +1,764 @@
+{
+  "audit_date": "2026-08-28",
+  "source_request_count": 2330,
+  "audio_profile": "a1-elevenlabs-cast-v14",
+  "completion_audio_profile": "visible-fragments-provider-fallback-v4",
+  "repair_count": 39,
+  "repairs": [
+    {
+      "request_id": "fe6be952a771055a9b61a94eea71d0ebe425bef30dc757ce1a2af0f3133dada3",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "The is running",
+      "locations": [
+        "1.1 People and Core Actions \u2014 card 37 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "1f00562f78dd52aa175cabab5210fde10ebc2474aef14a5732c47e80d9efdf02.mp3",
+      "sha256": "ae491015469762e0b178e6e26f15109ff17eb62fc9e750bf5ff0ef971f5aae1d",
+      "transcripts": {
+        "whisper-1": "The is running",
+        "gpt-4o-transcribe": "The is running"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "b05046504c4a454bc89dff4355084300bd5bf0ad78d78c76aa272afa8b1dfc9e",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "The is walking",
+      "locations": [
+        "1.1 People and Core Actions \u2014 card 38 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "34a4fee997f9f020ac1ac60c2f2b3c2cce7e7feca0fd7d2c4cad818d225a25cf.mp3",
+      "sha256": "d30604cf558fadfbf137abd94d1327a6cf43beedf3f1e914ff88f01c0f60054f",
+      "transcripts": {
+        "whisper-1": "the is walking",
+        "gpt-4o-transcribe": "The is walking."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "319c056622e8a128bd4f92c9a6ee939acadfc5755b0edb1980ca2c853ac3f9eb",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "The is sitting",
+      "locations": [
+        "1.1 People and Core Actions \u2014 card 39 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "4c5bb28d4c69fe4549fdc4b34f07a5bf78821b687942bf495ebca50e99ca22c5.mp3",
+      "sha256": "f2b0fece8ca0137eeb3ff62102a64159e4290caa051ad17528431f9f528f847c",
+      "transcripts": {
+        "whisper-1": "the is sitting",
+        "gpt-4o-transcribe": "The is sitting."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "bf1ee3d278b76c60b8f758445d6745845ad3dab46841c039a18d60cdc3f05859",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "The is standing",
+      "locations": [
+        "1.1 People and Core Actions \u2014 card 40 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "5fbebf8f16b4eef661ecf99d4d96b21e4848215a58877ad329941ca6e67741e6.mp3",
+      "sha256": "8de48b15b82585d2e30e773546d1d5a4ba4afea4592eb86582f2909aa02c8104",
+      "transcripts": {
+        "whisper-1": "the is standing",
+        "gpt-4o-transcribe": "The is standing."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "ac11d235fb45d6adf98a9e6b9e7aa5b31973c83eea00d529eac61a2dabd4ccfc",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "They are sleeping",
+      "locations": [
+        "1.10 Family Scene Mission \u2014 card 32 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "b56501d8ae91a22ae261afc0c1e835a72bab0f6520a55cfc3a712042014b0655.mp3",
+      "sha256": "b41e45c70c7a2b055d9e33f0d7316008d4ab32f45c3aeebd851a86cfb6f877d5",
+      "transcripts": {
+        "whisper-1": "They are sleeping.",
+        "gpt-4o-transcribe": "They are sleeping."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "08caec489f2ddb65fd9f9ae8dde3e7e28be37c28cd7e3f11d879331f56b1c1b3",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "She is",
+      "locations": [
+        "1.2 He and She \u2014 card 36 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "266299ffadd92bb0d7dcdfcdbcdab24d701554981e2c01189fbffb9fe2a2f1ac.mp3",
+      "sha256": "4c90d9ed061bf31ce0675ee85344d19a95da07aecb809301e6a1231ee03f02f0",
+      "transcripts": {
+        "whisper-1": "She is?",
+        "gpt-4o-transcribe": "She is"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "7b396a6799ec1b7dc4432f26646ff3e25907d010dace661311972d92f890a5e3",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "They writing",
+      "locations": [
+        "1.3 Two People: They and Are \u2014 card 37 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "9811d063f0121e88f4eda094ac5d18a3cbdfe679b2761affc4ecd86584a21cbf.mp3",
+      "sha256": "25190b893fef8b46413249f212f55bc6c49ab9cc963af9270e4f963a5d9abba7",
+      "transcripts": {
+        "whisper-1": "they writing",
+        "gpt-4o-transcribe": "They riding."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "024780861565ddde6a76705f70cc19c7312a17e48c1702cfc7a6210f1b27a915",
+      "audit_status": "likely_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "The children studying",
+      "locations": [
+        "1.6 Family Actions \u2014 card 36 (Use)",
+        "1.7 Is, Are, and Not \u2014 card 32 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "openai",
+      "cache_file": "a1f7ed7e514e78d34330e5ee5c9a73560ffe581a1894dfe483360fb6cc81333e.mp3",
+      "sha256": "6a87500e026a9381e5aa532d600f3d859675469cefb6fcb7a2fc1107865bd67d",
+      "transcripts": {
+        "whisper-1": "The Children Studying",
+        "gpt-4o-transcribe": "The children studying."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "ba02b8844f3737cb7f12f2692cb0b4ee3cfef9374f953dd60153db301c7937a2",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "They are sitting",
+      "locations": [
+        "1.7 Is, Are, and Not \u2014 card 30 (Use)",
+        "1.9 Unit 1 Spiral Review \u2014 card 32 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "56b024917260e2d72233a86d45a26891390059387f8a31d796b8b462a57f2bc7.mp3",
+      "sha256": "bcf110168647c7dadbbea7a70d39e7737969ba750fd9e6470c22748f269f68bd",
+      "transcripts": {
+        "whisper-1": "They are sitting.",
+        "gpt-4o-transcribe": "They are sitting."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "f5cf58c159cb0e6dbf9fdc78f93dc4994c99b1e4e4e889391ed52282d3d895f1",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "It a store",
+      "locations": [
+        "2.2 Streets and Transportation \u2014 card 34 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "cc5db7397834ec414da70d11b35270da656075fe6887e44dbc8bacf6d4700b78.mp3",
+      "sha256": "defbea21b813d6f16085fa46e0ba42292d1310123a3b6c01a87e102da72ab971",
+      "transcripts": {
+        "whisper-1": "It's a store.",
+        "gpt-4o-transcribe": "It a store."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "636739dfc92613a7f5fd97344640c963ac0523addfb04ce742af1630c9cafaaf",
+      "audit_status": "confirmed_bad",
+      "endpoint": "course",
+      "expected_visible_speech": "ten",
+      "locations": [
+        "2.6 Numbers 1-10 \u2014 card 34 (Use)",
+        "3.4 Age \u2014 card 33 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "9c1159d884beeb7466c65bd428f06d2e48255ffc67b9e8f1dfa06d8d58373741.mp3",
+      "sha256": "78777b8bca510d28e6d51aaa9f819aee0f8a929df48072f468a6734c8093668d",
+      "transcripts": {
+        "whisper-1": "10",
+        "gpt-4o-transcribe": "Ten"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "48aae12e4415ccda8d142c4d0a8f4f1542dbb676854361edffb9bffe2c6a4d2d",
+      "audit_status": "confirmed_bad",
+      "endpoint": "course",
+      "expected_visible_speech": "two",
+      "locations": [
+        "2.7 Basic Colors \u2014 card 33 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "efdd0151dc3743ea24c466405e2c16138dd5d1dc5e5e57a1b95ab0d0e5f7bec4.mp3",
+      "sha256": "2981c64e4cea431c61fd8d281a24c91a3d3c7cb94c43266b0e375c83ecd04dc1",
+      "transcripts": {
+        "whisper-1": "2.",
+        "gpt-4o-transcribe": "To"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "7c5ce684a80237919bd8273bbe14462d3492963f5675bd0d3e509f4d11a275d5",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "One car",
+      "locations": [
+        "2.8 Count and Describe \u2014 card 27 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "da65c4c103e7cd56de221120c51c275442a26bfd9f95b084b9eed083896c2043.mp3",
+      "sha256": "59b277c6322b6dd0009dac3f6d464a2684423b3afb92584454b96c3633f313a8",
+      "transcripts": {
+        "whisper-1": "One car",
+        "gpt-4o-transcribe": "1. Carr"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "dd3b0fa66f215daa1344f225dcb170bd3f17adb1b1605a5c4d7a9b8f99bc3679",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "Three books",
+      "locations": [
+        "2.9 Unit 2 Review \u2014 card 28 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "a10ba38c34a94bc5b23941d341cdd0482c01c04ce3d057a81e275e9d16548b07.mp3",
+      "sha256": "22c5fd6eb1292ca4ca16547305d4442ab580f2956c2e778e91ddd9778980b7e0",
+      "transcripts": {
+        "whisper-1": "3.",
+        "gpt-4o-transcribe": "Three books."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "e5e916c5083f88d376021e57eaeb029592ce455eb25ce9ea97e29658cb9cdb51",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "My is Ana",
+      "locations": [
+        "3.1 Greetings and Names \u2014 card 32 (Use)",
+        "3.2 I, You, and We \u2014 card 34 (Use)",
+        "3.10 Introduction Mission \u2014 card 25 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "d111574e56b56ba13a37a29ce6fbf022752c38424186379aa3607c3c4523f266.mp3",
+      "sha256": "c414a355c50ba7c33710179cddd90f81c291c9516c320de447a473378eead182",
+      "transcripts": {
+        "whisper-1": "My is Anna.",
+        "gpt-4o-transcribe": "My is Anna."
+      },
+      "validation": "pass",
+      "validation_note": "accepted spoken-name homophone: Ana was transcribed as Anna"
+    },
+    {
+      "request_id": "f521fde7c375bc450bc72a99e992da6e1f3818473090ad705867a865822251c6",
+      "audit_status": "likely_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "are writing",
+      "locations": [
+        "3.2 I, You, and We \u2014 card 29 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "openai",
+      "cache_file": "1b6ad8e814c557879cf2c98a7f524d18893507f015ec4cf5cc7df619fe345a44.mp3",
+      "sha256": "3c075bf3586c41c9e838d18dc3630630ee14da127ddec2fd09b4dcbf7f3b0b00",
+      "transcripts": {
+        "whisper-1": "R. Writing",
+        "gpt-4o-transcribe": "R. Writing"
+      },
+      "validation": "pass",
+      "validation_note": "accepted phonetic homophone: both transcribers wrote 'R. Writing' for audible 'are writing'"
+    },
+    {
+      "request_id": "fc0d1b590a002cf936c74a951d8e1cceae3e531324e2545e7a4789f214df4fd4",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "You writing",
+      "locations": [
+        "3.2 I, You, and We \u2014 card 30 (Use)",
+        "3.3 Am, Is, and Are \u2014 card 28 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "50808b7cd9a4f44448f17191ccb96414330b78b1af9fdd4b15c058827e2e1fba.mp3",
+      "sha256": "6a095a9ba82189809c839d397c06eed6c98d521ad68df5a8f8916b7d555d3ec2",
+      "transcripts": {
+        "whisper-1": "you writing",
+        "gpt-4o-transcribe": "You writing"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "431260aa565fa547f8d846057dd1791db1a838e4a59a4664f21aa24f8e0fa552",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "It a book",
+      "locations": [
+        "3.3 Am, Is, and Are \u2014 card 31 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "f1e87ef64f8cd2191da8ae56ad4c4a74782a332b63bdc1dca2a4fc855801c807.mp3",
+      "sha256": "20079710e50ceb8c5bc73b2e1e686b8a5eab2ae4dc1055665b910198a4ab1c0b",
+      "transcripts": {
+        "whisper-1": "It's a book.",
+        "gpt-4o-transcribe": "It a book."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "0957c5d59e4e2241cd6164aa31ed59554725b9f02fab92738913efe210dacbbc",
+      "audit_status": "confirmed_bad",
+      "endpoint": "course",
+      "expected_visible_speech": "thirteen",
+      "locations": [
+        "3.4 Age \u2014 card 34 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "a8f7bd5ebe8ade61cd04591f7be3423f8beb5845449768644580ecff92cad280.mp3",
+      "sha256": "3b33b19e820d516bc10feed32aa7e3127efbf344f34fc050397a41bd77534387",
+      "transcripts": {
+        "whisper-1": "13.",
+        "gpt-4o-transcribe": "Thirteen."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "53a8719c75081b522e2222ae51bd42875a8bdeb29593bacc6a478835767e0c5f",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "I am Canada",
+      "locations": [
+        "3.5 Countries and Nationalities \u2014 card 34 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "5bfefe13038216284becd8a6b4ef6e347efdd49f5152374b53a18cdc0225a35c.mp3",
+      "sha256": "479cb2058a1d93b8ce03986b87dca1c18c438422a6e022bf6f8ecb967b1bb391",
+      "transcripts": {
+        "whisper-1": "I am. Canada. Canada.",
+        "gpt-4o-transcribe": "I am Canada"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "2df199c5ecc0dd8596582d0749af522bf15fbe50025af32acaa9b508a0084bef",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "We two books",
+      "locations": [
+        "3.8 Have and Has \u2014 card 29 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "de4bdf2909699e370c1e97362b831aec4e077f954f4de88b806c269e6b1ffe57.mp3",
+      "sha256": "b595860907ff6177f7d7bb066b14a462260e336c1380ea40dd979a2085401ec1",
+      "transcripts": {
+        "whisper-1": "We two books",
+        "gpt-4o-transcribe": "Wee, two books."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "980afd24d1f36cf2671990aa576a0e66ead92232a238d267d44b11e000cb25a1",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "The book is the table",
+      "locations": [
+        "4.3 Where Things Are \u2014 card 28 (Use)",
+        "4.4 There Is and There Are \u2014 card 34 (Use)",
+        "4.6 Everyday Verbs \u2014 card 34 (Use)",
+        "4.8 Days and Time \u2014 card 40 (Use)",
+        "4.9 Unit 4 Review \u2014 card 26 (Use)",
+        "4.10 My Day Mission \u2014 card 26 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "7ec6fae8f6cf8b39481a053468f0ffda6d2a0fef4f25babac202db85e30c53df.mp3",
+      "sha256": "fab67b2e9c7e168de6a0eca7e3c5f3fe485662c20d5a0b7c3d984e54dc87727a",
+      "transcripts": {
+        "whisper-1": "The book is the table.",
+        "gpt-4o-transcribe": "The book is the table."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "1635d23eb3f1e8b0c953e839beb826f323c04769524cc1380c8ff8452d5ac36f",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "There a bed in the bedroom",
+      "locations": [
+        "4.4 There Is and There Are \u2014 card 27 (Use)",
+        "4.5 Morning Routine \u2014 card 34 (Use)",
+        "4.7 Simple Present \u2014 card 34 (Use)",
+        "4.10 My Day Mission \u2014 card 27 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "0a41d6714570c0ed817db080760c5e1e0c247f39133a8bd41b60ab79e71a2928.mp3",
+      "sha256": "4ab225e3af0f0d68c6fb96f4be064073ba58fcaf6e2444d3888d2190f02e49e5",
+      "transcripts": {
+        "whisper-1": "There, a bed in the bedroom.",
+        "gpt-4o-transcribe": "There, a bed in the bedroom."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "e4928ca5d80397953a1b4986412630b08538242fbcd126e3e1f930893118a589",
+      "audit_status": "confirmed_bad",
+      "endpoint": "course",
+      "expected_visible_speech": "Saturday",
+      "locations": [
+        "4.8 Days and Time \u2014 card 35 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "66de1311b2dfda3ab55bf28744e4d7d90379bee1e2f5e4976c1af62592b4eeab.mp3",
+      "sha256": "ab7dfba9606312e42dc72cafc68b9c3fb4f69cfc4a05b5aac2424708a76ea3e3",
+      "transcripts": {
+        "whisper-1": "Saturday.",
+        "gpt-4o-transcribe": "Saturday"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "2d2af839bbfa412c9ce93ae464f2e7047bf76f16d8ce48e572f0964dbc09ffac",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "There are oranges",
+      "locations": [
+        "5.1 Fruits \u2014 card 34 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "08648ea6ae44ad0e3102cb864569656a4c8a2b6c76e6844916c363d5ad0f84a9.mp3",
+      "sha256": "daf0ba13f7cb4290cbc27b8460d1d65d756f1def223719d5701cf3f7aea91291",
+      "transcripts": {
+        "whisper-1": "There are... Oranges.",
+        "gpt-4o-transcribe": "There are oranges."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "7e3d14e3a9740a25e8300592d81bc79253336a27232a94aa0e6ca59f1fb33983",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "The girl is eating",
+      "locations": [
+        "5.2 Food and Drinks \u2014 card 35 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "20e2a56312b767f5f01f852b1792dbc847d69ec622c7f0de6d0bccd8115cade4.mp3",
+      "sha256": "ac5b827065ed262ca0d58ab22054328a5a92abf1cf5a7a5c5aaa64031a96e704",
+      "transcripts": {
+        "whisper-1": "The girl is eating?",
+        "gpt-4o-transcribe": "The girl is eating?"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "3c53e4bb7ada89680e85d260a0b85687ad453ea2644928e2bb2312c9125e6a6b",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "The man is drinking",
+      "locations": [
+        "5.2 Food and Drinks \u2014 card 36 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "235e4c0d4c8f995ed890f87f3db2fdb5dd156d8471e958254b9813dcd4f28946.mp3",
+      "sha256": "122ecf5ba3548201e3bf15d9eab56e73c4a61c678cb962cfb6a402ba662eea07",
+      "transcripts": {
+        "whisper-1": "The man is drinking!",
+        "gpt-4o-transcribe": "The man is drinking"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "29c99107f8c29b7d0c12009545f43d8cc875e2446ad1e3dc2e1ccf51b2e0e93f",
+      "audit_status": "likely_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "One",
+      "locations": [
+        "5.3 Food Quantities \u2014 card 27 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "openai",
+      "cache_file": "bd1a1e1e5d926b709df02d864f4f69cef902d53a03867724e20ff30b5eff681d.mp3",
+      "sha256": "cc40845c4e0658833f7ab37795c7abad723753c4f4d4e535459119e92d0b8e50",
+      "transcripts": {
+        "whisper-1": "1.",
+        "gpt-4o-transcribe": "One"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "49d8ec3970ef57b634f08cd9af27e2e77193b0abb4eb04fb3fa8cfabd135468a",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "rice",
+      "locations": [
+        "5.3 Food Quantities \u2014 card 30 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "9c898eea9159a92ca3f975ce186ea097a6a7ffb1f8b9c5f3889cc5da36898116.mp3",
+      "sha256": "3b47fb3b3df9a62199a3435f7d55df0bdfec81e79efbd8e59e41e8cd29658a18",
+      "transcripts": {
+        "whisper-1": "rice",
+        "gpt-4o-transcribe": "Reis."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "79d5817ce6ab2601c3aec8d5f8c4855cef2aa5af9bf54405ee42c03a5be8b5bb",
+      "audit_status": "likely_bad",
+      "endpoint": "course",
+      "expected_visible_speech": "Some rice.",
+      "locations": [
+        "5.3 Food Quantities \u2014 card 30 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "39a736ef534da94791c8abbd90ee147e6f304358fa8d5fc3f955c6c7e3f89408.mp3",
+      "sha256": "222a7247fb0877f91db904e9fcc2680f6a6ea2a6f85bda93011912f31f568599",
+      "transcripts": {
+        "whisper-1": "some rice.",
+        "gpt-4o-transcribe": "Some rice."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "6e633d79734aaac2f0634eae2b055c94b6ebad0df76e3034d7b06e8cab2d9f4c",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "There three oranges",
+      "locations": [
+        "5.3 Food Quantities \u2014 card 32 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "38cb42c00fc0a298be7ff9c53cbb7d8a046654a628a0159c89b49445a8c34290.mp3",
+      "sha256": "d1910896f2dd843c384b48e1435ebebcfd29292d245c7a42d207244f50f96cec",
+      "transcripts": {
+        "whisper-1": "There. Three oranges.",
+        "gpt-4o-transcribe": "There, three oranges."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "b572ab3cc46aff5c3787e7e96586541811baff4a35bada3b62af77f1071de613",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "There are red apples",
+      "locations": [
+        "5.3 Food Quantities \u2014 card 34 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "8d7b7cc22c4c491fde453665b66d8f8d9789a586e50c948932017736fa469f18.mp3",
+      "sha256": "1798e99fa7fce5af82bc577126b988c6c43076d570864e9a759582487eb1b163",
+      "transcripts": {
+        "whisper-1": "There are red apples",
+        "gpt-4o-transcribe": "There are red apples."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "07d31c650936e1fb959fba547308b83a91e54ce44503b029afd41b440179e562",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "I like strawberries",
+      "locations": [
+        "5.4 Likes and Dislikes \u2014 card 34 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "0afc70aba4139e07a731f19afc97fe0fa10b2231aa57baa9bb4f4700c9dced82.mp3",
+      "sha256": "2e9b5783c2120927626046979f347f19427a727f889f8b65c3fa5bede4717ac4",
+      "transcripts": {
+        "whisper-1": "I like strawberries.",
+        "gpt-4o-transcribe": "I like strawberries."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "c5a1883553eccb38283b9e543369e00f0970ed482d6b9bed494c6253e47adff5",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "We can by bus",
+      "locations": [
+        "6.6 Can and Cannot \u2014 card 31 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "ecca45daf25bf23440bc8a256ed8b4b558262866bf0641da41f4c9c90aba8293.mp3",
+      "sha256": "86401952d8fb5aa69327c7fdb3a662eed42cea89f97f5376c64d7488ce6698cd",
+      "transcripts": {
+        "whisper-1": "We can by bus.",
+        "gpt-4o-transcribe": "We can by bus."
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "880b9662cebee945966e70f0d17695cff2f721b54d4b52a599caf9e959db979c",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "My",
+      "locations": [
+        "7.1 The Body \u2014 card 30 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "elevenlabs-premium",
+      "cache_file": "e2d962e2f69ac1b67f022e4d303b2c00364380b58419900e2b0d93e75bfec029.mp3",
+      "sha256": "220f069bfc8f80ec9690dba49d4ccf61ced6767df5114506eb84b61391daa6aa",
+      "transcripts": {
+        "whisper-1": "My?",
+        "gpt-4o-transcribe": "Mai?"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "3cb17d62823a10ebebf73393c848969a46ff9a502e387d8918bc686040f0ee17",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "My",
+      "locations": [
+        "7.1 The Body \u2014 card 34 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "openai",
+      "cache_file": "7d0f89c9e961963bddf6fbb10308e86a71d2b2065f05c26d7cd074fa2819e37b.mp3",
+      "sha256": "4aee216f433eecd5d7a09bccd505bb05ee970a2c82b12ae31121ee86a9f36207",
+      "transcripts": {
+        "whisper-1": "My",
+        "gpt-4o-transcribe": "Mai"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "f6b98e59212a345401602ce48b9d5848dfb7304c7c2863c0ce2e61681877828f",
+      "audit_status": "likely_bad",
+      "endpoint": "course",
+      "expected_visible_speech": "Sad",
+      "locations": [
+        "7.2 Feelings and Needs \u2014 card 10 (Recognize)"
+      ],
+      "narrator": "female-warm",
+      "provider": "elevenlabs-premium",
+      "cache_file": "4cff38893bfa4149d6f3637384f199c767106fa951e3e2ca1d06bd218e7cb02c.mp3",
+      "sha256": "c1b024021475acea725711ebc5235e7aeda35a01d8399fba0d4389edb381e6a9",
+      "transcripts": {
+        "whisper-1": "sad",
+        "gpt-4o-transcribe": "Seda"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "8743e240f9d26b4fa9788d04d52d1106d9e7d5810b2d6065a41e5357cba2e8cd",
+      "audit_status": "likely_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "It is rainy. I need an",
+      "locations": [
+        "7.5 Clothes for the Weather \u2014 card 30 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "openai",
+      "cache_file": "5688051d909b3ab4e7618daa35daf99e25623bd350f6d9f5fa640fd2fb7deb2e.mp3",
+      "sha256": "1ff84afa56b72381684c46f57c1bda5fc733d86f0b26f8d68b67dc00c30208e6",
+      "transcripts": {
+        "whisper-1": "It is rainy. I need an\u2014",
+        "gpt-4o-transcribe": "It is rainy. I need an"
+      },
+      "validation": "pass",
+      "validation_note": "both OpenAI transcribers accepted the visible speech"
+    },
+    {
+      "request_id": "3cc7e0ae14fb027dfb008634fa5b2adfabf5516bbb50908da8ce3394795c902f",
+      "audit_status": "confirmed_bad",
+      "endpoint": "completion",
+      "expected_visible_speech": "It is hot. I a shirt",
+      "locations": [
+        "7.5 Clothes for the Weather \u2014 card 33 (Use)"
+      ],
+      "narrator": "male-conversational",
+      "provider": "openai",
+      "cache_file": "2fd3e1f44546971fab5ed6325ee1eb77a2e26c6fb882eac1f41759ead0d6a939.mp3",
+      "sha256": "4fd754f4e212c0f293ceca0586aca3098da6d677126b2a2fa1e1edb0a50439f8",
+      "transcripts": {
+        "whisper-1": "It is hot. I... a shirt.",
+        "gpt-4o-transcribe": "It is hot. I a shirt."
+      },
+      "validation": "pass",
+      "validation_note": "regenerated with isolated visible 'I'; both complete-clip transcribers accepted it"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import re
 import json
+import hashlib
 import unittest
 from array import array
 from contextlib import redirect_stdout
@@ -17,6 +18,7 @@ from backend.app.course_audio import (
     COMPLETION_PLACEHOLDER_SILENCE_SECONDS,
     COMPLETION_ENDING_ARTICLE_MARKUP,
     COMPLETION_ENDING_ARTICLE_MODEL,
+    COMPLETION_GENERATION_ATTEMPTS,
     COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
     COMPLETION_TRAILING_SILENCE_SECONDS,
     COURSE_SYLLABLES,
@@ -33,6 +35,7 @@ from backend.app.course_audio import (
     completion_prompt_cache_path,
     completion_prompt_contract,
     completion_fragment_model,
+    completion_fragment_units_for_openai,
     completion_prompt_fragments,
     get_course_audio,
     get_course_completion_audio,
@@ -76,7 +79,7 @@ class CourseAudioProfileTests(unittest.TestCase):
                     self.assertNotEqual(card.answer_audio_text, fragment)
                 completion_cards.append((lesson.id, card.prompt))
 
-        self.assertEqual(428, len(completion_cards))
+        self.assertEqual(425, len(completion_cards))
 
     def test_completion_contract_is_exact_and_requires_one_placeholder(self):
         contract = completion_prompt_contract(
@@ -162,6 +165,17 @@ class CourseAudioProfileTests(unittest.TestCase):
             "eleven_multilingual_v2",
             completion_fragment_model("Who,", "eleven_multilingual_v2"),
         )
+        self.assertEqual(
+            ("It is a?",),
+            completion_fragment_units_for_openai(
+                f"It is {COMPLETION_ENDING_ARTICLE_MARKUP}?"
+            ),
+        )
+        self.assertEqual(
+            ("It is hot.", "I?"),
+            completion_fragment_units_for_openai("It is hot. I,"),
+        )
+        self.assertEqual(("Who,",), completion_fragment_units_for_openai("Who,"))
 
     def test_completion_fragments_are_stitched_around_fixed_silence(self):
         prefix_samples = array("h", [9000]) * 2_400
@@ -203,6 +217,38 @@ class CourseAudioProfileTests(unittest.TestCase):
         expected = expected_audio_items()
         self.assertFalse(any("_" in text for text, _mode, _lang, _variant in expected))
         self.assertFalse(any("..." in text for text, _mode, _lang, _variant in expected))
+
+    def test_audited_course_audio_repairs_are_hash_pinned(self):
+        root = Path(__file__).resolve().parents[2]
+        manifest = json.loads(
+            (root / "docs" / "qa" / "course-audio-repairs-2026-08-28.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        repairs = manifest["repairs"]
+        self.assertEqual(39, manifest["repair_count"])
+        self.assertEqual(39, len(repairs))
+        self.assertEqual(AUDIO_PROFILE_VERSION, manifest["audio_profile"])
+        self.assertEqual(
+            COMPLETION_PROMPT_AUDIO_PROFILE_VERSION,
+            manifest["completion_audio_profile"],
+        )
+        self.assertEqual(6, sum(row["provider"] == "openai" for row in repairs))
+        for row in repairs:
+            with self.subTest(request_id=row["request_id"]):
+                self.assertEqual("pass", row["validation"])
+                self.assertNotEqual("male-warm", row["narrator"])
+                audio_path = root / "backend" / "storage" / "audio-cache" / row["cache_file"]
+                self.assertTrue(audio_path.is_file())
+                self.assertEqual(
+                    row["sha256"],
+                    hashlib.sha256(audio_path.read_bytes()).hexdigest(),
+                )
+                if row["provider"] == "openai":
+                    self.assertEqual(
+                        "openai",
+                        audio_path.with_suffix(".provider").read_text(encoding="utf-8"),
+                    )
 
     def test_checked_in_manifest_has_no_legacy_visual_placeholders(self):
         root = Path(__file__).resolve().parents[2]
@@ -265,18 +311,19 @@ class CourseAudioProfileTests(unittest.TestCase):
         )
 
     def test_lesson_one_reference_phrases_use_syllable_timing(self):
-        self.assertEqual(2, syllable_count("The boy"))
-        self.assertEqual(5, syllable_count("The girl is writing."))
-        self.assertEqual(8, syllable_count("The boy and the girl are running."))
-        self.assertEqual(9, syllable_count("The girl and the woman are writing."))
+        self.assertEqual(2, syllable_count("A boy"))
+        self.assertEqual(4, syllable_count("She is a girl."))
+        self.assertEqual(4, syllable_count("He is a man."))
+        self.assertEqual(5, syllable_count("She is a woman."))
 
     def test_new_speak_stage_is_included_in_the_static_audio_manifest(self):
         expected = expected_audio_items()
         phrases = {
-            "The boy is running.",
-            "The girl is walking.",
-            "The man is sitting.",
-            "The man is standing.",
+            "A boy",
+            "She is a girl.",
+            "He is a man.",
+            "She is a woman.",
+            "He is a boy.",
         }
 
         for phrase in phrases:
@@ -396,14 +443,15 @@ class CourseAudioProfileTests(unittest.TestCase):
         self.assertEqual("elevenlabs-premium", normalized_provider(" ElevenLabs-Premium "))
         self.assertEqual("azure", normalized_provider(" Azure "))
 
-    def test_premium_cast_has_distinct_male_and_female_narrators(self):
+    def test_premium_cast_has_distinct_active_male_and_female_narrators(self):
         voices = {
             premium_voice_for_narrator("female-teacher"),
             premium_voice_for_narrator("female-warm"),
-            premium_voice_for_narrator("male-warm"),
             premium_voice_for_narrator("male-conversational"),
         }
-        self.assertEqual(4, len(voices))
+        self.assertEqual(3, len(voices))
+        with self.assertRaises(HTTPException):
+            premium_voice_for_narrator("male-warm")
 
     def test_every_variant_uses_the_same_teacher_voice(self):
         self.assertEqual(voice_for_variant("default"), voice_for_variant("question"))
@@ -457,6 +505,10 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
                 "backend.app.course_audio._generate_elevenlabs_audio",
                 new=AsyncMock(side_effect=ValueError("invalid fragment")),
             ) as generate,
+            patch(
+                "backend.app.course_audio._generate_openai_audio",
+                new=AsyncMock(side_effect=HTTPException(status_code=502)),
+            ) as fallback,
         ):
             response = await get_course_completion_audio(
                 visual_prompt="They are a ___.",
@@ -465,13 +517,91 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
             )
 
         self.assertEqual("true", response.headers["X-Audio-Fail-Silent"])
-        self.assertEqual("invalid-fragment-audio", response.headers["X-Audio-Fail-Silent-Reason"])
+        self.assertEqual("provider-failure", response.headers["X-Audio-Fail-Silent-Reason"])
         self.assertEqual("no-store", response.headers["Cache-Control"])
-        self.assertEqual(1, generate.await_count)
+        self.assertEqual(COMPLETION_GENERATION_ATTEMPTS, generate.await_count)
+        self.assertEqual(1, fallback.await_count)
         self.assertTrue(generate.await_args.kwargs["premium"])
+        self.assertEqual([1101, 1102], [call.kwargs["seed"] for call in generate.await_args_list])
         decoded = _decoded_mono_samples(response.body)
         self.assertTrue(decoded)
         self.assertEqual({0}, set(decoded))
+
+    async def test_invalid_fragment_retries_once_before_caching_success(self):
+        fragment_audio = _encode_mp3(array("h", [9000]) * 2_400)
+        with (
+            TemporaryDirectory() as temp_dir,
+            patch("backend.app.course_audio.CACHE_DIR", Path(temp_dir)),
+            patch(
+                "backend.app.course_audio._generate_elevenlabs_audio",
+                new=AsyncMock(side_effect=[ValueError("invalid fragment"), fragment_audio]),
+            ) as generate,
+        ):
+            response = await get_course_completion_audio(
+                visual_prompt="They are a ___.",
+                full_text="They are a family.",
+                blank_text="family",
+            )
+
+        self.assertNotIn("X-Audio-Fail-Silent", response.headers)
+        self.assertEqual(2, generate.await_count)
+        self.assertEqual([1101, 1102], [call.kwargs["seed"] for call in generate.await_args_list])
+
+    async def test_invalid_elevenlabs_fragments_fall_back_to_openai_visible_text(self):
+        fragment_audio = _encode_mp3(array("h", [9000]) * 2_400)
+        with (
+            TemporaryDirectory() as temp_dir,
+            patch("backend.app.course_audio.CACHE_DIR", Path(temp_dir)),
+            patch(
+                "backend.app.course_audio._generate_elevenlabs_audio",
+                new=AsyncMock(side_effect=ValueError("invalid fragment")),
+            ) as generate,
+            patch(
+                "backend.app.course_audio._generate_openai_audio",
+                new=AsyncMock(return_value=fragment_audio),
+            ) as fallback,
+        ):
+            response = await get_course_completion_audio(
+                visual_prompt="It is a ___.",
+                full_text="It is a restaurant.",
+                blank_text="restaurant",
+            )
+
+            self.assertNotIn("X-Audio-Fail-Silent", response.headers)
+            self.assertEqual("openai", response.headers["X-Audio-Provider"])
+            self.assertEqual(
+                "elevenlabs-premium",
+                response.headers["X-Audio-Fallback-From"],
+            )
+            self.assertEqual(COMPLETION_GENERATION_ATTEMPTS, generate.await_count)
+            self.assertEqual(1, fallback.await_count)
+            self.assertEqual("It is a?", fallback.await_args.args[1])
+            self.assertNotIn("restaurant", fallback.await_args.args[1])
+
+    async def test_openai_fallback_preserves_an_isolated_visible_word(self):
+        fragment_audio = _encode_mp3(array("h", [9000]) * 2_400)
+        with (
+            TemporaryDirectory() as temp_dir,
+            patch("backend.app.course_audio.CACHE_DIR", Path(temp_dir)),
+            patch(
+                "backend.app.course_audio._generate_elevenlabs_audio",
+                new=AsyncMock(side_effect=ValueError("invalid fragment")),
+            ),
+            patch(
+                "backend.app.course_audio._generate_openai_audio",
+                new=AsyncMock(return_value=fragment_audio),
+            ) as fallback,
+        ):
+            response = await get_course_completion_audio(
+                visual_prompt="It is hot. I [blank] a shirt.",
+                full_text="It is hot. I need a shirt.",
+                blank_text="need",
+            )
+
+            self.assertNotIn("X-Audio-Fail-Silent", response.headers)
+            sent_texts = [call.args[1] for call in fallback.await_args_list]
+            self.assertEqual(["It is hot.", "I?", "a shirt."], sent_texts)
+            self.assertNotIn("need", " ".join(sent_texts).lower())
 
     async def test_unsupported_provider_fails_silent_without_synthesis(self):
         with patch(
@@ -507,7 +637,13 @@ class CompletionPromptProviderTests(unittest.IsolatedAsyncioTestCase):
                 ["Who,", "they?"],
                 [default_model, default_model],
             ),
-            ("___ are they?", "Who are they?", "Who", ["are they?"], [default_model]),
+            (
+                "___ are they?",
+                "Who are they?",
+                "Who",
+                ["are they?"],
+                [default_model],
+            ),
         )
 
         for visual_prompt, full_text, blank_text, expected_fragments, expected_models in cases:

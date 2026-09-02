@@ -18,8 +18,8 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 ## Current Track Check
 
 The A1 track now contains seven implemented units of ten lessons each. Unit 1,
-`People, Family, and Actions`, begins the sequence with `1.1 People and Core
-Actions`, followed by the narrower `1.2 He and She` lesson.
+`People, Family, and Actions`, begins the sequence with `1.1 Meet the People`,
+followed by the cumulative `1.2 He and She` lesson.
 
 What it does well:
 
@@ -32,8 +32,8 @@ What it does well:
 What the shared engine now adds across the track:
 
 - prompt and answer audio with stage-specific timing
-- purposeful review cards that mix old and new vocabulary
-- varied, semantically validated distractors
+- intentional cumulative construction: earlier vocabulary returns inside richer language and situations, not as copied review cards in the next lesson
+- varied distractors covered by fail-closed semantic contracts; formal human approvals remain pending
 - canonical YAML authoring with generated mobile snapshots
 - Speak and Use production after recognition and listening practice
 
@@ -45,7 +45,7 @@ Goal: Understand simple subject + action sentences.
 
 Lessons:
 
-1. 1.1 People and Core Actions: `boy`, `girl`, `man`, `woman`; `running`, `walking`, `sitting`, `standing`; `the`, `is`
+1. 1.1 Meet the People: `a`, `boy`, `girl`, `man`, `woman`, `he`, `she`, `is`; build `He/She is a ...` identity sentences before actions are introduced
 2. 1.2 He and She: `he`, `she`; `eating`, `drinking`, `reading`, `writing`; singular noun-to-pronoun substitution
 3. 1.3 Two People: They and Are: `and`, `they`, `are`; `swimming`, `sleeping`
 4. 1.4 Children and Siblings: `a family`, `baby/babies`, `child/children`, `brother/brothers`, `sister/sisters`
@@ -66,9 +66,11 @@ Core patterns:
 - `He is not cooking.`
 - `Who are they? They are the parents.`
 
+Lesson 1 is the active lesson-by-lesson restructuring pilot. The remaining Unit 1 allocations retain the current baseline until each lesson reaches its own review checkpoint; vocabulary may move among lessons 1-8 under the cumulative-progression guardrails as those checkpoints are approved.
+
 ### Unit 2: Places, Objects, Numbers, and Colors
 
-Goal: Identify familiar places, transport, and objects, then count and describe them without introducing location prepositions prematurely.
+Goal: Introduce familiar places, transport, and objects, then count, locate, and describe them. Unit 1 supplies people and actions; Unit 2 adds place and location language so those earlier subjects and actions can now form longer sentences such as `The girl is running in the park.`
 
 Lessons:
 
@@ -222,15 +224,26 @@ Each A1 lesson should follow this shape:
 2. Controlled recognition: choose the image that matches the prompt.
 3. Pattern repetition: reuse the same sentence shape with swapped vocabulary.
 4. Contrast: add near distractors only after the learner has seen clear examples.
-5. Review: mix two or three earlier items into the lesson.
+5. Cumulative construction: combine useful earlier language with the lesson's new element to create a richer utterance or situation.
 6. Optional help: give Spanish support only when the learner asks or repeatedly misses.
 
 Current standard lesson size:
 
 - 32-40 total cards for a complete `Learn -> Recognize -> Listen -> Speak -> Use` lesson
 - new vocabulary is limited by the lesson contract rather than introduced incidentally through distractors
-- at least four purposeful review cards when the lesson depends on earlier vocabulary
-- lessons 9 and 10 of each unit provide cumulative retrieval and a supported speaking/Use mission
+- lessons 1-8 may reuse earlier vocabulary only as part of the current lesson's larger construction, meaning, contrast, or situation; they do not insert standalone prior-lesson review cards
+- lesson 9 is the unit's comprehensive no-new-language review, while lesson 10 is a distinct applied story or challenge rather than another review
+
+### Ten-lesson unit rhythm
+
+- Lessons 1-8 form one forward-moving construction chain. A unit can progress from subjects to actions, then places or objects, then attributes such as colors and quantities, so familiar words do more work each time they return.
+- Vocabulary and grammar may move between lessons 1-8 of the same unit when needed for that chain. Every moved item carries its prerequisite, declared teaching target, and downstream dependency with it; old lesson boundaries never outrank understandable story flow, but later-unit language does not move forward without a separate curriculum decision.
+- Introduce the small supporting words needed to make the story grammatical before using them in a cumulative sentence. Articles, pronouns, forms of `be`, prepositions, and place or object nouns are teaching content, not invisible glue. Unit 1 may grow `girl` into `The girl is running.` Unit 2 then introduces `park` and `in the park` before expanding it to `The girl is running in the park.`
+- Within every lesson, the slides form a linked chain rather than a collection of cards about the same topic. Each slide continues, answers, applies, contrasts, deepens, or resolves the previous slide and creates a natural reason for the following slide; this applies across section boundaries as well as within a section.
+- Repetition in lessons 1-8 is repetition with growth: keep the useful vocabulary, but change the combination, sentence structure, communicative purpose, scene, or required response. Do not copy a prior teaching or assessment card into the next lesson merely to review it.
+- Lesson 9 retrieves at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets from lessons 1-8. It may be longer than a standard lesson when needed, uses no new language, and presents newly authored images, combinations, prompts, and setups. It may use clearly separated story stations, but it must not replay the same content-image pair from the lessons it reviews.
+- Lesson 10 is the unit-closing mission: one coherent story, practical goal, or challenge in which learned language is the tool for succeeding. It is not a second review deck. Every interaction advances the mission, and the ending provides a clear sense of resolution and readiness for the next unit.
+- Lesson 10 uses light, language-centered gamification to break the lessons 1-8 rhythm without turning the course into a reward loop. Depending on the unit, learners may manipulate syllable or word-part tiles to form words and then manipulate words to form useful sentences inside the mission.
 
 ## Difficulty Ramp
 
@@ -244,7 +257,7 @@ Early A1:
 Middle A1:
 
 - at most three choices when answers are text tiles; image choices may use four after smaller contrasts are established
-- mixed old and new vocabulary
+- earlier vocabulary combined into new, larger meanings and situations
 - simple question prompts
 - small contrasts like `he/she`, `in/on`, singular/plural
 
@@ -291,7 +304,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 
 | Lesson | Scope | Build status |
 | --- | --- | --- |
-| `1.1` | People and Core Actions | Complete |
+| `1.1` | Meet the People | Pilot ready for learner review |
 | `1.2` | He and She | Complete |
 | `1.3` | Two People: They and Are | Complete |
 | `1.4` | Children and Siblings | Complete |
@@ -302,15 +315,15 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | `1.9` | Unit 1 Spiral Review | Complete |
 | `1.10` | Family Scene Mission | Complete |
 
-Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
+Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. Unit 1 is now being replaced one lesson at a time so each approved checkpoint can steer the next lesson; rows after 1.1 still describe the baseline implementation until their checkpoint begins. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
 
-The previously built family lessons supply approved assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
+The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
 Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
 
 ## Current Build and Review Status
 
-The canonical A1 track now contains seven units with ten lessons per unit. Every lesson follows `Learn -> Recognize -> Listen -> Speak -> Use`, declares its prerequisite and purposeful review, and culminates in a speaking outcome. Lesson 9 of each unit is a no-new-language spiral review; lesson 10 is a coherent mission that integrates the unit's functions.
+The canonical A1 track now contains seven units with ten lessons per unit. Every lesson follows `Learn -> Recognize -> Listen -> Speak -> Use`, declares its prerequisite, and culminates in a speaking outcome. Lessons 1-8 move forward by incorporating earlier vocabulary into richer constructions rather than inserting standalone review cards. Lesson 9 of each unit is a comprehensive no-new-language review using fresh scenarios and covering at least 70 percent of the unit's declared mastery targets; lesson 10 is a coherent, lightly gamified mission that integrates the unit's functions in one applied story or challenge.
 
 The course menu presents the seven-unit big picture first. Selecting a unit reveals only that unit's ten lessons, with an explicit return to the all-units view. This navigation mirrors the curriculum hierarchy and keeps the 70-lesson roadmap browsable without flattening it into one long list.
 
