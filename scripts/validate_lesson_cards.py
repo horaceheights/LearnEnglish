@@ -1,3 +1,4 @@
+import argparse
 import json
 import re
 import struct
@@ -34,6 +35,7 @@ from scripts.a1_media_runtime_contracts import (  # noqa: E402
     REVIEW_CONTEXT_FIELDS,
     card_media_usages,
     course_browser_media_usages,
+    render_profile_sha256,
 )
 
 
@@ -307,14 +309,34 @@ def _lesson_payload(model: object) -> dict[str, object]:
     return json.loads(model.json())  # type: ignore[no-any-return, union-attr]
 
 
-def _context_counter_key(filename: str, context: dict[str, object]) -> tuple[str, str]:
+def _context_counter_key(
+    filename: str,
+    context: dict[str, object],
+    *,
+    ignore_render_signature: bool = False,
+) -> tuple[str, str]:
+    comparison_context = context
+    if ignore_render_signature:
+        comparison_context = {
+            field: value
+            for field, value in context.items()
+            if field != "render_signature_sha256"
+        }
     return (
         filename,
-        json.dumps(context, ensure_ascii=False, separators=(",", ":"), sort_keys=True),
+        json.dumps(
+            comparison_context,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ),
     )
 
 
-def _runtime_media_context_counts() -> Counter[tuple[str, str]]:
+def _runtime_media_context_counts(
+    *,
+    ignore_render_signature: bool = False,
+) -> Counter[tuple[str, str]]:
     counts: Counter[tuple[str, str]] = Counter()
     lesson_payloads: list[dict[str, object]] = []
     for lesson_model in LESSONS.values():
@@ -329,11 +351,19 @@ def _runtime_media_context_counts() -> Counter[tuple[str, str]]:
             for usage in card_media_usages(lesson, card):
                 context = usage["context"]
                 rendered_filename = usage["rendered_filename"]
-                counts[_context_counter_key(rendered_filename, context)] += 1
+                counts[_context_counter_key(
+                    rendered_filename,
+                    context,
+                    ignore_render_signature=ignore_render_signature,
+                )] += 1
     for usage in course_browser_media_usages(lesson_payloads):
         context = usage["context"]
         rendered_filename = usage["rendered_filename"]
-        counts[_context_counter_key(rendered_filename, context)] += 1
+        counts[_context_counter_key(
+            rendered_filename,
+            context,
+            ignore_render_signature=ignore_render_signature,
+        )] += 1
     return counts
 
 
@@ -352,14 +382,56 @@ def _summarize_context_keys(
     return ", ".join(labels)
 
 
-def validate_a1_media_semantic_approvals() -> list[str]:
-    """Fail closed unless every manifest contract has current human approval.
+def semantic_review_decision_findings(
+    pending_contracts: list[dict[str, object]],
+    rejected_contracts: list[dict[str, object]],
+    review_policy: str,
+) -> tuple[list[str], list[str]]:
+    """Classify review decisions without weakening malformed/stale contract checks."""
+
+    if review_policy not in {"preview", "production"}:
+        raise ValueError(f"Unsupported semantic review policy: {review_policy!r}.")
+
+    errors: list[str] = []
+    warnings: list[str] = []
+    if pending_contracts:
+        message = (
+            f"A1 media semantic review has {len(pending_contracts)} pending contracts: "
+            f"{_summarize_contracts(pending_contracts)}."
+        )
+        if review_policy == "preview":
+            warnings.append(
+                f"Preview-only advisory: {message} Human approval is still required "
+                "before Production."
+            )
+        else:
+            errors.append(message)
+    if rejected_contracts:
+        errors.append(
+            f"A1 media semantic review has {len(rejected_contracts)} rejected contracts: "
+            f"{_summarize_contracts(rejected_contracts)}."
+        )
+    return errors, warnings
+
+
+def validate_a1_media_semantic_approvals(
+    review_policy: str = "production",
+    warnings: list[str] | None = None,
+) -> list[str]:
+    """Validate contracts strictly, allowing review-state drift in Preview.
 
     Approval binds the full semantic contract and exact canonical image bytes.
-    Canonical and mobile copies are required to be byte-identical. The frontend
-    copy is checked whenever that optional publication copy exists.
+    Canonical, mobile, and frontend copies are all required and byte-identical.
+    Missing assets, malformed contracts, asset/hash mismatches, orphaned rows,
+    and rejected records always fail. Pending decisions and renderer-source
+    signature drift are warnings only under the explicit Preview policy and
+    remain release blockers under the default Production policy.
     """
 
+    if review_policy not in {"preview", "production"}:
+        raise ValueError(f"Unsupported semantic review policy: {review_policy!r}.")
+
+    warning_sink = warnings if warnings is not None else []
     errors: list[str] = []
     if not A1_MEDIA_MANIFEST.is_file():
         return [
@@ -406,12 +478,29 @@ def validate_a1_media_semantic_approvals() -> list[str]:
     asset_hashes: dict[str, str | None] = {}
     checked_filenames: set[str] = set()
     manifest_context_counts: Counter[tuple[str, str]] = Counter()
+    stale_render_profiles: Counter[str] = Counter()
     for index, asset in enumerate(manifest["assets"], 1):
         if not isinstance(asset, dict):
             errors.append(f"A1 media manifest asset {index} is not an object.")
             continue
+        for review_context in asset.get("review_contexts", []):
+            if not isinstance(review_context, dict):
+                continue
+            render_profile = review_context.get("render_profile")
+            signature = review_context.get("render_signature_sha256")
+            if not isinstance(render_profile, str) or not isinstance(signature, str):
+                continue
+            try:
+                expected_signature = render_profile_sha256(render_profile)
+            except ValueError:
+                continue
+            if signature != expected_signature:
+                stale_render_profiles[render_profile] += 1
         try:
-            contract = semantic_contract(asset)
+            contract = semantic_contract(
+                asset,
+                allow_stale_render_signatures=review_policy == "preview",
+            )
         except ValueError as exc:
             errors.append(f"A1 media manifest asset {index} is invalid: {exc}.")
             continue
@@ -427,7 +516,11 @@ def validate_a1_media_semantic_approvals() -> list[str]:
 
         for review_context in contract["review_contexts"]:
             manifest_context_counts[
-                _context_counter_key(contract["filename"], review_context)
+                _context_counter_key(
+                    contract["filename"],
+                    review_context,
+                    ignore_render_signature=review_policy == "preview",
+                )
             ] += 1
 
         filename = contract["filename"]
@@ -451,17 +544,17 @@ def validate_a1_media_semantic_approvals() -> list[str]:
                 f"Semantic-review asset {filename!r} differs between canonical and mobile copies."
             )
 
-        if (
-            frontend_path.is_file()
-            and asset_hashes[filename]
-            and sha256_file(frontend_path) != asset_hashes[filename]
-        ):
+        if not frontend_path.is_file():
+            errors.append(f"Semantic-review frontend asset copy is missing: {filename!r}.")
+        elif asset_hashes[filename] and sha256_file(frontend_path) != asset_hashes[filename]:
             errors.append(
                 f"Semantic-review asset {filename!r} differs between canonical and frontend copies."
             )
 
     try:
-        runtime_context_counts = _runtime_media_context_counts()
+        runtime_context_counts = _runtime_media_context_counts(
+            ignore_render_signature=review_policy == "preview",
+        )
     except ValueError as exc:
         errors.append(f"Runtime semantic media inventory is invalid: {exc}.")
         runtime_context_counts = Counter()
@@ -511,7 +604,10 @@ def validate_a1_media_semantic_approvals() -> list[str]:
         rows_by_declared_hash[declared_contract_sha256] = row
 
         try:
-            row_contract = semantic_contract(row)
+            row_contract = semantic_contract(
+                row,
+                allow_stale_render_signatures=review_policy == "preview",
+            )
         except ValueError as exc:
             errors.append(f"A1 media semantic approval row {index} is invalid: {exc}.")
             continue
@@ -582,15 +678,29 @@ def validate_a1_media_semantic_approvals() -> list[str]:
             f"A1 media semantic approval registry is missing {len(missing_contracts)} canonical "
             f"contracts: {_summarize_contracts(missing_contracts)}."
         )
-    if pending_contracts:
+    decision_errors, decision_warnings = semantic_review_decision_findings(
+        pending_contracts,
+        rejected_contracts,
+        review_policy,
+    )
+    errors.extend(decision_errors)
+    if decision_warnings and warnings is None:
         errors.append(
-            f"A1 media semantic review has {len(pending_contracts)} pending contracts: "
-            f"{_summarize_contracts(pending_contracts)}."
+            "Preview semantic-review warnings were not surfaced by the caller; "
+            "refusing to pass silently."
         )
-    if rejected_contracts:
-        errors.append(
-            f"A1 media semantic review has {len(rejected_contracts)} rejected contracts: "
-            f"{_summarize_contracts(rejected_contracts)}."
+    else:
+        warning_sink.extend(decision_warnings)
+    if stale_render_profiles and review_policy == "preview":
+        profile_summary = ", ".join(
+            f"{profile} ({count})"
+            for profile, count in sorted(stale_render_profiles.items())
+        )
+        warning_sink.append(
+            "Preview-only advisory: renderer-source changes made "
+            f"{sum(stale_render_profiles.values())} semantic review contexts pending "
+            f"across {profile_summary}. Review the exact runtime framing in Preview; "
+            "Production remains blocked until current signatures are reviewed."
         )
     return errors
 
@@ -600,8 +710,14 @@ def _mobile_export_payload(model: object) -> dict[str, object]:
     cards = payload.get("cards") or []
     if isinstance(cards, list):
         for card in cards:
-            if isinstance(card, dict) and card.get("spanish_translation") is None:
+            if not isinstance(card, dict):
+                continue
+            if card.get("spanish_translation") is None:
                 card.pop("spanish_translation", None)
+            if not card.get("audio_turns"):
+                card.pop("audio_turns", None)
+            if not card.get("answer_audio_turns"):
+                card.pop("answer_audio_turns", None)
     return payload
 
 
@@ -672,7 +788,20 @@ def validate_mobile_a1_semantic_parity() -> list[str]:
     return errors
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Validate A1 lesson cards and media.")
+    parser.add_argument(
+        "--semantic-review-policy",
+        choices=("preview", "production"),
+        default="production",
+        help=(
+            "Preview reports pending human semantic approvals and stale renderer "
+            "signatures as warnings; "
+            "Production (the default) requires every approval to be current."
+        ),
+    )
+    arguments = parser.parse_args(argv)
+    warnings: list[str] = []
     errors = [
         *validate_option_ids(),
         *validate_text_tile_option_limit(),
@@ -682,9 +811,16 @@ def main() -> int:
         *validate_interaction_requirements(),
         *validate_media_references(),
         *validate_a1_image_ratio(),
-        *validate_a1_media_semantic_approvals(),
+        *validate_a1_media_semantic_approvals(
+            arguments.semantic_review_policy,
+            warnings,
+        ),
         *validate_mobile_a1_semantic_parity(),
     ]
+    if warnings:
+        print("Lesson card validation warnings:")
+        for warning in warnings:
+            print(f"- WARNING: {warning}")
     if errors:
         print("Lesson card validation failed:")
         for error in errors:

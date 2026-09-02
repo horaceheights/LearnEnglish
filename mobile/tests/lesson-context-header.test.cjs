@@ -15,8 +15,8 @@ assert.match(
 
 assert.match(
   mobileScreenSource,
-  /<Text numberOfLines=\{1\} style=\{styles\.lessonLocation\}>[\s\S]*?\{lessonLocation\}[\s\S]*?<Text accessibilityRole="header" style=\{\[styles\.stage/,
-  'Mobile must render unit and lesson context directly above the stage label.',
+  /<View style=\{styles\.lessonContext\}>[\s\S]*?<Text numberOfLines=\{1\} style=\{styles\.lessonLocation\}>[\s\S]*?\{lessonLocation\}[\s\S]*?<Text accessibilityRole="header" style=\{\[[\s\S]*?styles\.stage/,
+  'Mobile must render unit and lesson context directly above the stage label in the illustrated panel.',
 );
 
 assert.match(

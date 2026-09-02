@@ -44,8 +44,8 @@ assert.match(
 );
 assert.match(
   lessonScreen,
-  /stageOnlyLabel:\s*\{\s*lineHeight:\s*24\s*\}/,
-  'Stage-only Learn cards must not clip the enlarged section label.',
+  /lessonStatusPhraseBox:\s*\{[^}]*minHeight:\s*50[^}]*\}[\s\S]*?contentHeaderPhraseBox:\s*\{[^}]*minHeight:\s*76/,
+  'The shared journey/context panel and importance box must reserve their full height without clipping.',
 );
 
 assert.match(

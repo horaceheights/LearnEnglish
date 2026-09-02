@@ -18,8 +18,8 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 ## Current Track Check
 
 The A1 track now contains seven implemented units of ten lessons each. Unit 1,
-`People, Family, and Actions`, begins the sequence with `1.1 People and Core
-Actions`, followed by the narrower `1.2 He and She` lesson.
+`People, Family, and Actions`, begins the sequence with `1.1 Meet the People`,
+followed by the cumulative `1.2 He and She` lesson.
 
 What it does well:
 
@@ -33,7 +33,7 @@ What the shared engine now adds across the track:
 
 - prompt and answer audio with stage-specific timing
 - intentional cumulative construction: earlier vocabulary returns inside richer language and situations, not as copied review cards in the next lesson
-- varied, semantically validated distractors
+- varied distractors covered by fail-closed semantic contracts; formal human approvals remain pending
 - canonical YAML authoring with generated mobile snapshots
 - Speak and Use production after recognition and listening practice
 
@@ -317,7 +317,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 
 Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. Unit 1 is now being replaced one lesson at a time so each approved checkpoint can steer the next lesson; rows after 1.1 still describe the baseline implementation until their checkpoint begins. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
 
-The previously built family lessons supply approved assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
+The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
 Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice now lives inside each sub-lesson as one of the standard lesson sections.
 

@@ -378,7 +378,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-7-10-a1-final-mission': {
-    image: 'a1_scene_i-am-tired-i-need-water_e960d38.webp',
+    image: 'a1_scene_my-name-my-day_d5d5c59.webp',
     description: 'Misión final con situaciones de todo el curso.',
     color: '#f1e4fa',
   },

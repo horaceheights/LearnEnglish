@@ -75,6 +75,10 @@ def lesson_payload(lesson):
     for card in payload.get("cards", []):
         if card.get("spanish_translation") is None:
             card.pop("spanish_translation", None)
+        if not card.get("audio_turns"):
+            card.pop("audio_turns", None)
+        if not card.get("answer_audio_turns"):
+            card.pop("answer_audio_turns", None)
     return payload
 
 

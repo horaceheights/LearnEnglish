@@ -4,6 +4,25 @@ export type ChoiceOption = {
   label: string | null;
 };
 
+export type CourseAudioAsset = {
+  id: string;
+  purpose: 'prompt' | 'answer' | string;
+  text: string;
+  mode: string;
+  variant: string;
+  image_ref: string;
+  semantic_role: string;
+  speaker_role: string;
+  profile_id: string;
+  revision: number;
+};
+
+export type CourseAudioTurn = {
+  text: string;
+  speaker_role: string;
+  image_url: string;
+};
+
 export type LessonCard = {
   slide_id?: string | null;
   interaction_type?: string | null;
@@ -16,6 +35,13 @@ export type LessonCard = {
   prompt_image_url: string;
   spanish_translation?: string | null;
   pedagogy_note?: string | null;
+  audio_speaker?: string | null;
+  answer_audio_speaker?: string | null;
+  audio_revision?: number;
+  answer_audio_revision?: number;
+  audio_turns?: CourseAudioTurn[];
+  answer_audio_turns?: CourseAudioTurn[];
+  audio_assets: CourseAudioAsset[];
 };
 
 export type Lesson = {

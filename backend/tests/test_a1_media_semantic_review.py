@@ -7,6 +7,7 @@ from unittest.mock import patch
 from scripts import build_a1_media_semantic_review as semantic_review
 from scripts import a1_media_runtime_contracts as runtime_contracts
 from scripts.a1_media_runtime_contracts import card_media_usages, render_profile_sha256
+from scripts.validate_lesson_cards import semantic_review_decision_findings
 
 
 class A1MediaSemanticReviewTests(unittest.TestCase):
@@ -119,6 +120,22 @@ class A1MediaSemanticReviewTests(unittest.TestCase):
                 self.assertEqual(changed["approvals"][0]["decision"], "pending")
                 self.assertIsNone(changed["approvals"][0]["reviewer"])
 
+    def test_preview_can_surface_a_stale_renderer_signature_without_approving_it(self) -> None:
+        changed = copy.deepcopy(self.asset)
+        changed["review_contexts"][0]["render_signature_sha256"] = "0" * 64
+
+        with self.assertRaisesRegex(ValueError, "render signature is stale"):
+            semantic_review.semantic_contract(changed)
+
+        preview_contract = semantic_review.semantic_contract(
+            changed,
+            allow_stale_render_signatures=True,
+        )
+        self.assertEqual(
+            preview_contract["review_contexts"][0]["render_signature_sha256"],
+            "0" * 64,
+        )
+
     def test_every_learner_facing_card_change_invalidates_the_contract(self) -> None:
         original = semantic_review.semantic_contract(self.asset)
         original_hash = semantic_review.semantic_contract_sha256(original)
@@ -190,6 +207,41 @@ class A1MediaSemanticReviewTests(unittest.TestCase):
                 registry["approvals"].append(copy.deepcopy(registry["approvals"][0]))
                 with self.assertRaisesRegex(ValueError, "duplicate contract_sha256"):
                     semantic_review.synchronized_registry(self.manifest, registry)
+
+    def test_preview_allows_only_pending_review_decisions(self) -> None:
+        pending = [{"filename": "pending.webp", "concept": "Pending image"}]
+        rejected = [{"filename": "rejected.webp", "concept": "Wrong image"}]
+
+        preview_errors, preview_warnings = semantic_review_decision_findings(
+            pending,
+            [],
+            "preview",
+        )
+        self.assertEqual(preview_errors, [])
+        self.assertEqual(len(preview_warnings), 1)
+        self.assertIn("Preview-only advisory", preview_warnings[0])
+        self.assertIn("required before Production", preview_warnings[0])
+
+        rejected_errors, rejected_warnings = semantic_review_decision_findings(
+            [],
+            rejected,
+            "preview",
+        )
+        self.assertEqual(rejected_warnings, [])
+        self.assertEqual(len(rejected_errors), 1)
+        self.assertIn("rejected contracts", rejected_errors[0])
+
+    def test_production_blocks_pending_review_decisions(self) -> None:
+        pending = [{"filename": "pending.webp", "concept": "Pending image"}]
+
+        production_errors, production_warnings = semantic_review_decision_findings(
+            pending,
+            [],
+            "production",
+        )
+        self.assertEqual(production_warnings, [])
+        self.assertEqual(len(production_errors), 1)
+        self.assertIn("pending contracts", production_errors[0])
 
 
 if __name__ == "__main__":

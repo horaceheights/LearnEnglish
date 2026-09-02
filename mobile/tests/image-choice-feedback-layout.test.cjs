@@ -42,13 +42,18 @@ assert.match(
 );
 assert.match(
   source,
-  /const useExpandedFourImagePortraitGrid = usePortraitImageGrid && card\.options\.length === 4/,
-  'Only a four-image portrait grid may use the expanded viewport.',
+  /const useFourImagePortraitGrid = usePortraitImageGrid && card\.options\.length === 4/,
+  'Only a four-image portrait grid may use the dedicated portrait viewport.',
 );
 assert.match(
   source,
-  /useExpandedFourImagePortraitGrid\s*\? \{ height: renderedOptionImageHeight \}\s*:\s*styles\.optionImageThreeByTwoFrame/,
-  'Four-image portrait grids must use the measured vertical space instead of leaving a large empty area.',
+  /useFourImagePortraitGrid\s*\? styles\.optionImageFourByFiveFrame\s*:\s*styles\.optionImageThreeByTwoFrame/,
+  'Four-image portrait grids must use the stable 4:5 crop instead of a device-dependent height.',
+);
+assert.match(
+  source,
+  /optionImageFourByFiveFrame:\s*\{ aspectRatio:\s*4 \/ 5, overflow:\s*'hidden' \}/,
+  'The four-image portrait viewport must remain exactly 4:5.',
 );
 assert.doesNotMatch(
   source,
@@ -57,8 +62,8 @@ assert.doesNotMatch(
 );
 assert.match(
   source,
-  /useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useExpandedFourImagePortraitGrid\}/,
-  'Action-backed options must keep the same expanded frame as the still image so selection does not resize the card.',
+  /useFourByFiveFrame=\{useFourImagePortraitGrid\}[\s\S]*?useThreeByTwoFrame=\{useThreeByTwoOptionMedia && !useFourImagePortraitGrid\}/,
+  'Action-backed options must keep the same fixed 4:5 frame as the still image so selection does not resize the card.',
 );
 
-console.log('Portrait image choices preserve the two-card stack, expanded four-card 2x2 grid, complete subjects, and visible teaching feedback.');
+console.log('Portrait image choices preserve the two-card stack, fixed 4:5 four-card 2x2 grid, semantic crops, and visible teaching feedback.');
