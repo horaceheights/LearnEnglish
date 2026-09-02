@@ -111,8 +111,18 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Cards must follow an intentional learning story, conversational sequence, or real-world chronology/,
-  'Authored card order must remain a coherent narrative or real-world sequence.',
+  /Every lesson must unfold as one intentional sequence whose logic may be narrative, causal, chronological, spatial, procedural, or pedagogical/,
+  'Authored card order must remain a coherent sequence across every lesson type.',
+);
+assert.match(
+  guardrails,
+  /Every adjacent pair of cards needs an understandable bridge/,
+  'Every slide must follow naturally from the previous slide and prepare the next one.',
+);
+assert.match(
+  guardrails,
+  /Section boundaries do not reset the story logic/,
+  'The five lesson sections must remain parts of one continuous learning arc.',
 );
 assert.match(
   guardrails,
@@ -156,8 +166,8 @@ assert.match(
 );
 assert.match(
   qaChecklist,
-  /## Narrative sequence guardrail[\s\S]*?Greetings precede introductions and information exchange/,
-  'Engine QA must review conversational chronology explicitly.',
+  /## Narrative sequence guardrail[\s\S]*?For every adjacent pair[\s\S]*?Greetings precede introductions and information exchange/,
+  'Engine QA must review adjacent-slide continuity as well as conversational chronology.',
 );
 assert.match(
   previewLessons,

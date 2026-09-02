@@ -115,7 +115,9 @@ Run the complete matrix for every new construction, matching, collecting, drag, 
 
 Review every changed lesson from its first card to its last in authored order:
 
-- [ ] The cards follow a coherent learning story, conversation, real-world chronology, or clearly separated sequence of review stations
+- [ ] The cards follow a coherent narrative, causal, chronological, spatial, procedural, or pedagogical sequence rather than merely sharing a topic
+- [ ] For every adjacent pair, a reviewer can explain why the following slide naturally continues, answers, applies, contrasts, deepens, or resolves the previous slide and how it prepares what comes next
+- [ ] The final slide of each section creates a logical bridge into the next section instead of resetting to an unrelated sequence
 - [ ] People, places, objects, and goals are established before the learner must use them
 - [ ] Greetings precede introductions and information exchange; goodbye and other closings occur after the exchange they close
 - [ ] Changes of speaker, place, time, or task have an understandable transition rather than an arbitrary jump
