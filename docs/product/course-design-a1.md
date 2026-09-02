@@ -32,7 +32,7 @@ What it does well:
 What the shared engine now adds across the track:
 
 - prompt and answer audio with stage-specific timing
-- purposeful review cards that mix old and new vocabulary
+- intentional cumulative construction: earlier vocabulary returns inside richer language and situations, not as copied review cards in the next lesson
 - varied, semantically validated distractors
 - canonical YAML authoring with generated mobile snapshots
 - Speak and Use production after recognition and listening practice
@@ -222,15 +222,23 @@ Each A1 lesson should follow this shape:
 2. Controlled recognition: choose the image that matches the prompt.
 3. Pattern repetition: reuse the same sentence shape with swapped vocabulary.
 4. Contrast: add near distractors only after the learner has seen clear examples.
-5. Review: mix two or three earlier items into the lesson.
+5. Cumulative construction: combine useful earlier language with the lesson's new element to create a richer utterance or situation.
 6. Optional help: give Spanish support only when the learner asks or repeatedly misses.
 
 Current standard lesson size:
 
 - 32-40 total cards for a complete `Learn -> Recognize -> Listen -> Speak -> Use` lesson
 - new vocabulary is limited by the lesson contract rather than introduced incidentally through distractors
-- at least four purposeful review cards when the lesson depends on earlier vocabulary
-- lessons 9 and 10 of each unit provide cumulative retrieval and a supported speaking/Use mission
+- lessons 1-8 may reuse earlier vocabulary only as part of the current lesson's larger construction, meaning, contrast, or situation; they do not insert standalone prior-lesson review cards
+- lesson 9 is the unit's comprehensive no-new-language review, while lesson 10 is a distinct applied story or challenge rather than another review
+
+### Ten-lesson unit rhythm
+
+- Lessons 1-8 form one forward-moving construction chain. A unit can progress from subjects to actions, then places or objects, then attributes such as colors and quantities, so familiar words do more work each time they return.
+- Repetition in lessons 1-8 is repetition with growth: keep the useful vocabulary, but change the combination, sentence structure, communicative purpose, scene, or required response. Do not copy a prior teaching or assessment card into the next lesson merely to review it.
+- Lesson 9 retrieves at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets from lessons 1-8. It may be longer than a standard lesson when needed, uses no new language, and presents newly authored images, combinations, prompts, and setups. It may use clearly separated story stations, but it must not replay the same content-image pair from the lessons it reviews.
+- Lesson 10 is the unit-closing mission: one coherent story, practical goal, or challenge in which learned language is the tool for succeeding. It is not a second review deck. Every interaction advances the mission, and the ending provides a clear sense of resolution and readiness for the next unit.
+- Lesson 10 uses light, language-centered gamification to break the lessons 1-8 rhythm without turning the course into a reward loop. Depending on the unit, learners may manipulate syllable or word-part tiles to form words and then manipulate words to form useful sentences inside the mission.
 
 ## Difficulty Ramp
 
@@ -244,7 +252,7 @@ Early A1:
 Middle A1:
 
 - at most three choices when answers are text tiles; image choices may use four after smaller contrasts are established
-- mixed old and new vocabulary
+- earlier vocabulary combined into new, larger meanings and situations
 - simple question prompts
 - small contrasts like `he/she`, `in/on`, singular/plural
 
@@ -310,7 +318,7 @@ Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice
 
 ## Current Build and Review Status
 
-The canonical A1 track now contains seven units with ten lessons per unit. Every lesson follows `Learn -> Recognize -> Listen -> Speak -> Use`, declares its prerequisite and purposeful review, and culminates in a speaking outcome. Lesson 9 of each unit is a no-new-language spiral review; lesson 10 is a coherent mission that integrates the unit's functions.
+The canonical A1 track now contains seven units with ten lessons per unit. Every lesson follows `Learn -> Recognize -> Listen -> Speak -> Use`, declares its prerequisite, and culminates in a speaking outcome. Lessons 1-8 move forward by incorporating earlier vocabulary into richer constructions rather than inserting standalone review cards. Lesson 9 of each unit is a comprehensive no-new-language review using fresh scenarios and covering at least 70 percent of the unit's declared mastery targets; lesson 10 is a coherent, lightly gamified mission that integrates the unit's functions in one applied story or challenge.
 
 The course menu presents the seven-unit big picture first. Selecting a unit reveals only that unit's ten lessons, with an explicit return to the all-units view. This navigation mirrors the curriculum hierarchy and keeps the 70-lesson roadmap browsable without flattening it into one long list.
 

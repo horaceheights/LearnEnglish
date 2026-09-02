@@ -11,8 +11,20 @@ const lessonScreen = fs.readFileSync(
   path.join(mobileRoot, 'src/screens/LessonScreen.tsx'),
   'utf8',
 );
+const previewLessons = fs.readFileSync(
+  path.join(mobileRoot, 'src/previewLessons.ts'),
+  'utf8',
+);
 const guardrails = fs.readFileSync(
   path.resolve(mobileRoot, '../docs/product/project-guardrails.md'),
+  'utf8',
+);
+const qaChecklist = fs.readFileSync(
+  path.resolve(mobileRoot, '../docs/qa/engine-qa-checklist.md'),
+  'utf8',
+);
+const courseDesign = fs.readFileSync(
+  path.resolve(mobileRoot, '../docs/product/course-design-a1.md'),
   'utf8',
 );
 const interactionVerifier = fs.readFileSync(
@@ -78,9 +90,84 @@ assert.match(
   'The guardrail must explicitly cover overlay risk for every option count on tablets and phones.',
 );
 assert.match(
+  guardrails,
+  /Never require a learner to drag to or from an off-screen target/,
+  'Tile games must not require an off-screen drag source or destination.',
+);
+assert.match(
+  guardrails,
+  /at least 44 by 44 CSS pixels on web and 48 by 48 dp on mobile/,
+  'Tile games must preserve the approved cross-platform minimum target sizes.',
+);
+assert.match(
+  guardrails,
+  /Tap-to-place, tap-to-remove, keyboard movement, and screen-reader reorder actions must provide a complete alternative to dragging/,
+  'Every drag interaction must retain a complete non-drag path.',
+);
+assert.match(
+  guardrails,
+  /clamp it to the usable bounds and keep its destination and placement state visible/,
+  'Dragged tiles must stay inside the measured usable viewport.',
+);
+assert.match(
+  guardrails,
+  /Cards must follow an intentional learning story, conversational sequence, or real-world chronology/,
+  'Authored card order must remain a coherent narrative or real-world sequence.',
+);
+assert.match(
+  guardrails,
+  /runtime delivery may randomize answer positions but must never shuffle the cards themselves/,
+  'Runtime randomization must not destroy the authored lesson story.',
+);
+assert.match(
+  guardrails,
+  /Lessons 1 through 8 are forward-building lessons, not mixed review decks/,
+  'Lessons 1-8 must reuse earlier vocabulary only through forward construction.',
+);
+assert.match(
+  guardrails,
+  /Lesson 9 is a comprehensive, no-new-language review[\s\S]*?at least 70 percent/,
+  'Lesson 9 must own comprehensive unit review and meet the approved coverage floor.',
+);
+assert.match(
+  guardrails,
+  /Lesson 10 is not a second review/,
+  'Lesson 10 must remain an applied mission rather than another review deck.',
+);
+assert.match(
+  guardrails,
+  /syllables or word parts to whole words[\s\S]*?words to useful sentences/,
+  'Lesson 10 tile play must support the approved word-part-to-sentence progression.',
+);
+assert.match(
+  guardrails,
+  /New bespoke lesson and mission sound effects use ElevenLabs Sound Effects during asset production/,
+  'New mission sound effects must use the approved static ElevenLabs workflow.',
+);
+assert.doesNotMatch(
+  courseDesign,
+  /purposeful review cards that mix old and new vocabulary/,
+  'The superseded mixed-review-card standard must not return to the course design.',
+);
+assert.match(
+  qaChecklist,
+  /## Tile and mission-game responsive-layout guardrail[\s\S]*?360, 390, and 412 dp phone portrait widths/,
+  'Engine QA must exercise tile games at every representative phone width.',
+);
+assert.match(
+  qaChecklist,
+  /## Narrative sequence guardrail[\s\S]*?Greetings precede introductions and information exchange/,
+  'Engine QA must review conversational chronology explicitly.',
+);
+assert.match(
+  previewLessons,
+  /cards:\s*lesson\.cards\.map\(\(card\)\s*=>\s*\(\{[\s\S]*?\.\.\.card,[\s\S]*?options:\s*shuffledOptions\(card\.options\)/,
+  'Preview delivery must preserve authored card order and shuffle only each card\'s answer options.',
+);
+assert.match(
   interactionVerifier,
   /node tests\/tablet-lesson-layout\.test\.cjs/,
   'Preview interaction verification must always run the phone and tablet layout guardrail.',
 );
 
-console.log('Tablet and phone lesson headers stay readable while image-card layouts remain height-aware and non-overlapping.');
+console.log('Phone and tablet layouts, responsive tile-game contracts, and authored lesson chronology remain protected.');

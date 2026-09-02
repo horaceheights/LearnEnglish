@@ -95,6 +95,34 @@ Run these checks for every new card pattern before publishing Preview:
 - [ ] Font scale at 1.15 does not overlap choices; larger accessibility scales remain reachable by scrolling
 - [ ] Capture one Engine QA screenshot for the longest phrase card in portrait before release
 
+## Tile and mission-game responsive-layout guardrail
+
+Run the complete matrix for every new construction, matching, collecting, drag, or drop pattern before enabling its lesson content:
+
+- [ ] Test 360, 390, and 412 dp phone portrait widths; a small phone in landscape; tablet portrait and landscape; and narrow and wide web viewports
+- [ ] Repeat with safe areas/system bars visible, font scale 1.15, and the largest supported accessibility text setting
+- [ ] The complete tile bank, active construction area, visible drop targets, mission progress, feedback, replay, Undo, Reset, Check, Retry, and Continue are visible or immediately reachable
+- [ ] No required source or destination is off-screen during a drag; tap-to-place, tap-to-remove, keyboard movement, and screen-reader reorder actions can complete the same task without dragging
+- [ ] Every interactive target measures at least 44 by 44 CSS pixels on web and 48 by 48 dp on mobile, without clipped, overlapping, truncated, or split-word labels
+- [ ] The largest authored tile bank and longest authored construction use available space efficiently, reflow without horizontal page overflow, and use a bounded bank scroll or paging instead of shrinking below the minimum target and text sizes
+- [ ] Rotating or resizing with a partial construction preserves its order and keeps every placed tile inside the usable construction area
+- [ ] Dragging and reordering do not trigger lesson-card swipe navigation, unintended page scrolling, or an adjacent drop target
+- [ ] A lifted tile stays inside usable bounds; any edge scrolling is confined to the intended bank or construction region, and a resize or rotation during drag safely returns the tile to its last valid position
+- [ ] Help, feedback, Retry, and completion states do not cover the active construction or move primary controls beneath browser or system navigation
+- [ ] Capture screenshots of the largest tile bank and longest construction on the smallest phone, a landscape phone, and a tablet before release
+
+## Narrative sequence guardrail
+
+Review every changed lesson from its first card to its last in authored order:
+
+- [ ] The cards follow a coherent learning story, conversation, real-world chronology, or clearly separated sequence of review stations
+- [ ] People, places, objects, and goals are established before the learner must use them
+- [ ] Greetings precede introductions and information exchange; goodbye and other closings occur after the exchange they close
+- [ ] Changes of speaker, place, time, or task have an understandable transition rather than an arbitrary jump
+- [ ] Each review station is internally coherent and the station order is purposeful
+- [ ] Every mission card establishes the goal, reveals needed information, overcomes an obstacle, performs required language, or resolves the story
+- [ ] Runtime delivery preserves authored card order and randomizes only the permitted answer positions
+
 ## Activity-stage matrix
 
 ### Action Introduction
