@@ -25,6 +25,7 @@ The detailed A1 syllabus and Unit 1 roadmap live in [`course-design-a1.md`](cour
 - A successful Preview cycle is not repository-complete until the exact published `origin/release/preview` history has been reconciled back into `origin/main`. Complete that sync before starting another curriculum or release task; if branch protection or CI blocks it, report the repository as blocked instead of allowing Preview-only history to accumulate.
 - At task start and completion, run the read-only repository hygiene audit and inspect branch divergence, registered worktrees, and dirty state.
 - Once work is integrated, remove its clean worktree and retire its fully merged task branches. Dirty worktrees and unmerged branches require an explicit local-state review and a recoverable named snapshot before removal.
+- Local operational directories created inside the repository root, including `.codex-task-worktrees/` and `.pnpm-store/`, remain root-scoped ignored paths. They must never appear as primary-checkout changes or be staged in a task commit.
 - Repository cleanup never changes `release/preview`, Expo channels, Production, or deployed state unless release work is explicitly requested and approved through the release workflow.
 - Force-pushes, history rewrites, and silent discards are prohibited. Name the exact refs or paths before any destructive cleanup.
 
