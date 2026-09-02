@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-08-29
+Last reviewed: 2026-09-01
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -46,6 +46,16 @@ Every standard lesson follows this visible sequence:
 - A separate grammar-heavy mode may be designed later, but it is not part of the current lesson shell.
 - The shell, stage order, navigation, feedback, and visual language should remain predictable across lessons.
 - Content difficulty progresses in small steps. A lesson should rely only on language introduced or reinforced earlier.
+
+### Authored sequence and story coherence
+
+- Authored card order is part of the lesson contract. Every lesson must unfold as one intentional sequence whose logic may be narrative, causal, chronological, spatial, procedural, or pedagogical; runtime delivery may randomize answer positions but must never shuffle the cards themselves.
+- Every adjacent pair of cards needs an understandable bridge. The following card must naturally continue, answer, apply, contrast, deepen, or resolve something established by the previous card while preparing the learner for what comes next. Sharing a topic or vocabulary list is not enough when the cards otherwise feel interchangeable or random.
+- This sequence rule applies to every section and interaction type, not only conversations. In a conversation, a greeting comes before a name introduction or information exchange, and a goodbye or other closing comes after that exchange; in a scene, task, concept sequence, or game, setup comes before action, action before consequence, and preparation before application.
+- Section boundaries do not reset the story logic. The end of `Learn` should prepare `Recognize`, `Recognize` should prepare listening, listening should prepare speaking, and speaking should prepare meaningful use, even when the interaction format changes.
+- Preserve causal and visual continuity within a scene. Introduce the people, place, objects, or goal before asking the learner to act on them, and do not jump between unrelated speakers, locations, times, or tasks without a clear transition.
+- A review lesson may use several clearly separated stations or micro-scenes instead of one continuous story, but every station must have its own coherent order and the sequence of stations must be purposeful rather than random. In a mission lesson, every assessed card must help establish the goal, reveal needed information, overcome an obstacle, perform the required language, or resolve the story.
+- Builders, importers, and content rewrites must preserve the reviewed card sequence exactly. Grouping cards by vocabulary, interaction type, media, or implementation convenience may not override narrative or pedagogical order.
 
 ### Learn
 
@@ -120,6 +130,18 @@ Do not force every word through every step in a single lesson when that would ma
 - On `Learn` introduction cards, words declared in the lesson vocabulary contract use the shared readable yellow emphasis and one brief shine/stretch animation. The animation plays once per card, never loops, never shifts layout, and respects reduced-motion settings.
 - When `not` is the active new concept in Lesson 1.7, keep it larger and in the shared yellow new-word treatment throughout visible teaching and recognition prompts. Outside `Learn`, the emphasis is static rather than replaying the introduction animation.
 
+### Unit progression and end-of-unit roles
+
+- Lessons 1 through 8 are forward-building lessons, not mixed review decks. Do not insert a standalone card whose only purpose is to repeat an earlier lesson item unchanged, especially in the immediately following lesson.
+- Vocabulary and grammar allocations across lessons 1 through 8 of the same unit are movable when the story or cumulative learning sequence requires it. Preserve the unit's overall outcome, update every affected prerequisite and downstream lesson contract, and do not protect an old lesson boundary at the expense of a natural progression. This does not authorize pulling a later unit's teaching target forward without a separate explicit curriculum decision.
+- Before a story uses or assesses a longer sentence, explicitly introduce every required content word and supporting function word, including articles, pronouns, forms of `be`, prepositions, and place or object nouns. Supporting language belongs in the current or an earlier unit's declared vocabulary or grammar/function contract; never smuggle an unintroduced word into a prompt, distractor, audio line, or "review" sentence.
+- Build cumulative sentences through small, meaningful additions that the learner has already encountered. Unit 1 may progress from `girl` to `the girl`, then `running` and `The girl is running.` Because places and `in the park` belong to Unit 2, `The girl is running in the park.` must wait until Unit 2 has introduced that language. Each expansion must remain visually teachable and advance the same scene or story rather than becoming a disconnected grammar drill.
+- Earlier vocabulary may return in lessons 2 through 8 only when it helps construct the current lesson's richer meaning, sentence, contrast, or situation. Progress can build from subjects to actions, then places or objects, then attributes or quantities; the familiar vocabulary remains useful while the learner's communicative reach grows.
+- Repetition with growth changes the combination, structure, purpose, image, setup, or response. Never copy the same prompt-and-image teaching or assessment card into a subsequent forward-building lesson and label that progress.
+- Lesson 9 is a comprehensive, no-new-language review of lessons 1 through 8. It covers at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets, may exceed the ordinary lesson length to achieve that coverage, and uses newly authored images, combinations, prompts, angles, and setups rather than replaying the original cards. Multiple review stations are allowed when their separation and internal chronology are clear.
+- Lesson 10 is not a second review. It is one coherent unit-closing story, practical mission, or challenge in which every assessed interaction advances the goal and learned language is used to succeed. It ends with a meaningful resolution and a sense of readiness for the next unit.
+- Lesson 10 introduces only a low degree of language-centered gamification. Tile play may progress from syllables or word parts to whole words and then from words to useful sentences, but points, streak pressure, lives, currencies, decorative reward loops, and speed pressure must not displace comprehension or communication.
+
 ## 4. Mobile Layout Guardrails
 
 - Design for the usable phone viewport, including Android system bars and enlarged font settings.
@@ -138,6 +160,15 @@ Do not force every word through every step in a single lesson when that would ma
 - A shared component change must be verified against two-option and four-option cards.
 - Do not use a correct-answer visual treatment until after the learner selects an answer.
 - Every learner-facing SpanGlish logo is an accessible navigation control back to home. During an active lesson, ask for confirmation before abandoning the lesson.
+
+### Responsive tile and mission-game layouts
+
+- Word-part, word-order, sentence-building, matching, collecting, dragging, and dropping activities must derive their layout from the actual usable viewport, safe-area insets, current font scale, and current orientation. They must reflow after resize or rotation instead of relying on one fixed phone, tablet, or desktop canvas.
+- The construction area, complete tile bank, visible drop targets, mission progress, feedback, and essential controls such as replay, Undo, Reset, Check, Retry, and Continue must remain visible or immediately reachable without clipping behind headers, browser chrome, notches, keyboards, or system navigation. Never require a learner to drag to or from an off-screen target.
+- Use available width and height efficiently through responsive rows, columns, wrapping, spacing, and height-aware sizing, but never obtain fit by making interactive tiles or drop targets too small. Interactive targets remain at least 44 by 44 CSS pixels on web and 48 by 48 dp on mobile; tile text remains readable, never splits a word, and does not clip, overlap, or scale below the established readable minimum.
+- When the usable viewport cannot show the entire activity at a readable size, keep the active construction/drop area and primary action visible and place the remaining bank in a bounded, obvious scroll or paged region. Tap-to-place, tap-to-remove, keyboard movement, and screen-reader reorder actions must provide a complete alternative to dragging, especially when a source and destination cannot stay visible together.
+- While a tile is moving, clamp it to the usable bounds and keep its destination and placement state visible; edge scrolling may move only a bounded tile bank or construction region. Tile gestures must not accidentally trigger lesson-card navigation, page scrolling, or another drop target. Resizing or rotating during a drag returns the tile to its last valid position, while opening help or receiving feedback preserves every valid partial construction and its accessible focus.
+- Before a new game interaction can ship, automated layout invariants and Engine QA must cover the smallest supported phone, representative phone widths, phone landscape, tablet portrait and landscape, narrow and wide web viewports, safe areas/system bars, the largest authored tile bank, the longest authored construction, and enlarged accessibility text.
 
 ## 5. Image Guardrails
 
@@ -199,6 +230,7 @@ Do not force every word through every step in a single lesson when that would ma
 ## 7. Audio Guardrails
 
 - Course audio uses provider-neutral semantic roles. The approved primary provider is ElevenLabs Premium and the approved provider fallback is OpenAI; device or browser speech synthesis is an emergency fallback only.
+- New bespoke lesson and mission sound effects use ElevenLabs Sound Effects during asset production. Generate each approved cue once, review it for meaning, volume, duration, and repetition fatigue, then store and ship it as a versioned static asset; learner gameplay must never trigger paid runtime sound generation. Every state conveyed by a sound also needs a visible or haptic equivalent, and sound effects respect the learner's mute and reduced-stimulation settings.
 - Web and mobile must resolve the same semantic role for the same canonical card. The standard roles are `teacher`, `question`, and `answer`; named character roles require an explicit content assignment. Never choose a learner-facing voice from a card, lesson, or text hash.
 - Provider voice IDs, model versions, and role-to-voice mappings belong in the versioned audio profile rather than lesson content or this guardrail.
 - A1 delivery is clear and moderately slow, with understandable word separation, but not unnaturally slow.
@@ -368,6 +400,10 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-25: After a newer OTA from a stale divergent branch replaced the complete seven-unit Preview with an older tree, Preview publication moved to the protected `release/preview` authority. CI now owns publishing, exact course topology and fingerprints are release invariants, and local or task-branch publication is prohibited.
 - 2026-08-26: Shared-backend API-key rollout standardized on a compatibility window: app-key enforcement remains disabled while `APP_API_KEY` is unset, admin endpoints fail closed, and enforcement begins only after matching client code reaches every active mobile channel.
 - 2026-09-01: Persistent Preview audio standardized on verified-provider, cache-busted catalogs. Legacy provider-unknown static files cannot enter a new persistent release; approved Production ElevenLabs takes are reused first and missing contracts are generated once before the client switches paths.
+- 2026-09-01: Tile-based and mission-game layouts standardized on actual usable viewport and font-scale measurements, efficient responsive reflow, visible construction and drop areas, minimum 44 CSS-pixel web and 48 dp mobile targets, and a complete non-drag interaction path. No learner may be required to manipulate an off-screen, clipped, or undersized target.
+- 2026-09-01: Authored lesson order standardized on adjacent-slide continuity across every lesson type. Each card must grow naturally from the prior card and prepare the next through narrative, cause-and-effect, chronology, task logic, scene continuity, or pedagogical progression. Answer positions may randomize, but cards may not; review stations remain internally coherent and every mission card advances the story.
+- 2026-09-01: The ten-lesson unit rhythm standardized on forward-building lessons 1-8 with no copied standalone review cards, a fresh-scenario lesson 9 covering at least 70 percent of declared unit mastery targets, and a distinct lightly gamified lesson 10 mission that applies language through one story or challenge. New bespoke mission effects use reviewed, static ElevenLabs Sound Effects assets rather than paid runtime generation.
+- 2026-09-01: Lesson-level vocabulary and grammar boundaries within a unit became movable when required by story logic and cumulative sentence growth, while unit boundaries remain prerequisite contracts. Every content and function word must be deliberately introduced before use or assessment: Unit 1 may build `The girl is running.`, but the expansion `The girl is running in the park.` waits for Unit 2 to introduce places and `in the park`.
 - 2026-08-29: Course-media semantic approval became fail-closed. Every correct image and distractor must be visually reviewed against its complete teaching contract, with approval bound to the exact contract and file hash; filenames, prompts, manifests, generator metadata, and approval of source or derived variants are not substitutes, and missing or stale approval blocks release.
 - 2026-08-29: Image-option contracts became independent and option-authoritative after shared correct-answer descriptions were found contaminating distractor generation. The option concept and explicit per-option scene contract now outrank shared card framing, and automated coverage prevents the target description from being reused for distractors.
 - 2026-08-29: Semantic approval expanded to the 147 real mobile course-browser thumbnail framings and to the dedicated two-choice action posters actually shown before playback. Approval now includes a conservative render-policy and renderer-source signature so crop, fit, viewport, focal-position, or renderer drift returns the affected contract to pending.

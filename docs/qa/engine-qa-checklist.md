@@ -95,6 +95,44 @@ Run these checks for every new card pattern before publishing Preview:
 - [ ] Font scale at 1.15 does not overlap choices; larger accessibility scales remain reachable by scrolling
 - [ ] Capture one Engine QA screenshot for the longest phrase card in portrait before release
 
+## Tile and mission-game responsive-layout guardrail
+
+Run the complete matrix for every new construction, matching, collecting, drag, or drop pattern before enabling its lesson content:
+
+- [ ] Test 360, 390, and 412 dp phone portrait widths; a small phone in landscape; tablet portrait and landscape; and narrow and wide web viewports
+- [ ] Repeat with safe areas/system bars visible, font scale 1.15, and the largest supported accessibility text setting
+- [ ] The complete tile bank, active construction area, visible drop targets, mission progress, feedback, replay, Undo, Reset, Check, Retry, and Continue are visible or immediately reachable
+- [ ] No required source or destination is off-screen during a drag; tap-to-place, tap-to-remove, keyboard movement, and screen-reader reorder actions can complete the same task without dragging
+- [ ] Every interactive target measures at least 44 by 44 CSS pixels on web and 48 by 48 dp on mobile, without clipped, overlapping, truncated, or split-word labels
+- [ ] The largest authored tile bank and longest authored construction use available space efficiently, reflow without horizontal page overflow, and use a bounded bank scroll or paging instead of shrinking below the minimum target and text sizes
+- [ ] Rotating or resizing with a partial construction preserves its order and keeps every placed tile inside the usable construction area
+- [ ] Dragging and reordering do not trigger lesson-card swipe navigation, unintended page scrolling, or an adjacent drop target
+- [ ] A lifted tile stays inside usable bounds; any edge scrolling is confined to the intended bank or construction region, and a resize or rotation during drag safely returns the tile to its last valid position
+- [ ] Help, feedback, Retry, and completion states do not cover the active construction or move primary controls beneath browser or system navigation
+- [ ] Capture screenshots of the largest tile bank and longest construction on the smallest phone, a landscape phone, and a tablet before release
+
+## Narrative sequence guardrail
+
+Review every changed lesson from its first card to its last in authored order:
+
+- [ ] The cards follow a coherent narrative, causal, chronological, spatial, procedural, or pedagogical sequence rather than merely sharing a topic
+- [ ] For every adjacent pair, a reviewer can explain why the following slide naturally continues, answers, applies, contrasts, deepens, or resolves the previous slide and how it prepares what comes next
+- [ ] The final slide of each section creates a logical bridge into the next section instead of resetting to an unrelated sequence
+- [ ] People, places, objects, and goals are established before the learner must use them
+- [ ] Greetings precede introductions and information exchange; goodbye and other closings occur after the exchange they close
+- [ ] Changes of speaker, place, time, or task have an understandable transition rather than an arbitrary jump
+- [ ] Each review station is internally coherent and the station order is purposeful
+- [ ] Every mission card establishes the goal, reveals needed information, overcomes an obstacle, performs required language, or resolves the story
+- [ ] Runtime delivery preserves authored card order and randomizes only the permitted answer positions
+
+## Prerequisite and cumulative-sentence guardrail
+
+- [ ] The unit mastery map identifies the first teaching slide for every content word, article, pronoun, form of `be`, preposition, place/object noun, and other function word used later
+- [ ] No prompt, answer, distractor, audio line, speaking target, or mission step uses a word or structure before its intentional introduction
+- [ ] When vocabulary or grammar moves between lessons 1-8 of one unit, every prerequisite, review target, downstream lesson, and Lesson 9 coverage calculation is updated with it; no later-unit target moves forward without explicit approval
+- [ ] Longer sentences grow through small meaningful additions of already introduced language instead of appearing fully formed; Unit 1 can reach `girl` → `the girl` → `running` → `The girl is running.`, while `park` → `in the park` → `The girl is running in the park.` waits for Unit 2
+- [ ] Each cumulative sentence remains visually literal, continues the established scene or story, and gives the learner more communicative power rather than merely adding length
+
 ## Activity-stage matrix
 
 ### Action Introduction
