@@ -136,8 +136,13 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Vocabulary and grammar allocations across lessons 1 through 8 are movable/,
+  /Vocabulary and grammar allocations across lessons 1 through 8 of the same unit are movable/,
   'Lesson boundaries must not block the approved cumulative story progression.',
+);
+assert.match(
+  guardrails,
+  /does not authorize pulling a later unit's teaching target forward/,
+  'Cumulative restructuring must preserve the approved boundaries between units.',
 );
 assert.match(
   guardrails,
@@ -146,8 +151,8 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /The girl is running in the park\./,
-  'The cumulative sentence ladder must remain part of the durable course contract.',
+  /The girl is running in the park\.` must wait until Unit 2 has introduced that language/,
+  'The cumulative sentence ladder must wait for its Unit 2 place-language prerequisite.',
 );
 assert.match(
   guardrails,
