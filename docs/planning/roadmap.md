@@ -1,6 +1,6 @@
 # SpanGlish Product Roadmap
 
-Last reviewed: 2026-08-30
+Last reviewed: 2026-09-01
 
 This is the persistent source of truth for product priorities. When work is
 completed, update this file in the same commit. When asked "what is next?",
@@ -142,7 +142,8 @@ corrupts progress, or produces unreliable learning feedback.
 - [x] Validate lesson structure, answers, translations, media, and embedded snapshots automatically before deployment
 - [x] Keep QA on the production lesson catalog while isolating QA sessions and analytics
 - [x] Implement the complete 70-lesson A1 dependency chain across seven units of ten
-- [x] Encode intentional curriculum recycling through later lessons, unit reviews, and final missions
+- [x] Encode intentional curriculum growth through richer constructions in lessons 1-8, fresh-scenario comprehensive reviews in lesson 9, and distinct applied missions in lesson 10
+- [~] Restructure Unit 1 one lesson at a time with a learner review checkpoint after every pushed lesson; Lesson 1.1 `Meet the People` is the active pilot
 - [x] Present the seven-unit hierarchy without flattening all 70 lessons into the initial menu
 
 ---
@@ -164,6 +165,9 @@ Build each interaction once, then create future lessons mostly through content.
 - [ ] Find the incorrect word
 - [ ] Singular/plural pairing
 - [ ] Timed listening challenges
+- [ ] Build the lightly gamified Lesson 10 mission shell, including accessible word-part-to-word and word-to-sentence tile challenges
+- [ ] Add measured responsive tile layout with drag clamping, tap and keyboard alternatives, screen-reader movement, and phone/tablet/web viewport-matrix verification
+- [ ] Produce and review a small versioned ElevenLabs sound-effects pack for mission feedback and transitions
 - [x] Pronunciation activities
 - [ ] Short conversational response activities
 - [~] Shared animation, sound, help, scoring, analytics, and offline contracts; haptics remain unimplemented

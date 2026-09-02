@@ -22,7 +22,7 @@ UNIT_1_IDS = [
     "lesson-10-family-mission",
 ]
 EXPECTED_TITLES = [
-    "People and Core Actions",
+    "Meet the People",
     "He and She",
     "Two People: They and Are",
     "Children and Siblings",
@@ -35,8 +35,7 @@ EXPECTED_TITLES = [
 ]
 EXPECTED_VOCABULARY = {
     "lesson-1-people-actions": {
-        "the", "is", "boy", "girl", "man", "woman",
-        "running", "walking", "sitting", "standing",
+        "a", "boy", "girl", "man", "woman", "he", "she", "is",
     },
     "lesson-2-pronouns": {"he", "she", "eating", "drinking", "reading", "writing"},
     "lesson-3-two-people": {"and", "they", "are", "swimming", "sleeping"},
@@ -55,7 +54,7 @@ EXPECTED_VOCABULARY = {
     "lesson-10-family-mission": set(),
 }
 EXPECTED_STAGE_COUNTS = {
-    "lesson-1-people-actions": {"Learn": 8, "Recognize": 12, "Listen": 8, "Speak": 8, "Use": 8},
+    "lesson-1-people-actions": {"Learn": 8, "Recognize": 8, "Listen": 6, "Speak": 5, "Use": 5},
     "lesson-2-pronouns": {"Learn": 8, "Recognize": 10, "Listen": 6, "Speak": 6, "Use": 6},
     "lesson-3-two-people": {"Learn": 9, "Recognize": 10, "Listen": 6, "Speak": 6, "Use": 6},
     "lesson-4-children-siblings": {"Learn": 9, "Recognize": 9, "Listen": 6, "Speak": 6, "Use": 6},
@@ -396,19 +395,57 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.options[0].image_url for card in cards))
                 self.assertTrue(all(card.audio_text for card in cards))
 
-    def test_lesson_1_position_change_keeps_the_same_person(self):
-        cards = {
-            card.prompt: card
-            for card in LESSONS["lesson-1-people-actions"].cards
-            if card.stage == "Learn" and card.prompt in {"Sitting", "Standing"}
-        }
+    def test_lesson_1_builds_identity_before_actions(self):
+        lesson = LESSONS["lesson-1-people-actions"]
         self.assertEqual(
-            ["man_is_sitting.webp", "man_is_standing.webp"],
             [
-                urlparse(cards[prompt].options[0].image_url).path.rsplit("/", 1)[-1]
-                for prompt in ["Sitting", "Standing"]
+                "A boy",
+                "He",
+                "He is a boy.",
+                "A girl",
+                "She",
+                "She is a girl.",
+                "A man",
+                "A woman",
             ],
+            [card.prompt for card in lesson.cards if card.stage == "Learn"],
         )
+        self.assertEqual([], lesson.review_vocabulary)
+        self.assertEqual([], lesson.purposeful_review_slides)
+        self.assertTrue(lesson.unit_outcome)
+        self.assertTrue(lesson.grammar_function)
+        self.assertTrue(lesson.prerequisite)
+        self.assertTrue(lesson.speaking_outcome)
+        self.assertTrue(all(card.slide_id for card in lesson.cards))
+        self.assertTrue(all(card.interaction_type for card in lesson.cards))
+        self.assertTrue(all(card.spanish_translation for card in lesson.cards))
+        self.assertTrue(all(card.pedagogy_note for card in lesson.cards))
+        action_words = {"running", "walking", "sitting", "standing"}
+        self.assertFalse(action_words & set(lesson.vocabulary))
+
+    def test_lesson_1_varies_clothing_without_changing_the_people_contract(self):
+        lesson = LESSONS["lesson-1-people-actions"]
+        referenced_images = {
+            urlparse(image_url).path.rsplit("/", 1)[-1]
+            for card in lesson.cards
+            for image_url in [
+                card.prompt_image_url,
+                *(option.image_url for option in card.options),
+            ]
+            if image_url
+        }
+        for person in ("boy", "girl", "man", "woman"):
+            with self.subTest(person=person):
+                self.assertIn(f"{person}.webp", referenced_images)
+                self.assertIn(f"a1_l1_{person}_alt.webp", referenced_images)
+        course_source = (
+            Path(__file__).resolve().parents[2]
+            / "mobile"
+            / "src"
+            / "screens"
+            / "CourseScreen.tsx"
+        ).read_text(encoding="utf-8")
+        self.assertIn("image: 'a1_l1_people_together.webp'", course_source)
 
     def test_new_words_continue_into_active_stages(self):
         expected_examples = {

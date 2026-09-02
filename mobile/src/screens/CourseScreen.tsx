@@ -33,8 +33,8 @@ import {
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
   'lesson-1-people-actions': {
-    image: 'a1_title_1_1_people_actions.webp',
-    description: 'Personas y acciones básicas con imágenes.',
+    image: 'a1_l1_people_together.webp',
+    description: 'Conoce a cuatro personas y forma frases con he, she e is.',
     color: '#ffe8c7',
   },
   'lesson-2-pronouns': {

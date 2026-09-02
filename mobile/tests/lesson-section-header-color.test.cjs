@@ -88,7 +88,7 @@ assert.match(
   'Learning phrases must retain the established responsive third-line size.',
 );
 assert.ok(
-  course.some((lesson) => lesson.cards.some((card) => card.prompt === 'The man is standing.')),
+  course.some((lesson) => lesson.cards.some((card) => card.prompt === 'He is a man.')),
   'The color guardrail must cover the approved learning-phrase example.',
 );
 assert.match(

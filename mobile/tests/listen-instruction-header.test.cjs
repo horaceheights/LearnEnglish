@@ -40,7 +40,7 @@ assert.ok(
   'Every current Listen card must use the shared authored instruction contract.',
 );
 assert.ok(
-  learningPhraseCards.some((card) => card.prompt === 'The man is standing.'),
+  learningPhraseCards.some((card) => card.prompt === 'He is a man.'),
   'The guardrail fixture must include a real authored learning phrase.',
 );
 

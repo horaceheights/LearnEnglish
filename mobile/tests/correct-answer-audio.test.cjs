@@ -82,20 +82,20 @@ assert.match(
 
 const repeatedStatementCard = lesson11.cards.find((card) => (
   card.stage === 'Recognize'
-  && card.prompt === 'The man is sitting.'
-  && card.correct_option_id === 'man-sitting'
+  && card.prompt === 'He is a man.'
+  && card.correct_option_id === 'man-alt'
 ));
-assert.ok(repeatedStatementCard, 'Lesson 1.1 must retain the reported Recognize statement card.');
+assert.ok(repeatedStatementCard, 'Lesson 1.1 must retain a representative Recognize statement card.');
 assert.equal(
   repeatedStatementCard.answer_audio_text,
-  '',
-  'The reported statement card must not opt in to post-answer speech.',
+  null,
+  'The representative statement card must not opt in to post-answer speech.',
 );
 
 const repeatedListenCard = lesson11.cards.find((card) => (
   card.stage === 'Listen'
-  && card.audio_text === 'The man is sitting.'
-  && card.correct_option_id === 'man-sitting'
+  && card.audio_text === 'He is a man.'
+  && card.correct_option_id === 'man-base'
 ));
 assert.ok(repeatedListenCard, 'Lesson 1.1 must retain the matching Listen card.');
 assert.equal(

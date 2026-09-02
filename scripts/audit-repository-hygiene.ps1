@@ -20,6 +20,26 @@ if (-not $currentBranch) {
 
 Write-Output "Base: $BaseRef ($baseCommit)"
 Write-Output "Current checkout: $currentBranch"
+
+$previewRef = 'origin/release/preview'
+git rev-parse --verify --quiet $previewRef | Out-Null
+if ($LASTEXITCODE -eq 0) {
+    $previewCounts = (git rev-list --left-right --count "$BaseRef...$previewRef") -split '\s+'
+    $canonicalOnly = [int]$previewCounts[0]
+    $previewOnly = [int]$previewCounts[1]
+    $previewState = if ($previewOnly -gt 0) {
+        'SYNC REQUIRED: Preview-only history must return to the canonical line'
+    } elseif ($canonicalOnly -gt 0) {
+        'Preview is behind the canonical line'
+    } else {
+        'canonical and Preview histories are synchronized'
+    }
+    Write-Output ("Release integration: canonical-only={0}, preview-only={1}, {2}" -f $canonicalOnly, $previewOnly, $previewState)
+    if ($previewOnly -gt 0) {
+        $findings++
+    }
+}
+
 Write-Output ''
 Write-Output 'Local branches compared with the canonical line:'
 

@@ -61,9 +61,9 @@ for (const filename of lessonFiles) {
 
 assert.equal(lessonFiles.length, 70, 'the frame audit must inspect all 70 A1 lessons');
 assert.equal(units.size, 7, 'prompt-image framing must cover all seven units');
-assert.ok(promptImageCards.length >= 758, 'the frame audit must cover the complete prompt-image catalog');
-assert.ok((stageCounts.get('Use') || 0) >= 508, 'Completa/Use prompt images must remain in the global frame audit');
-assert.ok((stageCounts.get('Recognize') || 0) >= 250, 'Recognize prompt images must remain in the global frame audit');
+assert.ok(promptImageCards.length >= 753, 'the frame audit must cover the complete prompt-image catalog');
+assert.ok((stageCounts.get('Use') || 0) >= 505, 'Completa/Use prompt images must remain in the global frame audit');
+assert.ok((stageCounts.get('Recognize') || 0) >= 248, 'Recognize prompt images must remain in the global frame audit');
 
 let paddedPromptImages = 0;
 for (const name of [...promptImages].sort()) {
