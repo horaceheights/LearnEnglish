@@ -80,6 +80,12 @@ class CompletionPromptContract:
     answer_end: int
     ending_blank: bool
 
+
+@dataclass(frozen=True)
+class CompletionSequenceContract:
+    visible_parts: tuple[str, ...]
+    blank_texts: tuple[str, ...]
+
 # The first course deliberately uses a small vocabulary. Keeping its irregular
 # syllable counts explicit makes pacing deterministic instead of treating
 # "woman" and "boy" as if they took the same teaching time.
@@ -970,24 +976,9 @@ def completion_prompt_contract(
     This contract is intentionally exact. The server must never guess which
     occurrence of a word to mute or normalize learner-facing punctuation.
     """
-    prompt = str(visual_prompt or "")
-    completed = str(full_text or "")
-    answer = str(blank_text or "")
-    if not prompt or not completed or not answer:
-        raise ValueError("visual_prompt, full_text, and blank_text are required.")
-    if max(len(prompt), len(completed), len(answer)) > 500:
-        raise ValueError("Completion prompt audio text is too long.")
-    placeholders = list(COMPLETION_PLACEHOLDER_PATTERN.finditer(prompt))
-    if len(placeholders) != 1:
-        raise ValueError("visual_prompt must contain exactly one completion placeholder.")
-    if COMPLETION_PLACEHOLDER_PATTERN.search(completed) or COMPLETION_PLACEHOLDER_PATTERN.search(answer):
-        raise ValueError("Completed and blank text cannot contain a visual placeholder.")
-
-    placeholder = placeholders[0]
-    prefix = prompt[:placeholder.start()]
-    suffix = prompt[placeholder.end():]
-    if f"{prefix}{answer}{suffix}" != completed:
-        raise ValueError("full_text must exactly equal visual_prompt with blank_text inserted.")
+    sequence = completion_sequence_contract(visual_prompt, full_text, (blank_text,))
+    prefix, suffix = sequence.visible_parts
+    answer = sequence.blank_texts[0]
 
     answer_start = len(prefix)
     answer_end = answer_start + len(answer)
@@ -998,6 +989,49 @@ def completion_prompt_contract(
         answer_start=answer_start,
         answer_end=answer_end,
         ending_blank=not bool(re.search(r"[A-Za-z0-9']", suffix)),
+    )
+
+
+def completion_sequence_contract(
+    visual_prompt: str,
+    full_text: str,
+    blank_texts: tuple[str, ...] | list[str],
+) -> CompletionSequenceContract:
+    """Validate one or more ordered visual blanks against the completed text."""
+    prompt = str(visual_prompt or "")
+    completed = str(full_text or "")
+    answers = tuple(str(blank_text or "") for blank_text in blank_texts)
+    if not prompt or not completed or not answers or any(not answer for answer in answers):
+        raise ValueError("visual_prompt, full_text, and every blank_text are required.")
+    if max(len(prompt), len(completed), *(len(answer) for answer in answers)) > 500:
+        raise ValueError("Completion prompt audio text is too long.")
+    placeholders = list(COMPLETION_PLACEHOLDER_PATTERN.finditer(prompt))
+    if len(placeholders) != len(answers):
+        raise ValueError(
+            "visual_prompt placeholder count must equal the ordered blank_text count."
+        )
+    if COMPLETION_PLACEHOLDER_PATTERN.search(completed) or any(
+        COMPLETION_PLACEHOLDER_PATTERN.search(answer) for answer in answers
+    ):
+        raise ValueError("Completed and blank text cannot contain a visual placeholder.")
+
+    visible_parts: list[str] = []
+    cursor = 0
+    reconstructed: list[str] = []
+    for placeholder, answer in zip(placeholders, answers, strict=True):
+        visible = prompt[cursor:placeholder.start()]
+        visible_parts.append(visible)
+        reconstructed.extend((visible, answer))
+        cursor = placeholder.end()
+    visible_parts.append(prompt[cursor:])
+    reconstructed.append(prompt[cursor:])
+    if "".join(reconstructed) != completed:
+        raise ValueError(
+            "full_text must exactly equal visual_prompt with every ordered blank_text inserted."
+        )
+    return CompletionSequenceContract(
+        visible_parts=tuple(visible_parts),
+        blank_texts=answers,
     )
 
 
@@ -1014,37 +1048,45 @@ def completion_prompt_fragments(
     TTS, not placeholders. The missing answer is never included.
     """
 
-    prefix = contract.prefix.strip()
-    suffix = contract.suffix.strip()
+    fragments = completion_sequence_fragments(CompletionSequenceContract(
+        visible_parts=(contract.prefix, contract.suffix),
+        blank_texts=(contract.blank_text,),
+    ))
+    return fragments[0], fragments[1]
 
-    if not re.search(r"[A-Za-z0-9']", suffix):
-        suffix_fragment = None
-    else:
-        suffix_fragment = re.sub(r"^[\s.,!?;:…]+", "", suffix).strip()
-        suffix_fragment = suffix_fragment or None
 
-    if not re.search(r"[A-Za-z0-9']", prefix):
-        prefix_fragment = None
-    else:
-        prefix_fragment = re.sub(r"[\s.,!?;:…]+$", "", prefix).strip()
-        if prefix_fragment:
-            # A comma gives middle blanks a natural boundary before the fixed
-            # digital pause. Ending blanks use a rising elicitation tone. Use
-            # supported CMU markup for the final article so it has the exact
-            # English strong form /eɪ/ without fake spelling or a placeholder.
-            if suffix_fragment:
-                prefix_fragment = f"{prefix_fragment},"
-            elif re.search(r"\ba$", prefix_fragment, flags=re.IGNORECASE):
-                prefix_fragment = re.sub(
+def completion_sequence_fragments(
+    contract: CompletionSequenceContract,
+) -> tuple[str | None, ...]:
+    """Return only the visible speech segments around all ordered blanks."""
+    fragments: list[str | None] = []
+    last_blank_index = len(contract.blank_texts) - 1
+    for index, raw_part in enumerate(contract.visible_parts):
+        part = raw_part.strip()
+        if not re.search(r"[A-Za-z0-9']", part):
+            fragments.append(None)
+            continue
+        if index > 0:
+            part = re.sub(r"^[\s.,!?;:…]+", "", part).strip()
+        if index <= last_blank_index:
+            part = re.sub(r"[\s.,!?;:…]+$", "", part).strip()
+            later_visible = any(
+                re.search(r"[A-Za-z0-9']", later_part)
+                for later_part in contract.visible_parts[index + 1:]
+            )
+            if later_visible:
+                part = f"{part},"
+            elif re.search(r"\ba$", part, flags=re.IGNORECASE):
+                part = re.sub(
                     r"\b(a)$",
                     f"{COMPLETION_ENDING_ARTICLE_MARKUP}?",
-                    prefix_fragment,
+                    part,
                     flags=re.IGNORECASE,
                 )
             else:
-                prefix_fragment = f"{prefix_fragment}?"
-
-    return prefix_fragment, suffix_fragment
+                part = f"{part}?"
+        fragments.append(part or None)
+    return tuple(fragments)
 
 
 def completion_fragment_model(fragment: str | None, default_model: str) -> str:
@@ -1092,6 +1134,14 @@ def assemble_completion_fragment_samples(
 ) -> array:
     """Stitch independently generated visible fragments around digital silence."""
 
+    return assemble_completion_sequence_samples((prefix_audio, suffix_audio))
+
+
+def assemble_completion_sequence_samples(
+    fragment_audio: tuple[bytes | None, ...] | list[bytes | None],
+) -> array:
+    """Stitch ordered visible segments around one digital gap per answer blank."""
+
     def trimmed_fragment(audio_bytes: bytes | None) -> array:
         if not audio_bytes:
             return array("h")
@@ -1104,8 +1154,6 @@ def assemble_completion_fragment_samples(
         padding = round(COMPLETION_FRAGMENT_PADDING_SECONDS * NORMALIZATION_SAMPLE_RATE)
         return decoded[max(0, speech_start - padding):min(len(decoded), speech_end + padding)]
 
-    prefix_samples = trimmed_fragment(prefix_audio)
-    suffix_samples = trimmed_fragment(suffix_audio)
     leading_silence = array("h", [0]) * round(0.18 * NORMALIZATION_SAMPLE_RATE)
     placeholder_silence = array("h", [0]) * round(
         COMPLETION_PLACEHOLDER_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE
@@ -1113,7 +1161,13 @@ def assemble_completion_fragment_samples(
     trailing_silence = array("h", [0]) * round(
         COMPLETION_TRAILING_SILENCE_SECONDS * NORMALIZATION_SAMPLE_RATE
     )
-    return leading_silence + prefix_samples + placeholder_silence + suffix_samples + trailing_silence
+    completed = array("h", leading_silence)
+    for index, audio_bytes in enumerate(fragment_audio):
+        completed.extend(trimmed_fragment(audio_bytes))
+        if index < len(fragment_audio) - 1:
+            completed.extend(placeholder_silence)
+    completed.extend(trailing_silence)
+    return completed
 
 
 def completion_prompt_cache_path(

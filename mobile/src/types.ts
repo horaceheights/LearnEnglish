@@ -29,6 +29,7 @@ export type LessonCard = {
   prompt: string;
   stage: string;
   correct_option_id: string;
+  correct_option_ids?: string[];
   options: ChoiceOption[];
   audio_text: string | null;
   answer_audio_text: string | null;

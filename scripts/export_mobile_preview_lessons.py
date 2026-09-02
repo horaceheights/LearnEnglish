@@ -49,6 +49,8 @@ def model_payload(model: object) -> dict[str, object]:
     for card in payload.get("cards", []):
         if card.get("spanish_translation") is None:
             card.pop("spanish_translation", None)
+        if not card.get("correct_option_ids"):
+            card.pop("correct_option_ids", None)
         if not card.get("audio_turns"):
             card.pop("audio_turns", None)
         if not card.get("answer_audio_turns"):

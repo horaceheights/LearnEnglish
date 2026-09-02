@@ -28,6 +28,7 @@ from backend.app.course_audio import (
     _encode_mp3,
     _generate_elevenlabs_audio,
     assemble_completion_fragment_samples,
+    assemble_completion_sequence_samples,
     audio_instructions,
     _median_fundamental_hz,
     _normalize_pitch,
@@ -37,6 +38,8 @@ from backend.app.course_audio import (
     completion_fragment_model,
     completion_fragment_units_for_openai,
     completion_prompt_fragments,
+    completion_sequence_contract,
+    completion_sequence_fragments,
     get_course_audio,
     get_course_completion_audio,
     normalized_provider,
@@ -54,32 +57,36 @@ from scripts.build_frontend_audio_manifest import expected_audio_items
 
 
 class CourseAudioProfileTests(unittest.TestCase):
-    def test_every_canonical_completion_card_has_one_exact_full_text_contract(self):
+    def test_every_canonical_completion_card_has_an_exact_full_text_contract(self):
         completion_cards = []
         for lesson in LESSONS.values():
             for card in lesson.cards:
                 if not COMPLETION_PLACEHOLDER_PATTERN.search(card.prompt):
                     continue
-                correct_option = next(
-                    option for option in card.options if option.id == card.correct_option_id
-                )
-                contract = completion_prompt_contract(
+                correct_ids = list(card.correct_option_ids or [card.correct_option_id])
+                labels_by_id = {option.id: option.label or "" for option in card.options}
+                blank_texts = tuple(labels_by_id[option_id] for option_id in correct_ids)
+                contract = completion_sequence_contract(
                     card.prompt,
                     card.answer_audio_text or "",
-                    correct_option.label or "",
+                    blank_texts,
                 )
                 self.assertEqual(
                     card.answer_audio_text,
-                    f"{contract.prefix}{contract.blank_text}{contract.suffix}",
+                    "".join(
+                        part
+                        for pair in zip(contract.visible_parts, (*contract.blank_texts, ""), strict=True)
+                        for part in pair
+                    ),
                 )
-                for fragment in completion_prompt_fragments(contract):
+                for fragment in completion_sequence_fragments(contract):
                     if fragment is None:
                         continue
                     self.assertIsNone(COMPLETION_PLACEHOLDER_PATTERN.search(fragment))
                     self.assertNotEqual(card.answer_audio_text, fragment)
                 completion_cards.append((lesson.id, card.prompt))
 
-        self.assertEqual(425, len(completion_cards))
+        self.assertEqual(427, len(completion_cards))
 
     def test_completion_contract_is_exact_and_requires_one_placeholder(self):
         contract = completion_prompt_contract(
@@ -101,6 +108,23 @@ class CourseAudioProfileTests(unittest.TestCase):
             completion_prompt_contract("___ and ___", "one and two", "one")
         with self.assertRaises(ValueError):
             completion_prompt_contract("They are ___.", "They are children.", "family")
+
+    def test_multi_blank_completion_contract_preserves_order_and_silence(self):
+        contract = completion_sequence_contract(
+            "___ is ___ man.",
+            "He is a man.",
+            ("He", "a"),
+        )
+        self.assertEqual(("", " is ", " man."), contract.visible_parts)
+        self.assertEqual((None, "is,", "man."), completion_sequence_fragments(contract))
+
+        samples = assemble_completion_sequence_samples((None, None, None))
+        expected_seconds = (
+            0.18
+            + (2 * COMPLETION_PLACEHOLDER_SILENCE_SECONDS)
+            + COMPLETION_TRAILING_SILENCE_SECONDS
+        )
+        self.assertEqual(round(expected_seconds * NORMALIZATION_SAMPLE_RATE), len(samples))
 
     def test_completion_cache_uses_a_dedicated_profile(self):
         path = completion_prompt_cache_path(
