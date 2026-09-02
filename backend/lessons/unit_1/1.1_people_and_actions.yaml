@@ -1,623 +1,440 @@
 id: lesson-1-people-actions
-title: 1.1 People and Core Actions
+title: 1.1 Meet the People
 level: Beginner A1
 unit_id: unit-1
 unit_title: 'Unit 1: People, Family, and Actions'
+unit_outcome: Understand and produce simple sentences about people, family members, and actions.
 lesson_id: lesson-1
 lesson_title: 'Unit 1: People, Family, and Actions'
 sub_lesson_id: '1.1'
-sub_lesson_title: People and Core Actions
-goal: Recognize, understand, say, and complete four simple sentences about familiar
-  people and actions.
+sub_lesson_title: Meet the People
+goal: Identify a boy, girl, man, and woman, then use he or she in a short identity sentence.
 vocabulary:
-- the
-- is
+- a
 - boy
 - girl
 - man
 - woman
-- running
-- walking
-- sitting
-- standing
+- he
+- she
+- is
+review_vocabulary: []
+grammar_function: 'A + singular person; He/She is a + singular person.'
+prerequisite: No prior English is required; this is the first course lesson.
+speaking_outcome: Say four short identity phrases with a boy, girl, man, or woman.
+purposeful_review_slides: []
 cards:
-- prompt: The boy
+- slide_id: L1
+  interaction_type: teach
+  prompt: A boy
   stage: Learn
-  correct_option_id: boy
+  correct_option_id: boy-base
   options:
-  - id: boy
-    image_url: /lesson-assets/boy.webp
-    label: The boy
-  audio_text: The boy
+  - {id: boy-base, image_url: /lesson-assets/boy.webp, label: A boy}
+  audio_text: A boy
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The girl
+  spanish_translation: Un niño
+  pedagogy_note: The first person arrives; a introduces one person with boy.
+- slide_id: L2
+  interaction_type: teach
+  prompt: He
   stage: Learn
-  correct_option_id: girl
+  correct_option_id: boy-alt
   options:
-  - id: girl
-    image_url: /lesson-assets/girl.webp
-    label: The girl
-  audio_text: The girl
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He}
+  audio_text: He
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The man
+  spanish_translation: Él
+  pedagogy_note: The same boy appears in different clothes so he refers to the person, not the shirt.
+- slide_id: L3
+  interaction_type: teach
+  prompt: He is a boy.
   stage: Learn
-  correct_option_id: man
+  correct_option_id: boy-base
   options:
-  - id: man
-    image_url: /lesson-assets/man.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man
-  audio_text: The man
+  - {id: boy-base, image_url: /lesson-assets/boy.webp, label: He is a boy.}
+  audio_text: He is a boy.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The woman
+  spanish_translation: Él es un niño.
+  pedagogy_note: The first two anchors combine into the lesson's first complete sentence.
+- slide_id: L4
+  interaction_type: teach
+  prompt: A girl
   stage: Learn
-  correct_option_id: woman
+  correct_option_id: girl-base
   options:
-  - id: woman
-    image_url: /lesson-assets/woman.webp
-    label: The woman
-  audio_text: The woman
+  - {id: girl-base, image_url: /lesson-assets/girl.webp, label: A girl}
+  audio_text: A girl
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Running
+  spanish_translation: Una niña
+  pedagogy_note: A second child joins the same meet-the-people sequence.
+- slide_id: L5
+  interaction_type: teach
+  prompt: She
   stage: Learn
-  correct_option_id: boy-running
+  correct_option_id: girl-alt
   options:
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: Running
-  audio_text: Running
+  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: She}
+  audio_text: She
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Walking
+  spanish_translation: Ella
+  pedagogy_note: The same girl changes clothes before the learner links her to she.
+- slide_id: L6
+  interaction_type: teach
+  prompt: She is a girl.
   stage: Learn
-  correct_option_id: girl-walking
+  correct_option_id: girl-base
   options:
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: Walking
-  audio_text: Walking
+  - {id: girl-base, image_url: /lesson-assets/girl.webp, label: She is a girl.}
+  audio_text: She is a girl.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Sitting
+  spanish_translation: Ella es una niña.
+  pedagogy_note: The girl follows the same noun-to-pronoun-to-sentence pattern as the boy.
+- slide_id: L7
+  interaction_type: teach
+  prompt: A man
   stage: Learn
-  correct_option_id: man-sitting
+  correct_option_id: man-base
   options:
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: Sitting
-  audio_text: Sitting
+  - {id: man-base, image_url: /lesson-assets/man.webp, label: A man}
+  audio_text: A man
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Standing
+  spanish_translation: Un hombre
+  pedagogy_note: The story now introduces the adult male counterpart to the boy.
+- slide_id: L8
+  interaction_type: teach
+  prompt: A woman
   stage: Learn
-  correct_option_id: man-standing
+  correct_option_id: woman-base
   options:
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: Standing
-  audio_text: Standing
+  - {id: woman-base, image_url: /lesson-assets/woman.webp, label: A woman}
+  audio_text: A woman
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The boy
+  spanish_translation: Una mujer
+  pedagogy_note: The fourth person completes the cast and prepares age and pronoun contrasts.
+- slide_id: R1
+  interaction_type: t2i2
+  prompt: A boy
   stage: Recognize
-  correct_option_id: boy
+  correct_option_id: boy-alt
   options:
-  - id: boy
-    image_url: /lesson-assets/boy.webp
-    label: The boy
-  - id: girl
-    image_url: /lesson-assets/girl.webp
-    label: The girl
-  audio_text: The boy
-  answer_audio_text: ''
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: A boy}
+  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: A man}
+  audio_text: A boy
+  answer_audio_text: null
   prompt_image_url: ''
-- prompt: The girl
+  spanish_translation: Un niño
+  pedagogy_note: The learner first separates child from adult within the male pair.
+- slide_id: R2
+  interaction_type: t2i2
+  prompt: A girl
   stage: Recognize
-  correct_option_id: girl
+  correct_option_id: girl-alt
   options:
-  - id: girl
-    image_url: /lesson-assets/girl.webp
-    label: The girl
-  - id: man
-    image_url: /lesson-assets/man.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man
-  audio_text: The girl
-  answer_audio_text: ''
+  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: A woman}
+  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: A girl}
+  audio_text: A girl
+  answer_audio_text: null
   prompt_image_url: ''
-- prompt: The man
+  spanish_translation: Una niña
+  pedagogy_note: The matching female age contrast follows naturally.
+- slide_id: R3
+  interaction_type: t2i4
+  prompt: A man
   stage: Recognize
-  correct_option_id: man
+  correct_option_id: man-base
   options:
-  - id: woman
-    image_url: /lesson-assets/woman.webp
-    label: The woman
-  - id: man
-    image_url: /lesson-assets/man.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man
-  audio_text: The man
-  answer_audio_text: ''
+  - {id: girl-base, image_url: /lesson-assets/girl.webp, label: A girl}
+  - {id: man-base, image_url: /lesson-assets/man.webp, label: A man}
+  - {id: boy-base, image_url: /lesson-assets/boy.webp, label: A boy}
+  - {id: woman-base, image_url: /lesson-assets/woman.webp, label: A woman}
+  audio_text: A man
+  answer_audio_text: null
   prompt_image_url: ''
-- prompt: The woman
+  spanish_translation: Un hombre
+  pedagogy_note: All four people now appear together as distinct visual categories.
+- slide_id: R4
+  interaction_type: t2i4
+  prompt: A woman
   stage: Recognize
-  correct_option_id: woman
+  correct_option_id: woman-alt
   options:
-  - id: man
-    image_url: /lesson-assets/man.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man
-  - id: girl
-    image_url: /lesson-assets/girl.webp
-    label: The girl
-  - id: woman
-    image_url: /lesson-assets/woman.webp
-    label: The woman
-  - id: boy
-    image_url: /lesson-assets/boy.webp
-    label: The boy
-  audio_text: The woman
-  answer_audio_text: ''
+  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: A woman}
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: A boy}
+  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: A man}
+  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: A girl}
+  audio_text: A woman
+  answer_audio_text: null
   prompt_image_url: ''
-- prompt: The boy is running.
+  spanish_translation: Una mujer
+  pedagogy_note: The cast repeats with new clothing and a new answer position.
+- slide_id: R5
+  interaction_type: t2i2
+  prompt: He is a man.
   stage: Recognize
-  correct_option_id: boy-running
+  correct_option_id: man-alt
   options:
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  audio_text: The boy is running.
-  answer_audio_text: ''
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
+  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  audio_text: He is a man.
+  answer_audio_text: null
   prompt_image_url: ''
-- prompt: The girl is walking.
+  spanish_translation: Él es un hombre.
+  pedagogy_note: The known he-is-a frame grows from boy to man.
+- slide_id: R6
+  interaction_type: t2i2
+  prompt: She is a woman.
   stage: Recognize
-  correct_option_id: girl-walking
+  correct_option_id: woman-alt
   options:
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  audio_text: The girl is walking.
-  answer_audio_text: ''
+  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: She is a woman.}
+  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: She is a girl.}
+  audio_text: She is a woman.
+  answer_audio_text: null
   prompt_image_url: ''
-- prompt: The man is sitting.
+  spanish_translation: Ella es una mujer.
+  pedagogy_note: The matching she-is-a frame grows from girl to woman.
+- slide_id: R7
+  interaction_type: i2t3
+  prompt: ''
   stage: Recognize
-  correct_option_id: man-sitting
+  correct_option_id: he-boy
   options:
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  audio_text: The man is sitting.
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: The man is standing.
-  stage: Recognize
-  correct_option_id: man-standing
-  options:
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  audio_text: The man is standing.
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: ''
-  stage: Recognize
-  correct_option_id: boy-running
-  options:
-  - id: man-standing
-    image_url: ''
-    label: The man is standing.
-  - id: man-sitting
-    image_url: ''
-    label: The man is sitting.
-  - id: boy-running
-    image_url: ''
-    label: The boy is running.
+  - {id: he-man, image_url: '', label: He is a man.}
+  - {id: she-girl, image_url: '', label: She is a girl.}
+  - {id: he-boy, image_url: '', label: He is a boy.}
   audio_text: ''
-  answer_audio_text: The boy is running.
-  prompt_image_url: /lesson-assets/boy_is_running.webp
-- prompt: ''
+  answer_audio_text: He is a boy.
+  prompt_image_url: /lesson-assets/a1_l1_boy_alt.webp
+  spanish_translation: Elige la frase para el niño.
+  pedagogy_note: Direction reverses from words-to-image to image-to-sentence.
+- slide_id: R8
+  interaction_type: i2t3
+  prompt: ''
   stage: Recognize
-  correct_option_id: girl-walking
+  correct_option_id: she-woman
   options:
-  - id: man-sitting
-    image_url: ''
-    label: The man is sitting.
-  - id: girl-walking
-    image_url: ''
-    label: The girl is walking.
-  - id: boy-running
-    image_url: ''
-    label: The boy is running.
+  - {id: she-woman, image_url: '', label: She is a woman.}
+  - {id: he-man, image_url: '', label: He is a man.}
+  - {id: she-girl, image_url: '', label: She is a girl.}
   audio_text: ''
-  answer_audio_text: The girl is walking.
-  prompt_image_url: /lesson-assets/girl_is_walking.webp
-- prompt: ''
-  stage: Recognize
-  correct_option_id: man-sitting
-  options:
-  - id: boy-running
-    image_url: ''
-    label: The boy is running.
-  - id: girl-walking
-    image_url: ''
-    label: The girl is walking.
-  - id: man-sitting
-    image_url: ''
-    label: The man is sitting.
-  audio_text: ''
-  answer_audio_text: The man is sitting.
-  prompt_image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-- prompt: ''
-  stage: Recognize
-  correct_option_id: man-standing
-  options:
-  - id: girl-walking
-    image_url: ''
-    label: The girl is walking.
-  - id: man-sitting
-    image_url: ''
-    label: The man is sitting.
-  - id: man-standing
-    image_url: ''
-    label: The man is standing.
-  audio_text: ''
-  answer_audio_text: The man is standing.
-  prompt_image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-- prompt: Listen and choose.
+  answer_audio_text: She is a woman.
+  prompt_image_url: /lesson-assets/a1_l1_woman_alt.webp
+  spanish_translation: Elige la frase para la mujer.
+  pedagogy_note: Recognition ends on the adult counterpart, ready for audio-only retrieval.
+- slide_id: N1
+  interaction_type: a2i2
+  prompt: Listen and choose.
   stage: Listen
-  correct_option_id: boy-running
+  correct_option_id: boy-alt
   options:
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  audio_text: The boy is running.
+  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: A man}
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: A boy}
+  audio_text: A boy
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Listen and choose.
+  spanish_translation: Escucha y elige.
+  pedagogy_note: Audio removes the visible target text while preserving the first age contrast.
+- slide_id: N2
+  interaction_type: a2i2
+  prompt: Listen and choose.
   stage: Listen
-  correct_option_id: girl-walking
+  correct_option_id: girl-alt
   options:
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  audio_text: The girl is walking.
+  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: A girl}
+  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: A woman}
+  audio_text: A girl
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Listen and choose.
+  spanish_translation: Escucha y elige.
+  pedagogy_note: The female age contrast immediately mirrors the previous card.
+- slide_id: N3
+  interaction_type: a2i2
+  prompt: Listen and choose.
   stage: Listen
-  correct_option_id: man-sitting
+  correct_option_id: man-base
   options:
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  audio_text: The man is sitting.
+  - {id: boy-base, image_url: /lesson-assets/boy.webp, label: He is a boy.}
+  - {id: man-base, image_url: /lesson-assets/man.webp, label: He is a man.}
+  audio_text: He is a man.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Listen and choose.
+  spanish_translation: Escucha y elige.
+  pedagogy_note: The learner now retrieves the complete male identity sentence by ear.
+- slide_id: N4
+  interaction_type: a2i2
+  prompt: Listen and choose.
   stage: Listen
-  correct_option_id: man-standing
+  correct_option_id: woman-base
   options:
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  audio_text: The man is standing.
+  - {id: woman-base, image_url: /lesson-assets/woman.webp, label: She is a woman.}
+  - {id: girl-base, image_url: /lesson-assets/girl.webp, label: She is a girl.}
+  audio_text: She is a woman.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Listen and choose.
+  spanish_translation: Escucha y elige.
+  pedagogy_note: The complete female identity sentence follows in the same structure.
+- slide_id: N5
+  interaction_type: a2i4
+  prompt: Listen and choose.
   stage: Listen
-  correct_option_id: boy-running
+  correct_option_id: boy-alt
   options:
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  audio_text: The boy is running.
+  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: She is a woman.}
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
+  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: She is a girl.}
+  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  audio_text: He is a boy.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Listen and choose.
+  spanish_translation: Escucha y elige.
+  pedagogy_note: All four people return for a larger listening choice.
+- slide_id: N6
+  interaction_type: a2i4
+  prompt: Listen and choose.
   stage: Listen
-  correct_option_id: girl-walking
+  correct_option_id: girl-base
   options:
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  audio_text: The girl is walking.
+  - {id: man-base, image_url: /lesson-assets/man.webp, label: He is a man.}
+  - {id: girl-base, image_url: /lesson-assets/girl.webp, label: She is a girl.}
+  - {id: woman-base, image_url: /lesson-assets/woman.webp, label: She is a woman.}
+  - {id: boy-base, image_url: /lesson-assets/boy.webp, label: He is a boy.}
+  audio_text: She is a girl.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: man-sitting
-  options:
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  audio_text: The man is sitting.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: man-standing
-  options:
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  audio_text: The man is standing.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: The boy
+  spanish_translation: Escucha y elige.
+  pedagogy_note: Listening closes with the girl who followed the boy in the opening story.
+- slide_id: S1
+  interaction_type: speak
+  prompt: A boy
   stage: Speak
-  correct_option_id: boy
+  correct_option_id: boy-base
   options:
-  - id: boy
-    image_url: /lesson-assets/boy.webp
-    label: The boy
-  audio_text: The boy
+  - {id: boy-base, image_url: /lesson-assets/boy.webp, label: A boy}
+  audio_text: A boy
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The girl
+  spanish_translation: Un niño
+  pedagogy_note: Production begins with the shortest familiar boy phrase.
+- slide_id: S2
+  interaction_type: speak
+  prompt: She is a girl.
   stage: Speak
-  correct_option_id: girl
+  correct_option_id: girl-alt
   options:
-  - id: girl
-    image_url: /lesson-assets/girl.webp
-    label: The girl
-  audio_text: The girl
+  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: She is a girl.}
+  audio_text: She is a girl.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The woman
+  spanish_translation: Ella es una niña.
+  pedagogy_note: The learner expands from a noun phrase to the complete girl sentence.
+- slide_id: S3
+  interaction_type: speak
+  prompt: He is a man.
   stage: Speak
-  correct_option_id: woman
+  correct_option_id: man-alt
   options:
-  - id: woman
-    image_url: /lesson-assets/woman.webp
-    label: The woman
-  audio_text: The woman
+  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  audio_text: He is a man.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The man
+  spanish_translation: Él es un hombre.
+  pedagogy_note: The same frame transfers from the child to the adult man.
+- slide_id: S4
+  interaction_type: speak
+  prompt: She is a woman.
   stage: Speak
-  correct_option_id: man
+  correct_option_id: woman-alt
   options:
-  - id: man
-    image_url: /lesson-assets/man.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man
-  audio_text: The man
+  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: She is a woman.}
+  audio_text: She is a woman.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The boy is running.
+  spanish_translation: Ella es una mujer.
+  pedagogy_note: The adult woman completes the four-person production set.
+- slide_id: S5
+  interaction_type: speak
+  prompt: He is a boy.
   stage: Speak
-  correct_option_id: boy-running
+  correct_option_id: boy-alt
   options:
-  - id: boy-running
-    image_url: /lesson-assets/boy_is_running.webp
-    label: The boy is running.
-  audio_text: The boy is running.
+  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
+  audio_text: He is a boy.
   answer_audio_text: null
   prompt_image_url: ''
-- prompt: The girl is walking.
-  stage: Speak
-  correct_option_id: girl-walking
+  spanish_translation: Él es un niño.
+  pedagogy_note: The boy returns in new clothes so the learner produces his complete identity independently.
+- slide_id: U1
+  interaction_type: complete2
+  prompt: ___ is a boy.
+  stage: Use
+  correct_option_id: he
   options:
-  - id: girl-walking
-    image_url: /lesson-assets/girl_is_walking.webp
-    label: The girl is walking.
-  audio_text: The girl is walking.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: The man is sitting.
-  stage: Speak
-  correct_option_id: man-sitting
+  - {id: she, image_url: '', label: She}
+  - {id: he, image_url: '', label: He}
+  audio_text: ___ is a boy.
+  answer_audio_text: He is a boy.
+  prompt_image_url: /lesson-assets/boy.webp
+  spanish_translation: ___ es un niño.
+  pedagogy_note: The learner supplies the pronoun for the first person in the story.
+- slide_id: U2
+  interaction_type: complete2
+  prompt: ___ is a girl.
+  stage: Use
+  correct_option_id: she
   options:
-  - id: man-sitting
-    image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is sitting.
-  audio_text: The man is sitting.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: The man is standing.
-  stage: Speak
-  correct_option_id: man-standing
+  - {id: she, image_url: '', label: She}
+  - {id: he, image_url: '', label: He}
+  audio_text: ___ is a girl.
+  answer_audio_text: She is a girl.
+  prompt_image_url: /lesson-assets/girl.webp
+  spanish_translation: ___ es una niña.
+  pedagogy_note: The matching girl completion follows with the answer position changed.
+- slide_id: U3
+  interaction_type: complete2
+  prompt: He ___ a man.
+  stage: Use
+  correct_option_id: is
   options:
-  - id: man-standing
-    image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-    label: The man is standing.
-  audio_text: The man is standing.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: The ___ is running.
-  spanish_translation: El ___ está corriendo.
+  - {id: a, image_url: '', label: a}
+  - {id: is, image_url: '', label: is}
+  audio_text: He ___ a man.
+  answer_audio_text: He is a man.
+  prompt_image_url: /lesson-assets/a1_l1_man_alt.webp
+  spanish_translation: Él ___ un hombre.
+  pedagogy_note: Attention moves from the pronoun to the linking word is.
+- slide_id: U4
+  interaction_type: complete2
+  prompt: She is ___ woman.
+  stage: Use
+  correct_option_id: a
+  options:
+  - {id: is, image_url: '', label: is}
+  - {id: a, image_url: '', label: a}
+  audio_text: She is ___ woman.
+  answer_audio_text: She is a woman.
+  prompt_image_url: /lesson-assets/a1_l1_woman_alt.webp
+  spanish_translation: Ella es ___ mujer.
+  pedagogy_note: The next completion focuses on the article that introduced every person.
+- slide_id: U5
+  interaction_type: complete4
+  prompt: He is a ___.
   stage: Use
   correct_option_id: boy
   options:
-  - id: woman
-    image_url: ''
-    label: woman
-  - id: man
-    image_url: ''
-    label: man
-  - id: boy
-    image_url: ''
-    label: boy
-  audio_text: ''
-  answer_audio_text: The boy is running.
-  prompt_image_url: /lesson-assets/boy_is_running.webp
-- prompt: The ___ is walking.
-  spanish_translation: La ___ está caminando.
-  stage: Use
-  correct_option_id: girl
-  options:
-  - id: girl
-    image_url: ''
-    label: girl
-  - id: boy
-    image_url: ''
-    label: boy
-  - id: woman
-    image_url: ''
-    label: woman
-  audio_text: ''
-  answer_audio_text: The girl is walking.
-  prompt_image_url: /lesson-assets/girl_is_walking.webp
-- prompt: The ___ is sitting.
-  spanish_translation: El ___ está sentado.
-  stage: Use
-  correct_option_id: man
-  options:
-  - id: girl
-    image_url: ''
-    label: girl
-  - id: boy
-    image_url: ''
-    label: boy
-  - id: man
-    image_url: ''
-    label: man
-  audio_text: ''
-  answer_audio_text: The man is sitting.
-  prompt_image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-- prompt: The ___ is standing.
-  spanish_translation: El ___ está de pie.
-  stage: Use
-  correct_option_id: man
-  options:
-  - id: woman
-    image_url: ''
-    label: woman
-  - id: girl
-    image_url: ''
-    label: girl
-  - id: man
-    image_url: ''
-    label: man
-  audio_text: ''
-  answer_audio_text: The man is standing.
-  prompt_image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
-- prompt: The boy is ___.
-  stage: Use
-  correct_option_id: running
-  options:
-  - id: sitting
-    image_url: ''
-    label: sitting
-  - id: standing
-    image_url: ''
-    label: standing
-  - id: running
-    image_url: ''
-    label: running
-  audio_text: ''
-  answer_audio_text: The boy is running.
-  prompt_image_url: /lesson-assets/boy_is_running.webp
-- prompt: The girl is ___.
-  stage: Use
-  correct_option_id: walking
-  options:
-  - id: sitting
-    image_url: ''
-    label: sitting
-  - id: standing
-    image_url: ''
-    label: standing
-  - id: walking
-    image_url: ''
-    label: walking
-  audio_text: ''
-  answer_audio_text: The girl is walking.
-  prompt_image_url: /lesson-assets/girl_is_walking.webp
-- prompt: The man is ___.
-  stage: Use
-  correct_option_id: sitting
-  options:
-  - id: walking
-    image_url: ''
-    label: walking
-  - id: standing
-    image_url: ''
-    label: standing
-  - id: sitting
-    image_url: ''
-    label: sitting
-  audio_text: ''
-  answer_audio_text: The man is sitting.
-  prompt_image_url: /lesson-assets/man_is_sitting.webp?v=20260802-boy-man-age-distinction-v1
-- prompt: The man is ___.
-  stage: Use
-  correct_option_id: standing
-  options:
-  - id: standing
-    image_url: ''
-    label: standing
-  - id: sitting
-    image_url: ''
-    label: sitting
-  - id: walking
-    image_url: ''
-    label: walking
-  audio_text: ''
-  answer_audio_text: The man is standing.
-  prompt_image_url: /lesson-assets/man_is_standing.webp?v=20260802-boy-man-age-distinction-v1
+  - {id: man, image_url: '', label: man}
+  - {id: woman, image_url: '', label: woman}
+  - {id: boy, image_url: '', label: boy}
+  audio_text: He is a ___.
+  answer_audio_text: He is a boy.
+  prompt_image_url: /lesson-assets/a1_l1_boy_alt.webp
+  spanish_translation: Él es un ___.
+  pedagogy_note: The lesson resolves by recognizing the same boy despite his changed clothing.

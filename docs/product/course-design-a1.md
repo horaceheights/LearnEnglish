@@ -45,7 +45,7 @@ Goal: Understand simple subject + action sentences.
 
 Lessons:
 
-1. 1.1 People and Core Actions: `boy`, `girl`, `man`, `woman`; `running`, `walking`, `sitting`, `standing`; `the`, `is`
+1. 1.1 Meet the People: `a`, `boy`, `girl`, `man`, `woman`, `he`, `she`, `is`; build `He/She is a ...` identity sentences before actions are introduced
 2. 1.2 He and She: `he`, `she`; `eating`, `drinking`, `reading`, `writing`; singular noun-to-pronoun substitution
 3. 1.3 Two People: They and Are: `and`, `they`, `are`; `swimming`, `sleeping`
 4. 1.4 Children and Siblings: `a family`, `baby/babies`, `child/children`, `brother/brothers`, `sister/sisters`
@@ -65,6 +65,8 @@ Core patterns:
 - `They are running.`
 - `He is not cooking.`
 - `Who are they? They are the parents.`
+
+Lesson 1 is the active lesson-by-lesson restructuring pilot. The remaining Unit 1 allocations retain the current baseline until each lesson reaches its own review checkpoint; vocabulary may move among lessons 1-8 under the cumulative-progression guardrails as those checkpoints are approved.
 
 ### Unit 2: Places, Objects, Numbers, and Colors
 
@@ -302,7 +304,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 
 | Lesson | Scope | Build status |
 | --- | --- | --- |
-| `1.1` | People and Core Actions | Complete |
+| `1.1` | Meet the People | Pilot ready for learner review |
 | `1.2` | He and She | Complete |
 | `1.3` | Two People: They and Are | Complete |
 | `1.4` | Children and Siblings | Complete |
@@ -313,7 +315,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | `1.9` | Unit 1 Spiral Review | Complete |
 | `1.10` | Family Scene Mission | Complete |
 
-Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
+Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. Unit 1 is now being replaced one lesson at a time so each approved checkpoint can steer the next lesson; rows after 1.1 still describe the baseline implementation until their checkpoint begins. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
 
 The previously built family lessons supply approved assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 

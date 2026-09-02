@@ -34,7 +34,7 @@ for (const filename of fs.readdirSync(generatedRoot)) {
   }
 }
 
-assert.ok(pronunciationCards.length >= 422, 'the framing guardrail must cover the complete A1 Speak catalog');
+assert.ok(pronunciationCards.length >= 419, 'the framing guardrail must cover the complete A1 Speak catalog');
 assert.equal(pronunciationUnits.size, 7, 'pronunciation subject preservation must cover all seven units');
 for (const { card, lessonId } of pronunciationCards) {
   assert.equal(card.options.length, 1, `${lessonId} pronunciation cards must keep one focused model image`);

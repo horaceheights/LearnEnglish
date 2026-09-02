@@ -76,7 +76,7 @@ class CourseAudioProfileTests(unittest.TestCase):
                     self.assertNotEqual(card.answer_audio_text, fragment)
                 completion_cards.append((lesson.id, card.prompt))
 
-        self.assertEqual(428, len(completion_cards))
+        self.assertEqual(425, len(completion_cards))
 
     def test_completion_contract_is_exact_and_requires_one_placeholder(self):
         contract = completion_prompt_contract(
@@ -265,18 +265,19 @@ class CourseAudioProfileTests(unittest.TestCase):
         )
 
     def test_lesson_one_reference_phrases_use_syllable_timing(self):
-        self.assertEqual(2, syllable_count("The boy"))
-        self.assertEqual(5, syllable_count("The girl is writing."))
-        self.assertEqual(8, syllable_count("The boy and the girl are running."))
-        self.assertEqual(9, syllable_count("The girl and the woman are writing."))
+        self.assertEqual(2, syllable_count("A boy"))
+        self.assertEqual(4, syllable_count("She is a girl."))
+        self.assertEqual(4, syllable_count("He is a man."))
+        self.assertEqual(5, syllable_count("She is a woman."))
 
     def test_new_speak_stage_is_included_in_the_static_audio_manifest(self):
         expected = expected_audio_items()
         phrases = {
-            "The boy is running.",
-            "The girl is walking.",
-            "The man is sitting.",
-            "The man is standing.",
+            "A boy",
+            "She is a girl.",
+            "He is a man.",
+            "She is a woman.",
+            "He is a boy.",
         }
 
         for phrase in phrases:

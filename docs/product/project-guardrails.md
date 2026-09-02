@@ -200,6 +200,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Every Speak-stage model image uses the same inset 3:2 option-media treatment as the rest of the lesson: dark outer border, warm-neutral fallback, and rounded outer and inner clipping. Preserve the complete model subject inside that frame with a subject-preserving fit or a reviewed 3:2 variant; never reuse an option-card crop that reduces a person to only part of the head or body. Apply this through the shared pronunciation component, never as lesson-specific styling.
 - Every A1 lesson and unit has its own explicit title image that represents that lesson or unit's primary learning focus. Title imagery is globally unique across the course: no two lessons, no two units, and no lesson-unit pair may reuse the same picture, including identical picture content saved under different filenames. Reserve each unit-level image for that unit's menu and header only.
 - Reuse established people and family members when continuity helps learners infer meaning.
+- Wardrobe may vary between connected scenes to reduce visual monotony, but the character's face, hair, age, body proportions, and family identity must remain unmistakably stable. Clothing changes may never be the accidental cue for a person, pronoun, or relationship answer.
 - Family compositions must match previously established family members and relationships.
 - Before accepting a generated image, inspect it at the actual mobile card aspect ratio, not only as a source file.
 
@@ -276,7 +277,7 @@ The A1 course contains seven units with ten lessons in numeric order per unit:
 
 Unit 1 lessons are:
 
-1. `1.1 People and Core Actions`
+1. `1.1 Meet the People`
 2. `1.2 He and She`
 3. `1.3 Two People: They and Are`
 4. `1.4 Children and Siblings`

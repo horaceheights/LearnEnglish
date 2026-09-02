@@ -143,6 +143,7 @@ corrupts progress, or produces unreliable learning feedback.
 - [x] Keep QA on the production lesson catalog while isolating QA sessions and analytics
 - [x] Implement the complete 70-lesson A1 dependency chain across seven units of ten
 - [x] Encode intentional curriculum growth through richer constructions in lessons 1-8, fresh-scenario comprehensive reviews in lesson 9, and distinct applied missions in lesson 10
+- [~] Restructure Unit 1 one lesson at a time with a learner review checkpoint after every pushed lesson; Lesson 1.1 `Meet the People` is the active pilot
 - [x] Present the seven-unit hierarchy without flattening all 70 lessons into the initial menu
 
 ---
