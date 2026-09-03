@@ -25,6 +25,11 @@ const interactionVerifier = fs.readFileSync(
   'utf8',
 );
 
+const { stripTypeScriptTypes } = require('node:module');
+const { listeningChoiceInstruction } = new Function(
+  `${stripTypeScriptTypes(instructionSource).replace(/export function /g, 'function ')}; return { listeningChoiceInstruction };`,
+)();
+
 const units = new Set(course.map((lesson) => lesson.unit_id));
 const listenCards = course.flatMap((lesson) => (
   lesson.cards.filter((card) => card.stage === 'Listen')
@@ -35,6 +40,27 @@ const learningPhraseCards = course.flatMap((lesson) => (
 
 assert.equal(units.size, 7, 'The Listen header guardrail must inventory all seven A1 units.');
 assert.ok(listenCards.length > 0, 'The embedded course must contain Listen cards.');
+let photoCards = 0;
+let phraseCards = 0;
+for (const card of listenCards) {
+  const photos = card.options.length > 0 && card.options.every((option) => option.image_url);
+  const phrases = card.options.length > 0 && card.options.every((option) => !option.image_url);
+  assert.ok(photos || phrases, 'Every current Listen bank must have one answer modality.');
+  assert.equal(
+    listeningChoiceInstruction(card.options),
+    photos ? '¡Escucha y elige la foto!' : '¡Escucha y elige la frase!',
+  );
+  if (photos) photoCards++; else phraseCards++;
+}
+assert.ok(photoCards > 0 && phraseCards > 0, 'Exercise both photo and phrase choices.');
+for (const count of [2, 3, 4]) {
+  assert.equal(listeningChoiceInstruction(Array.from({ length: count }, () => ({ image_url: 'photo.webp' }))), '¡Escucha y elige la foto!');
+  assert.equal(listeningChoiceInstruction(Array.from({ length: count }, () => ({}))), '¡Escucha y elige la frase!');
+}
+assert.equal(listeningChoiceInstruction([]), '¡Escucha y elige!');
+assert.equal(listeningChoiceInstruction([{ image_url: 'photo.webp' }, {}]), '¡Escucha y elige!');
+assert.match(screenSource, /const localizedPrompt = useCompactListenInstruction\s*\? listeningChoiceInstruction\(currentCard\.options\)/);
+assert.match(screenSource, /`Instrucción: \$\{listeningChoiceInstruction\(currentCard\.options\)\}`/);
 assert.ok(
   listenCards.every((card) => card.prompt.trim() === 'Listen and choose.'),
   'Every current Listen card must use the shared authored instruction contract.',
@@ -97,7 +123,7 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Section instructions in the middle importance box are visual-only Spanish text[\s\S]*Listen uses bold 14 dp `¡Escucha y elige!`[\s\S]*never from a specific slide/,
+  /Section instructions in the middle importance box are visual-only Spanish text[\s\S]*Listen uses bold 14 dp `¡Escucha y elige la frase!`[\s\S]*`¡Escucha y elige la foto!`[\s\S]*never from a specific slide/,
   'Durable product memory must define the reusable Listen instruction contract and its scope.',
 );
 assert.match(
