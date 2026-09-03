@@ -4,6 +4,11 @@ const path = require('node:path');
 
 const cardViewPath = path.resolve(__dirname, '../src/components/LessonCardView.tsx');
 const cardViewSource = fs.readFileSync(cardViewPath, 'utf8');
+assert.doesNotMatch(
+  cardViewSource,
+  /optionUnderline|textDecorationLine:\s*['"]underline['"]/,
+  'Answer labels must not show misleading decorative underlines in any selection state.',
+);
 const lessonScreenPath = path.resolve(__dirname, '../src/screens/LessonScreen.tsx');
 const lessonScreenSource = fs.readFileSync(lessonScreenPath, 'utf8');
 const course = JSON.parse(fs.readFileSync(

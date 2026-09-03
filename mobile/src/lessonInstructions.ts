@@ -142,6 +142,16 @@ export function usesCompactListenInstruction(stage: string, prompt: string) {
   return stage === 'Listen' && prompt.trim() === LISTEN_AND_CHOOSE_PROMPT;
 }
 
+export function listeningChoiceInstruction(options: readonly { image_url?: string | null }[]) {
+  if (options.length > 0 && options.every((option) => option.image_url)) {
+    return '¡Escucha y elige la foto!';
+  }
+  if (options.length > 0 && options.every((option) => !option.image_url)) {
+    return '¡Escucha y elige la frase!';
+  }
+  return SPANISH_INSTRUCTION_PROMPTS[LISTEN_AND_CHOOSE_PROMPT];
+}
+
 export function usesCompactRecognizeInstruction(stage: string, prompt: string) {
   return stage === 'Recognize' && !prompt.trim();
 }

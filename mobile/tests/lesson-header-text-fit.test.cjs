@@ -59,7 +59,7 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Listen uses bold 14 dp `¡Escucha y elige!`[\s\S]*Speak.*bold 14 dp `¡Escucha y repite!`[\s\S]*Recognize.*bold 14 dp `¡Elige la frase correcta!`/,
+  /Listen uses bold 14 dp `¡Escucha y elige la frase!`[\s\S]*`¡Escucha y elige la foto!`[\s\S]*Speak.*bold 14 dp `¡Escucha y repite!`[\s\S]*Recognize.*bold 14 dp `¡Elige la frase correcta!`/,
   'Durable product memory must keep compact instruction typography separate from authored phrase fitting.',
 );
 assert.match(
