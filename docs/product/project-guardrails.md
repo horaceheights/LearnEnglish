@@ -156,6 +156,8 @@ Do not force every word through every step in a single lesson when that would ma
 
 ## 4. Mobile Layout Guardrails
 
+- The mobile lesson survey keeps “Ahora no” centered on its own row below “Enviar comentarios”, inside the scrollable safe-area content. Never place the skip action beside the long heading where portrait width or enlarged text can push it off-screen.
+
 - Design for the usable phone viewport, including Android system bars and enlarged font settings.
 - After a wrong lesson choice, keep the encouragement first and place one short Spanish teaching hint directly below it. Explain the relevant rule (`is`, `are`, `not`) when available; otherwise point the learner back to the person, group, or action without adding a long instruction block. Identity-choice hints must name the exact visible mismatch, such as parents versus grandparents, instead of repeating one generic `is/are` explanation across the section.
 - Essential choices, feedback, and navigation must fit without being hidden below the system navigation area.
