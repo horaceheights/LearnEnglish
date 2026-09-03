@@ -149,19 +149,19 @@ assert.match(
   'Lesson video URLs must be versioned so corrected media replaces stale mobile caches.',
 );
 
-const solidSideFillVideos = {
-  family_brother_studying: 'brother-studying-scene-v3.mp4',
-  family_children_playing: 'children-playing-scene-v3.mp4',
-  family_father_working: 'father-working-scene-v4.mp4',
-  girl_is_walking: 'girl-walking-scene-v3.mp4',
-  family_mother_cooking: 'mother-cooking-scene-v3.mp4',
-  family_parents_talking: 'parents-talking-scene-v5.mp4',
+const bundledFullBleedVideos = {
+  family_brother_studying: 'brother-studying-scene-full-bleed-v1.mp4',
+  family_children_playing: 'children-playing-scene-full-bleed-v1.mp4',
+  family_father_working: 'father-working-scene-full-bleed-v1.mp4',
+  girl_is_walking: 'girl-walking-scene-full-bleed-v1.mp4',
+  family_mother_cooking: 'mother-cooking-scene-full-bleed-v1.mp4',
+  family_parents_talking: 'parents-talking-scene-full-bleed-wide-v1.mp4',
 };
 
 const twoCardVideoVariants = {
-  family_brother_studying: 'brother-studying-two-card-v1.mp4',
-  family_children_playing: 'children-playing-two-card-v1.mp4',
-  family_father_working: 'father-working-two-card-v1.mp4',
+  family_brother_studying: 'brother-studying-scene-full-bleed-v1.mp4',
+  family_children_playing: 'children-playing-scene-full-bleed-v1.mp4',
+  family_father_working: 'father-working-scene-full-bleed-v1.mp4',
 };
 
 const twoCardPosters = {
@@ -202,7 +202,7 @@ assert.deepEqual(
   'Every action video used by a two-choice A1 card must have exactly one reviewed matching poster.',
 );
 
-for (const [imageKey, filename] of Object.entries(solidSideFillVideos)) {
+for (const [imageKey, filename] of Object.entries(bundledFullBleedVideos)) {
   const bundledVideoPath = path.resolve(__dirname, '../assets/lesson-videos', filename);
   assert.ok(fs.statSync(bundledVideoPath).size > 0, `${filename} must be present in the Preview bundle.`);
   assert.ok(
@@ -251,28 +251,28 @@ assert.match(
   'Web playback must retain the matched poster until the first visible video frame.',
 );
 
-assert.match(
-  normalizerSource,
-  /SOLID_SIDE_FILL_COLOR = "0xf2ebde"[\s\S]*?crop_width \/ crop_height < 1\.6[\s\S]*?force_original_aspect_ratio=decrease\[subject\]/,
-  'Square-source action footage must retain a safe inset over the shared warm-neutral background.',
-);
-
 assert.doesNotMatch(
   normalizerSource,
-  /gblur|boxblur/,
-  'Action-video normalization must not use blurred side fill.',
+  /SOLID_SIDE_FILL_COLOR|force_original_aspect_ratio=decrease|color=c=|gblur|boxblur/,
+  'Normalization must never bake solid or blurred padding into a lesson clip.',
 );
 
 assert.match(
   normalizerSource,
-  /ACTION_SAFE_FOUR_THREE_CROP_SCENES = \{"parents-talking"\}[\s\S]*?scene_id in ACTION_SAFE_FOUR_THREE_CROP_SCENES[\s\S]*?action_crop_height[\s\S]*?flags=lanczos/,
-  'The reviewed parents-talking pilot must keep its action-safe 4:3 crop without stretching.',
+  /OPTION_MEDIA_VARIANTS.get[\s\S]*?abs\(width \/ height - 3 \/ 2\) > 0\.005/,
+  'Animation input must resolve to the same full-bleed 3:2 master as lesson stills.',
 );
 
 assert.match(
   normalizerSource,
-  /TWO_CARD_ACTION_VARIANTS = \{[\s\S]*?brother-studying-two-card-v1\.mp4[\s\S]*?children-playing-two-card-v1\.mp4[\s\S]*?father-working-two-card-v1\.mp4[\s\S]*?normalize_two_card_existing/,
-  'Reviewed two-card crop variants must remain reproducible from their original raw clips.',
+  /if crop_width \+ 2 < crop_height \* 3 \/ 2:[\s\S]*?raise ValueError/,
+  'Narrow footage must fail normalization instead of receiving padding or an unsafe crop.',
+);
+
+assert.match(
+  normalizerSource,
+  /bands = solid_bands[\s\S]*?if bands:[\s\S]*?raise ValueError/,
+  'Input pixels must be checked before generation; a 3:2 file can still contain padding.',
 );
 
 console.log('Unified video media checks passed.');
