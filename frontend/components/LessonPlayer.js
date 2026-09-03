@@ -2608,6 +2608,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
   const choiceGridStyle = {
     ...styles.choiceGrid,
+    gridAutoRows: currentCard.options.every((option) => !option.image_url) ? "1fr" : undefined,
     gridTemplateColumns: isSingleOptionCard
       ? "minmax(0, 720px)"
       : useCompactCompletionTiles
@@ -5505,6 +5506,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     ) : (
                       <div
                         style={{
+                          boxSizing: "border-box",
+                          height: "100%",
                           minHeight: useCompactCompletionTiles ? (isMobile ? 64 : 82) : isMobile ? 116 : 172,
                           display: "grid",
                           placeItems: "center",

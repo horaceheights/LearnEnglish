@@ -75,6 +75,8 @@ Every standard lesson follows this visible sequence:
 
 ### Recognize
 
+- A visible statement must not give away a text-choice answer by repeating it verbatim. Lesson 1.7’s negative recognition cards use two separate action pictures, such as talking versus cooking or writing versus reading, with the full negative-to-positive contrast revealed only after selection.
+
 - Connect image and text in both directions over the lesson journey:
   - phrase or audio -> image
   - image -> phrase
@@ -172,6 +174,7 @@ Do not force every word through every step in a single lesson when that would ma
 - On empty-prompt Recognize phrase-choice cards, keep the speaker visible but disabled before a correct selection so audio cannot reveal the answer. After the learner chooses correctly, enable it to replay the selected correct English sentence; the visual Spanish instruction itself is never spoken. This manual replay does not restore the retired automatic correct-label fallback for ordinary Recognize or Listen cards.
 - Automatic single-card teaching videos in landscape tablet layouts use the same height-aware 3:2 width cap as non-video single cards. They must remain centered with visible side margins below the lesson header and may not re-expand to the full card width; phones retain the established full-width teaching-video presentation when it fits the usable viewport.
 - Portrait phrase-answer tiles are full-width, short horizontal rows stacked at the bottom.
+- All answer tiles within one question have equal width and height, including before selection and during feedback. Text banks use the height needed by their longest answer for every tile, and reserve that same height for every row; font sizing remains independent per label.
 - Every text-answer label sizes independently to the largest readable type that fits its own responsive tile; one long answer must never shrink the other answers. Short answers remain on one centered line and expand to use the available space. Ordinary full-sentence answers may wrap at word boundaries to two centered lines, and genuinely long or multi-sentence answers may use a third centered line before reducing type. Text never scales below 16 dp on phones or 22 dp on tablets. When the complete text-only bank plus feedback cannot fit the usable height, the lesson surface grows inside an obvious vertical scroll region so every choice and its feedback remain reachable. Never split a word, clip, overflow, show an ellipsis, or push a tile outside the usable phone or tablet viewport.
 - On a vertically growing text-answer card, prompt imagery keeps its readable responsive size independently of the card's measured natural height. Adding answer rows or reserving feedback must not create a measurement loop that progressively collapses the picture into a tiny strip.
 - Image choices retain their established image grid or stack layout; the horizontal phrase rule does not convert image choices into text rows.
