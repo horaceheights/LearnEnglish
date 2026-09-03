@@ -1,0 +1,112 @@
+{
+  "scope": "Agent visual QA for internal Preview; not human Production approval",
+  "date": "2026-09-03",
+  "root_cause": "Solid-side-fill exceptions and source-regex tests protected encoded padding; 3:2 dimensions and cover did not prove full-bleed pixels.",
+  "resolved_still_audit": {
+    "unique_assets": 973,
+    "flat_edge_candidates": 80,
+    "inspection": "Other candidates were complete plain object backgrounds or authored diagrams. Padded parents master and paired poster were replaced with the final matching frame."
+  },
+  "videos": [
+    {
+      "filename": "baby-sleeping-scene-full-bleed-v1.mp4",
+      "sha256": "6ccc42a6839d3ba1359f94ae5380157bae567c6279fe4a99c44344dd319f452b",
+      "canvas": [
+        768,
+        512
+      ],
+      "audio": "removed",
+      "agent_visual_review": "first/middle/last frames; heads and teaching action remain legible; full-bleed content",
+      "human_review": "pending"
+    },
+    {
+      "filename": "brother-studying-scene-full-bleed-v1.mp4",
+      "sha256": "8755bff68c82cfc2e1fd355c6aab7d09667280a89a8b468721c26f4b316ac864",
+      "canvas": [
+        768,
+        512
+      ],
+      "audio": "removed",
+      "agent_visual_review": "first/middle/last frames; heads and teaching action remain legible; full-bleed content",
+      "human_review": "pending"
+    },
+    {
+      "filename": "children-playing-scene-full-bleed-v1.mp4",
+      "sha256": "a679ebc989151cbbec0be461643a018cbcd1d4c7da294aa59453bd7e2b4bf665",
+      "canvas": [
+        768,
+        512
+      ],
+      "audio": "removed",
+      "agent_visual_review": "first/middle/last frames; heads and teaching action remain legible; full-bleed content",
+      "human_review": "pending"
+    },
+    {
+      "filename": "father-working-scene-full-bleed-v1.mp4",
+      "sha256": "d4a6f08a60ca6277150b8753f4fdc51cc0ddbb4e5962f1a17935b48499ef69e4",
+      "canvas": [
+        768,
+        512
+      ],
+      "audio": "removed",
+      "agent_visual_review": "first/middle/last frames; heads and teaching action remain legible; full-bleed content",
+      "human_review": "pending"
+    },
+    {
+      "filename": "girl-walking-scene-full-bleed-v1.mp4",
+      "sha256": "901c9af05a01db13947a3884d2c8e1f7a3cb6f999935051dde1dd70c4d652452",
+      "canvas": [
+        768,
+        512
+      ],
+      "audio": "removed",
+      "agent_visual_review": "first/middle/last frames; heads and teaching action remain legible; full-bleed content",
+      "human_review": "pending"
+    },
+    {
+      "filename": "mother-cooking-scene-full-bleed-v1.mp4",
+      "sha256": "c51dc31ab6dd4f5c65855752fd422d69edc0dbcdd4377dbfe3b3a924872cac9a",
+      "canvas": [
+        768,
+        512
+      ],
+      "audio": "removed",
+      "agent_visual_review": "first/middle/last frames; heads and teaching action remain legible; full-bleed content",
+      "human_review": "pending"
+    },
+    {
+      "filename": "parents-talking-scene-full-bleed-wide-v1.mp4",
+      "sha256": "b991581ec6b5b0952cb40fe6b1425c1e571bc170180a126a4d0ce51d8e59f639",
+      "canvas": [
+        768,
+        512
+      ],
+      "audio": "removed",
+      "agent_visual_review": "first/middle/last frames; heads and teaching action remain legible; full-bleed content",
+      "human_review": "pending"
+    }
+  ],
+  "parents_reviewed_crop": {
+    "source": "Lessons/Lesson1/video-sources/parents-talking-full-bleed-raw.mp4",
+    "source_sha256": "c8175e91d3b7b35e2bf43580f2f5334cb2ab63d236ff3b8eae09458b54b1d5e3",
+    "crop": "978:652:151:64",
+    "output": "parents-talking-scene-full-bleed-wide-v1.mp4",
+    "method": "encode_normalized with reviewed_crop tuple; only this exact source hash may use these bounds",
+    "inspection": "Twelve raw frames across the clip inspected; removes side padding and ceiling, preserves faces and conversational gestures. Resting hands remain at the original lower source boundary.",
+    "model": "veo-3.1-fast-generate-preview"
+  },
+  "browser_qa": {
+    "page": "Local actual LessonPlayer, Unit 1.6, The mother is cooking.",
+    "viewports": [
+      [
+        440,
+        954
+      ],
+      [
+        1024,
+        768
+      ]
+    ],
+    "result": "Video reaches the clipped frame edges; pan and both hands are visible."
+  }
+}

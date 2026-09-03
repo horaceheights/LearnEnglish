@@ -12,8 +12,8 @@ The nine 1536x1024 source assets are `Lessons/Lesson1/images/a1_who_question_*.w
 - Course media/card validation: passes under Preview policy with the existing pending semantic-review and renderer-signature advisories.
 - Audio cast validation: passes; the new male visitor uses the established Liam profile. Answer portraits remain third-person narration.
 - Versioned release integrity: passes, preserving 70 lessons and seven units of ten.
-- Full backend suite: audio availability remains blocked until the new takes are rendered. No gate was weakened or skipped to publish.
-- Android export and live web/device playback remain to be verified after audio completion.
+- Persistent audio: all 4,923 canonical assets are available with matching catalog contracts. No gate was weakened or skipped to publish.
+- Android export is enforced by the protected Preview CI gate; live device playback remains a human Preview check.
 
 ## Audio completion and release
 
