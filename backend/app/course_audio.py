@@ -130,6 +130,7 @@ COURSE_SYLLABLES = {
     "find": 1,
     "four": 1,
     "girl": 1,
+    "grandchildren": 3,
     "grandfather": 3,
     "grandmother": 3,
     "grandparents": 3,

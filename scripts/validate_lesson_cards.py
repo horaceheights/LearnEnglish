@@ -4,6 +4,7 @@ import re
 import struct
 import sys
 from collections import Counter
+from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
@@ -39,58 +40,125 @@ from scripts.a1_media_runtime_contracts import (  # noqa: E402
 )
 
 
-ADULT_ROLE_IDS = {
-    "father",
-    "mother",
-    "parents",
-    "grandfather",
-    "grandmother",
-    "grandparents",
+SEMANTIC_ACTIONS = frozenset({
+    "cooking",
+    "drinking",
+    "eating",
+    "playing",
+    "reading",
+    "running",
+    "sitting",
+    "sleeping",
+    "studying",
+    "swimming",
+    "talking",
+    "working",
+    "writing",
+})
+SEMANTIC_CONCEPT_TERMS = (
+    ("grandchildren", "grandchild", "many"),
+    ("grandchild", "grandchild", "one"),
+    ("grandparents", "grandparent", "many"),
+    ("grandfather", "grandfather", "one"),
+    ("grandmother", "grandmother", "one"),
+    ("parents", "parent", "many"),
+    ("father", "father", "one"),
+    ("mother", "mother", "one"),
+    ("adults", "adult", "many"),
+    ("adult", "adult", "one"),
+    ("children", "child", "many"),
+    ("child", "child", "one"),
+    ("babies", "baby", "many"),
+    ("baby", "baby", "one"),
+    ("brothers", "brother", "many"),
+    ("brother", "brother", "one"),
+    ("sisters", "sister", "many"),
+    ("sister", "sister", "one"),
+    ("boys", "boy", "many"),
+    ("boy", "boy", "one"),
+    ("girls", "girl", "many"),
+    ("girl", "girl", "one"),
+    ("men", "man", "many"),
+    ("man", "man", "one"),
+    ("women", "woman", "many"),
+    ("woman", "woman", "one"),
+    ("family", "family", "many"),
+)
+SEMANTIC_CONCEPT_IMPLICATIONS = {
+    "baby": {"child"},
+    "boy": {"brother", "child"},
+    "brother": {"boy", "child"},
+    "father": {"adult", "man", "grandfather"},
+    "girl": {"child", "sister"},
+    "grandchild": {"child"},
+    "grandfather": {"adult", "father", "man"},
+    "grandmother": {"adult", "mother", "woman"},
+    "grandparent": {"adult", "parent"},
+    "man": {"adult"},
+    "mother": {"adult", "grandmother", "woman"},
+    "parent": {"adult", "grandparent"},
+    "sister": {"child", "girl"},
+    "woman": {"adult"},
 }
-FAMILY_ADULT_AMBIGUITY_RULES = {
-    "an adult": {
-        "label_terms": ADULT_ROLE_IDS | {"adult", "adults", "man", "woman"},
-        "asset_names": {
-            "family_adults.webp",
-            "family_father.webp",
-            "family_mother.webp",
-            "family_grandfather.webp",
-            "family_grandmother.webp",
-        },
-    },
-    "adults": {
-        "label_terms": {"parents", "grandparents", "family"},
-        "asset_names": {
-            "family_parents.webp",
-            "family_grandparents.webp",
-            "family_all_members.webp",
-        },
-    },
-    "they are the parents": {
-        "label_terms": {"adults", "grandparents", "family"},
-        "asset_names": {
-            "family_adults.webp",
-            "family_grandparents.webp",
-            "family_all_members.webp",
-        },
-    },
-    "they are parents": {
-        "label_terms": {"adults", "grandparents", "family"},
-        "asset_names": {
-            "family_adults.webp",
-            "family_grandparents.webp",
-            "family_all_members.webp",
-        },
-    },
-    "who are they? they are the parents": {
-        "label_terms": {"adults", "grandparents", "family"},
-        "asset_names": {
-            "family_adults.webp",
-            "family_grandparents.webp",
-            "family_all_members.webp",
-        },
-    },
+SINGULAR_SEMANTIC_NOUNS = (
+    "adult|baby|boy|brother|child|family|father|girl|grandchild|grandfather|grandmother|man|mother|sister|woman"
+)
+PLURAL_SEMANTIC_NOUNS = (
+    "adults|babies|boys|brothers|children|girls|grandchildren|grandparents|men|parents|sisters|women"
+)
+SEMANTIC_ASSET_ACTION_ADDITIONS = {
+    "grandparents_talking": {"sitting"},
+    "mission_game_setup": {"playing"},
 }
+# These are explicit facts of the authored Unit 1 scenes, not conclusions drawn
+# from the absence of a word in a filename. Talking and sitting can coexist.
+SEMANTIC_ASSET_NEGATIVE_ACTIONS = {
+    "family_father_talking": {"cooking"},
+    "girl_is_writing": {"reading"},
+    "they_boy_girl_are_running": {"sitting"},
+    "family_sister_playing": {"studying"},
+    "grandparents_talking": {"sleeping"},
+}
+SEMANTIC_RELATED_GROUP_MARKERS = (
+    "family_adults",
+    "family_babies",
+    "family_brothers",
+    "family_children",
+    "family_grandparents",
+    "family_parents",
+    "family_sisters",
+    "review_children_running",
+    "review_grandparents_talking",
+    "mission_children_playing",
+    "mission_grandparents_talking",
+)
+
+
+@dataclass(frozen=True)
+class SemanticClause:
+    count: str | None
+    gender: str | None
+    concepts: frozenset[str]
+    negative_concepts: frozenset[str]
+    positive_actions: frozenset[str]
+    negative_actions: frozenset[str]
+    contradictory: bool = False
+
+
+@dataclass(frozen=True)
+class VisualReferent:
+    count: str
+    gender: str | None
+    concepts: frozenset[str]
+    negative_concepts: frozenset[str]
+    actions: frozenset[str]
+    negative_actions: frozenset[str]
+
+
+@dataclass(frozen=True)
+class VisualMeaning:
+    primary: VisualReferent
+    visible_subsets: tuple[VisualReferent, ...] = ()
 GRAMMAR_STAGES = {"Grammar", "New Grammar"}
 PRONUNCIATION_STAGES = {"Pronunciation Practice", "Speak"}
 VISUAL_COMPLETION_PLACEHOLDER_PATTERN = re.compile(
@@ -110,6 +178,571 @@ MISSION_COMPLETION_INTERACTIONS = {
 def is_completion_interaction(interaction_type: str | None) -> bool:
     value = str(interaction_type or "")
     return interaction_type is None or value.startswith("complete") or value in MISSION_COMPLETION_INTERACTIONS
+
+
+def _expanded_visual_concepts(concepts: set[str]) -> frozenset[str]:
+    expanded = set(concepts)
+    pending = list(concepts)
+    while pending:
+        concept = pending.pop()
+        for implied in SEMANTIC_CONCEPT_IMPLICATIONS.get(concept, set()):
+            if implied not in expanded:
+                expanded.add(implied)
+                pending.append(implied)
+    return frozenset(expanded)
+
+
+def _visual_referent(
+    count: str,
+    concepts: set[str],
+    actions: set[str],
+    gender: str | None = None,
+    negative_concepts: set[str] | None = None,
+    negative_actions: set[str] | None = None,
+    expand_concepts: bool = True,
+) -> VisualReferent:
+    return VisualReferent(
+        count=count,
+        gender=gender,
+        concepts=_expanded_visual_concepts(concepts) if expand_concepts else frozenset(concepts),
+        negative_concepts=frozenset(negative_concepts or set()),
+        actions=frozenset(actions),
+        negative_actions=frozenset(negative_actions or set()),
+    )
+
+
+def _asset_name(media_url: str | None) -> str:
+    return str(media_url or "").split("?", 1)[0].replace("\\", "/").rsplit("/", 1)[-1].lower()
+
+
+def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
+    """Return conservative Unit 1 facts for the exact bound visual asset.
+
+    The primary referent describes the whole answer tile. Visible subsets also
+    expose true shorter labels and same-cardinality category overlaps, but a
+    person inside a plural image tile cannot satisfy a singular spoken target.
+    This is contract validation, not pixel-level evidence; the hash-bound human
+    semantic review remains authoritative for the actual rendered image.
+
+    Generation roles intentionally overlap here. An isolated father portrait
+    cannot prove that he is not also a grandfather, for example, so role pairs
+    are expanded as possible ordinary interpretations. Authored choices must use
+    a genuinely exclusive gender, number, category, or action contrast.
+    """
+
+    asset_name = _asset_name(media_url)
+    if not asset_name:
+        return None
+    stem = asset_name.rsplit(".", 1)[0]
+    # Units 2-7 use rich generated scene contracts (objects, colors, food,
+    # quantities, places, and more) that this Unit 1 people/action model cannot
+    # safely reduce. Their hash-bound semantic-review gate remains authoritative.
+    if stem.startswith("a1_scene_"):
+        return None
+    tokens = set(re.split(r"[^a-z]+", stem))
+    actions = {action for action in SEMANTIC_ACTIONS if action in tokens}
+    for marker, additional_actions in SEMANTIC_ASSET_ACTION_ADDITIONS.items():
+        if marker in stem:
+            actions.update(additional_actions)
+    negative_actions: set[str] = set()
+    for marker, excluded_actions in SEMANTIC_ASSET_NEGATIVE_ACTIONS.items():
+        if marker in stem:
+            negative_actions.update(excluded_actions)
+    related_group_concepts = (
+        {"family"}
+        if any(marker in stem for marker in SEMANTIC_RELATED_GROUP_MARKERS)
+        else set()
+    )
+
+    def primary_referent(
+        count: str,
+        concepts: set[str],
+        gender: str | None = None,
+        *,
+        expand_concepts: bool = True,
+    ) -> VisualReferent:
+        return _visual_referent(
+            count,
+            concepts,
+            actions,
+            gender,
+            negative_actions=negative_actions,
+            expand_concepts=expand_concepts,
+        )
+
+    if "family_grandparents_grandchildren" in stem:
+        return VisualMeaning(
+            primary=primary_referent(
+                "many",
+                {"family", "grandchild", "grandparent"},
+                expand_concepts=False,
+            ),
+            visible_subsets=(
+                _visual_referent("many", {"grandparent"}, actions),
+                _visual_referent("many", {"grandchild"}, actions),
+                _visual_referent("one", {"grandfather"}, actions, "male"),
+                _visual_referent("one", {"grandmother"}, actions, "female"),
+                _visual_referent("one", {"grandchild"}, actions),
+            ),
+        )
+
+    if "family_parents_children" in stem:
+        return VisualMeaning(
+            primary=primary_referent(
+                "many",
+                {"child", "family", "parent"},
+                expand_concepts=False,
+            ),
+            visible_subsets=(
+                _visual_referent("many", {"parent"}, actions),
+                _visual_referent("many", {"child"}, actions),
+                _visual_referent("one", {"father"}, actions, "male"),
+                _visual_referent("one", {"mother"}, actions, "female"),
+                _visual_referent("one", {"child"}, actions),
+            ),
+        )
+
+    if "review_children_running" in stem:
+        return VisualMeaning(
+            primary=primary_referent(
+                "many",
+                {"boy", "child", "family", "girl"},
+                expand_concepts=False,
+            ),
+            visible_subsets=(
+                _visual_referent("one", {"boy"}, actions, "male"),
+                _visual_referent("one", {"girl"}, actions, "female"),
+            ),
+        )
+
+    if "mission_game_setup" in stem:
+        return VisualMeaning(
+            primary=primary_referent(
+                "many",
+                {"family", "father", "mother", "parent"},
+                expand_concepts=False,
+            ),
+            visible_subsets=(
+                _visual_referent("one", {"father"}, actions, "male"),
+                _visual_referent("one", {"mother"}, actions, "female"),
+            ),
+        )
+
+    full_family_markers = (
+        "family_all_members",
+        "review_family_story",
+        "mission_family_start",
+        "mission_family_finish",
+    )
+    if any(marker in stem for marker in full_family_markers):
+        primary = primary_referent(
+            "many",
+            {"child", "family", "parent"},
+            expand_concepts=False,
+        )
+        visible = (
+            _visual_referent("one", {"father"}, actions, "male"),
+            _visual_referent("one", {"mother"}, actions, "female"),
+            _visual_referent("one", {"grandfather"}, actions, "male"),
+            _visual_referent("one", {"grandmother"}, actions, "female"),
+            _visual_referent("one", {"adult"}, actions),
+            _visual_referent("many", {"adult"}, actions),
+            _visual_referent("many", {"child"}, actions),
+            _visual_referent("many", {"parent"}, actions),
+            _visual_referent("many", {"grandparent"}, actions),
+            _visual_referent("many", {"grandchild"}, actions),
+            _visual_referent(
+                "many",
+                {"family", "grandchild", "grandparent"},
+                actions,
+                expand_concepts=False,
+            ),
+        )
+        return VisualMeaning(primary=primary, visible_subsets=visible)
+
+    if "grandparents" in tokens:
+        primary = primary_referent("many", {"grandparent"} | related_group_concepts)
+        return VisualMeaning(
+            primary=primary,
+            visible_subsets=(
+                _visual_referent("one", {"grandfather"}, actions, "male"),
+                _visual_referent("one", {"grandmother"}, actions, "female"),
+                _visual_referent("one", {"adult"}, actions),
+            ),
+        )
+    if "parents" in tokens:
+        primary = primary_referent("many", {"parent"} | related_group_concepts)
+        return VisualMeaning(
+            primary=primary,
+            visible_subsets=(
+                _visual_referent("one", {"father"}, actions, "male"),
+                _visual_referent("one", {"mother"}, actions, "female"),
+                _visual_referent("one", {"adult"}, actions),
+            ),
+        )
+    if "adults" in tokens:
+        return VisualMeaning(
+            primary=primary_referent("many", {"adult"} | related_group_concepts),
+        )
+    if "children" in tokens:
+        return VisualMeaning(
+            primary=primary_referent("many", {"child"} | related_group_concepts),
+        )
+    if "brothers" in tokens:
+        return VisualMeaning(
+            primary=primary_referent("many", {"brother"} | related_group_concepts, "male"),
+        )
+    if "sisters" in tokens:
+        return VisualMeaning(
+            primary=primary_referent("many", {"sister"} | related_group_concepts, "female"),
+        )
+    if "babies" in tokens:
+        return VisualMeaning(
+            primary=primary_referent("many", {"baby"} | related_group_concepts),
+        )
+    group_people = {
+        concept
+        for concept in ("boy", "girl", "man", "woman")
+        if concept in tokens
+    }
+    if len(group_people) >= 2 or ("they" in tokens and group_people):
+        shared_group_concepts: set[str] = set()
+        if group_people <= {"boy", "girl"}:
+            shared_group_concepts.add("child")
+        if group_people <= {"man", "woman"}:
+            shared_group_concepts.add("adult")
+        visible_subsets = tuple(
+            _visual_referent(
+                "one",
+                {concept},
+                actions,
+                "male" if concept in {"boy", "man"} else "female",
+            )
+            for concept in sorted(group_people)
+        )
+        return VisualMeaning(
+            primary=primary_referent(
+                "many",
+                group_people | shared_group_concepts,
+                expand_concepts=False,
+            ),
+            visible_subsets=visible_subsets,
+        )
+
+    singular_concepts = (
+        ("grandfather", "grandfather", "male"),
+        ("grandmother", "grandmother", "female"),
+        ("father", "father", "male"),
+        ("mother", "mother", "female"),
+        ("brother", "brother", "male"),
+        ("sister", "sister", "female"),
+        ("baby", "baby", None),
+        ("boy", "boy", "male"),
+        ("girl", "girl", "female"),
+        ("woman", "woman", "female"),
+        ("man", "man", "male"),
+        ("adult", "adult", None),
+        ("child", "child", None),
+    )
+    for token, concept, gender in singular_concepts:
+        if token in tokens:
+            return VisualMeaning(
+                primary=primary_referent("one", {concept}, gender),
+            )
+
+    if "family" in tokens:
+        return VisualMeaning(
+            primary=primary_referent("many", {"family"}),
+        )
+    return None
+
+
+def _semantic_clauses(text: str | None) -> tuple[SemanticClause, ...]:
+    clauses: list[SemanticClause] = []
+    for raw_clause in re.split(r"[.!?]+", str(text or "")):
+        clause = re.sub(r"\s+", " ", raw_clause.strip().lower())
+        if not clause or clause.startswith("who "):
+            continue
+
+        concepts: set[str] = set()
+        negative_concepts: set[str] = set()
+        term_counts: set[str] = set()
+        for term, concept, count in SEMANTIC_CONCEPT_TERMS:
+            if re.search(rf"\b{re.escape(term)}\b", clause):
+                if re.search(
+                    rf"\bnot\s+(?:(?:a|an|the)\s+)?{re.escape(term)}\b",
+                    clause,
+                ):
+                    negative_concepts.add(concept)
+                else:
+                    concepts.add(concept)
+                term_counts.add(count)
+
+        negative_actions = {
+            action
+            for action in SEMANTIC_ACTIONS
+            if re.search(rf"\bnot\s+{re.escape(action)}\b", clause)
+        }
+        positive_actions = {
+            action
+            for action in SEMANTIC_ACTIONS
+            if re.search(rf"\b{re.escape(action)}\b", clause)
+            and action not in negative_actions
+        }
+
+        has_they = bool(re.search(r"\bthey\b", clause))
+        has_he = bool(re.search(r"\bhe\b", clause))
+        has_she = bool(re.search(r"\bshe\b", clause))
+        if has_they or "many" in term_counts or (
+            " and " in clause and len(concepts - {"family"}) >= 2
+        ):
+            count = "many"
+        elif has_he or has_she or "one" in term_counts:
+            count = "one"
+        else:
+            count = None
+
+        if has_he:
+            gender = "male"
+        elif has_she:
+            gender = "female"
+        elif count == "one" and concepts & {"boy", "brother", "father", "grandfather", "man"}:
+            gender = "male"
+        elif count == "one" and concepts & {"girl", "grandmother", "mother", "sister", "woman"}:
+            gender = "female"
+        else:
+            gender = None
+
+        contradictory = False
+        copula_parts = re.split(r"\b(?:is|are)\b", clause, maxsplit=1)
+        if len(copula_parts) == 2:
+            subject_text, predicate_text = copula_parts
+            subject_concepts = {
+                concept
+                for term, concept, _count in SEMANTIC_CONCEPT_TERMS
+                if re.search(rf"\b{re.escape(term)}\b", subject_text)
+            }
+            predicate_concepts = {
+                concept
+                for term, concept, _count in SEMANTIC_CONCEPT_TERMS
+                if re.search(rf"\b{re.escape(term)}\b", predicate_text)
+            }
+            incompatible_category_claims = {
+                "baby": {"adult", "father", "grandfather", "grandmother", "mother", "parent"},
+                "brother": {"adult", "father", "grandfather", "grandmother", "mother", "parent"},
+                "child": {"adult", "father", "grandfather", "grandmother", "mother", "parent"},
+                "sister": {"adult", "father", "grandfather", "grandmother", "mother", "parent"},
+            }
+            contradictory = any(
+                subject_concepts & incompatible_subjects
+                for predicate_concept, incompatible_subjects in incompatible_category_claims.items()
+                if predicate_concept in predicate_concepts
+            )
+
+        if (
+            concepts
+            or negative_concepts
+            or positive_actions
+            or negative_actions
+            or has_they
+            or has_he
+            or has_she
+        ):
+            clauses.append(
+                SemanticClause(
+                    count=count,
+                    gender=gender,
+                    concepts=frozenset(concepts),
+                    negative_concepts=frozenset(negative_concepts),
+                    positive_actions=frozenset(positive_actions),
+                    negative_actions=frozenset(negative_actions),
+                    contradictory=contradictory,
+                )
+            )
+    return tuple(clauses)
+
+
+def _question_scope(text: str | None) -> tuple[str | None, str | None]:
+    normalized = re.sub(r"\s+", " ", str(text or "").strip().lower())
+    if re.search(r"\bwho\s+are\s+they\b", normalized):
+        return "many", None
+    if re.search(r"\bwho\s+is\s+he\b", normalized):
+        return "one", "male"
+    if re.search(r"\bwho\s+is\s+she\b", normalized):
+        return "one", "female"
+    return None, None
+
+
+def _clause_matches_referent(clause: SemanticClause, referent: VisualReferent) -> bool:
+    if clause.contradictory:
+        return False
+    if clause.count and clause.count != referent.count:
+        return False
+    if clause.gender and clause.gender != referent.gender:
+        return False
+    if not clause.concepts.issubset(referent.concepts):
+        return False
+    # Missing metadata is not evidence of a negative identity or relationship.
+    if not clause.negative_concepts.issubset(referent.negative_concepts):
+        return False
+    if not clause.positive_actions.issubset(referent.actions):
+        return False
+    if not clause.negative_actions.issubset(referent.negative_actions):
+        return False
+    return True
+
+
+def _text_matches_visual(
+    text: str | None,
+    meaning: VisualMeaning,
+    *,
+    include_visible_subsets: bool,
+    visible_subsets_must_match_primary_count: bool = False,
+    require_primary_reference: bool = False,
+    question_text: str | None = None,
+) -> bool:
+    clauses = _semantic_clauses(text)
+    if not clauses:
+        return False
+
+    scope_count, scope_gender = _question_scope(question_text)
+    first_clause = clauses[0]
+    if scope_count and first_clause.count != scope_count:
+        return False
+    if scope_gender and first_clause.gender != scope_gender:
+        return False
+
+    referents = (meaning.primary,)
+    # Bare personal pronouns identify the whole pictured person/group. Without
+    # a predicate, ``He`` cannot select one boy inside a ``They`` pair portrait.
+    # Sentence labels and filled completions still retain their scoped meaning.
+    bare_pronoun = re.fullmatch(r"\s*(?:he|she|they)\s*[.!?]?\s*", str(text or ""), re.I)
+    # A positive label can truthfully select a visible subset of a larger scene
+    # (for example, ``Adults`` in a family portrait). A negative assertion is
+    # scoped to the referenced subject, however; letting it select some other
+    # subset would make ``They are not a family`` pass merely because the adults
+    # inside the pictured family are not themselves the whole family.
+    if include_visible_subsets and not bare_pronoun and not any(
+        clause.negative_concepts or clause.negative_actions for clause in clauses
+    ):
+        visible_subsets = meaning.visible_subsets
+        if visible_subsets_must_match_primary_count:
+            visible_subsets = tuple(
+                referent
+                for referent in visible_subsets
+                if referent.count == meaning.primary.count
+            )
+        referents += visible_subsets
+    if not all(
+        any(_clause_matches_referent(clause, referent) for referent in referents)
+        for clause in clauses
+    ):
+        return False
+    return not require_primary_reference or any(
+        _clause_matches_referent(clause, meaning.primary)
+        for clause in clauses
+    )
+
+
+def _is_obviously_well_formed_completion(text: str) -> bool:
+    normalized = re.sub(r"\s+", " ", text.strip().lower())
+    if re.search(r"\bthe\s+(?:he|she|they)\b", normalized):
+        return False
+    if re.search(r"\b(?:he|she)\s+are\b|\bthey\s+is\b", normalized):
+        return False
+    if re.search(
+        rf"(?:^|[.!?]\s*)(?:the\s+)?(?:{SINGULAR_SEMANTIC_NOUNS})\s+are\b",
+        normalized,
+    ):
+        return False
+    if re.search(
+        rf"(?:^|[.!?]\s*)(?:the\s+)?(?:{PLURAL_SEMANTIC_NOUNS})\s+is\b",
+        normalized,
+    ):
+        return False
+    return True
+
+
+def _fill_completion(prompt: str, labels: list[str]) -> str | None:
+    label_iterator = iter(labels)
+    replacements = 0
+
+    def replace_blank(_match: re.Match[str]) -> str:
+        nonlocal replacements
+        try:
+            label = next(label_iterator)
+        except StopIteration:
+            return _match.group(0)
+        replacements += 1
+        return label
+
+    filled = VISUAL_COMPLETION_PLACEHOLDER_PATTERN.sub(replace_blank, prompt)
+    if replacements != len(labels) or VISUAL_COMPLETION_PLACEHOLDER_PATTERN.search(filled):
+        return None
+    return filled
+
+
+def _completion_correct_text(card: object) -> str | None:
+    options = list(getattr(card, "options", []) or [])
+    options_by_id = {option.id: option for option in options}
+    correct_ids = list(getattr(card, "correct_option_ids", []) or [])
+    if not correct_ids:
+        correct_ids = [str(getattr(card, "correct_option_id", ""))]
+    if not correct_ids or any(option_id not in options_by_id for option_id in correct_ids):
+        return None
+    correct_labels = [str(options_by_id[option_id].label or "") for option_id in correct_ids]
+    return _fill_completion(str(getattr(card, "prompt", "") or ""), correct_labels)
+
+
+def _completion_semantic_ambiguities(card: object, meaning: VisualMeaning) -> list[str]:
+    interaction_type = str(getattr(card, "interaction_type", "") or "")
+    if not is_completion_interaction(interaction_type):
+        return []
+
+    options = list(getattr(card, "options", []) or [])
+    options_by_id = {option.id: option for option in options}
+    correct_ids = list(getattr(card, "correct_option_ids", []) or [])
+    if not correct_ids:
+        correct_ids = [str(getattr(card, "correct_option_id", ""))]
+    if not correct_ids or any(option_id not in options_by_id for option_id in correct_ids):
+        return []
+
+    correct_labels = [str(options_by_id[option_id].label or "") for option_id in correct_ids]
+    if _completion_correct_text(card) is None:
+        return []
+
+    ambiguities: list[str] = []
+    used_correct_ids = set(correct_ids)
+    for slot_index in range(len(correct_ids)):
+        # Do not substitute a semantic noun/pronoun into a slot whose authored
+        # answer is only an article, linking word, or punctuation. Such a tile is
+        # a distractor for another blank, and cross-slot substitutions such as
+        # ``He is She man`` are syntactic noise rather than semantic ambiguity.
+        if not _semantic_clauses(correct_labels[slot_index]):
+            continue
+        for option in options:
+            if option.id in used_correct_ids:
+                continue
+            # Function-word and punctuation alternatives are grammar exercises,
+            # not independent visual claims. Only semantic choices enter this gate.
+            if not _semantic_clauses(option.label):
+                continue
+            alternative_labels = list(correct_labels)
+            alternative_labels[slot_index] = str(option.label or "")
+            filled = _fill_completion(
+                str(getattr(card, "prompt", "") or ""),
+                alternative_labels,
+            )
+            if not filled or not _is_obviously_well_formed_completion(filled):
+                continue
+            if _text_matches_visual(
+                filled,
+                meaning,
+                include_visible_subsets=True,
+                question_text=filled,
+            ):
+                ambiguities.append(f"{option.id} ({option.label!r} -> {filled!r})")
+    return ambiguities
 
 
 def referenced_lesson_asset(media_url: str) -> Path | None:
@@ -232,43 +865,121 @@ def validate_text_tile_option_limit() -> list[str]:
 
 
 def validate_family_adult_ambiguity(lessons=None) -> list[str]:
+    """Require supported correct meanings and reject truth-compatible distractors.
+
+    The historical name remains public because release checks and tests import it,
+    but the validation now covers the broader Unit 1 semantic failure class:
+    categories, incomplete-but-true labels, generation-role overlap, polarity,
+    and semantic alternatives in image-backed completion cards.
+    """
+
     errors: list[str] = []
     lesson_catalog = LESSONS if lessons is None else lessons
     for lesson in lesson_catalog.values():
         for card_index, card in enumerate(lesson.cards, 1):
-            if not card.options or not all((option.image_url or "").strip() for option in card.options):
+            options = list(getattr(card, "options", []) or [])
+            if not options:
                 continue
 
-            target_text = re.sub(
-                r"\s+",
-                " ",
-                (card.audio_text or card.answer_audio_text or card.prompt or "").strip().lower(),
-            ).rstrip(".")
-            rule = FAMILY_ADULT_AMBIGUITY_RULES.get(target_text)
-            if not rule:
-                continue
+            correct_ids = set(getattr(card, "correct_option_ids", []) or [])
+            if not correct_ids:
+                correct_ids = {str(getattr(card, "correct_option_id", ""))}
+            prompt_image_url = str(getattr(card, "prompt_image_url", "") or "")
+            image_options = [option for option in options if str(option.image_url or "").strip()]
+            text_options = [option for option in options if not str(option.image_url or "").strip()]
+            interaction_type = str(getattr(card, "interaction_type", "") or "")
+            is_completion = is_completion_interaction(interaction_type)
 
             ambiguous_distractors: list[str] = []
-            for option in card.options:
-                if option.id == card.correct_option_id:
+            unsupported_correct_answers: list[str] = []
+            if prompt_image_url and len(text_options) == len(options):
+                meaning = _visual_meaning(prompt_image_url)
+                if meaning is None:
                     continue
-                label = (option.label or "").strip().lower()
-                asset_name = (option.image_url or "").split("?", 1)[0].rsplit("/", 1)[-1]
-                matching_terms = sorted(
-                    term
-                    for term in rule["label_terms"]
-                    if re.search(rf"\b{re.escape(term)}\b", label)
+                if is_completion:
+                    correct_text = _completion_correct_text(card)
+                    if (
+                        correct_text
+                        and _semantic_clauses(correct_text)
+                        and not _text_matches_visual(
+                            correct_text,
+                            meaning,
+                            include_visible_subsets=True,
+                            require_primary_reference=True,
+                            question_text=correct_text,
+                        )
+                    ):
+                        unsupported_correct_answers.append(
+                            f"{sorted(correct_ids)!r} ({correct_text!r}, "
+                            f"{_asset_name(prompt_image_url)!r})"
+                        )
+                    ambiguous_distractors.extend(_completion_semantic_ambiguities(card, meaning))
+                else:
+                    question_text = str(getattr(card, "prompt", "") or "")
+                    for option in text_options:
+                        if not _semantic_clauses(option.label):
+                            continue
+                        option_matches = _text_matches_visual(
+                            option.label,
+                            meaning,
+                            include_visible_subsets=True,
+                            require_primary_reference=option.id in correct_ids,
+                            question_text=question_text,
+                        )
+                        if option.id in correct_ids and not option_matches:
+                            unsupported_correct_answers.append(
+                                f"{option.id} ({option.label!r}, "
+                                f"{_asset_name(prompt_image_url)!r})"
+                            )
+                        elif option.id not in correct_ids and option_matches:
+                            ambiguous_distractors.append(
+                                f"{option.id} ({option.label!r}, {_asset_name(prompt_image_url)!r})"
+                            )
+            elif len(image_options) == len(options):
+                target_text = (
+                    getattr(card, "audio_text", None)
+                    or getattr(card, "answer_audio_text", None)
+                    or getattr(card, "prompt", None)
+                    or ""
                 )
-                if matching_terms or asset_name in rule["asset_names"]:
-                    ambiguous_distractors.append(
-                        f"{option.id} ({option.label!r}, {asset_name!r})"
+                if not _semantic_clauses(target_text):
+                    continue
+                question_text = str(target_text)
+                for option in image_options:
+                    meaning = _visual_meaning(option.image_url)
+                    if meaning is None:
+                        continue
+                    option_matches = _text_matches_visual(
+                        target_text,
+                        meaning,
+                        include_visible_subsets=True,
+                        visible_subsets_must_match_primary_count=True,
+                        require_primary_reference=option.id in correct_ids,
+                        question_text=question_text,
                     )
+                    if option.id in correct_ids and not option_matches:
+                        unsupported_correct_answers.append(
+                            f"{option.id} ({option.label!r}, {_asset_name(option.image_url)!r})"
+                        )
+                    elif option.id not in correct_ids and option_matches:
+                        ambiguous_distractors.append(
+                            f"{option.id} ({option.label!r}, {_asset_name(option.image_url)!r})"
+                        )
 
+            # Text/audio-to-text cards intentionally do not use truth entailment:
+            # hearing a specific role and choosing its exact phrase is different
+            # from describing a visible person with any true broader category.
+            if unsupported_correct_answers:
+                errors.append(
+                    f"{lesson.id} card {card_index} ({getattr(card, 'prompt', '')!r}) has declared "
+                    "correct answers that are not supported by the known visual semantics: "
+                    f"{unsupported_correct_answers}."
+                )
             if ambiguous_distractors:
                 errors.append(
-                    f"{lesson.id} card {card_index} ({card.prompt!r}) has family/adult "
-                    "distractors that can still satisfy the target under an ordinary "
-                    f"interpretation: {ambiguous_distractors}."
+                    f"{lesson.id} card {card_index} ({getattr(card, 'prompt', '')!r}) has semantic "
+                    "distractors that can still satisfy the same visible or spoken evidence under "
+                    f"an ordinary interpretation: {ambiguous_distractors}."
                 )
     return errors
 

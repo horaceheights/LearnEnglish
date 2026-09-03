@@ -24,7 +24,7 @@ from backend.app.persistent_audio_assets import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIEW_AUDIO_COMMIT = "4028621ced3371017270f1032b7505934d5ce5c4"
+PREVIEW_AUDIO_COMMIT = "d70aa28fb3a1d1b142039aadb9f9387048f2d492"
 
 
 class PersistentAudioCompatibilityTests(unittest.TestCase):

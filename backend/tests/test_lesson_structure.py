@@ -49,7 +49,7 @@ EXPECTED_VOCABULARY = {
     },
     "lesson-5-parents-grandparents": {
         "an", "adult", "adults", "father", "mother", "parents",
-        "grandfather", "grandmother", "grandparents",
+        "grandfather", "grandmother", "grandparents", "grandchildren",
     },
     "lesson-6-family-actions": {"playing", "studying", "working", "cooking", "talking"},
     "lesson-7-is-are-not": {"not"},
@@ -89,6 +89,38 @@ def lesson_payload(lesson):
 
 
 class LessonStructureTests(unittest.TestCase):
+    @staticmethod
+    def _semantic_option(option_id, label, image_url=""):
+        return SimpleNamespace(id=option_id, label=label, image_url=image_url)
+
+    @staticmethod
+    def _semantic_card(
+        *,
+        prompt,
+        options,
+        correct_option_id,
+        prompt_image_url="",
+        audio_text=None,
+        answer_audio_text=None,
+        interaction_type="choice",
+        correct_option_ids=None,
+    ):
+        return SimpleNamespace(
+            prompt=prompt,
+            options=options,
+            correct_option_id=correct_option_id,
+            correct_option_ids=correct_option_ids or [],
+            prompt_image_url=prompt_image_url,
+            audio_text=audio_text,
+            answer_audio_text=answer_audio_text,
+            interaction_type=interaction_type,
+        )
+
+    @staticmethod
+    def _semantic_findings(card):
+        lesson = SimpleNamespace(id="synthetic-semantic-card", cards=[card])
+        return validate_family_adult_ambiguity({lesson.id: lesson})
+
     def test_unit_1_follows_the_approved_ten_lesson_roadmap(self):
         unit_1 = [lesson for lesson in LESSONS.values() if lesson.unit_id == "unit-1"]
         self.assertEqual(UNIT_1_IDS, [lesson.id for lesson in unit_1])
@@ -514,100 +546,575 @@ class LessonStructureTests(unittest.TestCase):
                     for card in cards
                 ))
 
-    def test_family_image_choices_do_not_use_overlapping_categories(self):
-        forbidden_distractors = {
-            "An adult": {
-                "adult", "adults", "father", "mother", "grandfather", "grandmother",
-                "man", "woman",
-            },
-            "Adults": {"parents", "grandparents", "family"},
-            "Children": {"babies", "brothers", "sisters", "family"},
-            "They are children.": {"babies", "brothers", "sisters", "family"},
-            "They are brothers.": {"children", "family"},
-            "They are sisters.": {"children", "family"},
-            "They are the brothers.": {"babies", "children", "family"},
-            "They are the sisters.": {"babies", "children", "family"},
-            "Who are they? They are the brothers.": {"babies", "children", "family"},
-            "Who are they? They are the sisters.": {"babies", "children", "family"},
-            "They are the parents.": {"adults", "family"},
-            "Who are they? They are the parents.": {"adults", "family"},
-            "They are the grandparents.": {"adults", "family"},
-            "Who are they? They are the grandparents.": {"adults", "family"},
-            "They are a family.": {
-                "babies", "brothers", "sisters", "children", "parents", "grandparents",
-            },
-        }
-        forbidden_assets = {
-            "An adult": {
-                "family_adults.webp", "family_father.webp", "family_mother.webp",
-                "family_grandfather.webp", "family_grandmother.webp",
-            },
-            "Adults": {
-                "family_parents.webp", "family_grandparents.webp", "family_all_members.webp",
-            },
-            "They are the parents.": {
-                "family_adults.webp", "family_grandparents.webp", "family_all_members.webp",
-            },
-            "Who are they? They are the parents.": {
-                "family_adults.webp", "family_grandparents.webp", "family_all_members.webp",
-            },
-        }
-        for lesson in LESSONS.values():
-            for index, card in enumerate(lesson.cards, 1):
-                spoken_text = card.audio_text or card.answer_audio_text or card.prompt
-                forbidden = forbidden_distractors.get(spoken_text)
-                if not forbidden or not all(option.image_url for option in card.options):
-                    continue
-                distractor_labels = {
-                    (option.label or "").lower() for option in card.options
-                    if option.id != card.correct_option_id
-                }
-                overlapping_labels = {
-                    label
-                    for label in distractor_labels
-                    if any(re.search(rf"\b{re.escape(term)}\b", label) for term in forbidden)
-                }
-                overlapping_assets = {
-                    urlparse(option.image_url).path.rsplit("/", 1)[-1]
-                    for option in card.options
-                    if (
-                        option.id != card.correct_option_id
-                        and urlparse(option.image_url).path.rsplit("/", 1)[-1]
-                        in forbidden_assets.get(spoken_text, set())
-                    )
-                }
-                with self.subTest(lesson=lesson.id, card=index, spoken_text=spoken_text):
-                    self.assertFalse(
-                        overlapping_labels or overlapping_assets,
-                        "generic option IDs cannot hide overlapping family concepts: "
-                        f"labels={sorted(overlapping_labels)}, assets={sorted(overlapping_assets)}",
-                    )
+    def test_unit_one_semantic_choices_have_one_valid_answer(self):
+        findings = validate_family_adult_ambiguity(LESSONS)
 
-    def test_family_image_guardrail_rejects_plural_adults_for_an_adult(self):
-        card = SimpleNamespace(
-            audio_text="An adult",
-            answer_audio_text=None,
-            prompt="Listen and choose.",
+        self.assertEqual([], findings, "\n".join(findings))
+
+    def test_lesson_1_5_grandchildren_scene_has_known_correct_semantics(self):
+        lesson = LESSONS["lesson-5-parents-grandparents"]
+        cards = [
+            card
+            for card in lesson.cards
+            if card.slide_id in {"L10", "R10"}
+        ]
+        self.assertEqual(2, len(cards))
+        for card in cards:
+            self.assertEqual(
+                "The grandparents and the grandchildren are family.",
+                card.audio_text or card.prompt,
+            )
+            correct_option = next(
+                option for option in card.options if option.id == card.correct_option_id
+            )
+            self.assertEqual(
+                "/lesson-assets/family_grandparents_grandchildren.webp",
+                correct_option.image_url,
+            )
+        scoped_lesson = SimpleNamespace(id=lesson.id, cards=cards)
+
+        self.assertEqual(
+            [],
+            validate_family_adult_ambiguity({lesson.id: scoped_lesson}),
+        )
+
+        recognize_card = next(card for card in cards if card.slide_id == "R10")
+        unsupported_card = self._semantic_card(
+            prompt=recognize_card.prompt,
+            audio_text=recognize_card.audio_text,
+            interaction_type=recognize_card.interaction_type,
             correct_option_id="correct",
             options=[
-                SimpleNamespace(
-                    id="correct",
-                    label="An adult",
-                    image_url="/lesson-assets/family_father.webp",
+                self._semantic_option(
+                    "correct",
+                    recognize_card.options[0].label,
+                    "/lesson-assets/family_grandparents.webp",
                 ),
-                SimpleNamespace(
-                    id="wrong-1",
-                    label="Adults",
-                    image_url="/lesson-assets/family_adults.webp",
+                self._semantic_option(
+                    "wrong-1",
+                    "He is the father.",
+                    "/lesson-assets/family_father.webp",
                 ),
             ],
         )
-        lesson = SimpleNamespace(id="synthetic-adult-overlap", cards=[card])
 
-        findings = validate_family_adult_ambiguity({lesson.id: lesson})
+        findings = self._semantic_findings(unsupported_card)
+        self.assertEqual(1, len(findings))
+        self.assertIn("declared correct answers", findings[0])
+        self.assertIn("family_grandparents.webp", findings[0])
+
+    def test_semantic_guardrail_checks_declared_correct_answer_in_each_visual_mode(self):
+        cases = (
+            self._semantic_card(
+                prompt="Choose the correct sentence.",
+                prompt_image_url="/lesson-assets/family_grandfather.webp",
+                correct_option_id="declared-correct",
+                options=[
+                    self._semantic_option("declared-correct", "She is the mother."),
+                ],
+            ),
+            self._semantic_card(
+                prompt="Choose the correct sentence.",
+                prompt_image_url="/lesson-assets/family_parents.webp",
+                correct_option_id="declared-correct",
+                options=[
+                    self._semantic_option("declared-correct", "An adult"),
+                ],
+            ),
+            self._semantic_card(
+                prompt="He is the grandfather.",
+                correct_option_id="declared-correct",
+                options=[
+                    self._semantic_option(
+                        "declared-correct",
+                        "She is the mother.",
+                        "/lesson-assets/family_mother.webp",
+                    ),
+                ],
+            ),
+            self._semantic_card(
+                interaction_type="complete2",
+                prompt="He is the ___.",
+                prompt_image_url="/lesson-assets/family_grandfather.webp",
+                correct_option_id="declared-correct",
+                options=[
+                    self._semantic_option("declared-correct", "mother"),
+                ],
+            ),
+            self._semantic_card(
+                interaction_type="complete4",
+                prompt="___ is the ___.",
+                prompt_image_url="/lesson-assets/family_grandfather.webp",
+                correct_option_id="she",
+                correct_option_ids=["she", "grandfather"],
+                options=[
+                    self._semantic_option("she", "She"),
+                    self._semantic_option("grandfather", "grandfather"),
+                ],
+            ),
+        )
+        for card in cases:
+            with self.subTest(interaction_type=card.interaction_type):
+                findings = self._semantic_findings(card)
+                self.assertEqual(1, len(findings))
+                self.assertIn("declared correct answers", findings[0])
+
+    def test_semantic_guardrail_understands_grandchildren_scene_subsets(self):
+        card = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/family_grandparents_grandchildren.webp",
+            correct_option_id="whole-scene",
+            options=[
+                self._semantic_option(
+                    "whole-scene",
+                    "The grandparents and the grandchildren are family.",
+                ),
+                self._semantic_option("family-subset", "They are a family."),
+                self._semantic_option("grandparents-subset", "They are the grandparents."),
+                self._semantic_option("children-subset", "Children"),
+            ],
+        )
+
+        findings = self._semantic_findings(card)
 
         self.assertEqual(1, len(findings))
-        self.assertIn("family_adults.webp", findings[0])
+        for option_id in ("family-subset", "grandparents-subset", "children-subset"):
+            self.assertIn(option_id, findings[0])
+
+    def test_semantic_guardrail_distinguishes_parallel_family_generation_scenes(self):
+        scenes = (
+            (
+                "The grandparents and the grandchildren are family.",
+                "family_grandparents_grandchildren.webp",
+            ),
+            (
+                "The parents and the children are a family.",
+                "family_parents_children.webp",
+            ),
+        )
+        for correct_index in range(len(scenes)):
+            correct_text, correct_asset = scenes[correct_index]
+            wrong_text, wrong_asset = scenes[1 - correct_index]
+            with self.subTest(correct_asset=correct_asset):
+                card = self._semantic_card(
+                    prompt=correct_text,
+                    correct_option_id="correct",
+                    options=[
+                        self._semantic_option(
+                            "correct",
+                            correct_text,
+                            f"/lesson-assets/{correct_asset}",
+                        ),
+                        self._semantic_option(
+                            "other-generation",
+                            wrong_text,
+                            f"/lesson-assets/{wrong_asset}",
+                        ),
+                    ],
+                )
+
+                self.assertEqual([], self._semantic_findings(card))
+
+    def test_semantic_guardrail_preserves_heterogeneous_group_cardinality(self):
+        child_target = self._semantic_card(
+            prompt="They are children.",
+            correct_option_id="children",
+            options=[
+                self._semantic_option(
+                    "children",
+                    "They are children.",
+                    "/lesson-assets/they_boy_girl_are_eating.webp",
+                ),
+                self._semantic_option(
+                    "mixed-ages",
+                    "The boy and the man are eating.",
+                    "/lesson-assets/they_boy_man_are_eating.webp",
+                ),
+            ],
+        )
+        mixed_target = self._semantic_card(
+            prompt="The boy and the man are eating.",
+            correct_option_id="mixed-ages",
+            options=[
+                self._semantic_option(
+                    "mixed-ages",
+                    "The boy and the man are eating.",
+                    "/lesson-assets/they_boy_man_are_eating.webp",
+                ),
+                self._semantic_option(
+                    "two-children",
+                    "The boy and the girl are eating.",
+                    "/lesson-assets/they_boy_girl_are_eating.webp",
+                ),
+            ],
+        )
+
+        self.assertEqual([], self._semantic_findings(child_target))
+        self.assertEqual([], self._semantic_findings(mixed_target))
+
+    def test_lesson_1_3_bare_pronoun_card_identifies_the_whole_pair(self):
+        lesson = LESSONS["lesson-3-two-people"]
+        card = next(card for card in lesson.cards if card.slide_id == "R2")
+        self.assertEqual("/lesson-assets/they_boy_girl.webp", card.prompt_image_url)
+        self.assertEqual(["They", "He", "She"], [option.label for option in card.options])
+        self.assertEqual("They", next(
+            option.label for option in card.options if option.id == card.correct_option_id
+        ))
+
+        self.assertEqual([], self._semantic_findings(card))
+
+    def test_semantic_guardrail_scopes_only_bare_pronouns_to_the_whole_scene(self):
+        for image, correct_pronoun in (
+            ("they_boy_girl.webp", "They"),
+            ("family_father.webp", "He"),
+            ("family_mother.webp", "She"),
+        ):
+            with self.subTest(image=image):
+                card = self._semantic_card(
+                    prompt="Choose the correct word.",
+                    prompt_image_url=f"/lesson-assets/{image}",
+                    correct_option_id=correct_pronoun,
+                    options=[
+                        self._semantic_option(pronoun, f" {pronoun}. ")
+                        for pronoun in ("They", "He", "She")
+                    ],
+                )
+                self.assertEqual([], self._semantic_findings(card))
+
+        card.correct_option_id = "They"
+        findings = self._semantic_findings(card)
+        self.assertTrue(any("declared correct answers" in finding for finding in findings))
+
+        scoped_sentence = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/family_grandparents.webp",
+            correct_option_id="whole-scene",
+            options=[
+                self._semantic_option("whole-scene", "They are the grandparents."),
+                self._semantic_option("still-true-subset", "She is the grandmother."),
+            ],
+        )
+        findings = self._semantic_findings(scoped_sentence)
+        self.assertEqual(1, len(findings))
+        self.assertIn("still-true-subset", findings[0])
+
+        scoped_completion = self._semantic_card(
+            interaction_type="complete2",
+            prompt="She is the ___. They are the grandparents.",
+            prompt_image_url="/lesson-assets/family_grandparents.webp",
+            correct_option_id="role-answer",
+            options=[
+                self._semantic_option("role-answer", "grandmother"),
+                self._semantic_option("overlapping-role", "mother"),
+                self._semantic_option("exclusive-role", "boy"),
+            ],
+        )
+        findings = self._semantic_findings(scoped_completion)
+        self.assertEqual(1, len(findings))
+        self.assertIn("overlapping-role", findings[0])
+        self.assertNotIn("declared correct answers", findings[0])
+
+    def test_semantic_guardrail_requires_explicit_negative_visual_fact(self):
+        card = self._semantic_card(
+            prompt="They are not sitting.",
+            correct_option_id="running",
+            options=[
+                self._semantic_option(
+                    "running",
+                    "They are running.",
+                    "/lesson-assets/they_boy_girl_are_running.webp",
+                ),
+                self._semantic_option(
+                    "sitting-and-talking",
+                    "They are sitting and talking.",
+                    "/lesson-assets/family_grandparents_talking.webp",
+                ),
+            ],
+        )
+
+        self.assertEqual([], self._semantic_findings(card))
+
+    def test_semantic_guardrail_keeps_unknown_a1_scenes_conservative(self):
+        card = self._semantic_card(
+            prompt="He is the father.",
+            correct_option_id="unknown-scene",
+            options=[
+                self._semantic_option(
+                    "unknown-scene",
+                    "He is the father.",
+                    "/lesson-assets/a1_scene_unknown-family-role.webp",
+                ),
+            ],
+        )
+
+        self.assertEqual([], self._semantic_findings(card))
+
+    def test_semantic_guardrail_uses_visual_meaning_not_option_ids(self):
+        card = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/family_grandfather.webp",
+            correct_option_id="opaque-right",
+            options=[
+                self._semantic_option("opaque-right", "He is the grandfather."),
+                self._semantic_option("opaque-singular", "An adult"),
+                self._semantic_option("opaque-plural", "Adults"),
+            ],
+        )
+
+        findings = self._semantic_findings(card)
+
+        self.assertEqual(1, len(findings))
+        self.assertIn("opaque-singular", findings[0])
+        self.assertNotIn("opaque-plural", findings[0])
+
+    def test_semantic_guardrail_rejects_true_shorter_picture_label(self):
+        card = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/boy_is_eating.webp",
+            correct_option_id="full-sentence",
+            options=[
+                self._semantic_option("full-sentence", "The boy is eating."),
+                self._semantic_option("shorter-label", "The boy."),
+                self._semantic_option("exclusive-label", "The girl."),
+            ],
+        )
+
+        findings = self._semantic_findings(card)
+
+        self.assertEqual(1, len(findings))
+        self.assertIn("shorter-label", findings[0])
+        self.assertNotIn("exclusive-label", findings[0])
+
+    def test_semantic_guardrail_rejects_true_family_subsets(self):
+        card = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/family_all_members.webp",
+            correct_option_id="whole-scene",
+            options=[
+                self._semantic_option("whole-scene", "They are a family."),
+                self._semantic_option("visible-adults", "Adults"),
+                self._semantic_option("visible-parents", "They are the parents."),
+                self._semantic_option("wrong-category", "They are babies."),
+            ],
+        )
+
+        findings = self._semantic_findings(card)
+
+        self.assertEqual(1, len(findings))
+        self.assertIn("visible-adults", findings[0])
+        self.assertIn("visible-parents", findings[0])
+        self.assertNotIn("wrong-category", findings[0])
+
+    def test_semantic_guardrail_rejects_related_groups_for_a_generic_family_target(self):
+        related_group_assets = (
+            "family_parents.webp",
+            "family_grandparents.webp",
+            "family_adults.webp",
+            "family_children.webp",
+            "family_brothers.webp",
+            "family_sisters.webp",
+            "family_babies.webp",
+        )
+        for asset_name in related_group_assets:
+            with self.subTest(asset_name=asset_name):
+                card = self._semantic_card(
+                    prompt="They are a family.",
+                    correct_option_id="whole-family",
+                    options=[
+                        self._semantic_option(
+                            "whole-family",
+                            "They are a family.",
+                            "/lesson-assets/family_all_members.webp",
+                        ),
+                        self._semantic_option(
+                            "also-family",
+                            "A related group",
+                            f"/lesson-assets/{asset_name}",
+                        ),
+                    ],
+                )
+
+                findings = self._semantic_findings(card)
+                self.assertEqual(1, len(findings))
+                self.assertIn("also-family", findings[0])
+
+    def test_semantic_guardrail_does_not_infer_negative_family_identity_from_absence(self):
+        unknown_relation = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/they_boy_man_are_eating.webp",
+            correct_option_id="known-action",
+            options=[
+                self._semantic_option("known-action", "The boy and the man are eating."),
+                self._semantic_option("unproved-negative", "They are not a family."),
+            ],
+        )
+        false_correct = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/family_parents.webp",
+            correct_option_id="false-negative",
+            options=[
+                self._semantic_option("false-negative", "They are not a family."),
+            ],
+        )
+
+        self.assertEqual([], self._semantic_findings(unknown_relation))
+        findings = self._semantic_findings(false_correct)
+        self.assertEqual(1, len(findings))
+        self.assertIn("declared correct answers", findings[0])
+
+    def test_semantic_guardrail_rejects_overlapping_generation_roles(self):
+        cases = (
+            ("family_father.webp", "He is the father.", "He is the grandfather."),
+            ("family_grandfather.webp", "He is the grandfather.", "He is the father."),
+            ("family_mother.webp", "She is the mother.", "She is the grandmother."),
+            ("family_grandmother.webp", "She is the grandmother.", "She is the mother."),
+            ("family_parents.webp", "They are the parents.", "They are the grandparents."),
+            ("family_grandparents.webp", "They are the grandparents.", "They are the parents."),
+        )
+        for asset_name, correct_label, overlapping_label in cases:
+            with self.subTest(asset_name=asset_name, overlapping_label=overlapping_label):
+                card = self._semantic_card(
+                    prompt="Choose the correct sentence.",
+                    prompt_image_url=f"/lesson-assets/{asset_name}",
+                    correct_option_id="role-answer",
+                    options=[
+                        self._semantic_option("role-answer", correct_label),
+                        self._semantic_option("overlapping-role", overlapping_label),
+                    ],
+                )
+
+                findings = self._semantic_findings(card)
+
+                self.assertEqual(1, len(findings))
+                self.assertIn("overlapping-role", findings[0])
+
+    def test_semantic_guardrail_is_cardinality_aware_for_image_options(self):
+        singular_target = self._semantic_card(
+            prompt="Listen and choose.",
+            audio_text="An adult",
+            correct_option_id="adult-answer",
+            options=[
+                self._semantic_option(
+                    "adult-answer",
+                    "An adult",
+                    "/lesson-assets/family_father.webp",
+                ),
+                self._semantic_option(
+                    "another-adult",
+                    "A grandfather",
+                    "/lesson-assets/family_grandfather.webp",
+                ),
+                self._semantic_option(
+                    "plural-adults",
+                    "Adults",
+                    "/lesson-assets/family_adults.webp",
+                ),
+            ],
+        )
+        plural_target = self._semantic_card(
+            prompt="Adults",
+            correct_option_id="adults-answer",
+            options=[
+                self._semantic_option(
+                    "adults-answer",
+                    "Adults",
+                    "/lesson-assets/family_adults.webp",
+                ),
+                self._semantic_option(
+                    "parents-subset",
+                    "The parents",
+                    "/lesson-assets/family_parents.webp",
+                ),
+                self._semantic_option(
+                    "family-subset",
+                    "A family",
+                    "/lesson-assets/family_all_members.webp",
+                ),
+            ],
+        )
+
+        findings = self._semantic_findings(singular_target)
+
+        self.assertEqual(1, len(findings))
+        self.assertIn("another-adult", findings[0])
+        self.assertNotIn("plural-adults", findings[0])
+        findings = self._semantic_findings(plural_target)
+        self.assertEqual(1, len(findings))
+        self.assertIn("parents-subset", findings[0])
+        self.assertIn("family-subset", findings[0])
+
+    def test_semantic_guardrail_does_not_apply_image_entailment_to_audio_to_text(self):
+        card = self._semantic_card(
+            prompt="Listen and choose.",
+            audio_text="He is the grandfather.",
+            correct_option_id="exact-phrase",
+            options=[
+                self._semantic_option("exact-phrase", "He is the grandfather."),
+                self._semantic_option("broader-phrase", "An adult"),
+            ],
+        )
+
+        self.assertEqual([], self._semantic_findings(card))
+
+    def test_semantic_guardrail_handles_negative_polarity(self):
+        exact_contrast = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/family_father_talking.webp",
+            correct_option_id="positive",
+            options=[
+                self._semantic_option("positive", "He is talking."),
+                self._semantic_option("exact-negative", "He is not talking."),
+            ],
+        )
+        incomplete_negative_contrast = self._semantic_card(
+            prompt="Choose the correct sentence.",
+            prompt_image_url="/lesson-assets/family_father_talking.webp",
+            correct_option_id="negative",
+            options=[
+                self._semantic_option("negative", "He is not cooking."),
+                self._semantic_option("still-true", "He is talking."),
+                self._semantic_option("false-action", "He is cooking."),
+            ],
+        )
+
+        self.assertEqual([], self._semantic_findings(exact_contrast))
+        findings = self._semantic_findings(incomplete_negative_contrast)
+        self.assertEqual(1, len(findings))
+        self.assertIn("still-true", findings[0])
+        self.assertNotIn("false-action", findings[0])
+
+    def test_semantic_guardrail_checks_image_backed_completion(self):
+        safe_card = self._semantic_card(
+            interaction_type="complete2",
+            prompt="He is the ___.",
+            prompt_image_url="/lesson-assets/family_grandfather.webp",
+            correct_option_id="role-answer",
+            options=[
+                self._semantic_option("role-answer", "grandfather"),
+                self._semantic_option("exclusive-role", "mother"),
+                self._semantic_option("wrong-number", "parents"),
+            ],
+        )
+
+        for interaction_type in ("complete2", "mission-sentence"):
+            with self.subTest(interaction_type=interaction_type):
+                ambiguous_card = self._semantic_card(
+                    interaction_type=interaction_type,
+                    prompt="He is the ___.",
+                    prompt_image_url="/lesson-assets/family_grandfather.webp",
+                    correct_option_id="role-answer",
+                    options=[
+                        self._semantic_option("role-answer", "grandfather"),
+                        self._semantic_option("overlapping-role", "father"),
+                        self._semantic_option("wrong-number", "parents"),
+                    ],
+                )
+
+                findings = self._semantic_findings(ambiguous_card)
+                self.assertEqual(1, len(findings))
+                self.assertIn("overlapping-role", findings[0])
+                self.assertNotIn("wrong-number", findings[0])
+        self.assertEqual([], self._semantic_findings(safe_card))
 
     def test_negative_listening_uses_an_exact_binary_contrast(self):
         for lesson in LESSONS.values():
