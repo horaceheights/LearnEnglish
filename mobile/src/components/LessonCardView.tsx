@@ -680,16 +680,10 @@ export function LessonCardView({
                         {option.label}
                       </Text>
                       <View
+                        pointerEvents="none"
                         style={[
-                          styles.optionUnderline,
-                          useDensePortraitTextLayout ? styles.optionUnderlineDensePortrait : null,
-                          {
-                            backgroundColor: revealCorrect
-                              ? '#3c996c'
-                              : revealWrong
-                                ? '#c95e55'
-                                : textTheme.accent,
-                          },
+                          styles.optionLabelBottomSpace,
+                          useDensePortraitTextLayout ? styles.optionLabelBottomSpaceDensePortrait : null,
                         ]}
                       />
                     </>
@@ -1319,8 +1313,8 @@ const styles = StyleSheet.create({
     top: -25,
     width: 72,
   },
-  optionUnderline: { borderRadius: 4, height: 5, marginTop: 7, opacity: 0.75, width: 42 },
-  optionUnderlineDensePortrait: { height: 4, marginTop: 5, width: 36 },
+  optionLabelBottomSpace: { height: 5, marginTop: 7, width: 42 },
+  optionLabelBottomSpaceDensePortrait: { height: 4, marginTop: 5, width: 36 },
   optionLabel: {
     color: '#26372f',
     fontSize: 14,
