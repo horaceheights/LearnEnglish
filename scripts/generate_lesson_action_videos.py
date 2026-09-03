@@ -6,8 +6,10 @@ import time
 from pathlib import Path
 
 import imageio_ffmpeg
+from PIL import Image
 from google import genai
 from google.genai import types
+from a1_media_runtime_contracts import OPTION_MEDIA_VARIANTS
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,9 +18,6 @@ ASSETS = ROOT / "frontend" / "public" / "lesson-assets"
 FAMILY_IMAGES = ROOT / "Lessons" / "Lesson1" / "images"
 RAW_DIR = ROOT / "tmp" / "lesson-action-videos"
 MOBILE_VIDEOS = ROOT / "mobile" / "assets" / "lesson-videos"
-SAFE_FOREGROUND_WIDTH = 602
-SAFE_FOREGROUND_HEIGHT = 338
-SOLID_SIDE_FILL_COLOR = "0xf2ebde"
 
 
 SCENES = {
@@ -46,7 +45,7 @@ SCENES = {
     "sister-reading": ("girl_is_reading", "girl-reading-scene-v2.mp4", "unmistakably reads the existing open book; her eyes track the lines and one hand gently begins turning a page"),
 }
 
-BUNDLED_SOLID_SIDE_FILL_SCENES = {
+BUNDLED_SCENES = {
     "brother-studying",
     "children-playing",
     "father-working",
@@ -55,10 +54,7 @@ BUNDLED_SOLID_SIDE_FILL_SCENES = {
     "parents-talking",
 }
 
-# Reviewed exception for the parents-talking pilot: the source animation is a
-# square scene inside a 16:9 export. A top-anchored 4:3 teaching-action crop
-# compensates for player overscan while keeping faces and gestures visible.
-ACTION_SAFE_FOUR_THREE_CROP_SCENES = {"parents-talking"}
+# Existing filenames remain mapped until replacement clips pass frame review.
 TWO_CARD_ACTION_VARIANTS = {
     "brother-studying": "brother-studying-two-card-v1.mp4",
     "children-playing": "children-playing-two-card-v1.mp4",
@@ -79,11 +75,17 @@ def api_key() -> str:
 
 
 def source_path(stem: str) -> Path:
+    # Animate the same full-bleed landscape master displayed by the clients.
+    # Square legacy PNGs caused padding to be baked into the old clips.
+    filename = OPTION_MEDIA_VARIANTS.get(f"{stem}.webp", f"{stem}.webp")
     for directory in (ASSETS, FAMILY_IMAGES):
-        for extension in (".png", ".webp", ".jpg", ".jpeg"):
-            candidate = directory / f"{stem}{extension}"
-            if candidate.exists():
-                return candidate
+        candidate = directory / filename
+        if candidate.exists():
+            with Image.open(candidate) as image:
+                width, height = image.size
+            if width * 2 != height * 3:
+                raise ValueError(f"Video source must be a full-bleed 3:2 master: {filename}")
+            return candidate
     raise FileNotFoundError(f"No lesson image found for {stem}")
 
 
@@ -103,6 +105,9 @@ def generate(client: genai.Client, scene_id: str) -> Path:
         "Preserve every person's exact identity, age, face, clothing, hands, existing objects, setting, lighting, "
         "colors, composition, and framing. Keep the camera completely locked and all heads and important body "
         "parts visible. No zoom, pan, cuts, scene changes, new objects, extra people, text, flicker, morphing, "
+        "Extend the real surrounding scene naturally to every edge of the landscape video. "
+        "No borders, letterboxing, pillarboxing, solid padding, or blurred background panels. "
+        "Keep all heads, hands, feet, and action-defining objects inside the central 3:2 safe area. "
         "warped hands, duplicated objects, or exaggerated motion. The action must be immediately identifiable "
         "to an A1 English learner without seeing text."
     )
@@ -140,7 +145,7 @@ def generate(client: genai.Client, scene_id: str) -> Path:
 def optimize(scene_id: str, raw_path: Path) -> Path:
     output_path = ASSETS / SCENES[scene_id][1]
     encode_normalized(scene_id, raw_path, output_path)
-    if scene_id in BUNDLED_SOLID_SIDE_FILL_SCENES:
+    if scene_id in BUNDLED_SCENES:
         MOBILE_VIDEOS.mkdir(parents=True, exist_ok=True)
         shutil.copy2(output_path, MOBILE_VIDEOS / output_path.name)
     print(f"scene={scene_id} optimized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
@@ -179,33 +184,19 @@ def encode_normalized(
     scene_id: str,
     input_path: Path,
     output_path: Path,
-    force_action_safe_four_three: bool = False,
 ) -> None:
     crop = detected_crop(input_path)
     crop_width, crop_height, crop_x, crop_y = (int(value) for value in crop.split(":"))
     temporary_path = output_path.with_name(f"{output_path.stem}.normalized.mp4")
-    if (force_action_safe_four_three or scene_id in ACTION_SAFE_FOUR_THREE_CROP_SCENES) and crop_width / crop_height < 1.6:
-        action_crop_height = min(crop_height, round(crop_width / (4 / 3)))
-        action_width = round(360 * (4 / 3))
-        action_margin = (640 - action_width) // 2
-        filter_graph = (
-            f"[0:v]crop={crop_width}:{action_crop_height}:{crop_x}:{crop_y},"
-            f"scale={action_width}:360:flags=lanczos[subject];"
-            f"color=c={SOLID_SIDE_FILL_COLOR}:s=640x360[canvas];"
-            f"[canvas][subject]overlay={action_margin}:0:shortest=1"
+    if crop_width / crop_height < 1.6:
+        raise ValueError(
+            f"{scene_id}: narrow footage cannot be padded or cropped automatically; "
+            "regenerate from the full-bleed landscape master and review the complete action."
         )
-    elif crop_width / crop_height < 1.6:
-        filter_graph = (
-            f"color=c={SOLID_SIDE_FILL_COLOR}:s=640x360[canvas];"
-            f"[0:v]crop={crop},scale={SAFE_FOREGROUND_WIDTH}:{SAFE_FOREGROUND_HEIGHT}:"
-            "force_original_aspect_ratio=decrease[subject];"
-            "[canvas][subject]overlay=(W-w)/2:(H-h)/2:shortest=1"
-        )
-    else:
-        filter_graph = (
-            f"[0:v]crop={crop},scale=640:360:force_original_aspect_ratio=increase,"
-            "crop=640:360"
-        )
+    filter_graph = (
+        f"[0:v]crop={crop},scale=640:360:force_original_aspect_ratio=increase,"
+        "crop=640:360"
+    )
     trim_start = 0.0 if media_duration(input_path) < 2.5 else 0.2
     subprocess.run(
         [
@@ -238,7 +229,7 @@ def normalize_two_card_existing() -> None:
             print(f"scene={scene_id} skipped=no-raw-source", flush=True)
             continue
         output_path = ASSETS / output_name
-        encode_normalized(scene_id, raw_path, output_path, force_action_safe_four_three=True)
+        encode_normalized(scene_id, raw_path, output_path)
         MOBILE_VIDEOS.mkdir(parents=True, exist_ok=True)
         shutil.copy2(output_path, MOBILE_VIDEOS / output_path.name)
         print(f"two-card-normalized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
