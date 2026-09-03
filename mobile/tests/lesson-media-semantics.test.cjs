@@ -56,60 +56,53 @@ const mediaFilenames = (value, filenames = []) => {
 };
 
 const unitOneReview = learnMedia('1.9');
-assert.equal(unitOneReview.has('Is, are, and not'), false, 'grammar review concepts must not share one unrelated scene');
-assert.equal(unitOneReview.get('He, she, and they'), 'a1_grammar_he_she_they.webp');
-assert.equal(unitOneReview.get('Is'), 'a1_grammar_is.webp');
-assert.equal(unitOneReview.get('Are'), 'a1_grammar_are.webp');
-assert.equal(unitOneReview.get('Not'), 'a1_grammar_not.webp');
-assert.equal(learnMedia('1.3').get('And'), 'a1_grammar_and.webp');
+const expectedUnitOneReview = new Map([
+  ['The boy is eating. He is eating.', 'a1_u1_review_boy_eating.webp'],
+  ['The girl is writing. She is writing.', 'a1_u1_review_girl_writing.webp'],
+  ['The man is reading. He is reading.', 'a1_u1_review_man_reading.webp'],
+  ['The woman is drinking. She is drinking.', 'a1_u1_review_woman_drinking.webp'],
+  ['The boy and the girl are running. They are running.', 'a1_u1_review_children_running.webp'],
+  ['The children are swimming.', 'a1_u1_review_children_swimming.webp'],
+  ['The baby is sleeping.', 'a1_u1_review_baby_sleeping.webp'],
+  ['The brothers are studying.', 'a1_u1_review_brothers_studying.webp'],
+  ['The sisters are playing.', 'a1_u1_review_sisters_playing.webp'],
+  ['They are a family.', 'a1_u1_review_family_story.webp'],
+  ['Who is he? He is the father. The father is working.', 'a1_u1_review_father_working.webp'],
+  ['Who is she? She is the mother. The mother is cooking.', 'a1_u1_review_mother_cooking.webp'],
+  ['Who are they? They are the parents. The parents are talking.', 'a1_u1_review_parents_talking.webp'],
+  ['Who are they? They are the grandparents. They are sitting and talking. They are not sleeping.', 'a1_u1_review_grandparents_talking.webp'],
+]);
+assert.deepEqual(unitOneReview, expectedUnitOneReview, 'Lesson 1.9 must use the complete fresh-scene story in order');
+assert.equal(
+  mediaFilenames(lesson('1.9')).every((filename) => filename.startsWith('a1_u1_review_')),
+  true,
+  'every Lesson 1.9 card and distractor must stay inside the newly authored review media set',
+);
+assert.equal(
+  learnMedia('1.3').get('The boy and the girl'),
+  'they_boy_girl.webp',
+  'Lesson 1.3 must introduce and through the two-person story instead of an isolated grammar card',
+);
 
-const siblingOptionMatrix = (prompt) => {
-  const card = cardFor('1.4', 'Recognize', prompt);
-  return {
-    correctOptionId: card.correct_option_id,
-    options: card.options.map((option) => ({
-      id: option.id,
-      image: path.basename(option.image_url),
-    })),
-  };
-};
-const singularBrotherMatrix = siblingOptionMatrix('A brother');
-assert.deepEqual(singularBrotherMatrix, {
-  correctOptionId: 'brother',
-  options: [
-    { id: 'sister', image: 'girl.webp' },
-    { id: 'brother', image: 'boy.webp' },
-    { id: 'brothers', image: 'family_brothers.webp' },
-    { id: 'sisters', image: 'family_sisters.webp' },
-  ],
-}, 'the singular brother choice must bind the exclusive gender/number matrix to the right answer');
-const pluralBrotherMatrix = siblingOptionMatrix('Brothers');
-assert.deepEqual(pluralBrotherMatrix, {
-  correctOptionId: 'brothers',
-  options: [
-    { id: 'sisters', image: 'family_sisters.webp' },
-    { id: 'brother', image: 'boy.webp' },
-    { id: 'sister', image: 'girl.webp' },
-    { id: 'brothers', image: 'family_brothers.webp' },
-  ],
-}, 'the plural brothers choice must bind the exclusive gender/number matrix to the right answer');
-const pluralSisterMatrix = siblingOptionMatrix('Sisters');
-assert.deepEqual(pluralSisterMatrix, {
-  correctOptionId: 'sisters',
-  options: [
-    { id: 'brothers', image: 'family_brothers.webp' },
-    { id: 'sisters', image: 'family_sisters.webp' },
-    { id: 'brother', image: 'boy.webp' },
-    { id: 'sister', image: 'girl.webp' },
-  ],
-}, 'the plural sisters choice must bind the exclusive gender/number matrix to the right answer');
+const singularBrother = cardBySlide('1.4', 'Recognize', 'R6');
+assert.equal(singularBrother.prompt_image_url, '/lesson-assets/boy.webp');
+assert.equal(
+  singularBrother.options.find((option) => option.id === singularBrother.correct_option_id)?.label,
+  'He is a brother.',
+  'the singular brother transfer must join the family noun to the already-known pronoun frame',
+);
+const pluralBrothers = cardFor('1.4', 'Recognize', 'They are brothers.');
+assert.deepEqual(
+  pluralBrothers.options.map((option) => path.basename(option.image_url)),
+  ['family_brothers.webp', 'family_sisters.webp'],
+  'brothers must use the exclusive brother/sister contrast',
+);
+const pluralSisters = cardFor('1.4', 'Recognize', 'They are sisters.');
 for (const ambiguousFamilyDistractor of ['family_babies.webp', 'family_children.webp']) {
   assert.equal(
-    [singularBrotherMatrix, pluralBrotherMatrix, pluralSisterMatrix]
-      .flatMap((matrix) => matrix.options)
-      .some((option) => option.image === ambiguousFamilyDistractor),
+    pluralSisters.options.some((option) => path.basename(option.image_url) === ambiguousFamilyDistractor),
     false,
-    `${ambiguousFamilyDistractor} can contain siblings and must not be used as a visibly false sibling distractor`,
+    `${ambiguousFamilyDistractor} can contain sisters and must not be used as a visibly false distractor`,
   );
 }
 
@@ -236,11 +229,20 @@ assert.match(demonstrativeContracts.get('far-chair').description, /strong size c
 assert.match(demonstrativeContracts.get('near-bag').description, /far bag remains clearly readable/);
 
 requiredAssets.push(
-  'a1_grammar_and.webp',
-  'a1_grammar_he_she_they.webp',
-  'a1_grammar_is.webp',
-  'a1_grammar_are.webp',
-  'a1_grammar_not.webp',
+  'a1_u1_review_baby_sleeping.webp',
+  'a1_u1_review_boy_eating.webp',
+  'a1_u1_review_brothers_studying.webp',
+  'a1_u1_review_children_running.webp',
+  'a1_u1_review_children_swimming.webp',
+  'a1_u1_review_family_story.webp',
+  'a1_u1_review_father_working.webp',
+  'a1_u1_review_girl_writing.webp',
+  'a1_u1_review_grandparents_talking.webp',
+  'a1_u1_review_man_reading.webp',
+  'a1_u1_review_mother_cooking.webp',
+  'a1_u1_review_parents_talking.webp',
+  'a1_u1_review_sisters_playing.webp',
+  'a1_u1_review_woman_drinking.webp',
   'a1_scene_ana_name.webp',
   'a1_scene_ana_age_20.webp',
   'a1_scene_ana_mexico.webp',

@@ -1,7 +1,6 @@
 import json
 import re
 import unittest
-from collections import Counter
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -23,28 +22,28 @@ UNIT_1_IDS = [
 ]
 EXPECTED_TITLES = [
     "Meet the People",
-    "He and She",
+    "People in Action",
     "Two People: They and Are",
     "Children and Siblings",
     "Parents and Grandparents",
     "Family Actions",
-    "Is, Are, and Not",
+    "What They Are Not Doing",
     "Who Is He? Who Are They?",
-    "Unit 1 Spiral Review",
+    "Unit 1 Story Review",
     "Family Scene Mission",
 ]
 EXPECTED_VOCABULARY = {
     "lesson-1-people-actions": {
         "a", "boy", "girl", "man", "woman", "he", "she", "is",
     },
-    "lesson-2-pronouns": {"he", "she", "eating", "drinking", "reading", "writing"},
-    "lesson-3-two-people": {"and", "they", "are", "swimming", "sleeping"},
+    "lesson-2-pronouns": {"the", "eating", "drinking", "reading", "writing"},
+    "lesson-3-two-people": {"and", "they", "are", "running", "sitting", "swimming", "sleeping"},
     "lesson-4-children-siblings": {
         "family", "baby", "babies", "child", "children",
         "brother", "brothers", "sister", "sisters",
     },
     "lesson-5-parents-grandparents": {
-        "adult", "adults", "father", "mother", "parents",
+        "an", "adult", "adults", "father", "mother", "parents",
         "grandfather", "grandmother", "grandparents",
     },
     "lesson-6-family-actions": {"playing", "studying", "working", "cooking", "talking"},
@@ -55,14 +54,14 @@ EXPECTED_VOCABULARY = {
 }
 EXPECTED_STAGE_COUNTS = {
     "lesson-1-people-actions": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
-    "lesson-2-pronouns": {"Learn": 8, "Recognize": 10, "Listen": 6, "Speak": 6, "Use": 6},
-    "lesson-3-two-people": {"Learn": 9, "Recognize": 10, "Listen": 6, "Speak": 6, "Use": 6},
-    "lesson-4-children-siblings": {"Learn": 9, "Recognize": 9, "Listen": 6, "Speak": 6, "Use": 6},
-    "lesson-5-parents-grandparents": {"Learn": 10, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 6},
-    "lesson-6-family-actions": {"Learn": 10, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 6},
-    "lesson-7-is-are-not": {"Learn": 6, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
-    "lesson-8-who": {"Learn": 6, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 6},
-    "lesson-9-unit-review": {"Learn": 6, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
+    "lesson-2-pronouns": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-3-two-people": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-4-children-siblings": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-5-parents-grandparents": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-6-family-actions": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-7-is-are-not": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-8-who": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-9-unit-review": {"Learn": 14, "Recognize": 14, "Listen": 10, "Speak": 8, "Use": 8},
     "lesson-10-family-mission": {"Learn": 4, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
 }
 
@@ -121,6 +120,157 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.interaction_type for card in lesson.cards))
                 self.assertTrue(all(card.spanish_translation for card in lesson.cards))
 
+    def test_rebuilt_unit_1_lessons_have_complete_execution_metadata(self):
+        rebuilt_ids = UNIT_1_IDS[1:]
+        for lesson_id in rebuilt_ids:
+            lesson = LESSONS[lesson_id]
+            with self.subTest(lesson=lesson_id):
+                self.assertTrue(lesson.unit_outcome)
+                self.assertTrue(lesson.grammar_function)
+                self.assertTrue(lesson.speaking_outcome)
+                self.assertTrue(lesson.prerequisite)
+                self.assertTrue(lesson.purposeful_review_slides)
+                self.assertTrue(all(card.slide_id for card in lesson.cards))
+                self.assertTrue(all(card.interaction_type for card in lesson.cards))
+                self.assertTrue(all(card.spanish_translation for card in lesson.cards))
+                self.assertTrue(all(card.pedagogy_note for card in lesson.cards))
+
+    def test_rebuilt_unit_1_stages_preserve_story_order(self):
+        for lesson_id in UNIT_1_IDS[1:9]:
+            lesson = LESSONS[lesson_id]
+            for stage in STAGES:
+                beats = []
+                for card in lesson.cards:
+                    if card.stage != stage:
+                        continue
+                    match = re.match(r"Story beat (\d+):", card.pedagogy_note)
+                    self.assertIsNotNone(match, (lesson_id, stage, card.slide_id))
+                    beats.append(int(match.group(1)))
+                with self.subTest(lesson=lesson_id, stage=stage):
+                    self.assertEqual(list(range(1, len(beats) + 1)), beats)
+
+    def test_new_lessons_do_not_replay_the_previous_lesson_cards(self):
+        unit_lessons = [LESSONS[lesson_id] for lesson_id in UNIT_1_IDS[:9]]
+
+        def card_signature(card):
+            correct = next(
+                option for option in card.options if option.id == card.correct_option_id
+            )
+            return (
+                (card.audio_text or card.answer_audio_text or card.prompt or "").strip().lower(),
+                card.prompt_image_url or correct.image_url,
+            )
+
+        for previous, current in zip(unit_lessons, unit_lessons[1:]):
+            overlap = {
+                card_signature(card) for card in previous.cards
+            } & {
+                card_signature(card) for card in current.cards
+            }
+            with self.subTest(previous=previous.id, current=current.id):
+                self.assertEqual(set(), overlap)
+
+    def test_lesson_1_9_is_a_fresh_comprehensive_review(self):
+        review = LESSONS["lesson-9-unit-review"]
+        self.assertEqual([], review.vocabulary)
+
+        review_media = {
+            urlparse(url).path.rsplit("/", 1)[-1]
+            for card in review.cards
+            for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
+            if url
+        }
+        earlier_media = {
+            urlparse(url).path.rsplit("/", 1)[-1]
+            for lesson_id in UNIT_1_IDS[:8]
+            for card in LESSONS[lesson_id].cards
+            for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
+            if url
+        }
+        self.assertTrue(review_media)
+        self.assertTrue(all(name.startswith("a1_u1_review_") for name in review_media))
+        self.assertEqual(set(), review_media & earlier_media)
+
+        declared = {
+            word.lower()
+            for lesson_id in UNIT_1_IDS[:8]
+            for word in LESSONS[lesson_id].vocabulary
+        }
+        review_text = " ".join(
+            text
+            for card in review.cards
+            for text in [
+                card.prompt or "",
+                card.audio_text or "",
+                card.answer_audio_text or "",
+                *(option.label or "" for option in card.options),
+            ]
+        )
+        tokens = set(re.findall(r"[a-z]+", review_text.lower()))
+        coverage = len(declared & tokens) / len(declared)
+        self.assertGreaterEqual(coverage, 0.70)
+
+    def test_lesson_1_10_is_a_distinct_ordered_family_mission(self):
+        mission = LESSONS["lesson-10-family-mission"]
+        self.assertEqual([], mission.vocabulary)
+        self.assertEqual(32, len(mission.cards))
+
+        mission_media = {
+            urlparse(url).path.rsplit("/", 1)[-1]
+            for card in mission.cards
+            for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
+            if url
+        }
+        earlier_media = {
+            urlparse(url).path.rsplit("/", 1)[-1]
+            for lesson_id in UNIT_1_IDS[:9]
+            for card in LESSONS[lesson_id].cards
+            for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
+            if url
+        }
+        self.assertTrue(mission_media)
+        self.assertTrue(all(name.startswith("a1_u1_mission_") for name in mission_media))
+        self.assertEqual(set(), mission_media & earlier_media)
+
+        for step, card in enumerate(mission.cards, 1):
+            with self.subTest(step=step, slide=card.slide_id):
+                self.assertRegex(card.pedagogy_note, rf"^Mission step {step:02d}/32:")
+
+        use_cards = [card for card in mission.cards if card.stage == "Use"]
+        self.assertEqual(
+            ["mission-word-parts"] * 2
+            + ["mission-sentence"] * 5
+            + ["mission-finale"],
+            [card.interaction_type for card in use_cards],
+        )
+        self.assertEqual(
+            [
+                "fa-ther", "mo-ther", "He is reading.", "She is writing.",
+                "They are playing.", "They are talking.",
+                "They are not sleeping.", "They are a family.",
+            ],
+            [card.answer_audio_text for card in use_cards],
+        )
+        self.assertTrue(all(2 <= len(card.correct_option_ids) <= 3 for card in use_cards))
+        self.assertTrue(all(len(card.options) <= 3 for card in use_cards))
+
+    def test_each_rebuilt_lesson_ends_with_ordered_multi_word_construction(self):
+        for lesson_id in UNIT_1_IDS[1:9]:
+            cards = [card for card in LESSONS[lesson_id].cards if card.correct_option_ids]
+            with self.subTest(lesson=lesson_id):
+                self.assertTrue(cards)
+                self.assertTrue(all(card.prompt.count("___") >= 2 for card in cards))
+                self.assertTrue(all(len(card.correct_option_ids) >= 2 for card in cards))
+
+    def test_lesson_1_2_reuses_pronouns_only_inside_larger_ideas(self):
+        lesson = LESSONS["lesson-2-pronouns"]
+        self.assertNotIn("he", lesson.vocabulary)
+        self.assertNotIn("she", lesson.vocabulary)
+        self.assertIn("he", lesson.review_vocabulary)
+        self.assertIn("she", lesson.review_vocabulary)
+        learn_prompts = {card.prompt.strip().lower() for card in lesson.cards if card.stage == "Learn"}
+        self.assertFalse({"he", "she"} & learn_prompts)
+
     def test_every_lesson_uses_the_same_five_stage_shell(self):
         for lesson in LESSONS.values():
             with self.subTest(lesson=lesson.id):
@@ -137,7 +287,7 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(lesson=lesson_id):
                 self.assertEqual(expected_counts, counts)
                 self.assertGreaterEqual(len(lesson.cards), 30)
-                self.assertLessEqual(len(lesson.cards), 44)
+                self.assertLessEqual(len(lesson.cards), 54)
 
     def test_vocabulary_load_matches_the_curriculum_contract(self):
         for lesson_id, expected in EXPECTED_VOCABULARY.items():
@@ -214,7 +364,7 @@ class LessonStructureTests(unittest.TestCase):
             and card.prompt_image_url
             and all(not option.image_url and option.label for option in card.options)
         ]
-        self.assertEqual(4, len(cards))
+        self.assertEqual(5, len(cards))
         for card in cards:
             with self.subTest(prompt=card.prompt):
                 self.assertIn(card.prompt, {"Who is he?", "Who is she?", "Who are they?"})
@@ -232,7 +382,7 @@ class LessonStructureTests(unittest.TestCase):
             and card.prompt_image_url
             and card.prompt == "Who are they?"
         ]
-        self.assertEqual(3, len(cards))
+        self.assertEqual(2, len(cards))
         for card in cards:
             with self.subTest(image=card.prompt_image_url):
                 self.assertEqual("Who are they?", card.audio_text)
@@ -314,29 +464,35 @@ class LessonStructureTests(unittest.TestCase):
                 with self.subTest(lesson=lesson.id, card=index, audio=card.audio_text):
                     self.assertEqual(2, len(card.options))
 
-    def test_lesson_1_7_negative_image_choices_confirm_the_positive_action(self):
+    def test_lesson_1_7_negative_contrasts_confirm_the_positive_action(self):
         lesson = LESSONS["lesson-7-is-are-not"]
-        actual = Counter(
-            (card.audio_text, card.answer_audio_text)
+        cards = [
+            card
             for card in lesson.cards
             if (
                 card.stage in {"Recognize", "Listen"}
                 and re.search(r"\b(?:is|are) not\b", card.audio_text or "", re.IGNORECASE)
-                and all(option.image_url for option in card.options)
             )
-        )
-        expected = Counter({
-            ("He is not cooking.", "He is not cooking, he is working."): 2,
-            ("She is not reading.", "She is not reading, she is writing."): 1,
-            ("They are not sitting.", "They are not sitting, they are running."): 2,
-            (
-                "The children are not studying.",
-                "The children are not studying, they are playing.",
-            ): 1,
-            ("They are not studying.", "They are not studying, they are playing."): 1,
-            ("She is not drinking.", "She is not drinking, she is writing."): 1,
-        })
-        self.assertEqual(expected, actual)
+        ]
+        self.assertEqual(10, len(cards))
+        for card in cards:
+            with self.subTest(stage=card.stage, slide=card.slide_id):
+                self.assertEqual(2, len(card.options))
+                if card.stage == "Recognize":
+                    self.assertTrue(card.prompt_image_url)
+                    self.assertTrue(all(not option.image_url for option in card.options))
+                else:
+                    self.assertFalse(card.prompt_image_url)
+                    self.assertTrue(all(option.image_url for option in card.options))
+                correct = next(
+                    option for option in card.options if option.id == card.correct_option_id
+                )
+                self.assertIn(" not ", f" {correct.label.lower()} ")
+                self.assertTrue(card.answer_audio_text)
+                self.assertRegex(
+                    card.answer_audio_text.lower(),
+                    r"\b(talking|writing|running|playing|sitting)\b",
+                )
 
     def test_specific_identity_choices_include_the_answer_in_the_audio(self):
         for lesson in LESSONS.values():
@@ -367,7 +523,8 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(cards)
                 self.assertTrue(all(card.interaction_type in {
                     None, "choice", "choose2", "choose4", "complete", "complete2",
-                    "complete4", "response-choice",
+                    "complete4", "response-choice", "mission-word-parts",
+                    "mission-sentence", "mission-finale",
                 } for card in cards))
                 self.assertTrue(all(card.answer_audio_text for card in cards))
                 self.assertTrue(all(all(not option.image_url and option.label for option in card.options) for card in cards))

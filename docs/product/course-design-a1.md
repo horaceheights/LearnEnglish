@@ -19,7 +19,7 @@ By the end of A1, learners should be able to recognize, understand, and produce 
 
 The A1 track now contains seven implemented units of ten lessons each. Unit 1,
 `People, Family, and Actions`, begins the sequence with `1.1 Meet the People`,
-followed by the cumulative `1.2 He and She` lesson.
+then grows those people into actions, groups, family roles, contrasts, and identity questions.
 
 What it does well:
 
@@ -46,15 +46,15 @@ Goal: Understand simple subject + action sentences.
 Lessons:
 
 1. 1.1 Meet the People: `a`, `boy`, `girl`, `man`, `woman`, `he`, `she`, `is`; build `He/She is a ...` identity sentences before actions are introduced
-2. 1.2 He and She: `he`, `she`; `eating`, `drinking`, `reading`, `writing`; singular noun-to-pronoun substitution
-3. 1.3 Two People: They and Are: `and`, `they`, `are`; `swimming`, `sleeping`
+2. 1.2 People in Action: `the`, `eating`, `drinking`, `reading`, `writing`; reuse `he` and `she` only inside fuller action sentences
+3. 1.3 Two People: They and Are: `and`, `they`, `are`, `running`, `sitting`, `swimming`, `sleeping`
 4. 1.4 Children and Siblings: `a family`, `baby/babies`, `child/children`, `brother/brothers`, `sister/sisters`
-5. 1.5 Parents and Grandparents: `an adult/adults`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`
+5. 1.5 Parents and Grandparents: `an`, `adult/adults`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`
 6. 1.6 Family Actions: `playing`, `studying`, `working`, `cooking`, `talking`
-7. 1.7 Is, Are, and Not: affirmative and negative `be` for one person and groups
+7. 1.7 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
 8. 1.8 Who Is He? Who Are They?: identity questions and short answers
-9. 1.9 Unit 1 Spiral Review: mixed retrieval with no new vocabulary
-10. 1.10 Family Scene Mission: identify people, describe actions, and answer a `Who` question from one scene
+9. 1.9 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
+10. 1.10 Family Scene Mission: complete one family-card challenge by following clues, recording captions, building family words from parts, and ordering final sentences
 
 Core patterns:
 
@@ -66,7 +66,7 @@ Core patterns:
 - `He is not cooking.`
 - `Who are they? They are the parents.`
 
-Lesson 1 is the active lesson-by-lesson restructuring pilot. The remaining Unit 1 allocations retain the current baseline until each lesson reaches its own review checkpoint; vocabulary may move among lessons 1-8 under the cumulative-progression guardrails as those checkpoints are approved.
+Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.8 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with a shorter 32-step family-card mission and nine mission-only scenes; its Use stage progresses from draggable/tappable word parts to ordered sentence tiles and a final family resolution.
 
 ### Unit 2: Places, Objects, Numbers, and Colors
 
@@ -306,17 +306,17 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | Lesson | Scope | Build status |
 | --- | --- | --- |
 | `1.1` | Meet the People | 42-card pilot ready for learner review |
-| `1.2` | He and She | Complete |
-| `1.3` | Two People: They and Are | Complete |
-| `1.4` | Children and Siblings | Complete |
-| `1.5` | Parents and Grandparents | Complete |
-| `1.6` | Family Actions | Complete |
-| `1.7` | Is, Are, and Not | Complete |
-| `1.8` | Who Is He? Who Are They? | Complete |
-| `1.9` | Unit 1 Spiral Review | Complete |
-| `1.10` | Family Scene Mission | Complete |
+| `1.2` | People in Action | 42-card cumulative rebuild ready for learner review |
+| `1.3` | Two People: They and Are | 42-card cumulative rebuild ready for learner review |
+| `1.4` | Children and Siblings | 42-card cumulative rebuild ready for learner review |
+| `1.5` | Parents and Grandparents | 42-card cumulative rebuild ready for learner review |
+| `1.6` | Family Actions | 42-card cumulative rebuild ready for learner review |
+| `1.7` | What They Are Not Doing | 42-card cumulative rebuild ready for learner review |
+| `1.8` | Who Is He? Who Are They? | 42-card cumulative rebuild ready for learner review |
+| `1.9` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
+| `1.10` | Family Scene Mission | 32-card applied family-card mission ready for learner review |
 
-Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. Unit 1 is now being replaced one lesson at a time so each approved checkpoint can steer the next lesson; rows after 1.1 still describe the baseline implementation until their checkpoint begins. The checked-in lesson builder and automated tests enforce the sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, interactive completion, and valid media references.
+Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct ordered mission contract for 1.10.
 
 The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 

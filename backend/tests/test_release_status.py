@@ -65,9 +65,9 @@ class ReleaseStatusTests(unittest.TestCase):
         ready_audio = {
             "ready": True,
             "catalog_sha256": "a" * 64,
-            "catalog_asset_count": 4790,
+            "catalog_asset_count": 4915,
             "profile_id": "a1-elevenlabs-character-cast-v1",
-            "available": 4790,
+            "available": 4915,
             "missing": 0,
             "invalid": 0,
             "error_count": 0,

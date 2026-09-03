@@ -27,6 +27,7 @@ OPTION_MEDIA_VARIANTS = {
     "family_children_playing.webp": "family_children_playing_3x2.webp",
     "family_children_studying.webp": "family_children_studying_3x2.webp",
     "family_father.webp": "family_father_3x2.webp",
+    "family_father_talking.webp": "family_father_talking_3x2.webp",
     "family_father_working.webp": "family_father_working_3x2.webp",
     "family_grandfather.webp": "family_grandfather_3x2.webp",
     "family_grandmother.webp": "family_grandmother_3x2.webp",
@@ -38,6 +39,7 @@ OPTION_MEDIA_VARIANTS = {
     "family_parents.webp": "family_parents_3x2.webp",
     "family_parents_talking.webp": "family_parents_talking_3x2.webp",
     "family_sisters.webp": "family_sisters_3x2.webp",
+    "family_sister_playing.webp": "family_sister_playing_3x2.webp",
     "girl.webp": "girl_3x2.webp",
     "man.webp": "man_3x2.webp",
     "man_is_standing.webp": "man_is_standing_3x2.webp",
@@ -63,21 +65,15 @@ OPTION_MEDIA_VARIANTS = {
 # still semantic contract and must never inherit approval from the source image
 # or from the video itself.
 TWO_CARD_ACTION_POSTERS = {
-    "boy_is_drinking": "boy_is_drinking-two-card-poster.webp",
     "boy_is_eating": "boy_is_eating-two-card-poster.webp",
-    "boy_is_reading": "boy_is_reading-two-card-poster.webp",
     "boy_is_running": "boy_is_running-two-card-poster.webp",
     "boy_is_swimming": "boy_is_swimming-two-card-poster.webp",
     "family_brother_studying": "family_brother_studying-two-card-poster.webp",
     "family_children_playing": "family_children_playing-two-card-poster.webp",
-    "family_children_studying": "family_children_studying-two-card-poster.webp",
-    "family_father_working": "family_father_working-two-card-poster.webp",
     "family_mother_cooking": "family_mother_cooking-two-card-poster.webp",
     "family_parents_talking": "family_parents_talking-two-card-poster.webp",
-    "girl_is_drinking": "girl_is_drinking-two-card-poster.webp",
     "girl_is_sleeping": "girl_is_sleeping-two-card-poster.webp",
     "girl_is_walking": "girl_is_walking-two-card-poster.webp",
-    "girl_is_writing": "girl_is_writing-two-card-poster.webp",
     "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster.webp",
 }
 

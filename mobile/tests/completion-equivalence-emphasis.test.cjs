@@ -48,15 +48,9 @@ const nounToPronounCompletions = course.flatMap((lesson) => (
 
 assert.ok(
   nounToPronounCompletions.some(({ answer, prompt }) => (
-    answer === 'she' && prompt === 'The woman is drinking, ___ is drinking.'
+    answer === 'he' && prompt === 'The boy is eating, ___ is eating.'
   )),
-  'The guardrail must include the annotated repeated-predicate woman-to-she completion.',
-);
-assert.ok(
-  nounToPronounCompletions.some(({ answer, prompt }) => (
-    answer === 'she' && prompt === 'The girl is sitting and ___ is writing.'
-  )),
-  'The structural rule must include the current differing-predicate girl-to-she completion.',
+  'The guardrail must include the current repeated-predicate boy-to-he completion.',
 );
 
 assert.match(

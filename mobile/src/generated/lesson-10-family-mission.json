@@ -4,60 +4,92 @@
   "level": "Beginner A1",
   "unit_id": "unit-1",
   "unit_title": "Unit 1: People, Family, and Actions",
-  "unit_outcome": "",
+  "unit_outcome": "Understand and produce simple sentences about people, family members, and actions.",
   "lesson_id": "lesson-1",
   "lesson_title": "Unit 1: People, Family, and Actions",
   "sub_lesson_id": "1.10",
   "sub_lesson_title": "Family Scene Mission",
-  "goal": "Complete a final family mission by identifying people, understanding actions, speaking, and building answers.",
+  "goal": "Complete one family-card mission by finding the right people and actions, recording captions, building words from parts, and arranging final sentences.",
   "vocabulary": [],
-  "review_vocabulary": [],
-  "grammar_function": "",
-  "prerequisite": "",
-  "speaking_outcome": "",
-  "purposeful_review_slides": [],
+  "review_vocabulary": [
+    "the",
+    "a",
+    "father",
+    "mother",
+    "family",
+    "children",
+    "brother",
+    "sister",
+    "grandparents",
+    "he",
+    "she",
+    "they",
+    "is",
+    "are",
+    "not",
+    "who",
+    "playing",
+    "reading",
+    "writing",
+    "studying",
+    "talking",
+    "sleeping"
+  ],
+  "grammar_function": "Use Unit 1 identity, action, singular/plural, and negative patterns to complete one applied family-card story.",
+  "prerequisite": "Lessons 1.1-1.9 completed.",
+  "speaking_outcome": "Identify family members and record clear action captions before assembling the final story with tiles.",
+  "purposeful_review_slides": [
+    "L1",
+    "R8",
+    "A6",
+    "S6",
+    "U1",
+    "U2",
+    "U8"
+  ],
   "cards": [
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Meet the family.",
+      "slide_id": "L1",
+      "interaction_type": "mission-brief",
+      "prompt": "The father and the mother are playing.",
       "stage": "Learn",
-      "correct_option_id": "family",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "family",
-          "image_url": "/lesson-assets/family_all_members.webp",
-          "label": "They are a family."
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_game_setup.webp",
+          "label": "The father and the mother are playing."
         }
       ],
-      "audio_text": "Meet the family.",
+      "audio_text": "The father and the mother are playing.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "pedagogy_note": null,
+      "spanish_translation": "El padre y la madre est\u00e1n jugando.",
+      "pedagogy_note": "Mission step 01/32: the parents begin the card game and reveal its family story; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c001-prompt-7056241cc444838ecfba",
+          "id": "lesson-10-family-mission-c001-prompt-599b515f9ee0c47b6108",
           "purpose": "prompt",
-          "text": "Meet the family.",
+          "text": "The father and the mother are playing.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/family_all_members.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_game_setup.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c001-answer-1afbe62aa455f6272f85",
+          "id": "lesson-10-family-mission-c001-answer-808db53d5ad3f889b405",
           "purpose": "answer",
-          "text": "They are a family.",
+          "text": "The father and the mother are playing.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_all_members.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_game_setup.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -66,930 +98,47 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Find the children.",
-      "stage": "Learn",
-      "correct_option_id": "children",
-      "options": [
-        {
-          "id": "children",
-          "image_url": "/lesson-assets/family_children.webp",
-          "label": "They are the children."
-        }
-      ],
-      "audio_text": "Find the children.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c002-prompt-ace7598936e95fb1c229",
-          "purpose": "prompt",
-          "text": "Find the children.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_children.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c002-answer-5b8e740785f2f4984b92",
-          "purpose": "answer",
-          "text": "They are the children.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_children.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Find the parents.",
-      "stage": "Learn",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "/lesson-assets/family_parents.webp",
-          "label": "They are the parents."
-        }
-      ],
-      "audio_text": "Find the parents.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c003-prompt-1131862604a32329e261",
-          "purpose": "prompt",
-          "text": "Find the parents.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_parents.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c003-answer-e50ec4e0295494f58a18",
-          "purpose": "answer",
-          "text": "They are the parents.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_parents.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Find the grandparents.",
-      "stage": "Learn",
-      "correct_option_id": "grandparents",
-      "options": [
-        {
-          "id": "grandparents",
-          "image_url": "/lesson-assets/family_grandparents.webp",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": "Find the grandparents.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c004-prompt-fab6d2b3365678a3be99",
-          "purpose": "prompt",
-          "text": "Find the grandparents.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_grandparents.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c004-answer-99cc72eaf39dcfa681e9",
-          "purpose": "answer",
-          "text": "They are the grandparents.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_grandparents.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "family",
-      "options": [
-        {
-          "id": "family",
-          "image_url": "",
-          "label": "They are a family."
-        },
-        {
-          "id": "children",
-          "image_url": "",
-          "label": "They are children."
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "They are a family.",
-      "prompt_image_url": "/lesson-assets/family_all_members.webp",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c005-answer-293d473ef471c4a58427",
-          "purpose": "answer",
-          "text": "They are a family.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_all_members.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Who are they?",
-      "stage": "Recognize",
-      "correct_option_id": "children",
-      "options": [
-        {
-          "id": "children",
-          "image_url": "",
-          "label": "They are the children."
-        },
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "They are the parents."
-        }
-      ],
-      "audio_text": "Who are they?",
-      "answer_audio_text": "They are the children.",
-      "prompt_image_url": "/lesson-assets/family_children.webp",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c006-prompt-dcd391acf7b28fdbb10a",
-          "purpose": "prompt",
-          "text": "Who are they?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_children.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c006-answer-4a1abe54c228015eb10a",
-          "purpose": "answer",
-          "text": "They are the children.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_children.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Who are they?",
-      "stage": "Recognize",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "They are the parents."
-        },
-        {
-          "id": "grandparents",
-          "image_url": "",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": "Who are they?",
-      "answer_audio_text": "They are the parents.",
-      "prompt_image_url": "/lesson-assets/family_parents.webp",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c007-prompt-ed34ff5ff632970f59ac",
-          "purpose": "prompt",
-          "text": "Who are they?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_parents.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c007-answer-051e3aac4cca33a06832",
-          "purpose": "answer",
-          "text": "They are the parents.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_parents.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Who are they?",
-      "stage": "Recognize",
-      "correct_option_id": "grandparents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "They are the parents."
-        },
-        {
-          "id": "grandparents",
-          "image_url": "",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": "Who are they?",
-      "answer_audio_text": "They are the grandparents.",
-      "prompt_image_url": "/lesson-assets/family_grandparents.webp",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c008-prompt-acf0e856fb2cba16b7ed",
-          "purpose": "prompt",
-          "text": "Who are they?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_grandparents.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c008-answer-3dfdfc50dea61fcf5d69",
-          "purpose": "answer",
-          "text": "They are the grandparents.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_grandparents.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The children are playing.",
-      "stage": "Recognize",
-      "correct_option_id": "children-playing",
-      "options": [
-        {
-          "id": "children-playing",
-          "image_url": "/lesson-assets/family_children_playing.webp",
-          "label": "The children are playing."
-        },
-        {
-          "id": "children-studying",
-          "image_url": "/lesson-assets/family_children_studying.webp",
-          "label": "The children are studying."
-        }
-      ],
-      "audio_text": "The children are playing.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c009-prompt-1f912b6bb6ec8b4ff8b0",
-          "purpose": "prompt",
-          "text": "The children are playing.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_children_playing.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c009-answer-22c0bfbe80cb34b33985",
-          "purpose": "answer",
-          "text": "The children are playing.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_children_playing.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The father is working.",
-      "stage": "Recognize",
-      "correct_option_id": "father-working",
-      "options": [
-        {
-          "id": "mother-cooking",
-          "image_url": "/lesson-assets/family_mother_cooking.webp",
-          "label": "The mother is cooking."
-        },
-        {
-          "id": "father-working",
-          "image_url": "/lesson-assets/family_father_working.webp",
-          "label": "The father is working."
-        }
-      ],
-      "audio_text": "The father is working.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c010-prompt-6c28517bfc1c6985f2ba",
-          "purpose": "prompt",
-          "text": "The father is working.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_father_working.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c010-answer-22357c318e95f34397bd",
-          "purpose": "answer",
-          "text": "The father is working.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_father_working.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The mother is cooking.",
-      "stage": "Recognize",
-      "correct_option_id": "mother-cooking",
-      "options": [
-        {
-          "id": "father-working",
-          "image_url": "/lesson-assets/family_father_working.webp",
-          "label": "The father is working."
-        },
-        {
-          "id": "mother-cooking",
-          "image_url": "/lesson-assets/family_mother_cooking.webp",
-          "label": "The mother is cooking."
-        }
-      ],
-      "audio_text": "The mother is cooking.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c011-prompt-cd68be7399d110722927",
-          "purpose": "prompt",
-          "text": "The mother is cooking.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_mother_cooking.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c011-answer-fa0824a29a7c96f25194",
-          "purpose": "answer",
-          "text": "The mother is cooking.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_mother_cooking.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The grandparents are talking.",
-      "stage": "Recognize",
-      "correct_option_id": "grandparents-talking",
-      "options": [
-        {
-          "id": "grandparents-talking",
-          "image_url": "/lesson-assets/family_grandparents_talking.webp",
-          "label": "The grandparents are talking."
-        },
-        {
-          "id": "grandparents-sitting",
-          "image_url": "/lesson-assets/family_grandparents_sitting.webp",
-          "label": "The grandparents are sitting."
-        }
-      ],
-      "audio_text": "The grandparents are talking.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c012-prompt-d4d4923469867154d83c",
-          "purpose": "prompt",
-          "text": "The grandparents are talking.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c012-answer-763fa87fb36ca380579c",
-          "purpose": "answer",
-          "text": "The grandparents are talking.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "/lesson-assets/family_parents.webp",
-          "label": ""
-        },
-        {
-          "id": "grandparents",
-          "image_url": "/lesson-assets/family_grandparents.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "Who are they? They are the parents.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c013-prompt-2a05c364173b9bf6d1a7",
-          "purpose": "prompt",
-          "text": "Who are they? They are the parents.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_parents.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c013-answer-49e58515c4a1e2759775",
-          "purpose": "answer",
-          "text": "Who are they? They are the parents.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_parents.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "children-studying",
-      "options": [
-        {
-          "id": "children-playing",
-          "image_url": "/lesson-assets/family_children_playing.webp",
-          "label": ""
-        },
-        {
-          "id": "children-studying",
-          "image_url": "/lesson-assets/family_children_studying.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The children are studying.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c014-prompt-0bf7c3788a3821cb161c",
-          "purpose": "prompt",
-          "text": "The children are studying.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_children_studying.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c014-answer-3f59778e083e39c7dd30",
-          "purpose": "answer",
-          "text": "The children are studying.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_children_studying.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mother-cooking",
-      "options": [
-        {
-          "id": "mother-cooking",
-          "image_url": "/lesson-assets/family_mother_cooking.webp",
-          "label": ""
-        },
-        {
-          "id": "father-working",
-          "image_url": "/lesson-assets/family_father_working.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The mother is cooking.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c015-prompt-319f84cd770265a81dd8",
-          "purpose": "prompt",
-          "text": "The mother is cooking.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_mother_cooking.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c015-answer-c43c3fecd7a96cd73139",
-          "purpose": "answer",
-          "text": "The mother is cooking.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_mother_cooking.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "father-working",
-      "options": [
-        {
-          "id": "mother-cooking",
-          "image_url": "/lesson-assets/family_mother_cooking.webp",
-          "label": ""
-        },
-        {
-          "id": "father-working",
-          "image_url": "/lesson-assets/family_father_working.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The father is not cooking.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c016-prompt-f21b877ef51623eb69f4",
-          "purpose": "prompt",
-          "text": "The father is not cooking.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_father_working.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c016-answer-33329d4d1b4411af4181",
-          "purpose": "answer",
-          "text": "The father is not cooking.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_father_working.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "sisters",
-      "options": [
-        {
-          "id": "brothers",
-          "image_url": "/lesson-assets/family_brothers.webp",
-          "label": ""
-        },
-        {
-          "id": "sisters",
-          "image_url": "/lesson-assets/family_sisters.webp",
-          "label": ""
-        },
-        {
-          "id": "parents",
-          "image_url": "/lesson-assets/family_parents.webp",
-          "label": ""
-        },
-        {
-          "id": "grandparents",
-          "image_url": "/lesson-assets/family_grandparents.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "They are the sisters.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c017-prompt-ab64cd1ab4de227c6b56",
-          "purpose": "prompt",
-          "text": "They are the sisters.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_sisters.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c017-answer-09d4717e3579f1e9f2f9",
-          "purpose": "answer",
-          "text": "They are the sisters.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_sisters.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "grandparents-talking",
-      "options": [
-        {
-          "id": "grandparents-sitting",
-          "image_url": "/lesson-assets/family_grandparents_sitting.webp",
-          "label": ""
-        },
-        {
-          "id": "grandparents-talking",
-          "image_url": "/lesson-assets/family_grandparents_talking.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The grandparents are talking.",
-      "answer_audio_text": "",
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c018-prompt-07767db695604aea3c7b",
-          "purpose": "prompt",
-          "text": "The grandparents are talking.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c018-answer-e28e4787204fad3df9de",
-          "purpose": "answer",
-          "text": "The grandparents are talking.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
+      "slide_id": "L2",
+      "interaction_type": "mission-brief",
       "prompt": "They are a family.",
-      "stage": "Speak",
-      "correct_option_id": "family",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "family",
-          "image_url": "/lesson-assets/family_all_members.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_family_start.webp",
           "label": "They are a family."
         }
       ],
       "audio_text": "They are a family.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "pedagogy_note": null,
+      "spanish_translation": "Ellos son una familia.",
+      "pedagogy_note": "Mission step 02/32: the parents begin the card game and reveal its family story; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c019-prompt-4e99037691b6e1a9aae4",
+          "id": "lesson-10-family-mission-c002-prompt-27b4958d9be1cb302419",
           "purpose": "prompt",
           "text": "They are a family.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/family_all_members.webp",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_family_start.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c019-answer-7b0a7f31877f4983957e",
+          "id": "lesson-10-family-mission-c002-answer-4a904f6673ec4f5610f9",
           "purpose": "answer",
           "text": "They are a family.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_all_members.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_family_start.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -998,46 +147,47 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Who are they? They are the children.",
-      "stage": "Speak",
-      "correct_option_id": "children",
+      "slide_id": "L3",
+      "interaction_type": "mission-brief",
+      "prompt": "The father is reading.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "children",
-          "image_url": "/lesson-assets/family_children.webp",
-          "label": "Who are they? They are the children."
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "label": "The father is reading."
         }
       ],
-      "audio_text": "Who are they? They are the children.",
+      "audio_text": "The father is reading.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "pedagogy_note": null,
+      "spanish_translation": "El padre est\u00e1 leyendo.",
+      "pedagogy_note": "Mission step 03/32: the parents begin the card game and reveal its family story; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c020-prompt-0e89398b090685d01129",
+          "id": "lesson-10-family-mission-c003-prompt-b18e9892f4202b511780",
           "purpose": "prompt",
-          "text": "Who are they? They are the children.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/family_children.webp",
+          "text": "The father is reading.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c020-answer-c77332679cf067f971b7",
+          "id": "lesson-10-family-mission-c003-answer-cf866d6048f5a841679a",
           "purpose": "answer",
-          "text": "Who are they? They are the children.",
+          "text": "The father is reading.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_children.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1046,46 +196,47 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The children are playing.",
-      "stage": "Speak",
-      "correct_option_id": "children-playing",
+      "slide_id": "L4",
+      "interaction_type": "mission-brief",
+      "prompt": "The mother is writing.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "children-playing",
-          "image_url": "/lesson-assets/family_children_playing.webp",
-          "label": "The children are playing."
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
         }
       ],
-      "audio_text": "The children are playing.",
+      "audio_text": "The mother is writing.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "pedagogy_note": null,
+      "spanish_translation": "La madre est\u00e1 escribiendo.",
+      "pedagogy_note": "Mission step 04/32: the parents begin the card game and reveal its family story; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c021-prompt-64e5fc1c4109206e259b",
+          "id": "lesson-10-family-mission-c004-prompt-d0b58147d8f6f53f8638",
           "purpose": "prompt",
-          "text": "The children are playing.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/family_children_playing.webp",
+          "text": "The mother is writing.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c021-answer-657e9d035e2f00c58a64",
+          "id": "lesson-10-family-mission-c004-answer-109a47cd8cd7bc3f6199",
           "purpose": "answer",
-          "text": "The children are playing.",
+          "text": "The mother is writing.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_children_playing.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1094,248 +245,52 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The father is working.",
-      "stage": "Speak",
-      "correct_option_id": "father-working",
+      "slide_id": "R1",
+      "interaction_type": "mission-clue",
+      "prompt": "Who are they?",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
       "options": [
         {
-          "id": "father-working",
-          "image_url": "/lesson-assets/family_father_working.webp",
-          "label": "The father is working."
-        }
-      ],
-      "audio_text": "The father is working.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c022-prompt-7643996d8825653b4c70",
-          "purpose": "prompt",
-          "text": "The father is working.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/family_father_working.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c022-answer-1d96deecf25713e00f2f",
-          "purpose": "answer",
-          "text": "The father is working.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_father_working.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The mother is cooking.",
-      "stage": "Speak",
-      "correct_option_id": "mother-cooking",
-      "options": [
-        {
-          "id": "mother-cooking",
-          "image_url": "/lesson-assets/family_mother_cooking.webp",
-          "label": "The mother is cooking."
-        }
-      ],
-      "audio_text": "The mother is cooking.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c023-prompt-0a1591e4d9be2a7f192f",
-          "purpose": "prompt",
-          "text": "The mother is cooking.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/family_mother_cooking.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c023-answer-32588c9f93f6e108541e",
-          "purpose": "answer",
-          "text": "The mother is cooking.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_mother_cooking.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The grandparents are talking.",
-      "stage": "Speak",
-      "correct_option_id": "grandparents-talking",
-      "options": [
-        {
-          "id": "grandparents-talking",
-          "image_url": "/lesson-assets/family_grandparents_talking.webp",
-          "label": "The grandparents are talking."
-        }
-      ],
-      "audio_text": "The grandparents are talking.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c024-prompt-7c44add4366c04a72c1c",
-          "purpose": "prompt",
-          "text": "The grandparents are talking.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c024-answer-585292d129b86b7a7aaa",
-          "purpose": "answer",
-          "text": "The grandparents are talking.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "They are a ___.",
-      "stage": "Use",
-      "correct_option_id": "family",
-      "options": [
-        {
-          "id": "family",
+          "id": "correct",
           "image_url": "",
-          "label": "family"
+          "label": "They are a family."
         },
         {
-          "id": "children",
+          "id": "wrong",
           "image_url": "",
-          "label": "children"
+          "label": "He is the father."
         }
       ],
-      "audio_text": null,
+      "audio_text": "Who are they?",
       "answer_audio_text": "They are a family.",
-      "prompt_image_url": "/lesson-assets/family_all_members.webp",
-      "pedagogy_note": null,
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_family_start.webp",
+      "spanish_translation": "\u00bfQui\u00e9nes son ellos? Son una familia.",
+      "pedagogy_note": "Mission step 05/32: the learner identifies the pictured family cards; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c025-prompt-f63a7cc2d2dea71f9082",
-          "purpose": "prompt",
-          "text": "They are a family.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/family_all_members.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c025-answer-f5f14b1a2aaa4040b9f8",
-          "purpose": "answer",
-          "text": "They are a family.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/family_all_members.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "Who ___ they?",
-      "stage": "Use",
-      "correct_option_id": "are",
-      "options": [
-        {
-          "id": "is",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "are",
-          "image_url": "",
-          "label": "are"
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "Who are they?",
-      "prompt_image_url": "/lesson-assets/family_children.webp",
-      "pedagogy_note": null,
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-10-family-mission-c026-prompt-3ebcfb96b5e6ed8b6e91",
+          "id": "lesson-10-family-mission-c005-prompt-82be5b9b23dd67f29cf6",
           "purpose": "prompt",
           "text": "Who are they?",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/family_children.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_family_start.webp",
           "semantic_role": "question",
           "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c026-answer-70a7de82788751a70312",
+          "id": "lesson-10-family-mission-c005-answer-a8b88ff8da008b841978",
           "purpose": "answer",
-          "text": "Who are they?",
+          "text": "They are a family.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_children.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_family_start.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1344,51 +299,52 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "They are the ___.",
-      "stage": "Use",
-      "correct_option_id": "parents",
+      "slide_id": "R2",
+      "interaction_type": "mission-clue",
+      "prompt": "Who is he?",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
       "options": [
         {
-          "id": "parents",
+          "id": "correct",
           "image_url": "",
-          "label": "parents"
+          "label": "He is the father."
         },
         {
-          "id": "grandparents",
+          "id": "wrong",
           "image_url": "",
-          "label": "grandparents"
+          "label": "She is the mother."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "They are the parents.",
-      "prompt_image_url": "/lesson-assets/family_parents.webp",
-      "pedagogy_note": null,
+      "audio_text": "Who is he?",
+      "answer_audio_text": "He is the father.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+      "spanish_translation": "\u00bfQui\u00e9n es \u00e9l? Es el padre.",
+      "pedagogy_note": "Mission step 06/32: the learner identifies the pictured family cards; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c027-prompt-bb168bbce423cb63edb7",
+          "id": "lesson-10-family-mission-c006-prompt-f5caf7491784df3eeaca",
           "purpose": "prompt",
-          "text": "They are the parents.",
+          "text": "Who is he?",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/family_parents.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c027-answer-76fd1b5e82c7a60e6a11",
+          "id": "lesson-10-family-mission-c006-answer-9b9f78c198f12b51f726",
           "purpose": "answer",
-          "text": "They are the parents.",
+          "text": "He is the father.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_parents.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1397,51 +353,232 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The children are ___.",
-      "stage": "Use",
-      "correct_option_id": "playing",
+      "slide_id": "R3",
+      "interaction_type": "mission-clue",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
       "options": [
         {
-          "id": "studying",
+          "id": "correct",
           "image_url": "",
-          "label": "studying"
+          "label": "The father is reading."
         },
         {
-          "id": "playing",
+          "id": "wrong",
           "image_url": "",
-          "label": "playing"
+          "label": "The father is writing."
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The father is reading.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+      "spanish_translation": "El padre est\u00e1 leyendo.",
+      "pedagogy_note": "Mission step 07/32: the learner identifies the pictured family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c007-answer-44435c0b3efc060ab173",
+          "purpose": "answer",
+          "text": "The father is reading.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "mission-clue",
+      "prompt": "Who is she?",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "She is the mother."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "He is the father."
+        }
+      ],
+      "audio_text": "Who is she?",
+      "answer_audio_text": "She is the mother.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+      "spanish_translation": "\u00bfQui\u00e9n es ella? Es la madre.",
+      "pedagogy_note": "Mission step 08/32: the learner identifies the pictured family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c008-prompt-b3ba0cea8d17af4f9b5b",
+          "purpose": "prompt",
+          "text": "Who is she?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "question",
+          "speaker_role": "question",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c008-answer-efa74df55c7028145e75",
+          "purpose": "answer",
+          "text": "She is the mother.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "mission-clue",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The mother is writing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "The mother is reading."
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The mother is writing.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+      "spanish_translation": "La madre est\u00e1 escribiendo.",
+      "pedagogy_note": "Mission step 09/32: the learner identifies the pictured family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c009-answer-2174e5fa6b39ba3b52ce",
+          "purpose": "answer",
+          "text": "The mother is writing.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "mission-clue",
+      "prompt": "Who are they?",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "They are the children."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "They are the grandparents."
+        }
+      ],
+      "audio_text": "Who are they?",
+      "answer_audio_text": "They are the children.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+      "spanish_translation": "\u00bfQui\u00e9nes son ellos? Son los ni\u00f1os.",
+      "pedagogy_note": "Mission step 10/32: the learner identifies the pictured family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c010-prompt-afc0f6313a2d04098b45",
+          "purpose": "prompt",
+          "text": "Who are they?",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "semantic_role": "question",
+          "speaker_role": "question",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c010-answer-83ab1236aa08fb8d1160",
+          "purpose": "answer",
+          "text": "They are the children.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "mission-clue",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The children are playing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "The children are studying."
         }
       ],
       "audio_text": null,
       "answer_audio_text": "The children are playing.",
-      "prompt_image_url": "/lesson-assets/family_children_playing.webp",
-      "pedagogy_note": null,
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+      "spanish_translation": "Los ni\u00f1os est\u00e1n jugando.",
+      "pedagogy_note": "Mission step 11/32: the learner identifies the pictured family cards; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c028-prompt-fad0ba7cb4d2a4fec71b",
-          "purpose": "prompt",
-          "text": "The children are playing.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/family_children_playing.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c028-answer-d4137246a7e7e35e0662",
+          "id": "lesson-10-family-mission-c011-answer-f13fa7d65b16c6f69893",
           "purpose": "answer",
           "text": "The children are playing.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_children_playing.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1450,51 +587,40 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The father is ___.",
-      "stage": "Use",
-      "correct_option_id": "working",
+      "slide_id": "R8",
+      "interaction_type": "mission-clue",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
       "options": [
         {
-          "id": "working",
+          "id": "correct",
           "image_url": "",
-          "label": "working"
+          "label": "They are not sleeping."
         },
         {
-          "id": "cooking",
+          "id": "wrong",
           "image_url": "",
-          "label": "cooking"
+          "label": "They are sleeping."
         }
       ],
       "audio_text": null,
-      "answer_audio_text": "The father is working.",
-      "prompt_image_url": "/lesson-assets/family_father_working.webp",
-      "pedagogy_note": null,
+      "answer_audio_text": "They are not sleeping. They are talking.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+      "spanish_translation": "Ellos no est\u00e1n durmiendo.",
+      "pedagogy_note": "Mission step 12/32: the learner identifies the pictured family cards; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c029-prompt-8ceba30236c09be97e6c",
-          "purpose": "prompt",
-          "text": "The father is working.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/family_father_working.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c029-answer-4c2502e8896552debc1b",
+          "id": "lesson-10-family-mission-c012-answer-6a8ea61fa559fb2efc0f",
           "purpose": "answer",
-          "text": "The father is working.",
+          "text": "They are not sleeping. They are talking.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_father_working.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1503,51 +629,52 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The mother is ___.",
-      "stage": "Use",
-      "correct_option_id": "cooking",
+      "slide_id": "A1",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
       "options": [
         {
-          "id": "talking",
-          "image_url": "",
-          "label": "talking"
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "label": "The father is reading."
         },
         {
-          "id": "cooking",
-          "image_url": "",
-          "label": "cooking"
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "The mother is cooking.",
-      "prompt_image_url": "/lesson-assets/family_mother_cooking.webp",
-      "pedagogy_note": null,
+      "audio_text": "The father is reading.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El padre est\u00e1 leyendo.",
+      "pedagogy_note": "Mission step 13/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c030-prompt-04c1d0a50d352bfaff7a",
+          "id": "lesson-10-family-mission-c013-prompt-365cc9c79b4afa820f9e",
           "purpose": "prompt",
-          "text": "The mother is cooking.",
+          "text": "The father is reading.",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/family_mother_cooking.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c030-answer-2b4894453e1d0818a79a",
+          "id": "lesson-10-family-mission-c013-answer-1b49365ce9a4e24eff18",
           "purpose": "answer",
-          "text": "The mother is cooking.",
+          "text": "The father is reading.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_mother_cooking.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1556,11 +683,898 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "The grandparents ___ talking.",
+      "slide_id": "A2",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_sister_writing.webp",
+          "label": "The sister is writing."
+        }
+      ],
+      "audio_text": "The mother is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "La madre est\u00e1 escribiendo.",
+      "pedagogy_note": "Mission step 14/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c014-prompt-9dc166319c215eb1dc28",
+          "purpose": "prompt",
+          "text": "The mother is writing.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c014-answer-958c5ba7750d9e83066f",
+          "purpose": "answer",
+          "text": "The mother is writing.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "label": "The children are playing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_brother_studying.webp",
+          "label": "The brother is studying."
+        }
+      ],
+      "audio_text": "The children are playing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los ni\u00f1os est\u00e1n jugando.",
+      "pedagogy_note": "Mission step 15/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c015-prompt-ec638c857e3e101f2e87",
+          "purpose": "prompt",
+          "text": "The children are playing.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c015-answer-bf21d705b05ef2f78536",
+          "purpose": "answer",
+          "text": "The children are playing.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_brother_studying.webp",
+          "label": "The brother is studying."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_sister_writing.webp",
+          "label": "The sister is writing."
+        }
+      ],
+      "audio_text": "The brother is studying.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El hermano est\u00e1 estudiando.",
+      "pedagogy_note": "Mission step 16/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c016-prompt-3e6b442e89ad0374d561",
+          "purpose": "prompt",
+          "text": "The brother is studying.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_brother_studying.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c016-answer-2fc3d1361bdc246b2850",
+          "purpose": "answer",
+          "text": "The brother is studying.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_brother_studying.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_sister_writing.webp",
+          "label": "The sister is writing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
+        }
+      ],
+      "audio_text": "The sister is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "La hermana est\u00e1 escribiendo.",
+      "pedagogy_note": "Mission step 17/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c017-prompt-eab4ee53a839e1ceae02",
+          "purpose": "prompt",
+          "text": "The sister is writing.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_sister_writing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c017-answer-7920f2f5c4993325ab27",
+          "purpose": "answer",
+          "text": "The sister is writing.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_sister_writing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+          "label": "The grandparents are talking."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "label": "The children are playing."
+        }
+      ],
+      "audio_text": "Who are they? They are the grandparents. They are talking.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfQui\u00e9nes son ellos? Son los abuelos. Est\u00e1n hablando.",
+      "pedagogy_note": "Mission step 18/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c018-prompt-bff96eb49bbe623b6022",
+          "purpose": "prompt",
+          "text": "Who are they? They are the grandparents. They are talking.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c018-answer-be053031f588008d268d",
+          "purpose": "answer",
+          "text": "The grandparents are talking.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "mission-speak",
+      "prompt": "Who is he? He is the father.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "label": "Who is he? He is the father."
+        }
+      ],
+      "audio_text": "Who is he? He is the father.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfQui\u00e9n es \u00e9l? Es el padre.",
+      "pedagogy_note": "Mission step 19/32: the learner records the captions needed for the game; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c019-prompt-2b549ac7ea994a0b0c68",
+          "purpose": "prompt",
+          "text": "Who is he? He is the father.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c019-answer-b8b326793a201b2d4669",
+          "purpose": "answer",
+          "text": "Who is he? He is the father.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "mission-speak",
+      "prompt": "The father is reading.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "label": "The father is reading."
+        }
+      ],
+      "audio_text": "The father is reading.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "El padre est\u00e1 leyendo.",
+      "pedagogy_note": "Mission step 20/32: the learner records the captions needed for the game; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c020-prompt-85b583a5154ec67f8a84",
+          "purpose": "prompt",
+          "text": "The father is reading.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c020-answer-825e159ff73b7d2edda8",
+          "purpose": "answer",
+          "text": "The father is reading.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "mission-speak",
+      "prompt": "Who is she? She is the mother.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "Who is she? She is the mother."
+        }
+      ],
+      "audio_text": "Who is she? She is the mother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00bfQui\u00e9n es ella? Es la madre.",
+      "pedagogy_note": "Mission step 21/32: the learner records the captions needed for the game; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c021-prompt-9ca01275b9f03c4183bb",
+          "purpose": "prompt",
+          "text": "Who is she? She is the mother.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c021-answer-1d322691f44d15ee7440",
+          "purpose": "answer",
+          "text": "Who is she? She is the mother.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "mission-speak",
+      "prompt": "The mother is writing.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
+        }
+      ],
+      "audio_text": "The mother is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "La madre est\u00e1 escribiendo.",
+      "pedagogy_note": "Mission step 22/32: the learner records the captions needed for the game; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c022-prompt-6918cfefb19b029fcb4b",
+          "purpose": "prompt",
+          "text": "The mother is writing.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c022-answer-c3eb0df2cc20ebb390ea",
+          "purpose": "answer",
+          "text": "The mother is writing.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "mission-speak",
+      "prompt": "The children are playing.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "label": "The children are playing."
+        }
+      ],
+      "audio_text": "The children are playing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los ni\u00f1os est\u00e1n jugando.",
+      "pedagogy_note": "Mission step 23/32: the learner records the captions needed for the game; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c023-prompt-e1890493abcbac11d83d",
+          "purpose": "prompt",
+          "text": "The children are playing.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c023-answer-7d5fd9dc1566463ec460",
+          "purpose": "answer",
+          "text": "The children are playing.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "mission-speak",
+      "prompt": "The grandparents are talking.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+          "label": "The grandparents are talking."
+        }
+      ],
+      "audio_text": "The grandparents are talking.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Los abuelos est\u00e1n hablando.",
+      "pedagogy_note": "Mission step 24/32: the learner records the captions needed for the game; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c024-prompt-5ef73979c7ec3fb7fc96",
+          "purpose": "prompt",
+          "text": "The grandparents are talking.",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c024-answer-397c33223d52bbc56339",
+          "purpose": "answer",
+          "text": "The grandparents are talking.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U1",
+      "interaction_type": "mission-word-parts",
+      "prompt": "___-___",
       "stage": "Use",
-      "correct_option_id": "are",
+      "correct_option_id": "fa",
+      "correct_option_ids": [
+        "fa",
+        "ther"
+      ],
+      "options": [
+        {
+          "id": "mo",
+          "image_url": "",
+          "label": "mo"
+        },
+        {
+          "id": "fa",
+          "image_url": "",
+          "label": "fa"
+        },
+        {
+          "id": "ther",
+          "image_url": "",
+          "label": "ther"
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "fa-ther",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+      "spanish_translation": "Forma father con las partes.",
+      "pedagogy_note": "Mission step 25/32: word parts become words and words become the final family captions; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c025-prompt-29a2910008833dbd32e3",
+          "purpose": "prompt",
+          "text": "fa-ther",
+          "mode": "prompt",
+          "variant": "completion-prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c025-answer-a3bdcec9d5300f825a7c",
+          "purpose": "answer",
+          "text": "fa-ther",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "mission-word-parts",
+      "prompt": "___-___",
+      "stage": "Use",
+      "correct_option_id": "mo",
+      "correct_option_ids": [
+        "mo",
+        "ther"
+      ],
+      "options": [
+        {
+          "id": "ther",
+          "image_url": "",
+          "label": "ther"
+        },
+        {
+          "id": "fa",
+          "image_url": "",
+          "label": "fa"
+        },
+        {
+          "id": "mo",
+          "image_url": "",
+          "label": "mo"
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "mo-ther",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+      "spanish_translation": "Forma mother con las partes.",
+      "pedagogy_note": "Mission step 26/32: word parts become words and words become the final family captions; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c026-prompt-a256c28ec9c404c4f666",
+          "purpose": "prompt",
+          "text": "mo-ther",
+          "mode": "prompt",
+          "variant": "completion-prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c026-answer-efe2edcf378e2aa5d7be",
+          "purpose": "answer",
+          "text": "mo-ther",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "he",
+      "correct_option_ids": [
+        "he",
+        "is",
+        "reading"
+      ],
+      "options": [
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "reading"
+        },
+        {
+          "id": "he",
+          "image_url": "",
+          "label": "He"
+        },
+        {
+          "id": "is",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "He is reading.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+      "spanish_translation": "Ordena: \u00c9l est\u00e1 leyendo.",
+      "pedagogy_note": "Mission step 27/32: word parts become words and words become the final family captions; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c027-prompt-55124e34dc90da389a13",
+          "purpose": "prompt",
+          "text": "He is reading.",
+          "mode": "prompt",
+          "variant": "completion-prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c027-answer-9581120329f7b0ddc664",
+          "purpose": "answer",
+          "text": "He is reading.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "she",
+      "correct_option_ids": [
+        "she",
+        "is",
+        "writing"
+      ],
+      "options": [
+        {
+          "id": "is",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "writing",
+          "image_url": "",
+          "label": "writing"
+        },
+        {
+          "id": "she",
+          "image_url": "",
+          "label": "She"
+        }
+      ],
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "She is writing.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+      "spanish_translation": "Ordena: Ella est\u00e1 escribiendo.",
+      "pedagogy_note": "Mission step 28/32: word parts become words and words become the final family captions; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c028-prompt-64d0f60bc932cf8034d4",
+          "purpose": "prompt",
+          "text": "She is writing.",
+          "mode": "prompt",
+          "variant": "completion-prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c028-answer-ef33ddc472a2c72ad616",
+          "purpose": "answer",
+          "text": "She is writing.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "they",
+      "correct_option_ids": [
+        "they",
+        "are",
+        "playing"
+      ],
+      "options": [
+        {
+          "id": "playing",
+          "image_url": "",
+          "label": "playing"
+        },
+        {
+          "id": "are",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "they",
+          "image_url": "",
+          "label": "They"
+        }
+      ],
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "They are playing.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+      "spanish_translation": "Ordena: Ellos est\u00e1n jugando.",
+      "pedagogy_note": "Mission step 29/32: word parts become words and words become the final family captions; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c029-prompt-f9706a9c8ac69858bd66",
+          "purpose": "prompt",
+          "text": "They are playing.",
+          "mode": "prompt",
+          "variant": "completion-prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c029-answer-4cab5e1c36209fe7ab84",
+          "purpose": "answer",
+          "text": "They are playing.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "they",
+      "correct_option_ids": [
+        "they",
+        "are",
+        "talking"
+      ],
       "options": [
         {
           "id": "are",
@@ -1568,39 +1582,45 @@
           "label": "are"
         },
         {
-          "id": "is",
+          "id": "talking",
           "image_url": "",
-          "label": "is"
+          "label": "talking"
+        },
+        {
+          "id": "they",
+          "image_url": "",
+          "label": "They"
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "The grandparents are talking.",
-      "prompt_image_url": "/lesson-assets/family_grandparents_talking.webp",
-      "pedagogy_note": null,
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "They are talking.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+      "spanish_translation": "Ordena: Ellos est\u00e1n hablando.",
+      "pedagogy_note": "Mission step 30/32: word parts become words and words become the final family captions; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c031-prompt-cf66203b015b154a4460",
+          "id": "lesson-10-family-mission-c030-prompt-fd2e7f2df1873026b07b",
           "purpose": "prompt",
-          "text": "The grandparents are talking.",
+          "text": "They are talking.",
           "mode": "prompt",
           "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c031-answer-82a9947062937c6fb57b",
+          "id": "lesson-10-family-mission-c030-answer-41c9e7b37bc4d7791e15",
           "purpose": "answer",
-          "text": "The grandparents are talking.",
+          "text": "They are talking.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1609,16 +1629,26 @@
       ]
     },
     {
-      "slide_id": null,
-      "interaction_type": null,
-      "prompt": "They are ___ sleeping.",
+      "slide_id": "U7",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "not",
+      "correct_option_id": "they-are",
+      "correct_option_ids": [
+        "they-are",
+        "not",
+        "sleeping"
+      ],
       "options": [
         {
-          "id": "is",
+          "id": "sleeping",
           "image_url": "",
-          "label": "is"
+          "label": "sleeping"
+        },
+        {
+          "id": "they-are",
+          "image_url": "",
+          "label": "They are"
         },
         {
           "id": "not",
@@ -1626,34 +1656,99 @@
           "label": "not"
         }
       ],
-      "audio_text": null,
+      "audio_text": "___ ___ ___.",
       "answer_audio_text": "They are not sleeping.",
-      "prompt_image_url": "/lesson-assets/family_grandparents_talking.webp",
-      "pedagogy_note": null,
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+      "spanish_translation": "Ordena: Ellos no est\u00e1n durmiendo.",
+      "pedagogy_note": "Mission step 31/32: word parts become words and words become the final family captions; every interaction advances the family-card story.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c032-prompt-189602076e91e91c919a",
+          "id": "lesson-10-family-mission-c031-prompt-84dcb1b7279fa3042b1e",
           "purpose": "prompt",
           "text": "They are not sleeping.",
           "mode": "prompt",
           "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c032-answer-fa53ecba381de8b8cab4",
+          "id": "lesson-10-family-mission-c031-answer-f7940495c8db1dbd06ba",
           "purpose": "answer",
           "text": "They are not sleeping.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/family_grandparents_talking.webp",
+          "image_ref": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "mission-finale",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "they-are",
+      "correct_option_ids": [
+        "they-are",
+        "a",
+        "family"
+      ],
+      "options": [
+        {
+          "id": "family",
+          "image_url": "",
+          "label": "family"
+        },
+        {
+          "id": "they-are",
+          "image_url": "",
+          "label": "They are"
+        },
+        {
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        }
+      ],
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "They are a family.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_family_finish.webp",
+      "spanish_translation": "Completa la misi\u00f3n: Ellos son una familia.",
+      "pedagogy_note": "Mission step 32/32: word parts become words and words become the final family captions; every interaction advances the family-card story.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-10-family-mission-c032-prompt-fa80c77b39dee2aed97f",
+          "purpose": "prompt",
+          "text": "They are a family.",
+          "mode": "prompt",
+          "variant": "completion-prompt",
+          "image_ref": "/lesson-assets/a1_u1_mission_family_finish.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c032-answer-4e84bee8062928c8a1ed",
+          "purpose": "answer",
+          "text": "They are a family.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u1_mission_family_finish.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",

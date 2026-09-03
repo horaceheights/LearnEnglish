@@ -727,7 +727,10 @@ def add_unit_one_runtime_contracts(catalog: AssetCatalog) -> None:
                     )
 
 
-def add_course_browser_runtime_contracts(catalog: AssetCatalog) -> None:
+def add_course_browser_runtime_contracts(
+    catalog: AssetCatalog,
+    unit_id: str | None = None,
+) -> None:
     """Bind all 70 lesson and seven unit thumbnails to semantic review."""
 
     sys.path.insert(0, str(ROOT / "backend"))
@@ -739,6 +742,8 @@ def add_course_browser_runtime_contracts(catalog: AssetCatalog) -> None:
     ]
     for usage in course_browser_media_usages(lesson_payloads):
         context = usage["context"]
+        if unit_id is not None and context.get("unit_id") != unit_id:
+            continue
         concept = f"{context['surface_label']}: {context['prompt']}"
         catalog.add_runtime_contract(
             filename=usage["rendered_filename"],
@@ -756,8 +761,8 @@ def add_course_browser_runtime_contracts(catalog: AssetCatalog) -> None:
 def is_unit_one_lesson_context(context: object) -> bool:
     return (
         isinstance(context, dict)
-        and context.get("context_type") == "lesson_card"
-        and str(context.get("sub_lesson_id") or "").startswith("1.")
+        and context.get("context_type") in {"lesson_card", "course_browser"}
+        and context.get("unit_id") == "unit-1"
     )
 
 
@@ -785,6 +790,7 @@ def refresh_unit_one_runtime_manifest() -> None:
 
     unit_one_catalog = AssetCatalog()
     add_unit_one_runtime_contracts(unit_one_catalog)
+    add_course_browser_runtime_contracts(unit_one_catalog, unit_id="unit-1")
     unit_one_assets = [
         item for item in unit_one_catalog.items.values() if item["review_contexts"]
     ]

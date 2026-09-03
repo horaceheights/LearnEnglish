@@ -1,480 +1,1097 @@
-id: lesson-2-pronouns
-title: 1.2 He and She
-level: Beginner A1
-unit_id: unit-1
-unit_title: 'Unit 1: People, Family, and Actions'
-lesson_id: lesson-1
-lesson_title: 'Unit 1: People, Family, and Actions'
-sub_lesson_id: '1.2'
-sub_lesson_title: He and She
-goal: Replace familiar singular people with he or she and describe four clear actions.
-vocabulary:
-- he
-- she
-- eating
-- drinking
-- reading
-- writing
-cards:
-- prompt: He
-  stage: Learn
-  correct_option_id: he-boy
-  options:
-  - id: he-boy
-    image_url: /lesson-assets/boy.webp
-    label: He
-  audio_text: He
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: He
-  stage: Learn
-  correct_option_id: he-man
-  options:
-  - id: he-man
-    image_url: /lesson-assets/man.webp?v=20260802-boy-man-age-distinction-v1
-    label: He
-  audio_text: He
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: She
-  stage: Learn
-  correct_option_id: she-girl
-  options:
-  - id: she-girl
-    image_url: /lesson-assets/girl.webp
-    label: She
-  audio_text: She
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: She
-  stage: Learn
-  correct_option_id: she-woman
-  options:
-  - id: she-woman
-    image_url: /lesson-assets/woman.webp
-    label: She
-  audio_text: She
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Eating
-  stage: Learn
-  correct_option_id: boy-eating
-  options:
-  - id: boy-eating
-    image_url: /lesson-assets/boy_is_eating.webp
-    label: Eating
-  audio_text: Eating
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Drinking
-  stage: Learn
-  correct_option_id: girl-drinking
-  options:
-  - id: girl-drinking
-    image_url: /lesson-assets/girl_is_drinking.webp
-    label: Drinking
-  audio_text: Drinking
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Reading
-  stage: Learn
-  correct_option_id: woman-reading
-  options:
-  - id: woman-reading
-    image_url: /lesson-assets/woman_is_reading.webp
-    label: Reading
-  audio_text: Reading
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Writing
-  stage: Learn
-  correct_option_id: girl-writing
-  options:
-  - id: girl-writing
-    image_url: /lesson-assets/girl_is_writing.webp
-    label: Writing
-  audio_text: Writing
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: He
-  stage: Recognize
-  correct_option_id: he-boy
-  options:
-  - id: he-boy
-    image_url: /lesson-assets/boy.webp
-    label: He
-  - id: she-girl
-    image_url: /lesson-assets/girl.webp
-    label: She
-  audio_text: He
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: She
-  stage: Recognize
-  correct_option_id: she-woman
-  options:
-  - id: he-man
-    image_url: /lesson-assets/man.webp?v=20260802-boy-man-age-distinction-v1
-    label: He
-  - id: she-woman
-    image_url: /lesson-assets/woman.webp
-    label: She
-  audio_text: She
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: Eating
-  stage: Recognize
-  correct_option_id: boy-eating
-  options:
-  - id: boy-eating
-    image_url: /lesson-assets/boy_is_eating.webp
-    label: Eating
-  - id: boy-drinking
-    image_url: /lesson-assets/boy_is_drinking.webp
-    label: Drinking
-  audio_text: Eating
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: Drinking
-  stage: Recognize
-  correct_option_id: girl-drinking
-  options:
-  - id: girl-eating
-    image_url: /lesson-assets/girl_is_eating.webp
-    label: Eating
-  - id: girl-drinking
-    image_url: /lesson-assets/girl_is_drinking.webp
-    label: Drinking
-  audio_text: Drinking
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: Reading
-  stage: Recognize
-  correct_option_id: woman-reading
-  options:
-  - id: woman-writing
-    image_url: /lesson-assets/woman_is_writing.webp
-    label: Writing
-  - id: woman-eating
-    image_url: /lesson-assets/woman_is_eating.webp
-    label: Eating
-  - id: woman-reading
-    image_url: /lesson-assets/woman_is_reading.webp
-    label: Reading
-  - id: woman-drinking
-    image_url: /lesson-assets/woman_is_drinking.webp
-    label: Drinking
-  audio_text: Reading
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: Writing
-  stage: Recognize
-  correct_option_id: girl-writing
-  options:
-  - id: girl-reading
-    image_url: /lesson-assets/girl_is_reading.webp
-    label: Reading
-  - id: girl-writing
-    image_url: /lesson-assets/girl_is_writing.webp
-    label: Writing
-  - id: girl-drinking
-    image_url: /lesson-assets/girl_is_drinking.webp
-    label: Drinking
-  - id: girl-eating
-    image_url: /lesson-assets/girl_is_eating.webp
-    label: Eating
-  audio_text: Writing
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: He is eating.
-  stage: Recognize
-  correct_option_id: boy-eating
-  options:
-  - id: girl-drinking
-    image_url: /lesson-assets/girl_is_drinking.webp
-    label: She is drinking.
-  - id: boy-eating
-    image_url: /lesson-assets/boy_is_eating.webp
-    label: He is eating.
-  audio_text: He is eating.
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: She is drinking.
-  stage: Recognize
-  correct_option_id: woman-drinking
-  options:
-  - id: man-eating
-    image_url: /lesson-assets/man_is_eating.webp?v=20260802-boy-man-age-distinction-v1
-    label: He is eating.
-  - id: woman-drinking
-    image_url: /lesson-assets/woman_is_drinking.webp
-    label: She is drinking.
-  audio_text: She is drinking.
-  answer_audio_text: ''
-  prompt_image_url: ''
-- prompt: ''
-  stage: Recognize
-  correct_option_id: he-reading
-  options:
-  - id: she-writing
-    image_url: ''
-    label: She is writing.
-  - id: he-writing
-    image_url: ''
-    label: He is writing.
-  - id: he-reading
-    image_url: ''
-    label: He is reading.
-  audio_text: ''
-  answer_audio_text: He is reading.
-  prompt_image_url: /lesson-assets/boy_is_reading.webp?v=20260802-boy-man-age-distinction-v1
-- prompt: ''
-  stage: Recognize
-  correct_option_id: she-writing
-  options:
-  - id: he-reading
-    image_url: ''
-    label: He is reading.
-  - id: she-reading
-    image_url: ''
-    label: She is reading.
-  - id: she-writing
-    image_url: ''
-    label: She is writing.
-  audio_text: ''
-  answer_audio_text: She is writing.
-  prompt_image_url: /lesson-assets/woman_is_writing.webp
-- prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: boy-eating
-  options:
-  - id: girl-eating
-    image_url: /lesson-assets/girl_is_eating.webp
-    label: She is eating.
-  - id: boy-eating
-    image_url: /lesson-assets/boy_is_eating.webp
-    label: He is eating.
-  audio_text: He is eating.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: woman-drinking
-  options:
-  - id: man-drinking
-    image_url: /lesson-assets/man_is_drinking.webp?v=20260802-boy-man-age-distinction-v1
-    label: He is drinking.
-  - id: woman-drinking
-    image_url: /lesson-assets/woman_is_drinking.webp
-    label: She is drinking.
-  audio_text: She is drinking.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: man-reading
-  options:
-  - id: man-reading
-    image_url: /lesson-assets/man_is_reading.webp?v=20260802-boy-man-age-distinction-v1
-    label: He is reading.
-  - id: woman-reading
-    image_url: /lesson-assets/woman_is_reading.webp
-    label: She is reading.
-  audio_text: He is reading.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: girl-writing
-  options:
-  - id: boy-writing
-    image_url: /lesson-assets/boy_is_writing.webp
-    label: He is writing.
-  - id: girl-writing
-    image_url: /lesson-assets/girl_is_writing.webp
-    label: She is writing.
-  audio_text: She is writing.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: boy-drinking
-  options:
-  - id: woman-writing
-    image_url: /lesson-assets/woman_is_writing.webp
-    label: She is writing.
-  - id: boy-drinking
-    image_url: /lesson-assets/boy_is_drinking.webp
-    label: He is drinking.
-  - id: girl-drinking
-    image_url: /lesson-assets/girl_is_drinking.webp
-    label: She is drinking.
-  - id: man-reading
-    image_url: /lesson-assets/man_is_reading.webp?v=20260802-boy-man-age-distinction-v1
-    label: He is reading.
-  audio_text: He is drinking.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: Listen and choose.
-  stage: Listen
-  correct_option_id: woman-reading
-  options:
-  - id: boy-drinking
-    image_url: /lesson-assets/boy_is_drinking.webp
-    label: He is drinking.
-  - id: man-reading
-    image_url: /lesson-assets/man_is_reading.webp?v=20260802-boy-man-age-distinction-v1
-    label: He is reading.
-  - id: woman-reading
-    image_url: /lesson-assets/woman_is_reading.webp
-    label: She is reading.
-  - id: girl-writing
-    image_url: /lesson-assets/girl_is_writing.webp
-    label: She is writing.
-  audio_text: She is reading.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: He
-  stage: Speak
-  correct_option_id: he-boy
-  options:
-  - id: he-boy
-    image_url: /lesson-assets/boy.webp
-    label: He
-  audio_text: He
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: She
-  stage: Speak
-  correct_option_id: she-girl
-  options:
-  - id: she-girl
-    image_url: /lesson-assets/girl.webp
-    label: She
-  audio_text: She
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: He is eating.
-  stage: Speak
-  correct_option_id: man-eating
-  options:
-  - id: man-eating
-    image_url: /lesson-assets/man_is_eating.webp?v=20260802-boy-man-age-distinction-v1
-    label: He is eating.
-  audio_text: He is eating.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: She is drinking.
-  stage: Speak
-  correct_option_id: woman-drinking
-  options:
-  - id: woman-drinking
-    image_url: /lesson-assets/woman_is_drinking.webp
-    label: She is drinking.
-  audio_text: She is drinking.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: He is reading.
-  stage: Speak
-  correct_option_id: boy-reading
-  options:
-  - id: boy-reading
-    image_url: /lesson-assets/boy_is_reading.webp?v=20260802-boy-man-age-distinction-v1
-    label: He is reading.
-  audio_text: He is reading.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: She is writing.
-  stage: Speak
-  correct_option_id: girl-writing
-  options:
-  - id: girl-writing
-    image_url: /lesson-assets/girl_is_writing.webp
-    label: She is writing.
-  audio_text: She is writing.
-  answer_audio_text: null
-  prompt_image_url: ''
-- prompt: The boy is eating, ___ is eating.
-  stage: Use
-  correct_option_id: He
-  options:
-  - id: She
-    image_url: ''
-    label: she
-  - id: He
-    image_url: ''
-    label: he
-  audio_text: ''
-  answer_audio_text: The boy is eating, he is eating.
-  prompt_image_url: /lesson-assets/boy_is_eating.webp
-- prompt: The woman is drinking, ___ is drinking.
-  stage: Use
-  correct_option_id: She
-  options:
-  - id: He
-    image_url: ''
-    label: he
-  - id: She
-    image_url: ''
-    label: she
-  audio_text: ''
-  answer_audio_text: The woman is drinking, she is drinking.
-  prompt_image_url: /lesson-assets/woman_is_drinking.webp
-- prompt: The man is reading, ___ is reading.
-  stage: Use
-  correct_option_id: He
-  options:
-  - id: He
-    image_url: ''
-    label: he
-  - id: She
-    image_url: ''
-    label: she
-  audio_text: ''
-  answer_audio_text: The man is reading, he is reading.
-  prompt_image_url: /lesson-assets/man_is_reading.webp?v=20260802-boy-man-age-distinction-v1
-- prompt: The girl is sitting and ___ is writing.
-  stage: Use
-  correct_option_id: She
-  options:
-  - id: She
-    image_url: ''
-    label: she
-  - id: He
-    image_url: ''
-    label: he
-  audio_text: ''
-  answer_audio_text: The girl is sitting and she is writing.
-  prompt_image_url: /lesson-assets/girl_is_writing.webp
-- prompt: He is ___.
-  stage: Use
-  correct_option_id: eating
-  options:
-  - id: reading
-    image_url: ''
-    label: reading
-  - id: drinking
-    image_url: ''
-    label: drinking
-  - id: eating
-    image_url: ''
-    label: eating
-  audio_text: ''
-  answer_audio_text: He is eating.
-  prompt_image_url: /lesson-assets/boy_is_eating.webp
-- prompt: She is ___.
-  stage: Use
-  correct_option_id: reading
-  options:
-  - id: writing
-    image_url: ''
-    label: writing
-  - id: reading
-    image_url: ''
-    label: reading
-  - id: drinking
-    image_url: ''
-    label: drinking
-  audio_text: ''
-  answer_audio_text: She is reading.
-  prompt_image_url: /lesson-assets/woman_is_reading.webp
+{
+  "id": "lesson-2-pronouns",
+  "title": "1.2 People in Action",
+  "level": "Beginner A1",
+  "unit_id": "unit-1",
+  "unit_title": "Unit 1: People, Family, and Actions",
+  "unit_outcome": "Understand and produce simple sentences about people, family members, and actions.",
+  "lesson_id": "lesson-1",
+  "lesson_title": "Unit 1: People, Family, and Actions",
+  "sub_lesson_id": "1.2",
+  "sub_lesson_title": "People in Action",
+  "goal": "Follow four familiar people through eating, drinking, reading, and writing, then describe each person with a longer sentence.",
+  "vocabulary": [
+    "the",
+    "eating",
+    "drinking",
+    "reading",
+    "writing"
+  ],
+  "review_vocabulary": [
+    "boy",
+    "girl",
+    "man",
+    "woman",
+    "he",
+    "she",
+    "is"
+  ],
+  "grammar_function": "The + person + is + action; He/She is + action.",
+  "prerequisite": "Lesson 1.1: a boy, a girl, a man, a woman, he, she, and is.",
+  "speaking_outcome": "Describe one familiar person doing one of four actions.",
+  "purposeful_review_slides": [
+    "L3",
+    "L4",
+    "L6",
+    "L8",
+    "L10",
+    "S7",
+    "U7"
+  ],
+  "cards": [
+    {
+      "slide_id": "L1",
+      "interaction_type": "teach",
+      "prompt": "The boy",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "The boy",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El niño",
+      "spanish_translation": "El niño",
+      "pedagogy_note": "Story beat 01: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L2",
+      "interaction_type": "teach",
+      "prompt": "Eating",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "Eating"
+        }
+      ],
+      "audio_text": "Eating",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Comiendo",
+      "spanish_translation": "Comiendo",
+      "pedagogy_note": "Story beat 02: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
+      "prompt": "The boy is eating.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "The boy is eating."
+        }
+      ],
+      "audio_text": "The boy is eating.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El niño está comiendo.",
+      "spanish_translation": "El niño está comiendo.",
+      "pedagogy_note": "Story beat 03: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L4",
+      "interaction_type": "teach",
+      "prompt": "He is eating.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "He is eating."
+        }
+      ],
+      "audio_text": "He is eating.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Él está comiendo.",
+      "spanish_translation": "Él está comiendo.",
+      "pedagogy_note": "Story beat 04: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L5",
+      "interaction_type": "teach",
+      "prompt": "Drinking",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "Drinking"
+        }
+      ],
+      "audio_text": "Drinking",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Bebiendo",
+      "spanish_translation": "Bebiendo",
+      "pedagogy_note": "Story beat 05: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "The man is drinking. He is drinking.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "The man is drinking. He is drinking."
+        }
+      ],
+      "audio_text": "The man is drinking. He is drinking.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El hombre está bebiendo. Él está bebiendo.",
+      "spanish_translation": "El hombre está bebiendo. Él está bebiendo.",
+      "pedagogy_note": "Story beat 06: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "Reading",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": "Reading"
+        }
+      ],
+      "audio_text": "Reading",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Leyendo",
+      "spanish_translation": "Leyendo",
+      "pedagogy_note": "Story beat 07: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L8",
+      "interaction_type": "teach",
+      "prompt": "The girl is reading. She is reading.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": "The girl is reading. She is reading."
+        }
+      ],
+      "audio_text": "The girl is reading. She is reading.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La niña está leyendo. Ella está leyendo.",
+      "spanish_translation": "La niña está leyendo. Ella está leyendo.",
+      "pedagogy_note": "Story beat 08: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L9",
+      "interaction_type": "teach",
+      "prompt": "Writing",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/woman_is_writing.webp",
+          "label": "Writing"
+        }
+      ],
+      "audio_text": "Writing",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Escribiendo",
+      "spanish_translation": "Escribiendo",
+      "pedagogy_note": "Story beat 09: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L10",
+      "interaction_type": "teach",
+      "prompt": "The woman is writing. She is writing.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/woman_is_writing.webp",
+          "label": "The woman is writing. She is writing."
+        }
+      ],
+      "audio_text": "The woman is writing. She is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La mujer está escribiendo. Ella está escribiendo.",
+      "spanish_translation": "La mujer está escribiendo. Ella está escribiendo.",
+      "pedagogy_note": "Story beat 10: 1.2 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "t2i4",
+      "prompt": "The boy",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "Eating"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "Drinking"
+        },
+        {
+          "id": "wrong-3",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": "Reading"
+        }
+      ],
+      "audio_text": "The boy",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El niño",
+      "spanish_translation": "El niño",
+      "pedagogy_note": "Story beat 01: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "t2i2",
+      "prompt": "Eating",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "Eating"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "Eating",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Comiendo",
+      "spanish_translation": "Comiendo",
+      "pedagogy_note": "Story beat 02: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The boy is eating."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Drinking"
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The boy is eating.",
+      "prompt_image_url": "/lesson-assets/boy_is_eating.webp",
+      "translation": "El niño está comiendo.",
+      "spanish_translation": "El niño está comiendo.",
+      "pedagogy_note": "Story beat 03: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "t2i2",
+      "prompt": "He is eating.",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "He is eating."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "He is eating.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Él está comiendo.",
+      "spanish_translation": "Él está comiendo.",
+      "pedagogy_note": "Story beat 04: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "t2i4",
+      "prompt": "Drinking",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "Drinking"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "Eating"
+        },
+        {
+          "id": "wrong-3",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": "Reading"
+        }
+      ],
+      "audio_text": "Drinking",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Bebiendo",
+      "spanish_translation": "Bebiendo",
+      "pedagogy_note": "Story beat 05: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The man is drinking. He is drinking."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Eating"
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The man is drinking. He is drinking.",
+      "prompt_image_url": "/lesson-assets/man_is_drinking.webp",
+      "translation": "El hombre está bebiendo. Él está bebiendo.",
+      "spanish_translation": "El hombre está bebiendo. Él está bebiendo.",
+      "pedagogy_note": "Story beat 06: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i2",
+      "prompt": "Reading",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": "Reading"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "Reading",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Leyendo",
+      "spanish_translation": "Leyendo",
+      "pedagogy_note": "Story beat 07: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The girl is reading. She is reading."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Eating"
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The girl is reading. She is reading.",
+      "prompt_image_url": "/lesson-assets/girl_is_reading.webp",
+      "translation": "La niña está leyendo. Ella está leyendo.",
+      "spanish_translation": "La niña está leyendo. Ella está leyendo.",
+      "pedagogy_note": "Story beat 08: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "t2i4",
+      "prompt": "Writing",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/woman_is_writing.webp",
+          "label": "Writing"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "Eating"
+        },
+        {
+          "id": "wrong-3",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "Drinking"
+        }
+      ],
+      "audio_text": "Writing",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Escribiendo",
+      "spanish_translation": "Escribiendo",
+      "pedagogy_note": "Story beat 09: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The woman is writing. She is writing."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Eating"
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The woman is writing. She is writing.",
+      "prompt_image_url": "/lesson-assets/woman_is_writing.webp",
+      "translation": "La mujer está escribiendo. Ella está escribiendo.",
+      "spanish_translation": "La mujer está escribiendo. Ella está escribiendo.",
+      "pedagogy_note": "Story beat 10: 1.2 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "Eating"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "Drinking"
+        },
+        {
+          "id": "wrong-3",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": "Reading"
+        }
+      ],
+      "audio_text": "The boy",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El niño",
+      "spanish_translation": "El niño",
+      "pedagogy_note": "Story beat 01: 1.2 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "The boy is eating."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "The boy is eating.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El niño está comiendo.",
+      "spanish_translation": "El niño está comiendo.",
+      "pedagogy_note": "Story beat 02: 1.2 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "Drinking"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Eating"
+        }
+      ],
+      "audio_text": "Drinking",
+      "answer_audio_text": "Drinking",
+      "prompt_image_url": "",
+      "translation": "Bebiendo",
+      "spanish_translation": "Bebiendo",
+      "pedagogy_note": "Story beat 03: 1.2 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "The man is drinking. He is drinking."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "The man is drinking. He is drinking.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El hombre está bebiendo. Él está bebiendo.",
+      "spanish_translation": "El hombre está bebiendo. Él está bebiendo.",
+      "pedagogy_note": "Story beat 04: 1.2 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": "Reading"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "Eating"
+        },
+        {
+          "id": "wrong-3",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "Drinking"
+        }
+      ],
+      "audio_text": "Reading",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Leyendo",
+      "spanish_translation": "Leyendo",
+      "pedagogy_note": "Story beat 05: 1.2 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The girl is reading. She is reading."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "The boy"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Eating"
+        }
+      ],
+      "audio_text": "The girl is reading. She is reading.",
+      "answer_audio_text": "The girl is reading. She is reading.",
+      "prompt_image_url": "",
+      "translation": "La niña está leyendo. Ella está leyendo.",
+      "spanish_translation": "La niña está leyendo. Ella está leyendo.",
+      "pedagogy_note": "Story beat 06: 1.2 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/woman_is_writing.webp",
+          "label": "Writing"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "Writing",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Escribiendo",
+      "spanish_translation": "Escribiendo",
+      "pedagogy_note": "Story beat 07: 1.2 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/woman_is_writing.webp",
+          "label": "The woman is writing. She is writing."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "The woman is writing. She is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La mujer está escribiendo. Ella está escribiendo.",
+      "spanish_translation": "La mujer está escribiendo. Ella está escribiendo.",
+      "pedagogy_note": "Story beat 08: 1.2 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "The boy",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/boy.webp",
+          "label": "The boy"
+        }
+      ],
+      "audio_text": "The boy",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El niño",
+      "spanish_translation": "El niño",
+      "pedagogy_note": "Story beat 01: 1.2 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "The boy is eating.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "The boy is eating."
+        }
+      ],
+      "audio_text": "The boy is eating.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El niño está comiendo.",
+      "spanish_translation": "El niño está comiendo.",
+      "pedagogy_note": "Story beat 02: 1.2 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "He is eating.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/boy_is_eating.webp",
+          "label": "He is eating."
+        }
+      ],
+      "audio_text": "He is eating.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Él está comiendo.",
+      "spanish_translation": "Él está comiendo.",
+      "pedagogy_note": "Story beat 03: 1.2 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "The man is drinking. He is drinking.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/man_is_drinking.webp",
+          "label": "The man is drinking. He is drinking."
+        }
+      ],
+      "audio_text": "The man is drinking. He is drinking.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El hombre está bebiendo. Él está bebiendo.",
+      "spanish_translation": "El hombre está bebiendo. Él está bebiendo.",
+      "pedagogy_note": "Story beat 04: 1.2 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "The girl is reading. She is reading.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/girl_is_reading.webp",
+          "label": "The girl is reading. She is reading."
+        }
+      ],
+      "audio_text": "The girl is reading. She is reading.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La niña está leyendo. Ella está leyendo.",
+      "spanish_translation": "La niña está leyendo. Ella está leyendo.",
+      "pedagogy_note": "Story beat 05: 1.2 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "Writing",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/woman_is_writing.webp",
+          "label": "Writing"
+        }
+      ],
+      "audio_text": "Writing",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Escribiendo",
+      "spanish_translation": "Escribiendo",
+      "pedagogy_note": "Story beat 06: 1.2 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "The woman is writing. She is writing.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/woman_is_writing.webp",
+          "label": "The woman is writing. She is writing."
+        }
+      ],
+      "audio_text": "The woman is writing. She is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La mujer está escribiendo. Ella está escribiendo.",
+      "spanish_translation": "La mujer está escribiendo. Ella está escribiendo.",
+      "pedagogy_note": "Story beat 07: 1.2 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U1",
+      "interaction_type": "complete2",
+      "prompt": "The ___ is eating.",
+      "stage": "Use",
+      "correct_option_id": "boy",
+      "options": [
+        {
+          "id": "man",
+          "image_url": "",
+          "label": "man"
+        },
+        {
+          "id": "boy",
+          "image_url": "",
+          "label": "boy"
+        }
+      ],
+      "audio_text": "The ___ is eating.",
+      "answer_audio_text": "The boy is eating.",
+      "prompt_image_url": "/lesson-assets/boy_is_eating.webp",
+      "translation": "El ___ está comiendo.",
+      "spanish_translation": "El ___ está comiendo.",
+      "pedagogy_note": "Story beat 01: 1.2 story; this use card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "The boy is eating, ___ is eating.",
+      "stage": "Use",
+      "correct_option_id": "he",
+      "options": [
+        {
+          "id": "she",
+          "image_url": "",
+          "label": "she"
+        },
+        {
+          "id": "he",
+          "image_url": "",
+          "label": "he"
+        }
+      ],
+      "audio_text": "The boy is eating, ___ is eating.",
+      "answer_audio_text": "The boy is eating, he is eating.",
+      "prompt_image_url": "/lesson-assets/boy_is_eating.webp",
+      "translation": "El niño está comiendo, ___ está comiendo.",
+      "spanish_translation": "El niño está comiendo, ___ está comiendo.",
+      "pedagogy_note": "Story beat 02: 1.2 story; this use card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "The man is ___.",
+      "stage": "Use",
+      "correct_option_id": "drinking",
+      "options": [
+        {
+          "id": "drinking",
+          "image_url": "",
+          "label": "drinking"
+        },
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "reading"
+        }
+      ],
+      "audio_text": "The man is ___.",
+      "answer_audio_text": "The man is drinking.",
+      "prompt_image_url": "/lesson-assets/man_is_drinking.webp",
+      "translation": "El hombre está ___.",
+      "spanish_translation": "El hombre está ___.",
+      "pedagogy_note": "Story beat 03: 1.2 story; this use card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "The girl is ___.",
+      "stage": "Use",
+      "correct_option_id": "reading",
+      "options": [
+        {
+          "id": "writing",
+          "image_url": "",
+          "label": "writing"
+        },
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "reading"
+        }
+      ],
+      "audio_text": "The girl is ___.",
+      "answer_audio_text": "The girl is reading.",
+      "prompt_image_url": "/lesson-assets/girl_is_reading.webp",
+      "translation": "La niña está ___.",
+      "spanish_translation": "La niña está ___.",
+      "pedagogy_note": "Story beat 04: 1.2 story; this use card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete2",
+      "prompt": "She is ___.",
+      "stage": "Use",
+      "correct_option_id": "reading",
+      "options": [
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "reading"
+        },
+        {
+          "id": "drinking",
+          "image_url": "",
+          "label": "drinking"
+        }
+      ],
+      "audio_text": "She is ___.",
+      "answer_audio_text": "She is reading.",
+      "prompt_image_url": "/lesson-assets/girl_is_reading.webp",
+      "translation": "Ella está ___.",
+      "spanish_translation": "Ella está ___.",
+      "pedagogy_note": "Story beat 05: 1.2 story; this use card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete2",
+      "prompt": "The woman is ___.",
+      "stage": "Use",
+      "correct_option_id": "writing",
+      "options": [
+        {
+          "id": "eating",
+          "image_url": "",
+          "label": "eating"
+        },
+        {
+          "id": "writing",
+          "image_url": "",
+          "label": "writing"
+        }
+      ],
+      "audio_text": "The woman is ___.",
+      "answer_audio_text": "The woman is writing.",
+      "prompt_image_url": "/lesson-assets/woman_is_writing.webp",
+      "translation": "La mujer está ___.",
+      "spanish_translation": "La mujer está ___.",
+      "pedagogy_note": "Story beat 06: 1.2 story; this use card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete4",
+      "prompt": "The ___ is writing. ___ is writing.",
+      "stage": "Use",
+      "correct_option_id": "woman",
+      "options": [
+        {
+          "id": "woman",
+          "image_url": "",
+          "label": "woman"
+        },
+        {
+          "id": "he",
+          "image_url": "",
+          "label": "He"
+        },
+        {
+          "id": "she",
+          "image_url": "",
+          "label": "She"
+        }
+      ],
+      "audio_text": "The ___ is writing. ___ is writing.",
+      "answer_audio_text": "The woman is writing. She is writing.",
+      "prompt_image_url": "/lesson-assets/woman_is_writing.webp",
+      "correct_option_ids": [
+        "woman",
+        "she"
+      ],
+      "translation": "La ___ está escribiendo. ___ está escribiendo.",
+      "spanish_translation": "La ___ está escribiendo. ___ está escribiendo.",
+      "pedagogy_note": "Story beat 07: 1.2 story; this use card advances the same ordered arc."
+    }
+  ]
+}

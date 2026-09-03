@@ -4,12 +4,14 @@
   "level": "Beginner A1",
   "unit_id": "unit-1",
   "unit_title": "Unit 1: People, Family, and Actions",
+  "unit_outcome": "Understand and produce simple sentences about people, family members, and actions.",
   "lesson_id": "lesson-1",
   "lesson_title": "Unit 1: People, Family, and Actions",
   "sub_lesson_id": "1.5",
   "sub_lesson_title": "Parents and Grandparents",
-  "goal": "Recognize adult family members and connect each family word to one person or a group.",
+  "goal": "Meet the adults in the family, name their roles, and connect generations into one family.",
   "vocabulary": [
+    "an",
     "adult",
     "adults",
     "father",
@@ -19,568 +21,934 @@
     "grandmother",
     "grandparents"
   ],
+  "review_vocabulary": [
+    "he",
+    "she",
+    "they",
+    "is",
+    "are",
+    "the",
+    "and",
+    "family",
+    "children",
+    "baby"
+  ],
+  "grammar_function": "An + singular adult; He/She is the + role; They are the + plural role.",
+  "prerequisite": "Lessons 1.1-1.4: singular and plural people, he/she/they, is/are, and family.",
+  "speaking_outcome": "Identify parents and grandparents in singular and plural sentences.",
+  "purposeful_review_slides": [
+    "L3",
+    "L4",
+    "L5",
+    "L8",
+    "L9",
+    "L10",
+    "U7"
+  ],
   "cards": [
     {
+      "slide_id": "L1",
+      "interaction_type": "teach",
       "prompt": "An adult",
       "stage": "Learn",
-      "correct_option_id": "father-adult",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "father-adult",
-          "image_url": "family_father.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/family_father.webp",
           "label": "An adult"
         }
       ],
       "audio_text": "An adult",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Un adulto",
+      "spanish_translation": "Un adulto",
+      "pedagogy_note": "Story beat 01: 1.5 story; this learn card advances the same ordered arc."
     },
     {
+      "slide_id": "L2",
+      "interaction_type": "teach",
       "prompt": "Adults",
       "stage": "Learn",
-      "correct_option_id": "adults",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "adults",
-          "image_url": "family_adults.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/family_adults.webp",
           "label": "Adults"
         }
       ],
       "audio_text": "Adults",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Adultos",
+      "spanish_translation": "Adultos",
+      "pedagogy_note": "Story beat 02: 1.5 story; this learn card advances the same ordered arc."
     },
     {
-      "prompt": "The father",
-      "stage": "Learn",
-      "correct_option_id": "father",
-      "options": [
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": "The father"
-        }
-      ],
-      "audio_text": "The father",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The mother",
-      "stage": "Learn",
-      "correct_option_id": "mother",
-      "options": [
-        {
-          "id": "mother",
-          "image_url": "family_mother.webp",
-          "label": "The mother"
-        }
-      ],
-      "audio_text": "The mother",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The parents",
-      "stage": "Learn",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "family_parents.webp",
-          "label": "The parents"
-        }
-      ],
-      "audio_text": "The parents",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The grandfather",
-      "stage": "Learn",
-      "correct_option_id": "grandfather",
-      "options": [
-        {
-          "id": "grandfather",
-          "image_url": "family_grandfather.webp",
-          "label": "The grandfather"
-        }
-      ],
-      "audio_text": "The grandfather",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The grandmother",
-      "stage": "Learn",
-      "correct_option_id": "grandmother",
-      "options": [
-        {
-          "id": "grandmother",
-          "image_url": "family_grandmother.webp",
-          "label": "The grandmother"
-        }
-      ],
-      "audio_text": "The grandmother",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The grandparents",
-      "stage": "Learn",
-      "correct_option_id": "grandparents",
-      "options": [
-        {
-          "id": "grandparents",
-          "image_url": "family_grandparents.webp",
-          "label": "The grandparents"
-        }
-      ],
-      "audio_text": "The grandparents",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "They are the parents.",
-      "stage": "Learn",
-      "correct_option_id": "parents-sentence",
-      "options": [
-        {
-          "id": "parents-sentence",
-          "image_url": "family_parents.webp",
-          "label": "They are the parents."
-        }
-      ],
-      "audio_text": "They are the parents.",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "They are the grandparents.",
-      "stage": "Learn",
-      "correct_option_id": "grandparents-sentence",
-      "options": [
-        {
-          "id": "grandparents-sentence",
-          "image_url": "family_grandparents.webp",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": "They are the grandparents.",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "An adult",
-      "stage": "Recognize",
-      "correct_option_id": "father",
-      "options": [
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": "An adult"
-        },
-        {
-          "id": "child",
-          "image_url": "boy.webp",
-          "label": "A child"
-        }
-      ],
-      "audio_text": "An adult",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Adults",
-      "stage": "Recognize",
-      "correct_option_id": "adults",
-      "options": [
-        {
-          "id": "children",
-          "image_url": "family_children.webp",
-          "label": "Children"
-        },
-        {
-          "id": "adults",
-          "image_url": "family_adults.webp",
-          "label": "Adults"
-        }
-      ],
-      "audio_text": "Adults",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The father",
-      "stage": "Recognize",
-      "correct_option_id": "father",
-      "options": [
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": "The father"
-        },
-        {
-          "id": "mother",
-          "image_url": "family_mother.webp",
-          "label": "The mother"
-        }
-      ],
-      "audio_text": "The father",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The mother",
-      "stage": "Recognize",
-      "correct_option_id": "mother",
-      "options": [
-        {
-          "id": "grandmother",
-          "image_url": "family_grandmother.webp",
-          "label": "The grandmother"
-        },
-        {
-          "id": "mother",
-          "image_url": "family_mother.webp",
-          "label": "The mother"
-        }
-      ],
-      "audio_text": "The mother",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The parents",
-      "stage": "Recognize",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "family_parents.webp",
-          "label": "The parents"
-        },
-        {
-          "id": "grandparents",
-          "image_url": "family_grandparents.webp",
-          "label": "The grandparents"
-        },
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": "The father"
-        },
-        {
-          "id": "mother",
-          "image_url": "family_mother.webp",
-          "label": "The mother"
-        }
-      ],
-      "audio_text": "The parents",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The grandfather",
-      "stage": "Recognize",
-      "correct_option_id": "grandfather",
-      "options": [
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": "The father"
-        },
-        {
-          "id": "grandmother",
-          "image_url": "family_grandmother.webp",
-          "label": "The grandmother"
-        },
-        {
-          "id": "grandfather",
-          "image_url": "family_grandfather.webp",
-          "label": "The grandfather"
-        },
-        {
-          "id": "mother",
-          "image_url": "family_mother.webp",
-          "label": "The mother"
-        }
-      ],
-      "audio_text": "The grandfather",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "grandparents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "They are the parents."
-        },
-        {
-          "id": "grandparents",
-          "image_url": "",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "They are the grandparents.",
-      "prompt_image_url": "family_grandparents.webp"
-    },
-    {
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "They are the parents."
-        },
-        {
-          "id": "grandparents",
-          "image_url": "",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "They are the parents.",
-      "prompt_image_url": "family_parents.webp"
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "father",
-      "options": [
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": ""
-        },
-        {
-          "id": "mother",
-          "image_url": "family_mother.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The father",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "grandmother",
-      "options": [
-        {
-          "id": "grandfather",
-          "image_url": "family_grandfather.webp",
-          "label": ""
-        },
-        {
-          "id": "grandmother",
-          "image_url": "family_grandmother.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The grandmother",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "family_parents.webp",
-          "label": ""
-        },
-        {
-          "id": "grandparents",
-          "image_url": "family_grandparents.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "They are the parents.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "grandparents",
-      "options": [
-        {
-          "id": "grandparents",
-          "image_url": "family_grandparents.webp",
-          "label": ""
-        },
-        {
-          "id": "parents",
-          "image_url": "family_parents.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "They are the grandparents.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "grandfather",
-      "options": [
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": ""
-        },
-        {
-          "id": "grandfather",
-          "image_url": "family_grandfather.webp",
-          "label": ""
-        },
-        {
-          "id": "mother",
-          "image_url": "family_mother.webp",
-          "label": ""
-        },
-        {
-          "id": "grandmother",
-          "image_url": "family_grandmother.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "He is the grandfather.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mother",
-      "options": [
-        {
-          "id": "grandmother",
-          "image_url": "family_grandmother.webp",
-          "label": ""
-        },
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": ""
-        },
-        {
-          "id": "mother",
-          "image_url": "family_mother.webp",
-          "label": ""
-        },
-        {
-          "id": "grandfather",
-          "image_url": "family_grandfather.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "She is the mother.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "An adult",
-      "stage": "Speak",
-      "correct_option_id": "father",
-      "options": [
-        {
-          "id": "father",
-          "image_url": "family_father.webp",
-          "label": "An adult"
-        }
-      ],
-      "audio_text": "An adult",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "They are adults.",
-      "stage": "Speak",
-      "correct_option_id": "adults",
-      "options": [
-        {
-          "id": "adults",
-          "image_url": "family_adults.webp",
-          "label": "They are adults."
-        }
-      ],
-      "audio_text": "They are adults.",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
+      "slide_id": "L3",
+      "interaction_type": "teach",
       "prompt": "He is the father.",
-      "stage": "Speak",
-      "correct_option_id": "father",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "father",
-          "image_url": "family_father.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/family_father.webp",
           "label": "He is the father."
         }
       ],
       "audio_text": "He is the father.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Él es el padre.",
+      "spanish_translation": "Él es el padre.",
+      "pedagogy_note": "Story beat 03: 1.5 story; this learn card advances the same ordered arc."
     },
     {
+      "slide_id": "L4",
+      "interaction_type": "teach",
       "prompt": "She is the mother.",
-      "stage": "Speak",
-      "correct_option_id": "mother",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "mother",
-          "image_url": "family_mother.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/family_mother.webp",
           "label": "She is the mother."
         }
       ],
       "audio_text": "She is the mother.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Ella es la madre.",
+      "spanish_translation": "Ella es la madre.",
+      "pedagogy_note": "Story beat 04: 1.5 story; this learn card advances the same ordered arc."
     },
     {
+      "slide_id": "L5",
+      "interaction_type": "teach",
       "prompt": "They are the parents.",
-      "stage": "Speak",
-      "correct_option_id": "parents",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "parents",
-          "image_url": "family_parents.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/family_parents.webp",
           "label": "They are the parents."
         }
       ],
       "audio_text": "They are the parents.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Ellos son los padres.",
+      "spanish_translation": "Ellos son los padres.",
+      "pedagogy_note": "Story beat 05: 1.5 story; this learn card advances the same ordered arc."
     },
     {
-      "prompt": "They are the grandparents.",
-      "stage": "Speak",
-      "correct_option_id": "grandparents",
+      "slide_id": "L6",
+      "interaction_type": "teach",
+      "prompt": "He is the grandfather.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "grandparents",
-          "image_url": "family_grandparents.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/family_grandfather.webp",
+          "label": "He is the grandfather."
+        }
+      ],
+      "audio_text": "He is the grandfather.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Él es el abuelo.",
+      "spanish_translation": "Él es el abuelo.",
+      "pedagogy_note": "Story beat 06: 1.5 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "She is the grandmother.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_grandmother.webp",
+          "label": "She is the grandmother."
+        }
+      ],
+      "audio_text": "She is the grandmother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ella es la abuela.",
+      "spanish_translation": "Ella es la abuela.",
+      "pedagogy_note": "Story beat 07: 1.5 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L8",
+      "interaction_type": "teach",
+      "prompt": "They are the grandparents.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_grandparents.webp",
           "label": "They are the grandparents."
         }
       ],
       "audio_text": "They are the grandparents.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Ellos son los abuelos.",
+      "spanish_translation": "Ellos son los abuelos.",
+      "pedagogy_note": "Story beat 08: 1.5 story; this learn card advances the same ordered arc."
     },
     {
+      "slide_id": "L9",
+      "interaction_type": "teach",
+      "prompt": "The parents and the children are a family.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_all_members.webp",
+          "label": "The parents and the children are a family."
+        }
+      ],
+      "audio_text": "The parents and the children are a family.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Los padres y los niños son una familia.",
+      "spanish_translation": "Los padres y los niños son una familia.",
+      "pedagogy_note": "Story beat 09: 1.5 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "L10",
+      "interaction_type": "teach",
+      "prompt": "The grandparents and the baby are a family.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_all_members.webp",
+          "label": "The grandparents and the baby are a family."
+        }
+      ],
+      "audio_text": "The grandparents and the baby are a family.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Los abuelos y el bebé son una familia.",
+      "spanish_translation": "Los abuelos y el bebé son una familia.",
+      "pedagogy_note": "Story beat 10: 1.5 story; this learn card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "An adult"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "Adults"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "She is the mother."
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "An adult",
+      "prompt_image_url": "/lesson-assets/family_father.webp",
+      "translation": "Un adulto",
+      "spanish_translation": "Un adulto",
+      "pedagogy_note": "Story beat 01: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "t2i2",
+      "prompt": "Adults",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_adults.webp",
+          "label": "Adults"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "Adults",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Adultos",
+      "spanish_translation": "Adultos",
+      "pedagogy_note": "Story beat 02: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "He is the father."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "Adults"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "She is the mother."
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "He is the father.",
+      "prompt_image_url": "/lesson-assets/family_father.webp",
+      "translation": "Él es el padre.",
+      "spanish_translation": "Él es el padre.",
+      "pedagogy_note": "Story beat 03: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "t2i2",
+      "prompt": "She is the mother.",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_mother.webp",
+          "label": "She is the mother."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "She is the mother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ella es la madre.",
+      "spanish_translation": "Ella es la madre.",
+      "pedagogy_note": "Story beat 04: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "t2i4",
+      "prompt": "They are the parents.",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_parents.webp",
+          "label": "They are the parents."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "/lesson-assets/family_adults.webp",
+          "label": "Adults"
+        },
+        {
+          "id": "wrong-3",
+          "image_url": "/lesson-assets/family_mother.webp",
+          "label": "She is the mother."
+        }
+      ],
+      "audio_text": "They are the parents.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ellos son los padres.",
+      "spanish_translation": "Ellos son los padres.",
+      "pedagogy_note": "Story beat 05: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "He is the grandfather."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "An adult"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Adults"
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "He is the grandfather.",
+      "prompt_image_url": "/lesson-assets/family_grandfather.webp",
+      "translation": "Él es el abuelo.",
+      "spanish_translation": "Él es el abuelo.",
+      "pedagogy_note": "Story beat 06: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "t2i2",
+      "prompt": "She is the grandmother.",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_grandmother.webp",
+          "label": "She is the grandmother."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "She is the grandmother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ella es la abuela.",
+      "spanish_translation": "Ella es la abuela.",
+      "pedagogy_note": "Story beat 07: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "t2i2",
+      "prompt": "They are the grandparents.",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_grandparents.webp",
+          "label": "They are the grandparents."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "They are the grandparents.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ellos son los abuelos.",
+      "spanish_translation": "Ellos son los abuelos.",
+      "pedagogy_note": "Story beat 08: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R9",
+      "interaction_type": "i2t3",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The parents and the children are a family."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "An adult"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Adults"
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The parents and the children are a family.",
+      "prompt_image_url": "/lesson-assets/family_all_members.webp",
+      "translation": "Los padres y los niños son una familia.",
+      "spanish_translation": "Los padres y los niños son una familia.",
+      "pedagogy_note": "Story beat 09: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "R10",
+      "interaction_type": "t2i2",
+      "prompt": "The grandparents and the baby are a family.",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_all_members.webp",
+          "label": "The grandparents and the baby are a family."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "The grandparents and the baby are a family.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Los abuelos y el bebé son una familia.",
+      "spanish_translation": "Los abuelos y el bebé son una familia.",
+      "pedagogy_note": "Story beat 10: 1.5 story; this recognize card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_adults.webp",
+          "label": "Adults"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "/lesson-assets/family_mother.webp",
+          "label": "She is the mother."
+        },
+        {
+          "id": "wrong-3",
+          "image_url": "/lesson-assets/family_parents.webp",
+          "label": "They are the parents."
+        }
+      ],
+      "audio_text": "An adult",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Un adulto",
+      "spanish_translation": "Un adulto",
+      "pedagogy_note": "Story beat 01: 1.5 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_adults.webp",
+          "label": "Adults"
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "Adults",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Adultos",
+      "spanish_translation": "Adultos",
+      "pedagogy_note": "Story beat 02: 1.5 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "He is the father."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "Adults"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "She is the mother."
+        }
+      ],
+      "audio_text": "He is the father.",
+      "answer_audio_text": "He is the father.",
+      "prompt_image_url": "",
+      "translation": "Él es el padre.",
+      "spanish_translation": "Él es el padre.",
+      "pedagogy_note": "Story beat 03: 1.5 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_mother.webp",
+          "label": "She is the mother."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "She is the mother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ella es la madre.",
+      "spanish_translation": "Ella es la madre.",
+      "pedagogy_note": "Story beat 04: 1.5 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "a2i4",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_parents.webp",
+          "label": "They are the parents."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "/lesson-assets/family_adults.webp",
+          "label": "Adults"
+        },
+        {
+          "id": "wrong-3",
+          "image_url": "/lesson-assets/family_mother.webp",
+          "label": "She is the mother."
+        }
+      ],
+      "audio_text": "They are the parents.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ellos son los padres.",
+      "spanish_translation": "Ellos son los padres.",
+      "pedagogy_note": "Story beat 05: 1.5 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "a2t3",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "He is the grandfather."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "",
+          "label": "An adult"
+        },
+        {
+          "id": "wrong-2",
+          "image_url": "",
+          "label": "Adults"
+        }
+      ],
+      "audio_text": "He is the grandfather.",
+      "answer_audio_text": "He is the grandfather.",
+      "prompt_image_url": "",
+      "translation": "Él es el abuelo.",
+      "spanish_translation": "Él es el abuelo.",
+      "pedagogy_note": "Story beat 06: 1.5 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A7",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_grandmother.webp",
+          "label": "She is the grandmother."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "She is the grandmother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ella es la abuela.",
+      "spanish_translation": "Ella es la abuela.",
+      "pedagogy_note": "Story beat 07: 1.5 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "A8",
+      "interaction_type": "a2i2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/family_grandparents.webp",
+          "label": "They are the grandparents."
+        },
+        {
+          "id": "wrong-1",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "They are the grandparents.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ellos son los abuelos.",
+      "spanish_translation": "Ellos son los abuelos.",
+      "pedagogy_note": "Story beat 08: 1.5 story; this listen card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "speak",
+      "prompt": "An adult",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "An adult"
+        }
+      ],
+      "audio_text": "An adult",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Un adulto",
+      "spanish_translation": "Un adulto",
+      "pedagogy_note": "Story beat 01: 1.5 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "speak",
+      "prompt": "He is the father.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_father.webp",
+          "label": "He is the father."
+        }
+      ],
+      "audio_text": "He is the father.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Él es el padre.",
+      "spanish_translation": "Él es el padre.",
+      "pedagogy_note": "Story beat 02: 1.5 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "speak",
+      "prompt": "She is the mother.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_mother.webp",
+          "label": "She is the mother."
+        }
+      ],
+      "audio_text": "She is the mother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ella es la madre.",
+      "spanish_translation": "Ella es la madre.",
+      "pedagogy_note": "Story beat 03: 1.5 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "speak",
+      "prompt": "They are the parents.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_parents.webp",
+          "label": "They are the parents."
+        }
+      ],
+      "audio_text": "They are the parents.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ellos son los padres.",
+      "spanish_translation": "Ellos son los padres.",
+      "pedagogy_note": "Story beat 04: 1.5 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "speak",
+      "prompt": "He is the grandfather.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_grandfather.webp",
+          "label": "He is the grandfather."
+        }
+      ],
+      "audio_text": "He is the grandfather.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Él es el abuelo.",
+      "spanish_translation": "Él es el abuelo.",
+      "pedagogy_note": "Story beat 05: 1.5 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S6",
+      "interaction_type": "speak",
+      "prompt": "She is the grandmother.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_grandmother.webp",
+          "label": "She is the grandmother."
+        }
+      ],
+      "audio_text": "She is the grandmother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ella es la abuela.",
+      "spanish_translation": "Ella es la abuela.",
+      "pedagogy_note": "Story beat 06: 1.5 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "speak",
+      "prompt": "They are the grandparents.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/family_grandparents.webp",
+          "label": "They are the grandparents."
+        }
+      ],
+      "audio_text": "They are the grandparents.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Ellos son los abuelos.",
+      "spanish_translation": "Ellos son los abuelos.",
+      "pedagogy_note": "Story beat 07: 1.5 story; this speak card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U1",
+      "interaction_type": "complete2",
+      "prompt": "___ adult.",
+      "stage": "Use",
+      "correct_option_id": "an",
+      "options": [
+        {
+          "id": "a",
+          "image_url": "",
+          "label": "A"
+        },
+        {
+          "id": "an",
+          "image_url": "",
+          "label": "An"
+        }
+      ],
+      "audio_text": "___ adult.",
+      "answer_audio_text": "An adult.",
+      "prompt_image_url": "/lesson-assets/family_father.webp",
+      "translation": "___ adulto.",
+      "spanish_translation": "___ adulto.",
+      "pedagogy_note": "Story beat 01: 1.5 story; this use card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "___.",
+      "stage": "Use",
+      "correct_option_id": "adults",
+      "options": [
+        {
+          "id": "adult",
+          "image_url": "",
+          "label": "Adult"
+        },
+        {
+          "id": "adults",
+          "image_url": "",
+          "label": "Adults"
+        }
+      ],
+      "audio_text": "___.",
+      "answer_audio_text": "Adults.",
+      "prompt_image_url": "/lesson-assets/family_adults.webp",
+      "translation": "___.",
+      "spanish_translation": "___.",
+      "pedagogy_note": "Story beat 02: 1.5 story; this use card advances the same ordered arc."
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
       "prompt": "He is the ___.",
       "stage": "Use",
       "correct_option_id": "father",
@@ -596,11 +964,16 @@
           "label": "grandfather"
         }
       ],
-      "audio_text": null,
+      "audio_text": "He is the ___.",
       "answer_audio_text": "He is the father.",
-      "prompt_image_url": "family_father.webp"
+      "prompt_image_url": "/lesson-assets/family_father.webp",
+      "translation": "Él es el ___.",
+      "spanish_translation": "Él es el ___.",
+      "pedagogy_note": "Story beat 03: 1.5 story; this use card advances the same ordered arc."
     },
     {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
       "prompt": "She is the ___.",
       "stage": "Use",
       "correct_option_id": "mother",
@@ -616,11 +989,16 @@
           "label": "mother"
         }
       ],
-      "audio_text": null,
+      "audio_text": "She is the ___.",
       "answer_audio_text": "She is the mother.",
-      "prompt_image_url": "family_mother.webp"
+      "prompt_image_url": "/lesson-assets/family_mother.webp",
+      "translation": "Ella es la ___.",
+      "spanish_translation": "Ella es la ___.",
+      "pedagogy_note": "Story beat 04: 1.5 story; this use card advances the same ordered arc."
     },
     {
+      "slide_id": "U5",
+      "interaction_type": "complete2",
       "prompt": "They are the ___.",
       "stage": "Use",
       "correct_option_id": "parents",
@@ -636,11 +1014,16 @@
           "label": "grandparents"
         }
       ],
-      "audio_text": null,
+      "audio_text": "They are the ___.",
       "answer_audio_text": "They are the parents.",
-      "prompt_image_url": "family_parents.webp"
+      "prompt_image_url": "/lesson-assets/family_parents.webp",
+      "translation": "Ellos son los ___.",
+      "spanish_translation": "Ellos son los ___.",
+      "pedagogy_note": "Story beat 05: 1.5 story; this use card advances the same ordered arc."
     },
     {
+      "slide_id": "U6",
+      "interaction_type": "complete2",
       "prompt": "He is the ___.",
       "stage": "Use",
       "correct_option_id": "grandfather",
@@ -656,12 +1039,17 @@
           "label": "grandfather"
         }
       ],
-      "audio_text": null,
+      "audio_text": "He is the ___.",
       "answer_audio_text": "He is the grandfather.",
-      "prompt_image_url": "family_grandfather.webp"
+      "prompt_image_url": "/lesson-assets/family_grandfather.webp",
+      "translation": "Él es el ___.",
+      "spanish_translation": "Él es el ___.",
+      "pedagogy_note": "Story beat 06: 1.5 story; this use card advances the same ordered arc."
     },
     {
-      "prompt": "She is the ___.",
+      "slide_id": "U7",
+      "interaction_type": "complete4",
+      "prompt": "She is the ___. They are the ___.",
       "stage": "Use",
       "correct_option_id": "grandmother",
       "options": [
@@ -674,31 +1062,23 @@
           "id": "grandmother",
           "image_url": "",
           "label": "grandmother"
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "She is the grandmother.",
-      "prompt_image_url": "family_grandmother.webp"
-    },
-    {
-      "prompt": "They are the ___.",
-      "stage": "Use",
-      "correct_option_id": "grandparents",
-      "options": [
+        },
         {
           "id": "grandparents",
           "image_url": "",
           "label": "grandparents"
-        },
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "parents"
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "They are the grandparents.",
-      "prompt_image_url": "family_grandparents.webp"
+      "audio_text": "She is the ___. They are the ___.",
+      "answer_audio_text": "She is the grandmother. They are the grandparents.",
+      "prompt_image_url": "/lesson-assets/family_grandparents.webp",
+      "correct_option_ids": [
+        "grandmother",
+        "grandparents"
+      ],
+      "translation": "Ella es la ___. Ellos son los ___.",
+      "spanish_translation": "Ella es la ___. Ellos son los ___.",
+      "pedagogy_note": "Story beat 07: 1.5 story; this use card advances the same ordered arc."
     }
   ]
 }

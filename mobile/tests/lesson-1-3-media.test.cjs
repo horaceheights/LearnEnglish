@@ -32,10 +32,10 @@ assert.ok(
 );
 
 const correctedCards = [
-  lesson.cards.find((card) => card.stage === 'Learn' && card.audio_text === 'Are'),
-  lesson.cards.find((card) => card.stage === 'Recognize' && card.audio_text === 'They'),
+  lesson.cards.find((card) => card.stage === 'Learn' && card.audio_text === 'They'),
+  lesson.cards.find((card) => card.stage === 'Learn' && card.audio_text === 'They are eating.'),
 ];
-assert.ok(correctedCards.every(Boolean), 'Lesson 1.3 must retain the reviewed Are and They cards.');
+assert.ok(correctedCards.every(Boolean), 'Lesson 1.3 must introduce They before using are in a complete sentence.');
 
 for (const card of correctedCards) {
   const promptAssets = card.audio_assets.filter((asset) => (
@@ -103,4 +103,4 @@ assert.match(
   'Lesson playback must resolve the exact immutable card asset.',
 );
 
-console.log('Lesson 1.3 persistent Are/They media checks passed.');
+console.log('Lesson 1.3 persistent They/are media checks passed.');

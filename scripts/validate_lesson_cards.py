@@ -57,6 +57,16 @@ VISUAL_COMPLETION_PLACEHOLDER_PATTERN = re.compile(
 NEGATIVE_VISUAL_CONTRACTS = {
     "they are not sitting.": {"they_boy_girl_are_running.webp"},
 }
+MISSION_COMPLETION_INTERACTIONS = {
+    "mission-word-parts",
+    "mission-sentence",
+    "mission-finale",
+}
+
+
+def is_completion_interaction(interaction_type: str | None) -> bool:
+    value = str(interaction_type or "")
+    return interaction_type is None or value.startswith("complete") or value in MISSION_COMPLETION_INTERACTIONS
 
 
 def referenced_lesson_asset(media_url: str) -> Path | None:
@@ -142,7 +152,7 @@ def validate_option_ids() -> list[str]:
                         f"{lesson.id} card {card_index} ({card.prompt!r}) must keep "
                         "correct_option_id aligned with the first ordered answer."
                     )
-                if not str(card.interaction_type or "").startswith("complete"):
+                if not is_completion_interaction(card.interaction_type):
                     errors.append(
                         f"{lesson.id} card {card_index} ({card.prompt!r}) declares ordered "
                         "correct answers outside a completion interaction."
@@ -242,7 +252,7 @@ def validate_interaction_requirements() -> list[str]:
                     errors.append(f"{location} is a grammar card with an unlabeled word choice.")
 
             if card.stage == "Use":
-                completion = card.interaction_type is None or str(card.interaction_type).startswith("complete")
+                completion = is_completion_interaction(card.interaction_type)
                 placeholders = list(VISUAL_COMPLETION_PLACEHOLDER_PATTERN.finditer(card.prompt))
                 ordered_correct_ids = list(card.correct_option_ids or [])
                 expected_placeholders = len(ordered_correct_ids) if ordered_correct_ids else 1

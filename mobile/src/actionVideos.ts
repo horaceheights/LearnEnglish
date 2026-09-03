@@ -26,21 +26,15 @@ const TWO_CARD_ACTION_VIDEOS: Record<string, string> = {
 };
 
 const TWO_CARD_ACTION_POSTERS: Record<string, number> = {
-  boy_is_drinking: require('../assets/lesson-assets/boy_is_drinking-two-card-poster.webp'),
   boy_is_eating: require('../assets/lesson-assets/boy_is_eating-two-card-poster.webp'),
-  boy_is_reading: require('../assets/lesson-assets/boy_is_reading-two-card-poster.webp'),
   boy_is_running: require('../assets/lesson-assets/boy_is_running-two-card-poster.webp'),
   boy_is_swimming: require('../assets/lesson-assets/boy_is_swimming-two-card-poster.webp'),
   family_brother_studying: require('../assets/lesson-assets/family_brother_studying-two-card-poster.webp'),
   family_children_playing: require('../assets/lesson-assets/family_children_playing-two-card-poster.webp'),
-  family_children_studying: require('../assets/lesson-assets/family_children_studying-two-card-poster.webp'),
-  family_father_working: require('../assets/lesson-assets/family_father_working-two-card-poster.webp'),
   family_mother_cooking: require('../assets/lesson-assets/family_mother_cooking-two-card-poster.webp'),
   family_parents_talking: require('../assets/lesson-assets/family_parents_talking-two-card-poster.webp'),
-  girl_is_drinking: require('../assets/lesson-assets/girl_is_drinking-two-card-poster.webp'),
   girl_is_sleeping: require('../assets/lesson-assets/girl_is_sleeping-two-card-poster.webp'),
   girl_is_walking: require('../assets/lesson-assets/girl_is_walking-two-card-poster.webp'),
-  girl_is_writing: require('../assets/lesson-assets/girl_is_writing-two-card-poster.webp'),
   they_boy_girl_are_running: require('../assets/lesson-assets/they_boy_girl_are_running-two-card-poster.webp'),
 };
 

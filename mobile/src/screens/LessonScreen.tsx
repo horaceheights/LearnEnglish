@@ -902,12 +902,14 @@ export function LessonScreen({
   const promptAudio = authoredPromptHasVisualBlank && !currentCard?.audio_text?.trim()
     ? currentCard?.prompt ?? ''
     : currentCard?.audio_text ?? currentCard?.prompt ?? '';
+  const contrastAnswerAudio = currentCard?.answer_audio_text?.trim() ?? '';
   const correctContrastPrompt =
     result === 'correct'
     && currentCard?.stage === 'Recognize'
-    && currentCard?.answer_audio_text?.includes(',')
+    && Boolean(contrastAnswerAudio)
+    && contrastAnswerAudio !== promptAudio.trim()
     && /\b(?:is|are) not\b/i.test(promptAudio)
-      ? currentCard.answer_audio_text.trim()
+      ? contrastAnswerAudio
       : '';
   const visiblePromptAudio = correctContrastPrompt || promptAudio;
   const promptHasVisualBlank = authoredPromptHasVisualBlank
@@ -1814,6 +1816,29 @@ export function LessonScreen({
     void playTryAgainCue();
   };
 
+  const undoMissionSelection = useCallback(() => {
+    if (result === 'correct') return;
+    setSelectedIds((current) => {
+      const next = current.slice(0, -1);
+      setSelectedId(next.length ? next[next.length - 1] : null);
+      return next;
+    });
+    setResult(null);
+    setGrammarCompleted(false);
+    grammarCompletionHandledRef.current = false;
+    correctChoiceHandledRef.current = false;
+  }, [result]);
+
+  const resetMissionSelection = useCallback(() => {
+    if (result === 'correct') return;
+    setSelectedId(null);
+    setSelectedIds([]);
+    setResult(null);
+    setGrammarCompleted(false);
+    grammarCompletionHandledRef.current = false;
+    correctChoiceHandledRef.current = false;
+  }, [result]);
+
   const pronunciationPassed = useCallback((firstTry: boolean) => {
     if (pronunciationPassHandledRef.current) return;
     pronunciationPassHandledRef.current = true;
@@ -2607,10 +2632,14 @@ export function LessonScreen({
             onPronunciationPassed={pronunciationPassed}
             onPronunciationUnavailable={pronunciationUnavailable}
             onGrammarAnimationComplete={grammarAnimationComplete}
+            onResetSelection={resetMissionSelection}
             onSelect={choose}
+            onUndoSelection={undoMissionSelection}
             result={result}
             selectedId={selectedId}
             selectedIds={selectedIds}
+            missionStep={lesson.id === 'lesson-10-family-mission' ? cardIndex + 1 : undefined}
+            missionTotal={lesson.id === 'lesson-10-family-mission' ? lesson.cards.length : undefined}
             showHelp={showHelp}
             promptInteractionMode={promptInteractionMode}
             pronunciationReplayRequestId={pronunciationReplayRequestId}
