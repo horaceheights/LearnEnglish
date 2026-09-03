@@ -78,6 +78,7 @@ Every standard lesson follows this visible sequence:
 - Connect image and text in both directions over the lesson journey:
   - phrase or audio -> image
   - image -> phrase
+- Every image-choice bank must answer one consistent visual question. A subject or identity prompt uses subject-only portraits or groups, while an action prompt uses action scenes; do not mix those two dimensions in one bank. Exactly one option may literally satisfy the visible or spoken prompt. For example, `The boy` cannot offer both a boy portrait and a different scene containing a boy, even when one image was intended as an action distractor.
 - On image-to-sentence identity cards, show the short identity question (`Who is he?`, `Who is she?`, or `Who are they?`) above the image and play that question before enabling the sentence choices. Do not hide the question until after selection or combine the correct answer into the upfront prompt. After a correct choice, play only the chosen answer sentence, such as `They are the parents.`
 - On image-to-text object-identity cards, ask the short content question before the choices instead of showing a generic task instruction. Keep the question, visible answers, and answer audio grammatically aligned: `What is it?` pairs with `It is ...`, while `What is this?` and `What is that?` pair with `This is ...` and `That is ...`. Play the question with natural question intonation.
 - Correct-answer placement must not stay in one predictable position.
