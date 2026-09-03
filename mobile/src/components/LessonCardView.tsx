@@ -175,7 +175,9 @@ export function LessonCardView({
   // Landscape tablets instead use the same height-aware 3:2 width cap as a
   // non-video single card so the clip leaves visible margins below the header.
   const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape;
-  const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedId) : '';
+  const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedIds.length ? selectedIds : selectedId) : '';
+  const [feedbackMeasurement, setFeedbackMeasurement] = useState({ key: '', height: 0 });
+  const feedbackLayoutKey = `${viewportWidth}:${mistakeHint}`;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
@@ -278,9 +280,10 @@ export function LessonCardView({
   const needsPortraitImageFeedbackSpace =
     !isLandscape && !hasTextOnlyOptions && optionsInteractive && card.options.length >= 2;
   const feedbackReservedHeight = !isPronunciation && optionsInteractive
-    ? needsPortraitImageFeedbackSpace
-      ? 76
-      : 58
+    ? Math.max(
+        feedbackMeasurement.key === feedbackLayoutKey ? feedbackMeasurement.height + 12 : 0,
+        needsPortraitImageFeedbackSpace ? 76 : 58,
+      )
     : 0;
   const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
   const textOptionColumns = useCompactCompletionTiles
@@ -703,6 +706,11 @@ export function LessonCardView({
               accessibilityLiveRegion="polite"
               accessibilityRole="text"
               style={styles.feedback}
+              onLayout={(event) => {
+                const height = Math.ceil(event.nativeEvent.layout.height);
+                setFeedbackMeasurement((previous) => previous.key === feedbackLayoutKey && previous.height === height
+                  ? previous : { key: feedbackLayoutKey, height });
+              }}
             >
               <Text style={[
                 styles.feedbackText,

@@ -17,6 +17,7 @@ import {
   scorePronunciationAudio,
   startLessonSession,
 } from "../lib/api";
+import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
@@ -1703,49 +1704,6 @@ function getWrongFeedback(profile) {
   return "¡Ánimo! Inténtalo de nuevo.";
 }
 
-const SINGULAR_HINT_SUBJECTS = {
-  "a baby": "“A baby” (un bebé)",
-  "a brother": "“A brother” (un hermano)",
-  "a child": "“A child” (un niño)",
-  "a sister": "“A sister” (una hermana)",
-  he: "“He” (él)",
-  she: "“She” (ella)",
-  "the baby": "“The baby” (el bebé)",
-  "the boy": "“The boy” (el niño)",
-  "the father": "“The father” (el padre)",
-  "the girl": "“The girl” (la niña)",
-  "the grandfather": "“The grandfather” (el abuelo)",
-  "the grandmother": "“The grandmother” (la abuela)",
-  "the man": "“The man” (el hombre)",
-  "the mother": "“The mother” (la madre)",
-  "the woman": "“The woman” (la mujer)",
-};
-
-const PLURAL_HINT_SUBJECTS = {
-  children: "“Children” (los niños)",
-  "the adults": "“The adults” (los adultos)",
-  "the boy and the girl": "“The boy and the girl” (el niño y la niña)",
-  "the brothers": "“The brothers” (los hermanos)",
-  "the children": "“The children” (los niños)",
-  "the grandparents": "“The grandparents” (los abuelos)",
-  "the parents": "“The parents” (los padres)",
-  "the sisters": "“The sisters” (las hermanas)",
-  they: "“They” (ellos o ellas)",
-};
-
-function normalizedHintText(value) {
-  return String(value || "").trim().toLowerCase().replace(/[?.!,]+$/g, "");
-}
-
-function hintSubject(text, verb) {
-  const directSubject = text.match(new RegExp(`^(.+?)\\s+${verb}\\b`))?.[1]?.trim();
-  if (directSubject && directSubject !== "who") return directSubject;
-  if (/\bthey\b/.test(text)) return "they";
-  if (/\bhe\b/.test(text)) return "he";
-  if (/\bshe\b/.test(text)) return "she";
-  return "";
-}
-
 function orderedCorrectOptionIds(card) {
   return card?.correct_option_ids?.length
     ? card.correct_option_ids
@@ -1764,49 +1722,6 @@ function optionLabelsForIds(card, optionIds) {
 function fillCompletionPrompt(prompt, labels) {
   let labelIndex = 0;
   return String(prompt || "").replace(/_{2,}/g, (blank) => labels[labelIndex++] || blank);
-}
-
-function getLessonMistakeHint(card, selectedOptionId) {
-  if (!card) return "Observa otra vez la persona, el grupo o la acción.";
-  const correctOption = card.options.find((option) => option.id === card.correct_option_id);
-  const selectedOption = card.options.find((option) => option.id === selectedOptionId);
-  const target = normalizedHintText(
-    card.answer_audio_text || card.audio_text || correctOption?.label || card.prompt
-  );
-  const correctChoice = normalizedHintText(correctOption?.label || correctOption?.id);
-  const selectedChoice = normalizedHintText(selectedOption?.label || selectedOption?.id);
-
-  if (target.includes(" not ") || correctChoice === "not" || correctChoice.includes("not")) {
-    return "“Not” indica que la acción no está ocurriendo.";
-  }
-
-  const expectedVerb = correctChoice === "is" || correctChoice === "are"
-    ? correctChoice
-    : /\bare\b/.test(target)
-      ? "are"
-      : /\bis\b/.test(target)
-        ? "is"
-        : null;
-
-  if (expectedVerb === "is") {
-    const label = SINGULAR_HINT_SUBJECTS[hintSubject(target, "is")];
-    return label
-      ? `${label} es singular; usamos “is”.`
-      : "Usamos “is” cuando hablamos de una sola persona.";
-  }
-
-  if (expectedVerb === "are") {
-    const label = PLURAL_HINT_SUBJECTS[hintSubject(target, "are")];
-    return label
-      ? `${label} es plural; usamos “are”.`
-      : "Usamos “are” cuando hablamos de dos o más personas.";
-  }
-
-  if (selectedChoice && correctChoice && selectedChoice !== correctChoice) {
-    return "Mira de nuevo quién aparece y qué está haciendo.";
-  }
-
-  return "Observa otra vez la persona, el grupo o la acción.";
 }
 
 function summarizePronunciationScore(result) {
@@ -5669,7 +5584,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       marginTop: 4,
                     }}
                   >
-                    {getLessonMistakeHint(currentCard, selectedOptionId)}
+                    {getLessonMistakeHint(currentCard, selectedOptionIds.length ? selectedOptionIds : selectedOptionId)}
                   </div>
                 </div>
               ) : null}
