@@ -905,7 +905,8 @@ export function LessonScreen({
   const correctContrastPrompt =
     result === 'correct'
     && currentCard?.stage === 'Recognize'
-    && currentCard?.answer_audio_text?.includes(',')
+    && Boolean(currentCard?.answer_audio_text?.trim())
+    && currentCard?.answer_audio_text?.trim() !== promptAudio.trim()
     && /\b(?:is|are) not\b/i.test(promptAudio)
       ? currentCard.answer_audio_text.trim()
       : '';

@@ -299,7 +299,7 @@ const lesson17 = buildLesson({
   grammarFunction: 'He/She is not + action; They are not + action.', prerequisite: 'Lessons 1.1-1.6: people, family roles, pronouns, is/are, and actions.',
   speakingOutcome: 'Say a positive action and a true negative contrast about the same scene.', purposefulReviewSlides: ['L1', 'L3', 'L5', 'L7', 'L9', 'S7', 'U7'],
   entries: l17, textRecognize: [1, 3, 5, 7, 9],
-  listenIndexes: [{ index: 0, audio: 'The father is talking.' }, { index: 1, audio: 'He is not cooking. He is talking.', mode: 'text' }, { index: 2, audio: 'The girl is writing.' }, { index: 3, audio: 'She is not reading. She is writing.', mode: 'text' }, { index: 4, audio: 'They are running.' }, { index: 5, audio: 'They are not sitting. They are running.', mode: 'text' }, { index: 7, audio: 'She is not studying. She is playing.', mode: 'text' }, { index: 9, audio: 'They are not sleeping. They are sitting and talking.', mode: 'text' }],
+  listenIndexes: [{ index: 0, audio: 'The father is talking.' }, { index: 1, audio: 'He is not cooking.', mode: 'text' }, { index: 2, audio: 'The girl is writing.' }, { index: 3, audio: 'She is not reading.', mode: 'text' }, { index: 4, audio: 'They are running.' }, { index: 5, audio: 'They are not sitting.', mode: 'text' }, { index: 7, audio: 'She is not studying.', mode: 'text' }, { index: 9, audio: 'They are not sleeping.', mode: 'text' }],
   speakIndexes: [0, 1, 2, 3, 4, 5, 9],
   uses: [
     complete({ prompt: 'The father is ___.', image: assets.fatherTalking, answer: 'The father is talking.', correct: 'talking', choices: [['cooking', 'cooking'], ['talking', 'talking']], translation: 'El padre está ___.' }),

@@ -1946,9 +1946,7 @@ const TWO_CARD_ACTION_VIDEOS = {
 };
 
 const TWO_CARD_ACTION_POSTERS = {
-  "boy_is_drinking": "boy_is_drinking-two-card-poster.webp",
   "boy_is_eating": "boy_is_eating-two-card-poster.webp",
-  "boy_is_reading": "boy_is_reading-two-card-poster.webp",
   "boy_is_running": "boy_is_running-two-card-poster.webp",
   "boy_is_swimming": "boy_is_swimming-two-card-poster.webp",
   "family_brother_studying": "family_brother_studying-two-card-poster.webp",
@@ -1957,7 +1955,6 @@ const TWO_CARD_ACTION_POSTERS = {
   "family_father_working": "family_father_working-two-card-poster.webp",
   "family_mother_cooking": "family_mother_cooking-two-card-poster.webp",
   "family_parents_talking": "family_parents_talking-two-card-poster.webp",
-  "girl_is_drinking": "girl_is_drinking-two-card-poster.webp",
   "girl_is_sleeping": "girl_is_sleeping-two-card-poster.webp",
   "girl_is_walking": "girl_is_walking-two-card-poster.webp",
   "girl_is_writing": "girl_is_writing-two-card-poster.webp",
@@ -2746,7 +2743,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const correctContrastPrompt =
     lastResult === "correct" &&
     currentCard?.stage === "Recognize" &&
-    currentCard?.answer_audio_text?.includes(",") &&
+    Boolean(currentCard?.answer_audio_text?.trim()) &&
+    currentCard?.answer_audio_text?.trim() !== cardPromptText.trim() &&
     /\b(?:is|are) not\b/i.test(cardPromptText)
       ? currentCard.answer_audio_text.trim()
       : "";

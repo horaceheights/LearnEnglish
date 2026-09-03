@@ -15,24 +15,35 @@ const lesson = JSON.parse(fs.readFileSync(
   'utf8',
 ));
 
-const negativeImageChoices = lesson.cards.filter((card) => (
+const negativeContrastChoices = lesson.cards.filter((card) => (
   ['Recognize', 'Listen'].includes(card.stage)
   && /\b(?:is|are) not\b/i.test(card.audio_text || '')
-  && card.options.every((option) => option.image_url)
+  && card.options.every((option) => option.label && !option.image_url)
 ));
 
-assert.equal(negativeImageChoices.length, 8, 'Lesson 1.7 must retain all eight negative image choices.');
-for (const card of negativeImageChoices) {
+assert.equal(negativeContrastChoices.length, 10, 'Lesson 1.7 must retain all ten negative contrast choices.');
+assert.equal(
+  negativeContrastChoices.filter((card) => card.stage === 'Recognize' && card.prompt_image_url).length,
+  5,
+  'Each Recognize contrast must keep its single true scene visible above the phrase choices.',
+);
+assert.equal(
+  negativeContrastChoices.filter((card) => card.stage === 'Listen' && !card.prompt_image_url).length,
+  5,
+  'Each Listen contrast must keep the answer text hidden before selection.',
+);
+for (const card of negativeContrastChoices) {
   assert.match(
     card.answer_audio_text || '',
-    /\b(?:is|are) not\b[^,]*,\s+(?:he|she|they) (?:is|are) [a-z]+\.$/i,
-    `Negative card must confirm the positive action after the comma: ${card.audio_text}`,
+    /\b(?:is|are) not\b.*(?:,|\.)\s+(?:he|she|they) (?:is|are) [a-z]+(?:\s+and\s+[a-z]+)?\.$/i,
+    `Negative card must confirm the positive action only after success: ${card.audio_text}`,
   );
+  assert.notEqual(card.answer_audio_text, card.audio_text, 'The pre-answer audio must remain the short negative sentence.');
 }
 
 assert.match(
   lessonScreenSource,
-  /result === 'correct'[\s\S]*currentCard\?\.stage === 'Recognize'[\s\S]*answer_audio_text\?\.includes\(','\)[\s\S]*correctContrastPrompt \|\|/,
+  /result === 'correct'[\s\S]*currentCard\?\.stage === 'Recognize'[\s\S]*answer_audio_text\?\.trim\(\) !== promptAudio\.trim\(\)[\s\S]*correctContrastPrompt \|\|/,
   'Native Preview must reveal the full contrast only after a correct Recognize answer.',
 );
 assert.match(
@@ -42,7 +53,7 @@ assert.match(
 );
 assert.match(
   webPlayerSource,
-  /lastResult === "correct"[\s\S]*currentCard\?\.stage === "Recognize"[\s\S]*answer_audio_text\?\.includes\(","\)[\s\S]*correctContrastPrompt \|\|/,
+  /lastResult === "correct"[\s\S]*currentCard\?\.stage === "Recognize"[\s\S]*answer_audio_text\?\.trim\(\) !== cardPromptText\.trim\(\)[\s\S]*correctContrastPrompt \|\|/,
   'Web lessons must reveal the same full contrast only after a correct Recognize answer.',
 );
 assert.match(
