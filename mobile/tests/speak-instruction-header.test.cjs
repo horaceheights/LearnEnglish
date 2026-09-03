@@ -32,7 +32,7 @@ const speakCards = course.flatMap((lesson) => (
 ));
 const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 
-assert.equal(speakCards.length, 421, 'The Speak instruction guardrail must inventory every current Speak card.');
+assert.equal(speakCards.length, 430, 'The Speak instruction guardrail must inventory every current Speak card.');
 assert.equal(affectedLessons.size, 70, 'The shared Speak instruction must cover every A1 lesson.');
 assert.ok(
   speakCards.every(({ card }) => card.prompt.trim()),

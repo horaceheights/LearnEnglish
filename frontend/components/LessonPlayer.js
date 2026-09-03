@@ -92,8 +92,8 @@ const COURSE_MENU_VISUALS = {
       accent: "#ffe8c7",
     },
     "lesson-2-pronouns": {
-      description: "He y she con acciones claras de una persona.",
-      image: "girl_is_writing.webp",
+      description: "Cuatro personas avanzan de acciones a frases más largas.",
+      image: "boy_is_eating.webp",
       accent: "#dff4ef",
     },
     "lesson-3-two-people": {
@@ -117,7 +117,7 @@ const COURSE_MENU_VISUALS = {
       accent: "#dff4ef",
     },
     "lesson-7-is-are-not": {
-      description: "Is, are y not dentro de frases conocidas.",
+      description: "Contrasta lo que cada persona hace y no hace.",
       image: "family_parents_talking.webp",
       accent: "#ffe8c7",
     },
@@ -127,8 +127,8 @@ const COURSE_MENU_VISUALS = {
       accent: "#e5eefb",
     },
     "lesson-9-unit-review": {
-      description: "Repaso mezclado de toda la unidad.",
-      image: "family_all_members.webp",
+      description: "Una historia nueva reúne personas, familia y acciones.",
+      image: "a1_u1_review_family_story.webp",
       accent: "#f1e4fa",
     },
     "lesson-10-family-mission": {

@@ -33,7 +33,7 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
 
         self.assertEqual(PREVIEW_AUDIO_COMMIT, catalog["source_commit"])
         self.assertEqual(70, catalog["lesson_count"])
-        self.assertEqual(4790, catalog["asset_count"])
+        self.assertEqual(4915, catalog["asset_count"])
         self.assertEqual(3611, catalog["registry_asset_count"])
         self.assertEqual(1179, catalog["legacy_manifest_asset_count"])
         self.assertEqual(catalog["asset_count"], len(asset_index()))
