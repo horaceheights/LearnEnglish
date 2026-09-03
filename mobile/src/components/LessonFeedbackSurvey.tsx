@@ -244,14 +244,6 @@ export function LessonFeedbackSurvey({
           <Text style={styles.eyebrow}>TU OPINIÓN NOS AYUDA</Text>
           <Text style={styles.title}>Ayúdanos a mejorar esta lección</Text>
         </View>
-        <Pressable
-          accessibilityRole="button"
-          disabled={isSaving || phase !== 'idle'}
-          onPress={onDone}
-          style={[styles.skipButton, isSaving || phase !== 'idle' ? styles.disabled : null]}
-        >
-          <Text style={styles.skipText}>Ahora no</Text>
-        </Pressable>
       </View>
 
       <View style={[styles.questionsRow, isPortrait ? styles.questionsColumn : null]}>
@@ -332,6 +324,16 @@ export function LessonFeedbackSurvey({
           {isSaving ? <ActivityIndicator color="#fff" /> : <Text style={styles.submitText}>Enviar comentarios</Text>}
         </Pressable>
       </View>
+      <View style={styles.skipRow}>
+        <Pressable
+          accessibilityRole="button"
+          disabled={isSaving || phase !== 'idle'}
+          onPress={onDone}
+          style={[styles.skipButton, isSaving || phase !== 'idle' ? styles.disabled : null]}
+        >
+          <Text style={styles.skipText}>Ahora no</Text>
+        </Pressable>
+      </View>
     </ScrollView>
   );
 }
@@ -370,10 +372,11 @@ const styles = StyleSheet.create({
   scroll: { backgroundColor: '#fbf7ef', flex: 1 },
   page: { flexGrow: 1, gap: 10, padding: 14 },
   pagePortrait: { paddingBottom: 28 },
-  headingRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
+  headingRow: { alignItems: 'stretch' },
   eyebrow: { color: '#2f8f62', fontSize: 10, fontWeight: '900', letterSpacing: 1 },
   title: { color: '#24333a', fontSize: 25, fontWeight: '900', marginTop: 3 },
-  skipButton: { borderColor: '#d7c8aa', borderRadius: 12, borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 },
+  skipRow: { alignItems: 'center' },
+  skipButton: { alignItems: 'center', justifyContent: 'center', minHeight: 48, maxWidth: '100%', borderColor: '#d7c8aa', borderRadius: 12, borderWidth: 1, paddingHorizontal: 15, paddingVertical: 10 },
   skipText: { color: '#58656a', fontSize: 13, fontWeight: '800' },
   questionsRow: { flexDirection: 'row', gap: 10 },
   questionsColumn: { flexDirection: 'column' },
