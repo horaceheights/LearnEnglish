@@ -2,6 +2,7 @@ services:
   - type: web
     name: learnenglish
     runtime: python
+    branch: main
     rootDir: backend
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
@@ -10,6 +11,8 @@ services:
       mountPath: /var/data/course-audio
       sizeGB: 1
     envVars:
+      - key: APP_ENVIRONMENT
+        value: production
       - key: COURSE_AUDIO_STORAGE_DIR
         value: /var/data/course-audio
       - key: APP_API_KEY

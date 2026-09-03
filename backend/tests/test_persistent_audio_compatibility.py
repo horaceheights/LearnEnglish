@@ -24,7 +24,7 @@ from backend.app.persistent_audio_assets import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIEW_AUDIO_COMMIT = "defb084d3f57dc70d82e26b663ba8bf1fdab81dd"
+PREVIEW_AUDIO_COMMIT = "a9f5a64f75c860dcc049e1d1a7193d568af412cf"
 
 
 class PersistentAudioCompatibilityTests(unittest.TestCase):
@@ -33,8 +33,8 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
 
         self.assertEqual(PREVIEW_AUDIO_COMMIT, catalog["source_commit"])
         self.assertEqual(70, catalog["lesson_count"])
-        self.assertEqual(4772, catalog["asset_count"])
-        self.assertEqual(3593, catalog["registry_asset_count"])
+        self.assertEqual(4790, catalog["asset_count"])
+        self.assertEqual(3611, catalog["registry_asset_count"])
         self.assertEqual(1179, catalog["legacy_manifest_asset_count"])
         self.assertEqual(catalog["asset_count"], len(asset_index()))
 
@@ -123,9 +123,11 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
     def test_render_blueprint_mounts_one_gigabyte_audio_disk(self):
         blueprint = yaml.safe_load((ROOT / "render.yaml").read_text(encoding="utf-8"))
         service = blueprint["services"][0]
+        self.assertEqual("main", service["branch"])
         self.assertEqual("/var/data/course-audio", service["disk"]["mountPath"])
         self.assertEqual(1, service["disk"]["sizeGB"])
         env = {item["key"]: item.get("value") for item in service["envVars"]}
+        self.assertEqual("production", env["APP_ENVIRONMENT"])
         self.assertEqual("/var/data/course-audio", env["COURSE_AUDIO_STORAGE_DIR"])
 
     def test_elevenlabs_assets_use_a_cache_busted_subdirectory(self):
