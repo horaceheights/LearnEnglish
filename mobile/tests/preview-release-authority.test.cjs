@@ -132,6 +132,7 @@ test('the publisher fails closed outside the exact GitHub release authority', ()
   assert.match(publishScriptSource, /merge-base --is-ancestor \$ExpectedCommit \$remoteMainCommit/);
   assert.match(publishScriptSource, /\$observedEnvironment -ceq 'production'/);
   assert.match(publishScriptSource, /\$observedBranch -ceq 'main'/);
+  assert.match(publishScriptSource, /\.Replace\("`r`n", "`n"\)/);
   assert.match(publishScriptSource, /catalog_sha256/);
   assert.match(publishScriptSource, /audio\.ready/);
   assert.match(publishScriptSource, /candidato Preview todavía no está reconciliado en main/);

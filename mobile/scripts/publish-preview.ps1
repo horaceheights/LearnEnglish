@@ -58,7 +58,16 @@ function Assert-SharedBackendRelease {
 
   $catalogPath = Join-Path $RepositoryRoot 'backend/approved-course-audio/catalog.json'
   $catalog = Get-Content -Raw -LiteralPath $catalogPath | ConvertFrom-Json
-  $expectedCatalogSha256 = (Get-FileHash -LiteralPath $catalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
+  # Git may check out text as CRLF on the Windows publisher while Render uses
+  # LF. Hash normalized UTF-8 so identical versioned JSON has one identity.
+  $catalogText = [System.IO.File]::ReadAllText($catalogPath).Replace("`r`n", "`n")
+  $sha256 = [System.Security.Cryptography.SHA256]::Create()
+  try {
+    $catalogHashBytes = $sha256.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($catalogText))
+  } finally {
+    $sha256.Dispose()
+  }
+  $expectedCatalogSha256 = -join ($catalogHashBytes | ForEach-Object { $_.ToString('x2') })
   $expectedAssetCount = [int]$catalog.asset_count
   $lastObservation = 'el backend todavía no respondió.'
 
