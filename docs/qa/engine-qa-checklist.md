@@ -286,3 +286,5 @@ A tested Preview is eligible for Production only when:
 - Reject neutral/black bands, blurred side panels, and padding baked into source pixels. Preserve heads, hands, feet, action tools, and answer-critical detail without stretching.
 - Regression examples: Unit 1.6 mother cooking must fill both sides while retaining the pan and stirring hands; walking must retain the feet.
 - Audit every mapped action clip and each two-card variant, not just the reported slide. Regenerate from the reviewed landscape master; do not approve the old inset exception or replace motion with a still to pass.
+
+Run `python scripts/audit_video_full_bleed.py` to decode all client-mapped clips, verify bundled/web byte parity, and reject solid edge bands. This is mandatory in Preview and Production preflight. This pixel heuristic supplements visual review; it does not prove correct actions or detect every possible blurred panel.

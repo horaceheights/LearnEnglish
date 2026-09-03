@@ -28,6 +28,9 @@ $exportDirectory = [System.IO.Path]::Combine(
 Write-Host "Validando tarjetas y archivos multimedia (política $ReviewPolicy)..." -ForegroundColor Cyan
 Push-Location $repositoryRoot
 try {
+  Invoke-CheckedCommand -FailureMessage 'La prueba de detección de bandas falló.' -Command {
+    & $pythonCommand (Join-Path $repositoryRoot 'scripts\test_video_full_bleed.py')
+  }
   Invoke-CheckedCommand -FailureMessage 'Los videos contienen bandas vacías o archivos distintos entre web y móvil.' -Command {
     & $pythonCommand $videoFillValidator
   }

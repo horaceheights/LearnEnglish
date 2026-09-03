@@ -49,8 +49,15 @@ def audit(root: Path, ffmpeg: str) -> list[str]:
             continue
         if native.exists() and native.read_bytes() != web.read_bytes():
             failures.append(f"{filename}: web/native byte mismatch")
+        probe = subprocess.run([ffmpeg, "-hide_banner", "-i", str(web)], capture_output=True, text=True)
+        duration_match = re.search(r"Duration: (\d+):(\d+):(\d+(?:\.\d+)?)", probe.stderr)
+        if not duration_match:
+            failures.append(f"{filename}: duration unavailable")
+            continue
+        hours, minutes, seconds = map(float, duration_match.groups())
+        midpoint = (hours * 3600 + minutes * 60 + seconds) / 2
         # The last-frame sample uses EOF rather than assuming a clip duration.
-        for label, seek in (("first", ["-ss", "0"]), ("middle", ["-ss", "1"]),
+        for label, seek in (("first", ["-ss", "0"]), ("middle", ["-ss", str(midpoint)]),
                             ("last", ["-sseof", "-0.1"])):
             result = subprocess.run([
                 ffmpeg, "-v", "error", *seek, "-i", str(web), "-frames:v", "1",
