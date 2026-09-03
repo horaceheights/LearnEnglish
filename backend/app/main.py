@@ -20,6 +20,7 @@ from .course_audio import (
 )
 from .persistent_audio_assets import (
     elevenlabs_seed_status as persistent_elevenlabs_seed_status,
+    elevenlabs_release_status as persistent_elevenlabs_release_status,
     elevenlabs_storage_dir as persistent_elevenlabs_storage_dir,
     elevenlabs_storage_status as persistent_elevenlabs_storage_status,
     read_asset as read_persistent_audio_asset,
@@ -175,7 +176,7 @@ async def guard_api_requests(request: Request, call_next):
 
     - /api/admin/* needs the separate, stronger admin key (never shipped in
       either app) -- this is an operator-only surface.
-    - Every other /api/* route (except the open health/legal paths) needs
+    - Every other /api/* route (except the open health/release-status paths) needs
       the app key that ships inside the mobile app and web frontend once
       APP_API_KEY is configured. Leaving it unset keeps legacy clients
       working during a staged rollout. A valid admin key may also authorize
@@ -297,6 +298,29 @@ def audio_health():
         # The already-shipped Production client still uses the legacy routes.
         # Persistent clients never use them as a cache-miss fallback.
         "legacy_production_audio_enabled": True,
+    }
+
+
+@app.get("/api/release/status")
+def release_status():
+    """Expose the deployed commit and immutable-audio readiness to CI."""
+    branch = os.getenv("RENDER_GIT_BRANCH", "").strip()
+    configured_environment = os.getenv("APP_ENVIRONMENT", "").strip().lower()
+    if configured_environment:
+        environment = configured_environment
+    elif branch == "release/preview":
+        environment = "preview"
+    elif branch == "main":
+        environment = "production"
+    else:
+        environment = "development"
+
+    return {
+        "environment": environment,
+        "git_branch": branch or None,
+        "git_commit": os.getenv("RENDER_GIT_COMMIT", "").strip().lower() or None,
+        "service_name": os.getenv("RENDER_SERVICE_NAME", "").strip() or None,
+        "audio": persistent_elevenlabs_release_status(),
     }
 
 

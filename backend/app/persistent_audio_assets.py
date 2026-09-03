@@ -428,6 +428,39 @@ def elevenlabs_seed_status() -> dict[str, object]:
     return dict(_last_elevenlabs_seed_status)
 
 
+def elevenlabs_release_status() -> dict[str, object]:
+    """Return a non-secret identity/readiness contract for release automation."""
+    catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
+    expected_assets = len(asset_index())
+    seed = elevenlabs_seed_status()
+    present = int(seed.get("present", 0))
+    copied = int(seed.get("copied", 0))
+    generated = int(seed.get("generated", 0))
+    missing = int(seed.get("missing", 0))
+    invalid = int(seed.get("invalid", 0))
+    errors = seed.get("errors")
+    error_count = len(errors) if isinstance(errors, list) else 1
+    available = present + copied + generated
+
+    return {
+        "ready": (
+            expected_assets > 0
+            and int(seed.get("total", 0)) == expected_assets
+            and available == expected_assets
+            and missing == 0
+            and invalid == 0
+            and error_count == 0
+        ),
+        "catalog_sha256": sha256_file(CATALOG_PATH),
+        "catalog_asset_count": expected_assets,
+        "profile_id": catalog.get("profile_id"),
+        "available": available,
+        "missing": missing,
+        "invalid": invalid,
+        "error_count": error_count,
+    }
+
+
 def read_asset(asset_id: str) -> FileResponse:
     return _read_asset_from(asset_id, storage_dir())
 

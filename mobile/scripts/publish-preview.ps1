@@ -20,6 +20,91 @@ function Get-RequiredProcessEnvironmentVariable {
   return $value.Trim()
 }
 
+function Assert-SharedBackendRelease {
+  param(
+    [Parameter(Mandatory = $true)]
+    [string]$ExpectedCommit,
+    [Parameter(Mandatory = $true)]
+    [string]$RepositoryRoot,
+    [Parameter(Mandatory = $true)]
+    [string]$StatusUrl
+  )
+
+  try {
+    $uri = [Uri]$StatusUrl
+  } catch {
+    throw 'Publicación bloqueada: SHARED_BACKEND_STATUS_URL no es una URL válida.'
+  }
+  if (
+    $uri.Scheme -cne 'https' -or
+    [string]::IsNullOrWhiteSpace($uri.Host) -or
+    $uri.AbsolutePath -cne '/api/release/status'
+  ) {
+    throw 'Publicación bloqueada: el estado del backend compartido debe usar la ruta HTTPS autorizada.'
+  }
+
+  & git -C $RepositoryRoot fetch --no-tags origin refs/heads/main:refs/remotes/origin/main
+  if ($LASTEXITCODE -ne 0) {
+    throw 'Publicación bloqueada: no se pudo actualizar origin/main.'
+  }
+  $remoteMainCommit = (& git -C $RepositoryRoot rev-parse refs/remotes/origin/main).Trim().ToLowerInvariant()
+  if ($LASTEXITCODE -ne 0 -or $remoteMainCommit -notmatch '^[0-9a-f]{40}$') {
+    throw 'Publicación bloqueada: origin/main no devolvió un commit válido.'
+  }
+  & git -C $RepositoryRoot merge-base --is-ancestor $ExpectedCommit $remoteMainCommit
+  if ($LASTEXITCODE -ne 0) {
+    throw 'Publicación bloqueada: el candidato Preview todavía no está reconciliado en main para el backend compartido.'
+  }
+
+  $catalogPath = Join-Path $RepositoryRoot 'backend/approved-course-audio/catalog.json'
+  $catalog = Get-Content -Raw -LiteralPath $catalogPath | ConvertFrom-Json
+  $expectedCatalogSha256 = (Get-FileHash -LiteralPath $catalogPath -Algorithm SHA256).Hash.ToLowerInvariant()
+  $expectedAssetCount = [int]$catalog.asset_count
+  $lastObservation = 'el backend todavía no respondió.'
+
+  for ($attempt = 1; $attempt -le 30; $attempt += 1) {
+    try {
+      $status = Invoke-RestMethod -Uri $StatusUrl -TimeoutSec 20
+      $observedCommit = [string]$status.git_commit
+      $observedBranch = [string]$status.git_branch
+      $observedEnvironment = [string]$status.environment
+      $audio = $status.audio
+      $lastObservation = (
+        "environment=$observedEnvironment, branch=$observedBranch, commit=$observedCommit, " +
+        "catalog=$([string]$audio.catalog_sha256), assets=$([string]$audio.catalog_asset_count), " +
+        "ready=$([string]$audio.ready), missing=$([string]$audio.missing), invalid=$([string]$audio.invalid)"
+      )
+
+      if (
+        $observedEnvironment -ceq 'production' -and
+        $observedBranch -ceq 'main' -and
+        [string]::Equals($observedCommit, $remoteMainCommit, [System.StringComparison]::OrdinalIgnoreCase) -and
+        [string]::Equals(
+          [string]$audio.catalog_sha256,
+          $expectedCatalogSha256,
+          [System.StringComparison]::OrdinalIgnoreCase
+        ) -and
+        [int]$audio.catalog_asset_count -eq $expectedAssetCount -and
+        [bool]$audio.ready -and
+        [int]$audio.missing -eq 0 -and
+        [int]$audio.invalid -eq 0 -and
+        [int]$audio.error_count -eq 0
+      ) {
+        Write-Host "Backend compartido verificado: main $($remoteMainCommit.Substring(0, 7)), catálogo $($expectedCatalogSha256.Substring(0, 12)), $expectedAssetCount audios." -ForegroundColor Green
+        return
+      }
+    } catch {
+      $lastObservation = $_.Exception.Message
+    }
+
+    if ($attempt -lt 30) {
+      Start-Sleep -Seconds 10
+    }
+  }
+
+  throw "Publicación bloqueada: el backend compartido de main no coincide con el candidato o su audio no está listo ($lastObservation)."
+}
+
 function Get-RemotePreviewAuthorityCommit {
   param(
     [Parameter(Mandatory = $true)]
@@ -87,6 +172,7 @@ function Assert-GitHubPreviewPublishAuthority {
   $githubSha = $githubSha.ToLowerInvariant()
 
   $null = Get-RequiredProcessEnvironmentVariable -Name 'EXPO_TOKEN'
+  $sharedBackendStatusUrl = Get-RequiredProcessEnvironmentVariable -Name 'SHARED_BACKEND_STATUS_URL'
   $injectedCommit = Get-RequiredProcessEnvironmentVariable -Name 'EXPO_PUBLIC_RELEASE_COMMIT'
   if (-not [string]::Equals($injectedCommit, $githubSha, [System.StringComparison]::OrdinalIgnoreCase)) {
     throw 'Publicación bloqueada: EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA.'
@@ -110,6 +196,7 @@ function Assert-GitHubPreviewPublishAuthority {
   return [PSCustomObject]@{
     Commit = $githubSha
     RepositoryRoot = $repositoryRoot
+    SharedBackendStatusUrl = $sharedBackendStatusUrl
   }
 }
 
@@ -215,6 +302,10 @@ try {
   $authority = Assert-GitHubPreviewPublishAuthority
   Assert-PreviewReleaseLineage
   Assert-CleanReleaseCommit
+  Assert-SharedBackendRelease `
+    -ExpectedCommit $authority.Commit `
+    -RepositoryRoot $authority.RepositoryRoot `
+    -StatusUrl $authority.SharedBackendStatusUrl
 
   Write-Host 'Publicando solamente en Preview...' -ForegroundColor Cyan
   Invoke-CheckedCommand -FailureMessage 'Expo no pudo publicar la actualización de Preview.' -Command {

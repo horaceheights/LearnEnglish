@@ -106,4 +106,5 @@ jobs:
         env:
           RELEASE_MESSAGE: ${{ inputs.message }}
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          SHARED_BACKEND_STATUS_URL: https://learnenglish-fxki.onrender.com/api/release/status
         run: .\scripts\publish-preview.ps1 -Message $env:RELEASE_MESSAGE

@@ -25,6 +25,11 @@ def authorized(
 
 
 class ApiKeyGuardTests(unittest.TestCase):
+    def test_release_status_is_public_for_release_automation(self):
+        self.assertTrue(
+            authorized("/api/release/status", configured_app_key="expected-app-key")
+        )
+
     def test_unconfigured_app_key_keeps_legacy_clients_working(self):
         self.assertTrue(authorized("/api/lessons"))
 
