@@ -35,7 +35,9 @@ class ReleaseStatusTests(unittest.TestCase):
         self.assertEqual(expected_assets, status["catalog_asset_count"])
         self.assertEqual(expected_assets, status["available"])
         self.assertEqual(
-            hashlib.sha256(CATALOG_PATH.read_bytes()).hexdigest(),
+            hashlib.sha256(
+                CATALOG_PATH.read_bytes().replace(b"\r\n", b"\n")
+            ).hexdigest(),
             status["catalog_sha256"],
         )
 
