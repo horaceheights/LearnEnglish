@@ -66,7 +66,7 @@ Core patterns:
 - `He is not cooking.`
 - `Who are they? They are the parents.`
 
-Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.8 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with a shorter 32-step family-card mission and nine mission-only scenes; its Use stage progresses from draggable/tappable word parts to ordered sentence tiles and a final family resolution.
+Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.7 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.8 contains 50 cards, ten per section, with separate visitor-question and family-portrait answer pairs for all five identities. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with a shorter 32-step family-card mission and nine mission-only scenes; its Use stage progresses from draggable/tappable word parts to ordered sentence tiles and a final family resolution.
 
 ### Unit 2: Places, Objects, Numbers, and Colors
 
@@ -312,7 +312,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | `1.5` | Parents and Grandparents | 42-card cumulative rebuild ready for learner review |
 | `1.6` | Family Actions | 42-card cumulative rebuild ready for learner review |
 | `1.7` | What They Are Not Doing | 42-card cumulative rebuild ready for learner review |
-| `1.8` | Who Is He? Who Are They? | 42-card cumulative rebuild ready for learner review |
+| `1.8` | Who Is He? Who Are They? | 50-card question/answer pairs in all five sections |
 | `1.9` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
 | `1.10` | Family Scene Mission | 32-card applied family-card mission ready for learner review |
 

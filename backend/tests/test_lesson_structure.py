@@ -65,7 +65,7 @@ EXPECTED_STAGE_COUNTS = {
     "lesson-5-parents-grandparents": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-6-family-actions": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-7-is-are-not": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
-    "lesson-8-who": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-8-who": {"Learn": 10, "Recognize": 10, "Listen": 10, "Speak": 10, "Use": 10},
     "lesson-9-unit-review": {"Learn": 14, "Recognize": 14, "Listen": 10, "Speak": 8, "Use": 8},
     "lesson-10-family-mission": {"Learn": 4, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
 }
@@ -478,7 +478,7 @@ class LessonStructureTests(unittest.TestCase):
                     for card in image_to_text
                 ))
 
-    def test_lesson_8_identity_text_choices_ask_the_question_up_front(self):
+    def test_lesson_8_question_form_choices_do_not_reveal_the_answer(self):
         cards = [
             card
             for card in LESSONS["lesson-8-who"].cards
@@ -489,12 +489,34 @@ class LessonStructureTests(unittest.TestCase):
         self.assertEqual(5, len(cards))
         for card in cards:
             with self.subTest(prompt=card.prompt):
-                self.assertIn(card.prompt, {"Who is he?", "Who is she?", "Who are they?"})
-                self.assertEqual(card.prompt, card.audio_text)
+                self.assertEqual('', card.prompt)
+                self.assertFalse(card.audio_text)
+                self.assertTrue(all(option.label in {"Who is he?", "Who is she?", "Who are they?"} for option in card.options))
                 correct_option = next(
                     option for option in card.options if option.id == card.correct_option_id
                 )
                 self.assertEqual(correct_option.label, card.answer_audio_text)
+
+    def test_lesson_8_has_separate_question_answer_pairs_in_every_stage(self):
+        identities = ['father', 'mother', 'parents', 'children', 'grandparents']
+        questions = ['Who is he?', 'Who is she?', 'Who are they?', 'Who are they?', 'Who are they?']
+        answers = ['He is the father.', 'She is the mother.', 'They are the parents.', 'They are the children.', 'They are the grandparents.']
+        for stage in STAGES:
+            cards = [card for card in LESSONS['lesson-8-who'].cards if card.stage == stage]
+            self.assertEqual(10, len(cards))
+            for index, identity in enumerate(identities):
+                question, answer = cards[index * 2:index * 2 + 2]
+                def text(card):
+                    return card.answer_audio_text if stage in {'Recognize', 'Use'} and card.answer_audio_text else card.audio_text
+                self.assertEqual(questions[index], text(question))
+                self.assertEqual(answers[index], text(answer))
+                self.assertEqual('male-character', question.audio_speaker)
+                question_image = question.prompt_image_url or next(option.image_url for option in question.options if option.id == question.correct_option_id)
+                self.assertIn(f'a1_who_question_{identity}.webp', question_image)
+                self.assertNotIn('a1_who_question_', answer.prompt_image_url or '')
+                self.assertTrue(all('a1_who_question_' not in (option.image_url or '') for option in answer.options))
+                if stage == 'Listen':
+                    self.assertEqual(1, sum(option.label == questions[index] for option in question.options))
 
     def test_lesson_10_identity_text_choices_ask_the_question_up_front(self):
         cards = [
