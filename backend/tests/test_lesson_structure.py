@@ -3,11 +3,13 @@ import json
 import re
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from urllib.parse import urlparse
 
 from PIL import Image
 
 from backend.app.data import LESSON_IMAGE_DIR, LESSONS
+from scripts.validate_lesson_cards import validate_family_adult_ambiguity
 
 
 STAGES = ["Learn", "Recognize", "Listen", "Speak", "Use"]
@@ -514,6 +516,11 @@ class LessonStructureTests(unittest.TestCase):
 
     def test_family_image_choices_do_not_use_overlapping_categories(self):
         forbidden_distractors = {
+            "An adult": {
+                "adult", "adults", "father", "mother", "grandfather", "grandmother",
+                "man", "woman",
+            },
+            "Adults": {"parents", "grandparents", "family"},
             "Children": {"babies", "brothers", "sisters", "family"},
             "They are children.": {"babies", "brothers", "sisters", "family"},
             "They are brothers.": {"children", "family"},
@@ -522,8 +529,27 @@ class LessonStructureTests(unittest.TestCase):
             "They are the sisters.": {"babies", "children", "family"},
             "Who are they? They are the brothers.": {"babies", "children", "family"},
             "Who are they? They are the sisters.": {"babies", "children", "family"},
+            "They are the parents.": {"adults", "family"},
+            "Who are they? They are the parents.": {"adults", "family"},
+            "They are the grandparents.": {"adults", "family"},
+            "Who are they? They are the grandparents.": {"adults", "family"},
             "They are a family.": {
                 "babies", "brothers", "sisters", "children", "parents", "grandparents",
+            },
+        }
+        forbidden_assets = {
+            "An adult": {
+                "family_adults.webp", "family_father.webp", "family_mother.webp",
+                "family_grandfather.webp", "family_grandmother.webp",
+            },
+            "Adults": {
+                "family_parents.webp", "family_grandparents.webp", "family_all_members.webp",
+            },
+            "They are the parents.": {
+                "family_adults.webp", "family_grandparents.webp", "family_all_members.webp",
+            },
+            "Who are they? They are the parents.": {
+                "family_adults.webp", "family_grandparents.webp", "family_all_members.webp",
             },
         }
         for lesson in LESSONS.values():
@@ -532,12 +558,56 @@ class LessonStructureTests(unittest.TestCase):
                 forbidden = forbidden_distractors.get(spoken_text)
                 if not forbidden or not all(option.image_url for option in card.options):
                     continue
-                distractor_ids = {
-                    option.id for option in card.options
+                distractor_labels = {
+                    (option.label or "").lower() for option in card.options
                     if option.id != card.correct_option_id
                 }
+                overlapping_labels = {
+                    label
+                    for label in distractor_labels
+                    if any(re.search(rf"\b{re.escape(term)}\b", label) for term in forbidden)
+                }
+                overlapping_assets = {
+                    urlparse(option.image_url).path.rsplit("/", 1)[-1]
+                    for option in card.options
+                    if (
+                        option.id != card.correct_option_id
+                        and urlparse(option.image_url).path.rsplit("/", 1)[-1]
+                        in forbidden_assets.get(spoken_text, set())
+                    )
+                }
                 with self.subTest(lesson=lesson.id, card=index, spoken_text=spoken_text):
-                    self.assertFalse(forbidden & distractor_ids)
+                    self.assertFalse(
+                        overlapping_labels or overlapping_assets,
+                        "generic option IDs cannot hide overlapping family concepts: "
+                        f"labels={sorted(overlapping_labels)}, assets={sorted(overlapping_assets)}",
+                    )
+
+    def test_family_image_guardrail_rejects_plural_adults_for_an_adult(self):
+        card = SimpleNamespace(
+            audio_text="An adult",
+            answer_audio_text=None,
+            prompt="Listen and choose.",
+            correct_option_id="correct",
+            options=[
+                SimpleNamespace(
+                    id="correct",
+                    label="An adult",
+                    image_url="/lesson-assets/family_father.webp",
+                ),
+                SimpleNamespace(
+                    id="wrong-1",
+                    label="Adults",
+                    image_url="/lesson-assets/family_adults.webp",
+                ),
+            ],
+        )
+        lesson = SimpleNamespace(id="synthetic-adult-overlap", cards=[card])
+
+        findings = validate_family_adult_ambiguity({lesson.id: lesson})
+
+        self.assertEqual(1, len(findings))
+        self.assertIn("family_adults.webp", findings[0])
 
     def test_negative_listening_uses_an_exact_binary_contrast(self):
         for lesson in LESSONS.values():

@@ -132,6 +132,29 @@ for (const [stage, slideId] of [['Recognize', 'R1'], ['Listen', 'A1']]) {
   );
 }
 
+const expectedParentsContrastImages = [
+  'family_babies.webp',
+  'family_children.webp',
+  'family_parents.webp',
+  'family_sisters.webp',
+].sort();
+for (const [stage, slideId] of [['Recognize', 'R5'], ['Listen', 'A5']]) {
+  assert.deepEqual(
+    cardBySlide('1.5', stage, slideId).options
+      .map((option) => path.basename(option.image_url))
+      .sort(),
+    expectedParentsContrastImages,
+    `Lesson 1.5 ${slideId} must show one parents pair and only child-group distractors`,
+  );
+}
+assert.deepEqual(
+  cardBySlide('1.5', 'Listen', 'A1').options
+    .map((option) => path.basename(option.image_url))
+    .sort(),
+  ['boy.webp', 'family_baby.webp', 'family_father.webp', 'girl.webp'].sort(),
+  'Lesson 1.5 A1 must contrast one adult only with three single children',
+);
+
 const reviewedFatherReadingAsset = 'a1_u1_mission_father_reading_clear.webp';
 const fatherReadingSlides = lesson('1.10').cards
   .filter((card) => mediaFilenames(card).includes(reviewedFatherReadingAsset))

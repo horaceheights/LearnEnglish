@@ -286,11 +286,19 @@ const lesson14 = buildLesson({
 });
 
 const l15 = [
-  { prompt: 'An adult', image: assets.father, translation: 'Un adulto' },
+  { prompt: 'An adult', image: assets.father, translation: 'Un adulto', optionFamily: 'single-person', distractors: [
+    { prompt: 'A boy', image: assets.boy, optionFamily: 'single-person' },
+    { prompt: 'A girl', image: assets.girl, optionFamily: 'single-person' },
+    { prompt: 'A baby', image: assets.baby, optionFamily: 'single-person' },
+  ] },
   { prompt: 'Adults', image: assets.adults, translation: 'Adultos' },
   { prompt: 'He is the father.', image: assets.father, translation: 'Él es el padre.' },
   { prompt: 'She is the mother.', image: assets.mother, translation: 'Ella es la madre.' },
-  { prompt: 'They are the parents.', image: assets.parents, translation: 'Ellos son los padres.' },
+  { prompt: 'They are the parents.', image: assets.parents, translation: 'Ellos son los padres.', optionFamily: 'family-group', distractors: [
+    { prompt: 'They are children.', image: assets.children, optionFamily: 'family-group' },
+    { prompt: 'Babies', image: assets.babies, optionFamily: 'family-group' },
+    { prompt: 'They are sisters.', image: assets.sisters, optionFamily: 'family-group' },
+  ] },
   { prompt: 'He is the grandfather.', image: assets.grandfather, translation: 'Él es el abuelo.' },
   { prompt: 'She is the grandmother.', image: assets.grandmother, translation: 'Ella es la abuela.' },
   { prompt: 'They are the grandparents.', image: assets.grandparents, translation: 'Ellos son los abuelos.' },
