@@ -26,6 +26,8 @@ const assets = {
   mother: 'family_mother.webp', motherCooking: 'family_mother_cooking.webp', parents: 'family_parents.webp',
   parentsTalking: 'family_parents_talking.webp', grandfather: 'family_grandfather.webp',
   grandmother: 'family_grandmother.webp', grandparents: 'family_grandparents.webp',
+  grandparentsGrandchildren: 'family_grandparents_grandchildren.webp',
+  parentsChildren: 'family_parents_children.webp',
   grandparentsTalking: 'family_grandparents_talking.webp', grandparentsSitting: 'family_grandparents_sitting.webp',
   reviewBoyEating: 'a1_u1_review_boy_eating.webp', reviewGirlWriting: 'a1_u1_review_girl_writing.webp',
   reviewManReading: 'a1_u1_review_man_reading.webp', reviewWomanDrinking: 'a1_u1_review_woman_drinking.webp',
@@ -98,7 +100,7 @@ function imageChoice(entry, entries, stage, count = 2, audio = entry.prompt) {
   }
   const ordered = entry.reverseOptions ? [...alternatives, entry] : [entry, ...alternatives];
   return { ...baseCard({ prompt: stage === 'Listen' ? 'Listen and choose.' : activePrompt(entry), stage, correct: 'correct',
-    options: ordered.map((item, index) => imageOption(item === entry ? 'correct' : `wrong-${index}`, item.image, activePrompt(item))),
+    options: ordered.map((item, index) => imageOption(item === entry ? 'correct' : `wrong-${index}`, item.image, item.choice || activePrompt(item))),
     audio, answer: entry.answer || null, interaction: `${stage === 'Listen' ? 'a2i' : 't2i'}${effectiveCount}` }), translation: entry.activeTranslation || entry.translation };
 }
 
@@ -182,14 +184,14 @@ const l12 = [
     { prompt: 'The woman', image: assets.woman, optionFamily: 'person-portrait' },
   ] },
   { prompt: 'Eating', image: assets.boyEating, translation: 'Comiendo', optionFamily: 'person-action' },
-  { prompt: 'The boy is eating.', image: assets.boyEating, translation: 'El niño está comiendo.', optionFamily: 'person-action' },
-  { prompt: 'He is eating.', image: assets.boyEating, translation: 'Él está comiendo.', optionFamily: 'person-action' },
-  { prompt: 'Drinking', image: assets.manDrinking, translation: 'Bebiendo', optionFamily: 'person-action' },
-  { prompt: 'The man is drinking. He is drinking.', image: assets.manDrinking, translation: 'El hombre está bebiendo. Él está bebiendo.', optionFamily: 'person-action' },
+  { prompt: 'The boy is eating.', image: assets.boyEating, translation: 'El niño está comiendo.', optionFamily: 'person-action', textDistractors: ['The man is drinking.', 'The girl is reading.'], distractors: [{ prompt: 'The man is drinking.', image: assets.manDrinking, optionFamily: 'person-action' }] },
+  { prompt: 'He is eating.', image: assets.boyEating, translation: 'Él está comiendo.', optionFamily: 'person-action', distractors: [{ prompt: 'He is drinking.', image: assets.manDrinking, optionFamily: 'person-action' }] },
+  { prompt: 'Drinking', image: assets.manDrinking, translation: 'Bebiendo', optionFamily: 'person-action', textDistractors: ['Eating', 'Reading'] },
+  { prompt: 'The man is drinking. He is drinking.', image: assets.manDrinking, translation: 'El hombre está bebiendo. Él está bebiendo.', optionFamily: 'person-action', textDistractors: ['The boy is eating. He is eating.', 'The girl is reading. She is reading.'], distractors: [{ prompt: 'The boy is eating. He is eating.', image: assets.boyEating, optionFamily: 'person-action' }] },
   { prompt: 'Reading', image: assets.girlReading, translation: 'Leyendo', optionFamily: 'person-action' },
-  { prompt: 'The girl is reading. She is reading.', image: assets.girlReading, translation: 'La niña está leyendo. Ella está leyendo.', optionFamily: 'person-action' },
+  { prompt: 'The girl is reading. She is reading.', image: assets.girlReading, translation: 'La niña está leyendo. Ella está leyendo.', optionFamily: 'person-action', textDistractors: ['The man is drinking. He is drinking.', 'The woman is writing. She is writing.'] },
   { prompt: 'Writing', image: assets.womanWriting, translation: 'Escribiendo', optionFamily: 'person-action' },
-  { prompt: 'The woman is writing. She is writing.', image: assets.womanWriting, translation: 'La mujer está escribiendo. Ella está escribiendo.', optionFamily: 'person-action' },
+  { prompt: 'The woman is writing. She is writing.', image: assets.womanWriting, translation: 'La mujer está escribiendo. Ella está escribiendo.', optionFamily: 'person-action', textDistractors: ['The boy is eating. He is eating.', 'The girl is reading. She is reading.'], distractors: [{ prompt: 'The boy is eating. He is eating.', image: assets.boyEating, optionFamily: 'person-action' }] },
 ];
 const lesson12 = buildLesson({
   id: 'lesson-2-pronouns', number: '1.2', title: 'People in Action',
@@ -215,26 +217,30 @@ const l13 = [
     { prompt: 'The girl', image: assets.girl, optionFamily: 'person-portrait' },
     { prompt: 'The man', image: assets.man, optionFamily: 'person-portrait' },
   ] },
-  { prompt: 'They', image: assets.pair, translation: 'Ellos', optionFamily: 'person-portrait' },
+  { prompt: 'They', image: assets.pair, translation: 'Ellos', optionFamily: 'person-portrait', textDistractors: ['He', 'She'] },
   { prompt: 'They are eating.', image: assets.pairEating, translation: 'Ellos están comiendo.', optionFamily: 'pair-action' },
-  { prompt: 'They are running.', image: assets.pairRunning, translation: 'Ellos están corriendo.', optionFamily: 'pair-action' },
-  { prompt: 'The man is sitting.', image: assets.manSitting, translation: 'El hombre está sentado.', optionFamily: 'male-action', distractors: [
-    { prompt: 'He is swimming.', image: assets.boySwimming, optionFamily: 'male-action' },
-    { prompt: 'He is eating.', image: assets.boyEating, optionFamily: 'male-action' },
-    { prompt: 'He is drinking.', image: assets.manDrinking, optionFamily: 'male-action' },
+  { prompt: 'They are running.', image: assets.pairRunning, translation: 'Ellos están corriendo.', optionFamily: 'pair-action', textDistractors: ['They are eating.', 'They are reading.'] },
+  { prompt: 'The man is sitting.', image: assets.manSitting, translation: 'El hombre está sentado.', optionFamily: 'male-action', textDistractors: ['The man is drinking.', 'The boy is swimming.'], distractors: [
+    { prompt: 'The boy is swimming.', image: assets.boySwimming, optionFamily: 'male-action' },
+    { prompt: 'The boy is eating.', image: assets.boyEating, optionFamily: 'male-action' },
+    { prompt: 'The man is drinking.', image: assets.manDrinking, optionFamily: 'male-action' },
   ] },
   { prompt: 'He is swimming.', image: assets.boySwimming, translation: 'Él está nadando.', optionFamily: 'male-action', distractors: [
     { prompt: 'He is sitting.', image: assets.manSitting, optionFamily: 'male-action' },
     { prompt: 'He is eating.', image: assets.boyEating, optionFamily: 'male-action' },
     { prompt: 'He is drinking.', image: assets.manDrinking, optionFamily: 'male-action' },
   ] },
-  { prompt: 'She is sleeping.', image: assets.girlSleeping, translation: 'Ella está durmiendo.', optionFamily: 'female-action', distractors: [
+  { prompt: 'She is sleeping.', image: assets.girlSleeping, translation: 'Ella está durmiendo.', optionFamily: 'female-action', textDistractors: ['She is reading.', 'She is writing.'], distractors: [
     { prompt: 'She is reading.', image: assets.girlReading, optionFamily: 'female-action' },
     { prompt: 'She is writing.', image: assets.womanWriting, optionFamily: 'female-action' },
   ] },
-  { prompt: 'The boy and the girl are reading.', image: assets.pairReading, translation: 'El niño y la niña están leyendo.', optionFamily: 'pair-action' },
-  { prompt: 'They are writing.', image: assets.pairWriting, translation: 'Ellos están escribiendo.', optionFamily: 'pair-action' },
-  { prompt: 'The boy and the girl are running.', image: assets.pairRunning, translation: 'El niño y la niña están corriendo.', optionFamily: 'pair-action' },
+  { prompt: 'The boy and the girl are reading.', image: assets.pairReading, translation: 'El niño y la niña están leyendo.', optionFamily: 'pair-action', textDistractors: ['The boy and the girl are eating.', 'The boy and the girl are running.'], distractors: [{ prompt: 'The boy and the girl are eating.', image: assets.pairEating, optionFamily: 'pair-action' }] },
+  { prompt: 'They are writing.', image: assets.pairWriting, translation: 'Ellos están escribiendo.', optionFamily: 'pair-action', distractors: [
+    { prompt: 'They are eating.', image: assets.pairEating, optionFamily: 'pair-action' },
+    { prompt: 'They are running.', image: assets.pairRunning, optionFamily: 'pair-action' },
+    { prompt: 'They are reading.', image: assets.pairReading, optionFamily: 'pair-action' },
+  ] },
+  { prompt: 'The boy and the girl are running.', image: assets.pairRunning, translation: 'El niño y la niña están corriendo.', optionFamily: 'pair-action', textDistractors: ['The boy and the girl are eating.', 'The boy and the girl are reading.'], distractors: [{ prompt: 'The boy and the girl are eating.', image: assets.pairEating, optionFamily: 'pair-action' }] },
 ];
 const lesson13 = buildLesson({
   id: 'lesson-3-two-people', number: '1.3', title: 'Two People: They and Are',
@@ -255,16 +261,16 @@ const lesson13 = buildLesson({
 });
 
 const l14 = [
-  { prompt: 'A family', image: assets.family, translation: 'Una familia', distractors: [{ prompt: 'A man', image: assets.man }, { prompt: 'A woman', image: assets.woman }, { prompt: 'Children', image: assets.children }] },
-  { prompt: 'A baby', image: assets.baby, translation: 'Un bebé', distractors: [{ prompt: 'An adult', image: assets.father }] },
-  { prompt: 'Babies', active: 'They are babies.', image: assets.babies, translation: 'Bebés', activeTranslation: 'Ellos son bebés.', distractors: [{ prompt: 'Sisters', active: 'They are sisters.', image: assets.sisters }] },
-  { prompt: 'A child', active: 'He is a child.', image: assets.brother, translation: 'Un niño', activeTranslation: 'Él es un niño.', distractors: [{ prompt: 'An adult', active: 'He is an adult.', image: assets.father }] },
+  { prompt: 'A family', image: assets.family, translation: 'Una familia', distractors: [{ prompt: 'A man', image: assets.man }, { prompt: 'A woman', image: assets.woman }, { prompt: 'A baby', image: assets.baby }] },
+  { prompt: 'A baby', image: assets.baby, translation: 'Un bebé', textDistractors: ['A man', 'A woman'], distractors: [{ prompt: 'A man', image: assets.man }] },
+  { prompt: 'Babies', active: 'They are babies.', image: assets.babies, translation: 'Bebés', activeTranslation: 'Ellos son bebés.', textDistractors: ['He is a baby.', 'She is a baby.'], distractors: [{ prompt: 'Sisters', active: 'They are sisters.', image: assets.sisters }] },
+  { prompt: 'A child', active: 'He is a child.', image: assets.brother, translation: 'Un niño', activeTranslation: 'Él es un niño.', textDistractors: ['He is a man.', 'She is a child.'], distractors: [{ prompt: 'A man', active: 'He is a man.', image: assets.man }] },
   { prompt: 'Children', active: 'They are children.', image: assets.children, translation: 'Niños', activeTranslation: 'Ellos son niños.', distractors: [{ prompt: 'Adults', active: 'They are adults.', image: assets.adults }, { prompt: 'Parents', active: 'They are parents.', image: assets.parents }, { prompt: 'Grandparents', active: 'They are grandparents.', image: assets.grandparents }] },
-  { prompt: 'A brother', active: 'He is a brother.', image: assets.brother, translation: 'Un hermano', activeTranslation: 'Él es un hermano.', distractors: [{ prompt: 'A sister', active: 'She is a sister.', image: assets.sister }] },
-  { prompt: 'Brothers', active: 'They are brothers.', image: assets.brothers, translation: 'Hermanos', activeTranslation: 'Ellos son hermanos.', distractors: [{ prompt: 'Sisters', active: 'They are sisters.', image: assets.sisters }] },
-  { prompt: 'A sister', active: 'She is a sister.', image: assets.sister, translation: 'Una hermana', activeTranslation: 'Ella es una hermana.', distractors: [{ prompt: 'A brother', active: 'He is a brother.', image: assets.brother }] },
+  { prompt: 'A brother', active: 'He is a brother.', image: assets.brother, translation: 'Un hermano', activeTranslation: 'Él es un hermano.', textDistractors: ['She is a sister.', 'They are brothers.'], distractors: [{ prompt: 'A sister', active: 'She is a sister.', image: assets.sister }] },
+  { prompt: 'Brothers', active: 'They are brothers.', image: assets.brothers, translation: 'Hermanos', activeTranslation: 'Ellos son hermanos.', textDistractors: ['They are sisters.', 'They are babies.'], distractors: [{ prompt: 'Sisters', active: 'They are sisters.', image: assets.sisters }] },
+  { prompt: 'A sister', active: 'She is a sister.', image: assets.sister, translation: 'Una hermana', activeTranslation: 'Ella es una hermana.', textDistractors: ['He is a brother.', 'They are sisters.'], distractors: [{ prompt: 'A brother', active: 'He is a brother.', image: assets.brother }] },
   { prompt: 'Sisters', active: 'They are sisters.', image: assets.sisters, translation: 'Hermanas', activeTranslation: 'Ellas son hermanas.', distractors: [{ prompt: 'Brothers', active: 'They are brothers.', image: assets.brothers }, { prompt: 'Parents', active: 'They are parents.', image: assets.parents }, { prompt: 'Grandparents', active: 'They are grandparents.', image: assets.grandparents }] },
-  { prompt: 'They are a family.', image: assets.family, translation: 'Ellos son una familia.', distractors: [{ prompt: 'Adults', image: assets.adults }] },
+  { prompt: 'They are a family.', image: assets.family, translation: 'Ellos son una familia.', distractors: [{ prompt: 'He is a man.', image: assets.man }] },
 ];
 const lesson14 = buildLesson({
   id: 'lesson-4-children-siblings', number: '1.4', title: 'Children and Siblings',
@@ -286,29 +292,29 @@ const lesson14 = buildLesson({
 });
 
 const l15 = [
-  { prompt: 'An adult', image: assets.father, translation: 'Un adulto', optionFamily: 'single-person', distractors: [
+  { prompt: 'An adult', image: assets.father, translation: 'Un adulto', optionFamily: 'single-person', textDistractors: ['A boy', 'A girl'], distractors: [
     { prompt: 'A boy', image: assets.boy, optionFamily: 'single-person' },
     { prompt: 'A girl', image: assets.girl, optionFamily: 'single-person' },
     { prompt: 'A baby', image: assets.baby, optionFamily: 'single-person' },
   ] },
   { prompt: 'Adults', image: assets.adults, translation: 'Adultos' },
-  { prompt: 'He is the father.', image: assets.father, translation: 'Él es el padre.' },
-  { prompt: 'She is the mother.', image: assets.mother, translation: 'Ella es la madre.' },
+  { prompt: 'He is the father.', image: assets.father, translation: 'Él es el padre.', textDistractors: ['She is the mother.', 'They are the parents.'] },
+  { prompt: 'She is the mother.', image: assets.mother, translation: 'Ella es la madre.', distractors: [{ prompt: 'He is the father.', image: assets.father }] },
   { prompt: 'They are the parents.', image: assets.parents, translation: 'Ellos son los padres.', optionFamily: 'family-group', distractors: [
-    { prompt: 'They are children.', image: assets.children, optionFamily: 'family-group' },
-    { prompt: 'Babies', image: assets.babies, optionFamily: 'family-group' },
-    { prompt: 'They are sisters.', image: assets.sisters, optionFamily: 'family-group' },
+    { prompt: 'They are the children.', image: assets.children, optionFamily: 'family-group' },
+    { prompt: 'They are the babies.', image: assets.babies, optionFamily: 'family-group' },
+    { prompt: 'They are the sisters.', image: assets.sisters, optionFamily: 'family-group' },
   ] },
-  { prompt: 'He is the grandfather.', image: assets.grandfather, translation: 'Él es el abuelo.' },
-  { prompt: 'She is the grandmother.', image: assets.grandmother, translation: 'Ella es la abuela.' },
-  { prompt: 'They are the grandparents.', image: assets.grandparents, translation: 'Ellos son los abuelos.' },
-  { prompt: 'The parents and the children are a family.', image: assets.family, translation: 'Los padres y los niños son una familia.' },
-  { prompt: 'The grandparents and the baby are a family.', image: assets.family, translation: 'Los abuelos y el bebé son una familia.' },
+  { prompt: 'He is the grandfather.', image: assets.grandfather, translation: 'Él es el abuelo.', textDistractors: ['She is the grandmother.', 'They are the grandparents.'] },
+  { prompt: 'She is the grandmother.', image: assets.grandmother, translation: 'Ella es la abuela.', distractors: [{ prompt: 'He is the grandfather.', image: assets.grandfather }] },
+  { prompt: 'They are the grandparents.', image: assets.grandparents, translation: 'Ellos son los abuelos.', distractors: [{ prompt: 'They are the sisters.', image: assets.sisters }] },
+  { prompt: 'The parents and the children are a family.', image: assets.parentsChildren, translation: 'Los padres y los niños son una familia.', textDistractors: ['The parents and the children are babies.', 'The parents and the children are sisters.'] },
+  { prompt: 'The grandparents and the grandchildren are family.', image: assets.grandparentsGrandchildren, translation: 'Los abuelos y los nietos son familia.', distractors: [{ prompt: 'The parents and the children are a family.', image: assets.parentsChildren }] },
 ];
 const lesson15 = buildLesson({
   id: 'lesson-5-parents-grandparents', number: '1.5', title: 'Parents and Grandparents',
-  goal: 'Meet the adults in the family, name their roles, and connect generations into one family.',
-  vocabulary: ['an', 'adult', 'adults', 'father', 'mother', 'parents', 'grandfather', 'grandmother', 'grandparents'],
+  goal: 'Meet the adults in the family, name their roles, and connect grandparents with their grandchildren.',
+  vocabulary: ['an', 'adult', 'adults', 'father', 'mother', 'parents', 'grandfather', 'grandmother', 'grandparents', 'grandchildren'],
   reviewVocabulary: ['he', 'she', 'they', 'is', 'are', 'the', 'and', 'family', 'children', 'baby'],
   grammarFunction: 'An + singular adult; He/She is the + role; They are the + plural role.',
   prerequisite: 'Lessons 1.1-1.4: singular and plural people, he/she/they, is/are, and family.',
@@ -317,11 +323,11 @@ const lesson15 = buildLesson({
   uses: [
     complete({ prompt: '___ adult.', image: assets.father, answer: 'An adult.', correct: 'an', choices: [['a', 'A'], ['an', 'An']], translation: '___ adulto.' }),
     complete({ prompt: '___.', image: assets.adults, answer: 'Adults.', correct: 'adults', choices: [['adult', 'Adult'], ['adults', 'Adults']], translation: '___.' }),
-    complete({ prompt: 'He is the ___.', image: assets.father, answer: 'He is the father.', correct: 'father', choices: [['father', 'father'], ['grandfather', 'grandfather']], translation: 'Él es el ___.' }),
-    complete({ prompt: 'She is the ___.', image: assets.mother, answer: 'She is the mother.', correct: 'mother', choices: [['grandmother', 'grandmother'], ['mother', 'mother']], translation: 'Ella es la ___.' }),
-    complete({ prompt: 'They are the ___.', image: assets.parents, answer: 'They are the parents.', correct: 'parents', choices: [['parents', 'parents'], ['grandparents', 'grandparents']], translation: 'Ellos son los ___.' }),
-    complete({ prompt: 'He is the ___.', image: assets.grandfather, answer: 'He is the grandfather.', correct: 'grandfather', choices: [['father', 'father'], ['grandfather', 'grandfather']], translation: 'Él es el ___.' }),
-    complete({ prompt: 'She is the ___. They are the ___.', image: assets.grandparents, answer: 'She is the grandmother. They are the grandparents.', correct: ['grandmother', 'grandparents'], choices: [['mother', 'mother'], ['grandmother', 'grandmother'], ['grandparents', 'grandparents']], translation: 'Ella es la ___. Ellos son los ___.' }),
+    complete({ prompt: 'He is the ___.', image: assets.father, answer: 'He is the father.', correct: 'father', choices: [['father', 'father'], ['mother', 'mother']], translation: 'Él es el ___.' }),
+    complete({ prompt: 'She is the ___.', image: assets.mother, answer: 'She is the mother.', correct: 'mother', choices: [['father', 'father'], ['mother', 'mother']], translation: 'Ella es la ___.' }),
+    complete({ prompt: 'They are the ___.', image: assets.parents, answer: 'They are the parents.', correct: 'parents', choices: [['parents', 'parents'], ['sisters', 'sisters']], translation: 'Ellos son los ___.' }),
+    complete({ prompt: 'He is the ___.', image: assets.grandfather, answer: 'He is the grandfather.', correct: 'grandfather', choices: [['grandmother', 'grandmother'], ['grandfather', 'grandfather']], translation: 'Él es el ___.' }),
+    complete({ prompt: 'She is the ___. They are the ___.', image: assets.grandparents, answer: 'She is the grandmother. They are the grandparents.', correct: ['grandmother', 'grandparents'], choices: [['grandfather', 'grandfather'], ['grandmother', 'grandmother'], ['grandparents', 'grandparents']], translation: 'Ella es la ___. Ellos son los ___.' }),
   ],
 });
 
@@ -389,16 +395,16 @@ const lesson17 = buildLesson({
 });
 
 const l18 = [
-  { prompt: 'Who is he?', image: assets.father, translation: '¿Quién es él?', recognizePrompt: 'Who is he?', recognizeAudio: 'Who is he?', choice: 'He is the father.', textDistractors: ['He is the grandfather.', 'She is the mother.'], answer: 'He is the father.' },
-  { prompt: 'He is the father.', image: assets.father, translation: 'Él es el padre.' },
-  { prompt: 'Who is she?', image: assets.mother, translation: '¿Quién es ella?', recognizePrompt: 'Who is she?', recognizeAudio: 'Who is she?', choice: 'She is the mother.', textDistractors: ['She is the grandmother.', 'He is the father.'], answer: 'She is the mother.' },
-  { prompt: 'She is the mother.', image: assets.mother, translation: 'Ella es la madre.' },
-  { prompt: 'Who are they?', image: assets.parents, translation: '¿Quiénes son ellos?', recognizePrompt: 'Who are they?', recognizeAudio: 'Who are they?', choice: 'They are the parents.', textDistractors: ['They are the children.', 'They are the grandparents.'], answer: 'They are the parents.' },
-  { prompt: 'They are the parents.', image: assets.parents, translation: 'Ellos son los padres.' },
-  { prompt: 'Who are they?', image: assets.children, translation: '¿Quiénes son ellos?', recognizePrompt: 'Who are they?', recognizeAudio: 'Who are they?', choice: 'They are the children.', textDistractors: ['They are the parents.', 'They are the grandparents.'], answer: 'They are the children.' },
-  { prompt: 'They are the children.', image: assets.children, translation: 'Ellos son los niños.' },
-  { prompt: 'Who are they?', image: assets.grandparents, translation: '¿Quiénes son ellos?', recognizePrompt: 'Who are they?', recognizeAudio: 'Who are they?', choice: 'They are the grandparents.', textDistractors: ['They are the parents.', 'They are the children.'], answer: 'They are the grandparents.' },
-  { prompt: 'They are the grandparents.', image: assets.grandparents, translation: 'Ellos son los abuelos.' },
+  { prompt: 'Who is he?', image: assets.father, translation: '¿Quién es él?', recognizePrompt: 'Who is he?', recognizeAudio: 'Who is he?', choice: 'He is the father.', textDistractors: ['She is the mother.', 'They are the parents.'], distractors: [{ prompt: 'She is the mother.', image: assets.mother }, { prompt: 'They are the parents.', image: assets.parents }, { prompt: 'They are the sisters.', image: assets.sisters }], answer: 'He is the father.' },
+  { prompt: 'He is the father.', image: assets.father, translation: 'Él es el padre.', textDistractors: ['She is the mother.', 'They are the parents.'], distractors: [{ prompt: 'She is the mother.', image: assets.mother }, { prompt: 'They are the parents.', image: assets.parents }, { prompt: 'They are the sisters.', image: assets.sisters }] },
+  { prompt: 'Who is she?', image: assets.mother, translation: '¿Quién es ella?', recognizePrompt: 'Who is she?', recognizeAudio: 'Who is she?', choice: 'She is the mother.', textDistractors: ['He is the father.', 'They are the parents.'], distractors: [{ prompt: 'He is the father.', image: assets.father }, { prompt: 'They are the parents.', image: assets.parents }, { prompt: 'They are the brothers.', image: assets.brothers }], answer: 'She is the mother.' },
+  { prompt: 'She is the mother.', image: assets.mother, translation: 'Ella es la madre.', textDistractors: ['He is the father.', 'They are the parents.'], distractors: [{ prompt: 'He is the father.', image: assets.father }, { prompt: 'They are the parents.', image: assets.parents }, { prompt: 'They are the brothers.', image: assets.brothers }] },
+  { prompt: 'Who are they?', image: assets.parents, translation: '¿Quiénes son ellos?', recognizePrompt: 'Who are they?', recognizeAudio: 'Who are they?', choice: 'They are the parents.', textDistractors: ['They are the brothers.', 'They are the sisters.'], distractors: [{ prompt: 'They are the brothers.', image: assets.brothers }, { prompt: 'They are the sisters.', image: assets.sisters }, { prompt: 'They are the babies.', image: assets.babies }], answer: 'They are the parents.' },
+  { prompt: 'They are the parents.', image: assets.parents, translation: 'Ellos son los padres.', textDistractors: ['They are the brothers.', 'They are the sisters.'], distractors: [{ prompt: 'They are the brothers.', image: assets.brothers }, { prompt: 'They are the sisters.', image: assets.sisters }, { prompt: 'They are the babies.', image: assets.babies }] },
+  { prompt: 'Who are they?', image: assets.children, translation: '¿Quiénes son ellos?', recognizePrompt: 'Who are they?', recognizeAudio: 'Who are they?', choice: 'They are the children.', textDistractors: ['They are the parents.', 'They are the grandparents.'], distractors: [{ prompt: 'They are the parents.', image: assets.parents }, { prompt: 'They are the grandparents.', image: assets.grandparents }, { prompt: 'They are adults.', image: assets.adults }], answer: 'They are the children.' },
+  { prompt: 'They are the children.', image: assets.children, translation: 'Ellos son los niños.', textDistractors: ['They are the parents.', 'They are the grandparents.'], distractors: [{ prompt: 'They are the parents.', image: assets.parents }, { prompt: 'They are the grandparents.', image: assets.grandparents }, { prompt: 'They are adults.', image: assets.adults }] },
+  { prompt: 'Who are they?', image: assets.grandparents, translation: '¿Quiénes son ellos?', recognizePrompt: 'Who are they?', recognizeAudio: 'Who are they?', choice: 'They are the grandparents.', textDistractors: ['They are the brothers.', 'They are the sisters.'], distractors: [{ prompt: 'They are the brothers.', image: assets.brothers }, { prompt: 'They are the sisters.', image: assets.sisters }, { prompt: 'They are the babies.', image: assets.babies }], answer: 'They are the grandparents.' },
+  { prompt: 'They are the grandparents.', image: assets.grandparents, translation: 'Ellos son los abuelos.', textDistractors: ['They are the brothers.', 'They are the sisters.'], distractors: [{ prompt: 'They are the brothers.', image: assets.brothers }, { prompt: 'They are the sisters.', image: assets.sisters }, { prompt: 'They are the babies.', image: assets.babies }] },
 ];
 const lesson18 = buildLesson({
   id: 'lesson-8-who', number: '1.8', title: 'Who Is He? Who Are They?',
@@ -411,9 +417,9 @@ const lesson18 = buildLesson({
   speakIndexes: [0, 1, 2, 3, 4, 6, 8],
   uses: [
     complete({ prompt: 'Who ___ he?', image: assets.father, answer: 'Who is he?', correct: 'is', choices: [['are', 'are'], ['is', 'is']], translation: '¿Quién es él?' }),
-    complete({ prompt: 'He is the ___.', image: assets.father, answer: 'He is the father.', correct: 'father', choices: [['grandfather', 'grandfather'], ['father', 'father']], translation: 'Él es el ___.' }),
+    complete({ prompt: 'He is the ___.', image: assets.father, answer: 'He is the father.', correct: 'father', choices: [['mother', 'mother'], ['father', 'father']], translation: 'Él es el ___.' }),
     complete({ prompt: 'Who is ___?', image: assets.mother, answer: 'Who is she?', correct: 'she', choices: [['he', 'he'], ['she', 'she']], translation: '¿Quién es ella?' }),
-    complete({ prompt: 'She is the ___.', image: assets.mother, answer: 'She is the mother.', correct: 'mother', choices: [['mother', 'mother'], ['grandmother', 'grandmother']], translation: 'Ella es la ___.' }),
+    complete({ prompt: 'She is the ___.', image: assets.mother, answer: 'She is the mother.', correct: 'mother', choices: [['mother', 'mother'], ['father', 'father']], translation: 'Ella es la ___.' }),
     complete({ prompt: 'Who ___ they?', image: assets.parents, answer: 'Who are they?', correct: 'are', choices: [['is', 'is'], ['are', 'are']], translation: '¿Quiénes son ellos?' }),
     complete({ prompt: 'They are the ___.', image: assets.children, answer: 'They are the children.', correct: 'children', choices: [['parents', 'parents'], ['children', 'children']], translation: 'Ellos son los ___.' }),
     complete({ prompt: 'Who ___ they? They are the ___.', image: assets.grandparents, answer: 'Who are they? They are the grandparents.', correct: ['are', 'grandparents'], choices: [['is', 'is'], ['are', 'are'], ['grandparents', 'grandparents']], translation: '¿Quiénes son ellos? Ellos son los abuelos.' }),
@@ -426,15 +432,23 @@ const l19 = [
   { prompt: 'The man is reading. He is reading.', image: assets.reviewManReading, translation: 'El hombre está leyendo. Él está leyendo.' },
   { prompt: 'The woman is drinking. She is drinking.', image: assets.reviewWomanDrinking, translation: 'La mujer está bebiendo. Ella está bebiendo.' },
   { prompt: 'The boy and the girl are running. They are running.', image: assets.reviewChildrenRunning, translation: 'El niño y la niña están corriendo. Ellos están corriendo.' },
-  { prompt: 'The children are swimming.', image: assets.reviewChildrenSwimming, translation: 'Los niños están nadando.' },
-  { prompt: 'The baby is sleeping.', image: assets.reviewBabySleeping, translation: 'El bebé está durmiendo.' },
-  { prompt: 'The brothers are studying.', image: assets.reviewBrothersStudying, translation: 'Los hermanos están estudiando.' },
-  { prompt: 'The sisters are playing.', image: assets.reviewSistersPlaying, translation: 'Las hermanas están jugando.' },
-  { prompt: 'They are a family.', image: assets.reviewFamily, translation: 'Ellos son una familia.' },
-  { prompt: 'Who is he? He is the father. The father is working.', image: assets.reviewFatherWorking, translation: '¿Quién es él? Es el padre. El padre está trabajando.' },
-  { prompt: 'Who is she? She is the mother. The mother is cooking.', image: assets.reviewMotherCooking, translation: '¿Quién es ella? Es la madre. La madre está cocinando.' },
-  { prompt: 'Who are they? They are the parents. The parents are talking.', image: assets.reviewParentsTalking, translation: '¿Quiénes son ellos? Son los padres. Los padres están hablando.' },
-  { prompt: 'Who are they? They are the grandparents. They are sitting and talking. They are not sleeping.', image: assets.reviewGrandparentsTalking, translation: '¿Quiénes son ellos? Son los abuelos. Están sentados y hablando. No están durmiendo.' },
+  { prompt: 'The children are swimming.', image: assets.reviewChildrenSwimming, translation: 'Los niños están nadando.', textDistractors: ['The children are running.', 'The children are studying.'] },
+  { prompt: 'The baby is sleeping.', image: assets.reviewBabySleeping, translation: 'El bebé está durmiendo.', distractors: [{ prompt: 'The boy is eating.', image: assets.reviewBoyEating }] },
+  { prompt: 'The brothers are studying.', image: assets.reviewBrothersStudying, translation: 'Los hermanos están estudiando.', textDistractors: ['The brothers are swimming.', 'The brothers are running.'], distractors: [{ prompt: 'The sisters are playing.', image: assets.reviewSistersPlaying }] },
+  { prompt: 'The sisters are playing.', image: assets.reviewSistersPlaying, translation: 'Las hermanas están jugando.', distractors: [
+    { prompt: 'The brothers are studying.', image: assets.reviewBrothersStudying },
+    { prompt: 'The children are swimming.', image: assets.reviewChildrenSwimming },
+    { prompt: 'The boy and the girl are running.', image: assets.reviewChildrenRunning },
+  ] },
+  { prompt: 'They are a family.', image: assets.reviewFamily, translation: 'Ellos son una familia.', textDistractors: ['They are not a family.', 'They are babies.'] },
+  { prompt: 'Who is he? He is the father. The father is working.', image: assets.reviewFatherWorking, translation: '¿Quién es él? Es el padre. El padre está trabajando.', distractors: [{ prompt: 'Who is she? She is the mother. The mother is cooking.', image: assets.reviewMotherCooking }] },
+  { prompt: 'Who is she? She is the mother. The mother is cooking.', image: assets.reviewMotherCooking, translation: '¿Quién es ella? Es la madre. La madre está cocinando.', textDistractors: ['Who is she? She is the mother. The mother is reading.', 'Who is she? She is the mother. The mother is swimming.'] },
+  { prompt: 'Who are they? They are the parents. The parents are talking.', image: assets.reviewParentsTalking, translation: '¿Quiénes son ellos? Son los padres. Los padres están hablando.', textDistractors: ['Who are they? They are the parents. The parents are running.', 'Who are they? They are the parents. The parents are swimming.'], distractors: [
+    { prompt: 'Who are they? They are the brothers. The brothers are studying.', image: assets.reviewBrothersStudying },
+    { prompt: 'Who are they? They are the sisters. The sisters are playing.', image: assets.reviewSistersPlaying },
+    { prompt: 'Who are they? They are the children. The children are swimming.', image: assets.reviewChildrenSwimming },
+  ] },
+  { prompt: 'Who are they? They are the grandparents. They are sitting and talking. They are not sleeping.', image: assets.reviewGrandparentsTalking, translation: '¿Quiénes son ellos? Son los abuelos. Están sentados y hablando. No están durmiendo.', textDistractors: ['Who are they? They are the grandparents. They are running and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are sitting and sleeping. They are not talking.'], distractors: [{ prompt: 'Who are they? They are the brothers. They are sitting and studying. They are not sleeping.', image: assets.reviewBrothersStudying }] },
 ];
 const lesson19 = buildLesson({
   id: 'lesson-9-unit-review', number: '1.9', title: 'Unit 1 Story Review', review: true,
@@ -443,7 +457,7 @@ const lesson19 = buildLesson({
   grammarFunction: 'Integrated Unit 1 identity, action, question, singular/plural, and negative patterns.', prerequisite: 'Lessons 1.1-1.8 completed.',
   speakingOutcome: 'Tell a short connected story about people and family members in action.', purposefulReviewSlides: ['L1', 'L5', 'L9', 'L10', 'L11', 'L12', 'L13', 'L14', 'S8', 'U8'],
   entries: l19, textRecognize: [1, 3, 5, 7, 9, 11, 13],
-  listenIndexes: [{ index: 0, audio: l19[0].prompt }, { index: 1, audio: l19[1].prompt }, { index: 2, audio: l19[2].prompt }, { index: 3, audio: l19[3].prompt }, { index: 4, audio: l19[4].prompt }, { index: 5, audio: l19[5].prompt }, { index: 7, audio: l19[7].prompt }, { index: 9, audio: l19[9].prompt }, { index: 12, audio: l19[12].prompt }, { index: 13, audio: l19[13].prompt }],
+  listenIndexes: [{ index: 0, audio: l19[0].prompt }, { index: 1, audio: l19[1].prompt }, { index: 2, audio: l19[2].prompt }, { index: 3, audio: l19[3].prompt }, { index: 4, audio: l19[4].prompt }, { index: 5, audio: l19[5].prompt }, { index: 7, audio: l19[7].prompt }, { index: 9, audio: l19[9].prompt, mode: 'text' }, { index: 12, audio: l19[12].prompt }, { index: 13, audio: l19[13].prompt }],
   speakIndexes: [0, 1, 4, 5, 8, 10, 12, 13],
   uses: [
     complete({ prompt: 'The ___ is eating. ___ is eating.', image: assets.reviewBoyEating, answer: 'The boy is eating. He is eating.', correct: ['boy', 'he'], choices: [['girl', 'girl'], ['boy', 'boy'], ['he', 'He']], translation: 'El ___ está comiendo. ___ está comiendo.' }),
@@ -452,8 +466,8 @@ const lesson19 = buildLesson({
     complete({ prompt: 'The ___ are studying.', image: assets.reviewBrothersStudying, answer: 'The brothers are studying.', correct: 'brothers', choices: [['sisters', 'sisters'], ['brothers', 'brothers']], translation: 'Los ___ están estudiando.' }),
     complete({ prompt: 'The sisters are ___.', image: assets.reviewSistersPlaying, answer: 'The sisters are playing.', correct: 'playing', choices: [['studying', 'studying'], ['playing', 'playing']], translation: 'Las hermanas están ___.' }),
     complete({ prompt: 'Who ___ he? He is the ___.', image: assets.reviewFatherWorking, answer: 'Who is he? He is the father.', correct: ['is', 'father'], choices: [['are', 'are'], ['is', 'is'], ['father', 'father']], translation: '¿Quién es él? Él es el padre.' }),
-    complete({ prompt: 'Who are they? They are the ___. They are ___.', image: assets.reviewParentsTalking, answer: 'Who are they? They are the parents. They are talking.', correct: ['parents', 'talking'], choices: [['grandparents', 'grandparents'], ['parents', 'parents'], ['talking', 'talking']], translation: '¿Quiénes son ellos? Son los padres. Están hablando.' }),
-    complete({ prompt: 'They are the ___. They are ___ sleeping.', image: assets.reviewGrandparentsTalking, answer: 'They are the grandparents. They are not sleeping.', correct: ['grandparents', 'not'], choices: [['parents', 'parents'], ['grandparents', 'grandparents'], ['not', 'not']], translation: 'Ellos son los abuelos. No están durmiendo.' }),
+    complete({ prompt: 'Who are they? They are the ___. They are ___.', image: assets.reviewParentsTalking, answer: 'Who are they? They are the parents. They are talking.', correct: ['parents', 'talking'], choices: [['sisters', 'sisters'], ['parents', 'parents'], ['talking', 'talking']], translation: '¿Quiénes son ellos? Son los padres. Están hablando.' }),
+    complete({ prompt: 'They are the ___. They are ___ sleeping.', image: assets.reviewGrandparentsTalking, answer: 'They are the grandparents. They are not sleeping.', correct: ['grandparents', 'not'], choices: [['brothers', 'brothers'], ['grandparents', 'grandparents'], ['not', 'not']], translation: 'Ellos son los abuelos. No están durmiendo.' }),
   ],
 });
 
@@ -481,7 +495,7 @@ function missionTextClue({ prompt = '', image, answer, wrong, translation, answe
 }
 
 const missionRecognize = [
-  missionTextClue({ prompt: 'Who are they?', image: assets.missionFamilyStart, answer: 'They are a family.', wrong: 'He is the father.', translation: '¿Quiénes son ellos? Son una familia.' }),
+  missionTextClue({ prompt: 'Who are they?', image: assets.missionFamilyStart, answer: 'They are a family.', wrong: 'They are not a family.', translation: '¿Quiénes son ellos? Son una familia.' }),
   missionTextClue({ prompt: 'Who is he?', image: assets.missionFatherIdentity, answer: 'He is the father.', wrong: 'She is the mother.', translation: '¿Quién es él? Es el padre.' }),
   missionTextClue({ image: assets.missionFatherReading, answer: 'The father is reading.', wrong: 'The father is writing.', translation: 'El padre está leyendo.' }),
   missionTextClue({ prompt: 'Who is she?', image: assets.missionMotherWriting, answer: 'She is the mother.', wrong: 'He is the father.', translation: '¿Quién es ella? Es la madre.' }),

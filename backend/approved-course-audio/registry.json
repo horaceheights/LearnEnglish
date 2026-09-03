@@ -80598,6 +80598,69 @@
           "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
         }
       }
+    },
+    "dd8b0d2c131d7dbcab2ec7fb98da3f92039166c95664838c2881a901c7b17fc8": {
+      "file": "takes/dd8b0d2c131d7dbcab2ec7fb98da3f92039166c95664838c2881a901c7b17fc8.mp3",
+      "audio_sha256": "dd8b0d2c131d7dbcab2ec7fb98da3f92039166c95664838c2881a901c7b17fc8",
+      "bytes": 51309,
+      "text": "The grandparents and the grandchildren are family.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "captured-legacy-render-backend",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Captured byte-for-byte from the configured legacy Render backend during the persistent-audio migration.",
+          "The backend used the pinned ElevenLabs profile and course_audio.normalize_course_audio pipeline."
+        ],
+        "generated_at": null,
+        "captured_at": "2026-09-03T18:35:43.026518+00:00",
+        "approved_at": "2026-09-03T18:35:42.320711+00:00",
+        "request_id": null,
+        "trace_id": null,
+        "character_cost": null,
+        "character_cost_upper_bound": 50,
+        "provider_requests": [
+          {
+            "source": "legacy-render-backend",
+            "provider": "elevenlabs-premium",
+            "audio_profile": "a1-elevenlabs-cast-v14"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
     }
   },
   "bindings": {
@@ -100949,6 +101012,86 @@
     "lesson-10-family-mission-c020-answer-97e578f98fcb899203f8": {
       "take_id": "6446b56cb645e2d7fee4f899c9215f5156a550cbbf2ace820c79a00ac8fc5f80",
       "approved_at": "2026-09-03T04:15:01.200798+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-parents-grandparents-c010-prompt-491b076524aef0225b97": {
+      "take_id": "dd8b0d2c131d7dbcab2ec7fb98da3f92039166c95664838c2881a901c7b17fc8",
+      "approved_at": "2026-09-03T18:35:42.320711+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-parents-grandparents-c010-answer-4170996f2dc421fb9316": {
+      "take_id": "dd8b0d2c131d7dbcab2ec7fb98da3f92039166c95664838c2881a901c7b17fc8",
+      "approved_at": "2026-09-03T18:35:42.320711+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-parents-grandparents-c020-prompt-026399307053c38f68b3": {
+      "take_id": "dd8b0d2c131d7dbcab2ec7fb98da3f92039166c95664838c2881a901c7b17fc8",
+      "approved_at": "2026-09-03T18:35:42.320711+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-5-parents-grandparents-c020-answer-8af26d8f63877b9b8469": {
+      "take_id": "dd8b0d2c131d7dbcab2ec7fb98da3f92039166c95664838c2881a901c7b17fc8",
+      "approved_at": "2026-09-03T18:35:42.320711+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-pronouns-c023-answer-debe8b8eb2986996c196": {
+      "take_id": "03d9cb9b7d80bed1074e250825d3080afb8f19da6651d43b6558d5c4dc9b74d5",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-9-unit-review-c034-prompt-c66705bd195a07af0c4d": {
+      "take_id": "48971f9e6dd8a015103a862e5894934538d4642b788a042beaf98c92f5784602",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-9-unit-review-c034-answer-a5bffde095f4bde56393": {
+      "take_id": "48971f9e6dd8a015103a862e5894934538d4642b788a042beaf98c92f5784602",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-2-pronouns-c026-prompt-bf7378e20d0214cf7922": {
+      "take_id": "9230116bde7fb097cba741655352f9b22cc4485c77548b12efd1cf1d2da0dc59",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-2-pronouns-c026-answer-b9b4af3a6694f7a210f5": {
+      "take_id": "9230116bde7fb097cba741655352f9b22cc4485c77548b12efd1cf1d2da0dc59",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-parents-grandparents-c009-prompt-2a8b66b60b9f0c08565c": {
+      "take_id": "7eb8b51e57bbf4f2770787904d301560dd16394c37789a6cd10fef3ceb64cc4a",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-parents-grandparents-c009-answer-cc28ab1f61daca11f3f6": {
+      "take_id": "7eb8b51e57bbf4f2770787904d301560dd16394c37789a6cd10fef3ceb64cc4a",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-5-parents-grandparents-c019-answer-8c6cba7262e90be1b044": {
+      "take_id": "7eb8b51e57bbf4f2770787904d301560dd16394c37789a6cd10fef3ceb64cc4a",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-4-children-siblings-c023-prompt-30eba5944e4e14d8c52e": {
+      "take_id": "8f64f831193defb9dbb167184d9851e19a9beeea8fcab240701a67062c3d1754",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-4-children-siblings-c023-answer-1171d4b582afc0051f97": {
+      "take_id": "8f64f831193defb9dbb167184d9851e19a9beeea8fcab240701a67062c3d1754",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-9-unit-review-c037-prompt-52001416b36bd32be9ae": {
+      "take_id": "6b0badc11a19e359003a33ca1333b52cad2f467b5648aa2d10ff6db52de88fb9",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-9-unit-review-c037-answer-6c700a169faa959e3ef5": {
+      "take_id": "6b0badc11a19e359003a33ca1333b52cad2f467b5648aa2d10ff6db52de88fb9",
+      "approved_at": "2026-09-03T02:58:05.795810+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     }
   }
