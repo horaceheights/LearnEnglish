@@ -90,6 +90,42 @@ assert.match(
   /hasTextOnlyOptions\s*\? textOptionsReservedHeight \+ feedbackReservedHeight \+ 30/,
   'Prompt media must reserve screen space for both adaptive text rows and answer feedback.',
 );
+const featureImageHeightMatch = cardViewSource.match(/const featureImageHeight = ([\s\S]*?);/);
+assert.ok(featureImageHeightMatch, 'missing feature-image height calculation');
+const featureImageHeightFor = Function(
+  'allowVerticalGrowth',
+  'hasTextOnlyOptions',
+  'isPronunciation',
+  'isMissionTile',
+  'responsiveFeatureImageHeight',
+  'availableCardHeight',
+  'featureReservedHeight',
+  `"use strict"; return ${featureImageHeightMatch[1]};`,
+);
+// A 700dp phone with three two-line answers has a 189dp responsive image.
+// Before feedback, natural height lacks the 58dp feedback reservation. Repeated
+// measurements must not recursively subtract that space from the image itself.
+let naturalCardHeight = 482;
+for (let layoutPass = 0; layoutPass < 4; layoutPass += 1) {
+  const imageHeight = featureImageHeightFor(true, true, false, false, 189, naturalCardHeight, 360);
+  assert.equal(imageHeight, 189, 'Scrollable text media must keep its readable responsive height.');
+  naturalCardHeight = imageHeight + 293;
+}
+assert.equal(
+  featureImageHeightFor(true, true, false, false, 189, naturalCardHeight + 58, 360),
+  189,
+  'Showing feedback must not resize the prompt image in a naturally growing text card.',
+);
+assert.equal(
+  featureImageHeightFor(false, true, false, false, 189, 482, 360),
+  122,
+  'Fixed-height text cards must retain their measured screen-space cap.',
+);
+assert.equal(
+  featureImageHeightFor(true, false, false, false, 189, 482, 360),
+  122,
+  'The natural-height exception must never change image-choice grids.',
+);
 assert.match(
   cardViewSource,
   /const isTabletViewport = Math\.min\(viewportWidth, viewportHeight\) >= 540;[\s\S]*?const textOptionFontSize = isTabletViewport/,

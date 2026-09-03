@@ -316,10 +316,15 @@ export function LessonCardView({
     : hasTextOnlyOptions
       ? textOptionsReservedHeight + feedbackReservedHeight + 30
       : 24;
-  const featureImageHeight = Math.min(
-    responsiveFeatureImageHeight,
-    Math.max(isPronunciation ? 68 : 70, availableCardHeight - featureReservedHeight),
-  );
+  // A scrollable text card measures its natural content height, not a fixed
+  // viewport budget. Subtracting its reserved rows/feedback from that measurement
+  // feeds the image's own height back into the next layout and shrinks it to 70dp.
+  const featureImageHeight = allowVerticalGrowth && hasTextOnlyOptions && !isPronunciation && !isMissionTile
+    ? responsiveFeatureImageHeight
+    : Math.min(
+        responsiveFeatureImageHeight,
+        Math.max(isPronunciation ? 68 : 70, availableCardHeight - featureReservedHeight),
+      );
   const promptImageHeight = isMissionTile
     ? Math.min(
         showHelp ? featureImageHeight * 0.65 : featureImageHeight,
