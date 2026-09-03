@@ -39,7 +39,6 @@ from scripts.a1_media_runtime_contracts import (  # noqa: E402
 )
 
 
-BROAD_ADULT_IDS = {"adult", "adults"}
 ADULT_ROLE_IDS = {
     "father",
     "mother",
@@ -47,6 +46,50 @@ ADULT_ROLE_IDS = {
     "grandfather",
     "grandmother",
     "grandparents",
+}
+FAMILY_ADULT_AMBIGUITY_RULES = {
+    "an adult": {
+        "label_terms": ADULT_ROLE_IDS | {"adult", "adults", "man", "woman"},
+        "asset_names": {
+            "family_adults.webp",
+            "family_father.webp",
+            "family_mother.webp",
+            "family_grandfather.webp",
+            "family_grandmother.webp",
+        },
+    },
+    "adults": {
+        "label_terms": {"parents", "grandparents", "family"},
+        "asset_names": {
+            "family_parents.webp",
+            "family_grandparents.webp",
+            "family_all_members.webp",
+        },
+    },
+    "they are the parents": {
+        "label_terms": {"adults", "grandparents", "family"},
+        "asset_names": {
+            "family_adults.webp",
+            "family_grandparents.webp",
+            "family_all_members.webp",
+        },
+    },
+    "they are parents": {
+        "label_terms": {"adults", "grandparents", "family"},
+        "asset_names": {
+            "family_adults.webp",
+            "family_grandparents.webp",
+            "family_all_members.webp",
+        },
+    },
+    "who are they? they are the parents": {
+        "label_terms": {"adults", "grandparents", "family"},
+        "asset_names": {
+            "family_adults.webp",
+            "family_grandparents.webp",
+            "family_all_members.webp",
+        },
+    },
 }
 GRAMMAR_STAGES = {"Grammar", "New Grammar"}
 PRONUNCIATION_STAGES = {"Pronunciation Practice", "Speak"}
@@ -188,17 +231,44 @@ def validate_text_tile_option_limit() -> list[str]:
     return errors
 
 
-def validate_family_adult_ambiguity() -> list[str]:
+def validate_family_adult_ambiguity(lessons=None) -> list[str]:
     errors: list[str] = []
-    for lesson in LESSONS.values():
+    lesson_catalog = LESSONS if lessons is None else lessons
+    for lesson in lesson_catalog.values():
         for card_index, card in enumerate(lesson.cards, 1):
-            option_ids = {option.id for option in card.options}
-            broad_adults = option_ids & BROAD_ADULT_IDS
-            adult_roles = option_ids & ADULT_ROLE_IDS
-            if broad_adults and adult_roles:
+            if not card.options or not all((option.image_url or "").strip() for option in card.options):
+                continue
+
+            target_text = re.sub(
+                r"\s+",
+                " ",
+                (card.audio_text or card.answer_audio_text or card.prompt or "").strip().lower(),
+            ).rstrip(".")
+            rule = FAMILY_ADULT_AMBIGUITY_RULES.get(target_text)
+            if not rule:
+                continue
+
+            ambiguous_distractors: list[str] = []
+            for option in card.options:
+                if option.id == card.correct_option_id:
+                    continue
+                label = (option.label or "").strip().lower()
+                asset_name = (option.image_url or "").split("?", 1)[0].rsplit("/", 1)[-1]
+                matching_terms = sorted(
+                    term
+                    for term in rule["label_terms"]
+                    if re.search(rf"\b{re.escape(term)}\b", label)
+                )
+                if matching_terms or asset_name in rule["asset_names"]:
+                    ambiguous_distractors.append(
+                        f"{option.id} ({option.label!r}, {asset_name!r})"
+                    )
+
+            if ambiguous_distractors:
                 errors.append(
-                    f"{lesson.id} card {card_index} ({card.prompt!r}) mixes broad adult labels "
-                    f"{sorted(broad_adults)} with adult family roles {sorted(adult_roles)}."
+                    f"{lesson.id} card {card_index} ({card.prompt!r}) has family/adult "
+                    "distractors that can still satisfy the target under an ordinary "
+                    f"interpretation: {ambiguous_distractors}."
                 )
     return errors
 

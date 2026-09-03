@@ -106233,13 +106233,14 @@
       "notes": ""
     },
     {
-      "contract_sha256": "eb431961ff9c26451c5ff4ac8b137f88a962f4be4e706c4194f9516c3bb2cdee",
+      "contract_sha256": "fd0c7672e2b051c02d059519e4ed62b244145d2f84673c1023d430bbfdc9a9e6",
       "filename": "girl_3x2.webp",
       "concept": "A girl",
       "description": "Client-rendered 3:2 Unit 1 option variant for A girl; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.1|Learn|L4",
-        "1.1|Recognize|R5"
+        "1.1|Recognize|R5",
+        "1.5|Listen|A1"
       ],
       "review_contexts": [
         {
@@ -106325,6 +106326,63 @@
               "label": "A woman",
               "source_filename": "woman.webp",
               "rendered_filename": "woman_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Listen",
+          "slide_id": "A1",
+          "interaction_type": "a2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-2",
+          "option_label": "A girl",
+          "is_correct": false,
+          "source_filename": "girl.webp",
+          "rendered_filename": "girl_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "An adult",
+          "answer_audio_text": null,
+          "spanish_translation": "Un adulto",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "An adult",
+              "source_filename": "family_father.webp",
+              "rendered_filename": "family_father_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "A boy",
+              "source_filename": "boy.webp",
+              "rendered_filename": "boy_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "A girl",
+              "source_filename": "girl.webp",
+              "rendered_filename": "girl_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "A baby",
+              "source_filename": "family_baby.webp",
+              "rendered_filename": "family_baby_3x2.webp",
               "is_correct": false
             }
           ],
@@ -108094,7 +108152,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "8b7ca69fb2c7fd377a7688da78b320e58dbbd38446ef907ab504fb767773a2b3",
+      "contract_sha256": "2fff4a04c98f3fba37b6db935759aafeb654b7b0c11c7da1cd1f92b5c8adf77d",
       "filename": "family_father_3x2.webp",
       "concept": "An adult",
       "description": "Client-rendered 3:2 Unit 1 option variant for An adult; it must preserve the complete source concept and bound card role.",
@@ -108103,14 +108161,12 @@
         "1.5|Learn|L1",
         "1.5|Recognize|R2",
         "1.5|Recognize|R4",
-        "1.5|Recognize|R5",
         "1.5|Recognize|R7",
         "1.5|Recognize|R8",
         "1.5|Recognize|R10",
         "1.5|Listen|A1",
         "1.5|Listen|A2",
         "1.5|Listen|A4",
-        "1.5|Listen|A5",
         "1.5|Listen|A7",
         "1.5|Listen|A8",
         "1.5|Speak|S1"
@@ -108287,63 +108343,6 @@
           "unit_id": "unit-1",
           "sub_lesson_id": "1.5",
           "stage": "Recognize",
-          "slide_id": "R5",
-          "interaction_type": "t2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-1",
-          "option_label": "An adult",
-          "is_correct": false,
-          "source_filename": "family_father.webp",
-          "rendered_filename": "family_father_3x2.webp",
-          "prompt": "They are the parents.",
-          "audio_text": "They are the parents.",
-          "answer_audio_text": null,
-          "spanish_translation": "Ellos son los padres.",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
-          "stage": "Recognize",
           "slide_id": "R7",
           "interaction_type": "t2i2",
           "media_role": "option",
@@ -108497,23 +108496,23 @@
             },
             {
               "id": "wrong-1",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
+              "label": "A boy",
+              "source_filename": "boy.webp",
+              "rendered_filename": "boy_3x2.webp",
               "is_correct": false
             },
             {
               "id": "wrong-2",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
+              "label": "A girl",
+              "source_filename": "girl.webp",
+              "rendered_filename": "girl_3x2.webp",
               "is_correct": false
             },
             {
               "id": "wrong-3",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
+              "label": "A baby",
+              "source_filename": "family_baby.webp",
+              "rendered_filename": "family_baby_3x2.webp",
               "is_correct": false
             }
           ],
@@ -108605,63 +108604,6 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "69b5d706a17fa97c2b1c8cccb5de2c6a56b530feb14702fdd4c8cf597de03b0e",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
-          "stage": "Listen",
-          "slide_id": "A5",
-          "interaction_type": "a2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-1",
-          "option_label": "An adult",
-          "is_correct": false,
-          "source_filename": "family_father.webp",
-          "rendered_filename": "family_father_3x2.webp",
-          "prompt": "Listen and choose.",
-          "audio_text": "They are the parents.",
-          "answer_audio_text": null,
-          "spanish_translation": "Ellos son los padres.",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -122186,7 +122128,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "11562dee255486fe5ba3b42be87c307119396f9040a267b5b4125acd562943af",
+      "contract_sha256": "121ec67fe4d2636091ec0d0e3860888e58a27639fa3f8cc6ddea9030996a61f2",
       "filename": "family_adults_3x2.webp",
       "concept": "Adults",
       "description": "Client-rendered 3:2 Unit 1 option variant for Adults; it must preserve the complete source concept and bound card role.",
@@ -122195,10 +122137,7 @@
         "1.4|Listen|A8",
         "1.5|Learn|L2",
         "1.5|Recognize|R2",
-        "1.5|Recognize|R5",
-        "1.5|Listen|A1",
-        "1.5|Listen|A2",
-        "1.5|Listen|A5"
+        "1.5|Listen|A2"
       ],
       "review_contexts": [
         {
@@ -122371,120 +122310,6 @@
           "lesson_id": "lesson-5-parents-grandparents",
           "unit_id": "unit-1",
           "sub_lesson_id": "1.5",
-          "stage": "Recognize",
-          "slide_id": "R5",
-          "interaction_type": "t2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-2",
-          "option_label": "Adults",
-          "is_correct": false,
-          "source_filename": "family_adults.webp",
-          "rendered_filename": "family_adults_3x2.webp",
-          "prompt": "They are the parents.",
-          "audio_text": "They are the parents.",
-          "answer_audio_text": null,
-          "spanish_translation": "Ellos son los padres.",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
-          "stage": "Listen",
-          "slide_id": "A1",
-          "interaction_type": "a2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-1",
-          "option_label": "Adults",
-          "is_correct": false,
-          "source_filename": "family_adults.webp",
-          "rendered_filename": "family_adults_3x2.webp",
-          "prompt": "Listen and choose.",
-          "audio_text": "An adult",
-          "answer_audio_text": null,
-          "spanish_translation": "Un adulto",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
           "stage": "Listen",
           "slide_id": "A2",
           "interaction_type": "a2i2",
@@ -122518,63 +122343,6 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "69b5d706a17fa97c2b1c8cccb5de2c6a56b530feb14702fdd4c8cf597de03b0e",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
-          "stage": "Listen",
-          "slide_id": "A5",
-          "interaction_type": "a2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-2",
-          "option_label": "Adults",
-          "is_correct": false,
-          "source_filename": "family_adults.webp",
-          "rendered_filename": "family_adults_3x2.webp",
-          "prompt": "Listen and choose.",
-          "audio_text": "They are the parents.",
-          "answer_audio_text": null,
-          "spanish_translation": "Ellos son los padres.",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -130076,17 +129844,14 @@
       "notes": ""
     },
     {
-      "contract_sha256": "f4c0339f6d318a68f0210caab039596c51b33126c1a6b73f32413e50dff9f8f5",
+      "contract_sha256": "1ad98aa82b81d071f6bf31c5487aaab74926108adbfd620744ce45a12011a374",
       "filename": "family_mother_3x2.webp",
       "concept": "She is the mother.",
       "description": "Client-rendered 3:2 Unit 1 option variant for She is the mother.; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.5|Learn|L4",
         "1.5|Recognize|R4",
-        "1.5|Recognize|R5",
-        "1.5|Listen|A1",
         "1.5|Listen|A4",
-        "1.5|Listen|A5",
         "1.5|Speak|S3",
         "1.8|Learn|L4",
         "1.8|Recognize|R4",
@@ -130178,120 +129943,6 @@
           "lesson_id": "lesson-5-parents-grandparents",
           "unit_id": "unit-1",
           "sub_lesson_id": "1.5",
-          "stage": "Recognize",
-          "slide_id": "R5",
-          "interaction_type": "t2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-3",
-          "option_label": "She is the mother.",
-          "is_correct": false,
-          "source_filename": "family_mother.webp",
-          "rendered_filename": "family_mother_3x2.webp",
-          "prompt": "They are the parents.",
-          "audio_text": "They are the parents.",
-          "answer_audio_text": null,
-          "spanish_translation": "Ellos son los padres.",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
-          "stage": "Listen",
-          "slide_id": "A1",
-          "interaction_type": "a2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-2",
-          "option_label": "She is the mother.",
-          "is_correct": false,
-          "source_filename": "family_mother.webp",
-          "rendered_filename": "family_mother_3x2.webp",
-          "prompt": "Listen and choose.",
-          "audio_text": "An adult",
-          "answer_audio_text": null,
-          "spanish_translation": "Un adulto",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
           "stage": "Listen",
           "slide_id": "A4",
           "interaction_type": "a2i2",
@@ -130325,63 +129976,6 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "69b5d706a17fa97c2b1c8cccb5de2c6a56b530feb14702fdd4c8cf597de03b0e",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
-          "stage": "Listen",
-          "slide_id": "A5",
-          "interaction_type": "a2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-3",
-          "option_label": "She is the mother.",
-          "is_correct": false,
-          "source_filename": "family_mother.webp",
-          "rendered_filename": "family_mother_3x2.webp",
-          "prompt": "Listen and choose.",
-          "audio_text": "They are the parents.",
-          "answer_audio_text": null,
-          "spanish_translation": "Ellos son los padres.",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -132475,14 +132069,15 @@
       "notes": ""
     },
     {
-      "contract_sha256": "6e381ae0e4cd55bec0581e5352ffd75e171ea04b84f061784be435eff65607b5",
+      "contract_sha256": "38caada754782b9b880277a630c2d6036522d9cfda74cafc8bdd4e3f877412dd",
       "filename": "family_baby_3x2.webp",
       "concept": "A baby",
       "description": "Client-rendered 3:2 Unit 1 option variant for A baby; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.4|Learn|L2",
         "1.4|Listen|A2",
-        "1.4|Speak|S2"
+        "1.4|Speak|S2",
+        "1.5|Listen|A1"
       ],
       "review_contexts": [
         {
@@ -132595,6 +132190,63 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "69b5d706a17fa97c2b1c8cccb5de2c6a56b530feb14702fdd4c8cf597de03b0e",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Listen",
+          "slide_id": "A1",
+          "interaction_type": "a2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-3",
+          "option_label": "A baby",
+          "is_correct": false,
+          "source_filename": "family_baby.webp",
+          "rendered_filename": "family_baby_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "An adult",
+          "answer_audio_text": null,
+          "spanish_translation": "Un adulto",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "An adult",
+              "source_filename": "family_father.webp",
+              "rendered_filename": "family_father_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "A boy",
+              "source_filename": "boy.webp",
+              "rendered_filename": "boy_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "A girl",
+              "source_filename": "girl.webp",
+              "rendered_filename": "girl_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "A baby",
+              "source_filename": "family_baby.webp",
+              "rendered_filename": "family_baby_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -134573,14 +134225,13 @@
       "notes": ""
     },
     {
-      "contract_sha256": "00e4f8bd34e45e29d690b4a6f0fe9ca0f88d9ed5c046faa231b771d7320b8f2f",
+      "contract_sha256": "768a7b5a3adba437caa3c970d5e3b9f8d7564676a0e11198e0d31617113ae4d4",
       "filename": "family_parents_3x2.webp",
       "concept": "They are the parents.",
       "description": "Client-rendered 3:2 Unit 1 option variant for They are the parents.; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.5|Learn|L5",
         "1.5|Recognize|R5",
-        "1.5|Listen|A1",
         "1.5|Listen|A5",
         "1.5|Speak|S4",
         "1.8|Learn|L6",
@@ -134653,80 +134304,23 @@
             },
             {
               "id": "wrong-1",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
+              "label": "They are children.",
+              "source_filename": "family_children.webp",
+              "rendered_filename": "family_children_3x2.webp",
               "is_correct": false
             },
             {
               "id": "wrong-2",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
+              "label": "Babies",
+              "source_filename": "family_babies.webp",
+              "rendered_filename": "family_babies_3x2.webp",
               "is_correct": false
             },
             {
               "id": "wrong-3",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            }
-          ],
-          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
-          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
-          "viewport_width": null,
-          "viewport_height": null,
-          "resize_mode": "profile-bound",
-          "object_position": "profile-bound"
-        },
-        {
-          "context_type": "lesson_card",
-          "lesson_id": "lesson-5-parents-grandparents",
-          "unit_id": "unit-1",
-          "sub_lesson_id": "1.5",
-          "stage": "Listen",
-          "slide_id": "A1",
-          "interaction_type": "a2i4",
-          "media_role": "option",
-          "surface_label": null,
-          "option_id": "wrong-3",
-          "option_label": "They are the parents.",
-          "is_correct": false,
-          "source_filename": "family_parents.webp",
-          "rendered_filename": "family_parents_3x2.webp",
-          "prompt": "Listen and choose.",
-          "audio_text": "An adult",
-          "answer_audio_text": null,
-          "spanish_translation": "Un adulto",
-          "correct_option_id": "correct",
-          "options": [
-            {
-              "id": "correct",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
-              "is_correct": true
-            },
-            {
-              "id": "wrong-1",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-2",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
-              "is_correct": false
-            },
-            {
-              "id": "wrong-3",
-              "label": "They are the parents.",
-              "source_filename": "family_parents.webp",
-              "rendered_filename": "family_parents_3x2.webp",
+              "label": "They are sisters.",
+              "source_filename": "family_sisters.webp",
+              "rendered_filename": "family_sisters_3x2.webp",
               "is_correct": false
             }
           ],
@@ -134767,23 +134361,23 @@
             },
             {
               "id": "wrong-1",
-              "label": "An adult",
-              "source_filename": "family_father.webp",
-              "rendered_filename": "family_father_3x2.webp",
+              "label": "They are children.",
+              "source_filename": "family_children.webp",
+              "rendered_filename": "family_children_3x2.webp",
               "is_correct": false
             },
             {
               "id": "wrong-2",
-              "label": "Adults",
-              "source_filename": "family_adults.webp",
-              "rendered_filename": "family_adults_3x2.webp",
+              "label": "Babies",
+              "source_filename": "family_babies.webp",
+              "rendered_filename": "family_babies_3x2.webp",
               "is_correct": false
             },
             {
               "id": "wrong-3",
-              "label": "She is the mother.",
-              "source_filename": "family_mother.webp",
-              "rendered_filename": "family_mother_3x2.webp",
+              "label": "They are sisters.",
+              "source_filename": "family_sisters.webp",
+              "rendered_filename": "family_sisters_3x2.webp",
               "is_correct": false
             }
           ],
@@ -136406,12 +136000,14 @@
       "notes": ""
     },
     {
-      "contract_sha256": "14c7fc22711e5bcfb32f193ccb1b64c4d060f789451c57f2c58335f788215659",
+      "contract_sha256": "93826e7a7277b72cd4e421f679528d8e9147d46c134c4929b75ca336d1dbd49f",
       "filename": "family_babies_3x2.webp",
       "concept": "Babies",
       "description": "Client-rendered 3:2 Unit 1 option variant for Babies; it must preserve the complete source concept and bound card role.",
       "card_refs": [
-        "1.4|Learn|L3"
+        "1.4|Learn|L3",
+        "1.5|Recognize|R5",
+        "1.5|Listen|A5"
       ],
       "review_contexts": [
         {
@@ -136445,6 +136041,120 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "69b5d706a17fa97c2b1c8cccb5de2c6a56b530feb14702fdd4c8cf597de03b0e",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Recognize",
+          "slide_id": "R5",
+          "interaction_type": "t2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-2",
+          "option_label": "Babies",
+          "is_correct": false,
+          "source_filename": "family_babies.webp",
+          "rendered_filename": "family_babies_3x2.webp",
+          "prompt": "They are the parents.",
+          "audio_text": "They are the parents.",
+          "answer_audio_text": null,
+          "spanish_translation": "Ellos son los padres.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are the parents.",
+              "source_filename": "family_parents.webp",
+              "rendered_filename": "family_parents_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "They are children.",
+              "source_filename": "family_children.webp",
+              "rendered_filename": "family_children_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "Babies",
+              "source_filename": "family_babies.webp",
+              "rendered_filename": "family_babies_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "They are sisters.",
+              "source_filename": "family_sisters.webp",
+              "rendered_filename": "family_sisters_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Listen",
+          "slide_id": "A5",
+          "interaction_type": "a2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-2",
+          "option_label": "Babies",
+          "is_correct": false,
+          "source_filename": "family_babies.webp",
+          "rendered_filename": "family_babies_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "They are the parents.",
+          "answer_audio_text": null,
+          "spanish_translation": "Ellos son los padres.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are the parents.",
+              "source_filename": "family_parents.webp",
+              "rendered_filename": "family_parents_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "They are children.",
+              "source_filename": "family_children.webp",
+              "rendered_filename": "family_children_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "Babies",
+              "source_filename": "family_babies.webp",
+              "rendered_filename": "family_babies_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "They are sisters.",
+              "source_filename": "family_sisters.webp",
+              "rendered_filename": "family_sisters_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -143120,14 +142830,16 @@
       "notes": ""
     },
     {
-      "contract_sha256": "d22d5b0bdec6a1aff98167b56cf41a69e41a644949af91aeda27f729dfa3de86",
+      "contract_sha256": "244f7849f2fc9afbfb1e62a6bad4935050c238a9b30e74a1b72222225167e4d8",
       "filename": "family_children_3x2.webp",
       "concept": "They are children.",
       "description": "Client-rendered 3:2 Unit 1 option variant for They are children.; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.4|Recognize|R5",
         "1.4|Listen|A4",
-        "1.4|Speak|S4"
+        "1.4|Speak|S4",
+        "1.5|Recognize|R5",
+        "1.5|Listen|A5"
       ],
       "review_contexts": [
         {
@@ -143261,6 +142973,120 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "69b5d706a17fa97c2b1c8cccb5de2c6a56b530feb14702fdd4c8cf597de03b0e",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Recognize",
+          "slide_id": "R5",
+          "interaction_type": "t2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-1",
+          "option_label": "They are children.",
+          "is_correct": false,
+          "source_filename": "family_children.webp",
+          "rendered_filename": "family_children_3x2.webp",
+          "prompt": "They are the parents.",
+          "audio_text": "They are the parents.",
+          "answer_audio_text": null,
+          "spanish_translation": "Ellos son los padres.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are the parents.",
+              "source_filename": "family_parents.webp",
+              "rendered_filename": "family_parents_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "They are children.",
+              "source_filename": "family_children.webp",
+              "rendered_filename": "family_children_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "Babies",
+              "source_filename": "family_babies.webp",
+              "rendered_filename": "family_babies_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "They are sisters.",
+              "source_filename": "family_sisters.webp",
+              "rendered_filename": "family_sisters_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Listen",
+          "slide_id": "A5",
+          "interaction_type": "a2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-1",
+          "option_label": "They are children.",
+          "is_correct": false,
+          "source_filename": "family_children.webp",
+          "rendered_filename": "family_children_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "They are the parents.",
+          "answer_audio_text": null,
+          "spanish_translation": "Ellos son los padres.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are the parents.",
+              "source_filename": "family_parents.webp",
+              "rendered_filename": "family_parents_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "They are children.",
+              "source_filename": "family_children.webp",
+              "rendered_filename": "family_children_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "Babies",
+              "source_filename": "family_babies.webp",
+              "rendered_filename": "family_babies_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "They are sisters.",
+              "source_filename": "family_sisters.webp",
+              "rendered_filename": "family_sisters_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -145526,7 +145352,7 @@
       "notes": ""
     },
     {
-      "contract_sha256": "b1002f131a5ce9288e74ba08ff11497b7307a0045c32e317fff9c2b905da6b22",
+      "contract_sha256": "d444d3563110213b3f9794c49392beaab4606107008c93170bcf58a0f9476fe1",
       "filename": "family_sisters_3x2.webp",
       "concept": "They are sisters.",
       "description": "Client-rendered 3:2 Unit 1 option variant for They are sisters.; it must preserve the complete source concept and bound card role.",
@@ -145535,7 +145361,9 @@
         "1.4|Recognize|R7",
         "1.4|Recognize|R9",
         "1.4|Listen|A7",
-        "1.4|Speak|S6"
+        "1.4|Speak|S6",
+        "1.5|Recognize|R5",
+        "1.5|Listen|A5"
       ],
       "review_contexts": [
         {
@@ -145755,6 +145583,120 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "69b5d706a17fa97c2b1c8cccb5de2c6a56b530feb14702fdd4c8cf597de03b0e",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Recognize",
+          "slide_id": "R5",
+          "interaction_type": "t2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-3",
+          "option_label": "They are sisters.",
+          "is_correct": false,
+          "source_filename": "family_sisters.webp",
+          "rendered_filename": "family_sisters_3x2.webp",
+          "prompt": "They are the parents.",
+          "audio_text": "They are the parents.",
+          "answer_audio_text": null,
+          "spanish_translation": "Ellos son los padres.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are the parents.",
+              "source_filename": "family_parents.webp",
+              "rendered_filename": "family_parents_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "They are children.",
+              "source_filename": "family_children.webp",
+              "rendered_filename": "family_children_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "Babies",
+              "source_filename": "family_babies.webp",
+              "rendered_filename": "family_babies_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "They are sisters.",
+              "source_filename": "family_sisters.webp",
+              "rendered_filename": "family_sisters_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Listen",
+          "slide_id": "A5",
+          "interaction_type": "a2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-3",
+          "option_label": "They are sisters.",
+          "is_correct": false,
+          "source_filename": "family_sisters.webp",
+          "rendered_filename": "family_sisters_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "They are the parents.",
+          "answer_audio_text": null,
+          "spanish_translation": "Ellos son los padres.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are the parents.",
+              "source_filename": "family_parents.webp",
+              "rendered_filename": "family_parents_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "They are children.",
+              "source_filename": "family_children.webp",
+              "rendered_filename": "family_children_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "Babies",
+              "source_filename": "family_babies.webp",
+              "rendered_filename": "family_babies_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "They are sisters.",
+              "source_filename": "family_sisters.webp",
+              "rendered_filename": "family_sisters_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -149017,14 +148959,15 @@
       "notes": ""
     },
     {
-      "contract_sha256": "7b6a0410245c0743971e6d510d62888418f7fde078ef2b1e8bbd2897c0fab7fb",
+      "contract_sha256": "ae0fc50c335c746103fa7793afc7d2f29de347a96d5c2879d22ae7992e25faa1",
       "filename": "boy_3x2.webp",
       "concept": "A boy",
       "description": "Client-rendered 3:2 Unit 1 option variant for A boy; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.1|Learn|L1",
         "1.1|Recognize|R5",
-        "1.1|Speak|S1"
+        "1.1|Speak|S1",
+        "1.5|Listen|A1"
       ],
       "review_contexts": [
         {
@@ -149151,6 +149094,63 @@
           ],
           "render_profile": "lesson-option-1to3-3x2-v1",
           "render_signature_sha256": "69b5d706a17fa97c2b1c8cccb5de2c6a56b530feb14702fdd4c8cf597de03b0e",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-5-parents-grandparents",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.5",
+          "stage": "Listen",
+          "slide_id": "A1",
+          "interaction_type": "a2i4",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-1",
+          "option_label": "A boy",
+          "is_correct": false,
+          "source_filename": "boy.webp",
+          "rendered_filename": "boy_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "An adult",
+          "answer_audio_text": null,
+          "spanish_translation": "Un adulto",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "An adult",
+              "source_filename": "family_father.webp",
+              "rendered_filename": "family_father_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "A boy",
+              "source_filename": "boy.webp",
+              "rendered_filename": "boy_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-2",
+              "label": "A girl",
+              "source_filename": "girl.webp",
+              "rendered_filename": "girl_3x2.webp",
+              "is_correct": false
+            },
+            {
+              "id": "wrong-3",
+              "label": "A baby",
+              "source_filename": "family_baby.webp",
+              "rendered_filename": "family_baby_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-four-mobile-4x5-web-3x2-v1",
+          "render_signature_sha256": "306924a7f281fab63dac03e8b8535c60d65bfef034a1bc9379f50840a9b4c12d",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
