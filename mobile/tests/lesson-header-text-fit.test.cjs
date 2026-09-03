@@ -29,7 +29,7 @@ const authoredHeaderPrompts = course.flatMap((lesson) => (
 
 assert.equal(course.length, 70, 'The adaptive header guardrail must cover the complete A1 course.');
 assert.ok(
-  authoredHeaderPrompts.some(({ prompt }) => prompt === 'The woman is drinking, ___ is drinking.'),
+  authoredHeaderPrompts.some(({ prompt }) => prompt === 'The boy and the girl are writing. ___ ___ writing.'),
   'The guardrail fixture must include the annotated overflowing completion prompt.',
 );
 assert.ok(

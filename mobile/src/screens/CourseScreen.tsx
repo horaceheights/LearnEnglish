@@ -38,8 +38,8 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#ffe8c7',
   },
   'lesson-2-pronouns': {
-    image: 'a1_scene_he-she-split_840e1d0.webp',
-    description: 'He y she con acciones claras de una persona.',
+    image: 'boy_is_eating.webp',
+    description: 'Cuatro personas avanzan de acciones a frases más largas.',
     color: '#dff4ef',
   },
   'lesson-3-two-people': {
@@ -64,7 +64,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
   },
   'lesson-7-is-are-not': {
     image: 'a1_title_1_7_is_are_not.webp',
-    description: 'Is, are y not dentro de frases conocidas.',
+    description: 'Contrasta lo que cada persona hace y no hace.',
     color: '#ffe8c7',
   },
   'lesson-8-who': {
@@ -73,13 +73,13 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#e5eefb',
   },
   'lesson-9-unit-review': {
-    image: 'a1_title_1_9_review.webp',
-    description: 'Repaso mezclado de toda la unidad.',
+    image: 'a1_u1_review_family_story.webp',
+    description: 'Una historia nueva reúne personas, familia y acciones.',
     color: '#f1e4fa',
   },
   'lesson-10-family-mission': {
-    image: 'a1_title_1_10_family_mission.webp',
-    description: 'Misión final con personas, familia y acciones.',
+    image: 'a1_u1_mission_game_setup.webp',
+    description: 'Completa una misión familiar con pistas, voz y fichas.',
     color: '#ffe1ad',
   },
   'lesson-2-1-places-around-me': {

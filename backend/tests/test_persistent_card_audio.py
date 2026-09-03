@@ -621,7 +621,7 @@ class PersistentCardAudioTests(unittest.TestCase):
             raise AssertionError(f"Missing completion asset {asset_id}")
 
         babies = completion_job(
-            "lesson-4-children-siblings-c032-prompt-d9e66fed26a1422fce3e"
+            "lesson-4-children-siblings-c037-prompt-8eee9c5c4cb9dfae5599"
         )
         pants = completion_job(
             "lesson-7-3-clothing-c030-prompt-00948ba213857ae2fd82"
