@@ -4,477 +4,709 @@
   "level": "Beginner A1",
   "unit_id": "unit-1",
   "unit_title": "Unit 1: People, Family, and Actions",
+  "unit_outcome": "Understand and produce simple sentences about people, family members, and actions.",
   "lesson_id": "lesson-1",
   "lesson_title": "Unit 1: People, Family, and Actions",
   "sub_lesson_id": "1.10",
   "sub_lesson_title": "Family Scene Mission",
-  "goal": "Complete a final family mission by identifying people, understanding actions, speaking, and building answers.",
+  "goal": "Complete one family-card mission by finding the right people and actions, recording captions, building words from parts, and arranging final sentences.",
   "vocabulary": [],
+  "review_vocabulary": [
+    "the",
+    "a",
+    "father",
+    "mother",
+    "family",
+    "children",
+    "brother",
+    "sister",
+    "grandparents",
+    "he",
+    "she",
+    "they",
+    "is",
+    "are",
+    "not",
+    "who",
+    "playing",
+    "reading",
+    "writing",
+    "studying",
+    "talking",
+    "sleeping"
+  ],
+  "grammar_function": "Use Unit 1 identity, action, singular/plural, and negative patterns to complete one applied family-card story.",
+  "prerequisite": "Lessons 1.1-1.9 completed.",
+  "speaking_outcome": "Identify family members and record clear action captions before assembling the final story with tiles.",
+  "purposeful_review_slides": [
+    "L1",
+    "R8",
+    "A6",
+    "S6",
+    "U1",
+    "U2",
+    "U8"
+  ],
   "cards": [
     {
-      "prompt": "Meet the family.",
+      "slide_id": "L1",
+      "interaction_type": "mission-brief",
+      "prompt": "The father and the mother are playing.",
       "stage": "Learn",
-      "correct_option_id": "family",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "family",
-          "image_url": "family_all_members.webp",
-          "label": "They are a family."
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_game_setup.webp",
+          "label": "The father and the mother are playing."
         }
       ],
-      "audio_text": "Meet the family.",
+      "audio_text": "The father and the mother are playing.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "El padre y la madre están jugando.",
+      "spanish_translation": "El padre y la madre están jugando.",
+      "pedagogy_note": "Mission step 01/32: the parents begin the card game and reveal its family story; every interaction advances the family-card story."
     },
     {
-      "prompt": "Find the children.",
-      "stage": "Learn",
-      "correct_option_id": "children",
-      "options": [
-        {
-          "id": "children",
-          "image_url": "family_children.webp",
-          "label": "They are the children."
-        }
-      ],
-      "audio_text": "Find the children.",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Find the parents.",
-      "stage": "Learn",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "family_parents.webp",
-          "label": "They are the parents."
-        }
-      ],
-      "audio_text": "Find the parents.",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Find the grandparents.",
-      "stage": "Learn",
-      "correct_option_id": "grandparents",
-      "options": [
-        {
-          "id": "grandparents",
-          "image_url": "family_grandparents.webp",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": "Find the grandparents.",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "",
-      "stage": "Recognize",
-      "correct_option_id": "family",
-      "options": [
-        {
-          "id": "family",
-          "image_url": "",
-          "label": "They are a family."
-        },
-        {
-          "id": "children",
-          "image_url": "",
-          "label": "They are children."
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "They are a family.",
-      "prompt_image_url": "family_all_members.webp"
-    },
-    {
-      "prompt": "Who are they?",
-      "stage": "Recognize",
-      "correct_option_id": "children",
-      "options": [
-        {
-          "id": "children",
-          "image_url": "",
-          "label": "They are the children."
-        },
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "They are the parents."
-        }
-      ],
-      "audio_text": "Who are they?",
-      "answer_audio_text": "They are the children.",
-      "prompt_image_url": "family_children.webp"
-    },
-    {
-      "prompt": "Who are they?",
-      "stage": "Recognize",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "They are the parents."
-        },
-        {
-          "id": "grandparents",
-          "image_url": "",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": "Who are they?",
-      "answer_audio_text": "They are the parents.",
-      "prompt_image_url": "family_parents.webp"
-    },
-    {
-      "prompt": "Who are they?",
-      "stage": "Recognize",
-      "correct_option_id": "grandparents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "They are the parents."
-        },
-        {
-          "id": "grandparents",
-          "image_url": "",
-          "label": "They are the grandparents."
-        }
-      ],
-      "audio_text": "Who are they?",
-      "answer_audio_text": "They are the grandparents.",
-      "prompt_image_url": "family_grandparents.webp"
-    },
-    {
-      "prompt": "The children are playing.",
-      "stage": "Recognize",
-      "correct_option_id": "children-playing",
-      "options": [
-        {
-          "id": "children-playing",
-          "image_url": "family_children_playing.webp",
-          "label": "The children are playing."
-        },
-        {
-          "id": "children-studying",
-          "image_url": "family_children_studying.webp",
-          "label": "The children are studying."
-        }
-      ],
-      "audio_text": "The children are playing.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The father is working.",
-      "stage": "Recognize",
-      "correct_option_id": "father-working",
-      "options": [
-        {
-          "id": "mother-cooking",
-          "image_url": "family_mother_cooking.webp",
-          "label": "The mother is cooking."
-        },
-        {
-          "id": "father-working",
-          "image_url": "family_father_working.webp",
-          "label": "The father is working."
-        }
-      ],
-      "audio_text": "The father is working.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The mother is cooking.",
-      "stage": "Recognize",
-      "correct_option_id": "mother-cooking",
-      "options": [
-        {
-          "id": "father-working",
-          "image_url": "family_father_working.webp",
-          "label": "The father is working."
-        },
-        {
-          "id": "mother-cooking",
-          "image_url": "family_mother_cooking.webp",
-          "label": "The mother is cooking."
-        }
-      ],
-      "audio_text": "The mother is cooking.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The grandparents are talking.",
-      "stage": "Recognize",
-      "correct_option_id": "grandparents-talking",
-      "options": [
-        {
-          "id": "grandparents-talking",
-          "image_url": "family_grandparents_talking.webp",
-          "label": "The grandparents are talking."
-        },
-        {
-          "id": "grandparents-sitting",
-          "image_url": "family_grandparents_sitting.webp",
-          "label": "The grandparents are sitting."
-        }
-      ],
-      "audio_text": "The grandparents are talking.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "family_parents.webp",
-          "label": ""
-        },
-        {
-          "id": "grandparents",
-          "image_url": "family_grandparents.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "Who are they? They are the parents.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "children-studying",
-      "options": [
-        {
-          "id": "children-playing",
-          "image_url": "family_children_playing.webp",
-          "label": ""
-        },
-        {
-          "id": "children-studying",
-          "image_url": "family_children_studying.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The children are studying.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mother-cooking",
-      "options": [
-        {
-          "id": "mother-cooking",
-          "image_url": "family_mother_cooking.webp",
-          "label": ""
-        },
-        {
-          "id": "father-working",
-          "image_url": "family_father_working.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The mother is cooking.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "father-working",
-      "options": [
-        {
-          "id": "mother-cooking",
-          "image_url": "family_mother_cooking.webp",
-          "label": ""
-        },
-        {
-          "id": "father-working",
-          "image_url": "family_father_working.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The father is not cooking.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "sisters",
-      "options": [
-        {
-          "id": "brothers",
-          "image_url": "family_brothers.webp",
-          "label": ""
-        },
-        {
-          "id": "sisters",
-          "image_url": "family_sisters.webp",
-          "label": ""
-        },
-        {
-          "id": "parents",
-          "image_url": "family_parents.webp",
-          "label": ""
-        },
-        {
-          "id": "grandparents",
-          "image_url": "family_grandparents.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "They are the sisters.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "grandparents-talking",
-      "options": [
-        {
-          "id": "grandparents-sitting",
-          "image_url": "family_grandparents_sitting.webp",
-          "label": ""
-        },
-        {
-          "id": "grandparents-talking",
-          "image_url": "family_grandparents_talking.webp",
-          "label": ""
-        }
-      ],
-      "audio_text": "The grandparents are talking.",
-      "answer_audio_text": "",
-      "prompt_image_url": ""
-    },
-    {
+      "slide_id": "L2",
+      "interaction_type": "mission-brief",
       "prompt": "They are a family.",
-      "stage": "Speak",
-      "correct_option_id": "family",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "family",
-          "image_url": "family_all_members.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_family_start.webp",
           "label": "They are a family."
         }
       ],
       "audio_text": "They are a family.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Ellos son una familia.",
+      "spanish_translation": "Ellos son una familia.",
+      "pedagogy_note": "Mission step 02/32: the parents begin the card game and reveal its family story; every interaction advances the family-card story."
     },
     {
-      "prompt": "Who are they? They are the children.",
-      "stage": "Speak",
-      "correct_option_id": "children",
+      "slide_id": "L3",
+      "interaction_type": "mission-brief",
+      "prompt": "The father is reading.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "children",
-          "image_url": "family_children.webp",
-          "label": "Who are they? They are the children."
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "label": "The father is reading."
         }
       ],
-      "audio_text": "Who are they? They are the children.",
+      "audio_text": "The father is reading.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "El padre está leyendo.",
+      "spanish_translation": "El padre está leyendo.",
+      "pedagogy_note": "Mission step 03/32: the parents begin the card game and reveal its family story; every interaction advances the family-card story."
     },
     {
-      "prompt": "The children are playing.",
-      "stage": "Speak",
-      "correct_option_id": "children-playing",
+      "slide_id": "L4",
+      "interaction_type": "mission-brief",
+      "prompt": "The mother is writing.",
+      "stage": "Learn",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "children-playing",
-          "image_url": "family_children_playing.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
+        }
+      ],
+      "audio_text": "The mother is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La madre está escribiendo.",
+      "spanish_translation": "La madre está escribiendo.",
+      "pedagogy_note": "Mission step 04/32: the parents begin the card game and reveal its family story; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "R1",
+      "interaction_type": "mission-clue",
+      "prompt": "Who are they?",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "They are a family."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "He is the father."
+        }
+      ],
+      "audio_text": "Who are they?",
+      "answer_audio_text": "They are a family.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_family_start.webp",
+      "translation": "¿Quiénes son ellos? Son una familia.",
+      "spanish_translation": "¿Quiénes son ellos? Son una familia.",
+      "pedagogy_note": "Mission step 05/32: the learner identifies the pictured family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "R2",
+      "interaction_type": "mission-clue",
+      "prompt": "Who is he?",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "He is the father."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "She is the mother."
+        }
+      ],
+      "audio_text": "Who is he?",
+      "answer_audio_text": "He is the father.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+      "translation": "¿Quién es él? Es el padre.",
+      "spanish_translation": "¿Quién es él? Es el padre.",
+      "pedagogy_note": "Mission step 06/32: the learner identifies the pictured family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "R3",
+      "interaction_type": "mission-clue",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The father is reading."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "The father is writing."
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The father is reading.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+      "translation": "El padre está leyendo.",
+      "spanish_translation": "El padre está leyendo.",
+      "pedagogy_note": "Mission step 07/32: the learner identifies the pictured family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "R4",
+      "interaction_type": "mission-clue",
+      "prompt": "Who is she?",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "She is the mother."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "He is the father."
+        }
+      ],
+      "audio_text": "Who is she?",
+      "answer_audio_text": "She is the mother.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+      "translation": "¿Quién es ella? Es la madre.",
+      "spanish_translation": "¿Quién es ella? Es la madre.",
+      "pedagogy_note": "Mission step 08/32: the learner identifies the pictured family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "R5",
+      "interaction_type": "mission-clue",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The mother is writing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "The mother is reading."
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The mother is writing.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+      "translation": "La madre está escribiendo.",
+      "spanish_translation": "La madre está escribiendo.",
+      "pedagogy_note": "Mission step 09/32: the learner identifies the pictured family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "R6",
+      "interaction_type": "mission-clue",
+      "prompt": "Who are they?",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "They are the children."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "They are the grandparents."
+        }
+      ],
+      "audio_text": "Who are they?",
+      "answer_audio_text": "They are the children.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+      "translation": "¿Quiénes son ellos? Son los niños.",
+      "spanish_translation": "¿Quiénes son ellos? Son los niños.",
+      "pedagogy_note": "Mission step 10/32: the learner identifies the pictured family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "R7",
+      "interaction_type": "mission-clue",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "The children are playing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "The children are studying."
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "The children are playing.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+      "translation": "Los niños están jugando.",
+      "spanish_translation": "Los niños están jugando.",
+      "pedagogy_note": "Mission step 11/32: the learner identifies the pictured family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "R8",
+      "interaction_type": "mission-clue",
+      "prompt": "",
+      "stage": "Recognize",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "",
+          "label": "They are not sleeping."
+        },
+        {
+          "id": "wrong",
+          "image_url": "",
+          "label": "They are sleeping."
+        }
+      ],
+      "audio_text": null,
+      "answer_audio_text": "They are not sleeping. They are talking.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+      "translation": "Ellos no están durmiendo.",
+      "spanish_translation": "Ellos no están durmiendo.",
+      "pedagogy_note": "Mission step 12/32: the learner identifies the pictured family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "A1",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "label": "The father is reading."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
+        }
+      ],
+      "audio_text": "The father is reading.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El padre está leyendo.",
+      "spanish_translation": "El padre está leyendo.",
+      "pedagogy_note": "Mission step 13/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "A2",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_sister_writing.webp",
+          "label": "The sister is writing."
+        }
+      ],
+      "audio_text": "The mother is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La madre está escribiendo.",
+      "spanish_translation": "La madre está escribiendo.",
+      "pedagogy_note": "Mission step 14/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "A3",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "label": "The children are playing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_brother_studying.webp",
+          "label": "The brother is studying."
+        }
+      ],
+      "audio_text": "The children are playing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "Los niños están jugando.",
+      "spanish_translation": "Los niños están jugando.",
+      "pedagogy_note": "Mission step 15/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "A4",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_brother_studying.webp",
+          "label": "The brother is studying."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_sister_writing.webp",
+          "label": "The sister is writing."
+        }
+      ],
+      "audio_text": "The brother is studying.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El hermano está estudiando.",
+      "spanish_translation": "El hermano está estudiando.",
+      "pedagogy_note": "Mission step 16/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "A5",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_sister_writing.webp",
+          "label": "The sister is writing."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
+        }
+      ],
+      "audio_text": "The sister is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La hermana está escribiendo.",
+      "spanish_translation": "La hermana está escribiendo.",
+      "pedagogy_note": "Mission step 17/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "A6",
+      "interaction_type": "mission-listen",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "correct",
+      "options": [
+        {
+          "id": "correct",
+          "image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+          "label": "The grandparents are talking."
+        },
+        {
+          "id": "wrong",
+          "image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+          "label": "The children are playing."
+        }
+      ],
+      "audio_text": "Who are they? They are the grandparents. They are talking.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "¿Quiénes son ellos? Son los abuelos. Están hablando.",
+      "spanish_translation": "¿Quiénes son ellos? Son los abuelos. Están hablando.",
+      "pedagogy_note": "Mission step 18/32: spoken clues unlock the remaining family cards; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "S1",
+      "interaction_type": "mission-speak",
+      "prompt": "Who is he? He is the father.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "label": "Who is he? He is the father."
+        }
+      ],
+      "audio_text": "Who is he? He is the father.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "¿Quién es él? Es el padre.",
+      "spanish_translation": "¿Quién es él? Es el padre.",
+      "pedagogy_note": "Mission step 19/32: the learner records the captions needed for the game; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "S2",
+      "interaction_type": "mission-speak",
+      "prompt": "The father is reading.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+          "label": "The father is reading."
+        }
+      ],
+      "audio_text": "The father is reading.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "El padre está leyendo.",
+      "spanish_translation": "El padre está leyendo.",
+      "pedagogy_note": "Mission step 20/32: the learner records the captions needed for the game; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "S3",
+      "interaction_type": "mission-speak",
+      "prompt": "Who is she? She is the mother.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "Who is she? She is the mother."
+        }
+      ],
+      "audio_text": "Who is she? She is the mother.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "¿Quién es ella? Es la madre.",
+      "spanish_translation": "¿Quién es ella? Es la madre.",
+      "pedagogy_note": "Mission step 21/32: the learner records the captions needed for the game; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "S4",
+      "interaction_type": "mission-speak",
+      "prompt": "The mother is writing.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+          "label": "The mother is writing."
+        }
+      ],
+      "audio_text": "The mother is writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "translation": "La madre está escribiendo.",
+      "spanish_translation": "La madre está escribiendo.",
+      "pedagogy_note": "Mission step 22/32: the learner records the captions needed for the game; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "S5",
+      "interaction_type": "mission-speak",
+      "prompt": "The children are playing.",
+      "stage": "Speak",
+      "correct_option_id": "answer",
+      "options": [
+        {
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
           "label": "The children are playing."
         }
       ],
       "audio_text": "The children are playing.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Los niños están jugando.",
+      "spanish_translation": "Los niños están jugando.",
+      "pedagogy_note": "Mission step 23/32: the learner records the captions needed for the game; every interaction advances the family-card story."
     },
     {
-      "prompt": "The father is working.",
-      "stage": "Speak",
-      "correct_option_id": "father-working",
-      "options": [
-        {
-          "id": "father-working",
-          "image_url": "family_father_working.webp",
-          "label": "The father is working."
-        }
-      ],
-      "audio_text": "The father is working.",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
-      "prompt": "The mother is cooking.",
-      "stage": "Speak",
-      "correct_option_id": "mother-cooking",
-      "options": [
-        {
-          "id": "mother-cooking",
-          "image_url": "family_mother_cooking.webp",
-          "label": "The mother is cooking."
-        }
-      ],
-      "audio_text": "The mother is cooking.",
-      "answer_audio_text": null,
-      "prompt_image_url": ""
-    },
-    {
+      "slide_id": "S6",
+      "interaction_type": "mission-speak",
       "prompt": "The grandparents are talking.",
       "stage": "Speak",
-      "correct_option_id": "grandparents-talking",
+      "correct_option_id": "answer",
       "options": [
         {
-          "id": "grandparents-talking",
-          "image_url": "family_grandparents_talking.webp",
+          "id": "answer",
+          "image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
           "label": "The grandparents are talking."
         }
       ],
       "audio_text": "The grandparents are talking.",
       "answer_audio_text": null,
-      "prompt_image_url": ""
+      "prompt_image_url": "",
+      "translation": "Los abuelos están hablando.",
+      "spanish_translation": "Los abuelos están hablando.",
+      "pedagogy_note": "Mission step 24/32: the learner records the captions needed for the game; every interaction advances the family-card story."
     },
     {
-      "prompt": "They are a ___.",
+      "slide_id": "U1",
+      "interaction_type": "mission-word-parts",
+      "prompt": "___-___",
       "stage": "Use",
-      "correct_option_id": "family",
+      "correct_option_id": "fa",
       "options": [
         {
-          "id": "family",
+          "id": "mo",
           "image_url": "",
-          "label": "family"
+          "label": "mo"
         },
         {
-          "id": "children",
+          "id": "fa",
           "image_url": "",
-          "label": "children"
+          "label": "fa"
+        },
+        {
+          "id": "ther",
+          "image_url": "",
+          "label": "ther"
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "They are a family.",
-      "prompt_image_url": "family_all_members.webp"
+      "audio_text": "___-___",
+      "answer_audio_text": "fa-ther",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+      "correct_option_ids": [
+        "fa",
+        "ther"
+      ],
+      "translation": "Forma father con las partes.",
+      "spanish_translation": "Forma father con las partes.",
+      "pedagogy_note": "Mission step 25/32: word parts become words and words become the final family captions; every interaction advances the family-card story."
     },
     {
-      "prompt": "Who ___ they?",
+      "slide_id": "U2",
+      "interaction_type": "mission-word-parts",
+      "prompt": "___-___",
       "stage": "Use",
-      "correct_option_id": "are",
+      "correct_option_id": "mo",
+      "options": [
+        {
+          "id": "ther",
+          "image_url": "",
+          "label": "ther"
+        },
+        {
+          "id": "fa",
+          "image_url": "",
+          "label": "fa"
+        },
+        {
+          "id": "mo",
+          "image_url": "",
+          "label": "mo"
+        }
+      ],
+      "audio_text": "___-___",
+      "answer_audio_text": "mo-ther",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+      "correct_option_ids": [
+        "mo",
+        "ther"
+      ],
+      "translation": "Forma mother con las partes.",
+      "spanish_translation": "Forma mother con las partes.",
+      "pedagogy_note": "Mission step 26/32: word parts become words and words become the final family captions; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "he",
+      "options": [
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "reading"
+        },
+        {
+          "id": "he",
+          "image_url": "",
+          "label": "He"
+        },
+        {
+          "id": "is",
+          "image_url": "",
+          "label": "is"
+        }
+      ],
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "He is reading.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_father_reading.webp",
+      "correct_option_ids": [
+        "he",
+        "is",
+        "reading"
+      ],
+      "translation": "Ordena: Él está leyendo.",
+      "spanish_translation": "Ordena: Él está leyendo.",
+      "pedagogy_note": "Mission step 27/32: word parts become words and words become the final family captions; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "she",
       "options": [
         {
           "id": "is",
@@ -482,124 +714,114 @@
           "label": "is"
         },
         {
-          "id": "are",
+          "id": "writing",
           "image_url": "",
-          "label": "are"
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "Who are they?",
-      "prompt_image_url": "family_children.webp"
-    },
-    {
-      "prompt": "They are the ___.",
-      "stage": "Use",
-      "correct_option_id": "parents",
-      "options": [
-        {
-          "id": "parents",
-          "image_url": "",
-          "label": "parents"
+          "label": "writing"
         },
         {
-          "id": "grandparents",
+          "id": "she",
           "image_url": "",
-          "label": "grandparents"
+          "label": "She"
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "They are the parents.",
-      "prompt_image_url": "family_parents.webp"
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "She is writing.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_mother_writing.webp",
+      "correct_option_ids": [
+        "she",
+        "is",
+        "writing"
+      ],
+      "translation": "Ordena: Ella está escribiendo.",
+      "spanish_translation": "Ordena: Ella está escribiendo.",
+      "pedagogy_note": "Mission step 28/32: word parts become words and words become the final family captions; every interaction advances the family-card story."
     },
     {
-      "prompt": "The children are ___.",
+      "slide_id": "U5",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "playing",
+      "correct_option_id": "they",
       "options": [
-        {
-          "id": "studying",
-          "image_url": "",
-          "label": "studying"
-        },
         {
           "id": "playing",
           "image_url": "",
           "label": "playing"
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "The children are playing.",
-      "prompt_image_url": "family_children_playing.webp"
-    },
-    {
-      "prompt": "The father is ___.",
-      "stage": "Use",
-      "correct_option_id": "working",
-      "options": [
-        {
-          "id": "working",
-          "image_url": "",
-          "label": "working"
         },
         {
-          "id": "cooking",
+          "id": "are",
           "image_url": "",
-          "label": "cooking"
+          "label": "are"
+        },
+        {
+          "id": "they",
+          "image_url": "",
+          "label": "They"
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "The father is working.",
-      "prompt_image_url": "family_father_working.webp"
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "They are playing.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_children_playing.webp",
+      "correct_option_ids": [
+        "they",
+        "are",
+        "playing"
+      ],
+      "translation": "Ordena: Ellos están jugando.",
+      "spanish_translation": "Ordena: Ellos están jugando.",
+      "pedagogy_note": "Mission step 29/32: word parts become words and words become the final family captions; every interaction advances the family-card story."
     },
     {
-      "prompt": "The mother is ___.",
+      "slide_id": "U6",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "cooking",
+      "correct_option_id": "they",
       "options": [
+        {
+          "id": "are",
+          "image_url": "",
+          "label": "are"
+        },
         {
           "id": "talking",
           "image_url": "",
           "label": "talking"
         },
         {
-          "id": "cooking",
+          "id": "they",
           "image_url": "",
-          "label": "cooking"
+          "label": "They"
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "The mother is cooking.",
-      "prompt_image_url": "family_mother_cooking.webp"
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "They are talking.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+      "correct_option_ids": [
+        "they",
+        "are",
+        "talking"
+      ],
+      "translation": "Ordena: Ellos están hablando.",
+      "spanish_translation": "Ordena: Ellos están hablando.",
+      "pedagogy_note": "Mission step 30/32: word parts become words and words become the final family captions; every interaction advances the family-card story."
     },
     {
-      "prompt": "The grandparents ___ talking.",
+      "slide_id": "U7",
+      "interaction_type": "mission-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "are",
+      "correct_option_id": "they-are",
       "options": [
         {
-          "id": "are",
+          "id": "sleeping",
           "image_url": "",
-          "label": "are"
+          "label": "sleeping"
         },
         {
-          "id": "is",
+          "id": "they-are",
           "image_url": "",
-          "label": "is"
-        }
-      ],
-      "audio_text": null,
-      "answer_audio_text": "The grandparents are talking.",
-      "prompt_image_url": "family_grandparents_talking.webp"
-    },
-    {
-      "prompt": "They are ___ sleeping.",
-      "stage": "Use",
-      "correct_option_id": "not",
-      "options": [
-        {
-          "id": "is",
-          "image_url": "",
-          "label": "is"
+          "label": "They are"
         },
         {
           "id": "not",
@@ -607,9 +829,52 @@
           "label": "not"
         }
       ],
-      "audio_text": null,
+      "audio_text": "___ ___ ___.",
       "answer_audio_text": "They are not sleeping.",
-      "prompt_image_url": "family_grandparents_talking.webp"
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_grandparents_talking.webp",
+      "correct_option_ids": [
+        "they-are",
+        "not",
+        "sleeping"
+      ],
+      "translation": "Ordena: Ellos no están durmiendo.",
+      "spanish_translation": "Ordena: Ellos no están durmiendo.",
+      "pedagogy_note": "Mission step 31/32: word parts become words and words become the final family captions; every interaction advances the family-card story."
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "mission-finale",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "they-are",
+      "options": [
+        {
+          "id": "family",
+          "image_url": "",
+          "label": "family"
+        },
+        {
+          "id": "they-are",
+          "image_url": "",
+          "label": "They are"
+        },
+        {
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        }
+      ],
+      "audio_text": "___ ___ ___.",
+      "answer_audio_text": "They are a family.",
+      "prompt_image_url": "/lesson-assets/a1_u1_mission_family_finish.webp",
+      "correct_option_ids": [
+        "they-are",
+        "a",
+        "family"
+      ],
+      "translation": "Completa la misión: Ellos son una familia.",
+      "spanish_translation": "Completa la misión: Ellos son una familia.",
+      "pedagogy_note": "Mission step 32/32: word parts become words and words become the final family captions; every interaction advances the family-card story."
     }
   ]
 }

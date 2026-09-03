@@ -49,7 +49,7 @@ for (const card of negativeContrastChoices) {
 
 assert.match(
   lessonScreenSource,
-  /result === 'correct'[\s\S]*currentCard\?\.stage === 'Recognize'[\s\S]*answer_audio_text\?\.trim\(\) !== promptAudio\.trim\(\)[\s\S]*correctContrastPrompt \|\|/,
+  /const contrastAnswerAudio = currentCard\?\.answer_audio_text\?\.trim\(\) \?\? ''[\s\S]*result === 'correct'[\s\S]*currentCard\?\.stage === 'Recognize'[\s\S]*contrastAnswerAudio !== promptAudio\.trim\(\)[\s\S]*correctContrastPrompt \|\|/,
   'Native Preview must reveal the full contrast only after a correct Recognize answer.',
 );
 assert.match(

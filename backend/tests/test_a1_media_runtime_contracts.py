@@ -191,14 +191,15 @@ class A1MediaRuntimeContractTests(unittest.TestCase):
             [context["rendered_filename"] for context in contexts],
             [
                 "boy_is_running-two-card-poster.webp",
-                "girl_is_writing-two-card-poster.webp",
+                "girl_is_writing.webp",
             ],
         )
-        self.assertTrue(
-            all(
-                context["render_profile"] == "two-card-action-poster-3x2-v1"
-                for context in contexts
-            )
+        self.assertEqual(
+            [context["render_profile"] for context in contexts],
+            [
+                "two-card-action-poster-3x2-v1",
+                "lesson-option-1to3-3x2-v1",
+            ],
         )
 
     def test_render_profile_signature_is_required_and_current(self) -> None:

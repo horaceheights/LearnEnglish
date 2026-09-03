@@ -78,8 +78,8 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-10-family-mission': {
-    image: 'a1_title_1_10_family_mission.webp',
-    description: 'Misión final con personas, familia y acciones.',
+    image: 'a1_u1_mission_game_setup.webp',
+    description: 'Completa una misión familiar con pistas, voz y fichas.',
     color: '#ffe1ad',
   },
   'lesson-2-1-places-around-me': {

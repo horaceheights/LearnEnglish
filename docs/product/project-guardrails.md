@@ -318,14 +318,14 @@ The A1 course contains seven units with ten lessons in numeric order per unit:
 Unit 1 lessons are:
 
 1. `1.1 Meet the People`
-2. `1.2 He and She`
+2. `1.2 People in Action`
 3. `1.3 Two People: They and Are`
 4. `1.4 Children and Siblings`
 5. `1.5 Parents and Grandparents`
 6. `1.6 Family Actions`
-7. `1.7 Is, Are, and Not`
+7. `1.7 What They Are Not Doing`
 8. `1.8 Who Is He? Who Are They?`
-9. `1.9 Unit 1 Spiral Review`
+9. `1.9 Unit 1 Story Review`
 10. `1.10 Family Scene Mission`
 
 Do not reuse old lesson IDs or reintroduce the removed standalone pronunciation lesson. Pronunciation belongs inside each lesson's Speak stage.
@@ -473,3 +473,4 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-08-31: Character casting expanded across the complete course: every identifiable conversation turn keeps a gender-consistent character voice, including multi-speaker exchanges. Multi-speaker text uses ordered, independently stored image/audio turns with per-turn speaker provenance; conversations are never stitched into one mixed file. Ana keeps her existing Sarah voice and identifiable male turns use Liam, with all ElevenLabs delivery parameters unchanged.
 - 2026-09-01: Shared-map scenes standardized on a close, physically coherent shared viewpoint: learner and characters all see the same printed side of a nearly horizontal map, and a direction-giver's fingertip visibly touches the referenced location. Blank-back views, floor-pointing gestures, and anatomically stretched or disconnected arms are rejected.
 - 2026-08-31: Course delivery standardized on persistent immutable audio IDs bound to the exact card image and speaker. Preview playback is read-only with no paid runtime generation; the shared backend temporarily preserves legacy routes only for the already-shipped Production client until its own approved migration.
+- 2026-09-02: Unit 1 Lesson 1.10 standardized on a 32-step family-card mission with nine mission-only scenes. Its challenge moves from clue selection and spoken captions to draggable-or-tappable word parts and ordered sentence tiles, retains visible Undo and Reset controls, and ends with a concrete family-story resolution instead of another review sequence.

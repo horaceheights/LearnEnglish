@@ -121,7 +121,7 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.spanish_translation for card in lesson.cards))
 
     def test_rebuilt_unit_1_lessons_have_complete_execution_metadata(self):
-        rebuilt_ids = UNIT_1_IDS[1:9]
+        rebuilt_ids = UNIT_1_IDS[1:]
         for lesson_id in rebuilt_ids:
             lesson = LESSONS[lesson_id]
             with self.subTest(lesson=lesson_id):
@@ -209,6 +209,50 @@ class LessonStructureTests(unittest.TestCase):
         tokens = set(re.findall(r"[a-z]+", review_text.lower()))
         coverage = len(declared & tokens) / len(declared)
         self.assertGreaterEqual(coverage, 0.70)
+
+    def test_lesson_1_10_is_a_distinct_ordered_family_mission(self):
+        mission = LESSONS["lesson-10-family-mission"]
+        self.assertEqual([], mission.vocabulary)
+        self.assertEqual(32, len(mission.cards))
+
+        mission_media = {
+            urlparse(url).path.rsplit("/", 1)[-1]
+            for card in mission.cards
+            for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
+            if url
+        }
+        earlier_media = {
+            urlparse(url).path.rsplit("/", 1)[-1]
+            for lesson_id in UNIT_1_IDS[:9]
+            for card in LESSONS[lesson_id].cards
+            for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
+            if url
+        }
+        self.assertTrue(mission_media)
+        self.assertTrue(all(name.startswith("a1_u1_mission_") for name in mission_media))
+        self.assertEqual(set(), mission_media & earlier_media)
+
+        for step, card in enumerate(mission.cards, 1):
+            with self.subTest(step=step, slide=card.slide_id):
+                self.assertRegex(card.pedagogy_note, rf"^Mission step {step:02d}/32:")
+
+        use_cards = [card for card in mission.cards if card.stage == "Use"]
+        self.assertEqual(
+            ["mission-word-parts"] * 2
+            + ["mission-sentence"] * 5
+            + ["mission-finale"],
+            [card.interaction_type for card in use_cards],
+        )
+        self.assertEqual(
+            [
+                "fa-ther", "mo-ther", "He is reading.", "She is writing.",
+                "They are playing.", "They are talking.",
+                "They are not sleeping.", "They are a family.",
+            ],
+            [card.answer_audio_text for card in use_cards],
+        )
+        self.assertTrue(all(2 <= len(card.correct_option_ids) <= 3 for card in use_cards))
+        self.assertTrue(all(len(card.options) <= 3 for card in use_cards))
 
     def test_each_rebuilt_lesson_ends_with_ordered_multi_word_construction(self):
         for lesson_id in UNIT_1_IDS[1:9]:
@@ -338,7 +382,7 @@ class LessonStructureTests(unittest.TestCase):
             and card.prompt_image_url
             and card.prompt == "Who are they?"
         ]
-        self.assertEqual(3, len(cards))
+        self.assertEqual(2, len(cards))
         for card in cards:
             with self.subTest(image=card.prompt_image_url):
                 self.assertEqual("Who are they?", card.audio_text)
@@ -479,7 +523,8 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(cards)
                 self.assertTrue(all(card.interaction_type in {
                     None, "choice", "choose2", "choose4", "complete", "complete2",
-                    "complete4", "response-choice",
+                    "complete4", "response-choice", "mission-word-parts",
+                    "mission-sentence", "mission-finale",
                 } for card in cards))
                 self.assertTrue(all(card.answer_audio_text for card in cards))
                 self.assertTrue(all(all(not option.image_url and option.label for option in card.options) for card in cards))

@@ -54,7 +54,7 @@ Lessons:
 7. 1.7 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
 8. 1.8 Who Is He? Who Are They?: identity questions and short answers
 9. 1.9 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
-10. 1.10 Family Scene Mission: identify people, describe actions, and answer a `Who` question from one scene
+10. 1.10 Family Scene Mission: complete one family-card challenge by following clues, recording captions, building family words from parts, and ordering final sentences
 
 Core patterns:
 
@@ -66,7 +66,7 @@ Core patterns:
 - `He is not cooking.`
 - `Who are they? They are the parents.`
 
-Lessons 1.1 through 1.9 now implement the approved cumulative restructuring. Lessons 1.2 through 1.8 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 remains the final separate mission checkpoint.
+Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.8 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with a shorter 32-step family-card mission and nine mission-only scenes; its Use stage progresses from draggable/tappable word parts to ordered sentence tiles and a final family resolution.
 
 ### Unit 2: Places, Objects, Numbers, and Colors
 
@@ -314,9 +314,9 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | `1.7` | What They Are Not Doing | 42-card cumulative rebuild ready for learner review |
 | `1.8` | Who Is He? Who Are They? | 42-card cumulative rebuild ready for learner review |
 | `1.9` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
-| `1.10` | Family Scene Mission | Existing baseline; held for the separate final mission pass |
+| `1.10` | Family Scene Mission | 32-card applied family-card mission ready for learner review |
 
-Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in Unit 1 builder preserves 1.1 and 1.10 while reproducibly generating 1.2 through 1.9. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, and the fresh-scene boundary for the comprehensive review.
+Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct ordered mission contract for 1.10.
 
 The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 

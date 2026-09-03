@@ -70,13 +70,10 @@ TWO_CARD_ACTION_POSTERS = {
     "boy_is_swimming": "boy_is_swimming-two-card-poster.webp",
     "family_brother_studying": "family_brother_studying-two-card-poster.webp",
     "family_children_playing": "family_children_playing-two-card-poster.webp",
-    "family_children_studying": "family_children_studying-two-card-poster.webp",
-    "family_father_working": "family_father_working-two-card-poster.webp",
     "family_mother_cooking": "family_mother_cooking-two-card-poster.webp",
     "family_parents_talking": "family_parents_talking-two-card-poster.webp",
     "girl_is_sleeping": "girl_is_sleeping-two-card-poster.webp",
     "girl_is_walking": "girl_is_walking-two-card-poster.webp",
-    "girl_is_writing": "girl_is_writing-two-card-poster.webp",
     "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster.webp",
 }
 

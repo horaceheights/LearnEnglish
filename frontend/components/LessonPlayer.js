@@ -132,8 +132,8 @@ const COURSE_MENU_VISUALS = {
       accent: "#f1e4fa",
     },
     "lesson-10-family-mission": {
-      description: "Mision final con personas, familia y acciones.",
-      image: "family_all_members.webp",
+      description: "Completa una mision familiar con pistas, voz y fichas.",
+      image: "a1_u1_mission_game_setup.webp",
       accent: "#ffe1ad",
     },
   },
@@ -1951,13 +1951,10 @@ const TWO_CARD_ACTION_POSTERS = {
   "boy_is_swimming": "boy_is_swimming-two-card-poster.webp",
   "family_brother_studying": "family_brother_studying-two-card-poster.webp",
   "family_children_playing": "family_children_playing-two-card-poster.webp",
-  "family_children_studying": "family_children_studying-two-card-poster.webp",
-  "family_father_working": "family_father_working-two-card-poster.webp",
   "family_mother_cooking": "family_mother_cooking-two-card-poster.webp",
   "family_parents_talking": "family_parents_talking-two-card-poster.webp",
   "girl_is_sleeping": "girl_is_sleeping-two-card-poster.webp",
   "girl_is_walking": "girl_is_walking-two-card-poster.webp",
-  "girl_is_writing": "girl_is_writing-two-card-poster.webp",
   "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster.webp",
 };
 
@@ -2523,6 +2520,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const currentCard = activeLesson.cards[cardIndex];
   const [activeTurnImageUrl, setActiveTurnImageUrl] = useState(null);
   const totalCards = activeLesson.cards.length;
+  const isMissionLesson = activeLesson.id === "lesson-10-family-mission";
+  const isMissionTileCard = [
+    "mission-word-parts",
+    "mission-sentence",
+    "mission-finale",
+  ].includes(currentCard?.interaction_type);
   const isPronunciationCard =
     activeLesson.id === "lesson-3-pronunciation" ||
     currentCard?.stage === "Pronunciation Practice" ||
@@ -2707,6 +2710,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         : isFourOptionCard
           ? (isMobile ? "8px" : "12px")
           : styles.choiceGrid.gap,
+    ...(isMissionTileCard
+      ? { margin: "0 auto", maxWidth: "620px", width: "100%" }
+      : {}),
   };
   const centeredThirdOptionStyle = {
     gridColumn: "1 / -1",
@@ -4534,6 +4540,21 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }, 0);
   };
 
+  const undoMissionSelection = () => {
+    if (lastResult === "correct" || selectedOptionIds.length === 0) return;
+    const next = selectedOptionIds.slice(0, -1);
+    setSelectedOptionIds(next);
+    setSelectedOptionId(next.length ? next[next.length - 1] : null);
+    setLastResult(null);
+  };
+
+  const resetMissionSelection = () => {
+    if (lastResult === "correct" || selectedOptionIds.length === 0) return;
+    setSelectedOptionIds([]);
+    setSelectedOptionId(null);
+    setLastResult(null);
+  };
+
   const cardStyleFor = (optionId) => {
     const style = { ...styles.cardButton };
     const isSelected = selectedOptionIds.length
@@ -5216,10 +5237,38 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           </section>
 
           <section style={boardStyle}>
+            {isMissionLesson ? (
+              <div
+                aria-label={`Mision familiar, paso ${cardIndex + 1} de ${totalCards}`}
+                style={{
+                  alignItems: "center",
+                  background: "#fff3cf",
+                  border: "1px solid #e4b848",
+                  borderRadius: 999,
+                  color: "#8c5700",
+                  display: "flex",
+                  fontSize: isMobile ? 11 : 12,
+                  fontWeight: 900,
+                  gap: 8,
+                  justifyContent: "center",
+                  margin: "0 auto 8px",
+                  minHeight: 30,
+                  padding: "4px 12px",
+                  width: "fit-content",
+                }}
+              >
+                <span style={{ letterSpacing: "0.07em" }}>MISIÓN FAMILIAR</span>
+                <span style={{ color: "#1b6658" }}>{cardIndex + 1}/{totalCards}</span>
+              </div>
+            ) : null}
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
                 style={{
-                  width: useCompactCompletionTiles ? "min(100%, 450px)" : "min(100%, 760px)",
+                  width: isMissionTileCard
+                    ? "min(100%, 400px)"
+                    : useCompactCompletionTiles
+                      ? "min(100%, 450px)"
+                      : "min(100%, 760px)",
                   margin: isMobile ? "0 auto 10px" : "0 auto 16px",
                   borderRadius: isMobile ? "18px" : "22px",
                   overflow: "hidden",
@@ -5239,6 +5288,71 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     objectPosition: "center",
                   }}
                 />
+              </div>
+            ) : null}
+            {isMissionTileCard ? (
+              <div style={{ margin: "0 auto 9px", maxWidth: 620, width: "100%" }}>
+                <div
+                  style={{ color: "#6a4c25", fontSize: 13, fontWeight: 900, marginBottom: 5, textAlign: "center" }}
+                >
+                  {currentCard.interaction_type === "mission-word-parts"
+                    ? "Forma la palabra"
+                    : "Ordena la oración"}
+                </div>
+                <div
+                  aria-label={`Respuesta: ${optionLabelsForIds(currentCard, selectedOptionIds).join(
+                    currentCard.interaction_type === "mission-word-parts" ? "-" : " "
+                  ) || "vacia"}`}
+                  aria-live="polite"
+                  onDragOver={(event) => event.preventDefault()}
+                  onDrop={(event) => {
+                    event.preventDefault();
+                    const optionId = event.dataTransfer.getData("text/plain");
+                    if (optionId) handleChoice(optionId);
+                  }}
+                  style={{
+                    alignItems: "center",
+                    background: lastResult === "correct"
+                      ? "var(--green-soft)"
+                      : lastResult === "wrong"
+                        ? "var(--red-soft)"
+                        : "#fff9e9",
+                    border: `2px ${lastResult ? "solid" : "dashed"} ${
+                      lastResult === "correct" ? "var(--green)" : lastResult === "wrong" ? "var(--red)" : "#d6b65a"
+                    }`,
+                    borderRadius: 16,
+                    display: "grid",
+                    gap: isMobile ? 5 : 8,
+                    gridTemplateColumns: `repeat(${orderedCorrectOptionIds(currentCard).length}, minmax(0, 1fr))`,
+                    minHeight: isMobile ? 58 : 68,
+                    padding: isMobile ? 6 : 8,
+                  }}
+                >
+                  {orderedCorrectOptionIds(currentCard).map((optionId, index) => (
+                    <div
+                      key={`${optionId}-${index}`}
+                      style={{
+                        alignItems: "center",
+                        background: "#fff",
+                        borderBottom: "3px solid #9b7a39",
+                        borderRadius: 8,
+                        color: "#1d5f54",
+                        display: "flex",
+                        fontSize: "clamp(0.95rem, 3.8vw, 1.3rem)",
+                        fontWeight: 900,
+                        justifyContent: "center",
+                        minHeight: 44,
+                        minWidth: 0,
+                        overflow: "hidden",
+                        padding: "4px 5px",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {optionLabelsForIds(currentCard, selectedOptionIds)[index] || "___"}
+                    </div>
+                  ))}
+                </div>
               </div>
             ) : null}
             <div style={choiceGridStyle}>
@@ -5314,6 +5428,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                             : styles.cardButton.padding,
                     }}
                     onClick={isPronunciationCard ? undefined : () => handleChoice(option.id)}
+                    draggable={isMissionTileCard && !isSelectedChoice && lastResult !== "correct"}
+                    onDragStart={isMissionTileCard
+                      ? (event) => {
+                          event.dataTransfer.effectAllowed = "move";
+                          event.dataTransfer.setData("text/plain", option.id);
+                        }
+                      : undefined}
                     {...(!isPronunciationCard
                       ? { disabled: lastResult === "correct" || isPartialSequenceSelection }
                       : {})}
@@ -5490,6 +5611,45 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 );
               })}
             </div>
+            {isMissionTileCard ? (
+              <div style={{ display: "grid", gap: 5, justifyItems: "center", marginTop: 8 }}>
+                <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
+                  <button
+                    aria-label="Deshacer ultima ficha"
+                    disabled={lastResult === "correct" || selectedOptionIds.length === 0}
+                    onClick={undoMissionSelection}
+                    style={{
+                      ...styles.subtleButton,
+                      minHeight: 48,
+                      opacity: lastResult === "correct" || selectedOptionIds.length === 0 ? 0.45 : 1,
+                      padding: "8px 14px",
+                      width: "auto",
+                    }}
+                    type="button"
+                  >
+                    Deshacer
+                  </button>
+                  <button
+                    aria-label="Reiniciar respuesta"
+                    disabled={lastResult === "correct" || selectedOptionIds.length === 0}
+                    onClick={resetMissionSelection}
+                    style={{
+                      ...styles.subtleButton,
+                      minHeight: 48,
+                      opacity: lastResult === "correct" || selectedOptionIds.length === 0 ? 0.45 : 1,
+                      padding: "8px 14px",
+                      width: "auto",
+                    }}
+                    type="button"
+                  >
+                    Reiniciar
+                  </button>
+                </div>
+                <div style={{ color: "var(--muted)", fontSize: 12, fontWeight: 700 }}>
+                  Toca o arrastra las fichas en orden.
+                </div>
+              </div>
+            ) : null}
 
             <div style={{ marginTop: 20 }}>
               {lastResult === "correct" ? (

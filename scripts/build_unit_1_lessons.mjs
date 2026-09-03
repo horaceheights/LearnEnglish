@@ -34,6 +34,11 @@ const assets = {
   reviewSistersPlaying: 'a1_u1_review_sisters_playing.webp', reviewFamily: 'a1_u1_review_family_story.webp',
   reviewFatherWorking: 'a1_u1_review_father_working.webp', reviewMotherCooking: 'a1_u1_review_mother_cooking.webp',
   reviewParentsTalking: 'a1_u1_review_parents_talking.webp', reviewGrandparentsTalking: 'a1_u1_review_grandparents_talking.webp',
+  missionSetup: 'a1_u1_mission_game_setup.webp', missionFamilyStart: 'a1_u1_mission_family_start.webp',
+  missionFatherReading: 'a1_u1_mission_father_reading.webp', missionMotherWriting: 'a1_u1_mission_mother_writing.webp',
+  missionChildrenPlaying: 'a1_u1_mission_children_playing.webp', missionGrandparentsTalking: 'a1_u1_mission_grandparents_talking.webp',
+  missionBrotherStudying: 'a1_u1_mission_brother_studying.webp', missionSisterWriting: 'a1_u1_mission_sister_writing.webp',
+  missionFamilyFinish: 'a1_u1_mission_family_finish.webp',
 };
 
 function baseCard({ prompt, stage, correct, options, audio = null, answer = null, promptImage = '', interaction, correctIds }) {
@@ -90,6 +95,19 @@ function complete({ prompt, image, answer, correct, choices, translation }) {
   return { ...baseCard({ prompt, stage: 'Use', correct: ids[0], correctIds: ids,
     options: choices.map(([id, label]) => textOption(id, label)), audio: prompt, answer, promptImage: image,
     interaction: ids.length > 1 ? 'complete4' : `complete${choices.length}` }), translation };
+}
+
+function missionTile({ prompt, image, answer, correct, choices, translation, wordParts = false, finale = false }) {
+  const ids = Array.isArray(correct) ? correct : [correct];
+  return { ...baseCard({ prompt, stage: 'Use', correct: ids[0], correctIds: ids,
+    options: choices.map(([id, label]) => textOption(id, label)), audio: prompt, answer, promptImage: image,
+    interaction: finale ? 'mission-finale' : wordParts ? 'mission-word-parts' : 'mission-sentence' }), translation };
+}
+
+function finalizeMissionStage(stage, cards, startStep, phase) {
+  return cards.map((card, index) => ({ slide_id: `${stagePrefix[stage]}${index + 1}`, ...card,
+    spanish_translation: card.translation || '',
+    pedagogy_note: `Mission step ${String(startStep + index).padStart(2, '0')}/32: ${phase}; every interaction advances the family-card story.` }));
 }
 
 function finalizeStage(stage, cards, storyLabel) {
@@ -383,11 +401,110 @@ const lesson19 = buildLesson({
   ],
 });
 
+const missionLearn = [
+  { prompt: 'The father and the mother are playing.', image: assets.missionSetup, translation: 'El padre y la madre están jugando.' },
+  { prompt: 'They are a family.', image: assets.missionFamilyStart, translation: 'Ellos son una familia.' },
+  { prompt: 'The father is reading.', image: assets.missionFatherReading, translation: 'El padre está leyendo.' },
+  { prompt: 'The mother is writing.', image: assets.missionMotherWriting, translation: 'La madre está escribiendo.' },
+].map((entry) => ({ ...baseCard({
+  prompt: entry.prompt, stage: 'Learn', correct: 'answer',
+  options: [imageOption('answer', entry.image, entry.prompt)],
+  audio: entry.prompt, interaction: 'mission-brief',
+}), translation: entry.translation }));
+
+function missionTextClue({ prompt = '', image, answer, wrong, translation, answerAudio = answer }) {
+  return { ...baseCard({
+    prompt, stage: 'Recognize', correct: 'correct',
+    options: [textOption('correct', answer), textOption('wrong', wrong)],
+    audio: prompt || null, answer: answerAudio, promptImage: image, interaction: 'mission-clue',
+  }), translation };
+}
+
+const missionRecognize = [
+  missionTextClue({ prompt: 'Who are they?', image: assets.missionFamilyStart, answer: 'They are a family.', wrong: 'He is the father.', translation: '¿Quiénes son ellos? Son una familia.' }),
+  missionTextClue({ prompt: 'Who is he?', image: assets.missionFatherReading, answer: 'He is the father.', wrong: 'She is the mother.', translation: '¿Quién es él? Es el padre.' }),
+  missionTextClue({ image: assets.missionFatherReading, answer: 'The father is reading.', wrong: 'The father is writing.', translation: 'El padre está leyendo.' }),
+  missionTextClue({ prompt: 'Who is she?', image: assets.missionMotherWriting, answer: 'She is the mother.', wrong: 'He is the father.', translation: '¿Quién es ella? Es la madre.' }),
+  missionTextClue({ image: assets.missionMotherWriting, answer: 'The mother is writing.', wrong: 'The mother is reading.', translation: 'La madre está escribiendo.' }),
+  missionTextClue({ prompt: 'Who are they?', image: assets.missionChildrenPlaying, answer: 'They are the children.', wrong: 'They are the grandparents.', translation: '¿Quiénes son ellos? Son los niños.' }),
+  missionTextClue({ image: assets.missionChildrenPlaying, answer: 'The children are playing.', wrong: 'The children are studying.', translation: 'Los niños están jugando.' }),
+  missionTextClue({ image: assets.missionGrandparentsTalking, answer: 'They are not sleeping.', wrong: 'They are sleeping.', translation: 'Ellos no están durmiendo.', answerAudio: 'They are not sleeping. They are talking.' }),
+];
+
+function missionListen({ audio, image, label, wrongImage, wrongLabel, translation }) {
+  return { ...baseCard({
+    prompt: 'Listen and choose.', stage: 'Listen', correct: 'correct',
+    options: [imageOption('correct', image, label), imageOption('wrong', wrongImage, wrongLabel)],
+    audio, interaction: 'mission-listen',
+  }), translation };
+}
+
+const missionListening = [
+  missionListen({ audio: 'The father is reading.', image: assets.missionFatherReading, label: 'The father is reading.', wrongImage: assets.missionMotherWriting, wrongLabel: 'The mother is writing.', translation: 'El padre está leyendo.' }),
+  missionListen({ audio: 'The mother is writing.', image: assets.missionMotherWriting, label: 'The mother is writing.', wrongImage: assets.missionSisterWriting, wrongLabel: 'The sister is writing.', translation: 'La madre está escribiendo.' }),
+  missionListen({ audio: 'The children are playing.', image: assets.missionChildrenPlaying, label: 'The children are playing.', wrongImage: assets.missionBrotherStudying, wrongLabel: 'The brother is studying.', translation: 'Los niños están jugando.' }),
+  missionListen({ audio: 'The brother is studying.', image: assets.missionBrotherStudying, label: 'The brother is studying.', wrongImage: assets.missionSisterWriting, wrongLabel: 'The sister is writing.', translation: 'El hermano está estudiando.' }),
+  missionListen({ audio: 'The sister is writing.', image: assets.missionSisterWriting, label: 'The sister is writing.', wrongImage: assets.missionMotherWriting, wrongLabel: 'The mother is writing.', translation: 'La hermana está escribiendo.' }),
+  missionListen({ audio: 'Who are they? They are the grandparents. They are talking.', image: assets.missionGrandparentsTalking, label: 'The grandparents are talking.', wrongImage: assets.missionChildrenPlaying, wrongLabel: 'The children are playing.', translation: '¿Quiénes son ellos? Son los abuelos. Están hablando.' }),
+];
+
+const missionSpeak = [
+  { prompt: 'Who is he? He is the father.', image: assets.missionFatherReading, translation: '¿Quién es él? Es el padre.' },
+  { prompt: 'The father is reading.', image: assets.missionFatherReading, translation: 'El padre está leyendo.' },
+  { prompt: 'Who is she? She is the mother.', image: assets.missionMotherWriting, translation: '¿Quién es ella? Es la madre.' },
+  { prompt: 'The mother is writing.', image: assets.missionMotherWriting, translation: 'La madre está escribiendo.' },
+  { prompt: 'The children are playing.', image: assets.missionChildrenPlaying, translation: 'Los niños están jugando.' },
+  { prompt: 'The grandparents are talking.', image: assets.missionGrandparentsTalking, translation: 'Los abuelos están hablando.' },
+].map((entry) => ({ ...baseCard({
+  prompt: entry.prompt, stage: 'Speak', correct: 'answer',
+  options: [imageOption('answer', entry.image, entry.prompt)],
+  audio: entry.prompt, interaction: 'mission-speak',
+}), translation: entry.translation }));
+
+const missionUse = [
+  missionTile({ prompt: '___-___', image: assets.missionFatherReading, answer: 'fa-ther', correct: ['fa', 'ther'], choices: [['mo', 'mo'], ['fa', 'fa'], ['ther', 'ther']], translation: 'Forma father con las partes.', wordParts: true }),
+  missionTile({ prompt: '___-___', image: assets.missionMotherWriting, answer: 'mo-ther', correct: ['mo', 'ther'], choices: [['ther', 'ther'], ['fa', 'fa'], ['mo', 'mo']], translation: 'Forma mother con las partes.', wordParts: true }),
+  missionTile({ prompt: '___ ___ ___.', image: assets.missionFatherReading, answer: 'He is reading.', correct: ['he', 'is', 'reading'], choices: [['reading', 'reading'], ['he', 'He'], ['is', 'is']], translation: 'Ordena: Él está leyendo.' }),
+  missionTile({ prompt: '___ ___ ___.', image: assets.missionMotherWriting, answer: 'She is writing.', correct: ['she', 'is', 'writing'], choices: [['is', 'is'], ['writing', 'writing'], ['she', 'She']], translation: 'Ordena: Ella está escribiendo.' }),
+  missionTile({ prompt: '___ ___ ___.', image: assets.missionChildrenPlaying, answer: 'They are playing.', correct: ['they', 'are', 'playing'], choices: [['playing', 'playing'], ['are', 'are'], ['they', 'They']], translation: 'Ordena: Ellos están jugando.' }),
+  missionTile({ prompt: '___ ___ ___.', image: assets.missionGrandparentsTalking, answer: 'They are talking.', correct: ['they', 'are', 'talking'], choices: [['are', 'are'], ['talking', 'talking'], ['they', 'They']], translation: 'Ordena: Ellos están hablando.' }),
+  missionTile({ prompt: '___ ___ ___.', image: assets.missionGrandparentsTalking, answer: 'They are not sleeping.', correct: ['they-are', 'not', 'sleeping'], choices: [['sleeping', 'sleeping'], ['they-are', 'They are'], ['not', 'not']], translation: 'Ordena: Ellos no están durmiendo.' }),
+  missionTile({ prompt: '___ ___ ___.', image: assets.missionFamilyFinish, answer: 'They are a family.', correct: ['they-are', 'a', 'family'], choices: [['family', 'family'], ['they-are', 'They are'], ['a', 'a']], translation: 'Completa la misión: Ellos son una familia.', finale: true }),
+];
+
+const lesson110Cards = [
+  ...finalizeMissionStage('Learn', missionLearn, 1, 'the parents begin the card game and reveal its family story'),
+  ...finalizeMissionStage('Recognize', missionRecognize, 5, 'the learner identifies the pictured family cards'),
+  ...finalizeMissionStage('Listen', missionListening, 13, 'spoken clues unlock the remaining family cards'),
+  ...finalizeMissionStage('Speak', missionSpeak, 19, 'the learner records the captions needed for the game'),
+  ...finalizeMissionStage('Use', missionUse, 25, 'word parts become words and words become the final family captions'),
+];
+if (lesson110Cards.length !== 32) throw new Error(`1.10 must contain 32 cards, found ${lesson110Cards.length}`);
+if (JSON.stringify([...new Set(lesson110Cards.map((card) => card.stage))]) !== JSON.stringify(stageOrder)) {
+  throw new Error('1.10 has invalid stage order');
+}
+const lesson110 = {
+  id: 'lesson-10-family-mission', title: '1.10 Family Scene Mission', level: 'Beginner A1',
+  unit_id: 'unit-1', unit_title: 'Unit 1: People, Family, and Actions',
+  unit_outcome: 'Understand and produce simple sentences about people, family members, and actions.',
+  lesson_id: 'lesson-1', lesson_title: 'Unit 1: People, Family, and Actions',
+  sub_lesson_id: '1.10', sub_lesson_title: 'Family Scene Mission',
+  goal: 'Complete one family-card mission by finding the right people and actions, recording captions, building words from parts, and arranging final sentences.',
+  vocabulary: [],
+  review_vocabulary: ['the', 'a', 'father', 'mother', 'family', 'children', 'brother', 'sister', 'grandparents', 'he', 'she', 'they', 'is', 'are', 'not', 'who', 'playing', 'reading', 'writing', 'studying', 'talking', 'sleeping'],
+  grammar_function: 'Use Unit 1 identity, action, singular/plural, and negative patterns to complete one applied family-card story.',
+  prerequisite: 'Lessons 1.1-1.9 completed.',
+  speaking_outcome: 'Identify family members and record clear action captions before assembling the final story with tiles.',
+  purposeful_review_slides: ['L1', 'R8', 'A6', 'S6', 'U1', 'U2', 'U8'],
+  cards: lesson110Cards,
+};
+
 const lessons = [
   ['1.2_he_and_she.yaml', lesson12], ['1.3_two_people_they_and_are.yaml', lesson13],
   ['1.4_children_and_siblings.yaml', lesson14], ['1.5_parents_and_grandparents.yaml', lesson15],
   ['1.6_family_actions.yaml', lesson16], ['1.7_is_are_and_not.yaml', lesson17],
   ['1.8_who_is_he_who_are_they.yaml', lesson18], ['1.9_unit_1_spiral_review.yaml', lesson19],
+  ['1.10_family_scene_mission.yaml', lesson110],
 ];
 for (const [filename, lesson] of lessons) {
   writeFileSync(join(outputDir, filename), `${JSON.stringify(lesson, null, 2)}\n`, 'utf8');
