@@ -48,6 +48,7 @@ Every standard lesson follows this visible sequence:
 - Grammar is learned through interactive completion, selection, rearrangement, and repeated use.
 - A separate grammar-heavy mode may be designed later, but it is not part of the current lesson shell.
 - The shell, stage order, navigation, feedback, and visual language should remain predictable across lessons.
+- Finishing the final card of a normal lesson or a full replay enters the standard lesson-completion flow. Finishing an individual section review enters a distinct section-completion screen with clear actions to practice another section or return to the lesson list; a dimmed final card behind the section picker is never the only completion feedback.
 - Content difficulty progresses in small steps. A lesson should rely only on language introduced or reinforced earlier.
 - Every ordinary mobile choice outside the dedicated grammar-completion and pronunciation flows must provide spoken confirmation after a correct selection. Speak the authored `answer_audio_text` when present; otherwise speak the correct option label. A correct mobile selection must never turn green and then remain silent when covered by this rule, even when the fallback label repeats the prompt.
 
