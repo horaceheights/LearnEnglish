@@ -1143,12 +1143,8 @@ class LessonStructureTests(unittest.TestCase):
         for card in cards:
             with self.subTest(stage=card.stage, slide=card.slide_id):
                 self.assertEqual(2, len(card.options))
-                if card.stage == "Recognize":
-                    self.assertTrue(card.prompt_image_url)
-                    self.assertTrue(all(not option.image_url for option in card.options))
-                else:
-                    self.assertFalse(card.prompt_image_url)
-                    self.assertTrue(all(option.image_url for option in card.options))
+                self.assertFalse(card.prompt_image_url)
+                self.assertTrue(all(option.image_url for option in card.options))
                 correct = next(
                     option for option in card.options if option.id == card.correct_option_id
                 )
@@ -1158,6 +1154,15 @@ class LessonStructureTests(unittest.TestCase):
                     card.answer_audio_text.lower(),
                     r"\b(talking|writing|running|playing|sitting)\b",
                 )
+
+    def test_not_cooking_recognition_requires_an_image_choice(self):
+        card = next(card for card in LESSONS["lesson-7-is-are-not"].cards if card.slide_id == "R2")
+        self.assertEqual("He is not cooking.", card.prompt)
+        self.assertEqual("t2i2", card.interaction_type)
+        self.assertFalse(card.prompt_image_url)
+        self.assertEqual(2, len(card.options))
+        self.assertTrue(all(option.image_url for option in card.options))
+        self.assertEqual("He is not cooking. He is talking.", card.answer_audio_text)
 
     def test_specific_identity_choices_include_the_answer_in_the_audio(self):
         for lesson in LESSONS.values():
