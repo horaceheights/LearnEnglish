@@ -26,9 +26,9 @@ Provider voice IDs and exact request settings remain in the versioned audio prof
 
 ## Runtime seeding and validation
 
-At service startup, the backend validates the exact versioned Preview catalog and idempotently installs reviewed takes onto the persistent disk in a background worker so legacy Production traffic remains available during the first seed. It may also import eligible reviewed legacy-manifest audio for neutral, non-completion assets. Named-character audio and completion prompts may never claim voice-unknown legacy provenance. Existing immutable disk files are never replaced.
+At service startup, the shared backend validates its exact versioned catalog and idempotently installs reviewed takes onto the persistent disk in a background worker. It may still import eligible reviewed legacy-manifest audio for neutral, non-completion assets. Named-character audio and completion prompts may never claim voice-unknown legacy provenance. Existing immutable disk files are never replaced.
 
-The catalog is exported from the exact published Preview commit, rather than from the live Production lesson loader. This keeps Preview's image/audio bindings stable without changing the Production curriculum on the shared backend. Historical superseded registry bindings remain audit history but are not active catalog assets.
+The catalog is exported from the exact Preview candidate, rather than from the live Production lesson loader. While Preview and Production share the backend on `main`, that exact candidate must be reconciled into `main` and fully deployed before the Preview mobile update is published. Historical superseded registry bindings remain audit history but are not active catalog assets.
 
 The cache-busted `elevenlabs-v2` catalog reuses exact approved ElevenLabs takes first. An explicitly approved operator migration may render each remaining contract once with the pinned ElevenLabs Premium profile and immediately persist the resulting bytes and provider receipt. Learner requests never start generation, and provider-unknown legacy files are never admitted into this catalog.
 
@@ -56,6 +56,8 @@ A completion whose blank covers the entire spoken line has no learner-visible fr
 
 Never overwrite an installed asset. Increase that card's audio revision (or deliberately introduce a new profile), rebuild canonical and mobile lesson payloads, approve the replacement take, and bind it to the new asset ID. The old binding is superseded. Do not globally delete the old content-addressed MP3 when another approved binding uses the same exact bytes; any later garbage collection must first prove that the blob has no live approved reference.
 
-A Preview release is blocked until the matching backend route and persistent disk are deployed, all 4,794 catalog assets are present, `missing == 0`, `invalid == 0`, provider errors are empty, receipts match the current profile and revisions, and regenerated mobile payloads contain the same IDs as the backend. Do not publish a mobile client that requests `/api/audio/assets-v2/` before this backend gate passes.
+A Preview release is blocked until the shared backend reports `environment=production`, branch `main`, the exact current `origin/main` commit, the exact candidate catalog SHA-256 and declared asset count, `missing == 0`, `invalid == 0`, provider errors empty, and receipts matching the current profile and revisions. The candidate must be an ancestor of that deployed `main`, and regenerated mobile payloads must contain the same IDs as the backend. Do not publish a mobile client that requests `/api/audio/assets-v2/` before this backend gate passes.
+
+If a dedicated Preview backend is introduced later, seed its disk by copying already validated immutable audio and receipts; do not regenerate an existing catalog merely to populate a second environment.
 
 Do not publish Preview from a task branch. After inventory coverage is complete, follow the protected `release/preview` GitHub Actions workflow described in the release guardrails.

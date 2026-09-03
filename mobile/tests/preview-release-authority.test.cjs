@@ -68,6 +68,10 @@ test('manual publication is serialized and bound to the protected branch and env
   assert.match(publishWorkflowSource, /github\.ref_protected/);
   assert.match(publishWorkflowSource, /environment:\s*\n\s*name: preview-release/);
   assert.match(publishWorkflowSource, /EXPO_TOKEN: \$\{\{ secrets\.EXPO_TOKEN \}\}/);
+  assert.match(
+    publishWorkflowSource,
+    /SHARED_BACKEND_STATUS_URL: https:\/\/learnenglish-fxki\.onrender\.com\/api\/release\/status/,
+  );
   const publishJobEnvironment = publishWorkflowSource.match(/\n    env:\n((?:      [^\n]*\n)+)/)?.[1] || '';
   assert.doesNotMatch(
     publishJobEnvironment,
@@ -111,6 +115,7 @@ test('the publisher fails closed outside the exact GitHub release authority', ()
     'GITHUB_SHA',
     'EXPO_TOKEN',
     'EXPO_PUBLIC_RELEASE_COMMIT',
+    'SHARED_BACKEND_STATUS_URL',
   ]) {
     assert.match(publishScriptSource, new RegExp(`-Name '${requiredVariable}'`));
   }
@@ -121,6 +126,15 @@ test('the publisher fails closed outside the exact GitHub release authority', ()
   assert.match(publishScriptSource, /rev-parse HEAD/);
   assert.match(publishScriptSource, /ls-remote --exit-code origin refs\/heads\/release\/preview/);
   assert.match(publishScriptSource, /EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA/);
+  assert.match(publishScriptSource, /function Assert-SharedBackendRelease/);
+  assert.match(publishScriptSource, /\/api\/release\/status/);
+  assert.match(publishScriptSource, /refs\/heads\/main:refs\/remotes\/origin\/main/);
+  assert.match(publishScriptSource, /merge-base --is-ancestor \$ExpectedCommit \$remoteMainCommit/);
+  assert.match(publishScriptSource, /\$observedEnvironment -ceq 'production'/);
+  assert.match(publishScriptSource, /\$observedBranch -ceq 'main'/);
+  assert.match(publishScriptSource, /catalog_sha256/);
+  assert.match(publishScriptSource, /audio\.ready/);
+  assert.match(publishScriptSource, /candidato Preview todavía no está reconciliado en main/);
   assert.doesNotMatch(publishScriptSource, /rev-parse --short=7 HEAD/);
   assert.match(publishScriptSource, /eas update --channel preview[\s\S]*?--non-interactive/);
 });
@@ -218,6 +232,7 @@ test('CODEOWNERS protects the complete Preview release trust boundary', () => {
   for (const protectedPath of [
     '/.github/CODEOWNERS',
     '/.github/workflows/',
+    '/render.yaml',
     '/mobile/release-integrity.json',
     '/scripts/validate_lesson_cards.py',
     '/mobile/scripts/promote-preview.ps1',
@@ -226,6 +241,9 @@ test('CODEOWNERS protects the complete Preview release trust boundary', () => {
     '/mobile/scripts/verify-interaction-paths.ps1',
     '/mobile/scripts/verify-preview.ps1',
     '/mobile/scripts/verify-release-integrity.cjs',
+    '/backend/app/main.py',
+    '/backend/app/persistent_audio_assets.py',
+    '/backend/tests/test_release_status.py',
     '/mobile/tests/four-card-media-review.test.cjs',
     '/mobile/tests/preview-release-authority.test.cjs',
     '/mobile/tests/preview-release-lineage.test.cjs',

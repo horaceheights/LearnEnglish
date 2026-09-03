@@ -1,7 +1,7 @@
 import hmac
 
 
-OPEN_API_PATHS = {"/api/health"}
+OPEN_API_PATHS = {"/api/health", "/api/release/status"}
 
 
 def _key_matches(expected: str, provided: str | None) -> bool:
