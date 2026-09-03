@@ -269,3 +269,12 @@ A tested Preview is eligible for Production only when:
 - [ ] `npm run verify:production` passes without review warnings or errors
 - [ ] The latest tested Preview group contains Android and iOS updates whose `gitCommitHash` exactly matches the clean, pushed approval commit
 - [ ] The user explicitly approves promotion after testing that exact Preview group
+
+## Card-specific teaching hints
+
+- In normal lessons and Engine QA, choose `A` for `___ adult.` in Lesson 1.5: the hint must explain that `adult` begins with a vowel sound, so the answer is `an adult`, not `a adult`.
+- Compare action choices with the same subject and verb (reading versus writing): feedback must explain the action words, never an unrelated `is` rule.
+- Check `Where are you from?`, `There are two chairs`, `I do not like milk`, `on Monday`, and `in the morning`: each explanation must use that card's context.
+- On a two-blank card, get the first blank wrong and the second right, then reverse the mistake. The hint must follow the first incorrect position in the submitted attempt.
+- Check short phone portrait and enlarged font settings: the complete explanation and answer controls must remain visible or reachable; feedback space follows its measured height.
+- Automated gate: `mobile/tests/lesson-mistake-hints.test.cjs` exercises every distractor at each answer position across the 70 embedded lessons and verifies that web and mobile share the resolver. It rejects generic retries, untranslated or blank-marker feedback, and excessively long hints. This does not replace the on-device reading check.
