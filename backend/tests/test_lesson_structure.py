@@ -1,8 +1,11 @@
+import hashlib
 import json
 import re
 import unittest
 from pathlib import Path
 from urllib.parse import urlparse
+
+from PIL import Image
 
 from backend.app.data import LESSON_IMAGE_DIR, LESSONS
 
@@ -373,6 +376,39 @@ class LessonStructureTests(unittest.TestCase):
             }
             with self.subTest(slide=card.slide_id):
                 self.assertEqual(expected_subject_images, image_names)
+
+    def test_lesson_10_father_reading_uses_the_reviewed_clue_card_scene(self):
+        lesson = LESSONS["lesson-10-family-mission"]
+        reviewed_asset = "a1_u1_mission_father_reading_clear.webp"
+        identity_asset = "a1_u1_mission_father_reading.webp"
+        expected_action_slides = {"L3", "R3", "A1", "S2", "U3"}
+        expected_identity_slides = {"R2", "S1", "U1"}
+
+        action_references_by_slide = {}
+        identity_references_by_slide = {}
+        for card in lesson.cards:
+            media_urls = [card.prompt_image_url] if card.prompt_image_url else []
+            media_urls.extend(option.image_url for option in card.options if option.image_url)
+            asset_names = {
+                urlparse(media_url).path.rsplit("/", 1)[-1]
+                for media_url in media_urls
+            }
+            if reviewed_asset in asset_names:
+                action_references_by_slide[card.slide_id] = asset_names
+            if identity_asset in asset_names:
+                identity_references_by_slide[card.slide_id] = asset_names
+
+        self.assertEqual(expected_action_slides, set(action_references_by_slide))
+        self.assertEqual(expected_identity_slides, set(identity_references_by_slide))
+
+        asset_path = LESSON_IMAGE_DIR / reviewed_asset
+        with Image.open(asset_path) as image:
+            self.assertEqual((1536, 1024), image.size)
+        self.assertEqual(
+            "ab6404c7041d182e0b38ae45a80c6f688f21d02137a83384608a809fb70e9dd1",
+            hashlib.sha256(asset_path.read_bytes()).hexdigest(),
+            "Changing the reviewed printed-clue pixels requires a new at-mobile-size visual review.",
+        )
 
     def test_text_only_cards_have_at_most_three_options(self):
         for lesson in LESSONS.values():

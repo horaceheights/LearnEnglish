@@ -35,11 +35,34 @@ const assets = {
   reviewFatherWorking: 'a1_u1_review_father_working.webp', reviewMotherCooking: 'a1_u1_review_mother_cooking.webp',
   reviewParentsTalking: 'a1_u1_review_parents_talking.webp', reviewGrandparentsTalking: 'a1_u1_review_grandparents_talking.webp',
   missionSetup: 'a1_u1_mission_game_setup.webp', missionFamilyStart: 'a1_u1_mission_family_start.webp',
-  missionFatherReading: 'a1_u1_mission_father_reading.webp', missionMotherWriting: 'a1_u1_mission_mother_writing.webp',
+  missionFatherIdentity: 'a1_u1_mission_father_reading.webp',
+  missionFatherReading: 'a1_u1_mission_father_reading_clear.webp', missionMotherWriting: 'a1_u1_mission_mother_writing.webp',
   missionChildrenPlaying: 'a1_u1_mission_children_playing.webp', missionGrandparentsTalking: 'a1_u1_mission_grandparents_talking.webp',
   missionBrotherStudying: 'a1_u1_mission_brother_studying.webp', missionSisterWriting: 'a1_u1_mission_sister_writing.webp',
   missionFamilyFinish: 'a1_u1_mission_family_finish.webp',
 };
+
+const missionActionEvidence = new Map([
+  [assets.missionSetup, { action: 'playing', cue: 'both parents visibly handle the family game' }],
+  [assets.missionFatherReading, { action: 'reading', cue: 'an over-the-shoulder printed clue, tracking finger, coherent family table, and the father\'s gaze on the same line' }],
+  [assets.missionMotherWriting, { action: 'writing', cue: 'a writing tool visibly meeting the page' }],
+  [assets.missionChildrenPlaying, { action: 'playing', cue: 'the children visibly engaged with the game' }],
+  [assets.missionGrandparentsTalking, { action: 'talking', cue: 'the grandparents visibly facing and speaking to one another' }],
+  [assets.missionBrotherStudying, { action: 'studying', cue: 'study material visibly open in front of the brother' }],
+  [assets.missionSisterWriting, { action: 'writing', cue: 'a writing tool visibly meeting the page' }],
+]);
+const missionActionWords = ['playing', 'reading', 'writing', 'studying', 'talking', 'sleeping'];
+
+function assertVisibleMissionAction(image, text) {
+  const normalized = String(text || '').toLowerCase();
+  if (/\bnot\b/.test(normalized)) return;
+  const action = missionActionWords.find((word) => new RegExp(`\\b${word}\\b`).test(normalized));
+  if (!action) return;
+  const evidence = missionActionEvidence.get(image);
+  if (!evidence || evidence.action !== action || !evidence.cue?.trim()) {
+    throw new Error(`Mission image ${image} lacks authored at-a-glance evidence for ${action}`);
+  }
+}
 
 function baseCard({ prompt, stage, correct, options, audio = null, answer = null, promptImage = '', interaction, correctIds }) {
   const card = { interaction_type: interaction, prompt, stage, correct_option_id: correct, options,
@@ -103,6 +126,7 @@ function complete({ prompt, image, answer, correct, choices, translation }) {
 }
 
 function missionTile({ prompt, image, answer, correct, choices, translation, wordParts = false, finale = false }) {
+  assertVisibleMissionAction(image, answer);
   const ids = Array.isArray(correct) ? correct : [correct];
   return { ...baseCard({ prompt, stage: 'Use', correct: ids[0], correctIds: ids,
     options: choices.map(([id, label]) => textOption(id, label)), audio: wordParts ? null : prompt, answer, promptImage: image,
@@ -430,13 +454,17 @@ const missionLearn = [
   { prompt: 'They are a family.', image: assets.missionFamilyStart, translation: 'Ellos son una familia.' },
   { prompt: 'The father is reading.', image: assets.missionFatherReading, translation: 'El padre está leyendo.' },
   { prompt: 'The mother is writing.', image: assets.missionMotherWriting, translation: 'La madre está escribiendo.' },
-].map((entry) => ({ ...baseCard({
-  prompt: entry.prompt, stage: 'Learn', correct: 'answer',
-  options: [imageOption('answer', entry.image, entry.prompt)],
-  audio: entry.prompt, interaction: 'mission-brief',
-}), translation: entry.translation }));
+].map((entry) => {
+  assertVisibleMissionAction(entry.image, entry.prompt);
+  return { ...baseCard({
+    prompt: entry.prompt, stage: 'Learn', correct: 'answer',
+    options: [imageOption('answer', entry.image, entry.prompt)],
+    audio: entry.prompt, interaction: 'mission-brief',
+  }), translation: entry.translation };
+});
 
 function missionTextClue({ prompt = '', image, answer, wrong, translation, answerAudio = answer }) {
+  assertVisibleMissionAction(image, answer);
   return { ...baseCard({
     prompt, stage: 'Recognize', correct: 'correct',
     options: [textOption('correct', answer), textOption('wrong', wrong)],
@@ -446,7 +474,7 @@ function missionTextClue({ prompt = '', image, answer, wrong, translation, answe
 
 const missionRecognize = [
   missionTextClue({ prompt: 'Who are they?', image: assets.missionFamilyStart, answer: 'They are a family.', wrong: 'He is the father.', translation: '¿Quiénes son ellos? Son una familia.' }),
-  missionTextClue({ prompt: 'Who is he?', image: assets.missionFatherReading, answer: 'He is the father.', wrong: 'She is the mother.', translation: '¿Quién es él? Es el padre.' }),
+  missionTextClue({ prompt: 'Who is he?', image: assets.missionFatherIdentity, answer: 'He is the father.', wrong: 'She is the mother.', translation: '¿Quién es él? Es el padre.' }),
   missionTextClue({ image: assets.missionFatherReading, answer: 'The father is reading.', wrong: 'The father is writing.', translation: 'El padre está leyendo.' }),
   missionTextClue({ prompt: 'Who is she?', image: assets.missionMotherWriting, answer: 'She is the mother.', wrong: 'He is the father.', translation: '¿Quién es ella? Es la madre.' }),
   missionTextClue({ image: assets.missionMotherWriting, answer: 'The mother is writing.', wrong: 'The mother is reading.', translation: 'La madre está escribiendo.' }),
@@ -456,6 +484,8 @@ const missionRecognize = [
 ];
 
 function missionListen({ audio, image, label, wrongImage, wrongLabel, translation }) {
+  assertVisibleMissionAction(image, label);
+  assertVisibleMissionAction(wrongImage, wrongLabel);
   return { ...baseCard({
     prompt: 'Listen and choose.', stage: 'Listen', correct: 'correct',
     options: [imageOption('correct', image, label), imageOption('wrong', wrongImage, wrongLabel)],
@@ -473,20 +503,23 @@ const missionListening = [
 ];
 
 const missionSpeak = [
-  { prompt: 'Who is he? He is the father.', image: assets.missionFatherReading, translation: '¿Quién es él? Es el padre.' },
+  { prompt: 'Who is he? He is the father.', image: assets.missionFatherIdentity, translation: '¿Quién es él? Es el padre.' },
   { prompt: 'The father is reading.', image: assets.missionFatherReading, translation: 'El padre está leyendo.' },
   { prompt: 'Who is she? She is the mother.', image: assets.missionMotherWriting, translation: '¿Quién es ella? Es la madre.' },
   { prompt: 'The mother is writing.', image: assets.missionMotherWriting, translation: 'La madre está escribiendo.' },
   { prompt: 'The children are playing.', image: assets.missionChildrenPlaying, translation: 'Los niños están jugando.' },
   { prompt: 'The grandparents are talking.', image: assets.missionGrandparentsTalking, translation: 'Los abuelos están hablando.' },
-].map((entry) => ({ ...baseCard({
-  prompt: entry.prompt, stage: 'Speak', correct: 'answer',
-  options: [imageOption('answer', entry.image, entry.prompt)],
-  audio: entry.prompt, interaction: 'mission-speak',
-}), translation: entry.translation }));
+].map((entry) => {
+  assertVisibleMissionAction(entry.image, entry.prompt);
+  return { ...baseCard({
+    prompt: entry.prompt, stage: 'Speak', correct: 'answer',
+    options: [imageOption('answer', entry.image, entry.prompt)],
+    audio: entry.prompt, interaction: 'mission-speak',
+  }), translation: entry.translation };
+});
 
 const missionUse = [
-  missionTile({ prompt: '___-___', image: assets.missionFatherReading, answer: 'fa-ther', correct: ['fa', 'ther'], choices: [['mo', 'mo'], ['fa', 'fa'], ['ther', 'ther']], translation: 'Forma father con las partes.', wordParts: true }),
+  missionTile({ prompt: '___-___', image: assets.missionFatherIdentity, answer: 'fa-ther', correct: ['fa', 'ther'], choices: [['mo', 'mo'], ['fa', 'fa'], ['ther', 'ther']], translation: 'Forma father con las partes.', wordParts: true }),
   missionTile({ prompt: '___-___', image: assets.missionMotherWriting, answer: 'mo-ther', correct: ['mo', 'ther'], choices: [['ther', 'ther'], ['fa', 'fa'], ['mo', 'mo']], translation: 'Forma mother con las partes.', wordParts: true }),
   missionTile({ prompt: '___ ___ ___.', image: assets.missionFatherReading, answer: 'He is reading.', correct: ['he', 'is', 'reading'], choices: [['reading', 'reading'], ['he', 'He'], ['is', 'is']], translation: 'Ordena: Él está leyendo.' }),
   missionTile({ prompt: '___ ___ ___.', image: assets.missionMotherWriting, answer: 'She is writing.', correct: ['she', 'is', 'writing'], choices: [['is', 'is'], ['writing', 'writing'], ['she', 'She']], translation: 'Ordena: Ella está escribiendo.' }),
