@@ -26,7 +26,7 @@ const assets = {
   mother: 'family_mother.webp', motherCooking: 'family_mother_cooking.webp', parents: 'family_parents.webp',
   parentsTalking: 'family_parents_talking.webp', grandfather: 'family_grandfather.webp',
   grandmother: 'family_grandmother.webp', grandparents: 'family_grandparents.webp',
-  grandparentsTalking: 'family_grandparents_talking.webp',
+  grandparentsTalking: 'family_grandparents_talking.webp', grandparentsSitting: 'family_grandparents_sitting.webp',
   reviewBoyEating: 'a1_u1_review_boy_eating.webp', reviewGirlWriting: 'a1_u1_review_girl_writing.webp',
   reviewManReading: 'a1_u1_review_man_reading.webp', reviewWomanDrinking: 'a1_u1_review_woman_drinking.webp',
   reviewChildrenRunning: 'a1_u1_review_children_running.webp', reviewChildrenSwimming: 'a1_u1_review_children_swimming.webp',
@@ -106,7 +106,9 @@ function buildLesson({ id, number, title, goal, vocabulary, reviewVocabulary, gr
     const index = typeof spec === 'number' ? spec : spec.index;
     const entry = entries[index];
     const audio = typeof spec === 'number' ? (entry.listenAudio || entry.audio || activePrompt(entry)) : spec.audio;
-    return (typeof spec !== 'number' && spec.mode === 'text') || position % 3 === 2 ? textChoice(entry, entries, 'Listen', audio)
+    const useTextChoice = (typeof spec !== 'number' && spec.mode === 'text')
+      || (typeof spec === 'number' || spec.mode !== 'image') && position % 3 === 2;
+    return useTextChoice ? textChoice(entry, entries, 'Listen', audio)
       : imageChoice(entry, entries, 'Listen', position % 4 === 0 ? 4 : 2, audio);
   });
   const cards = [
@@ -282,15 +284,15 @@ const lesson16 = buildLesson({
 
 const l17 = [
   { prompt: 'The father is talking.', image: assets.fatherTalking, translation: 'El padre está hablando.' },
-  { prompt: 'He is not cooking.', image: assets.fatherTalking, translation: 'Él no está cocinando.', recognizePrompt: 'He is not cooking.', recognizeAudio: 'He is not cooking.', choice: 'He is not cooking.', textDistractors: ['He is cooking.'], answer: 'He is not cooking. He is talking.' },
+  { prompt: 'He is not cooking.', image: assets.fatherTalking, translation: 'Él no está cocinando.', recognizePrompt: 'He is not cooking.', recognizeAudio: 'He is not cooking.', choice: 'He is not cooking.', textDistractors: ['He is cooking.'], distractors: [{ prompt: 'She is cooking.', image: assets.motherCooking }], answer: 'He is not cooking. He is talking.' },
   { prompt: 'The girl is writing.', image: assets.girlWriting, translation: 'La niña está escribiendo.' },
-  { prompt: 'She is not reading.', image: assets.girlWriting, translation: 'Ella no está leyendo.', recognizePrompt: 'She is not reading.', recognizeAudio: 'She is not reading.', choice: 'She is not reading.', textDistractors: ['She is reading.'], answer: 'She is not reading. She is writing.' },
+  { prompt: 'She is not reading.', image: assets.girlWriting, translation: 'Ella no está leyendo.', recognizePrompt: 'She is not reading.', recognizeAudio: 'She is not reading.', choice: 'She is not reading.', textDistractors: ['She is reading.'], distractors: [{ prompt: 'She is reading.', image: assets.girlReading }], answer: 'She is not reading. She is writing.' },
   { prompt: 'The boy and the girl are running.', image: assets.pairRunning, translation: 'El niño y la niña están corriendo.' },
-  { prompt: 'They are not sitting.', image: assets.pairRunning, translation: 'Ellos no están sentados.', recognizePrompt: 'They are not sitting.', recognizeAudio: 'They are not sitting.', choice: 'They are not sitting.', textDistractors: ['They are sitting.'], answer: 'They are not sitting. They are running.' },
+  { prompt: 'They are not sitting.', image: assets.pairRunning, translation: 'Ellos no están sentados.', recognizePrompt: 'They are not sitting.', recognizeAudio: 'They are not sitting.', choice: 'They are not sitting.', textDistractors: ['They are sitting.'], distractors: [{ prompt: 'They are sitting.', image: assets.grandparentsSitting }], answer: 'They are not sitting. They are running.' },
   { prompt: 'The sister is playing.', image: assets.sisterPlaying, translation: 'La hermana está jugando.' },
-  { prompt: 'She is not studying.', image: assets.sisterPlaying, translation: 'Ella no está estudiando.', recognizePrompt: 'She is not studying.', recognizeAudio: 'She is not studying.', choice: 'She is not studying.', textDistractors: ['She is studying.'], answer: 'She is not studying. She is playing.' },
+  { prompt: 'She is not studying.', image: assets.sisterPlaying, translation: 'Ella no está estudiando.', recognizePrompt: 'She is not studying.', recognizeAudio: 'She is not studying.', choice: 'She is not studying.', textDistractors: ['She is studying.'], distractors: [{ prompt: 'He is studying.', image: assets.brotherStudying }], answer: 'She is not studying. She is playing.' },
   { prompt: 'The grandparents are sitting and talking.', image: assets.grandparentsTalking, translation: 'Los abuelos están sentados y hablando.' },
-  { prompt: 'They are not sleeping.', image: assets.grandparentsTalking, translation: 'Ellos no están durmiendo.', recognizePrompt: 'They are not sleeping.', recognizeAudio: 'They are not sleeping.', choice: 'They are not sleeping.', textDistractors: ['They are sleeping.'], answer: 'They are not sleeping. They are sitting and talking.' },
+  { prompt: 'They are not sleeping.', image: assets.grandparentsTalking, translation: 'Ellos no están durmiendo.', recognizePrompt: 'They are not sleeping.', recognizeAudio: 'They are not sleeping.', choice: 'They are not sleeping.', textDistractors: ['They are sleeping.'], distractors: [{ prompt: 'The baby is sleeping.', image: assets.babySleeping }], answer: 'They are not sleeping. They are sitting and talking.' },
 ];
 const lesson17 = buildLesson({
   id: 'lesson-7-is-are-not', number: '1.7', title: 'What They Are Not Doing',
@@ -299,7 +301,7 @@ const lesson17 = buildLesson({
   grammarFunction: 'He/She is not + action; They are not + action.', prerequisite: 'Lessons 1.1-1.6: people, family roles, pronouns, is/are, and actions.',
   speakingOutcome: 'Say a positive action and a true negative contrast about the same scene.', purposefulReviewSlides: ['L1', 'L3', 'L5', 'L7', 'L9', 'S7', 'U7'],
   entries: l17, textRecognize: [1, 3, 5, 7, 9],
-  listenIndexes: [{ index: 0, audio: 'The father is talking.' }, { index: 1, audio: 'He is not cooking.', mode: 'text' }, { index: 2, audio: 'The girl is writing.' }, { index: 3, audio: 'She is not reading.', mode: 'text' }, { index: 4, audio: 'They are running.' }, { index: 5, audio: 'They are not sitting.', mode: 'text' }, { index: 7, audio: 'She is not studying.', mode: 'text' }, { index: 9, audio: 'They are not sleeping.', mode: 'text' }],
+  listenIndexes: [{ index: 0, audio: 'The father is talking.' }, { index: 1, audio: 'He is not cooking.', mode: 'image' }, { index: 2, audio: 'The girl is writing.' }, { index: 3, audio: 'She is not reading.', mode: 'image' }, { index: 4, audio: 'They are running.' }, { index: 5, audio: 'They are not sitting.', mode: 'image' }, { index: 7, audio: 'She is not studying.', mode: 'image' }, { index: 9, audio: 'They are not sleeping.', mode: 'image' }],
   speakIndexes: [0, 1, 2, 3, 4, 5, 9],
   uses: [
     complete({ prompt: 'The father is ___.', image: assets.fatherTalking, answer: 'The father is talking.', correct: 'talking', choices: [['cooking', 'cooking'], ['talking', 'talking']], translation: 'El padre está ___.' }),

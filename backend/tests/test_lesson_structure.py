@@ -420,7 +420,7 @@ class LessonStructureTests(unittest.TestCase):
                 with self.subTest(lesson=lesson.id, card=index, audio=card.audio_text):
                     self.assertEqual(2, len(card.options))
 
-    def test_lesson_1_7_negative_image_choices_confirm_the_positive_action(self):
+    def test_lesson_1_7_negative_contrasts_confirm_the_positive_action(self):
         lesson = LESSONS["lesson-7-is-are-not"]
         cards = [
             card
@@ -433,8 +433,13 @@ class LessonStructureTests(unittest.TestCase):
         self.assertEqual(10, len(cards))
         for card in cards:
             with self.subTest(stage=card.stage, slide=card.slide_id):
-                self.assertTrue(all(not option.image_url for option in card.options))
                 self.assertEqual(2, len(card.options))
+                if card.stage == "Recognize":
+                    self.assertTrue(card.prompt_image_url)
+                    self.assertTrue(all(not option.image_url for option in card.options))
+                else:
+                    self.assertFalse(card.prompt_image_url)
+                    self.assertTrue(all(option.image_url for option in card.options))
                 correct = next(
                     option for option in card.options if option.id == card.correct_option_id
                 )

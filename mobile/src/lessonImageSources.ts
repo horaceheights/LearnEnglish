@@ -931,6 +931,8 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'family_babies_3x2.webp': require('../assets/lesson-assets/family_babies_3x2.webp'),
   'family_baby.webp': require('../assets/lesson-assets/family_baby.webp'),
   'family_baby_3x2.webp': require('../assets/lesson-assets/family_baby_3x2.webp'),
+  'family_baby_sleeping.webp': require('../assets/lesson-assets/family_baby_sleeping.webp'),
+  'family_baby_sleeping_3x2.webp': require('../assets/lesson-assets/family_baby_sleeping_3x2.webp'),
   'family_brother_studying-two-card-poster.webp': require('../assets/lesson-assets/family_brother_studying-two-card-poster.webp'),
   'family_brother_studying.webp': require('../assets/lesson-assets/family_brother_studying.webp'),
   'family_brother_studying_3x2.webp': require('../assets/lesson-assets/family_brother_studying_3x2.webp'),

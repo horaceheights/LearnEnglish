@@ -106092,13 +106092,14 @@
       "notes": ""
     },
     {
-      "contract_sha256": "f2c30eb695001602743a5c2b15de882750fdea64853b1b5c7acecaf0e4ac2078",
+      "contract_sha256": "50ac4b725e183ebbcdb946bdaa56078e0f429944e632887ce0ec77b1ca6c784b",
       "filename": "family_father_talking_3x2.webp",
       "concept": "He is not cooking.",
       "description": "Client-rendered 3:2 Unit 1 option variant for He is not cooking.; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.7|Learn|L2",
         "1.7|Recognize|R2",
+        "1.7|Listen|A2",
         "1.7|Speak|S2"
       ],
       "review_contexts": [
@@ -106176,6 +106177,49 @@
           ],
           "render_profile": "lesson-prompt-3x2-v1",
           "render_signature_sha256": "472ed2b9558001e74c6d7b60bfbb9af9756707215a68d6888eabd079356e5b4c",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A2",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "correct",
+          "option_label": "He is not cooking.",
+          "is_correct": true,
+          "source_filename": "family_father_talking.webp",
+          "rendered_filename": "family_father_talking_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "He is not cooking.",
+          "answer_audio_text": "He is not cooking. He is talking.",
+          "spanish_translation": "Él no está cocinando.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "He is not cooking.",
+              "source_filename": "family_father_talking.webp",
+              "rendered_filename": "family_father_talking_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "She is cooking.",
+              "source_filename": "family_mother_cooking.webp",
+              "rendered_filename": "family_mother_cooking-two-card-poster.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "d9a25901a74e066ff428b95f7f2526c4385d730a141ca19d8ce0774d9917d863",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -107354,6 +107398,65 @@
         }
       ],
       "asset_sha256": "6990c1c561d9572c0f03af5aacf0936d5ecf3e3f067ef4b234da5051ff640f2f",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "286aed7c0251aa55cefdb7d7466f8bc6aa35583b3510abc51082bdbf08f2b1ab",
+      "filename": "girl_is_writing-two-card-poster.webp",
+      "concept": "She is not reading.",
+      "description": "Client-rendered 3:2 Unit 1 option variant for She is not reading.; it must preserve the complete source concept and bound card role.",
+      "card_refs": [
+        "1.7|Listen|A4"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A4",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "correct",
+          "option_label": "She is not reading.",
+          "is_correct": true,
+          "source_filename": "girl_is_writing.webp",
+          "rendered_filename": "girl_is_writing-two-card-poster.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "She is not reading.",
+          "answer_audio_text": "She is not reading. She is writing.",
+          "spanish_translation": "Ella no está leyendo.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "She is not reading.",
+              "source_filename": "girl_is_writing.webp",
+              "rendered_filename": "girl_is_writing-two-card-poster.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "She is reading.",
+              "source_filename": "girl_is_reading.webp",
+              "rendered_filename": "girl_is_reading.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "two-card-action-poster-3x2-v1",
+          "render_signature_sha256": "ed9fdcff2ac1aac636621460b0d69ecce8af0b3893617451e0d42f873fdf2134",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "781c8173c3b3dc274c3b35e5108aa3a35b3d1321d5bdf986642355f078c759f7",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -109605,13 +109708,14 @@
       "notes": ""
     },
     {
-      "contract_sha256": "8d083e9b60ab831eddb8542a2564970a132fdde620933e1f4327a9e99f1e2268",
+      "contract_sha256": "bd0194844e5174001f42b6ee3afaddc4cb115cb40580f8b42b32969b8e670762",
       "filename": "family_grandparents_talking_3x2.webp",
       "concept": "They are not sleeping.",
       "description": "Client-rendered 3:2 Unit 1 option variant for They are not sleeping.; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.7|Learn|L10",
         "1.7|Recognize|R10",
+        "1.7|Listen|A8",
         "1.7|Speak|S7"
       ],
       "review_contexts": [
@@ -109689,6 +109793,49 @@
           ],
           "render_profile": "lesson-prompt-3x2-v1",
           "render_signature_sha256": "472ed2b9558001e74c6d7b60bfbb9af9756707215a68d6888eabd079356e5b4c",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A8",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "correct",
+          "option_label": "They are not sleeping.",
+          "is_correct": true,
+          "source_filename": "family_grandparents_talking.webp",
+          "rendered_filename": "family_grandparents_talking_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "They are not sleeping.",
+          "answer_audio_text": "They are not sleeping. They are sitting and talking.",
+          "spanish_translation": "Ellos no están durmiendo.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are not sleeping.",
+              "source_filename": "family_grandparents_talking.webp",
+              "rendered_filename": "family_grandparents_talking_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "The baby is sleeping.",
+              "source_filename": "family_baby_sleeping.webp",
+              "rendered_filename": "family_baby_sleeping_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "d9a25901a74e066ff428b95f7f2526c4385d730a141ca19d8ce0774d9917d863",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -109989,6 +110136,65 @@
         }
       ],
       "asset_sha256": "0cae46ddb9167e61c9ab0698e8687d7088c1386268c40a2807e5e1e5db382248",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "41fe8b2a25c2f234db5b5248f18a8a29c854cec8630febb41f3787320f181e20",
+      "filename": "family_mother_cooking-two-card-poster.webp",
+      "concept": "She is cooking.",
+      "description": "Client-rendered 3:2 Unit 1 option variant for She is cooking.; it must preserve the complete source concept and bound card role.",
+      "card_refs": [
+        "1.7|Listen|A2"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A2",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-1",
+          "option_label": "She is cooking.",
+          "is_correct": false,
+          "source_filename": "family_mother_cooking.webp",
+          "rendered_filename": "family_mother_cooking-two-card-poster.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "He is not cooking.",
+          "answer_audio_text": "He is not cooking. He is talking.",
+          "spanish_translation": "Él no está cocinando.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "He is not cooking.",
+              "source_filename": "family_father_talking.webp",
+              "rendered_filename": "family_father_talking_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "She is cooking.",
+              "source_filename": "family_mother_cooking.webp",
+              "rendered_filename": "family_mother_cooking-two-card-poster.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "two-card-action-poster-3x2-v1",
+          "render_signature_sha256": "ed9fdcff2ac1aac636621460b0d69ecce8af0b3893617451e0d42f873fdf2134",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "7b549172bfcf684fe656a0d001dbb578c4b902244a83a42bd86615a937e8cdab",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -111105,6 +111311,65 @@
         }
       ],
       "asset_sha256": "d216a6ead21a6b8a650c640b99cdcf46873ed972039362570f08433f4989fd5d",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "46dd883b1d45a7ec08ee0ac93956d43c0e43bc2a3ed6f738a7eeda7ab26fe450",
+      "filename": "family_grandparents_sitting_3x2.webp",
+      "concept": "They are sitting.",
+      "description": "Client-rendered 3:2 Unit 1 option variant for They are sitting.; it must preserve the complete source concept and bound card role.",
+      "card_refs": [
+        "1.7|Listen|A6"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A6",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-1",
+          "option_label": "They are sitting.",
+          "is_correct": false,
+          "source_filename": "family_grandparents_sitting.webp",
+          "rendered_filename": "family_grandparents_sitting_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "They are not sitting.",
+          "answer_audio_text": "They are not sitting. They are running.",
+          "spanish_translation": "Ellos no están sentados.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are not sitting.",
+              "source_filename": "they_boy_girl_are_running.webp",
+              "rendered_filename": "they_boy_girl_are_running-two-card-poster.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "They are sitting.",
+              "source_filename": "family_grandparents_sitting.webp",
+              "rendered_filename": "family_grandparents_sitting_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "d9a25901a74e066ff428b95f7f2526c4385d730a141ca19d8ce0774d9917d863",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "c9a58dfce503734b197e4bcc3cba6e63ff2346f06c9b5d15a783461720107703",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -115804,6 +116069,65 @@
       "notes": ""
     },
     {
+      "contract_sha256": "93138244263ea3469aa3378b25ed18d4e624d57f9cbb63431cf88097286ae717",
+      "filename": "they_boy_girl_are_running-two-card-poster.webp",
+      "concept": "They are not sitting.",
+      "description": "Client-rendered 3:2 Unit 1 option variant for They are not sitting.; it must preserve the complete source concept and bound card role.",
+      "card_refs": [
+        "1.7|Listen|A6"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A6",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "correct",
+          "option_label": "They are not sitting.",
+          "is_correct": true,
+          "source_filename": "they_boy_girl_are_running.webp",
+          "rendered_filename": "they_boy_girl_are_running-two-card-poster.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "They are not sitting.",
+          "answer_audio_text": "They are not sitting. They are running.",
+          "spanish_translation": "Ellos no están sentados.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are not sitting.",
+              "source_filename": "they_boy_girl_are_running.webp",
+              "rendered_filename": "they_boy_girl_are_running-two-card-poster.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "They are sitting.",
+              "source_filename": "family_grandparents_sitting.webp",
+              "rendered_filename": "family_grandparents_sitting_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "two-card-action-poster-3x2-v1",
+          "render_signature_sha256": "ed9fdcff2ac1aac636621460b0d69ecce8af0b3893617451e0d42f873fdf2134",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "e057cd7b58ce1c598f6e832bc2c30a67d99011c94b015fdbc1196c37272bb1b4",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
       "contract_sha256": "be9b0d6a16f2f41a1c4f858bb163ccb742b81449d09d854274c1d3350519409e",
       "filename": "girl_is_writing.webp",
       "concept": "She is not reading.",
@@ -118860,6 +119184,65 @@
         }
       ],
       "asset_sha256": "a8ad8aca3b9d45ddc2de9c88ece7239c4b3636a1069ccde1a5a2f702b988cda0",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "0a68bcc5dfeb8699471da12b2765edc0ae7095ae98aacbed66f522832b3a456c",
+      "filename": "family_baby_sleeping_3x2.webp",
+      "concept": "The baby is sleeping.",
+      "description": "Client-rendered 3:2 Unit 1 option variant for The baby is sleeping.; it must preserve the complete source concept and bound card role.",
+      "card_refs": [
+        "1.7|Listen|A8"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A8",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-1",
+          "option_label": "The baby is sleeping.",
+          "is_correct": false,
+          "source_filename": "family_baby_sleeping.webp",
+          "rendered_filename": "family_baby_sleeping_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "They are not sleeping.",
+          "answer_audio_text": "They are not sleeping. They are sitting and talking.",
+          "spanish_translation": "Ellos no están durmiendo.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "They are not sleeping.",
+              "source_filename": "family_grandparents_talking.webp",
+              "rendered_filename": "family_grandparents_talking_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "The baby is sleeping.",
+              "source_filename": "family_baby_sleeping.webp",
+              "rendered_filename": "family_baby_sleeping_3x2.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "d9a25901a74e066ff428b95f7f2526c4385d730a141ca19d8ce0774d9917d863",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "7a9abcf894f9d9a4a147a68096f581e9636935f2f999a5ea49c1d0afcf5d827e",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
@@ -132856,13 +133239,14 @@
       "notes": ""
     },
     {
-      "contract_sha256": "33990618c7771a3fb8bbccee2c673ddb80bb7d19936881febd329b59f2728b5d",
+      "contract_sha256": "493f581a6e53ca1b6316d690ab60298a797a5a4c3f73d6b18f2d1ebf832c6802",
       "filename": "family_sister_playing_3x2.webp",
       "concept": "She is not studying.",
       "description": "Client-rendered 3:2 Unit 1 option variant for She is not studying.; it must preserve the complete source concept and bound card role.",
       "card_refs": [
         "1.7|Learn|L8",
-        "1.7|Recognize|R8"
+        "1.7|Recognize|R8",
+        "1.7|Listen|A7"
       ],
       "review_contexts": [
         {
@@ -132939,6 +133323,49 @@
           ],
           "render_profile": "lesson-prompt-3x2-v1",
           "render_signature_sha256": "472ed2b9558001e74c6d7b60bfbb9af9756707215a68d6888eabd079356e5b4c",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        },
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A7",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "correct",
+          "option_label": "She is not studying.",
+          "is_correct": true,
+          "source_filename": "family_sister_playing.webp",
+          "rendered_filename": "family_sister_playing_3x2.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "She is not studying.",
+          "answer_audio_text": "She is not studying. She is playing.",
+          "spanish_translation": "Ella no está estudiando.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "She is not studying.",
+              "source_filename": "family_sister_playing.webp",
+              "rendered_filename": "family_sister_playing_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "He is studying.",
+              "source_filename": "family_brother_studying.webp",
+              "rendered_filename": "family_brother_studying-two-card-poster.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "d9a25901a74e066ff428b95f7f2526c4385d730a141ca19d8ce0774d9917d863",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -144186,6 +144613,124 @@
         }
       ],
       "asset_sha256": "cd792bc6a683bac508526fd62d9ee8fd0c5ee9413b6f9f6c624a3f0398285bc4",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "29a5ce79f7aee3a365488c92fbd239feeceff5d2030eb5fd2bf13ba36fe14ae8",
+      "filename": "girl_is_reading.webp",
+      "concept": "She is reading.",
+      "description": "Unit 1 learner-facing still for She is reading.; the exact subject, action, identity, relationship, quantity, polarity, and card role must match the bound runtime context.",
+      "card_refs": [
+        "1.7|Listen|A4"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A4",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-1",
+          "option_label": "She is reading.",
+          "is_correct": false,
+          "source_filename": "girl_is_reading.webp",
+          "rendered_filename": "girl_is_reading.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "She is not reading.",
+          "answer_audio_text": "She is not reading. She is writing.",
+          "spanish_translation": "Ella no está leyendo.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "She is not reading.",
+              "source_filename": "girl_is_writing.webp",
+              "rendered_filename": "girl_is_writing-two-card-poster.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "She is reading.",
+              "source_filename": "girl_is_reading.webp",
+              "rendered_filename": "girl_is_reading.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "lesson-option-1to3-3x2-v1",
+          "render_signature_sha256": "d9a25901a74e066ff428b95f7f2526c4385d730a141ca19d8ce0774d9917d863",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "ca8d6a70e9e2fd2f082115812faf2c1cf47d39cae6ec58140ba40357ad470ec7",
+      "decision": "pending",
+      "reviewer": null,
+      "reviewed_at": null,
+      "notes": ""
+    },
+    {
+      "contract_sha256": "2e013d5b1265881a85a8fb24cd620d0591f2d26cb70efefc3ffe36b0c080c806",
+      "filename": "family_brother_studying-two-card-poster.webp",
+      "concept": "He is studying.",
+      "description": "Client-rendered 3:2 Unit 1 option variant for He is studying.; it must preserve the complete source concept and bound card role.",
+      "card_refs": [
+        "1.7|Listen|A7"
+      ],
+      "review_contexts": [
+        {
+          "context_type": "lesson_card",
+          "lesson_id": "lesson-7-is-are-not",
+          "unit_id": "unit-1",
+          "sub_lesson_id": "1.7",
+          "stage": "Listen",
+          "slide_id": "A7",
+          "interaction_type": "a2i2",
+          "media_role": "option",
+          "surface_label": null,
+          "option_id": "wrong-1",
+          "option_label": "He is studying.",
+          "is_correct": false,
+          "source_filename": "family_brother_studying.webp",
+          "rendered_filename": "family_brother_studying-two-card-poster.webp",
+          "prompt": "Listen and choose.",
+          "audio_text": "She is not studying.",
+          "answer_audio_text": "She is not studying. She is playing.",
+          "spanish_translation": "Ella no está estudiando.",
+          "correct_option_id": "correct",
+          "options": [
+            {
+              "id": "correct",
+              "label": "She is not studying.",
+              "source_filename": "family_sister_playing.webp",
+              "rendered_filename": "family_sister_playing_3x2.webp",
+              "is_correct": true
+            },
+            {
+              "id": "wrong-1",
+              "label": "He is studying.",
+              "source_filename": "family_brother_studying.webp",
+              "rendered_filename": "family_brother_studying-two-card-poster.webp",
+              "is_correct": false
+            }
+          ],
+          "render_profile": "two-card-action-poster-3x2-v1",
+          "render_signature_sha256": "ed9fdcff2ac1aac636621460b0d69ecce8af0b3893617451e0d42f873fdf2134",
+          "viewport_width": null,
+          "viewport_height": null,
+          "resize_mode": "profile-bound",
+          "object_position": "profile-bound"
+        }
+      ],
+      "asset_sha256": "4fa57a058fb86c5fcda4c59159e230cab61a9c37f8f75b03dd59458b58a844f3",
       "decision": "pending",
       "reviewer": null,
       "reviewed_at": null,
