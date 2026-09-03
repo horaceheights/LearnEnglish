@@ -189,7 +189,7 @@ type Props = {
   qaMode?: boolean;
 };
 
-type CompletedLessonMode = 'standard' | 'prompt' | 'sections' | 'review';
+type CompletedLessonMode = 'standard' | 'prompt' | 'sections' | 'review' | 'review-complete';
 
 function BackArrowIcon() {
   return (
@@ -1313,7 +1313,7 @@ export function LessonScreen({
       audioPlaylistRef.current.pause();
       setActiveAudioSequence(null);
       setActiveTurnImageUrl(null);
-      setCompletedLessonMode('sections');
+      setCompletedLessonMode('review-complete');
       setReviewStageBounds(null);
       setGrammarCompleted(false);
       setSelectedId(null);
@@ -2055,7 +2055,7 @@ export function LessonScreen({
       ) {
         cardTranslateX.setValue(0);
         cardTransitioningRef.current = false;
-        setCompletedLessonMode('sections');
+        setCompletedLessonMode('review-complete');
         setReviewStageBounds(null);
         return;
       }
@@ -2271,6 +2271,32 @@ export function LessonScreen({
           </Text>
           <Pressable onPress={onExit} style={styles.primary}><Text style={styles.primaryText}>Volver a las lecciones</Text></Pressable>
         </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (completedLessonMode === 'review-complete') {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fbf7ef" />
+        <ScrollView contentContainerStyle={styles.completionPage} style={styles.pageScroll}>
+          <Text style={styles.completeMark}>✓</Text>
+          <Text style={styles.completeEyebrow}>SECCIÓN TERMINADA</Text>
+          <Text style={styles.completeTitle}>Buen repaso</Text>
+          <Text style={styles.completeText}>
+            Terminaste esta sección. Puedes practicar otra o volver a tus lecciones.
+          </Text>
+          <Pressable
+            accessibilityRole="button"
+            onPress={chooseCompletedLessonSections}
+            style={styles.primary}
+          >
+            <Text style={styles.primaryText}>Practicar otra sección</Text>
+          </Pressable>
+          <Pressable accessibilityRole="button" onPress={onExit} style={styles.linkButton}>
+            <Text style={styles.linkText}>Volver a las lecciones</Text>
+          </Pressable>
+        </ScrollView>
       </SafeAreaView>
     );
   }
@@ -2667,6 +2693,7 @@ const styles = StyleSheet.create({
   pagePronunciation: { gap: 4, paddingBottom: 4, paddingTop: 4 },
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
+  completionPage: { alignItems: 'center', flexGrow: 1, justifyContent: 'center', paddingHorizontal: 28, paddingVertical: 24 },
   cardCarousel: { flex: 1 },
   reviewContentInactive: { opacity: 0.28 },
   sectionPickerPanel: {
