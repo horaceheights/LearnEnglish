@@ -4,6 +4,11 @@ const path = require('node:path');
 
 const cardViewPath = path.resolve(__dirname, '../src/components/LessonCardView.tsx');
 const cardViewSource = fs.readFileSync(cardViewPath, 'utf8');
+assert.doesNotMatch(
+  cardViewSource,
+  /optionUnderline|textDecorationLine:\s*['"]underline['"]/,
+  'Answer labels must not show misleading decorative underlines in any selection state.',
+);
 const lessonScreenPath = path.resolve(__dirname, '../src/screens/LessonScreen.tsx');
 const lessonScreenSource = fs.readFileSync(lessonScreenPath, 'utf8');
 const course = JSON.parse(fs.readFileSync(
@@ -77,13 +82,13 @@ assert.match(
 );
 assert.match(
   cardViewSource,
-  /minHeight: hasTextOnlyOptions\s*\? textOptionMinHeightFor\(optionTextLineLimit\)\s*: optionMinHeight/,
-  'Each text tile must reserve the height required by its own one-, two-, or three-line answer.',
+  /minHeight: hasTextOnlyOptions\s*\? uniformTextOptionHeight\s*: optionMinHeight/,
+  'Every text tile must use the same height, sized for the longest answer.',
 );
 assert.match(
   cardViewSource,
-  /const textOptionsReservedHeight = hasTextOnlyOptions[\s\S]*?rowLineLimits\.map\(textOptionMinHeightFor\)[\s\S]*?: 0;/,
-  'The shared card layout must reserve the tallest adaptive text tile in every row.',
+  /const textOptionsReservedHeight = hasTextOnlyOptions[\s\S]*?textOptionRows \* uniformTextOptionHeight[\s\S]*?: 0;/,
+  'The shared card layout must reserve the same tallest tile height for every row.',
 );
 assert.match(
   cardViewSource,
@@ -281,3 +286,13 @@ for (const requiredStyle of [
 }
 
 console.log('Horizontal phrase-option layout checks passed.');
+
+const uniformHeightExpression = cardViewSource.match(/const uniformTextOptionHeight = (.*);/)[1];
+const uniformHeightFor = Function("optionMinHeight", "textOptionLineLimits", "textOptionMinHeightFor", `return ${uniformHeightExpression};`);
+for (const limits of [[1, 2], [3, 1, 2], [1, 1, 1]]) {
+  const height = uniformHeightFor(58, limits, (lines) => Math.max(58, lines * 32 + 28));
+  assert.equal(height, Math.max(...limits.map((lines) => Math.max(58, lines * 32 + 28))));
+}
+assert.match(cardViewSource, /height: hasTextOnlyOptions \? uniformTextOptionHeight : undefined/);
+const webSource = fs.readFileSync(path.resolve(__dirname, "../../frontend/components/LessonPlayer.js"), "utf8");
+assert.match(webSource, /gridAutoRows: currentCard.options.every\(\(option\) => !option.image_url\) \? "1fr" : undefined/);

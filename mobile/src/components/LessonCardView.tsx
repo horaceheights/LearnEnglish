@@ -43,10 +43,7 @@ export function textAnswerStackNeedsScroll(
 ) {
   const visibleLabels = labels.filter((label) => Boolean(label?.trim()));
   if (visibleLabels.length === 0) return false;
-  const lineDemand = visibleLabels.reduce(
-    (total, label) => total + textOptionLineLimit(label),
-    0,
-  );
+  const lineDemand = visibleLabels.length * Math.max(...visibleLabels.map(textOptionLineLimit));
   const shortViewportLimit = viewportHeight >= viewportWidth ? 760 : 460;
   return viewportHeight < shortViewportLimit || lineDemand >= 7;
 }
@@ -114,7 +111,7 @@ export function LessonCardView({
   onUndoSelection,
   allowVerticalGrowth = false,
 }: Props) {
-  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
+  const { height: viewportHeight, width: viewportWidth, fontScale } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar' || card.stage === 'Use';
@@ -241,9 +238,12 @@ export function LessonCardView({
   const textOptionChromeHeight = useHorizontalPhraseOptions
     ? useDensePortraitTextLayout ? 25 : 28
     : useDensePortraitTextLayout ? 33 : 40;
-  const textOptionMinHeightFor = (lineLimit: number) => lineLimit > 1
-    ? Math.max(optionMinHeight, (textOptionLineHeight * lineLimit) + textOptionChromeHeight)
-    : optionMinHeight;
+  const textOptionScale = Math.min(fontScale, isTabletViewport ? 1.2 : 1.15);
+  const textOptionMinHeightFor = (lineLimit: number) => Math.max(
+    optionMinHeight,
+    (textOptionLineHeight * textOptionScale * lineLimit) + textOptionChromeHeight,
+  );
+  const uniformTextOptionHeight = Math.max(optionMinHeight, ...textOptionLineLimits.map(textOptionMinHeightFor));
   const responsiveFeatureImageHeight = useDensePortraitTextLayout
     ? Math.max(170, Math.min(245, viewportHeight * 0.27))
     : isTabletLandscape
@@ -299,14 +299,7 @@ export function LessonCardView({
     ? Math.ceil(card.options.length / textOptionColumns)
     : 0;
   const textOptionsReservedHeight = hasTextOnlyOptions
-    ? Array.from({ length: textOptionRows }, (_unused, rowIndex) => {
-        const rowLineLimits = textOptionLineLimits.slice(
-          rowIndex * textOptionColumns,
-          (rowIndex + 1) * textOptionColumns,
-        );
-        return Math.max(...rowLineLimits.map(textOptionMinHeightFor));
-      }).reduce((sum, rowHeight) => sum + rowHeight, 0)
-      + (Math.max(0, textOptionRows - 1) * 10)
+    ? (textOptionRows * uniformTextOptionHeight) + (Math.max(0, textOptionRows - 1) * 10)
     : 0;
   const featureReservedHeight = isPronunciation
     ? result
@@ -589,8 +582,9 @@ export function LessonCardView({
                     styles.option,
                     {
                       minHeight: hasTextOnlyOptions
-                        ? textOptionMinHeightFor(optionTextLineLimit)
+                        ? uniformTextOptionHeight
                         : optionMinHeight,
+                      height: hasTextOnlyOptions ? uniformTextOptionHeight : undefined,
                       padding: isTabletLandscape ? 8 : 5,
                       width: constrainedPortraitImageOptionWidth
                         ?? constrainedLandscapeImageOptionWidth
@@ -680,16 +674,10 @@ export function LessonCardView({
                         {option.label}
                       </Text>
                       <View
+                        pointerEvents="none"
                         style={[
-                          styles.optionUnderline,
-                          useDensePortraitTextLayout ? styles.optionUnderlineDensePortrait : null,
-                          {
-                            backgroundColor: revealCorrect
-                              ? '#3c996c'
-                              : revealWrong
-                                ? '#c95e55'
-                                : textTheme.accent,
-                          },
+                          styles.optionLabelBottomSpace,
+                          useDensePortraitTextLayout ? styles.optionLabelBottomSpaceDensePortrait : null,
                         ]}
                       />
                     </>
@@ -1319,8 +1307,8 @@ const styles = StyleSheet.create({
     top: -25,
     width: 72,
   },
-  optionUnderline: { borderRadius: 4, height: 5, marginTop: 7, opacity: 0.75, width: 42 },
-  optionUnderlineDensePortrait: { height: 4, marginTop: 5, width: 36 },
+  optionLabelBottomSpace: { height: 5, marginTop: 7, width: 42 },
+  optionLabelBottomSpaceDensePortrait: { height: 4, marginTop: 5, width: 36 },
   optionLabel: {
     color: '#26372f',
     fontSize: 14,

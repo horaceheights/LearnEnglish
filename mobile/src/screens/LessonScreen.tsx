@@ -64,6 +64,7 @@ import {
 import {
   completionEquivalenceFocusWords,
   lessonHeaderPromptText,
+  listeningChoiceInstruction,
   lessonStageLabel,
   pronunciationInstruction,
   usesCompactListenInstruction,
@@ -2176,7 +2177,9 @@ export function LessonScreen({
       : currentCard.stage === 'More People' || normalizedStage.includes('plural')
         ? new Set(['and', 'are'])
         : new Set<string>();
-    const localizedPrompt = lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt);
+    const localizedPrompt = useCompactListenInstruction
+      ? listeningChoiceInstruction(currentCard.options)
+      : lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt);
     return localizedPrompt.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
       const normalizedPart = part.toLowerCase();
       const isNotConceptFocus = lesson.id === 'lesson-7-is-are-not' && normalizedPart === 'not';
@@ -2525,7 +2528,7 @@ export function LessonScreen({
               accessibilityLabel={useCompactRecognizeInstruction
                   ? 'Instrucción: Elige la frase correcta'
                   : useCompactListenInstruction
-                    ? 'Instrucción: Escucha y elige'
+                    ? `Instrucción: ${listeningChoiceInstruction(currentCard.options)}`
                     : useCompactSpeakInstruction
                       ? 'Instrucción: Escucha y repite'
                   : promptHasVisualBlank

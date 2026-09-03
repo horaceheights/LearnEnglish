@@ -18,7 +18,7 @@ const lesson = JSON.parse(fs.readFileSync(
 const negativeRecognizeChoices = lesson.cards.filter((card) => (
   card.stage === 'Recognize'
   && /\b(?:is|are) not\b/i.test(card.audio_text || '')
-  && card.options.every((option) => option.label && !option.image_url)
+  && card.options.every((option) => option.label && option.image_url)
 ));
 const negativeListenChoices = lesson.cards.filter((card) => (
   card.stage === 'Listen'
@@ -29,9 +29,9 @@ const negativeContrastChoices = [...negativeRecognizeChoices, ...negativeListenC
 
 assert.equal(negativeContrastChoices.length, 10, 'Lesson 1.7 must retain all ten negative contrast choices.');
 assert.equal(
-  negativeRecognizeChoices.filter((card) => card.prompt_image_url).length,
+  negativeRecognizeChoices.filter((card) => !card.prompt_image_url).length,
   5,
-  'Each Recognize contrast must keep its single true scene visible above the phrase choices.',
+  'Each Recognize contrast must use picture choices without revealing a matching text answer.',
 );
 assert.equal(
   negativeListenChoices.filter((card) => !card.prompt_image_url).length,

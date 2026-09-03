@@ -83,6 +83,12 @@ Test at least one card from every stage, then run the complete lesson audit.
 - [ ] Auto ON advances exactly once
 - [ ] Last card reaches the completion screen
 
+## Lesson survey layout
+
+- [ ] At 360, 390, and 412 dp portrait widths, the heading wraps within the screen and Ahora no appears centered below Enviar comentarios with at least a 48 dp touch target
+- [ ] Rotate to landscape and increase font size; scroll to reach both survey actions without horizontal clipping or overlap with system navigation
+- [ ] Ahora no exits without requiring answers; it remains disabled during recording, transcription, and saving
+
 ## Mobile viewport-fit guardrail
 
 Run these checks for every new card pattern before publishing Preview:
