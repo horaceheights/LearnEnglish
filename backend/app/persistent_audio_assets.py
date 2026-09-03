@@ -451,7 +451,9 @@ def elevenlabs_release_status() -> dict[str, object]:
             and invalid == 0
             and error_count == 0
         ),
-        "catalog_sha256": sha256_file(CATALOG_PATH),
+        "catalog_sha256": sha256_bytes(
+            CATALOG_PATH.read_bytes().replace(b"\r\n", b"\n")
+        ),
         "catalog_asset_count": expected_assets,
         "profile_id": catalog.get("profile_id"),
         "available": available,
