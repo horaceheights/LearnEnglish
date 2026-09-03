@@ -147,7 +147,7 @@ const lesson12 = buildLesson({
   entries: l12, textRecognize: [2, 5, 7, 9], listenIndexes: [0, 2, 4, 5, 6, 7, 8, 9], speakIndexes: [0, 2, 3, 5, 7, 8, 9],
   uses: [
     complete({ prompt: 'The ___ is eating.', image: assets.boyEating, answer: 'The boy is eating.', correct: 'boy', choices: [['man', 'man'], ['boy', 'boy']], translation: 'El ___ está comiendo.' }),
-    complete({ prompt: 'He is ___.', image: assets.boyEating, answer: 'He is eating.', correct: 'eating', choices: [['drinking', 'drinking'], ['eating', 'eating']], translation: 'Él está ___.' }),
+    complete({ prompt: 'The boy is eating, ___ is eating.', image: assets.boyEating, answer: 'The boy is eating, he is eating.', correct: 'he', choices: [['she', 'she'], ['he', 'he']], translation: 'El niño está comiendo, ___ está comiendo.' }),
     complete({ prompt: 'The man is ___.', image: assets.manDrinking, answer: 'The man is drinking.', correct: 'drinking', choices: [['drinking', 'drinking'], ['reading', 'reading']], translation: 'El hombre está ___.' }),
     complete({ prompt: 'The girl is ___.', image: assets.girlReading, answer: 'The girl is reading.', correct: 'reading', choices: [['writing', 'writing'], ['reading', 'reading']], translation: 'La niña está ___.' }),
     complete({ prompt: 'She is ___.', image: assets.girlReading, answer: 'She is reading.', correct: 'reading', choices: [['reading', 'reading'], ['drinking', 'drinking']], translation: 'Ella está ___.' }),
