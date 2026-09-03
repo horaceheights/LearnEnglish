@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
@@ -10,6 +11,108 @@ const mediaManifest = require(path.join(repositoryRoot, 'docs', 'product', 'a1-m
 const imageSources = fs.readFileSync(path.join(mobileRoot, 'src', 'lessonImageSources.ts'), 'utf8');
 const courseScreen = fs.readFileSync(path.join(mobileRoot, 'src', 'screens', 'CourseScreen.tsx'), 'utf8');
 const mediaBuilder = fs.readFileSync(path.join(repositoryRoot, 'scripts', 'build_a1_media_composites.py'), 'utf8');
+
+const unitOneBuilderPath = path.join(repositoryRoot, 'scripts', 'build_unit_1_lessons.mjs');
+const authoredUnitOne = [];
+const unitOneBuilderSource = fs.readFileSync(unitOneBuilderPath, 'utf8')
+  .replace(/^import \{ writeFileSync \} from 'node:fs';\r?\n/m, '')
+  .replace(/^import \{ join \} from 'node:path';\r?\n/m, '');
+// Exercise the real authoring source without generating or changing any files.
+vm.runInNewContext(unitOneBuilderSource, {
+  writeFileSync: (filename, contents) => {
+    assert.equal(path.dirname(filename), path.join(repositoryRoot, 'backend', 'lessons', 'unit_1'));
+    authoredUnitOne.push(JSON.parse(contents));
+  },
+  join: path.join,
+  process: { cwd: () => repositoryRoot },
+  console: { log: () => {} },
+}, { filename: unitOneBuilderPath, timeout: 2000 });
+assert.equal(authoredUnitOne.length, 9, 'source-level QA must capture lessons 1.2 through 1.10 without disk writes');
+
+const expectedParallelTextBanks = [
+  ['1.2', 'R6', ['The man is drinking. He is drinking.', 'The boy is eating. He is eating.', 'The girl is reading. She is reading.']],
+  ['1.2', 'R8', ['The girl is reading. She is reading.', 'The man is drinking. He is drinking.', 'The woman is writing. She is writing.']],
+  ['1.2', 'R10', ['The woman is writing. She is writing.', 'The boy is eating. He is eating.', 'The girl is reading. She is reading.']],
+  ['1.2', 'A3', ['Drinking', 'Eating', 'Reading']],
+  ['1.2', 'A6', ['The girl is reading. She is reading.', 'The man is drinking. He is drinking.', 'The woman is writing. She is writing.']],
+  ['1.3', 'R2', ['They', 'He', 'She']],
+  ['1.3', 'R5', ['The man is sitting.', 'The man is drinking.', 'The boy is swimming.']],
+  ['1.3', 'A3', ['They are running.', 'They are eating.', 'They are reading.']],
+  ['1.3', 'A6', ['She is sleeping.', 'She is reading.', 'She is writing.']],
+  ['1.4', 'R2', ['A baby', 'A man', 'A woman']],
+  ['1.4', 'R4', ['He is a child.', 'He is a man.', 'She is a child.']],
+  ['1.4', 'R6', ['He is a brother.', 'She is a sister.', 'They are brothers.']],
+  ['1.4', 'R8', ['She is a sister.', 'He is a brother.', 'They are sisters.']],
+  ['1.4', 'A3', ['They are babies.', 'He is a baby.', 'She is a baby.']],
+  ['1.4', 'A6', ['They are brothers.', 'They are sisters.', 'They are babies.']],
+  ['1.5', 'R1', ['An adult', 'A boy', 'A girl']],
+  ['1.5', 'R3', ['He is the father.', 'She is the mother.', 'They are the parents.']],
+  ['1.5', 'A3', ['He is the father.', 'She is the mother.', 'They are the parents.']],
+  ['1.9', 'R6', ['The children are swimming.', 'The children are running.', 'The children are studying.']],
+  ['1.9', 'R8', ['The brothers are studying.', 'The brothers are swimming.', 'The brothers are running.']],
+  ['1.9', 'R10', ['They are a family.', 'They are not a family.', 'They are babies.']],
+  ['1.9', 'R12', ['Who is she? She is the mother. The mother is cooking.', 'Who is she? She is the mother. The mother is reading.', 'Who is she? She is the mother. The mother is swimming.']],
+  ['1.9', 'R14', ['Who are they? They are the grandparents. They are sitting and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are running and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are sitting and sleeping. They are not talking.']],
+  ['1.9', 'A6', ['The children are swimming.', 'The children are running.', 'The children are studying.']],
+  ['1.9', 'A8', ['They are a family.', 'They are not a family.', 'They are babies.']],
+  ['1.9', 'A9', ['Who are they? They are the parents. The parents are talking.', 'Who are they? They are the parents. The parents are running.', 'Who are they? They are the parents. The parents are swimming.']],
+];
+const unitOneActions = /\b(?:eating|drinking|reading|writing|running|sitting|swimming|sleeping|playing|studying|working|cooking|talking)\b/i;
+const choiceFrame = (label) => (label.match(/[^.!?]+[.!?]?/g) || []).map((part) => {
+  const clause = part.trim();
+  if (clause.endsWith('?')) return 'question';
+  if (/^(?:he|she|they)$/i.test(clause)) return 'pronoun-label';
+  const dimension = unitOneActions.test(clause) ? 'action' : 'identity';
+  return `${dimension}-${/\b(?:is|are)\b/i.test(clause) ? 'sentence' : 'label'}`;
+}).join('/');
+
+function assertParallelUnitOneChoices(lessons, context) {
+  const findLesson = (number) => {
+    const found = lessons.find((item) => item.sub_lesson_id === number);
+    assert.ok(found, `${context}: missing lesson ${number}`);
+    return found;
+  };
+  const findCard = (number, slideId) => {
+    const found = findLesson(number).cards.find((card) => card.slide_id === slideId);
+    assert.ok(found, `${context}: missing lesson ${number} ${slideId}`);
+    return found;
+  };
+  for (const [number, slideId, labels] of expectedParallelTextBanks) {
+    const card = findCard(number, slideId);
+    assert.equal(card.options.every((option) => !option.image_url), true, `${context}: ${number} ${slideId} must remain a text-answer bank`);
+    assert.deepEqual(card.options.map((option) => option.label), labels, `${context}: ${number} ${slideId} must preserve its reviewed exclusive, parallel alternatives`);
+  }
+  for (const number of ['1.2', '1.3', '1.4', '1.5', '1.8', '1.9', '1.10']) {
+    const current = findLesson(number);
+    for (const card of current.cards.filter((item) => ['Recognize', 'Listen'].includes(item.stage))) {
+      const frames = card.options.map((option) => choiceFrame(option.label));
+      assert.equal(new Set(frames).size, 1, `${context}: ${number} ${card.slide_id} mixes grammatical/semantic frames: ${card.options.map((option) => option.label).join(' | ')}`);
+    }
+    const expectedCounts = number === '1.9' ? [14, 14, 10, 8, 8]
+      : number === '1.10' ? [4, 8, 6, 6, 8] : [10, 10, 8, 7, 7];
+    assert.deepEqual(
+      ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'].map((stage) => current.cards.filter((card) => card.stage === stage).length),
+      expectedCounts,
+      `${context}: ${number} choice repair must preserve stage/card counts`,
+    );
+    assert.deepEqual([...new Set(current.cards.map((card) => card.stage))], ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'], `${context}: ${number} choice repair must preserve story stage order`);
+  }
+  assert.equal(findCard('1.9', 'A8').interaction_type, 'a2t3', `${context}: review family listening must use the approved parallel text bank`);
+  for (const number of ['1.9', '1.10']) {
+    assert.equal(findLesson(number).review_vocabulary.includes('grandchildren'), false, `${context}: review metadata may not claim unretrieved grandchildren`);
+  }
+  assert.equal(findLesson('1.5').vocabulary.includes('grandchildren'), true, `${context}: keep the new word in lesson 1.5`);
+  assert.equal(path.basename(findCard('1.5', 'L9').options[0].image_url), 'family_parents_children.webp', `${context}: L9 must show only the parents and children`);
+  assert.equal(path.basename(findCard('1.5', 'R9').prompt_image_url), 'family_parents_children.webp', `${context}: R9 must assess the exact parents-and-children scene`);
+  assert.deepEqual(findCard('1.5', 'R10').options.map((option) => path.basename(option.image_url)), ['family_grandparents_grandchildren.webp', 'family_parents_children.webp'], `${context}: preserve the parallel generation scenes`);
+}
+
+assertParallelUnitOneChoices(authoredUnitOne, 'Unit 1 authoring source');
+if (process.argv.includes('--source-only')) {
+  console.log('Unit 1 source-level parallel-choice guardrails passed without generating files.');
+  process.exit(0);
+}
+assertParallelUnitOneChoices(course, 'Embedded Unit 1 course');
 
 assert.equal(course.length, 70, 'semantic media QA must cover all 70 A1 lessons');
 
@@ -132,6 +235,50 @@ for (const [stage, slideId] of [['Recognize', 'R1'], ['Listen', 'A1']]) {
   );
 }
 
+assert.deepEqual(
+  cardBySlide('1.2', 'Recognize', 'R3').options.map((option) => option.label),
+  ['The boy is eating.', 'The man is drinking.', 'The girl is reading.'],
+  'Lesson 1.2 R3 must contrast complete action sentences, never the still-true subject label',
+);
+
+const expectedParallelPairActions = new Map([
+  ['R8', [
+    'The boy and the girl are reading.',
+    'The boy and the girl are eating.',
+    'The boy and the girl are running.',
+  ]],
+  ['R10', [
+    'The boy and the girl are running.',
+    'The boy and the girl are eating.',
+    'The boy and the girl are reading.',
+  ]],
+]);
+for (const [slideId, expectedLabels] of expectedParallelPairActions) {
+  assert.deepEqual(
+    cardBySlide('1.3', 'Recognize', slideId).options.map((option) => option.label),
+    expectedLabels,
+    `Lesson 1.3 ${slideId} must use full parallel two-person action sentences`,
+  );
+}
+
+const optionImageNames = (number, stage, slideId) => cardBySlide(number, stage, slideId)
+  .options
+  .map((option) => path.basename(option.image_url));
+for (const [stage, slideId] of [['Recognize', 'R1'], ['Listen', 'A1']]) {
+  assert.deepEqual(
+    optionImageNames('1.4', stage, slideId),
+    ['family_all_members.webp', 'man.webp', 'woman.webp', 'family_baby.webp'],
+    `Lesson 1.4 ${slideId} must contrast the whole family with single people, not a true child subset`,
+  );
+}
+for (const [stage, slideId] of [['Recognize', 'R10'], ['Listen', 'A8']]) {
+  assert.deepEqual(
+    optionImageNames('1.4', stage, slideId),
+    ['family_all_members.webp', 'man.webp'],
+    `Lesson 1.4 ${slideId} must not use a pair of adults that can also be a family`,
+  );
+}
+
 const expectedParentsContrastImages = [
   'family_babies.webp',
   'family_children.webp',
@@ -153,6 +300,164 @@ assert.deepEqual(
     .sort(),
   ['boy.webp', 'family_baby.webp', 'family_father.webp', 'girl.webp'].sort(),
   'Lesson 1.5 A1 must contrast one adult only with three single children',
+);
+
+const expectedGrandfatherTextLabels = [
+  'He is the grandfather.',
+  'She is the grandmother.',
+  'They are the grandparents.',
+];
+for (const [stage, slideId] of [['Recognize', 'R6'], ['Listen', 'A6']]) {
+  assert.deepEqual(
+    cardBySlide('1.5', stage, slideId).options.map((option) => option.label),
+    expectedGrandfatherTextLabels,
+    `Lesson 1.5 ${slideId} must use complete gender/number contrasts instead of true adult labels`,
+  );
+}
+assert.deepEqual(
+  cardBySlide('1.5', 'Recognize', 'R9').options.map((option) => option.label),
+  [
+    'The parents and the children are a family.',
+    'The parents and the children are babies.',
+    'The parents and the children are sisters.',
+  ],
+  'Lesson 1.5 R9 must contrast complete claims about the full pictured group',
+);
+
+const grandparentsGrandchildrenSentence = 'The grandparents and the grandchildren are family.';
+const grandparentsGrandchildrenAsset = 'family_grandparents_grandchildren.webp';
+assert.equal(
+  lesson('1.5').vocabulary.includes('grandchildren'),
+  true,
+  'Lesson 1.5 must declare grandchildren before assessing the new relationship sentence',
+);
+assert.deepEqual(
+  {
+    image: path.basename(cardBySlide('1.5', 'Learn', 'L10').options[0].image_url),
+    prompt: cardBySlide('1.5', 'Learn', 'L10').prompt,
+  },
+  { image: grandparentsGrandchildrenAsset, prompt: grandparentsGrandchildrenSentence },
+  'Lesson 1.5 L10 must introduce grandchildren with the dedicated grandparents-only generation scene',
+);
+assert.deepEqual(
+  cardBySlide('1.5', 'Recognize', 'R10').options.map((option) => [
+    option.label,
+    path.basename(option.image_url),
+  ]),
+  [
+    [grandparentsGrandchildrenSentence, grandparentsGrandchildrenAsset],
+    ['The parents and the children are a family.', 'family_parents_children.webp'],
+  ],
+  'Lesson 1.5 R10 must contrast parallel generation scenes with no parents in the correct image and no grandparents in the distractor',
+);
+
+const expectedLessonFiveCompletionLabels = new Map([
+  ['U3', ['father', 'mother']],
+  ['U4', ['father', 'mother']],
+  ['U5', ['parents', 'sisters']],
+  ['U6', ['grandmother', 'grandfather']],
+  ['U7', ['grandfather', 'grandmother', 'grandparents']],
+]);
+for (const [slideId, expectedLabels] of expectedLessonFiveCompletionLabels) {
+  assert.deepEqual(
+    cardBySlide('1.5', 'Use', slideId).options.map((option) => option.label),
+    expectedLabels,
+    `Lesson 1.5 ${slideId} must use visibly false family-role completion alternatives`,
+  );
+}
+
+const expectedLessonEightIdentityLabels = new Map([
+  ['R1', ['He is the father.', 'She is the mother.', 'They are the parents.']],
+  ['R3', ['She is the mother.', 'He is the father.', 'They are the parents.']],
+  ['R5', ['They are the parents.', 'They are the brothers.', 'They are the sisters.']],
+  ['R7', ['They are the children.', 'They are the parents.', 'They are the grandparents.']],
+  ['R9', ['They are the grandparents.', 'They are the brothers.', 'They are the sisters.']],
+]);
+for (const [slideId, expectedLabels] of expectedLessonEightIdentityLabels) {
+  assert.deepEqual(
+    cardBySlide('1.8', 'Recognize', slideId).options.map((option) => option.label),
+    expectedLabels,
+    `Lesson 1.8 ${slideId} must use the reviewed non-overlapping identity set`,
+  );
+}
+
+const expectedLessonEightImageChoices = new Map([
+  ['R2', [
+    ['He is the father.', 'family_father.webp'],
+    ['She is the mother.', 'family_mother.webp'],
+  ]],
+  ['R4', [
+    ['She is the mother.', 'family_mother.webp'],
+    ['He is the father.', 'family_father.webp'],
+  ]],
+  ['R6', [
+    ['They are the parents.', 'family_parents.webp'],
+    ['They are the brothers.', 'family_brothers.webp'],
+  ]],
+  ['R8', [
+    ['They are the children.', 'family_children.webp'],
+    ['They are the parents.', 'family_parents.webp'],
+  ]],
+  ['R10', [
+    ['They are the grandparents.', 'family_grandparents.webp'],
+    ['They are the brothers.', 'family_brothers.webp'],
+  ]],
+]);
+const unsafeIdentityImagePairs = [
+  new Set(['family_father.webp', 'family_grandfather.webp']),
+  new Set(['family_mother.webp', 'family_grandmother.webp']),
+  new Set(['family_parents.webp', 'family_grandparents.webp']),
+];
+for (const slideId of ['R2', 'R4', 'R6', 'R8', 'R10']) {
+  const card = cardBySlide('1.8', 'Recognize', slideId);
+  const imageNames = new Set(card.options.map((option) => path.basename(option.image_url)));
+  assert.deepEqual(
+    card.options.map((option) => [option.label, path.basename(option.image_url)]),
+    expectedLessonEightImageChoices.get(slideId),
+    `Lesson 1.8 ${slideId} must keep its exact safe identity/image pairing`,
+  );
+  assert.equal(
+    card.options.every((option) => /^(?:He is|She is|They are)\b/.test(option.label)),
+    true,
+    `Lesson 1.8 ${slideId} image choices must use parallel identity statements, not questions`,
+  );
+  for (const unsafePair of unsafeIdentityImagePairs) {
+    assert.equal(
+      [...unsafePair].every((filename) => imageNames.has(filename)),
+      false,
+      `Lesson 1.8 ${slideId} cannot contrast overlapping family roles ${[...unsafePair].join(' / ')}`,
+    );
+  }
+}
+
+const expectedLessonEightCompletionLabels = new Map([
+  ['U2', ['mother', 'father']],
+  ['U4', ['mother', 'father']],
+  ['U6', ['parents', 'children']],
+]);
+for (const [slideId, expectedLabels] of expectedLessonEightCompletionLabels) {
+  assert.deepEqual(
+    cardBySlide('1.8', 'Use', slideId).options.map((option) => option.label),
+    expectedLabels,
+    `Lesson 1.8 ${slideId} must not offer an overlapping family role for the pictured answer`,
+  );
+}
+
+assert.deepEqual(
+  cardBySlide('1.9', 'Use', 'U7').options.map((option) => option.label),
+  ['sisters', 'parents', 'talking'],
+  'Lesson 1.9 U7 must use a visibly false group alternative for the parents scene',
+);
+assert.deepEqual(
+  cardBySlide('1.9', 'Use', 'U8').options.map((option) => option.label),
+  ['brothers', 'grandparents', 'not'],
+  'Lesson 1.9 U8 must use a visibly false group alternative for the grandparents scene',
+);
+
+assert.deepEqual(
+  cardBySlide('1.10', 'Recognize', 'R1').options.map((option) => option.label),
+  ['They are a family.', 'They are not a family.'],
+  'Lesson 1.10 R1 must use a same-frame binary contrast rather than one true family-member subset',
 );
 
 const reviewedFatherReadingAsset = 'a1_u1_mission_father_reading_clear.webp';

@@ -23,7 +23,33 @@ const TEXT_OPTION_THEMES = [
   { accent: '#96651d', background: '#fff6df', border: '#e3c27d' },
   { accent: '#4f5d95', background: '#f0f2fa', border: '#adb5d8' },
 ];
+const TEXT_OPTION_NORMAL_MAX_LINES = 2;
+const TEXT_OPTION_MAX_LINES = 3;
 const EMPTY_SELECTED_IDS: string[] = [];
+
+export function textOptionLineLimit(label: string | null | undefined) {
+  const normalized = (label || '').trim();
+  const wordCount = normalized ? normalized.split(/\s+/).length : 0;
+  const sentenceCount = normalized.match(/[.!?]+(?:\s|$)/g)?.length || 0;
+  if (normalized.length <= 22 && wordCount <= 3) return 1;
+  if (normalized.length > 56 || sentenceCount >= 3) return TEXT_OPTION_MAX_LINES;
+  return TEXT_OPTION_NORMAL_MAX_LINES;
+}
+
+export function textAnswerStackNeedsScroll(
+  viewportWidth: number,
+  viewportHeight: number,
+  labels: Array<string | null | undefined>,
+) {
+  const visibleLabels = labels.filter((label) => Boolean(label?.trim()));
+  if (visibleLabels.length === 0) return false;
+  const lineDemand = visibleLabels.reduce(
+    (total, label) => total + textOptionLineLimit(label),
+    0,
+  );
+  const shortViewportLimit = viewportHeight >= viewportWidth ? 760 : 460;
+  return viewportHeight < shortViewportLimit || lineDemand >= 7;
+}
 
 type Props = {
   audioProvider: CourseAudioProvider;
@@ -54,6 +80,7 @@ type Props = {
   missionStep?: number;
   missionTotal?: number;
   onUndoSelection?: () => void;
+  allowVerticalGrowth?: boolean;
 };
 
 export function LessonCardView({
@@ -85,6 +112,7 @@ export function LessonCardView({
   missionStep,
   missionTotal,
   onUndoSelection,
+  allowVerticalGrowth = false,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -96,18 +124,24 @@ export function LessonCardView({
   const isLandscape = viewportWidth > viewportHeight;
   const isCompactLandscape = isLandscape && viewportHeight < 460;
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
-  const isTabletLandscape = isLandscape && Math.min(viewportWidth, viewportHeight) >= 540;
+  const isTabletViewport = Math.min(viewportWidth, viewportHeight) >= 540;
+  const isTabletLandscape = isLandscape && isTabletViewport;
   const hasTextOnlyOptions = card.options.length > 0 && card.options.every((option) => !option.image_url);
+  const hasMultilineTextOption = hasTextOnlyOptions
+    && card.options.some((option) => textOptionLineLimit(option.label) > 1);
   const useCompactCompletionTiles = isGrammar
     && hasTextOnlyOptions
     && card.options.length === 3
     && card.options.every((option) => (
-      (option.label?.trim().length || 0) <= 12
+      (option.label?.trim().length || 0) <= 8
       && (option.label?.trim().split(/\s+/).length || 0) <= 2
     ));
   // Phrase choices need the full phone width. Stacking them as short horizontal
-  // rows keeps each sentence on one line and prevents Android from splitting words.
+  // rows lets short responses stay large while longer sentences use two or three safe lines.
   const useHorizontalPhraseOptions = !isLandscape && hasTextOnlyOptions && !useCompactCompletionTiles;
+  // A full sentence cannot stay readable in the narrow columns used by a
+  // compact landscape row. Stack that bank at full width inside the scroll-safe page.
+  const useStackedCompactLandscapeText = isCompactLandscape && hasMultilineTextOption;
   // Image-to-text cards are a recurring lesson pattern. Keep the complete
   // prompt image and a 2x2 phrase grid inside a phone's usable portrait area.
   const useDensePortraitTextLayout =
@@ -150,6 +184,8 @@ export function LessonCardView({
       ? '31%'
       : useHorizontalPhraseOptions
       ? '100%'
+      : useStackedCompactLandscapeText
+      ? '100%'
       : usePortraitImageStack
       ? '100%'
       : useTextGrid || useTabletImageGrid
@@ -161,6 +197,28 @@ export function LessonCardView({
         : useSingleImageLayout
           ? '100%'
           : '48%';
+  const textOptionFontSize = isTabletViewport
+    ? Math.max(34, Math.min(42, viewportHeight * 0.055))
+    : useHorizontalPhraseOptions
+      ? Math.max(21, Math.min(28, viewportWidth * 0.068))
+      : useDensePortraitTextLayout
+        ? Math.max(22, Math.min(26, viewportWidth * 0.064))
+        : Math.max(26, Math.min(34, viewportHeight * 0.052));
+  const textOptionLineHeight = isTabletViewport
+    ? Math.max(40, Math.min(49, viewportHeight * 0.064))
+    : useHorizontalPhraseOptions
+      ? Math.max(26, Math.min(34, viewportWidth * 0.082))
+      : useDensePortraitTextLayout
+        ? Math.max(27, Math.min(31, viewportWidth * 0.076))
+        : Math.max(32, Math.min(40, viewportHeight * 0.062));
+  const textOptionMinimumFontSize = isTabletViewport ? 22 : 16;
+  const textOptionMinimumFontScale = Math.min(
+    1,
+    textOptionMinimumFontSize / textOptionFontSize,
+  );
+  const textOptionLineLimits = hasTextOnlyOptions
+    ? card.options.map((option) => textOptionLineLimit(option.label))
+    : [];
   const optionMinHeight = hasTextOnlyOptions
     ? useCompactCompletionTiles
       ? Math.max(64, Math.min(82, viewportHeight * 0.09))
@@ -178,6 +236,12 @@ export function LessonCardView({
     : isLandscape
       ? Math.max(58, viewportHeight * 0.17)
       : 92;
+  const textOptionChromeHeight = useHorizontalPhraseOptions
+    ? useDensePortraitTextLayout ? 25 : 28
+    : useDensePortraitTextLayout ? 33 : 40;
+  const textOptionMinHeightFor = (lineLimit: number) => lineLimit > 1
+    ? Math.max(optionMinHeight, (textOptionLineHeight * lineLimit) + textOptionChromeHeight)
+    : optionMinHeight;
   const responsiveFeatureImageHeight = useDensePortraitTextLayout
     ? Math.max(170, Math.min(245, viewportHeight * 0.27))
     : isTabletLandscape
@@ -219,14 +283,27 @@ export function LessonCardView({
       : 58
     : 0;
   const availableOptionsHeight = Math.max(0, availableCardHeight - feedbackReservedHeight);
-  const textOptionRows = hasTextOnlyOptions
-    ? useCompactCompletionTiles
+  const textOptionColumns = useCompactCompletionTiles
+    ? Math.max(1, card.options.length)
+    : useHorizontalPhraseOptions
       ? 1
-      : useHorizontalPhraseOptions
-      ? card.options.length
+      : useStackedCompactLandscapeText
+        ? 1
       : isLandscape && !useTextGrid
-      ? 1
-      : Math.ceil(card.options.length / 2)
+        ? Math.max(1, card.options.length)
+        : 2;
+  const textOptionRows = hasTextOnlyOptions
+    ? Math.ceil(card.options.length / textOptionColumns)
+    : 0;
+  const textOptionsReservedHeight = hasTextOnlyOptions
+    ? Array.from({ length: textOptionRows }, (_unused, rowIndex) => {
+        const rowLineLimits = textOptionLineLimits.slice(
+          rowIndex * textOptionColumns,
+          (rowIndex + 1) * textOptionColumns,
+        );
+        return Math.max(...rowLineLimits.map(textOptionMinHeightFor));
+      }).reduce((sum, rowHeight) => sum + rowHeight, 0)
+      + (Math.max(0, textOptionRows - 1) * 10)
     : 0;
   const featureReservedHeight = isPronunciation
     ? result
@@ -237,7 +314,7 @@ export function LessonCardView({
     : isMissionTile
       ? Math.max(210, Math.min(260, viewportHeight * 0.37))
     : hasTextOnlyOptions
-      ? (optionMinHeight * textOptionRows) + (Math.max(0, textOptionRows - 1) * 10) + 30
+      ? textOptionsReservedHeight + feedbackReservedHeight + 30
       : 24;
   const featureImageHeight = Math.min(
     responsiveFeatureImageHeight,
@@ -357,6 +434,7 @@ export function LessonCardView({
       isTabletLandscape ? styles.cardTabletLandscape : null,
       isPronunciation ? styles.pronunciationCard : null,
       isPronunciation && !isLandscape ? styles.pronunciationCardPortrait : null,
+      allowVerticalGrowth ? styles.cardVerticalGrowth : null,
     ]}
       onLayout={({ nativeEvent }) => {
         const nextHeight = Math.round(nativeEvent.layout.height);
@@ -463,6 +541,7 @@ export function LessonCardView({
             !isLandscape ? styles.optionsPortrait : null,
             useDensePortraitTextLayout ? styles.optionsDensePortrait : null,
             useHorizontalPhraseOptions ? styles.optionsHorizontalPhrases : null,
+            useCompactCompletionTiles ? styles.optionsCompactText : null,
             isTabletLandscape ? styles.optionsTabletLandscape : null,
             useExpandedSingleActionVideo ? styles.singleActionVideoOptions : null,
             tabletImageGridWidth
@@ -480,6 +559,7 @@ export function LessonCardView({
               const optionDisabled = !optionsInteractive
                 || result === 'correct'
                 || (revealPending && effectiveSelectedIds.length < (card.correct_option_ids?.length || 1));
+              const optionTextLineLimit = textOptionLineLimit(option.label);
               const textTheme = TEXT_OPTION_THEMES[optionIndex % TEXT_OPTION_THEMES.length];
               const actionVideo = useStillOnlyLesson17Comparison
                 ? null
@@ -500,7 +580,9 @@ export function LessonCardView({
                   style={({ pressed }) => [
                     styles.option,
                     {
-                      minHeight: optionMinHeight,
+                      minHeight: hasTextOnlyOptions
+                        ? textOptionMinHeightFor(optionTextLineLimit)
+                        : optionMinHeight,
                       padding: isTabletLandscape ? 8 : 5,
                       width: constrainedPortraitImageOptionWidth
                         ?? constrainedLandscapeImageOptionWidth
@@ -517,6 +599,9 @@ export function LessonCardView({
                     hasTextOnlyOptions ? styles.textOption : null,
                     useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
                     useHorizontalPhraseOptions ? styles.textOptionHorizontal : null,
+                    useCompactCompletionTiles ? styles.textOptionCompact : null,
+                    hasTextOnlyOptions && optionTextLineLimit > 1 ? styles.textOptionSentence : null,
+                    hasTextOnlyOptions && optionTextLineLimit === TEXT_OPTION_MAX_LINES ? styles.textOptionLong : null,
                     revealPending ? styles.pendingOption : null,
                     revealCorrect ? styles.correctOption : null,
                     revealWrong ? styles.wrongOption : null,
@@ -564,10 +649,11 @@ export function LessonCardView({
                         style={[styles.optionSpark, { backgroundColor: textTheme.accent }]}
                       />
                       <Text
-                        adjustsFontSizeToFit={useDensePortraitTextLayout || useHorizontalPhraseOptions}
-                        maxFontSizeMultiplier={useHorizontalPhraseOptions ? 1.1 : useDensePortraitTextLayout ? 1.15 : undefined}
-                        minimumFontScale={useHorizontalPhraseOptions ? 0.55 : useDensePortraitTextLayout ? 0.78 : undefined}
-                        numberOfLines={useHorizontalPhraseOptions ? 1 : useDensePortraitTextLayout ? 3 : undefined}
+                        adjustsFontSizeToFit
+                        android_hyphenationFrequency="none"
+                        maxFontSizeMultiplier={isTabletViewport ? 1.2 : 1.15}
+                        minimumFontScale={textOptionMinimumFontScale}
+                        numberOfLines={optionTextLineLimit}
                         style={[
                           styles.optionLabel,
                           styles.textOptionLabel,
@@ -577,22 +663,11 @@ export function LessonCardView({
                               : revealWrong
                                 ? '#a34842'
                                 : textTheme.accent,
-                            fontSize: isTabletLandscape
-                              ? Math.max(34, Math.min(42, viewportHeight * 0.055))
-                              : useHorizontalPhraseOptions
-                                ? Math.max(21, Math.min(28, viewportWidth * 0.068))
-                              : useDensePortraitTextLayout
-                                ? Math.max(22, Math.min(26, viewportWidth * 0.064))
-                              : Math.max(26, Math.min(34, viewportHeight * 0.052)),
-                            lineHeight: isTabletLandscape
-                              ? Math.max(40, Math.min(49, viewportHeight * 0.064))
-                              : useHorizontalPhraseOptions
-                                ? Math.max(26, Math.min(34, viewportWidth * 0.082))
-                              : useDensePortraitTextLayout
-                                ? Math.max(27, Math.min(31, viewportWidth * 0.076))
-                              : Math.max(32, Math.min(40, viewportHeight * 0.062)),
+                            fontSize: textOptionFontSize,
+                            lineHeight: textOptionLineHeight,
                           },
                         ]}
+                        textBreakStrategy="simple"
                       >
                         {option.label}
                       </Text>
@@ -1018,6 +1093,7 @@ const styles = StyleSheet.create({
   },
   cardCompactLandscape: { minHeight: 0, overflow: 'hidden', padding: 6 },
   cardTabletLandscape: { padding: 14 },
+  cardVerticalGrowth: { flexBasis: 'auto', flexGrow: 1, flexShrink: 0 },
   pronunciationCard: { justifyContent: 'flex-start', paddingBottom: 4, paddingTop: 3 },
   pronunciationCardPortrait: { paddingBottom: 6, paddingTop: 3 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
@@ -1053,6 +1129,7 @@ const styles = StyleSheet.create({
   optionsPortrait: { columnGap: 10, marginTop: 2, rowGap: 10 },
   optionsDensePortrait: { columnGap: 8, marginTop: 5, rowGap: 8 },
   optionsHorizontalPhrases: { alignContent: 'flex-start', marginTop: 5, rowGap: 7 },
+  optionsCompactText: { columnGap: 6 },
   optionsTabletLandscape: { columnGap: 12, marginTop: 8, rowGap: 10 },
   missionBoard: {
     alignItems: 'center',
@@ -1217,6 +1294,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 38,
     paddingVertical: 6,
   },
+  textOptionCompact: { paddingHorizontal: 0 },
+  textOptionSentence: { paddingHorizontal: 12 },
+  textOptionLong: { paddingHorizontal: 0 },
   optionSpark: {
     borderRadius: 50,
     height: 72,
@@ -1237,15 +1317,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   textOptionLabel: {
+    alignSelf: 'stretch',
+    flexShrink: 1,
     fontSize: 30,
     fontWeight: '900',
     letterSpacing: 0,
     lineHeight: 36,
     marginTop: 0,
+    maxWidth: '100%',
     textAlign: 'center',
     textShadowColor: 'rgba(255,255,255,0.85)',
     textShadowOffset: { height: 1, width: 0 },
     textShadowRadius: 1,
+    width: '100%',
   },
   pendingOption: { backgroundColor: '#fff6df', borderColor: '#d6a83b' },
   correctOption: { backgroundColor: '#eaf6ee', borderColor: '#3c996c' },

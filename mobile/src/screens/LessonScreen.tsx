@@ -38,7 +38,7 @@ import {
   logCardAttempt,
   startLessonSession,
 } from '../api';
-import { LessonCardView } from '../components/LessonCardView';
+import { LessonCardView, textAnswerStackNeedsScroll } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
@@ -2326,6 +2326,18 @@ export function LessonScreen({
     );
   }
 
+  const textOnlyAnswerLabels = currentCard.options.length > 0
+    && currentCard.options.every((option) => !option.image_url)
+    ? currentCard.options.map((option) => option.label)
+    : [];
+  const needsTextAnswerScrolling = textAnswerStackNeedsScroll(
+    viewportWidth,
+    viewportHeight,
+    textOnlyAnswerLabels,
+  );
+  const needsAccessibleScrolling = fontScale > 1.3
+    || viewportHeight < 300
+    || needsTextAnswerScrolling;
   const lessonContent = (
     <>
         {qaMode ? (
@@ -2606,6 +2618,7 @@ export function LessonScreen({
           pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'}
           style={[
             styles.cardCarousel,
+            needsTextAnswerScrolling ? styles.cardCarouselVerticalGrowth : null,
             isCompletedSectionPicker ? styles.reviewContentInactive : null,
             manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
           ]}
@@ -2616,6 +2629,7 @@ export function LessonScreen({
             </View>
           ) : <LessonCardView
             activeTurnImageUrl={activeTurnImageUrl}
+            allowVerticalGrowth={needsTextAnswerScrolling}
             audioProvider={audioProvider}
             audioVoice={audioVoice}
             card={currentCard}
@@ -2648,8 +2662,6 @@ export function LessonScreen({
         </Animated.View>
     </>
   );
-  const needsAccessibleScrolling = fontScale > 1.3 || viewportHeight < 300;
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar hidden />
@@ -2657,6 +2669,7 @@ export function LessonScreen({
         <ScrollView
           contentContainerStyle={[
             styles.pageScrollable,
+            needsTextAnswerScrolling ? styles.pageScrollableTextAnswers : null,
             useCompactPhoneLayout ? styles.pageCompact : null,
             isPortrait ? styles.pagePortrait : null,
             isPronunciation ? styles.pagePronunciation : null,
@@ -2722,8 +2735,10 @@ const styles = StyleSheet.create({
   pagePronunciation: { gap: 4, paddingBottom: 4, paddingTop: 4 },
   pageScroll: { flex: 1 },
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
+  pageScrollableTextAnswers: { flexGrow: 1 },
   completionPage: { alignItems: 'center', flexGrow: 1, justifyContent: 'center', paddingHorizontal: 28, paddingVertical: 24 },
   cardCarousel: { flex: 1 },
+  cardCarouselVerticalGrowth: { flexBasis: 'auto', flexGrow: 1, flexShrink: 0 },
   reviewContentInactive: { opacity: 0.28 },
   sectionPickerPanel: {
     alignItems: 'center',
