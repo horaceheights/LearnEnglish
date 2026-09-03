@@ -29,4 +29,19 @@ assert.ok(
   'The correct-choice lock must reset on both card advance and manual section/card navigation.',
 );
 
+const reviewCompletionCount = (
+  lessonScreenSource.match(/setCompletedLessonMode\('review-complete'\);/g) || []
+).length;
+assert.equal(
+  reviewCompletionCount,
+  2,
+  'Automatic and swipe-based section review completion must leave the final card for a distinct completion screen.',
+);
+
+assert.match(
+  lessonScreenSource,
+  /completedLessonMode === 'review-complete'[\s\S]*?SECCIÓN TERMINADA[\s\S]*?Practicar otra sección[\s\S]*?Volver a las lecciones/,
+  'A completed section review must offer clear next actions instead of leaving a dimmed final card on screen.',
+);
+
 console.log('Completed-section review checks passed.');
