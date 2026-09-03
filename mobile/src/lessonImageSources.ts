@@ -903,6 +903,7 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'a1_u1_mission_family_finish.webp': require('../assets/lesson-assets/a1_u1_mission_family_finish.webp'),
   'a1_u1_mission_family_start.webp': require('../assets/lesson-assets/a1_u1_mission_family_start.webp'),
   'a1_u1_mission_father_reading.webp': require('../assets/lesson-assets/a1_u1_mission_father_reading.webp'),
+  'a1_u1_mission_father_reading_clear.webp': require('../assets/lesson-assets/a1_u1_mission_father_reading_clear.webp'),
   'a1_u1_mission_game_setup.webp': require('../assets/lesson-assets/a1_u1_mission_game_setup.webp'),
   'a1_u1_mission_grandparents_talking.webp': require('../assets/lesson-assets/a1_u1_mission_grandparents_talking.webp'),
   'a1_u1_mission_mother_writing.webp': require('../assets/lesson-assets/a1_u1_mission_mother_writing.webp'),

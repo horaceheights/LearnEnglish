@@ -1,4 +1,5 @@
 const assert = require('node:assert/strict');
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -130,6 +131,33 @@ for (const [stage, slideId] of [['Recognize', 'R1'], ['Listen', 'A1']]) {
     `Lesson 1.2 ${slideId} must offer exactly one boy for the subject-only prompt`,
   );
 }
+
+const reviewedFatherReadingAsset = 'a1_u1_mission_father_reading_clear.webp';
+const fatherReadingSlides = lesson('1.10').cards
+  .filter((card) => mediaFilenames(card).includes(reviewedFatherReadingAsset))
+  .map((card) => card.slide_id)
+  .sort();
+assert.deepEqual(
+  fatherReadingSlides,
+  ['A1', 'L3', 'R3', 'S2', 'U3'],
+  'every Lesson 1.10 father-reading use must share the reviewed printed-clue scene',
+);
+assert.deepEqual(
+  lesson('1.10').cards
+    .filter((card) => mediaFilenames(card).includes('a1_u1_mission_father_reading.webp'))
+    .map((card) => card.slide_id)
+    .sort(),
+  ['R2', 'S1', 'U1'],
+  'the face-visible father scene is reserved for identity and word-building cards',
+);
+const bundledFatherReading = fs.readFileSync(
+  path.join(mobileRoot, 'assets', 'lesson-assets', reviewedFatherReadingAsset),
+);
+assert.equal(
+  crypto.createHash('sha256').update(bundledFatherReading).digest('hex'),
+  'ab6404c7041d182e0b38ae45a80c6f688f21d02137a83384608a809fb70e9dd1',
+  'changing the reviewed printed-clue pixels requires a new at-mobile-size visual review',
+);
 
 const singularBrother = cardBySlide('1.4', 'Recognize', 'R6');
 assert.equal(singularBrother.prompt_image_url, '/lesson-assets/boy.webp');
