@@ -15,10 +15,8 @@ The nine 1536x1024 source assets are `Lessons/Lesson1/images/a1_who_question_*.w
 - Full backend suite: audio availability remains blocked until the new takes are rendered. No gate was weakened or skipped to publish.
 - Android export and live web/device playback remain to be verified after audio completion.
 
-## Remaining release work
+## Audio completion and release
 
-No local ElevenLabs credential is configured. The bounded renderer plan for `lesson-8-who` selects 95 assets, groups them into 17 takes, reuses four existing reviewed takes, and needs 16 provider requests for 13 missing takes (178 estimated characters). Existing reusable bindings were saved without paid generation.
+The existing Render backend is the configured ElevenLabs source; a missing local key is not evidence that audio generation is unavailable. Its health endpoint verified the pinned model, cast, and speeds. The existing operator renderer captured 13 missing takes through `--legacy-backend-base-url https://learnenglish-fxki.onrender.com`, with a 200-character ceiling (178-character upper bound), and reused four approved takes. Exact bytes, provenance and all new bindings were persisted. No learner runtime fallback or provider change was introduced.
 
-After `ELEVENLABS_API_KEY` is configured locally, rerun the dry-run plan, then use `scripts/render_course_audio_assets.py --lesson-id lesson-8-who --execute --promote --max-character-cost 200`. Retain the renderer's receipts and staging behavior; do not bypass the voice contract or use runtime generation. Commit the reviewed audio and export `scripts/export_persistent_audio_catalog.py --source-ref <exact-candidate-commit>`. The catalog intentionally remains at its prior version while audio is incomplete, so persistent-audio validation fails closed.
-
-Rerun full backend tests, persistent-audio validation and mobile Preview preflight. Then follow the protected Preview PR, canonical reconciliation, backend readiness and GitHub Actions publication workflow from `mobile/RELEASE.md`. Do not merge or publish this incomplete audio candidate.
+The final candidate must export its immutable audio catalog from its exact committed lesson payload, pass all backend and Preview gates, incorporate current canonical and Preview ancestry, and publish only through the protected GitHub Actions workflow. Device testing remains the final human review step after Preview publication.
