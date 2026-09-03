@@ -322,6 +322,58 @@ class LessonStructureTests(unittest.TestCase):
                     with self.subTest(lesson=lesson.id, card=index, asset=asset_name):
                         self.assertTrue((LESSON_IMAGE_DIR / asset_name).is_file())
 
+    def test_people_and_action_image_choices_keep_one_visual_question(self):
+        portrait_images = {
+            "boy.webp",
+            "girl.webp",
+            "man.webp",
+            "woman.webp",
+            "they_boy_girl.webp",
+        }
+        action_images = {
+            "boy_is_eating.webp",
+            "man_is_drinking.webp",
+            "girl_is_reading.webp",
+            "woman_is_writing.webp",
+            "man_is_sitting.webp",
+            "boy_is_swimming.webp",
+            "girl_is_sleeping.webp",
+            "they_boy_girl_are_eating.webp",
+            "they_boy_girl_are_reading.webp",
+            "they_boy_girl_are_running.webp",
+            "they_boy_girl_are_writing.webp",
+        }
+
+        for lesson_id in ("lesson-2-pronouns", "lesson-3-two-people"):
+            for card in LESSONS[lesson_id].cards:
+                image_names = {
+                    urlparse(option.image_url).path.rsplit("/", 1)[-1]
+                    for option in card.options
+                    if option.image_url
+                }
+                if not image_names:
+                    continue
+                with self.subTest(lesson=lesson_id, slide=card.slide_id):
+                    self.assertFalse(
+                        image_names & portrait_images and image_names & action_images,
+                        "subject-only portraits and action scenes cannot share an option bank",
+                    )
+
+        lesson_two_subject_cards = [
+            card
+            for card in LESSONS["lesson-2-pronouns"].cards
+            if card.slide_id in {"R1", "A1"}
+        ]
+        self.assertEqual(2, len(lesson_two_subject_cards))
+        expected_subject_images = {"boy.webp", "girl.webp", "man.webp", "woman.webp"}
+        for card in lesson_two_subject_cards:
+            image_names = {
+                urlparse(option.image_url).path.rsplit("/", 1)[-1]
+                for option in card.options
+            }
+            with self.subTest(slide=card.slide_id):
+                self.assertEqual(expected_subject_images, image_names)
+
     def test_text_only_cards_have_at_most_three_options(self):
         for lesson in LESSONS.values():
             for index, card in enumerate(lesson.cards, 1):

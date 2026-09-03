@@ -52,10 +52,11 @@ const teach = (entry) => ({ ...baseCard({ prompt: entry.prompt, stage: 'Learn', 
   options: [imageOption('answer', entry.image, entry.label || entry.prompt)], audio: entry.audio || entry.prompt,
   answer: null, interaction: 'teach' }), translation: entry.translation });
 
-function distinctEntries(entries, entry, count) {
+function distinctEntries(entries, entry, count, { matchOptionFamily = false } = {}) {
   const seen = new Set([entry.image]);
   const result = [];
   for (const candidate of entries) {
+    if (matchOptionFamily && entry.optionFamily && candidate.optionFamily !== entry.optionFamily) continue;
     if (seen.has(candidate.image)) continue;
     seen.add(candidate.image);
     result.push(candidate);
@@ -67,7 +68,11 @@ function distinctEntries(entries, entry, count) {
 
 function imageChoice(entry, entries, stage, count = 2, audio = entry.prompt) {
   const effectiveCount = entry.distractors ? Math.min(count, entry.distractors.length + 1) : count;
-  const alternatives = entry.distractors?.slice(0, effectiveCount - 1) || distinctEntries(entries, entry, effectiveCount - 1);
+  const alternatives = entry.distractors?.slice(0, effectiveCount - 1)
+    || distinctEntries(entries, entry, effectiveCount - 1, { matchOptionFamily: true });
+  if (entry.optionFamily && alternatives.some((candidate) => candidate.optionFamily !== entry.optionFamily)) {
+    throw new Error(`Mixed visual option families for ${entry.prompt}`);
+  }
   const ordered = entry.reverseOptions ? [...alternatives, entry] : [entry, ...alternatives];
   return { ...baseCard({ prompt: stage === 'Listen' ? 'Listen and choose.' : activePrompt(entry), stage, correct: 'correct',
     options: ordered.map((item, index) => imageOption(item === entry ? 'correct' : `wrong-${index}`, item.image, activePrompt(item))),
@@ -147,16 +152,20 @@ function buildLesson({ id, number, title, goal, vocabulary, reviewVocabulary, gr
 }
 
 const l12 = [
-  { prompt: 'The boy', image: assets.boy, translation: 'El niño' },
-  { prompt: 'Eating', image: assets.boyEating, translation: 'Comiendo' },
-  { prompt: 'The boy is eating.', image: assets.boyEating, translation: 'El niño está comiendo.' },
-  { prompt: 'He is eating.', image: assets.boyEating, translation: 'Él está comiendo.' },
-  { prompt: 'Drinking', image: assets.manDrinking, translation: 'Bebiendo' },
-  { prompt: 'The man is drinking. He is drinking.', image: assets.manDrinking, translation: 'El hombre está bebiendo. Él está bebiendo.' },
-  { prompt: 'Reading', image: assets.girlReading, translation: 'Leyendo' },
-  { prompt: 'The girl is reading. She is reading.', image: assets.girlReading, translation: 'La niña está leyendo. Ella está leyendo.' },
-  { prompt: 'Writing', image: assets.womanWriting, translation: 'Escribiendo' },
-  { prompt: 'The woman is writing. She is writing.', image: assets.womanWriting, translation: 'La mujer está escribiendo. Ella está escribiendo.' },
+  { prompt: 'The boy', image: assets.boy, translation: 'El niño', optionFamily: 'person-portrait', distractors: [
+    { prompt: 'The girl', image: assets.girl, optionFamily: 'person-portrait' },
+    { prompt: 'The man', image: assets.man, optionFamily: 'person-portrait' },
+    { prompt: 'The woman', image: assets.woman, optionFamily: 'person-portrait' },
+  ] },
+  { prompt: 'Eating', image: assets.boyEating, translation: 'Comiendo', optionFamily: 'person-action' },
+  { prompt: 'The boy is eating.', image: assets.boyEating, translation: 'El niño está comiendo.', optionFamily: 'person-action' },
+  { prompt: 'He is eating.', image: assets.boyEating, translation: 'Él está comiendo.', optionFamily: 'person-action' },
+  { prompt: 'Drinking', image: assets.manDrinking, translation: 'Bebiendo', optionFamily: 'person-action' },
+  { prompt: 'The man is drinking. He is drinking.', image: assets.manDrinking, translation: 'El hombre está bebiendo. Él está bebiendo.', optionFamily: 'person-action' },
+  { prompt: 'Reading', image: assets.girlReading, translation: 'Leyendo', optionFamily: 'person-action' },
+  { prompt: 'The girl is reading. She is reading.', image: assets.girlReading, translation: 'La niña está leyendo. Ella está leyendo.', optionFamily: 'person-action' },
+  { prompt: 'Writing', image: assets.womanWriting, translation: 'Escribiendo', optionFamily: 'person-action' },
+  { prompt: 'The woman is writing. She is writing.', image: assets.womanWriting, translation: 'La mujer está escribiendo. Ella está escribiendo.', optionFamily: 'person-action' },
 ];
 const lesson12 = buildLesson({
   id: 'lesson-2-pronouns', number: '1.2', title: 'People in Action',
@@ -177,16 +186,31 @@ const lesson12 = buildLesson({
 });
 
 const l13 = [
-  { prompt: 'The boy and the girl', image: assets.pair, translation: 'El niño y la niña' },
-  { prompt: 'They', image: assets.pair, translation: 'Ellos' },
-  { prompt: 'They are eating.', image: assets.pairEating, translation: 'Ellos están comiendo.' },
-  { prompt: 'They are running.', image: assets.pairRunning, translation: 'Ellos están corriendo.' },
-  { prompt: 'The man is sitting.', image: assets.manSitting, translation: 'El hombre está sentado.' },
-  { prompt: 'He is swimming.', image: assets.boySwimming, translation: 'Él está nadando.' },
-  { prompt: 'She is sleeping.', image: assets.girlSleeping, translation: 'Ella está durmiendo.' },
-  { prompt: 'The boy and the girl are reading.', image: assets.pairReading, translation: 'El niño y la niña están leyendo.' },
-  { prompt: 'They are writing.', image: assets.pairWriting, translation: 'Ellos están escribiendo.' },
-  { prompt: 'The boy and the girl are running.', image: assets.pairRunning, translation: 'El niño y la niña están corriendo.' },
+  { prompt: 'The boy and the girl', image: assets.pair, translation: 'El niño y la niña', optionFamily: 'person-portrait', distractors: [
+    { prompt: 'The boy', image: assets.boy, optionFamily: 'person-portrait' },
+    { prompt: 'The girl', image: assets.girl, optionFamily: 'person-portrait' },
+    { prompt: 'The man', image: assets.man, optionFamily: 'person-portrait' },
+  ] },
+  { prompt: 'They', image: assets.pair, translation: 'Ellos', optionFamily: 'person-portrait' },
+  { prompt: 'They are eating.', image: assets.pairEating, translation: 'Ellos están comiendo.', optionFamily: 'pair-action' },
+  { prompt: 'They are running.', image: assets.pairRunning, translation: 'Ellos están corriendo.', optionFamily: 'pair-action' },
+  { prompt: 'The man is sitting.', image: assets.manSitting, translation: 'El hombre está sentado.', optionFamily: 'male-action', distractors: [
+    { prompt: 'He is swimming.', image: assets.boySwimming, optionFamily: 'male-action' },
+    { prompt: 'He is eating.', image: assets.boyEating, optionFamily: 'male-action' },
+    { prompt: 'He is drinking.', image: assets.manDrinking, optionFamily: 'male-action' },
+  ] },
+  { prompt: 'He is swimming.', image: assets.boySwimming, translation: 'Él está nadando.', optionFamily: 'male-action', distractors: [
+    { prompt: 'He is sitting.', image: assets.manSitting, optionFamily: 'male-action' },
+    { prompt: 'He is eating.', image: assets.boyEating, optionFamily: 'male-action' },
+    { prompt: 'He is drinking.', image: assets.manDrinking, optionFamily: 'male-action' },
+  ] },
+  { prompt: 'She is sleeping.', image: assets.girlSleeping, translation: 'Ella está durmiendo.', optionFamily: 'female-action', distractors: [
+    { prompt: 'She is reading.', image: assets.girlReading, optionFamily: 'female-action' },
+    { prompt: 'She is writing.', image: assets.womanWriting, optionFamily: 'female-action' },
+  ] },
+  { prompt: 'The boy and the girl are reading.', image: assets.pairReading, translation: 'El niño y la niña están leyendo.', optionFamily: 'pair-action' },
+  { prompt: 'They are writing.', image: assets.pairWriting, translation: 'Ellos están escribiendo.', optionFamily: 'pair-action' },
+  { prompt: 'The boy and the girl are running.', image: assets.pairRunning, translation: 'El niño y la niña están corriendo.', optionFamily: 'pair-action' },
 ];
 const lesson13 = buildLesson({
   id: 'lesson-3-two-people', number: '1.3', title: 'Two People: They and Are',
