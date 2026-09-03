@@ -278,3 +278,13 @@ A tested Preview is eligible for Production only when:
 - On a two-blank card, get the first blank wrong and the second right, then reverse the mistake. The hint must follow the first incorrect position in the submitted attempt.
 - Check short phone portrait and enlarged font settings: the complete explanation and answer controls must remain visible or reachable; feedback space follows its measured height.
 - Automated gate: `mobile/tests/lesson-mistake-hints.test.cjs` exercises every distractor at each answer position across the 70 embedded lessons and verifies that web and mobile share the resolver. It rejects generic retries, untranslated or blank-marker feedback, and excessively long hints. This does not replace the on-device reading check.
+
+## Edge-to-edge lesson media
+
+- Inspect the actual scene inside the established border inset, including decoded first, middle, and last playing frames. A correctly sized video element does not prove that encoded content fills it.
+- Exercise one-, two-, three-, and four-image layouts on mobile and web, including posters, cold-load transitions, reduced-motion/failure stills, and playing clips.
+- Reject neutral/black bands, blurred side panels, and padding baked into source pixels. Preserve heads, hands, feet, action tools, and answer-critical detail without stretching.
+- Regression examples: Unit 1.6 mother cooking must fill both sides while retaining the pan and stirring hands; walking must retain the feet.
+- Audit every mapped action clip and each two-card variant, not just the reported slide. Regenerate from the reviewed landscape master; do not approve the old inset exception or replace motion with a still to pass.
+
+Run `python scripts/audit_video_full_bleed.py` to decode all client-mapped clips, verify bundled/web byte parity, and reject solid edge bands. This is mandatory in Preview and Production preflight. This pixel heuristic supplements visual review; it does not prove correct actions or detect every possible blurred panel.
