@@ -84,6 +84,53 @@ assert.equal(
   'Lesson 1.3 must introduce and through the two-person story instead of an isolated grammar card',
 );
 
+const subjectOnlyImages = new Set([
+  'boy.webp',
+  'girl.webp',
+  'man.webp',
+  'woman.webp',
+  'they_boy_girl.webp',
+]);
+const personActionImages = new Set([
+  'boy_is_eating.webp',
+  'man_is_drinking.webp',
+  'girl_is_reading.webp',
+  'woman_is_writing.webp',
+  'man_is_sitting.webp',
+  'boy_is_swimming.webp',
+  'girl_is_sleeping.webp',
+  'they_boy_girl_are_eating.webp',
+  'they_boy_girl_are_reading.webp',
+  'they_boy_girl_are_running.webp',
+  'they_boy_girl_are_writing.webp',
+]);
+
+for (const number of ['1.2', '1.3']) {
+  for (const card of lesson(number).cards) {
+    const imageNames = card.options
+      .filter((option) => option.image_url)
+      .map((option) => path.basename(option.image_url));
+    if (!imageNames.length) continue;
+    assert.equal(
+      imageNames.some((filename) => subjectOnlyImages.has(filename))
+        && imageNames.some((filename) => personActionImages.has(filename)),
+      false,
+      `Lesson ${number} ${card.slide_id} cannot mix subject-only and action choices`,
+    );
+  }
+}
+
+const expectedLessonTwoSubjectImages = ['boy.webp', 'girl.webp', 'man.webp', 'woman.webp'].sort();
+for (const [stage, slideId] of [['Recognize', 'R1'], ['Listen', 'A1']]) {
+  assert.deepEqual(
+    cardBySlide('1.2', stage, slideId).options
+      .map((option) => path.basename(option.image_url))
+      .sort(),
+    expectedLessonTwoSubjectImages,
+    `Lesson 1.2 ${slideId} must offer exactly one boy for the subject-only prompt`,
+  );
+}
+
 const singularBrother = cardBySlide('1.4', 'Recognize', 'R6');
 assert.equal(singularBrother.prompt_image_url, '/lesson-assets/boy.webp');
 assert.equal(
