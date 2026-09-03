@@ -100,7 +100,7 @@ function complete({ prompt, image, answer, correct, choices, translation }) {
 function missionTile({ prompt, image, answer, correct, choices, translation, wordParts = false, finale = false }) {
   const ids = Array.isArray(correct) ? correct : [correct];
   return { ...baseCard({ prompt, stage: 'Use', correct: ids[0], correctIds: ids,
-    options: choices.map(([id, label]) => textOption(id, label)), audio: prompt, answer, promptImage: image,
+    options: choices.map(([id, label]) => textOption(id, label)), audio: wordParts ? null : prompt, answer, promptImage: image,
     interaction: finale ? 'mission-finale' : wordParts ? 'mission-word-parts' : 'mission-sentence' }), translation };
 }
 

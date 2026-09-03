@@ -34,7 +34,7 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 
 assert.equal(
   emptyRecognizeCards.length,
-  32,
+  35,
   'The Recognize instruction guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
