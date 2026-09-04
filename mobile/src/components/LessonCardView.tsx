@@ -657,7 +657,6 @@ export function LessonCardView({
                         minimumFontScale={textOptionMinimumFontScale}
                         numberOfLines={optionTextLineLimit}
                         style={[
-                          styles.optionLabel,
                           styles.textOptionLabel,
                           {
                             color: revealCorrect
@@ -666,20 +665,12 @@ export function LessonCardView({
                                 ? '#a34842'
                                 : textTheme.accent,
                             fontSize: textOptionFontSize,
-                            lineHeight: textOptionLineHeight,
                           },
                         ]}
                         textBreakStrategy="simple"
                       >
                         {option.label}
                       </Text>
-                      <View
-                        pointerEvents="none"
-                        style={[
-                          styles.optionLabelBottomSpace,
-                          useDensePortraitTextLayout ? styles.optionLabelBottomSpaceDensePortrait : null,
-                        ]}
-                      />
                     </>
                   ) : null}
                   {revealCorrect ? <Text style={styles.feedbackIcon}>✓</Text> : null}
@@ -1307,26 +1298,21 @@ const styles = StyleSheet.create({
     top: -25,
     width: 72,
   },
-  optionLabelBottomSpace: { height: 5, marginTop: 7, width: 42 },
-  optionLabelBottomSpaceDensePortrait: { height: 4, marginTop: 5, width: 36 },
-  optionLabel: {
-    color: '#26372f',
-    fontSize: 14,
-    fontWeight: '700',
-    lineHeight: 19,
-    marginTop: 4,
-    textAlign: 'center',
-  },
   textOptionLabel: {
     alignSelf: 'stretch',
+    flexGrow: 1,
     flexShrink: 1,
     fontSize: 30,
     fontWeight: '900',
     letterSpacing: 0,
-    lineHeight: 36,
+    // Android auto-fit shrinks glyphs but retains an explicit line-height span.
+    // Give it the full inner tile and natural font metrics, otherwise a height
+    // mismatch can keep shrinking a short word without ever satisfying fit.
+    includeFontPadding: false,
     marginTop: 0,
     maxWidth: '100%',
     textAlign: 'center',
+    textAlignVertical: 'center',
     textShadowColor: 'rgba(255,255,255,0.85)',
     textShadowOffset: { height: 1, width: 0 },
     textShadowRadius: 1,

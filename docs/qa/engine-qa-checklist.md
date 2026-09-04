@@ -14,6 +14,13 @@ lesson player but does not create learner sessions or card-attempt records.
 - The QA hub must expose the full course through a compact Unit → Lesson → Stage → Card navigator. It shows only the selected unit's ten lessons and must not put all 70 lessons before the card list.
 - The last QA lesson, stage, and card are QA-only local state. Returning from the lesson player or reopening Engine QA restores that location without touching learner progress.
 
+## Completion answer typography regression
+
+- [ ] In normal lessons and Engine QA, inspect Unit 1 Completa answers before selection and during correct/wrong feedback, especially Lesson 1.8's `parents` / `children` bank.
+- [ ] Short answers stay large and centered in full-width rows and compact three-option banks; all tiles retain equal dimensions.
+- [ ] Check long phrases, portrait/landscape phone and tablet layouts, and enlarged system text. Labels must fit without microscopic text, clipping, or ellipses; overflowing banks remain scrollable.
+- [ ] Check a Recognize and Listen text bank too: they share the same native label renderer.
+
 ## Test session record
 
 - Tester:
