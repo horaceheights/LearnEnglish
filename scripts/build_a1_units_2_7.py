@@ -680,6 +680,8 @@ def add_unit_one_runtime_contracts(catalog: AssetCatalog) -> None:
     sys.path.insert(0, str(ROOT / "backend"))
     from app.data import load_all_lessons  # noqa: PLC0415
 
+    question_scenes = json.loads((ROOT / "docs/product/lesson-1-8-question-scenes.json").read_text(encoding="utf-8"))
+    question_descriptions = {scene["filename"]: scene["description"] for scene in question_scenes["scenes"]}
     lessons = load_all_lessons()
     for lesson_model in lessons.values():
         lesson_payload = lesson_model.model_dump(mode="json")
@@ -706,6 +708,7 @@ def add_unit_one_runtime_contracts(catalog: AssetCatalog) -> None:
                     "identity, relationship, quantity, polarity, and card role must match "
                     "the bound runtime context."
                 )
+                description = question_descriptions.get(usage["source_filename"], description)
                 if usage["rendered_filename"] == usage["source_filename"]:
                     catalog.add_runtime_contract(
                         filename=usage["source_filename"],

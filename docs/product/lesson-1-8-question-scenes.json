@@ -1,0 +1,79 @@
+{
+  "tool": "Built-in image_gen",
+  "canvas": "1536x1024",
+  "continuity": "Five distinct micro-scenes: entrance, kitchen, patio, garden, living room. Keep the question and its following answer in the same setting with the same family target. Vary poses, camera angle, and surrounding activity between pairs. The two unrelated visitors are never the established parents.",
+  "scenes": [
+    {
+      "filename": "a1_who_question_father.webp",
+      "identity": "father",
+      "setting": "front entrance with open wooden door, stucco and potted plants; standing father, visitors arriving",
+      "description": "Question about father. front entrance with open wooden door, stucco and potted plants; standing father, visitors arriving. The unrelated Black male visitor in burgundy asks his auburn-haired female companion in navy, looking at her inquisitively while gesturing toward the indicated family member(s). The question refers only to that indicated person or pair, not the visitors. The separate answer closes in on the same subject in the same setting.",
+      "generation_prompt": "Create a NEW photorealistic English lesson image, 1536x1024 landscape 3:2. Reference 1 supplies ONLY the identities of the two unrelated visitors (Black man with short curls and beard, burgundy shirt; fair woman with auburn bob, navy blouse). Reference 2 supplies the established father (Latino man with dark wavy hair, blue collared shirt). Do NOT copy the living room or sofa composition. Scene: bright home entrance with an open wooden front door and potted plants. The father stands in the open doorway greeting guests, hands relaxed. Camera is a diagonal side view from the entry courtyard. In the foreground, the male visitor leans slightly toward his female companion and quietly asks about the father; raised eyebrows and a small open-handed indicating gesture toward the man in the doorway. The companion looks at the asker. Clear eye lines and separation: the question concerns ONLY the distant father, not either visitor. All three faces identifiable and all meaningful hands visible. Exactly three people, natural anatomy, no duplicated faces. Distinct entrance architecture; no sofa. Natural daylight. No text, speech bubbles, symbols, borders or UI. This is the 'Who is he?' question beat; the next image will be a closer view of this same father at this doorway.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    },
+    {
+      "filename": "a1_who_answer_father.webp",
+      "identity": "father",
+      "setting": "front entrance with open wooden door, stucco and potted plants; standing father, visitors arriving",
+      "description": "Answer portrait of only the established father, isolated by a closer camera view in the same setting and moment as the preceding question. front entrance with open wooden door, stucco and potted plants; standing father, visitors arriving. Preserve face(s), wardrobe, props and lighting; visitors outside the frame.",
+      "generation_prompt": "Create the immediate answer beat to the reference question scene. Photorealistic 1536x1024 landscape 3:2 medium portrait of ONLY the same Latino father in the blue collared shirt standing in the SAME open wooden entrance doorway, beige stucco and potted plant still visible as setting anchors. Camera moves closer to isolate him from waist up. His exact face, hair, shirt, natural smile, daylight and setting remain identical. The two visitors are now outside the frame, not replaced by other people. Complete head, shoulders and arms visible with breathing room. This is 'He is the father.' No text, graphics, borders or UI.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    },
+    {
+      "filename": "a1_who_question_mother.webp",
+      "identity": "mother",
+      "setting": "sunlit kitchen with white cabinets, green tiles, wooden island and fruit bowl; visitors together at the doorway, mother at island",
+      "description": "Question about mother. sunlit kitchen with white cabinets, green tiles, wooden island and fruit bowl; visitors together at the doorway, mother at island. The unrelated Black male visitor in burgundy asks his auburn-haired female companion in navy, looking at her inquisitively while gesturing toward the indicated family member(s). The question refers only to that indicated person or pair, not the visitors. The separate answer closes in on the same subject in the same setting.",
+      "generation_prompt": "New photorealistic lesson scene 1536x1024 3:2. Image 1 is ONLY a reference for the identities of the two unrelated visitors, not layout or setting. Image 2 defines the established mother: Latina woman, long wavy brown hair, coral shirt. New setting: sunlit home kitchen with white cabinets, green tile backsplash, wooden island and bowl of fruit. New composition: BOTH visitors stand side-by-side at the LEFT edge near the kitchen entrance in three-quarter view, not flanking the picture. The Black male visitor in burgundy turns his face toward the auburn-bob female companion in navy with an inquisitive head tilt; his bent arm makes a subtle pointing gesture toward the mother several steps away at the island on the RIGHT. The companion follows his question attentively, facing him. Mother is standing alone at the island with a relaxed smile, her face and hands clearly visible; bowl of fruit beside her. Exactly three people. Preserve established identities and sensible spatial sightlines. No grandparents, no sofa, no text, bubbles or UI. The pointing gesture must clearly refer to only the mother. Natural everyday photographic realism. This is 'Who is she?' followed by an isolated portrait of this mother in this kitchen.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    },
+    {
+      "filename": "a1_who_answer_mother.webp",
+      "identity": "mother",
+      "setting": "sunlit kitchen with white cabinets, green tiles, wooden island and fruit bowl; visitors together at the doorway, mother at island",
+      "description": "Answer portrait of only the established mother, isolated by a closer camera view in the same setting and moment as the preceding question. sunlit kitchen with white cabinets, green tiles, wooden island and fruit bowl; visitors together at the doorway, mother at island. Preserve face(s), wardrobe, props and lighting; visitors outside the frame.",
+      "generation_prompt": "Generate the immediate answer beat to this question scene: a closer photorealistic 1536x1024 3:2 portrait of ONLY the same mother in the coral shirt at the SAME wooden kitchen island. Preserve her exact face, long wavy brown hair, shirt, white cabinets, green tiles, daylight and bowl of fruit. She smiles naturally with both hands resting on the island; frame from waist upward with complete head, shoulders and hands. The two visitors are outside this closer frame. This is 'She is the mother.' No other people, text, symbols, speech bubbles, borders or UI.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    },
+    {
+      "filename": "a1_who_question_parents.webp",
+      "identity": "parents",
+      "setting": "leafy patio under pergola with round table, wicker chairs and water glasses; parents talking at left, visitors standing together at right",
+      "description": "Question about parents. leafy patio under pergola with round table, wicker chairs and water glasses; parents talking at left, visitors standing together at right. The unrelated Black male visitor in burgundy asks his auburn-haired female companion in navy, looking at her inquisitively while gesturing toward the indicated family member(s). The question refers only to that indicated person or pair, not the visitors. The separate answer closes in on the same subject in the same setting.",
+      "generation_prompt": "New photorealistic English lesson scene 1536x1024 3:2. Reference 1 supplies ONLY the identities of the unrelated visitors; reference 2 supplies ONLY the parents' identities and wardrobe (father blue collared shirt, mother coral top). Completely new setting and composition: leafy outdoor patio with pergola and a round wooden cafe table. The parents sit together at the table on the LEFT midground, casually talking over two glasses of water, faces unobstructed. On the RIGHT foreground both visitors stand by the patio railing; the Black man in burgundy is in three-quarter side view, looking toward the auburn-bob woman in navy beside him with raised questioning eyebrows, making a small sideways open-hand gesture indicating the pair at the table. The woman is attentive to him. Clear sightlines and physically plausible arms; the indicated pair must be unmistakable. All four heads and relevant hands visible. Exactly four people. Different camera angle from the living-room and kitchen scenes: outdoor side-on view, parents left and visitors right, no sofa, no indoor walls. Sunlight through pergola, natural textures, candid mood. This is the question 'Who are they?' before an isolated same-patio portrait of the parents. No text, symbols, bubbles, collage, borders or UI.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    },
+    {
+      "filename": "a1_who_answer_parents.webp",
+      "identity": "parents",
+      "setting": "leafy patio under pergola with round table, wicker chairs and water glasses; parents talking at left, visitors standing together at right",
+      "description": "Answer portrait of only the established parents, isolated by a closer camera view in the same setting and moment as the preceding question. leafy patio under pergola with round table, wicker chairs and water glasses; parents talking at left, visitors standing together at right. Preserve face(s), wardrobe, props and lighting; visitors outside the frame.",
+      "generation_prompt": "Create the immediate answer beat to the reference: photorealistic 1536x1024 3:2 medium portrait of ONLY the same father in blue collared shirt and mother in coral shirt sitting together at the SAME round wooden patio table under the leafy pergola. Preserve their exact facial identities, hair, clothing, daylight, wicker chairs, wooden railing and the two glasses of water. Camera moves closer and centers both parents, with complete heads and shoulders comfortably inside frame, hands resting naturally at table. Both look warmly toward camera. The visitors are outside this closer frame. This is 'They are the parents.' Exactly two people. No text, symbols, graphics, borders or UI.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    },
+    {
+      "filename": "a1_who_question_children.webp",
+      "identity": "children",
+      "setting": "garden with bench, grass and checked picnic blanket; visitors seated on bench, children kneeling at a board game",
+      "description": "Question about children. garden with bench, grass and checked picnic blanket; visitors seated on bench, children kneeling at a board game. The unrelated Black male visitor in burgundy asks his auburn-haired female companion in navy, looking at her inquisitively while gesturing toward the indicated family member(s). The question refers only to that indicated person or pair, not the visitors. The separate answer closes in on the same subject in the same setting.",
+      "generation_prompt": "New photorealistic English lesson scene 1536x1024 3:2. Reference 1 supplies ONLY the unrelated adult visitor identities; reference 2 supplies the boy and girl identities and wardrobe (boy blue short-sleeve collared shirt, girl lavender shirt). New scene in a sunny back garden: the two children kneel on a picnic blanket on the grass looking at a simple colorful board game. No readable text on game. Camera is a naturally slightly elevated diagonal angle from beside a garden bench. The two adult visitors sit together on the bench toward the LEFT foreground, bodies turned toward each other in conversation. The Black man in burgundy turns his questioning face toward the auburn-bob woman in navy beside him while indicating BOTH children with a relaxed pointing hand toward the RIGHT midground. The woman looks at him attentively. Children are separated from visitors by a strip of grass; both faces are visible in three-quarter view. This must feel like casually noticing children playing, not another indoor sofa portrait or adults flanking the frame. Exactly four people; all meaningful heads and hands visible, plausible bodies and sightlines. Preserve identities. No grandparents, parents, extra people, text, bubbles, UI or borders. This is 'Who are they?' followed by a closer answer portrait of these same children on the same garden blanket.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    },
+    {
+      "filename": "a1_who_answer_children.webp",
+      "identity": "children",
+      "setting": "garden with bench, grass and checked picnic blanket; visitors seated on bench, children kneeling at a board game",
+      "description": "Answer portrait of only the established children, isolated by a closer camera view in the same setting and moment as the preceding question. garden with bench, grass and checked picnic blanket; visitors seated on bench, children kneeling at a board game. Preserve face(s), wardrobe, props and lighting; visitors outside the frame.",
+      "generation_prompt": "Create immediate answer beat to this question image. Photorealistic 1536x1024 landscape 3:2 closer portrait of ONLY the same boy in blue short-sleeve collared shirt and girl in lavender shirt kneeling together on the SAME checked picnic blanket in the same green garden. Preserve exact faces, hair, ages, clothing, blanket, garden fence and plants, warm daylight. Both children look warmly toward camera; the colorful board game remains visible along the lower edge as a continuity prop. Frame complete heads, shoulders and hands with comfortable margins; children centered and recognizable on a small lesson card. The two adult visitors and bench are outside this closer frame. This is 'They are the children.' Exactly two children, no other people. No text, symbols, borders or UI.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    },
+    {
+      "filename": "a1_who_question_grandparents.webp",
+      "identity": "grandparents",
+      "setting": "living room, beige sofa across the room; seated grandparents with visitors conversing in foreground",
+      "description": "Question about grandparents. living room, beige sofa across the room; seated grandparents with visitors conversing in foreground. The unrelated Black male visitor in burgundy asks his auburn-haired female companion in navy, looking at her inquisitively while gesturing toward the indicated family member(s). The question refers only to that indicated person or pair, not the visitors.",
+      "generation_prompt": "Approved grandparents visitor scene from the preceding task.",
+      "review_status": "Agent visual QA at 3:2; final runtime human review pending."
+    }
+  ]
+}

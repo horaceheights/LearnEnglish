@@ -406,25 +406,77 @@ const l18 = [
   { prompt: 'Who are they?', image: assets.grandparents, translation: '¿Quiénes son ellos?', recognizePrompt: 'Who are they?', recognizeAudio: 'Who are they?', choice: 'They are the grandparents.', textDistractors: ['They are the brothers.', 'They are the sisters.'], distractors: [{ prompt: 'They are the brothers.', image: assets.brothers }, { prompt: 'They are the sisters.', image: assets.sisters }, { prompt: 'They are the babies.', image: assets.babies }], answer: 'They are the grandparents.' },
   { prompt: 'They are the grandparents.', image: assets.grandparents, translation: 'Ellos son los abuelos.', textDistractors: ['They are the brothers.', 'They are the sisters.'], distractors: [{ prompt: 'They are the brothers.', image: assets.brothers }, { prompt: 'They are the sisters.', image: assets.sisters }, { prompt: 'They are the babies.', image: assets.babies }] },
 ];
-const lesson18 = buildLesson({
-  id: 'lesson-8-who', number: '1.8', title: 'Who Is He? Who Are They?',
-  goal: 'Ask who familiar people are and answer with the correct family role.', vocabulary: ['who'],
-  reviewVocabulary: ['he', 'she', 'they', 'is', 'are', 'the', 'father', 'mother', 'parents', 'children', 'grandparents'],
-  grammarFunction: 'Who is he/she? Who are they? Identity answer with is/are.', prerequisite: 'Lessons 1.1-1.7: pronouns, is/are, and family roles.',
-  speakingOutcome: 'Ask and answer who one person or a family group is.', purposefulReviewSlides: ['L2', 'L4', 'L6', 'L8', 'L10', 'S7', 'U7'],
-  entries: l18, textRecognize: [0, 2, 4, 6, 8],
-  listenIndexes: [{ index: 0, audio: 'Who is he? He is the father.' }, { index: 2, audio: 'Who is she? She is the mother.' }, { index: 4, audio: 'Who are they? They are the parents.' }, { index: 6, audio: 'Who are they? They are the children.' }, { index: 8, audio: 'Who are they? They are the grandparents.' }, { index: 1, audio: 'He is the father.' }, { index: 3, audio: 'She is the mother.' }, { index: 9, audio: 'They are the grandparents.' }],
-  speakIndexes: [0, 1, 2, 3, 4, 6, 8],
-  uses: [
-    complete({ prompt: 'Who ___ he?', image: assets.father, answer: 'Who is he?', correct: 'is', choices: [['are', 'are'], ['is', 'is']], translation: '¿Quién es él?' }),
-    complete({ prompt: 'He is the ___.', image: assets.father, answer: 'He is the father.', correct: 'father', choices: [['mother', 'mother'], ['father', 'father']], translation: 'Él es el ___.' }),
-    complete({ prompt: 'Who is ___?', image: assets.mother, answer: 'Who is she?', correct: 'she', choices: [['he', 'he'], ['she', 'she']], translation: '¿Quién es ella?' }),
-    complete({ prompt: 'She is the ___.', image: assets.mother, answer: 'She is the mother.', correct: 'mother', choices: [['mother', 'mother'], ['father', 'father']], translation: 'Ella es la ___.' }),
-    complete({ prompt: 'Who ___ they?', image: assets.parents, answer: 'Who are they?', correct: 'are', choices: [['is', 'is'], ['are', 'are']], translation: '¿Quiénes son ellos?' }),
-    complete({ prompt: 'They are the ___.', image: assets.children, answer: 'They are the children.', correct: 'children', choices: [['parents', 'parents'], ['children', 'children']], translation: 'Ellos son los ___.' }),
-    complete({ prompt: 'Who ___ they? They are the ___.', image: assets.grandparents, answer: 'Who are they? They are the grandparents.', correct: ['are', 'grandparents'], choices: [['is', 'is'], ['are', 'are'], ['grandparents', 'grandparents']], translation: '¿Quiénes son ellos? Ellos son los abuelos.' }),
-  ],
-});
+// Five explicit question/answer beats recur in every section. The visitors
+// ask about the indicated target; answer choices retain subject-only portraits.
+function buildWhoLesson() {
+  const questions = l18.filter((_, index) => index % 2 === 0).map((entry, index) => ({
+    ...entry, image: `a1_who_question_${['father', 'mother', 'parents', 'children', 'grandparents'][index]}.webp`,
+    choice: entry.prompt, answer: null, recognizePrompt: '', recognizeAudio: null,
+    textDistractors: ['Who is he?', 'Who is she?', 'Who are they?'].filter((text) => text !== entry.prompt),
+  }));
+  const answerImages = Object.fromEntries(['father', 'mother', 'parents', 'children'].map(
+    (identity) => [assets[identity], `a1_who_answer_${identity}.webp`],
+  ));
+  const answers = l18.filter((_, index) => index % 2 === 1).map((entry) => ({
+    ...entry, image: answerImages[entry.image] || entry.image,
+    distractors: entry.distractors.map((alternative) => ({
+      ...alternative, image: answerImages[alternative.image] || alternative.image,
+    })),
+  }));
+  const castQuestion = (card) => ({ ...card, audio_speaker: 'male-character', answer_audio_speaker: 'male-character' });
+  const pairCards = (questionBuilder, answerBuilder) => questions.flatMap((question, index) => [
+    castQuestion(questionBuilder(question, index)), answerBuilder(answers[index], index),
+  ]);
+  const questionChoice = (question, index) => {
+    // Each bank contrasts the indicated referent's singular/plural or gender,
+    // never two different groups which both answer "Who are they?".
+    const alternative = questions[index === 0 ? 1 : 0];
+    return imageChoice({ ...question, distractors: [alternative], reverseOptions: index % 2 === 1 },
+      questions, 'Listen', 2, question.prompt);
+  };
+  const questionCompletions = [
+    ['Who ___ he?', 'is', [['are', 'are'], ['is', 'is']]],
+    ['Who is ___?', 'she', [['he', 'he'], ['she', 'she']]],
+    ['Who ___ they?', 'are', [['are', 'are'], ['is', 'is']]],
+    ['Who are ___?', 'they', [['she', 'she'], ['they', 'they']]],
+    ['Who ___ they?', 'are', [['is', 'is'], ['are', 'are']]],
+  ];
+  const answerCompletions = [
+    ['He is the ___.', 'father', [['mother', 'mother'], ['father', 'father']]],
+    ['She is the ___.', 'mother', [['mother', 'mother'], ['father', 'father']]],
+    ['They are the ___.', 'parents', [['brothers', 'brothers'], ['parents', 'parents']]],
+    ['They are the ___.', 'children', [['children', 'children'], ['parents', 'parents']]],
+    ['They ___ the ___.', ['are', 'grandparents'], [['is', 'is'], ['are', 'are'], ['grandparents', 'grandparents']]],
+  ];
+  const completion = (entry, spec) => complete({ prompt: spec[0], image: entry.image,
+    answer: entry.prompt, correct: spec[1], choices: spec[2], translation: entry.translation });
+  const sections = {
+    Learn: pairCards(teach, teach),
+    Recognize: pairCards((question, index) => textChoice({ ...question, reverseOptions: index % 2 === 1 }, questions, 'Recognize'),
+      (answer, index) => imageChoice({ ...answer, reverseOptions: index % 2 === 0 }, answers, 'Recognize', 2)),
+    Listen: pairCards(questionChoice, (answer, index) => index % 2 === 0
+      ? imageChoice({ ...answer, reverseOptions: true }, answers, 'Listen', 2, answer.prompt)
+      : textChoice(answer, answers, 'Listen', answer.prompt)),
+    Speak: pairCards(say, say),
+    Use: pairCards((question, index) => completion(question, questionCompletions[index]),
+      (answer, index) => completion(answer, answerCompletions[index])),
+  };
+  return {
+    id: 'lesson-8-who', title: '1.8 Who Is He? Who Are They?', level: 'Beginner A1',
+    unit_id: 'unit-1', unit_title: 'Unit 1: People, Family, and Actions',
+    unit_outcome: 'Understand and produce simple sentences about people, family members, and actions.',
+    lesson_id: 'lesson-1', lesson_title: 'Unit 1: People, Family, and Actions',
+    sub_lesson_id: '1.8', sub_lesson_title: 'Who Is He? Who Are They?',
+    goal: 'Ask who people are and answer with the correct family role.', vocabulary: ['who'],
+    review_vocabulary: ['he', 'she', 'they', 'is', 'are', 'the', 'father', 'mother', 'parents', 'children', 'grandparents'],
+    grammar_function: 'Who is he/she? Who are they? Identity answer with is/are.',
+    prerequisite: 'Lessons 1.1-1.7: pronouns, is/are, and family roles.',
+    speaking_outcome: 'Ask and answer who one person or a family group is.',
+    purposeful_review_slides: ['L2', 'L4', 'L6', 'L8', 'L10', 'S10', 'U10'],
+    cards: stageOrder.flatMap((stage) => finalizeStage(stage, sections[stage], '1.8 identity question/answer pairs')),
+  };
+}
+const lesson18 = buildWhoLesson();
 
 const l19 = [
   { prompt: 'The boy is eating. He is eating.', image: assets.reviewBoyEating, translation: 'El niño está comiendo. Él está comiendo.' },

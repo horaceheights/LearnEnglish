@@ -61,3 +61,7 @@ A Preview release is blocked until the shared backend reports `environment=produ
 If a dedicated Preview backend is introduced later, seed its disk by copying already validated immutable audio and receipts; do not regenerate an existing catalog merely to populate a second environment.
 
 Do not publish Preview from a task branch. After inventory coverage is complete, follow the protected `release/preview` GitHub Actions workflow described in the release guardrails.
+
+### Locating the existing operator credential path
+
+The existing ElevenLabs credential is configured on the Render backend at `https://learnenglish-fxki.onrender.com`. Do not conclude that generation is unavailable merely because a new local worktree, process, or `backend/.env` lacks `ELEVENLABS_API_KEY`. Check the read-only `/api/audio/health` configuration and the existing receipt provenance first. While the documented compatibility window remains active, the existing bounded operator renderer supports `--legacy-backend-base-url` to capture the pinned profile and persist immutable bytes/receipts, as used for Lesson 1.8 on 2026-09-03. This is operator-only; learner Preview playback remains immutable and read-only. Never retrieve or print the hosted key, bypass a retired endpoint, or restore a removed compatibility route. If that route is retired, use the direct offline credential workflow.
