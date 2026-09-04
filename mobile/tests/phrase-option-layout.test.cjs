@@ -271,6 +271,53 @@ const textOptionStyleStart = cardViewSource.indexOf('textOptionLabel: {');
 const textOptionStyleEnd = cardViewSource.indexOf('pendingOption:', textOptionStyleStart);
 assert.ok(textOptionStyleStart >= 0 && textOptionStyleEnd > textOptionStyleStart, 'missing text-option style');
 const textOptionStyleSource = cardViewSource.slice(textOptionStyleStart, textOptionStyleEnd);
+assert.doesNotMatch(textAnswerSource, /lineHeight\s*:|styles\.optionLabel\b|optionLabelBottomSpace/,
+  'Auto-fit labels must not inherit fixed line heights or lose their height to a decorative spacer.');
+assert.doesNotMatch(textOptionStyleSource, /\blineHeight\s*:/,
+  'Android retains fixed line-height spans while shrinking glyphs, causing microscopic answers.');
+assert.match(textOptionStyleSource, /includeFontPadding:\s*false/);
+assert.match(textOptionStyleSource, /flexGrow:\s*1/);
+assert.match(textOptionStyleSource, /textAlignVertical:\s*'center'/);
+
+// Exercise the production height/font calculations at phone/tablet sizes and
+// accessibility scales. The label must have room for its initial readable font,
+// not merely contain an auto-fit prop that silently shrinks it on Android.
+const sizingSource = cardViewSource.slice(
+  cardViewSource.indexOf('  const textOptionFontSize ='),
+  cardViewSource.indexOf('  const responsiveFeatureImageHeight ='),
+).replace('lineLimit: number', 'lineLimit');
+const sizeOptions = Function('viewportWidth', 'viewportHeight', 'fontScale',
+  'isTabletViewport', 'useHorizontalPhraseOptions', 'useDensePortraitTextLayout',
+  'hasTextOnlyOptions', 'useCompactCompletionTiles', 'isLandscape',
+  'isTabletLandscape', 'isCompactLandscape', 'card', 'textOptionLineLimit',
+  `${sizingSource}; return { textOptionFontSize, uniformTextOptionHeight };`);
+const unitOneCompletionBanks = course.slice(0, 10).flatMap((lesson) => lesson.cards
+  .filter((card) => card.stage === 'Use' && card.interaction_type.startsWith('complete')
+    && card.options.every((option) => !option.image_url))
+  .map((card) => card.options.map((option) => option.label)));
+assert.ok(unitOneCompletionBanks.length >= 50, 'Cover actual completion banks throughout Unit 1.');
+for (const [width, height] of [[320, 568], [390, 844], [720, 400], [768, 1024], [1024, 768]]) {
+  for (const scale of [1, 1.15, 1.3, 2]) {
+    for (const labels of [['parents', 'children'], ['he', 'she', 'they'],
+      ['They are the grandparents.', 'He is the father.'],
+      longestTextCard.options.map((option) => option.label), ...unitOneCompletionBanks]) {
+      const tablet = Math.min(width, height) >= 540;
+      const landscape = width > height;
+      const compact = !landscape && labels.length === 3 && labels.every((label) => label.length <= 8);
+      const horizontal = !landscape && !compact;
+      const dense = !landscape && labels.length >= 3;
+      const sizing = sizeOptions(width, height, scale, tablet, horizontal, dense, true,
+        compact, landscape, tablet && landscape, landscape && !tablet,
+        { options: labels.map((label) => ({ label })) }, textOptionLineLimit);
+      const padding = horizontal ? 12 : dense ? 14 : 24;
+      const border = horizontal || dense ? 6 : 7;
+      const lines = Math.max(...labels.map(textOptionLineLimit));
+      const glyphBudget = sizing.textOptionFontSize * Math.min(scale, tablet ? 1.2 : 1.15) * lines;
+      assert.ok(sizing.uniformTextOptionHeight - padding - border >= glyphBudget,
+        `Text must keep its readable font at ${width}x${height}, scale ${scale}: ${labels}`);
+    }
+  }
+}
 for (const requiredStyle of [
   /alignSelf:\s*'stretch'/,
   /flexShrink:\s*1/,
