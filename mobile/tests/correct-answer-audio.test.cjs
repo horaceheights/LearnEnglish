@@ -104,17 +104,14 @@ assert.equal(
   'The reported Listen card must not opt in to post-answer speech.',
 );
 
-const identityAnswerCard = lesson18.cards.find((card) => (
-  card.stage === 'Recognize'
-  && card.prompt === 'Who is he?'
-  && card.answer_audio_text
-));
-assert.ok(identityAnswerCard, 'Recognize question cards must retain authored answer audio.');
-assert.notEqual(
-  identityAnswerCard.answer_audio_text,
-  identityAnswerCard.audio_text,
-  'Authored question-to-answer audio must add information instead of repeating the prompt.',
-);
+const questionCard = lesson18.cards.find((card) => card.slide_id === 'R1');
+const identityCard = lesson18.cards.find((card) => card.slide_id === 'R2');
+assert.ok(questionCard && identityCard, 'Recognize must retain separate question and identity cards.');
+assert.equal(questionCard.prompt, '', 'The question-form choice must not reveal the answer upfront.');
+assert.equal(questionCard.audio_text, null, 'The question must play only after the learner selects it.');
+assert.equal(questionCard.answer_audio_text, 'Who is he?', 'Correct selection must speak the visitor question.');
+assert.equal(identityCard.audio_text, 'He is the father.', 'The following card must introduce the identity answer.');
+assert.equal(identityCard.answer_audio_text, null, 'The identity prompt must not replay after selection.');
 
 assert.match(
   interactionVerifier,
