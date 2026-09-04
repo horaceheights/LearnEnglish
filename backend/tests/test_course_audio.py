@@ -86,7 +86,7 @@ class CourseAudioProfileTests(unittest.TestCase):
                     self.assertNotEqual(card.answer_audio_text, fragment)
                 completion_cards.append((lesson.id, card.prompt))
 
-        self.assertEqual(432, len(completion_cards))
+        self.assertEqual(435, len(completion_cards))
 
     def test_completion_contract_is_exact_and_requires_one_placeholder(self):
         contract = completion_prompt_contract(

@@ -18,6 +18,10 @@ SPEAKER_FIELDS = ("audio_speaker", "answer_audio_speaker")
 # speaker roles and are validated independently. Ranges are inclusive and use
 # canonical slide IDs, for example L1-L6.
 ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
+    "lesson-8-who": [
+        ("audio_speaker", "male-character", "L1 L3 L5 L7 L9 R1 R3 R5 R7 R9 A1 A3 A5 A7 A9 S1 S3 S5 S7 S9 U1 U3 U5 U7 U9"),
+        ("answer_audio_speaker", "male-character", "L1 L3 L5 L7 L9 R1 R3 R5 R7 R9 A1 A3 A5 A7 A9 S1 S3 S5 S7 S9 U1 U3 U5 U7 U9"),
+    ],
     "lesson-3-1-greetings-and-names": [
         ("audio_speaker", "ana", "L1 L3 L6 R1 R3 N1 N2 S1 S2 S5 U4"),
         ("audio_speaker", "luis", "L2 L4 L5 R2 N3 N5 S3 S4 U3"),

@@ -89,7 +89,8 @@ function assertParallelUnitOneChoices(lessons, context) {
       assert.equal(new Set(frames).size, 1, `${context}: ${number} ${card.slide_id} mixes grammatical/semantic frames: ${card.options.map((option) => option.label).join(' | ')}`);
     }
     const expectedCounts = number === '1.9' ? [14, 14, 10, 8, 8]
-      : number === '1.10' ? [4, 8, 6, 6, 8] : [10, 10, 8, 7, 7];
+      : number === '1.10' ? [4, 8, 6, 6, 8]
+      : number === '1.8' ? [10, 10, 10, 10, 10] : [10, 10, 8, 7, 7];
     assert.deepEqual(
       ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'].map((stage) => current.cards.filter((card) => card.stage === stage).length),
       expectedCounts,
@@ -366,47 +367,49 @@ for (const [slideId, expectedLabels] of expectedLessonFiveCompletionLabels) {
   );
 }
 
-const expectedLessonEightIdentityLabels = new Map([
-  ['R1', ['He is the father.', 'She is the mother.', 'They are the parents.']],
-  ['R3', ['She is the mother.', 'He is the father.', 'They are the parents.']],
-  ['R5', ['They are the parents.', 'They are the brothers.', 'They are the sisters.']],
-  ['R7', ['They are the children.', 'They are the parents.', 'They are the grandparents.']],
-  ['R9', ['They are the grandparents.', 'They are the brothers.', 'They are the sisters.']],
+const expectedLessonEightQuestions = new Map([
+  ['R1', 'Who is he?'],
+  ['R3', 'Who is she?'],
+  ['R5', 'Who are they?'],
+  ['R7', 'Who are they?'],
+  ['R9', 'Who are they?'],
 ]);
-for (const [slideId, expectedLabels] of expectedLessonEightIdentityLabels) {
+for (const [slideId, question] of expectedLessonEightQuestions) {
+  const card = cardBySlide('1.8', 'Recognize', slideId);
   assert.deepEqual(
-    cardBySlide('1.8', 'Recognize', slideId).options.map((option) => option.label),
-    expectedLabels,
-    `Lesson 1.8 ${slideId} must use the reviewed non-overlapping identity set`,
+    card.options.map((option) => option.label).sort(),
+    ['Who are they?', 'Who is he?', 'Who is she?'],
+    `Lesson 1.8 ${slideId} must assess the question before revealing the identity`,
   );
+  assert.equal(card.options.find((option) => option.id === 'correct').label, question);
 }
 
 const expectedLessonEightImageChoices = new Map([
   ['R2', [
-    ['He is the father.', 'family_father.webp'],
-    ['She is the mother.', 'family_mother.webp'],
+    ['She is the mother.', 'a1_who_answer_mother.webp'],
+    ['He is the father.', 'a1_who_answer_father.webp'],
   ]],
   ['R4', [
-    ['She is the mother.', 'family_mother.webp'],
-    ['He is the father.', 'family_father.webp'],
+    ['She is the mother.', 'a1_who_answer_mother.webp'],
+    ['He is the father.', 'a1_who_answer_father.webp'],
   ]],
   ['R6', [
-    ['They are the parents.', 'family_parents.webp'],
     ['They are the brothers.', 'family_brothers.webp'],
+    ['They are the parents.', 'a1_who_answer_parents.webp'],
   ]],
   ['R8', [
-    ['They are the children.', 'family_children.webp'],
-    ['They are the parents.', 'family_parents.webp'],
+    ['They are the children.', 'a1_who_answer_children.webp'],
+    ['They are the parents.', 'a1_who_answer_parents.webp'],
   ]],
   ['R10', [
-    ['They are the grandparents.', 'family_grandparents.webp'],
     ['They are the brothers.', 'family_brothers.webp'],
+    ['They are the grandparents.', 'family_grandparents.webp'],
   ]],
 ]);
 const unsafeIdentityImagePairs = [
-  new Set(['family_father.webp', 'family_grandfather.webp']),
-  new Set(['family_mother.webp', 'family_grandmother.webp']),
-  new Set(['family_parents.webp', 'family_grandparents.webp']),
+  new Set(['a1_who_answer_father.webp', 'family_grandfather.webp']),
+  new Set(['a1_who_answer_mother.webp', 'family_grandmother.webp']),
+  new Set(['a1_who_answer_parents.webp', 'family_grandparents.webp']),
 ];
 for (const slideId of ['R2', 'R4', 'R6', 'R8', 'R10']) {
   const card = cardBySlide('1.8', 'Recognize', slideId);
@@ -433,7 +436,9 @@ for (const slideId of ['R2', 'R4', 'R6', 'R8', 'R10']) {
 const expectedLessonEightCompletionLabels = new Map([
   ['U2', ['mother', 'father']],
   ['U4', ['mother', 'father']],
-  ['U6', ['parents', 'children']],
+  ['U6', ['brothers', 'parents']],
+  ['U8', ['children', 'parents']],
+  ['U10', ['is', 'are', 'grandparents']],
 ]);
 for (const [slideId, expectedLabels] of expectedLessonEightCompletionLabels) {
   assert.deepEqual(

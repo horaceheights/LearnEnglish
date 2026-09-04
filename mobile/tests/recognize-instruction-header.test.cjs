@@ -34,13 +34,13 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 
 assert.equal(
   emptyRecognizeCards.length,
-  35,
+  40,
   'The Recognize instruction guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
   affectedLessons.size,
-  8,
-  'The shared rule must cover all eight lessons that currently contain this interaction.',
+  9,
+  'The shared rule must cover all nine lessons that currently contain this interaction.',
 );
 assert.ok(
   emptyRecognizeCards.every(({ card }) => (

@@ -222,13 +222,13 @@ class PersistentCardAudioTests(unittest.TestCase):
         jobs = render_jobs(arguments)
 
         self.assertEqual(
-            Counter({"male-character": 117, "luis": 87, "diego": 7}),
+            Counter({"male-character": 162, "luis": 87, "diego": 7}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
-        self.assertEqual(211, len(selected))
-        self.assertEqual(63, len(jobs))
-        self.assertEqual(66, sum(len(job.request_fragments()) for job in jobs))
-        self.assertEqual(815, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(256, len(selected))
+        self.assertEqual(70, len(jobs))
+        self.assertEqual(75, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(880, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},
