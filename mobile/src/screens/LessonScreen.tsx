@@ -49,8 +49,6 @@ import {
   hasVisualAudioPlaceholder,
 } from '../config';
 import {
-  completionPromptAudioSource,
-  courseAudioAssetSource,
   findCourseAudioAsset,
   findCourseAudioTurnSequence,
   type CourseAudioTurnPlayback,
@@ -77,6 +75,12 @@ import {
   type SavedLessonRun,
 } from '../lessonResume';
 import { lessonStageColorForCard } from '../lessonStageTheme';
+import {
+  cacheCourseAudioAsset,
+  cacheLessonAudio,
+  isLessonCardAudioCached,
+  lessonAudioAssetSource,
+} from '../lessonAudioCache';
 import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
 import { preloadPronunciationAudioWithRetry } from '../pronunciationAudioGate';
 import { useConnectivity } from '../hooks/useConnectivity';
@@ -95,6 +99,10 @@ const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const COURSE_AUDIO_FALLBACK_MS = 12000;
 const OFFLINE_ADVANCE_DELAY_MS = 900;
+
+function isRemoteAudioSource(source: AudioSource): source is string {
+  return typeof source === 'string' && /^https?:\/\//i.test(source);
+}
 
 function correctSelectionAudioText(card: LessonCard, optionId?: string | null): string {
   const authoredAnswer = card.answer_audio_text?.trim();
@@ -272,6 +280,8 @@ export function LessonScreen({
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const newVocabularyEmphasis = useRef(new Animated.Value(0)).current;
   const pronunciationPassHandledRef = useRef(false);
+  const offlinePronunciationPromptedRef = useRef(false);
+  const offlineCompletionNotifiedRef = useRef(false);
   const translationHideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const promptTapTargetRef = useRef<View | null>(null);
   const translationOpacity = useRef(new Animated.Value(0)).current;
@@ -305,6 +315,7 @@ export function LessonScreen({
   const [pronunciationAudioReadyKey, setPronunciationAudioReadyKey] = useState<string | null>(null);
   const [pronunciationReplayAvailable, setPronunciationReplayAvailable] = useState(false);
   const [pronunciationReplayRequestId, setPronunciationReplayRequestId] = useState(0);
+  const [offlinePronunciationAccepted, setOfflinePronunciationAccepted] = useState(false);
   const [completedLessonMode, setCompletedLessonMode] = useState<CompletedLessonMode>(
     previouslyCompleted && !qaMode ? 'prompt' : 'standard',
   );
@@ -388,6 +399,12 @@ export function LessonScreen({
   }, [flushLessonResume]);
 
   useEffect(() => {
+    offlineCompletionNotifiedRef.current = false;
+    offlinePronunciationPromptedRef.current = false;
+    setOfflinePronunciationAccepted(false);
+  }, [lessonId]);
+
+  useEffect(() => {
     if (qaMode) {
       setSentenceHelpStatus('pending');
       return undefined;
@@ -406,9 +423,9 @@ export function LessonScreen({
   }, [qaMode, sentenceHelpStorageKey]);
 
   const ensureAudioPreloaded = useCallback((source: AudioSource) => {
-    if (isOffline && typeof source === 'string') {
-      addDiagnosticBreadcrumb('audio_preload_skipped_offline');
-      return Promise.resolve(true);
+    if (isOffline && isRemoteAudioSource(source)) {
+      addDiagnosticBreadcrumb('audio_preload_skipped_offline_cache_miss');
+      return Promise.resolve(false);
     }
     const existing = audioPreloadRef.current.get(source);
     if (existing) return existing;
@@ -449,10 +466,11 @@ export function LessonScreen({
       return Promise.resolve(false);
     }
     if (card.audio_assets.length === 0) return Promise.resolve(false);
-    return Promise.all(
-      card.audio_assets.map((asset) => ensureAudioPreloaded(courseAudioAssetSource(asset))),
-    ).then((results) => results.every(Boolean));
-  }, [ensureAudioPreloaded]);
+    return Promise.all(card.audio_assets.map(async (asset) => {
+      if (!isOffline) await cacheCourseAudioAsset(asset);
+      return ensureAudioPreloaded(lessonAudioAssetSource(asset));
+    })).then((results) => results.every(Boolean));
+  }, [ensureAudioPreloaded, isOffline]);
 
   const ensureImagePreloaded = useCallback((path: string) => {
     if (!path || isOffline) return Promise.resolve();
@@ -498,12 +516,12 @@ export function LessonScreen({
     variant = 'conversation-turns',
   ) => {
     if (!sequence.length || !isAppActive || AppState.currentState !== 'active') return;
-    if (isOffline) {
-      addDiagnosticBreadcrumb('audio_sequence_skipped_offline', { mode, variant });
+    const sources = sequence.map(({ asset }) => lessonAudioAssetSource(asset));
+    if (isOffline && sources.some(isRemoteAudioSource)) {
+      addDiagnosticBreadcrumb('audio_sequence_skipped_offline_cache_miss', { mode, variant });
       return;
     }
     const requestId = ++audioPlaybackRequestRef.current;
-    const sources = sequence.map(({ asset }) => courseAudioAssetSource(asset));
     void Promise.all([
       ...sources.map(ensureAudioPreloaded),
       ...sequence.map(({ turn }) => ensureImagePreloaded(turn.image_url).then(() => true)),
@@ -560,8 +578,8 @@ export function LessonScreen({
       addDiagnosticBreadcrumb('audio_playback_skipped_background', { mode, variant });
       return;
     }
-    if (isOffline && typeof source === 'string') {
-      addDiagnosticBreadcrumb('audio_playback_skipped_offline', { mode, variant });
+    if (isOffline && isRemoteAudioSource(source)) {
+      addDiagnosticBreadcrumb('audio_playback_skipped_offline_cache_miss', { mode, variant });
       return;
     }
     try {
@@ -632,7 +650,7 @@ export function LessonScreen({
       addDiagnosticBreadcrumb('course_audio_asset_missing', { mode, variant });
       return;
     }
-    playAudioSource(courseAudioAssetSource(asset), mode, variant);
+    playAudioSource(lessonAudioAssetSource(asset), mode, variant);
   }, [cardIndex, lesson, playAudioSource]);
 
   const playSuccessChime = useCallback(async () => {
@@ -886,7 +904,7 @@ export function LessonScreen({
     ? `${lessonId}:${cardIndex}:${cardRunId}:${pronunciationAudioIdentity}`
     : null;
   const isPronunciationAudioReady = !pronunciationAudioGateKey
-    || isOffline
+    || (isOffline && offlinePronunciationAccepted)
     || pronunciationAudioReadyKey === pronunciationAudioGateKey;
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const useCompactListenInstruction = usesCompactListenInstruction(
@@ -930,9 +948,15 @@ export function LessonScreen({
   const visiblePromptAudio = correctContrastPrompt || promptAudio;
   const promptHasVisualBlank = authoredPromptHasVisualBlank
     || hasVisualAudioPlaceholder(promptAudio);
-  const completionPromptSource = promptHasVisualBlank && currentCard
-    ? completionPromptAudioSource(currentCard)
+  const completionPromptAsset = promptHasVisualBlank && currentCard
+    ? findCourseAudioAsset(currentCard, 'prompt', 'prompt', 'completion-prompt')
     : null;
+  const completionPromptSource = completionPromptAsset
+    ? lessonAudioAssetSource(completionPromptAsset)
+    : null;
+  const currentCardAudioCached = currentCard
+    ? isLessonCardAudioCached(currentCard)
+    : false;
   const courseAudioPlaybackStatus = activeAudioSequence
     ? { ...audioPlaylistStatus, error: null }
     : audioPlayerStatus;
@@ -971,7 +995,7 @@ export function LessonScreen({
 
   useEffect(() => {
     if (!pronunciationAudioGateKey || !currentCard || isOffline) {
-      setPronunciationAudioReadyKey(pronunciationAudioGateKey);
+      setPronunciationAudioReadyKey(isOffline ? null : pronunciationAudioGateKey);
       return undefined;
     }
 
@@ -1004,6 +1028,42 @@ export function LessonScreen({
       clearTimeout(fallbackTimer);
     };
   }, [cardIndex, currentCard, isOffline, preloadCardAudio, pronunciationAudioGateKey]);
+
+  useEffect(() => {
+    if (!isOffline) {
+      offlinePronunciationPromptedRef.current = false;
+      setOfflinePronunciationAccepted(false);
+      return;
+    }
+    if (
+      !isPronunciation
+      || isComplete
+      || offlinePronunciationPromptedRef.current
+    ) return;
+
+    offlinePronunciationPromptedRef.current = true;
+    setOfflinePronunciationAccepted(false);
+    addDiagnosticBreadcrumb('pronunciation_offline_warning_shown', {
+      card_number: cardIndex + 1,
+    });
+    Alert.alert(
+      'Advertencia',
+      'Tu conexión se perdió. Continuaremos sin calificación de pronunciación; solo podrás escuchar tu respuesta.',
+      [
+        { onPress: onExit, style: 'destructive', text: 'Salir' },
+        {
+          onPress: () => {
+            addDiagnosticBreadcrumb('pronunciation_offline_practice_accepted', {
+              card_number: cardIndex + 1,
+            });
+            setOfflinePronunciationAccepted(true);
+          },
+          text: 'Continuar',
+        },
+      ],
+      { cancelable: false },
+    );
+  }, [cardIndex, isComplete, isOffline, isPronunciation, onExit]);
 
   useEffect(() => {
     newVocabularyEmphasis.stopAnimation();
@@ -1188,6 +1248,22 @@ export function LessonScreen({
       void preloadCardImages(lesson.cards[index]);
     }
   }, [cardIndex, lesson, preloadCardAudio, preloadCardImages]);
+
+  useEffect(() => {
+    if (!lesson || isOffline) return undefined;
+    let active = true;
+    void cacheLessonAudio(lesson).then((cacheResult) => {
+      if (!active) return;
+      addDiagnosticBreadcrumb('lesson_audio_cache_finished', {
+        cached: cacheResult.cached,
+        failed: cacheResult.failed,
+        total: cacheResult.total,
+      });
+    });
+    return () => {
+      active = false;
+    };
+  }, [isOffline, lesson]);
 
   useEffect(() => {
     audioPlaybackRequestRef.current += 1;
@@ -1514,7 +1590,13 @@ export function LessonScreen({
   }, [cardIndex, completeAutomaticSingleCard, isAppActive, isAutomaticSingleCard]);
 
   useEffect(() => {
-    if (!isAppActive || !isOffline || isCompletedSectionPicker || isPronunciation) return;
+    if (
+      !isAppActive
+      || !isOffline
+      || isCompletedSectionPicker
+      || isPronunciation
+      || currentCardAudioCached
+    ) return;
 
     audioPlaybackRequestRef.current += 1;
     try {
@@ -1571,6 +1653,7 @@ export function LessonScreen({
     advance,
     cardIndex,
     completeAutomaticSingleCard,
+    currentCardAudioCached,
     grammarCompleted,
     isAutomaticSingleCard,
     isCompletedSectionPicker,
@@ -1735,6 +1818,25 @@ export function LessonScreen({
         );
       });
   }, [clearLessonResume, isAppActive, isComplete, isOffline, lesson, qaMode, score, sessionId]);
+
+  useEffect(() => {
+    if (
+      qaMode
+      || !isComplete
+      || !isOffline
+      || offlineCompletionNotifiedRef.current
+    ) return;
+    offlineCompletionNotifiedRef.current = true;
+    addDiagnosticBreadcrumb('lesson_completed_offline_notice_shown', {
+      lesson_id: lesson?.id,
+    });
+    Alert.alert(
+      'Sin conexión',
+      'Terminaste la lección. Tu progreso está guardado en este dispositivo. Revisa tu conexión a internet para sincronizarlo.',
+      [{ text: 'Entendido' }],
+      { cancelable: false },
+    );
+  }, [isComplete, isOffline, lesson?.id, qaMode]);
 
   const recordAttempt = (
     optionId: string,
@@ -1908,8 +2010,12 @@ export function LessonScreen({
     const completion = registerCardCompletion(completedCardsRef.current, cardIndex, false);
     completedCardsRef.current = completion.completedCards;
     setCompletedCards(completion.completedCards);
-    setResult('correct');
-  }, [cardIndex]);
+    if (qaMode && !qaAutoAdvance) {
+      setResult('correct');
+      return;
+    }
+    advance();
+  }, [advance, cardIndex, qaAutoAdvance, qaMode]);
 
   const grammarAnimationComplete = useCallback(() => {
     if (
@@ -2665,6 +2771,7 @@ export function LessonScreen({
             lessonId={lesson.id}
             isAppActive={isAppActive}
             isOffline={isOffline}
+            offlinePronunciationPracticeEnabled={isOffline && offlinePronunciationAccepted}
             optionsInteractive={!isAutomaticSingleCard}
             pronunciationAudioTurns={pronunciationTurnSequence}
             onPronunciationAttempted={pronunciationAttempted}

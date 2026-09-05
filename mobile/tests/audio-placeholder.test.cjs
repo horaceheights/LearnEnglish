@@ -25,8 +25,8 @@ assert.doesNotMatch(
 
 assert.match(
   lessonScreenSource,
-  /card\.audio_assets\.map\(\(asset\) => ensureAudioPreloaded\(courseAudioAssetSource\(asset\)\)\)/,
-  'Preloading must read only the assets already bound to the card.',
+  /card\.audio_assets\.map\(async \(asset\) => \{[\s\S]*?cacheCourseAudioAsset\(asset\);[\s\S]*?ensureAudioPreloaded\(lessonAudioAssetSource\(asset\)\)/,
+  'Preloading must cache and read only the immutable assets already bound to the card.',
 );
 
 assert.match(

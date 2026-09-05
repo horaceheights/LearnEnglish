@@ -17,18 +17,20 @@ import {
 import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { getPronunciationStreamingToken, scorePronunciation } from '../api';
-import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import {
-  courseAudioAssetSource,
-  courseAudioSource,
-  type CourseAudioTurnPlayback,
-} from '../courseAudioSources';
+  courseAudioAssetIdFromVoice,
+  lessonVideoUrl,
+  type CourseAudioProvider,
+  type CourseAudioVoice,
+} from '../config';
+import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import {
   addDiagnosticBreadcrumb,
   captureDiagnosticError,
   isExpectedConnectivityError,
   setDiagnosticOperation,
 } from '../diagnostics';
+import { lessonAudioAssetSource, lessonAudioSourceById } from '../lessonAudioCache';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import {
   assessedPhraseProgress,
@@ -63,6 +65,7 @@ type Props = {
   imageUrl?: string;
   isAppActive: boolean;
   isOffline: boolean;
+  offlinePracticeEnabled?: boolean;
   videoName?: string | null;
   level: string;
   userId?: string;
@@ -78,6 +81,7 @@ const MAX_AUTOMATIC_ATTEMPTS = 2;
 const GRADING_REVIEW_MS = 3000;
 const RECORDING_REVEAL_MS = 650;
 const RECORDING_LOAD_TIMEOUT_MS = 4000;
+const OFFLINE_REVIEW_FINISH_MS = 700;
 const MODEL_AUDIO_LOAD_TIMEOUT_MS = 12000;
 const NATIVE_CAPTURE_STOP_TIMEOUT_MS = 7000;
 const NATIVE_CAPTURE_STOP_TIMEOUT_MESSAGE = 'Native pronunciation capture did not stop before the timeout.';
@@ -237,6 +241,7 @@ export function PronunciationPractice({
   imageUrl,
   isAppActive,
   isOffline,
+  offlinePracticeEnabled = false,
   videoName,
   level,
   userId,
@@ -577,7 +582,7 @@ export function PronunciationPractice({
       pauseForInterruption();
       return;
     }
-    if (isOffline) {
+    if (isOffline && !offlinePracticeEnabled) {
       showUnavailableState();
       return;
     }
@@ -621,7 +626,7 @@ export function PronunciationPractice({
       if (audioTurns?.length) {
         const nextPlaylist = createAudioPlaylist({
           loop: 'none',
-          sources: audioTurns.map(({ asset }) => courseAudioAssetSource(asset)),
+          sources: audioTurns.map(({ asset }) => lessonAudioAssetSource(asset)),
         });
         if (!isCurrentRun(runId)) {
           nextPlaylist.release();
@@ -655,14 +660,12 @@ export function PronunciationPractice({
       }
       setModelSequenceActive(false);
       setActiveModelTurnImageUrl(null);
+      const modelAssetId = courseAudioAssetIdFromVoice(audioVoice);
+      if (audioProvider !== 'persistent-asset' || !modelAssetId) {
+        throw new Error('Pronunciation audio requires an exact immutable persistent asset.');
+      }
       const nextPlayer = createAudioPlayer(
-        courseAudioSource(
-          phrase,
-          'pronunciation_slow',
-          'split-ing',
-          audioProvider,
-          audioVoice,
-        ),
+        lessonAudioSourceById(modelAssetId),
         { keepAudioSessionActive: true },
       );
       if (!isCurrentRun(runId)) {
@@ -697,10 +700,10 @@ export function PronunciationPractice({
       });
       showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
     }
-  }, [audioProvider, audioTurns, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
+  }, [audioProvider, audioTurns, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, offlinePracticeEnabled, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
   const playModelEvent = useEffectEvent(playModel);
   const headerReplayAvailable = isAppActive
-    && !isOffline
+    && (!isOffline || offlinePracticeEnabled)
     && phase !== 'ready'
     && phase !== 'listening'
     && phase !== 'checking'
@@ -1073,6 +1076,28 @@ export function PronunciationPractice({
         handleNoSpeech(runId);
         return;
       }
+      if (offlinePracticeEnabled) {
+        setDiagnosticOperation('pronunciation_offline_self_review');
+        setResult(null);
+        setReviewingRecording(true);
+        setPhase('retry');
+        setMessage('Escucha tu respuesta.');
+        addDiagnosticBreadcrumb('pronunciation_offline_recording_ready', {
+          attempt: attemptRef.current + 1,
+          recorder_finalize_ms: recorderFinalizeMs,
+        });
+        await playAttemptRecording(recordingUri, runId);
+        if (!isCurrentRun(runId)) return;
+        setReviewingRecording(false);
+        setMessage('Práctica completada sin calificación.');
+        await new Promise((resolve) => setTimeout(resolve, OFFLINE_REVIEW_FINISH_MS));
+        if (!isCurrentRun(runId)) return;
+        addDiagnosticBreadcrumb('pronunciation_offline_self_review_completed', {
+          attempt: attemptRef.current + 1,
+        });
+        onUnavailable();
+        return;
+      }
       if (!evidence.strong) {
         addDiagnosticBreadcrumb('pronunciation_recording_uploaded_without_local_voice', {
           active_ms: evidence.activeMs,
@@ -1157,11 +1182,11 @@ export function PronunciationPractice({
         try {
           new File(recordingUri).delete();
         } catch {
-          // Pronunciation recordings are disposable after server grading.
+          // Pronunciation recordings are disposable after grading or local playback.
         }
       }
     }
-  }, [completeGradedAttempt, evaluateResult, handleNoSpeech, isCurrentRun, level, onAttempted, phrase, recorder, showUnavailableState, userId, voiceEvidence]);
+  }, [completeGradedAttempt, evaluateResult, handleNoSpeech, isCurrentRun, level, offlinePracticeEnabled, onAttempted, onUnavailable, phrase, playAttemptRecording, recorder, showUnavailableState, userId, voiceEvidence]);
 
   const startListening = useCallback(async () => {
     const runId = runIdRef.current;
@@ -1170,7 +1195,7 @@ export function PronunciationPractice({
       pauseForInterruption();
       return;
     }
-    if (isOffline) {
+    if (isOffline && !offlinePracticeEnabled) {
       showUnavailableState();
       return;
     }
@@ -1206,7 +1231,7 @@ export function PronunciationPractice({
       silenceStartedAt.current = null;
       resetVoiceEvidence();
       captureFinishing.current = false;
-      const streamingToken = nativeStreamingAvailable
+      const streamingToken = nativeStreamingAvailable && !offlinePracticeEnabled
         ? await getPronunciationStreamingToken()
         : null;
       setPhase('ready');
@@ -1279,7 +1304,7 @@ export function PronunciationPractice({
         scheduleRetry('No pudimos abrir el micrófono.', runId);
       }
     }
-  }, [discardNativeRecording, isAppActive, isCurrentRun, isOffline, modelPlayer, pauseForInterruption, phrase, playReadyCueAndWait, recorder, resetVoiceEvidence, scheduleRetry, showUnavailableState]);
+  }, [discardNativeRecording, isAppActive, isCurrentRun, isOffline, modelPlayer, offlinePracticeEnabled, pauseForInterruption, phrase, playReadyCueAndWait, recorder, resetVoiceEvidence, scheduleRetry, showUnavailableState]);
 
   useEffect(() => {
     if (!nativeStreamingAvailable) return undefined;
