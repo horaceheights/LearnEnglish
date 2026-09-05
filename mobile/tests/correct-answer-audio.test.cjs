@@ -35,14 +35,14 @@ assert.match(
 
 assert.match(
   lessonScreen,
-  /const preloadCardAudio = useCallback\(\(card\?: LessonCard\) => \{[\s\S]*?card\.audio_assets\.map\(\(asset\) => ensureAudioPreloaded\(courseAudioAssetSource\(asset\)\)\)/,
-  'Every card-bound answer asset must preload through its persistent asset ID.',
+  /const preloadCardAudio = useCallback\(\(card\?: LessonCard\) => \{[\s\S]*?card\.audio_assets\.map\(async \(asset\) => \{[\s\S]*?cacheCourseAudioAsset\(asset\);[\s\S]*?ensureAudioPreloaded\(lessonAudioAssetSource\(asset\)\)/,
+  'Every card-bound answer asset must cache and preload through its persistent asset ID.',
 );
 
 assert.match(
   lessonScreen,
-  /const purpose = variant === 'answer' \? 'answer' : 'prompt';[\s\S]*?findCourseAudioAsset\(card, purpose, mode, variant, text\)[\s\S]*?playAudioSource\(courseAudioAssetSource\(asset\), mode, variant\)/,
-  'Answer playback must resolve the active card answer asset and never synthesize from text.',
+  /const purpose = variant === 'answer' \? 'answer' : 'prompt';[\s\S]*?findCourseAudioAsset\(card, purpose, mode, variant, text\)[\s\S]*?playAudioSource\(lessonAudioAssetSource\(asset\), mode, variant\)/,
+  'Answer playback must resolve the active card answer asset locally first and never synthesize from text.',
 );
 
 assert.match(

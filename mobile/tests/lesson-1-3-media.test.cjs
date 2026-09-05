@@ -99,8 +99,8 @@ assert.doesNotMatch(
 );
 assert.match(
   lessonScreen,
-  /findCourseAudioAsset\(card, purpose, mode, variant, text\)[\s\S]*?courseAudioAssetSource\(asset\)/,
-  'Lesson playback must resolve the exact immutable card asset.',
+  /findCourseAudioAsset\(card, purpose, mode, variant, text\)[\s\S]*?lessonAudioAssetSource\(asset\)/,
+  'Lesson playback must resolve the exact immutable card asset through its local-first source.',
 );
 
 console.log('Lesson 1.3 persistent They/are media checks passed.');

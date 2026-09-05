@@ -238,8 +238,12 @@ Review every changed lesson from its first card to its last in authored order:
 - [ ] Disable internet during pronunciation grading
 - [ ] After making progress offline, force-close and reopen after reconnecting; the exact saved card and first-attempt score state return
 - [ ] Finish a lesson offline, exit, reconnect, and reopen; the completion state returns and synchronizes instead of restarting at card one
-- [ ] Uncached lesson audio never blocks answering or card progression while offline
-- [ ] Pronunciation shows retry and continue-without-score controls while offline
+- [ ] Start a lesson online, allow silent preparation to run, then disable internet; cached prompt, replay, answer, and conversation-turn audio continue with no spinner or connection popup outside Speak
+- [ ] If a clip was not cached before disconnection, it fails silent without blocking answering, automatic cards, or card progression
+- [ ] Enter or remain in Speak after losing internet; one non-dismissible `Advertencia` explains the no-grade listen-back mode and offers exactly `Continuar` and `Salir`
+- [ ] `Salir` leaves the lesson; `Continuar` plays the cached model, ready beep, records locally, plays the complete learner response, shows no score or graded color, and advances without an upload
+- [ ] Consecutive Speak cards while still offline do not repeat the warning; reconnecting and losing connectivity again permits one new warning
+- [ ] Finish the lesson offline; one `Sin conexión` message confirms local saving and asks the learner to check internet for synchronization
 - [ ] Restoring internet allows pronunciation to restart normally
 - [ ] Test after backend cold start
 - [ ] Force-close and reopen the app
