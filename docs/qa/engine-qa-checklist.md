@@ -236,6 +236,8 @@ Review every changed lesson from its first card to its last in authored order:
 - [ ] Disable internet before loading a lesson
 - [ ] Disable internet during a non-pronunciation lesson
 - [ ] Disable internet during pronunciation grading
+- [ ] After making progress offline, force-close and reopen after reconnecting; the exact saved card and first-attempt score state return
+- [ ] Finish a lesson offline, exit, reconnect, and reopen; the completion state returns and synchronizes instead of restarting at card one
 - [ ] Uncached lesson audio never blocks answering or card progression while offline
 - [ ] Pronunciation shows retry and continue-without-score controls while offline
 - [ ] Restoring internet allows pronunciation to restart normally
