@@ -38,6 +38,21 @@ assert.equal(
 test('mission construction supports bounded drag plus a complete tap path', () => {
   assert.match(cardView, /PanResponder\.create/);
   assert.match(cardView, /measureInWindow/);
+  assert.match(
+    missionConstructionSource,
+    /onPanResponderGrant:[\s\S]*?originRef\.current = null[\s\S]*?measureDropBounds\(\)[\s\S]*?tileRef\.current\?\.measureInWindow/,
+    'Starting a drag must refresh both the drop zone and tile origin after any ScrollView movement.',
+  );
+  assert.match(
+    missionConstructionSource,
+    /onPanResponderRelease:[\s\S]*?measureDropBounds\(\(bounds\) => \{[\s\S]*?pageX >= bounds\.x[\s\S]*?pageY >= bounds\.y/,
+    'Releasing a drag must hit-test against freshly measured window coordinates.',
+  );
+  assert.doesNotMatch(
+    missionConstructionSource,
+    /onPanResponderRelease:[\s\S]*?const bounds = dropBoundsRef\.current/,
+    'Drag release must not trust coordinates cached before the ScrollView moved.',
+  );
   assert.match(cardView, /viewportWidth - origin\.x - origin\.width - 8/);
   assert.match(cardView, /viewportHeight - origin\.y - origin\.height - 8/);
   assert.match(cardView, /onPress=\{\(\) => onSelect\(option\.id\)\}/);

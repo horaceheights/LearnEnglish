@@ -1,5 +1,5 @@
 import { Animated, Easing, PanResponder, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { useCallback, useEffect, useMemo, useRef, useState, type MutableRefObject } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
@@ -718,15 +718,19 @@ type MissionDropBounds = {
   y: number;
 };
 
+type MeasureMissionDropBounds = (
+  onMeasured?: (bounds: MissionDropBounds | null) => void,
+) => void;
+
 function MissionDraggableTile({
   disabled,
-  dropBoundsRef,
+  measureDropBounds,
   onSelect,
   option,
   selected,
 }: {
   disabled: boolean;
-  dropBoundsRef: MutableRefObject<MissionDropBounds | null>;
+  measureDropBounds: MeasureMissionDropBounds;
   onSelect: (optionId: string) => void;
   option: ChoiceOption;
   selected: boolean;
@@ -754,6 +758,8 @@ function MissionDraggableTile({
     ),
     onPanResponderGrant: () => {
       setDragging(true);
+      originRef.current = null;
+      measureDropBounds();
       tileRef.current?.measureInWindow((x, y, width, height) => {
         originRef.current = { x, y, width, height };
       });
@@ -767,24 +773,25 @@ function MissionDraggableTile({
       });
     },
     onPanResponderRelease: (event) => {
-      const bounds = dropBoundsRef.current;
       const { pageX, pageY } = event.nativeEvent;
-      if (
-        bounds
-        && pageX >= bounds.x
-        && pageX <= bounds.x + bounds.width
-        && pageY >= bounds.y
-        && pageY <= bounds.y + bounds.height
-      ) {
-        onSelect(option.id);
-      }
+      measureDropBounds((bounds) => {
+        if (
+          bounds
+          && pageX >= bounds.x
+          && pageX <= bounds.x + bounds.width
+          && pageY >= bounds.y
+          && pageY <= bounds.y + bounds.height
+        ) {
+          onSelect(option.id);
+        }
+      });
       returnTile();
     },
     onPanResponderTerminate: returnTile,
     onPanResponderTerminationRequest: () => false,
   }), [
     drag,
-    dropBoundsRef,
+    measureDropBounds,
     onSelect,
     option.id,
     returnTile,
@@ -852,9 +859,17 @@ function MissionTileBuilder({
   const selectedLabels = selectedIds.map((optionId) => (
     card.options.find((option) => option.id === optionId)?.label || optionId
   ));
-  const measureDropZone = useCallback(() => {
-    dropZoneRef.current?.measureInWindow((x, y, width, height) => {
-      dropBoundsRef.current = { x, y, width, height };
+  const measureDropZone = useCallback<MeasureMissionDropBounds>((onMeasured) => {
+    const dropZone = dropZoneRef.current;
+    if (!dropZone) {
+      dropBoundsRef.current = null;
+      onMeasured?.(null);
+      return;
+    }
+    dropZone.measureInWindow((x, y, width, height) => {
+      const bounds = { x, y, width, height };
+      dropBoundsRef.current = bounds;
+      onMeasured?.(bounds);
     });
   }, []);
 
@@ -871,7 +886,7 @@ function MissionTileBuilder({
         accessibilityLabel={`Respuesta: ${selectedLabels.join(isWordParts ? '-' : ' ') || 'vacía'}`}
         accessibilityLiveRegion="polite"
         accessible
-        onLayout={measureDropZone}
+        onLayout={() => measureDropZone()}
         ref={dropZoneRef}
         style={[
           styles.missionDropZone,
@@ -902,8 +917,8 @@ function MissionTileBuilder({
         {card.options.map((option) => (
           <MissionDraggableTile
             disabled={disabled}
-            dropBoundsRef={dropBoundsRef}
             key={option.id}
+            measureDropBounds={measureDropZone}
             onSelect={onSelect}
             option={option}
             selected={selectedIds.includes(option.id)}
