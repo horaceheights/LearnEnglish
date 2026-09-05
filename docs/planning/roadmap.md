@@ -1,6 +1,6 @@
 # SpanGlish Product Roadmap
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-09-05
 
 This is the persistent source of truth for product priorities. When work is
 completed, update this file in the same commit. When asked "what is next?",
@@ -143,6 +143,7 @@ corrupts progress, or produces unreliable learning feedback.
 - [x] Keep QA on the production lesson catalog while isolating QA sessions and analytics
 - [x] Implement the complete 70-lesson A1 dependency chain across seven units of ten
 - [x] Encode intentional curriculum growth through richer constructions in lessons 1-8, fresh-scenario comprehensive reviews in lesson 9, and distinct applied missions in lesson 10
+- [ ] Add `What are you doing? / I am ...` as a supported current-action thread in Lesson 3.3, retrieve it with fresh material in 3.9, and apply it in 3.10; keep Lesson 3.6 professions on `What is your job? / I am a ...` so current activity and occupation are never conflated
 - [~] Restructure Unit 1 one lesson at a time with a learner review checkpoint after every pushed lesson; Lesson 1.1 `Meet the People` is the active pilot
 - [x] Present the seven-unit hierarchy without flattening all 70 lessons into the initial menu
 

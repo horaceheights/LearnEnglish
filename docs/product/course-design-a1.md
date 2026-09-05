@@ -94,13 +94,13 @@ Core patterns:
 
 ### Unit 3: Me and Other People
 
-Goal: Exchange basic personal information and describe oneself or another person with tightly supported A1 questions and answers.
+Goal: Exchange basic personal information, ask about a current action, and describe oneself or another person with tightly supported A1 questions and answers.
 
 Lessons:
 
 1. 3.1 Greetings and Names
 2. 3.2 I, You, and We
-3. 3.3 Am, Is, and Are
+3. 3.3 Am, Is, and Are: consolidate `I am`, `he/she/it is`, and `you/we/they are`, then introduce `doing` and the supported current-action exchange `What are you doing? / I am ...` with familiar Unit 1 actions
 4. 3.4 Age
 5. 3.5 Countries and Nationalities
 6. 3.6 Professions
@@ -112,10 +112,13 @@ Lessons:
 Core patterns:
 
 - `What is your name? My name is Ana.`
+- `What are you doing? I am reading.`
 - `How old are you? I am twenty.`
 - `Where are you from? I am from Mexico.`
-- `What do you do? I am a teacher.`
+- `What is your job? I am a teacher.`
 - `She has a phone.`
+
+`What are you doing?` enters late in Lesson 3.3, after Unit 2.4 has introduced `what` and Lesson 3.2 has established `I`, `you`, and `am`. Lesson 3.3 introduces `doing`, reuses already learned Unit 1 action words in answers, and keeps the current-action exchange distinct from the Lesson 3.6 profession question `What is your job?`. Lesson 3.9 retrieves the exchange in a fresh context, and Lesson 3.10 applies it inside the unit mission.
 
 ### Unit 4: Home and Daily Life
 
