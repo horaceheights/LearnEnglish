@@ -104,6 +104,8 @@ Every standard lesson follows this visible sequence:
 
 - The model audio must finish completely before the ready beep and microphone activation.
 - Every Speak card must finish preloading its model clip before mounting the pronunciation player. If preload fails, retry once before falling back to the player’s learner-facing recovery. Verification must exercise at least two consecutive Speak cards so first-card-only success cannot pass release checks.
+- When connectivity is lost, interrupt Speak before recording and show one non-dismissible `Advertencia` for that offline episode with `Continuar` and `Salir`. The copy must explain that pronunciation will continue without a grade and that the learner will only hear their response. Do not show this warning in Learn, Recognize, Listen, or Use.
+- After the learner chooses `Continuar` offline, play the cached model, use only the on-device recorder, play the learner's complete local recording back, award no pronunciation grade, discard the recording, and advance. Never request a streaming token, upload the recording, invent a score, or apply graded pronunciation colors in this fallback.
 - The microphone animation starts when recording actually starts, not before the beep.
 - Play one clear ready beep. Do not emit an extra beep during the transition to the next card.
 - Show grading feedback as soon as recording and evaluation finish.
@@ -306,7 +308,9 @@ Do not force every word through every step in a single lesson when that would ma
 ## 8. Feedback and Interaction
 
 - Cold-start, course, and lesson loading surfaces use the shared playful SpanGlish loader. Keep backend lifecycle details such as server wake-up or connection state out of learner-facing loading copy, and respect reduced-motion settings.
+- Starting a lesson while connected silently caches every immutable course-audio asset for that lesson with bounded concurrency and no learner-facing spinner or progress status. Canonical A1 still images remain bundled in the app. Once cached, ordinary lesson audio must resolve to the local file after connectivity loss; an uncached clip may fail silent but may never block answering or card progression. Deliberate user-managed lesson or unit downloads remain a separate offline-packs feature.
 - The active standard lesson is checkpointed locally after every progress change and flushed again when the app backgrounds or unmounts. Losing connectivity must never replace that checkpoint with older backend progress. A locally completed lesson remains stored as pending until the backend confirms completion; reopening or reconnecting restores the exact card, first-attempt/score state, and pending completion, then retries missing session or completion synchronization without awarding progress twice.
+- Finishing a lesson offline shows one non-dismissible `Sin conexión` notice confirming that progress is saved on the device and asking the learner to check internet for synchronization. Completion remains locally pending until the server confirms it.
 - Correct answers play the established success sound and retain visible word-level feedback where applicable.
 - Wrong answers play the established retry sound and retain the correction/help until the learner acts.
 - Do not apply green, orange, or red pronunciation colors while recording or scoring. Keep words neutral until a real result is available.
@@ -399,6 +403,8 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - Backend access-control changes must remain compatible with every active mobile channel. Do not enforce a new client credential on the shared backend until the matching client code has reached Preview and Production; server-only admin credentials must never be committed, bundled, or given a source-code fallback.
 
 ## 12. Decision Log
+
+- 2026-09-05: Started lessons adopted silent whole-lesson immutable-audio caching while all canonical A1 stills remain bundled. Offline transitions stay invisible outside Speak; Speak shows one Continue/Exit warning, then uses cached model audio plus local recording playback without grading or upload. Offline completion explicitly confirms local saving and requests reconnection for synchronization.
 
 - 2026-09-05: Lesson progress became network-independent and acknowledgement-safe after an airplane-mode exit could reopen at the beginning. The latest local checkpoint is serialized and lifecycle-flushed, local completion remains pending until the server confirms it, and connectivity recovery retries missing session/completion synchronization while retaining first-attempt scoring.
 - 2026-09-03: Lesson 1.5 closes its generation sequence with the established grandparents and their grandchildren in a dedicated scene containing no parents. The authored line is `The grandparents and the grandchildren are family.`; `grandchildren` is introduced in Learn before that scene is assessed. The preceding parents-and-children beat uses its own scene with no grandparents, and Recognize contrasts those two parallel family-group scenes rather than a group against a lone person.
