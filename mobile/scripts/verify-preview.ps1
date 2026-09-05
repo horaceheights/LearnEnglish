@@ -12,6 +12,7 @@ $mobileRoot = Split-Path -Parent $PSScriptRoot
 $validator = Join-Path $repositoryRoot 'scripts\validate_lesson_cards.py'
 $audioCastValidator = Join-Path $repositoryRoot 'scripts\validate_course_audio_cast.py'
 $persistentAudioValidator = Join-Path $repositoryRoot 'scripts\validate_persistent_course_audio.py'
+$staticSfxValidator = Join-Path $repositoryRoot 'scripts\validate_static_sfx.py'
 $videoFillValidator = Join-Path $repositoryRoot 'scripts\audit_video_full_bleed.py'
 $interactionVerifier = Join-Path $PSScriptRoot 'verify-interaction-paths.ps1'
 $typescriptCompiler = Join-Path $mobileRoot 'node_modules\typescript\bin\tsc'
@@ -42,6 +43,9 @@ try {
   }
   Invoke-CheckedCommand -FailureMessage 'El audio persistente del curso está incompleto o es inválido.' -Command {
     & $pythonCommand $persistentAudioValidator
+  }
+  Invoke-CheckedCommand -FailureMessage 'Los efectos estáticos no coinciden con su manifiesto revisado.' -Command {
+    & $pythonCommand $staticSfxValidator
   }
 } finally {
   Pop-Location

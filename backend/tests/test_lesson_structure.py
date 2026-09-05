@@ -1,15 +1,17 @@
-import hashlib
 import json
 import re
 import unittest
+from copy import deepcopy
 from pathlib import Path
 from types import SimpleNamespace
 from urllib.parse import urlparse
 
-from PIL import Image
-
 from backend.app.data import LESSON_IMAGE_DIR, LESSONS
-from scripts.validate_lesson_cards import validate_family_adult_ambiguity
+from scripts.validate_lesson_cards import (
+    MISSION_COMPLETION_INTERACTIONS,
+    validate_family_adult_ambiguity,
+    validate_mission_contracts,
+)
 
 
 STAGES = ["Learn", "Recognize", "Listen", "Speak", "Use"]
@@ -35,7 +37,7 @@ EXPECTED_TITLES = [
     "What They Are Not Doing",
     "Who Is He? Who Are They?",
     "Unit 1 Story Review",
-    "Family Scene Mission",
+    "Family Album Mission",
 ]
 EXPECTED_VOCABULARY = {
     "lesson-1-people-actions": {
@@ -67,8 +69,54 @@ EXPECTED_STAGE_COUNTS = {
     "lesson-7-is-are-not": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-8-who": {"Learn": 10, "Recognize": 10, "Listen": 10, "Speak": 10, "Use": 10},
     "lesson-9-unit-review": {"Learn": 14, "Recognize": 14, "Listen": 10, "Speak": 8, "Use": 8},
-    "lesson-10-family-mission": {"Learn": 4, "Recognize": 8, "Listen": 6, "Speak": 6, "Use": 8},
 }
+UNIT_ONE_GOLD = [
+    "a", "boy", "girl", "man", "woman", "he", "she", "is", "the",
+    "eating", "drinking", "reading", "writing", "and", "they", "are",
+    "running", "sitting", "swimming", "sleeping", "family", "baby",
+    "babies", "child", "children", "brother", "brothers", "sister",
+    "sisters", "an", "adult", "adults", "father", "mother", "parents",
+    "grandfather", "grandmother", "grandparents", "grandchildren", "playing",
+    "studying", "working", "cooking", "talking", "not", "who",
+]
+MISSION_CHAPTERS = (
+    ["open-album"] * 5
+    + ["build-family"] * 8
+    + ["restore-memories"] * 7
+    + ["record-and-reveal"] * 2
+)
+MISSION_STAGES = [
+    "Use", "Learn", "Use", "Recognize", "Use", "Recognize", "Listen", "Use",
+    "Recognize", "Listen", "Use", "Speak", "Recognize", "Use", "Listen",
+    "Use", "Listen", "Recognize", "Listen", "Use", "Speak", "Use",
+]
+MISSION_INTERACTION_SEQUENCE = [
+    "mission-word-parts",
+    *(["mission-sentence"] * 10),
+    "mission-speak",
+    "mission-clue",
+    "mission-sentence",
+    "mission-sentence",
+    "mission-sentence",
+    "mission-listen",
+    "mission-clue",
+    "mission-sentence",
+    "mission-sentence",
+    "mission-speak",
+    "mission-finale",
+]
+MISSION_HERO_ASSETS = [
+    f"a1_u1_album_{index:02d}_{suffix}.webp"
+    for index, suffix in enumerate((
+        "locked", "people_board", "pronoun_cast", "family_index", "adult_count",
+        "parents_branch", "grandparents_branch", "tree_complete", "who_father",
+        "who_mother", "who_parents", "who_children", "who_grandparents",
+        "man_eating_drinking", "boy_reading_writing",
+        "siblings_running_mother_sitting", "sisters_swimming_grandfather_sleeping",
+        "children_playing_sister_studying", "family_work_cook_talk",
+        "negative_contact_sheet", "voiceover_booth", "final_portrait",
+    ), 1)
+]
 
 
 def lesson_payload(lesson):
@@ -250,7 +298,29 @@ class LessonStructureTests(unittest.TestCase):
     def test_lesson_1_10_is_a_distinct_ordered_family_mission(self):
         mission = LESSONS["lesson-10-family-mission"]
         self.assertEqual([], mission.vocabulary)
-        self.assertEqual(32, len(mission.cards))
+        self.assertEqual("mission", mission.experience_type)
+        self.assertEqual(2, mission.content_revision)
+        self.assertEqual(22, len(mission.cards))
+        self.assertEqual(UNIT_ONE_GOLD, mission.review_vocabulary)
+        self.assertEqual(
+            ["open-album", "build-family", "restore-memories", "record-and-reveal"],
+            [chapter.id for chapter in mission.mission.chapters],
+        )
+        self.assertTrue(mission.mission.label)
+        self.assertTrue(mission.mission.title)
+        self.assertTrue(mission.mission.briefing)
+        self.assertTrue(mission.mission.completion_title)
+        self.assertTrue(mission.mission.completion_message)
+        self.assertEqual(
+            [f"M{index:02d}" for index in range(1, 23)],
+            [card.slide_id for card in mission.cards],
+        )
+        self.assertEqual(MISSION_CHAPTERS, [card.mission_chapter_id for card in mission.cards])
+        self.assertEqual(MISSION_STAGES, [card.stage for card in mission.cards])
+        self.assertEqual(
+            MISSION_INTERACTION_SEQUENCE,
+            [card.interaction_type for card in mission.cards],
+        )
 
         mission_media = {
             urlparse(url).path.rsplit("/", 1)[-1]
@@ -266,30 +336,61 @@ class LessonStructureTests(unittest.TestCase):
             if url
         }
         self.assertTrue(mission_media)
-        self.assertTrue(all(name.startswith("a1_u1_mission_") for name in mission_media))
+        self.assertTrue(all(name.startswith("a1_u1_album_") for name in mission_media))
         self.assertEqual(set(), mission_media & earlier_media)
 
-        for step, card in enumerate(mission.cards, 1):
-            with self.subTest(step=step, slide=card.slide_id):
-                self.assertRegex(card.pedagogy_note, rf"^Mission step {step:02d}/32:")
+        hero_assets = []
+        for beat, card in enumerate(mission.cards, 1):
+            with self.subTest(beat=beat, slide=card.slide_id):
+                self.assertRegex(card.pedagogy_note, rf"^Mission beat {beat:02d}/22:")
+                correct = next(
+                    option for option in card.options
+                    if option.id == card.correct_option_id
+                )
+                hero_url = card.prompt_image_url or correct.image_url
+                self.assertTrue(hero_url)
+                hero_assets.append(urlparse(hero_url).path.rsplit("/", 1)[-1])
+        self.assertEqual(
+            MISSION_HERO_ASSETS,
+            hero_assets,
+        )
+        self.assertEqual(22, len(set(hero_assets)))
+        self.assertEqual([], validate_mission_contracts())
 
-        use_cards = [card for card in mission.cards if card.stage == "Use"]
-        self.assertEqual(
-            ["mission-word-parts"] * 2
-            + ["mission-sentence"] * 5
-            + ["mission-finale"],
-            [card.interaction_type for card in use_cards],
+    def test_mission_contract_fails_closed_on_core_regressions(self):
+        cases = []
+
+        wrong_count = deepcopy(LESSONS)
+        wrong_count["lesson-10-family-mission"].cards.pop()
+        cases.append((wrong_count, "must contain exactly 22 mission beats"))
+
+        missing_who_form = deepcopy(LESSONS)
+        missing_who_form["lesson-10-family-mission"].cards[8].answer_audio_text = (
+            "He is the father."
         )
-        self.assertEqual(
-            [
-                "fa-ther", "mo-ther", "He is reading.", "She is writing.",
-                "They are playing.", "They are talking.",
-                "They are not sleeping.", "They are a family.",
-            ],
-            [card.answer_audio_text for card in use_cards],
+        cases.append((missing_who_form, "must assess the question form 'who is he'"))
+
+        unintroduced_language = deepcopy(LESSONS)
+        unintroduced_language["lesson-10-family-mission"].cards[12].options[1].label = (
+            "They are the teachers."
         )
-        self.assertTrue(all(2 <= len(card.correct_option_ids) <= 3 for card in use_cards))
-        self.assertTrue(all(len(card.options) <= 3 for card in use_cards))
+        cases.append((unintroduced_language, "unintroduced assessed/distractor English"))
+
+        reused_review_media = deepcopy(LESSONS)
+        prior_url = next(
+            card.prompt_image_url
+            for card in reused_review_media["lesson-9-unit-review"].cards
+            if card.prompt_image_url
+        )
+        reused_review_media["lesson-10-family-mission"].cards[0].prompt_image_url = prior_url
+        cases.append((reused_review_media, "reuses earlier lesson media"))
+
+        for catalog, expected_error in cases:
+            with self.subTest(expected_error=expected_error):
+                self.assertTrue(
+                    any(expected_error in error for error in validate_mission_contracts(catalog)),
+                    f"Mission validator did not reject {expected_error!r}.",
+                )
 
     def test_each_rebuilt_lesson_ends_with_ordered_multi_word_construction(self):
         for lesson_id in UNIT_1_IDS[1:9]:
@@ -310,6 +411,8 @@ class LessonStructureTests(unittest.TestCase):
 
     def test_every_lesson_uses_the_same_five_stage_shell(self):
         for lesson in LESSONS.values():
+            if getattr(lesson, "experience_type", None) == "mission":
+                continue
             with self.subTest(lesson=lesson.id):
                 self.assertEqual(STAGES, list(dict.fromkeys(card.stage for card in lesson.cards)))
                 self.assertNotIn("Grammar", {card.stage for card in lesson.cards})
@@ -411,43 +514,12 @@ class LessonStructureTests(unittest.TestCase):
             with self.subTest(slide=card.slide_id):
                 self.assertEqual(expected_subject_images, image_names)
 
-    def test_lesson_10_father_reading_uses_the_reviewed_clue_card_scene(self):
-        lesson = LESSONS["lesson-10-family-mission"]
-        reviewed_asset = "a1_u1_mission_father_reading_clear.webp"
-        identity_asset = "a1_u1_mission_father_reading.webp"
-        expected_action_slides = {"L3", "R3", "A1", "S2", "U3"}
-        expected_identity_slides = {"R2", "S1", "U1"}
-
-        action_references_by_slide = {}
-        identity_references_by_slide = {}
-        for card in lesson.cards:
-            media_urls = [card.prompt_image_url] if card.prompt_image_url else []
-            media_urls.extend(option.image_url for option in card.options if option.image_url)
-            asset_names = {
-                urlparse(media_url).path.rsplit("/", 1)[-1]
-                for media_url in media_urls
-            }
-            if reviewed_asset in asset_names:
-                action_references_by_slide[card.slide_id] = asset_names
-            if identity_asset in asset_names:
-                identity_references_by_slide[card.slide_id] = asset_names
-
-        self.assertEqual(expected_action_slides, set(action_references_by_slide))
-        self.assertEqual(expected_identity_slides, set(identity_references_by_slide))
-
-        asset_path = LESSON_IMAGE_DIR / reviewed_asset
-        with Image.open(asset_path) as image:
-            self.assertEqual((1536, 1024), image.size)
-        self.assertEqual(
-            "ab6404c7041d182e0b38ae45a80c6f688f21d02137a83384608a809fb70e9dd1",
-            hashlib.sha256(asset_path.read_bytes()).hexdigest(),
-            "Changing the reviewed printed-clue pixels requires a new at-mobile-size visual review.",
-        )
-
     def test_text_only_cards_have_at_most_three_options(self):
         for lesson in LESSONS.values():
             for index, card in enumerate(lesson.cards, 1):
                 if not card.options or any(option.image_url for option in card.options):
+                    continue
+                if card.interaction_type in MISSION_COMPLETION_INTERACTIONS:
                     continue
                 with self.subTest(lesson=lesson.id, card=index):
                     self.assertLessEqual(len(card.options), 3)
@@ -518,23 +590,26 @@ class LessonStructureTests(unittest.TestCase):
                 if stage == 'Listen':
                     self.assertEqual(1, sum(option.label == questions[index] for option in question.options))
 
-    def test_lesson_10_identity_text_choices_ask_the_question_up_front(self):
-        cards = [
-            card
-            for card in LESSONS["lesson-10-family-mission"].cards
-            if card.stage == "Recognize"
-            and card.prompt_image_url
-            and card.prompt == "Who are they?"
-        ]
-        self.assertEqual(2, len(cards))
-        for card in cards:
-            with self.subTest(image=card.prompt_image_url):
-                self.assertEqual("Who are they?", card.audio_text)
-                correct_option = next(
-                    option for option in card.options if option.id == card.correct_option_id
-                )
-                self.assertEqual(correct_option.label, card.answer_audio_text)
-                self.assertNotIn("Who are they?", card.answer_audio_text)
+    def test_lesson_10_assesses_every_unit_1_who_form(self):
+        mission = LESSONS["lesson-10-family-mission"]
+        gold_text = " ".join(
+            value
+            for card in mission.cards
+            for value in (
+                card.prompt or "",
+                card.audio_text or "",
+                card.answer_audio_text or "",
+                *(
+                    option.label or ""
+                    for option in card.options
+                    if option.id in ({card.correct_option_id} | set(card.correct_option_ids))
+                ),
+            )
+        ).lower()
+        normalized = re.sub(r"[^a-z]+", " ", gold_text)
+        for question in ("who is he", "who is she", "who are they"):
+            with self.subTest(question=question):
+                self.assertIn(question, normalized)
 
     def test_lesson_2_6_object_identity_card_uses_aligned_question_and_answers(self):
         card = next(
@@ -558,6 +633,8 @@ class LessonStructureTests(unittest.TestCase):
 
     def test_listen_hides_text_and_uses_audio_with_image_choices(self):
         for lesson in LESSONS.values():
+            if getattr(lesson, "experience_type", None) == "mission":
+                continue
             cards = [card for card in lesson.cards if card.stage == "Listen"]
             with self.subTest(lesson=lesson.id):
                 self.assertTrue(all(card.prompt == "Listen and choose." for card in cards))
@@ -1201,6 +1278,8 @@ class LessonStructureTests(unittest.TestCase):
 
     def test_speak_uses_one_clear_image_and_a_model_phrase(self):
         for lesson in LESSONS.values():
+            if getattr(lesson, "experience_type", None) == "mission":
+                continue
             cards = [card for card in lesson.cards if card.stage == "Speak"]
             with self.subTest(lesson=lesson.id):
                 self.assertTrue(cards)
@@ -1210,6 +1289,8 @@ class LessonStructureTests(unittest.TestCase):
 
     def test_use_is_interactive_completion_not_a_grammar_section(self):
         for lesson in LESSONS.values():
+            if getattr(lesson, "experience_type", None) == "mission":
+                continue
             cards = [card for card in lesson.cards if card.stage == "Use"]
             with self.subTest(lesson=lesson.id):
                 self.assertTrue(cards)

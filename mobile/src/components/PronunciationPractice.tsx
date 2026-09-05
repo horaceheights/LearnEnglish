@@ -100,8 +100,10 @@ const VOICE_PEAK_ABOVE_THRESHOLD_DB = 2;
 const MIN_AZURE_SNR_DB = 8;
 const MIN_AZURE_SPEECH_MS = 250;
 const MIN_AZURE_RECOGNITION_CONFIDENCE = 0.2;
-const READY_CUE = require('../../assets/ready-cue.wav');
-const SUCCESS_CHIME = require('../../assets/success-chime.wav');
+const READY_CUE = require('../../assets/sfx/ready-cue-v2.mp3');
+const SUCCESS_CHIME = require('../../assets/sfx/page-restored-v1.mp3');
+const READY_CUE_VOLUME = 0.38;
+const SUCCESS_CHIME_VOLUME = 0.4;
 
 function showMicrophonePermissionAlert(canAskAgain: boolean) {
   const message = canAskAgain
@@ -747,7 +749,7 @@ export function PronunciationPractice({
       keepAudioSessionActive: true,
     });
     activeReadyCuePlayerRef.current = cuePlayer;
-    cuePlayer.volume = 1;
+    cuePlayer.volume = READY_CUE_VOLUME;
     for (
       let attemptIndex = 0;
       attemptIndex < 30 && !cuePlayer.isLoaded && isCurrentRun(runId);
@@ -1199,7 +1201,7 @@ export function PronunciationPractice({
       // Keep the ready cue in a playback-only session. On iOS, playing a cue
       // after preparing the recorder can deactivate/reconfigure AVAudioSession
       // when the cue finishes, leaving the prepared recorder capturing silence.
-      await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
+      await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: false });
       if (!isCurrentRun(runId)) return;
       heardSpeech.current = false;
       setNoSpeechFailure(false);
@@ -1796,8 +1798,9 @@ export function PronunciationPractice({
     successChimePlayed.current = true;
     void setAudioModeAsync({
       allowsRecording: false,
-      playsInSilentMode: true,
+      playsInSilentMode: false,
     })
+      .then(() => { successChimePlayer.volume = SUCCESS_CHIME_VOLUME; })
       .then(() => successChimePlayer.seekTo(0))
       .then(() => successChimePlayer.play())
       .catch((playbackError) => {

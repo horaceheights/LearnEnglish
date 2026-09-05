@@ -59,14 +59,14 @@ assert.match(
 
 assert.match(
   lessonScreen,
-  /const playSuccessChime = useCallback\(async \(\) => \{[\s\S]*?await setAudioModeAsync\(\{[\s\S]*?allowsRecording: false,[\s\S]*?playsInSilentMode: true,[\s\S]*?\}\);[\s\S]*?await successChimePlayer\.seekTo\(0\);[\s\S]*?successChimePlayer\.play\(\)/,
-  'The success chime must establish audible playback mode before seeking or playing on tablets.',
+  /const playSuccessChime = useCallback\(async \(\) => \{[\s\S]*?await setAudioModeAsync\(\{[\s\S]*?allowsRecording: false,[\s\S]*?playsInSilentMode: false,[\s\S]*?\}\);[\s\S]*?successChimePlayer\.volume = SUCCESS_CHIME_VOLUME;[\s\S]*?await successChimePlayer\.seekTo\(0\);[\s\S]*?successChimePlayer\.play\(\)/,
+  'The success cue must honor silent mode and use its conservative volume before playback.',
 );
 
 assert.match(
   pronunciationPractice,
-  /phase !== 'success'[\s\S]*?setAudioModeAsync\(\{[\s\S]*?allowsRecording: false,[\s\S]*?playsInSilentMode: true,[\s\S]*?\}\)[\s\S]*?successChimePlayer\.seekTo\(0\)[\s\S]*?successChimePlayer\.play\(\)/,
-  'The pronunciation success chime must leave recording mode before playing on tablets.',
+  /phase !== 'success'[\s\S]*?setAudioModeAsync\(\{[\s\S]*?allowsRecording: false,[\s\S]*?playsInSilentMode: false,[\s\S]*?\}\)[\s\S]*?successChimePlayer\.volume = SUCCESS_CHIME_VOLUME[\s\S]*?successChimePlayer\.seekTo\(0\)[\s\S]*?successChimePlayer\.play\(\)/,
+  'The pronunciation success cue must leave recording mode while honoring silent mode and conservative volume.',
 );
 
 assert.match(

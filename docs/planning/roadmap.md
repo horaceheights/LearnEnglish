@@ -77,7 +77,7 @@ creation without proportionally increasing engineering effort.
 - Visible app version and seven-character release commit in update surfaces
 - Render-hosted backend with automatic deployment
 - Unit-first course browser with progress states for the current and completed lessons
-- Complete A1 curriculum: 70 lessons in seven units of ten, each using Learn -> Recognize -> Listen -> Speak -> Use
+- Complete A1 curriculum: 70 lessons in seven units of ten; standard lessons use Learn -> Recognize -> Listen -> Speak -> Use and declared mission lessons use one continuous chaptered challenge
 - Canonical YAML lessons plus an embedded mobile catalog bound to fail-closed release-integrity checks
 - Shared automatic pronunciation flow with Azure scoring
 - Local in-progress lesson resume with first-attempt state preserved
@@ -165,8 +165,8 @@ Build each interaction once, then create future lessons mostly through content.
 - [ ] Find the incorrect word
 - [ ] Singular/plural pairing
 - [ ] Timed listening challenges
-- [ ] Build the lightly gamified Lesson 10 mission shell, including accessible word-part-to-word and word-to-sentence tile challenges
-- [ ] Add measured responsive tile layout with drag clamping, tap and keyboard alternatives, screen-reader movement, and phone/tablet/web viewport-matrix verification
+- [x] Build the lightly gamified Lesson 10 mission shell, including explicit mission metadata, continuous chapter progress, and accessible word-part-to-word and word-to-sentence tile challenges
+- [~] Add measured responsive tile layout with drag clamping, tap alternatives, visible recovery controls, and automated minimum-target checks; keyboard, screen-reader movement, and the complete phone/tablet/web physical viewport matrix still require verification
 - [ ] Produce and review a small versioned ElevenLabs sound-effects pack for mission feedback and transitions
 - [x] Pronunciation activities
 - [ ] Short conversational response activities

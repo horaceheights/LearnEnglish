@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import {
   finishLessonSession,
   getApiBaseUrl,
@@ -19,6 +19,10 @@ import {
 } from "../lib/api";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
+import { isMissionLesson } from "../lib/missionExperience.mjs";
+import useStaticSfx from "../lib/useStaticSfx";
+import MissionCompletion from "./MissionCompletion";
+import MissionJourney from "./MissionJourney";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260903-full-bleed-v8";
@@ -134,7 +138,7 @@ const COURSE_MENU_VISUALS = {
     },
     "lesson-10-family-mission": {
       description: "Completa una mision familiar con pistas, voz y fichas.",
-      image: "a1_u1_mission_game_setup.webp",
+      image: "a1_u1_album_01_locked.webp",
       accent: "#ffe1ad",
     },
   },
@@ -698,97 +702,6 @@ const ONBOARDING_STEPS = [
   },
 ];
 
-function useTone() {
-  const audioContextRef = useRef(null);
-
-  const getAudioContext = useCallback(() => {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContextClass) {
-      return null;
-    }
-
-    if (!audioContextRef.current) {
-      audioContextRef.current = new AudioContextClass();
-    }
-
-    return audioContextRef.current;
-  }, []);
-
-  useEffect(() => {
-    const unlockToneAudio = () => {
-      const context = getAudioContext();
-      if (context?.state === "suspended") {
-        context.resume().catch(() => {});
-      }
-    };
-
-    window.addEventListener("pointerdown", unlockToneAudio, { passive: true });
-    window.addEventListener("touchstart", unlockToneAudio, { passive: true });
-
-    return () => {
-      window.removeEventListener("pointerdown", unlockToneAudio);
-      window.removeEventListener("touchstart", unlockToneAudio);
-      if (audioContextRef.current) {
-        audioContextRef.current.close().catch(() => {});
-        audioContextRef.current = null;
-      }
-    };
-  }, [getAudioContext]);
-
-  return useCallback(async (notes) => {
-    const context = getAudioContext();
-    if (!context) {
-      return;
-    }
-
-    if (context.state === "suspended") {
-      await context.resume().catch(() => {});
-    }
-    const now = context.currentTime;
-    const sequence = Array.isArray(notes) ? notes : [notes];
-    const sequenceDurationMs = sequence.reduce(
-      (duration, note) => Math.max(duration, (note.delayMs || 0) + note.durationMs),
-      0
-    );
-
-    sequence.forEach((note) => {
-      const oscillator = context.createOscillator();
-      const gain = context.createGain();
-      const startAt = now + (note.delayMs || 0) / 1000;
-      const endAt = startAt + note.durationMs / 1000;
-
-      oscillator.type = note.type || "sine";
-      oscillator.frequency.value = note.frequency;
-      gain.gain.value = 0.0001;
-
-      oscillator.connect(gain);
-      gain.connect(context.destination);
-
-      gain.gain.exponentialRampToValueAtTime(note.volume || 0.12, startAt + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.0001, endAt);
-
-      oscillator.start(startAt);
-      oscillator.stop(endAt);
-
-      if (note.frequency2) {
-        const sparkle = context.createOscillator();
-        const sparkleGain = context.createGain();
-        sparkle.type = note.type2 || "sine";
-        sparkle.frequency.value = note.frequency2;
-        sparkleGain.gain.value = 0.0001;
-        sparkle.connect(sparkleGain);
-        sparkleGain.connect(context.destination);
-        sparkleGain.gain.exponentialRampToValueAtTime((note.volume || 0.12) * 0.6, startAt + 0.03);
-        sparkleGain.gain.exponentialRampToValueAtTime(0.0001, endAt);
-        sparkle.start(startAt);
-        sparkle.stop(endAt);
-      }
-    });
-
-    await new Promise((resolve) => window.setTimeout(resolve, sequenceDurationMs + 35));
-  }, [getAudioContext]);
-}
-
 function useSpeech() {
   const [voices, setVoices] = useState([]);
   const speechSequenceRef = useRef(0);
@@ -1312,73 +1225,6 @@ function useSpeech() {
     });
   }, [decodeCourseAudio, getCourseAudioContext]);
 
-  const playMediaTone = useCallback(async ({
-    frequency = 740,
-    frequency2 = 988,
-    durationMs = 180,
-    volume = 0.9,
-  } = {}) => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    const sampleRate = 22050;
-    const sampleCount = Math.ceil((durationMs / 1000) * sampleRate);
-    const wavBuffer = new ArrayBuffer(44 + sampleCount * 2);
-    const view = new DataView(wavBuffer);
-    const writeText = (offset, value) => {
-      for (let index = 0; index < value.length; index += 1) {
-        view.setUint8(offset + index, value.charCodeAt(index));
-      }
-    };
-
-    writeText(0, "RIFF");
-    view.setUint32(4, 36 + sampleCount * 2, true);
-    writeText(8, "WAVE");
-    writeText(12, "fmt ");
-    view.setUint32(16, 16, true);
-    view.setUint16(20, 1, true);
-    view.setUint16(22, 1, true);
-    view.setUint32(24, sampleRate, true);
-    view.setUint32(28, sampleRate * 2, true);
-    view.setUint16(32, 2, true);
-    view.setUint16(34, 16, true);
-    writeText(36, "data");
-    view.setUint32(40, sampleCount * 2, true);
-
-    for (let index = 0; index < sampleCount; index += 1) {
-      const time = index / sampleRate;
-      const progress = index / sampleCount;
-      const envelope = Math.min(1, progress / 0.08, (1 - progress) / 0.12);
-      const sample =
-        (Math.sin(2 * Math.PI * frequency * time) +
-          0.55 * Math.sin(2 * Math.PI * frequency2 * time)) /
-        1.55;
-      view.setInt16(44 + index * 2, Math.round(sample * envelope * 32767), true);
-    }
-
-    const objectUrl = URL.createObjectURL(new Blob([wavBuffer], { type: "audio/wav" }));
-    const audio = new Audio(objectUrl);
-    audio.preload = "auto";
-    audio.playsInline = true;
-    audio.volume = Math.min(1, Math.max(0, volume));
-
-    return new Promise((resolve) => {
-      let settled = false;
-      const finish = (played) => {
-        if (settled) {
-          return;
-        }
-        settled = true;
-        URL.revokeObjectURL(objectUrl);
-        resolve(played);
-      };
-      audio.onended = () => finish(true);
-      audio.onerror = () => finish(false);
-      audio.play().catch(() => finish(false));
-    });
-  }, []);
-
   const speakText = useCallback((text, options = {}) => {
     if (typeof window === "undefined") {
       return 0;
@@ -1599,8 +1445,8 @@ function useSpeech() {
   }, [clearSpeechTimers, stopAudioPlayback]);
 
   return useMemo(
-    () => ({ speakText, playMediaTone, stopSpeech }),
-    [playMediaTone, speakText, stopSpeech]
+    () => ({ speakText, stopSpeech }),
+    [speakText, stopSpeech]
   );
 }
 
@@ -2404,43 +2250,35 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const pronunciationStartedAtRef = useRef(0);
   const pronunciationShouldScoreRef = useRef(true);
   const pronunciationCardKeyRef = useRef("");
-  const pronunciationToneKeyRef = useRef("");
+  const pronunciationFeedbackCueKeyRef = useRef("");
   const spokenPromptKeyRef = useRef("");
   const courseTurnRunRef = useRef(0);
   const preloadedAudioKeysRef = useRef(new Set());
-  const playTone = useTone();
-  const { speakText, playMediaTone, stopSpeech } = useSpeech();
+  const previousMissionPositionRef = useRef(null);
+  const isMissionExperience = isMissionLesson(activeLesson);
+  const { speakText, stopSpeech } = useSpeech();
+  const { play: playUiSfx, stop: stopUiSfx } = useStaticSfx();
   const viewportWidth = useViewportWidth();
   const isTablet = viewportWidth <= 1080;
   const isMobile = viewportWidth <= 760;
   const playReadyCue = useCallback(async () => {
-    const playedThroughMedia = await playMediaTone({
-      frequency: 740,
-      frequency2: 988,
-      durationMs: 180,
-      volume: 1,
-    });
-    if (!playedThroughMedia) {
-      await playTone({
-        frequency: 740,
-        frequency2: 988,
-        durationMs: 180,
-        type: "sine",
-        type2: "triangle",
-        volume: 0.85,
-      });
-    }
-  }, [playMediaTone, playTone]);
+    await playUiSfx("readyCue", { debounceMs: 240, timeoutMs: 2500, volume: 0.72 });
+  }, [playUiSfx]);
 
   const currentCard = activeLesson.cards[cardIndex];
   const [activeTurnImageUrl, setActiveTurnImageUrl] = useState(null);
   const totalCards = activeLesson.cards.length;
-  const isMissionLesson = activeLesson.id === "lesson-10-family-mission";
+  const finalMissionCard = isMissionExperience ? activeLesson.cards[activeLesson.cards.length - 1] : null;
+  const finalMissionImageUrl = finalMissionCard?.prompt_image_url
+    || finalMissionCard?.options?.find((option) => option.id === finalMissionCard.correct_option_id)?.image_url
+    || finalMissionCard?.options?.find((option) => option.image_url)?.image_url
+    || "";
   const isMissionTileCard = [
     "mission-word-parts",
     "mission-sentence",
     "mission-finale",
   ].includes(currentCard?.interaction_type);
+  const isLockedMissionFinale = currentCard?.interaction_type === "mission-finale" && lastResult !== "correct";
   const isPronunciationCard =
     activeLesson.id === "lesson-3-pronunciation" ||
     currentCard?.stage === "Pronunciation Practice" ||
@@ -2591,21 +2429,47 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     margin: "0 auto",
     display: "grid",
     gap: isMobile ? "8px" : "20px",
+    minWidth: 0,
+    width: "100%",
   };
-  const compactPracticeHeader = isPronunciationCard && (isMobile || isTablet);
+  const compactPracticeHeader = !isMissionExperience && isPronunciationCard && (isMobile || isTablet);
   const heroStyle = {
     ...styles.hero,
-    padding: compactPracticeHeader ? (isMobile ? "7px 10px" : "10px 18px") : isMobile ? "14px 18px" : "20px 30px 22px",
+    ...(isMissionExperience
+      ? {
+          background: "linear-gradient(145deg, #173f43 0%, #285e5b 58%, #5a3d71 100%)",
+          border: "1px solid rgba(244, 201, 93, 0.72)",
+          color: "#fffaf0",
+        }
+      : {}),
+    padding: isMissionExperience
+      ? (isMobile ? "12px 14px 14px" : "18px 24px 22px")
+      : compactPracticeHeader
+        ? (isMobile ? "7px 10px" : "10px 18px")
+        : isMobile ? "14px 18px" : "20px 30px 22px",
     borderRadius: isMobile ? "18px" : styles.hero.borderRadius,
-    width: compactPracticeHeader ? "100%" : isMobile ? "100%" : isTablet ? "82%" : "64%",
+    maxWidth: "100%",
+    minWidth: 0,
+    width: isMissionExperience || compactPracticeHeader ? "100%" : isMobile ? "100%" : isTablet ? "82%" : "64%",
     justifySelf: "center",
     textAlign: "center",
   };
   const boardStyle = {
     ...styles.board,
+    ...(isMissionExperience
+      ? {
+          background: "linear-gradient(180deg, #fffdf7 0%, #fff7e6 100%)",
+          border: "1px solid rgba(218, 178, 119, 0.72)",
+        }
+      : {}),
     padding: isMobile ? (isPronunciationCard ? "8px" : "12px") : styles.board.padding,
     borderRadius: isMobile ? "18px" : styles.board.borderRadius,
+    maxWidth: "100%",
+    minWidth: 0,
   };
+  const missionTileGridColumns = isMobile
+    ? "repeat(2, minmax(0, 1fr))"
+    : "repeat(auto-fit, minmax(132px, 1fr))";
   const choiceGridStyle = {
     ...styles.choiceGrid,
     gridAutoRows: currentCard.options.every((option) => !option.image_url) ? "1fr" : undefined,
@@ -2627,7 +2491,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           ? (isMobile ? "8px" : "12px")
           : styles.choiceGrid.gap,
     ...(isMissionTileCard
-      ? { margin: "0 auto", maxWidth: "620px", width: "100%" }
+      ? {
+          gridTemplateColumns: missionTileGridColumns,
+          margin: "0 auto",
+          maxWidth: "620px",
+          minWidth: 0,
+          width: "100%",
+        }
       : {}),
   };
   const centeredThirdOptionStyle = {
@@ -3252,6 +3122,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setActiveLesson(lesson);
   }, [lesson]);
 
+  useLayoutEffect(() => {
+    if (!started || typeof window === "undefined") return;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [activeLesson.id, started]);
+
   useEffect(() => {
     if (testMode || !profileLoaded || !profile || profile.userId) {
       return;
@@ -3283,6 +3158,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   const resetProgress = () => {
     stopPronunciationCapture();
+    stopUiSfx();
     setCardIndex(0);
     setScore(0);
     setWrongAttempts({});
@@ -3327,7 +3203,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setCompletedPronunciationResults({});
     setModelSpeechPart(null);
     pronunciationCardKeyRef.current = "";
-    pronunciationToneKeyRef.current = "";
+    pronunciationFeedbackCueKeyRef.current = "";
     pronunciationChunksRef.current = [];
     pronunciationNoSpeechRoundRef.current = 0;
   };
@@ -3390,6 +3266,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setIsPronunciationRecording(false);
     setIsPronunciationScoring(false);
     setPronunciationStatus("No puedo escucharte.");
+    if (isMissionExperience) {
+      playUiSfx("tryAgain", { debounceMs: 280, volume: 0.48 });
+    }
 
     if (pronunciationNoSpeechRoundRef.current >= MAX_NO_SPEECH_ROUNDS) {
       setPronunciationNoSpeechFailure(true);
@@ -3425,6 +3304,32 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     return () => window.clearTimeout(timeoutId);
   }, [autoAdvanceDelayMs, cardIndex, lastResult, started, totalCards]);
+
+  useEffect(() => {
+    if (!started || !isMissionExperience) {
+      previousMissionPositionRef.current = null;
+      return;
+    }
+
+    const lessonKey = `${activeLesson.id}:${activeLesson.content_revision}`;
+    const previousPosition = previousMissionPositionRef.current;
+    if (
+      !isComplete
+      && previousPosition?.lessonKey === lessonKey
+      && previousPosition.cardIndex !== cardIndex
+    ) {
+      playUiSfx("pageTurn", { debounceMs: 180, restart: false, volume: 0.45 });
+    }
+    previousMissionPositionRef.current = { cardIndex, lessonKey };
+  }, [
+    activeLesson.content_revision,
+    activeLesson.id,
+    cardIndex,
+    isComplete,
+    isMissionExperience,
+    playUiSfx,
+    started,
+  ]);
 
   useEffect(() => {
     resetPronunciationPractice();
@@ -3587,13 +3492,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       return undefined;
     }
 
-    const toneKey = `${cardIndex}-${activePronunciationOption.id}-${pronunciationAttempt}-correct`;
-    if (pronunciationOutcome.accepted && pronunciationToneKeyRef.current !== toneKey) {
-      pronunciationToneKeyRef.current = toneKey;
-      playTone([
-        { frequency: 880, frequency2: 1320, durationMs: 180, type: "triangle", type2: "sine", volume: 0.12 },
-        { frequency: 1175, frequency2: 1760, durationMs: 220, delayMs: 130, type: "triangle", type2: "sine", volume: 0.11 },
-      ]);
+    const cueKey = `${cardIndex}-${activePronunciationOption.id}-${pronunciationAttempt}-correct`;
+    if (pronunciationOutcome.accepted && pronunciationFeedbackCueKeyRef.current !== cueKey) {
+      pronunciationFeedbackCueKeyRef.current = cueKey;
+      if (!isMissionExperience) {
+        playUiSfx("pageRestored", { debounceMs: 240, volume: 0.5 });
+      }
     }
 
     const timeoutId = window.setTimeout(() => {
@@ -3617,6 +3521,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       }
 
       setAutoAdvanceDelayMs(0);
+      if (isMissionExperience) {
+        playUiSfx("voiceStamp", { debounceMs: 400, volume: 0.58 });
+      }
       if (pronunciationOutcome.accepted) setScore((current) => current + 1);
       setLastResult("correct");
     }, 3000);
@@ -3630,9 +3537,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     cardIndex,
     currentCard,
     isComplete,
+    isMissionExperience,
     isPronunciationCard,
     lastResult,
-    playTone,
+    playUiSfx,
     pronunciationOutcome.accepted,
     pronunciationResult,
     pronunciationAttempt,
@@ -3656,16 +3564,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       return;
     }
 
-    const toneKey = `${cardIndex}-${activePronunciationOption.id}-${pronunciationAttempt}-wrong`;
-    if (pronunciationToneKeyRef.current === toneKey) {
+    const cueKey = `${cardIndex}-${activePronunciationOption.id}-${pronunciationAttempt}-wrong`;
+    if (pronunciationFeedbackCueKeyRef.current === cueKey) {
       return;
     }
 
-    pronunciationToneKeyRef.current = toneKey;
-    playTone([
-      { frequency: 220, durationMs: 260, type: "sawtooth", volume: 0.1 },
-      { frequency: 185, durationMs: 300, delayMs: 210, type: "sawtooth", volume: 0.09 },
-    ]);
+    pronunciationFeedbackCueKeyRef.current = cueKey;
+    playUiSfx("tryAgain", { debounceMs: 280, volume: 0.48 });
     const retryTimer = window.setTimeout(() => {
       beginPronunciationRecording({ isRetry: true });
     }, 3000);
@@ -3678,9 +3583,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     cardIndex,
     currentCard,
     isComplete,
+    isMissionExperience,
     isPronunciationCard,
     lastResult,
-    playTone,
+    playUiSfx,
     pronunciationAttempt,
     pronunciationOutcome.accepted,
     pronunciationResult,
@@ -4356,6 +4262,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     const nextSelectedOptionIds = isMultiBlankCompletion
       ? [...continuingSelection, optionId]
       : [optionId];
+    if (isMissionExperience && isMissionTileCard) {
+      playUiSfx("tilePlace", { debounceMs: 80, volume: 0.42 });
+    }
     setSelectedOptionId(optionId);
     setSelectedOptionIds(nextSelectedOptionIds);
     setLastResult(null);
@@ -4399,10 +4308,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
       const praise = PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)];
       const praisePitch = [1.0, 1.1, 1.2, 1.28][Math.floor(Math.random() * 4)];
-      playTone([
-        { frequency: 880, frequency2: 1320, durationMs: 220, type: "triangle", type2: "sine", volume: 0.12 },
-        { frequency: 1175, frequency2: 1760, durationMs: 260, delayMs: 160, type: "triangle", type2: "sine", volume: 0.11 },
-      ]);
+      playUiSfx(
+        isMissionExperience && currentCard.interaction_type === "mission-finale"
+          ? "missionFinale"
+          : "pageRestored",
+        {
+          debounceMs: 240,
+          volume: isMissionExperience && currentCard.interaction_type === "mission-finale" ? 0.68 : 0.5,
+        }
+      );
       if (currentCard.answer_audio_text) {
         window.setTimeout(() => {
           const answerTurns = cardAudioTurnSequence(currentCard, "answer");
@@ -4430,9 +4344,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         }, 0);
       } else {
         window.setTimeout(() => {
-          playTone([
-            { frequency: 1568, frequency2: 2093, durationMs: 320, type: "triangle", type2: "sine", volume: 0.09 },
-          ]);
           speakText(praise, {
             rate: 0.75,
             pitch: praisePitch,
@@ -4448,10 +4359,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setWrongAttempts((current) => ({ ...current, [cardIndex]: true }));
     setLastResult("wrong");
     window.setTimeout(() => {
-      playTone([
-        { frequency: 220, durationMs: 300, type: "sawtooth", volume: 0.1 },
-        { frequency: 185, durationMs: 340, delayMs: 240, type: "sawtooth", volume: 0.09 },
-      ]);
+      playUiSfx("tryAgain", { debounceMs: 280, volume: 0.48 });
       speakText("Try again", { voiceMode: "feedback", rate: 0.72, pitch: 0.94 });
     }, 0);
   };
@@ -4469,6 +4377,26 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setSelectedOptionIds([]);
     setSelectedOptionId(null);
     setLastResult(null);
+  };
+
+  const playCurrentCardPrompt = () => {
+    if (isPronunciationCard) {
+      playPronunciationModel(activePronunciationPrompt);
+      return;
+    }
+    if (!cardPromptText.trim()) return;
+    const turns = cardAudioTurnSequence(currentCard, "prompt");
+    if (currentCard.audio_turns?.length) {
+      if (turns) playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode });
+      else console.info("Course audio turn contract rejected", currentCard.prompt);
+      return;
+    }
+    speakText(cardPromptText, {
+      audioAssetId: cardAudioAsset(currentCard, { purpose: "prompt" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
+      voiceMode: cardPromptVoiceMode,
+      completionFullText: cardCompletionFullText,
+      completionBlankText: cardCompletionBlankText,
+    });
   };
 
   const cardStyleFor = (optionId) => {
@@ -4958,6 +4886,24 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     );
   }
 
+  if ((isComplete || !currentCard) && isMissionExperience) {
+    return (
+      <div style={{ ...styles.page, padding: isMobile ? "10px" : styles.page.padding }}>
+        <main style={{ margin: "0 auto", maxWidth: 920 }}>
+          <div style={{ marginBottom: isMobile ? 8 : 12 }}>
+            <MiniSpanGlishLogo onClick={goToLessons} />
+          </div>
+          <MissionCompletion
+            finalImageUrl={finalMissionImageUrl ? lessonOptionImageSrc(finalMissionImageUrl) : ""}
+            isMobile={isMobile}
+            lesson={activeLesson}
+            onExit={goToLessons}
+          />
+        </main>
+      </div>
+    );
+  }
+
   if (isComplete || !currentCard) {
     return (
       <div style={styles.page}>
@@ -5061,13 +5007,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 type="button"
                 aria-label={showHelp ? "Ocultar ayuda" : "Mostrar ayuda"}
                 style={{
-                  width: compactPracticeHeader ? (isMobile ? 30 : 36) : isMobile ? 34 : 44,
-                  height: compactPracticeHeader ? (isMobile ? 30 : 36) : isMobile ? 34 : 44,
+                  width: isMissionExperience ? 44 : compactPracticeHeader ? (isMobile ? 30 : 36) : isMobile ? 34 : 44,
+                  height: isMissionExperience ? 44 : compactPracticeHeader ? (isMobile ? 30 : 36) : isMobile ? 34 : 44,
                   borderRadius: "999px",
                   border: "2px solid rgba(218, 178, 119, 0.58)",
                   background: showHelp ? "#F4C95D" : "rgba(255,255,255,0.74)",
                   color: "#24333A",
-                  fontSize: compactPracticeHeader ? (isMobile ? 16 : 20) : isMobile ? 18 : 24,
+                  fontSize: isMissionExperience ? 22 : compactPracticeHeader ? (isMobile ? 16 : 20) : isMobile ? 18 : 24,
                   fontWeight: 700,
                   lineHeight: 1,
                   cursor: "pointer",
@@ -5080,28 +5026,43 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 ?
               </button>
             </div>
-            {!compactPracticeHeader ? (
+            {isMissionExperience ? (
+              <>
+                <MissionJourney cardIndex={cardIndex} isMobile={isMobile} lesson={activeLesson} />
+                <button
+                  aria-label={cardPromptText.trim() ? `Escuchar pista: ${cardPromptText}` : "Pista visual de la misión"}
+                  disabled={!cardPromptText.trim()}
+                  onClick={playCurrentCardPrompt}
+                  style={{
+                    background: "rgba(255, 250, 240, 0.96)",
+                    border: "1px solid rgba(244, 201, 93, 0.76)",
+                    borderRadius: isMobile ? 12 : 16,
+                    color: "#24333a",
+                    cursor: cardPromptText.trim() ? "pointer" : "default",
+                    marginTop: isMobile ? 10 : 14,
+                    minHeight: 48,
+                    opacity: 1,
+                    padding: isMobile ? "9px 11px" : "11px 14px",
+                    width: "100%",
+                  }}
+                  type="button"
+                >
+                  <span style={{ color: "#8c5700", display: "block", fontSize: 11, fontWeight: 950, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                    Pista actual
+                  </span>
+                  <span style={{ display: "block", fontSize: isMobile ? "1.18rem" : "1.45rem", fontWeight: 950, lineHeight: 1.15, marginTop: 3 }}>
+                    {currentCard.prompt?.trim()
+                      ? renderHighlightedTitle(currentCard.prompt)
+                      : cardPromptText.trim()
+                        ? "Escucha la pista"
+                        : "Elige la frase que restaura la página"}
+                  </span>
+                </button>
+              </>
+            ) : !compactPracticeHeader ? (
               <button
                 type="button"
-                onClick={() => {
-                  if (isPronunciationCard) {
-                    playPronunciationModel(activePronunciationPrompt);
-                    return;
-                  }
-                  if (!cardPromptText.trim()) return;
-                  const turns = cardAudioTurnSequence(currentCard, "prompt");
-                  if (currentCard.audio_turns?.length) {
-                    if (turns) playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode });
-                    else console.info("Course audio turn contract rejected", currentCard.prompt);
-                    return;
-                  }
-                  speakText(cardPromptText, {
-                    audioAssetId: cardAudioAsset(currentCard, { purpose: "prompt" })?.id || MISSING_CARD_AUDIO_ASSET_ID,
-                    voiceMode: cardPromptVoiceMode,
-                    completionFullText: cardCompletionFullText,
-                    completionBlankText: cardCompletionBlankText,
-                  });
-                }}
+                onClick={playCurrentCardPrompt}
                 style={{
                   border: 0,
                   background: "transparent",
@@ -5153,30 +5114,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           </section>
 
           <section style={boardStyle}>
-            {isMissionLesson ? (
-              <div
-                aria-label={`Mision familiar, paso ${cardIndex + 1} de ${totalCards}`}
-                style={{
-                  alignItems: "center",
-                  background: "#fff3cf",
-                  border: "1px solid #e4b848",
-                  borderRadius: 999,
-                  color: "#8c5700",
-                  display: "flex",
-                  fontSize: isMobile ? 11 : 12,
-                  fontWeight: 900,
-                  gap: 8,
-                  justifyContent: "center",
-                  margin: "0 auto 8px",
-                  minHeight: 30,
-                  padding: "4px 12px",
-                  width: "fit-content",
-                }}
-              >
-                <span style={{ letterSpacing: "0.07em" }}>MISIÓN FAMILIAR</span>
-                <span style={{ color: "#1b6658" }}>{cardIndex + 1}/{totalCards}</span>
-              </div>
-            ) : null}
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
                 style={{
@@ -5191,23 +5128,48 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   border: "3px solid rgba(36, 51, 58, 0.12)",
                   background: "#f2ebde",
                   boxShadow: "0 14px 30px rgba(22, 33, 39, 0.1)",
+                  position: "relative",
                 }}
               >
                 <img
                   src={lessonOptionImageSrc(activeTurnImageUrl || currentCard.prompt_image_url)}
-                  alt={currentCard.prompt}
+                  alt={currentCard.prompt || (isMissionExperience ? `Escena visual de la página ${cardIndex + 1}` : "")}
                   style={{
                     display: "block",
                     width: "100%",
                     aspectRatio: "3 / 2",
+                    filter: isLockedMissionFinale ? "blur(9px) saturate(0.28) brightness(0.7)" : "none",
                     objectFit: "cover",
                     objectPosition: "center",
+                    transform: isLockedMissionFinale ? "scale(1.04)" : "none",
                   }}
                 />
+                {isLockedMissionFinale ? (
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      alignItems: "center",
+                      background: "rgba(23, 63, 67, 0.42)",
+                      color: "#fffaf0",
+                      display: "flex",
+                      fontSize: isMobile ? 13 : 16,
+                      fontWeight: 950,
+                      inset: 0,
+                      justifyContent: "center",
+                      letterSpacing: "0.04em",
+                      padding: 16,
+                      position: "absolute",
+                      textAlign: "center",
+                      textShadow: "0 2px 8px rgba(0,0,0,0.42)",
+                    }}
+                  >
+                    Retrato bloqueado · Completa la última frase
+                  </div>
+                ) : null}
               </div>
             ) : null}
             {isMissionTileCard ? (
-              <div style={{ margin: "0 auto 9px", maxWidth: 620, width: "100%" }}>
+              <div style={{ margin: "0 auto 9px", maxWidth: 620, minWidth: 0, width: "100%" }}>
                 <div
                   style={{ color: "#6a4c25", fontSize: 13, fontWeight: 900, marginBottom: 5, textAlign: "center" }}
                 >
@@ -5239,9 +5201,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                     borderRadius: 16,
                     display: "grid",
                     gap: isMobile ? 5 : 8,
-                    gridTemplateColumns: `repeat(${orderedCorrectOptionIds(currentCard).length}, minmax(0, 1fr))`,
+                    gridTemplateColumns: missionTileGridColumns,
+                    maxWidth: "100%",
                     minHeight: isMobile ? 58 : 68,
+                    minWidth: 0,
                     padding: isMobile ? 6 : 8,
+                    width: "100%",
                   }}
                 >
                   {orderedCorrectOptionIds(currentCard).map((optionId, index) => (
@@ -5257,12 +5222,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         fontSize: "clamp(0.95rem, 3.8vw, 1.3rem)",
                         fontWeight: 900,
                         justifyContent: "center",
-                        minHeight: 44,
+                        minHeight: 48,
                         minWidth: 0,
-                        overflow: "hidden",
-                        padding: "4px 5px",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
+                        overflowWrap: "anywhere",
+                        padding: "5px 6px",
+                        wordBreak: "normal",
+                        whiteSpace: "normal",
                       }}
                     >
                       {optionLabelsForIds(currentCard, selectedOptionIds)[index] || "___"}
@@ -5324,6 +5289,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   <CardTag
                     key={option.id}
                     {...(isPronunciationCard ? { role: "group" } : { type: "button" })}
+                    aria-pressed={!isPronunciationCard && isMissionTileCard ? isSelectedChoice : undefined}
                     style={{
                       ...cardStyleFor(option.id),
                       ...pronunciationCardStyle,
@@ -5342,6 +5308,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                           : isMobile
                             ? "6px"
                             : styles.cardButton.padding,
+                      ...(isMissionTileCard
+                        ? { maxWidth: "100%", minHeight: 44, minWidth: 0, width: "100%" }
+                        : {}),
                     }}
                     onClick={isPronunciationCard ? undefined : () => handleChoice(option.id)}
                     draggable={isMissionTileCard && !isSelectedChoice && lastResult !== "correct"}
@@ -5508,18 +5477,27 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         style={{
                           boxSizing: "border-box",
                           height: "100%",
-                          minHeight: useCompactCompletionTiles ? (isMobile ? 64 : 82) : isMobile ? 116 : 172,
+                          minHeight: isMissionTileCard
+                            ? (isMobile ? 72 : 88)
+                            : useCompactCompletionTiles ? (isMobile ? 64 : 82) : isMobile ? 116 : 172,
                           display: "grid",
                           placeItems: "center",
                           borderRadius: isMobile ? "14px" : "18px",
                           background: "linear-gradient(135deg, #fffdf9, #fff4df)",
                           border: "1px solid rgba(218, 178, 119, 0.56)",
                           color: "var(--text)",
-                          fontSize: useCompactCompletionTiles ? (isMobile ? 22 : 30) : isMobile ? 26 : 38,
+                          fontSize: isMissionTileCard
+                            ? isMobile
+                              ? "clamp(0.88rem, 4.2vw, 1.05rem)"
+                              : "clamp(1rem, 2.2vw, 1.35rem)"
+                            : useCompactCompletionTiles ? (isMobile ? 22 : 30) : isMobile ? 26 : 38,
                           fontWeight: 900,
                           lineHeight: 1.12,
+                          overflowWrap: isMissionTileCard ? "anywhere" : undefined,
                           textAlign: "center",
-                          padding: isMobile ? "18px 14px" : "28px 20px",
+                          padding: isMissionTileCard
+                            ? (isMobile ? "12px 9px" : "15px 12px")
+                            : isMobile ? "18px 14px" : "28px 20px",
                         }}
                       >
                         {optionLabel}
@@ -5531,7 +5509,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             </div>
             {isMissionTileCard ? (
               <div style={{ display: "grid", gap: 5, justifyItems: "center", marginTop: 8 }}>
-                <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", maxWidth: "100%" }}>
                   <button
                     aria-label="Deshacer ultima ficha"
                     disabled={lastResult === "correct" || selectedOptionIds.length === 0}
@@ -5593,43 +5571,79 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               ) : null}
             </div>
 
-            <div
-              style={{
-                marginTop: isMobile ? 10 : 20,
-                padding: isMobile ? "8px 10px" : "14px 18px",
-                borderRadius: isMobile ? "14px" : "18px",
-                background: "var(--surface-2)",
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                gap: isMobile ? 10 : 14,
-              }}
-            >
-              <div>
-                <div style={{ fontSize: 11, letterSpacing: "0.06em", color: "var(--muted)", textTransform: "uppercase" }}>
-                  Progreso
-                </div>
-                <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>{progressLabel}</div>
-              </div>
-              <div>
-                <div style={{ fontSize: 11, letterSpacing: "0.06em", color: "var(--muted)", textTransform: "uppercase" }}>
-                  Puntaje
-                </div>
-                <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>{score}</div>
-              </div>
-              {!isMobile ? (
-                <div style={{ color: "var(--muted)", fontSize: 12 }}>Voz de practica generada con IA.</div>
-              ) : null}
-              <button
-                type="button"
-                style={isMobile ? styles.iconOnlyButton : { ...styles.subtleButton, width: "auto", padding: "10px 14px" }}
-                aria-label="Volver a lecciones"
-                title="Volver a lecciones"
-                onClick={confirmLessonExit}
+            {isMissionExperience ? (
+              <div
+                style={{
+                  alignItems: "center",
+                  background: "#ecf6f1",
+                  border: "1px solid #b8d9ce",
+                  borderRadius: isMobile ? 14 : 18,
+                  display: "flex",
+                  gap: 12,
+                  justifyContent: "space-between",
+                  marginTop: isMobile ? 10 : 20,
+                  padding: isMobile ? "8px 10px" : "12px 16px",
+                }}
               >
-                {isMobile ? <HomeIcon /> : "Lecciones"}
-              </button>
-            </div>
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ color: "#1b6658", fontSize: 11, fontWeight: 900, letterSpacing: "0.07em", textTransform: "uppercase" }}>
+                    Álbum en progreso
+                  </div>
+                  <div style={{ color: "var(--text)", fontSize: isMobile ? 14 : 16, fontWeight: 850 }}>
+                    Página {cardIndex + 1} de {totalCards}
+                  </div>
+                </div>
+                <button
+                  aria-label="Salir de la misión"
+                  onClick={confirmLessonExit}
+                  style={isMobile
+                    ? { ...styles.iconOnlyButton, height: 44, minWidth: 44, width: 44 }
+                    : { ...styles.subtleButton, minHeight: 48, width: "auto", padding: "10px 14px" }}
+                  title="Salir de la misión"
+                  type="button"
+                >
+                  {isMobile ? <HomeIcon /> : "Salir de la misión"}
+                </button>
+              </div>
+            ) : (
+              <div
+                style={{
+                  marginTop: isMobile ? 10 : 20,
+                  padding: isMobile ? "8px 10px" : "14px 18px",
+                  borderRadius: isMobile ? "14px" : "18px",
+                  background: "var(--surface-2)",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: isMobile ? 10 : 14,
+                }}
+              >
+                <div>
+                  <div style={{ fontSize: 11, letterSpacing: "0.06em", color: "var(--muted)", textTransform: "uppercase" }}>
+                    Progreso
+                  </div>
+                  <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>{progressLabel}</div>
+                </div>
+                <div>
+                  <div style={{ fontSize: 11, letterSpacing: "0.06em", color: "var(--muted)", textTransform: "uppercase" }}>
+                    Puntaje
+                  </div>
+                  <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>{score}</div>
+                </div>
+                {!isMobile ? (
+                  <div style={{ color: "var(--muted)", fontSize: 12 }}>Voz de practica generada con IA.</div>
+                ) : null}
+                <button
+                  type="button"
+                  style={isMobile ? styles.iconOnlyButton : { ...styles.subtleButton, width: "auto", padding: "10px 14px" }}
+                  aria-label="Volver a lecciones"
+                  title="Volver a lecciones"
+                  onClick={confirmLessonExit}
+                >
+                  {isMobile ? <HomeIcon /> : "Lecciones"}
+                </button>
+              </div>
+            )}
           </section>
         </main>
       </div>

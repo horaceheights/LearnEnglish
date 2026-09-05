@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Any
 import yaml
 
-from .schemas import ChoiceOption, Lesson, LessonCard
+from .schemas import ChoiceOption, Lesson, LessonCard, MissionLesson
 from .card_audio_assets import bind_lesson_audio_assets
 
 
@@ -60,7 +60,17 @@ def load_lesson_from_file(file_path: Path) -> Lesson:
                     elif "image" in option and option["image"]:
                         option["image_url"] = image_url(option["image"])
 
-    return bind_lesson_audio_assets(Lesson(**data))
+    experience_type = data.get("experience_type")
+    if experience_type is None:
+        lesson_model = Lesson
+    elif experience_type == "mission":
+        lesson_model = MissionLesson
+    else:
+        raise ValueError(
+            f"Unsupported lesson experience_type {experience_type!r} in {file_path}."
+        )
+
+    return bind_lesson_audio_assets(lesson_model(**data))
 
 
 def load_all_lessons(lessons_dir: Path = LESSONS_DIR) -> dict[str, Lesson]:

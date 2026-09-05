@@ -11,8 +11,8 @@ lesson player but does not create learner sessions or card-attempt records.
 - **Auto OFF** may pause transitions for inspection, but it must not substitute an older lesson flow.
 - Every learner-facing change is incomplete until it is verified in both the normal lesson entry and Engine QA.
 - Any new `qaMode` condition must be justified as a testing control or persistence safeguard, never as a separate UI implementation.
-- The QA hub must expose the full course through a compact Unit → Lesson → Stage → Card navigator. It shows only the selected unit's ten lessons and must not put all 70 lessons before the card list.
-- The last QA lesson, stage, and card are QA-only local state. Returning from the lesson player or reopening Engine QA restores that location without touching learner progress.
+- The QA hub must expose the full course through a compact Unit → Lesson → Stage/Chapter → Card navigator. Standard lessons expose stages; declared mission lessons expose their ordered mission chapters and never fake a five-stage learner journey. It shows only the selected unit's ten lessons and must not put all 70 lessons before the card list.
+- The last QA lesson, stage/chapter, and card are QA-only local state. Returning from the lesson player or reopening Engine QA restores that location without touching learner progress.
 
 ## Completion answer typography regression
 
@@ -36,7 +36,7 @@ For every defect, capture:
 
 - Lesson ID
 - Card number
-- Stage
+- Stage or mission chapter
 - Prompt
 - Update code
 - Expected result
@@ -50,11 +50,11 @@ For every defect, capture:
 - [ ] All seven unit buttons are reachable without vertical scrolling
 - [ ] Selecting a unit shows exactly its ten lesson buttons
 - [ ] Lesson selection loads the correct lesson
-- [ ] Stage filters show the expected cards
+- [ ] Standard-lesson stage filters and mission chapter filters show the expected cards
 - [ ] A selected card opens directly
-- [ ] Returning from a card restores and highlights the same unit, lesson, stage, and card
+- [ ] Returning from a card restores and highlights the same unit, lesson, stage/chapter, and card
 - [ ] QA instructions and the Sentry test remain available under **Herramientas QA**
-- [ ] QA header shows lesson, card, stage, and update code
+- [ ] QA header shows lesson, card, current stage or mission chapter, and update code
 - [ ] QA header shows the live first-attempt score
 - [ ] Previous opens the prior card
 - [ ] Next opens the following card
@@ -68,7 +68,7 @@ For every defect, capture:
 
 ## Universal card behavior
 
-Test at least one card from every stage, then run the complete lesson audit.
+Test at least one card from every standard stage or every mission chapter, then run the complete lesson audit.
 
 - [ ] Prompt text fits without clipping
 - [ ] Images fill their approved role-specific viewport and preserve every answer-critical head, face, hand, body, action, count, color, identity, relation, and other teaching cue
@@ -120,6 +120,7 @@ Run the complete matrix for every new construction, matching, collecting, drag, 
 - [ ] No required source or destination is off-screen during a drag; tap-to-place, tap-to-remove, keyboard movement, and screen-reader reorder actions can complete the same task without dragging
 - [ ] Every interactive target measures at least 44 by 44 CSS pixels on web and 48 by 48 dp on mobile, without clipped, overlapping, truncated, or split-word labels
 - [ ] The largest authored tile bank and longest authored construction use available space efficiently, reflow without horizontal page overflow, and use a bounded bank scroll or paging instead of shrinking below the minimum target and text sizes
+- [ ] Lesson 1.10's largest eight-tile bank wraps its answer area into two to four slots per row on mobile and an auto-fitting minimum-width grid on web; no mission tile label shrinks below 80 percent of its authored size
 - [ ] Rotating or resizing with a partial construction preserves its order and keeps every placed tile inside the usable construction area
 - [ ] Dragging and reordering do not trigger lesson-card swipe navigation, unintended page scrolling, or an adjacent drop target
 - [ ] A lifted tile stays inside usable bounds; any edge scrolling is confined to the intended bank or construction region, and a resize or rotation during drag safely returns the tile to its last valid position
@@ -139,6 +140,22 @@ Review every changed lesson from its first card to its last in authored order:
 - [ ] Each review station is internally coherent and the station order is purposeful
 - [ ] Every mission card establishes the goal, reveals needed information, overcomes an obstacle, performs required language, or resolves the story
 - [ ] Runtime delivery preserves authored card order and randomizes only the permitted answer positions
+
+## Continuous mission contract
+
+Run every declared mission from briefing through resolution without using direct-card navigation:
+
+- [ ] The learner sees one mission shell with beat progress and chapter transitions, never the standard five-stage journey, section-completion screen, or section picker
+- [ ] The mission label, title, briefing, chapter objective, and final resolution match the canonical mission presentation metadata
+- [ ] Every card belongs to exactly one declared chapter; chapter order is monotonic and a completed chapter never reopens as a visible section
+- [ ] Beat numbers are contiguous, the denominator equals the actual card count, restart returns to the briefing, and resume restores the exact saved beat and partial first-attempt state
+- [ ] The mission presentation briefs a concrete story goal before the first assessed beat, every middle beat obtains or applies information needed for that goal, and the last beat resolves the story rather than merely reporting card completion
+- [ ] Identity/clue, listening, speaking, word-part, and sentence-building mechanics occur in the authored narrative order and each interaction uses its normal production audio, scoring, feedback, retry, and accessibility lifecycle
+- [ ] Unit 1 Lesson 1.10 contains exactly 22 beats and covers all 46 vocabulary targets introduced in Lessons 1.1-1.8 on correct/successful paths, not merely in distractors or metadata
+- [ ] `Who is he?`, `Who is she?`, and `Who are they?` each appear as an assessed Unit 1 mission form with the correct singular/plural answer frame
+- [ ] No assessed prompt, model audio, correct answer, speaking target, or completed construction contains English not introduced in Lessons 1.1-1.8
+- [ ] Every assessed beat has a fresh, unambiguous hero still; no hero reuses an exact asset from Lessons 1.1-1.9 or another mission beat, and all answer-critical cues survive the real mobile crop
+- [ ] Speech-service failure, offline entry, a wrong answer, Undo, Reset, rotation, help, or background/foreground cannot strand the mission or erase a valid completed beat
 
 ## Prerequisite and cumulative-sentence guardrail
 

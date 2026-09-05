@@ -74,8 +74,6 @@ type Props = {
   onResetSelection?: () => void;
   promptInteractionMode?: PromptInteractionMode;
   pronunciationReplayRequestId?: number;
-  missionStep?: number;
-  missionTotal?: number;
   onUndoSelection?: () => void;
   allowVerticalGrowth?: boolean;
 };
@@ -106,8 +104,6 @@ export function LessonCardView({
   onResetSelection,
   promptInteractionMode = 'gestures',
   pronunciationReplayRequestId = 0,
-  missionStep,
-  missionTotal,
   onUndoSelection,
   allowVerticalGrowth = false,
 }: Props) {
@@ -472,12 +468,6 @@ export function LessonCardView({
           <Text style={styles.flyingAnswerText}>{flyingAnswer}</Text>
         </Animated.View>
       ) : null}
-      {missionStep && missionTotal ? (
-        <View accessible accessibilityLabel={`Misión familiar, paso ${missionStep} de ${missionTotal}`} style={styles.missionProgress}>
-          <Text style={styles.missionProgressLabel}>MISIÓN FAMILIAR</Text>
-          <Text style={styles.missionProgressCount}>{missionStep}/{missionTotal}</Text>
-        </View>
-      ) : null}
       {showHelp ? (
         <View style={styles.help}>
           <Text accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
@@ -825,7 +815,7 @@ function MissionDraggableTile({
           pressed ? styles.missionTilePressed : null,
         ]}
       >
-        <Text adjustsFontSizeToFit minimumFontScale={0.72} numberOfLines={2} style={styles.missionTileText}>
+        <Text adjustsFontSizeToFit minimumFontScale={0.8} numberOfLines={2} style={styles.missionTileText}>
           {option.label || option.id}
         </Text>
       </Pressable>
@@ -887,11 +877,17 @@ function MissionTileBuilder({
         ]}
       >
         {correctIds.map((correctId, index) => (
-          <View key={`${correctId}-${index}`} style={styles.missionAnswerSlot}>
+          <View
+            key={`${correctId}-${index}`}
+            style={[
+              styles.missionAnswerSlot,
+              { flexBasis: correctIds.length > 6 ? '22%' : correctIds.length > 3 ? '30%' : '44%' },
+            ]}
+          >
             <Text
               adjustsFontSizeToFit
-              minimumFontScale={0.65}
-              numberOfLines={1}
+              minimumFontScale={0.8}
+              numberOfLines={2}
               style={styles.missionAnswerSlotText}
             >
               {selectedLabels[index] || '___'}
@@ -1093,21 +1089,6 @@ const styles = StyleSheet.create({
   flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
-  missionProgress: {
-    alignItems: 'center',
-    alignSelf: 'center',
-    backgroundColor: '#fff3cf',
-    borderColor: '#e4b848',
-    borderRadius: 999,
-    borderWidth: 1,
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 3,
-    minHeight: 28,
-    paddingHorizontal: 11,
-  },
-  missionProgressLabel: { color: '#8c5700', fontSize: 11, fontWeight: '900', letterSpacing: 0.7 },
-  missionProgressCount: { color: '#1b6658', fontSize: 12, fontWeight: '900' },
   promptImageFrame: { marginTop: 14 },
   promptImageFrameDensePortrait: { marginTop: 3 },
   options: {
@@ -1140,6 +1121,7 @@ const styles = StyleSheet.create({
     borderStyle: 'dashed',
     borderWidth: 2,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 6,
     justifyContent: 'center',
     minHeight: 58,
@@ -1154,11 +1136,12 @@ const styles = StyleSheet.create({
     borderBottomColor: '#9b7a39',
     borderBottomWidth: 3,
     borderRadius: 8,
-    flex: 1,
+    flexGrow: 1,
+    flexShrink: 1,
     justifyContent: 'center',
     maxWidth: 188,
     minHeight: 42,
-    minWidth: 64,
+    minWidth: 72,
     paddingHorizontal: 4,
   },
   missionAnswerSlotText: { color: '#1d5f54', fontSize: 19, fontWeight: '900', textAlign: 'center' },

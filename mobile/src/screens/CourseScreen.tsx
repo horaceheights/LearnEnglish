@@ -78,7 +78,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-10-family-mission': {
-    image: 'a1_u1_mission_game_setup.webp',
+    image: 'a1_u1_album_01_locked.webp',
     description: 'Completa una misión familiar con pistas, voz y fichas.',
     color: '#ffe1ad',
   },

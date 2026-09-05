@@ -30,7 +30,14 @@ const interactionVerifier = fs.readFileSync(
 );
 
 const expectedStages = ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'];
-for (const lesson of course) {
+const standardLessons = course.filter((lesson) => lesson.experience_type !== 'mission');
+const missionLessons = course.filter((lesson) => lesson.experience_type === 'mission');
+assert.ok(
+  missionLessons.some((lesson) => lesson.id === 'lesson-10-family-mission'),
+  'The redesigned Unit 1 finale must be explicitly excluded from the standard stage shell.',
+);
+assert.equal(standardLessons.length + missionLessons.length, course.length);
+for (const lesson of standardLessons) {
   const stageSegments = lesson.cards.reduce((segments, card) => {
     if (segments[segments.length - 1] !== card.stage) segments.push(card.stage);
     return segments;
@@ -107,4 +114,4 @@ assert.match(
   'Preview interaction verification must run the section-color guardrail.',
 );
 
-console.log(`All ${course.length} lessons share journey/header section colors while preserving learning-phrase typography.`);
+console.log(`All ${standardLessons.length} standard lessons share journey/header section colors; declared missions use their continuous shell.`);

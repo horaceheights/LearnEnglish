@@ -17,7 +17,7 @@ $outputDirectory = [System.IO.Path]::Combine(
 Push-Location $mobileRoot
 try {
   [System.IO.Directory]::CreateDirectory($outputDirectory) | Out-Null
-  & node $typescriptCompiler src/config.ts src/courseAudioSources.ts src/types.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/lessonResume.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
+  & node $typescriptCompiler src/config.ts src/courseAudioSources.ts src/types.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/lessonResume.ts src/missionExperience.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
   if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el modelo de progreso.' }
 
   & node tests/lesson-help.test.cjs (Join-Path $outputDirectory 'lessonHelp.js')
@@ -31,6 +31,18 @@ try {
 
   & node tests/lesson-resume.test.cjs (Join-Path $outputDirectory 'lessonResume.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de persistencia y recuperación de lecciones.' }
+
+  & node tests/mission-experience.test.cjs (Join-Path $outputDirectory 'missionExperience.js')
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas del contrato compartido de experiencia de misión.' }
+
+  & node tests/lesson-mission-contract.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el contrato curricular continuo de la misión 1.10.' }
+
+  & node tests/mission-tiles.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de interacción y diseño de fichas de misión.' }
+
+  & node tests/mission-sound-effects.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de efectos de sonido de misión.' }
 
   & node tests/lesson-mistake-hints.test.cjs (Join-Path $outputDirectory 'lessonMistakeHints.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de pistas educativas.' }
@@ -57,7 +69,7 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de diseño horizontal de frases.' }
 
   & node tests/text-tile-option-limit.test.cjs
-  if ($LASTEXITCODE -ne 0) { throw 'Falló el límite global de tres opciones de texto.' }
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el límite de respuestas ordinarias o el máximo de fichas de construcción.' }
 
   & node tests/option-media-standard.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la prueba global de imágenes 3:2 en opciones.' }

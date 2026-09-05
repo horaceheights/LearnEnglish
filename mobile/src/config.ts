@@ -8,9 +8,6 @@ export const VIDEO_BASE_URL = 'https://learn-english-orcin.vercel.app';
 export const PRIVACY_POLICY_URL = `${API_BASE_URL}/privacy`;
 export const ACCOUNT_DELETION_URL = `${API_BASE_URL}/delete-account`;
 export const FIRST_LESSON_ID = 'lesson-1-people-actions';
-// Keep an explicit extension in native audio URLs. AVPlayer on iOS can fail
-// extensionless media endpoints even when their Content-Type is correct.
-export const READY_CUE_URL = `${API_BASE_URL}/api/audio/ready-cue.wav?key=${APP_API_KEY}`;
 export type CourseAudioProvider = 'persistent-asset';
 export type CourseAudioVoice = `asset:${string}`;
 
