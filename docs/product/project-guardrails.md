@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-09-02
+Last reviewed: 2026-09-05
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -306,6 +306,7 @@ Do not force every word through every step in a single lesson when that would ma
 ## 8. Feedback and Interaction
 
 - Cold-start, course, and lesson loading surfaces use the shared playful SpanGlish loader. Keep backend lifecycle details such as server wake-up or connection state out of learner-facing loading copy, and respect reduced-motion settings.
+- The active standard lesson is checkpointed locally after every progress change and flushed again when the app backgrounds or unmounts. Losing connectivity must never replace that checkpoint with older backend progress. A locally completed lesson remains stored as pending until the backend confirms completion; reopening or reconnecting restores the exact card, first-attempt/score state, and pending completion, then retries missing session or completion synchronization without awarding progress twice.
 - Correct answers play the established success sound and retain visible word-level feedback where applicable.
 - Wrong answers play the established retry sound and retain the correction/help until the learner acts.
 - Do not apply green, orange, or red pronunciation colors while recording or scoring. Keep words neutral until a real result is available.
@@ -399,6 +400,7 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 
 ## 12. Decision Log
 
+- 2026-09-05: Lesson progress became network-independent and acknowledgement-safe after an airplane-mode exit could reopen at the beginning. The latest local checkpoint is serialized and lifecycle-flushed, local completion remains pending until the server confirms it, and connectivity recovery retries missing session/completion synchronization while retaining first-attempt scoring.
 - 2026-09-03: Lesson 1.5 closes its generation sequence with the established grandparents and their grandchildren in a dedicated scene containing no parents. The authored line is `The grandparents and the grandchildren are family.`; `grandchildren` is introduced in Learn before that scene is assessed. The preceding parents-and-children beat uses its own scene with no grandparents, and Recognize contrasts those two parallel family-group scenes rather than a group against a lone person.
 - 2026-09-03: Text-answer tiles changed from a universal one-line constraint to independent largest-text-that-fits sizing. Short choices remain large and single-line, ordinary complete sentences may use two word-safe centered lines, and genuinely long or multi-sentence choices may use a third. A shared readable font floor prohibits tiny fallback type, portrait tablets use their available scale, and overflow-prone text banks grow inside the lesson's vertical scroll surface so choices and feedback remain reachable.
 - 2026-09-03: Family/category ambiguity enforcement moved from generic option IDs to learner-visible option semantics after Lesson 1.5 offered the same parents as both `parents` and `adults`, then a grandfather portrait as both `grandfather` and `adult`. Enforcement now covers supported correct answers and exclusive distractors in image-to-text, text/audio-to-image, and image-backed completion cards. Alternatives use parallel full phrasing and visibly exclusive gender, number, action, or group identity; shorter true labels, category subsets or supertypes, and overlapping generation roles are prohibited.

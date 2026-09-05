@@ -71,6 +71,11 @@ import {
   usesCompactRecognizeInstruction,
   usesCompactSpeakInstruction,
 } from '../lessonInstructions';
+import {
+  createLessonResumePersistence,
+  parseSavedLessonRun,
+  type SavedLessonRun,
+} from '../lessonResume';
 import { lessonStageColorForCard } from '../lessonStageTheme';
 import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
 import { preloadPronunciationAudioWithRetry } from '../pronunciationAudioGate';
@@ -90,17 +95,6 @@ const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const COURSE_AUDIO_FALLBACK_MS = 12000;
 const OFFLINE_ADVANCE_DELAY_MS = 900;
-
-type SavedLessonRun = {
-  attemptedCards: number[];
-  cardCount: number;
-  cardIndex: number;
-  completedCards: number[];
-  furthestCardIndex: number;
-  score: number;
-  sessionId: string;
-  wrongCards: number[];
-};
 
 function correctSelectionAudioText(card: LessonCard, optionId?: string | null): string {
   const authoredAnswer = card.answer_audio_text?.trim();
@@ -136,37 +130,6 @@ function optionLabelsForIds(card: LessonCard, optionIds: string[]): string[] {
 function fillCompletionPrompt(prompt: string, labels: string[]): string {
   let labelIndex = 0;
   return prompt.replace(/_{2,}/g, (blank) => labels[labelIndex++] || blank);
-}
-
-function validCardIndexes(indexes: unknown, cardCount: number) {
-  if (!Array.isArray(indexes)) return [];
-  return indexes.filter((index): index is number => (
-    Number.isInteger(index) && index >= 0 && index < cardCount
-  ));
-}
-
-function parseSavedLessonRun(value: string | null, cardCount: number): SavedLessonRun | null {
-  if (!value) return null;
-  try {
-    const saved = JSON.parse(value) as Partial<SavedLessonRun>;
-    if (saved.cardCount !== cardCount || !Number.isInteger(saved.cardIndex)) return null;
-    const cardIndex = Math.min(Math.max(saved.cardIndex || 0, 0), Math.max(cardCount - 1, 0));
-    return {
-      attemptedCards: validCardIndexes(saved.attemptedCards, cardCount),
-      cardCount,
-      cardIndex,
-      completedCards: validCardIndexes(saved.completedCards, cardCount),
-      furthestCardIndex: Math.min(
-        Math.max(Number.isInteger(saved.furthestCardIndex) ? saved.furthestCardIndex! : cardIndex, cardIndex),
-        Math.max(cardCount - 1, 0),
-      ),
-      score: Math.min(Math.max(Number.isInteger(saved.score) ? saved.score! : 0, 0), cardCount),
-      sessionId: typeof saved.sessionId === 'string' ? saved.sessionId : '',
-      wrongCards: validCardIndexes(saved.wrongCards, cardCount),
-    };
-  } catch {
-    return null;
-  }
 }
 
 function lessonLocationLabel(lesson: Lesson): string {
@@ -298,7 +261,9 @@ export function LessonScreen({
   const audioPreloadRef = useRef<Map<AudioSource, Promise<boolean>>>(new Map());
   const imagePreloadRef = useRef<Map<string, Promise<void>>>(new Map());
   const finishedSessionRef = useRef(false);
+  const sessionStartInFlightRef = useRef(false);
   const resumeHydratedRef = useRef(false);
+  const latestLessonResumeRef = useRef<SavedLessonRun | null>(null);
   const cardTransitioningRef = useRef(false);
   const appWasInterruptedRef = useRef(false);
   const attemptedCardsRef = useRef<Set<number>>(new Set());
@@ -346,6 +311,31 @@ export function LessonScreen({
   const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
   const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
+  const lessonResumePersistence = useMemo(
+    () => createLessonResumePersistence(AsyncStorage, lessonResumeStorageKey),
+    [lessonResumeStorageKey],
+  );
+  const saveLessonResume = useCallback((savedRun: SavedLessonRun) => {
+    latestLessonResumeRef.current = savedRun;
+    return lessonResumePersistence.save(savedRun).catch((saveError) => {
+      captureDiagnosticError(saveError, 'save_lesson_resume', { lesson_id: lessonId }, 'warning');
+    });
+  }, [lessonId, lessonResumePersistence]);
+  const flushLessonResume = useCallback(() => {
+    const latestRun = latestLessonResumeRef.current;
+    const persistence = latestRun
+      ? lessonResumePersistence.save(latestRun)
+      : lessonResumePersistence.flush();
+    return persistence.catch((saveError) => {
+      captureDiagnosticError(saveError, 'flush_lesson_resume', { lesson_id: lessonId }, 'warning');
+    });
+  }, [lessonId, lessonResumePersistence]);
+  const clearLessonResume = useCallback(() => {
+    latestLessonResumeRef.current = null;
+    return lessonResumePersistence.clear().catch((saveError) => {
+      captureDiagnosticError(saveError, 'clear_lesson_resume', { lesson_id: lessonId }, 'warning');
+    });
+  }, [lessonId, lessonResumePersistence]);
   const isCompletedSectionPicker = completedLessonMode === 'prompt' || completedLessonMode === 'sections';
   const showCompletedJourney = previouslyCompleted && completedLessonMode !== 'standard';
 
@@ -387,10 +377,15 @@ export function LessonScreen({
 
   useEffect(() => {
     const subscription = AppState.addEventListener('change', (nextState) => {
+      if (nextState !== 'active') void flushLessonResume();
       setIsAppActive(nextState === 'active');
     });
     return () => subscription.remove();
-  }, []);
+  }, [flushLessonResume]);
+
+  useEffect(() => () => {
+    void flushLessonResume();
+  }, [flushLessonResume]);
 
   useEffect(() => {
     if (qaMode) {
@@ -742,6 +737,7 @@ export function LessonScreen({
     setIsLoading(true);
     setError('');
     resumeHydratedRef.current = false;
+    latestLessonResumeRef.current = null;
     finishedSessionRef.current = false;
     setCompletedLessonMode(previouslyCompleted && !qaMode ? 'prompt' : 'standard');
     setReviewStageBounds(null);
@@ -778,19 +774,8 @@ export function LessonScreen({
       setWrongCards(new Set(savedRun?.wrongCards ?? []));
       setCompletedCards(new Set(completedCardsRef.current));
       setSessionId(savedRun?.sessionId ?? '');
+      setIsComplete(savedRun?.completionPending ?? false);
       resumeHydratedRef.current = true;
-      if (profile.userId && !qaMode) {
-        if (previouslyCompleted) return;
-        if (savedRun?.sessionId) return;
-        startLessonSession(profile.userId, nextLesson.id, nextLesson.cards.length)
-          .then((session) => setSessionId(session.id))
-          .catch((sessionError) => captureDiagnosticError(
-            sessionError,
-            'start_lesson_session',
-            { lesson_id: nextLesson.id },
-            'warning',
-          ));
-      }
     } catch (loadError) {
       captureDiagnosticError(loadError, 'lesson_load', { lesson_id: lessonId });
       setError(loadError instanceof Error ? loadError.message : 'No pudimos cargar esta lección. Inténtalo otra vez.');
@@ -803,23 +788,18 @@ export function LessonScreen({
 
   useEffect(() => {
     if (qaMode || completedLessonMode !== 'standard' || !lesson || !resumeHydratedRef.current) return;
-    if (isComplete) {
-      void AsyncStorage.removeItem(lessonResumeStorageKey).catch(() => undefined);
-      return;
-    }
     const savedRun: SavedLessonRun = {
       attemptedCards: [...attemptedCards],
       cardCount: lesson.cards.length,
       cardIndex,
       completedCards: [...completedCards],
+      completionPending: isComplete,
       furthestCardIndex,
       score,
       sessionId,
       wrongCards: [...wrongCards],
     };
-    void AsyncStorage.setItem(lessonResumeStorageKey, JSON.stringify(savedRun)).catch((saveError) => (
-      captureDiagnosticError(saveError, 'save_lesson_resume', { lesson_id: lesson.id }, 'warning')
-    ));
+    void saveLessonResume(savedRun);
   }, [
     attemptedCards,
     cardIndex,
@@ -828,11 +808,46 @@ export function LessonScreen({
     furthestCardIndex,
     isComplete,
     lesson,
-    lessonResumeStorageKey,
     qaMode,
+    saveLessonResume,
     score,
     sessionId,
     wrongCards,
+  ]);
+
+  useEffect(() => {
+    if (
+      qaMode
+      || completedLessonMode !== 'standard'
+      || !lesson
+      || !profile.userId
+      || !resumeHydratedRef.current
+      || sessionId
+      || isOffline
+      || sessionStartInFlightRef.current
+    ) return;
+
+    sessionStartInFlightRef.current = true;
+    setDiagnosticOperation('start_lesson_session');
+    void startLessonSession(profile.userId, lesson.id, lesson.cards.length)
+      .then((session) => setSessionId(session.id))
+      .catch((sessionError) => captureDiagnosticError(
+        sessionError,
+        'start_lesson_session',
+        { lesson_id: lesson.id },
+        'warning',
+      ))
+      .finally(() => {
+        sessionStartInFlightRef.current = false;
+      });
+  }, [
+    completedLessonMode,
+    isComplete,
+    isOffline,
+    lesson,
+    profile.userId,
+    qaMode,
+    sessionId,
   ]);
 
   const currentCard = lesson?.cards[cardIndex];
@@ -1691,17 +1706,35 @@ export function LessonScreen({
   ]);
 
   useEffect(() => {
-    if (qaMode || !isComplete || !lesson || !sessionId || finishedSessionRef.current) return;
+    if (
+      qaMode
+      || !isAppActive
+      || isOffline
+      || !isComplete
+      || !lesson
+      || !sessionId
+      || finishedSessionRef.current
+    ) return;
     finishedSessionRef.current = true;
     setDiagnosticOperation('finish_lesson_session');
     void finishLessonSession(sessionId, score, lesson.cards.length)
-      .catch((finishError) => captureDiagnosticError(
-        finishError,
-        'finish_lesson_session',
-        { score, total_cards: lesson.cards.length },
-        'warning',
-      ));
-  }, [isComplete, lesson, qaMode, score, sessionId]);
+      .then(() => {
+        addDiagnosticBreadcrumb('lesson_completion_synced', {
+          score,
+          total_cards: lesson.cards.length,
+        });
+        return clearLessonResume();
+      })
+      .catch((finishError) => {
+        finishedSessionRef.current = false;
+        captureDiagnosticError(
+          finishError,
+          'finish_lesson_session',
+          { score, total_cards: lesson.cards.length },
+          'warning',
+        );
+      });
+  }, [clearLessonResume, isAppActive, isComplete, isOffline, lesson, qaMode, score, sessionId]);
 
   const recordAttempt = (
     optionId: string,
@@ -1985,18 +2018,8 @@ export function LessonScreen({
     setReviewStageBounds(null);
     setCompletedLessonMode('standard');
     setSessionId('');
-    void AsyncStorage.removeItem(lessonResumeStorageKey).catch(() => undefined);
-    if (profile.userId && !qaMode) {
-      startLessonSession(profile.userId, lesson.id, lesson.cards.length)
-        .then((session) => setSessionId(session.id))
-        .catch((sessionError) => captureDiagnosticError(
-          sessionError,
-          'start_lesson_session',
-          { lesson_id: lesson.id },
-          'warning',
-        ));
-    }
-  }, [audioPlayer, lesson, lessonResumeStorageKey, profile.userId, qaMode, resetCardState]);
+    void clearLessonResume();
+  }, [audioPlayer, clearLessonResume, lesson, resetCardState]);
 
   const openStage = useCallback((startIndex: number) => {
     if (!lesson || (!qaMode && startIndex > furthestCardIndex)) return;
