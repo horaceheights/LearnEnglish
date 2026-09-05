@@ -57,6 +57,7 @@ type Props = {
   lessonId: string;
   isAppActive: boolean;
   isOffline: boolean;
+  offlinePronunciationPracticeEnabled?: boolean;
   optionsInteractive?: boolean;
   pronunciationAudioTurns?: CourseAudioTurnPlayback[] | null;
   userId?: string;
@@ -87,6 +88,7 @@ export function LessonCardView({
   lessonId,
   isAppActive,
   isOffline,
+  offlinePronunciationPracticeEnabled = false,
   optionsInteractive = true,
   pronunciationAudioTurns = null,
   userId,
@@ -504,6 +506,7 @@ export function LessonCardView({
           imageUrl={card.options[0]?.image_url}
           isAppActive={isAppActive}
           isOffline={isOffline}
+          offlinePracticeEnabled={offlinePronunciationPracticeEnabled}
           videoName={null}
           level={level}
           onAttempted={onPronunciationAttempted}

@@ -176,6 +176,9 @@ try {
   & node tests/pronunciation-audio-gate.test.cjs (Join-Path $outputDirectory 'pronunciationAudioGate.js')
   if ($LASTEXITCODE -ne 0) { throw 'Falló la precarga consecutiva de modelos de pronunciación.' }
 
+  & node tests/offline-lesson-media.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de audio y pronunciación sin conexión.' }
+
   & node tests/pronunciation-media-frame.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el marco compartido de imágenes de pronunciación.' }
 } finally {

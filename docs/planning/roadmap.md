@@ -1,6 +1,6 @@
 # SpanGlish Product Roadmap
 
-Last reviewed: 2026-09-01
+Last reviewed: 2026-09-05
 
 This is the persistent source of truth for product priorities. When work is
 completed, update this file in the same commit. When asked "what is next?",
@@ -54,7 +54,7 @@ Further mass content production begins only when:
 - [x] A new lesson can be assembled mostly from data and existing activity types
 - [~] Progress, retries, and first-attempt scores persist locally across connectivity loss; help and mastery signals remain incomplete
 - [~] Shared audio, image, animation, and feedback behavior is guarded; haptics remain incomplete
-- [~] Interrupted lesson state resumes locally across tested lock, app-switch, force-close, and ordinary-exit paths; airplane-mode recovery awaits retest after the checkpoint durability fix
+- [x] Interrupted lesson state resumes locally across tested lock, app-switch, force-close, ordinary-exit, and airplane-mode recovery paths
 - [~] Backend/network failures retain the latest local checkpoint and pending completion; full queued analytics synchronization remains P6 work
 - [~] Reduced-motion and responsive layout behavior exist; the accessibility/device matrix remains incomplete
 - [x] Automated content validation catches broken cards and missing media
@@ -99,11 +99,12 @@ corrupts progress, or produces unreliable learning feedback.
 - [~] Use the internal Engine QA hub to complete [`../qa/engine-qa-checklist.md`](../qa/engine-qa-checklist.md)
 - [~] Verify correct, incorrect, retry, help, audio, and completion paths
 - [~] Test leaving during playback, recording, grading, and animation
-- [~] Screen lock, app switching, ordinary exit, and force-close recovery passed on Android; retest lost internet and backend cold starts after the checkpoint durability fix, and test calls
+- [~] Screen lock, app switching, ordinary exit, force-close, and airplane-mode checkpoint recovery passed on Android; test calls and backend cold starts remain
 - [ ] Test small, medium, and large Android landscape dimensions
 - [x] Add production crash reporting and structured diagnostics
 - [x] Show an in-app error screen instead of an unexplained blank screen
-- [~] Persist and restore the active card, scoring state, and pending completion locally; automated durability coverage passes, with airplane-mode physical retest pending
+- [x] Persist and restore the active card, scoring state, and pending completion locally across ordinary and airplane-mode interruption
+- [~] Silently cache every immutable audio clip for a started lesson and continue offline without blocking; the pronunciation-only local listen-back fallback is implemented and awaits physical-device verification
 - [x] Create a repeatable pre-release checklist
 - [x] Remove the temporary standalone pronunciation test lesson and keep pronunciation inside each lesson's Speak stage
 - [x] Enforce the 70-lesson catalog, course fingerprint, release identity, and canonical Preview ancestry before publication
@@ -123,7 +124,7 @@ corrupts progress, or produces unreliable learning feedback.
 - [ ] Implement production authentication and account recovery
 - [~] Synchronize learner profile and session data
 - [x] Save lesson completion and first-attempt scores
-- [~] Resume unfinished lessons from local state; force-close, screen-lock, and app-switch recovery passed, with airplane-mode retest pending
+- [x] Resume unfinished lessons from local state after force-close, screen lock, app switching, ordinary exit, and airplane-mode interruption
 - [~] Show completed lessons and current-unit progress; add a clear total-course progress summary
 - [~] Store attempt history and session timestamps; expose learner-facing learning-time history
 
@@ -235,12 +236,12 @@ application code.
 
 ## P6 — Offline use and performance
 
-- [x] Preload current and next-card images/audio
+- [x] Bundle canonical A1 still images and silently cache all immutable audio for a started lesson while connected
 - [ ] Download complete lesson or unit packs
-- [~] Complete eligible non-pronunciation cards offline after lesson data is available
+- [~] Complete eligible non-pronunciation cards seamlessly offline after lesson data is available; physical-device verification of the whole-lesson cache remains
 - [~] Queue lesson checkpoints and pending completion locally; attempt analytics still need a durable queue
 - [~] Retry missing lesson-session and completion synchronization when connectivity returns; general analytics synchronization remains
-- [~] Mark pronunciation as unavailable offline; identify other network-dependent audio and actions
+- [~] Fall back to local pronunciation recording and learner listen-back without a grade after one Speak-only warning; physical-device verification remains
 - [ ] Reduce app and EAS update sizes
 - [~] Standardize course imagery on contract-bound WebP assets; complete hash-bound human semantic approval and continue size and delivery optimization
 - [ ] Remove ordinary lesson-navigation dependence on Render availability
@@ -321,8 +322,8 @@ internal-mouth model rather than claiming the camera alone can diagnose it.
 ## Recommended immediate sequence
 
 1. Complete the P0 physical-device lesson audit.
-2. Retest resume-in-progress and pending completion across airplane mode using the checkpoint durability fix.
-3. Complete the remaining P0 network-loss and backend cold-start audit.
+2. Verify whole-lesson cached audio, the Speak-only offline warning/listen-back path, and offline completion notice on a physical Android phone.
+3. Complete the remaining P0 backend cold-start and phone-call interruption audit.
 4. Complete the Android viewport and accessibility matrix.
 5. Finalize the permanent course/activity hierarchy and post-Preview mastery policy.
 6. Queue progress and analytics locally, then synchronize safely after reconnecting.
