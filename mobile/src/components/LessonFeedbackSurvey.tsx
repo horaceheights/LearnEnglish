@@ -23,7 +23,6 @@ import {
 import * as Updates from 'expo-updates';
 
 import { saveLessonFeedback, transcribeFeedback } from '../api';
-import { READY_CUE_URL } from '../config';
 import { captureDiagnosticError } from '../diagnostics';
 import {
   addSpeechListener,
@@ -45,6 +44,8 @@ const RECORDING_OPTIONS: RecordingOptions = {
 
 const CLARITY_OPTIONS = ['Muy fácil', 'Fácil', 'Algo confusa', 'Muy confusa'];
 const SUPPORT_OPTIONS = ['Sí, ambos', 'Solo imágenes', 'Solo audio', 'Ninguno'];
+const READY_CUE = require('../../assets/sfx/ready-cue-v2.mp3');
+const READY_CUE_VOLUME = 0.38;
 
 type Props = {
   userId: string;
@@ -69,7 +70,10 @@ export function LessonFeedbackSurvey({
 }: Props) {
   const recorder = useAudioRecorder(RECORDING_OPTIONS);
   const recorderState = useAudioRecorderState(recorder, 100);
-  const cuePlayer = useAudioPlayer(null, { keepAudioSessionActive: true });
+  const cuePlayer = useAudioPlayer(READY_CUE, {
+    downloadFirst: true,
+    keepAudioSessionActive: true,
+  });
   const mountedRef = useRef(true);
   const [clarity, setClarity] = useState('');
   const [support, setSupport] = useState('');
@@ -135,9 +139,9 @@ export function LessonFeedbackSurvey({
       }
       // Play the ready cue before opening the microphone. Keeping this player
       // active prevents its completion from shutting down the iOS recorder.
-      await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: true });
-      if (!cuePlayer.isLoaded) cuePlayer.replace(READY_CUE_URL);
+      await setAudioModeAsync({ allowsRecording: false, playsInSilentMode: false });
       await new Promise((resolve) => setTimeout(resolve, 120));
+      cuePlayer.volume = READY_CUE_VOLUME;
       cuePlayer.play();
       await new Promise((resolve) => setTimeout(resolve, 260));
       cuePlayer.pause();

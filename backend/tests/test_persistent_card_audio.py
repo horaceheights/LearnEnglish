@@ -123,6 +123,15 @@ def copied_asset(asset: CourseAudioAsset, **updates: object) -> CourseAudioAsset
 
 
 class PersistentCardAudioTests(unittest.TestCase):
+    def test_mission_word_parts_bind_answer_audio_without_a_completion_prompt(self):
+        card = LESSONS["lesson-10-family-mission"].cards[0]
+        self.assertEqual("mission-word-parts", card.interaction_type)
+
+        assets = assets_for_card("lesson-10-family-mission", 0, card)
+
+        self.assertEqual(["answer"], [asset.variant for asset in assets])
+        self.assertEqual(["family"], [asset.text for asset in assets])
+
     def test_every_course_asset_is_unique_and_bound_to_its_card_visual(self):
         assets = [
             asset

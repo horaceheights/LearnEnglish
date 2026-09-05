@@ -54,7 +54,7 @@ Lessons:
 7. 1.7 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
 8. 1.8 Who Is He? Who Are They?: identity questions and short answers
 9. 1.9 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
-10. 1.10 Family Scene Mission: complete one family-card challenge by following clues, recording captions, building family words from parts, and ordering final sentences
+10. 1.10 Family Album Mission: complete one continuous 22-beat family-story challenge by following clues, listening, speaking, building words from parts, and assembling the final resolution
 
 Core patterns:
 
@@ -66,7 +66,7 @@ Core patterns:
 - `He is not cooking.`
 - `Who are they? They are the parents.`
 
-Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.7 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.8 contains 50 cards, ten per section, with separate visitor-question and family-portrait answer pairs for all five identities. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with a shorter 32-step family-card mission and nine mission-only scenes; its Use stage progresses from draggable/tappable word parts to ordered sentence tiles and a final family resolution.
+Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.7 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.8 contains 50 cards, ten per section, with separate visitor-question and family-portrait answer pairs for all five identities. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with one continuous 22-beat mission rather than another five-section deck. It interleaves clue, listening, speaking, word-part, and sentence-building mechanics in narrative order, retrieves all 46 vocabulary targets introduced in Lessons 1.1-1.8 on the successful path, includes all three Unit 1 `Who` question forms, adds no assessed English, and resolves the family story with mission-only hero scenes.
 
 ### Unit 2: Places, Objects, Numbers, and Colors
 
@@ -245,6 +245,9 @@ Current restructuring target:
 - Lesson 9 retrieves at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets from lessons 1-8. It may be longer than a standard lesson when needed, uses no new language, and presents newly authored images, combinations, prompts, and setups. It may use clearly separated story stations, but it must not replay the same content-image pair from the lessons it reviews.
 - Lesson 10 is the unit-closing mission: one coherent story, practical goal, or challenge in which learned language is the tool for succeeding. It is not a second review deck. Every interaction advances the mission, and the ending provides a clear sense of resolution and readiness for the next unit.
 - Lesson 10 uses light, language-centered gamification to break the lessons 1-8 rhythm without turning the course into a reward loop. Depending on the unit, learners may manipulate syllable or word-part tiles to form words and then manipulate words to form useful sentences inside the mission.
+- Mission lessons declare `experience_type: mission`, a positive `content_revision`, a presentation contract, ordered chapters, and one chapter ID per card. They retain internal stage values only to select engine behavior; the learner sees one continuous mission with beat progress, not the standard five-stage journey or section picker.
+- Unit 1 Lesson 1.10 has exactly 22 contiguous beats. Its successful-path language covers the exact 46-item union of vocabulary introduced in Lessons 1.1-1.8—including `Who is he?`, `Who is she?`, and `Who are they?`—without using unintroduced English. Each beat advances the same family story and uses a fresh, unambiguous hero still; exact assets from Lessons 1.1-1.9 and another mission beat's hero are not valid substitutes.
+- Lesson 1.10's fixed narrative map is `open-album` (beats 1-5), `build-family` (6-13), `restore-memories` (14-20), and `record-and-reveal` (21-22). A chapter may change the objective and visual state, but it does not reopen a standard lesson section or reset mission progress.
 
 ## Difficulty Ramp
 
@@ -257,7 +260,7 @@ Early A1:
 
 Middle A1:
 
-- at most three choices when answers are text tiles; image choices may use four after smaller contrasts are established
+- at most three choices in an ordinary text answer bank; an approved construction activity may expose every required word or word-part tile only through the dedicated responsive, accessible construction layout; image choices may use four after smaller contrasts are established
 - earlier vocabulary combined into new, larger meanings and situations
 - simple question prompts
 - small contrasts like `he/she`, `in/on`, singular/plural
@@ -271,7 +274,7 @@ Late A1:
 
 ## Authoring Requirements
 
-Canonical lesson files use these fields:
+Canonical standard lesson files use these fields:
 
 - lesson id, title, level, unit, goal
 - new vocabulary
@@ -280,7 +283,14 @@ Canonical lesson files use these fields:
 - optional Spanish hint/help text
 - tags for skill type: recognition, listening, speaking, production, review
 
-Units 2-7 are reproducibly generated from the approved course canvas, then exported into embedded mobile Preview snapshots. Automated checks keep the canonical lesson files, five-stage sequence, dependencies, translations, assets, answers, and mobile snapshots synchronized.
+Mission lesson files additionally declare:
+
+- `experience_type: mission` and a positive `content_revision`
+- learner-facing mission label, title, briefing, completion title, and completion message
+- an ordered list of chapter IDs, titles, and objectives
+- `mission_chapter_id` on every card, with cards following the declared chapter order
+
+Units 2-7 are reproducibly generated from the approved course canvas, then exported into embedded mobile Preview snapshots. Automated checks keep the canonical lesson files, standard five-stage sequence, mission metadata and chapter sequence, dependencies, translations, assets, answers, and mobile snapshots synchronized.
 
 ## Asset Guidelines
 
@@ -314,9 +324,9 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | `1.7` | What They Are Not Doing | 42-card cumulative rebuild ready for learner review |
 | `1.8` | Who Is He? Who Are They? | 50-card question/answer pairs in all five sections |
 | `1.9` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
-| `1.10` | Family Scene Mission | 32-card applied family-card mission ready for learner review |
+| `1.10` | Family Album Mission | 22-beat continuous family-story mission ready for learner review |
 
-Every lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct ordered mission contract for 1.10.
+Every standard lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat mission contract for 1.10.
 
 The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
@@ -324,7 +334,7 @@ Standalone `1.3 Pronunciation Practice` has been removed. Pronunciation practice
 
 ## Current Build and Review Status
 
-The canonical A1 track now contains seven units with ten lessons per unit. Every lesson follows `Learn -> Recognize -> Listen -> Speak -> Use`, declares its prerequisite, and culminates in a speaking outcome. Lessons 1-8 move forward by incorporating earlier vocabulary into richer constructions rather than inserting standalone review cards. Lesson 9 of each unit is a comprehensive no-new-language review using fresh scenarios and covering at least 70 percent of the unit's declared mastery targets; lesson 10 is a coherent, lightly gamified mission that integrates the unit's functions in one applied story or challenge.
+The canonical A1 track now contains seven units with ten lessons per unit. Every standard lesson follows `Learn -> Recognize -> Listen -> Speak -> Use`; every mission lesson replaces that visible shell with one continuous chaptered challenge while retaining internal modality metadata. Each lesson declares its prerequisite and culminates in a speaking outcome. Lessons 1-8 move forward by incorporating earlier vocabulary into richer constructions rather than inserting standalone review cards. Lesson 9 of each unit is a comprehensive no-new-language review using fresh scenarios and covering at least 70 percent of the unit's declared mastery targets; lesson 10 is a coherent, lightly gamified mission that integrates the unit's functions in one applied story or challenge.
 
 The course menu presents the seven-unit big picture first. Selecting a unit reveals only that unit's ten lessons, with an explicit return to the all-units view. This navigation mirrors the curriculum hierarchy and keeps the 70-lesson roadmap browsable without flattening it into one long list.
 

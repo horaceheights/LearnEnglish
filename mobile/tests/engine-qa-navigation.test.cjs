@@ -29,8 +29,42 @@ assert.doesNotMatch(
 );
 assert.match(qaSource, /1 · UNIDAD/);
 assert.match(qaSource, /2 · LECCIÓN/);
-assert.match(qaSource, /3 · ETAPA/);
 assert.match(qaSource, /4 · TARJETA/);
+assert.match(
+  qaSource,
+  /const missionExperience = isMissionLesson\(selectedLesson\);[\s\S]*?lessonNavigationGroups\(selectedLesson\)/,
+  'Engine QA must select its navigation model from mission metadata rather than a lesson ID.',
+);
+assert.match(
+  qaSource,
+  /const groupSingular = missionExperience \? 'capítulo' : 'etapa';[\s\S]*?3 · \{groupSingular\.toUpperCase\(\)\}[\s\S]*?navigationGroups\.length\} \{groupPlural\}/,
+  'Engine QA must label and count the third navigation level as chapters for missions and stages otherwise.',
+);
+assert.match(
+  qaSource,
+  /navigationGroups\.map\(\(group, groupIndex\)[\s\S]*?const count = group\.cardIndexes\.length;[\s\S]*?group\.label[\s\S]*?chooseGroup\(group\.id\)/,
+  'Engine QA must render mission chapter labels and counts from the declared navigation groups.',
+);
+assert.match(
+  qaSource,
+  /\(selectedGroup\?\.cardIndexes \|\| \[\]\)\.flatMap/,
+  'The QA card list must filter through the selected chapter or stage grouping.',
+);
+assert.match(
+  qaSource,
+  /missionExperience \? ` · modalidad \$\{item\.card\.stage\}` : ''/,
+  'Mission QA rows may expose the hidden engine stage only when it is labeled as a modality.',
+);
+assert.match(
+  qaSource,
+  /if \(selectedCardPosition < 0 \|\| !visibleCards\.length\) return undefined;/,
+  'Changing groups must also scroll the card list back to its selected first row.',
+);
+assert.doesNotMatch(
+  qaSource,
+  /lesson-10-family-mission/,
+  'Mission-aware Engine QA behavior must never depend on the current mission lesson ID.',
+);
 assert.match(
   qaSource,
   /QA_LOCATION_STORAGE_KEY[\s\S]*?AsyncStorage\.getItem\(QA_LOCATION_STORAGE_KEY\)/,

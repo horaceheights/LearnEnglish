@@ -159,6 +159,7 @@ class VisualReferent:
 class VisualMeaning:
     primary: VisualReferent
     visible_subsets: tuple[VisualReferent, ...] = ()
+    allow_negative_visible_subsets: bool = False
 GRAMMAR_STAGES = {"Grammar", "New Grammar"}
 PRONUNCIATION_STAGES = {"Pronunciation Practice", "Speak"}
 VISUAL_COMPLETION_PLACEHOLDER_PATTERN = re.compile(
@@ -173,11 +174,358 @@ MISSION_COMPLETION_INTERACTIONS = {
     "mission-sentence",
     "mission-finale",
 }
+MAX_MISSION_CONSTRUCTION_TILES = 8
+MISSION_INTERACTIONS = frozenset({
+    "mission-brief",
+    "mission-clue",
+    "mission-listen",
+    "mission-speak",
+    *MISSION_COMPLETION_INTERACTIONS,
+})
+MISSION_INTERACTION_STAGES = {
+    "mission-brief": "Learn",
+    "mission-clue": "Recognize",
+    "mission-listen": "Listen",
+    "mission-speak": "Speak",
+    "mission-word-parts": "Use",
+    "mission-finale": "Use",
+}
+UNIT_ONE_FOUNDATION_LESSON_IDS = (
+    "lesson-1-people-actions",
+    "lesson-2-pronouns",
+    "lesson-3-two-people",
+    "lesson-4-children-siblings",
+    "lesson-5-parents-grandparents",
+    "lesson-6-family-actions",
+    "lesson-7-is-are-not",
+    "lesson-8-who",
+)
+MISSION_CARD_COUNTS = {
+    "lesson-10-family-mission": 22,
+}
+MISSION_REQUIRED_INTERACTIONS = {
+    "lesson-10-family-mission": frozenset({
+        "mission-clue",
+        "mission-listen",
+        "mission-speak",
+        "mission-word-parts",
+        "mission-sentence",
+        "mission-finale",
+    }),
+}
+MISSION_FIRST_INTERACTIONS = {
+    "lesson-10-family-mission": "mission-word-parts",
+}
+MISSION_HERO_PREFIXES = {
+    "lesson-10-family-mission": "a1_u1_album_",
+}
 
 
 def is_completion_interaction(interaction_type: str | None) -> bool:
     value = str(interaction_type or "")
     return interaction_type is None or value.startswith("complete") or value in MISSION_COMPLETION_INTERACTIONS
+
+
+def _mission_language_tokens(text: str | None) -> set[str]:
+    # A word-part target such as ``fa-ther`` represents the already-taught word
+    # ``father``. Joining internal hyphens keeps it from inventing ``fa`` and
+    # ``ther`` as vocabulary while ordinary sentence punctuation still vanishes.
+    normalized = re.sub(r"(?<=[A-Za-z])-(?=[A-Za-z])", "", str(text or ""))
+    return set(re.findall(r"[a-z]+", normalized.lower()))
+
+
+def _correct_option(card: object) -> object | None:
+    correct_id = str(getattr(card, "correct_option_id", "") or "")
+    return next(
+        (
+            option
+            for option in list(getattr(card, "options", []) or [])
+            if str(getattr(option, "id", "") or "") == correct_id
+        ),
+        None,
+    )
+
+
+def _mission_success_language(card: object) -> list[str]:
+    """Return assessed English that appears on the successful mission path.
+
+    Spanish UI directions and hidden pedagogy notes are deliberately excluded.
+    Distractors are checked separately for unintroduced English but never earn
+    mastery coverage.
+    """
+
+    interaction = str(getattr(card, "interaction_type", "") or "")
+    correct = _correct_option(card)
+    correct_label = str(getattr(correct, "label", "") or "") if correct else ""
+    prompt = str(getattr(card, "prompt", "") or "")
+    audio_text = str(getattr(card, "audio_text", "") or "")
+    answer_audio_text = str(getattr(card, "answer_audio_text", "") or "")
+
+    values = [audio_text, answer_audio_text]
+    prompt_is_target = (
+        interaction == "mission-speak"
+        or prompt == audio_text
+        or prompt == answer_audio_text
+        or re.match(r"^Who\s+(?:is|are)\b", prompt, flags=re.IGNORECASE)
+    )
+    if prompt_is_target:
+        values.append(prompt)
+    if interaction not in MISSION_COMPLETION_INTERACTIONS:
+        values.append(correct_label)
+    return [value for value in values if value.strip()]
+
+
+def _mission_authored_english(card: object) -> list[str]:
+    """Return mission fields in which authored English may reach the learner."""
+
+    interaction = str(getattr(card, "interaction_type", "") or "")
+    values = _mission_success_language(card)
+    if interaction not in {"mission-word-parts"}:
+        values.extend(
+            str(getattr(option, "label", "") or "")
+            for option in list(getattr(card, "options", []) or [])
+        )
+    if interaction in MISSION_COMPLETION_INTERACTIONS:
+        values.append(str(getattr(card, "prompt", "") or ""))
+    return [value for value in values if value.strip()]
+
+
+def _card_media_urls(card: object) -> list[str]:
+    urls = [str(getattr(card, "prompt_image_url", "") or "")]
+    urls.extend(
+        str(getattr(option, "image_url", "") or "")
+        for option in list(getattr(card, "options", []) or [])
+    )
+    for turn_field in ("audio_turns", "answer_audio_turns"):
+        urls.extend(
+            str(getattr(turn, "image_url", "") or "")
+            for turn in list(getattr(card, turn_field, []) or [])
+        )
+    return [url for url in urls if url]
+
+
+def _mission_hero_url(card: object) -> str:
+    prompt_image = str(getattr(card, "prompt_image_url", "") or "")
+    if prompt_image:
+        return prompt_image
+    correct = _correct_option(card)
+    return str(getattr(correct, "image_url", "") or "") if correct else ""
+
+
+def _sub_lesson_sequence_key(sub_lesson_id: object) -> tuple[int, ...]:
+    """Compare dotted lesson numbers component-wise (`1.10` follows `1.9`)."""
+
+    parts = str(sub_lesson_id or "").split(".")
+    if not parts or any(not part.isdigit() for part in parts):
+        return ()
+    return tuple(int(part) for part in parts)
+
+
+def validate_mission_contracts(lessons=None) -> list[str]:
+    """Fail closed on the continuous mission contract and Unit 1 mastery scope."""
+
+    errors: list[str] = []
+    lesson_catalog = LESSONS if lessons is None else lessons
+    for required_id in MISSION_CARD_COUNTS:
+        lesson = lesson_catalog.get(required_id)
+        if lesson is None:
+            errors.append(f"Required mission lesson {required_id!r} is missing.")
+        elif getattr(lesson, "experience_type", None) != "mission":
+            errors.append(
+                f"{required_id} must declare experience_type='mission'; lesson-ID-only "
+                "mission behavior is not allowed."
+            )
+
+    mission_lessons = [
+        lesson
+        for lesson in lesson_catalog.values()
+        if getattr(lesson, "experience_type", None) == "mission"
+    ]
+    for lesson in mission_lessons:
+        expected_count = MISSION_CARD_COUNTS.get(lesson.id)
+        if expected_count is not None and len(lesson.cards) != expected_count:
+            errors.append(
+                f"{lesson.id} must contain exactly {expected_count} mission beats; "
+                f"found {len(lesson.cards)}."
+            )
+        if not isinstance(getattr(lesson, "content_revision", None), int) or lesson.content_revision < 1:
+            errors.append(f"{lesson.id} must declare a positive content_revision.")
+
+        mission = getattr(lesson, "mission", None)
+        chapters = list(getattr(mission, "chapters", []) or [])
+        chapter_ids = [str(getattr(chapter, "id", "") or "") for chapter in chapters]
+        if not chapters or any(not chapter_id for chapter_id in chapter_ids):
+            errors.append(f"{lesson.id} must declare at least one nonempty mission chapter.")
+        if len(chapter_ids) != len(set(chapter_ids)):
+            errors.append(f"{lesson.id} mission chapter IDs must be unique.")
+        for field in ("label", "title", "briefing", "completion_title", "completion_message"):
+            if not str(getattr(mission, field, "") or "").strip():
+                errors.append(f"{lesson.id} mission presentation is missing {field!r}.")
+
+        card_chapters = [
+            str(getattr(card, "mission_chapter_id", "") or "")
+            for card in lesson.cards
+        ]
+        encountered_chapters: list[str] = []
+        for chapter_id in card_chapters:
+            if not encountered_chapters or encountered_chapters[-1] != chapter_id:
+                encountered_chapters.append(chapter_id)
+        if card_chapters and encountered_chapters != chapter_ids:
+            errors.append(
+                f"{lesson.id} cards must visit declared chapters once in order; "
+                f"declared {chapter_ids}, encountered {encountered_chapters}."
+            )
+
+        expected_slide_ids = [
+            f"M{index:02d}" for index in range(1, len(lesson.cards) + 1)
+        ]
+        actual_slide_ids = [str(card.slide_id or "") for card in lesson.cards]
+        if actual_slide_ids != expected_slide_ids:
+            errors.append(
+                f"{lesson.id} mission beat IDs must be contiguous M01.."
+                f"M{len(lesson.cards):02d}; found {actual_slide_ids}."
+            )
+        for index, card in enumerate(lesson.cards, 1):
+            expected_note = rf"^Mission beat {index:02d}/{len(lesson.cards):02d}:"
+            if not re.match(expected_note, str(card.pedagogy_note or "")):
+                errors.append(
+                    f"{lesson.id} {card.slide_id or f'card {index}'} must declare "
+                    f"Mission beat {index:02d}/{len(lesson.cards):02d} in its pedagogy note."
+                )
+
+        interactions = [str(card.interaction_type or "") for card in lesson.cards]
+        unknown_interactions = sorted(set(interactions) - MISSION_INTERACTIONS)
+        required_interactions = MISSION_REQUIRED_INTERACTIONS.get(lesson.id, frozenset())
+        missing_interactions = sorted(required_interactions - set(interactions))
+        if unknown_interactions:
+            errors.append(
+                f"{lesson.id} has unsupported mission interactions: {unknown_interactions}."
+            )
+        if missing_interactions:
+            errors.append(
+                f"{lesson.id} is missing required mission interactions: {missing_interactions}."
+            )
+        expected_first = MISSION_FIRST_INTERACTIONS.get(lesson.id)
+        if interactions and expected_first and interactions[0] != expected_first:
+            errors.append(
+                f"{lesson.id} must begin with {expected_first!r} after its metadata briefing."
+            )
+        if interactions and interactions[-1] != "mission-finale":
+            errors.append(f"{lesson.id} must end with a mission-finale beat.")
+        if any(card.stage not in {"Learn", "Recognize", "Listen", "Speak", "Use"} for card in lesson.cards):
+            errors.append(
+                f"{lesson.id} may interleave only the established internal modality stages."
+            )
+        stage_mismatches = [
+            f"{card.slide_id}:{card.interaction_type}/{card.stage}"
+            for card in lesson.cards
+            if str(card.interaction_type or "") in MISSION_INTERACTION_STAGES
+            and MISSION_INTERACTION_STAGES[str(card.interaction_type or "")] != card.stage
+        ]
+        if stage_mismatches:
+            errors.append(
+                f"{lesson.id} mission interactions must retain their internal modality stage: "
+                f"{stage_mismatches}."
+            )
+
+        all_mission_media = {
+            _asset_name(url)
+            for card in lesson.cards
+            for url in _card_media_urls(card)
+        }
+        earlier_media = {
+            _asset_name(url)
+            for earlier in lesson_catalog.values()
+            if earlier.unit_id == lesson.unit_id and earlier.id != lesson.id
+            and _sub_lesson_sequence_key(earlier.sub_lesson_id)
+            < _sub_lesson_sequence_key(lesson.sub_lesson_id)
+            for card in earlier.cards
+            for url in _card_media_urls(card)
+        }
+        overlap = sorted(all_mission_media & earlier_media)
+        if overlap:
+            errors.append(
+                f"{lesson.id} reuses earlier lesson media instead of mission-only assets: {overlap}."
+            )
+
+        heroes = [_asset_name(_mission_hero_url(card)) for card in lesson.cards]
+        missing_hero_beats = [
+            card.slide_id or f"card {index}"
+            for index, (card, hero) in enumerate(zip(lesson.cards, heroes), 1)
+            if not hero
+        ]
+        if missing_hero_beats:
+            errors.append(
+                f"{lesson.id} mission beats without a primary/correct hero still: "
+                f"{missing_hero_beats}."
+            )
+        duplicate_heroes = sorted(
+            hero for hero, count in Counter(heroes).items() if hero and count > 1
+        )
+        if duplicate_heroes:
+            errors.append(
+                f"{lesson.id} repeats assessed hero stills across beats: {duplicate_heroes}."
+            )
+        expected_hero_prefix = MISSION_HERO_PREFIXES.get(lesson.id)
+        invalid_hero_names = sorted(
+            hero
+            for hero in heroes
+            if hero and expected_hero_prefix and not hero.startswith(expected_hero_prefix)
+        )
+        if invalid_hero_names:
+            errors.append(
+                f"{lesson.id} hero stills must use the mission-only "
+                f"{expected_hero_prefix} namespace: "
+                f"{invalid_hero_names}."
+            )
+
+        if lesson.id != "lesson-10-family-mission":
+            continue
+        introduced_order = [
+            str(word).strip().lower()
+            for source_id in UNIT_ONE_FOUNDATION_LESSON_IDS
+            for word in lesson_catalog[source_id].vocabulary
+        ]
+        introduced = set(introduced_order)
+        if len(introduced_order) != 46 or len(introduced) != 46:
+            errors.append(
+                "Unit 1 Lessons 1.1-1.8 must declare exactly 46 unique vocabulary "
+                "targets before the final mission."
+            )
+        review_targets = [str(word).strip().lower() for word in lesson.review_vocabulary]
+        if len(review_targets) != len(set(review_targets)) or set(review_targets) != introduced:
+            errors.append(
+                f"{lesson.id} review_vocabulary must be the exact 46-item union from "
+                "Lessons 1.1-1.8."
+            )
+
+        successful_tokens: set[str] = set()
+        authored_tokens: set[str] = set()
+        for card in lesson.cards:
+            for value in _mission_success_language(card):
+                successful_tokens.update(_mission_language_tokens(value))
+            for value in _mission_authored_english(card):
+                authored_tokens.update(_mission_language_tokens(value))
+        missing_gold = sorted(introduced - successful_tokens)
+        if missing_gold:
+            errors.append(
+                f"{lesson.id} does not retrieve these Unit 1 targets on the successful "
+                f"path: {missing_gold}."
+            )
+        unintroduced = sorted(authored_tokens - introduced)
+        if unintroduced:
+            errors.append(
+                f"{lesson.id} contains unintroduced assessed/distractor English: {unintroduced}."
+            )
+        question_text = " ".join(
+            value
+            for card in lesson.cards
+            for value in _mission_success_language(card)
+        ).lower()
+        for question in ("who is he", "who is she", "who are they"):
+            if question not in re.sub(r"[^a-z]+", " ", question_text):
+                errors.append(f"{lesson.id} must assess the question form {question!r}.")
+    return errors
 
 
 def _expanded_visual_concepts(concepts: set[str]) -> frozenset[str]:
@@ -268,6 +616,134 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             gender,
             negative_actions=negative_actions,
             expand_concepts=expand_concepts,
+        )
+
+    # The Unit 1 final mission uses storyboard/contact-sheet heroes whose exact
+    # filename is bound to a reviewed set of visible panels. Model each panel
+    # explicitly so a composite cannot bypass the one-valid-answer gate merely
+    # because its filename contains several people or actions.
+    if "a1_u1_album_01_locked" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"family"}, set()),
+        )
+
+    if "a1_u1_album_02_people_board" in stem or "a1_u1_album_03_pronoun_cast" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("one", {"boy"}, set(), "male"),
+            visible_subsets=(
+                _visual_referent("one", {"girl"}, set(), "female"),
+                _visual_referent("one", {"man"}, set(), "male"),
+                _visual_referent("one", {"woman"}, set(), "female"),
+            ),
+        )
+
+    if "a1_u1_album_04_family_index" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("one", {"baby"}, set()),
+            visible_subsets=(
+                _visual_referent("many", {"baby"}, set()),
+                _visual_referent("one", {"child"}, set()),
+                _visual_referent("many", {"child"}, set()),
+                _visual_referent("one", {"brother"}, set(), "male"),
+                _visual_referent("many", {"brother"}, set(), "male"),
+                _visual_referent("one", {"sister"}, set(), "female"),
+                _visual_referent("many", {"sister"}, set(), "female"),
+            ),
+        )
+
+    if "a1_u1_album_05_adult_count" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("one", {"adult"}, set()),
+            visible_subsets=(
+                _visual_referent("many", {"adult"}, set()),
+            ),
+        )
+
+    if "a1_u1_album_07_grandparents_branch" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("one", {"grandfather"}, set(), "male"),
+            visible_subsets=(
+                _visual_referent("one", {"grandmother"}, set(), "female"),
+                _visual_referent("many", {"grandparent"}, set()),
+                _visual_referent("many", {"grandchild"}, set()),
+            ),
+        )
+
+    if "a1_u1_album_08_tree_complete" in stem:
+        return VisualMeaning(
+            primary=_visual_referent(
+                "many",
+                {"family", "grandchild", "grandparent"},
+                set(),
+                expand_concepts=False,
+            ),
+            visible_subsets=(
+                _visual_referent("many", {"grandparent"}, set()),
+                _visual_referent("many", {"grandchild"}, set()),
+            ),
+        )
+
+    if "a1_u1_album_16_siblings_running_mother_sitting" in stem:
+        return VisualMeaning(
+            primary=_visual_referent(
+                "many", {"brother", "sister"}, {"running"}, expand_concepts=False,
+            ),
+            visible_subsets=(
+                _visual_referent("one", {"brother"}, {"running"}, "male"),
+                _visual_referent("one", {"sister"}, {"running"}, "female"),
+                _visual_referent("one", {"mother"}, {"sitting"}, "female"),
+            ),
+        )
+
+    if "a1_u1_album_17_sisters_swimming_grandfather_sleeping" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"sister"}, {"swimming"}, "female"),
+            visible_subsets=(
+                _visual_referent("one", {"grandfather"}, {"sleeping"}, "male"),
+            ),
+        )
+
+    if "a1_u1_album_18_children_playing_sister_studying" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"child"}, {"playing"}),
+            visible_subsets=(
+                _visual_referent("one", {"sister"}, {"studying"}, "female"),
+            ),
+        )
+
+    if "a1_u1_album_19_family_work_cook_talk" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"parent"}, {"working"}),
+            visible_subsets=(
+                _visual_referent("one", {"grandmother"}, {"cooking"}, "female"),
+                _visual_referent("many", {"brother"}, {"talking"}, "male"),
+            ),
+        )
+
+    if "a1_u1_album_20_negative_contact_sheet" in stem:
+        return VisualMeaning(
+            primary=_visual_referent(
+                "one", set(), {"running"}, "male", negative_actions={"sitting"},
+            ),
+            visible_subsets=(
+                _visual_referent(
+                    "one", set(), {"cooking"}, "female", negative_actions={"sleeping"},
+                ),
+                _visual_referent(
+                    "many", set(), {"swimming"}, negative_actions={"sitting"},
+                ),
+            ),
+            allow_negative_visible_subsets=True,
+        )
+
+    if "a1_u1_album_21_voiceover_booth" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"grandparent"}, set()),
+        )
+
+    if "a1_u1_album_22_final_portrait" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"family"}, set()),
         )
 
     if "family_grandparents_grandchildren" in stem:
@@ -459,7 +935,7 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
 
 def _semantic_clauses(text: str | None) -> tuple[SemanticClause, ...]:
     clauses: list[SemanticClause] = []
-    for raw_clause in re.split(r"[.!?]+", str(text or "")):
+    for raw_clause in re.split(r"[.!?/]+", str(text or "")):
         clause = re.sub(r"\s+", " ", raw_clause.strip().lower())
         if not clause or clause.startswith("who "):
             continue
@@ -622,8 +1098,9 @@ def _text_matches_visual(
     # scoped to the referenced subject, however; letting it select some other
     # subset would make ``They are not a family`` pass merely because the adults
     # inside the pictured family are not themselves the whole family.
-    if include_visible_subsets and not bare_pronoun and not any(
-        clause.negative_concepts or clause.negative_actions for clause in clauses
+    if include_visible_subsets and not bare_pronoun and (
+        meaning.allow_negative_visible_subsets
+        or not any(clause.negative_concepts or clause.negative_actions for clause in clauses)
     ):
         visible_subsets = meaning.visible_subsets
         if visible_subsets_must_match_primary_count:
@@ -856,6 +1333,17 @@ def validate_text_tile_option_limit() -> list[str]:
         for card_index, card in enumerate(lesson.cards, 1):
             if not card.options or any((option.image_url or "").strip() for option in card.options):
                 continue
+            if card.interaction_type in MISSION_COMPLETION_INTERACTIONS:
+                # Construction banks are not multiple-choice answer banks. They
+                # may contain one tile per required word/part when the dedicated
+                # responsive mission layout keeps every target usable.
+                if len(card.options) > MAX_MISSION_CONSTRUCTION_TILES:
+                    errors.append(
+                        f"{lesson.id} card {card_index} ({card.prompt!r}) has "
+                        f"{len(card.options)} construction tiles; the reviewed mission "
+                        f"maximum is {MAX_MISSION_CONSTRUCTION_TILES}."
+                    )
+                continue
             if len(card.options) > 3:
                 errors.append(
                     f"{lesson.id} card {card_index} ({card.prompt!r}) has {len(card.options)} "
@@ -1032,7 +1520,7 @@ def validate_interaction_requirements() -> list[str]:
                 if any(not (option.label or "").strip() for option in card.options):
                     errors.append(f"{location} is a grammar card with an unlabeled word choice.")
 
-            if card.stage == "Use":
+            if card.stage == "Use" or card.interaction_type in MISSION_COMPLETION_INTERACTIONS:
                 completion = is_completion_interaction(card.interaction_type)
                 placeholders = list(VISUAL_COMPLETION_PLACEHOLDER_PATTERN.finditer(card.prompt))
                 ordered_correct_ids = list(card.correct_option_ids or [])
@@ -1062,10 +1550,31 @@ def validate_interaction_requirements() -> list[str]:
                             lambda _: next(label_iterator),
                             card.prompt,
                         )
-                        if card.answer_audio_text != completed:
+                        if card.interaction_type in MISSION_COMPLETION_INTERACTIONS:
+                            authored_words = re.findall(
+                                r"[a-z]+",
+                                re.sub(
+                                    r"(?<=[A-Za-z])-(?=[A-Za-z])",
+                                    "",
+                                    card.answer_audio_text.lower(),
+                                ),
+                            )
+                            completed_words = re.findall(
+                                r"[a-z]+",
+                                re.sub(
+                                    r"(?<=[A-Za-z])-(?=[A-Za-z])",
+                                    "",
+                                    completed.lower(),
+                                ),
+                            )
+                            answer_matches = authored_words == completed_words
+                        else:
+                            answer_matches = card.answer_audio_text == completed
+                        if not answer_matches:
                             errors.append(
                                 f"{location} answer_audio_text must exactly equal the full sentence "
-                                "with every ordered correct answer inserted."
+                                "with every ordered correct answer inserted (mission construction "
+                                "may vary punctuation but not word order)."
                             )
 
             if card.stage in PRONUNCIATION_STAGES and not (
@@ -1638,6 +2147,7 @@ def main(argv: list[str] | None = None) -> int:
         *validate_family_adult_ambiguity(),
         *validate_negative_visual_contracts(),
         *validate_interaction_requirements(),
+        *validate_mission_contracts(),
         *validate_media_references(),
         *validate_a1_image_ratio(),
         *validate_a1_media_semantic_approvals(

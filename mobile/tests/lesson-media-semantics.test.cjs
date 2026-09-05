@@ -1,5 +1,4 @@
 const assert = require('node:assert/strict');
-const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
@@ -82,14 +81,13 @@ function assertParallelUnitOneChoices(lessons, context) {
     assert.equal(card.options.every((option) => !option.image_url), true, `${context}: ${number} ${slideId} must remain a text-answer bank`);
     assert.deepEqual(card.options.map((option) => option.label), labels, `${context}: ${number} ${slideId} must preserve its reviewed exclusive, parallel alternatives`);
   }
-  for (const number of ['1.2', '1.3', '1.4', '1.5', '1.8', '1.9', '1.10']) {
+  for (const number of ['1.2', '1.3', '1.4', '1.5', '1.8', '1.9']) {
     const current = findLesson(number);
     for (const card of current.cards.filter((item) => ['Recognize', 'Listen'].includes(item.stage))) {
       const frames = card.options.map((option) => choiceFrame(option.label));
       assert.equal(new Set(frames).size, 1, `${context}: ${number} ${card.slide_id} mixes grammatical/semantic frames: ${card.options.map((option) => option.label).join(' | ')}`);
     }
     const expectedCounts = number === '1.9' ? [14, 14, 10, 8, 8]
-      : number === '1.10' ? [4, 8, 6, 6, 8]
       : number === '1.8' ? [10, 10, 10, 10, 10] : [10, 10, 8, 7, 7];
     assert.deepEqual(
       ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'].map((stage) => current.cards.filter((card) => card.stage === stage).length),
@@ -99,9 +97,7 @@ function assertParallelUnitOneChoices(lessons, context) {
     assert.deepEqual([...new Set(current.cards.map((card) => card.stage))], ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'], `${context}: ${number} choice repair must preserve story stage order`);
   }
   assert.equal(findCard('1.9', 'A8').interaction_type, 'a2t3', `${context}: review family listening must use the approved parallel text bank`);
-  for (const number of ['1.9', '1.10']) {
-    assert.equal(findLesson(number).review_vocabulary.includes('grandchildren'), false, `${context}: review metadata may not claim unretrieved grandchildren`);
-  }
+  assert.equal(findLesson('1.9').review_vocabulary.includes('grandchildren'), false, `${context}: review metadata may not claim unretrieved grandchildren`);
   assert.equal(findLesson('1.5').vocabulary.includes('grandchildren'), true, `${context}: keep the new word in lesson 1.5`);
   assert.equal(path.basename(findCard('1.5', 'L9').options[0].image_url), 'family_parents_children.webp', `${context}: L9 must show only the parents and children`);
   assert.equal(path.basename(findCard('1.5', 'R9').prompt_image_url), 'family_parents_children.webp', `${context}: R9 must assess the exact parents-and-children scene`);
@@ -459,37 +455,35 @@ assert.deepEqual(
   'Lesson 1.9 U8 must use a visibly false group alternative for the grandparents scene',
 );
 
-assert.deepEqual(
-  cardBySlide('1.10', 'Recognize', 'R1').options.map((option) => option.label),
-  ['They are a family.', 'They are not a family.'],
-  'Lesson 1.10 R1 must use a same-frame binary contrast rather than one true family-member subset',
-);
-
-const reviewedFatherReadingAsset = 'a1_u1_mission_father_reading_clear.webp';
-const fatherReadingSlides = lesson('1.10').cards
-  .filter((card) => mediaFilenames(card).includes(reviewedFatherReadingAsset))
-  .map((card) => card.slide_id)
-  .sort();
-assert.deepEqual(
-  fatherReadingSlides,
-  ['A1', 'L3', 'R3', 'S2', 'U3'],
-  'every Lesson 1.10 father-reading use must share the reviewed printed-clue scene',
-);
-assert.deepEqual(
-  lesson('1.10').cards
-    .filter((card) => mediaFilenames(card).includes('a1_u1_mission_father_reading.webp'))
-    .map((card) => card.slide_id)
-    .sort(),
-  ['R2', 'S1', 'U1'],
-  'the face-visible father scene is reserved for identity and word-building cards',
-);
-const bundledFatherReading = fs.readFileSync(
-  path.join(mobileRoot, 'assets', 'lesson-assets', reviewedFatherReadingAsset),
-);
+const unitOneMission = lesson('1.10');
+const expectedMissionHeroes = [
+  'locked', 'people_board', 'pronoun_cast', 'family_index', 'adult_count',
+  'parents_branch', 'grandparents_branch', 'tree_complete', 'who_father',
+  'who_mother', 'who_parents', 'who_children', 'who_grandparents',
+  'man_eating_drinking', 'boy_reading_writing', 'siblings_running_mother_sitting',
+  'sisters_swimming_grandfather_sleeping', 'children_playing_sister_studying',
+  'family_work_cook_talk', 'negative_contact_sheet', 'voiceover_booth', 'final_portrait',
+].map((suffix, index) => `a1_u1_album_${String(index + 1).padStart(2, '0')}_${suffix}.webp`);
+const missionHeroes = unitOneMission.cards.map((card) => {
+  const correct = card.options.find((option) => option.id === card.correct_option_id);
+  return path.basename((card.prompt_image_url || correct?.image_url || '').split(/[?#]/, 1)[0]);
+});
+assert.deepEqual(missionHeroes, expectedMissionHeroes, 'every Lesson 1.10 beat needs its own ordered album hero');
+assert.equal(new Set(missionHeroes).size, 22, 'Lesson 1.10 may not repeat an assessed hero image');
 assert.equal(
-  crypto.createHash('sha256').update(bundledFatherReading).digest('hex'),
-  'ab6404c7041d182e0b38ae45a80c6f688f21d02137a83384608a809fb70e9dd1',
-  'changing the reviewed printed-clue pixels requires a new at-mobile-size visual review',
+  mediaFilenames(unitOneMission).every((filename) => filename.startsWith('a1_u1_album_')),
+  true,
+  'every Lesson 1.10 still must stay inside the new album mission namespace',
+);
+const preMissionMedia = new Set(
+  course
+    .filter((item) => item.unit_id === 'unit-1' && Number(item.sub_lesson_id.split('.')[1]) < 10)
+    .flatMap((item) => mediaFilenames(item)),
+);
+assert.deepEqual(
+  [...new Set(mediaFilenames(unitOneMission).filter((filename) => preMissionMedia.has(filename)))],
+  [],
+  'Lesson 1.10 stills must not reuse Lessons 1.1-1.9 assets',
 );
 
 const singularBrother = cardBySlide('1.4', 'Recognize', 'R6');

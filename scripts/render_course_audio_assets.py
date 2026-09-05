@@ -236,7 +236,13 @@ def render_jobs(args: argparse.Namespace) -> list[RenderJob]:
         if asset.variant == "completion-prompt":
             if not VISUAL_PLACEHOLDER_PATTERN.search(card.prompt):
                 raise ValueError(f"Completion asset has no visual placeholder: {asset.id}")
-            blanks = blank_texts_for(card, asset.text)
+            try:
+                blanks = blank_texts_for(card, asset.text)
+            except ValueError as error:
+                raise ValueError(
+                    f"Invalid completion audio contract for {card.slide_id} "
+                    f"({asset.id}): {error}"
+                ) from error
             key = ("completion", profile.voice_id, card.prompt, asset.text, *blanks)
             job = grouped.setdefault(
                 key,

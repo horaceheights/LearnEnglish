@@ -201,8 +201,19 @@ def _turn_assets(
 
 def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[CourseAudioAsset]:
     assets: list[CourseAudioAsset] = []
-    raw_prompt = (card.audio_text if card.audio_text is not None else card.prompt).strip()
-    has_blank = bool(VISUAL_PLACEHOLDER_PATTERN.search(card.prompt) or VISUAL_PLACEHOLDER_PATTERN.search(raw_prompt))
+    # A word-parts board uses several visual slots to assemble one continuous
+    # word (for example fam + i + ly). It has no meaningful pre-answer spoken
+    # fragment, so bind only its completed-word answer audio.
+    is_word_parts_board = card.interaction_type == "mission-word-parts"
+    raw_prompt = (
+        ""
+        if is_word_parts_board
+        else (card.audio_text if card.audio_text is not None else card.prompt).strip()
+    )
+    has_blank = not is_word_parts_board and bool(
+        VISUAL_PLACEHOLDER_PATTERN.search(card.prompt)
+        or VISUAL_PLACEHOLDER_PATTERN.search(raw_prompt)
+    )
     is_pronunciation = card.stage in {"Pronunciation Practice", "Speak"}
 
     if has_blank:
