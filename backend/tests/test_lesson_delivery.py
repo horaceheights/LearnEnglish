@@ -2,6 +2,7 @@ import unittest
 
 from backend.app import main
 from backend.app.data import LESSONS
+from backend.app.schemas import MissionLesson
 
 
 def card_sequence(lesson):
@@ -43,6 +44,20 @@ class LessonDeliveryTests(unittest.TestCase):
                 for lesson in LESSONS.values()
             },
             "Delivery must not mutate the canonical authored lessons.",
+        )
+
+    def test_delivery_preserves_the_mission_subclass_and_metadata(self):
+        mission = LESSONS["lesson-10-family-mission"]
+
+        delivered = main.lesson_for_delivery(mission)
+
+        self.assertIsInstance(delivered, MissionLesson)
+        self.assertEqual("mission", delivered.experience_type)
+        self.assertEqual(mission.content_revision, delivered.content_revision)
+        self.assertEqual(mission.mission, delivered.mission)
+        self.assertEqual(
+            [card.mission_chapter_id for card in mission.cards],
+            [card.mission_chapter_id for card in delivered.cards],
         )
 
 

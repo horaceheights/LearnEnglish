@@ -40,6 +40,8 @@ import {
 } from '../api';
 import { LessonCardView, textAnswerStackNeedsScroll } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
+import { MissionCompletion } from '../components/MissionCompletion';
+import { MissionJourney } from '../components/MissionJourney';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
@@ -81,6 +83,8 @@ import {
   isLessonCardAudioCached,
   lessonAudioAssetSource,
 } from '../lessonAudioCache';
+import { isMissionLesson, missionChapterProgress } from '../missionExperience';
+import { missionSuccessSoundEvent, useMissionSoundEffects } from '../missionSoundEffects';
 import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
 import { preloadPronunciationAudioWithRetry } from '../pronunciationAudioGate';
 import { useConnectivity } from '../hooks/useConnectivity';
@@ -88,9 +92,11 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
-const SUCCESS_CHIME = require('../../assets/success-chime.wav');
-const TRY_AGAIN_CUE = require('../../assets/try-again.wav');
+const SUCCESS_CHIME = require('../../assets/sfx/page-restored-v1.mp3');
+const TRY_AGAIN_CUE = require('../../assets/sfx/try-again-v1.mp3');
 const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
+const SUCCESS_CHIME_VOLUME = 0.4;
+const TRY_AGAIN_CUE_VOLUME = 0.35;
 void Promise.all([preload(SUCCESS_CHIME), preload(TRY_AGAIN_CUE)]).catch((preloadError) => {
   captureDiagnosticError(preloadError, 'feedback_audio_preload', {}, 'warning');
 });
@@ -300,6 +306,7 @@ export function LessonScreen({
   const [isLoading, setIsLoading] = useState(true);
   const [isAppActive, setIsAppActive] = useState(AppState.currentState === 'active');
   const [isComplete, setIsComplete] = useState(false);
+  const [missionCompletionAcknowledged, setMissionCompletionAcknowledged] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
   const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
@@ -347,7 +354,14 @@ export function LessonScreen({
       captureDiagnosticError(saveError, 'clear_lesson_resume', { lesson_id: lessonId }, 'warning');
     });
   }, [lessonId, lessonResumePersistence]);
-  const isCompletedSectionPicker = completedLessonMode === 'prompt' || completedLessonMode === 'sections';
+  const missionExperience = isMissionLesson(lesson);
+  const { playMissionSound } = useMissionSoundEffects({
+    enabled: missionExperience,
+    isAppActive,
+    reducedStimulation: reduceMotion,
+  });
+  const isCompletedSectionPicker = !missionExperience
+    && (completedLessonMode === 'prompt' || completedLessonMode === 'sections');
   const showCompletedJourney = previouslyCompleted && completedLessonMode !== 'standard';
 
   const confirmLessonExit = useCallback((destination: 'home' | 'previous') => {
@@ -655,13 +669,13 @@ export function LessonScreen({
 
   const playSuccessChime = useCallback(async () => {
     try {
-      // The cue can be the first sound after launch or after a recording card.
-      // Configure playback here so muted iPads and tablets leaving a recording
-      // session do not route the correct-answer chime silently.
+      // Decorative feedback follows the device's silent-mode preference. The
+      // answer voice that follows establishes its own course-speech audio mode.
       await setAudioModeAsync({
         allowsRecording: false,
-        playsInSilentMode: true,
+        playsInSilentMode: false,
       });
+      successChimePlayer.volume = SUCCESS_CHIME_VOLUME;
       await successChimePlayer.seekTo(0);
       successChimePlayer.play();
     } catch (playbackError) {
@@ -677,6 +691,11 @@ export function LessonScreen({
 
   const playTryAgainCue = useCallback(async () => {
     try {
+      await setAudioModeAsync({
+        allowsRecording: false,
+        playsInSilentMode: false,
+      });
+      tryAgainCuePlayer.volume = TRY_AGAIN_CUE_VOLUME;
       await tryAgainCuePlayer.seekTo(0);
       tryAgainCuePlayer.play();
     } catch {
@@ -758,6 +777,7 @@ export function LessonScreen({
     latestLessonResumeRef.current = null;
     finishedSessionRef.current = false;
     setCompletedLessonMode(previouslyCompleted && !qaMode ? 'prompt' : 'standard');
+    setMissionCompletionAcknowledged(false);
     setReviewStageBounds(null);
     try {
       const nextLesson = await getLesson(lessonId);
@@ -766,6 +786,7 @@ export function LessonScreen({
         : parseSavedLessonRun(
           await AsyncStorage.getItem(lessonResumeStorageKey).catch(() => null),
           nextLesson.cards.length,
+          nextLesson.content_revision,
         );
       const nextCardIndex = savedRun?.cardIndex ?? Math.min(
           Math.max(initialCardIndex, 0),
@@ -816,6 +837,7 @@ export function LessonScreen({
       score,
       sessionId,
       wrongCards: [...wrongCards],
+      ...(lesson.content_revision === undefined ? {} : { contentRevision: lesson.content_revision }),
     };
     void saveLessonResume(savedRun);
   }, [
@@ -869,6 +891,10 @@ export function LessonScreen({
   ]);
 
   const currentCard = lesson?.cards[cardIndex];
+  const missionChapters = useMemo(
+    () => missionChapterProgress(lesson, cardIndex, completedCards, furthestCardIndex),
+    [cardIndex, completedCards, furthestCardIndex, lesson],
+  );
   const promptTurnSequence = currentCard
     ? findCourseAudioTurnSequence(currentCard, 'prompt')
     : null;
@@ -907,6 +933,9 @@ export function LessonScreen({
     || (isOffline && offlinePronunciationAccepted)
     || pronunciationAudioReadyKey === pronunciationAudioGateKey;
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
+  const isMissionTileCard = currentCard?.interaction_type === 'mission-word-parts'
+    || currentCard?.interaction_type === 'mission-sentence'
+    || currentCard?.interaction_type === 'mission-finale';
   const useCompactListenInstruction = usesCompactListenInstruction(
     currentCard?.stage ?? '',
     currentCard?.prompt ?? '',
@@ -1419,13 +1448,16 @@ export function LessonScreen({
       setIsComplete(true);
       return;
     }
+    const advancingFromPronunciation = lesson.cards[cardIndex].stage === 'Speak'
+      || lesson.cards[cardIndex].stage === 'Pronunciation Practice';
+    if (missionExperience && !advancingFromPronunciation) playMissionSound('page-turn');
     setCardIndex((current) => current + 1);
     pronunciationPassHandledRef.current = false;
     setGrammarCompleted(false);
     setSelectedId(null);
     setSelectedIds([]);
     setResult(null);
-  }, [cardIndex, completedLessonMode, lesson, reviewStageBounds]);
+  }, [cardIndex, completedLessonMode, lesson, missionExperience, playMissionSound, reviewStageBounds]);
 
   const completeAutomaticSingleCard = useCallback((awardScore = true) => {
     if (AppState.currentState !== 'active') {
@@ -1879,6 +1911,7 @@ export function LessonScreen({
     setSelectedIds(nextSelectedIds);
     setResult(null);
     if (nextSelectedIds.length < correctOptionIds.length) {
+      if (missionExperience && isMissionTileCard) playMissionSound('tile-place');
       addDiagnosticBreadcrumb('answer_sequence_progressed', {
         card_number: cardIndex + 1,
         selected_count: nextSelectedIds.length,
@@ -1919,7 +1952,8 @@ export function LessonScreen({
         setCompletedCards(completion.completedCards);
         if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
       }
-      void playSuccessChime();
+      if (missionExperience) playMissionSound(missionSuccessSoundEvent(currentCard));
+      else void playSuccessChime();
       if (isGrammar) {
         return;
       }
@@ -1949,7 +1983,8 @@ export function LessonScreen({
       setWrongCards((current) => new Set(current).add(cardIndex));
     }
     setResult('wrong');
-    void playTryAgainCue();
+    if (missionExperience) playMissionSound('try-again');
+    else void playTryAgainCue();
   };
 
   const undoMissionSelection = useCallback(() => {
@@ -1988,12 +2023,19 @@ export function LessonScreen({
       setCompletedCards(completion.completedCards);
       if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
     }
+    if (missionExperience && currentCard) {
+      playMissionSound(missionSuccessSoundEvent(currentCard));
+    }
     if (qaMode && !qaAutoAdvance) {
       setResult('correct');
       return;
     }
     advance();
-  }, [advance, cardIndex, qaAutoAdvance, qaMode]);
+  }, [advance, cardIndex, currentCard, missionExperience, playMissionSound, qaAutoAdvance, qaMode]);
+
+  useEffect(() => {
+    if (isComplete && missionExperience) playMissionSound('mission-finale');
+  }, [isComplete, missionExperience, playMissionSound]);
 
   const pronunciationAttempted = useCallback(() => {
     const attempt = registerCardAttempt(attemptedCardsRef.current, cardIndex);
@@ -2123,6 +2165,7 @@ export function LessonScreen({
     setFurthestCardIndex(0);
     setReviewStageBounds(null);
     setCompletedLessonMode('standard');
+    setMissionCompletionAcknowledged(false);
     setSessionId('');
     void clearLessonResume();
   }, [audioPlayer, clearLessonResume, lesson, resetCardState]);
@@ -2221,6 +2264,7 @@ export function LessonScreen({
         return;
       }
 
+      if (missionExperience) playMissionSound('page-turn');
       cardTranslateX.setValue(direction > 0 ? travelDistance : -travelDistance);
       setCardIndex(nextIndex);
       requestAnimationFrame(settleCard);
@@ -2233,6 +2277,8 @@ export function LessonScreen({
     completedLessonMode,
     lesson,
     manualCardNavigation,
+    missionExperience,
+    playMissionSound,
     reviewStageBounds,
     settleCard,
     viewportWidth,
@@ -2399,6 +2445,19 @@ export function LessonScreen({
   }
 
   if (isComplete) {
+    if (missionExperience && !missionCompletionAcknowledged) {
+      return (
+        <SafeAreaView style={styles.safeArea}>
+          <StatusBar hidden />
+          <MissionCompletion
+            onContinue={profile.userId && !qaMode
+              ? () => setMissionCompletionAcknowledged(true)
+              : onExit}
+            presentation={lesson.mission}
+          />
+        </SafeAreaView>
+      );
+    }
     if (profile.userId && !qaMode) {
       return (
         <SafeAreaView style={styles.safeArea}>
@@ -2575,15 +2634,26 @@ export function LessonScreen({
             )}
             {!isPortrait ? (
               <View style={styles.lessonStatus}>
-                <StageJourney
-                  allComplete={showCompletedJourney}
-                  cards={lesson.cards}
-                  compact={useCompactPhoneLayout}
-                  currentIndex={cardIndex}
-                  lessonId={lesson.id}
-                  maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
-                  onStagePress={openStage}
-                />
+                {missionExperience ? (
+                  <MissionJourney
+                    chapters={missionChapters}
+                    compact={useCompactPhoneLayout}
+                    location={lessonLocation}
+                    presentation={lesson.mission}
+                    step={cardIndex + 1}
+                    total={lesson.cards.length}
+                  />
+                ) : (
+                  <StageJourney
+                    allComplete={showCompletedJourney}
+                    cards={lesson.cards}
+                    compact={useCompactPhoneLayout}
+                    currentIndex={cardIndex}
+                    lessonId={lesson.id}
+                    maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
+                    onStagePress={openStage}
+                  />
+                )}
               </View>
             ) : null}
             <Pressable
@@ -2604,20 +2674,31 @@ export function LessonScreen({
             <View style={[
               styles.lessonStatus,
               styles.lessonStatusPortrait,
-              styles.lessonStatusPhraseBox,
+              missionExperience ? styles.missionStatusPortrait : styles.lessonStatusPhraseBox,
             ]}>
-              <StageJourney
-                allComplete={showCompletedJourney}
-                cards={lesson.cards}
-                compact
-                currentIndex={cardIndex}
-                lessonId={lesson.id}
-                maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
-                onStagePress={openStage}
-              />
+              {missionExperience ? (
+                <MissionJourney
+                  chapters={missionChapters}
+                  compact
+                  location={lessonLocation}
+                  presentation={lesson.mission}
+                  step={cardIndex + 1}
+                  total={lesson.cards.length}
+                />
+              ) : (
+                <StageJourney
+                  allComplete={showCompletedJourney}
+                  cards={lesson.cards}
+                  compact
+                  currentIndex={cardIndex}
+                  lessonId={lesson.id}
+                  maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
+                  onStagePress={openStage}
+                />
+              )}
             </View>
           ) : null}
-          <View style={styles.lessonContext}>
+          {!missionExperience ? <View style={styles.lessonContext}>
             <Text numberOfLines={1} style={styles.lessonLocation}>
               {lessonLocation}
             </Text>
@@ -2627,7 +2708,7 @@ export function LessonScreen({
             ]}>
               {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
             </Text>
-          </View>
+          </View> : null}
         </View>
         {isCompletedSectionPicker ? (
           <View accessibilityLiveRegion="polite" style={styles.sectionPickerPanel}>
@@ -2746,7 +2827,7 @@ export function LessonScreen({
           </View>
         </View>
         <Animated.View
-          {...(manualCardNavigation ? cardPanResponder.panHandlers : {})}
+          {...(manualCardNavigation && !isMissionTileCard ? cardPanResponder.panHandlers : {})}
           pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'}
           style={[
             styles.cardCarousel,
@@ -2785,8 +2866,6 @@ export function LessonScreen({
             result={result}
             selectedId={selectedId}
             selectedIds={selectedIds}
-            missionStep={lesson.id === 'lesson-10-family-mission' ? cardIndex + 1 : undefined}
-            missionTotal={lesson.id === 'lesson-10-family-mission' ? lesson.cards.length : undefined}
             showHelp={showHelp}
             promptInteractionMode={promptInteractionMode}
             pronunciationReplayRequestId={pronunciationReplayRequestId}
@@ -2798,7 +2877,7 @@ export function LessonScreen({
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar hidden />
-      {needsAccessibleScrolling ? (
+      {needsAccessibleScrolling || (missionExperience && viewportHeight < 860) ? (
         <ScrollView
           contentContainerStyle={[
             styles.pageScrollable,
@@ -2829,29 +2908,37 @@ export function LessonScreen({
       />
       <Modal
         animationType="fade"
-        onRequestClose={chooseCompletedLessonSections}
+        onRequestClose={missionExperience ? onExit : chooseCompletedLessonSections}
         transparent
         visible={completedLessonMode === 'prompt'}
       >
         <View style={styles.completedPromptBackdrop}>
           <View accessibilityViewIsModal style={styles.completedPromptCard}>
-            <Text accessibilityRole="header" style={styles.completedPromptTitle}>Lección completada</Text>
+            <Text accessibilityRole="header" style={styles.completedPromptTitle}>
+              {missionExperience ? 'Misión completada' : 'Lección completada'}
+            </Text>
             <Text style={styles.completedPromptText}>
-              Ya completaste esta lección. ¿Quieres comenzar desde el principio?
+              {missionExperience
+                ? 'Ya restauraste este álbum. ¿Quieres repetir la misión completa?'
+                : 'Ya completaste esta lección. ¿Quieres comenzar desde el principio?'}
             </Text>
             <Pressable
               accessibilityRole="button"
               onPress={startCompletedLessonFromBeginning}
               style={styles.completedPromptPrimary}
             >
-              <Text style={styles.completedPromptPrimaryText}>Sí, empezar de nuevo</Text>
+              <Text style={styles.completedPromptPrimaryText}>
+                {missionExperience ? 'Repetir la misión' : 'Sí, empezar de nuevo'}
+              </Text>
             </Pressable>
             <Pressable
               accessibilityRole="button"
-              onPress={chooseCompletedLessonSections}
+              onPress={missionExperience ? onExit : chooseCompletedLessonSections}
               style={styles.completedPromptSecondary}
             >
-              <Text style={styles.completedPromptSecondaryText}>No, elegir una sección</Text>
+              <Text style={styles.completedPromptSecondaryText}>
+                {missionExperience ? 'Volver a las lecciones' : 'No, elegir una sección'}
+              </Text>
             </Pressable>
           </View>
         </View>
@@ -2953,6 +3040,7 @@ const styles = StyleSheet.create({
   lessonStatus: { alignItems: 'stretch', flex: 1, justifyContent: 'center', marginHorizontal: 3 },
   lessonStatusPortrait: { flex: 0, height: 50, marginHorizontal: 0, marginTop: 6, width: '100%' },
   lessonStatusPhraseBox: { flexBasis: 50, flexShrink: 0, minHeight: 50 },
+  missionStatusPortrait: { flexBasis: 78, flexShrink: 0, height: 78, minHeight: 78 },
   lessonContext: { alignItems: 'center', marginTop: 4, paddingBottom: 1 },
   helpButton: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24, borderWidth: 2, height: 48, justifyContent: 'center', width: 48 },
   helpButtonCompact: { borderRadius: 20, height: 40, width: 40 },

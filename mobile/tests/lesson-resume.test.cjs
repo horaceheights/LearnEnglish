@@ -48,6 +48,26 @@ async function main() {
     null,
     'A checkpoint from a different lesson-card revision must not be restored.',
   );
+  assert.equal(
+    parseSavedLessonRun(JSON.stringify(savedRun()), 5, 2),
+    null,
+    'A legacy checkpoint must not restore into a versioned mission experience.',
+  );
+  assert.equal(
+    parseSavedLessonRun(JSON.stringify(savedRun({ contentRevision: 1 })), 5, 2),
+    null,
+    'A checkpoint from an older mission content revision must not be restored.',
+  );
+  assert.deepEqual(
+    parseSavedLessonRun(JSON.stringify(savedRun({ contentRevision: 2 })), 5, 2),
+    savedRun({ contentRevision: 2 }),
+    'A checkpoint from the current mission content revision must restore normally.',
+  );
+  assert.deepEqual(
+    parseSavedLessonRun(JSON.stringify(savedRun({ contentRevision: 1 })), 5),
+    savedRun(),
+    'Standard lessons must keep their existing card-count-based resume behavior.',
+  );
 
   const writes = [];
   let releaseFirstWrite;

@@ -43,6 +43,22 @@ export type LessonCard = {
   audio_turns?: CourseAudioTurn[];
   answer_audio_turns?: CourseAudioTurn[];
   audio_assets: CourseAudioAsset[];
+  mission_chapter_id?: string;
+};
+
+export type MissionChapter = {
+  id: string;
+  title: string;
+  objective: string;
+};
+
+export type MissionPresentation = {
+  label: string;
+  title: string;
+  briefing: string;
+  completion_title: string;
+  completion_message: string;
+  chapters: MissionChapter[];
 };
 
 export type Lesson = {
@@ -63,7 +79,17 @@ export type Lesson = {
   prerequisite?: string;
   speaking_outcome?: string;
   purposeful_review_slides?: string[];
+  experience_type?: 'mission';
+  content_revision?: number;
+  mission?: MissionPresentation;
   cards: LessonCard[];
+};
+
+export type MissionLesson = Lesson & {
+  experience_type: 'mission';
+  content_revision: number;
+  mission: MissionPresentation;
+  cards: Array<LessonCard & { mission_chapter_id: string }>;
 };
 
 export type LessonSummary = Omit<Lesson, 'goal' | 'vocabulary' | 'cards'>;

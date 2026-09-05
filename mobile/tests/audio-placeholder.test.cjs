@@ -226,6 +226,14 @@ for (const filename of fs.readdirSync(generatedRoot)) {
       );
       return correctOption.label;
     });
+    if (card.interaction_type === 'mission-word-parts') {
+      assert.equal(
+        card.answer_audio_text,
+        correctLabels.join(''),
+        `${filename} word-part missions must pronounce the restored whole word without separators.`,
+      );
+      continue;
+    }
     let correctLabelIndex = 0;
     const completedPrompt = visualPrompt.replace(
       placeholderPattern,

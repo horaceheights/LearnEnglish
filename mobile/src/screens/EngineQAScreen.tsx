@@ -19,6 +19,7 @@ import {
   isCrashReportingConfigured,
   setDiagnosticContext,
 } from '../diagnostics';
+import { isMissionLesson, lessonNavigationGroups } from '../missionExperience';
 import { mergePreviewLessonSummaries } from '../previewLessons';
 import type { Lesson, LessonSummary } from '../types';
 
@@ -34,8 +35,8 @@ type QaLocation = {
 
 type VisibleCard = {
   card: Lesson['cards'][number];
+  groupPosition: number;
   index: number;
-  stagePosition: number;
 };
 
 const QA_LOCATION_STORAGE_KEY = 'qa:last-location';
@@ -83,7 +84,7 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
   const [lessons, setLessons] = useState<LessonSummary[]>([]);
   const [selectedUnitId, setSelectedUnitId] = useState('');
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
-  const [selectedStage, setSelectedStage] = useState('');
+  const [selectedGroupId, setSelectedGroupId] = useState('');
   const [lastOpenedCardIndex, setLastOpenedCardIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingLessonId, setLoadingLessonId] = useState('');
@@ -104,10 +105,11 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
       if (lessonRequestIdRef.current !== requestId) return;
 
       const cardIndex = Math.min(Math.max(0, preferredCardIndex), Math.max(0, lesson.cards.length - 1));
-      const stage = lesson.cards[cardIndex]?.stage || lesson.cards[0]?.stage || '';
+      const group = lessonNavigationGroups(lesson)
+        .find(({ cardIndexes }) => cardIndexes.includes(cardIndex));
       setSelectedUnitId(unitIdFor(lesson));
       setSelectedLesson(lesson);
-      setSelectedStage(stage);
+      setSelectedGroupId(group?.id || '');
       setLastOpenedCardIndex(cardIndex);
       void saveQaLocation({ cardIndex, lessonId }).catch(() => undefined);
     } catch (loadError) {
@@ -186,21 +188,24 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
   );
   const activeLessonId = loadingLessonId || selectedLesson?.id || '';
   const selectedLessonSummary = lessons.find((lesson) => lesson.id === activeLessonId) || null;
-  const stages = useMemo(
-    () => [...new Set(selectedLesson?.cards.map((card) => card.stage) || [])],
+  const missionExperience = isMissionLesson(selectedLesson);
+  const navigationGroups = useMemo(
+    () => lessonNavigationGroups(selectedLesson),
     [selectedLesson],
   );
+  const selectedGroup = navigationGroups.find((group) => group.id === selectedGroupId) || null;
+  const selectedGroupPosition = navigationGroups.findIndex((group) => group.id === selectedGroupId);
   const visibleCards = useMemo<VisibleCard[]>(
-    () => (selectedLesson?.cards || [])
-      .map((card, index) => ({ card, index }))
-      .filter(({ card }) => card.stage === selectedStage)
-      .map(({ card, index }, stagePosition) => ({ card, index, stagePosition })),
-    [selectedLesson, selectedStage],
+    () => (selectedGroup?.cardIndexes || []).flatMap((index, groupPosition) => {
+      const card = selectedLesson?.cards[index];
+      return card ? [{ card, groupPosition, index }] : [];
+    }),
+    [selectedGroup, selectedLesson],
   );
   const selectedCardPosition = visibleCards.findIndex(({ index }) => index === lastOpenedCardIndex);
 
   useEffect(() => {
-    if (selectedCardPosition <= 0 || !visibleCards.length) return undefined;
+    if (selectedCardPosition < 0 || !visibleCards.length) return undefined;
     const timer = setTimeout(() => {
       cardListRef.current?.scrollToIndex({
         animated: false,
@@ -209,7 +214,7 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
       });
     }, 60);
     return () => clearTimeout(timer);
-  }, [selectedCardPosition, selectedLesson?.id, selectedStage, visibleCards.length]);
+  }, [selectedCardPosition, selectedGroupId, selectedLesson?.id, visibleCards.length]);
 
   const chooseUnit = (unitId: string) => {
     const firstLesson = unitGroups.find((unit) => unit.id === unitId)?.lessons[0];
@@ -217,11 +222,13 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
     if (firstLesson) void chooseLesson(firstLesson.id);
   };
 
-  const chooseStage = (stage: string) => {
+  const chooseGroup = (groupId: string) => {
     if (!selectedLesson) return;
-    const firstCardIndex = selectedLesson.cards.findIndex((card) => card.stage === stage);
-    if (firstCardIndex < 0) return;
-    setSelectedStage(stage);
+    const firstCardIndex = navigationGroups
+      .find((group) => group.id === groupId)
+      ?.cardIndexes[0];
+    if (firstCardIndex === undefined) return;
+    setSelectedGroupId(groupId);
     setLastOpenedCardIndex(firstCardIndex);
     void saveQaLocation({ cardIndex: firstCardIndex, lessonId: selectedLesson.id }).catch(() => undefined);
   };
@@ -232,6 +239,10 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
     void saveQaLocation({ cardIndex, lessonId: selectedLesson.id }).catch(() => undefined);
     onOpenCard(selectedLesson.id, cardIndex);
   };
+
+  const groupSingular = missionExperience ? 'capítulo' : 'etapa';
+  const groupPlural = missionExperience ? 'capítulos' : 'etapas';
+  const groupReference = missionExperience ? 'este capítulo' : 'esta etapa';
 
   const navigator = (
     <View style={styles.listHeader}>
@@ -270,7 +281,7 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
         <View style={styles.toolsPanel}>
           <Text style={styles.instructionsTitle}>Flujo recomendado</Text>
           <Text style={styles.instructionsText}>
-            Elige unidad, lección, etapa y tarjeta. Dentro de la lección usa Anterior, Reiniciar,
+            Elige unidad, lección, {groupSingular} y tarjeta. Dentro de la lección usa Anterior, Reiniciar,
             Siguiente y Auto para probar cada transición.
           </Text>
           <View style={styles.reportingPanel}>
@@ -376,28 +387,31 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
         ) : null}
 
         <View style={styles.navigatorHeading}>
-          <Text style={styles.stepLabel}>3 · ETAPA</Text>
-          <Text style={styles.navigatorCount}>{stages.length} etapas</Text>
+          <Text style={styles.stepLabel}>3 · {groupSingular.toUpperCase()}</Text>
+          <Text style={styles.navigatorCount}>{navigationGroups.length} {groupPlural}</Text>
         </View>
         <ScrollView
           contentContainerStyle={styles.stageList}
           horizontal
           showsHorizontalScrollIndicator={false}
         >
-          {stages.map((stage) => {
-            const selected = selectedStage === stage;
-            const count = selectedLesson?.cards.filter((card) => card.stage === stage).length || 0;
+          {navigationGroups.map((group, groupIndex) => {
+            const selected = selectedGroupId === group.id;
+            const count = group.cardIndexes.length;
+            const groupLabel = missionExperience
+              ? `${groupIndex + 1} · ${group.label}`
+              : group.label;
             return (
               <Pressable
-                accessibilityLabel={`${stage}. ${count} tarjetas.`}
+                accessibilityLabel={`${missionExperience ? `Capítulo ${groupIndex + 1}.` : 'Etapa'} ${group.label}. ${count} tarjetas.${group.description ? ` ${group.description}` : ''}`}
                 accessibilityRole="button"
                 accessibilityState={{ selected }}
-                key={stage}
-                onPress={() => chooseStage(stage)}
+                key={group.id}
+                onPress={() => chooseGroup(group.id)}
                 style={[styles.stageButton, selected ? styles.stageButtonSelected : null]}
               >
                 <Text style={[styles.stageText, selected ? styles.stageTextSelected : null]}>
-                  {stage} <Text style={styles.stageCount}>{count}</Text>
+                  {groupLabel} <Text style={styles.stageCount}>{count}</Text>
                 </Text>
               </Pressable>
             );
@@ -407,7 +421,9 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
 
       <View style={styles.cardHeading}>
         <Text style={styles.sectionTitle}>4 · TARJETA</Text>
-        <Text style={styles.cardCount}>{visibleCards.length} en {selectedStage || 'esta etapa'}</Text>
+        <Text style={styles.cardCount}>
+          {visibleCards.length} en {selectedGroup?.label || groupReference}
+        </Text>
       </View>
       {isLoading ? <ActivityIndicator color="#6e4aad" size="large" style={styles.loading} /> : null}
     </View>
@@ -418,8 +434,8 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
       <View style={styles.pageFrame}>
         <FlatList
           ListEmptyComponent={
-            !isLoading && selectedLesson && selectedStage
-              ? <Text style={styles.empty}>No hay tarjetas en esta etapa.</Text>
+            !isLoading && selectedLesson && selectedGroupId
+              ? <Text style={styles.empty}>No hay tarjetas en {groupReference}.</Text>
               : null
           }
           ListHeaderComponent={navigator}
@@ -436,9 +452,12 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
           renderItem={({ item }) => {
             const selected = item.index === lastOpenedCardIndex;
             const interaction = (item.card.interaction_type || 'choice').replaceAll('_', ' ');
+            const cardGroupLabel = missionExperience && selectedGroupPosition >= 0
+              ? `Capítulo ${selectedGroupPosition + 1}, ${selectedGroup?.label}`
+              : selectedGroup?.label || groupSingular;
             return (
               <Pressable
-                accessibilityLabel={`Abrir tarjeta ${item.index + 1}. ${item.card.prompt}. ${item.card.stage} ${item.stagePosition + 1} de ${visibleCards.length}.`}
+                accessibilityLabel={`Abrir tarjeta ${item.index + 1}. ${item.card.prompt}. ${cardGroupLabel}, tarjeta ${item.groupPosition + 1} de ${visibleCards.length}.${missionExperience ? ` Modalidad interna ${item.card.stage}.` : ''}`}
                 accessibilityRole="button"
                 accessibilityState={{ selected }}
                 onPress={() => openCard(item.index)}
@@ -452,7 +471,8 @@ export function EngineQAScreen({ onExit, onOpenCard }: Props) {
                 <View style={styles.cardText}>
                   <Text numberOfLines={2} style={styles.cardPrompt}>{item.card.prompt}</Text>
                   <Text numberOfLines={1} style={styles.cardMeta}>
-                    {item.card.stage} {item.stagePosition + 1}/{visibleCards.length} · {interaction} · {item.card.options.length} opción{item.card.options.length === 1 ? '' : 'es'}
+                    {selectedGroup?.label || item.card.stage} {item.groupPosition + 1}/{visibleCards.length}
+                    {missionExperience ? ` · modalidad ${item.card.stage}` : ''} · {interaction} · {item.card.options.length} opción{item.card.options.length === 1 ? '' : 'es'}
                   </Text>
                 </View>
                 <Text style={styles.openArrow}>›</Text>

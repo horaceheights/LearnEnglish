@@ -8,6 +8,7 @@ export type SavedLessonRun = {
   score: number;
   sessionId: string;
   wrongCards: number[];
+  contentRevision?: number;
 };
 
 type LessonResumeStorage = {
@@ -28,11 +29,16 @@ function validCardIndexes(indexes: unknown, cardCount: number) {
   ));
 }
 
-export function parseSavedLessonRun(value: string | null, cardCount: number): SavedLessonRun | null {
+export function parseSavedLessonRun(
+  value: string | null,
+  cardCount: number,
+  contentRevision?: number,
+): SavedLessonRun | null {
   if (!value) return null;
   try {
     const saved = JSON.parse(value) as Partial<SavedLessonRun>;
     if (saved.cardCount !== cardCount || !Number.isInteger(saved.cardIndex)) return null;
+    if (contentRevision !== undefined && saved.contentRevision !== contentRevision) return null;
     const cardIndex = Math.min(Math.max(saved.cardIndex || 0, 0), Math.max(cardCount - 1, 0));
     return {
       attemptedCards: validCardIndexes(saved.attemptedCards, cardCount),
@@ -47,6 +53,7 @@ export function parseSavedLessonRun(value: string | null, cardCount: number): Sa
       score: Math.min(Math.max(Number.isInteger(saved.score) ? saved.score! : 0, 0), cardCount),
       sessionId: typeof saved.sessionId === 'string' ? saved.sessionId : '',
       wrongCards: validCardIndexes(saved.wrongCards, cardCount),
+      ...(contentRevision === undefined ? {} : { contentRevision }),
     };
   } catch {
     return null;

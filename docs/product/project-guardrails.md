@@ -45,6 +45,15 @@ Every standard lesson follows this visible sequence:
 
 `Learn -> Recognize -> Listen -> Speak -> Use`
 
+Mission lessons are an explicit exception to that visible shell. A lesson whose
+canonical `experience_type` is `mission` presents one continuous mission rather
+than five learner-facing sections. Its cards may retain `Learn`, `Recognize`,
+`Listen`, `Speak`, and `Use` internally as engine/modality metadata, and those
+modalities may interleave when the story requires it, but the mission UI must not
+show the standard stage journey, stage picker, stage-completion transitions, or
+five-section replay flow. Mission identity comes from validated lesson metadata,
+never a hard-coded lesson ID.
+
 - Do not add a visible Grammar section to the standard beginner flow.
 - Grammar is learned through interactive completion, selection, rearrangement, and repeated use.
 - A separate grammar-heavy mode may be designed later, but it is not part of the current lesson shell.
@@ -160,6 +169,10 @@ Do not force every word through every step in a single lesson when that would ma
 - Lesson 9 is a comprehensive, no-new-language review of lessons 1 through 8. It covers at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets, may exceed the ordinary lesson length to achieve that coverage, and uses newly authored images, combinations, prompts, angles, and setups rather than replaying the original cards. Multiple review stations are allowed when their separation and internal chronology are clear.
 - Lesson 10 is not a second review. It is one coherent unit-closing story, practical mission, or challenge in which every assessed interaction advances the goal and learned language is used to succeed. It ends with a meaningful resolution and a sense of readiness for the next unit.
 - Lesson 10 introduces only a low degree of language-centered gamification. Tile play may progress from syllables or word parts to whole words and then from words to useful sentences, but points, streak pressure, lives, currencies, decorative reward loops, and speed pressure must not displace comprehension or communication.
+- A mission declares a positive `content_revision`, a learner-facing mission presentation, an ordered nonempty chapter list, and one valid chapter assignment on every card. Chapter IDs are unique and cards visit them in declared order without returning to an earlier chapter. The presentation briefs a concrete goal before the first assessed beat, the last beat resolves it, and mission progress uses the actual card total rather than a duplicated constant.
+- A unit-closing mission uses only language intentionally introduced earlier in that unit. Coverage is measured through the language on the successful path—listening targets, correct choices, speaking targets, and completed constructions—not through distractors, hidden notes, or metadata alone. New instructions may be in the learner's support language, but assessed English cannot smuggle in a later word or structure.
+- Mission mechanics must vary with purpose. Identity/clue selection, listening, speaking, word-part construction, sentence construction, and a story resolution should appear where supported by the unit; do not present another five-stage review under mission colors or repeat one mechanic in a monotonous block when a story-driven change is possible.
+- Mission stills are newly authored for the mission and do not reuse an earlier lesson's exact asset. Every assessed beat has one unambiguous primary or correct hero still that is unique within the mission; a reused supporting distractor may not become the repeated answer scene. Camera position, crop, gaze, gesture, anatomy, and spatial access must make the relevant person, relationship, action, or clue immediately observable at mobile size.
 
 ## 4. Mobile Layout Guardrails
 
@@ -186,7 +199,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Native auto-fit answer labels use natural font metrics and the complete inner tile height, with vertical centering and no decorative spacer. Do not combine Android auto-fit with an explicit line height: its line-height span can remain unchanged while the glyphs shrink, producing microscopic completion answers. Regression checks must exercise the available label height across phone/tablet layouts and font scales, not only assert that auto-fit props exist.
 - Image choices retain their established image grid or stack layout; the horizontal phrase rule does not convert image choices into text rows.
 - Four image choices in portrait always use the established two-column by two-row grid. Two image choices retain their established stack. Borders, wrappers, feedback-space calculations, and other styling changes must not alter those arrangements or their card widths.
-- Every text-only answer set uses at most three tiles across Recognize, Listen, and Use. Preserve the correct answer plus the first two authored distractors in their original relative order; this rule never changes image-choice counts or layouts.
+- Every ordinary text-only answer-choice set uses at most three tiles across Recognize, Listen, and Use. Preserve the correct answer plus the first two authored distractors in their original relative order; this rule never changes image-choice counts or layouts. A dedicated construction bank is not an answer-choice set: an approved word-part, word-order, or sentence-building interaction may expose every required tile when its responsive layout, minimum target size, complete non-drag path, and viewport matrix pass the mission-game guardrail.
 - Text must remain readable and inside its container on small phones and tablets.
 - A shared component change must be verified against two-option and four-option cards.
 - Do not use a correct-answer visual treatment until after the learner selects an answer.
@@ -200,6 +213,7 @@ Do not force every word through every step in a single lesson when that would ma
 - When the usable viewport cannot show the entire activity at a readable size, keep the active construction/drop area and primary action visible and place the remaining bank in a bounded, obvious scroll or paged region. Tap-to-place, tap-to-remove, keyboard movement, and screen-reader reorder actions must provide a complete alternative to dragging, especially when a source and destination cannot stay visible together.
 - While a tile is moving, clamp it to the usable bounds and keep its destination and placement state visible; edge scrolling may move only a bounded tile bank or construction region. Tile gestures must not accidentally trigger lesson-card navigation, page scrolling, or another drop target. Resizing or rotating during a drag returns the tile to its last valid position, while opening help or receiving feedback preserves every valid partial construction and its accessible focus.
 - Before a new game interaction can ship, automated layout invariants and Engine QA must cover the smallest supported phone, representative phone widths, phone landscape, tablet portrait and landscape, narrow and wide web viewports, safe areas/system bars, the largest authored tile bank, the longest authored construction, and enlarged accessibility text.
+- The approved Lesson 1.10 construction contract caps a bank at eight tiles. Its placed-answer area wraps responsively into two, three, or four slots per row according to the authored length instead of forcing every answer into one shrinking row; mission tile labels may not auto-fit below 80 percent of their authored size. Web uses an auto-fitting minimum-width grid, and every layout retains the complete tap path when dragging is unavailable.
 
 ## 5. Image Guardrails
 
@@ -285,7 +299,7 @@ Do not force every word through every step in a single lesson when that would ma
 - Replacing a rejected take without changing its words or image requires a higher per-card audio revision (or a deliberately new audio profile) so the asset ID changes and immutable client/CDN caches cannot retain the rejected recording. Supersede the rejected card binding; never globally delete a content-addressed blob that another approved card still references.
 - Course-audio production uses provider-neutral semantic roles. ElevenLabs Premium and OpenAI are operator-side production options; device or browser speech synthesis is permitted only for non-card operational feedback and never as a substitute for a bound lesson clip.
 - Web and mobile must resolve the same semantic and speaker roles for the same canonical card. The approved A1 character cast keeps neutral teacher, question, and answer narration in Nichalia; Ana always keeps her established Sarah voice; clearly authored male turns use Liam; and clearly authored female turns use the approved female character voice. Apply a character voice only when canonical media or authored dialogue establishes who speaks the exact turn. In conversations, every identifiable turn must preserve the speaker's gender-consistent voice as its own immutable audio asset bound to that turn's exact image. Players run those assets in authored order, change the displayed image at each turn boundary, and wait for the final turn before advancing or opening the microphone. Never stitch a multi-speaker conversation into one mixed file, assign the whole exchange to one voice, or neutralize an identifiable speaker. Object-only, third-person, true narration, and genuinely unknown-speaker lines remain neutral.
-- New bespoke lesson and mission sound effects use ElevenLabs Sound Effects during asset production. Generate each approved cue once, review it for meaning, volume, duration, and repetition fatigue, then store and ship it as a versioned static asset; learner gameplay must never trigger paid runtime sound generation. Every state conveyed by a sound also needs a visible or haptic equivalent, and sound effects respect the learner's mute and reduced-stimulation settings.
+- New bespoke lesson and mission sound effects use ElevenLabs Sound Effects during asset production. Generate each approved cue once, review it for meaning, volume, duration, and repetition fatigue, then store and ship it as a versioned static asset; learner gameplay must never trigger paid runtime sound generation. The shared success, retry, and recording-ready cues follow this same static workflow on web and mobile: do not reintroduce synthesized UI oscillators, paid runtime generation, or the retired `success-chime.wav`, `try-again.wav`, and `ready-cue.wav` assets. Every state conveyed by a sound also needs a visible or haptic equivalent, and sound effects respect the learner's mute and reduced-stimulation settings. Keep the provider settings, role, source prompt, checksum, signal measurements, and Preview/Production review status in `docs/product/static-sfx-manifest.json`; `scripts/validate_static_sfx.py` must pass before a Preview release.
 - Provider voice IDs, model versions, and role-to-voice mappings belong in the versioned audio profile rather than lesson content or this guardrail.
 - A1 delivery is clear and moderately slow, with understandable word separation, but not unnaturally slow.
 - Pronunciation model audio may emphasize syllables, especially `-ing`, but the listener activates only after playback ends.
@@ -346,7 +360,7 @@ Unit 1 lessons are:
 7. `1.7 What They Are Not Doing`
 8. `1.8 Who Is He? Who Are They?`
 9. `1.9 Unit 1 Story Review`
-10. `1.10 Family Scene Mission`
+10. `1.10 Family Album Mission`
 
 Do not reuse old lesson IDs or reintroduce the removed standalone pronunciation lesson. Pronunciation belongs inside each lesson's Speak stage.
 
@@ -356,7 +370,7 @@ The course browser must preserve the curriculum hierarchy. Its default view show
 
 Every Preview and Engine QA release must embed the same complete A1 catalog: Units 1-7 with exactly ten lessons per unit (70 lessons total). A targeted QA or audio update may change individual lessons, but it must never publish a partial catalog or replace the complete catalog with only the lessons under test.
 
-Engine QA uses a compact `Unit -> Lesson -> Stage -> Card` location navigator over that complete catalog. All seven units remain directly reachable, but the hub renders only the selected unit's ten lessons before the stage and card controls; it must never restore a flattened 70-lesson stack. The last QA location is stored only in the QA namespace and restored after returning from the real lesson player or reopening the hub. Instructions and diagnostic tools remain available without displacing the primary navigator.
+Engine QA uses a compact `Unit -> Lesson -> Stage/Chapter -> Card` location navigator over that complete catalog. Standard lessons expose stages and declared mission lessons expose their ordered chapters. All seven units remain directly reachable, but the hub renders only the selected unit's ten lessons before the stage/chapter and card controls; it must never restore a flattened 70-lesson stack. The last QA location is stored only in the QA namespace and restored after returning from the real lesson player or reopening the hub. Instructions and diagnostic tools remain available without displacing the primary navigator.
 
 ## 10. Authoring and Verification
 
@@ -380,7 +394,7 @@ Required checks for curriculum or shared lesson changes:
 
 For action-video QA, inspect the pre-selection still and the first playing frames inside the real mobile choice-card crop, not only the raw source or a desktop player. A Preview release must not depend on a remote action clip that is missing or differs from the verified export; bundle the verified clip when the Preview media host cannot guarantee that exact asset.
 
-Existing automated guardrails cover lesson order, vocabulary contracts, five-stage structure, valid assets and answers, unique visible choices, family-category overlap, exact negative listening contrasts, complete identity prompts, bidirectional recognition, hidden-text listening, single-image speaking, interactive Use cards, media loading, pronunciation lifecycle, and horizontal phrase-option layout. Extend these checks when a new reusable rule is approved.
+Existing automated guardrails cover lesson order, vocabulary contracts, the five-stage structure of standard lessons, the continuous chapter contract of mission lessons, valid assets and answers, unique visible choices, family-category overlap, exact negative listening contrasts, complete identity prompts, bidirectional recognition, hidden-text listening, single-image speaking, interactive Use cards, media loading, pronunciation lifecycle, and horizontal phrase-option layout. Extend these checks when a new reusable rule is approved.
 
 ## 11. Release Rules
 
@@ -501,5 +515,6 @@ Existing automated guardrails cover lesson order, vocabulary contracts, five-sta
 - 2026-09-01: Shared-map scenes standardized on a close, physically coherent shared viewpoint: learner and characters all see the same printed side of a nearly horizontal map, and a direction-giver's fingertip visibly touches the referenced location. Blank-back views, floor-pointing gestures, and anatomically stretched or disconnected arms are rejected.
 - 2026-08-31: Course delivery standardized on persistent immutable audio IDs bound to the exact card image and speaker. Preview playback is read-only with no paid runtime generation; the shared backend temporarily preserves legacy routes only for the already-shipped Production client until its own approved migration.
 - 2026-09-02: Unit 1 Lesson 1.10 standardized on a 32-step family-card mission with nine mission-only scenes. Its challenge moves from clue selection and spoken captions to draggable-or-tappable word parts and ordered sentence tiles, retains visible Undo and Reset controls, and ends with a concrete family-story resolution instead of another review sequence.
+- 2026-09-05: The earlier 32-step, five-visible-section implementation of Unit 1 Lesson 1.10 was superseded. Lesson 1.10 is now a 22-beat continuous mission with explicit mission metadata and ordered chapters, no learner-facing standard stage journey, all 46 Unit 1 vocabulary targets represented on the successful path, all three `Who is he?` / `Who is she?` / `Who are they?` forms, varied clue/listen/speak/construction mechanics, and a concrete story finale. Its assessed English adds no new language, and every beat uses a fresh, unambiguous hero still not used in Lessons 1.1-1.9 or as another mission beat's hero. The global three-option text-answer limit now explicitly excludes dedicated construction banks, which may expose up to the reviewed eight-tile bound only through the responsive mission layout and its complete non-drag path.
 
 - 2026-09-03: Full-bleed media now explicitly includes encoded video pixels. The old solid-side-fill and cooking/walking inset exceptions contradicted the image standard and were enforced by a source-regex test. They are superseded by landscape-source generation, rejection of narrow footage, and decoded-frame QA. Seven replacement scenes, five matched posters, and the parents landscape master remove the known encoded bands. Release preflight decodes every mapped video, and generation checks the input pixels before sending a paid request.

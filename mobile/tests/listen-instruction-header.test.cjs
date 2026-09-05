@@ -31,10 +31,11 @@ const { listeningChoiceInstruction } = new Function(
 )();
 
 const units = new Set(course.map((lesson) => lesson.unit_id));
-const listenCards = course.flatMap((lesson) => (
+const standardLessons = course.filter((lesson) => lesson.experience_type !== 'mission');
+const listenCards = standardLessons.flatMap((lesson) => (
   lesson.cards.filter((card) => card.stage === 'Listen')
 ));
-const learningPhraseCards = course.flatMap((lesson) => (
+const learningPhraseCards = standardLessons.flatMap((lesson) => (
   lesson.cards.filter((card) => card.stage !== 'Listen' && card.prompt.trim())
 ));
 
@@ -63,7 +64,7 @@ assert.match(screenSource, /const localizedPrompt = useCompactListenInstruction\
 assert.match(screenSource, /`Instrucción: \$\{listeningChoiceInstruction\(currentCard\.options\)\}`/);
 assert.ok(
   listenCards.every((card) => card.prompt.trim() === 'Listen and choose.'),
-  'Every current Listen card must use the shared authored instruction contract.',
+  'Every standard-lesson Listen card must use the shared authored instruction contract.',
 );
 assert.ok(
   learningPhraseCards.some((card) => card.prompt === 'He is a man.'),
@@ -137,4 +138,4 @@ assert.match(
   'Preview interaction verification must run the Listen header guardrail.',
 );
 
-console.log(`All ${listenCards.length} Listen cards across seven units use the compact instruction header; authored learning phrases remain unchanged.`);
+console.log(`All ${listenCards.length} standard-lesson Listen cards across seven units use the compact instruction header; authored learning phrases remain unchanged.`);
