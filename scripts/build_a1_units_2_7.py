@@ -769,6 +769,27 @@ def is_unit_one_lesson_context(context: object) -> bool:
     )
 
 
+def current_review_context_shape(context: dict[str, Any]) -> dict[str, Any]:
+    """Upgrade retained runtime contexts when the semantic schema expands.
+
+    The unit-only refresh deliberately preserves Units 2-7 instead of rebuilding
+    their curriculum. Their current cards are all single-answer and do not author
+    mission-only spatial instructions, so these explicit defaults retain their
+    exact semantics while keeping the fail-closed context schema current.
+    """
+
+    upgraded = dict(context)
+    upgraded.setdefault("instruction_es", None)
+    upgraded.setdefault("visual_description_es", None)
+    if "correct_option_ids" not in upgraded:
+        correct_option_id = upgraded.get("correct_option_id")
+        upgraded["correct_option_ids"] = (
+            [correct_option_id] if isinstance(correct_option_id, str) and correct_option_id else []
+        )
+    upgraded.setdefault("mission_targets", [])
+    return upgraded
+
+
 def refresh_unit_one_runtime_manifest() -> None:
     """Refresh Unit 1 runtime bindings without rebuilding Units 2-7."""
 
@@ -777,9 +798,9 @@ def refresh_unit_one_runtime_manifest() -> None:
     for raw_item in manifest_payload.get("assets", []):
         item = dict(raw_item)
         review_contexts = [
-            context
+            current_review_context_shape(context)
             for context in item.get("review_contexts", [])
-            if not is_unit_one_lesson_context(context)
+            if isinstance(context, dict) and not is_unit_one_lesson_context(context)
         ]
         if not review_contexts:
             continue

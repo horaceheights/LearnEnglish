@@ -456,25 +456,30 @@ assert.deepEqual(
 );
 
 const unitOneMission = lesson('1.10');
-const expectedMissionHeroes = [
-  'locked', 'people_board', 'pronoun_cast', 'family_index', 'adult_count',
-  'parents_branch', 'grandparents_branch', 'tree_complete', 'who_father',
-  'who_mother', 'who_parents', 'who_children', 'who_grandparents',
-  'man_eating_drinking', 'boy_reading_writing', 'siblings_running_mother_sitting',
-  'sisters_swimming_grandfather_sleeping', 'children_playing_sister_studying',
-  'family_work_cook_talk', 'negative_contact_sheet', 'voiceover_booth', 'final_portrait',
-].map((suffix, index) => `a1_u1_album_${String(index + 1).padStart(2, '0')}_${suffix}.webp`);
+const expectedMissionVisualKeys = [
+  'clapperboard', 'people_casting', 'pronoun_marks', 'young_cast', 'adult_cast',
+  'parent_roles', 'generation_roles', 'title_card', 'who_father', 'who_mother',
+  'who_parents', 'who_children', 'who_grandparents', 'eating_drinking',
+  'reading_writing', 'running_sitting', 'swimming_sleeping', 'playing_studying',
+  'work_cook_talk', 'not_continuity', 'final_question', 'premiere',
+].map((suffix, index) => `a1_u1_studio_${String(index + 1).padStart(2, '0')}_${suffix}`);
+assert.deepEqual(
+  unitOneMission.cards.map((card) => card.mission_visual_key),
+  expectedMissionVisualKeys,
+  'every Lesson 1.10 beat needs its own ordered live-studio visual identity',
+);
+assert.equal(new Set(expectedMissionVisualKeys).size, 22, 'Lesson 1.10 may not repeat an assessed visual identity');
 const missionHeroes = unitOneMission.cards.map((card) => {
   const correct = card.options.find((option) => option.id === card.correct_option_id);
   return path.basename((card.prompt_image_url || correct?.image_url || '').split(/[?#]/, 1)[0]);
-});
-assert.deepEqual(missionHeroes, expectedMissionHeroes, 'every Lesson 1.10 beat needs its own ordered album hero');
-assert.equal(new Set(missionHeroes).size, 22, 'Lesson 1.10 may not repeat an assessed hero image');
+}).filter(Boolean);
 assert.equal(
-  mediaFilenames(unitOneMission).every((filename) => filename.startsWith('a1_u1_album_')),
+  missionHeroes.every((filename) => filename.startsWith('a1_u1_studio_')),
   true,
-  'every Lesson 1.10 still must stay inside the new album mission namespace',
+  'every supplied Lesson 1.10 still must stay inside the live-studio mission namespace',
 );
+assert.equal(new Set(missionHeroes).size, missionHeroes.length, 'Lesson 1.10 may not repeat a supplied assessed still');
+assert.doesNotMatch(JSON.stringify(unitOneMission), /a1_u1_album_|(?:album|álbum)/i);
 const preMissionMedia = new Set(
   course
     .filter((item) => item.unit_id === 'unit-1' && Number(item.sub_lesson_id.split('.')[1]) < 10)

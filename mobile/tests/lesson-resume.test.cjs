@@ -63,6 +63,41 @@ async function main() {
     savedRun({ contentRevision: 2 }),
     'A checkpoint from the current mission content revision must restore normally.',
   );
+  const missionDraftRun = savedRun({
+    contentRevision: 2,
+    missionConstruction: {
+      cardIndex: 2,
+      result: 'wrong',
+      slots: ['father', null, 'mother'],
+    },
+    missionOpeningPhase: 'complete',
+  });
+  assert.deepEqual(
+    parseSavedLessonRun(JSON.stringify(missionDraftRun), 5, 2),
+    missionDraftRun,
+    'A sparse in-progress construction and its wrong state must survive a restart.',
+  );
+  assert.equal(
+    parseSavedLessonRun(JSON.stringify(savedRun({
+      contentRevision: 2,
+      missionConstruction: { cardIndex: 8, result: 'wrong', slots: ['outside'] },
+      missionOpeningPhase: 'not-a-phase',
+    })), 5, 2).missionConstruction,
+    undefined,
+    'Invalid mission-only state must fail closed without discarding valid lesson progress.',
+  );
+  assert.equal(
+    parseSavedLessonRun(JSON.stringify(savedRun({
+      contentRevision: 2,
+      missionConstruction: {
+        cardIndex: 2,
+        result: null,
+        slots: Array.from({ length: 9 }, (_value, index) => `tile-${index}`),
+      },
+    })), 5, 2).missionConstruction,
+    undefined,
+    'Resume data must honor the reviewed eight-tile mission board maximum.',
+  );
   assert.deepEqual(
     parseSavedLessonRun(JSON.stringify(savedRun({ contentRevision: 1 })), 5),
     savedRun(),
@@ -125,6 +160,21 @@ async function main() {
     lessonScreenSource,
     /completionPending: isComplete/,
     'The completion screen must be represented in the durable local checkpoint.',
+  );
+  assert.match(
+    lessonScreenSource,
+    /missionOpeningPhase/,
+    'The pre-card studio briefing phase must be part of the durable checkpoint.',
+  );
+  assert.match(
+    lessonScreenSource,
+    /missionConstruction:[\s\S]*?slots: missionTileSlots/,
+    'Partial tile placement must be persisted without forcing a board reset.',
+  );
+  assert.match(
+    lessonScreenSource,
+    /sanitizeMissionTileSlots\(savedRun\.missionConstruction\.slots, nextCard\)/,
+    'Restored mission tiles must be checked against the current card before rendering.',
   );
   assert.match(
     lessonScreenSource,

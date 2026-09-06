@@ -1,5 +1,5 @@
-import { Animated, Easing, PanResponder, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
 
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
@@ -8,7 +8,12 @@ import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
-import type { ChoiceOption, LessonCard } from '../types';
+import {
+  isMissionTileInteraction,
+  missionTargetImageMaxHeightForCard,
+  type MissionTileSlots,
+} from '../missionTileState';
+import type { LessonCard } from '../types';
 import {
   LESSON_MEDIA_FRAME_STYLE,
   LESSON_MEDIA_VIEWPORT_STYLE,
@@ -16,6 +21,7 @@ import {
 } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
 import { PronunciationPractice } from './PronunciationPractice';
+import { MissionTileBoard, type MissionTileEdit } from './MissionTileBoard';
 
 const TEXT_OPTION_THEMES = [
   { accent: '#6947ad', background: '#f3effc', border: '#b9a8df' },
@@ -72,10 +78,12 @@ type Props = {
   onPronunciationPassed: (firstTry: boolean) => void;
   onPronunciationUnavailable: () => void;
   onGrammarAnimationComplete: () => void;
-  onResetSelection?: () => void;
+  missionTileSlots?: MissionTileSlots;
+  onMissionDragStateChange?: (dragging: boolean) => void;
+  onMissionTileChange?: (slots: MissionTileSlots, edit: MissionTileEdit) => void;
+  onMissionTileCheck?: () => void;
   promptInteractionMode?: PromptInteractionMode;
   pronunciationReplayRequestId?: number;
-  onUndoSelection?: () => void;
   allowVerticalGrowth?: boolean;
 };
 
@@ -103,19 +111,19 @@ export function LessonCardView({
   onPronunciationPassed,
   onPronunciationUnavailable,
   onGrammarAnimationComplete,
-  onResetSelection,
+  missionTileSlots = EMPTY_SELECTED_IDS,
+  onMissionDragStateChange,
+  onMissionTileChange,
+  onMissionTileCheck,
   promptInteractionMode = 'gestures',
   pronunciationReplayRequestId = 0,
-  onUndoSelection,
   allowVerticalGrowth = false,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth, fontScale } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar' || card.stage === 'Use';
-  const isMissionTile = card.interaction_type === 'mission-word-parts'
-    || card.interaction_type === 'mission-sentence'
-    || card.interaction_type === 'mission-finale';
+  const isMissionTile = isMissionTileInteraction(card.interaction_type);
   const isLandscape = viewportWidth > viewportHeight;
   const isCompactLandscape = isLandscape && viewportHeight < 460;
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
@@ -319,8 +327,17 @@ export function LessonCardView({
         responsiveFeatureImageHeight,
         Math.max(isPronunciation ? 68 : 70, availableCardHeight - featureReservedHeight),
       );
+  const missionTargetImageHeight = isMissionTile
+    ? missionTargetImageMaxHeightForCard(
+        card,
+        viewportWidth,
+        viewportHeight,
+        fontScale,
+        showHelp,
+      )
+    : null;
   const promptImageHeight = isMissionTile
-    ? Math.min(
+    ? missionTargetImageHeight ?? Math.min(
         showHelp ? featureImageHeight * 0.65 : featureImageHeight,
         isLandscape
           ? Math.max(72, Math.min(150, viewportHeight * 0.25))
@@ -487,7 +504,7 @@ export function LessonCardView({
           maxHeight={promptImageHeight}
         >
           <OptionMediaImage
-            accessibilityLabel={card.answer_audio_text || card.prompt}
+            accessibilityLabel={card.visual_description_es || card.answer_audio_text || card.prompt || 'Escena visual de la misión'}
             imageUrl={activeTurnImageUrl || card.prompt_image_url}
           />
         </LessonMediaFrame>
@@ -515,19 +532,20 @@ export function LessonCardView({
           onUnavailable={onPronunciationUnavailable}
           phrase={card.audio_text || card.prompt}
           headerReplayRequestId={pronunciationReplayRequestId}
+          successMessage={card.success_outcome_es}
           userId={userId}
         />
       ) : (
         <>
           {isMissionTile ? (
-            <MissionTileBuilder
+            <MissionTileBoard
               card={card}
               disabled={!optionsInteractive || result === 'correct'}
-              onReset={onResetSelection}
-              onSelect={onSelect}
-              onUndo={onUndoSelection}
+              onChange={onMissionTileChange || (() => undefined)}
+              onCheck={onMissionTileCheck || (() => undefined)}
+              onDragStateChange={onMissionDragStateChange}
               result={result}
-              selectedIds={effectiveSelectedIds}
+              slots={missionTileSlots}
             />
           ) : <View style={[
             styles.options,
@@ -690,7 +708,7 @@ export function LessonCardView({
                 result === 'correct' ? styles.correctText : styles.wrongText,
               ]}>
                 {result === 'correct'
-                  ? 'Correcto. Vamos a la siguiente tarjeta…'
+                  ? card.success_outcome_es?.trim() || 'Correcto. Vamos a la siguiente tarjeta…'
                   : gentleFeedback
                     ? '¡Tú puedes! Inténtalo de nuevo.'
                     : '¡Ánimo! Inténtalo de nuevo.'}
@@ -707,255 +725,6 @@ export function LessonCardView({
           ) : null}
         </>
       )}
-    </View>
-  );
-}
-
-type MissionDropBounds = {
-  height: number;
-  width: number;
-  x: number;
-  y: number;
-};
-
-type MeasureMissionDropBounds = (
-  onMeasured?: (bounds: MissionDropBounds | null) => void,
-) => void;
-
-function MissionDraggableTile({
-  disabled,
-  measureDropBounds,
-  onSelect,
-  option,
-  selected,
-}: {
-  disabled: boolean;
-  measureDropBounds: MeasureMissionDropBounds;
-  onSelect: (optionId: string) => void;
-  option: ChoiceOption;
-  selected: boolean;
-}) {
-  const drag = useRef(new Animated.ValueXY()).current;
-  const tileRef = useRef<View | null>(null);
-  const originRef = useRef<MissionDropBounds | null>(null);
-  const [dragging, setDragging] = useState(false);
-  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
-  const tileDisabled = disabled || selected;
-
-  const returnTile = useCallback(() => {
-    setDragging(false);
-    Animated.spring(drag, {
-      damping: 18,
-      stiffness: 230,
-      toValue: { x: 0, y: 0 },
-      useNativeDriver: true,
-    }).start();
-  }, [drag]);
-
-  const panResponder = useMemo(() => PanResponder.create({
-    onMoveShouldSetPanResponder: (_event, gesture) => (
-      !tileDisabled && (Math.abs(gesture.dx) > 5 || Math.abs(gesture.dy) > 5)
-    ),
-    onPanResponderGrant: () => {
-      setDragging(true);
-      originRef.current = null;
-      measureDropBounds();
-      tileRef.current?.measureInWindow((x, y, width, height) => {
-        originRef.current = { x, y, width, height };
-      });
-    },
-    onPanResponderMove: (_event, gesture) => {
-      const origin = originRef.current;
-      if (!origin) return;
-      drag.setValue({
-        x: Math.max(8 - origin.x, Math.min(gesture.dx, viewportWidth - origin.x - origin.width - 8)),
-        y: Math.max(8 - origin.y, Math.min(gesture.dy, viewportHeight - origin.y - origin.height - 8)),
-      });
-    },
-    onPanResponderRelease: (event) => {
-      const { pageX, pageY } = event.nativeEvent;
-      measureDropBounds((bounds) => {
-        if (
-          bounds
-          && pageX >= bounds.x
-          && pageX <= bounds.x + bounds.width
-          && pageY >= bounds.y
-          && pageY <= bounds.y + bounds.height
-        ) {
-          onSelect(option.id);
-        }
-      });
-      returnTile();
-    },
-    onPanResponderTerminate: returnTile,
-    onPanResponderTerminationRequest: () => false,
-  }), [
-    drag,
-    measureDropBounds,
-    onSelect,
-    option.id,
-    returnTile,
-    tileDisabled,
-    viewportHeight,
-    viewportWidth,
-  ]);
-
-  return (
-    <Animated.View
-      {...panResponder.panHandlers}
-      style={[
-        styles.missionTileMotion,
-        dragging ? styles.missionTileDragging : null,
-        { transform: drag.getTranslateTransform() },
-      ]}
-    >
-      <Pressable
-        accessibilityHint={selected
-          ? 'Esta ficha ya está en la respuesta.'
-          : 'Toca o arrastra esta ficha al área de respuesta.'}
-        accessibilityLabel={`Ficha ${option.label || option.id}`}
-        accessibilityRole="button"
-        accessibilityState={{ disabled: tileDisabled, selected }}
-        disabled={tileDisabled}
-        onPress={() => onSelect(option.id)}
-        ref={tileRef}
-        style={({ pressed }) => [
-          styles.missionTile,
-          selected ? styles.missionTileSelected : null,
-          pressed ? styles.missionTilePressed : null,
-        ]}
-      >
-        <Text adjustsFontSizeToFit minimumFontScale={0.8} numberOfLines={2} style={styles.missionTileText}>
-          {option.label || option.id}
-        </Text>
-      </Pressable>
-    </Animated.View>
-  );
-}
-
-function MissionTileBuilder({
-  card,
-  disabled,
-  onReset,
-  onSelect,
-  onUndo,
-  result,
-  selectedIds,
-}: {
-  card: LessonCard;
-  disabled: boolean;
-  onReset?: () => void;
-  onSelect: (optionId: string) => void;
-  onUndo?: () => void;
-  result: 'correct' | 'wrong' | null;
-  selectedIds: string[];
-}) {
-  const dropZoneRef = useRef<View | null>(null);
-  const dropBoundsRef = useRef<MissionDropBounds | null>(null);
-  const correctIds = card.correct_option_ids?.length
-    ? card.correct_option_ids
-    : [card.correct_option_id];
-  const isWordParts = card.interaction_type === 'mission-word-parts';
-  const selectedLabels = selectedIds.map((optionId) => (
-    card.options.find((option) => option.id === optionId)?.label || optionId
-  ));
-  const measureDropZone = useCallback<MeasureMissionDropBounds>((onMeasured) => {
-    const dropZone = dropZoneRef.current;
-    if (!dropZone) {
-      dropBoundsRef.current = null;
-      onMeasured?.(null);
-      return;
-    }
-    dropZone.measureInWindow((x, y, width, height) => {
-      const bounds = { x, y, width, height };
-      dropBoundsRef.current = bounds;
-      onMeasured?.(bounds);
-    });
-  }, []);
-
-  useEffect(() => {
-    measureDropZone();
-  }, [measureDropZone, selectedIds]);
-
-  return (
-    <View style={styles.missionBoard}>
-      <Text style={styles.missionInstruction}>
-        {isWordParts ? 'Forma la palabra' : 'Ordena la oración'}
-      </Text>
-      <View
-        accessibilityLabel={`Respuesta: ${selectedLabels.join(isWordParts ? '-' : ' ') || 'vacía'}`}
-        accessibilityLiveRegion="polite"
-        accessible
-        onLayout={() => measureDropZone()}
-        ref={dropZoneRef}
-        style={[
-          styles.missionDropZone,
-          result === 'correct' ? styles.missionDropZoneCorrect : null,
-          result === 'wrong' ? styles.missionDropZoneWrong : null,
-        ]}
-      >
-        {correctIds.map((correctId, index) => (
-          <View
-            key={`${correctId}-${index}`}
-            style={[
-              styles.missionAnswerSlot,
-              { flexBasis: correctIds.length > 6 ? '22%' : correctIds.length > 3 ? '30%' : '44%' },
-            ]}
-          >
-            <Text
-              adjustsFontSizeToFit
-              minimumFontScale={0.8}
-              numberOfLines={2}
-              style={styles.missionAnswerSlotText}
-            >
-              {selectedLabels[index] || '___'}
-            </Text>
-          </View>
-        ))}
-      </View>
-      <View accessibilityLabel="Fichas disponibles" style={styles.missionTileBank}>
-        {card.options.map((option) => (
-          <MissionDraggableTile
-            disabled={disabled}
-            key={option.id}
-            measureDropBounds={measureDropZone}
-            onSelect={onSelect}
-            option={option}
-            selected={selectedIds.includes(option.id)}
-          />
-        ))}
-      </View>
-      <View style={styles.missionControls}>
-        <Pressable
-          accessibilityLabel="Deshacer última ficha"
-          accessibilityRole="button"
-          accessibilityState={{ disabled: disabled || selectedIds.length === 0 }}
-          disabled={disabled || selectedIds.length === 0}
-          onPress={onUndo}
-          style={({ pressed }) => [
-            styles.missionControl,
-            disabled || selectedIds.length === 0 ? styles.missionControlDisabled : null,
-            pressed ? styles.missionControlPressed : null,
-          ]}
-        >
-          <Text style={styles.missionControlText}>Deshacer</Text>
-        </Pressable>
-        <Pressable
-          accessibilityLabel="Reiniciar respuesta"
-          accessibilityRole="button"
-          accessibilityState={{ disabled: disabled || selectedIds.length === 0 }}
-          disabled={disabled || selectedIds.length === 0}
-          onPress={onReset}
-          style={({ pressed }) => [
-            styles.missionControl,
-            disabled || selectedIds.length === 0 ? styles.missionControlDisabled : null,
-            pressed ? styles.missionControlPressed : null,
-          ]}
-        >
-          <Text style={styles.missionControlText}>Reiniciar</Text>
-        </Pressable>
-      </View>
-      <Text style={styles.missionTapHint}>Toca o arrastra las fichas en orden.</Text>
     </View>
   );
 }
@@ -1122,89 +891,6 @@ const styles = StyleSheet.create({
   optionsHorizontalPhrases: { alignContent: 'flex-start', marginTop: 5, rowGap: 7 },
   optionsCompactText: { columnGap: 6 },
   optionsTabletLandscape: { columnGap: 12, marginTop: 8, rowGap: 10 },
-  missionBoard: {
-    alignItems: 'center',
-    alignSelf: 'center',
-    justifyContent: 'center',
-    marginTop: 5,
-    maxWidth: 680,
-    width: '100%',
-  },
-  missionInstruction: { color: '#6a4c25', fontSize: 13, fontWeight: '900', marginBottom: 4 },
-  missionDropZone: {
-    alignItems: 'center',
-    backgroundColor: '#fff9e9',
-    borderColor: '#d6b65a',
-    borderRadius: 16,
-    borderStyle: 'dashed',
-    borderWidth: 2,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-    justifyContent: 'center',
-    minHeight: 58,
-    padding: 6,
-    width: '100%',
-  },
-  missionDropZoneCorrect: { backgroundColor: '#eaf6ee', borderColor: '#3c996c', borderStyle: 'solid' },
-  missionDropZoneWrong: { backgroundColor: '#fbeceb', borderColor: '#c95e55', borderStyle: 'solid' },
-  missionAnswerSlot: {
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    borderBottomColor: '#9b7a39',
-    borderBottomWidth: 3,
-    borderRadius: 8,
-    flexGrow: 1,
-    flexShrink: 1,
-    justifyContent: 'center',
-    maxWidth: 188,
-    minHeight: 42,
-    minWidth: 72,
-    paddingHorizontal: 4,
-  },
-  missionAnswerSlotText: { color: '#1d5f54', fontSize: 19, fontWeight: '900', textAlign: 'center' },
-  missionTileBank: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    justifyContent: 'center',
-    marginTop: 8,
-    width: '100%',
-  },
-  missionTileMotion: { maxWidth: 190, minWidth: 82, width: '30%' },
-  missionTileDragging: { elevation: 10, zIndex: 30 },
-  missionTile: {
-    alignItems: 'center',
-    backgroundColor: '#eef7f4',
-    borderBottomWidth: 4,
-    borderColor: '#75aa9e',
-    borderRadius: 13,
-    justifyContent: 'center',
-    minHeight: 52,
-    paddingHorizontal: 7,
-    paddingVertical: 5,
-    width: '100%',
-  },
-  missionTileSelected: { backgroundColor: '#d8e3df', borderColor: '#9baaa6', opacity: 0.58 },
-  missionTilePressed: { opacity: 0.75, transform: [{ translateY: 2 }] },
-  missionTileText: { color: '#1b6658', fontSize: 18, fontWeight: '900', textAlign: 'center' },
-  missionControls: { flexDirection: 'row', gap: 8, justifyContent: 'center', marginTop: 7 },
-  missionControl: {
-    alignItems: 'center',
-    backgroundColor: '#f5eee2',
-    borderColor: '#c8a875',
-    borderRadius: 12,
-    borderWidth: 1,
-    justifyContent: 'center',
-    minHeight: 48,
-    minWidth: 104,
-    paddingHorizontal: 12,
-  },
-  missionControlDisabled: { opacity: 0.42 },
-  missionControlPressed: { opacity: 0.72 },
-  missionControlText: { color: '#6d4a1f', fontSize: 13, fontWeight: '900' },
-  missionTapHint: { color: '#68645c', fontSize: 11, fontWeight: '700', marginTop: 3, textAlign: 'center' },
   singleActionVideoOptions: {
     alignContent: 'center',
     flex: 1,

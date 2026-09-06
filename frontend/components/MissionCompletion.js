@@ -1,7 +1,11 @@
-export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onExit }) {
+export default function MissionCompletion({ finalImageUrl, headingRef, isMobile, lesson, onExit }) {
+  const finalCard = lesson.cards[lesson.cards.length - 1];
+  const finalLine = finalCard?.answer_audio_text || "They are a family.";
+
   return (
     <section
       aria-label={lesson.mission.completion_title}
+      className="mission-completion-studio"
       style={{
         background: "linear-gradient(145deg, #173f43 0%, #285e5b 52%, #5a3d71 100%)",
         border: "1px solid rgba(244, 201, 93, 0.7)",
@@ -20,9 +24,13 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
     >
       <div style={{ display: "grid", gap: 5 }}>
         <div style={{ color: "#f4c95d", fontSize: 12, fontWeight: 950, letterSpacing: "0.12em", textTransform: "uppercase" }}>
-          {lesson.mission.label}
+          CORTE · RETO COMPLETADO
         </div>
-        <h1 style={{ fontSize: isMobile ? "1.75rem" : "clamp(2rem, 4vw, 3.35rem)", lineHeight: 1.05, margin: 0 }}>
+        <h1
+          ref={headingRef}
+          style={{ fontSize: isMobile ? "1.75rem" : "clamp(2rem, 4vw, 3.35rem)", lineHeight: 1.05, margin: 0 }}
+          tabIndex={-1}
+        >
           {lesson.mission.completion_title}
         </h1>
         <p style={{ color: "rgba(255,250,240,0.86)", lineHeight: 1.5, margin: "0 auto", maxWidth: 680 }}>
@@ -41,7 +49,7 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
           }}
         >
           <img
-            alt="El retrato familiar restaurado"
+            alt={finalCard?.visual_description_es}
             src={finalImageUrl}
             style={{ aspectRatio: "3 / 2", display: "block", objectFit: "cover", width: "100%" }}
           />
@@ -49,9 +57,9 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
       ) : null}
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center" }}>
-        {["Fotos restauradas", "Nombres recuperados", "Voces devueltas"].map((label) => (
+        {lesson.mission.chapters.map((chapter) => (
           <span
-            key={label}
+            key={chapter.id}
             style={{
               background: "rgba(255,255,255,0.12)",
               border: "1px solid rgba(255,255,255,0.22)",
@@ -61,13 +69,17 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
               padding: "7px 11px",
             }}
           >
-            ✓ {label}
+            ✓ {chapter.title}
           </span>
         ))}
       </div>
 
       <div style={{ color: "#f4c95d", fontSize: isMobile ? "1.35rem" : "1.7rem", fontWeight: 950 }}>
-        They are a family.
+        {finalLine}
+      </div>
+
+      <div style={{ color: "rgba(255,250,240,0.82)", fontSize: isMobile ? 13 : 15, fontWeight: 800 }}>
+        Estreno listo. Superaste cada prueba y dirigiste la escena final.
       </div>
 
       <button
@@ -86,7 +98,7 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
         }}
         type="button"
       >
-        Continuar a las lecciones
+        Salir del estudio
       </button>
     </section>
   );

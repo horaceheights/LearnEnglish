@@ -4,10 +4,12 @@ import unittest
 from copy import deepcopy
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import patch
 from urllib.parse import urlparse
 
 from backend.app.data import LESSON_IMAGE_DIR, LESSONS
 from scripts.validate_lesson_cards import (
+    MISSION_BOARD_INTERACTIONS,
     MISSION_COMPLETION_INTERACTIONS,
     validate_family_adult_ambiguity,
     validate_mission_contracts,
@@ -37,7 +39,7 @@ EXPECTED_TITLES = [
     "What They Are Not Doing",
     "Who Is He? Who Are They?",
     "Unit 1 Story Review",
-    "Family Album Mission",
+    "People in Action Mission",
 ]
 EXPECTED_VOCABULARY = {
     "lesson-1-people-actions": {
@@ -80,43 +82,88 @@ UNIT_ONE_GOLD = [
     "studying", "working", "cooking", "talking", "not", "who",
 ]
 MISSION_CHAPTERS = (
-    ["open-album"] * 5
-    + ["build-family"] * 8
-    + ["restore-memories"] * 7
-    + ["record-and-reveal"] * 2
+    ["casting-call"] * 5
+    + ["build-the-cast"] * 8
+    + ["shoot-and-edit"] * 7
+    + ["record-and-premiere"] * 2
 )
 MISSION_STAGES = [
-    "Use", "Learn", "Use", "Recognize", "Use", "Recognize", "Listen", "Use",
-    "Recognize", "Listen", "Use", "Speak", "Recognize", "Use", "Listen",
+    "Use", "Learn", "Recognize", "Recognize", "Use", "Recognize", "Recognize", "Use",
+    "Use", "Listen", "Use", "Speak", "Recognize", "Use", "Listen",
     "Use", "Listen", "Recognize", "Listen", "Use", "Speak", "Use",
 ]
 MISSION_INTERACTION_SEQUENCE = [
-    "mission-word-parts",
-    *(["mission-sentence"] * 10),
-    "mission-speak",
+    "mission-unlock",
+    "mission-match",
     "mission-clue",
-    "mission-sentence",
+    "mission-match",
+    "mission-truth-stamp",
+    "mission-match",
+    "mission-match",
     "mission-sentence",
     "mission-sentence",
     "mission-listen",
+    "mission-sentence",
+    "mission-speak",
     "mission-clue",
-    "mission-sentence",
-    "mission-sentence",
+    "mission-match",
+    "mission-listen",
+    "mission-match",
+    "mission-listen",
+    "mission-clue",
+    "mission-match",
+    "mission-truth-stamp",
     "mission-speak",
     "mission-finale",
 ]
-MISSION_HERO_ASSETS = [
-    f"a1_u1_album_{index:02d}_{suffix}.webp"
-    for index, suffix in enumerate((
-        "locked", "people_board", "pronoun_cast", "family_index", "adult_count",
-        "parents_branch", "grandparents_branch", "tree_complete", "who_father",
-        "who_mother", "who_parents", "who_children", "who_grandparents",
-        "man_eating_drinking", "boy_reading_writing",
-        "siblings_running_mother_sitting", "sisters_swimming_grandfather_sleeping",
-        "children_playing_sister_studying", "family_work_cook_talk",
-        "negative_contact_sheet", "voiceover_booth", "final_portrait",
-    ), 1)
+MISSION_VISUAL_KEYS = [
+    "a1_u1_studio_01_clapperboard",
+    "a1_u1_studio_02_people_casting",
+    "a1_u1_studio_03_pronoun_marks",
+    "a1_u1_studio_04_young_cast",
+    "a1_u1_studio_05_adult_cast",
+    "a1_u1_studio_06_parent_roles",
+    "a1_u1_studio_07_generation_roles",
+    "a1_u1_studio_08_title_card",
+    "a1_u1_studio_09_who_father",
+    "a1_u1_studio_10_who_mother",
+    "a1_u1_studio_11_who_parents",
+    "a1_u1_studio_12_who_children",
+    "a1_u1_studio_13_who_grandparents",
+    "a1_u1_studio_14_eating_drinking",
+    "a1_u1_studio_15_reading_writing",
+    "a1_u1_studio_16_running_sitting",
+    "a1_u1_studio_17_swimming_sleeping",
+    "a1_u1_studio_18_playing_studying",
+    "a1_u1_studio_19_work_cook_talk",
+    "a1_u1_studio_20_not_continuity",
+    "a1_u1_studio_21_final_question",
+    "a1_u1_studio_22_premiere",
 ]
+MISSION_BOUND_STILLS = {
+    1: "a1_u1_studio_01_clapperboard.webp",
+    2: "a1_u1_studio_02_people_casting.webp",
+    3: "a1_u1_studio_03_pronoun_marks.webp",
+    4: "a1_u1_studio_04_young_cast.webp",
+    5: "a1_u1_studio_05_adult_cast.webp",
+    6: "a1_u1_studio_06_parent_roles.webp",
+    7: "a1_u1_studio_07_generation_roles.webp",
+    8: "a1_u1_studio_08_title_card.webp",
+    9: "a1_u1_studio_09_who_father.webp",
+    10: "a1_u1_studio_10_who_mother.webp",
+    11: "a1_u1_studio_11_who_parents.webp",
+    12: "a1_u1_studio_12_who_children.webp",
+    13: "a1_u1_studio_13_who_grandparents.webp",
+    14: "a1_u1_studio_14_eating_drinking.webp",
+    15: "a1_u1_studio_15_reading_writing.webp",
+    16: "a1_u1_studio_16_running_sitting.webp",
+    17: "a1_u1_studio_17_swimming_sleeping.webp",
+    18: "a1_u1_studio_18_playing_studying.webp",
+    19: "a1_u1_studio_19_work_cook_talk.webp",
+    20: "a1_u1_studio_20_not_continuity.webp",
+    21: "a1_u1_studio_21_final_question.webp",
+    22: "a1_u1_studio_22_premiere.webp",
+}
 
 
 def lesson_payload(lesson):
@@ -295,20 +342,21 @@ class LessonStructureTests(unittest.TestCase):
         coverage = len(declared & tokens) / len(declared)
         self.assertGreaterEqual(coverage, 0.70)
 
-    def test_lesson_1_10_is_a_distinct_ordered_family_mission(self):
+    def test_lesson_1_10_is_a_distinct_ordered_unit_mastery_mission(self):
         mission = LESSONS["lesson-10-family-mission"]
         self.assertEqual([], mission.vocabulary)
         self.assertEqual("mission", mission.experience_type)
-        self.assertEqual(2, mission.content_revision)
+        self.assertEqual(3, mission.content_revision)
         self.assertEqual(22, len(mission.cards))
         self.assertEqual(UNIT_ONE_GOLD, mission.review_vocabulary)
         self.assertEqual(
-            ["open-album", "build-family", "restore-memories", "record-and-reveal"],
+            ["casting-call", "build-the-cast", "shoot-and-edit", "record-and-premiere"],
             [chapter.id for chapter in mission.mission.chapters],
         )
         self.assertTrue(mission.mission.label)
         self.assertTrue(mission.mission.title)
         self.assertTrue(mission.mission.briefing)
+        self.assertLessEqual(len(mission.mission.briefing), 200)
         self.assertTrue(mission.mission.completion_title)
         self.assertTrue(mission.mission.completion_message)
         self.assertEqual(
@@ -328,34 +376,331 @@ class LessonStructureTests(unittest.TestCase):
             for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
             if url
         }
-        earlier_media = {
-            urlparse(url).path.rsplit("/", 1)[-1]
-            for lesson_id in UNIT_1_IDS[:9]
-            for card in LESSONS[lesson_id].cards
-            for url in [card.prompt_image_url, *(option.image_url for option in card.options)]
-            if url
-        }
-        self.assertTrue(mission_media)
-        self.assertTrue(all(name.startswith("a1_u1_album_") for name in mission_media))
-        self.assertEqual(set(), mission_media & earlier_media)
+        self.assertFalse(any(name.startswith("a1_u1_album_") for name in mission_media))
 
-        hero_assets = []
+        visual_keys = []
         for beat, card in enumerate(mission.cards, 1):
             with self.subTest(beat=beat, slide=card.slide_id):
                 self.assertRegex(card.pedagogy_note, rf"^Mission beat {beat:02d}/22:")
-                correct = next(
-                    option for option in card.options
-                    if option.id == card.correct_option_id
-                )
-                hero_url = card.prompt_image_url or correct.image_url
-                self.assertTrue(hero_url)
-                hero_assets.append(urlparse(hero_url).path.rsplit("/", 1)[-1])
+                self.assertTrue(card.instruction_es)
+                self.assertTrue(card.success_outcome_es)
+                self.assertTrue(card.visual_description_es)
+                visual_keys.append(card.mission_visual_key)
+                expected_still = MISSION_BOUND_STILLS.get(beat)
+                if expected_still:
+                    self.assertEqual(
+                        expected_still,
+                        urlparse(card.prompt_image_url).path.rsplit("/", 1)[-1],
+                    )
+                else:
+                    self.assertFalse(card.prompt_image_url)
+                if card.interaction_type == "mission-speak":
+                    self.assertEqual(1, len(card.options))
+                    self.assertEqual(
+                        expected_still,
+                        urlparse(card.options[0].image_url).path.rsplit("/", 1)[-1],
+                    )
+                else:
+                    self.assertFalse(any(option.image_url for option in card.options))
+                option_ids = [option.id for option in card.options]
+                target_option_ids = [
+                    target.correct_option_id for target in card.mission_targets
+                ]
+                if card.interaction_type == "mission-match":
+                    self.assertTrue(card.mission_targets)
+                if card.mission_targets:
+                    self.assertTrue(set(target_option_ids).issubset(set(option_ids)))
+                    self.assertEqual(card.correct_option_ids, target_option_ids)
+        self.assertEqual(MISSION_VISUAL_KEYS, visual_keys)
+        self.assertEqual(22, len(set(visual_keys)))
+        self.assertEqual({"Learn", "Recognize", "Listen", "Speak", "Use"}, {card.stage for card in mission.cards})
+
+        opener = mission.cards[0]
+        self.assertEqual("mission-unlock", opener.interaction_type)
+        self.assertEqual("guided-no-fail", opener.mission_tutorial_mode)
+        self.assertEqual(["FA", "MI", "LY"], [
+            next(option.label for option in opener.options if option.id == option_id)
+            for option_id in opener.correct_option_ids
+        ])
+        self.assertEqual("family", opener.answer_audio_text.lower())
+
+        casting_loop = mission.cards[1:7]
         self.assertEqual(
-            MISSION_HERO_ASSETS,
-            hero_assets,
+            [
+                "mission-match", "mission-clue", "mission-match",
+                "mission-truth-stamp", "mission-match", "mission-match",
+            ],
+            [card.interaction_type for card in casting_loop],
         )
-        self.assertEqual(22, len(set(hero_assets)))
+
+        pronoun_script = mission.cards[2]
+        self.assertEqual("mission-clue", pronoun_script.interaction_type)
+        self.assertFalse(pronoun_script.mission_targets)
+        self.assertEqual(
+            "He is a boy. He is a man. She is a woman. She is a girl.",
+            next(
+                option.label
+                for option in pronoun_script.options
+                if option.id == pronoun_script.correct_option_id
+            ),
+        )
+        self.assertEqual(
+            {
+                "She is a boy. He is a man. She is a woman. He is a girl.",
+                "He is a boy. He is a woman. She is a man. She is a girl.",
+            },
+            {
+                option.label
+                for option in pronoun_script.options
+                if option.id != pronoun_script.correct_option_id
+            },
+        )
+
+        younger_cast = mission.cards[3]
+        younger_cast_options = {option.id: option.label for option in younger_cast.options}
+        self.assertEqual(
+            [
+                "The baby is a child.",
+                "The babies are children.",
+                "The brother and the sister are children.",
+                "The brothers and the sisters are children.",
+            ],
+            [
+                younger_cast_options[target.correct_option_id]
+                for target in younger_cast.mission_targets
+            ],
+        )
+        self.assertTrue({
+            "The baby is an adult.",
+            "The babies are adults.",
+        }.issubset({option.label for option in younger_cast.options}))
+
+        adult_cast = mission.cards[4]
+        adult_cast_options = {option.id: option.label for option in adult_cast.options}
+        self.assertEqual("mission-truth-stamp", adult_cast.interaction_type)
+        self.assertFalse(adult_cast.mission_targets)
+        self.assertEqual(
+            "An adult. Adults.",
+            adult_cast_options[adult_cast.correct_option_id],
+        )
+        self.assertIn("A adult. Adults.", adult_cast_options.values())
+        self.assertIn("An adult. Children.", adult_cast_options.values())
+
+        parent_roles = mission.cards[5]
+        parent_options = {option.id: option.label for option in parent_roles.options}
+        self.assertEqual("mission-match", parent_roles.interaction_type)
+        self.assertEqual(
+            ["He is the father.", "She is the mother.", "They are the parents."],
+            [
+                parent_options[target.correct_option_id]
+                for target in parent_roles.mission_targets
+            ],
+        )
+        self.assertEqual(
+            {
+                "He is the grandfather.",
+                "She is the grandmother.",
+                "They are the grandparents.",
+                "He is a boy.",
+                "She is a girl.",
+            },
+            {
+                option.label for option in parent_roles.options
+                if option.id not in parent_roles.correct_option_ids
+            },
+        )
+
+        generation_roles = mission.cards[6]
+        generation_options = {option.id: option.label for option in generation_roles.options}
+        self.assertEqual(
+            [
+                "He is the grandfather.",
+                "She is the grandmother.",
+                "They are the grandparents.",
+                "They are the grandchildren.",
+            ],
+            [
+                generation_options[target.correct_option_id]
+                for target in generation_roles.mission_targets
+            ],
+        )
+        self.assertEqual(
+            {"He is a boy.", "She is a girl.", "They are the brothers.", "They are the sisters."},
+            {
+                option.label for option in generation_roles.options
+                if option.id not in generation_roles.correct_option_ids
+            },
+        )
+
+        father_question = mission.cards[8]
+        father_question_options = {
+            option.id: option.label for option in father_question.options
+        }
+        self.assertEqual("mission-sentence", father_question.interaction_type)
+        self.assertEqual("___ ___ ___?", father_question.prompt)
+        self.assertEqual(
+            ["Who", "is", "he"],
+            [father_question_options[option_id] for option_id in father_question.correct_option_ids],
+        )
+        self.assertEqual("Who is he?", father_question.answer_audio_text)
+        self.assertIn("are", father_question_options.values())
+        self.assertNotIn(
+            next(option_id for option_id, label in father_question_options.items() if label == "are"),
+            father_question.correct_option_ids,
+        )
+
+        mother_question = mission.cards[9]
+        self.assertEqual("Who is she?", mother_question.audio_text)
+        self.assertEqual("Who is she?", next(
+            option.label
+            for option in mother_question.options
+            if option.id == mother_question.correct_option_id
+        ))
+        self.assertEqual(
+            {"Who is she?", "Who is he?", "Who are they?"},
+            {option.label for option in mother_question.options},
+        )
+
+        grandparent_clue = mission.cards[12]
+        self.assertEqual("Who are they?", grandparent_clue.audio_text)
+        self.assertEqual(
+            "They are the grandparents.",
+            grandparent_clue.answer_audio_text,
+        )
+        self.assertNotIn("grandparents", grandparent_clue.audio_text.lower())
+        self.assertNotIn("who are they", grandparent_clue.answer_audio_text.lower())
+
+        eating_drinking_shot = mission.cards[13]
+        eating_drinking_options = {
+            option.id: option.label for option in eating_drinking_shot.options
+        }
+        self.assertEqual(
+            ["Toma izquierda", "Toma derecha"],
+            [target.label for target in eating_drinking_shot.mission_targets],
+        )
+        self.assertEqual(
+            ["The man is eating.", "The man is drinking."],
+            [
+                eating_drinking_options[target.correct_option_id]
+                for target in eating_drinking_shot.mission_targets
+            ],
+        )
+
+        cast_action_board = mission.cards[15]
+        cast_action_options = {
+            option.id: option.label for option in cast_action_board.options
+        }
+        self.assertEqual(
+            ["Persona izquierda", "Persona del centro", "Persona derecha"],
+            [target.label for target in cast_action_board.mission_targets],
+        )
+        self.assertEqual(
+            [
+                "The brother is running.",
+                "The sister is running.",
+                "The mother is sitting.",
+            ],
+            [
+                cast_action_options[target.correct_option_id]
+                for target in cast_action_board.mission_targets
+            ],
+        )
+        self.assertEqual(
+            {
+                "The brother is running.",
+                "The brother is sitting.",
+                "The sister is running.",
+                "The sister is sitting.",
+                "The mother is sitting.",
+                "The mother is running.",
+            },
+            set(cast_action_options.values()),
+        )
+
+        polarity_board = mission.cards[19]
+        polarity_options = {option.id: option.label for option in polarity_board.options}
+        self.assertEqual(6, len(polarity_options))
+        self.assertEqual(
+            [
+                "He is not sitting. He is running.",
+                "She is not sleeping. She is cooking.",
+                "They are not sitting. They are swimming.",
+            ],
+            [
+                polarity_options[target.correct_option_id]
+                for target in polarity_board.mission_targets
+            ],
+        )
+        self.assertEqual(
+            {
+                "He is sitting. He is not running.",
+                "She is sleeping. She is not cooking.",
+                "They are sitting. They are not swimming.",
+            },
+            {
+                label
+                for option_id, label in polarity_options.items()
+                if option_id not in polarity_board.correct_option_ids
+            },
+        )
+
+        action_sync = mission.cards[18]
+        self.assertEqual(
+            {
+                "The parents are working.",
+                "The parents are talking.",
+                "The grandmother is cooking.",
+                "The grandmother is working.",
+                "The brothers are talking.",
+                "The brothers are cooking.",
+            },
+            {option.label for option in action_sync.options},
+        )
+
+        reading_writing = mission.cards[14]
+        self.assertEqual(
+            {
+                "The boy is reading and writing.",
+                "The boy is reading and sleeping.",
+                "The boy is eating and writing.",
+            },
+            {option.label for option in reading_writing.options},
+        )
+        for card in (candidate for candidate in mission.cards if candidate.stage == "Listen"):
+            if not card.audio_text or not card.answer_audio_text:
+                continue
+            self.assertNotEqual(
+                card.audio_text.strip().lower(),
+                card.answer_audio_text.strip().lower(),
+                f"{card.slide_id} must not replay an identical Listen line after success.",
+            )
+
+        visible_copy = " ".join([
+            mission.title,
+            mission.sub_lesson_title,
+            mission.mission.title,
+            mission.mission.briefing,
+            *(card.instruction_es for card in mission.cards),
+            *(card.success_outcome_es for card in mission.cards),
+            *(card.visual_description_es for card in mission.cards),
+        ])
+        self.assertNotRegex(visible_copy.lower(), r"\b(?:album|álbum)\b")
         self.assertEqual([], validate_mission_contracts())
+
+    def test_mission_rejects_retired_album_pixels_under_a_new_filename(self):
+        retired_album_hash = (
+            "34f1fe85fc4ac8d142e69ef863e26e52299da762c989c5f71a97a74940c44bd3"
+        )
+        with patch(
+            "scripts.validate_lesson_cards.sha256_file",
+            return_value=retired_album_hash,
+        ):
+            errors = validate_mission_contracts()
+
+        self.assertTrue(
+            any("byte-identical retired album imagery" in error for error in errors),
+            errors,
+        )
 
     def test_mission_contract_fails_closed_on_core_regressions(self):
         cases = []
@@ -365,9 +710,16 @@ class LessonStructureTests(unittest.TestCase):
         cases.append((wrong_count, "must contain exactly 22 mission beats"))
 
         missing_who_form = deepcopy(LESSONS)
-        missing_who_form["lesson-10-family-mission"].cards[8].answer_audio_text = (
-            "He is the father."
-        )
+        missing_who_card = missing_who_form["lesson-10-family-mission"].cards[8]
+        missing_who_card.answer_audio_text = "She is the mother."
+        missing_who_replacements = {
+            "who": "She",
+            "is": "is",
+            "he": "the mother",
+        }
+        for option in missing_who_card.options:
+            if option.id in missing_who_replacements:
+                option.label = missing_who_replacements[option.id]
         cases.append((missing_who_form, "must assess the question form 'who is he'"))
 
         unintroduced_language = deepcopy(LESSONS)
@@ -384,6 +736,60 @@ class LessonStructureTests(unittest.TestCase):
         )
         reused_review_media["lesson-10-family-mission"].cards[0].prompt_image_url = prior_url
         cases.append((reused_review_media, "reuses earlier lesson media"))
+
+        missing_instruction = deepcopy(LESSONS)
+        missing_instruction["lesson-10-family-mission"].cards[0].instruction_es = ""
+        cases.append((missing_instruction, "needs an explicit instruction_es"))
+
+        missing_visual_description = deepcopy(LESSONS)
+        missing_visual_description["lesson-10-family-mission"].cards[0].visual_description_es = ""
+        cases.append((missing_visual_description, "needs an authored visual_description_es"))
+
+        weak_is_contrast = deepcopy(LESSONS)
+        weak_is_contrast["lesson-10-family-mission"].cards[8].options[0].label = "is"
+        cases.append((weak_is_contrast, "must require IS against an ARE distractor"))
+
+        weak_she_question = deepcopy(LESSONS)
+        weak_she_question["lesson-10-family-mission"].cards[9].options[0].label = "She is the mother."
+        cases.append((weak_she_question, "must contrast and identify the exact heard 'Who is she?'"))
+
+        missing_polarity_pair = deepcopy(LESSONS)
+        missing_polarity_pair["lesson-10-family-mission"].cards[19].options.pop()
+        cases.append((missing_polarity_pair, "must retain three polarity-paired NOT contrasts"))
+
+        duplicate_visual = deepcopy(LESSONS)
+        duplicate_visual["lesson-10-family-mission"].cards[1].mission_visual_key = (
+            duplicate_visual["lesson-10-family-mission"].cards[0].mission_visual_key
+        )
+        cases.append((duplicate_visual, "repeats assessed visual contracts"))
+
+        answer_revealing_target = deepcopy(LESSONS)
+        answer_revealing_target["lesson-10-family-mission"].cards[1].mission_targets[0].label = (
+            "Arriba izquierda · niño"
+        )
+        cases.append((answer_revealing_target, "target labels must locate the pictured slots"))
+
+        repetitive_mechanic = deepcopy(LESSONS)
+        for card in repetitive_mechanic["lesson-10-family-mission"].cards[2:5]:
+            card.interaction_type = "mission-clue"
+            card.stage = "Recognize"
+        cases.append((repetitive_mechanic, "more than two consecutive beats"))
+
+        retired_album = deepcopy(LESSONS)
+        retired_album["lesson-10-family-mission"].mission.title = "Álbum familiar"
+        cases.append((retired_album, "without visible album copy"))
+
+        tutorial_only_family = deepcopy(LESSONS)
+        tutorial_mission = tutorial_only_family["lesson-10-family-mission"]
+        for card_index in (7, 21):
+            card = tutorial_mission.cards[card_index]
+            card.answer_audio_text = (card.answer_audio_text or "").replace(
+                "family", "parents"
+            )
+            for option in card.options:
+                if str(option.label or "").lower() == "family":
+                    option.label = "parents"
+        cases.append((tutorial_only_family, "assessed successful path outside its no-fail tutorial: ['family']"))
 
         for catalog, expected_error in cases:
             with self.subTest(expected_error=expected_error):
@@ -519,7 +925,7 @@ class LessonStructureTests(unittest.TestCase):
             for index, card in enumerate(lesson.cards, 1):
                 if not card.options or any(option.image_url for option in card.options):
                     continue
-                if card.interaction_type in MISSION_COMPLETION_INTERACTIONS:
+                if card.interaction_type in MISSION_BOARD_INTERACTIONS:
                     continue
                 with self.subTest(lesson=lesson.id, card=index):
                     self.assertLessEqual(len(card.options), 3)

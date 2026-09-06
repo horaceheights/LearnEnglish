@@ -2,7 +2,7 @@ import { missionChapterProgress } from "../lib/missionExperience.mjs";
 
 const CHAPTER_COLORS = ["#f4c95d", "#e98a63", "#7ed0bc", "#9b82ce"];
 
-export default function MissionJourney({ cardIndex, isMobile, lesson }) {
+export default function MissionJourney({ cardIndex, headingRef, isMobile, lesson }) {
   const chapters = missionChapterProgress(lesson, cardIndex);
   const currentChapter = chapters.find((chapter) => chapter.isActive) || chapters[0];
   const currentStep = Math.min(cardIndex + 1, lesson.cards.length);
@@ -10,7 +10,8 @@ export default function MissionJourney({ cardIndex, isMobile, lesson }) {
 
   return (
     <div
-      aria-label={`${lesson.mission.label}: ${lesson.mission.title}. Página ${currentStep} de ${lesson.cards.length}.`}
+      aria-label={`${lesson.mission.label}: ${lesson.mission.title}. Escena ${currentStep} de ${lesson.cards.length}.`}
+      className="mission-journey"
       role="region"
       style={{
         display: "grid",
@@ -33,34 +34,32 @@ export default function MissionJourney({ cardIndex, isMobile, lesson }) {
         >
           {lesson.mission.label}
         </div>
-        <div
+        <h1
+          ref={headingRef}
           style={{
             color: "#fffaf0",
             fontSize: isMobile ? "1.45rem" : "clamp(1.8rem, 3vw, 2.7rem)",
             fontWeight: 950,
             lineHeight: 1.02,
+            margin: 0,
           }}
+          tabIndex={-1}
         >
           {lesson.mission.title}
-        </div>
-        {cardIndex === 0 ? (
-          <div style={{ color: "rgba(255, 250, 240, 0.78)", fontSize: isMobile ? 12 : 14, lineHeight: 1.4 }}>
-            {lesson.mission.briefing}
-          </div>
-        ) : null}
+        </h1>
       </div>
 
       <div style={{ display: "grid", gap: 6 }}>
         <div style={{ alignItems: "center", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 8 }}>
           <span style={{ color: "#fffaf0", fontSize: isMobile ? 12 : 13, fontWeight: 900 }}>
-            Página {currentStep} de {lesson.cards.length}
+            Escena {currentStep} de {lesson.cards.length}
           </span>
           <span style={{ color: "#f4c95d", fontSize: isMobile ? 11 : 12, fontWeight: 900 }}>
-            {progressPercent}% restaurado
+            {progressPercent}% del reto
           </span>
         </div>
         <div
-          aria-label={`${progressPercent}% de la misión restaurada`}
+          aria-label={`${progressPercent}% del reto completado`}
           aria-valuemax={100}
           aria-valuemin={0}
           aria-valuenow={progressPercent}
@@ -79,7 +78,7 @@ export default function MissionJourney({ cardIndex, isMobile, lesson }) {
       </div>
 
       <ol
-        aria-label="Capítulos de la misión"
+        aria-label="Secuencia de producción"
         style={{
           display: "grid",
           gap: isMobile ? 6 : 8,
@@ -111,7 +110,7 @@ export default function MissionJourney({ cardIndex, isMobile, lesson }) {
               <span style={{ color: CHAPTER_COLORS[index % CHAPTER_COLORS.length], fontSize: 10, fontWeight: 950 }}>
                 {chapter.isComplete ? "✓" : index + 1} · {stateLabel}
               </span>
-              <span style={{ color: "#fffaf0", fontSize: isMobile ? 11 : 13, fontWeight: 900, lineHeight: 1.15, overflowWrap: "anywhere" }}>
+              <span style={{ color: "#fffaf0", fontSize: isMobile ? 11 : 13, fontWeight: 900, lineHeight: 1.15, overflowWrap: "normal", wordBreak: "normal" }}>
                 {chapter.title}
               </span>
             </li>
@@ -128,9 +127,10 @@ export default function MissionJourney({ cardIndex, isMobile, lesson }) {
           fontSize: isMobile ? 12 : 14,
           lineHeight: 1.35,
           minWidth: 0,
-          overflowWrap: "anywhere",
+          overflowWrap: "normal",
           padding: isMobile ? "8px 10px" : "10px 12px",
           textAlign: "left",
+          wordBreak: "normal",
         }}
       >
         <strong>{currentChapter.title}:</strong> {currentChapter.objective}

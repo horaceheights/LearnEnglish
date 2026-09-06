@@ -74,6 +74,7 @@ type Props = {
   onHeaderReplayAvailabilityChange?: (available: boolean) => void;
   onPassed: (firstTry: boolean) => void;
   onUnavailable: () => void;
+  successMessage?: string | null;
 };
 
 type Phase = 'model' | 'ready' | 'listening' | 'checking' | 'retry' | 'success' | 'permission';
@@ -252,6 +253,7 @@ export function PronunciationPractice({
   onHeaderReplayAvailabilityChange,
   onPassed,
   onUnavailable,
+  successMessage,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
@@ -2077,7 +2079,9 @@ export function PronunciationPractice({
                 ]}
               >
                 {passed ? '✨ ' : ''}
-                {result.feedback?.messages.es ?? (passed ? '¡Muy bien!' : 'Escucha e inténtalo de nuevo.')}
+                {passed && successMessage?.trim()
+                  ? successMessage.trim()
+                  : result.feedback?.messages.es ?? (passed ? '¡Muy bien!' : 'Escucha e inténtalo de nuevo.')}
                 {passed ? ' ✨' : ''}
               </Animated.Text>
             </View>

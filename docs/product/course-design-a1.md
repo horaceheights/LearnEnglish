@@ -54,7 +54,7 @@ Lessons:
 7. 1.7 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
 8. 1.8 Who Is He? Who Are They?: identity questions and short answers
 9. 1.9 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
-10. 1.10 Family Album Mission: complete one continuous 22-beat family-story challenge by following clues, listening, speaking, building words from parts, and assembling the final resolution
+10. 1.10 People in Action Mission: direct one continuous 22-beat live-studio challenge by casting people, confirming family relationships, interpreting actions, repairing continuity with `not`, recording the final `Who are they?`, and triggering the premiere
 
 Core patterns:
 
@@ -66,7 +66,7 @@ Core patterns:
 - `He is not cooking.`
 - `Who are they? They are the parents.`
 
-Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.7 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.8 contains 50 cards, ten per section, with separate visitor-question and family-portrait answer pairs for all five identities. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with one continuous 22-beat mission rather than another five-section deck. It interleaves clue, listening, speaking, word-part, and sentence-building mechanics in narrative order, retrieves all 46 vocabulary targets introduced in Lessons 1.1-1.8 on the successful path, includes all three Unit 1 `Who` question forms, adds no assessed English, and resolves the family story with mission-only hero scenes.
+Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.7 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.8 contains 50 cards, ten per section, with separate visitor-question and family-portrait answer pairs for all five identities. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with one continuous 22-beat live-studio mission rather than another five-section deck. It interleaves casting targets, identity clues, listening, speaking, sentence construction, action interpretation, and `not` continuity repair in narrative order. Its successful path retrieves all 46 vocabulary targets introduced in Lessons 1.1-1.8, all three Unit 1 `Who` question forms, articles, singular/plural, pronouns, `is`/`are`, `and`, and every action verb without adding assessed English. The mission ends with the learner recording `Who are they?`, assembling `They are a family.`, and earning a Unit 1 director/mastery badge.
 
 ### Unit 2: Places, Objects, Numbers, and Colors
 
@@ -246,8 +246,8 @@ Current restructuring target:
 - Lesson 10 is the unit-closing mission: one coherent story, practical goal, or challenge in which learned language is the tool for succeeding. It is not a second review deck. Every interaction advances the mission, and the ending provides a clear sense of resolution and readiness for the next unit.
 - Lesson 10 uses light, language-centered gamification to break the lessons 1-8 rhythm without turning the course into a reward loop. Depending on the unit, learners may manipulate syllable or word-part tiles to form words and then manipulate words to form useful sentences inside the mission.
 - Mission lessons declare `experience_type: mission`, a positive `content_revision`, a presentation contract, ordered chapters, and one chapter ID per card. They retain internal stage values only to select engine behavior; the learner sees one continuous mission with beat progress, not the standard five-stage journey or section picker.
-- Unit 1 Lesson 1.10 has exactly 22 contiguous beats. Its successful-path language covers the exact 46-item union of vocabulary introduced in Lessons 1.1-1.8—including `Who is he?`, `Who is she?`, and `Who are they?`—without using unintroduced English. Each beat advances the same family story and uses a fresh, unambiguous hero still; exact assets from Lessons 1.1-1.9 and another mission beat's hero are not valid substitutes.
-- Lesson 1.10's fixed narrative map is `open-album` (beats 1-5), `build-family` (6-13), `restore-memories` (14-20), and `record-and-reveal` (21-22). A chapter may change the objective and visual state, but it does not reopen a standard lesson section or reset mission progress.
+- Unit 1 Lesson 1.10 has exactly 22 contiguous beats. Its assessed successful-path language outside M01's guided mechanic tutorial covers the exact 46-item union of vocabulary introduced in Lessons 1.1-1.8—including `Who is he?`, `Who is she?`, and `Who are they?`—without using unintroduced English. The studio is the narrative wrapper; the foregrounded outcome is mastery of people, family, actions, articles, singular/plural, pronouns, `is`/`are`, `and`, and `not`.
+- Lesson 1.10's fixed narrative map is `casting-call` (beats 1-5), `build-the-cast` (6-13), `shoot-and-edit` (14-20), and `record-and-premiere` (21-22). Its opening casting loop changes task in the exact M02-M07 rhythm `spatial match -> script clue -> spatial match -> truth stamp -> role match -> generation match`; it never presents six copies of the same board, and no interaction repeats more than twice. Every beat declares an explicit Spanish instruction, a visible Spanish success outcome, and a unique `a1_u1_studio_*` visual contract key. All 22 beats bind distinct reviewed non-album studio stills; retired album assets are not valid placeholders, even when copied under a new filename, and their byte hashes are excluded from active mission media. A chapter may change the objective and visual state, but it does not reopen a standard lesson section or reset mission progress.
 
 ## Difficulty Ramp
 
@@ -289,6 +289,10 @@ Mission lesson files additionally declare:
 - learner-facing mission label, title, briefing, completion title, and completion message
 - an ordered list of chapter IDs, titles, and objectives
 - `mission_chapter_id` on every card, with cards following the declared chapter order
+- `instruction_es` and `success_outcome_es` on every card so the action and its consequence are immediately clear
+- `visual_description_es` on every image-backed beat so the same answer-critical people, actions, counts, and local positions are available without sight
+- a unique `mission_visual_key` on every beat; target-board cards also declare labeled `mission_targets` that bind each local slot to exactly one correct option, while any deliberate contrastive distractors remain untargeted
+- optional `mission_tutorial_mode: guided-no-fail` only for an explicitly guided onboarding beat
 
 Units 2-7 are reproducibly generated from the approved course canvas, then exported into embedded mobile Preview snapshots. Automated checks keep the canonical lesson files, standard five-stage sequence, mission metadata and chapter sequence, dependencies, translations, assets, answers, and mobile snapshots synchronized.
 
@@ -324,7 +328,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | `1.7` | What They Are Not Doing | 42-card cumulative rebuild ready for learner review |
 | `1.8` | Who Is He? Who Are They? | 50-card question/answer pairs in all five sections |
 | `1.9` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
-| `1.10` | Family Album Mission | 22-beat continuous family-story mission ready for learner review |
+| `1.10` | People in Action Mission | 22-beat continuous live-studio Unit 1 mastery mission with 22 distinct bound stills, ready for learner review in Preview |
 
 Every standard lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat mission contract for 1.10.
 

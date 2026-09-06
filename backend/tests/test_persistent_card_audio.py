@@ -123,14 +123,77 @@ def copied_asset(asset: CourseAudioAsset, **updates: object) -> CourseAudioAsset
 
 
 class PersistentCardAudioTests(unittest.TestCase):
-    def test_mission_word_parts_bind_answer_audio_without_a_completion_prompt(self):
+    def test_mission_unlock_binds_intro_and_whole_word_without_syllable_audio(self):
         card = LESSONS["lesson-10-family-mission"].cards[0]
-        self.assertEqual("mission-word-parts", card.interaction_type)
+        self.assertIn(card.interaction_type, {"mission-word-parts", "mission-unlock"})
 
         assets = assets_for_card("lesson-10-family-mission", 0, card)
 
         self.assertEqual(["answer"], [asset.variant for asset in assets])
         self.assertEqual(["family"], [asset.text for asset in assets])
+
+        delivered_assets = card.audio_assets
+        intro_assets = [asset for asset in delivered_assets if asset.purpose == "mission-intro"]
+        self.assertEqual(1, len(intro_assets))
+        self.assertEqual("mission-intro", intro_assets[0].variant)
+        self.assertEqual(
+            LESSONS["lesson-10-family-mission"].mission.briefing,
+            intro_assets[0].text,
+        )
+        self.assertEqual(
+            card.prompt_image_url,
+            intro_assets[0].image_ref,
+        )
+        self.assertFalse(any(asset.text in {"FA", "MI", "LY"} for asset in delivered_assets))
+
+    def test_authored_null_suppresses_redundant_mission_listen_answer_audio(self):
+        mission = LESSONS["lesson-10-family-mission"]
+        for slide_id in ("M15", "M17", "M19"):
+            card_index, card = next(
+                (index, candidate)
+                for index, candidate in enumerate(mission.cards)
+                if candidate.slide_id == slide_id
+            )
+            self.assertIsNone(card.answer_audio_text)
+            assets = assets_for_card(mission.id, card_index, card)
+            self.assertTrue(any(asset.purpose == "prompt" for asset in assets))
+            self.assertFalse(
+                any(asset.purpose == "answer" for asset in assets),
+                f"{slide_id} must not bind the model line again as answer audio.",
+            )
+
+        fallback_card = LessonCard(
+            prompt="",
+            audio_text="Choose the boy.",
+            stage="Listen",
+            interaction_type="mission-listen",
+            correct_option_id="boy",
+            options=[ChoiceOption(id="boy", label="The boy is reading.")],
+        )
+        fallback_assets = assets_for_card("lesson-test", 0, fallback_card)
+        self.assertEqual(
+            ["The boy is reading."],
+            [asset.text for asset in fallback_assets if asset.purpose == "answer"],
+        )
+
+    def test_mission_sentence_with_authored_audio_uses_the_spoken_prompt(self):
+        mission = LESSONS["lesson-10-family-mission"]
+        card_index, card = next(
+            (index, candidate)
+            for index, candidate in enumerate(mission.cards)
+            if candidate.slide_id == "M11"
+        )
+
+        assets = assets_for_card(mission.id, card_index, card)
+
+        self.assertEqual(
+            ["Who are they?"],
+            [asset.text for asset in assets if asset.purpose == "prompt"],
+        )
+        self.assertEqual(
+            ["They are the parents."],
+            [asset.text for asset in assets if asset.purpose == "answer"],
+        )
 
     def test_every_course_asset_is_unique_and_bound_to_its_card_visual(self):
         assets = [

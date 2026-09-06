@@ -25,15 +25,24 @@ const interactionVerifier = fs.readFileSync(
   'utf8',
 );
 
-const speakCards = course.flatMap((lesson) => (
+const standardLessons = course.filter((lesson) => lesson.experience_type !== 'mission');
+const speakCards = standardLessons.flatMap((lesson) => (
   lesson.cards
     .filter((card) => card.stage === 'Speak')
     .map((card) => ({ card, lessonId: lesson.id }))
 ));
 const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
+const missionSpeakCards = course
+  .filter((lesson) => lesson.experience_type === 'mission')
+  .flatMap((lesson) => lesson.cards.filter((card) => card.stage === 'Speak'));
 
-assert.equal(speakCards.length, 429, 'The Speak instruction guardrail must inventory every current Speak card.');
-assert.equal(affectedLessons.size, 70, 'The shared Speak instruction must cover every A1 lesson.');
+assert.equal(speakCards.length, 427, 'The shared Speak instruction guardrail must inventory every standard Speak card.');
+assert.equal(affectedLessons.size, 69, 'The shared Speak instruction must cover every standard A1 lesson.');
+assert.equal(missionSpeakCards.length, 2, 'The studio mission must exercise its authored Speak directions.');
+assert.ok(
+  missionSpeakCards.every((card) => card.instruction_es?.trim()),
+  'Mission Speak cards need explicit story-aware Spanish directions.',
+);
 assert.ok(
   speakCards.every(({ card }) => card.prompt.trim()),
   'Speak model phrases must remain authored in the pronunciation card below the header.',
@@ -61,18 +70,18 @@ assert.doesNotMatch(
 );
 assert.match(
   screenSource,
-  /const useCompactSpeakInstruction = usesCompactSpeakInstruction\(currentCard\?\.stage \?\? ''\);/,
-  'The screen must derive compact Speak formatting from the current interaction.',
+  /const useCompactSpeakInstruction = !useMissionInstruction && usesCompactSpeakInstruction\(currentCard\?\.stage \?\? ''\);/,
+  'The screen must derive compact Speak formatting while preserving authored mission directions.',
 );
 assert.match(
   screenSource,
-  /const useCompactHeaderInstruction = useCompactListenInstruction\s*\|\| useCompactRecognizeInstruction\s*\|\| useCompactSpeakInstruction;/,
+  /const useCompactHeaderInstruction = useMissionInstruction[\s\S]*?\|\| useCompactListenInstruction\s*\|\| useCompactRecognizeInstruction\s*\|\| useCompactSpeakInstruction;/,
   'Speak must share the approved compact header formatting with Listen and Recognize instructions.',
 );
 assert.match(
   screenSource,
-  /\{isPronunciation \? pronunciationInstruction\(\) : renderPrompt\(\)\}/,
-  'Pronunciation headers must render the shared Speak instruction.',
+  /\{useMissionInstruction[\s\S]*?\? renderPrompt\(\)[\s\S]*?: isPronunciation[\s\S]*?\? pronunciationInstruction\(\)[\s\S]*?: renderPrompt\(\)\}/,
+  'Mission Speak headers must render authored directions; standard pronunciation headers keep the shared instruction.',
 );
 assert.match(
   screenSource,

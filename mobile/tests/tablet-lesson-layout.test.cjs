@@ -11,6 +11,10 @@ const lessonScreen = fs.readFileSync(
   path.join(mobileRoot, 'src/screens/LessonScreen.tsx'),
   'utf8',
 );
+const missionJourney = fs.readFileSync(
+  path.join(mobileRoot, 'src/components/MissionJourney.tsx'),
+  'utf8',
+);
 const previewLessons = fs.readFileSync(
   path.join(mobileRoot, 'src/previewLessons.ts'),
   'utf8',
@@ -46,6 +50,21 @@ assert.match(
   lessonScreen,
   /lessonStatusPhraseBox:\s*\{[^}]*minHeight:\s*50[^}]*\}[\s\S]*?contentHeaderPhraseBox:\s*\{[^}]*minHeight:\s*76/,
   'The shared journey/context panel and importance box must reserve their full height without clipping.',
+);
+assert.match(
+  lessonScreen,
+  /lessonStatusPortrait:\s*\{[^}]*flexGrow:\s*0[^}]*flexShrink:\s*0[^}]*minHeight:\s*50[^}]*\}[\s\S]*?missionStatusPortrait:\s*\{[^}]*minHeight:\s*78[^}]*\}/,
+  'Portrait mission progress must reserve its baseline height while remaining free to grow with wrapped or enlarged text.',
+);
+assert.doesNotMatch(
+  lessonScreen,
+  /missionStatusPortrait:\s*\{[^}]*(?:height|flexBasis):\s*78/,
+  'Portrait mission progress must never be locked to 78 dp, because enlarged text needs vertical space.',
+);
+assert.doesNotMatch(
+  missionJourney,
+  /numberOfLines=/,
+  'Mission headings and objectives must wrap instead of truncating learner context at narrow widths or large text scales.',
 );
 
 assert.match(
@@ -166,8 +185,8 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /syllables or word parts to whole words[\s\S]*?words to useful sentences/,
-  'Lesson 10 tile play must support the approved word-part-to-sentence progression.',
+  /M01 is a guided, no-fail `FA \| MI \| LY` construction[\s\S]*?completed word/,
+  'Lesson 10 must preserve the approved Spanish-readable syllable kickoff and whole-word audio.',
 );
 assert.match(
   guardrails,

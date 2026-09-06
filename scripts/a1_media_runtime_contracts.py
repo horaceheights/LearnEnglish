@@ -93,10 +93,14 @@ REVIEW_CONTEXT_FIELDS = (
     "source_filename",
     "rendered_filename",
     "prompt",
+    "instruction_es",
+    "visual_description_es",
     "audio_text",
     "answer_audio_text",
     "spanish_translation",
     "correct_option_id",
+    "correct_option_ids",
+    "mission_targets",
     "options",
     "render_profile",
     "render_signature_sha256",
@@ -111,6 +115,11 @@ OPTION_CONTRACT_FIELDS = (
     "source_filename",
     "rendered_filename",
     "is_correct",
+)
+MISSION_TARGET_CONTRACT_FIELDS = (
+    "id",
+    "label",
+    "correct_option_id",
 )
 VALID_MEDIA_ROLES = {
     "prompt",
@@ -135,12 +144,20 @@ LESSON_RENDER_FILES = (
     "mobile/src/components/LessonMediaFrame.tsx",
     "mobile/src/components/OptionMediaImage.tsx",
     "mobile/src/components/LessonCardView.tsx",
+    "mobile/src/components/MissionCompletion.tsx",
     "mobile/src/components/PronunciationPractice.tsx",
+    "frontend/app/globals.css",
     "frontend/components/LessonPlayer.js",
+    "frontend/components/MissionCompletion.js",
 )
 RENDER_PROFILE_SPECS = {
     "lesson-prompt-3x2-v1": {
-        "surfaces": ["mobile LessonCardView", "web LessonPlayer"],
+        "surfaces": [
+            "mobile LessonCardView",
+            "mobile MissionCompletion",
+            "web LessonPlayer",
+            "web MissionCompletion",
+        ],
         "viewport": "responsive 3:2 prompt frame",
         "fit": "cover with reviewed per-asset focal policy",
         "clip": "rounded frame; no overflow",
@@ -316,7 +333,8 @@ def resolved_option_filename(
 def normalized_option_contracts(
     lesson: dict[str, Any], card: dict[str, Any]
 ) -> list[dict[str, Any]]:
-    correct_option_id = str(card.get("correct_option_id") or "")
+    correct_option_ids = normalized_correct_option_ids(card)
+    correct_option_id_set = set(correct_option_ids)
     options = card.get("options") or []
     if not isinstance(options, list):
         raise ValueError("card options must be a list")
@@ -350,7 +368,34 @@ def normalized_option_contracts(
                 "label": label,
                 "source_filename": source_filename or None,
                 "rendered_filename": rendered_filename or None,
-                "is_correct": option_id == correct_option_id,
+                "is_correct": option_id in correct_option_id_set,
+            }
+        )
+    return normalized
+
+
+def normalized_correct_option_ids(card: dict[str, Any]) -> list[str]:
+    raw_correct_option_ids = card.get("correct_option_ids")
+    if raw_correct_option_ids:
+        if not isinstance(raw_correct_option_ids, list):
+            raise ValueError("card correct_option_ids must be a list")
+        return [str(option_id or "") for option_id in raw_correct_option_ids]
+    return [str(card.get("correct_option_id") or "")]
+
+
+def normalized_mission_targets(card: dict[str, Any]) -> list[dict[str, str]]:
+    raw_targets = card.get("mission_targets") or []
+    if not isinstance(raw_targets, list):
+        raise ValueError("card mission_targets must be a list")
+    normalized: list[dict[str, str]] = []
+    for index, target in enumerate(raw_targets, 1):
+        if not isinstance(target, dict):
+            raise ValueError(f"card mission target {index} must be an object")
+        normalized.append(
+            {
+                "id": str(target.get("id") or ""),
+                "label": str(target.get("label") or ""),
+                "correct_option_id": str(target.get("correct_option_id") or ""),
             }
         )
     return normalized
@@ -362,6 +407,8 @@ def card_media_usages(
     """Return every still-image use with its complete learner-facing card context."""
 
     options = normalized_option_contracts(lesson, card)
+    correct_option_ids = normalized_correct_option_ids(card)
+    mission_targets = normalized_mission_targets(card)
     common = {
         "context_type": "lesson_card",
         "lesson_id": str(lesson.get("id") or ""),
@@ -376,6 +423,16 @@ def card_media_usages(
         ),
         "surface_label": None,
         "prompt": str(card.get("prompt") or ""),
+        "instruction_es": (
+            None
+            if card.get("instruction_es") is None
+            else str(card.get("instruction_es"))
+        ),
+        "visual_description_es": (
+            None
+            if card.get("visual_description_es") is None
+            else str(card.get("visual_description_es"))
+        ),
         "audio_text": (
             None if card.get("audio_text") is None else str(card.get("audio_text"))
         ),
@@ -390,6 +447,8 @@ def card_media_usages(
             else str(card.get("spanish_translation"))
         ),
         "correct_option_id": str(card.get("correct_option_id") or ""),
+        "correct_option_ids": correct_option_ids,
+        "mission_targets": mission_targets,
         "options": options,
     }
     usages: list[dict[str, Any]] = []
@@ -570,10 +629,14 @@ def course_browser_media_usages(
             "source_filename": filename,
             "rendered_filename": filename,
             "prompt": entry["description"],
+            "instruction_es": None,
+            "visual_description_es": None,
             "audio_text": None,
             "answer_audio_text": None,
             "spanish_translation": None,
             "correct_option_id": None,
+            "correct_option_ids": [],
+            "mission_targets": [],
             "options": [],
             "render_profile": render_profile,
             "render_signature_sha256": render_profile_sha256(render_profile),
@@ -684,6 +747,8 @@ def validate_review_context(
         "answer_audio_text",
         "spanish_translation",
         "correct_option_id",
+        "instruction_es",
+        "visual_description_es",
     ):
         if value[field] is not None and not isinstance(value[field], str):
             raise ValueError(f"review context {field} must be text or null")
@@ -809,6 +874,10 @@ def validate_review_context(
             raise ValueError("course-browser context options must be empty")
         if value["correct_option_id"] is not None:
             raise ValueError("course-browser context cannot claim a correct option")
+        if value["correct_option_ids"]:
+            raise ValueError("course-browser context cannot claim correct options")
+        if value["mission_targets"]:
+            raise ValueError("course-browser context cannot claim mission targets")
         if not isinstance(value["surface_label"], str) or not value["surface_label"]:
             raise ValueError("course-browser context must bind a visible surface label")
         if not value["prompt"]:
@@ -821,7 +890,13 @@ def validate_review_context(
                 f"course-browser role {media_role!r} requires interaction_type "
                 f"{expected_interaction!r}"
             )
-        for field in ("audio_text", "answer_audio_text", "spanish_translation"):
+        for field in (
+            "instruction_es",
+            "visual_description_es",
+            "audio_text",
+            "answer_audio_text",
+            "spanish_translation",
+        ):
             if value[field] is not None:
                 raise ValueError(f"course-browser context {field} must be null")
         return {field: value[field] for field in REVIEW_CONTEXT_FIELDS}
@@ -830,9 +905,56 @@ def validate_review_context(
         raise ValueError("lesson-card context surface_label must be null")
     if not isinstance(value["correct_option_id"], str) or not value["correct_option_id"]:
         raise ValueError("lesson-card context correct_option_id must be non-empty text")
+    correct_option_ids = value["correct_option_ids"]
+    if not isinstance(correct_option_ids, list) or not correct_option_ids:
+        raise ValueError("lesson-card context correct_option_ids must be a non-empty list")
+    if any(
+        not isinstance(option_id, str) or not option_id
+        for option_id in correct_option_ids
+    ):
+        raise ValueError("review context correct_option_ids must contain non-empty text")
+    if len(correct_option_ids) != len(set(correct_option_ids)):
+        raise ValueError("review context correct_option_ids must be unique")
+    if value["correct_option_id"] != correct_option_ids[0]:
+        raise ValueError(
+            "review context correct_option_id must match the first ordered correct option"
+        )
+
+    mission_targets = value["mission_targets"]
+    if not isinstance(mission_targets, list):
+        raise ValueError("review context mission_targets must be a list")
+    normalized_targets: list[dict[str, str]] = []
+    target_ids: set[str] = set()
+    for index, target in enumerate(mission_targets, 1):
+        if (
+            not isinstance(target, dict)
+            or set(target) != set(MISSION_TARGET_CONTRACT_FIELDS)
+        ):
+            raise ValueError(f"review context mission target {index} has invalid fields")
+        normalized_target = {
+            field: target[field] for field in MISSION_TARGET_CONTRACT_FIELDS
+        }
+        for field, field_value in normalized_target.items():
+            if not isinstance(field_value, str) or not field_value:
+                raise ValueError(
+                    f"review context mission target {index} {field} must be non-empty text"
+                )
+        if normalized_target["id"] in target_ids:
+            raise ValueError(
+                f"review context has duplicate mission target id {normalized_target['id']!r}"
+            )
+        target_ids.add(normalized_target["id"])
+        normalized_targets.append(normalized_target)
+    if normalized_targets and [
+        target["correct_option_id"] for target in normalized_targets
+    ] != correct_option_ids:
+        raise ValueError(
+            "review context mission target order must match correct_option_ids"
+        )
     if not options:
         raise ValueError("lesson-card context options must be a non-empty list")
     correct_count = 0
+    correct_option_id_set = set(correct_option_ids)
     option_ids: set[str] = set()
     normalized_options: list[dict[str, Any]] = []
     for index, option in enumerate(options, 1):
@@ -874,15 +996,19 @@ def validate_review_context(
                 )
         if not isinstance(option["is_correct"], bool):
             raise ValueError(f"review context option {index} is_correct must be boolean")
+        expected_is_correct = option["id"] in correct_option_id_set
+        if option["is_correct"] != expected_is_correct:
+            raise ValueError(
+                f"review context option {index} correctness contradicts correct_option_ids"
+            )
         correct_count += int(option["is_correct"])
         normalized_options.append({field: option[field] for field in OPTION_CONTRACT_FIELDS})
-    if correct_count != 1:
-        raise ValueError("review context options must contain exactly one correct option")
-    if not any(
-        option["id"] == value["correct_option_id"] and option["is_correct"]
-        for option in normalized_options
-    ):
-        raise ValueError("review context correct_option_id does not identify the correct option")
+    if correct_count != len(correct_option_ids):
+        raise ValueError(
+            "review context options must contain every declared correct option exactly once"
+        )
+    if not correct_option_id_set.issubset(option_ids):
+        raise ValueError("review context correct_option_ids reference missing options")
     if media_role == "option":
         selected = [
             option for option in normalized_options if option["id"] == value["option_id"]
@@ -903,6 +1029,14 @@ def validate_review_context(
                 )
 
     return {
-        field: normalized_options if field == "options" else value[field]
+        field: (
+            normalized_options
+            if field == "options"
+            else normalized_targets
+            if field == "mission_targets"
+            else list(correct_option_ids)
+            if field == "correct_option_ids"
+            else value[field]
+        )
         for field in REVIEW_CONTEXT_FIELDS
     }

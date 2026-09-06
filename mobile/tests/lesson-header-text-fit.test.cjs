@@ -39,8 +39,8 @@ assert.ok(
 
 assert.match(
   screenSource,
-  /<Text\s+adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{useCompactHeaderInstruction \? undefined : 0\.45\}\s+numberOfLines=\{2\}/,
-  'Authored lesson phrases must use native largest-text-that-fits behavior within two lines.',
+  /<Text\s+adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{useCompactHeaderInstruction \? undefined : 0\.45\}\s+numberOfLines=\{useMissionInstruction \? undefined : 2\}/,
+  'Ordinary authored phrases must retain two-line native fitting while mission instructions remain unbounded.',
 );
 assert.match(
   screenSource,

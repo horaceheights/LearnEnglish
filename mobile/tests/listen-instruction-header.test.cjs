@@ -60,7 +60,11 @@ for (const count of [2, 3, 4]) {
 }
 assert.equal(listeningChoiceInstruction([]), '¡Escucha y elige!');
 assert.equal(listeningChoiceInstruction([{ image_url: 'photo.webp' }, {}]), '¡Escucha y elige!');
-assert.match(screenSource, /const localizedPrompt = useCompactListenInstruction\s*\? listeningChoiceInstruction\(currentCard\.options\)/);
+assert.match(
+  screenSource,
+  /const localizedPrompt = useMissionInstruction[\s\S]*?\? missionInstruction[\s\S]*?: useCompactListenInstruction[\s\S]*?\? listeningChoiceInstruction\(currentCard\.options\)/,
+  'Authored mission directions must take priority without changing standard Listen localization.',
+);
 assert.match(screenSource, /`Instrucción: \$\{listeningChoiceInstruction\(currentCard\.options\)\}`/);
 assert.ok(
   listenCards.every((card) => card.prompt.trim() === 'Listen and choose.'),
@@ -89,8 +93,8 @@ assert.match(
 
 assert.match(
   screenSource,
-  /const useCompactListenInstruction = usesCompactListenInstruction\(\s*currentCard\?\.stage \?\? '',\s*currentCard\?\.prompt \?\? '',\s*\);/,
-  'The screen must apply the shared condition to the current card only.',
+  /const useCompactListenInstruction = !useMissionInstruction && usesCompactListenInstruction\(\s*currentCard\?\.stage \?\? '',\s*currentCard\?\.prompt \?\? '',\s*\);/,
+  'The screen must apply the shared condition to the current card while preserving authored mission directions.',
 );
 assert.doesNotMatch(
   screenSource,
@@ -99,7 +103,7 @@ assert.doesNotMatch(
 );
 assert.match(
   screenSource,
-  /const useCompactHeaderInstruction = useCompactListenInstruction\s*\|\| useCompactRecognizeInstruction\s*\|\| useCompactSpeakInstruction;[\s\S]*const promptFontSize = useCompactHeaderInstruction\s*\? 14\s*:\s*basePromptFontSize/,
+  /const useCompactHeaderInstruction = useMissionInstruction[\s\S]*?\|\| useCompactListenInstruction\s*\|\| useCompactRecognizeInstruction\s*\|\| useCompactSpeakInstruction;[\s\S]*const promptFontSize = useCompactHeaderInstruction\s*\? 14\s*:\s*basePromptFontSize/,
   'Instruction-only Listen prompts must be 14 dp while learning phrases keep the responsive base size.',
 );
 assert.match(

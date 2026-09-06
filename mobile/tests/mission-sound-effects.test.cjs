@@ -16,6 +16,14 @@ const cardView = fs.readFileSync(
   path.join(mobileRoot, 'src', 'components', 'LessonCardView.tsx'),
   'utf8',
 );
+const missionBoard = fs.readFileSync(
+  path.join(mobileRoot, 'src', 'components', 'MissionTileBoard.tsx'),
+  'utf8',
+);
+const missionKickoff = fs.readFileSync(
+  path.join(mobileRoot, 'src', 'components', 'MissionKickoff.tsx'),
+  'utf8',
+);
 const pronunciationPractice = fs.readFileSync(
   path.join(mobileRoot, 'src', 'components', 'PronunciationPractice.tsx'),
   'utf8',
@@ -106,13 +114,16 @@ test('global decorative cues honor silent mode with fatigue-safe volumes', () =>
 test('mission semantics are metadata-driven and retain visible equivalents', () => {
   assert.match(lessonScreen, /enabled: missionExperience/);
   assert.match(lessonScreen, /reducedStimulation: reduceMotion/);
-  assert.match(lessonScreen, /nextSelectedIds\.length < correctOptionIds\.length[\s\S]*?playMissionSound\('tile-place'\)/);
+  assert.match(lessonScreen, /edit === 'place' \|\| edit === 'move'[\s\S]*?playMissionSound\('tile-place'\)/);
+  assert.match(lessonScreen, /onTutorialTilePlaced=\{\(\) => playMissionSound\('tile-place'\)\}/);
+  assert.match(lessonScreen, /completeMissionTutorial[\s\S]*?playMissionSound\('page-restored'\)/);
   assert.match(lessonScreen, /playMissionSound\(missionSuccessSoundEvent\(currentCard\)\)/);
   assert.match(lessonScreen, /playMissionSound\('try-again'\)/);
   assert.match(lessonScreen, /playMissionSound\('page-turn'\)/);
   assert.match(lessonScreen, /isComplete && missionExperience[\s\S]*?playMissionSound\('mission-finale'\)/);
   assert.match(soundEffects, /card\.stage === 'Speak'[\s\S]*?'voice-stamp'[\s\S]*?'page-restored'/);
   assert.doesNotMatch(soundEffects, /lesson-10-family-mission/);
-  assert.match(cardView, /accessibilityLiveRegion="polite"/);
+  assert.match(missionBoard, /accessibilityLiveRegion="polite"/);
+  assert.match(missionKickoff, /accessibilityLiveRegion="polite"/);
   assert.match(cardView, /result === 'correct'[\s\S]*?Inténtalo de nuevo/);
 });

@@ -158,12 +158,12 @@ assert.deepEqual(
     label: group.label,
   })),
   [
-    { cardIndexes: [0, 1, 2, 3, 4], label: 'Abre el álbum' },
-    { cardIndexes: [5, 6, 7, 8, 9, 10, 11, 12], label: 'Reconstruye la familia' },
-    { cardIndexes: [13, 14, 15, 16, 17, 18, 19], label: 'Recupera los recuerdos' },
-    { cardIndexes: [20, 21], label: 'Devuelve la voz' },
+    { cardIndexes: [0, 1, 2, 3, 4], label: 'Llamado a casting' },
+    { cardIndexes: [5, 6, 7, 8, 9, 10, 11, 12], label: 'Arma el elenco' },
+    { cardIndexes: [13, 14, 15, 16, 17, 18, 19], label: 'Graba y edita' },
+    { cardIndexes: [20, 21], label: 'Última toma y estreno' },
   ],
-  'Engine QA must expose all four authored mission chapters in story order with global card indexes.',
+  'Engine QA must expose all four live-studio challenge chapters in story order with global card indexes.',
 );
 
 console.log('Mission experience helper checks passed.');

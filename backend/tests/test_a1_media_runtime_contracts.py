@@ -57,6 +57,43 @@ def option_context(card: dict[str, object], option_id: str = "boy") -> dict[str,
     )
 
 
+def prompt_context(card: dict[str, object]) -> dict[str, object]:
+    usages = card_media_usages(LESSON, card)
+    return next(
+        usage["context"]
+        for usage in usages
+        if usage["context"]["media_role"] == "prompt"
+    )
+
+
+def mission_match_card() -> dict[str, object]:
+    card = image_choice_card()
+    card.update(
+        {
+            "interaction_type": "mission-match",
+            "correct_option_ids": ["boy", "girl"],
+            "mission_targets": [
+                {
+                    "id": "left-person",
+                    "label": "Persona izquierda",
+                    "correct_option_id": "boy",
+                },
+                {
+                    "id": "right-person",
+                    "label": "Persona derecha",
+                    "correct_option_id": "girl",
+                },
+            ],
+            "instruction_es": "Relaciona cada frase con la persona correcta.",
+            "visual_description_es": (
+                "Un niño aparece a la izquierda y una niña a la derecha."
+            ),
+            "prompt_image_url": "/lesson-assets/boy.webp",
+        }
+    )
+    return card
+
+
 def canonical_context(context: dict[str, object]) -> bytes:
     normalized = validate_review_context(context)
     return json.dumps(
@@ -110,6 +147,68 @@ class A1MediaRuntimeContractTests(unittest.TestCase):
                 changed_card[field] = value
                 changed = canonical_context(option_context(changed_card))
                 self.assertNotEqual(original, changed)
+
+    def test_multi_target_mission_binds_every_answer_and_spatial_instruction(self) -> None:
+        context = prompt_context(mission_match_card())
+
+        self.assertEqual(context["correct_option_ids"], ["boy", "girl"])
+        self.assertEqual(
+            context["mission_targets"],
+            [
+                {
+                    "id": "left-person",
+                    "label": "Persona izquierda",
+                    "correct_option_id": "boy",
+                },
+                {
+                    "id": "right-person",
+                    "label": "Persona derecha",
+                    "correct_option_id": "girl",
+                },
+            ],
+        )
+        self.assertEqual(
+            [option["is_correct"] for option in context["options"]],
+            [True, True],
+        )
+        self.assertEqual(
+            context["instruction_es"],
+            "Relaciona cada frase con la persona correcta.",
+        )
+        self.assertEqual(
+            context["visual_description_es"],
+            "Un niño aparece a la izquierda y una niña a la derecha.",
+        )
+        self.assertEqual(validate_review_context(context), context)
+
+    def test_mission_semantic_mutations_change_or_invalidate_context(self) -> None:
+        original_card = mission_match_card()
+        original = canonical_context(prompt_context(original_card))
+
+        for field, value in (
+            ("instruction_es", "Coloca las frases bajo cada retrato."),
+            ("visual_description_es", "Una niña aparece a la izquierda."),
+        ):
+            with self.subTest(mutation=field):
+                changed_card = copy.deepcopy(original_card)
+                changed_card[field] = value
+                self.assertNotEqual(
+                    original,
+                    canonical_context(prompt_context(changed_card)),
+                )
+
+        changed_target = copy.deepcopy(original_card)
+        changed_target["mission_targets"][0]["label"] = "Retrato izquierdo"
+        self.assertNotEqual(
+            original,
+            canonical_context(prompt_context(changed_target)),
+        )
+
+        mismatched_order = copy.deepcopy(original_card)
+        mismatched_order["correct_option_ids"] = ["girl", "boy"]
+        mismatched_order["correct_option_id"] = "girl"
+        with self.assertRaisesRegex(ValueError, "target order must match"):
+            canonical_context(prompt_context(mismatched_order))
 
     def test_prompt_and_option_roles_have_distinct_canonical_contexts(self) -> None:
         card = image_choice_card()

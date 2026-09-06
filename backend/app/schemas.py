@@ -60,6 +60,7 @@ class LessonCard(BaseModel):
     audio_text: str | None = None
     answer_audio_text: str | None = None
     prompt_image_url: str = ""
+    visual_description_es: str | None = None
     spanish_translation: str | None = None
     pedagogy_note: str | None = None
     audio_speaker: str | None = None
@@ -71,15 +72,82 @@ class LessonCard(BaseModel):
     audio_assets: list[CourseAudioAsset] = Field(default_factory=list)
 
 
+class MissionTarget(BaseModel):
+    id: str = Field(min_length=1)
+    label: str = Field(min_length=1)
+    correct_option_id: str = Field(min_length=1)
+
+    @field_validator("id", "label", "correct_option_id")
+    @classmethod
+    def require_exact_nonempty_value(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Mission target values must not be blank.")
+        if value != value.strip():
+            raise ValueError(
+                "Mission target values must not have leading or trailing whitespace."
+            )
+        return value
+
+
 class MissionLessonCard(LessonCard):
     mission_chapter_id: str = Field(min_length=1)
+    mission_visual_key: str = Field(min_length=1)
+    instruction_es: str = Field(min_length=1)
+    success_outcome_es: str = Field(min_length=1)
+    mission_tutorial_mode: Literal["guided-no-fail"] | None = None
+    mission_targets: list[MissionTarget] = Field(default_factory=list)
 
-    @field_validator("mission_chapter_id")
+    @field_validator(
+        "mission_chapter_id",
+        "mission_visual_key",
+        "instruction_es",
+        "success_outcome_es",
+    )
     @classmethod
-    def require_exact_chapter_id(cls, value: str) -> str:
+    def require_exact_card_value(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("Mission card values must not be blank.")
         if value != value.strip():
-            raise ValueError("Mission chapter IDs must not have surrounding whitespace.")
+            raise ValueError("Mission card values must not have surrounding whitespace.")
         return value
+
+    @model_validator(mode="after")
+    def require_valid_mission_targets(self):
+        target_interactions = {"mission-match", "mission-truth-stamp"}
+        option_ids = {option.id for option in self.options}
+        target_ids = [target.id for target in self.mission_targets]
+        if len(target_ids) != len(set(target_ids)):
+            raise ValueError("Mission target IDs must be unique within a card.")
+        target_option_ids = [target.correct_option_id for target in self.mission_targets]
+        if len(target_option_ids) != len(set(target_option_ids)):
+            raise ValueError(
+                "Mission targets must not reuse one answer option across multiple targets."
+            )
+        missing_option_ids = sorted(
+            {
+                target.correct_option_id
+                for target in self.mission_targets
+                if target.correct_option_id not in option_ids
+            }
+        )
+        if missing_option_ids:
+            raise ValueError(
+                "Mission targets reference missing option IDs: "
+                + ", ".join(missing_option_ids)
+                + "."
+            )
+        if self.interaction_type == "mission-match" and not self.mission_targets:
+            raise ValueError("mission-match cards require at least one mission target.")
+        expected_correct_ids = self.correct_option_ids or [self.correct_option_id]
+        if self.mission_targets and target_option_ids != expected_correct_ids:
+            raise ValueError(
+                "Mission target order must match the card's correct option order."
+            )
+        if self.interaction_type not in target_interactions and self.mission_targets:
+            raise ValueError(
+                "Only target-based mission interactions may declare mission targets."
+            )
+        return self
 
 
 class MissionChapter(BaseModel):

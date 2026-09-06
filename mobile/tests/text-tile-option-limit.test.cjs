@@ -13,7 +13,10 @@ let textTileCards = 0;
 let missionConstructionBanks = 0;
 const missionConstructionInteractions = new Set([
   'mission-word-parts',
+  'mission-unlock',
+  'mission-match',
   'mission-sentence',
+  'mission-truth-stamp',
   'mission-finale',
 ]);
 

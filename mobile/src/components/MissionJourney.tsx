@@ -14,9 +14,9 @@ type Props = {
 };
 
 const CHAPTER_ICONS: Array<keyof typeof Ionicons.glyphMap> = [
-  'book-outline',
+  'videocam-outline',
   'people-outline',
-  'images-outline',
+  'walk-outline',
   'mic-outline',
 ];
 
@@ -34,28 +34,28 @@ export function MissionJourney({
   return (
     <View
       accessible
-      accessibilityLabel={`${presentation.label}: ${presentation.title}. ${activeChapter?.title ?? ''}. Paso ${step} de ${total}.`}
+      accessibilityLabel={`${presentation.label}: ${presentation.title}. ${activeChapter?.title ?? ''}: ${activeChapter?.objective ?? ''}. Escena ${step} de ${total}.`}
       style={[styles.container, compact ? styles.containerCompact : null]}
     >
       <View style={styles.headingRow}>
-        <View style={[styles.albumBadge, compact ? styles.albumBadgeCompact : null]}>
-          <Ionicons color="#fff8e5" name="book" size={compact ? 19 : 23} />
+        <View style={[styles.studioBadge, compact ? styles.studioBadgeCompact : null]}>
+          <Ionicons color="#f7cf63" name="videocam" size={compact ? 19 : 23} />
         </View>
         <View style={styles.headingCopy}>
-          <Text numberOfLines={1} style={[styles.label, compact ? styles.labelCompact : null]}>
+          <Text style={[styles.label, compact ? styles.labelCompact : null]}>
             {presentation.label} · {location}
           </Text>
-          <Text numberOfLines={1} style={[styles.title, compact ? styles.titleCompact : null]}>
+          <Text style={[styles.title, compact ? styles.titleCompact : null]}>
             {presentation.title}
           </Text>
         </View>
         <View style={styles.counter}>
-          <Text style={styles.counterLabel}>PÁGINA</Text>
+          <Text style={styles.counterLabel}>ESCENA</Text>
           <Text style={styles.counterValue}>{step}/{total}</Text>
         </View>
       </View>
 
-      <View style={[styles.chapterTrack, compact ? styles.chapterTrackCompact : null]}>
+      <View accessibilityLabel="Progreso de escenas" style={[styles.chapterTrack, compact ? styles.chapterTrackCompact : null]}>
         <View style={[styles.progressFill, { width: `${progress}%` }]} />
         {chapters.map((chapter, index) => (
           <View
@@ -76,11 +76,11 @@ export function MissionJourney({
         ))}
       </View>
 
-      <View style={styles.objectiveRow}>
-        <Text numberOfLines={1} style={[styles.chapterTitle, compact ? styles.chapterTitleCompact : null]}>
+      <View style={[styles.objectiveRow, compact ? styles.objectiveRowCompact : null]}>
+        <Text style={[styles.chapterTitle, compact ? styles.chapterTitleCompact : null]}>
           {activeChapter?.title}
         </Text>
-        <Text numberOfLines={compact ? 1 : 2} style={[styles.objective, compact ? styles.objectiveCompact : null]}>
+        <Text style={[styles.objective, compact ? styles.objectiveCompact : null]}>
           {activeChapter?.objective}
         </Text>
       </View>
@@ -101,31 +101,35 @@ const styles = StyleSheet.create({
     paddingVertical: 7,
   },
   containerCompact: { borderRadius: 13, paddingHorizontal: 8, paddingVertical: 4 },
-  headingRow: { alignItems: 'center', flexDirection: 'row', minWidth: 0 },
-  albumBadge: {
+  headingRow: { alignItems: 'flex-start', flexDirection: 'row', minWidth: 0 },
+  studioBadge: {
     alignItems: 'center',
-    backgroundColor: '#7b4b2a',
-    borderRadius: 10,
+    backgroundColor: '#1d292e',
+    borderColor: '#d2aa4f',
+    borderRadius: 8,
+    borderWidth: 2,
     height: 38,
     justifyContent: 'center',
     marginRight: 8,
     width: 38,
   },
-  albumBadgeCompact: { borderRadius: 8, height: 30, marginRight: 6, width: 30 },
+  studioBadgeCompact: { borderRadius: 7, height: 30, marginRight: 6, width: 30 },
   headingCopy: { flex: 1, minWidth: 0 },
-  label: { color: '#b36518', fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },
-  labelCompact: { fontSize: 7 },
-  title: { color: '#26363b', fontSize: 17, fontWeight: '900', lineHeight: 20 },
-  titleCompact: { fontSize: 14, lineHeight: 16 },
+  label: { color: '#b36518', fontSize: 16, fontWeight: '900', letterSpacing: 0.5, lineHeight: 20 },
+  labelCompact: { fontSize: 16, lineHeight: 20 },
+  title: { color: '#26363b', fontSize: 20, fontWeight: '900', lineHeight: 24 },
+  titleCompact: { fontSize: 20, lineHeight: 24 },
   counter: { alignItems: 'center', marginLeft: 7, minWidth: 48 },
-  counterLabel: { color: '#94754f', fontSize: 7, fontWeight: '900', letterSpacing: 0.7 },
-  counterValue: { color: '#1c6a5a', fontSize: 13, fontWeight: '900' },
+  counterLabel: { color: '#94754f', fontSize: 12, fontWeight: '900', letterSpacing: 0.5 },
+  counterValue: { color: '#1c6a5a', fontSize: 16, fontWeight: '900' },
   chapterTrack: {
     alignItems: 'center',
-    backgroundColor: '#dfd8c8',
-    borderRadius: 8,
+    backgroundColor: '#202a2e',
+    borderColor: '#0d1214',
+    borderRadius: 4,
+    borderWidth: 2,
     flexDirection: 'row',
-    height: 10,
+    height: 12,
     justifyContent: 'space-between',
     marginHorizontal: 9,
     marginTop: 7,
@@ -134,8 +138,8 @@ const styles = StyleSheet.create({
   },
   chapterTrackCompact: { height: 7, marginTop: 5 },
   progressFill: {
-    backgroundColor: '#58a88a',
-    borderRadius: 8,
+    backgroundColor: '#d8ad45',
+    borderRadius: 2,
     bottom: 0,
     left: 0,
     position: 'absolute',
@@ -143,20 +147,21 @@ const styles = StyleSheet.create({
   },
   chapterMarker: {
     alignItems: 'center',
-    backgroundColor: '#fffdf6',
-    borderColor: '#bcb5a7',
-    borderRadius: 13,
+    backgroundColor: '#fff8df',
+    borderColor: '#2c383d',
+    borderRadius: 5,
     borderWidth: 1.5,
     height: 26,
     justifyContent: 'center',
     width: 26,
   },
-  chapterMarkerActive: { backgroundColor: '#ffe5a7', borderColor: '#7b4b2a', borderWidth: 2 },
+  chapterMarkerActive: { backgroundColor: '#ffe5a7', borderColor: '#c65b32', borderWidth: 2 },
   chapterMarkerComplete: { backgroundColor: '#2f8f72', borderColor: '#1d7058' },
   chapterMarkerLocked: { opacity: 0.5 },
-  objectiveRow: { alignItems: 'baseline', flexDirection: 'row', gap: 6, marginTop: 7, minWidth: 0 },
-  chapterTitle: { color: '#64401d', flexShrink: 0, fontSize: 11, fontWeight: '900' },
-  chapterTitleCompact: { fontSize: 9 },
-  objective: { color: '#5e696c', flex: 1, fontSize: 10, lineHeight: 13 },
-  objectiveCompact: { fontSize: 8, lineHeight: 10 },
+  objectiveRow: { alignItems: 'flex-start', gap: 2, marginTop: 7, minWidth: 0 },
+  objectiveRowCompact: { marginTop: 5 },
+  chapterTitle: { color: '#64401d', fontSize: 16, fontWeight: '900', lineHeight: 20 },
+  chapterTitleCompact: { fontSize: 16, lineHeight: 20 },
+  objective: { color: '#5e696c', fontSize: 16, lineHeight: 21 },
+  objectiveCompact: { fontSize: 16, lineHeight: 21 },
 });

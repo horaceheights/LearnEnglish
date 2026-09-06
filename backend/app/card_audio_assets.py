@@ -55,6 +55,14 @@ def _correct_option(card: LessonCard):
     return next((option for option in card.options if option.id == card.correct_option_id), None)
 
 
+def _field_was_authored(card: LessonCard, field_name: str) -> bool:
+    """Distinguish an explicit null contract from an omitted optional field."""
+    fields_set = getattr(card, "model_fields_set", None)
+    if fields_set is None:
+        fields_set = getattr(card, "__fields_set__", set())
+    return field_name in fields_set
+
+
 def card_image_ref(card: LessonCard) -> str:
     """Return the exact canonical visual that the model clip teaches."""
     if card.prompt_image_url.strip():
@@ -202,15 +210,22 @@ def _turn_assets(
 def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[CourseAudioAsset]:
     assets: list[CourseAudioAsset] = []
     # A word-parts board uses several visual slots to assemble one continuous
-    # word (for example fam + i + ly). It has no meaningful pre-answer spoken
+    # word (for example FA + MI + LY). It has no meaningful pre-answer spoken
     # fragment, so bind only its completed-word answer audio.
-    is_word_parts_board = card.interaction_type == "mission-word-parts"
+    is_word_parts_board = card.interaction_type in {
+        "mission-word-parts",
+        "mission-unlock",
+    }
     raw_prompt = (
         ""
         if is_word_parts_board
         else (card.audio_text if card.audio_text is not None else card.prompt).strip()
     )
-    has_blank = not is_word_parts_board and bool(
+    has_authored_mission_prompt = (
+        str(card.interaction_type or "").startswith("mission-")
+        and bool((card.audio_text or "").strip())
+    )
+    has_blank = not is_word_parts_board and not has_authored_mission_prompt and bool(
         VISUAL_PLACEHOLDER_PATTERN.search(card.prompt)
         or VISUAL_PLACEHOLDER_PATTERN.search(raw_prompt)
     )
@@ -294,7 +309,14 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
             ))
 
     correct = _correct_option(card)
-    answer_text = (
+    suppress_answer_fallback = (
+        card.stage == "Listen"
+        and str(card.interaction_type or "").startswith("mission-")
+        and bool((card.audio_text or "").strip())
+        and card.answer_audio_text is None
+        and _field_was_authored(card, "answer_audio_text")
+    )
+    answer_text = "" if suppress_answer_fallback else (
         (card.answer_audio_text or "").strip()
         or ((correct.label or "").strip() if correct else "")
         or raw_prompt
@@ -336,6 +358,28 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
 def bind_lesson_audio_assets(lesson: Lesson) -> Lesson:
     for card_index, card in enumerate(lesson.cards):
         card.audio_assets = assets_for_card(lesson.id, card_index, card)
+
+    # Mission onboarding lives before the first scored beat, but its narration
+    # still needs the same immutable, reviewed, preloaded contract as card audio.
+    # Binding it to card zero keeps the existing delivery/cache pipeline intact
+    # without inventing an unscored twenty-third card.
+    mission = getattr(lesson, "mission", None)
+    briefing = getattr(mission, "briefing", "") if mission is not None else ""
+    if lesson.cards and isinstance(briefing, str) and briefing.strip():
+        first_card = lesson.cards[0]
+        intro_asset = _asset(
+            lesson.id,
+            0,
+            first_card,
+            purpose="mission-intro",
+            text=briefing,
+            mode="prompt",
+            variant="mission-intro",
+            semantic_role="teacher",
+            speaker_role="teacher",
+            revision=int(getattr(lesson, "content_revision", 1)),
+        )
+        first_card.audio_assets = [intro_asset, *first_card.audio_assets]
     return lesson
 
 

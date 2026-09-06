@@ -23,6 +23,12 @@ export type CourseAudioTurn = {
   image_url: string;
 };
 
+export type MissionTarget = {
+  id: string;
+  label: string;
+  correct_option_id: string;
+};
+
 export type LessonCard = {
   slide_id?: string | null;
   interaction_type?: string | null;
@@ -34,6 +40,8 @@ export type LessonCard = {
   audio_text: string | null;
   answer_audio_text: string | null;
   prompt_image_url: string;
+  instruction_es?: string | null;
+  visual_description_es?: string | null;
   spanish_translation?: string | null;
   pedagogy_note?: string | null;
   audio_speaker?: string | null;
@@ -44,6 +52,10 @@ export type LessonCard = {
   answer_audio_turns?: CourseAudioTurn[];
   audio_assets: CourseAudioAsset[];
   mission_chapter_id?: string;
+  mission_targets?: MissionTarget[];
+  mission_visual_key?: string | null;
+  success_outcome_es?: string | null;
+  mission_tutorial_mode?: 'guided-no-fail' | null;
 };
 
 export type MissionChapter = {

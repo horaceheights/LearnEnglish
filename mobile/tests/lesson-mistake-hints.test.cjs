@@ -101,6 +101,38 @@ const multi = {...card('She is the ___. They are the ___.', 'grandmother', 'gran
   answer_audio_text: 'She is the grandmother. They are the grandparents.'};
 assert.match(lessonMistakeHint(multi, ['wrong', 'plural']), /grandmother.+abuela.+grandfather.+abuelo/);
 assert.match(lessonMistakeHint(multi, ['correct', 'wrong']), /grandparents.+abuelos/);
+assert.equal(
+  lessonMistakeHint({ ...multi, interaction_type: 'mission-match', instruction_es: 'Coloca cada frase junto a su personaje.' }, ['wrong', 'plural']),
+  'Revisa el espacio 1: ahí va “grandmother”, no “grandfather”. Las demás fichas se conservan.',
+  'Mission sequence feedback must identify the first mistaken slot while preserving the editable board.',
+);
+assert.equal(
+  lessonMistakeHint({
+    ...multi,
+    interaction_type: 'mission-match',
+    instruction_es: 'Coloca cada frase junto a su personaje.',
+    mission_targets: [
+      { id: 'left', label: 'Toma izquierda', correct_option_id: 'correct' },
+      { id: 'right', label: 'Toma derecha', correct_option_id: 'plural' },
+    ],
+  }, ['wrong', 'plural']),
+  'Revisa “Toma izquierda”: corresponde “grandmother”, no “grandfather”. La ficha sigue en pantalla para moverla.',
+  'Mission target-board feedback must name the first mistaken local target and its exact contrast.',
+);
+const multiSentenceClue = {
+  ...card('', 'correct', 'wrong-older'),
+  interaction_type: 'mission-clue',
+  options: [
+    { id: 'correct', image_url: '', label: 'He is the father. She is the mother. They are the parents.' },
+    { id: 'wrong-older', image_url: '', label: 'He is the grandfather. She is the grandmother. They are the grandparents.' },
+  ],
+  answer_audio_text: 'He is the father. She is the mother. They are the parents.',
+};
+assert.equal(
+  lessonMistakeHint(multiSentenceClue, 'wrong-older'),
+  'Aquí “father” significa padre; “grandfather” significa abuelo.',
+  'A parallel multi-sentence clue must teach the first visible contrast without overflowing feedback.',
+);
 // Exercise every distractor and every ordered completion slot in the full course.
 const generated = path.join(__dirname, '../src/generated');
 let checked = 0;
@@ -117,7 +149,7 @@ for (const file of files) {
       const hint = lessonMistakeHint(c, attempt);
       const context = `${file}/${c.slide_id}/${slot}/${wrong.id}: ${hint}`;
       assert.doesNotMatch(hint, /Mira de nuevo|Observa otra vez|Traducción no disponible|undefined|\[(?:blank|pausa)\]|_{2,}|: \.$/, context);
-      assert.match(hint, /significa|porque|usamos|reemplaza|indica|se refiere|primero|orden|va |van |antes|después|no está|muestra|La respuesta|corresponde|incluye|forma|con “|Con “|La edad|habla|pregunta/i, context);
+      assert.match(hint, /significa|porque|usamos|reemplaza|indica|se refiere|primero|orden|va |van |antes|después|no está|muestra|La respuesta|corresponde|incluye|forma|con “|Con “|La edad|habla|pregunta|toca|arrastra|mover/i, context);
       assert.ok(hint.length <= 230, context);
       checked++;
     }

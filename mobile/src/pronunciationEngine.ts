@@ -16,7 +16,7 @@ const COURSE_SYLLABLE_PARTS: Record<string, string[]> = {
   children: ['chil', 'dren'],
   cooking: ['cook', 'ing'],
   eating: ['eat', 'ing'],
-  family: ['fam', 'i', 'ly'],
+  family: ['fa', 'mi', 'ly'],
   father: ['fa', 'ther'],
   grandfather: ['grand', 'fa', 'ther'],
   grandmother: ['grand', 'mo', 'ther'],

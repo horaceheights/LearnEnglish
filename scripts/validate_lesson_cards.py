@@ -170,16 +170,21 @@ NEGATIVE_VISUAL_CONTRACTS = {
     "they are not sitting.": {"they_boy_girl_are_running.webp"},
 }
 MISSION_COMPLETION_INTERACTIONS = {
-    "mission-word-parts",
+    "mission-unlock",
     "mission-sentence",
     "mission-finale",
 }
+MISSION_TARGET_INTERACTIONS = {"mission-match", "mission-truth-stamp"}
+MISSION_BOARD_INTERACTIONS = MISSION_COMPLETION_INTERACTIONS | MISSION_TARGET_INTERACTIONS
+MISSION_MULTI_ANSWER_INTERACTIONS = MISSION_COMPLETION_INTERACTIONS | MISSION_TARGET_INTERACTIONS
 MAX_MISSION_CONSTRUCTION_TILES = 8
 MISSION_INTERACTIONS = frozenset({
     "mission-brief",
     "mission-clue",
     "mission-listen",
     "mission-speak",
+    "mission-match",
+    "mission-truth-stamp",
     *MISSION_COMPLETION_INTERACTIONS,
 })
 MISSION_INTERACTION_STAGES = {
@@ -187,7 +192,9 @@ MISSION_INTERACTION_STAGES = {
     "mission-clue": "Recognize",
     "mission-listen": "Listen",
     "mission-speak": "Speak",
-    "mission-word-parts": "Use",
+    "mission-unlock": "Use",
+    "mission-sentence": "Use",
+    "mission-truth-stamp": "Use",
     "mission-finale": "Use",
 }
 UNIT_ONE_FOUNDATION_LESSON_IDS = (
@@ -208,17 +215,67 @@ MISSION_REQUIRED_INTERACTIONS = {
         "mission-clue",
         "mission-listen",
         "mission-speak",
-        "mission-word-parts",
+        "mission-unlock",
+        "mission-match",
         "mission-sentence",
+        "mission-truth-stamp",
         "mission-finale",
     }),
 }
 MISSION_FIRST_INTERACTIONS = {
-    "lesson-10-family-mission": "mission-word-parts",
+    "lesson-10-family-mission": "mission-unlock",
 }
-MISSION_HERO_PREFIXES = {
-    "lesson-10-family-mission": "a1_u1_album_",
+MISSION_VISUAL_KEY_PREFIXES = {
+    "lesson-10-family-mission": "a1_u1_studio_",
 }
+RETIRED_UNIT_ONE_ALBUM_SHA256 = frozenset({
+    "34f1fe85fc4ac8d142e69ef863e26e52299da762c989c5f71a97a74940c44bd3",
+    "000ef96ed30448aba4db2740744c9ce2064ba4e8105b6c6a034bbad0ff48f689",
+    "f3221fccc09f4594b275cbb0b1d1067d77e8a2e2374dc6a030d47767cc51f441",
+    "01429b840e57b7e7c2e248ad9cf8e910ee61c8ee3e46ee594e6d12ef3311220c",
+    "a7a3a7458edbee4e1f32e2d6a7458b2ce62efde206021733f1eb272b31a74fbe",
+    "485af10ab6aa9cfe7bfd7f1d722681eb516f4b4d6f4d7975987f2d5eaca80394",
+    "9137f37157a62bf1c1f62e6c5740533cbf44dbcc73fdacce2a41330c361213f6",
+    "4e91ab738173fa0f137341c2d5e36b00943491c71be032757b1870ea3e7f8c72",
+    "62f07af08f16e40c09ee55a62272d2e23e062dc4af24272d53d2007fe6c8a388",
+    "d34c2a6873b42ebbf5c73aa78fc26fff62ac7a903d32b45b016ea6d4b7e72e50",
+    "d01ce5d2146ce12138977f781cc4217ff3d5013860b4b65e587780d839909da4",
+    "87bf1a9f94fcced84309fcbc6a9849385855cf51e16ca3d2a73842f9544a7fa1",
+    "d5f317bd17dc74d7f81045309fb27908435d5b62c1dcb1807a7261e7c6f26e9a",
+    "c90669dde15297d51ba2e951353ab94cb0839af28ccf48ff9e77067f24a03766",
+    "b73d3a494843c9cd3649fe4d50cfac4ddbc3443251cc7d9d09bcce16def766d1",
+    "b6c6815792038298294e5ec3887500b713934d39452b7580827fe84209621710",
+    "204d36ad9f039dfe18707f8b0b8324e4375962294c692ba99f1e1136791dfe31",
+    "c523adc53d657cc921c0d43c3d4313b19b14ca2bbfee26779e395c9695a7ec7b",
+    "641ac99ce71fea352658b1cb643f9bce98faedf33915fa96fc3c70a46e206206",
+    "d03bed50dde69105591b067ce01cfc55fad1b00101160983f3477ea9bea04258",
+    "552d312cf17d7d98d77f9a31284302eff9e530cac345fa46e054bb00e6b89998",
+    "92b0494ef17a4f4e8b18afc445407dcb8e6e70d87c311c71e21cd2a35935bab6",
+})
+UNIT_ONE_MISSION_CHAPTER_ASSIGNMENTS = (
+    *(["casting-call"] * 5),
+    *(["build-the-cast"] * 8),
+    *(["shoot-and-edit"] * 7),
+    *(["record-and-premiere"] * 2),
+)
+UNIT_ONE_MISSION_TARGET_LABELS = {
+    "M02": ("Arriba izquierda", "Arriba derecha", "Abajo izquierda", "Abajo derecha"),
+    "M04": ("Arriba izquierda", "Arriba derecha", "Abajo izquierda", "Abajo derecha"),
+    "M06": ("Arriba izquierda", "Arriba derecha", "Abajo · pareja"),
+    "M07": ("Arriba izquierda", "Arriba derecha", "Abajo izquierda", "Abajo derecha"),
+    "M14": ("Toma izquierda", "Toma derecha"),
+    "M16": ("Persona izquierda", "Persona del centro", "Persona derecha"),
+    "M19": ("Toma 1", "Toma 2", "Toma 3"),
+    "M20": ("Toma 1", "Toma 2", "Toma 3"),
+}
+UNIT_ONE_CASTING_INTERACTIONS = (
+    "mission-match",
+    "mission-clue",
+    "mission-match",
+    "mission-truth-stamp",
+    "mission-match",
+    "mission-match",
+)
 
 
 def is_completion_interaction(interaction_type: str | None) -> bool:
@@ -234,16 +291,20 @@ def _mission_language_tokens(text: str | None) -> set[str]:
     return set(re.findall(r"[a-z]+", normalized.lower()))
 
 
+def _correct_options(card: object) -> list[object]:
+    options = list(getattr(card, "options", []) or [])
+    option_by_id = {
+        str(getattr(option, "id", "") or ""): option for option in options
+    }
+    correct_ids = list(getattr(card, "correct_option_ids", []) or [])
+    if not correct_ids:
+        correct_ids = [str(getattr(card, "correct_option_id", "") or "")]
+    return [option_by_id[option_id] for option_id in correct_ids if option_id in option_by_id]
+
+
 def _correct_option(card: object) -> object | None:
-    correct_id = str(getattr(card, "correct_option_id", "") or "")
-    return next(
-        (
-            option
-            for option in list(getattr(card, "options", []) or [])
-            if str(getattr(option, "id", "") or "") == correct_id
-        ),
-        None,
-    )
+    options = _correct_options(card)
+    return options[0] if options else None
 
 
 def _mission_success_language(card: object) -> list[str]:
@@ -255,8 +316,10 @@ def _mission_success_language(card: object) -> list[str]:
     """
 
     interaction = str(getattr(card, "interaction_type", "") or "")
-    correct = _correct_option(card)
-    correct_label = str(getattr(correct, "label", "") or "") if correct else ""
+    correct_labels = [
+        str(getattr(option, "label", "") or "")
+        for option in _correct_options(card)
+    ]
     prompt = str(getattr(card, "prompt", "") or "")
     audio_text = str(getattr(card, "audio_text", "") or "")
     answer_audio_text = str(getattr(card, "answer_audio_text", "") or "")
@@ -270,8 +333,11 @@ def _mission_success_language(card: object) -> list[str]:
     )
     if prompt_is_target:
         values.append(prompt)
-    if interaction not in MISSION_COMPLETION_INTERACTIONS:
-        values.append(correct_label)
+    # Correctly placed construction tiles are assessed learner responses and
+    # therefore count toward mastery. The guided unlock remains presentation,
+    # not evidence, and is also excluded by the caller's tutorial filter.
+    if interaction != "mission-unlock":
+        values.extend(correct_labels)
     return [value for value in values if value.strip()]
 
 
@@ -280,7 +346,7 @@ def _mission_authored_english(card: object) -> list[str]:
 
     interaction = str(getattr(card, "interaction_type", "") or "")
     values = _mission_success_language(card)
-    if interaction not in {"mission-word-parts"}:
+    if interaction != "mission-unlock":
         values.extend(
             str(getattr(option, "label", "") or "")
             for option in list(getattr(card, "options", []) or [])
@@ -412,6 +478,18 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             )
         if interactions and interactions[-1] != "mission-finale":
             errors.append(f"{lesson.id} must end with a mission-finale beat.")
+        repeated_interaction_run = 1
+        for index in range(1, len(interactions)):
+            if interactions[index] == interactions[index - 1]:
+                repeated_interaction_run += 1
+                if repeated_interaction_run > 2:
+                    errors.append(
+                        f"{lesson.id} repeats {interactions[index]!r} for more than two "
+                        "consecutive beats; vary the mission task before continuing."
+                    )
+                    break
+            else:
+                repeated_interaction_run = 1
         if any(card.stage not in {"Learn", "Recognize", "Listen", "Speak", "Use"} for card in lesson.cards):
             errors.append(
                 f"{lesson.id} may interleave only the established internal modality stages."
@@ -427,6 +505,65 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 f"{lesson.id} mission interactions must retain their internal modality stage: "
                 f"{stage_mismatches}."
             )
+        required_modalities = {"Learn", "Recognize", "Listen", "Speak", "Use"}
+        missing_modalities = sorted(required_modalities - {card.stage for card in lesson.cards})
+        if missing_modalities:
+            errors.append(
+                f"{lesson.id} must exercise every Unit 1 mission modality; missing "
+                f"{missing_modalities}."
+            )
+
+        for card in lesson.cards:
+            instruction = str(getattr(card, "instruction_es", "") or "").strip()
+            outcome = str(getattr(card, "success_outcome_es", "") or "").strip()
+            visual_description = str(
+                getattr(card, "visual_description_es", "") or ""
+            ).strip()
+            if not instruction:
+                errors.append(f"{lesson.id} {card.slide_id} needs an explicit instruction_es.")
+            if not outcome:
+                errors.append(f"{lesson.id} {card.slide_id} needs a visible success_outcome_es.")
+            if not visual_description:
+                errors.append(
+                    f"{lesson.id} {card.slide_id} needs an authored visual_description_es."
+                )
+
+            interaction = str(getattr(card, "interaction_type", "") or "")
+            targets = list(getattr(card, "mission_targets", []) or [])
+            if interaction == "mission-match" and not targets:
+                errors.append(f"{lesson.id} {card.slide_id} mission-match needs local targets.")
+            if targets and interaction not in MISSION_TARGET_INTERACTIONS:
+                errors.append(
+                    f"{lesson.id} {card.slide_id} declares targets outside a target-based board."
+                )
+            target_ids = [str(getattr(target, "id", "") or "") for target in targets]
+            target_option_ids = [
+                str(getattr(target, "correct_option_id", "") or "")
+                for target in targets
+            ]
+            option_ids = [str(getattr(option, "id", "") or "") for option in card.options]
+            if len(target_ids) != len(set(target_ids)):
+                errors.append(f"{lesson.id} {card.slide_id} repeats a mission target ID.")
+            if targets and (
+                len(target_option_ids) != len(set(target_option_ids))
+                or not set(target_option_ids).issubset(set(option_ids))
+            ):
+                errors.append(
+                    f"{lesson.id} {card.slide_id} must map every target to one unique existing option."
+                )
+            if targets and target_option_ids != list(card.correct_option_ids or []):
+                errors.append(
+                    f"{lesson.id} {card.slide_id} target order must match correct_option_ids."
+                )
+
+            if interaction in MISSION_COMPLETION_INTERACTIONS:
+                answer = str(getattr(card, "answer_audio_text", "") or "")
+                sentence_boundaries = re.findall(r"[.!?](?=\s|$)", answer)
+                if interaction == "mission-sentence" and len(sentence_boundaries) > 1:
+                    errors.append(
+                        f"{lesson.id} {card.slide_id} hides multiple sentences inside one "
+                        "global ordering board; use local targets or one grammatical sequence."
+                    )
 
         all_mission_media = {
             _asset_name(url)
@@ -448,39 +585,307 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 f"{lesson.id} reuses earlier lesson media instead of mission-only assets: {overlap}."
             )
 
-        heroes = [_asset_name(_mission_hero_url(card)) for card in lesson.cards]
-        missing_hero_beats = [
-            card.slide_id or f"card {index}"
-            for index, (card, hero) in enumerate(zip(lesson.cards, heroes), 1)
-            if not hero
+        visual_keys = [
+            str(getattr(card, "mission_visual_key", "") or "")
+            for card in lesson.cards
         ]
-        if missing_hero_beats:
+        missing_visual_beats = [
+            card.slide_id or f"card {index}"
+            for index, (card, visual_key) in enumerate(zip(lesson.cards, visual_keys), 1)
+            if not visual_key
+        ]
+        if missing_visual_beats:
             errors.append(
-                f"{lesson.id} mission beats without a primary/correct hero still: "
-                f"{missing_hero_beats}."
+                f"{lesson.id} mission beats without an explicit visual contract key: "
+                f"{missing_visual_beats}."
             )
-        duplicate_heroes = sorted(
-            hero for hero, count in Counter(heroes).items() if hero and count > 1
+        duplicate_visual_keys = sorted(
+            key for key, count in Counter(visual_keys).items() if key and count > 1
         )
-        if duplicate_heroes:
+        if duplicate_visual_keys:
             errors.append(
-                f"{lesson.id} repeats assessed hero stills across beats: {duplicate_heroes}."
+                f"{lesson.id} repeats assessed visual contracts across beats: "
+                f"{duplicate_visual_keys}."
             )
-        expected_hero_prefix = MISSION_HERO_PREFIXES.get(lesson.id)
-        invalid_hero_names = sorted(
-            hero
-            for hero in heroes
-            if hero and expected_hero_prefix and not hero.startswith(expected_hero_prefix)
+        expected_visual_prefix = MISSION_VISUAL_KEY_PREFIXES.get(lesson.id)
+        invalid_visual_keys = sorted(
+            key
+            for key in visual_keys
+            if key and expected_visual_prefix and not key.startswith(expected_visual_prefix)
         )
-        if invalid_hero_names:
+        if invalid_visual_keys:
             errors.append(
-                f"{lesson.id} hero stills must use the mission-only "
-                f"{expected_hero_prefix} namespace: "
-                f"{invalid_hero_names}."
+                f"{lesson.id} visual contracts must use the mission-only "
+                f"{expected_visual_prefix} namespace: {invalid_visual_keys}."
             )
 
         if lesson.id != "lesson-10-family-mission":
             continue
+        if tuple(card_chapters) != UNIT_ONE_MISSION_CHAPTER_ASSIGNMENTS:
+            errors.append(
+                f"{lesson.id} must keep the 5/8/7/2 studio chapter map; found "
+                f"{card_chapters}."
+            )
+        for card in lesson.cards:
+            expected_target_labels = UNIT_ONE_MISSION_TARGET_LABELS.get(card.slide_id)
+            if expected_target_labels is None:
+                continue
+            actual_target_labels = tuple(target.label for target in card.mission_targets)
+            if actual_target_labels != expected_target_labels:
+                errors.append(
+                    f"{lesson.id} {card.slide_id} target labels must locate the pictured "
+                    "slots without translating or revealing their answers."
+                )
+        cards_by_id = {card.slide_id: card for card in lesson.cards}
+        actual_casting_interactions = tuple(
+            str(cards_by_id.get(f"M{beat:02d}").interaction_type or "")
+            for beat in range(2, 8)
+            if cards_by_id.get(f"M{beat:02d}")
+        )
+        if actual_casting_interactions != UNIT_ONE_CASTING_INTERACTIONS:
+            errors.append(
+                f"{lesson.id} M02-M07 must alternate mapping, clue approval, and "
+                f"construction; found {actual_casting_interactions}."
+            )
+
+        m03 = cards_by_id.get("M03")
+        m03_labels = {str(option.label or "") for option in (m03.options if m03 else [])}
+        if (
+            not m03
+            or m03.interaction_type != "mission-clue"
+            or str(m03.answer_audio_text or "")
+            != "He is a boy. He is a man. She is a woman. She is a girl."
+            or not {
+                "She is a boy. He is a man. She is a woman. He is a girl.",
+                "He is a boy. He is a woman. She is a man. She is a girl.",
+            }.issubset(m03_labels)
+        ):
+            errors.append(
+                f"{lesson.id} M03 must be a left-to-right pronoun clue with "
+                "pronoun and visible-order contrasts."
+            )
+
+        m04_labels = {
+            str(option.label or "") for option in cards_by_id.get("M04", ()).options
+        } if cards_by_id.get("M04") else set()
+        if not {
+            "The baby is a child.", "The baby is an adult.",
+            "The babies are children.", "The babies are adults.",
+        }.issubset(m04_labels):
+            errors.append(f"{lesson.id} M04 must contrast child/children with adult/adults.")
+
+        m05 = cards_by_id.get("M05")
+        m05_labels = {str(option.label or "") for option in (m05.options if m05 else [])}
+        if (
+            not m05
+            or m05.interaction_type != "mission-truth-stamp"
+            or not {
+                "An adult. Adults.",
+                "A adult. Adults.",
+                "An adult. Children.",
+            }.issubset(m05_labels)
+        ):
+            errors.append(
+                f"{lesson.id} M05 must require AN and distinguish the visible "
+                "singular adult from the plural adult group through silent contrasts."
+            )
+
+        m06 = cards_by_id.get("M06")
+        m06_option_labels = {
+            str(option.id): str(option.label or "")
+            for option in (m06.options if m06 else [])
+        }
+        m06_correct_labels = [
+            m06_option_labels.get(str(target.correct_option_id), "")
+            for target in (m06.mission_targets if m06 else [])
+        ]
+        if (
+            not m06
+            or m06.interaction_type != "mission-match"
+            or m06_correct_labels
+            != ["He is the father.", "She is the mother.", "They are the parents."]
+            or not {
+                "He is the grandfather.",
+                "She is the grandmother.",
+                "They are the grandparents.",
+                "He is a boy.",
+                "She is a girl.",
+            }.issubset(set(m06_option_labels.values()))
+        ):
+            errors.append(
+                f"{lesson.id} M06 must independently assign father, mother, and parents "
+                "against same-pronoun grandparent contrasts and visibly younger roles."
+            )
+
+        m07 = cards_by_id.get("M07")
+        m07_option_labels = {
+            str(option.id): str(option.label or "")
+            for option in (m07.options if m07 else [])
+        }
+        m07_correct_labels = [
+            m07_option_labels.get(str(target.correct_option_id), "")
+            for target in (m07.mission_targets if m07 else [])
+        ]
+        if (
+            not m07
+            or m07_correct_labels != [
+                "He is the grandfather.",
+                "She is the grandmother.",
+                "They are the grandparents.",
+                "They are the grandchildren.",
+            ]
+            or not {
+                "He is a boy.",
+                "She is a girl.",
+                "They are the brothers.",
+                "They are the sisters.",
+            }.issubset(set(m07_option_labels.values()))
+        ):
+            errors.append(
+                f"{lesson.id} M07 must independently assign both grandparent forms "
+                "and both generation groups against visibly false same-frame roles."
+            )
+
+        m09 = cards_by_id.get("M09")
+        m09_option_labels = {
+            str(option.id): str(option.label or "") for option in (m09.options if m09 else [])
+        }
+        m09_correct_labels = [
+            m09_option_labels.get(option_id, "") for option_id in (m09.correct_option_ids if m09 else [])
+        ]
+        if (
+            not m09
+            or m09.interaction_type != "mission-sentence"
+            or m09_correct_labels != ["Who", "is", "he"]
+            or "are" not in m09_option_labels.values()
+        ):
+            errors.append(f"{lesson.id} M09 must require IS against an ARE distractor in 'Who is he?'.")
+
+        m10 = cards_by_id.get("M10")
+        m10_labels = {str(option.label or "") for option in (m10.options if m10 else [])}
+        m10_correct = next(
+            (
+                str(option.label or "")
+                for option in (m10.options if m10 else [])
+                if option.id == getattr(m10, "correct_option_id", None)
+            ),
+            "",
+        )
+        if (
+            not m10
+            or str(m10.audio_text or "") != "Who is she?"
+            or m10_correct != "Who is she?"
+            or m10_labels != {"Who is she?", "Who is he?", "Who are they?"}
+        ):
+            errors.append(f"{lesson.id} M10 must contrast and identify the exact heard 'Who is she?'.")
+
+        m19 = cards_by_id.get("M19")
+        expected_m19_labels = {
+            "The parents are working.",
+            "The parents are talking.",
+            "The grandmother is cooking.",
+            "The grandmother is working.",
+            "The brothers are talking.",
+            "The brothers are cooking.",
+        }
+        if not m19 or {str(option.label or "") for option in m19.options} != expected_m19_labels:
+            errors.append(
+                f"{lesson.id} M19 must contrast each correct action against a "
+                "same-subject action distractor."
+            )
+
+        m20 = cards_by_id.get("M20")
+        expected_m20_labels = {
+            "He is not sitting. He is running.",
+            "He is sitting. He is not running.",
+            "She is not sleeping. She is cooking.",
+            "She is sleeping. She is not cooking.",
+            "They are not sitting. They are swimming.",
+            "They are sitting. They are not swimming.",
+        }
+        if not m20 or {str(option.label or "") for option in m20.options} != expected_m20_labels:
+            errors.append(f"{lesson.id} M20 must retain three polarity-paired NOT contrasts.")
+
+        m15 = cards_by_id.get("M15")
+        expected_m15_labels = {
+            "The boy is reading and writing.",
+            "The boy is reading and sleeping.",
+            "The boy is eating and writing.",
+        }
+        if not m15 or {str(option.label or "") for option in m15.options} != expected_m15_labels:
+            errors.append(f"{lesson.id} M15 must require both reading and writing.")
+
+        m16 = cards_by_id.get("M16")
+        m16_option_labels = {
+            str(option.id): str(option.label or "")
+            for option in (m16.options if m16 else [])
+        }
+        expected_m16_labels = {
+            "The brother is running.",
+            "The brother is sitting.",
+            "The sister is running.",
+            "The sister is sitting.",
+            "The mother is sitting.",
+            "The mother is running.",
+        }
+        m16_correct_labels = [
+            m16_option_labels.get(str(target.correct_option_id), "")
+            for target in (m16.mission_targets if m16 else [])
+        ]
+        if (
+            not m16
+            or {str(option.label or "") for option in m16.options} != expected_m16_labels
+            or m16_correct_labels != [
+                "The brother is running.",
+                "The sister is running.",
+                "The mother is sitting.",
+            ]
+        ):
+            errors.append(
+                f"{lesson.id} M16 must independently contrast brother, sister, and mother "
+                "running/sitting actions in their visible spatial positions."
+            )
+        visible_mission_copy = " ".join(
+            [
+                str(getattr(lesson, "title", "") or ""),
+                str(getattr(lesson, "sub_lesson_title", "") or ""),
+                str(getattr(lesson, "goal", "") or ""),
+                str(getattr(lesson, "grammar_function", "") or ""),
+                str(getattr(lesson, "speaking_outcome", "") or ""),
+                *(str(getattr(mission, field, "") or "") for field in (
+                    "label", "title", "briefing", "completion_title", "completion_message"
+                )),
+                *(str(getattr(chapter, field, "") or "") for chapter in chapters for field in (
+                    "title", "objective"
+                )),
+                *(str(getattr(card, field, "") or "") for card in lesson.cards for field in (
+                    "instruction_es", "success_outcome_es", "visual_description_es"
+                )),
+            ]
+        )
+        if re.search(r"\b(?:album|álbum)\b", visible_mission_copy, flags=re.IGNORECASE):
+            errors.append(
+                f"{lesson.id} must use the live studio premise without visible album copy."
+            )
+        retired_album_media = sorted(
+            name for name in all_mission_media if name.startswith("a1_u1_album_")
+        )
+        if retired_album_media:
+            errors.append(
+                f"{lesson.id} still exposes retired album imagery: {retired_album_media}."
+            )
+        retired_album_pixel_reuse = sorted(
+            name
+            for name in all_mission_media
+            if (LESSON_ASSET_DIR / name).is_file()
+            and sha256_file(LESSON_ASSET_DIR / name)
+            in RETIRED_UNIT_ONE_ALBUM_SHA256
+        )
+        if retired_album_pixel_reuse:
+            errors.append(
+                f"{lesson.id} renames byte-identical retired album imagery instead of "
+                f"using new mission pixels: {retired_album_pixel_reuse}."
+            )
         introduced_order = [
             str(word).strip().lower()
             for source_id in UNIT_ONE_FOUNDATION_LESSON_IDS
@@ -502,15 +907,16 @@ def validate_mission_contracts(lessons=None) -> list[str]:
         successful_tokens: set[str] = set()
         authored_tokens: set[str] = set()
         for card in lesson.cards:
-            for value in _mission_success_language(card):
-                successful_tokens.update(_mission_language_tokens(value))
+            if getattr(card, "mission_tutorial_mode", None) != "guided-no-fail":
+                for value in _mission_success_language(card):
+                    successful_tokens.update(_mission_language_tokens(value))
             for value in _mission_authored_english(card):
                 authored_tokens.update(_mission_language_tokens(value))
         missing_gold = sorted(introduced - successful_tokens)
         if missing_gold:
             errors.append(
-                f"{lesson.id} does not retrieve these Unit 1 targets on the successful "
-                f"path: {missing_gold}."
+                f"{lesson.id} does not retrieve these Unit 1 targets on the assessed "
+                f"successful path outside its no-fail tutorial: {missing_gold}."
             )
         unintroduced = sorted(authored_tokens - introduced)
         if unintroduced:
@@ -522,9 +928,44 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             for card in lesson.cards
             for value in _mission_success_language(card)
         ).lower()
+        normalized_success = re.sub(r"[^a-z]+", " ", question_text)
         for question in ("who is he", "who is she", "who are they"):
-            if question not in re.sub(r"[^a-z]+", " ", question_text):
+            if question not in normalized_success:
                 errors.append(f"{lesson.id} must assess the question form {question!r}.")
+        required_grammar_patterns = {
+            "article a": r"\ba\s+(?:boy|girl|man|woman|baby|child|brother|sister|family)\b",
+            "article an": r"\ban\s+adult\b",
+            "article the": r"\bthe\s+(?:father|mother|parents|grandfather|grandmother|grandparents|grandchildren|man|boy|brother|sister|children)\b",
+            "he is": r"\bhe\s+is\b",
+            "she is": r"\bshe\s+is\b",
+            "they are": r"\bthey\s+are\b",
+            "coordination with and": r"\band\b",
+            "negative with not": r"\bnot\b",
+        }
+        for label, pattern in required_grammar_patterns.items():
+            if not re.search(pattern, normalized_success):
+                errors.append(f"{lesson.id} must assess {label} on its successful path.")
+
+        first = lesson.cards[0] if lesson.cards else None
+        if first is not None:
+            first_labels = [str(option.label or "") for option in first.options]
+            if first.interaction_type != "mission-unlock":
+                errors.append(f"{lesson.id} M01 must be the guided mission-unlock tutorial.")
+            if first.mission_tutorial_mode != "guided-no-fail":
+                errors.append(f"{lesson.id} M01 must use guided-no-fail tutorial mode.")
+            if set(first_labels) != {"FA", "MI", "LY"}:
+                errors.append(f"{lesson.id} M01 must expose exactly the FA | MI | LY chunks.")
+            first_option_by_id = {
+                str(option.id): str(option.label or "") for option in first.options
+            }
+            ordered_labels = [
+                first_option_by_id.get(str(option_id), "")
+                for option_id in first.correct_option_ids
+            ]
+            if ordered_labels != ["FA", "MI", "LY"]:
+                errors.append(f"{lesson.id} M01 must assemble FA then MI then LY.")
+            if str(first.answer_audio_text or "").strip().lower() != "family":
+                errors.append(f"{lesson.id} M01 must play only the completed word 'family'.")
     return errors
 
 
@@ -627,7 +1068,12 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             primary=_visual_referent("many", {"family"}, set()),
         )
 
-    if "a1_u1_album_02_people_board" in stem or "a1_u1_album_03_pronoun_cast" in stem:
+    if (
+        "a1_u1_album_02_people_board" in stem
+        or "a1_u1_album_03_pronoun_cast" in stem
+        or "a1_u1_studio_02_people_casting" in stem
+        or "a1_u1_studio_03_pronoun_marks" in stem
+    ):
         return VisualMeaning(
             primary=_visual_referent("one", {"boy"}, set(), "male"),
             visible_subsets=(
@@ -651,7 +1097,7 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             ),
         )
 
-    if "a1_u1_album_05_adult_count" in stem:
+    if "a1_u1_album_05_adult_count" in stem or "a1_u1_studio_05_adult_cast" in stem:
         return VisualMeaning(
             primary=_visual_referent("one", {"adult"}, set()),
             visible_subsets=(
@@ -659,7 +1105,89 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             ),
         )
 
-    if "a1_u1_album_07_grandparents_branch" in stem:
+    if "a1_u1_studio_09_who_father" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("one", {"father"}, set(), "male"),
+        )
+
+    if "a1_u1_studio_10_who_mother" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("one", {"mother"}, set(), "female"),
+        )
+
+    if "a1_u1_studio_11_who_parents" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"parent"}, set()),
+        )
+
+    if "a1_u1_studio_12_who_children" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"child"}, set()),
+        )
+
+    if "a1_u1_studio_13_who_grandparents" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"grandparent"}, set()),
+        )
+
+    if "a1_u1_studio_14_eating_drinking" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("one", {"man"}, {"eating", "drinking"}, "male"),
+        )
+
+    if "a1_u1_studio_15_reading_writing" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("one", {"boy"}, {"reading", "writing"}, "male"),
+        )
+
+    if "a1_u1_studio_06_parent_roles" in stem:
+        # This reviewed three-panel contract shows the adults' relationship to
+        # their own children, so parent roles are observable rather than an
+        # isolated portrait's potentially overlapping generation label.
+        return VisualMeaning(
+            primary=_visual_referent(
+                "one", {"adult", "father", "man"}, set(), "male",
+                expand_concepts=False,
+            ),
+            visible_subsets=(
+                _visual_referent(
+                    "one", {"adult", "mother", "woman"}, set(), "female",
+                    expand_concepts=False,
+                ),
+                _visual_referent(
+                    "many", {"adult", "parent"}, set(), expand_concepts=False
+                ),
+            ),
+        )
+
+    if "a1_u1_studio_04_young_cast" in stem:
+        return VisualMeaning(
+            primary=_visual_referent(
+                "one", {"baby", "child"}, set(), expand_concepts=False
+            ),
+            visible_subsets=(
+                _visual_referent(
+                    "many", {"baby", "child"}, set(), expand_concepts=False
+                ),
+                _visual_referent(
+                    "many",
+                    {"brother", "sister", "child"},
+                    set(),
+                    expand_concepts=False,
+                ),
+                _visual_referent(
+                    "many",
+                    {"brother", "sister", "child"},
+                    set(),
+                    expand_concepts=False,
+                ),
+            ),
+        )
+
+    if (
+        "a1_u1_album_07_grandparents_branch" in stem
+        or "a1_u1_studio_07_generation_roles" in stem
+    ):
         return VisualMeaning(
             primary=_visual_referent("one", {"grandfather"}, set(), "male"),
             visible_subsets=(
@@ -669,7 +1197,7 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             ),
         )
 
-    if "a1_u1_album_08_tree_complete" in stem:
+    if "a1_u1_album_08_tree_complete" in stem or "a1_u1_studio_08_title_card" in stem:
         return VisualMeaning(
             primary=_visual_referent(
                 "many",
@@ -683,7 +1211,10 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             ),
         )
 
-    if "a1_u1_album_16_siblings_running_mother_sitting" in stem:
+    if (
+        "a1_u1_album_16_siblings_running_mother_sitting" in stem
+        or "a1_u1_studio_16_running_sitting" in stem
+    ):
         return VisualMeaning(
             primary=_visual_referent(
                 "many", {"brother", "sister"}, {"running"}, expand_concepts=False,
@@ -695,7 +1226,10 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             ),
         )
 
-    if "a1_u1_album_17_sisters_swimming_grandfather_sleeping" in stem:
+    if (
+        "a1_u1_album_17_sisters_swimming_grandfather_sleeping" in stem
+        or "a1_u1_studio_17_swimming_sleeping" in stem
+    ):
         return VisualMeaning(
             primary=_visual_referent("many", {"sister"}, {"swimming"}, "female"),
             visible_subsets=(
@@ -703,7 +1237,10 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             ),
         )
 
-    if "a1_u1_album_18_children_playing_sister_studying" in stem:
+    if (
+        "a1_u1_album_18_children_playing_sister_studying" in stem
+        or "a1_u1_studio_18_playing_studying" in stem
+    ):
         return VisualMeaning(
             primary=_visual_referent("many", {"child"}, {"playing"}),
             visible_subsets=(
@@ -711,7 +1248,10 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             ),
         )
 
-    if "a1_u1_album_19_family_work_cook_talk" in stem:
+    if (
+        "a1_u1_album_19_family_work_cook_talk" in stem
+        or "a1_u1_studio_19_work_cook_talk" in stem
+    ):
         return VisualMeaning(
             primary=_visual_referent("many", {"parent"}, {"working"}),
             visible_subsets=(
@@ -720,7 +1260,10 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             ),
         )
 
-    if "a1_u1_album_20_negative_contact_sheet" in stem:
+    if (
+        "a1_u1_album_20_negative_contact_sheet" in stem
+        or "a1_u1_studio_20_not_continuity" in stem
+    ):
         return VisualMeaning(
             primary=_visual_referent(
                 "one", set(), {"running"}, "male", negative_actions={"sitting"},
@@ -734,6 +1277,16 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
                 ),
             ),
             allow_negative_visible_subsets=True,
+        )
+
+    if "a1_u1_studio_21_final_question" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"family"}, set()),
+        )
+
+    if "a1_u1_studio_22_premiere" in stem:
+        return VisualMeaning(
+            primary=_visual_referent("many", {"family"}, set()),
         )
 
     if "a1_u1_album_21_voiceover_booth" in stem:
@@ -1123,6 +1676,8 @@ def _text_matches_visual(
 
 def _is_obviously_well_formed_completion(text: str) -> bool:
     normalized = re.sub(r"\s+", " ", text.strip().lower())
+    if re.search(r"\ba\s+adults?\b", normalized):
+        return False
     if re.search(r"\bthe\s+(?:he|she|they)\b", normalized):
         return False
     if re.search(r"\b(?:he|she)\s+are\b|\bthey\s+is\b", normalized):
@@ -1305,10 +1860,12 @@ def validate_option_ids() -> list[str]:
                         f"{lesson.id} card {card_index} ({card.prompt!r}) must keep "
                         "correct_option_id aligned with the first ordered answer."
                     )
-                if not is_completion_interaction(card.interaction_type):
+                if card.interaction_type not in MISSION_MULTI_ANSWER_INTERACTIONS and not (
+                    str(card.interaction_type or "").startswith("complete")
+                ):
                     errors.append(
                         f"{lesson.id} card {card_index} ({card.prompt!r}) declares ordered "
-                        "correct answers outside a completion interaction."
+                        "correct answers outside a supported multi-answer interaction."
                     )
                 for correct_option_id in correct_option_ids:
                     correct_count = option_ids.count(correct_option_id)
@@ -1333,10 +1890,10 @@ def validate_text_tile_option_limit() -> list[str]:
         for card_index, card in enumerate(lesson.cards, 1):
             if not card.options or any((option.image_url or "").strip() for option in card.options):
                 continue
-            if card.interaction_type in MISSION_COMPLETION_INTERACTIONS:
-                # Construction banks are not multiple-choice answer banks. They
-                # may contain one tile per required word/part when the dedicated
-                # responsive mission layout keeps every target usable.
+            if card.interaction_type in MISSION_BOARD_INTERACTIONS:
+                # Mission boards are not ordinary multiple-choice answer banks.
+                # They may expose one tile per construction part or explicit
+                # local target when the responsive board keeps each target usable.
                 if len(card.options) > MAX_MISSION_CONSTRUCTION_TILES:
                     errors.append(
                         f"{lesson.id} card {card_index} ({card.prompt!r}) has "
@@ -1407,11 +1964,16 @@ def validate_family_adult_ambiguity(lessons=None) -> list[str]:
                     for option in text_options:
                         if not _semantic_clauses(option.label):
                             continue
+                        if not _is_obviously_well_formed_completion(str(option.label or "")):
+                            continue
                         option_matches = _text_matches_visual(
                             option.label,
                             meaning,
                             include_visible_subsets=True,
-                            require_primary_reference=option.id in correct_ids,
+                            require_primary_reference=(
+                                option.id in correct_ids
+                                and interaction_type not in MISSION_TARGET_INTERACTIONS
+                            ),
                             question_text=question_text,
                         )
                         if option.id in correct_ids and not option_matches:

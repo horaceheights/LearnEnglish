@@ -59,6 +59,10 @@ def mission_lesson_payload() -> dict:
                     "slide_id": "M01",
                     "interaction_type": "mission-brief",
                     "mission_chapter_id": "arrival",
+                    "mission_visual_key": "mission-arrival",
+                    "visual_description_es": "Una familia entra al set de cine.",
+                    "instruction_es": "Comienza la misión.",
+                    "success_outcome_es": "La misión queda abierta.",
                     "prompt": "Meet the family.",
                     "stage": "Learn",
                     "correct_option_id": "start",
@@ -68,6 +72,10 @@ def mission_lesson_payload() -> dict:
                     "slide_id": "M02",
                     "interaction_type": "mission-clue",
                     "mission_chapter_id": "clues",
+                    "mission_visual_key": "mission-clue",
+                    "visual_description_es": "Un hombre aparece solo frente a la cámara.",
+                    "instruction_es": "Resuelve la pista.",
+                    "success_outcome_es": "La persona queda identificada.",
                     "prompt": "Who is he?",
                     "stage": "Recognize",
                     "correct_option_id": "father",
@@ -93,7 +101,76 @@ class MissionSchemaTests(unittest.TestCase):
         self.assertEqual(lesson.experience_type, "mission")
         self.assertEqual(lesson.content_revision, 2)
         self.assertEqual(lesson.cards[1].mission_chapter_id, "clues")
+        self.assertEqual(
+            lesson.cards[1].visual_description_es,
+            "Un hombre aparece solo frente a la cámara.",
+        )
         self.assertEqual([chapter.id for chapter in lesson.mission.chapters], ["arrival", "clues"])
+
+    def test_mission_match_requires_targets_and_allows_untargeted_distractors(self):
+        payload = mission_lesson_payload()
+        card = payload["cards"][1]
+        card["interaction_type"] = "mission-match"
+        card["correct_option_ids"] = ["father"]
+        card["options"].append(
+            {"id": "not-father", "label": "He is not the father.", "image_url": ""}
+        )
+        card["mission_targets"] = [
+            {"id": "actor", "label": "Actor señalado", "correct_option_id": "father"}
+        ]
+
+        lesson = MissionLesson(**payload)
+
+        self.assertEqual(lesson.cards[1].mission_targets[0].correct_option_id, "father")
+        self.assertEqual(2, len(lesson.cards[1].options))
+
+    def test_mission_truth_stamp_accepts_an_ordered_target_board(self):
+        payload = mission_lesson_payload()
+        card = payload["cards"][1]
+        card["interaction_type"] = "mission-truth-stamp"
+        card["correct_option_ids"] = ["father"]
+        card["mission_targets"] = [
+            {"id": "shot", "label": "Toma señalada", "correct_option_id": "father"}
+        ]
+
+        lesson = MissionLesson(**payload)
+
+        self.assertEqual(lesson.cards[1].mission_targets[0].id, "shot")
+
+    def test_target_order_must_match_correct_option_order(self):
+        payload = mission_lesson_payload()
+        card = payload["cards"][1]
+        card["interaction_type"] = "mission-match"
+        card["options"].append({"id": "mother", "label": "The mother", "image_url": ""})
+        card["correct_option_ids"] = ["father", "mother"]
+        card["mission_targets"] = [
+            {"id": "mother", "label": "Madre", "correct_option_id": "mother"},
+            {"id": "father", "label": "Padre", "correct_option_id": "father"},
+        ]
+        with self.assertRaisesRegex(ValidationError, "target order must match"):
+            MissionLesson(**payload)
+
+    def test_mission_match_rejects_missing_or_invalid_targets(self):
+        payload = mission_lesson_payload()
+        payload["cards"][1]["interaction_type"] = "mission-match"
+        with self.assertRaisesRegex(ValidationError, "require at least one mission target"):
+            MissionLesson(**payload)
+
+        payload = mission_lesson_payload()
+        payload["cards"][1]["interaction_type"] = "mission-match"
+        payload["cards"][1]["mission_targets"] = [
+            {"id": "actor", "label": "Actor señalado", "correct_option_id": "missing"}
+        ]
+        with self.assertRaisesRegex(ValidationError, "reference missing option IDs"):
+            MissionLesson(**payload)
+
+    def test_non_target_interactions_reject_mission_targets(self):
+        payload = mission_lesson_payload()
+        payload["cards"][1]["mission_targets"] = [
+            {"id": "actor", "label": "Actor señalado", "correct_option_id": "father"}
+        ]
+        with self.assertRaisesRegex(ValidationError, "Only target-based"):
+            MissionLesson(**payload)
 
     def test_mission_chapter_ids_must_be_unique(self):
         payload = mission_lesson_payload()

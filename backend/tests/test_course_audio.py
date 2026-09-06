@@ -63,8 +63,8 @@ class CourseAudioProfileTests(unittest.TestCase):
             for card in lesson.cards:
                 if not COMPLETION_PLACEHOLDER_PATTERN.search(card.prompt):
                     continue
-                if card.interaction_type == "mission-word-parts":
-                    # Word-part boards visually separate pieces that join into
+                if card.interaction_type in {"mission-word-parts", "mission-unlock"}:
+                    # Guided word-building boards visually separate pieces that join into
                     # one continuous word; they intentionally have answer-only
                     # audio rather than a spoken completion prompt.
                     continue
@@ -91,7 +91,7 @@ class CourseAudioProfileTests(unittest.TestCase):
                     self.assertNotEqual(card.answer_audio_text, fragment)
                 completion_cards.append((lesson.id, card.prompt))
 
-        self.assertEqual(443, len(completion_cards))
+        self.assertEqual(431, len(completion_cards))
 
     def test_completion_contract_is_exact_and_requires_one_placeholder(self):
         contract = completion_prompt_contract(

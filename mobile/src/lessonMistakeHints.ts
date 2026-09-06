@@ -1,5 +1,6 @@
 import type { LessonCard } from './types';
 import { spanishTranslationFor } from './sentenceTranslations';
+import { isMissionTileInteraction, orderedMissionCorrectIds } from './missionTileState';
 
 const SUBJECT_LABELS: Record<string, string> = {
   'a baby': '“A baby” (un bebé)',
@@ -110,10 +111,37 @@ function contrast(correct: string, wrong: string) {
   return [correctWords.join(' '), wrongWords.join(' ')];
 }
 
+function firstDifferentSentenceContrast(correct: string, wrong: string) {
+  const correctSentences = correct.split(/[.!?]+/).map((sentence) => sentence.trim()).filter(Boolean);
+  const wrongSentences = wrong.split(/[.!?]+/).map((sentence) => sentence.trim()).filter(Boolean);
+  const count = Math.max(correctSentences.length, wrongSentences.length);
+  for (let index = 0; index < count; index += 1) {
+    const correctSentence = correctSentences[index] || '';
+    const wrongSentence = wrongSentences[index] || '';
+    if (normalized(correctSentence) !== normalized(wrongSentence)) {
+      return contrast(correctSentence, wrongSentence);
+    }
+  }
+  return null;
+}
+
 /** Teach the first mistaken slot, or the meaning that distinguishes the choices.
  * Prompt audio may be a question or contain blanks; it is never the answer source.
  */
 export function lessonMistakeHint(card: LessonCard, selected?: string | string[] | null): string {
+  if (isMissionTileInteraction(card.interaction_type)) {
+    const selectedIds = Array.isArray(selected) ? selected : selected ? [selected] : [];
+    const correctIds = orderedMissionCorrectIds(card);
+    const firstWrongSlot = Math.max(0, correctIds.findIndex((id, index) => selectedIds[index] !== id));
+    const correct = card.options.find((option) => option.id === correctIds[firstWrongSlot])?.label || '';
+    const wrong = card.options.find((option) => option.id === selectedIds[firstWrongSlot])?.label || '';
+    const correction = wrong && wrong !== correct ? `, no “${wrong}”` : '';
+    const target = card.mission_targets?.[firstWrongSlot];
+    if (target) {
+      return `Revisa “${target.label}”: corresponde “${correct}”${correction}. La ficha sigue en pantalla para moverla.`;
+    }
+    return `Revisa el espacio ${firstWrongSlot + 1}: ahí va “${correct}”${correction}. Las demás fichas se conservan.`;
+  }
   const ids = card.correct_option_ids?.length ? card.correct_option_ids : [card.correct_option_id];
   const selectedIds = Array.isArray(selected) ? selected : selected ? [selected] : [];
   const slot = Math.max(0, ids.findIndex((id, index) => selectedIds[index] !== id));
@@ -130,7 +158,9 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   const target = card.answer_audio_text || (isCompletion ? completed : contextualAudio || label) || card.audio_text || card.prompt;
   const correct = labels[slot] || target;
   const wrong = wrongOption?.label || '';
-  const [difference, wrongDifference] = contrast(correct, wrong);
+  const [difference, wrongDifference] = (
+    !isCompletion && firstDifferentSentenceContrast(correct, wrong)
+  ) || contrast(correct, wrong);
   const focus = normalized(isCompletion ? correct : difference || correct);
   const before = isCompletion ? prompt.split(/_{2,}/)[slot] : target.slice(0, normalized(target).indexOf(focus));
 
@@ -218,12 +248,6 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
       : 'Después de “want” usamos “to” antes de otro verbo: “want to listen” significa querer escuchar.',
   };
   if (rules[focus]) return inContext(rules[focus]);
-  if (card.interaction_type === 'mission-word-parts') {
-    return `“${labels.join('')}” se forma uniendo ${labels.map((label) => `“${label}”`).join(' + ')} en ese orden.`;
-  }
-  if (card.interaction_type === 'mission-sentence') {
-    return `El orden es “${labels.join(' ')}”: primero de quién hablamos, luego lo que decimos de esa persona o grupo.`;
-  }
   if (card.stage === 'Recognize' && normalized(card.prompt).startsWith('who ') && wrongOption) {
     const expectedIdentity = IDENTITY_CHOICE_LABELS[ids[slot]];
     const chosenIdentity = IDENTITY_CHOICE_LABELS[wrongOption.id];

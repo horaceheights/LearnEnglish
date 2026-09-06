@@ -142,15 +142,23 @@ for (const filename of fs.readdirSync(generatedRoot)) {
         : answerTurnMatch
           ? card.answer_audio_turns?.[Number(answerTurnMatch[1]) - 1]
           : null;
+      const isMissionIntroAsset = asset.purpose === 'mission-intro';
       const isAnswerAsset = asset.purpose === 'answer' || Boolean(answerTurnMatch);
       const expectedRevision = isAnswerAsset
         ? (card.answer_audio_revision ?? 1)
         : (card.audio_revision ?? 1);
-      assert.equal(
-        asset.revision,
-        expectedRevision,
-        `${filename} ${card.slide_id} audio revision is not bound to its card purpose.`,
-      );
+      if (isMissionIntroAsset) {
+        assert.equal(lesson.experience_type, 'mission');
+        assert.equal(asset.text, lesson.mission?.briefing);
+        assert.equal(asset.mode, 'prompt');
+        assert.equal(asset.variant, 'mission-intro');
+      } else {
+        assert.equal(
+          asset.revision,
+          expectedRevision,
+          `${filename} ${card.slide_id} audio revision is not bound to its card purpose.`,
+        );
+      }
       const expectedSpeaker = authoredTurn?.speaker_role || (isAnswerAsset
         ? (card.answer_audio_speaker || card.audio_speaker || asset.semantic_role)
         : (card.audio_speaker || asset.semantic_role));
@@ -226,10 +234,10 @@ for (const filename of fs.readdirSync(generatedRoot)) {
       );
       return correctOption.label;
     });
-    if (card.interaction_type === 'mission-word-parts') {
+    if (card.interaction_type === 'mission-word-parts' || card.interaction_type === 'mission-unlock') {
       assert.equal(
-        card.answer_audio_text,
-        correctLabels.join(''),
+        card.answer_audio_text.toLowerCase(),
+        correctLabels.join('').toLowerCase(),
         `${filename} word-part missions must pronounce the restored whole word without separators.`,
       );
       continue;

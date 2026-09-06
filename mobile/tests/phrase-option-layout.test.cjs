@@ -249,8 +249,8 @@ assert.match(
 );
 assert.match(
   lessonScreenSource,
-  /allowVerticalGrowth=\{needsTextAnswerScrolling\}/,
-  'The lesson card must expose its full content height to the scroll surface.',
+  /allowVerticalGrowth=\{needsTextAnswerScrolling \|\| isMissionTileCard\}/,
+  'Overflowing text answers and mission boards must expose their full content height to the scroll surface.',
 );
 assert.match(
   lessonScreenSource,

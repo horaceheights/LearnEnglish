@@ -19,10 +19,17 @@ import {
 } from "../lib/api";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
-import { isMissionLesson } from "../lib/missionExperience.mjs";
+import {
+  isMissionLesson,
+  isMissionTileInteraction,
+  missionAnswerWatchdogDelay,
+  missionCorrectOptionIds,
+} from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
 import MissionCompletion from "./MissionCompletion";
 import MissionJourney from "./MissionJourney";
+import MissionKickoff from "./MissionKickoff";
+import MissionTileBoard from "./MissionTileBoard";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260903-full-bleed-v8";
@@ -86,7 +93,7 @@ const COURSE_MENU_VISUALS = {
   },
   lessons: {
     "lesson-1": {
-      description: "Avanza desde personas y acciones hasta una mision familiar completa.",
+      description: "Avanza desde personas y acciones hasta un reto integral en vivo.",
       images: ["man_is_walking.webp", "woman_is_reading.webp"],
     },
   },
@@ -137,8 +144,8 @@ const COURSE_MENU_VISUALS = {
       accent: "#f1e4fa",
     },
     "lesson-10-family-mission": {
-      description: "Completa una mision familiar con pistas, voz y fichas.",
-      image: "a1_u1_album_01_locked.webp",
+      description: "Dirige escenas de personas, familia y acciones en un reto final.",
+      image: "a1_u1_studio_01_clapperboard.webp",
       accent: "#ffe1ad",
     },
   },
@@ -705,6 +712,7 @@ const ONBOARDING_STEPS = [
 function useSpeech() {
   const [voices, setVoices] = useState([]);
   const speechSequenceRef = useRef(0);
+  const speechCancellationRef = useRef(null);
   const audioRef = useRef(null);
   const courseAudioContextRef = useRef(null);
   const courseAudioSourceRef = useRef(null);
@@ -840,6 +848,14 @@ function useSpeech() {
         URL.revokeObjectURL(objectUrl);
       }
       audioRef.current = null;
+    }
+  }, []);
+
+  const cancelActiveSpeech = useCallback(() => {
+    const activeCancellation = speechCancellationRef.current;
+    speechCancellationRef.current = null;
+    if (typeof activeCancellation?.cancel === "function") {
+      activeCancellation.cancel();
     }
   }, []);
 
@@ -1225,7 +1241,7 @@ function useSpeech() {
     });
   }, [decodeCourseAudio, getCourseAudioContext]);
 
-  const speakText = useCallback((text, options = {}) => {
+  const speakText = useCallback((text, requestedOptions = {}) => {
     if (typeof window === "undefined") {
       return 0;
     }
@@ -1240,10 +1256,31 @@ function useSpeech() {
 
     speechSequenceRef.current += 1;
     const sequenceId = speechSequenceRef.current;
+    cancelActiveSpeech();
     clearSpeechTimers();
     stopAudioPlayback();
     if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
+    }
+
+    let settled = false;
+    const settleSpeech = (callback) => {
+      if (settled) return;
+      settled = true;
+      if (speechCancellationRef.current?.sequenceId === sequenceId) {
+        speechCancellationRef.current = null;
+      }
+      if (typeof callback === "function") callback();
+    };
+    const options = {
+      ...requestedOptions,
+      onEnd: () => settleSpeech(requestedOptions.onEnd),
+    };
+    if (typeof requestedOptions.onCancel === "function") {
+      speechCancellationRef.current = {
+        cancel: () => settleSpeech(requestedOptions.onCancel),
+        sequenceId,
+      };
     }
 
     const useFallback = () => {
@@ -1427,6 +1464,7 @@ function useSpeech() {
       .length;
     return Math.max(900, audibleLength * 120 + (isCompletionPrompt ? 550 : 0));
   }, [
+    cancelActiveSpeech,
     clearSpeechTimers,
     playAudioUrl,
     schedulePartHighlights,
@@ -1437,12 +1475,13 @@ function useSpeech() {
 
   const stopSpeech = useCallback(() => {
     speechSequenceRef.current += 1;
+    cancelActiveSpeech();
     clearSpeechTimers();
     stopAudioPlayback();
     if (typeof window !== "undefined" && "speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
-  }, [clearSpeechTimers, stopAudioPlayback]);
+  }, [cancelActiveSpeech, clearSpeechTimers, stopAudioPlayback]);
 
   return useMemo(
     () => ({ speakText, stopSpeech }),
@@ -1777,7 +1816,7 @@ const LIVE_PRONUNCIATION_SYLLABLES = {
   children: ["chil", "dren"],
   cooking: ["cook", "ing"],
   eating: ["eat", "ing"],
-  family: ["fam", "i", "ly"],
+  family: ["fa", "mi", "ly"],
   father: ["fa", "ther"],
   grandfather: ["grand", "fa", "ther"],
   grandmother: ["grand", "mo", "ther"],
@@ -2191,6 +2230,8 @@ function getPronunciationOutcome(summary, level, result = null) {
 export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [activeLesson, setActiveLesson] = useState(lesson);
   const [started, setStarted] = useState(testMode);
+  const [missionKickoffComplete, setMissionKickoffComplete] = useState(testMode);
+  const [missionCanContinue, setMissionCanContinue] = useState(false);
   const [profileLoaded, setProfileLoaded] = useState(testMode);
   const [profile, setProfile] = useState(
     testMode
@@ -2255,9 +2296,29 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const courseTurnRunRef = useRef(0);
   const preloadedAudioKeysRef = useRef(new Set());
   const previousMissionPositionRef = useRef(null);
+  const missionKickoffAudioPlayedRef = useRef(false);
+  const missionGameplayHeadingRef = useRef(null);
+  const missionCompletionHeadingRef = useRef(null);
+  const missionAnswerRunRef = useRef(0);
+  const missionAnswerStartTimerRef = useRef(null);
+  const missionAnswerWatchdogRef = useRef(null);
   const isMissionExperience = isMissionLesson(activeLesson);
   const { speakText, stopSpeech } = useSpeech();
   const { play: playUiSfx, stop: stopUiSfx } = useStaticSfx();
+  const clearMissionAnswerTimers = useCallback(() => {
+    if (missionAnswerStartTimerRef.current !== null) {
+      window.clearTimeout(missionAnswerStartTimerRef.current);
+      missionAnswerStartTimerRef.current = null;
+    }
+    if (missionAnswerWatchdogRef.current !== null) {
+      window.clearTimeout(missionAnswerWatchdogRef.current);
+      missionAnswerWatchdogRef.current = null;
+    }
+  }, []);
+  const invalidateMissionAnswerGate = useCallback(() => {
+    missionAnswerRunRef.current += 1;
+    clearMissionAnswerTimers();
+  }, [clearMissionAnswerTimers]);
   const viewportWidth = useViewportWidth();
   const isTablet = viewportWidth <= 1080;
   const isMobile = viewportWidth <= 760;
@@ -2273,11 +2334,25 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     || finalMissionCard?.options?.find((option) => option.id === finalMissionCard.correct_option_id)?.image_url
     || finalMissionCard?.options?.find((option) => option.image_url)?.image_url
     || "";
-  const isMissionTileCard = [
-    "mission-word-parts",
-    "mission-sentence",
-    "mission-finale",
-  ].includes(currentCard?.interaction_type);
+  const isMissionTileCard = isMissionTileInteraction(currentCard?.interaction_type);
+  const missionIntroAsset = isMissionExperience
+    ? cardAudioAsset(activeLesson.cards[0], {
+        purpose: "mission-intro",
+        text: activeLesson.mission.briefing,
+        variant: "mission-intro",
+      })
+    : null;
+  const playMissionKickoffBriefing = useCallback(() => {
+    if (!missionIntroAsset || !activeLesson.mission?.briefing?.trim()) return 0;
+    return speakText(activeLesson.mission.briefing, {
+      audioAssetId: missionIntroAsset.id,
+      lang: "es-MX",
+      onEnd: () => playUiSfx("readyCue", { debounceMs: 240, volume: 0.58 }),
+      rate: 0.92,
+      variant: "mission-intro",
+      voiceMode: "prompt",
+    });
+  }, [activeLesson.mission, missionIntroAsset, playUiSfx, speakText]);
   const isLockedMissionFinale = currentCard?.interaction_type === "mission-finale" && lastResult !== "correct";
   const isPronunciationCard =
     activeLesson.id === "lesson-3-pronunciation" ||
@@ -2289,6 +2364,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       ? currentCard.prompt
       : currentCard.audio_text ?? currentCard.prompt
     : "";
+  const missionInstructionText = currentCard?.instruction_es?.trim()
+    || "Observa la escena y elige la respuesta que corresponde.";
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
   const cardPromptHasVisualBlank = authoredCardPromptHasVisualBlank
     || hasVisualAudioPlaceholder(cardPromptText);
@@ -3127,6 +3204,23 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [activeLesson.id, started]);
 
+  useLayoutEffect(() => {
+    if (
+      !started
+      || !isMissionExperience
+      || !missionKickoffComplete
+      || typeof window === "undefined"
+    ) {
+      return;
+    }
+
+    const heading = isComplete
+      ? missionCompletionHeadingRef.current
+      : missionGameplayHeadingRef.current;
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    heading?.focus({ preventScroll: true });
+  }, [isComplete, isMissionExperience, missionKickoffComplete, started]);
+
   useEffect(() => {
     if (testMode || !profileLoaded || !profile || profile.userId) {
       return;
@@ -3157,6 +3251,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }, [profile, profileLoaded, testMode]);
 
   const resetProgress = () => {
+    invalidateMissionAnswerGate();
+    stopSpeech();
     stopPronunciationCapture();
     stopUiSfx();
     setCardIndex(0);
@@ -3169,6 +3265,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setLessonSessionId(null);
     setShowHelp(shouldShowHelp(profile || draftProfile));
     setAutoAdvanceDelayMs(700);
+    setMissionKickoffComplete(false);
+    setMissionCanContinue(false);
+    missionKickoffAudioPlayedRef.current = false;
     resetPronunciationPractice();
   };
 
@@ -3287,7 +3386,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
 
   useEffect(() => {
-    if (!started || lastResult !== "correct") {
+    if (!started || lastResult !== "correct" || (isMissionExperience && isMissionTileCard)) {
       return undefined;
     }
 
@@ -3303,10 +3402,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }, autoAdvanceDelayMs);
 
     return () => window.clearTimeout(timeoutId);
-  }, [autoAdvanceDelayMs, cardIndex, lastResult, started, totalCards]);
+  }, [autoAdvanceDelayMs, cardIndex, isMissionExperience, isMissionTileCard, lastResult, started, totalCards]);
 
   useEffect(() => {
-    if (!started || !isMissionExperience) {
+    if (!started || !isMissionExperience || !missionKickoffComplete) {
       previousMissionPositionRef.current = null;
       return;
     }
@@ -3327,12 +3426,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     cardIndex,
     isComplete,
     isMissionExperience,
+    missionKickoffComplete,
     playUiSfx,
     started,
   ]);
 
   useEffect(() => {
     resetPronunciationPractice();
+    invalidateMissionAnswerGate();
+    setMissionCanContinue(false);
     spokenPromptKeyRef.current = "";
     courseTurnRunRef.current += 1;
     stopSpeech();
@@ -3341,13 +3443,47 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     return () => {
       stopPronunciationCapture();
     };
-  }, [activeLesson.id, cardIndex, stopSpeech]);
+  }, [activeLesson.id, cardIndex, invalidateMissionAnswerGate, stopSpeech]);
+
+  useEffect(() => {
+    if (!started || !isMissionExperience || missionKickoffComplete) {
+      missionKickoffAudioPlayedRef.current = false;
+      return undefined;
+    }
+    if (missionKickoffAudioPlayedRef.current) return undefined;
+
+    let narrationTimeoutId = null;
+    const timeoutId = window.setTimeout(() => {
+      if (missionKickoffAudioPlayedRef.current) return;
+      missionKickoffAudioPlayedRef.current = true;
+      playUiSfx("pageTurn", { debounceMs: 180, restart: false, volume: 0.45 });
+      if (missionIntroAsset) {
+        narrationTimeoutId = window.setTimeout(playMissionKickoffBriefing, 280);
+      } else {
+        playUiSfx("readyCue", { debounceMs: 240, volume: 0.58 });
+      }
+    }, 100);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      if (narrationTimeoutId) window.clearTimeout(narrationTimeoutId);
+    };
+  }, [
+    isMissionExperience,
+    missionIntroAsset,
+    missionKickoffComplete,
+    playMissionKickoffBriefing,
+    playUiSfx,
+    started,
+  ]);
 
   useEffect(() => {
     if (
       (!isRecognitionLesson && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
       || isPronunciationCard
       || !started
+      || (isMissionExperience && !missionKickoffComplete)
+      || (isMissionTileCard && !currentCard?.audio_text?.trim())
       || isComplete
       || !currentCard
       || lastResult !== null
@@ -3394,6 +3530,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     isComplete,
     isPronunciationCard,
     isRecognitionLesson,
+    isMissionExperience,
+    missionKickoffComplete,
+    isMissionTileCard,
     lastResult,
     playCourseTurnSequence,
     speakText,
@@ -4189,6 +4328,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     resetProgress();
     setShowHelp(shouldShowHelp(profile));
+    setMissionKickoffComplete(testMode || !isMissionLesson(lessonToStart));
 
     if (profile?.userId) {
       try {
@@ -4246,35 +4386,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setOnboardingStepIndex((current) => current + 1);
   };
 
-  const handleChoice = (optionId) => {
-    if (lastResult === "correct") {
-      return;
-    }
-
-    const correctOptionIds = orderedCorrectOptionIds(currentCard);
-    const isMultiBlankCompletion = correctOptionIds.length > 1;
-    const continuingSelection = isMultiBlankCompletion && lastResult !== "wrong"
-      ? selectedOptionIds
-      : [];
-    if (isMultiBlankCompletion && continuingSelection.includes(optionId)) {
-      return;
-    }
-    const nextSelectedOptionIds = isMultiBlankCompletion
-      ? [...continuingSelection, optionId]
-      : [optionId];
-    if (isMissionExperience && isMissionTileCard) {
-      playUiSfx("tilePlace", { debounceMs: 80, volume: 0.42 });
-    }
-    setSelectedOptionId(optionId);
-    setSelectedOptionIds(nextSelectedOptionIds);
-    setLastResult(null);
-    if (nextSelectedOptionIds.length < correctOptionIds.length) {
-      return;
-    }
-
-    const isCorrect = nextSelectedOptionIds.every((selectedId, index) => (
-      selectedId === correctOptionIds[index]
-    ));
+  const resolveChoiceAttempt = (nextSelectedOptionIds, { missionConstruction = false } = {}) => {
+    const correctOptionIds = missionConstruction
+      ? missionCorrectOptionIds(currentCard)
+      : orderedCorrectOptionIds(currentCard);
+    const isCorrect = nextSelectedOptionIds.length === correctOptionIds.length
+      && nextSelectedOptionIds.every((selectedId, index) => selectedId === correctOptionIds[index]);
     const selectedOptionKey = nextSelectedOptionIds.join("|");
     const correctOptionKey = correctOptionIds.join("|");
     const firstTry = !wrongAttempts[cardIndex];
@@ -4294,13 +4411,23 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     if (isCorrect) {
+      const optionId = nextSelectedOptionIds[nextSelectedOptionIds.length - 1];
       const selectedActionVideo = lessonActionVideo(
         currentCard.options.find((option) => option.id === optionId)?.image_url,
         currentCard.options.length
       );
       setLastResult("correct");
+      if (missionConstruction) {
+        invalidateMissionAnswerGate();
+        setMissionCanContinue(false);
+      }
+      const missionAnswerRunId = missionConstruction ? missionAnswerRunRef.current : null;
       setAutoAdvanceDelayMs(
-        Math.max(currentCard.answer_audio_text ? 2600 : 1000, selectedActionVideo ? 2600 : 0)
+        Math.max(
+          currentCard.answer_audio_text ? 2600 : 1000,
+          selectedActionVideo ? 2600 : 0,
+          isMissionExperience ? 2200 : 0
+        )
       );
       if (firstTry) {
         setScore((current) => current + 1);
@@ -4318,19 +4445,51 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         }
       );
       if (currentCard.answer_audio_text) {
-        window.setTimeout(() => {
+        const answerStartTimerId = window.setTimeout(() => {
+          if (missionConstruction) {
+            if (missionAnswerStartTimerRef.current === answerStartTimerId) {
+              missionAnswerStartTimerRef.current = null;
+            }
+            if (missionAnswerRunRef.current !== missionAnswerRunId) return;
+          }
+
           const answerTurns = cardAudioTurnSequence(currentCard, "answer");
           let answerSpeechMs = 0;
+          let missionAnswerSettled = false;
+          const finishMissionAnswer = (reason) => {
+            if (
+              !missionConstruction
+              || missionAnswerSettled
+              || missionAnswerRunRef.current !== missionAnswerRunId
+            ) {
+              return;
+            }
+            missionAnswerSettled = true;
+            clearMissionAnswerTimers();
+            if (reason === "timeout") {
+              console.warn("Mission answer audio timed out; enabling Continue", {
+                cardIndex,
+                lessonId: activeLesson.id,
+              });
+            }
+            setAutoAdvanceDelayMs(450);
+            setMissionCanContinue(true);
+          };
           if (currentCard.answer_audio_turns?.length) {
             if (answerTurns) {
               answerSpeechMs = playCourseTurnSequence(answerTurns, {
                 voiceMode: "answer",
                 rate: 0.74,
                 volume: 1,
-                onEnd: () => setAutoAdvanceDelayMs(450),
+                onCancel: missionConstruction ? () => finishMissionAnswer("cancelled") : undefined,
+                onEnd: () => {
+                  setAutoAdvanceDelayMs(450);
+                  finishMissionAnswer("ended");
+                },
               });
             } else {
               console.info("Course answer audio turn contract rejected", currentCard.prompt);
+              finishMissionAnswer("error");
             }
           } else {
             answerSpeechMs = speakText(currentCard.answer_audio_text, {
@@ -4338,19 +4497,38 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               voiceMode: "answer",
               rate: 0.74,
               volume: 1,
+              onCancel: missionConstruction ? () => finishMissionAnswer("cancelled") : undefined,
+              onEnd: missionConstruction ? () => finishMissionAnswer("ended") : undefined,
             });
           }
           setAutoAdvanceDelayMs(Math.max(1800, answerSpeechMs + 450));
+          if (
+            missionConstruction
+            && !missionAnswerSettled
+            && missionAnswerRunRef.current === missionAnswerRunId
+          ) {
+            missionAnswerWatchdogRef.current = window.setTimeout(
+              () => finishMissionAnswer("timeout"),
+              missionAnswerWatchdogDelay(answerSpeechMs),
+            );
+          }
         }, 0);
+        if (missionConstruction) {
+          missionAnswerStartTimerRef.current = answerStartTimerId;
+        }
       } else {
-        window.setTimeout(() => {
-          speakText(praise, {
-            rate: 0.75,
-            pitch: praisePitch,
-            volume: 1,
-            voiceMode: "feedback",
-          });
-        }, 0);
+        if (missionConstruction) {
+          setMissionCanContinue(true);
+        } else {
+          window.setTimeout(() => {
+            speakText(praise, {
+              rate: 0.75,
+              pitch: praisePitch,
+              volume: 1,
+              voiceMode: "feedback",
+            });
+          }, 0);
+        }
       }
       return;
     }
@@ -4364,22 +4542,53 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }, 0);
   };
 
-  const undoMissionSelection = () => {
-    if (lastResult === "correct" || selectedOptionIds.length === 0) return;
-    const next = selectedOptionIds.slice(0, -1);
-    setSelectedOptionIds(next);
-    setSelectedOptionId(next.length ? next[next.length - 1] : null);
+  const handleChoice = (optionId) => {
+    if (lastResult === "correct" || (isMissionExperience && isMissionTileCard)) return;
+
+    const correctOptionIds = orderedCorrectOptionIds(currentCard);
+    const isMultiBlankCompletion = correctOptionIds.length > 1;
+    const continuingSelection = isMultiBlankCompletion && lastResult !== "wrong"
+      ? selectedOptionIds
+      : [];
+    if (isMultiBlankCompletion && continuingSelection.includes(optionId)) return;
+    const nextSelectedOptionIds = isMultiBlankCompletion
+      ? [...continuingSelection, optionId]
+      : [optionId];
+    setSelectedOptionId(optionId);
+    setSelectedOptionIds(nextSelectedOptionIds);
     setLastResult(null);
+    if (nextSelectedOptionIds.length < correctOptionIds.length) return;
+    resolveChoiceAttempt(nextSelectedOptionIds);
   };
 
-  const resetMissionSelection = () => {
-    if (lastResult === "correct" || selectedOptionIds.length === 0) return;
-    setSelectedOptionIds([]);
+  const handleMissionCheck = (optionIds) => {
+    if (lastResult === "correct" || !isMissionTileCard) return;
+    setSelectedOptionId(optionIds[optionIds.length - 1] || null);
+    setSelectedOptionIds(optionIds);
+    resolveChoiceAttempt(optionIds, { missionConstruction: true });
+  };
+
+  const continueMissionConstruction = () => {
+    if (lastResult !== "correct" || !missionCanContinue) return;
+    invalidateMissionAnswerGate();
+    stopSpeech();
+    setMissionCanContinue(false);
     setSelectedOptionId(null);
+    setSelectedOptionIds([]);
     setLastResult(null);
+    if (cardIndex >= totalCards - 1) setIsComplete(true);
+    else setCardIndex((current) => current + 1);
+  };
+
+  const editMissionConstruction = () => {
+    if (lastResult !== "wrong") return;
+    setLastResult(null);
+    setSelectedOptionId(null);
+    setSelectedOptionIds([]);
   };
 
   const playCurrentCardPrompt = () => {
+    if (isMissionExperience && lastResult === "correct") return;
     if (isPronunciationCard) {
       playPronunciationModel(activePronunciationPrompt);
       return;
@@ -4886,15 +5095,33 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     );
   }
 
+  if (started && isMissionExperience && !missionKickoffComplete) {
+    return (
+      <MissionKickoff
+        isMobile={isMobile}
+        lesson={activeLesson}
+        onBegin={() => {
+          stopSpeech();
+          playUiSfx("pageTurn", { debounceMs: 180, restart: false, volume: 0.45 });
+          setMissionKickoffComplete(true);
+        }}
+        onExit={goToLessons}
+        onReplayBriefing={missionIntroAsset ? playMissionKickoffBriefing : undefined}
+        onTutorialComplete={() => playUiSfx("pageRestored", { debounceMs: 240, volume: 0.5 })}
+      />
+    );
+  }
+
   if ((isComplete || !currentCard) && isMissionExperience) {
     return (
-      <div style={{ ...styles.page, padding: isMobile ? "10px" : styles.page.padding }}>
+      <div className="mission-completion-page" style={{ ...styles.page, minHeight: undefined, padding: undefined }}>
         <main style={{ margin: "0 auto", maxWidth: 920 }}>
           <div style={{ marginBottom: isMobile ? 8 : 12 }}>
             <MiniSpanGlishLogo onClick={goToLessons} />
           </div>
           <MissionCompletion
             finalImageUrl={finalMissionImageUrl ? lessonOptionImageSrc(finalMissionImageUrl) : ""}
+            headingRef={missionCompletionHeadingRef}
             isMobile={isMobile}
             lesson={activeLesson}
             onExit={goToLessons}
@@ -4948,7 +5175,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }
 
   return (
-    <div style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
+    <div
+      className={isMissionExperience ? "mission-gameplay-page" : undefined}
+      style={isMissionExperience
+        ? { ...styles.page, minHeight: undefined, padding: undefined }
+        : { ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}
+    >
       <div style={shellStyle}>
           <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
           <section style={heroStyle}>
@@ -5028,36 +5260,59 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             </div>
             {isMissionExperience ? (
               <>
-                <MissionJourney cardIndex={cardIndex} isMobile={isMobile} lesson={activeLesson} />
-                <button
-                  aria-label={cardPromptText.trim() ? `Escuchar pista: ${cardPromptText}` : "Pista visual de la misión"}
-                  disabled={!cardPromptText.trim()}
-                  onClick={playCurrentCardPrompt}
-                  style={{
-                    background: "rgba(255, 250, 240, 0.96)",
-                    border: "1px solid rgba(244, 201, 93, 0.76)",
-                    borderRadius: isMobile ? 12 : 16,
-                    color: "#24333a",
-                    cursor: cardPromptText.trim() ? "pointer" : "default",
-                    marginTop: isMobile ? 10 : 14,
-                    minHeight: 48,
-                    opacity: 1,
-                    padding: isMobile ? "9px 11px" : "11px 14px",
-                    width: "100%",
-                  }}
-                  type="button"
-                >
-                  <span style={{ color: "#8c5700", display: "block", fontSize: 11, fontWeight: 950, letterSpacing: "0.08em", textTransform: "uppercase" }}>
-                    Pista actual
-                  </span>
-                  <span style={{ display: "block", fontSize: isMobile ? "1.18rem" : "1.45rem", fontWeight: 950, lineHeight: 1.15, marginTop: 3 }}>
-                    {currentCard.prompt?.trim()
-                      ? renderHighlightedTitle(currentCard.prompt)
-                      : cardPromptText.trim()
-                        ? "Escucha la pista"
-                        : "Elige la frase que restaura la página"}
-                  </span>
-                </button>
+                <MissionJourney
+                  cardIndex={cardIndex}
+                  headingRef={missionGameplayHeadingRef}
+                  isMobile={isMobile}
+                  lesson={activeLesson}
+                />
+                {isMissionTileCard ? (
+                  currentCard.audio_text?.trim() ? (
+                    <button
+                      aria-label={`Escuchar pista en inglés: ${cardPromptText}`}
+                      className="mission-tile-prompt-replay"
+                      disabled={lastResult === "correct"}
+                      onClick={playCurrentCardPrompt}
+                      type="button"
+                    >
+                      <span aria-hidden="true">🔊</span> Escuchar pista en inglés
+                    </button>
+                  ) : null
+                ) : (
+                  <button
+                    aria-label={cardPromptText.trim()
+                      ? `${missionInstructionText} Escuchar pista en inglés.`
+                      : missionInstructionText}
+                    disabled={!cardPromptText.trim() || lastResult === "correct"}
+                    lang="es"
+                    onClick={playCurrentCardPrompt}
+                    style={{
+                      background: "rgba(255, 250, 240, 0.96)",
+                      border: "1px solid rgba(244, 201, 93, 0.76)",
+                      borderRadius: isMobile ? 12 : 16,
+                      color: "#24333a",
+                      cursor: cardPromptText.trim() && lastResult !== "correct" ? "pointer" : "default",
+                      marginTop: isMobile ? 10 : 14,
+                      minHeight: 48,
+                      opacity: lastResult === "correct" ? 0.62 : 1,
+                      padding: isMobile ? "9px 11px" : "11px 14px",
+                      width: "100%",
+                    }}
+                    type="button"
+                  >
+                    <span style={{ color: "#8c5700", display: "block", fontSize: 11, fontWeight: 950, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                      Qué hacer ahora
+                    </span>
+                    <span lang="es" style={{ display: "block", fontSize: isMobile ? "1.05rem" : "1.25rem", fontWeight: 950, lineHeight: 1.2, marginTop: 3 }}>
+                      {missionInstructionText}
+                    </span>
+                    {cardPromptText.trim() ? (
+                      <span style={{ color: "#1b6658", display: "block", fontSize: 12, fontWeight: 850, marginTop: 5 }}>
+                        🔊 Toca para escuchar la pista en inglés
+                      </span>
+                    ) : null}
+                  </button>
+                )}
               </>
             ) : !compactPracticeHeader ? (
               <button
@@ -5133,7 +5388,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               >
                 <img
                   src={lessonOptionImageSrc(activeTurnImageUrl || currentCard.prompt_image_url)}
-                  alt={currentCard.prompt || (isMissionExperience ? `Escena visual de la página ${cardIndex + 1}` : "")}
+                  alt={isMissionExperience ? currentCard.visual_description_es : currentCard.prompt || ""}
                   style={{
                     display: "block",
                     width: "100%",
@@ -5163,79 +5418,23 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       textShadow: "0 2px 8px rgba(0,0,0,0.42)",
                     }}
                   >
-                    Retrato bloqueado · Completa la última frase
+                    Escena final bloqueada · Completa la última frase
                   </div>
                 ) : null}
               </div>
             ) : null}
             {isMissionTileCard ? (
-              <div style={{ margin: "0 auto 9px", maxWidth: 620, minWidth: 0, width: "100%" }}>
-                <div
-                  style={{ color: "#6a4c25", fontSize: 13, fontWeight: 900, marginBottom: 5, textAlign: "center" }}
-                >
-                  {currentCard.interaction_type === "mission-word-parts"
-                    ? "Forma la palabra"
-                    : "Ordena la oración"}
-                </div>
-                <div
-                  aria-label={`Respuesta: ${optionLabelsForIds(currentCard, selectedOptionIds).join(
-                    currentCard.interaction_type === "mission-word-parts" ? "-" : " "
-                  ) || "vacia"}`}
-                  aria-live="polite"
-                  onDragOver={(event) => event.preventDefault()}
-                  onDrop={(event) => {
-                    event.preventDefault();
-                    const optionId = event.dataTransfer.getData("text/plain");
-                    if (optionId) handleChoice(optionId);
-                  }}
-                  style={{
-                    alignItems: "center",
-                    background: lastResult === "correct"
-                      ? "var(--green-soft)"
-                      : lastResult === "wrong"
-                        ? "var(--red-soft)"
-                        : "#fff9e9",
-                    border: `2px ${lastResult ? "solid" : "dashed"} ${
-                      lastResult === "correct" ? "var(--green)" : lastResult === "wrong" ? "var(--red)" : "#d6b65a"
-                    }`,
-                    borderRadius: 16,
-                    display: "grid",
-                    gap: isMobile ? 5 : 8,
-                    gridTemplateColumns: missionTileGridColumns,
-                    maxWidth: "100%",
-                    minHeight: isMobile ? 58 : 68,
-                    minWidth: 0,
-                    padding: isMobile ? 6 : 8,
-                    width: "100%",
-                  }}
-                >
-                  {orderedCorrectOptionIds(currentCard).map((optionId, index) => (
-                    <div
-                      key={`${optionId}-${index}`}
-                      style={{
-                        alignItems: "center",
-                        background: "#fff",
-                        borderBottom: "3px solid #9b7a39",
-                        borderRadius: 8,
-                        color: "#1d5f54",
-                        display: "flex",
-                        fontSize: "clamp(0.95rem, 3.8vw, 1.3rem)",
-                        fontWeight: 900,
-                        justifyContent: "center",
-                        minHeight: 48,
-                        minWidth: 0,
-                        overflowWrap: "anywhere",
-                        padding: "5px 6px",
-                        wordBreak: "normal",
-                        whiteSpace: "normal",
-                      }}
-                    >
-                      {optionLabelsForIds(currentCard, selectedOptionIds)[index] || "___"}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : null}
+              <MissionTileBoard
+                canContinue={missionCanContinue}
+                card={currentCard}
+                isMobile={isMobile}
+                lastResult={lastResult}
+                onCheck={handleMissionCheck}
+                onContinue={continueMissionConstruction}
+                onEdit={editMissionConstruction}
+                onPlaySfx={(cue) => playUiSfx(cue, { debounceMs: 80, volume: 0.42 })}
+              />
+            ) : (
             <div style={choiceGridStyle}>
               {currentCard.options.map((option, optionIndex) => {
                 const optionPrompt = optionPracticePrompt(option);
@@ -5507,50 +5706,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 );
               })}
             </div>
-            {isMissionTileCard ? (
-              <div style={{ display: "grid", gap: 5, justifyItems: "center", marginTop: 8 }}>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center", maxWidth: "100%" }}>
-                  <button
-                    aria-label="Deshacer ultima ficha"
-                    disabled={lastResult === "correct" || selectedOptionIds.length === 0}
-                    onClick={undoMissionSelection}
-                    style={{
-                      ...styles.subtleButton,
-                      minHeight: 48,
-                      opacity: lastResult === "correct" || selectedOptionIds.length === 0 ? 0.45 : 1,
-                      padding: "8px 14px",
-                      width: "auto",
-                    }}
-                    type="button"
-                  >
-                    Deshacer
-                  </button>
-                  <button
-                    aria-label="Reiniciar respuesta"
-                    disabled={lastResult === "correct" || selectedOptionIds.length === 0}
-                    onClick={resetMissionSelection}
-                    style={{
-                      ...styles.subtleButton,
-                      minHeight: 48,
-                      opacity: lastResult === "correct" || selectedOptionIds.length === 0 ? 0.45 : 1,
-                      padding: "8px 14px",
-                      width: "auto",
-                    }}
-                    type="button"
-                  >
-                    Reiniciar
-                  </button>
-                </div>
-                <div style={{ color: "var(--muted)", fontSize: 12, fontWeight: 700 }}>
-                  Toca o arrastra las fichas en orden.
-                </div>
-              </div>
-            ) : null}
+            )}
 
             <div style={{ marginTop: 20 }}>
-              {lastResult === "correct" ? (
+              {lastResult === "correct" && !isMissionTileCard ? (
                 <div style={{ ...styles.feedback, background: "var(--green-soft)", color: "var(--green)" }}>
-                  Correcto. Vamos a la siguiente tarjeta...
+                  {isMissionExperience && currentCard.success_outcome_es?.trim()
+                    ? `✓ ${currentCard.success_outcome_es}`
+                    : "Correcto. Avanzamos a la siguiente escena..."}
                 </div>
               ) : null}
               {lastResult === "wrong" ? (
@@ -5587,10 +5750,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               >
                 <div style={{ textAlign: "left" }}>
                   <div style={{ color: "#1b6658", fontSize: 11, fontWeight: 900, letterSpacing: "0.07em", textTransform: "uppercase" }}>
-                    Álbum en progreso
+                    Reto en progreso
                   </div>
                   <div style={{ color: "var(--text)", fontSize: isMobile ? 14 : 16, fontWeight: 850 }}>
-                    Página {cardIndex + 1} de {totalCards}
+                    Escena {cardIndex + 1} de {totalCards}
                   </div>
                 </div>
                 <button
