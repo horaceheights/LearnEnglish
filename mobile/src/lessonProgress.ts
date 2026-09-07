@@ -14,6 +14,14 @@ export type CardChoiceAttempt = CardAttempt & {
   shouldRecordAttempt: boolean;
 };
 
+export function shouldWaitForGrammarAnimation(
+  stage: string,
+  usesDedicatedMissionSurface: boolean,
+): boolean {
+  const grammarStage = stage === 'Grammar' || stage === 'New Grammar' || stage === 'Use';
+  return grammarStage && !usesDedicatedMissionSurface;
+}
+
 export function registerCardAttempt(
   current: ReadonlySet<number>,
   cardIndex: number,

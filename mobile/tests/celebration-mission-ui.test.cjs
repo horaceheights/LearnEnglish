@@ -35,6 +35,20 @@ assert.match(screen, /!isMissionTileCard && !isMissionGameCard/);
 assert.match(screen, /<MissionGameSurface/);
 assert.match(screen, /<MissionKickoff/);
 assert.match(screen, /findCourseAudioAsset\(currentCard, 'mission-instruction'\)/);
+assert.ok(
+  mission.cards.some((card) => card.stage === 'Use' && card.mission_game),
+  'The regression fixture must include a Use-stage mission game.',
+);
+assert.match(
+  screen,
+  /const waitsForGrammarAnimation = shouldWaitForGrammarAnimation\([\s\S]*?usesMissionGameSurface,[\s\S]*?\);/,
+  'A dedicated mission surface must not wait for the standard grammar animation callback.',
+);
+assert.match(
+  screen,
+  /if \(waitsForGrammarAnimation\) \{\s*return;\s*\}/,
+  'Correct mission checks must continue into answer feedback and card advancement.',
+);
 
 const bundledReunionImages = images.match(/'a1_u1_reunion_[^']+\.webp': require/g) || [];
 assert.equal(bundledReunionImages.length, 23);
