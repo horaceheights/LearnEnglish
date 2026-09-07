@@ -10,6 +10,7 @@ type Result = 'correct' | 'wrong' | null;
 
 type Props = {
   card: LessonCard & { mission_game: MissionGame };
+  cueUnavailable: boolean;
   interactionReady: boolean;
   onCueRequest: (cueIndex: number) => void;
   onMisstep: (optionIds: string[]) => void;
@@ -122,6 +123,7 @@ function TargetDot({
 
 export function MissionGameSurface({
   card,
+  cueUnavailable,
   interactionReady,
   onCueRequest,
   onMisstep,
@@ -211,11 +213,16 @@ export function MissionGameSurface({
           onPress={() => onCueRequest(cueIndex)}
           style={({ pressed }) => [
             styles.audioButton,
-            !interactionReady ? styles.audioButtonPlaying : null,
+            !interactionReady && !cueUnavailable ? styles.audioButtonPlaying : null,
+            cueUnavailable ? styles.audioButtonRetry : null,
             pressed ? styles.pressed : null,
           ]}
         >
-          <Ionicons color="#fff" name={interactionReady ? 'volume-high' : 'volume-medium'} size={23} />
+          <Ionicons
+            color="#fff"
+            name={cueUnavailable || interactionReady ? 'volume-high' : 'volume-medium'}
+            size={23}
+          />
         </Pressable>
       </View>
 
@@ -234,10 +241,17 @@ export function MissionGameSurface({
           ))}
         </View>
 
-        {!interactionReady && !feedback ? (
+        {!interactionReady && !feedback && !cueUnavailable ? (
           <View pointerEvents="none" style={styles.listeningBadge}>
             <Ionicons color="#fff" name="ear" size={18} />
             <Text style={styles.listeningText}>Escucha…</Text>
+          </View>
+        ) : null}
+
+        {cueUnavailable && !feedback ? (
+          <View accessibilityLiveRegion="assertive" pointerEvents="none" style={styles.retryBadge}>
+            <Ionicons color="#fff" name="volume-high" size={19} />
+            <Text style={styles.retryText}>No se escuchó. Toca 🔊 para repetir.</Text>
           </View>
         ) : null}
 
@@ -281,6 +295,7 @@ const styles = StyleSheet.create({
   instruction: { color: '#203c37', fontSize: 15, fontWeight: '900', lineHeight: 19, marginTop: 2 },
   audioButton: { alignItems: 'center', backgroundColor: '#278c73', borderRadius: 15, height: 48, justifyContent: 'center', width: 48 },
   audioButtonPlaying: { backgroundColor: '#d06845' },
+  audioButtonRetry: { backgroundColor: '#b9553f' },
   imageFrame: { backgroundColor: '#dbe8e2', borderColor: '#fff', borderRadius: 22, borderWidth: 4, flex: 1, minHeight: 210, overflow: 'hidden', position: 'relative', width: '100%' },
   targetHitArea: { alignItems: 'center', height: DOT_SIZE, justifyContent: 'center', position: 'absolute', width: DOT_SIZE },
   pulseRing: { backgroundColor: 'rgba(255,255,255,0.72)', borderColor: '#f4c75f', borderRadius: 999, borderWidth: 3, height: 38, position: 'absolute', width: 38 },
@@ -290,6 +305,8 @@ const styles = StyleSheet.create({
   targetDotSolved: { backgroundColor: '#32a77e', borderColor: '#dcfff3' },
   listeningBadge: { alignItems: 'center', alignSelf: 'center', backgroundColor: 'rgba(24,58,53,0.92)', borderRadius: 999, bottom: 14, flexDirection: 'row', gap: 7, paddingHorizontal: 13, paddingVertical: 7, position: 'absolute' },
   listeningText: { color: '#fff', fontSize: 13, fontWeight: '900' },
+  retryBadge: { alignItems: 'center', alignSelf: 'center', backgroundColor: 'rgba(151,71,55,0.96)', borderColor: 'rgba(255,255,255,0.9)', borderRadius: 16, borderWidth: 2, bottom: 12, flexDirection: 'row', gap: 7, maxWidth: '92%', minHeight: 48, paddingHorizontal: 14, paddingVertical: 8, position: 'absolute' },
+  retryText: { color: '#fff', flexShrink: 1, fontSize: 15, fontWeight: '900', lineHeight: 19, textAlign: 'center' },
   feedback: { alignItems: 'center', alignSelf: 'center', borderColor: 'rgba(255,255,255,0.88)', borderRadius: 16, borderWidth: 2, bottom: 12, flexDirection: 'row', gap: 7, maxWidth: '92%', minHeight: 48, paddingHorizontal: 14, paddingVertical: 8, position: 'absolute' },
   feedbackCorrect: { backgroundColor: 'rgba(29,126,96,0.96)' },
   feedbackWrong: { backgroundColor: 'rgba(151,71,55,0.96)' },
