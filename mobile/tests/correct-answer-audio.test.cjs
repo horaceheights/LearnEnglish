@@ -53,7 +53,7 @@ assert.match(
 
 assert.match(
   lessonScreen,
-  /const answerText = correctSelectionAudioText\(currentCard, optionId\)[\s\S]*?playAnswerAfterChime\(answerText\)/,
+  /const answerText = correctSelectionAudioText\(currentCard, finalOptionId\)[\s\S]*?playAnswerAfterChime\(answerText\)/,
   'A correct choice must speak the resolved answer after the success chime.',
 );
 

@@ -144,7 +144,7 @@ corrupts progress, or produces unreliable learning feedback.
 - [x] Keep QA on the production lesson catalog while isolating QA sessions and analytics
 - [x] Implement the complete 70-lesson A1 dependency chain across seven units of ten
 - [x] Encode intentional curriculum growth through richer constructions in lessons 1-8, fresh-scenario comprehensive reviews in lesson 9, and distinct applied missions in lesson 10
-- [~] Restructure Unit 1 one lesson at a time with a learner review checkpoint after every pushed lesson; Lesson 1.1 `Meet the People` is the active pilot
+- [~] Complete the approved Unit 1 restructuring with learner review checkpoints: Lessons 1.1-1.9 establish the forward-building and fresh-review pattern, while the active Lesson 1.10 replacement is the 22-beat `¡Todos a la celebración!` adventure covering all 46 Unit 1 targets
 - [x] Present the seven-unit hierarchy without flattening all 70 lessons into the initial menu
 
 ---
@@ -166,9 +166,9 @@ Build each interaction once, then create future lessons mostly through content.
 - [ ] Find the incorrect word
 - [ ] Singular/plural pairing
 - [ ] Timed listening challenges
-- [x] Build the lightly gamified Lesson 10 mission shell, including explicit mission metadata, continuous chapter progress, and accessible word-part-to-word and word-to-sentence tile challenges
+- [x] Replace the rejected Lesson 1.10 family-album and film-studio shells with the continuous `¡Todos a la celebración!` find/connect/action/correct/Who adventure; retain metadata-driven 22-beat progress and add accessible hotspot, relationship-link, action-trace, false-clue-repair, and speaking interactions without making a repeated tile board the mission shell
 - [~] Add measured responsive tile layout with drag clamping, tap alternatives, visible recovery controls, and automated minimum-target checks; keyboard, screen-reader movement, and the complete phone/tablet/web physical viewport matrix still require verification
-- [ ] Produce and review a small versioned ElevenLabs sound-effects pack for mission feedback and transitions
+- [x] Produce and review the versioned ElevenLabs opening, confirmation, act-transition, correction, and finale cues for `¡Todos a la celebración!`; ship static assets only and preserve visible equivalents
 - [x] Pronunciation activities
 - [ ] Short conversational response activities
 - [~] Shared animation, sound, help, scoring, analytics, and offline contracts; haptics remain unimplemented

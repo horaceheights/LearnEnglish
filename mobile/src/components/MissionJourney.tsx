@@ -14,10 +14,11 @@ type Props = {
 };
 
 const CHAPTER_ICONS: Array<keyof typeof Ionicons.glyphMap> = [
-  'book-outline',
+  'search-outline',
+  'git-network-outline',
+  'footsteps-outline',
+  'construct-outline',
   'people-outline',
-  'images-outline',
-  'mic-outline',
 ];
 
 export function MissionJourney({
@@ -39,7 +40,7 @@ export function MissionJourney({
     >
       <View style={styles.headingRow}>
         <View style={[styles.albumBadge, compact ? styles.albumBadgeCompact : null]}>
-          <Ionicons color="#fff8e5" name="book" size={compact ? 19 : 23} />
+          <Ionicons color="#fff8e5" name="compass" size={compact ? 19 : 23} />
         </View>
         <View style={styles.headingCopy}>
           <Text numberOfLines={1} style={[styles.label, compact ? styles.labelCompact : null]}>
@@ -50,7 +51,7 @@ export function MissionJourney({
           </Text>
         </View>
         <View style={styles.counter}>
-          <Text style={styles.counterLabel}>PÁGINA</Text>
+          <Text style={styles.counterLabel}>RETO</Text>
           <Text style={styles.counterValue}>{step}/{total}</Text>
         </View>
       </View>
@@ -91,8 +92,8 @@ export function MissionJourney({
 const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
-    backgroundColor: 'rgba(255, 253, 246, 0.92)',
-    borderColor: '#d7b36a',
+    backgroundColor: 'rgba(247, 253, 250, 0.96)',
+    borderColor: '#73af9d',
     borderRadius: 17,
     borderWidth: 1.5,
     flex: 1,
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
   headingRow: { alignItems: 'center', flexDirection: 'row', minWidth: 0 },
   albumBadge: {
     alignItems: 'center',
-    backgroundColor: '#7b4b2a',
+    backgroundColor: '#24594e',
     borderRadius: 10,
     height: 38,
     justifyContent: 'center',
@@ -113,7 +114,7 @@ const styles = StyleSheet.create({
   },
   albumBadgeCompact: { borderRadius: 8, height: 30, marginRight: 6, width: 30 },
   headingCopy: { flex: 1, minWidth: 0 },
-  label: { color: '#b36518', fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },
+  label: { color: '#c35e3d', fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },
   labelCompact: { fontSize: 7 },
   title: { color: '#26363b', fontSize: 17, fontWeight: '900', lineHeight: 20 },
   titleCompact: { fontSize: 14, lineHeight: 16 },
@@ -151,11 +152,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 26,
   },
-  chapterMarkerActive: { backgroundColor: '#ffe5a7', borderColor: '#7b4b2a', borderWidth: 2 },
+  chapterMarkerActive: { backgroundColor: '#ffd996', borderColor: '#24594e', borderWidth: 2 },
   chapterMarkerComplete: { backgroundColor: '#2f8f72', borderColor: '#1d7058' },
   chapterMarkerLocked: { opacity: 0.5 },
   objectiveRow: { alignItems: 'baseline', flexDirection: 'row', gap: 6, marginTop: 7, minWidth: 0 },
-  chapterTitle: { color: '#64401d', flexShrink: 0, fontSize: 11, fontWeight: '900' },
+  chapterTitle: { color: '#24594e', flexShrink: 0, fontSize: 11, fontWeight: '900' },
   chapterTitleCompact: { fontSize: 9 },
   objective: { color: '#5e696c', flex: 1, fontSize: 10, lineHeight: 13 },
   objectiveCompact: { fontSize: 8, lineHeight: 10 },

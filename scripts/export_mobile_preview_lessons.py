@@ -90,6 +90,11 @@ def lesson_image_names() -> list[str]:
     names: set[str] = set(COURSE_MENU_IMAGE_NAMES)
     option_names: set[str] = set()
     for lesson in LESSONS.values():
+        mission = getattr(lesson, "mission", None)
+        kickoff_image_url = str(getattr(mission, "kickoff_image_url", "") or "")
+        kickoff_name = Path(kickoff_image_url.split("?", 1)[0].split("#", 1)[0]).name
+        if kickoff_name.endswith(".webp"):
+            names.add(kickoff_name)
         for card in lesson.cards:
             paths = [
                 card.prompt_image_url,

@@ -457,23 +457,23 @@ assert.deepEqual(
 
 const unitOneMission = lesson('1.10');
 const expectedMissionHeroes = [
-  'locked', 'people_board', 'pronoun_cast', 'family_index', 'adult_count',
-  'parents_branch', 'grandparents_branch', 'tree_complete', 'who_father',
-  'who_mother', 'who_parents', 'who_children', 'who_grandparents',
-  'man_eating_drinking', 'boy_reading_writing', 'siblings_running_mother_sitting',
-  'sisters_swimming_grandfather_sleeping', 'children_playing_sister_studying',
-  'family_work_cook_talk', 'negative_contact_sheet', 'voiceover_booth', 'final_portrait',
-].map((suffix, index) => `a1_u1_album_${String(index + 1).padStart(2, '0')}_${suffix}.webp`);
+  '01_people_path', '02_four_people_search', '03_pronoun_arrival',
+  '04_age_groups', '05_babies', '06_brother_sister', '07_sibling_pairs',
+  '08_parents', '09_generations', '10_eat_drink', '11_read_write',
+  '12_run_swim', '13_sit_sleep', '14_play_study', '15_work_cook_talk',
+  '16_not_eating', '17_not_reading', '18_not_running', '19_who_father',
+  '20_who_grandmother', '21_who_parents', '22_family_arrival',
+].map((suffix) => `a1_u1_reunion_${suffix}.webp`);
 const missionHeroes = unitOneMission.cards.map((card) => {
   const correct = card.options.find((option) => option.id === card.correct_option_id);
   return path.basename((card.prompt_image_url || correct?.image_url || '').split(/[?#]/, 1)[0]);
 });
-assert.deepEqual(missionHeroes, expectedMissionHeroes, 'every Lesson 1.10 beat needs its own ordered album hero');
+assert.deepEqual(missionHeroes, expectedMissionHeroes, 'every Lesson 1.10 beat needs its own ordered celebration hero');
 assert.equal(new Set(missionHeroes).size, 22, 'Lesson 1.10 may not repeat an assessed hero image');
 assert.equal(
-  mediaFilenames(unitOneMission).every((filename) => filename.startsWith('a1_u1_album_')),
+  mediaFilenames(unitOneMission).every((filename) => filename.startsWith('a1_u1_reunion_')),
   true,
-  'every Lesson 1.10 still must stay inside the new album mission namespace',
+  'every Lesson 1.10 still must stay inside the celebration mission namespace',
 );
 const preMissionMedia = new Set(
   course

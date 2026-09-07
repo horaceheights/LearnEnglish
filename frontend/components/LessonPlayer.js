@@ -21,6 +21,7 @@ import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/less
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
+import CelebrationMission from "./CelebrationMission";
 import MissionCompletion from "./MissionCompletion";
 import MissionJourney from "./MissionJourney";
 
@@ -137,8 +138,9 @@ const COURSE_MENU_VISUALS = {
       accent: "#f1e4fa",
     },
     "lesson-10-family-mission": {
-      description: "Completa una mision familiar con pistas, voz y fichas.",
-      image: "a1_u1_album_01_locked.webp",
+      description: "Encuentra personas, conecta la familia y sigue sus acciones hasta la celebracion.",
+      image: null,
+      missionRoute: true,
       accent: "#ffe1ad",
     },
   },
@@ -2216,6 +2218,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [isComplete, setIsComplete] = useState(false);
   const [autoAdvanceDelayMs, setAutoAdvanceDelayMs] = useState(700);
   const [showHelp, setShowHelp] = useState(false);
+  const [missionIntroComplete, setMissionIntroComplete] = useState(false);
+  const [missionIntroReady, setMissionIntroReady] = useState(false);
+  const [missionInstructionReady, setMissionInstructionReady] = useState(false);
+  const [missionSpeechReady, setMissionSpeechReady] = useState(false);
   const [lessonSessionId, setLessonSessionId] = useState(null);
   const [loadingLessonId, setLoadingLessonId] = useState(null);
   const [lessonLoadError, setLessonLoadError] = useState("");
@@ -2255,7 +2261,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const courseTurnRunRef = useRef(0);
   const preloadedAudioKeysRef = useRef(new Set());
   const previousMissionPositionRef = useRef(null);
+  const missionIntroPlaybackKeyRef = useRef("");
+  const missionInstructionPlaybackKeyRef = useRef("");
   const isMissionExperience = isMissionLesson(activeLesson);
+  const isMissionGameExperience = isMissionExperience
+    && activeLesson.cards.every((card) => Boolean(card?.mission_game));
   const { speakText, stopSpeech } = useSpeech();
   const { play: playUiSfx, stop: stopUiSfx } = useStaticSfx();
   const viewportWidth = useViewportWidth();
@@ -2332,6 +2342,83 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       0
     );
   }, [speakText]);
+
+  const playMissionIntroNarration = useCallback(() => {
+    if (!isMissionGameExperience || !activeLesson.mission?.briefing || !activeLesson.cards[0]) {
+      setMissionIntroReady(true);
+      return;
+    }
+    setMissionIntroReady(false);
+    playUiSfx("readyCue", { debounceMs: 240, restart: true, volume: 0.62 });
+    speakText(activeLesson.mission.briefing, {
+      audioAssetId: cardAudioAsset(activeLesson.cards[0], { purpose: "mission-intro" })?.id
+        || MISSING_CARD_AUDIO_ASSET_ID,
+      lang: "es-MX",
+      voiceMode: "prompt",
+      onEnd: () => setMissionIntroReady(true),
+    });
+  }, [activeLesson.cards, activeLesson.mission, isMissionGameExperience, playUiSfx, speakText]);
+
+  const playMissionEnglishClue = useCallback((onEnd) => {
+    if (!currentCard?.mission_game) {
+      onEnd?.();
+      return;
+    }
+    const cueText = currentCard.mission_game.cue_audio_text?.trim();
+    const useCue = ["speak", "finale"].includes(currentCard.mission_game.kind) && cueText;
+    const text = useCue ? cueText : cardPromptText.trim();
+    if (!text) {
+      onEnd?.();
+      return;
+    }
+    speakText(text, {
+      audioAssetId: cardAudioAsset(currentCard, {
+        purpose: useCue ? "mission-cue" : "prompt",
+      })?.id || MISSING_CARD_AUDIO_ASSET_ID,
+      lang: "en-US",
+      voiceMode: text.endsWith("?") ? "question" : "prompt",
+      onEnd,
+    });
+  }, [cardPromptText, currentCard, speakText]);
+
+  const playMissionDirections = useCallback(() => {
+    if (!currentCard?.mission_game) {
+      setMissionInstructionReady(true);
+      return;
+    }
+    setMissionInstructionReady(false);
+    const unlock = () => setMissionInstructionReady(true);
+    const afterSpanish = () => {
+      if (["speak", "finale"].includes(currentCard.mission_game.kind)) {
+        unlock();
+      } else {
+        playMissionEnglishClue(unlock);
+      }
+    };
+    speakText(currentCard.mission_game.instruction_es, {
+      audioAssetId: cardAudioAsset(currentCard, { purpose: "mission-instruction" })?.id
+        || MISSING_CARD_AUDIO_ASSET_ID,
+      lang: "es-MX",
+      voiceMode: "prompt",
+      onEnd: afterSpanish,
+    });
+  }, [currentCard, playMissionEnglishClue, speakText]);
+
+  const prepareMissionSpeech = useCallback(() => {
+    if (!currentCard?.mission_game || missionSpeechReady) return;
+    const cueText = currentCard.mission_game.cue_audio_text?.trim();
+    if (!cueText) {
+      setMissionSpeechReady(true);
+      return;
+    }
+    speakText(cueText, {
+      audioAssetId: cardAudioAsset(currentCard, { purpose: "mission-cue" })?.id
+        || MISSING_CARD_AUDIO_ASSET_ID,
+      lang: "en-US",
+      voiceMode: "question",
+      onEnd: () => setMissionSpeechReady(true),
+    });
+  }, [currentCard, missionSpeechReady, speakText]);
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationCard ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =
@@ -3169,6 +3256,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setLessonSessionId(null);
     setShowHelp(shouldShowHelp(profile || draftProfile));
     setAutoAdvanceDelayMs(700);
+    setMissionIntroComplete(false);
+    setMissionIntroReady(false);
+    setMissionInstructionReady(false);
+    setMissionSpeechReady(false);
+    missionIntroPlaybackKeyRef.current = "";
+    missionInstructionPlaybackKeyRef.current = "";
     resetPronunciationPractice();
   };
 
@@ -3337,6 +3430,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     courseTurnRunRef.current += 1;
     stopSpeech();
     setActiveTurnImageUrl(null);
+    setMissionInstructionReady(false);
+    setMissionSpeechReady(false);
+    missionInstructionPlaybackKeyRef.current = "";
 
     return () => {
       stopPronunciationCapture();
@@ -3345,8 +3441,59 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   useEffect(() => {
     if (
+      !started
+      || !isMissionGameExperience
+      || missionIntroComplete
+      || isComplete
+    ) {
+      return;
+    }
+    const introKey = `${activeLesson.id}:${activeLesson.content_revision}`;
+    if (missionIntroPlaybackKeyRef.current === introKey) return;
+    missionIntroPlaybackKeyRef.current = introKey;
+    const timeoutId = window.setTimeout(playMissionIntroNarration, 180);
+    return () => window.clearTimeout(timeoutId);
+  }, [
+    activeLesson.content_revision,
+    activeLesson.id,
+    isComplete,
+    isMissionGameExperience,
+    missionIntroComplete,
+    playMissionIntroNarration,
+    started,
+  ]);
+
+  useEffect(() => {
+    if (
+      !started
+      || !isMissionGameExperience
+      || !missionIntroComplete
+      || isComplete
+      || !currentCard?.mission_game
+    ) {
+      return;
+    }
+    const instructionKey = `${activeLesson.id}:${activeLesson.content_revision}:${currentCard.slide_id}`;
+    if (missionInstructionPlaybackKeyRef.current === instructionKey) return;
+    missionInstructionPlaybackKeyRef.current = instructionKey;
+    const timeoutId = window.setTimeout(playMissionDirections, 180);
+    return () => window.clearTimeout(timeoutId);
+  }, [
+    activeLesson.content_revision,
+    activeLesson.id,
+    currentCard,
+    isComplete,
+    isMissionGameExperience,
+    missionIntroComplete,
+    playMissionDirections,
+    started,
+  ]);
+
+  useEffect(() => {
+    if (
       (!isRecognitionLesson && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
       || isPronunciationCard
+      || isMissionGameExperience
       || !started
       || isComplete
       || !currentCard
@@ -3392,6 +3539,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     cardPromptHasVisualBlank,
     currentCard,
     isComplete,
+    isMissionGameExperience,
     isPronunciationCard,
     isRecognitionLesson,
     lastResult,
@@ -3449,7 +3597,18 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }, [started]);
 
   useEffect(() => {
-    if (!isPronunciationCard || !started || isComplete || !currentCard || lastResult === "correct") {
+    if (
+      !isPronunciationCard
+      || !started
+      || isComplete
+      || !currentCard
+      || lastResult === "correct"
+      || (isMissionGameExperience && (
+        !missionIntroComplete
+        || !missionInstructionReady
+        || !missionSpeechReady
+      ))
+    ) {
       return undefined;
     }
 
@@ -3471,8 +3630,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     cardIndex,
     currentCard,
     isComplete,
+    isMissionGameExperience,
     isPronunciationCard,
     lastResult,
+    missionInstructionReady,
+    missionIntroComplete,
+    missionSpeechReady,
     started,
   ]);
 
@@ -4246,35 +4409,21 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setOnboardingStepIndex((current) => current + 1);
   };
 
-  const handleChoice = (optionId) => {
-    if (lastResult === "correct") {
-      return;
-    }
-
+  const evaluateChoiceSelection = (nextSelectedOptionIds) => {
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
-    const isMultiBlankCompletion = correctOptionIds.length > 1;
-    const continuingSelection = isMultiBlankCompletion && lastResult !== "wrong"
-      ? selectedOptionIds
-      : [];
-    if (isMultiBlankCompletion && continuingSelection.includes(optionId)) {
-      return;
-    }
-    const nextSelectedOptionIds = isMultiBlankCompletion
-      ? [...continuingSelection, optionId]
-      : [optionId];
-    if (isMissionExperience && isMissionTileCard) {
-      playUiSfx("tilePlace", { debounceMs: 80, volume: 0.42 });
-    }
-    setSelectedOptionId(optionId);
+    const finalOptionId = nextSelectedOptionIds.at(-1) || null;
+    setSelectedOptionId(finalOptionId);
     setSelectedOptionIds(nextSelectedOptionIds);
     setLastResult(null);
     if (nextSelectedOptionIds.length < correctOptionIds.length) {
       return;
     }
 
-    const isCorrect = nextSelectedOptionIds.every((selectedId, index) => (
-      selectedId === correctOptionIds[index]
-    ));
+    const isUnorderedMission = currentCard?.mission_game?.validation === "unordered";
+    const isCorrect = isUnorderedMission
+      ? nextSelectedOptionIds.length === correctOptionIds.length
+        && nextSelectedOptionIds.every((selectedId) => correctOptionIds.includes(selectedId))
+      : nextSelectedOptionIds.every((selectedId, index) => selectedId === correctOptionIds[index]);
     const selectedOptionKey = nextSelectedOptionIds.join("|");
     const correctOptionKey = correctOptionIds.join("|");
     const firstTry = !wrongAttempts[cardIndex];
@@ -4295,7 +4444,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     if (isCorrect) {
       const selectedActionVideo = lessonActionVideo(
-        currentCard.options.find((option) => option.id === optionId)?.image_url,
+        currentCard.options.find((option) => option.id === finalOptionId)?.image_url,
         currentCard.options.length
       );
       setLastResult("correct");
@@ -4342,7 +4491,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           }
           setAutoAdvanceDelayMs(Math.max(1800, answerSpeechMs + 450));
         }, 0);
-      } else {
+      } else if (!isMissionGameExperience) {
         window.setTimeout(() => {
           speakText(praise, {
             rate: 0.75,
@@ -4362,6 +4511,52 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       playUiSfx("tryAgain", { debounceMs: 280, volume: 0.48 });
       speakText("Try again", { voiceMode: "feedback", rate: 0.72, pitch: 0.94 });
     }, 0);
+  };
+
+  const handleChoice = (optionId) => {
+    if (lastResult === "correct") return;
+
+    const correctOptionIds = orderedCorrectOptionIds(currentCard);
+    const isMultiBlankCompletion = correctOptionIds.length > 1;
+    const continuingSelection = isMultiBlankCompletion && lastResult !== "wrong"
+      ? selectedOptionIds
+      : [];
+    if (isMultiBlankCompletion && continuingSelection.includes(optionId)) return;
+
+    const nextSelectedOptionIds = isMultiBlankCompletion
+      ? [...continuingSelection, optionId]
+      : [optionId];
+    if (isMissionExperience && isMissionTileCard) {
+      playUiSfx("tilePlace", { debounceMs: 80, volume: 0.42 });
+    }
+    evaluateChoiceSelection(nextSelectedOptionIds);
+  };
+
+  const completeMissionGame = (optionIds) => {
+    if (lastResult === "correct" || !Array.isArray(optionIds) || !optionIds.length) return;
+    evaluateChoiceSelection(optionIds);
+  };
+
+  const recordMissionMisstep = (attemptedIds = []) => {
+    if (lastResult === "correct") return;
+    const firstTry = !wrongAttempts[cardIndex];
+    const correctOptionKey = orderedCorrectOptionIds(currentCard).join("|");
+    const selectedOptionKey = attemptedIds.join("|") || "invalid-placement";
+    if (profile?.userId && lessonSessionId) {
+      logCardAttempt({
+        sessionId: lessonSessionId,
+        userId: profile.userId,
+        lessonId: activeLesson.id,
+        cardIndex,
+        prompt: currentCard.prompt,
+        selectedOptionId: selectedOptionKey,
+        correctOptionId: correctOptionKey,
+        isCorrect: false,
+        firstTry,
+      }).catch((error) => console.error("Could not log mission misstep", error));
+    }
+    setWrongAttempts((current) => ({ ...current, [cardIndex]: true }));
+    playUiSfx("tryAgain", { debounceMs: 280, volume: 0.42 });
   };
 
   const undoMissionSelection = () => {
@@ -4820,18 +5015,59 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                                     position: "relative",
                                   }}
                                 >
-                                  <img
-                                    src={menuImageSrc(subLessonVisual.fallbackImage || subLessonVisual.image)}
-                                    alt=""
-                                    style={{
-                                      width: "100%",
-                                      height: "100%",
-                                      minHeight: 140,
-                                      objectFit: "cover",
-                                      objectPosition: "center",
-                                      display: "block",
-                                    }}
-                                  />
+                                  {subLessonVisual.missionRoute ? (
+                                    <div
+                                      aria-hidden="true"
+                                      style={{
+                                        alignItems: "center",
+                                        background: "linear-gradient(145deg, #24564e, #4a8f76 58%, #efae4e)",
+                                        color: "#fff",
+                                        display: "grid",
+                                        gap: 10,
+                                        height: "100%",
+                                        justifyItems: "center",
+                                        minHeight: 140,
+                                        padding: 16,
+                                      }}
+                                    >
+                                      <div style={{ display: "flex", gap: 7 }}>
+                                        {["◉", "∿", "➤", "✕", "✦"].map((symbol, index) => (
+                                          <span
+                                            key={`${symbol}-${index}`}
+                                            style={{
+                                              alignItems: "center",
+                                              background: index === 0 ? "#efae4e" : "rgba(255,255,255,0.18)",
+                                              border: "2px solid rgba(255,255,255,0.8)",
+                                              borderRadius: 999,
+                                              display: "inline-flex",
+                                              fontSize: 16,
+                                              height: 32,
+                                              justifyContent: "center",
+                                              width: 32,
+                                            }}
+                                          >
+                                            {symbol}
+                                          </span>
+                                        ))}
+                                      </div>
+                                      <strong style={{ fontSize: 18, letterSpacing: "0.04em", textAlign: "center" }}>
+                                        22 retos · 1 misión
+                                      </strong>
+                                    </div>
+                                  ) : (
+                                    <img
+                                      src={menuImageSrc(subLessonVisual.fallbackImage || subLessonVisual.image)}
+                                      alt=""
+                                      style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        minHeight: 140,
+                                        objectFit: "cover",
+                                        objectPosition: "center",
+                                        display: "block",
+                                      }}
+                                    />
+                                  )}
                                   <div
                                     style={{
                                       position: "absolute",
@@ -4898,6 +5134,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             isMobile={isMobile}
             lesson={activeLesson}
             onExit={goToLessons}
+            showFinalImage={!isMissionGameExperience}
           />
         </main>
       </div>
@@ -4943,6 +5180,47 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             </section>
           </main>
         </div>
+      </div>
+    );
+  }
+
+  if (isMissionGameExperience) {
+    return (
+      <div style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
+        <CelebrationMission
+          card={currentCard}
+          cardIndex={cardIndex}
+          imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)}
+          interactionReady={missionInstructionReady}
+          introComplete={missionIntroComplete}
+          introReady={missionIntroReady}
+          isMobile={isMobile}
+          lastResult={lastResult}
+          lesson={activeLesson}
+          onBegin={() => {
+            stopSpeech();
+            setMissionIntroComplete(true);
+          }}
+          onComplete={completeMissionGame}
+          onExit={confirmLessonExit}
+          onMisstep={recordMissionMisstep}
+          onPrepareSpeech={prepareMissionSpeech}
+          onReplayDirections={playMissionDirections}
+          onReplayEnglish={() => playMissionEnglishClue()}
+          onReplayIntro={playMissionIntroNarration}
+          onRetrySpeech={() => beginPronunciationRecording({ isRetry: true })}
+          onScenePlacement={() => playUiSfx("tilePlace", { debounceMs: 70, volume: 0.36 })}
+          resolveImage={lessonOptionImageSrc}
+          speech={{
+            error: pronunciationError,
+            outcome: pronunciationOutcome,
+            ready: missionSpeechReady,
+            recording: isPronunciationRecording,
+            result: pronunciationResult,
+            scoring: isPronunciationScoring,
+            status: pronunciationStatus,
+          }}
+        />
       </div>
     );
   }
@@ -5055,7 +5333,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       ? renderHighlightedTitle(currentCard.prompt)
                       : cardPromptText.trim()
                         ? "Escucha la pista"
-                        : "Elige la frase que restaura la página"}
+                        : "Sigue la instrucción de la misión"}
                   </span>
                 </button>
               </>
@@ -5133,7 +5411,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               >
                 <img
                   src={lessonOptionImageSrc(activeTurnImageUrl || currentCard.prompt_image_url)}
-                  alt={currentCard.prompt || (isMissionExperience ? `Escena visual de la página ${cardIndex + 1}` : "")}
+                  alt={currentCard.prompt || (isMissionExperience ? `Escena visual del reto ${cardIndex + 1}` : "")}
                   style={{
                     display: "block",
                     width: "100%",
@@ -5163,7 +5441,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       textShadow: "0 2px 8px rgba(0,0,0,0.42)",
                     }}
                   >
-                    Retrato bloqueado · Completa la última frase
+                    Encuentro final bloqueado · Completa el último reto
                   </div>
                 ) : null}
               </div>
@@ -5587,10 +5865,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               >
                 <div style={{ textAlign: "left" }}>
                   <div style={{ color: "#1b6658", fontSize: 11, fontWeight: 900, letterSpacing: "0.07em", textTransform: "uppercase" }}>
-                    Álbum en progreso
+                    Misión en progreso
                   </div>
                   <div style={{ color: "var(--text)", fontSize: isMobile ? 14 : 16, fontWeight: 850 }}>
-                    Página {cardIndex + 1} de {totalCards}
+                    Reto {cardIndex + 1} de {totalCards}
                   </div>
                 </div>
                 <button

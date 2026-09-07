@@ -36,51 +36,33 @@ const assets = {
   reviewSistersPlaying: 'a1_u1_review_sisters_playing.webp', reviewFamily: 'a1_u1_review_family_story.webp',
   reviewFatherWorking: 'a1_u1_review_father_working.webp', reviewMotherCooking: 'a1_u1_review_mother_cooking.webp',
   reviewParentsTalking: 'a1_u1_review_parents_talking.webp', reviewGrandparentsTalking: 'a1_u1_review_grandparents_talking.webp',
-  missionAlbumLocked: 'a1_u1_album_01_locked.webp',
-  missionPeopleBoard: 'a1_u1_album_02_people_board.webp',
-  missionPronounCast: 'a1_u1_album_03_pronoun_cast.webp',
-  missionFamilyIndex: 'a1_u1_album_04_family_index.webp',
-  missionAdultCount: 'a1_u1_album_05_adult_count.webp',
-  missionParentsBranch: 'a1_u1_album_06_parents_branch.webp',
-  missionGrandparentsBranch: 'a1_u1_album_07_grandparents_branch.webp',
-  missionTreeComplete: 'a1_u1_album_08_tree_complete.webp',
-  missionWhoFather: 'a1_u1_album_09_who_father.webp',
-  missionWhoMother: 'a1_u1_album_10_who_mother.webp',
-  missionWhoParents: 'a1_u1_album_11_who_parents.webp',
-  missionWhoChildren: 'a1_u1_album_12_who_children.webp',
-  missionWhoGrandparents: 'a1_u1_album_13_who_grandparents.webp',
-  missionManEatingDrinking: 'a1_u1_album_14_man_eating_drinking.webp',
-  missionBoyReadingWriting: 'a1_u1_album_15_boy_reading_writing.webp',
-  missionSiblingsRunningMotherSitting: 'a1_u1_album_16_siblings_running_mother_sitting.webp',
-  missionSistersSwimmingGrandfatherSleeping: 'a1_u1_album_17_sisters_swimming_grandfather_sleeping.webp',
-  missionChildrenPlayingSisterStudying: 'a1_u1_album_18_children_playing_sister_studying.webp',
-  missionFamilyWorkCookTalk: 'a1_u1_album_19_family_work_cook_talk.webp',
-  missionNegativeContactSheet: 'a1_u1_album_20_negative_contact_sheet.webp',
-  missionVoiceoverBooth: 'a1_u1_album_21_voiceover_booth.webp',
-  missionFinalPortrait: 'a1_u1_album_22_final_portrait.webp',
 };
 
-const missionActionEvidence = new Map([
-  [assets.missionManEatingDrinking, { actions: ['eating', 'drinking'], cue: 'the same man is visibly eating and drinking across one coherent two-frame memory strip' }],
-  [assets.missionBoyReadingWriting, { actions: ['reading', 'writing'], cue: 'the same boy visibly reads the open text and writes on the page across one coherent two-frame memory strip' }],
-  [assets.missionSiblingsRunningMotherSitting, { actions: ['running', 'sitting'], cue: 'the sibling pair is visibly running and the mother is visibly seated in separate enlarged memory panels' }],
-  [assets.missionSistersSwimmingGrandfatherSleeping, { actions: ['swimming', 'sleeping'], cue: 'the sisters are visibly swimming and the grandfather is visibly asleep in separate enlarged memory panels' }],
-  [assets.missionChildrenPlayingSisterStudying, { actions: ['playing', 'studying'], cue: 'the children visibly manipulate a game and the sister visibly uses open study material in separate enlarged memory panels' }],
-  [assets.missionFamilyWorkCookTalk, { actions: ['working', 'cooking', 'talking'], cue: 'the parents work, the grandmother cooks, and the brothers face one another in conversation in three separately enlarged panels' }],
-]);
-const missionActionWords = ['eating', 'drinking', 'reading', 'writing', 'running', 'sitting', 'swimming', 'sleeping', 'playing', 'studying', 'working', 'cooking', 'talking'];
-
-function assertVisibleMissionAction(image, text) {
-  const normalized = String(text || '').toLowerCase();
-  if (/\bnot\b/.test(normalized)) return;
-  const actions = missionActionWords.filter((word) => new RegExp(`\\b${word}\\b`).test(normalized));
-  if (!actions.length) return;
-  const evidence = missionActionEvidence.get(image);
-  const missing = actions.filter((action) => !evidence?.actions?.includes(action));
-  if (!evidence || missing.length || !evidence.cue?.trim()) {
-    throw new Error(`Mission image ${image} lacks authored at-a-glance evidence for ${missing.join(', ') || actions.join(', ')}`);
-  }
-}
+const missionKickoffAsset = 'a1_u1_reunion_kickoff.webp';
+const missionHeroAssets = [
+  'a1_u1_reunion_01_people_path.webp',
+  'a1_u1_reunion_02_four_people_search.webp',
+  'a1_u1_reunion_03_pronoun_arrival.webp',
+  'a1_u1_reunion_04_age_groups.webp',
+  'a1_u1_reunion_05_babies.webp',
+  'a1_u1_reunion_06_brother_sister.webp',
+  'a1_u1_reunion_07_sibling_pairs.webp',
+  'a1_u1_reunion_08_parents.webp',
+  'a1_u1_reunion_09_generations.webp',
+  'a1_u1_reunion_10_eat_drink.webp',
+  'a1_u1_reunion_11_read_write.webp',
+  'a1_u1_reunion_12_run_swim.webp',
+  'a1_u1_reunion_13_sit_sleep.webp',
+  'a1_u1_reunion_14_play_study.webp',
+  'a1_u1_reunion_15_work_cook_talk.webp',
+  'a1_u1_reunion_16_not_eating.webp',
+  'a1_u1_reunion_17_not_reading.webp',
+  'a1_u1_reunion_18_not_running.webp',
+  'a1_u1_reunion_19_who_father.webp',
+  'a1_u1_reunion_20_who_grandmother.webp',
+  'a1_u1_reunion_21_who_parents.webp',
+  'a1_u1_reunion_22_family_arrival.webp',
+];
 
 function baseCard({ prompt, stage, correct, options, audio = null, answer = null, promptImage = '', interaction, correctIds }) {
   const card = { interaction_type: interaction, prompt, stage, correct_option_id: correct, options,
@@ -525,285 +507,395 @@ const lesson19 = buildLesson({
   ],
 });
 
-function missionConstruction({ stage, image, prompt, answer, correct, choices, translation, audio = null, wordParts = false, finale = false }) {
-  const interaction = finale ? 'mission-finale' : wordParts ? 'mission-word-parts' : 'mission-sentence';
-  return { ...baseCard({
-    prompt, stage, correct: correct[0], correctIds: correct,
-    options: choices.map(([id, label]) => textOption(id, label)),
-    audio, answer, promptImage: image, interaction,
-  }), translation };
-}
+const missionTarget = (id, labelEs, acceptedOptionIds, [x, y, width, height]) => ({
+  id,
+  label_es: labelEs,
+  rect: { x, y, width, height },
+  accepted_option_ids: acceptedOptionIds,
+});
 
-function missionClue({ stage = 'Recognize', prompt = '', image, answer, choices, translation, audio = null }) {
-  return { ...baseCard({
-    prompt, stage, correct: 'correct',
-    options: choices.map(([id, label]) => textOption(id, label)),
-    audio, answer, promptImage: image, interaction: 'mission-clue',
-  }), translation };
-}
-
-function missionListeningClue({ image, audio, answer, choices, translation }) {
-  return { ...baseCard({
-    prompt: '', stage: 'Listen', correct: 'correct',
-    options: choices.map(([id, label]) => textOption(id, label)),
-    audio, answer, promptImage: image, interaction: 'mission-listen',
-  }), translation };
-}
-
-function missionSpeaking({ image, prompt, translation }) {
-  return { ...baseCard({
-    prompt, stage: 'Speak', correct: 'answer',
-    options: [imageOption('answer', image, prompt)],
-    audio: prompt, answer: null, interaction: 'mission-speak',
-  }), translation };
+function missionGameCard({
+  beat, chapter, phase, kind, stage, instruction, validation, targets, choices,
+  translation, prompt = '', audio = null, answer = null, cueAudio = null,
+  tutorialMode = null, interaction = null, imageOptionId = null,
+}) {
+  const image = missionHeroAssets[beat - 1];
+  const correct = targets.flatMap((target) => target.accepted_option_ids);
+  const effectiveInteraction = interaction
+    || (kind === 'speak' ? 'mission-speak' : kind === 'finale' ? 'mission-finale' : 'mission-sentence');
+  const options = choices.map(([id, label]) => (
+    id === imageOptionId ? imageOption(id, image, label) : textOption(id, label)
+  ));
+  return {
+    chapter,
+    phase,
+    card: {
+      ...baseCard({
+        prompt,
+        stage,
+        correct: correct[0],
+        correctIds: correct,
+        options,
+        audio,
+        answer,
+        promptImage: image,
+        interaction: effectiveInteraction,
+      }),
+      translation,
+      mission_game: {
+        kind,
+        instruction_es: instruction,
+        validation,
+        targets,
+        ...(tutorialMode ? { tutorial_mode: tutorialMode } : {}),
+        ...(cueAudio ? { cue_audio_text: cueAudio } : {}),
+      },
+    },
+  };
 }
 
 const missionBlueprint = [
-  {
-    chapter: 'open-album', phase: 'the learner unlocks the album with the unit theme',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionAlbumLocked, prompt: '___-___-___', answer: 'family',
-      correct: ['fam', 'i', 'ly'], choices: [['fam', 'fam'], ['ly', 'ly'], ['i', 'i']],
-      translation: 'Forma family con las partes.', wordParts: true,
-    }),
-  },
-  {
-    chapter: 'open-album', phase: 'the learner restores the four people on the first page',
-    card: missionConstruction({
-      stage: 'Learn', image: assets.missionPeopleBoard, prompt: '___ ___ ___ ___',
-      answer: 'A boy. A girl. A man. A woman.',
-      correct: ['boy', 'girl', 'man', 'woman'],
-      choices: [['woman', 'A woman.'], ['boy', 'A boy.'], ['man', 'A man.'], ['girl', 'A girl.']],
-      translation: 'Un niño. Una niña. Un hombre. Una mujer.',
-    }),
-  },
-  {
-    chapter: 'open-album', phase: 'the restored people receive their matching pronoun captions',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionPronounCast, prompt: '___ ___ ___ ___',
-      answer: 'He is a boy. She is a girl. He is a man. She is a woman.',
-      correct: ['he-boy', 'she-girl', 'he-man', 'she-woman'],
-      choices: [['she-woman', 'She is a woman.'], ['he-boy', 'He is a boy.'], ['she-girl', 'She is a girl.'], ['he-man', 'He is a man.']],
-      translation: 'Él es un niño. Ella es una niña. Él es un hombre. Ella es una mujer.',
-    }),
-  },
-  {
-    chapter: 'open-album', phase: 'the learner repairs the younger-family singular and plural index',
-    card: missionConstruction({
-      stage: 'Recognize', image: assets.missionFamilyIndex,
-      prompt: '___ ___ ___ ___ ___ ___ ___ ___',
-      answer: 'A baby. Babies. A child. Children. A brother. Brothers. A sister. Sisters.',
-      correct: ['baby', 'babies', 'child', 'children', 'brother', 'brothers', 'sister', 'sisters'],
-      choices: [['children', 'Children.'], ['baby', 'A baby.'], ['sisters', 'Sisters.'], ['brother', 'A brother.'], ['babies', 'Babies.'], ['sister', 'A sister.'], ['child', 'A child.'], ['brothers', 'Brothers.']],
-      translation: 'Un bebé. Bebés. Un niño. Niños. Un hermano. Hermanos. Una hermana. Hermanas.',
-    }),
-  },
-  {
-    chapter: 'open-album', phase: 'one adult becomes the complete adult group',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionAdultCount, prompt: '___ ___', answer: 'An adult. Adults.',
-      correct: ['an-adult', 'adults'], choices: [['adults', 'Adults.'], ['an-adult', 'An adult.']],
-      translation: 'Un adulto. Adultos.',
-    }),
-  },
-  {
-    chapter: 'build-family', phase: 'the learner restores the parents branch of the family tree',
-    card: missionConstruction({
-      stage: 'Recognize', image: assets.missionParentsBranch, prompt: '___ ___ ___',
-      answer: 'He is the father. She is the mother. They are the parents.',
-      correct: ['father', 'mother', 'parents'],
-      choices: [['parents', 'They are the parents.'], ['mother', 'She is the mother.'], ['father', 'He is the father.']],
-      translation: 'Él es el padre. Ella es la madre. Ellos son los padres.',
-    }),
-  },
-  {
-    chapter: 'build-family', phase: 'spoken family clues restore the grandparents branch and the grandchildren row',
-    card: missionConstruction({
-      stage: 'Listen', image: assets.missionGrandparentsBranch, prompt: '___ ___ ___ ___',
-      answer: 'He is the grandfather. She is the grandmother. They are the grandparents. They are the grandchildren.',
-      correct: ['grandfather', 'grandmother', 'grandparents', 'grandchildren'],
-      choices: [['grandchildren', 'They are the grandchildren.'], ['grandmother', 'She is the grandmother.'], ['grandparents', 'They are the grandparents.'], ['grandfather', 'He is the grandfather.']],
-      translation: 'Él es el abuelo. Ella es la abuela. Ellos son los abuelos. Ellos son los nietos.',
-      audio: 'He is the grandfather. She is the grandmother. They are the grandparents. They are the grandchildren.',
-    }),
-  },
-  {
-    chapter: 'build-family', phase: 'the learner seals the completed family tree with its relationship caption',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionTreeComplete, prompt: '___ ___ ___ ___ ___.',
-      answer: 'The grandparents and the grandchildren are family.',
-      correct: ['grandparents', 'and', 'grandchildren', 'are', 'family'],
-      choices: [['family', 'family'], ['grandchildren', 'the grandchildren'], ['are', 'are'], ['grandparents', 'The grandparents'], ['and', 'and']],
-      translation: 'Los abuelos y los nietos son familia.',
-    }),
-  },
-  {
-    chapter: 'build-family', phase: 'the first identity clue asks about the father',
-    card: missionConstruction({
-      stage: 'Recognize', image: assets.missionWhoFather, prompt: '___ ___ ___ ___ ___ ___ ___',
-      answer: 'Who is he? He is the father.',
-      correct: ['who', 'is-question', 'he-question', 'he-answer', 'is-answer', 'the', 'father'],
-      choices: [['father', 'father.'], ['who', 'Who'], ['he-answer', 'He'], ['the', 'the'], ['is-question', 'is'], ['is-answer', 'is'], ['he-question', 'he?']],
-      translation: '¿Quién es él? Él es el padre.',
-    }),
-  },
-  {
-    chapter: 'build-family', phase: 'the second identity clue asks about the mother',
-    card: missionConstruction({
-      stage: 'Listen', image: assets.missionWhoMother, prompt: '___ ___ ___ ___ ___ ___ ___',
-      answer: 'Who is she? She is the mother.',
-      correct: ['who', 'is-question', 'she-question', 'she-answer', 'is-answer', 'the', 'mother'],
-      choices: [['mother', 'mother.'], ['she-answer', 'She'], ['is-question', 'is'], ['who', 'Who'], ['the', 'the'], ['she-question', 'she?'], ['is-answer', 'is']],
-      translation: '¿Quién es ella? Ella es la madre.', audio: 'Who is she?',
-    }),
-  },
-  {
-    chapter: 'build-family', phase: 'the learner answers the plural identity clue for the parents',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionWhoParents, prompt: '___ ___ ___ ___',
-      answer: 'They are the parents.', correct: ['they', 'are', 'the', 'parents'],
-      choices: [['parents', 'parents.'], ['they', 'They'], ['the', 'the'], ['are', 'are']],
-      translation: 'Ellos son los padres.', audio: 'Who are they?',
-    }),
-  },
-  {
-    chapter: 'build-family', phase: 'the learner speaks the plural identity clue and answer for the children',
-    card: missionSpeaking({
-      image: assets.missionWhoChildren, prompt: 'Who are they? They are the children.',
-      translation: '¿Quiénes son ellos? Ellos son los niños.',
-    }),
-  },
-  {
-    chapter: 'build-family', phase: 'the last identity clue distinguishes the grandparents from other family groups',
-    card: missionClue({
-      image: assets.missionWhoGrandparents, prompt: 'Who are they?', answer: 'They are the grandparents.',
-      choices: [['correct', 'They are the grandparents.'], ['wrong-brothers', 'They are the brothers.'], ['wrong-children', 'They are the children.']],
-      translation: '¿Quiénes son ellos? Ellos son los abuelos.', audio: 'Who are they?',
-    }),
-  },
-  {
-    chapter: 'restore-memories', phase: 'the first action memory restores eating and drinking in one visible sequence',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionManEatingDrinking, prompt: '___ ___ ___ ___ ___ ___',
-      answer: 'The man is eating and drinking.',
-      correct: ['the', 'man', 'is', 'eating', 'and', 'drinking'],
-      choices: [['drinking', 'drinking.'], ['man', 'man'], ['and', 'and'], ['the', 'The'], ['eating', 'eating'], ['is', 'is']],
-      translation: 'El hombre está comiendo y bebiendo.',
-    }),
-  },
-  {
-    chapter: 'restore-memories', phase: 'a spoken action memory restores reading and writing in one visible sequence',
-    card: missionConstruction({
-      stage: 'Listen', image: assets.missionBoyReadingWriting, prompt: '___ ___ ___ ___ ___ ___',
-      answer: 'The boy is reading and writing.',
-      correct: ['the', 'boy', 'is', 'reading', 'and', 'writing'],
-      choices: [['writing', 'writing.'], ['reading', 'reading'], ['boy', 'boy'], ['the', 'The'], ['and', 'and'], ['is', 'is']],
-      translation: 'El niño está leyendo y escribiendo.', audio: 'The boy is reading and writing.',
-    }),
-  },
-  {
-    chapter: 'restore-memories', phase: 'the album continues from the running siblings to their seated mother',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionSiblingsRunningMotherSitting, prompt: '___ ___ ___ ___',
-      answer: 'The brother and the sister are running. The mother is sitting.',
-      correct: ['siblings', 'running', 'mother', 'sitting'],
-      choices: [['mother', 'The mother'], ['running', 'are running.'], ['siblings', 'The brother and the sister'], ['sitting', 'is sitting.']],
-      translation: 'El hermano y la hermana están corriendo. La madre está sentada.',
-    }),
-  },
-  {
-    chapter: 'restore-memories', phase: 'the learner follows a spoken two-picture clue from swimming to sleeping',
-    card: missionListeningClue({
-      image: assets.missionSistersSwimmingGrandfatherSleeping,
-      audio: 'The sisters are swimming. The grandfather is sleeping.',
-      answer: null,
-      choices: [
-        ['correct', 'The sisters are swimming. The grandfather is sleeping.'],
-        ['wrong-swapped', 'The sisters are sleeping. The grandfather is swimming.'],
-        ['wrong-actions', 'The sisters are sitting. The grandfather is running.'],
-      ],
-      translation: 'Las hermanas están nadando. El abuelo está durmiendo.',
-    }),
-  },
-  {
-    chapter: 'restore-memories', phase: 'the learner chooses the caption that restores playing before studying',
-    card: missionClue({
-      image: assets.missionChildrenPlayingSisterStudying,
-      answer: 'The children are playing. The sister is studying.',
-      choices: [
-        ['correct', 'The children are playing. The sister is studying.'],
-        ['wrong-swapped', 'The children are studying. The sister is playing.'],
-        ['wrong-actions', 'The children are sleeping. The sister is running.'],
-      ],
-      translation: 'Los niños están jugando. La hermana está estudiando.',
-    }),
-  },
-  {
-    chapter: 'restore-memories', phase: 'the final positive memory restores working, cooking, and talking in story order',
-    card: missionConstruction({
-      stage: 'Listen', image: assets.missionFamilyWorkCookTalk, prompt: '___ ___ ___ ___ ___ ___',
-      answer: 'The parents are working. The grandmother is cooking. The brothers are talking.',
-      correct: ['parents', 'working', 'grandmother', 'cooking', 'brothers', 'talking'],
-      choices: [['cooking', 'is cooking.'], ['parents', 'The parents'], ['talking', 'are talking.'], ['grandmother', 'The grandmother'], ['working', 'are working.'], ['brothers', 'The brothers']],
-      translation: 'Los padres están trabajando. La abuela está cocinando. Los hermanos están hablando.',
-      audio: 'The parents are working. The grandmother is cooking. The brothers are talking.',
-    }),
-  },
-  {
-    chapter: 'restore-memories', phase: 'the learner rejects false captions and restores three true negative-to-positive contrasts',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionNegativeContactSheet, prompt: '___ ___ ___ ___ ___ ___',
-      answer: 'He is not sitting. He is running. She is not sleeping. She is cooking. They are not sitting. They are swimming.',
-      correct: ['he-not-sitting', 'he-running', 'she-not-sleeping', 'she-cooking', 'they-not-sitting', 'they-swimming'],
-      choices: [
-        ['they-swimming', 'They are swimming.'], ['he-not-sitting', 'He is not sitting.'],
-        ['she-cooking', 'She is cooking.'], ['they-not-sitting', 'They are not sitting.'],
-        ['he-running', 'He is running.'], ['she-not-sleeping', 'She is not sleeping.'],
-      ],
-      translation: 'Él no está sentado. Está corriendo. Ella no está durmiendo. Está cocinando. Ellos no están sentados. Están nadando.',
-    }),
-  },
-  {
-    chapter: 'record-and-reveal', phase: 'the learner records the final missing identity line for the restored album',
-    card: missionSpeaking({
-      image: assets.missionVoiceoverBooth,
-      prompt: 'Who are they? They are the grandparents.',
-      translation: '¿Quiénes son ellos? Ellos son los abuelos.',
-    }),
-  },
-  {
-    chapter: 'record-and-reveal', phase: 'the learner assembles the closing caption and reveals the final portrait',
-    card: missionConstruction({
-      stage: 'Use', image: assets.missionFinalPortrait, prompt: '___ ___ ___ ___',
-      answer: 'They are a family.', correct: ['they', 'are', 'a', 'family'],
-      choices: [['family', 'family.'], ['they', 'They'], ['a', 'a'], ['are', 'are']],
-      translation: 'Ellos son una familia.', finale: true,
-    }),
-  },
+  missionGameCard({
+    beat: 1, chapter: 'find-the-people', kind: 'hotspot', stage: 'Learn',
+    phase: 'a guided no-fail search teaches the first mission gesture while finding the boy',
+    prompt: 'A boy.', audio: 'A boy.', translation: 'Un niño.',
+    instruction: 'Escucha “A boy” y toca al niño que está iluminado. Esta primera búsqueda es una guía: no puedes fallar.',
+    validation: 'single', tutorialMode: 'guided-no-fail', interaction: 'mission-clue',
+    choices: [['boy', 'A boy.']],
+    targets: [missionTarget('boy', 'Niño iluminado', ['boy'], [0.08, 0.16, 0.28, 0.68])],
+  }),
+  missionGameCard({
+    beat: 2, chapter: 'find-the-people', kind: 'hotspot', stage: 'Listen',
+    phase: 'the searchlight finds the girl, man, and woman in the spoken sequence',
+    audio: 'A girl. A man. A woman.', answer: null,
+    translation: 'Una niña. Un hombre. Una mujer.',
+    instruction: 'Escucha cada pista y toca, en ese orden, a la niña, al hombre y a la mujer. La luz avanzará después de cada acierto.',
+    validation: 'ordered', interaction: 'mission-sentence',
+    choices: [['girl', 'A girl.'], ['man', 'A man.'], ['woman', 'A woman.']],
+    targets: [
+      missionTarget('girl', 'Niña', ['girl'], [0.72, 0.15, 0.24, 0.73]),
+      missionTarget('man', 'Hombre', ['man'], [0.28, 0.11, 0.22, 0.76]),
+      missionTarget('woman', 'Mujer', ['woman'], [0.52, 0.12, 0.22, 0.76]),
+    ],
+  }),
+  missionGameCard({
+    beat: 3, chapter: 'find-the-people', kind: 'label-placement', stage: 'Use',
+    phase: 'pronoun signals identify each person with correct singular agreement',
+    answer: 'He is a boy. She is a girl. He is a man. She is a woman.',
+    translation: 'Él es un niño. Ella es una niña. Él es un hombre. Ella es una mujer.',
+    instruction: 'Arrastra cada señal hasta la persona que describe. También puedes tocar una señal y después su destino.',
+    validation: 'unordered',
+    choices: [
+      ['he-boy', 'He is a boy.'], ['she-girl', 'She is a girl.'],
+      ['he-man', 'He is a man.'], ['she-woman', 'She is a woman.'],
+    ],
+    targets: [
+      missionTarget('boy', 'Niño', ['he-boy'], [0.12, 0.12, 0.17, 0.78]),
+      missionTarget('girl', 'Niña', ['she-girl'], [0.57, 0.14, 0.16, 0.76]),
+      missionTarget('man', 'Hombre', ['he-man'], [0.30, 0.10, 0.20, 0.80]),
+      missionTarget('woman', 'Mujer', ['she-woman'], [0.72, 0.10, 0.19, 0.80]),
+    ],
+  }),
+  missionGameCard({
+    beat: 4, chapter: 'connect-the-family', kind: 'label-placement', stage: 'Use',
+    phase: 'people pass through child and adult checkpoints before forming the two groups',
+    answer: 'The boy is a child. The girl is a child. The man is an adult. The woman is an adult. The boy and the girl are children. The man and the woman are adults.',
+    translation: 'El niño es un menor. La niña es una menor. El hombre es un adulto. La mujer es una adulta. El niño y la niña son menores. El hombre y la mujer son adultos.',
+    instruction: 'Coloca cada descripción en su retrato. Después une a los dos menores y a los dos adultos en sus grupos.',
+    validation: 'unordered',
+    choices: [
+      ['boy-child', 'The boy is a child.'], ['girl-child', 'The girl is a child.'],
+      ['man-adult', 'The man is an adult.'], ['woman-adult', 'The woman is an adult.'],
+      ['children', 'The boy and the girl are children.'], ['adults', 'The man and the woman are adults.'],
+    ],
+    targets: [
+      missionTarget('boy', 'Niño', ['boy-child'], [0.10, 0.12, 0.16, 0.80]),
+      missionTarget('girl', 'Niña', ['girl-child'], [0.24, 0.14, 0.15, 0.76]),
+      missionTarget('man', 'Hombre', ['man-adult'], [0.57, 0.10, 0.16, 0.82]),
+      missionTarget('woman', 'Mujer', ['woman-adult'], [0.72, 0.10, 0.17, 0.82]),
+      missionTarget('children', 'Grupo de menores', ['children'], [0.05, 0.08, 0.43, 0.86]),
+      missionTarget('adults', 'Grupo de adultos', ['adults'], [0.52, 0.08, 0.43, 0.86]),
+    ],
+  }),
+  missionGameCard({
+    beat: 5, chapter: 'connect-the-family', kind: 'relationship-link', stage: 'Use',
+    phase: 'singular and plural baby clues connect to child and children',
+    answer: 'A baby is a child. Babies are children.',
+    translation: 'Un bebé es un menor. Los bebés son menores.',
+    instruction: 'Une el bebé con la relación singular y el grupo de bebés con la relación plural. También puedes tocar origen y destino.',
+    validation: 'unordered',
+    choices: [['baby-child', 'A baby is a child.'], ['babies-children', 'Babies are children.']],
+    targets: [
+      missionTarget('baby', 'Un bebé', ['baby-child'], [0.06, 0.15, 0.40, 0.68]),
+      missionTarget('babies', 'Varios bebés', ['babies-children'], [0.54, 0.15, 0.40, 0.68]),
+    ],
+  }),
+  missionGameCard({
+    beat: 6, chapter: 'connect-the-family', kind: 'relationship-link', stage: 'Recognize',
+    phase: 'the singular brother and sister connections are established',
+    answer: 'He is the brother. She is the sister.',
+    translation: 'Él es el hermano. Ella es la hermana.',
+    instruction: 'Une cada persona con su relación: brother para él y sister para ella.',
+    validation: 'unordered',
+    choices: [['brother', 'He is the brother.'], ['sister', 'She is the sister.']],
+    targets: [
+      missionTarget('brother', 'Hermano', ['brother'], [0.07, 0.14, 0.39, 0.70]),
+      missionTarget('sister', 'Hermana', ['sister'], [0.54, 0.14, 0.39, 0.70]),
+    ],
+  }),
+  missionGameCard({
+    beat: 7, chapter: 'connect-the-family', kind: 'relationship-link', stage: 'Recognize',
+    phase: 'the plural brothers and sisters groups are marked without ambiguous overlap',
+    answer: 'They are the brothers. They are the sisters.',
+    translation: 'Ellos son los hermanos. Ellas son las hermanas.',
+    instruction: 'Une brothers con el grupo de niños y sisters con el grupo de niñas.',
+    validation: 'unordered',
+    choices: [['brothers', 'They are the brothers.'], ['sisters', 'They are the sisters.']],
+    targets: [
+      missionTarget('brothers', 'Grupo de hermanos', ['brothers'], [0.05, 0.16, 0.42, 0.67]),
+      missionTarget('sisters', 'Grupo de hermanas', ['sisters'], [0.53, 0.16, 0.42, 0.67]),
+    ],
+  }),
+  missionGameCard({
+    beat: 8, chapter: 'connect-the-family', kind: 'relationship-link', stage: 'Use',
+    phase: 'father and mother connect into the parents relationship',
+    answer: 'He is the father. She is the mother. They are the parents.',
+    translation: 'Él es el padre. Ella es la madre. Ellos son los padres.',
+    instruction: 'Conecta al padre y a la madre con sus nombres. Luego conecta a la pareja con parents.',
+    validation: 'unordered',
+    choices: [
+      ['father', 'He is the father.'], ['mother', 'She is the mother.'],
+      ['parents', 'They are the parents.'],
+    ],
+    targets: [
+      missionTarget('father', 'Padre', ['father'], [0.05, 0.13, 0.29, 0.60]),
+      missionTarget('mother', 'Madre', ['mother'], [0.66, 0.13, 0.29, 0.60]),
+      missionTarget('parents', 'Pareja de padres', ['parents'], [0.34, 0.54, 0.32, 0.41]),
+    ],
+  }),
+  missionGameCard({
+    beat: 9, chapter: 'connect-the-family', kind: 'relationship-link', stage: 'Listen',
+    phase: 'the generation bridge connects grandparents and grandchildren',
+    audio: 'He is the grandfather. She is the grandmother. They are the grandparents. They are the grandchildren.',
+    answer: null,
+    translation: 'Él es el abuelo. Ella es la abuela. Ellos son los abuelos. Ellos son los nietos.',
+    instruction: 'Escucha cada relación y conéctala con la persona o el grupo correcto.',
+    validation: 'ordered',
+    choices: [
+      ['grandfather', 'He is the grandfather.'], ['grandmother', 'She is the grandmother.'],
+      ['grandparents', 'They are the grandparents.'], ['grandchildren', 'They are the grandchildren.'],
+    ],
+    targets: [
+      missionTarget('grandfather', 'Abuelo', ['grandfather'], [0.04, 0.08, 0.27, 0.38]),
+      missionTarget('grandmother', 'Abuela', ['grandmother'], [0.36, 0.08, 0.27, 0.38]),
+      missionTarget('grandparents', 'Abuelos', ['grandparents'], [0.68, 0.08, 0.27, 0.38]),
+      missionTarget('grandchildren', 'Nietos', ['grandchildren'], [0.22, 0.55, 0.56, 0.38]),
+    ],
+  }),
+  missionGameCard({
+    beat: 10, chapter: 'follow-the-actions', kind: 'action-sequence', stage: 'Listen',
+    phase: 'the first visible route follows eating and then drinking',
+    audio: 'He is eating. He is drinking.', answer: null,
+    translation: 'Él está comiendo. Él está bebiendo.',
+    instruction: 'Escucha y sigue la ruta de izquierda a derecha: primero eating y después drinking.',
+    validation: 'ordered',
+    choices: [['eating', 'He is eating.'], ['drinking', 'He is drinking.']],
+    targets: [
+      missionTarget('eating', 'Primera acción', ['eating'], [0.05, 0.14, 0.42, 0.70]),
+      missionTarget('drinking', 'Segunda acción', ['drinking'], [0.53, 0.14, 0.42, 0.70]),
+    ],
+  }),
+  missionGameCard({
+    beat: 11, chapter: 'follow-the-actions', kind: 'action-sequence', stage: 'Use',
+    phase: 'the next visible route follows reading and then writing',
+    answer: 'She is reading. She is writing.',
+    translation: 'Ella está leyendo. Ella está escribiendo.',
+    instruction: 'Traza la secuencia visible: toca primero reading y después writing.',
+    validation: 'ordered',
+    choices: [['reading', 'She is reading.'], ['writing', 'She is writing.']],
+    targets: [
+      missionTarget('reading', 'Primera acción', ['reading'], [0.05, 0.14, 0.42, 0.70]),
+      missionTarget('writing', 'Segunda acción', ['writing'], [0.53, 0.14, 0.42, 0.70]),
+    ],
+  }),
+  missionGameCard({
+    beat: 12, chapter: 'follow-the-actions', kind: 'action-sequence', stage: 'Use',
+    phase: 'the mother runs before the girl reaches the swimming station',
+    answer: 'She is running. She is swimming.',
+    translation: 'Ella está corriendo. Ella está nadando.',
+    instruction: 'Sigue las flechas de la escena: primero running y después swimming.',
+    validation: 'ordered',
+    choices: [['running', 'She is running.'], ['swimming', 'She is swimming.']],
+    targets: [
+      missionTarget('running', 'Primera acción', ['running'], [0.05, 0.14, 0.42, 0.70]),
+      missionTarget('swimming', 'Segunda acción', ['swimming'], [0.53, 0.14, 0.42, 0.70]),
+    ],
+  }),
+  missionGameCard({
+    beat: 13, chapter: 'follow-the-actions', kind: 'action-sequence', stage: 'Listen',
+    phase: 'the boy is sitting before the route reaches the sleeping girl',
+    audio: 'He is sitting. She is sleeping.', answer: null,
+    translation: 'Él está sentado. Ella está durmiendo.',
+    instruction: 'Escucha y toca las acciones en el orden indicado: sitting y luego sleeping.',
+    validation: 'ordered',
+    choices: [['sitting', 'He is sitting.'], ['sleeping', 'She is sleeping.']],
+    targets: [
+      missionTarget('sitting', 'Primera acción', ['sitting'], [0.05, 0.14, 0.42, 0.70]),
+      missionTarget('sleeping', 'Segunda acción', ['sleeping'], [0.53, 0.14, 0.42, 0.70]),
+    ],
+  }),
+  missionGameCard({
+    beat: 14, chapter: 'follow-the-actions', kind: 'action-sequence', stage: 'Use',
+    phase: 'the father and babies play before the route reaches the studying sister',
+    answer: 'They are playing. She is studying.',
+    translation: 'Ellos están jugando. Ella está estudiando.',
+    instruction: 'Completa la ruta de preparación: primero playing y después studying.',
+    validation: 'ordered',
+    choices: [['playing', 'They are playing.'], ['studying', 'She is studying.']],
+    targets: [
+      missionTarget('playing', 'Primera acción', ['playing'], [0.05, 0.14, 0.42, 0.70]),
+      missionTarget('studying', 'Segunda acción', ['studying'], [0.53, 0.14, 0.42, 0.70]),
+    ],
+  }),
+  missionGameCard({
+    beat: 15, chapter: 'follow-the-actions', kind: 'action-sequence', stage: 'Listen',
+    phase: 'the grandmother works, the father cooks, and the sisters talk along the final route',
+    audio: 'She is working. He is cooking. They are talking.', answer: null,
+    translation: 'Ella está trabajando. Él está cocinando. Ellas están hablando.',
+    instruction: 'Escucha y sigue las tres estaciones de izquierda a derecha: working, cooking y talking.',
+    validation: 'ordered',
+    choices: [
+      ['working', 'She is working.'], ['cooking', 'He is cooking.'],
+      ['talking', 'They are talking.'],
+    ],
+    targets: [
+      missionTarget('working', 'Primera acción', ['working'], [0.03, 0.15, 0.30, 0.68]),
+      missionTarget('cooking', 'Segunda acción', ['cooking'], [0.35, 0.15, 0.30, 0.68]),
+      missionTarget('talking', 'Tercera acción', ['talking'], [0.67, 0.15, 0.30, 0.68]),
+    ],
+  }),
+  missionGameCard({
+    beat: 16, chapter: 'repair-the-clues', kind: 'not-correction', stage: 'Use',
+    phase: 'the first false report is repaired with not and the visible drinking action',
+    prompt: 'He is eating.', audio: 'He is eating.',
+    answer: 'He is not eating. He is drinking.',
+    translation: 'Él no está comiendo. Él está bebiendo.',
+    instruction: 'La pista dice eating, pero la imagen muestra drinking. Toca la corrección verdadera con not.',
+    validation: 'single',
+    choices: [
+      ['correct', 'He is not eating. He is drinking.'],
+      ['wrong', 'He is eating. He is not drinking.'],
+    ],
+    targets: [missionTarget('false-report', 'Pista falsa', ['correct'], [0.08, 0.13, 0.84, 0.72])],
+  }),
+  missionGameCard({
+    beat: 17, chapter: 'repair-the-clues', kind: 'not-correction', stage: 'Recognize',
+    phase: 'the second false report is repaired with not and the visible writing action',
+    prompt: 'She is reading.', audio: 'She is reading.',
+    answer: 'She is not reading. She is writing.',
+    translation: 'Ella no está leyendo. Ella está escribiendo.',
+    instruction: 'La pista dice reading, pero ella está writing. Toca la corrección verdadera con not.',
+    validation: 'single',
+    choices: [
+      ['correct', 'She is not reading. She is writing.'],
+      ['wrong', 'She is reading. She is not writing.'],
+    ],
+    targets: [missionTarget('false-report', 'Pista falsa', ['correct'], [0.08, 0.13, 0.84, 0.72])],
+  }),
+  missionGameCard({
+    beat: 18, chapter: 'repair-the-clues', kind: 'not-correction', stage: 'Listen',
+    phase: 'the third false report is repaired with not and the visible sitting action',
+    prompt: 'They are running.', audio: 'They are running.',
+    answer: 'They are not running. They are sitting.',
+    translation: 'Ellos no están corriendo. Ellos están sentados.',
+    instruction: 'Escucha la pista falsa, observa la escena y toca la corrección que usa not.',
+    validation: 'single', interaction: 'mission-listen',
+    choices: [
+      ['correct', 'They are not running. They are sitting.'],
+      ['wrong', 'They are running. They are not sitting.'],
+    ],
+    targets: [missionTarget('false-report', 'Pista falsa', ['correct'], [0.08, 0.13, 0.84, 0.72])],
+  }),
+  missionGameCard({
+    beat: 19, chapter: 'welcome-everyone', kind: 'who-dialogue', stage: 'Recognize',
+    phase: 'the greeter asks who the clearly indicated father is',
+    prompt: 'Who is he?', audio: 'Who is he?', answer: 'He is the father.',
+    translation: '¿Quién es él? Él es el padre.',
+    instruction: 'Mira a la persona señalada, escucha la pregunta y elige la respuesta correcta.',
+    validation: 'single', interaction: 'mission-clue',
+    choices: [
+      ['father', 'He is the father.'], ['mother', 'He is the mother.'],
+      ['sister', 'He is the sister.'],
+    ],
+    targets: [missionTarget('father', 'Padre señalado', ['father'], [0.31, 0.10, 0.38, 0.75])],
+  }),
+  missionGameCard({
+    beat: 20, chapter: 'welcome-everyone', kind: 'speak', stage: 'Speak',
+    phase: 'the learner hears who is she and speaks the grandmother answer',
+    prompt: 'She is the grandmother.', audio: 'She is the grandmother.', cueAudio: 'Who is she?',
+    answer: null, translation: '¿Quién es ella? Ella es la abuela.',
+    instruction: 'Escucha “Who is she?”. Después escucha el modelo y di: “She is the grandmother.”',
+    validation: 'single', imageOptionId: 'grandmother',
+    choices: [['grandmother', 'She is the grandmother.']],
+    targets: [missionTarget('grandmother', 'Abuela señalada', ['grandmother'], [0.31, 0.10, 0.38, 0.75])],
+  }),
+  missionGameCard({
+    beat: 21, chapter: 'welcome-everyone', kind: 'who-dialogue', stage: 'Listen',
+    phase: 'the plural who question resolves the parents relationship pass',
+    prompt: 'Who are they?', audio: 'Who are they?', answer: 'They are the parents.',
+    translation: '¿Quiénes son ellos? Ellos son los padres.',
+    instruction: 'Escucha la pregunta plural y entrega la respuesta a la pareja señalada.',
+    validation: 'single', interaction: 'mission-listen',
+    choices: [
+      ['parents', 'They are the parents.'], ['brothers', 'They are the brothers.'],
+      ['sisters', 'They are the sisters.'],
+    ],
+    targets: [missionTarget('parents', 'Pareja de padres', ['parents'], [0.21, 0.12, 0.58, 0.72])],
+  }),
+  missionGameCard({
+    beat: 22, chapter: 'welcome-everyone', kind: 'finale', stage: 'Speak',
+    phase: 'the last family groups arrive and the learner speaks the reunion line',
+    prompt: 'They are a family.', audio: 'They are a family.', cueAudio: 'Who are they?',
+    answer: null, translation: '¿Quiénes son ellos? Ellos son una familia.',
+    instruction: 'Toca el punto de reunión para recibir a los últimos grupos. Después escucha el modelo y di: “They are a family.”',
+    validation: 'single', imageOptionId: 'family',
+    choices: [['family', 'They are a family.']],
+    targets: [missionTarget('reunion', 'Punto de reunión familiar', ['family'], [0.12, 0.12, 0.76, 0.75])],
+  }),
 ];
 
-const lesson110Cards = missionBlueprint.map(({ chapter, phase, card }, index) => ({
-  slide_id: `M${String(index + 1).padStart(2, '0')}`,
-  ...card,
-  mission_chapter_id: chapter,
-  spanish_translation: card.translation || '',
-  pedagogy_note: `Mission beat ${String(index + 1).padStart(2, '0')}/22: ${phase}; the completed interaction permanently restores part of the family album.`,
-}));
+const lesson110Cards = missionBlueprint.map(({ chapter, phase, card }, index) => {
+  const { translation, ...cardFields } = card;
+  return {
+    slide_id: `M${String(index + 1).padStart(2, '0')}`,
+    ...cardFields,
+    mission_chapter_id: chapter,
+    spanish_translation: translation || '',
+    pedagogy_note: `Mission beat ${String(index + 1).padStart(2, '0')}/22: ${phase}; the completed interaction advances the same family celebration adventure.`,
+  };
+});
 
 if (lesson110Cards.length !== 22) throw new Error(`1.10 must contain 22 mission beats, found ${lesson110Cards.length}`);
-const missionChapterOrder = ['open-album', 'build-family', 'restore-memories', 'record-and-reveal'];
+const missionChapterOrder = ['find-the-people', 'connect-the-family', 'follow-the-actions', 'repair-the-clues', 'welcome-everyone'];
 if (JSON.stringify([...new Set(lesson110Cards.map((card) => card.mission_chapter_id))]) !== JSON.stringify(missionChapterOrder)) {
-  throw new Error('1.10 mission chapters must remain in the reviewed story order');
+  throw new Error('1.10 mission chapters must remain in the reviewed celebration story order');
 }
 if (lesson110Cards.some((card, index) => card.slide_id !== `M${String(index + 1).padStart(2, '0')}`)) {
   throw new Error('1.10 mission slide IDs must remain M01 through M22');
 }
-for (const card of lesson110Cards.slice(13, 19)) {
-  const correctIds = card.correct_option_ids?.length ? card.correct_option_ids : [card.correct_option_id];
-  const visibleGold = card.answer_audio_text || correctIds
-    .map((id) => card.options.find((option) => option.id === id)?.label || '')
-    .join(' ');
-  assertVisibleMissionAction(card.prompt_image_url.split('/').pop(), visibleGold);
+const requiredMissionKinds = ['hotspot', 'label-placement', 'relationship-link', 'action-sequence', 'not-correction', 'who-dialogue', 'speak', 'finale'];
+const authoredMissionKinds = new Set(lesson110Cards.map((card) => card.mission_game.kind));
+if (requiredMissionKinds.some((kind) => !authoredMissionKinds.has(kind))) {
+  throw new Error('1.10 must exercise all eight approved mission game kinds');
+}
+for (const [index, card] of lesson110Cards.entries()) {
+  const expectedPrefix = `a1_u1_reunion_${String(index + 1).padStart(2, '0')}_`;
+  if (!card.prompt_image_url.endsWith('.webp') || !card.prompt_image_url.includes(`/${expectedPrefix}`)) {
+    throw new Error(`${card.slide_id} must use its ordered ${expectedPrefix} hero still`);
+  }
+  if (!card.mission_game.instruction_es.trim() || !card.mission_game.targets.length) {
+    throw new Error(`${card.slide_id} requires an exact Spanish instruction and at least one target`);
+  }
 }
 
 const unitOneLearnedVocabulary = [
@@ -816,44 +908,50 @@ const unitOneLearnedVocabulary = [
 const missionGoldText = lesson110Cards.map((card) => {
   const correctIds = card.correct_option_ids?.length ? card.correct_option_ids : [card.correct_option_id];
   const correctLabels = correctIds.map((id) => card.options.find((option) => option.id === id)?.label || '');
-  return [card.prompt, card.audio_text, card.answer_audio_text, ...correctLabels].filter(Boolean).join(' ');
+  return [card.prompt, card.audio_text, card.answer_audio_text, card.mission_game.cue_audio_text, ...correctLabels].filter(Boolean).join(' ');
 }).join(' ').toLowerCase();
 const missingMissionVocabulary = unitOneLearnedVocabulary.filter((word) => !new RegExp(`\\b${word}\\b`, 'i').test(missionGoldText));
 if (missingMissionVocabulary.length) {
   throw new Error(`1.10 gold paths omit learned Unit 1 vocabulary: ${missingMissionVocabulary.join(', ')}`);
 }
 
-const missionHeroAssets = lesson110Cards.map((card) => card.prompt_image_url || card.options.find((option) => option.image_url)?.image_url || '');
-if (missionHeroAssets.some((image) => !image.includes('/a1_u1_album_')) || new Set(missionHeroAssets).size !== 22) {
-  throw new Error('1.10 requires one unique a1_u1_album hero asset for every mission beat');
+const authoredHeroUrls = lesson110Cards.map((card) => card.prompt_image_url);
+if (
+  new Set(authoredHeroUrls).size !== 22
+  || JSON.stringify(authoredHeroUrls) !== JSON.stringify(missionHeroAssets.map(media))
+) {
+  throw new Error('1.10 requires the 22 ordered, unique a1_u1_reunion hero assets');
 }
 
 const lesson110 = {
-  id: 'lesson-10-family-mission', title: '1.10 Family Album Mission', level: 'Beginner A1',
+  id: 'lesson-10-family-mission', title: '1.10 ¡Todos a la celebración!', level: 'Beginner A1',
   unit_id: 'unit-1', unit_title: 'Unit 1: People, Family, and Actions',
   unit_outcome: 'Understand and produce simple sentences about people, family members, and actions.',
   lesson_id: 'lesson-1', lesson_title: 'Unit 1: People, Family, and Actions',
-  sub_lesson_id: '1.10', sub_lesson_title: 'Family Album Mission',
-  experience_type: 'mission', content_revision: 2,
+  sub_lesson_id: '1.10', sub_lesson_title: '¡Todos a la celebración!',
+  experience_type: 'mission', content_revision: 3,
   mission: {
-    label: 'MISIÓN FINAL',
-    title: 'El álbum familiar',
-    briefing: 'Las fotos, los nombres y las voces se mezclaron. Restaura cada página para revelar el retrato final.',
-    completion_title: '¡Álbum restaurado!',
-    completion_message: 'Reconstruiste la familia, recuperaste sus acciones y devolviste la voz a su historia.',
+    label: 'MISIÓN FINAL · UNIDAD 1',
+    title: '¡Todos a la celebración!',
+    briefing: 'La celebración familiar está por comenzar, pero todavía falta reunir a todos. Encuentra a cada persona, descubre qué está haciendo y responde quién es. Vas a tocar, unir, escuchar y hablar. Yo te mostraré el primer paso.',
+    kickoff_image_url: media(missionKickoffAsset),
+    objectives: ['Encuentra personas', 'Sigue sus acciones', 'Reúne a la familia'],
+    completion_title: '¡La familia está reunida!',
+    completion_message: 'Encontraste a las personas, conectaste a la familia, seguiste sus acciones y respondiste quiénes son. La celebración puede comenzar.',
     chapters: [
-      { id: 'open-album', title: 'Abre el álbum', objective: 'Recupera la llave y ordena las primeras fotos.' },
-      { id: 'build-family', title: 'Reconstruye la familia', objective: 'Completa el árbol y resuelve las pistas de identidad.' },
-      { id: 'restore-memories', title: 'Recupera los recuerdos', objective: 'Usa las acciones verdaderas para reparar cada escena.' },
-      { id: 'record-and-reveal', title: 'Devuelve la voz', objective: 'Graba la última línea y abre el retrato familiar.' },
+      { id: 'find-the-people', title: 'Encuentra a las personas', objective: 'Sigue la luz y localiza a quienes faltan.' },
+      { id: 'connect-the-family', title: 'Conecta a la familia', objective: 'Une a cada persona con su relación correcta.' },
+      { id: 'follow-the-actions', title: 'Sigue las acciones', objective: 'Recorre las pistas en el orden que muestran y dicen.' },
+      { id: 'repair-the-clues', title: 'Repara las pistas', objective: 'Corrige los reportes falsos con not.' },
+      { id: 'welcome-everyone', title: 'Recibe a todos', objective: 'Responde quiénes son y reúne a la familia.' },
     ],
   },
-  goal: 'Restore one family album by rebuilding its people, relationships, identity clues, action memories, voice track, and final portrait.',
+  goal: 'Bring every person to one family celebration by finding people, connecting relationships, following actions, correcting false clues, and answering who they are.',
   vocabulary: [], review_vocabulary: unitOneLearnedVocabulary,
-  grammar_function: 'Apply every Unit 1 identity, article, singular/plural, pronoun, action, negative, and who-question pattern inside one continuous mission.',
+  grammar_function: 'Apply every Unit 1 identity, article, singular/plural, pronoun, action, negative, and who-question pattern inside one continuous celebration adventure.',
   prerequisite: 'Lessons 1.1-1.9 completed.',
-  speaking_outcome: 'Ask and answer who family members are while completing the restored album narration.',
-  purposeful_review_slides: ['M01', 'M04', 'M08', 'M09', 'M10', 'M11', 'M12', 'M13', 'M20', 'M21', 'M22'],
+  speaking_outcome: 'Answer who a family member is and identify the reunited family aloud.',
+  purposeful_review_slides: ['M01', 'M03', 'M04', 'M09', 'M10', 'M15', 'M16', 'M19', 'M20', 'M21', 'M22'],
   cards: lesson110Cards,
 };
 
