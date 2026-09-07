@@ -71,8 +71,8 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /\{isPronunciation \? pronunciationInstruction\(\) : renderPrompt\(\)\}/,
-  'Pronunciation headers must render the shared Speak instruction.',
+  /\{isPronunciation[\s\S]*?currentCard\.mission_game\?\.instruction_es \|\| pronunciationInstruction\(\)[\s\S]*?: renderPrompt\(\)\}/,
+  'Standard pronunciation headers use the shared instruction while missions use their exact authored action.',
 );
 assert.match(
   screenSource,
