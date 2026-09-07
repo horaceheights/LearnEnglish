@@ -87,7 +87,12 @@ import {
 } from '../lessonAudioCache';
 import { isMissionLesson, missionChapterProgress } from '../missionExperience';
 import { missionSuccessSoundEvent, useMissionSoundEffects } from '../missionSoundEffects';
-import { prepareCardChoice, registerCardAttempt, registerCardCompletion } from '../lessonProgress';
+import {
+  prepareCardChoice,
+  registerCardAttempt,
+  registerCardCompletion,
+  shouldWaitForGrammarAnimation,
+} from '../lessonProgress';
 import { preloadPronunciationAudioWithRetry } from '../pronunciationAudioGate';
 import { useConnectivity } from '../hooks/useConnectivity';
 import { useReducedMotion } from '../hooks/useReducedMotion';
@@ -970,6 +975,14 @@ export function LessonScreen({
     && currentCard.mission_game.kind !== 'speak'
     && currentCard.mission_game.kind !== 'finale',
   );
+  // `Use` is a grammar-animation stage in standard lessons, but a dedicated
+  // mission surface has no LessonCardView animation callback to wait for.
+  // Keeping those lifecycles separate prevents a correct mission check from
+  // becoming a permanent green state.
+  const waitsForGrammarAnimation = shouldWaitForGrammarAnimation(
+    currentCard?.stage ?? '',
+    usesMissionGameSurface,
+  );
   const useCompactListenInstruction = usesCompactListenInstruction(
     currentCard?.stage ?? '',
     currentCard?.prompt ?? '',
@@ -1614,7 +1627,7 @@ export function LessonScreen({
       return;
     }
 
-    if (result === 'correct' && correctAnswerAudio && !isGrammar) {
+    if (result === 'correct' && correctAnswerAudio && !waitsForGrammarAnimation) {
       answerAdvanceTimerRef.current = setTimeout(() => {
         answerAdvanceTimerRef.current = null;
         advance();
@@ -1639,7 +1652,7 @@ export function LessonScreen({
       return;
     }
 
-    if (result === 'correct' && isGrammar && grammarCompleted) {
+    if (result === 'correct' && waitsForGrammarAnimation && grammarCompleted) {
       grammarAudioTimerRef.current = setTimeout(() => {
         grammarAudioTimerRef.current = null;
         advance();
@@ -1651,7 +1664,6 @@ export function LessonScreen({
     correctAnswerAudio,
     currentCard,
     grammarCompleted,
-    isGrammar,
     isAppActive,
     isPronunciation,
     playAnswerAfterChime,
@@ -1663,6 +1675,7 @@ export function LessonScreen({
     selectedIds,
     successChimePlayer,
     tryAgainCuePlayer,
+    waitsForGrammarAnimation,
   ]);
 
   useEffect(() => {
@@ -1770,7 +1783,7 @@ export function LessonScreen({
       !isAppActive ||
       result !== 'correct' ||
       !currentCard ||
-      isGrammar ||
+      waitsForGrammarAnimation ||
       Boolean(correctAnswerAudio) ||
       pauseForPronunciationReview ||
       (qaMode && !qaAutoAdvance)
@@ -1783,13 +1796,13 @@ export function LessonScreen({
     automaticAdvanceDelay,
     correctAnswerAudio,
     currentCard,
-    isGrammar,
     isAppActive,
     isPronunciation,
     pauseForPronunciationReview,
     qaAutoAdvance,
     qaMode,
     result,
+    waitsForGrammarAnimation,
   ]);
 
   useEffect(() => {
@@ -1797,7 +1810,7 @@ export function LessonScreen({
       !isAppActive ||
       !answerAudioAwaitingRef.current ||
       !answerAudioStartedRef.current ||
-      isGrammar ||
+      waitsForGrammarAnimation ||
       result !== 'correct'
     ) return;
     if (courseAudioPlaybackStatus.error) {
@@ -1837,15 +1850,15 @@ export function LessonScreen({
     courseAudioPlaybackStatus.error,
     courseAudioPlaybackStatus.playing,
     isAppActive,
-    isGrammar,
     pauseForPronunciationReview,
     qaAutoAdvance,
     qaMode,
     result,
+    waitsForGrammarAnimation,
   ]);
 
   useEffect(() => {
-    if (!isAppActive || !grammarAnswerAwaitingRef.current || !isGrammar || result !== 'correct') return;
+    if (!isAppActive || !grammarAnswerAwaitingRef.current || !waitsForGrammarAnimation || result !== 'correct') return;
     if (courseAudioPlaybackStatus.error) {
       grammarAnswerAwaitingRef.current = false;
       grammarAnswerWasPlayingRef.current = false;
@@ -1881,11 +1894,11 @@ export function LessonScreen({
     courseAudioPlaybackStatus.error,
     courseAudioPlaybackStatus.playing,
     isAppActive,
-    isGrammar,
     pauseForPronunciationReview,
     qaAutoAdvance,
     qaMode,
     result,
+    waitsForGrammarAnimation,
   ]);
 
   useEffect(() => {
@@ -2016,7 +2029,7 @@ export function LessonScreen({
       }
       if (missionExperience) playMissionSound(missionSuccessSoundEvent(currentCard));
       else void playSuccessChime();
-      if (isGrammar) {
+      if (waitsForGrammarAnimation) {
         return;
       }
       const answerText = correctSelectionAudioText(currentCard, finalOptionId);
@@ -2160,7 +2173,7 @@ export function LessonScreen({
       !isAppActive
       || AppState.currentState !== 'active'
       || !currentCard
-      || !isGrammar
+      || !waitsForGrammarAnimation
       || grammarCompletionHandledRef.current
     ) return;
     grammarCompletionHandledRef.current = true;
@@ -2187,7 +2200,7 @@ export function LessonScreen({
       'prompt',
       'answer',
     );
-  }, [advance, currentCard, isAppActive, isGrammar, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId, selectedIds]);
+  }, [advance, currentCard, isAppActive, pauseForPronunciationReview, playAudio, qaAutoAdvance, qaMode, selectedId, selectedIds, waitsForGrammarAnimation]);
 
   const clearCardInteractionState = useCallback(() => {
     answerAudioAwaitingRef.current = false;

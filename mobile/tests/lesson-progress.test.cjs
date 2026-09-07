@@ -4,7 +4,21 @@ const {
   prepareCardChoice,
   registerCardAttempt,
   registerCardCompletion,
+  shouldWaitForGrammarAnimation,
 } = require(process.argv[2]);
+
+assert.equal(
+  shouldWaitForGrammarAnimation('Use', false),
+  true,
+  'A standard Use card must wait for its grammar animation.',
+);
+assert.equal(
+  shouldWaitForGrammarAnimation('Use', true),
+  false,
+  'A Use-stage mission game must continue without a LessonCardView animation callback.',
+);
+assert.equal(shouldWaitForGrammarAnimation('Grammar', false), true);
+assert.equal(shouldWaitForGrammarAnimation('Recognize', false), false);
 
 const firstAttempt = registerCardAttempt(new Set(), 3);
 assert.equal(firstAttempt.firstTry, true, 'A new card must be a first try.');
