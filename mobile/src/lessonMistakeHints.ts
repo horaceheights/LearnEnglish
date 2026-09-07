@@ -140,6 +140,10 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
     : target;
   const inContext = (explanation: string) => `En “${clause.replace(/[.!?]+$/, '')}”: ${explanation}`;
 
+  if (card.mission_game?.instruction_es?.trim()) {
+    return `${card.mission_game.instruction_es.trim()} Aquí corresponde “${correct}”.`;
+  }
+
   if (/^(a|an)$/.test(focus)) {
     const next = (isCompletion ? prompt.split(/_{2,}/)[slot + 1]?.trim().split(/\s+/)[0] : target.match(/\b(?:a|an)\s+(\w+)/i)?.[1])?.replace(/[?.!,]+$/, '');
     return `La respuesta es “${focus} ${next}”: “${next}” empieza con sonido ${focus === 'an' ? 'de vocal' : 'de consonante'}, por eso usamos “${focus}” y no “${focus === 'an' ? 'a' : 'an'}”.`;

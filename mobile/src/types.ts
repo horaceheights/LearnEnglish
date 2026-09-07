@@ -23,6 +23,32 @@ export type CourseAudioTurn = {
   image_url: string;
 };
 
+export type MissionGameKind =
+  | 'hotspot'
+  | 'label-placement'
+  | 'relationship-link'
+  | 'action-sequence'
+  | 'not-correction'
+  | 'who-dialogue'
+  | 'speak'
+  | 'finale';
+
+export type MissionGameTarget = {
+  id: string;
+  label_es: string;
+  rect: { x: number; y: number; width: number; height: number };
+  accepted_option_ids: string[];
+};
+
+export type MissionGame = {
+  kind: MissionGameKind;
+  instruction_es: string;
+  validation: 'single' | 'ordered' | 'unordered';
+  targets: MissionGameTarget[];
+  tutorial_mode?: 'guided-no-fail';
+  cue_audio_text?: string;
+};
+
 export type LessonCard = {
   slide_id?: string | null;
   interaction_type?: string | null;
@@ -44,6 +70,7 @@ export type LessonCard = {
   answer_audio_turns?: CourseAudioTurn[];
   audio_assets: CourseAudioAsset[];
   mission_chapter_id?: string;
+  mission_game?: MissionGame;
 };
 
 export type MissionChapter = {
@@ -56,6 +83,8 @@ export type MissionPresentation = {
   label: string;
   title: string;
   briefing: string;
+  kickoff_image_url: string;
+  objectives: string[];
   completion_title: string;
   completion_message: string;
   chapters: MissionChapter[];

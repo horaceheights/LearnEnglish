@@ -15,11 +15,13 @@ function missionLesson(overrides = {}) {
     goal: 'Complete the family mission.',
     vocabulary: [],
     experience_type: 'mission',
-    content_revision: 2,
+    content_revision: 3,
     mission: {
       label: 'Final mission',
       title: 'Find the family',
       briefing: 'Follow the clues.',
+      kickoff_image_url: '/lesson-assets/kickoff.webp',
+      objectives: ['Find people', 'Follow actions', 'Bring the family together'],
       completion_title: 'Mission complete',
       completion_message: 'You found the family.',
       chapters: [
@@ -29,11 +31,11 @@ function missionLesson(overrides = {}) {
       ],
     },
     cards: [
-      { mission_chapter_id: 'arrival' },
-      { mission_chapter_id: 'arrival' },
-      { mission_chapter_id: 'clues' },
-      { mission_chapter_id: 'message' },
-      { mission_chapter_id: 'message' },
+      { mission_chapter_id: 'arrival', mission_game: { kind: 'hotspot' } },
+      { mission_chapter_id: 'arrival', mission_game: { kind: 'hotspot' } },
+      { mission_chapter_id: 'clues', mission_game: { kind: 'hotspot' } },
+      { mission_chapter_id: 'message', mission_game: { kind: 'hotspot' } },
+      { mission_chapter_id: 'message', mission_game: { kind: 'hotspot' } },
     ],
     ...overrides,
   };
@@ -66,10 +68,10 @@ assert.equal(
 assert.equal(
   isMissionLesson(missionLesson({
     cards: [
-      { mission_chapter_id: 'arrival' },
-      { mission_chapter_id: 'clues' },
-      { mission_chapter_id: 'arrival' },
-      { mission_chapter_id: 'message' },
+      { mission_chapter_id: 'arrival', mission_game: { kind: 'hotspot' } },
+      { mission_chapter_id: 'clues', mission_game: { kind: 'hotspot' } },
+      { mission_chapter_id: 'arrival', mission_game: { kind: 'hotspot' } },
+      { mission_chapter_id: 'message', mission_game: { kind: 'hotspot' } },
     ],
   })),
   false,
@@ -158,12 +160,13 @@ assert.deepEqual(
     label: group.label,
   })),
   [
-    { cardIndexes: [0, 1, 2, 3, 4], label: 'Abre el álbum' },
-    { cardIndexes: [5, 6, 7, 8, 9, 10, 11, 12], label: 'Reconstruye la familia' },
-    { cardIndexes: [13, 14, 15, 16, 17, 18, 19], label: 'Recupera los recuerdos' },
-    { cardIndexes: [20, 21], label: 'Devuelve la voz' },
+    { cardIndexes: [0, 1, 2], label: 'Encuentra a las personas' },
+    { cardIndexes: [3, 4, 5, 6, 7, 8], label: 'Conecta a la familia' },
+    { cardIndexes: [9, 10, 11, 12, 13, 14], label: 'Sigue las acciones' },
+    { cardIndexes: [15, 16, 17], label: 'Repara las pistas' },
+    { cardIndexes: [18, 19, 20, 21], label: 'Recibe a todos' },
   ],
-  'Engine QA must expose all four authored mission chapters in story order with global card indexes.',
+  'Engine QA must expose all five authored mission chapters in story order with global card indexes.',
 );
 
 console.log('Mission experience helper checks passed.');

@@ -4,120 +4,69 @@ const path = require('node:path');
 const test = require('node:test');
 
 const mobileRoot = path.resolve(__dirname, '..');
-const cardView = fs.readFileSync(
-  path.join(mobileRoot, 'src', 'components', 'LessonCardView.tsx'),
-  'utf8',
-);
-const lessonScreen = fs.readFileSync(
-  path.join(mobileRoot, 'src', 'screens', 'LessonScreen.tsx'),
-  'utf8',
-);
-const webPlayer = fs.readFileSync(
-  path.join(mobileRoot, '..', 'frontend', 'components', 'LessonPlayer.js'),
-  'utf8',
-);
-const verifier = fs.readFileSync(
-  path.join(mobileRoot, 'scripts', 'verify-interaction-paths.ps1'),
-  'utf8',
-);
-const course = require(path.join(mobileRoot, 'src', 'generated', 'a1-course.json'));
+const surface = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionGameSurface.tsx'), 'utf8');
+const kickoff = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionKickoff.tsx'), 'utf8');
+const lessonScreen = fs.readFileSync(path.join(mobileRoot, 'src/screens/LessonScreen.tsx'), 'utf8');
+const webMission = fs.readFileSync(path.join(mobileRoot, '../frontend/components/CelebrationMission.js'), 'utf8');
+const verifier = fs.readFileSync(path.join(mobileRoot, 'scripts/verify-interaction-paths.ps1'), 'utf8');
+const course = require(path.join(mobileRoot, 'src/generated/a1-course.json'));
 const mission = course.find((lesson) => lesson.experience_type === 'mission');
-const missionConstructionSource = cardView.slice(
-  cardView.indexOf('function MissionDraggableTile'),
-  cardView.indexOf('function LessonActionMedia'),
-);
 
 assert.ok(mission, 'The embedded catalog must expose the declared mission experience.');
 assert.equal(mission.cards.length, 22);
-assert.equal(
-  Math.max(...mission.cards.map((card) => card.options.length)),
-  8,
-  'Responsive mission QA must exercise the reviewed eight-tile construction bank.',
-);
+assert.ok(Math.max(...mission.cards.map((card) => card.options.length)) >= 6, 'Responsive mission QA must exercise a substantial signal bank.');
 
-test('mission construction supports bounded drag plus a complete tap path', () => {
-  assert.match(cardView, /PanResponder\.create/);
-  assert.match(cardView, /measureInWindow/);
-  assert.match(
-    missionConstructionSource,
-    /onPanResponderGrant:[\s\S]*?originRef\.current = null[\s\S]*?measureDropBounds\(\)[\s\S]*?tileRef\.current\?\.measureInWindow/,
-    'Starting a drag must refresh both the drop zone and tile origin after any ScrollView movement.',
-  );
-  assert.match(
-    missionConstructionSource,
-    /onPanResponderRelease:[\s\S]*?measureDropBounds\(\(bounds\) => \{[\s\S]*?pageX >= bounds\.x[\s\S]*?pageY >= bounds\.y/,
-    'Releasing a drag must hit-test against freshly measured window coordinates.',
-  );
-  assert.doesNotMatch(
-    missionConstructionSource,
-    /onPanResponderRelease:[\s\S]*?const bounds = dropBoundsRef\.current/,
-    'Drag release must not trust coordinates cached before the ScrollView moved.',
-  );
-  assert.match(cardView, /viewportWidth - origin\.x - origin\.width - 8/);
-  assert.match(cardView, /viewportHeight - origin\.y - origin\.height - 8/);
-  assert.match(cardView, /onPress=\{\(\) => onSelect\(option\.id\)\}/);
-  assert.match(cardView, /minHeight: 48/);
-  assert.match(cardView, /missionTileBank:[\s\S]*?flexWrap: 'wrap'/);
-  assert.match(cardView, /missionDropZone:[\s\S]*?flexWrap: 'wrap'/);
-  assert.match(
-    missionConstructionSource,
-    /flexBasis: correctIds\.length > 6 \? '22%' : correctIds\.length > 3 \? '30%' : '44%'/,
-    'The answer area must reflow to four, three, or two slots per row.',
-  );
-  const minimumFontScales = [...missionConstructionSource.matchAll(
-    /minimumFontScale=\{([0-9.]+)\}/g,
-  )].map((match) => Number(match[1]));
-  assert.ok(minimumFontScales.length >= 2, 'Both source and placed mission tiles need font-fit floors.');
-  assert.ok(
-    minimumFontScales.every((scale) => scale >= 0.8),
-    `Mission tiles may not shrink below 80% of authored size: ${minimumFontScales.join(', ')}`,
-  );
-  assert.match(cardView, /Toca o arrastra las fichas en orden\./);
+test('mobile mission placement supports bounded drag and an equivalent tap path', () => {
+  assert.match(surface, /PanResponder\.create/);
+  assert.match(surface, /useWindowDimensions\(\)/);
+  assert.match(surface, /Math\.max\(-width \* 0\.8, Math\.min\(width \* 0\.8, gesture\.dx\)\)/);
+  assert.match(surface, /Math\.max\(-height \* 0\.65, Math\.min\(height \* 0\.65, gesture\.dy\)\)/);
+  assert.match(surface, /measureInWindow/);
+  assert.match(surface, /onDrop\(option\.id, event\.nativeEvent\.pageX, event\.nativeEvent\.pageY\)/);
+  assert.match(surface, /onPress=\{\(\) => onPress\(option\.id\)\}/);
+  assert.match(surface, /Ahora toca su destino en la imagen/);
+  assert.match(surface, /height: percent\(target\.rect\.height\)/);
+  assert.match(surface, /left: percent\(target\.rect\.x\)/);
+  assert.match(surface, /minHeight: 44/);
+  assert.match(surface, /minWidth: 44/);
 });
 
-test('mission construction exposes progress, undo, and reset without leaving the card', () => {
-  assert.match(cardView, /Deshacer/);
-  assert.match(cardView, /Reiniciar/);
-  assert.match(lessonScreen, /undoMissionSelection/);
-  assert.match(lessonScreen, /resetMissionSelection/);
-  assert.match(lessonScreen, /isMissionLesson\(lesson\)/);
-  assert.match(lessonScreen, /MissionJourney/);
-  assert.match(lessonScreen, /MissionCompletion/);
-  assert.match(lessonScreen, /step=\{cardIndex \+ 1\}/);
-  assert.match(lessonScreen, /total=\{lesson\.cards\.length\}/);
+test('mobile mission recovery preserves progress and never forces a lesson restart', () => {
+  assert.match(surface, /Retiramos solo lo incorrecto\. Tus aciertos siguen en su lugar\./);
+  assert.match(surface, /Señal retirada\. Puedes colocarla de nuevo\./);
+  assert.match(surface, />Deshacer</);
+  assert.match(surface, />Reiniciar</);
+  assert.match(surface, />Comprobar</);
+  assert.match(surface, /setPlacements\(validation\.retained\)/);
+  assert.match(lessonScreen, /<MissionGameSurface/);
+  assert.match(lessonScreen, /<MissionKickoff/);
   assert.doesNotMatch(lessonScreen, /lesson\.id === 'lesson-10-family-mission'/);
-  assert.doesNotMatch(lessonScreen, /mission(?:Step|Total)=/);
 });
 
-test('web mission tiles keep drag, tap, progress, and recovery controls together', () => {
-  assert.match(webPlayer, /draggable=\{isMissionTileCard/);
-  assert.match(webPlayer, /onDrop=\{\(event\) =>/);
-  assert.match(webPlayer, /onClick=\{isPronunciationCard \? undefined : \(\) => handleChoice\(option\.id\)\}/);
-  assert.match(webPlayer, /undoMissionSelection/);
-  assert.match(webPlayer, /resetMissionSelection/);
-  assert.match(webPlayer, /isMissionLesson/);
-  assert.doesNotMatch(webPlayer, /activeLesson\.id === "lesson-10-family-mission"/);
-  assert.doesNotMatch(
-    webPlayer,
-    /gridTemplateColumns: `repeat\(\$\{orderedCorrectOptionIds\(currentCard\)\.length\}, minmax\(0, 1fr\)\)`/,
-  );
-  assert.match(
-    webPlayer,
-    /const missionTileGridColumns = isMobile[\s\S]*?"repeat\(2, minmax\(0, 1fr\)\)"[\s\S]*?"repeat\(auto-fit, minmax\(132px, 1fr\)\)"/,
-    'Mission tiles must use two shrink-safe columns on mobile and auto-fit on wider screens.',
-  );
-  assert.equal(
-    (webPlayer.match(/gridTemplateColumns: missionTileGridColumns/g) || []).length,
-    2,
-    'The same responsive grid must govern both the answer area and source tile bank.',
-  );
-  assert.match(webPlayer, /maxWidth: "620px",[\s\S]*?minWidth: 0,[\s\S]*?width: "100%"/);
-  assert.match(webPlayer, /maxWidth: "100%", minHeight: 44, minWidth: 0, width: "100%"/);
-  assert.match(webPlayer, /overflowWrap: isMissionTileCard \? "anywhere" : undefined/);
-  assert.match(webPlayer, /minHeight: 48/);
+test('mission surfaces adapt to available screen space without hiding the next action', () => {
+  assert.match(kickoff, /aspectRatio: 3 \/ 2/);
+  assert.match(kickoff, /maxWidth: 820/);
+  assert.match(surface, /aspectRatio: 3 \/ 2/);
+  assert.match(surface, /maxHeight: 510/);
+  assert.match(surface, /flexWrap: 'wrap'/);
+  assert.match(surface, /adjustsFontSizeToFit/);
+  assert.match(webMission, /maxWidth: isMobile \? "min\(100%, calc\(43svh \* 1\.5\)\)" : 900/);
+  assert.match(webMission, /overflowX: isMobile \? "auto" : "visible"/);
+  assert.match(webMission, /gridTemplateColumns: isMobile \? "repeat\(3, minmax\(0, 1fr\)\)"/);
 });
 
-test('protected interaction verification runs every mission contract', () => {
+test('web mission tiles keep drag, tap, removal, and no-reset repair together', () => {
+  assert.match(webMission, /draggable=\{!choiceGame && interactionReady && lastResult !== "correct"\}/);
+  assert.match(webMission, /onDragStart=\{\(event\) =>/);
+  assert.match(webMission, /onDrop=\{\(event\) =>/);
+  assert.match(webMission, /Retirar \$\{optionsById\.get\(placement\.optionId\)/);
+  assert.match(webMission, /Retiramos solo lo que no correspondía\. Tus aciertos siguen en su lugar\./);
+  assert.match(webMission, />Deshacer</);
+  assert.match(webMission, />Reiniciar</);
+  assert.match(webMission, />Comprobar</);
+});
+
+test('protected interaction verification runs the celebration mission contracts', () => {
   assert.match(verifier, /node tests\/mission-experience\.test\.cjs/);
   assert.match(verifier, /node tests\/lesson-mission-contract\.test\.cjs/);
   assert.match(verifier, /node tests\/mission-tiles\.test\.cjs/);

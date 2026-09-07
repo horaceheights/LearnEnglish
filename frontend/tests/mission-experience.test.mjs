@@ -10,20 +10,22 @@ function missionLesson(overrides = {}) {
     content_revision: 2,
     mission: {
       label: "MISIÓN FINAL",
-      title: "El álbum familiar",
-      briefing: "Restaura cada página.",
-      completion_title: "¡Álbum restaurado!",
-      completion_message: "La historia está completa.",
+      title: "¡Todos a la celebración!",
+      briefing: "Encuentra a todos y reúne a la familia.",
+      kickoff_image_url: "/lesson-assets/reunion-kickoff.webp",
+      objectives: ["Encuentra personas", "Sigue sus acciones", "Reúne a la familia"],
+      completion_title: "¡Misión cumplida!",
+      completion_message: "Toda la familia llegó.",
       chapters: [
-        { id: "open", title: "Abre", objective: "Abre el álbum." },
-        { id: "restore", title: "Restaura", objective: "Restaura la historia." },
+        { id: "find", title: "Encuentra", objective: "Encuentra a las personas." },
+        { id: "welcome", title: "Reúne", objective: "Reúne a la familia." },
       ],
     },
     cards: [
-      { mission_chapter_id: "open" },
-      { mission_chapter_id: "open" },
-      { mission_chapter_id: "restore" },
-      { mission_chapter_id: "restore" },
+      { mission_chapter_id: "find" },
+      { mission_chapter_id: "find" },
+      { mission_chapter_id: "welcome" },
+      { mission_chapter_id: "welcome" },
     ],
     ...overrides,
   };
@@ -40,9 +42,9 @@ test("mission routing validates metadata instead of a lesson ID", () => {
   assert.equal(
     isMissionLesson(missionLesson({
       cards: [
-        { mission_chapter_id: "open" },
-        { mission_chapter_id: "restore" },
-        { mission_chapter_id: "open" },
+        { mission_chapter_id: "find" },
+        { mission_chapter_id: "welcome" },
+        { mission_chapter_id: "find" },
       ],
     })),
     false,

@@ -109,6 +109,15 @@ PLURAL_SEMANTIC_NOUNS = (
 SEMANTIC_ASSET_ACTION_ADDITIONS = {
     "grandparents_talking": {"sitting"},
     "mission_game_setup": {"playing"},
+    "a1_u1_reunion_10_eat_drink": {"eating", "drinking"},
+    "a1_u1_reunion_11_read_write": {"reading", "writing"},
+    "a1_u1_reunion_12_run_swim": {"running", "swimming"},
+    "a1_u1_reunion_13_sit_sleep": {"sitting", "sleeping"},
+    "a1_u1_reunion_14_play_study": {"playing", "studying"},
+    "a1_u1_reunion_15_work_cook_talk": {"working", "cooking", "talking"},
+    "a1_u1_reunion_16_not_eating": {"drinking"},
+    "a1_u1_reunion_17_not_reading": {"writing"},
+    "a1_u1_reunion_18_not_running": {"sitting"},
 }
 # These are explicit facts of the authored Unit 1 scenes, not conclusions drawn
 # from the absence of a word in a filename. Talking and sitting can coexist.
@@ -118,6 +127,9 @@ SEMANTIC_ASSET_NEGATIVE_ACTIONS = {
     "they_boy_girl_are_running": {"sitting"},
     "family_sister_playing": {"studying"},
     "grandparents_talking": {"sleeping"},
+    "a1_u1_reunion_16_not_eating": {"eating"},
+    "a1_u1_reunion_17_not_reading": {"reading"},
+    "a1_u1_reunion_18_not_running": {"running"},
 }
 SEMANTIC_RELATED_GROUP_MARKERS = (
     "family_adults",
@@ -171,24 +183,22 @@ NEGATIVE_VISUAL_CONTRACTS = {
 }
 MISSION_COMPLETION_INTERACTIONS = {
     "mission-word-parts",
-    "mission-sentence",
-    "mission-finale",
 }
 MAX_MISSION_CONSTRUCTION_TILES = 8
+MIN_MISSION_TARGET_WIDTH = 0.12
+MIN_MISSION_TARGET_HEIGHT = 0.16
 MISSION_INTERACTIONS = frozenset({
     "mission-brief",
     "mission-clue",
     "mission-listen",
     "mission-speak",
+    "mission-sentence",
+    "mission-finale",
     *MISSION_COMPLETION_INTERACTIONS,
 })
 MISSION_INTERACTION_STAGES = {
-    "mission-brief": "Learn",
-    "mission-clue": "Recognize",
-    "mission-listen": "Listen",
     "mission-speak": "Speak",
-    "mission-word-parts": "Use",
-    "mission-finale": "Use",
+    "mission-finale": "Speak",
 }
 UNIT_ONE_FOUNDATION_LESSON_IDS = (
     "lesson-1-people-actions",
@@ -208,16 +218,44 @@ MISSION_REQUIRED_INTERACTIONS = {
         "mission-clue",
         "mission-listen",
         "mission-speak",
-        "mission-word-parts",
         "mission-sentence",
         "mission-finale",
     }),
 }
-MISSION_FIRST_INTERACTIONS = {
-    "lesson-10-family-mission": "mission-word-parts",
-}
 MISSION_HERO_PREFIXES = {
-    "lesson-10-family-mission": "a1_u1_album_",
+    "lesson-10-family-mission": "a1_u1_reunion_",
+}
+MISSION_REQUIRED_KINDS = {
+    "lesson-10-family-mission": frozenset({
+        "hotspot",
+        "label-placement",
+        "relationship-link",
+        "action-sequence",
+        "not-correction",
+        "who-dialogue",
+        "speak",
+        "finale",
+    }),
+}
+MISSION_KIND_SEQUENCE = {
+    "lesson-10-family-mission": [
+        "hotspot", "hotspot", "label-placement", "label-placement",
+        "relationship-link", "relationship-link", "relationship-link",
+        "relationship-link", "relationship-link",
+        "action-sequence", "action-sequence", "action-sequence",
+        "action-sequence", "action-sequence", "action-sequence",
+        "not-correction", "not-correction", "not-correction",
+        "who-dialogue", "speak", "who-dialogue", "finale",
+    ],
+}
+MISSION_CHAPTER_SEQUENCE = {
+    "lesson-10-family-mission": (
+        ["find-the-people"] * 3
+        + ["connect-the-family"] * 6
+        + ["follow-the-actions"] * 6
+        + ["repair-the-clues"] * 3
+        + ["welcome-everyone"] * 4
+    ),
 }
 
 
@@ -246,6 +284,18 @@ def _correct_option(card: object) -> object | None:
     )
 
 
+def _correct_options(card: object) -> list[object]:
+    options = list(getattr(card, "options", []) or [])
+    options_by_id = {
+        str(getattr(option, "id", "") or ""): option
+        for option in options
+    }
+    correct_ids = list(getattr(card, "correct_option_ids", []) or [])
+    if not correct_ids:
+        correct_ids = [str(getattr(card, "correct_option_id", "") or "")]
+    return [options_by_id[option_id] for option_id in correct_ids if option_id in options_by_id]
+
+
 def _mission_success_language(card: object) -> list[str]:
     """Return assessed English that appears on the successful mission path.
 
@@ -255,23 +305,27 @@ def _mission_success_language(card: object) -> list[str]:
     """
 
     interaction = str(getattr(card, "interaction_type", "") or "")
-    correct = _correct_option(card)
-    correct_label = str(getattr(correct, "label", "") or "") if correct else ""
+    correct_labels = [
+        str(getattr(option, "label", "") or "")
+        for option in _correct_options(card)
+    ]
     prompt = str(getattr(card, "prompt", "") or "")
     audio_text = str(getattr(card, "audio_text", "") or "")
     answer_audio_text = str(getattr(card, "answer_audio_text", "") or "")
+    mission_game = getattr(card, "mission_game", None)
+    cue_audio_text = str(getattr(mission_game, "cue_audio_text", "") or "")
 
-    values = [audio_text, answer_audio_text]
+    values = [audio_text, answer_audio_text, cue_audio_text]
     prompt_is_target = (
-        interaction == "mission-speak"
+        str(getattr(mission_game, "kind", "") or "") in {"speak", "finale"}
+        or interaction == "mission-speak"
         or prompt == audio_text
         or prompt == answer_audio_text
         or re.match(r"^Who\s+(?:is|are)\b", prompt, flags=re.IGNORECASE)
     )
     if prompt_is_target:
         values.append(prompt)
-    if interaction not in MISSION_COMPLETION_INTERACTIONS:
-        values.append(correct_label)
+    values.extend(correct_labels)
     return [value for value in values if value.strip()]
 
 
@@ -358,9 +412,24 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             errors.append(f"{lesson.id} must declare at least one nonempty mission chapter.")
         if len(chapter_ids) != len(set(chapter_ids)):
             errors.append(f"{lesson.id} mission chapter IDs must be unique.")
-        for field in ("label", "title", "briefing", "completion_title", "completion_message"):
+        for field in (
+            "label",
+            "title",
+            "briefing",
+            "kickoff_image_url",
+            "completion_title",
+            "completion_message",
+        ):
             if not str(getattr(mission, field, "") or "").strip():
                 errors.append(f"{lesson.id} mission presentation is missing {field!r}.")
+        objectives = [
+            str(value or "")
+            for value in list(getattr(mission, "objectives", []) or [])
+        ]
+        if not objectives or any(not value.strip() for value in objectives):
+            errors.append(f"{lesson.id} mission presentation requires visible objectives.")
+        if len(objectives) != len(set(objectives)):
+            errors.append(f"{lesson.id} mission objectives must be unique.")
 
         card_chapters = [
             str(getattr(card, "mission_chapter_id", "") or "")
@@ -374,6 +443,12 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             errors.append(
                 f"{lesson.id} cards must visit declared chapters once in order; "
                 f"declared {chapter_ids}, encountered {encountered_chapters}."
+            )
+        expected_chapters = MISSION_CHAPTER_SEQUENCE.get(lesson.id)
+        if expected_chapters is not None and card_chapters != list(expected_chapters):
+            errors.append(
+                f"{lesson.id} must preserve the approved five-act beat map; "
+                f"found {card_chapters}."
             )
 
         expected_slide_ids = [
@@ -393,6 +468,94 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                     f"Mission beat {index:02d}/{len(lesson.cards):02d} in its pedagogy note."
                 )
 
+        mission_kinds: list[str] = []
+        for index, card in enumerate(lesson.cards, 1):
+            location = f"{lesson.id} {card.slide_id or f'card {index}'}"
+            game = getattr(card, "mission_game", None)
+            if game is None:
+                errors.append(f"{location} must declare validated mission_game metadata.")
+                continue
+            kind = str(getattr(game, "kind", "") or "")
+            mission_kinds.append(kind)
+            instruction = str(getattr(game, "instruction_es", "") or "")
+            validation = str(getattr(game, "validation", "") or "")
+            targets = list(getattr(game, "targets", []) or [])
+            if not instruction.strip():
+                errors.append(f"{location} mission_game requires an exact Spanish instruction.")
+            if validation not in {"single", "ordered", "unordered"}:
+                errors.append(f"{location} has unsupported mission validation {validation!r}.")
+            if not targets:
+                errors.append(f"{location} mission_game requires at least one target.")
+                continue
+            target_ids = [str(getattr(target, "id", "") or "") for target in targets]
+            if any(not target_id for target_id in target_ids) or len(target_ids) != len(set(target_ids)):
+                errors.append(f"{location} mission target IDs must be nonempty and unique.")
+
+            option_ids = {
+                str(getattr(option, "id", "") or "")
+                for option in list(getattr(card, "options", []) or [])
+            }
+            accepted_ids: list[str] = []
+            for target in targets:
+                accepted = [
+                    str(value or "")
+                    for value in list(getattr(target, "accepted_option_ids", []) or [])
+                ]
+                accepted_ids.extend(accepted)
+                missing = sorted(set(accepted) - option_ids)
+                if not accepted or any(not value for value in accepted):
+                    errors.append(
+                        f"{location} target {getattr(target, 'id', '')!r} needs accepted option IDs."
+                    )
+                if missing:
+                    errors.append(
+                        f"{location} target {getattr(target, 'id', '')!r} references "
+                        f"missing options {missing}."
+                    )
+                rect = getattr(target, "rect", None)
+                x = float(getattr(rect, "x", -1))
+                y = float(getattr(rect, "y", -1))
+                width = float(getattr(rect, "width", 0))
+                height = float(getattr(rect, "height", 0))
+                if x < 0 or y < 0 or x + width > 1 or y + height > 1:
+                    errors.append(
+                        f"{location} target {getattr(target, 'id', '')!r} leaves its normalized image bounds."
+                    )
+                if width < MIN_MISSION_TARGET_WIDTH or height < MIN_MISSION_TARGET_HEIGHT:
+                    errors.append(
+                        f"{location} target {getattr(target, 'id', '')!r} is too small for the "
+                        "responsive mission hit-area contract."
+                    )
+            if len(accepted_ids) != len(set(accepted_ids)):
+                errors.append(f"{location} reuses one answer across multiple mission targets.")
+            expected_ids = list(getattr(card, "correct_option_ids", []) or [])
+            if not expected_ids:
+                expected_ids = [str(getattr(card, "correct_option_id", "") or "")]
+            answers_match = (
+                accepted_ids == expected_ids
+                if validation == "ordered"
+                else set(accepted_ids) == set(expected_ids)
+            )
+            if not answers_match:
+                errors.append(
+                    f"{location} mission targets do not match its declared correct answers."
+                )
+            if validation == "single" and len(targets) != 1:
+                errors.append(f"{location} single validation requires exactly one target.")
+            if validation == "ordered" and len(targets) < 2:
+                errors.append(f"{location} ordered validation requires multiple targets.")
+
+        required_kinds = MISSION_REQUIRED_KINDS.get(lesson.id, frozenset())
+        missing_kinds = sorted(required_kinds - set(mission_kinds))
+        if missing_kinds:
+            errors.append(f"{lesson.id} is missing mission game kinds: {missing_kinds}.")
+        expected_kinds = MISSION_KIND_SEQUENCE.get(lesson.id)
+        if expected_kinds is not None and mission_kinds != expected_kinds:
+            errors.append(
+                f"{lesson.id} mission game kinds must follow the approved 22-beat flow; "
+                f"found {mission_kinds}."
+            )
+
         interactions = [str(card.interaction_type or "") for card in lesson.cards]
         unknown_interactions = sorted(set(interactions) - MISSION_INTERACTIONS)
         required_interactions = MISSION_REQUIRED_INTERACTIONS.get(lesson.id, frozenset())
@@ -404,11 +567,6 @@ def validate_mission_contracts(lessons=None) -> list[str]:
         if missing_interactions:
             errors.append(
                 f"{lesson.id} is missing required mission interactions: {missing_interactions}."
-            )
-        expected_first = MISSION_FIRST_INTERACTIONS.get(lesson.id)
-        if interactions and expected_first and interactions[0] != expected_first:
-            errors.append(
-                f"{lesson.id} must begin with {expected_first!r} after its metadata briefing."
             )
         if interactions and interactions[-1] != "mission-finale":
             errors.append(f"{lesson.id} must end with a mission-finale beat.")
@@ -478,9 +636,114 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 f"{expected_hero_prefix} namespace: "
                 f"{invalid_hero_names}."
             )
+        if lesson.id == "lesson-10-family-mission":
+            incorrectly_ordered_heroes = [
+                hero
+                for index, hero in enumerate(heroes, 1)
+                if hero and not re.fullmatch(
+                    rf"a1_u1_reunion_{index:02d}_[a-z0-9_]+\.webp",
+                    hero,
+                )
+            ]
+            if incorrectly_ordered_heroes:
+                errors.append(
+                    f"{lesson.id} hero filenames must carry their ordered two-digit beat "
+                    f"prefix: {incorrectly_ordered_heroes}."
+                )
+
+            kickoff_name = _asset_name(str(getattr(mission, "kickoff_image_url", "") or ""))
+            if kickoff_name != "a1_u1_reunion_kickoff.webp":
+                errors.append(
+                    f"{lesson.id} must use the dedicated a1_u1_reunion_kickoff.webp onboarding still."
+                )
+
+            # Filename uniqueness is insufficient: copied bytes would still make a
+            # supposedly new challenge feel repeated. The canonical validation run
+            # compares every reunion still against every other checked-in A1 still.
+            if lessons is None:
+                missing_files = [
+                    name
+                    for name in [kickoff_name, *heroes]
+                    if name and not (LESSON_ASSET_DIR / name).is_file()
+                ]
+                if missing_files:
+                    errors.append(
+                        f"{lesson.id} is missing reunion image files: {sorted(missing_files)}."
+                    )
+                else:
+                    reunion_names = {kickoff_name, *heroes}
+                    reunion_hashes = {
+                        name: sha256_file(LESSON_ASSET_DIR / name)
+                        for name in reunion_names
+                    }
+                    duplicate_reunion_hashes = sorted(
+                        name
+                        for name, digest in reunion_hashes.items()
+                        if sum(value == digest for value in reunion_hashes.values()) > 1
+                    )
+                    if duplicate_reunion_hashes:
+                        errors.append(
+                            f"{lesson.id} reuses exact image bytes within the mission: "
+                            f"{duplicate_reunion_hashes}."
+                        )
+                    prior_hashes: dict[str, list[str]] = {}
+                    for path in LESSON_ASSET_DIR.glob("*.webp"):
+                        if path.name in reunion_names:
+                            continue
+                        prior_hashes.setdefault(sha256_file(path), []).append(path.name)
+                    reused_bytes = {
+                        name: sorted(prior_hashes[digest])
+                        for name, digest in reunion_hashes.items()
+                        if digest in prior_hashes
+                    }
+                    if reused_bytes:
+                        errors.append(
+                            f"{lesson.id} reunion images reuse exact bytes from existing course "
+                            f"or rejected mission assets: {reused_bytes}."
+                        )
 
         if lesson.id != "lesson-10-family-mission":
             continue
+        if lesson.content_revision != 3:
+            errors.append(
+                f"{lesson.id} celebration adventure must declare content_revision 3."
+            )
+        if str(getattr(mission, "title", "") or "") != "¡Todos a la celebración!":
+            errors.append(
+                f"{lesson.id} must expose the approved ¡Todos a la celebración! title."
+            )
+        if objectives != [
+            "Encuentra personas",
+            "Sigue sus acciones",
+            "Reúne a la familia",
+        ]:
+            errors.append(
+                f"{lesson.id} must present the three approved kickoff objectives in order."
+            )
+        tutorial_modes = [
+            str(getattr(getattr(card, "mission_game", None), "tutorial_mode", "") or "")
+            for card in lesson.cards
+        ]
+        if tutorial_modes != ["guided-no-fail", *("" for _ in range(21))]:
+            errors.append(
+                f"{lesson.id} must use one guided-no-fail tutorial on M01 only."
+            )
+        rejected_terms = re.compile(r"\b(?:album|álbum|studio|estudio|film|película)\b", re.I)
+        rejected_copy = [
+            value
+            for value in [
+                str(getattr(mission, "title", "") or ""),
+                str(getattr(mission, "briefing", "") or ""),
+                str(getattr(mission, "completion_title", "") or ""),
+                str(getattr(mission, "completion_message", "") or ""),
+                *(str(getattr(card, "pedagogy_note", "") or "") for card in lesson.cards),
+            ]
+            if rejected_terms.search(value)
+        ]
+        if rejected_copy:
+            errors.append(
+                f"{lesson.id} reintroduces rejected album/studio mission language."
+            )
         introduced_order = [
             str(word).strip().lower()
             for source_id in UNIT_ONE_FOUNDATION_LESSON_IDS
@@ -1305,7 +1568,10 @@ def validate_option_ids() -> list[str]:
                         f"{lesson.id} card {card_index} ({card.prompt!r}) must keep "
                         "correct_option_id aligned with the first ordered answer."
                     )
-                if not is_completion_interaction(card.interaction_type):
+                if (
+                    not is_completion_interaction(card.interaction_type)
+                    and getattr(card, "mission_game", None) is None
+                ):
                     errors.append(
                         f"{lesson.id} card {card_index} ({card.prompt!r}) declares ordered "
                         "correct answers outside a completion interaction."
@@ -1333,10 +1599,13 @@ def validate_text_tile_option_limit() -> list[str]:
         for card_index, card in enumerate(lesson.cards, 1):
             if not card.options or any((option.image_url or "").strip() for option in card.options):
                 continue
-            if card.interaction_type in MISSION_COMPLETION_INTERACTIONS:
-                # Construction banks are not multiple-choice answer banks. They
-                # may contain one tile per required word/part when the dedicated
-                # responsive mission layout keeps every target usable.
+            if (
+                card.interaction_type in MISSION_COMPLETION_INTERACTIONS
+                or getattr(card, "mission_game", None) is not None
+            ):
+                # Mission game banks are not ordinary multiple-choice banks. The
+                # dedicated responsive renderer exposes options through bounded
+                # hotspots, local targets, and a complete non-drag path.
                 if len(card.options) > MAX_MISSION_CONSTRUCTION_TILES:
                     errors.append(
                         f"{lesson.id} card {card_index} ({card.prompt!r}) has "
@@ -1367,6 +1636,11 @@ def validate_family_adult_ambiguity(lessons=None) -> list[str]:
         for card_index, card in enumerate(lesson.cards, 1):
             options = list(getattr(card, "options", []) or [])
             if not options:
+                continue
+            if getattr(card, "mission_game", None) is not None:
+                # Mission answers are scoped to explicit normalized target areas.
+                # Treating the entire composite hero as one referent would create
+                # false ambiguity findings for local labels and action panels.
                 continue
 
             correct_ids = set(getattr(card, "correct_option_ids", []) or [])

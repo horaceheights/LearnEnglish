@@ -108,7 +108,7 @@ test('Preview publishing requires the exact dedicated release authority and inte
 test('the versioned manifest locks the complete recovery baseline and release identity', () => {
   assert.equal(integrityManifest.manifestVersion, 1);
   assert.equal(integrityManifest.baselineCommit, '657ab19487e37851de1229c08219d44d59ab199b');
-  assert.equal(integrityManifest.catalog.expectedGitBlob, 'd3bbe076ed93bc206ccc92616b121636ba1e0889');
+  assert.equal(integrityManifest.catalog.expectedGitBlob, 'da7400e435c4fd38fc249ef988a7546159bfdfc4');
   assert.equal(integrityManifest.catalog.lessonCount, 70);
   assert.equal(integrityManifest.catalog.unitCount, 7);
   assert.deepEqual(Object.values(integrityManifest.catalog.lessonsByUnit), Array(7).fill(10));
