@@ -1,6 +1,6 @@
 # Repository Hygiene
 
-`origin/main` is the canonical integration line. The protected `release/preview` branch is a separate release authority and repository cleanup must not move it or publish an update.
+`origin/main` is the sole integration and release source. Task branches merge only into `main`; shared release branches are not created or retained.
 
 ## Start of work
 
@@ -16,7 +16,7 @@
 2. Integrate through a normal merge or cherry-pick; never force-push shared history.
 3. Run the hygiene audit again.
 4. Remove clean task worktrees after their commits are integrated.
-5. Delete fully merged task branches locally and remotely when they no longer serve an active review.
+5. Delete every fully merged task branch locally and remotely. GitHub should delete pull-request branches automatically after merge; the local audit catches anything left behind.
 6. Return the primary checkout to an up-to-date local `main`.
 
 ## Recovery and destructive cleanup
@@ -29,4 +29,4 @@
 
 ## Published-state boundary
 
-Branch and worktree housekeeping does not authorize an Expo update, Preview promotion, Production promotion, deployment, or a change to `release/preview`. Follow [mobile release rules](../../mobile/RELEASE.md) only when release work is explicitly in scope.
+Branch and worktree housekeeping does not authorize an Expo Preview or Production update. Both destinations publish only through their protected GitHub Actions workflows from the exact protected `main` head; follow [mobile release rules](../../mobile/RELEASE.md) when release work is explicitly in scope.

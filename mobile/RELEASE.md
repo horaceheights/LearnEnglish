@@ -3,13 +3,15 @@
 SpanGlish tiene dos destinos de actualización:
 
 - **Preview:** solamente Horace. Aquí se prueba cada cambio primero y pueden aparecer advertencias por revisiones visuales humanas todavía pendientes.
-- **Production:** testers internos. No recibe cambios hasta que Preview sea aprobado y todas las revisiones visuales estén vigentes.
+- **Production:** testers internos. No recibe cambios hasta que el mismo commit fue probado en Preview, recibió aprobación explícita y todas las revisiones visuales están vigentes.
 
-Un push a una rama de trabajo no publica una actualización móvil. Preview se publica únicamente desde la rama protegida `release/preview`, mediante GitHub Actions y su ambiente protegido `preview-release`. Por ahora, SpanGlish Preview y Production usan el mismo backend Render desplegado desde `main`.
+`origin/main` es la única fuente de verdad para código, backend y publicaciones móviles. Toda rama de trabajo abre un pull request hacia `main` y se elimina localmente y en GitHub después de integrarse. No se crean ni se conservan ramas compartidas de Preview o Production.
+
+Un push a una rama de trabajo no publica una actualización móvil. Preview y Production se publican únicamente mediante sus workflows protegidos de GitHub Actions, desde el head remoto exacto de `main`. Por ahora, ambas apps usan el mismo backend Render desplegado desde `main`.
 
 ## Backend compartido actual
 
-No cambies la rama del servicio Render a `release/preview`. Cuando un candidato modifica lecciones, rutas o audio que dependen del backend, integra primero el commit exacto de `release/preview` en `main` y espera el despliegue completo. El publicador de Preview comprueba esa reconciliación y que el catálogo de audio desplegado sea idéntico y esté listo antes de subir a Expo.
+No cambies la rama del servicio Render: debe seguir desplegando `main`. Cuando un cambio modifica lecciones, rutas o audio que dependen del backend, intégralo primero en `main` y espera el despliegue completo. Antes de subir a Expo, el publicador comprueba que el backend corresponda al mismo commit y que el catálogo de audio sea idéntico y esté listo.
 
 Si más adelante se crea un backend exclusivo para Preview, debe tener servicio, disco, base de datos, credenciales y gate propios. Para poblar su disco se copian los MP3 y recibos inmutables ya validados; no se vuelve a generar un catálogo existente.
 
@@ -31,15 +33,11 @@ Comparte el enlace de instalación de Preview únicamente con la persona que apr
 
 No se requiere una preaprobación humana antes de implementar o publicar en Preview: Preview es el entorno normal de revisión. Solamente se agrega una preaprobación cuando Horace la pide explícitamente antes de comenzar el cambio. Los controles automáticos de integridad siguen siendo obligatorios y Production conserva su aprobación explícita separada.
 
-### 1. Guardar el cambio
+### 1. Guardar y verificar el cambio
 
 El cambio debe estar en un commit y respaldado en GitHub. Nunca se publica desde la rama de la tarea ni desde un worktree local.
 
-Preview usa una sola autoridad canónica: `origin/release/preview`. La rama aprobada debe contener la versión vigente antes de recibir un cambio. Los controles comprueban que el candidato sea exactamente el head remoto de esa rama, conserve el curso completo de 70 lecciones y siete unidades de diez, mantenga la identidad del commit y coincida con el manifiesto de integridad versionado.
-
-El publicador inserta automáticamente el commit corto de siete caracteres en la actualización. Ese mismo commit aparece junto a la versión en `Actualizar` y en la confirmación posterior; debe coincidir con las columnas `Commit` de Expo y Vercel.
-
-Antes del commit, se puede ejecutar el mismo preflight que usa la publicación:
+Antes del commit se puede ejecutar el mismo preflight que usa la publicación:
 
 ```powershell
 cd mobile
@@ -50,28 +48,33 @@ Este comando valida las tarjetas y sus archivos multimedia, comprueba TypeScript
 
 La política de Preview permite que una decisión humana marcada `pending`, la evidencia de recorte 4:5 pendiente y una firma de renderizador obsoleta por cambios de interfaz aparezcan como advertencias. La advertencia sirve para que la revisión pueda hacerse en la app real; no significa que la imagen esté aprobada. Un rechazo, contrato o archivo ausente, hash semántico, de bytes o de vínculo de activo obsoleto que no sea solamente la firma del renderizador, copia distinta, respuesta ambigua, medio inválido o curso incompleto sigue deteniendo Preview.
 
-### 2. Integrar en la rama protegida
+### 2. Integrar solamente en `main`
 
-Abre un pull request hacia `release/preview`. El check **Preview release integrity** debe terminar correctamente antes de integrar. No hagas force-push ni elimines la rama protegida.
+1. Actualiza tu rama desde el `origin/main` más reciente.
+2. Abre un pull request hacia `main`.
+3. Espera que **Verify complete release candidate** termine correctamente.
+4. Integra el pull request sin force-push.
+5. Confirma que GitHub eliminó la rama remota; elimina también la rama local y su worktree limpio.
 
-### 3. Reconciliar el backend compartido en `main`
+GitHub está configurado para eliminar automáticamente la rama origen de un pull request integrado. El auditor de higiene reporta ramas fusionadas que hayan quedado atrás. Una rama con commits todavía no integrados se conserva hasta revisar y guardar su estado.
 
-Integra el head exacto de `release/preview` en `main` y espera a que Render despliegue el head actual de `origin/main`. El commit candidato debe quedar en la historia de `main`; una copia manual o un cambio equivalente no satisface el gate.
+### 3. Esperar el backend de `main`
 
-### 4. Publicar solamente en Preview
+Espera a que Render despliegue el head actual de `origin/main`. No basta un cambio equivalente: el backend, GitHub y el candidato móvil deben indicar el mismo commit exacto.
 
-En GitHub Actions, ejecuta **Publish SpanGlish Preview** desde `release/preview`. El workflow no acepta otra rama y usa el secreto `EXPO_TOKEN` del ambiente protegido `preview-release`.
+### 4. Publicar en Preview desde `main`
+
+En GitHub Actions, ejecuta **Publish SpanGlish Preview** desde `main` e incluye una descripción corta. El workflow no acepta otra rama y usa el secreto `EXPO_TOKEN` del ambiente protegido de publicación.
 
 El workflow:
 
-1. Comprueba que el commit sea exactamente el head remoto de `release/preview`.
-2. Valida la línea canónica, el manifiesto de integridad, 70 lecciones, siete unidades de diez y la identidad visible del commit.
-3. Ejecuta el preflight completo de contenido, TypeScript y bundle Android.
-4. Confirma que el candidato sea ancestro del head actual de `origin/main`.
-5. Espera a que el backend compartido informe ese mismo head de `main`, el SHA-256 y la cantidad exactos del catálogo candidato, con cero audios faltantes, inválidos o con error.
-6. Publica en el canal `preview` sin permitir dos publicaciones simultáneas.
-7. Consulta Expo después de publicar y comprueba que el update corresponda al mismo commit.
-8. No modifica `production`.
+1. Comprueba que el commit sea exactamente el head remoto protegido de `main`.
+2. Valida el manifiesto de integridad, 70 lecciones, siete unidades de diez y la identidad visible del commit.
+3. Ejecuta el preflight completo de contenido, backend, TypeScript y bundle Android.
+4. Espera a que el backend compartido informe ese mismo commit de `main`, el SHA-256 y la cantidad exactos del catálogo candidato, con cero audios faltantes, inválidos o con error.
+5. Publica en el canal `preview` sin permitir dos publicaciones simultáneas.
+6. Consulta Expo después de publicar y comprueba que Android e iOS correspondan al mismo commit.
+7. No modifica `production`.
 
 `npm run release:preview`, `eas update` y `npx eas-cli update` están prohibidos como publicación local. Si GitHub Actions o su secreto no están disponibles, la publicación queda bloqueada; no se usa la sesión local de Expo como atajo.
 
@@ -85,28 +88,25 @@ En **SpanGlish Preview**:
 4. Revisa las imágenes pendientes en su encuadre real y registra las decisiones humanas sin aprobarlas automáticamente.
 5. Copia el `Group ID` que mostró Expo al publicar.
 
-### 6. Aprobar para los testers
+### 6. Publicar el Preview aprobado en Production
 
-Production usa una política distinta y estricta. Antes de promover, debe haber cero decisiones `pending` o `rejected`, todos los hashes y contratos deben estar vigentes y el manifiesto de recortes 4:5 debe coincidir exactamente con los archivos actuales. Se puede comprobar sin promover nada:
+Production usa una política distinta y estricta. Antes de publicar debe haber cero decisiones `pending` o `rejected`, todos los hashes y contratos deben estar vigentes y el manifiesto de recortes 4:5 debe coincidir exactamente con los archivos actuales.
 
-```powershell
-cd mobile
-npm run verify:production
-```
+Si las aprobaciones humanas se guardaron después del Preview probado, esas aprobaciones forman un commit nuevo. Intégralo en `main`, publícalo otra vez en Preview, pruébalo y usa el nuevo `Group ID`; nunca promociones el grupo anterior.
 
-Si las aprobaciones humanas se guardaron después del Preview probado, esas aprobaciones forman un commit nuevo. Integra y publica ese commit otra vez en Preview, pruébalo y usa el nuevo `Group ID`; nunca promociones el grupo anterior.
+Solamente después de que el usuario apruebe explícitamente ese Preview exacto, ejecuta **Publish SpanGlish Production** desde `main`, indica el `Group ID` probado y marca la confirmación de Production. El workflow:
 
-Solamente después de aprobar ese Preview exacto:
+1. Exige el head remoto exacto y protegido de `main`.
+2. Ejecuta `npm run verify:production` con la política humana estricta.
+3. Comprueba que el grupo Preview más reciente incluya Android e iOS con ese mismo commit.
+4. Republica ese grupo inmutable en el canal `production`; no compila contenido local diferente.
+5. Verifica que Expo publicó el mismo commit en Production.
 
-```powershell
-npm run release:production -- -GroupId "UUID-DE-PREVIEW" -Confirm
-```
-
-El comando vuelve a ejecutar la política estricta, exige un checkout limpio y respaldado en GitHub, confirma que el ID corresponde al Preview más reciente y que sus updates inmutables de Android e iOS contienen exactamente el commit local, y después republica ese mismo bundle en `production`. No compila ni promueve archivos locales diferentes del Preview probado.
+`npm run release:production` y `eas update:republish` están prohibidos como publicación local. La confirmación del workflow no sustituye la aprobación explícita del usuario.
 
 ## Cuándo hace falta un build nuevo
 
-Las modificaciones solamente de TypeScript/JavaScript, textos, lecciones, imágenes y audio normalmente usan `release:preview`.
+Las modificaciones solamente de TypeScript/JavaScript, textos, lecciones, imágenes y audio normalmente usan el workflow de Preview.
 
 Se necesita un build nuevo cuando cambia cualquiera de estos elementos:
 
@@ -119,10 +119,10 @@ En ese caso, incrementa la versión de la app y crea el build de Preview antes d
 
 ## Si un cambio falla
 
-No lo promociones. Corrige el problema y publica otro Preview. Si un problema ya llegó a Production, usa el panel de Expo o `eas update:rollback` para regresar al update anterior.
+No lo publiques en Production. Corrige el problema, integra otro pull request en `main` y publica otro Preview. Si un problema ya llegó a Production, usa el panel de Expo o `eas update:rollback` para regresar al update anterior.
 
 Si Preview muestra menos de siete unidades, no muestra el commit o apunta a un commit distinto al workflow, detén las pruebas. No intentes corregirlo publicando desde otra rama: restaura el último grupo aprobado mediante el flujo protegido y registra el incidente.
 
 ## Separación futura del backend
 
-Cuando se apruebe un segundo servicio, Preview y Production deberán usar servicios, discos, bases de datos y credenciales separados. Hasta entonces, el gate exige reconciliación previa en `main` y bloquea cualquier diferencia de commit, catálogo o inventario antes de subir a Expo.
+Cuando se apruebe un segundo servicio, Preview y Production deberán usar servicios, discos, bases de datos y credenciales separados. Hasta entonces, el gate exige el mismo commit exacto de `main` y bloquea cualquier diferencia de catálogo o inventario antes de subir a Expo.

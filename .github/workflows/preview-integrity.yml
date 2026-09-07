@@ -1,23 +1,23 @@
-name: Preview release integrity
+name: Main release integrity
 
 on:
   pull_request:
     branches:
-      - release/preview
+      - main
   push:
     branches:
-      - release/preview
+      - main
 
 permissions:
   contents: read
 
 concurrency:
-  group: preview-release-integrity-${{ github.ref }}
+  group: main-release-integrity-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   verify:
-    name: Verify complete Preview candidate
+    name: Verify complete release candidate
     runs-on: windows-latest
     timeout-minutes: 45
 

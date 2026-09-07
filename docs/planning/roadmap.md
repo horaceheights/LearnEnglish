@@ -73,7 +73,7 @@ creation without proportionally increasing engineering effort.
 ## Current baseline
 
 - Android internal-preview build with EAS over-the-air updates
-- Protected Preview publication from the exact `release/preview` commit, with release-integrity checks
+- Protected Preview and Production publication from the exact `main` commit, with release-integrity checks
 - Visible app version and seven-character release commit in update surfaces
 - Render-hosted backend with automatic deployment
 - Unit-first course browser with progress states for the current and completed lessons

@@ -1,48 +1,58 @@
-name: Publish SpanGlish Preview
+name: Publish SpanGlish Production
 
 on:
   workflow_dispatch:
     inputs:
-      message:
-        description: Short description shown in Expo
+      group_id:
+        description: Exact Expo Preview Group ID approved by the user
         required: true
         type: string
+      confirmed:
+        description: I have explicit approval to publish this tested Preview to Production
+        required: true
+        type: boolean
 
 permissions:
   contents: read
 
 concurrency:
-  group: spanglish-preview-publication
+  group: spanglish-production-publication
   cancel-in-progress: false
 
 jobs:
   authorize:
-    name: Require protected main
+    name: Require protected main and explicit confirmation
     runs-on: windows-latest
     timeout-minutes: 5
     steps:
-      - name: Reject every other ref
+      - name: Reject every unauthorized publication
         shell: pwsh
         env:
           DISPATCH_REF: ${{ github.ref }}
           DISPATCH_REF_PROTECTED: ${{ github.ref_protected }}
           DISPATCH_EVENT: ${{ github.event_name }}
+          PRODUCTION_CONFIRMED: ${{ inputs.confirmed }}
         run: |
           if ($env:DISPATCH_EVENT -cne 'workflow_dispatch') {
-            throw "Preview publication must be manually dispatched."
+            throw "Production publication must be manually dispatched."
           }
           if ($env:DISPATCH_REF -cne 'refs/heads/main') {
-            throw "Preview publication is allowed only from refs/heads/main."
+            throw "Production publication is allowed only from refs/heads/main."
           }
           if ($env:DISPATCH_REF_PROTECTED -cne 'true') {
             throw "main must be protected by a branch rule or ruleset."
           }
+          if ($env:PRODUCTION_CONFIRMED -cne 'true') {
+            throw "Production publication requires explicit confirmation."
+          }
 
   publish:
-    name: Verify and publish exact commit
+    name: Verify and publish tested Preview to Production
     needs: authorize
     runs-on: windows-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
+    # The existing CI-only Expo token currently lives in this protected
+    # environment. Its branch policy is restricted to main.
     environment:
       name: preview-release
     env:
@@ -89,10 +99,10 @@ jobs:
         shell: pwsh
         run: python -m unittest discover -s backend/tests -p "test_*.py"
 
-      - name: Run complete Preview verification
+      - name: Run strict Production verification
         working-directory: mobile
         shell: pwsh
-        run: npm run verify:preview
+        run: npm run verify:production
 
       - name: Set up authenticated EAS CLI
         uses: expo/expo-github-action@eab7a230208c952974db8c3245cfd78402c7b385 # v9
@@ -100,11 +110,12 @@ jobs:
           eas-version: 21.4.0
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Publish and verify the exact GitHub commit
+      - name: Republish and verify the exact approved Preview group
         working-directory: mobile
         shell: pwsh
         env:
-          RELEASE_MESSAGE: ${{ inputs.message }}
+          APPROVED_PREVIEW_GROUP: ${{ inputs.group_id }}
+          PRODUCTION_CONFIRMATION: PUBLISH PRODUCTION
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           SHARED_BACKEND_STATUS_URL: https://learnenglish-fxki.onrender.com/api/release/status
-        run: .\scripts\publish-preview.ps1 -Message $env:RELEASE_MESSAGE
+        run: .\scripts\promote-preview.ps1 -GroupId $env:APPROVED_PREVIEW_GROUP -Confirmation $env:PRODUCTION_CONFIRMATION

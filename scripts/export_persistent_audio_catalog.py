@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "backend" / "approved-course-audio" / "catalog.json"
-DEFAULT_SOURCE_REF = "release/preview"
+DEFAULT_SOURCE_REF = "main"
 COURSE_JSON_PATH = "mobile/src/generated/a1-course.json"
 REGISTRY_PATH = ROOT / "backend" / "approved-course-audio" / "registry.json"
 LEGACY_MANIFEST_PATH = ROOT / "frontend" / "lib" / "courseAudioManifest.json"
@@ -96,7 +96,7 @@ def build_catalog(source_ref: str) -> dict[str, object]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Export immutable audio contracts without promoting Preview lesson content."
+        description="Export immutable audio contracts from the canonical main lesson content."
     )
     parser.add_argument("--source-ref", default=DEFAULT_SOURCE_REF)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
