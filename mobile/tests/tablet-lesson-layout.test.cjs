@@ -166,8 +166,13 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /syllables or word parts to whole words[\s\S]*?words to useful sentences/,
-  'Lesson 10 tile play must support the approved word-part-to-sentence progression.',
+  /act directly on the story through purposeful finding, connecting, sorting, tracing, listening, correcting, speaking, or construction mechanics/,
+  'Lesson 10 gamification must be purposeful and driven by the mission story.',
+);
+assert.match(
+  guardrails,
+  /Tiles are optional rather than the default mission form/,
+  'A mission must not fall back to a repetitive tile-board shell.',
 );
 assert.match(
   guardrails,

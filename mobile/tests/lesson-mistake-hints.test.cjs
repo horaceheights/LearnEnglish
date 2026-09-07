@@ -101,6 +101,18 @@ const multi = {...card('She is the ___. They are the ___.', 'grandmother', 'gran
   answer_audio_text: 'She is the grandmother. They are the grandparents.'};
 assert.match(lessonMistakeHint(multi, ['wrong', 'plural']), /grandmother.+abuela.+grandfather.+abuelo/);
 assert.match(lessonMistakeHint(multi, ['correct', 'wrong']), /grandparents.+abuelos/);
+const missionCard = {
+  ...card('The girl is a child.', 'The girl is a child.', 'The man is an adult.'),
+  interaction_type: 'mission-sentence',
+  mission_game: {
+    instruction_es: 'Coloca cada descripción en su retrato.',
+  },
+};
+assert.equal(
+  lessonMistakeHint(missionCard, 'wrong'),
+  'Coloca cada descripción en su retrato. Aquí corresponde “The girl is a child.”.',
+  'Mission repair must repeat the authored action instead of inventing an arbitrary sentence order.',
+);
 // Exercise every distractor and every ordered completion slot in the full course.
 const generated = path.join(__dirname, '../src/generated');
 let checked = 0;

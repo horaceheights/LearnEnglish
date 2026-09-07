@@ -1,9 +1,16 @@
-export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onExit }) {
+import Image from "next/image";
+
+export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onExit, showFinalImage = true }) {
+  const finalPhrase = lesson.cards?.at(-1)?.prompt || "";
+  const achievements = lesson.mission.objectives?.length
+    ? lesson.mission.objectives
+    : ["Objetivo completado", "Pistas resueltas", "Misión terminada"];
+
   return (
     <section
       aria-label={lesson.mission.completion_title}
       style={{
-        background: "linear-gradient(145deg, #173f43 0%, #285e5b 52%, #5a3d71 100%)",
+        background: "linear-gradient(145deg, #214f48 0%, #347f6d 55%, #d88a42 100%)",
         border: "1px solid rgba(244, 201, 93, 0.7)",
         borderRadius: isMobile ? 20 : 30,
         boxShadow: "0 24px 60px rgba(25, 50, 55, 0.24)",
@@ -30,26 +37,68 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
         </p>
       </div>
 
-      {finalImageUrl ? (
+      {showFinalImage && finalImageUrl ? (
         <div
           style={{
+            aspectRatio: "3 / 2",
             background: "#ead9b9",
             border: "clamp(6px, 1.4vw, 12px) solid #fff4d6",
             borderRadius: isMobile ? 16 : 22,
             boxShadow: "0 16px 36px rgba(0,0,0,0.25)",
             overflow: "hidden",
+            position: "relative",
           }}
         >
-          <img
-            alt="El retrato familiar restaurado"
+          <Image
+            alt={`Final de ${lesson.mission.title}`}
+            fill
+            sizes="(max-width: 760px) 94vw, 860px"
             src={finalImageUrl}
-            style={{ aspectRatio: "3 / 2", display: "block", objectFit: "cover", width: "100%" }}
+            style={{ objectFit: "cover" }}
+            unoptimized
           />
         </div>
-      ) : null}
+      ) : (
+        <div
+          aria-label="Los cinco actos de la misión están completos"
+          style={{
+            alignItems: "center",
+            background: "rgba(255,255,255,0.1)",
+            border: "1px solid rgba(255,255,255,0.2)",
+            borderRadius: isMobile ? 16 : 22,
+            display: "flex",
+            flexWrap: "wrap",
+            gap: isMobile ? 10 : 16,
+            justifyContent: "center",
+            minHeight: isMobile ? 116 : 150,
+            padding: 18,
+          }}
+        >
+          {["◉", "∿", "➤", "✕", "✦"].map((symbol, index) => (
+            <span
+              aria-hidden="true"
+              key={`${symbol}-${index}`}
+              style={{
+                alignItems: "center",
+                background: ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"][index],
+                border: "3px solid rgba(255,255,255,0.86)",
+                borderRadius: 999,
+                boxShadow: "0 8px 18px rgba(0,0,0,0.2)",
+                display: "inline-flex",
+                fontSize: isMobile ? 22 : 30,
+                height: isMobile ? 50 : 66,
+                justifyContent: "center",
+                width: isMobile ? 50 : 66,
+              }}
+            >
+              {symbol}
+            </span>
+          ))}
+        </div>
+      )}
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8, justifyContent: "center" }}>
-        {["Fotos restauradas", "Nombres recuperados", "Voces devueltas"].map((label) => (
+        {achievements.map((label) => (
           <span
             key={label}
             style={{
@@ -66,9 +115,11 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
         ))}
       </div>
 
-      <div style={{ color: "#f4c95d", fontSize: isMobile ? "1.35rem" : "1.7rem", fontWeight: 950 }}>
-        They are a family.
-      </div>
+      {finalPhrase ? (
+        <div style={{ color: "#f4c95d", fontSize: isMobile ? "1.35rem" : "1.7rem", fontWeight: 950 }}>
+          {finalPhrase}
+        </div>
+      ) : null}
 
       <button
         onClick={onExit}

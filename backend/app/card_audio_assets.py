@@ -55,6 +55,15 @@ def _correct_option(card: LessonCard):
     return next((option for option in card.options if option.id == card.correct_option_id), None)
 
 
+def _field_was_authored(card: LessonCard, field_name: str) -> bool:
+    """Distinguish an explicit null contract from an omitted optional field."""
+
+    fields_set = getattr(card, "model_fields_set", None)
+    if fields_set is None:
+        fields_set = getattr(card, "__fields_set__", set())
+    return field_name in fields_set
+
+
 def card_image_ref(card: LessonCard) -> str:
     """Return the exact canonical visual that the model clip teaches."""
     if card.prompt_image_url.strip():
@@ -294,7 +303,14 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
             ))
 
     correct = _correct_option(card)
-    answer_text = (
+    suppress_mission_answer_fallback = (
+        card.stage in {"Listen", "Speak"}
+        and str(card.interaction_type or "").startswith("mission-")
+        and bool((card.audio_text or "").strip())
+        and card.answer_audio_text is None
+        and _field_was_authored(card, "answer_audio_text")
+    )
+    answer_text = "" if suppress_mission_answer_fallback else (
         (card.answer_audio_text or "").strip()
         or ((correct.label or "").strip() if correct else "")
         or raw_prompt
@@ -335,7 +351,60 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
 
 def bind_lesson_audio_assets(lesson: Lesson) -> Lesson:
     for card_index, card in enumerate(lesson.cards):
-        card.audio_assets = assets_for_card(lesson.id, card_index, card)
+        card_assets = assets_for_card(lesson.id, card_index, card)
+        mission_game = getattr(card, "mission_game", None)
+        if mission_game is not None:
+            instruction = str(getattr(mission_game, "instruction_es", "") or "").strip()
+            if instruction:
+                card_assets.insert(0, _asset(
+                    lesson.id,
+                    card_index,
+                    card,
+                    purpose="mission-instruction",
+                    text=instruction,
+                    mode="prompt",
+                    variant="mission-instruction",
+                    semantic_role="teacher",
+                    speaker_role="teacher",
+                    revision=int(getattr(lesson, "content_revision", 1)),
+                ))
+            cue = str(getattr(mission_game, "cue_audio_text", "") or "").strip()
+            if cue:
+                card_assets.insert(1, _asset(
+                    lesson.id,
+                    card_index,
+                    card,
+                    purpose="mission-cue",
+                    text=cue,
+                    mode="prompt",
+                    variant="question" if cue.endswith("?") else "prompt",
+                    semantic_role="question" if cue.endswith("?") else "teacher",
+                    speaker_role="teacher",
+                    revision=int(getattr(lesson, "content_revision", 1)),
+                ))
+        card.audio_assets = card_assets
+
+    # Mission onboarding is an unscored screen, but its narration uses the same
+    # immutable, reviewable, preloaded delivery path as card audio. Binding it to
+    # the first card avoids inventing a scored twenty-third beat.
+    mission = getattr(lesson, "mission", None)
+    briefing = str(getattr(mission, "briefing", "") or "").strip()
+    kickoff_image = str(getattr(mission, "kickoff_image_url", "") or "").strip()
+    if lesson.cards and briefing and kickoff_image:
+        first_card = lesson.cards[0]
+        first_card.audio_assets.insert(0, _asset(
+            lesson.id,
+            0,
+            first_card,
+            purpose="mission-intro",
+            text=briefing,
+            mode="prompt",
+            variant="mission-intro",
+            semantic_role="teacher",
+            speaker_role="teacher",
+            revision=int(getattr(lesson, "content_revision", 1)),
+            image_ref=kickoff_image,
+        ))
     return lesson
 
 

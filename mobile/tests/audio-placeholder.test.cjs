@@ -143,17 +143,22 @@ for (const filename of fs.readdirSync(generatedRoot)) {
           ? card.answer_audio_turns?.[Number(answerTurnMatch[1]) - 1]
           : null;
       const isAnswerAsset = asset.purpose === 'answer' || Boolean(answerTurnMatch);
-      const expectedRevision = isAnswerAsset
-        ? (card.answer_audio_revision ?? 1)
-        : (card.audio_revision ?? 1);
+      const isMissionAsset = ['mission-intro', 'mission-instruction', 'mission-cue'].includes(asset.purpose);
+      const expectedRevision = isMissionAsset
+        ? (lesson.content_revision ?? 1)
+        : isAnswerAsset
+          ? (card.answer_audio_revision ?? 1)
+          : (card.audio_revision ?? 1);
       assert.equal(
         asset.revision,
         expectedRevision,
         `${filename} ${card.slide_id} audio revision is not bound to its card purpose.`,
       );
-      const expectedSpeaker = authoredTurn?.speaker_role || (isAnswerAsset
-        ? (card.answer_audio_speaker || card.audio_speaker || asset.semantic_role)
-        : (card.audio_speaker || asset.semantic_role));
+      const expectedSpeaker = isMissionAsset
+        ? 'teacher'
+        : authoredTurn?.speaker_role || (isAnswerAsset
+          ? (card.answer_audio_speaker || card.audio_speaker || asset.semantic_role)
+          : (card.audio_speaker || asset.semantic_role));
       assert.equal(
         asset.speaker_role,
         expectedSpeaker,
@@ -165,9 +170,11 @@ for (const filename of fs.readdirSync(generatedRoot)) {
       const pronunciationOption = pronunciationOptionMatch
         ? card.options[Number(pronunciationOptionMatch[1]) - 1]
         : null;
-      const expectedImageRef = authoredTurn?.image_url?.trim()
-        || pronunciationOption?.image_url?.trim()
-        || cardImageRef;
+      const expectedImageRef = asset.purpose === 'mission-intro'
+        ? lesson.mission?.kickoff_image_url?.trim()
+        : authoredTurn?.image_url?.trim()
+          || pronunciationOption?.image_url?.trim()
+          || cardImageRef;
       if (expectedImageRef) {
         assert.equal(
           asset.image_ref,
@@ -320,7 +327,11 @@ assert.ok(
   'Every Lesson 3.1 L1 clip must be bound to revision 2.',
 );
 assert.ok(completionCardCount > 0, 'Generated lessons must exercise completion-audio guardrails.');
-assert.ok(emptyAudioTextCompletionCardCount > 0, 'Completion coverage must include legacy blank audio_text cards.');
+assert.equal(
+  emptyAudioTextCompletionCardCount,
+  0,
+  'Every generated completion card must now carry an explicit persistent-audio prompt contract.',
+);
 for (const [position, count] of Object.entries(completionBlankPositions)) {
   assert.ok(count > 0, `Completion coverage must include a ${position} visual blank.`);
 }

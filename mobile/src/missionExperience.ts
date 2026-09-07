@@ -25,6 +25,10 @@ export function isMissionLesson(lesson: Lesson | null | undefined): lesson is Mi
     || !lesson.mission
     || !Number.isInteger(lesson.content_revision)
     || (lesson.content_revision || 0) < 1
+    || typeof lesson.mission.kickoff_image_url !== 'string'
+    || !lesson.mission.kickoff_image_url.trim()
+    || !Array.isArray(lesson.mission.objectives)
+    || lesson.mission.objectives.length === 0
     || !Array.isArray(lesson.mission.chapters)
     || lesson.mission.chapters.length === 0
   ) {
@@ -40,6 +44,7 @@ export function isMissionLesson(lesson: Lesson | null | undefined): lesson is Mi
   }
 
   const declaredChapterIds = new Set(chapterIds);
+  if (lesson.cards.some((card) => !card.mission_game)) return false;
   const cardChapterIds = lesson.cards.map((card) => card.mission_chapter_id);
   if (cardChapterIds.some((id) => typeof id !== 'string' || !declaredChapterIds.has(id))) {
     return false;

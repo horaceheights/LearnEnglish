@@ -26,7 +26,7 @@ const interactionVerifier = fs.readFileSync(
 );
 
 const emptyRecognizeCards = course.flatMap((lesson) => (
-  lesson.cards
+  lesson.experience_type === 'mission' ? [] : lesson.cards
     .filter((card) => card.stage === 'Recognize' && !card.prompt.trim())
     .map((card) => ({ card, lessonId: lesson.id }))
 ));
@@ -34,13 +34,13 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 
 assert.equal(
   emptyRecognizeCards.length,
-  37,
-  'The Recognize instruction guardrail must inventory every current empty-prompt interaction.',
+  36,
+  'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
   affectedLessons.size,
-  9,
-  'The shared rule must cover all nine lessons that currently contain this interaction.',
+  8,
+  'The shared rule must cover all eight standard lessons that currently contain this interaction.',
 );
 assert.ok(
   emptyRecognizeCards.every(({ card }) => (
@@ -72,7 +72,7 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /styles\.contentHeaderPhraseBox[\s\S]*?\{isPronunciation \? pronunciationInstruction\(\) : renderPrompt\(\)\}/,
+  /styles\.contentHeaderPhraseBox[\s\S]*?\{isPronunciation[\s\S]*?pronunciationInstruction\(\)[\s\S]*?: renderPrompt\(\)\}/,
   'An empty Recognize prompt must render its instruction in the shared importance box.',
 );
 assert.match(

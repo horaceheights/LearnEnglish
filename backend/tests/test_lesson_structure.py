@@ -37,7 +37,7 @@ EXPECTED_TITLES = [
     "What They Are Not Doing",
     "Who Is He? Who Are They?",
     "Unit 1 Story Review",
-    "Family Album Mission",
+    "¡Todos a la celebración!",
 ]
 EXPECTED_VOCABULARY = {
     "lesson-1-people-actions": {
@@ -80,41 +80,43 @@ UNIT_ONE_GOLD = [
     "studying", "working", "cooking", "talking", "not", "who",
 ]
 MISSION_CHAPTERS = (
-    ["open-album"] * 5
-    + ["build-family"] * 8
-    + ["restore-memories"] * 7
-    + ["record-and-reveal"] * 2
+    ["find-the-people"] * 3
+    + ["connect-the-family"] * 6
+    + ["follow-the-actions"] * 6
+    + ["repair-the-clues"] * 3
+    + ["welcome-everyone"] * 4
 )
 MISSION_STAGES = [
-    "Use", "Learn", "Use", "Recognize", "Use", "Recognize", "Listen", "Use",
-    "Recognize", "Listen", "Use", "Speak", "Recognize", "Use", "Listen",
-    "Use", "Listen", "Recognize", "Listen", "Use", "Speak", "Use",
+    "Learn", "Listen", "Use", "Use", "Use", "Recognize", "Recognize", "Use",
+    "Listen", "Listen", "Use", "Use", "Listen", "Use", "Listen", "Use",
+    "Recognize", "Listen", "Recognize", "Speak", "Listen", "Speak",
 ]
 MISSION_INTERACTION_SEQUENCE = [
-    "mission-word-parts",
-    *(["mission-sentence"] * 10),
-    "mission-speak",
     "mission-clue",
-    "mission-sentence",
-    "mission-sentence",
-    "mission-sentence",
+    *(["mission-sentence"] * 16),
     "mission-listen",
     "mission-clue",
-    "mission-sentence",
-    "mission-sentence",
     "mission-speak",
+    "mission-listen",
     "mission-finale",
 ]
+MISSION_KIND_SEQUENCE = [
+    "hotspot", "hotspot", "label-placement", "label-placement",
+    "relationship-link", "relationship-link", "relationship-link",
+    "relationship-link", "relationship-link",
+    "action-sequence", "action-sequence", "action-sequence",
+    "action-sequence", "action-sequence", "action-sequence",
+    "not-correction", "not-correction", "not-correction",
+    "who-dialogue", "speak", "who-dialogue", "finale",
+]
 MISSION_HERO_ASSETS = [
-    f"a1_u1_album_{index:02d}_{suffix}.webp"
+    f"a1_u1_reunion_{index:02d}_{suffix}.webp"
     for index, suffix in enumerate((
-        "locked", "people_board", "pronoun_cast", "family_index", "adult_count",
-        "parents_branch", "grandparents_branch", "tree_complete", "who_father",
-        "who_mother", "who_parents", "who_children", "who_grandparents",
-        "man_eating_drinking", "boy_reading_writing",
-        "siblings_running_mother_sitting", "sisters_swimming_grandfather_sleeping",
-        "children_playing_sister_studying", "family_work_cook_talk",
-        "negative_contact_sheet", "voiceover_booth", "final_portrait",
+        "people_path", "four_people_search", "pronoun_arrival", "age_groups",
+        "babies", "brother_sister", "sibling_pairs", "parents", "generations",
+        "eat_drink", "read_write", "run_swim", "sit_sleep", "play_study",
+        "work_cook_talk", "not_eating", "not_reading", "not_running",
+        "who_father", "who_grandmother", "who_parents", "family_arrival",
     ), 1)
 ]
 
@@ -288,6 +290,7 @@ class LessonStructureTests(unittest.TestCase):
                 card.prompt or "",
                 card.audio_text or "",
                 card.answer_audio_text or "",
+                card.mission_game.cue_audio_text if getattr(card, "mission_game", None) and card.mission_game.cue_audio_text else "",
                 *(option.label or "" for option in card.options),
             ]
         )
@@ -299,16 +302,30 @@ class LessonStructureTests(unittest.TestCase):
         mission = LESSONS["lesson-10-family-mission"]
         self.assertEqual([], mission.vocabulary)
         self.assertEqual("mission", mission.experience_type)
-        self.assertEqual(2, mission.content_revision)
+        self.assertEqual(3, mission.content_revision)
         self.assertEqual(22, len(mission.cards))
         self.assertEqual(UNIT_ONE_GOLD, mission.review_vocabulary)
         self.assertEqual(
-            ["open-album", "build-family", "restore-memories", "record-and-reveal"],
+            [
+                "find-the-people",
+                "connect-the-family",
+                "follow-the-actions",
+                "repair-the-clues",
+                "welcome-everyone",
+            ],
             [chapter.id for chapter in mission.mission.chapters],
         )
         self.assertTrue(mission.mission.label)
-        self.assertTrue(mission.mission.title)
+        self.assertEqual("¡Todos a la celebración!", mission.mission.title)
         self.assertTrue(mission.mission.briefing)
+        self.assertEqual(
+            "/lesson-assets/a1_u1_reunion_kickoff.webp",
+            mission.mission.kickoff_image_url,
+        )
+        self.assertEqual(
+            ["Encuentra personas", "Sigue sus acciones", "Reúne a la familia"],
+            mission.mission.objectives,
+        )
         self.assertTrue(mission.mission.completion_title)
         self.assertTrue(mission.mission.completion_message)
         self.assertEqual(
@@ -321,6 +338,23 @@ class LessonStructureTests(unittest.TestCase):
             MISSION_INTERACTION_SEQUENCE,
             [card.interaction_type for card in mission.cards],
         )
+        self.assertEqual(
+            MISSION_KIND_SEQUENCE,
+            [card.mission_game.kind for card in mission.cards],
+        )
+        self.assertEqual("guided-no-fail", mission.cards[0].mission_game.tutorial_mode)
+        self.assertTrue(
+            all(card.mission_game.tutorial_mode is None for card in mission.cards[1:])
+        )
+        for card in mission.cards:
+            with self.subTest(slide=card.slide_id, check="mission game targets"):
+                self.assertTrue(card.mission_game.instruction_es)
+                self.assertTrue(card.mission_game.targets)
+                for target in card.mission_game.targets:
+                    self.assertGreaterEqual(target.rect.width, 0.12)
+                    self.assertGreaterEqual(target.rect.height, 0.16)
+                    self.assertLessEqual(target.rect.x + target.rect.width, 1)
+                    self.assertLessEqual(target.rect.y + target.rect.height, 1)
 
         mission_media = {
             urlparse(url).path.rsplit("/", 1)[-1]
@@ -336,7 +370,10 @@ class LessonStructureTests(unittest.TestCase):
             if url
         }
         self.assertTrue(mission_media)
-        self.assertTrue(all(name.startswith("a1_u1_album_") for name in mission_media))
+        mission_media.add(
+            urlparse(mission.mission.kickoff_image_url).path.rsplit("/", 1)[-1]
+        )
+        self.assertTrue(all(name.startswith("a1_u1_reunion_") for name in mission_media))
         self.assertEqual(set(), mission_media & earlier_media)
 
         hero_assets = []
@@ -365,9 +402,10 @@ class LessonStructureTests(unittest.TestCase):
         cases.append((wrong_count, "must contain exactly 22 mission beats"))
 
         missing_who_form = deepcopy(LESSONS)
-        missing_who_form["lesson-10-family-mission"].cards[8].answer_audio_text = (
-            "He is the father."
-        )
+        missing_who_card = missing_who_form["lesson-10-family-mission"].cards[18]
+        missing_who_card.prompt = "He is the father."
+        missing_who_card.audio_text = "He is the father."
+        missing_who_card.mission_game.cue_audio_text = None
         cases.append((missing_who_form, "must assess the question form 'who is he'"))
 
         unintroduced_language = deepcopy(LESSONS)
@@ -384,6 +422,16 @@ class LessonStructureTests(unittest.TestCase):
         )
         reused_review_media["lesson-10-family-mission"].cards[0].prompt_image_url = prior_url
         cases.append((reused_review_media, "reuses earlier lesson media"))
+
+        tiny_target = deepcopy(LESSONS)
+        tiny_target["lesson-10-family-mission"].cards[0].mission_game.targets[0].rect.width = 0.01
+        cases.append((tiny_target, "too small for the responsive mission hit-area contract"))
+
+        broken_target_answer = deepcopy(LESSONS)
+        broken_target_answer["lesson-10-family-mission"].cards[2].mission_game.targets[
+            0
+        ].accepted_option_ids = ["she-girl"]
+        cases.append((broken_target_answer, "reuses one answer across multiple mission targets"))
 
         for catalog, expected_error in cases:
             with self.subTest(expected_error=expected_error):
@@ -519,7 +567,12 @@ class LessonStructureTests(unittest.TestCase):
             for index, card in enumerate(lesson.cards, 1):
                 if not card.options or any(option.image_url for option in card.options):
                     continue
-                if card.interaction_type in MISSION_COMPLETION_INTERACTIONS:
+                if (
+                    card.interaction_type in MISSION_COMPLETION_INTERACTIONS
+                    or getattr(card, "mission_game", None) is not None
+                ):
+                    with self.subTest(lesson=lesson.id, card=index, check="mission bank"):
+                        self.assertLessEqual(len(card.options), 8)
                     continue
                 with self.subTest(lesson=lesson.id, card=index):
                     self.assertLessEqual(len(card.options), 3)
@@ -599,6 +652,11 @@ class LessonStructureTests(unittest.TestCase):
                 card.prompt or "",
                 card.audio_text or "",
                 card.answer_audio_text or "",
+                (
+                    card.mission_game.cue_audio_text or ""
+                    if card.mission_game is not None
+                    else ""
+                ),
                 *(
                     option.label or ""
                     for option in card.options

@@ -1,6 +1,6 @@
 import { missionChapterProgress } from "../lib/missionExperience.mjs";
 
-const CHAPTER_COLORS = ["#f4c95d", "#e98a63", "#7ed0bc", "#9b82ce"];
+const CHAPTER_COLORS = ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"];
 
 export default function MissionJourney({ cardIndex, isMobile, lesson }) {
   const chapters = missionChapterProgress(lesson, cardIndex);
@@ -10,7 +10,7 @@ export default function MissionJourney({ cardIndex, isMobile, lesson }) {
 
   return (
     <div
-      aria-label={`${lesson.mission.label}: ${lesson.mission.title}. Página ${currentStep} de ${lesson.cards.length}.`}
+      aria-label={`${lesson.mission.label}: ${lesson.mission.title}. Reto ${currentStep} de ${lesson.cards.length}.`}
       role="region"
       style={{
         display: "grid",
@@ -53,14 +53,14 @@ export default function MissionJourney({ cardIndex, isMobile, lesson }) {
       <div style={{ display: "grid", gap: 6 }}>
         <div style={{ alignItems: "center", display: "flex", flexWrap: "wrap", justifyContent: "space-between", gap: 8 }}>
           <span style={{ color: "#fffaf0", fontSize: isMobile ? 12 : 13, fontWeight: 900 }}>
-            Página {currentStep} de {lesson.cards.length}
+            Reto {currentStep} de {lesson.cards.length}
           </span>
           <span style={{ color: "#f4c95d", fontSize: isMobile ? 11 : 12, fontWeight: 900 }}>
-            {progressPercent}% restaurado
+            {progressPercent}% completado
           </span>
         </div>
         <div
-          aria-label={`${progressPercent}% de la misión restaurada`}
+          aria-label={`${progressPercent}% de la misión completada`}
           aria-valuemax={100}
           aria-valuemin={0}
           aria-valuenow={progressPercent}
@@ -83,7 +83,7 @@ export default function MissionJourney({ cardIndex, isMobile, lesson }) {
         style={{
           display: "grid",
           gap: isMobile ? 6 : 8,
-          gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : "repeat(4, minmax(0, 1fr))",
+          gridTemplateColumns: isMobile ? "repeat(2, minmax(0, 1fr))" : `repeat(${chapters.length}, minmax(0, 1fr))`,
           listStyle: "none",
           margin: 0,
           padding: 0,

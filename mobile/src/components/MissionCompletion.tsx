@@ -9,7 +9,7 @@ type Props = {
   presentation: MissionPresentation;
 };
 
-const FINAL_PORTRAIT = '/lesson-assets/a1_u1_album_22_final_portrait.webp';
+const FINAL_REUNION = '/lesson-assets/a1_u1_reunion_22_family_arrival.webp';
 
 export function MissionCompletion({ onContinue, presentation }: Props) {
   return (
@@ -21,9 +21,9 @@ export function MissionCompletion({ onContinue, presentation }: Props) {
       <Text accessibilityRole="header" style={styles.title}>{presentation.completion_title}</Text>
       <View style={styles.portraitFrame}>
         <Image
-          accessibilityLabel="La familia reunida en el álbum restaurado"
+          accessibilityLabel="La familia completa reunida en la celebración"
           resizeMode="cover"
-          source={lessonImageSource(FINAL_PORTRAIT)}
+          source={lessonImageSource(FINAL_REUNION)}
           style={styles.portrait}
         />
         <View style={styles.stamp}>
@@ -32,8 +32,8 @@ export function MissionCompletion({ onContinue, presentation }: Props) {
       </View>
       <Text style={styles.finalLine}>They are a family.</Text>
       <Text style={styles.message}>{presentation.completion_message}</Text>
-      <View accessibilityLabel="Cuatro capítulos restaurados" style={styles.restoredRow}>
-        {['Personas', 'Familia', 'Acciones', 'Voces'].map((label) => (
+      <View accessibilityLabel="Objetivos de la misión completados" style={styles.restoredRow}>
+        {presentation.objectives.map((label) => (
           <View key={label} style={styles.restoredChip}>
             <Ionicons color="#24765f" name="checkmark-circle" size={16} />
             <Text style={styles.restoredText}>{label}</Text>

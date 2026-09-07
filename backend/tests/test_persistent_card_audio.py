@@ -123,14 +123,61 @@ def copied_asset(asset: CourseAudioAsset, **updates: object) -> CourseAudioAsset
 
 
 class PersistentCardAudioTests(unittest.TestCase):
-    def test_mission_word_parts_bind_answer_audio_without_a_completion_prompt(self):
-        card = LESSONS["lesson-10-family-mission"].cards[0]
-        self.assertEqual("mission-word-parts", card.interaction_type)
+    def test_mission_onboarding_and_directions_use_immutable_audio_contracts(self):
+        mission = LESSONS["lesson-10-family-mission"]
+        first_card = mission.cards[0]
 
-        assets = assets_for_card("lesson-10-family-mission", 0, card)
+        intro = [asset for asset in first_card.audio_assets if asset.purpose == "mission-intro"]
+        self.assertEqual(1, len(intro))
+        self.assertEqual(mission.mission.briefing, intro[0].text)
+        self.assertEqual(mission.mission.kickoff_image_url, intro[0].image_ref)
+        self.assertEqual(mission.content_revision, intro[0].revision)
 
-        self.assertEqual(["answer"], [asset.variant for asset in assets])
-        self.assertEqual(["family"], [asset.text for asset in assets])
+        for card in mission.cards:
+            with self.subTest(slide=card.slide_id):
+                instruction = [
+                    asset
+                    for asset in card.audio_assets
+                    if asset.purpose == "mission-instruction"
+                ]
+                self.assertEqual(1, len(instruction))
+                self.assertEqual(card.mission_game.instruction_es, instruction[0].text)
+                self.assertEqual(card.prompt_image_url, instruction[0].image_ref)
+
+        grandmother_card = mission.cards[19]
+        cues = [
+            asset
+            for asset in grandmother_card.audio_assets
+            if asset.purpose == "mission-cue"
+        ]
+        self.assertEqual(1, len(cues))
+        self.assertEqual("Who is she?", cues[0].text)
+
+    def test_authored_null_suppresses_redundant_mission_model_replay(self):
+        mission = LESSONS["lesson-10-family-mission"]
+        for slide_id in ("M02", "M09", "M10", "M13", "M15", "M20", "M22"):
+            card_index, card = next(
+                (index, candidate)
+                for index, candidate in enumerate(mission.cards)
+                if candidate.slide_id == slide_id
+            )
+            assets = assets_for_card(mission.id, card_index, card)
+            self.assertTrue(any(asset.purpose == "prompt" for asset in assets))
+            self.assertFalse(any(asset.purpose == "answer" for asset in assets))
+
+        fallback_card = LessonCard(
+            prompt="",
+            audio_text="Choose the boy.",
+            stage="Listen",
+            interaction_type="mission-listen",
+            correct_option_id="boy",
+            options=[ChoiceOption(id="boy", label="The boy is reading.")],
+        )
+        fallback_assets = assets_for_card("lesson-test", 0, fallback_card)
+        self.assertEqual(
+            ["The boy is reading."],
+            [asset.text for asset in fallback_assets if asset.purpose == "answer"],
+        )
 
     def test_every_course_asset_is_unique_and_bound_to_its_card_visual(self):
         assets = [

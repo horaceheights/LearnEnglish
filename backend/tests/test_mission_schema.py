@@ -47,6 +47,8 @@ def mission_lesson_payload() -> dict:
                 "label": "Final mission",
                 "title": "Find the family",
                 "briefing": "Follow the clues and introduce the family.",
+                "kickoff_image_url": "/lesson-assets/mission-kickoff.webp",
+                "objectives": ["Encuentra personas", "Reúne a la familia"],
                 "completion_title": "Mission complete",
                 "completion_message": "You found and introduced the family.",
                 "chapters": [
@@ -63,6 +65,20 @@ def mission_lesson_payload() -> dict:
                     "stage": "Learn",
                     "correct_option_id": "start",
                     "options": [{"id": "start", "label": "Start", "image_url": ""}],
+                    "mission_game": {
+                        "kind": "hotspot",
+                        "instruction_es": "Toca a la persona iluminada.",
+                        "validation": "single",
+                        "tutorial_mode": "guided-no-fail",
+                        "targets": [
+                            {
+                                "id": "person",
+                                "label_es": "Persona iluminada",
+                                "rect": {"x": 0.1, "y": 0.1, "width": 0.3, "height": 0.6},
+                                "accepted_option_ids": ["start"],
+                            }
+                        ],
+                    },
                 },
                 {
                     "slide_id": "M02",
@@ -72,6 +88,20 @@ def mission_lesson_payload() -> dict:
                     "stage": "Recognize",
                     "correct_option_id": "father",
                     "options": [{"id": "father", "label": "The father", "image_url": ""}],
+                    "mission_game": {
+                        "kind": "who-dialogue",
+                        "instruction_es": "Escucha y responde quién es.",
+                        "validation": "single",
+                        "cue_audio_text": "Who is he?",
+                        "targets": [
+                            {
+                                "id": "father",
+                                "label_es": "Padre señalado",
+                                "rect": {"x": 0.3, "y": 0.1, "width": 0.4, "height": 0.7},
+                                "accepted_option_ids": ["father"],
+                            }
+                        ],
+                    },
                 },
             ],
         }
@@ -93,7 +123,78 @@ class MissionSchemaTests(unittest.TestCase):
         self.assertEqual(lesson.experience_type, "mission")
         self.assertEqual(lesson.content_revision, 2)
         self.assertEqual(lesson.cards[1].mission_chapter_id, "clues")
+        self.assertEqual(lesson.cards[0].mission_game.kind, "hotspot")
+        self.assertEqual(lesson.cards[1].mission_game.cue_audio_text, "Who is he?")
+        self.assertEqual(
+            lesson.cards[1].mission_game.targets[0].accepted_option_ids,
+            ["father"],
+        )
         self.assertEqual([chapter.id for chapter in lesson.mission.chapters], ["arrival", "clues"])
+
+    def test_every_mission_card_requires_game_metadata(self):
+        payload = mission_lesson_payload()
+        del payload["cards"][0]["mission_game"]
+
+        with self.assertRaisesRegex(ValidationError, "mission_game"):
+            MissionLesson(**payload)
+
+    def test_mission_target_rectangles_must_stay_inside_the_hero(self):
+        payload = mission_lesson_payload()
+        payload["cards"][0]["mission_game"]["targets"][0]["rect"].update(
+            {"x": 0.8, "width": 0.3}
+        )
+
+        with self.assertRaisesRegex(ValidationError, "fit within image width"):
+            MissionLesson(**payload)
+
+    def test_mission_targets_must_reference_declared_correct_options(self):
+        payload = mission_lesson_payload()
+        payload["cards"][1]["mission_game"]["targets"][0]["accepted_option_ids"] = [
+            "missing"
+        ]
+
+        with self.assertRaisesRegex(ValidationError, "missing option IDs: missing"):
+            MissionLesson(**payload)
+
+        payload = mission_lesson_payload()
+        payload["cards"][1]["mission_game"]["targets"][0]["accepted_option_ids"] = [
+            "father"
+        ]
+        payload["cards"][1]["correct_option_id"] = "other"
+        payload["cards"][1]["options"].append(
+            {"id": "other", "label": "The mother", "image_url": ""}
+        )
+
+        with self.assertRaisesRegex(ValidationError, "declared correct options"):
+            MissionLesson(**payload)
+
+    def test_ordered_game_targets_must_match_the_correct_answer_order(self):
+        payload = mission_lesson_payload()
+        card = payload["cards"][1]
+        card["options"].append({"id": "mother", "label": "The mother", "image_url": ""})
+        card["correct_option_ids"] = ["father", "mother"]
+        card["mission_game"].update(
+            {
+                "validation": "ordered",
+                "targets": [
+                    {
+                        "id": "first",
+                        "label_es": "Primero",
+                        "rect": {"x": 0.1, "y": 0.1, "width": 0.3, "height": 0.6},
+                        "accepted_option_ids": ["mother"],
+                    },
+                    {
+                        "id": "second",
+                        "label_es": "Después",
+                        "rect": {"x": 0.6, "y": 0.1, "width": 0.3, "height": 0.6},
+                        "accepted_option_ids": ["father"],
+                    },
+                ],
+            }
+        )
+
+        with self.assertRaisesRegex(ValidationError, "match correct_option_ids in order"):
+            MissionLesson(**payload)
 
     def test_mission_chapter_ids_must_be_unique(self):
         payload = mission_lesson_payload()

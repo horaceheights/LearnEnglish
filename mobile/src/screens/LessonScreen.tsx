@@ -41,7 +41,9 @@ import {
 import { LessonCardView, textAnswerStackNeedsScroll } from '../components/LessonCardView';
 import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
 import { MissionCompletion } from '../components/MissionCompletion';
+import { MissionGameSurface } from '../components/MissionGameSurface';
 import { MissionJourney } from '../components/MissionJourney';
+import { MissionKickoff } from '../components/MissionKickoff';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { StageJourney } from '../components/StageJourney';
@@ -307,6 +309,7 @@ export function LessonScreen({
   const [isAppActive, setIsAppActive] = useState(AppState.currentState === 'active');
   const [isComplete, setIsComplete] = useState(false);
   const [missionCompletionAcknowledged, setMissionCompletionAcknowledged] = useState(false);
+  const [missionKickoffComplete, setMissionKickoffComplete] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
   const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
@@ -778,6 +781,7 @@ export function LessonScreen({
     finishedSessionRef.current = false;
     setCompletedLessonMode(previouslyCompleted && !qaMode ? 'prompt' : 'standard');
     setMissionCompletionAcknowledged(false);
+    setMissionKickoffComplete(false);
     setReviewStageBounds(null);
     try {
       const nextLesson = await getLesson(lessonId);
@@ -803,6 +807,7 @@ export function LessonScreen({
       ]);
       setLesson(nextLesson);
       setCardIndex(nextCardIndex);
+      setMissionKickoffComplete(nextCardIndex > 0 || Boolean(savedRun?.completionPending));
       setFurthestCardIndex(
         savedRun?.furthestCardIndex ?? (previouslyCompleted ? nextLesson.cards.length - 1 : nextCardIndex),
       );
@@ -891,6 +896,29 @@ export function LessonScreen({
   ]);
 
   const currentCard = lesson?.cards[cardIndex];
+  const missionIntroAsset = lesson?.cards[0]
+    ? findCourseAudioAsset(lesson.cards[0], 'mission-intro')
+    : null;
+  const missionInstructionAsset = currentCard
+    ? findCourseAudioAsset(currentCard, 'mission-instruction')
+    : null;
+  const missionCueAsset = currentCard
+    ? findCourseAudioAsset(currentCard, 'mission-cue')
+    : null;
+  const showMissionKickoff = Boolean(
+    lesson?.experience_type === 'mission'
+    && cardIndex === 0
+    && completedCards.size === 0
+    && !missionKickoffComplete,
+  );
+  const playMissionIntro = useCallback(() => {
+    if (!missionIntroAsset) return;
+    playAudioSource(lessonAudioAssetSource(missionIntroAsset), 'mission', 'intro');
+  }, [missionIntroAsset, playAudioSource]);
+  const playMissionInstruction = useCallback(() => {
+    if (!missionInstructionAsset) return;
+    playAudioSource(lessonAudioAssetSource(missionInstructionAsset), 'mission', 'instruction');
+  }, [missionInstructionAsset, playAudioSource]);
   const missionChapters = useMemo(
     () => missionChapterProgress(lesson, cardIndex, completedCards, furthestCardIndex),
     [cardIndex, completedCards, furthestCardIndex, lesson],
@@ -936,6 +964,12 @@ export function LessonScreen({
   const isMissionTileCard = currentCard?.interaction_type === 'mission-word-parts'
     || currentCard?.interaction_type === 'mission-sentence'
     || currentCard?.interaction_type === 'mission-finale';
+  const isMissionGameCard = Boolean(currentCard?.mission_game);
+  const usesMissionGameSurface = Boolean(
+    currentCard?.mission_game
+    && currentCard.mission_game.kind !== 'speak'
+    && currentCard.mission_game.kind !== 'finale',
+  );
   const useCompactListenInstruction = usesCompactListenInstruction(
     currentCard?.stage ?? '',
     currentCard?.prompt ?? '',
@@ -1140,6 +1174,33 @@ export function LessonScreen({
     );
   }, [completionPromptSource, currentCard?.audio_turns?.length, isPronunciation, playAudio, playAudioSequence, playAudioSource, promptHasVisualBlank, promptTurnSequence, visiblePromptAudio]);
 
+  const playMissionEnglishClue = useCallback(() => {
+    if (missionCueAsset) {
+      playAudioSource(lessonAudioAssetSource(missionCueAsset), 'mission', 'cue');
+      return;
+    }
+    replayPrompt();
+  }, [missionCueAsset, playAudioSource, replayPrompt]);
+
+  useEffect(() => {
+    if (!showMissionKickoff || !isAppActive) return undefined;
+    playMissionSound('page-turn');
+    const timer = setTimeout(playMissionIntro, 420);
+    return () => clearTimeout(timer);
+  }, [isAppActive, playMissionIntro, playMissionSound, showMissionKickoff]);
+
+  useEffect(() => {
+    if (
+      !missionExperience
+      || !currentCard?.mission_game
+      || showMissionKickoff
+      || result !== null
+      || !isAppActive
+    ) return undefined;
+    const timer = setTimeout(playMissionInstruction, 160);
+    return () => clearTimeout(timer);
+  }, [cardIndex, currentCard?.mission_game, isAppActive, missionExperience, playMissionInstruction, result, showMissionKickoff]);
+
   const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
     const target = promptTapTargetRef.current;
     if (!target) {
@@ -1326,7 +1387,14 @@ export function LessonScreen({
   }, [cardIndex, currentCard?.prompt, currentCard?.stage, lesson?.cards.length, lessonId, qaMode]);
 
   useEffect(() => {
-    if (!isAppActive || isCompletedSectionPicker || !currentCard || isPronunciation || result !== null) return undefined;
+    if (
+      !isAppActive
+      || isCompletedSectionPicker
+      || !currentCard
+      || isPronunciation
+      || result !== null
+      || (missionExperience && Boolean(currentCard.mission_game))
+    ) return undefined;
     if (promptHasVisualBlank && !completionPromptSource && !promptTurnSequence) {
       promptAutoplayAwaitingRef.current = false;
       promptAutoplayWasPlayingRef.current = false;
@@ -1365,7 +1433,7 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
     };
-  }, [cardIndex, completionPromptSource, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, playAudio, playAudioSequence, playAudioSource, promptAudio, promptHasVisualBlank, promptTurnSequence, result]);
+  }, [cardIndex, completionPromptSource, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPronunciation, missionExperience, playAudio, playAudioSequence, playAudioSource, promptAudio, promptHasVisualBlank, promptTurnSequence, result]);
 
   useEffect(() => {
     if (!promptAutoplayAwaitingRef.current) return;
@@ -1895,19 +1963,12 @@ export function LessonScreen({
     ));
   };
 
-  const choose = (optionId: string) => {
+  const evaluateChoiceSelection = (nextSelectedIds: string[]) => {
     if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
     setShowSentenceCoachmark(false);
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
-    const isMultiBlankCompletion = correctOptionIds.length > 1;
-    const continuingSelection = isMultiBlankCompletion && result !== 'wrong'
-      ? selectedIds
-      : [];
-    if (isMultiBlankCompletion && continuingSelection.includes(optionId)) return;
-    const nextSelectedIds = isMultiBlankCompletion
-      ? [...continuingSelection, optionId]
-      : [optionId];
-    setSelectedId(optionId);
+    const finalOptionId = nextSelectedIds[nextSelectedIds.length - 1] || null;
+    setSelectedId(finalOptionId);
     setSelectedIds(nextSelectedIds);
     setResult(null);
     if (nextSelectedIds.length < correctOptionIds.length) {
@@ -1919,9 +1980,10 @@ export function LessonScreen({
       });
       return;
     }
-    const correct = nextSelectedIds.every((selectedOptionId, index) => (
-      selectedOptionId === correctOptionIds[index]
-    ));
+    const correct = currentCard.mission_game?.validation === 'unordered'
+      ? nextSelectedIds.length === correctOptionIds.length
+        && nextSelectedIds.every((selectedOptionId) => correctOptionIds.includes(selectedOptionId))
+      : nextSelectedIds.every((selectedOptionId, index) => selectedOptionId === correctOptionIds[index]);
     const selectedOptionKey = nextSelectedIds.join('|');
     const correctOptionKey = correctOptionIds.join('|');
     const attempt = prepareCardChoice(
@@ -1957,7 +2019,7 @@ export function LessonScreen({
       if (isGrammar) {
         return;
       }
-      const answerText = correctSelectionAudioText(currentCard, optionId);
+      const answerText = correctSelectionAudioText(currentCard, finalOptionId);
       if (answerText) {
         answerAudioAwaitingRef.current = true;
         answerAudioStartedRef.current = false;
@@ -1985,6 +2047,40 @@ export function LessonScreen({
     setResult('wrong');
     if (missionExperience) playMissionSound('try-again');
     else void playTryAgainCue();
+  };
+
+  const choose = (optionId: string) => {
+    if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
+    const correctOptionIds = orderedCorrectOptionIds(currentCard);
+    const isMultiBlankCompletion = correctOptionIds.length > 1;
+    const continuingSelection = isMultiBlankCompletion && result !== 'wrong' ? selectedIds : [];
+    if (isMultiBlankCompletion && continuingSelection.includes(optionId)) return;
+    const nextSelectedIds = isMultiBlankCompletion ? [...continuingSelection, optionId] : [optionId];
+    if (missionExperience && isMissionTileCard) playMissionSound('tile-place');
+    evaluateChoiceSelection(nextSelectedIds);
+  };
+
+  const submitMissionSelection = (optionIds: string[]) => {
+    if (!optionIds.length) return;
+    evaluateChoiceSelection(optionIds);
+  };
+
+  const recordMissionMisstep = (optionIds: string[]) => {
+    if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
+    const correctOptionKey = orderedCorrectOptionIds(currentCard).join('|');
+    const selectedOptionKey = optionIds.join('|') || 'invalid-placement';
+    const attempt = prepareCardChoice(attemptedCardsRef.current, completedCardsRef.current, cardIndex);
+    if (attempt.shouldRecordAttempt) {
+      attemptedCardsRef.current = attempt.attemptedCards;
+      setAttemptedCards(attempt.attemptedCards);
+      recordAttempt(selectedOptionKey, correctOptionKey, false, attempt.firstTry);
+    }
+    if (!attempt.reviewingCompletedCard) setWrongCards((current) => new Set(current).add(cardIndex));
+    addDiagnosticBreadcrumb('mission_misstep_repaired', {
+      card_number: cardIndex + 1,
+      option_id: selectedOptionKey,
+    });
+    playMissionSound('try-again');
   };
 
   const undoMissionSelection = useCallback(() => {
@@ -2444,6 +2540,23 @@ export function LessonScreen({
     );
   }
 
+  if (showMissionKickoff) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <StatusBar hidden />
+        <MissionKickoff
+          onExit={() => confirmLessonExit('previous')}
+          onReplay={playMissionIntro}
+          onStart={() => {
+            playMissionSound('page-restored');
+            setMissionKickoffComplete(true);
+          }}
+          presentation={lesson.mission!}
+        />
+      </SafeAreaView>
+    );
+  }
+
   if (isComplete) {
     if (missionExperience && !missionCompletionAcknowledged) {
       return (
@@ -2718,7 +2831,7 @@ export function LessonScreen({
             </Text>
           </View>
         ) : null}
-        <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
+        {!usesMissionGameSurface ? <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
           styles.contentHeader,
           useCompactPhoneLayout ? styles.contentHeaderCompact : null,
           isPortrait ? styles.contentHeaderPortrait : null,
@@ -2787,7 +2900,9 @@ export function LessonScreen({
                   },
                 ]}
               >
-                {isPronunciation ? pronunciationInstruction() : renderPrompt()}
+                {isPronunciation
+                  ? currentCard.mission_game?.instruction_es || pronunciationInstruction()
+                  : renderPrompt()}
               </Text>
               {showSentenceTranslation ? (
                 <Animated.Text
@@ -2825,9 +2940,9 @@ export function LessonScreen({
               </View>
             </Pressable>
           </View>
-        </View>
+        </View> : null}
         <Animated.View
-          {...(manualCardNavigation && !isMissionTileCard ? cardPanResponder.panHandlers : {})}
+          {...(manualCardNavigation && !isMissionTileCard && !isMissionGameCard ? cardPanResponder.panHandlers : {})}
           pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'}
           style={[
             styles.cardCarousel,
@@ -2836,7 +2951,17 @@ export function LessonScreen({
             manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
           ]}
         >
-          {isPronunciation && !isPronunciationAudioReady ? (
+          {usesMissionGameSurface && currentCard.mission_game ? (
+            <MissionGameSurface
+              card={currentCard as typeof currentCard & { mission_game: NonNullable<typeof currentCard.mission_game> }}
+              interactionReady
+              onMisstep={recordMissionMisstep}
+              onReplayEnglish={playMissionEnglishClue}
+              onReplayInstruction={playMissionInstruction}
+              onSubmit={submitMissionSelection}
+              result={result}
+            />
+          ) : isPronunciation && !isPronunciationAudioReady ? (
             <View style={styles.center}>
               <PlayfulLoading label="Preparando pronunciación…" />
             </View>

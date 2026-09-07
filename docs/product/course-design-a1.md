@@ -54,7 +54,7 @@ Lessons:
 7. 1.7 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
 8. 1.8 Who Is He? Who Are They?: identity questions and short answers
 9. 1.9 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations
-10. 1.10 Family Album Mission: complete one continuous 22-beat family-story challenge by following clues, listening, speaking, building words from parts, and assembling the final resolution
+10. 1.10 ¡Todos a la celebración!: complete one continuous 22-beat adventure by finding the missing people, connecting their family relationships, following all thirteen action clues, correcting false reports with `not`, answering all three `Who ...?` forms, and bringing everyone to the celebration
 
 Core patterns:
 
@@ -66,7 +66,7 @@ Core patterns:
 - `He is not cooking.`
 - `Who are they? They are the parents.`
 
-Lessons 1.1 through 1.10 now implement the approved cumulative restructuring. Lessons 1.2 through 1.7 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.8 contains 50 cards, ten per section, with separate visitor-question and family-portrait answer pairs for all five identities. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with one continuous 22-beat mission rather than another five-section deck. It interleaves clue, listening, speaking, word-part, and sentence-building mechanics in narrative order, retrieves all 46 vocabulary targets introduced in Lessons 1.1-1.8 on the successful path, includes all three Unit 1 `Who` question forms, adds no assessed English, and resolves the family story with mission-only hero scenes.
+Lessons 1.1 through 1.10 follow the approved cumulative restructuring. Lessons 1.2 through 1.7 each contain 42 cards in a `10 Learn / 10 Recognize / 8 Listen / 7 Speak / 7 Use` rhythm. Lesson 1.8 contains 50 cards, ten per section, with separate visitor-question and family-portrait answer pairs for all five identities. Lesson 1.9 expands to 54 cards so its new three-part story can retrieve the unit broadly without replaying earlier content-image pairs. Lesson 1.10 closes the unit with the continuous `¡Todos a la celebración!` adventure rather than another five-section deck. The learner finds people, connects family relationships, follows action clues, repairs false reports, answers `Who ...?` questions, and visibly brings everyone to one final celebration. The successful path retrieves all 46 vocabulary targets introduced in Lessons 1.1-1.8, including all thirteen actions and all three Unit 1 `Who` forms, while adding no assessed English. The rejected family-album and film-studio concepts, their imagery, and their tile-first workflows are not reusable starting points for this mission.
 
 ### Unit 2: Places, Objects, Numbers, and Colors
 
@@ -244,10 +244,45 @@ Current restructuring target:
 - Repetition in lessons 1-8 is repetition with growth: keep the useful vocabulary, but change the combination, sentence structure, communicative purpose, scene, or required response. Do not copy a prior teaching or assessment card into the next lesson merely to review it.
 - Lesson 9 retrieves at least 70 percent of the unit's declared vocabulary, grammar/functions, and communicative mastery targets from lessons 1-8. It may be longer than a standard lesson when needed, uses no new language, and presents newly authored images, combinations, prompts, and setups. It may use clearly separated story stations, but it must not replay the same content-image pair from the lessons it reviews.
 - Lesson 10 is the unit-closing mission: one coherent story, practical goal, or challenge in which learned language is the tool for succeeding. It is not a second review deck. Every interaction advances the mission, and the ending provides a clear sense of resolution and readiness for the next unit.
-- Lesson 10 uses light, language-centered gamification to break the lessons 1-8 rhythm without turning the course into a reward loop. Depending on the unit, learners may manipulate syllable or word-part tiles to form words and then manipulate words to form useful sentences inside the mission.
+- Lesson 10 uses light, language-centered gamification to break the lessons 1-8 rhythm without turning the course into a reward loop. Its interactions follow the story and may include finding a person in a scene, connecting relationships, sorting, tracing, correcting a false clue, listening, and speaking. Word-part or sentence tiles are optional tools for a mission whose story genuinely calls for them; they are never the default mission identity or a reason to turn a mission into another exercise deck.
 - Mission lessons declare `experience_type: mission`, a positive `content_revision`, a presentation contract, ordered chapters, and one chapter ID per card. They retain internal stage values only to select engine behavior; the learner sees one continuous mission with beat progress, not the standard five-stage journey or section picker.
-- Unit 1 Lesson 1.10 has exactly 22 contiguous beats. Its successful-path language covers the exact 46-item union of vocabulary introduced in Lessons 1.1-1.8—including `Who is he?`, `Who is she?`, and `Who are they?`—without using unintroduced English. Each beat advances the same family story and uses a fresh, unambiguous hero still; exact assets from Lessons 1.1-1.9 and another mission beat's hero are not valid substitutes.
-- Lesson 1.10's fixed narrative map is `open-album` (beats 1-5), `build-family` (6-13), `restore-memories` (14-20), and `record-and-reveal` (21-22). A chapter may change the objective and visual state, but it does not reopen a standard lesson section or reset mission progress.
+- Unit 1 Lesson 1.10 has exactly 22 contiguous beats. Its successful-path language covers the exact 46-item union of vocabulary introduced in Lessons 1.1-1.8—including all thirteen actions plus `Who is he?`, `Who is she?`, and `Who are they?`—without using unintroduced English. Each beat advances the same celebration story and uses a fresh, unambiguous hero still whose exact file hash is absent from Lessons 1.1-1.9, every other mission beat, and both rejected Lesson 1.10 concepts.
+- Lesson 1.10's fixed narrative map is `find-the-people` (beats 1-3), `connect-the-family` (4-9), `follow-the-actions` (10-15), `repair-the-clues` (16-18), and `welcome-everyone` (19-22). These chapters are acts in one uninterrupted adventure, not tabs, replayable lesson sections, or resets of mission state.
+
+### Unit 1 Lesson 1.10 mission contract
+
+The learner-facing title is `¡Todos a la celebración!`. A family celebration is about to begin, but everyone has not yet arrived. Learned English is the tool for finding each person, establishing the family connections, following what they are doing, correcting broken reports, answering the greeter, and bringing the whole family together. There is no album, film set, studio production, syllable opening, or repeated sentence-order board.
+
+The opening plays a short mission-specific chime, shows the three objectives `Encuentra personas`, `Sigue sus acciones`, and `Reúne a la familia`, and speaks this briefing in Spanish before enabling the first action: `La celebración familiar está por comenzar, pero todavía falta reunir a todos. Encuentra a cada persona, descubre qué está haciendo y responde quién es. Vas a tocar, unir, escuchar y hablar. Yo te mostraré el primer paso.` Beat 1 is a guided, nonpunitive example: the learner hears `A boy.` and is shown once how to touch the person. Every later mechanic states and speaks the exact next action in Spanish before input unlocks.
+
+The 22 beats have these fixed responsibilities:
+
+1. Guided person search for `A boy.`
+2. Searchlight sequence for `A girl.`, `A man.`, and `A woman.`
+3. Place `he`, `she`, and `they` signals on the matching person or group with correct `is/are` agreement.
+4. Route the boy, girl, man, and woman through child/adult checkpoints, then confirm `children` and `adults` with `and`.
+5. Distinguish `A baby.` from `Babies.` and connect baby/babies to child/children.
+6. Connect the singular `brother` and `sister` relationships.
+7. Mark the plural `brothers` and `sisters` groups.
+8. Connect `father` and `mother` into `parents`.
+9. Complete the generation bridge with `grandfather`, `grandmother`, `grandparents`, and `grandchildren`.
+10. Follow the `eating` and `drinking` clues.
+11. Follow the `reading` and `writing` clues.
+12. Follow the `running` and `swimming` clues.
+13. Follow the `sitting` and `sleeping` clues.
+14. Follow the `playing` and `studying` clues.
+15. Follow the `working`, `cooking`, and `talking` clues.
+16. Repair `He is not eating. He is drinking.`
+17. Repair `She is not reading. She is writing.`
+18. Repair `They are not running. They are sitting.`
+19. Choose and resolve `Who is he?` for the clearly indicated father.
+20. Hear `Who is she?` and speak the grandmother answer.
+21. Hear `Who are they?` and deliver the matching parents relationship pass.
+22. Bring the remaining family groups into the newly composed final scene and speak `They are a family.`
+
+The successful-path coverage is exact and auditable: beats 1-2 cover `a`, `boy`, `girl`, `man`, and `woman`; beat 3 covers `he`, `she`, `is`, `they`, and `are`; beats 4-5 cover `the`, `and`, `an`, `child`, `children`, `adult`, `adults`, `baby`, and `babies`; beats 6-9 cover `brother`, `brothers`, `sister`, `sisters`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`, and `grandchildren`; beats 10-15 cover all thirteen learned actions; beats 16-18 cover `not`; beats 19-21 cover `who` and all three question forms; and beat 22 covers `family`.
+
+Every actionable screen must make the current goal and exact gesture apparent without trial and error. When an order matters, Spanish guidance and visible first/next state define it; the learner is never asked to infer an arbitrary sentence or character order. A wrong touch or placement leaves the solved mission state intact and returns only the attempted item, while Undo removes the last placement. Reset may exist as an optional control but is never the only way to remove or correct an item. Every drag operation also has a complete tap-source, tap-destination path.
 
 ## Difficulty Ramp
 
@@ -324,9 +359,9 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | `1.7` | What They Are Not Doing | 42-card cumulative rebuild ready for learner review |
 | `1.8` | Who Is He? Who Are They? | 50-card question/answer pairs in all five sections |
 | `1.9` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
-| `1.10` | Family Album Mission | 22-beat continuous family-story mission ready for learner review |
+| `1.10` | ¡Todos a la celebración! | 22-beat find/connect/action/correct/Who adventure ready for Preview learner review |
 
-Every standard lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat mission contract for 1.10.
+Every standard lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10, including the approved celebration-adventure contract above. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat, 46-target mission contract for 1.10.
 
 The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 
