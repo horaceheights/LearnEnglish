@@ -258,12 +258,22 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
             "question" if raw_prompt.lower() == "what is it?" else "prompt"
         )
         if card.audio_turns:
+            # Mission voice gates intentionally play a short question before the
+            # answer model that the learner must pronounce. ``audio_text`` remains
+            # the assessment phrase, while the authored turn sequence owns the
+            # complete question + model playback.
+            prompt_canonical_text = (
+                " ".join(turn.text for turn in card.audio_turns)
+                if getattr(card, "mission_game", None) is not None
+                and card.mission_game.kind == "voice-gate"
+                else raw_prompt
+            )
             assets.extend(_turn_assets(
                 lesson_id,
                 card_index,
                 card,
                 purpose="prompt",
-                canonical_text=raw_prompt,
+                canonical_text=prompt_canonical_text,
                 turns=card.audio_turns,
                 mode=prompt_mode,
                 variant=prompt_variant,
@@ -354,23 +364,9 @@ def bind_lesson_audio_assets(lesson: Lesson) -> Lesson:
         card_assets = assets_for_card(lesson.id, card_index, card)
         mission_game = getattr(card, "mission_game", None)
         if mission_game is not None:
-            instruction = str(getattr(mission_game, "instruction_es", "") or "").strip()
-            if instruction:
-                card_assets.insert(0, _asset(
-                    lesson.id,
-                    card_index,
-                    card,
-                    purpose="mission-instruction",
-                    text=instruction,
-                    mode="prompt",
-                    variant="mission-instruction",
-                    semantic_role="teacher",
-                    speaker_role="teacher",
-                    revision=int(getattr(lesson, "content_revision", 1)),
-                ))
             cue = str(getattr(mission_game, "cue_audio_text", "") or "").strip()
             if cue:
-                card_assets.insert(1, _asset(
+                card_assets.insert(0, _asset(
                     lesson.id,
                     card_index,
                     card,

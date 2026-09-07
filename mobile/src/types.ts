@@ -24,14 +24,12 @@ export type CourseAudioTurn = {
 };
 
 export type MissionGameKind =
-  | 'hotspot'
-  | 'label-placement'
-  | 'relationship-link'
-  | 'action-sequence'
-  | 'not-correction'
-  | 'who-dialogue'
-  | 'speak'
-  | 'finale';
+  | 'guided-search'
+  | 'crowd-search'
+  | 'family-link'
+  | 'action-hunt'
+  | 'contrast-hunt'
+  | 'voice-gate';
 
 export type MissionGameTarget = {
   id: string;
@@ -40,11 +38,20 @@ export type MissionGameTarget = {
   accepted_option_ids: string[];
 };
 
+export type MissionGameCue = {
+  id: string;
+  text: string;
+  answer_text: string;
+  target_id: string;
+  option_id: string;
+};
+
 export type MissionGame = {
   kind: MissionGameKind;
   instruction_es: string;
   validation: 'single' | 'ordered' | 'unordered';
   targets: MissionGameTarget[];
+  cues: MissionGameCue[];
   tutorial_mode?: 'guided-no-fail';
   cue_audio_text?: string;
 };

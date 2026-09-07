@@ -2349,7 +2349,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       return;
     }
     setMissionIntroReady(false);
-    playUiSfx("readyCue", { debounceMs: 240, restart: true, volume: 0.62 });
+    playUiSfx("missionStart", { debounceMs: 240, restart: true, timeoutMs: 5000, volume: 0.46 });
     speakText(activeLesson.mission.briefing, {
       audioAssetId: cardAudioAsset(activeLesson.cards[0], { purpose: "mission-intro" })?.id
         || MISSING_CARD_AUDIO_ASSET_ID,
@@ -2359,13 +2359,18 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     });
   }, [activeLesson.cards, activeLesson.mission, isMissionGameExperience, playUiSfx, speakText]);
 
-  const playMissionEnglishClue = useCallback((onEnd) => {
+  const playMissionEnglishClue = useCallback((cueIndex = 0, onEnd) => {
     if (!currentCard?.mission_game) {
       onEnd?.();
       return;
     }
+    const cueTurn = cardAudioTurnSequence(currentCard, "prompt")?.[cueIndex];
+    if (cueTurn && currentCard.mission_game.kind !== "voice-gate") {
+      playCourseTurnSequence([cueTurn], { onEnd });
+      return;
+    }
     const cueText = currentCard.mission_game.cue_audio_text?.trim();
-    const useCue = ["speak", "finale"].includes(currentCard.mission_game.kind) && cueText;
+    const useCue = currentCard.mission_game.kind === "voice-gate" && cueText;
     const text = useCue ? cueText : cardPromptText.trim();
     if (!text) {
       onEnd?.();
@@ -2379,30 +2384,20 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       voiceMode: text.endsWith("?") ? "question" : "prompt",
       onEnd,
     });
-  }, [cardPromptText, currentCard, speakText]);
+  }, [cardPromptText, currentCard, playCourseTurnSequence, speakText]);
 
-  const playMissionDirections = useCallback(() => {
+  const playMissionDirections = useCallback((cueIndex = 0) => {
     if (!currentCard?.mission_game) {
       setMissionInstructionReady(true);
       return;
     }
     setMissionInstructionReady(false);
-    const unlock = () => setMissionInstructionReady(true);
-    const afterSpanish = () => {
-      if (["speak", "finale"].includes(currentCard.mission_game.kind)) {
-        unlock();
-      } else {
-        playMissionEnglishClue(unlock);
-      }
+    const unlock = () => {
+      setMissionInstructionReady(true);
+      if (currentCard.mission_game.kind === "voice-gate") setMissionSpeechReady(true);
     };
-    speakText(currentCard.mission_game.instruction_es, {
-      audioAssetId: cardAudioAsset(currentCard, { purpose: "mission-instruction" })?.id
-        || MISSING_CARD_AUDIO_ASSET_ID,
-      lang: "es-MX",
-      voiceMode: "prompt",
-      onEnd: afterSpanish,
-    });
-  }, [currentCard, playMissionEnglishClue, speakText]);
+    playMissionEnglishClue(cueIndex, unlock);
+  }, [currentCard, playMissionEnglishClue]);
 
   const prepareMissionSpeech = useCallback(() => {
     if (!currentCard?.mission_game || missionSpeechReady) return;
@@ -5190,7 +5185,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         <CelebrationMission
           card={currentCard}
           cardIndex={cardIndex}
-          imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)}
+          imageSrc={currentCard.prompt_image_url ? lessonOptionImageSrc(currentCard.prompt_image_url) : ""}
           interactionReady={missionInstructionReady}
           introComplete={missionIntroComplete}
           introReady={missionIntroReady}
@@ -5205,8 +5200,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           onExit={confirmLessonExit}
           onMisstep={recordMissionMisstep}
           onPrepareSpeech={prepareMissionSpeech}
-          onReplayDirections={playMissionDirections}
-          onReplayEnglish={() => playMissionEnglishClue()}
+          onReplayEnglish={(cueIndex) => playMissionDirections(cueIndex)}
           onReplayIntro={playMissionIntroNarration}
           onRetrySpeech={() => beginPronunciationRecording({ isRetry: true })}
           onScenePlacement={() => playUiSfx("tilePlace", { debounceMs: 70, volume: 0.36 })}

@@ -6,6 +6,7 @@ import { addDiagnosticBreadcrumb, captureDiagnosticError } from './diagnostics';
 import type { LessonCard } from './types';
 
 export type MissionSoundEvent =
+  | 'mission-start'
   | 'tile-place'
   | 'page-restored'
   | 'page-turn'
@@ -14,22 +15,24 @@ export type MissionSoundEvent =
   | 'try-again';
 
 const MISSION_SOUND_SOURCES: Record<MissionSoundEvent, AudioSource> = {
-  'tile-place': require('../assets/sfx/tile-place-v1.mp3'),
-  'page-restored': require('../assets/sfx/page-restored-v1.mp3'),
-  'page-turn': require('../assets/sfx/page-turn-v1.mp3'),
-  'voice-stamp': require('../assets/sfx/voice-stamp-v1.mp3'),
-  'mission-finale': require('../assets/sfx/mission-finale-v1.mp3'),
-  'try-again': require('../assets/sfx/try-again-v1.mp3'),
+  'mission-start': require('../assets/sfx/mission-start-v2.mp3'),
+  'tile-place': require('../assets/sfx/person-found-v2.mp3'),
+  'page-restored': require('../assets/sfx/person-found-v2.mp3'),
+  'page-turn': require('../assets/sfx/chapter-arrival-v2.mp3'),
+  'voice-stamp': require('../assets/sfx/voice-confirm-v2.mp3'),
+  'mission-finale': require('../assets/sfx/mission-finale-v2.mp3'),
+  'try-again': require('../assets/sfx/gentle-miss-v2.mp3'),
 };
 
 const SAME_EVENT_DEBOUNCE_MS = 140;
 const MISSION_SOUND_VOLUMES: Record<MissionSoundEvent, number> = {
-  'tile-place': 0.4,
-  'page-restored': 0.4,
-  'page-turn': 0.35,
-  'voice-stamp': 0.38,
-  'mission-finale': 0.46,
-  'try-again': 0.35,
+  'mission-start': 0.48,
+  'tile-place': 0.64,
+  'page-restored': 0.64,
+  'page-turn': 0.68,
+  'voice-stamp': 0.64,
+  'mission-finale': 0.58,
+  'try-again': 0.5,
 };
 
 void Promise.all(Object.values(MISSION_SOUND_SOURCES).map((source) => preload(source))).catch(

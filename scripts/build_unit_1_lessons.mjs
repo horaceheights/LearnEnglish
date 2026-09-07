@@ -514,18 +514,28 @@ const missionTarget = (id, labelEs, acceptedOptionIds, [x, y, width, height]) =>
   accepted_option_ids: acceptedOptionIds,
 });
 
+const missionCue = (id, text, answerText, targetId, optionId = id) => ({
+  id,
+  text,
+  answer_text: answerText,
+  target_id: targetId,
+  option_id: optionId,
+});
+
 function missionGameCard({
-  beat, chapter, phase, kind, stage, instruction, validation, targets, choices,
+  beat, chapter, phase, kind, stage, instruction, validation, targets, choices, cues = [],
   translation, prompt = '', audio = null, answer = null, cueAudio = null,
   tutorialMode = null, interaction = null, imageOptionId = null,
 }) {
   const image = missionHeroAssets[beat - 1];
-  const correct = targets.flatMap((target) => target.accepted_option_ids);
+  const correct = cues.map((cue) => cue.option_id);
   const effectiveInteraction = interaction
-    || (kind === 'speak' ? 'mission-speak' : kind === 'finale' ? 'mission-finale' : 'mission-sentence');
+    || (kind === 'voice-gate' ? 'mission-speak' : 'mission-game');
   const options = choices.map(([id, label]) => (
     id === imageOptionId ? imageOption(id, image, label) : textOption(id, label)
   ));
+  const isVoiceGate = kind === 'voice-gate';
+  const cueText = cues.map((cue) => cue.text).join(' ');
   return {
     chapter,
     phase,
@@ -536,17 +546,30 @@ function missionGameCard({
         correct: correct[0],
         correctIds: correct,
         options,
-        audio,
+        audio: audio ?? (isVoiceGate ? prompt : cueText),
         answer,
-        promptImage: image,
+        promptImage: isVoiceGate ? '' : image,
         interaction: effectiveInteraction,
       }),
+      ...{
+        audio_turns: (isVoiceGate
+          ? [
+              { text: cueAudio || cues[0]?.text || '', speaker_role: 'teacher', image_url: media(image) },
+              { text: prompt, speaker_role: 'teacher', image_url: media(image) },
+            ]
+          : cues.map((cue) => ({
+          text: cue.text,
+          speaker_role: 'teacher',
+          image_url: media(image),
+            }))),
+      },
       translation,
       mission_game: {
         kind,
         instruction_es: instruction,
         validation,
         targets,
+        cues,
         ...(tutorialMode ? { tutorial_mode: tutorialMode } : {}),
         ...(cueAudio ? { cue_audio_text: cueAudio } : {}),
       },
@@ -864,7 +887,334 @@ const missionBlueprint = [
   }),
 ];
 
-const lesson110Cards = missionBlueprint.map(({ chapter, phase, card }, index) => {
+const missionCandidate = (id, optionId, x, y, label = 'Persona') => missionTarget(
+  id,
+  label,
+  [optionId],
+  [Math.max(0, x - 0.085), Math.max(0, y - 0.085), 0.17, 0.17],
+);
+
+const missionBlueprintV4 = [
+  missionGameCard({
+    beat: 1, chapter: 'find-the-people', kind: 'guided-search', stage: 'Listen',
+    phase: 'the learner follows one English clue and discovers how the game responds',
+    instruction: 'Escucha y toca a la persona.', validation: 'single', tutorialMode: 'guided-no-fail',
+    translation: 'Un niño.',
+    cues: [missionCue('boy', 'A boy.', 'A boy.', 'boy')],
+    choices: [['boy', 'A boy.'], ['girl', 'A girl.'], ['man', 'A man.'], ['woman', 'A woman.']],
+    targets: [
+      missionCandidate('boy', 'boy', 0.16, 0.66), missionCandidate('girl', 'girl', 0.82, 0.63),
+      missionCandidate('man', 'man', 0.38, 0.40), missionCandidate('woman', 'woman', 0.64, 0.40),
+    ],
+  }),
+  missionGameCard({
+    beat: 2, chapter: 'find-the-people', kind: 'crowd-search', stage: 'Listen',
+    phase: 'three English clues bring the remaining people through the celebration gate',
+    instruction: 'Escucha una frase a la vez y toca a la persona.', validation: 'ordered',
+    translation: 'Una niña. Un hombre. Una mujer.',
+    cues: [
+      missionCue('girl', 'A girl.', 'A girl.', 'girl'),
+      missionCue('man', 'A man.', 'A man.', 'man'),
+      missionCue('woman', 'A woman.', 'A woman.', 'woman'),
+    ],
+    choices: [['girl', 'A girl.'], ['man', 'A man.'], ['woman', 'A woman.'], ['boy', 'A boy.']],
+    targets: [
+      missionCandidate('boy', 'boy', 0.14, 0.66), missionCandidate('girl', 'girl', 0.84, 0.66),
+      missionCandidate('man', 'man', 0.38, 0.40), missionCandidate('woman', 'woman', 0.64, 0.40),
+    ],
+  }),
+  missionGameCard({
+    beat: 3, chapter: 'find-the-people', kind: 'crowd-search', stage: 'Listen',
+    phase: 'pronouns identify all four arrivals without a draggable worksheet',
+    instruction: 'Escucha una frase a la vez y toca a la persona.', validation: 'ordered',
+    translation: 'Él es un niño. Ella es una niña. Él es un hombre. Ella es una mujer.',
+    cues: [
+      missionCue('he-boy', 'He is a boy.', 'He is a boy.', 'boy'),
+      missionCue('she-girl', 'She is a girl.', 'She is a girl.', 'girl'),
+      missionCue('he-man', 'He is a man.', 'He is a man.', 'man'),
+      missionCue('she-woman', 'She is a woman.', 'She is a woman.', 'woman'),
+    ],
+    choices: [['he-boy', 'He is a boy.'], ['she-girl', 'She is a girl.'], ['he-man', 'He is a man.'], ['she-woman', 'She is a woman.']],
+    targets: [
+      missionCandidate('boy', 'he-boy', 0.16, 0.66), missionCandidate('girl', 'she-girl', 0.82, 0.66),
+      missionCandidate('man', 'he-man', 0.38, 0.40), missionCandidate('woman', 'she-woman', 0.64, 0.40),
+    ],
+  }),
+  missionGameCard({
+    beat: 4, chapter: 'connect-the-family', kind: 'family-link', stage: 'Listen',
+    phase: 'the family map connects each person and then the two age groups',
+    instruction: 'Escucha y toca a la persona o al grupo.', validation: 'ordered',
+    translation: 'El niño y la niña son niños. El hombre y la mujer son adultos.',
+    cues: [
+      missionCue('boy-child', 'The boy is a child.', 'The boy is a child.', 'boy'),
+      missionCue('girl-child', 'The girl is a child.', 'The girl is a child.', 'girl'),
+      missionCue('man-adult', 'The man is an adult.', 'The man is an adult.', 'man'),
+      missionCue('woman-adult', 'The woman is an adult.', 'The woman is an adult.', 'woman'),
+      missionCue('children', 'The boy and the girl are children.', 'The boy and the girl are children.', 'children'),
+      missionCue('adults', 'The man and the woman are adults.', 'The man and the woman are adults.', 'adults'),
+    ],
+    choices: [
+      ['boy-child', 'The boy is a child.'], ['girl-child', 'The girl is a child.'],
+      ['man-adult', 'The man is an adult.'], ['woman-adult', 'The woman is an adult.'],
+      ['children', 'The boy and the girl are children.'], ['adults', 'The man and the woman are adults.'],
+    ],
+    targets: [
+      missionCandidate('boy', 'boy-child', 0.20, 0.64), missionCandidate('girl', 'girl-child', 0.80, 0.64),
+      missionCandidate('man', 'man-adult', 0.38, 0.34), missionCandidate('woman', 'woman-adult', 0.62, 0.34),
+      missionCandidate('children', 'children', 0.28, 0.82, 'Grupo'), missionCandidate('adults', 'adults', 0.72, 0.82, 'Grupo'),
+    ],
+  }),
+  missionGameCard({
+    beat: 5, chapter: 'connect-the-family', kind: 'family-link', stage: 'Listen',
+    phase: 'one baby and a clearly plural baby group connect to child and children',
+    instruction: 'Escucha y toca la imagen correcta.', validation: 'ordered',
+    translation: 'Un bebé es un niño. Los bebés son niños.',
+    cues: [
+      missionCue('baby-child', 'A baby is a child.', 'A baby is a child.', 'one-baby'),
+      missionCue('babies-children', 'Babies are children.', 'Babies are children.', 'three-babies'),
+    ],
+    choices: [['baby-child', 'A baby is a child.'], ['babies-children', 'Babies are children.'], ['boy', 'A boy.'], ['children', 'They are children.']],
+    targets: [
+      missionCandidate('one-baby', 'baby-child', 0.30, 0.34), missionCandidate('three-babies', 'babies-children', 0.69, 0.34),
+      missionCandidate('boy', 'boy', 0.25, 0.69), missionCandidate('children', 'children', 0.70, 0.69, 'Grupo'),
+    ],
+  }),
+  missionGameCard({
+    beat: 6, chapter: 'connect-the-family', kind: 'family-link', stage: 'Listen',
+    phase: 'the established children connect as brother and sister',
+    instruction: 'Escucha y toca a la persona.', validation: 'ordered',
+    translation: 'Él es el hermano. Ella es la hermana.',
+    cues: [
+      missionCue('brother', 'He is the brother.', 'He is the brother.', 'brother'),
+      missionCue('sister', 'She is the sister.', 'She is the sister.', 'sister'),
+    ],
+    choices: [['brother', 'He is the brother.'], ['sister', 'She is the sister.'], ['father', 'He is the father.'], ['mother', 'She is the mother.']],
+    targets: [
+      missionCandidate('brother', 'brother', 0.25, 0.55), missionCandidate('sister', 'sister', 0.75, 0.55),
+      missionCandidate('father', 'father', 0.38, 0.28), missionCandidate('mother', 'mother', 0.62, 0.28),
+    ],
+  }),
+  missionGameCard({
+    beat: 7, chapter: 'connect-the-family', kind: 'family-link', stage: 'Listen',
+    phase: 'two distinct sibling groups connect through plural English clues',
+    instruction: 'Escucha y toca al grupo.', validation: 'ordered',
+    translation: 'Ellos son los hermanos. Ellas son las hermanas.',
+    cues: [
+      missionCue('brothers', 'They are the brothers.', 'They are the brothers.', 'brothers'),
+      missionCue('sisters', 'They are the sisters.', 'They are the sisters.', 'sisters'),
+    ],
+    choices: [['brothers', 'They are the brothers.'], ['sisters', 'They are the sisters.'], ['parents', 'They are the parents.'], ['grandparents', 'They are the grandparents.']],
+    targets: [
+      missionCandidate('brothers', 'brothers', 0.23, 0.48, 'Grupo'), missionCandidate('sisters', 'sisters', 0.77, 0.48, 'Grupo'),
+      missionCandidate('parents', 'parents', 0.32, 0.78, 'Grupo'), missionCandidate('grandparents', 'grandparents', 0.68, 0.78, 'Grupo'),
+    ],
+  }),
+  missionGameCard({
+    beat: 8, chapter: 'connect-the-family', kind: 'family-link', stage: 'Listen',
+    phase: 'father and mother connect before the parent pair is welcomed',
+    instruction: 'Escucha y toca a la persona o a la pareja.', validation: 'ordered',
+    translation: 'Él es el padre. Ella es la madre. Ellos son los padres.',
+    cues: [
+      missionCue('father', 'He is the father.', 'He is the father.', 'father'),
+      missionCue('mother', 'She is the mother.', 'She is the mother.', 'mother'),
+      missionCue('parents', 'They are the parents.', 'They are the parents.', 'parents'),
+    ],
+    choices: [['father', 'He is the father.'], ['mother', 'She is the mother.'], ['parents', 'They are the parents.'], ['children', 'They are the children.']],
+    targets: [
+      missionCandidate('father', 'father', 0.36, 0.38), missionCandidate('mother', 'mother', 0.64, 0.38),
+      missionCandidate('parents', 'parents', 0.50, 0.66, 'Pareja'), missionCandidate('children', 'children', 0.50, 0.84, 'Grupo'),
+    ],
+  }),
+  missionGameCard({
+    beat: 9, chapter: 'connect-the-family', kind: 'family-link', stage: 'Listen',
+    phase: 'the visible family map establishes both generations without age-only guessing',
+    instruction: 'Escucha y toca a la persona o al grupo.', validation: 'ordered',
+    translation: 'Él es el abuelo. Ella es la abuela. Ellos son los abuelos. Ellos son los nietos.',
+    cues: [
+      missionCue('grandfather', 'He is the grandfather.', 'He is the grandfather.', 'grandfather'),
+      missionCue('grandmother', 'She is the grandmother.', 'She is the grandmother.', 'grandmother'),
+      missionCue('grandparents', 'They are the grandparents.', 'They are the grandparents.', 'grandparents'),
+      missionCue('grandchildren', 'They are the grandchildren.', 'They are the grandchildren.', 'grandchildren'),
+    ],
+    choices: [
+      ['grandfather', 'He is the grandfather.'], ['grandmother', 'She is the grandmother.'],
+      ['grandparents', 'They are the grandparents.'], ['grandchildren', 'They are the grandchildren.'],
+    ],
+    targets: [
+      missionCandidate('grandfather', 'grandfather', 0.34, 0.30), missionCandidate('grandmother', 'grandmother', 0.66, 0.30),
+      missionCandidate('grandparents', 'grandparents', 0.50, 0.49, 'Pareja'), missionCandidate('grandchildren', 'grandchildren', 0.50, 0.78, 'Grupo'),
+    ],
+  }),
+  missionGameCard({
+    beat: 10, chapter: 'follow-the-actions', kind: 'action-hunt', stage: 'Listen',
+    phase: 'the learner finds eating and drinking among several plausible actions',
+    instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
+    translation: 'Ella está comiendo. Él está bebiendo.',
+    cues: [
+      missionCue('eating', 'She is eating.', 'She is eating.', 'eating'),
+      missionCue('drinking', 'He is drinking.', 'He is drinking.', 'drinking'),
+    ],
+    choices: [['eating', 'She is eating.'], ['drinking', 'He is drinking.'], ['reading', 'She is reading.'], ['sitting', 'He is sitting.']],
+    targets: [
+      missionCandidate('eating', 'eating', 0.24, 0.35), missionCandidate('drinking', 'drinking', 0.76, 0.35),
+      missionCandidate('reading', 'reading', 0.28, 0.72), missionCandidate('sitting', 'sitting', 0.72, 0.72),
+    ],
+  }),
+  missionGameCard({
+    beat: 11, chapter: 'follow-the-actions', kind: 'action-hunt', stage: 'Listen',
+    phase: 'reading and writing are distinguished by action and pronoun',
+    instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
+    translation: 'Ella está leyendo. Él está escribiendo.',
+    cues: [
+      missionCue('reading', 'She is reading.', 'She is reading.', 'reading'),
+      missionCue('writing', 'He is writing.', 'He is writing.', 'writing'),
+    ],
+    choices: [['reading', 'She is reading.'], ['writing', 'He is writing.'], ['talking', 'She is talking.'], ['drinking', 'He is drinking.']],
+    targets: [
+      missionCandidate('reading', 'reading', 0.13, 0.51), missionCandidate('writing', 'writing', 0.36, 0.51),
+      missionCandidate('talking', 'talking', 0.65, 0.49), missionCandidate('drinking', 'drinking', 0.87, 0.47),
+    ],
+  }),
+  missionGameCard({
+    beat: 12, chapter: 'follow-the-actions', kind: 'action-hunt', stage: 'Listen',
+    phase: 'running and swimming are found inside one lively celebration scene',
+    instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
+    translation: 'Ella está corriendo. Ella está nadando.',
+    cues: [
+      missionCue('running', 'She is running.', 'She is running.', 'running'),
+      missionCue('swimming', 'She is swimming.', 'She is swimming.', 'swimming'),
+    ],
+    choices: [['running', 'She is running.'], ['swimming', 'She is swimming.'], ['sitting', 'She is sitting.'], ['talking', 'She is talking.']],
+    targets: [
+      missionCandidate('running', 'running', 0.16, 0.48), missionCandidate('swimming', 'swimming', 0.45, 0.61),
+      missionCandidate('sitting', 'sitting', 0.70, 0.52), missionCandidate('talking', 'talking', 0.88, 0.36),
+    ],
+  }),
+  missionGameCard({
+    beat: 13, chapter: 'follow-the-actions', kind: 'action-hunt', stage: 'Listen',
+    phase: 'sitting and sleeping are found without using numbered or ordered boxes',
+    instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
+    translation: 'Él está sentado. Ella está durmiendo.',
+    cues: [
+      missionCue('sitting', 'He is sitting.', 'He is sitting.', 'sitting'),
+      missionCue('sleeping', 'She is sleeping.', 'She is sleeping.', 'sleeping'),
+    ],
+    choices: [['sitting', 'He is sitting.'], ['sleeping', 'She is sleeping.'], ['reading', 'He is reading.'], ['working', 'She is working.']],
+    targets: [
+      missionCandidate('sitting', 'sitting', 0.17, 0.54), missionCandidate('sleeping', 'sleeping', 0.43, 0.54),
+      missionCandidate('reading', 'reading', 0.69, 0.53), missionCandidate('working', 'working', 0.90, 0.52),
+    ],
+  }),
+  missionGameCard({
+    beat: 14, chapter: 'follow-the-actions', kind: 'action-hunt', stage: 'Listen',
+    phase: 'playing and studying are found among visible decoy actions',
+    instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
+    translation: 'Ellos están jugando. Ella está estudiando.',
+    cues: [
+      missionCue('playing', 'They are playing.', 'They are playing.', 'playing'),
+      missionCue('studying', 'She is studying.', 'She is studying.', 'studying'),
+    ],
+    choices: [['playing', 'They are playing.'], ['studying', 'She is studying.'], ['reading', 'They are reading.'], ['talking', 'She is talking.']],
+    targets: [
+      missionCandidate('playing', 'playing', 0.13, 0.57, 'Grupo'), missionCandidate('studying', 'studying', 0.39, 0.55),
+      missionCandidate('reading', 'reading', 0.65, 0.55, 'Grupo'), missionCandidate('talking', 'talking', 0.88, 0.43),
+    ],
+  }),
+  missionGameCard({
+    beat: 15, chapter: 'follow-the-actions', kind: 'action-hunt', stage: 'Listen',
+    phase: 'working, cooking, and talking complete the celebration preparations',
+    instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
+    translation: 'Ella está trabajando. Él está cocinando. Ellos están hablando.',
+    cues: [
+      missionCue('working', 'She is working.', 'She is working.', 'working'),
+      missionCue('cooking', 'He is cooking.', 'He is cooking.', 'cooking'),
+      missionCue('talking', 'They are talking.', 'They are talking.', 'talking'),
+    ],
+    choices: [['working', 'She is working.'], ['cooking', 'He is cooking.'], ['talking', 'They are talking.'], ['reading', 'He is reading.']],
+    targets: [
+      missionCandidate('working', 'working', 0.12, 0.52), missionCandidate('cooking', 'cooking', 0.35, 0.42),
+      missionCandidate('talking', 'talking', 0.63, 0.47, 'Grupo'), missionCandidate('reading', 'reading', 0.87, 0.52),
+    ],
+  }),
+  missionGameCard({
+    beat: 16, chapter: 'repair-the-clues', kind: 'contrast-hunt', stage: 'Listen',
+    phase: 'a complete negative English clue identifies the drinking man among active candidates',
+    instruction: 'Escucha la frase completa y encuentra a quién describe.', validation: 'single',
+    translation: 'Él no está comiendo. Él está bebiendo.',
+    cues: [missionCue('not-eating', 'He is not eating. He is drinking.', 'He is not eating. He is drinking.', 'drinking')],
+    choices: [['not-eating', 'He is not eating. He is drinking.'], ['eating', 'He is eating.'], ['reading', 'He is reading.'], ['sitting', 'He is sitting.']],
+    targets: [
+      missionCandidate('drinking', 'not-eating', 0.17, 0.45), missionCandidate('eating', 'eating', 0.41, 0.45),
+      missionCandidate('reading', 'reading', 0.64, 0.45), missionCandidate('sitting', 'sitting', 0.86, 0.45),
+    ],
+  }),
+  missionGameCard({
+    beat: 17, chapter: 'repair-the-clues', kind: 'contrast-hunt', stage: 'Listen',
+    phase: 'a complete negative English clue identifies the writing woman',
+    instruction: 'Escucha la frase completa y encuentra a quién describe.', validation: 'single',
+    translation: 'Ella no está leyendo. Ella está escribiendo.',
+    cues: [missionCue('not-reading', 'She is not reading. She is writing.', 'She is not reading. She is writing.', 'writing')],
+    choices: [['not-reading', 'She is not reading. She is writing.'], ['reading', 'She is reading.'], ['talking', 'She is talking.'], ['cooking', 'She is cooking.']],
+    targets: [
+      missionCandidate('writing', 'not-reading', 0.16, 0.47), missionCandidate('reading', 'reading', 0.39, 0.47),
+      missionCandidate('talking', 'talking', 0.62, 0.47), missionCandidate('cooking', 'cooking', 0.85, 0.43),
+    ],
+  }),
+  missionGameCard({
+    beat: 18, chapter: 'repair-the-clues', kind: 'contrast-hunt', stage: 'Listen',
+    phase: 'a plural negative clue identifies the seated pair',
+    instruction: 'Escucha la frase completa y encuentra al grupo.', validation: 'single',
+    translation: 'Ellos no están corriendo. Ellos están sentados.',
+    cues: [missionCue('not-running', 'They are not running. They are sitting.', 'They are not running. They are sitting.', 'sitting')],
+    choices: [['not-running', 'They are not running. They are sitting.'], ['running', 'They are running.'], ['talking', 'They are talking.'], ['playing', 'They are playing.']],
+    targets: [
+      missionCandidate('sitting', 'not-running', 0.15, 0.59, 'Grupo'), missionCandidate('running', 'running', 0.37, 0.49, 'Grupo'),
+      missionCandidate('talking', 'talking', 0.60, 0.47, 'Grupo'), missionCandidate('playing', 'playing', 0.84, 0.55, 'Grupo'),
+    ],
+  }),
+  missionGameCard({
+    beat: 19, chapter: 'welcome-everyone', kind: 'voice-gate', stage: 'Speak',
+    phase: 'the learner answers who the father is through the real pronunciation flow',
+    prompt: 'He is the father.', cueAudio: 'Who is he?',
+    instruction: 'Escucha la pregunta y responde en voz alta.', validation: 'single',
+    translation: 'Él es el padre.', imageOptionId: 'father',
+    cues: [missionCue('father', 'Who is he?', 'He is the father.', 'father')],
+    choices: [['father', 'He is the father.']],
+    targets: [missionCandidate('father', 'father', 0.50, 0.50)],
+  }),
+  missionGameCard({
+    beat: 20, chapter: 'welcome-everyone', kind: 'voice-gate', stage: 'Speak',
+    phase: 'the learner answers who the grandmother is through the real pronunciation flow',
+    prompt: 'She is the grandmother.', cueAudio: 'Who is she?',
+    instruction: 'Escucha la pregunta y responde en voz alta.', validation: 'single',
+    translation: 'Ella es la abuela.', imageOptionId: 'grandmother',
+    cues: [missionCue('grandmother', 'Who is she?', 'She is the grandmother.', 'grandmother')],
+    choices: [['grandmother', 'She is the grandmother.']],
+    targets: [missionCandidate('grandmother', 'grandmother', 0.50, 0.50)],
+  }),
+  missionGameCard({
+    beat: 21, chapter: 'welcome-everyone', kind: 'voice-gate', stage: 'Speak',
+    phase: 'the learner answers who the parents are through the real pronunciation flow',
+    prompt: 'They are the parents.', cueAudio: 'Who are they?',
+    instruction: 'Escucha la pregunta y responde en voz alta.', validation: 'single',
+    translation: 'Ellos son los padres.', imageOptionId: 'parents',
+    cues: [missionCue('parents', 'Who are they?', 'They are the parents.', 'parents')],
+    choices: [['parents', 'They are the parents.']],
+    targets: [missionCandidate('parents', 'parents', 0.50, 0.50, 'Pareja')],
+  }),
+  missionGameCard({
+    beat: 22, chapter: 'welcome-everyone', kind: 'voice-gate', stage: 'Speak',
+    phase: 'the learner identifies the reunited family aloud to open the celebration',
+    prompt: 'They are a family.', cueAudio: 'Who are they?',
+    instruction: 'Escucha la pregunta y responde en voz alta.', validation: 'single',
+    translation: 'Ellos son una familia.', imageOptionId: 'family', interaction: 'mission-finale',
+    cues: [missionCue('family', 'Who are they?', 'They are a family.', 'family')],
+    choices: [['family', 'They are a family.']],
+    targets: [missionCandidate('family', 'family', 0.50, 0.50, 'Familia')],
+  }),
+];
+
+const lesson110Cards = missionBlueprintV4.map(({ chapter, phase, card }, index) => {
   const { translation, ...cardFields } = card;
   return {
     slide_id: `M${String(index + 1).padStart(2, '0')}`,
@@ -883,14 +1233,15 @@ if (JSON.stringify([...new Set(lesson110Cards.map((card) => card.mission_chapter
 if (lesson110Cards.some((card, index) => card.slide_id !== `M${String(index + 1).padStart(2, '0')}`)) {
   throw new Error('1.10 mission slide IDs must remain M01 through M22');
 }
-const requiredMissionKinds = ['hotspot', 'label-placement', 'relationship-link', 'action-sequence', 'not-correction', 'who-dialogue', 'speak', 'finale'];
+const requiredMissionKinds = ['guided-search', 'crowd-search', 'family-link', 'action-hunt', 'contrast-hunt', 'voice-gate'];
 const authoredMissionKinds = new Set(lesson110Cards.map((card) => card.mission_game.kind));
 if (requiredMissionKinds.some((kind) => !authoredMissionKinds.has(kind))) {
-  throw new Error('1.10 must exercise all eight approved mission game kinds');
+  throw new Error('1.10 must exercise every approved celebration game mechanic');
 }
 for (const [index, card] of lesson110Cards.entries()) {
   const expectedPrefix = `a1_u1_reunion_${String(index + 1).padStart(2, '0')}_`;
-  if (!card.prompt_image_url.endsWith('.webp') || !card.prompt_image_url.includes(`/${expectedPrefix}`)) {
+  const heroImageUrl = card.prompt_image_url || card.options.find((option) => option.image_url)?.image_url || '';
+  if (!heroImageUrl.endsWith('.webp') || !heroImageUrl.includes(`/${expectedPrefix}`)) {
     throw new Error(`${card.slide_id} must use its ordered ${expectedPrefix} hero still`);
   }
   if (!card.mission_game.instruction_es.trim() || !card.mission_game.targets.length) {
@@ -915,7 +1266,9 @@ if (missingMissionVocabulary.length) {
   throw new Error(`1.10 gold paths omit learned Unit 1 vocabulary: ${missingMissionVocabulary.join(', ')}`);
 }
 
-const authoredHeroUrls = lesson110Cards.map((card) => card.prompt_image_url);
+const authoredHeroUrls = lesson110Cards.map(
+  (card) => card.prompt_image_url || card.options.find((option) => option.image_url)?.image_url || '',
+);
 if (
   new Set(authoredHeroUrls).size !== 22
   || JSON.stringify(authoredHeroUrls) !== JSON.stringify(missionHeroAssets.map(media))
@@ -929,28 +1282,28 @@ const lesson110 = {
   unit_outcome: 'Understand and produce simple sentences about people, family members, and actions.',
   lesson_id: 'lesson-1', lesson_title: 'Unit 1: People, Family, and Actions',
   sub_lesson_id: '1.10', sub_lesson_title: '¡Todos a la celebración!',
-  experience_type: 'mission', content_revision: 3,
+  experience_type: 'mission', content_revision: 4,
   mission: {
     label: 'MISIÓN FINAL · UNIDAD 1',
     title: '¡Todos a la celebración!',
-    briefing: 'La celebración familiar está por comenzar, pero todavía falta reunir a todos. Encuentra a cada persona, descubre qué está haciendo y responde quién es. Vas a tocar, unir, escuchar y hablar. Yo te mostraré el primer paso.',
+    briefing: 'La celebración está por comenzar y todavía faltan invitados. Escucha cada frase, encuentra a las personas y descubre qué están haciendo. Al final responderás en voz alta para abrir la celebración. Primero practicaremos juntos.',
     kickoff_image_url: media(missionKickoffAsset),
     objectives: ['Encuentra personas', 'Sigue sus acciones', 'Reúne a la familia'],
     completion_title: '¡La familia está reunida!',
     completion_message: 'Encontraste a las personas, conectaste a la familia, seguiste sus acciones y respondiste quiénes son. La celebración puede comenzar.',
     chapters: [
-      { id: 'find-the-people', title: 'Encuentra a las personas', objective: 'Sigue la luz y localiza a quienes faltan.' },
-      { id: 'connect-the-family', title: 'Conecta a la familia', objective: 'Une a cada persona con su relación correcta.' },
-      { id: 'follow-the-actions', title: 'Sigue las acciones', objective: 'Recorre las pistas en el orden que muestran y dicen.' },
-      { id: 'repair-the-clues', title: 'Repara las pistas', objective: 'Corrige los reportes falsos con not.' },
-      { id: 'welcome-everyone', title: 'Recibe a todos', objective: 'Responde quiénes son y reúne a la familia.' },
+      { id: 'find-the-people', title: 'Encuentra a las personas', objective: 'Escucha y encuentra a cada invitado.' },
+      { id: 'connect-the-family', title: 'Descubre la familia', objective: 'Identifica a cada persona y a cada grupo.' },
+      { id: 'follow-the-actions', title: 'Sigue las acciones', objective: 'Escucha y encuentra qué está haciendo cada persona.' },
+      { id: 'repair-the-clues', title: 'Encuentra la verdad', objective: 'Escucha la frase completa y elige a quién describe.' },
+      { id: 'welcome-everyone', title: 'Recibe a todos', objective: 'Escucha las preguntas y responde en voz alta.' },
     ],
   },
   goal: 'Bring every person to one family celebration by finding people, connecting relationships, following actions, correcting false clues, and answering who they are.',
   vocabulary: [], review_vocabulary: unitOneLearnedVocabulary,
   grammar_function: 'Apply every Unit 1 identity, article, singular/plural, pronoun, action, negative, and who-question pattern inside one continuous celebration adventure.',
   prerequisite: 'Lessons 1.1-1.9 completed.',
-  speaking_outcome: 'Answer who a family member is and identify the reunited family aloud.',
+  speaking_outcome: 'Answer all three who-question forms and identify the reunited family aloud across four consecutive voice challenges.',
   purposeful_review_slides: ['M01', 'M03', 'M04', 'M09', 'M10', 'M15', 'M16', 'M19', 'M20', 'M21', 'M22'],
   cards: lesson110Cards,
 };

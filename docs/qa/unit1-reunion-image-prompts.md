@@ -1,6 +1,6 @@
 # Unit 1 reunion mission image prompts
 
-Generated on 2026-09-06 for the rebuilt Lesson 1.10 mission. All assets are entirely new pixels. Existing lesson images were supplied only as identity references; no prior lesson or rejected 1.10 image was reused as course media. The installer writes an exact 1536 x 1024 WebP copy to both `frontend/public/lesson-assets/` and `mobile/assets/lesson-assets/` and refuses overwrite.
+Generated on 2026-09-06 and revised after phone-game QA on 2026-09-07 for the rebuilt Lesson 1.10 mission. All assets are entirely new pixels. Existing lesson images were supplied only as identity references; no prior lesson or rejected 1.10 image was reused as course media. Every approved 1536 x 1024 WebP is copied byte-identically to the canonical, frontend, and mobile asset locations.
 
 ## Shared generation contract
 
@@ -97,10 +97,10 @@ Avoid: signs, checkpoint booths, text, literal labels, colored boxes, extra chil
 
 ## M05 — `a1_u1_reunion_05_babies.webp`
 
-- Source: `C:\Users\gorre\.codex\generated_images\01a074d4-a3dc-7eb1-9184-d70d457f91d6\exec-c0c02a9b-d99b-435c-a7dd-eec5936ae799.png`
-- Identity reference: `Lessons/Lesson1/images/family_babies_3x2.webp`
-- Installed SHA-256: `17d5726544774913f91d97c91986c89661c28734e066c2635b3b34effd9fc134`
-- QA: approved; exactly two secure, separated babies, both full faces/bodies/hands clear and the left singular target independently highlightable.
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-55108866-5459-4839-9ca6-e3a8e6b8fd71.png`
+- Identity references: established baby and child family assets.
+- Installed SHA-256: `7359e52c1cdaa7a269b33a687c3efb392be7ed84460e48d84a05aa56e4b28c57`
+- QA: Preview candidate; four widely separated selectable regions show exactly one baby, three babies, one child, and two children. The singular baby and plural baby group are independently tappable and neither child region can satisfy a baby clue.
 
 ```text
 Use case: photorealistic-natural
@@ -109,10 +109,10 @@ Continuity: same late-afternoon terracotta courtyard and curving stone garden ro
 Style: candid natural editorial family photography, realistic Latino skin texture, individual hair strands, real fabric folds, warm late-afternoon light, no plastic AI polish.
 Output: exact 1536x1024 landscape 3:2, full-bleed. Every answer-critical face, complete head, meaningful hand and enough body to understand the relationship must be large inside the central mobile-safe area.
 Global constraints: exact requested cast and nobody else anywhere, including background; natural anatomy, five-finger hands, plausible limbs, unobstructed faces, separate bodies; no generated text, letters, numerals, signs, logos, watermarks, arrows, UI, cards, labels, album, film studio, clapperboard, collage, split screen, contact sheet, sofa portrait, classroom, duplicated face, extra person, cropped hand, malformed hand, or excessive decoration.
-Primary request: mission beat M05, teach one baby versus two babies.
-Input image: identity reference only for the two established Latino babies. Preserve their recognizable faces, age, hair and sibling identity only. This is generation, not an edit; do not copy pixels, pose, clothing, sofa, crop, lighting or background.
-Scene/composition: exactly two babies, securely seated side by side in one modern cream double stroller parked on a broad shaded part of the courtyard path. The left baby wears a plain cream romper; the right baby wears a plain pale-sage romper. The stroller divider and separate harnesses make two complete bodies unmistakable. Both babies are awake, calm and looking generally toward camera, with both faces, torsos, arms and natural hands clearly visible. Keep generous clean space around the left baby alone and around the two-baby group so UI can highlight “A baby” and then “Babies.”
-Avoid: adult or child visible, disembodied caregiver hand, a third baby, twin duplication artifacts, babies overlapping, unsafe unsupported pose, crib, bed, blanket hiding bodies, food, bottle, toys, action ambiguity, text on stroller, or babies too small for phone viewing.
+Primary request: mission beat M05, distinguish `A baby is a child.` from `Babies are children.` among four large candidates rather than two obvious zones.
+Identity references: preserve the established family age range and natural Latino appearance only. This is generation, not an edit; do not copy pixels, poses, clothing, interior objects, crop, lighting or background.
+Scene/composition: four independent regions in one continuous courtyard: one securely seated baby at upper left; exactly three securely seated babies together at upper right; one standing boy at lower left; and one boy plus one girl together at lower right. Use large complete bodies, clear stroller harnesses, generous gaps, and no adults or background people. The UI can place equal pulsing points on all four regions without one target appearing preselected.
+Avoid: overlap between regions, a second baby in the singular stroller, fewer or more than three babies in the plural stroller, an adult, hidden faces, unsafe baby pose, duplicate child, text, or any collage/divider treatment.
 ```
 
 ## M06 — `a1_u1_reunion_06_brother_sister.webp`
@@ -205,10 +205,10 @@ Avoid: father, mother, babies, seventh person, background guest, a child behind 
 
 ## M10 — `a1_u1_reunion_10_eat_drink.webp`
 
-- Source: `C:\Users\gorre\.codex\generated_images\01a074d4-a3dc-7eb1-9184-d70d457f91d6\exec-390ee18c-8579-4715-b38c-98ac86b734f5.png`
-- Identity references: mother and grandfather canonical 3:2 images.
-- Installed SHA-256: `4188f010bbd0c816d92b9ad7e7135473bf610cefac53f86f636352c501d4e6a6`
-- QA: approved; mother is visibly biting food while grandfather's glass touches his lips, each with exactly one separate prop and no alternate actor.
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-dd3e1692-2bbc-4199-a42f-4ae1891a1abb.png`
+- Identity references: established mother, grandfather, sister, and father family assets.
+- Installed SHA-256: `6f8290f57437167b406e0cf88a175ee356656b051dd105bf49ddcb2f8c93b59d`
+- QA: Preview candidate; mother is visibly biting a sandwich, grandfather's glass touches his lips, the sister reads below them, and the father sits with empty hands. All four action candidates are large and spatially separate, with exactly one eating woman and one drinking man.
 
 ```text
 Use case: photorealistic-natural
@@ -217,33 +217,82 @@ Continuity: same late-afternoon terracotta courtyard and curving stone garden ro
 Style: candid natural editorial family photography, realistic Latino skin texture, individual hair strands, real fabric folds, warm late-afternoon light, no plastic AI polish.
 Output: exact 1536x1024 landscape 3:2, full-bleed. Every answer-critical face, complete head, meaningful hand and enough body to understand the relationship or action must be large inside the central mobile-safe area.
 Global constraints: exact requested cast and nobody else anywhere, including background; natural anatomy, five-finger hands, plausible limbs, unobstructed faces, separate bodies; no generated text, letters, numerals, signs, logos, watermarks, arrows, UI, cards, labels, album, film studio, clapperboard, collage, split screen, contact sheet, sofa portrait, classroom, duplicated face, extra person, cropped hand, malformed hand, or excessive decoration.
-Primary request: mission beat M10, unmistakable contrast between EAT and DRINK.
-Input images: identity references only for the established Latina mother and Latino grandfather. Preserve their recognizable faces, ages, hair and family identity only. This is generation, not an edit; do not copy pixels, poses, clothing, indoor objects, crop, lighting or background.
-Mission wardrobe: mother in deep-teal blouse and cream trousers; grandfather in rust short-sleeve polo and dark trousers.
-Scene/composition: exactly two people at opposite ends of one small outdoor refreshment table beside the garden route, in a clear medium shot. On the left, the mother is visibly taking a bite from a simple triangular sandwich held in both natural hands; the sandwich touches her open mouth and her eyes focus on it. On the right, the grandfather is visibly drinking plain water from a transparent glass held in one natural hand; the rim touches his lips and the water level is visible. His other hand rests openly on the table. Leave a wide empty space between them. Give each one and only one action and one prop.
+Primary request: mission beat M10, find EATING and DRINKING among four visible action candidates.
+Input images: identity references only for the established Latina mother and sister plus Latino grandfather and father. Preserve recognizable family identity only. This is generation, not an edit; do not copy pixels, poses, clothing, indoor objects, crop, lighting or background.
+Mission wardrobe: mother in deep teal; grandfather in rust; sister in mustard; father in sage green.
+Scene/composition: four people at four separate small outdoor tables around the same curved courtyard route. Upper left, the mother takes a visible bite from a sandwich. Upper right, the grandfather drinks from a clear glass whose rim touches his lips. Lower left, the sister reads a large open book. Lower right, the father sits with empty hands and no food or drink. Keep all four regions similarly sized and visually independent for equal tap points.
 Purpose: UI will identify who is eating and who is drinking; the actions must remain obvious at phone size without relying on labels.
 Avoid: extra food or cups near the wrong person, mother holding a drink, grandfather holding food, both looking at camera, talking, toast gesture, glass away from lips, food away from mouth, utensils, shared plate, extra people, vendor, hidden fingers, intersecting arms, transparent hand, or ambiguous pantomime.
 ```
 
 ## M11 — `a1_u1_reunion_11_read_write.webp`
 
-- Source: `C:\Users\gorre\.codex\generated_images\01a074d4-a3dc-7eb1-9184-d70d457f91d6\exec-8bc7b65b-eb24-47c6-b869-47fad0982890.png`
-- Identity references: grandmother and father canonical 3:2 images.
-- Installed SHA-256: `e8a245340582ff845c512208c5512becdc4cf26b89a5390dc5118fa6ac0a7b46`
-- QA: approved; grandmother's eyes and tracing finger meet her large open book, father's eyes and pen tip meet his separate notepad, with correct hand ownership and no background people.
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-9c64fd53-12bc-4564-ac86-e1ae0cd684b8.png`
+- Identity references: grandmother, father, sister, and brother canonical 3:2 images.
+- Installed SHA-256: `59e4dc7b07a765b78b129954688b262b2e536c43098be59a3241043256f82b61`
+- QA: Preview candidate replacement; exactly one reader (grandmother), one writer (father), one woman talking on a phone, and one man drinking. Rejected drafts gave the boy a pen and therefore created a second valid `He is writing.` target.
 
 ```text
 Use case: photorealistic-natural
 Asset type: SpanGlish A1 mobile lesson mission hero still, exact landscape 3:2
-Primary request: Generate a completely new, unmistakable READ-versus-WRITE scene for mission beat M11. This is a new generation with identity references, not an edit.
-Input images: identity references only for the established Latina grandmother and Latino father. Preserve their recognizable faces, ages, hair and family identity only. Do not copy any reference pixels, poses, clothing, indoor objects, sofa, crop, lighting or background.
+Primary request: Generate a completely new, unmistakable READ-versus-WRITE scene for mission beat M11 with four equally credible tap locations. This is a new generation with identity references, not an edit.
+Input images: identity references only for the established Latina grandmother and sister plus Latino father and brother. Preserve their recognizable faces, ages, hair and family identity only. Do not copy any reference pixels, poses, clothing, indoor objects, sofa, crop, lighting or background.
 Continuity: the same late-afternoon terracotta courtyard route near the open celebration pavilion, now at one quiet outdoor wooden table beside the path. Restrained coral, teal, mustard and cream decor appears softly in the distant empty background.
 Mission wardrobe: grandmother in a plum blouse and cream trousers, gray hair in a low ponytail; father in a sage-green overshirt over a cream tee and dark trousers.
-Subject/action: exactly two people and two completely separate paper objects. Grandmother sits on the left with a LARGE open book angled visibly toward camera. Her eyes look directly down at the open page; one natural index finger rests under a line as if following it, while her other hand supports the opposite page. Father sits on the right with his own LARGE cream notepad, clearly separate from her book. His eyes look directly down at his notepad; one natural hand holds a dark pen in a normal writing grip, with the pen tip visibly touching the paper mid-stroke, while his other open hand steadies the page.
-Composition/framing: an elevated front three-quarter camera angle, medium-wide, so both faces, gaze directions, complete forearms, both hands, open book, notepad and touching pen tip are simultaneously visible and large at phone size. Put a broad clean section of tabletop between the two paper objects. Keep both complete heads and all action-critical hands inside the central mobile-safe region.
+Subject/action: exactly four people. Grandmother at far left is the only reader, with gaze and tracing finger on a large open book. Father left-center is the only writer, with pen tip touching his separate sheet and the other hand steadying it. Sister right-center talks on a phone with empty space around her. Brother at far right drinks water with the clear glass rim touching his lips and no paper, pen, pencil, book, notebook, or phone near him.
+Composition/framing: a slightly elevated medium-wide view across one continuous courtyard. Preserve broad clean gaps and four similarly large body regions so equal tap points can be placed without boxes or a collage. Keep all complete heads and all action-critical hands and props in the mobile-safe region.
 Purpose: UI asks who is reading and who is writing. The evidence must come from gaze, hand placement and object interaction, with no guesswork.
 Style: candid natural editorial family photography, realistic Latino skin texture, individual hair strands, real fabric folds, warm natural light, no plastic AI polish.
 Output: exact 1536x1024 landscape 3:2, full-bleed.
-Constraints: exactly two people total and nobody in the background; anatomically correct arms and five-finger hands; plausible left/right attachment; each person's hands originate naturally from that person's shoulders and sleeves; no overlapping arms; no shared sheet; no disembodied hand; no text that is readable, letters, numerals, signs, logos, watermark, arrows, UI, cards, labels, album, film studio, clapperboard, collage, split screen, contact sheet, sofa, classroom, duplicate face, extra limbs, cropped hand, malformed fingers, or excessive decoration.
-Avoid: tiny card, blank card held upright, father pretending to read, grandmother holding a pen, both reading, both writing, looking at camera, talking, pointing at the other person's paper, hand emerging from wrong side, floating pen, pen away from paper, book covering a face, hidden hands, drinks, food, phone, tablet, or background guest.
+Constraints: exactly four people total and nobody in the background; anatomically correct arms and five-finger hands; plausible left/right attachment; each person's hands originate naturally from that person's shoulders and sleeves; no overlapping arms; no shared sheet; no disembodied hand; no readable text, signs, logos, watermark, arrows, UI, labels, album, collage, split screen, duplicate face, extra limbs, cropped hand, malformed fingers, or excessive decoration.
+Avoid: a pen, pencil, paper, notebook, or book near either decoy; father pretending to read; grandmother holding a pen; a second reader or writer; looking at camera; hand emerging from the wrong side; floating pen; pen away from paper; book covering a face; hidden hands; or background guest.
 ```
+
+## M12 — `a1_u1_reunion_12_run_swim.webp`
+
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-7bdef368-99a4-4bcb-9e5b-bd8695696197.png`
+- Installed SHA-256: `75654b650d43a6cfbb191fa301fce9321d9db34badb0470901e610802aa9d0a1`
+- QA: Preview candidate; exactly one woman is visibly running and one girl is visibly swimming. A seated boy and a woman talking on a phone provide two spatially separate, visibly false candidates.
+- Generation contract: one continuous poolside celebration garden, exactly four large unobstructed people, one action each, no overlap, no labels or UI, and no second runner or swimmer.
+
+## M13 — `a1_u1_reunion_13_sit_sleep.webp`
+
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-9b22440e-206d-4fe9-8a7e-940bc0729998.png`
+- Installed SHA-256: `efef7094991a79e1eb56683e018a9cfd8eefec1926b08bcf1eac912098f0f331`
+- QA: Preview candidate; exactly one boy is plainly seated and exactly one girl is asleep on the garden daybed. A man reading and woman working on a laptop are large, independent decoys.
+- Generation contract: one continuous shaded celebration garden, four separated candidates, action evidence visible at phone size, no second sleeping or ambiguous standing/sitting target.
+
+## M14 — `a1_u1_reunion_14_play_study.webp`
+
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-e4284fc4-0dd7-456c-a99f-c558b510d18b.png`
+- Installed SHA-256: `50c0c3c6b769b4d80310915c4102f6c9007a01d4768312179a43f8dc785b990f`
+- QA: Preview candidate; the two babies visibly play with one ball, one girl studies with pencil and open work, an adult pair reads, and one woman talks on a phone. Each region supports one equal tap point.
+- Generation contract: one continuous garden scene, four separated action regions, one clear action per region, no collage, no text, and no second studying girl or playing group.
+
+## M15 — `a1_u1_reunion_15_work_cook_talk.webp`
+
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-0109ca7b-2240-4b6b-95db-358786f6afb6.png`
+- Installed SHA-256: `34e35c1738a33cf2fa1bfd4dc79fb048ecbfe1893835c38c1206dfead70d47b2`
+- QA: Preview candidate; grandmother works at a sewing machine, father cooks on the grill, the two girls talk face-to-face, and grandfather reads. Hands, gaze, tools, and props distinguish all four actions.
+- Generation contract: one coherent open-air kitchen, four large separated candidate regions, visible action evidence, no duplicated worker/cook/talking pair, and no generated text.
+
+## M16 — `a1_u1_reunion_16_not_eating.webp`
+
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-749e60a7-e21a-4a2a-bd3d-c38ff7d70547.png`
+- Installed SHA-256: `c05aa7bf34c88d40605a3dbcedbf405a7124b60547d3a965c14b767706d36df0`
+- QA: Preview candidate; exactly one man drinks from a clear glass, one man eats, one grandfather reads, and one man sits with empty hands. `He is not eating. He is drinking.` has one defensible target.
+- Generation contract: four equally large seated men in one garden, a single exclusive action per candidate, no food near the drinker, no drink near the eater, and no hidden props.
+
+## M17 — `a1_u1_reunion_17_not_reading.webp`
+
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-9a368256-7e5d-4c56-96c0-5197a656a198.png`
+- Installed SHA-256: `fd26ff80779249181a82251748cb89fc6024bfbf93bcbd0d3ed0f867bb710514`
+- QA: Preview candidate; one woman writes with the pen tip on paper, grandmother reads, one girl talks on a phone, and one woman cooks. `She is not reading. She is writing.` has one valid target.
+- Generation contract: four separated women in one courtyard worktable scene, only the writer has writing paper and a pen, only the reader has a book, and no ambiguous shared prop.
+
+## M18 — `a1_u1_reunion_18_not_running.webp`
+
+- Source: `C:\Users\gorre\.codex\generated_images\01a05f2d-b8bd-7c13-8c60-d3a3f80202d0\exec-79cc87eb-5d48-408b-bd97-fa12d37415c0.png`
+- Installed SHA-256: `14255acdb5e0139909fff8b41aaec47436b7f5643a3c0b415d17505301446612`
+- QA: Preview candidate; one boy-and-girl pair sits on a bench, one pair runs, one adult pair talks, and one child pair plays catch. `They are not running. They are sitting.` identifies only the seated pair.
+- Generation contract: one continuous celebration park with four large separated pairs, no overlapping pair membership, no background people, and action evidence readable without labels.

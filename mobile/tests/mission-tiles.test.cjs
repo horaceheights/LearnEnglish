@@ -14,60 +14,57 @@ const mission = course.find((lesson) => lesson.experience_type === 'mission');
 
 assert.ok(mission, 'The embedded catalog must expose the declared mission experience.');
 assert.equal(mission.cards.length, 22);
-assert.ok(Math.max(...mission.cards.map((card) => card.options.length)) >= 6, 'Responsive mission QA must exercise a substantial signal bank.');
+assert.ok(
+  Math.min(...mission.cards.slice(0, 18).map((card) => card.mission_game.targets.length)) >= 4,
+  'Every listening challenge must present at least four equally credible tap candidates.',
+);
 
-test('mobile mission placement supports bounded drag and an equivalent tap path', () => {
-  assert.match(surface, /PanResponder\.create/);
-  assert.match(surface, /useWindowDimensions\(\)/);
-  assert.match(surface, /Math\.max\(-width \* 0\.8, Math\.min\(width \* 0\.8, gesture\.dx\)\)/);
-  assert.match(surface, /Math\.max\(-height \* 0\.65, Math\.min\(height \* 0\.65, gesture\.dy\)\)/);
-  assert.match(surface, /measureInWindow/);
-  assert.match(surface, /onDrop\(option\.id, event\.nativeEvent\.pageX, event\.nativeEvent\.pageY\)/);
-  assert.match(surface, /onPress=\{\(\) => onPress\(option\.id\)\}/);
-  assert.match(surface, /Ahora toca su destino en la imagen/);
-  assert.match(surface, /height: percent\(target\.rect\.height\)/);
-  assert.match(surface, /left: percent\(target\.rect\.x\)/);
-  assert.match(surface, /minHeight: 44/);
-  assert.match(surface, /minWidth: 44/);
+test('mobile mission uses large direct tap targets and contains no drag worksheet', () => {
+  assert.match(surface, /function TargetDot/);
+  assert.match(surface, /const DOT_SIZE = 58/);
+  assert.match(surface, /hitSlop=\{8\}/);
+  assert.match(surface, /onPress=\{onPress\}/);
+  assert.match(surface, /Animated\.loop/);
+  assert.match(surface, /targetCenter\(target\)/);
+  assert.doesNotMatch(surface, /PanResponder|measureInWindow|onDrop|draggable/);
 });
 
-test('mobile mission recovery preserves progress and never forces a lesson restart', () => {
-  assert.match(surface, /Retiramos solo lo incorrecto\. Tus aciertos siguen en su lugar\./);
-  assert.match(surface, /Señal retirada\. Puedes colocarla de nuevo\./);
-  assert.match(surface, />Deshacer</);
-  assert.match(surface, />Reiniciar</);
-  assert.match(surface, />Comprobar</);
-  assert.match(surface, /setPlacements\(validation\.retained\)/);
+test('wrong taps preserve completed clues and replay only the current English cue', () => {
+  assert.match(surface, /Tus aciertos siguen guardados\./);
+  assert.match(surface, /setSolvedTargetIds\(nextSolved\)/);
+  assert.match(surface, /onMisstep\(\[target\.id\]\)/);
+  assert.match(surface, /onCueRequest\(cueIndex\)/);
+  assert.doesNotMatch(surface, />Deshacer|>Reiniciar|>Comprobar/);
   assert.match(lessonScreen, /<MissionGameSurface/);
   assert.match(lessonScreen, /<MissionKickoff/);
   assert.doesNotMatch(lessonScreen, /lesson\.id === 'lesson-10-family-mission'/);
 });
 
-test('mission surfaces adapt to available screen space without hiding the next action', () => {
-  assert.match(kickoff, /aspectRatio: 3 \/ 2/);
-  assert.match(kickoff, /maxWidth: 820/);
-  assert.match(surface, /aspectRatio: 3 \/ 2/);
-  assert.match(surface, /maxHeight: 510/);
-  assert.match(surface, /flexWrap: 'wrap'/);
+test('mission surfaces consume available screen space without lesson scrolling', () => {
+  assert.match(kickoff, /useWindowDimensions\(\)/);
+  assert.match(kickoff, /flex: 1/);
+  assert.match(kickoff, /minHeight: 0/);
+  assert.match(kickoff, /adjustsFontSizeToFit/);
+  assert.match(surface, /surface: \{[^\n]*flex: 1/);
+  assert.match(surface, /imageFrame: \{[^\n]*flex: 1[^\n]*minHeight: 210/);
   assert.match(surface, /adjustsFontSizeToFit/);
-  assert.match(webMission, /maxWidth: isMobile \? "min\(100%, calc\(43svh \* 1\.5\)\)" : 900/);
-  assert.match(webMission, /overflowX: isMobile \? "auto" : "visible"/);
-  assert.match(webMission, /gridTemplateColumns: isMobile \? "repeat\(3, minmax\(0, 1fr\)\)"/);
+  assert.match(lessonScreen, /!missionExperience && needsAccessibleScrolling/);
+  assert.match(webMission, /height:calc\(100svh - 40px\)/);
+  assert.match(webMission, /overflow:hidden/);
 });
 
-test('web mission tiles keep drag, tap, removal, and no-reset repair together', () => {
-  assert.match(webMission, /draggable=\{!choiceGame && interactionReady && lastResult !== "correct"\}/);
-  assert.match(webMission, /onDragStart=\{\(event\) =>/);
-  assert.match(webMission, /onDrop=\{\(event\) =>/);
-  assert.match(webMission, /Retirar \$\{optionsById\.get\(placement\.optionId\)/);
-  assert.match(webMission, /Retiramos solo lo que no correspondía\. Tus aciertos siguen en su lugar\./);
-  assert.match(webMission, />Deshacer</);
-  assert.match(webMission, />Reiniciar</);
-  assert.match(webMission, />Comprobar</);
+test('web mission mirrors tap, immediate feedback, and auto-advance behavior', () => {
+  assert.match(webMission, /className=\{`target-dot/);
+  assert.match(webMission, /onClick=\{\(\) => chooseTarget\(target\)\}/);
+  assert.match(webMission, /Tus aciertos siguen guardados\./);
+  assert.match(webMission, /onReplayEnglish\(cueIndex\)/);
+  assert.match(webMission, /onComplete\(game\.cues\.map/);
+  assert.doesNotMatch(webMission, /draggable=|onDragStart=|onDrop=|>Deshacer|>Reiniciar|>Comprobar/);
 });
 
-test('protected interaction verification runs the celebration mission contracts', () => {
+test('protected interaction verification runs the real-game mission contracts', () => {
   assert.match(verifier, /node tests\/mission-experience\.test\.cjs/);
   assert.match(verifier, /node tests\/lesson-mission-contract\.test\.cjs/);
   assert.match(verifier, /node tests\/mission-tiles\.test\.cjs/);
+  assert.match(verifier, /node tests\/mission-sound-effects\.test\.cjs/);
 });

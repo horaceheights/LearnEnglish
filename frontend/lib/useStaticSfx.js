@@ -3,13 +3,14 @@
 import { useCallback, useEffect, useRef } from "react";
 
 const STATIC_SFX_PATHS = Object.freeze({
-  missionFinale: "/sfx/mission-finale-v1.mp3",
-  pageRestored: "/sfx/page-restored-v1.mp3",
-  pageTurn: "/sfx/page-turn-v1.mp3",
-  readyCue: "/sfx/ready-cue-v2.mp3",
-  tilePlace: "/sfx/tile-place-v1.mp3",
-  tryAgain: "/sfx/try-again-v1.mp3",
-  voiceStamp: "/sfx/voice-stamp-v1.mp3",
+  missionFinale: "/sfx/mission-finale-v2.mp3",
+  missionStart: "/sfx/mission-start-v2.mp3",
+  pageRestored: "/sfx/person-found-v2.mp3",
+  pageTurn: "/sfx/chapter-arrival-v2.mp3",
+  readyCue: "/sfx/speaking-turn-v3.mp3",
+  tilePlace: "/sfx/person-found-v2.mp3",
+  tryAgain: "/sfx/gentle-miss-v2.mp3",
+  voiceStamp: "/sfx/voice-confirm-v2.mp3",
 });
 
 const MINIMUM_DEBOUNCE_MS = 80;

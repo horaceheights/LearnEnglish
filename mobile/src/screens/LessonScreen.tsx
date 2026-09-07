@@ -99,8 +99,8 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 import { spanishTranslationFor } from '../sentenceTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
-const SUCCESS_CHIME = require('../../assets/sfx/page-restored-v1.mp3');
-const TRY_AGAIN_CUE = require('../../assets/sfx/try-again-v1.mp3');
+const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
+const TRY_AGAIN_CUE = require('../../assets/sfx/gentle-miss-v2.mp3');
 const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
 const SUCCESS_CHIME_VOLUME = 0.4;
 const TRY_AGAIN_CUE_VOLUME = 0.35;
@@ -277,6 +277,12 @@ export function LessonScreen({
   const promptAutoplayFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const promptAutoplayAwaitingRef = useRef(false);
   const promptAutoplayWasPlayingRef = useRef(false);
+  const missionCueFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const missionCueAwaitingRef = useRef(false);
+  const missionCueWasPlayingRef = useRef(false);
+  const missionIntroFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const missionIntroAwaitingRef = useRef(false);
+  const missionIntroWasPlayingRef = useRef(false);
   const audioPlaybackRequestRef = useRef(0);
   const audioPlayerActiveRef = useRef(true);
   const audioPreloadRef = useRef<Map<AudioSource, Promise<boolean>>>(new Map());
@@ -315,6 +321,8 @@ export function LessonScreen({
   const [isComplete, setIsComplete] = useState(false);
   const [missionCompletionAcknowledged, setMissionCompletionAcknowledged] = useState(false);
   const [missionKickoffComplete, setMissionKickoffComplete] = useState(false);
+  const [missionKickoffAudioReady, setMissionKickoffAudioReady] = useState(false);
+  const [missionInteractionReady, setMissionInteractionReady] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
   const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
@@ -904,9 +912,6 @@ export function LessonScreen({
   const missionIntroAsset = lesson?.cards[0]
     ? findCourseAudioAsset(lesson.cards[0], 'mission-intro')
     : null;
-  const missionInstructionAsset = currentCard
-    ? findCourseAudioAsset(currentCard, 'mission-instruction')
-    : null;
   const missionCueAsset = currentCard
     ? findCourseAudioAsset(currentCard, 'mission-cue')
     : null;
@@ -917,13 +922,22 @@ export function LessonScreen({
     && !missionKickoffComplete,
   );
   const playMissionIntro = useCallback(() => {
-    if (!missionIntroAsset) return;
+    if (missionIntroFallbackTimerRef.current) clearTimeout(missionIntroFallbackTimerRef.current);
+    setMissionKickoffAudioReady(false);
+    if (!missionIntroAsset) {
+      missionIntroAwaitingRef.current = false;
+      setMissionKickoffAudioReady(true);
+      return;
+    }
+    missionIntroAwaitingRef.current = true;
+    missionIntroWasPlayingRef.current = false;
+    missionIntroFallbackTimerRef.current = setTimeout(() => {
+      missionIntroFallbackTimerRef.current = null;
+      missionIntroAwaitingRef.current = false;
+      setMissionKickoffAudioReady(true);
+    }, COURSE_AUDIO_FALLBACK_MS);
     playAudioSource(lessonAudioAssetSource(missionIntroAsset), 'mission', 'intro');
   }, [missionIntroAsset, playAudioSource]);
-  const playMissionInstruction = useCallback(() => {
-    if (!missionInstructionAsset) return;
-    playAudioSource(lessonAudioAssetSource(missionInstructionAsset), 'mission', 'instruction');
-  }, [missionInstructionAsset, playAudioSource]);
   const missionChapters = useMemo(
     () => missionChapterProgress(lesson, cardIndex, completedCards, furthestCardIndex),
     [cardIndex, completedCards, furthestCardIndex, lesson],
@@ -972,8 +986,7 @@ export function LessonScreen({
   const isMissionGameCard = Boolean(currentCard?.mission_game);
   const usesMissionGameSurface = Boolean(
     currentCard?.mission_game
-    && currentCard.mission_game.kind !== 'speak'
-    && currentCard.mission_game.kind !== 'finale',
+    && currentCard.mission_game.kind !== 'voice-gate',
   );
   // `Use` is a grammar-animation stage in standard lessons, but a dedicated
   // mission surface has no LessonCardView animation callback to wait for.
@@ -1187,17 +1200,32 @@ export function LessonScreen({
     );
   }, [completionPromptSource, currentCard?.audio_turns?.length, isPronunciation, playAudio, playAudioSequence, playAudioSource, promptHasVisualBlank, promptTurnSequence, visiblePromptAudio]);
 
-  const playMissionEnglishClue = useCallback(() => {
+  const playMissionCueAt = useCallback((cueIndex: number) => {
+    if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
+    setMissionInteractionReady(false);
+    missionCueAwaitingRef.current = true;
+    missionCueWasPlayingRef.current = false;
+    missionCueFallbackTimerRef.current = setTimeout(() => {
+      missionCueFallbackTimerRef.current = null;
+      missionCueAwaitingRef.current = false;
+      setMissionInteractionReady(true);
+    }, COURSE_AUDIO_FALLBACK_MS);
+
+    const cueTurn = promptTurnSequence?.[cueIndex];
+    if (cueTurn) {
+      playAudioSequence([cueTurn], 'mission', `cue-${cueIndex + 1}`);
+      return;
+    }
     if (missionCueAsset) {
       playAudioSource(lessonAudioAssetSource(missionCueAsset), 'mission', 'cue');
       return;
     }
     replayPrompt();
-  }, [missionCueAsset, playAudioSource, replayPrompt]);
+  }, [missionCueAsset, playAudioSequence, playAudioSource, promptTurnSequence, replayPrompt]);
 
   useEffect(() => {
     if (!showMissionKickoff || !isAppActive) return undefined;
-    playMissionSound('page-turn');
+    playMissionSound('mission-start');
     const timer = setTimeout(playMissionIntro, 420);
     return () => clearTimeout(timer);
   }, [isAppActive, playMissionIntro, playMissionSound, showMissionKickoff]);
@@ -1206,13 +1234,14 @@ export function LessonScreen({
     if (
       !missionExperience
       || !currentCard?.mission_game
+      || !usesMissionGameSurface
       || showMissionKickoff
       || result !== null
       || !isAppActive
     ) return undefined;
-    const timer = setTimeout(playMissionInstruction, 160);
+    const timer = setTimeout(() => playMissionCueAt(0), 180);
     return () => clearTimeout(timer);
-  }, [cardIndex, currentCard?.mission_game, isAppActive, missionExperience, playMissionInstruction, result, showMissionKickoff]);
+  }, [cardIndex, currentCard?.mission_game, isAppActive, missionExperience, playMissionCueAt, result, showMissionKickoff, usesMissionGameSurface]);
 
   const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
     const target = promptTapTargetRef.current;
@@ -1379,11 +1408,16 @@ export function LessonScreen({
     if (singleCardAdvanceTimerRef.current) clearTimeout(singleCardAdvanceTimerRef.current);
     if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
     if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
+    if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
     singleCardAdvanceTimerRef.current = null;
     singleCardFallbackTimerRef.current = null;
     promptAutoplayFallbackTimerRef.current = null;
+    missionCueFallbackTimerRef.current = null;
     promptAutoplayAwaitingRef.current = false;
     promptAutoplayWasPlayingRef.current = false;
+    missionCueAwaitingRef.current = false;
+    missionCueWasPlayingRef.current = false;
+    setMissionInteractionReady(false);
     setPromptAutoplayFinished(false);
   }, [cardIndex]);
 
@@ -1463,6 +1497,35 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
     }
     setPromptAutoplayFinished(true);
+  }, [courseAudioPlaybackStatus.didJustFinish, courseAudioPlaybackStatus.error, courseAudioPlaybackStatus.playing]);
+
+  useEffect(() => {
+    if (missionIntroAwaitingRef.current) {
+      if (courseAudioPlaybackStatus.playing) missionIntroWasPlayingRef.current = true;
+      if (
+        courseAudioPlaybackStatus.error
+        || (courseAudioPlaybackStatus.didJustFinish && missionIntroWasPlayingRef.current)
+      ) {
+        missionIntroAwaitingRef.current = false;
+        missionIntroWasPlayingRef.current = false;
+        if (missionIntroFallbackTimerRef.current) clearTimeout(missionIntroFallbackTimerRef.current);
+        missionIntroFallbackTimerRef.current = null;
+        setMissionKickoffAudioReady(true);
+      }
+    }
+
+    if (!missionCueAwaitingRef.current) return;
+    if (courseAudioPlaybackStatus.playing) missionCueWasPlayingRef.current = true;
+    if (
+      !courseAudioPlaybackStatus.error
+      && (!courseAudioPlaybackStatus.didJustFinish || !missionCueWasPlayingRef.current)
+    ) return;
+
+    missionCueAwaitingRef.current = false;
+    missionCueWasPlayingRef.current = false;
+    if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
+    missionCueFallbackTimerRef.current = null;
+    setMissionInteractionReady(true);
   }, [courseAudioPlaybackStatus.didJustFinish, courseAudioPlaybackStatus.error, courseAudioPlaybackStatus.playing]);
 
   const advance = useCallback(() => {
@@ -1589,14 +1652,23 @@ export function LessonScreen({
       if (singleCardAdvanceTimerRef.current) clearTimeout(singleCardAdvanceTimerRef.current);
       if (singleCardFallbackTimerRef.current) clearTimeout(singleCardFallbackTimerRef.current);
       if (promptAutoplayFallbackTimerRef.current) clearTimeout(promptAutoplayFallbackTimerRef.current);
+      if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
+      if (missionIntroFallbackTimerRef.current) clearTimeout(missionIntroFallbackTimerRef.current);
       answerAudioTimerRef.current = null;
       answerAdvanceTimerRef.current = null;
       grammarAudioTimerRef.current = null;
       singleCardAdvanceTimerRef.current = null;
       singleCardFallbackTimerRef.current = null;
       promptAutoplayFallbackTimerRef.current = null;
+      missionCueFallbackTimerRef.current = null;
+      missionIntroFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
       promptAutoplayWasPlayingRef.current = false;
+      missionCueAwaitingRef.current = false;
+      missionCueWasPlayingRef.current = false;
+      missionIntroAwaitingRef.current = false;
+      missionIntroWasPlayingRef.current = false;
+      setMissionInteractionReady(false);
       setActiveAudioSequence(null);
       setActiveTurnImageUrl(null);
       setShowSentenceCoachmark(false);
@@ -2565,6 +2637,7 @@ export function LessonScreen({
             setMissionKickoffComplete(true);
           }}
           presentation={lesson.mission!}
+          ready={missionKickoffAudioReady}
         />
       </SafeAreaView>
     );
@@ -2967,10 +3040,9 @@ export function LessonScreen({
           {usesMissionGameSurface && currentCard.mission_game ? (
             <MissionGameSurface
               card={currentCard as typeof currentCard & { mission_game: NonNullable<typeof currentCard.mission_game> }}
-              interactionReady
+              interactionReady={missionInteractionReady}
+              onCueRequest={playMissionCueAt}
               onMisstep={recordMissionMisstep}
-              onReplayEnglish={playMissionEnglishClue}
-              onReplayInstruction={playMissionInstruction}
               onSubmit={submitMissionSelection}
               result={result}
             />
@@ -3015,7 +3087,7 @@ export function LessonScreen({
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar hidden />
-      {needsAccessibleScrolling || (missionExperience && viewportHeight < 860) ? (
+      {!missionExperience && needsAccessibleScrolling ? (
         <ScrollView
           contentContainerStyle={[
             styles.pageScrollable,

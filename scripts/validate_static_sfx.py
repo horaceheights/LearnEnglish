@@ -14,13 +14,13 @@ MOBILE_SFX_DIR = ROOT_DIR / "mobile" / "assets" / "sfx"
 WEB_SFX_DIR = ROOT_DIR / "frontend" / "public" / "sfx"
 MANIFEST_PATH = ROOT_DIR / "docs" / "product" / "static-sfx-manifest.json"
 EXPECTED_SFX = (
-    "mission-finale-v1.mp3",
-    "page-restored-v1.mp3",
-    "page-turn-v1.mp3",
-    "ready-cue-v2.mp3",
-    "tile-place-v1.mp3",
-    "try-again-v1.mp3",
-    "voice-stamp-v1.mp3",
+    "chapter-arrival-v2.mp3",
+    "gentle-miss-v2.mp3",
+    "mission-finale-v2.mp3",
+    "mission-start-v2.mp3",
+    "person-found-v2.mp3",
+    "speaking-turn-v3.mp3",
+    "voice-confirm-v2.mp3",
 )
 LEGACY_MOBILE_SFX = (
     "ready-cue.wav",
@@ -37,7 +37,9 @@ def audio_metrics(path: Path) -> tuple[float, float, float]:
     decoded_samples = array("h")
     frame_samples = 0
     sample_rate = 48_000
-    resampler = av.AudioResampler(format="s16", layout="mono", rate=sample_rate)
+    resampler = av.audio.resampler.AudioResampler(
+        format="s16", layout="mono", rate=sample_rate
+    )
 
     def append_frame(frame: av.AudioFrame) -> None:
         nonlocal frame_samples
@@ -92,8 +94,11 @@ def main() -> int:
             raise AssertionError(f"{filename}: unexpected byte count {byte_count}")
 
         duration, peak_dbfs, rms_dbfs = audio_metrics(mobile_path)
-        if not 1.8 <= duration <= 2.2:
-            raise AssertionError(f"{filename}: expected a compact 2-second source, got {duration:.3f}s")
+        expected_duration = manifest_asset["duration_seconds"]
+        if abs(duration - expected_duration) > 0.06:
+            raise AssertionError(
+                f"{filename}: expected {expected_duration:.2f}s, got {duration:.3f}s"
+            )
         if not -30 <= peak_dbfs <= 0.5:
             raise AssertionError(f"{filename}: implausible peak level {peak_dbfs:.1f} dBFS")
         if not -60 <= rms_dbfs <= -3:

@@ -14,40 +14,32 @@ const screen = fs.readFileSync(path.join(mobileRoot, 'src/screens/LessonScreen.t
 const images = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSources.ts'), 'utf8');
 
 assert.equal(mission.cards.length, 22);
-assert.equal(mission.content_revision, 3);
-assert.equal(mission.mission.chapters.length, 5);
-assert.equal(mission.mission.kickoff_image_url, '/lesson-assets/a1_u1_reunion_kickoff.webp');
-assert.ok(mission.cards.every((card) => card.mission_game?.instruction_es && card.mission_game.targets.length));
+assert.equal(mission.content_revision, 4);
 assert.deepEqual(
   [...new Set(mission.cards.map((card) => card.mission_game.kind))].sort(),
-  ['action-sequence', 'finale', 'hotspot', 'label-placement', 'not-correction', 'relationship-link', 'speak', 'who-dialogue'].sort(),
+  ['action-hunt', 'contrast-hunt', 'crowd-search', 'family-link', 'guided-search', 'voice-gate'].sort(),
 );
 
 assert.match(kickoff, /Comenzar misión/);
 assert.match(kickoff, /Escuchar otra vez/);
-assert.match(surface, /PanResponder\.create/);
-assert.match(surface, /Ahora toca su destino en la imagen/);
-assert.match(surface, /Retiramos solo lo incorrecto/);
-assert.match(surface, /Deshacer/);
-assert.match(surface, /Reiniciar/);
-assert.match(surface, /Comprobar/);
+assert.match(kickoff, /disabled=\{!ready\}/);
+assert.doesNotMatch(kickoff, /ScrollView/);
+assert.match(surface, /game\.cues\[cueIndex\]/);
+assert.match(surface, /TargetDot/);
+assert.match(surface, /Animated\.loop/);
+assert.match(surface, /onCueRequest\(nextCueIndex\)/);
+assert.match(surface, /onSubmit\(game\.cues\.map/);
+assert.match(surface, /Tus aciertos siguen guardados/);
+assert.doesNotMatch(surface, /PanResponder|Draggable|Comprobar|Deshacer|Reiniciar/);
+assert.match(screen, /playMissionSound\('mission-start'\)/);
+assert.match(screen, /interactionReady=\{missionInteractionReady\}/);
+assert.match(screen, /onCueRequest=\{playMissionCueAt\}/);
+assert.match(screen, /!missionExperience && needsAccessibleScrolling/);
+assert.doesNotMatch(screen, /interactionReady=\{true\}/);
 assert.match(screen, /!isMissionTileCard && !isMissionGameCard/);
-assert.match(screen, /<MissionGameSurface/);
-assert.match(screen, /<MissionKickoff/);
-assert.match(screen, /findCourseAudioAsset\(currentCard, 'mission-instruction'\)/);
-assert.ok(
-  mission.cards.some((card) => card.stage === 'Use' && card.mission_game),
-  'The regression fixture must include a Use-stage mission game.',
-);
 assert.match(
   screen,
   /const waitsForGrammarAnimation = shouldWaitForGrammarAnimation\([\s\S]*?usesMissionGameSurface,[\s\S]*?\);/,
-  'A dedicated mission surface must not wait for the standard grammar animation callback.',
-);
-assert.match(
-  screen,
-  /if \(waitsForGrammarAnimation\) \{\s*return;\s*\}/,
-  'Correct mission checks must continue into answer feedback and card advancement.',
 );
 
 const bundledReunionImages = images.match(/'a1_u1_reunion_[^']+\.webp': require/g) || [];
