@@ -61,7 +61,7 @@
   ],
   "grammar_function": "Apply every Unit 1 identity, article, singular/plural, pronoun, action, negative, and who-question pattern inside one continuous celebration adventure.",
   "prerequisite": "Lessons 1.1-1.9 completed.",
-  "speaking_outcome": "Answer who a family member is and identify the reunited family aloud.",
+  "speaking_outcome": "Answer all three who-question forms and identify the reunited family aloud across four consecutive voice challenges.",
   "purposeful_review_slides": [
     "M01",
     "M03",
@@ -78,54 +78,64 @@
   "cards": [
     {
       "slide_id": "M01",
-      "interaction_type": "mission-clue",
-      "prompt": "A boy.",
-      "stage": "Learn",
+      "interaction_type": "mission-game",
+      "prompt": "",
+      "stage": "Listen",
       "correct_option_id": "boy",
       "options": [
         {
           "id": "boy",
           "image_url": "",
           "label": "A boy."
+        },
+        {
+          "id": "girl",
+          "image_url": "",
+          "label": "A girl."
+        },
+        {
+          "id": "man",
+          "image_url": "",
+          "label": "A man."
+        },
+        {
+          "id": "woman",
+          "image_url": "",
+          "label": "A woman."
         }
       ],
       "audio_text": "A boy.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_01_people_path.webp",
       "spanish_translation": "Un ni\u00f1o.",
-      "pedagogy_note": "Mission beat 01/22: a guided no-fail search teaches the first mission gesture while finding the boy; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 01/22: the learner follows one English clue and discovers how the game responds; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "A boy.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_01_people_path.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c001-mission-intro-cf56c89725a47f8fc3a0",
+          "id": "lesson-10-family-mission-c001-mission-intro-b8e3709a4bb2e8a4fb76",
           "purpose": "mission-intro",
-          "text": "La celebraci\u00f3n familiar est\u00e1 por comenzar, pero todav\u00eda falta reunir a todos. Encuentra a cada persona, descubre qu\u00e9 est\u00e1 haciendo y responde qui\u00e9n es. Vas a tocar, unir, escuchar y hablar. Yo te mostrar\u00e9 el primer paso.",
+          "text": "La celebraci\u00f3n est\u00e1 por comenzar y todav\u00eda faltan invitados. Escucha cada frase, encuentra a las personas y descubre qu\u00e9 est\u00e1n haciendo. Al final responder\u00e1s en voz alta para abrir la celebraci\u00f3n. Primero practicaremos juntos.",
           "mode": "prompt",
           "variant": "mission-intro",
           "image_ref": "/lesson-assets/a1_u1_reunion_kickoff.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 4
         },
         {
-          "id": "lesson-10-family-mission-c001-mission-instruction-6860a1d8036238adfccf",
-          "purpose": "mission-instruction",
-          "text": "Escucha \u201cA boy\u201d y toca al ni\u00f1o que est\u00e1 iluminado. Esta primera b\u00fasqueda es una gu\u00eda: no puedes fallar.",
-          "mode": "prompt",
-          "variant": "mission-instruction",
-          "image_ref": "/lesson-assets/a1_u1_reunion_01_people_path.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
-        },
-        {
-          "id": "lesson-10-family-mission-c001-prompt-fb1109b0d2df6bf8b0cf",
-          "purpose": "prompt",
+          "id": "lesson-10-family-mission-c001-prompt-turn-1-1f965819dc0544a7f886",
+          "purpose": "prompt-turn-1",
           "text": "A boy.",
           "mode": "prompt",
           "variant": "prompt",
@@ -134,38 +144,74 @@
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c001-answer-a3f03d63cc7a71086fdc",
-          "purpose": "answer",
-          "text": "A boy.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u1_reunion_01_people_path.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
         }
       ],
       "mission_chapter_id": "find-the-people",
       "mission_game": {
-        "kind": "hotspot",
-        "instruction_es": "Escucha \u201cA boy\u201d y toca al ni\u00f1o que est\u00e1 iluminado. Esta primera b\u00fasqueda es una gu\u00eda: no puedes fallar.",
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca a la persona.",
         "validation": "single",
         "targets": [
           {
             "id": "boy",
-            "label_es": "Ni\u00f1o iluminado",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.08,
-              "y": 0.16,
-              "width": 0.28,
-              "height": 0.68
+              "x": 0.075,
+              "y": 0.5750000000000001,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "boy"
             ]
+          },
+          {
+            "id": "girl",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.735,
+              "y": 0.545,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "girl"
+            ]
+          },
+          {
+            "id": "man",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.295,
+              "y": 0.315,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "man"
+            ]
+          },
+          {
+            "id": "woman",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.555,
+              "y": 0.315,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "woman"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "boy",
+            "text": "A boy.",
+            "answer_text": "A boy.",
+            "target_id": "boy",
+            "option_id": "boy"
           }
         ],
         "tutorial_mode": "guided-no-fail",
@@ -174,7 +220,7 @@
     },
     {
       "slide_id": "M02",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
       "stage": "Listen",
       "correct_option_id": "girl",
@@ -198,34 +244,68 @@
           "id": "woman",
           "image_url": "",
           "label": "A woman."
+        },
+        {
+          "id": "boy",
+          "image_url": "",
+          "label": "A boy."
         }
       ],
       "audio_text": "A girl. A man. A woman.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp",
       "spanish_translation": "Una ni\u00f1a. Un hombre. Una mujer.",
-      "pedagogy_note": "Mission beat 02/22: the searchlight finds the girl, man, and woman in the spoken sequence; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 02/22: three English clues bring the remaining people through the celebration gate; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "A girl.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp"
+        },
+        {
+          "text": "A man.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp"
+        },
+        {
+          "text": "A woman.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c002-mission-instruction-7f4ef668e47d34c87037",
-          "purpose": "mission-instruction",
-          "text": "Escucha cada pista y toca, en ese orden, a la ni\u00f1a, al hombre y a la mujer. La luz avanzar\u00e1 despu\u00e9s de cada acierto.",
+          "id": "lesson-10-family-mission-c002-prompt-turn-1-7fc9954a577ec8e61820",
+          "purpose": "prompt-turn-1",
+          "text": "A girl.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c002-prompt-8081acd040a20e18a0bd",
-          "purpose": "prompt",
-          "text": "A girl. A man. A woman.",
+          "id": "lesson-10-family-mission-c002-prompt-turn-2-f44b4b36becf5d96a527",
+          "purpose": "prompt-turn-2",
+          "text": "A man.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c002-prompt-turn-3-78e4c8009371569b551d",
+          "purpose": "prompt-turn-3",
+          "text": "A woman.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp",
@@ -237,18 +317,31 @@
       ],
       "mission_chapter_id": "find-the-people",
       "mission_game": {
-        "kind": "hotspot",
-        "instruction_es": "Escucha cada pista y toca, en ese orden, a la ni\u00f1a, al hombre y a la mujer. La luz avanzar\u00e1 despu\u00e9s de cada acierto.",
+        "kind": "crowd-search",
+        "instruction_es": "Escucha una frase a la vez y toca a la persona.",
         "validation": "ordered",
         "targets": [
           {
-            "id": "girl",
-            "label_es": "Ni\u00f1a",
+            "id": "boy",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.72,
-              "y": 0.15,
-              "width": 0.24,
-              "height": 0.73
+              "x": 0.05500000000000001,
+              "y": 0.5750000000000001,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "boy"
+            ]
+          },
+          {
+            "id": "girl",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.755,
+              "y": 0.5750000000000001,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "girl"
@@ -256,12 +349,12 @@
           },
           {
             "id": "man",
-            "label_es": "Hombre",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.28,
-              "y": 0.11,
-              "width": 0.22,
-              "height": 0.76
+              "x": 0.295,
+              "y": 0.315,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "man"
@@ -269,16 +362,39 @@
           },
           {
             "id": "woman",
-            "label_es": "Mujer",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.52,
-              "y": 0.12,
-              "width": 0.22,
-              "height": 0.76
+              "x": 0.555,
+              "y": 0.315,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "woman"
             ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "girl",
+            "text": "A girl.",
+            "answer_text": "A girl.",
+            "target_id": "girl",
+            "option_id": "girl"
+          },
+          {
+            "id": "man",
+            "text": "A man.",
+            "answer_text": "A man.",
+            "target_id": "man",
+            "option_id": "man"
+          },
+          {
+            "id": "woman",
+            "text": "A woman.",
+            "answer_text": "A woman.",
+            "target_id": "woman",
+            "option_id": "woman"
           }
         ],
         "tutorial_mode": null,
@@ -287,9 +403,9 @@
     },
     {
       "slide_id": "M03",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Use",
+      "stage": "Listen",
       "correct_option_id": "he-boy",
       "correct_option_ids": [
         "he-boy",
@@ -319,55 +435,101 @@
           "label": "She is a woman."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "He is a boy. She is a girl. He is a man. She is a woman.",
+      "audio_text": "He is a boy. She is a girl. He is a man. She is a woman.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp",
       "spanish_translation": "\u00c9l es un ni\u00f1o. Ella es una ni\u00f1a. \u00c9l es un hombre. Ella es una mujer.",
-      "pedagogy_note": "Mission beat 03/22: pronoun signals identify each person with correct singular agreement; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 03/22: pronouns identify all four arrivals without a draggable worksheet; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "He is a boy.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp"
+        },
+        {
+          "text": "She is a girl.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp"
+        },
+        {
+          "text": "He is a man.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp"
+        },
+        {
+          "text": "She is a woman.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c003-mission-instruction-19f1fc0eddd501e9183a",
-          "purpose": "mission-instruction",
-          "text": "Arrastra cada se\u00f1al hasta la persona que describe. Tambi\u00e9n puedes tocar una se\u00f1al y despu\u00e9s su destino.",
+          "id": "lesson-10-family-mission-c003-prompt-turn-1-91c134890a9264646237",
+          "purpose": "prompt-turn-1",
+          "text": "He is a boy.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c003-answer-4188d932b5c02645006c",
-          "purpose": "answer",
-          "text": "He is a boy. She is a girl. He is a man. She is a woman.",
+          "id": "lesson-10-family-mission-c003-prompt-turn-2-7dd02bab3fac82e63036",
+          "purpose": "prompt-turn-2",
+          "text": "She is a girl.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c003-prompt-turn-3-c6ce9e21c982ca01c139",
+          "purpose": "prompt-turn-3",
+          "text": "He is a man.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c003-prompt-turn-4-1e1224c07990c732951f",
+          "purpose": "prompt-turn-4",
+          "text": "She is a woman.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_03_pronoun_arrival.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "find-the-people",
       "mission_game": {
-        "kind": "label-placement",
-        "instruction_es": "Arrastra cada se\u00f1al hasta la persona que describe. Tambi\u00e9n puedes tocar una se\u00f1al y despu\u00e9s su destino.",
-        "validation": "unordered",
+        "kind": "crowd-search",
+        "instruction_es": "Escucha una frase a la vez y toca a la persona.",
+        "validation": "ordered",
         "targets": [
           {
             "id": "boy",
-            "label_es": "Ni\u00f1o",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.12,
-              "y": 0.12,
+              "x": 0.075,
+              "y": 0.5750000000000001,
               "width": 0.17,
-              "height": 0.78
+              "height": 0.17
             },
             "accepted_option_ids": [
               "he-boy"
@@ -375,12 +537,12 @@
           },
           {
             "id": "girl",
-            "label_es": "Ni\u00f1a",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.57,
-              "y": 0.14,
-              "width": 0.16,
-              "height": 0.76
+              "x": 0.735,
+              "y": 0.5750000000000001,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "she-girl"
@@ -388,12 +550,12 @@
           },
           {
             "id": "man",
-            "label_es": "Hombre",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.3,
-              "y": 0.1,
-              "width": 0.2,
-              "height": 0.8
+              "x": 0.295,
+              "y": 0.315,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "he-man"
@@ -401,16 +563,46 @@
           },
           {
             "id": "woman",
-            "label_es": "Mujer",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.72,
-              "y": 0.1,
-              "width": 0.19,
-              "height": 0.8
+              "x": 0.555,
+              "y": 0.315,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "she-woman"
             ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "he-boy",
+            "text": "He is a boy.",
+            "answer_text": "He is a boy.",
+            "target_id": "boy",
+            "option_id": "he-boy"
+          },
+          {
+            "id": "she-girl",
+            "text": "She is a girl.",
+            "answer_text": "She is a girl.",
+            "target_id": "girl",
+            "option_id": "she-girl"
+          },
+          {
+            "id": "he-man",
+            "text": "He is a man.",
+            "answer_text": "He is a man.",
+            "target_id": "man",
+            "option_id": "he-man"
+          },
+          {
+            "id": "she-woman",
+            "text": "She is a woman.",
+            "answer_text": "She is a woman.",
+            "target_id": "woman",
+            "option_id": "she-woman"
           }
         ],
         "tutorial_mode": null,
@@ -419,9 +611,9 @@
     },
     {
       "slide_id": "M04",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Use",
+      "stage": "Listen",
       "correct_option_id": "boy-child",
       "correct_option_ids": [
         "boy-child",
@@ -463,55 +655,135 @@
           "label": "The man and the woman are adults."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "The boy is a child. The girl is a child. The man is an adult. The woman is an adult. The boy and the girl are children. The man and the woman are adults.",
+      "audio_text": "The boy is a child. The girl is a child. The man is an adult. The woman is an adult. The boy and the girl are children. The man and the woman are adults.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_04_age_groups.webp",
-      "spanish_translation": "El ni\u00f1o es un menor. La ni\u00f1a es una menor. El hombre es un adulto. La mujer es una adulta. El ni\u00f1o y la ni\u00f1a son menores. El hombre y la mujer son adultos.",
-      "pedagogy_note": "Mission beat 04/22: people pass through child and adult checkpoints before forming the two groups; the completed interaction advances the same family celebration adventure.",
+      "spanish_translation": "El ni\u00f1o y la ni\u00f1a son ni\u00f1os. El hombre y la mujer son adultos.",
+      "pedagogy_note": "Mission beat 04/22: the family map connects each person and then the two age groups; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "The boy is a child.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_04_age_groups.webp"
+        },
+        {
+          "text": "The girl is a child.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_04_age_groups.webp"
+        },
+        {
+          "text": "The man is an adult.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_04_age_groups.webp"
+        },
+        {
+          "text": "The woman is an adult.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_04_age_groups.webp"
+        },
+        {
+          "text": "The boy and the girl are children.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_04_age_groups.webp"
+        },
+        {
+          "text": "The man and the woman are adults.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_04_age_groups.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c004-mission-instruction-4592282e60231b84d28e",
-          "purpose": "mission-instruction",
-          "text": "Coloca cada descripci\u00f3n en su retrato. Despu\u00e9s une a los dos menores y a los dos adultos en sus grupos.",
+          "id": "lesson-10-family-mission-c004-prompt-turn-1-2fbedb741fd7979c9a2c",
+          "purpose": "prompt-turn-1",
+          "text": "The boy is a child.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_04_age_groups.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c004-answer-3e6326ebddbee9e60622",
-          "purpose": "answer",
-          "text": "The boy is a child. The girl is a child. The man is an adult. The woman is an adult. The boy and the girl are children. The man and the woman are adults.",
+          "id": "lesson-10-family-mission-c004-prompt-turn-2-1b5b9da43b8fffe36fd3",
+          "purpose": "prompt-turn-2",
+          "text": "The girl is a child.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_04_age_groups.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c004-prompt-turn-3-f73fc3c4011a2b5a01be",
+          "purpose": "prompt-turn-3",
+          "text": "The man is an adult.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_04_age_groups.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c004-prompt-turn-4-70b9a0285af4a304c6b2",
+          "purpose": "prompt-turn-4",
+          "text": "The woman is an adult.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_04_age_groups.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c004-prompt-turn-5-c2fe07e8ad7af3f13599",
+          "purpose": "prompt-turn-5",
+          "text": "The boy and the girl are children.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_04_age_groups.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c004-prompt-turn-6-83c28b229f3fb9a2896a",
+          "purpose": "prompt-turn-6",
+          "text": "The man and the woman are adults.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_04_age_groups.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "connect-the-family",
       "mission_game": {
-        "kind": "label-placement",
-        "instruction_es": "Coloca cada descripci\u00f3n en su retrato. Despu\u00e9s une a los dos menores y a los dos adultos en sus grupos.",
-        "validation": "unordered",
+        "kind": "family-link",
+        "instruction_es": "Escucha y toca a la persona o al grupo.",
+        "validation": "ordered",
         "targets": [
           {
             "id": "boy",
-            "label_es": "Ni\u00f1o",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.1,
-              "y": 0.12,
-              "width": 0.16,
-              "height": 0.8
+              "x": 0.115,
+              "y": 0.555,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "boy-child"
@@ -519,12 +791,12 @@
           },
           {
             "id": "girl",
-            "label_es": "Ni\u00f1a",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.24,
-              "y": 0.14,
-              "width": 0.15,
-              "height": 0.76
+              "x": 0.7150000000000001,
+              "y": 0.555,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "girl-child"
@@ -532,12 +804,12 @@
           },
           {
             "id": "man",
-            "label_es": "Hombre",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.57,
-              "y": 0.1,
-              "width": 0.16,
-              "height": 0.82
+              "x": 0.295,
+              "y": 0.255,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "man-adult"
@@ -545,12 +817,12 @@
           },
           {
             "id": "woman",
-            "label_es": "Mujer",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.72,
-              "y": 0.1,
+              "x": 0.535,
+              "y": 0.255,
               "width": 0.17,
-              "height": 0.82
+              "height": 0.17
             },
             "accepted_option_ids": [
               "woman-adult"
@@ -558,12 +830,12 @@
           },
           {
             "id": "children",
-            "label_es": "Grupo de menores",
+            "label_es": "Grupo",
             "rect": {
-              "x": 0.05,
-              "y": 0.08,
-              "width": 0.43,
-              "height": 0.86
+              "x": 0.195,
+              "y": 0.735,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "children"
@@ -571,16 +843,60 @@
           },
           {
             "id": "adults",
-            "label_es": "Grupo de adultos",
+            "label_es": "Grupo",
             "rect": {
-              "x": 0.52,
-              "y": 0.08,
-              "width": 0.43,
-              "height": 0.86
+              "x": 0.635,
+              "y": 0.735,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "adults"
             ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "boy-child",
+            "text": "The boy is a child.",
+            "answer_text": "The boy is a child.",
+            "target_id": "boy",
+            "option_id": "boy-child"
+          },
+          {
+            "id": "girl-child",
+            "text": "The girl is a child.",
+            "answer_text": "The girl is a child.",
+            "target_id": "girl",
+            "option_id": "girl-child"
+          },
+          {
+            "id": "man-adult",
+            "text": "The man is an adult.",
+            "answer_text": "The man is an adult.",
+            "target_id": "man",
+            "option_id": "man-adult"
+          },
+          {
+            "id": "woman-adult",
+            "text": "The woman is an adult.",
+            "answer_text": "The woman is an adult.",
+            "target_id": "woman",
+            "option_id": "woman-adult"
+          },
+          {
+            "id": "children",
+            "text": "The boy and the girl are children.",
+            "answer_text": "The boy and the girl are children.",
+            "target_id": "children",
+            "option_id": "children"
+          },
+          {
+            "id": "adults",
+            "text": "The man and the woman are adults.",
+            "answer_text": "The man and the woman are adults.",
+            "target_id": "adults",
+            "option_id": "adults"
           }
         ],
         "tutorial_mode": null,
@@ -589,9 +905,9 @@
     },
     {
       "slide_id": "M05",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Use",
+      "stage": "Listen",
       "correct_option_id": "baby-child",
       "correct_option_ids": [
         "baby-child",
@@ -607,74 +923,138 @@
           "id": "babies-children",
           "image_url": "",
           "label": "Babies are children."
+        },
+        {
+          "id": "boy",
+          "image_url": "",
+          "label": "A boy."
+        },
+        {
+          "id": "children",
+          "image_url": "",
+          "label": "They are children."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "A baby is a child. Babies are children.",
+      "audio_text": "A baby is a child. Babies are children.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_05_babies.webp",
-      "spanish_translation": "Un beb\u00e9 es un menor. Los beb\u00e9s son menores.",
-      "pedagogy_note": "Mission beat 05/22: singular and plural baby clues connect to child and children; the completed interaction advances the same family celebration adventure.",
+      "spanish_translation": "Un beb\u00e9 es un ni\u00f1o. Los beb\u00e9s son ni\u00f1os.",
+      "pedagogy_note": "Mission beat 05/22: one baby and a clearly plural baby group connect to child and children; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "A baby is a child.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_05_babies.webp"
+        },
+        {
+          "text": "Babies are children.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_05_babies.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c005-mission-instruction-2b6374366d8007b24c82",
-          "purpose": "mission-instruction",
-          "text": "Une el beb\u00e9 con la relaci\u00f3n singular y el grupo de beb\u00e9s con la relaci\u00f3n plural. Tambi\u00e9n puedes tocar origen y destino.",
+          "id": "lesson-10-family-mission-c005-prompt-turn-1-6f51d4a2ea028fa0dd31",
+          "purpose": "prompt-turn-1",
+          "text": "A baby is a child.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_05_babies.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c005-answer-05b04629df93398c0986",
-          "purpose": "answer",
-          "text": "A baby is a child. Babies are children.",
+          "id": "lesson-10-family-mission-c005-prompt-turn-2-19959b136e2b7efa81d3",
+          "purpose": "prompt-turn-2",
+          "text": "Babies are children.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_05_babies.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "connect-the-family",
       "mission_game": {
-        "kind": "relationship-link",
-        "instruction_es": "Une el beb\u00e9 con la relaci\u00f3n singular y el grupo de beb\u00e9s con la relaci\u00f3n plural. Tambi\u00e9n puedes tocar origen y destino.",
-        "validation": "unordered",
+        "kind": "family-link",
+        "instruction_es": "Escucha y toca la imagen correcta.",
+        "validation": "ordered",
         "targets": [
           {
-            "id": "baby",
-            "label_es": "Un beb\u00e9",
+            "id": "one-baby",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.06,
-              "y": 0.15,
-              "width": 0.4,
-              "height": 0.68
+              "x": 0.21499999999999997,
+              "y": 0.255,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "baby-child"
             ]
           },
           {
-            "id": "babies",
-            "label_es": "Varios beb\u00e9s",
+            "id": "three-babies",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.54,
-              "y": 0.15,
-              "width": 0.4,
-              "height": 0.68
+              "x": 0.605,
+              "y": 0.255,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "babies-children"
             ]
+          },
+          {
+            "id": "boy",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.16499999999999998,
+              "y": 0.605,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "boy"
+            ]
+          },
+          {
+            "id": "children",
+            "label_es": "Grupo",
+            "rect": {
+              "x": 0.615,
+              "y": 0.605,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "children"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "baby-child",
+            "text": "A baby is a child.",
+            "answer_text": "A baby is a child.",
+            "target_id": "one-baby",
+            "option_id": "baby-child"
+          },
+          {
+            "id": "babies-children",
+            "text": "Babies are children.",
+            "answer_text": "Babies are children.",
+            "target_id": "three-babies",
+            "option_id": "babies-children"
           }
         ],
         "tutorial_mode": null,
@@ -683,9 +1063,9 @@
     },
     {
       "slide_id": "M06",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Recognize",
+      "stage": "Listen",
       "correct_option_id": "brother",
       "correct_option_ids": [
         "brother",
@@ -701,57 +1081,79 @@
           "id": "sister",
           "image_url": "",
           "label": "She is the sister."
+        },
+        {
+          "id": "father",
+          "image_url": "",
+          "label": "He is the father."
+        },
+        {
+          "id": "mother",
+          "image_url": "",
+          "label": "She is the mother."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "He is the brother. She is the sister.",
+      "audio_text": "He is the brother. She is the sister.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp",
       "spanish_translation": "\u00c9l es el hermano. Ella es la hermana.",
-      "pedagogy_note": "Mission beat 06/22: the singular brother and sister connections are established; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 06/22: the established children connect as brother and sister; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "He is the brother.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp"
+        },
+        {
+          "text": "She is the sister.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c006-mission-instruction-5fbec87661f4bbcf2bd7",
-          "purpose": "mission-instruction",
-          "text": "Une cada persona con su relaci\u00f3n: brother para \u00e9l y sister para ella.",
+          "id": "lesson-10-family-mission-c006-prompt-turn-1-b215f167e5e2ea000764",
+          "purpose": "prompt-turn-1",
+          "text": "He is the brother.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c006-answer-ce53f228fcb617474d4c",
-          "purpose": "answer",
-          "text": "He is the brother. She is the sister.",
+          "id": "lesson-10-family-mission-c006-prompt-turn-2-7831fd2aecab3ba983e1",
+          "purpose": "prompt-turn-2",
+          "text": "She is the sister.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "connect-the-family",
       "mission_game": {
-        "kind": "relationship-link",
-        "instruction_es": "Une cada persona con su relaci\u00f3n: brother para \u00e9l y sister para ella.",
-        "validation": "unordered",
+        "kind": "family-link",
+        "instruction_es": "Escucha y toca a la persona.",
+        "validation": "ordered",
         "targets": [
           {
             "id": "brother",
-            "label_es": "Hermano",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.07,
-              "y": 0.14,
-              "width": 0.39,
-              "height": 0.7
+              "x": 0.16499999999999998,
+              "y": 0.465,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "brother"
@@ -759,16 +1161,58 @@
           },
           {
             "id": "sister",
-            "label_es": "Hermana",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.54,
-              "y": 0.14,
-              "width": 0.39,
-              "height": 0.7
+              "x": 0.665,
+              "y": 0.465,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "sister"
             ]
+          },
+          {
+            "id": "father",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.295,
+              "y": 0.195,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "father"
+            ]
+          },
+          {
+            "id": "mother",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.535,
+              "y": 0.195,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "mother"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "brother",
+            "text": "He is the brother.",
+            "answer_text": "He is the brother.",
+            "target_id": "brother",
+            "option_id": "brother"
+          },
+          {
+            "id": "sister",
+            "text": "She is the sister.",
+            "answer_text": "She is the sister.",
+            "target_id": "sister",
+            "option_id": "sister"
           }
         ],
         "tutorial_mode": null,
@@ -777,9 +1221,9 @@
     },
     {
       "slide_id": "M07",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Recognize",
+      "stage": "Listen",
       "correct_option_id": "brothers",
       "correct_option_ids": [
         "brothers",
@@ -795,57 +1239,79 @@
           "id": "sisters",
           "image_url": "",
           "label": "They are the sisters."
+        },
+        {
+          "id": "parents",
+          "image_url": "",
+          "label": "They are the parents."
+        },
+        {
+          "id": "grandparents",
+          "image_url": "",
+          "label": "They are the grandparents."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "They are the brothers. They are the sisters.",
+      "audio_text": "They are the brothers. They are the sisters.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp",
       "spanish_translation": "Ellos son los hermanos. Ellas son las hermanas.",
-      "pedagogy_note": "Mission beat 07/22: the plural brothers and sisters groups are marked without ambiguous overlap; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 07/22: two distinct sibling groups connect through plural English clues; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "They are the brothers.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp"
+        },
+        {
+          "text": "They are the sisters.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c007-mission-instruction-34ea65f3b337e93fac8e",
-          "purpose": "mission-instruction",
-          "text": "Une brothers con el grupo de ni\u00f1os y sisters con el grupo de ni\u00f1as.",
+          "id": "lesson-10-family-mission-c007-prompt-turn-1-2a94e7570f2453830056",
+          "purpose": "prompt-turn-1",
+          "text": "They are the brothers.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c007-answer-8d1c89d31ba823a7fff1",
-          "purpose": "answer",
-          "text": "They are the brothers. They are the sisters.",
+          "id": "lesson-10-family-mission-c007-prompt-turn-2-9c65b20f941d3dfb03e9",
+          "purpose": "prompt-turn-2",
+          "text": "They are the sisters.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "connect-the-family",
       "mission_game": {
-        "kind": "relationship-link",
-        "instruction_es": "Une brothers con el grupo de ni\u00f1os y sisters con el grupo de ni\u00f1as.",
-        "validation": "unordered",
+        "kind": "family-link",
+        "instruction_es": "Escucha y toca al grupo.",
+        "validation": "ordered",
         "targets": [
           {
             "id": "brothers",
-            "label_es": "Grupo de hermanos",
+            "label_es": "Grupo",
             "rect": {
-              "x": 0.05,
-              "y": 0.16,
-              "width": 0.42,
-              "height": 0.67
+              "x": 0.14500000000000002,
+              "y": 0.39499999999999996,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "brothers"
@@ -853,16 +1319,58 @@
           },
           {
             "id": "sisters",
-            "label_es": "Grupo de hermanas",
+            "label_es": "Grupo",
             "rect": {
-              "x": 0.53,
-              "y": 0.16,
-              "width": 0.42,
-              "height": 0.67
+              "x": 0.685,
+              "y": 0.39499999999999996,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "sisters"
             ]
+          },
+          {
+            "id": "parents",
+            "label_es": "Grupo",
+            "rect": {
+              "x": 0.235,
+              "y": 0.6950000000000001,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "parents"
+            ]
+          },
+          {
+            "id": "grandparents",
+            "label_es": "Grupo",
+            "rect": {
+              "x": 0.5950000000000001,
+              "y": 0.6950000000000001,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "grandparents"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "brothers",
+            "text": "They are the brothers.",
+            "answer_text": "They are the brothers.",
+            "target_id": "brothers",
+            "option_id": "brothers"
+          },
+          {
+            "id": "sisters",
+            "text": "They are the sisters.",
+            "answer_text": "They are the sisters.",
+            "target_id": "sisters",
+            "option_id": "sisters"
           }
         ],
         "tutorial_mode": null,
@@ -871,9 +1379,9 @@
     },
     {
       "slide_id": "M08",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Use",
+      "stage": "Listen",
       "correct_option_id": "father",
       "correct_option_ids": [
         "father",
@@ -895,57 +1403,91 @@
           "id": "parents",
           "image_url": "",
           "label": "They are the parents."
+        },
+        {
+          "id": "children",
+          "image_url": "",
+          "label": "They are the children."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "He is the father. She is the mother. They are the parents.",
+      "audio_text": "He is the father. She is the mother. They are the parents.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_08_parents.webp",
       "spanish_translation": "\u00c9l es el padre. Ella es la madre. Ellos son los padres.",
-      "pedagogy_note": "Mission beat 08/22: father and mother connect into the parents relationship; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 08/22: father and mother connect before the parent pair is welcomed; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "He is the father.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_08_parents.webp"
+        },
+        {
+          "text": "She is the mother.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_08_parents.webp"
+        },
+        {
+          "text": "They are the parents.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_08_parents.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c008-mission-instruction-a6b5a42d409b4f7e79d1",
-          "purpose": "mission-instruction",
-          "text": "Conecta al padre y a la madre con sus nombres. Luego conecta a la pareja con parents.",
+          "id": "lesson-10-family-mission-c008-prompt-turn-1-6277ee22f4af074e3a2f",
+          "purpose": "prompt-turn-1",
+          "text": "He is the father.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_08_parents.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c008-answer-78e0419c335b8242b5cb",
-          "purpose": "answer",
-          "text": "He is the father. She is the mother. They are the parents.",
+          "id": "lesson-10-family-mission-c008-prompt-turn-2-c2b88cd40a7cde00bf68",
+          "purpose": "prompt-turn-2",
+          "text": "She is the mother.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_08_parents.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c008-prompt-turn-3-278deec4bd6b3f2d4689",
+          "purpose": "prompt-turn-3",
+          "text": "They are the parents.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_08_parents.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "connect-the-family",
       "mission_game": {
-        "kind": "relationship-link",
-        "instruction_es": "Conecta al padre y a la madre con sus nombres. Luego conecta a la pareja con parents.",
-        "validation": "unordered",
+        "kind": "family-link",
+        "instruction_es": "Escucha y toca a la persona o a la pareja.",
+        "validation": "ordered",
         "targets": [
           {
             "id": "father",
-            "label_es": "Padre",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.05,
-              "y": 0.13,
-              "width": 0.29,
-              "height": 0.6
+              "x": 0.27499999999999997,
+              "y": 0.295,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "father"
@@ -953,12 +1495,12 @@
           },
           {
             "id": "mother",
-            "label_es": "Madre",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.66,
-              "y": 0.13,
-              "width": 0.29,
-              "height": 0.6
+              "x": 0.555,
+              "y": 0.295,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "mother"
@@ -966,16 +1508,52 @@
           },
           {
             "id": "parents",
-            "label_es": "Pareja de padres",
+            "label_es": "Pareja",
             "rect": {
-              "x": 0.34,
-              "y": 0.54,
-              "width": 0.32,
-              "height": 0.41
+              "x": 0.415,
+              "y": 0.5750000000000001,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "parents"
             ]
+          },
+          {
+            "id": "children",
+            "label_es": "Grupo",
+            "rect": {
+              "x": 0.415,
+              "y": 0.755,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "children"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "father",
+            "text": "He is the father.",
+            "answer_text": "He is the father.",
+            "target_id": "father",
+            "option_id": "father"
+          },
+          {
+            "id": "mother",
+            "text": "She is the mother.",
+            "answer_text": "She is the mother.",
+            "target_id": "mother",
+            "option_id": "mother"
+          },
+          {
+            "id": "parents",
+            "text": "They are the parents.",
+            "answer_text": "They are the parents.",
+            "target_id": "parents",
+            "option_id": "parents"
           }
         ],
         "tutorial_mode": null,
@@ -984,7 +1562,7 @@
     },
     {
       "slide_id": "M09",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
       "stage": "Listen",
       "correct_option_id": "grandfather",
@@ -1020,28 +1598,74 @@
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_09_generations.webp",
       "spanish_translation": "\u00c9l es el abuelo. Ella es la abuela. Ellos son los abuelos. Ellos son los nietos.",
-      "pedagogy_note": "Mission beat 09/22: the generation bridge connects grandparents and grandchildren; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 09/22: the visible family map establishes both generations without age-only guessing; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "He is the grandfather.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_09_generations.webp"
+        },
+        {
+          "text": "She is the grandmother.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_09_generations.webp"
+        },
+        {
+          "text": "They are the grandparents.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_09_generations.webp"
+        },
+        {
+          "text": "They are the grandchildren.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_09_generations.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c009-mission-instruction-0d1b05d1fbdc2cbfb70b",
-          "purpose": "mission-instruction",
-          "text": "Escucha cada relaci\u00f3n y con\u00e9ctala con la persona o el grupo correcto.",
+          "id": "lesson-10-family-mission-c009-prompt-turn-1-bee38840d42f07b0ec76",
+          "purpose": "prompt-turn-1",
+          "text": "He is the grandfather.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_09_generations.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c009-prompt-5eb3d87384c41d6b405a",
-          "purpose": "prompt",
-          "text": "He is the grandfather. She is the grandmother. They are the grandparents. They are the grandchildren.",
+          "id": "lesson-10-family-mission-c009-prompt-turn-2-0dfe7679cd98243b3fa9",
+          "purpose": "prompt-turn-2",
+          "text": "She is the grandmother.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_09_generations.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c009-prompt-turn-3-a64ffdeed6912e9ad292",
+          "purpose": "prompt-turn-3",
+          "text": "They are the grandparents.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_09_generations.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c009-prompt-turn-4-956717161f73df082c9e",
+          "purpose": "prompt-turn-4",
+          "text": "They are the grandchildren.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_09_generations.webp",
@@ -1053,18 +1677,18 @@
       ],
       "mission_chapter_id": "connect-the-family",
       "mission_game": {
-        "kind": "relationship-link",
-        "instruction_es": "Escucha cada relaci\u00f3n y con\u00e9ctala con la persona o el grupo correcto.",
+        "kind": "family-link",
+        "instruction_es": "Escucha y toca a la persona o al grupo.",
         "validation": "ordered",
         "targets": [
           {
             "id": "grandfather",
-            "label_es": "Abuelo",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.04,
-              "y": 0.08,
-              "width": 0.27,
-              "height": 0.38
+              "x": 0.255,
+              "y": 0.21499999999999997,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "grandfather"
@@ -1072,12 +1696,12 @@
           },
           {
             "id": "grandmother",
-            "label_es": "Abuela",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.36,
-              "y": 0.08,
-              "width": 0.27,
-              "height": 0.38
+              "x": 0.5750000000000001,
+              "y": 0.21499999999999997,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "grandmother"
@@ -1085,12 +1709,12 @@
           },
           {
             "id": "grandparents",
-            "label_es": "Abuelos",
+            "label_es": "Pareja",
             "rect": {
-              "x": 0.68,
-              "y": 0.08,
-              "width": 0.27,
-              "height": 0.38
+              "x": 0.415,
+              "y": 0.40499999999999997,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "grandparents"
@@ -1098,16 +1722,46 @@
           },
           {
             "id": "grandchildren",
-            "label_es": "Nietos",
+            "label_es": "Grupo",
             "rect": {
-              "x": 0.22,
-              "y": 0.55,
-              "width": 0.56,
-              "height": 0.38
+              "x": 0.415,
+              "y": 0.6950000000000001,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "grandchildren"
             ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "grandfather",
+            "text": "He is the grandfather.",
+            "answer_text": "He is the grandfather.",
+            "target_id": "grandfather",
+            "option_id": "grandfather"
+          },
+          {
+            "id": "grandmother",
+            "text": "She is the grandmother.",
+            "answer_text": "She is the grandmother.",
+            "target_id": "grandmother",
+            "option_id": "grandmother"
+          },
+          {
+            "id": "grandparents",
+            "text": "They are the grandparents.",
+            "answer_text": "They are the grandparents.",
+            "target_id": "grandparents",
+            "option_id": "grandparents"
+          },
+          {
+            "id": "grandchildren",
+            "text": "They are the grandchildren.",
+            "answer_text": "They are the grandchildren.",
+            "target_id": "grandchildren",
+            "option_id": "grandchildren"
           }
         ],
         "tutorial_mode": null,
@@ -1116,7 +1770,7 @@
     },
     {
       "slide_id": "M10",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
       "stage": "Listen",
       "correct_option_id": "eating",
@@ -1128,40 +1782,62 @@
         {
           "id": "eating",
           "image_url": "",
-          "label": "He is eating."
+          "label": "She is eating."
         },
         {
           "id": "drinking",
           "image_url": "",
           "label": "He is drinking."
+        },
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "She is reading."
+        },
+        {
+          "id": "sitting",
+          "image_url": "",
+          "label": "He is sitting."
         }
       ],
-      "audio_text": "He is eating. He is drinking.",
+      "audio_text": "She is eating. He is drinking.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp",
-      "spanish_translation": "\u00c9l est\u00e1 comiendo. \u00c9l est\u00e1 bebiendo.",
-      "pedagogy_note": "Mission beat 10/22: the first visible route follows eating and then drinking; the completed interaction advances the same family celebration adventure.",
+      "spanish_translation": "Ella est\u00e1 comiendo. \u00c9l est\u00e1 bebiendo.",
+      "pedagogy_note": "Mission beat 10/22: the learner finds eating and drinking among several plausible actions; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "She is eating.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp"
+        },
+        {
+          "text": "He is drinking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c010-mission-instruction-3a1225ecc19628d5c98e",
-          "purpose": "mission-instruction",
-          "text": "Escucha y sigue la ruta de izquierda a derecha: primero eating y despu\u00e9s drinking.",
+          "id": "lesson-10-family-mission-c010-prompt-turn-1-9b75bf3f479906160171",
+          "purpose": "prompt-turn-1",
+          "text": "She is eating.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c010-prompt-1b6e897b16fa725fe89e",
-          "purpose": "prompt",
-          "text": "He is eating. He is drinking.",
+          "id": "lesson-10-family-mission-c010-prompt-turn-2-d74191db6cfd34111f07",
+          "purpose": "prompt-turn-2",
+          "text": "He is drinking.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp",
@@ -1173,18 +1849,18 @@
       ],
       "mission_chapter_id": "follow-the-actions",
       "mission_game": {
-        "kind": "action-sequence",
-        "instruction_es": "Escucha y sigue la ruta de izquierda a derecha: primero eating y despu\u00e9s drinking.",
+        "kind": "action-hunt",
+        "instruction_es": "Escucha y encuentra qui\u00e9n hace la acci\u00f3n.",
         "validation": "ordered",
         "targets": [
           {
             "id": "eating",
-            "label_es": "Primera acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.05,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.15499999999999997,
+              "y": 0.26499999999999996,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "eating"
@@ -1192,16 +1868,58 @@
           },
           {
             "id": "drinking",
-            "label_es": "Segunda acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.53,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.675,
+              "y": 0.26499999999999996,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "drinking"
             ]
+          },
+          {
+            "id": "reading",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.195,
+              "y": 0.635,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "reading"
+            ]
+          },
+          {
+            "id": "sitting",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.635,
+              "y": 0.635,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "sitting"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "eating",
+            "text": "She is eating.",
+            "answer_text": "She is eating.",
+            "target_id": "eating",
+            "option_id": "eating"
+          },
+          {
+            "id": "drinking",
+            "text": "He is drinking.",
+            "answer_text": "He is drinking.",
+            "target_id": "drinking",
+            "option_id": "drinking"
           }
         ],
         "tutorial_mode": null,
@@ -1210,9 +1928,9 @@
     },
     {
       "slide_id": "M11",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Use",
+      "stage": "Listen",
       "correct_option_id": "reading",
       "correct_option_ids": [
         "reading",
@@ -1227,58 +1945,80 @@
         {
           "id": "writing",
           "image_url": "",
-          "label": "She is writing."
+          "label": "He is writing."
+        },
+        {
+          "id": "talking",
+          "image_url": "",
+          "label": "She is talking."
+        },
+        {
+          "id": "drinking",
+          "image_url": "",
+          "label": "He is drinking."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "She is reading. She is writing.",
+      "audio_text": "She is reading. He is writing.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_11_read_write.webp",
-      "spanish_translation": "Ella est\u00e1 leyendo. Ella est\u00e1 escribiendo.",
-      "pedagogy_note": "Mission beat 11/22: the next visible route follows reading and then writing; the completed interaction advances the same family celebration adventure.",
+      "spanish_translation": "Ella est\u00e1 leyendo. \u00c9l est\u00e1 escribiendo.",
+      "pedagogy_note": "Mission beat 11/22: reading and writing are distinguished by action and pronoun; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "She is reading.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_11_read_write.webp"
+        },
+        {
+          "text": "He is writing.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_11_read_write.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c011-mission-instruction-7185cb015ba2f586f52f",
-          "purpose": "mission-instruction",
-          "text": "Traza la secuencia visible: toca primero reading y despu\u00e9s writing.",
+          "id": "lesson-10-family-mission-c011-prompt-turn-1-b908400b5e02723ca80b",
+          "purpose": "prompt-turn-1",
+          "text": "She is reading.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_11_read_write.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c011-answer-1871b3e53e604f931e80",
-          "purpose": "answer",
-          "text": "She is reading. She is writing.",
+          "id": "lesson-10-family-mission-c011-prompt-turn-2-a1d152ebbf295ccc1b09",
+          "purpose": "prompt-turn-2",
+          "text": "He is writing.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_11_read_write.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "follow-the-actions",
       "mission_game": {
-        "kind": "action-sequence",
-        "instruction_es": "Traza la secuencia visible: toca primero reading y despu\u00e9s writing.",
+        "kind": "action-hunt",
+        "instruction_es": "Escucha y encuentra qui\u00e9n hace la acci\u00f3n.",
         "validation": "ordered",
         "targets": [
           {
             "id": "reading",
-            "label_es": "Primera acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.05,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.045,
+              "y": 0.425,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "reading"
@@ -1286,16 +2026,58 @@
           },
           {
             "id": "writing",
-            "label_es": "Segunda acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.53,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.27499999999999997,
+              "y": 0.425,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "writing"
             ]
+          },
+          {
+            "id": "talking",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.5650000000000001,
+              "y": 0.40499999999999997,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "talking"
+            ]
+          },
+          {
+            "id": "drinking",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.785,
+              "y": 0.38499999999999995,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "drinking"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "reading",
+            "text": "She is reading.",
+            "answer_text": "She is reading.",
+            "target_id": "reading",
+            "option_id": "reading"
+          },
+          {
+            "id": "writing",
+            "text": "He is writing.",
+            "answer_text": "He is writing.",
+            "target_id": "writing",
+            "option_id": "writing"
           }
         ],
         "tutorial_mode": null,
@@ -1304,9 +2086,9 @@
     },
     {
       "slide_id": "M12",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Use",
+      "stage": "Listen",
       "correct_option_id": "running",
       "correct_option_ids": [
         "running",
@@ -1322,57 +2104,79 @@
           "id": "swimming",
           "image_url": "",
           "label": "She is swimming."
+        },
+        {
+          "id": "sitting",
+          "image_url": "",
+          "label": "She is sitting."
+        },
+        {
+          "id": "talking",
+          "image_url": "",
+          "label": "She is talking."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "She is running. She is swimming.",
+      "audio_text": "She is running. She is swimming.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_12_run_swim.webp",
       "spanish_translation": "Ella est\u00e1 corriendo. Ella est\u00e1 nadando.",
-      "pedagogy_note": "Mission beat 12/22: the mother runs before the girl reaches the swimming station; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 12/22: running and swimming are found inside one lively celebration scene; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "She is running.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_12_run_swim.webp"
+        },
+        {
+          "text": "She is swimming.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_12_run_swim.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c012-mission-instruction-272c71055b7d134398e7",
-          "purpose": "mission-instruction",
-          "text": "Sigue las flechas de la escena: primero running y despu\u00e9s swimming.",
+          "id": "lesson-10-family-mission-c012-prompt-turn-1-19510c4276e419fd9950",
+          "purpose": "prompt-turn-1",
+          "text": "She is running.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_12_run_swim.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c012-answer-ae72f501c7f20c5c9379",
-          "purpose": "answer",
-          "text": "She is running. She is swimming.",
+          "id": "lesson-10-family-mission-c012-prompt-turn-2-c0e58635de1654b5fd6f",
+          "purpose": "prompt-turn-2",
+          "text": "She is swimming.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_12_run_swim.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "follow-the-actions",
       "mission_game": {
-        "kind": "action-sequence",
-        "instruction_es": "Sigue las flechas de la escena: primero running y despu\u00e9s swimming.",
+        "kind": "action-hunt",
+        "instruction_es": "Escucha y encuentra qui\u00e9n hace la acci\u00f3n.",
         "validation": "ordered",
         "targets": [
           {
             "id": "running",
-            "label_es": "Primera acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.05,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.075,
+              "y": 0.39499999999999996,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "running"
@@ -1380,16 +2184,58 @@
           },
           {
             "id": "swimming",
-            "label_es": "Segunda acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.53,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.365,
+              "y": 0.525,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "swimming"
             ]
+          },
+          {
+            "id": "sitting",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.615,
+              "y": 0.435,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "sitting"
+            ]
+          },
+          {
+            "id": "talking",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.795,
+              "y": 0.27499999999999997,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "talking"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "running",
+            "text": "She is running.",
+            "answer_text": "She is running.",
+            "target_id": "running",
+            "option_id": "running"
+          },
+          {
+            "id": "swimming",
+            "text": "She is swimming.",
+            "answer_text": "She is swimming.",
+            "target_id": "swimming",
+            "option_id": "swimming"
           }
         ],
         "tutorial_mode": null,
@@ -1398,7 +2244,7 @@
     },
     {
       "slide_id": "M13",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
       "stage": "Listen",
       "correct_option_id": "sitting",
@@ -1416,34 +2262,56 @@
           "id": "sleeping",
           "image_url": "",
           "label": "She is sleeping."
+        },
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "He is reading."
+        },
+        {
+          "id": "working",
+          "image_url": "",
+          "label": "She is working."
         }
       ],
       "audio_text": "He is sitting. She is sleeping.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp",
       "spanish_translation": "\u00c9l est\u00e1 sentado. Ella est\u00e1 durmiendo.",
-      "pedagogy_note": "Mission beat 13/22: the boy is sitting before the route reaches the sleeping girl; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 13/22: sitting and sleeping are found without using numbered or ordered boxes; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "He is sitting.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp"
+        },
+        {
+          "text": "She is sleeping.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c013-mission-instruction-db99fcb0c84b581b2b0f",
-          "purpose": "mission-instruction",
-          "text": "Escucha y toca las acciones en el orden indicado: sitting y luego sleeping.",
+          "id": "lesson-10-family-mission-c013-prompt-turn-1-5edf03d608c3db533ac1",
+          "purpose": "prompt-turn-1",
+          "text": "He is sitting.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c013-prompt-62e73c42dcc2571d684d",
-          "purpose": "prompt",
-          "text": "He is sitting. She is sleeping.",
+          "id": "lesson-10-family-mission-c013-prompt-turn-2-c3bcccff587becf5c61d",
+          "purpose": "prompt-turn-2",
+          "text": "She is sleeping.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp",
@@ -1455,18 +2323,18 @@
       ],
       "mission_chapter_id": "follow-the-actions",
       "mission_game": {
-        "kind": "action-sequence",
-        "instruction_es": "Escucha y toca las acciones en el orden indicado: sitting y luego sleeping.",
+        "kind": "action-hunt",
+        "instruction_es": "Escucha y encuentra qui\u00e9n hace la acci\u00f3n.",
         "validation": "ordered",
         "targets": [
           {
             "id": "sitting",
-            "label_es": "Primera acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.05,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.085,
+              "y": 0.455,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "sitting"
@@ -1474,16 +2342,58 @@
           },
           {
             "id": "sleeping",
-            "label_es": "Segunda acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.53,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.345,
+              "y": 0.455,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "sleeping"
             ]
+          },
+          {
+            "id": "reading",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.605,
+              "y": 0.445,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "reading"
+            ]
+          },
+          {
+            "id": "working",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.8150000000000001,
+              "y": 0.435,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "working"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "sitting",
+            "text": "He is sitting.",
+            "answer_text": "He is sitting.",
+            "target_id": "sitting",
+            "option_id": "sitting"
+          },
+          {
+            "id": "sleeping",
+            "text": "She is sleeping.",
+            "answer_text": "She is sleeping.",
+            "target_id": "sleeping",
+            "option_id": "sleeping"
           }
         ],
         "tutorial_mode": null,
@@ -1492,9 +2402,9 @@
     },
     {
       "slide_id": "M14",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
-      "stage": "Use",
+      "stage": "Listen",
       "correct_option_id": "playing",
       "correct_option_ids": [
         "playing",
@@ -1510,57 +2420,79 @@
           "id": "studying",
           "image_url": "",
           "label": "She is studying."
+        },
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "They are reading."
+        },
+        {
+          "id": "talking",
+          "image_url": "",
+          "label": "She is talking."
         }
       ],
-      "audio_text": null,
-      "answer_audio_text": "They are playing. She is studying.",
+      "audio_text": "They are playing. She is studying.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_14_play_study.webp",
       "spanish_translation": "Ellos est\u00e1n jugando. Ella est\u00e1 estudiando.",
-      "pedagogy_note": "Mission beat 14/22: the father and babies play before the route reaches the studying sister; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 14/22: playing and studying are found among visible decoy actions; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "They are playing.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_14_play_study.webp"
+        },
+        {
+          "text": "She is studying.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_14_play_study.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c014-mission-instruction-8c78266f86de122c9ba4",
-          "purpose": "mission-instruction",
-          "text": "Completa la ruta de preparaci\u00f3n: primero playing y despu\u00e9s studying.",
+          "id": "lesson-10-family-mission-c014-prompt-turn-1-b5ecb26d125f7d8cd12b",
+          "purpose": "prompt-turn-1",
+          "text": "They are playing.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_14_play_study.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c014-answer-6e738852a8ebb5e59374",
-          "purpose": "answer",
-          "text": "They are playing. She is studying.",
+          "id": "lesson-10-family-mission-c014-prompt-turn-2-718209f47c53a8d93593",
+          "purpose": "prompt-turn-2",
+          "text": "She is studying.",
           "mode": "prompt",
-          "variant": "answer",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_14_play_study.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "follow-the-actions",
       "mission_game": {
-        "kind": "action-sequence",
-        "instruction_es": "Completa la ruta de preparaci\u00f3n: primero playing y despu\u00e9s studying.",
+        "kind": "action-hunt",
+        "instruction_es": "Escucha y encuentra qui\u00e9n hace la acci\u00f3n.",
         "validation": "ordered",
         "targets": [
           {
             "id": "playing",
-            "label_es": "Primera acci\u00f3n",
+            "label_es": "Grupo",
             "rect": {
-              "x": 0.05,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.045,
+              "y": 0.48499999999999993,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "playing"
@@ -1568,16 +2500,58 @@
           },
           {
             "id": "studying",
-            "label_es": "Segunda acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.53,
-              "y": 0.14,
-              "width": 0.42,
-              "height": 0.7
+              "x": 0.305,
+              "y": 0.465,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "studying"
             ]
+          },
+          {
+            "id": "reading",
+            "label_es": "Grupo",
+            "rect": {
+              "x": 0.5650000000000001,
+              "y": 0.465,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "reading"
+            ]
+          },
+          {
+            "id": "talking",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.795,
+              "y": 0.345,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "talking"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "playing",
+            "text": "They are playing.",
+            "answer_text": "They are playing.",
+            "target_id": "playing",
+            "option_id": "playing"
+          },
+          {
+            "id": "studying",
+            "text": "She is studying.",
+            "answer_text": "She is studying.",
+            "target_id": "studying",
+            "option_id": "studying"
           }
         ],
         "tutorial_mode": null,
@@ -1586,7 +2560,7 @@
     },
     {
       "slide_id": "M15",
-      "interaction_type": "mission-sentence",
+      "interaction_type": "mission-game",
       "prompt": "",
       "stage": "Listen",
       "correct_option_id": "working",
@@ -1610,34 +2584,68 @@
           "id": "talking",
           "image_url": "",
           "label": "They are talking."
+        },
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "He is reading."
         }
       ],
       "audio_text": "She is working. He is cooking. They are talking.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp",
-      "spanish_translation": "Ella est\u00e1 trabajando. \u00c9l est\u00e1 cocinando. Ellas est\u00e1n hablando.",
-      "pedagogy_note": "Mission beat 15/22: the grandmother works, the father cooks, and the sisters talk along the final route; the completed interaction advances the same family celebration adventure.",
+      "spanish_translation": "Ella est\u00e1 trabajando. \u00c9l est\u00e1 cocinando. Ellos est\u00e1n hablando.",
+      "pedagogy_note": "Mission beat 15/22: working, cooking, and talking complete the celebration preparations; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "She is working.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp"
+        },
+        {
+          "text": "He is cooking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp"
+        },
+        {
+          "text": "They are talking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c015-mission-instruction-9c46d11130b783277efc",
-          "purpose": "mission-instruction",
-          "text": "Escucha y sigue las tres estaciones de izquierda a derecha: working, cooking y talking.",
+          "id": "lesson-10-family-mission-c015-prompt-turn-1-5c86481a67800838555d",
+          "purpose": "prompt-turn-1",
+          "text": "She is working.",
           "mode": "prompt",
-          "variant": "mission-instruction",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c015-prompt-a92e39ce2fb125ed2613",
-          "purpose": "prompt",
-          "text": "She is working. He is cooking. They are talking.",
+          "id": "lesson-10-family-mission-c015-prompt-turn-2-c8f9e1e64b367211da0c",
+          "purpose": "prompt-turn-2",
+          "text": "He is cooking.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c015-prompt-turn-3-f95aae4561f48259f55b",
+          "purpose": "prompt-turn-3",
+          "text": "They are talking.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp",
@@ -1649,18 +2657,18 @@
       ],
       "mission_chapter_id": "follow-the-actions",
       "mission_game": {
-        "kind": "action-sequence",
-        "instruction_es": "Escucha y sigue las tres estaciones de izquierda a derecha: working, cooking y talking.",
+        "kind": "action-hunt",
+        "instruction_es": "Escucha y encuentra qui\u00e9n hace la acci\u00f3n.",
         "validation": "ordered",
         "targets": [
           {
             "id": "working",
-            "label_es": "Primera acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.03,
-              "y": 0.15,
-              "width": 0.3,
-              "height": 0.68
+              "x": 0.03499999999999999,
+              "y": 0.435,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "working"
@@ -1668,12 +2676,12 @@
           },
           {
             "id": "cooking",
-            "label_es": "Segunda acci\u00f3n",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.35,
-              "y": 0.15,
-              "width": 0.3,
-              "height": 0.68
+              "x": 0.26499999999999996,
+              "y": 0.33499999999999996,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "cooking"
@@ -1681,16 +2689,52 @@
           },
           {
             "id": "talking",
-            "label_es": "Tercera acci\u00f3n",
+            "label_es": "Grupo",
             "rect": {
-              "x": 0.67,
-              "y": 0.15,
-              "width": 0.3,
-              "height": 0.68
+              "x": 0.545,
+              "y": 0.38499999999999995,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "talking"
             ]
+          },
+          {
+            "id": "reading",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.785,
+              "y": 0.435,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "reading"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "working",
+            "text": "She is working.",
+            "answer_text": "She is working.",
+            "target_id": "working",
+            "option_id": "working"
+          },
+          {
+            "id": "cooking",
+            "text": "He is cooking.",
+            "answer_text": "He is cooking.",
+            "target_id": "cooking",
+            "option_id": "cooking"
+          },
+          {
+            "id": "talking",
+            "text": "They are talking.",
+            "answer_text": "They are talking.",
+            "target_id": "talking",
+            "option_id": "talking"
           }
         ],
         "tutorial_mode": null,
@@ -1699,48 +2743,53 @@
     },
     {
       "slide_id": "M16",
-      "interaction_type": "mission-sentence",
-      "prompt": "He is eating.",
-      "stage": "Use",
-      "correct_option_id": "correct",
+      "interaction_type": "mission-game",
+      "prompt": "",
+      "stage": "Listen",
+      "correct_option_id": "not-eating",
       "options": [
         {
-          "id": "correct",
+          "id": "not-eating",
           "image_url": "",
           "label": "He is not eating. He is drinking."
         },
         {
-          "id": "wrong",
+          "id": "eating",
           "image_url": "",
-          "label": "He is eating. He is not drinking."
+          "label": "He is eating."
+        },
+        {
+          "id": "reading",
+          "image_url": "",
+          "label": "He is reading."
+        },
+        {
+          "id": "sitting",
+          "image_url": "",
+          "label": "He is sitting."
         }
       ],
-      "audio_text": "He is eating.",
-      "answer_audio_text": "He is not eating. He is drinking.",
+      "audio_text": "He is not eating. He is drinking.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_16_not_eating.webp",
       "spanish_translation": "\u00c9l no est\u00e1 comiendo. \u00c9l est\u00e1 bebiendo.",
-      "pedagogy_note": "Mission beat 16/22: the first false report is repaired with not and the visible drinking action; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 16/22: a complete negative English clue identifies the drinking man among active candidates; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "He is not eating. He is drinking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_16_not_eating.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c016-mission-instruction-4db9bbc2a5498c42d021",
-          "purpose": "mission-instruction",
-          "text": "La pista dice eating, pero la imagen muestra drinking. Toca la correcci\u00f3n verdadera con not.",
-          "mode": "prompt",
-          "variant": "mission-instruction",
-          "image_ref": "/lesson-assets/a1_u1_reunion_16_not_eating.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
-        },
-        {
-          "id": "lesson-10-family-mission-c016-prompt-15556f499e3fd0402def",
-          "purpose": "prompt",
-          "text": "He is eating.",
+          "id": "lesson-10-family-mission-c016-prompt-turn-1-a38d74d2dd4765488639",
+          "purpose": "prompt-turn-1",
+          "text": "He is not eating. He is drinking.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_16_not_eating.webp",
@@ -1748,38 +2797,74 @@
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c016-answer-6f9dc70b302a792330f1",
-          "purpose": "answer",
-          "text": "He is not eating. He is drinking.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u1_reunion_16_not_eating.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
         }
       ],
       "mission_chapter_id": "repair-the-clues",
       "mission_game": {
-        "kind": "not-correction",
-        "instruction_es": "La pista dice eating, pero la imagen muestra drinking. Toca la correcci\u00f3n verdadera con not.",
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha la frase completa y encuentra a qui\u00e9n describe.",
         "validation": "single",
         "targets": [
           {
-            "id": "false-report",
-            "label_es": "Pista falsa",
+            "id": "drinking",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.08,
-              "y": 0.13,
-              "width": 0.84,
-              "height": 0.72
+              "x": 0.085,
+              "y": 0.365,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
-              "correct"
+              "not-eating"
             ]
+          },
+          {
+            "id": "eating",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.32499999999999996,
+              "y": 0.365,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "eating"
+            ]
+          },
+          {
+            "id": "reading",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.555,
+              "y": 0.365,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "reading"
+            ]
+          },
+          {
+            "id": "sitting",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.775,
+              "y": 0.365,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "sitting"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "not-eating",
+            "text": "He is not eating. He is drinking.",
+            "answer_text": "He is not eating. He is drinking.",
+            "target_id": "drinking",
+            "option_id": "not-eating"
           }
         ],
         "tutorial_mode": null,
@@ -1788,48 +2873,53 @@
     },
     {
       "slide_id": "M17",
-      "interaction_type": "mission-sentence",
-      "prompt": "She is reading.",
-      "stage": "Recognize",
-      "correct_option_id": "correct",
+      "interaction_type": "mission-game",
+      "prompt": "",
+      "stage": "Listen",
+      "correct_option_id": "not-reading",
       "options": [
         {
-          "id": "correct",
+          "id": "not-reading",
           "image_url": "",
           "label": "She is not reading. She is writing."
         },
         {
-          "id": "wrong",
+          "id": "reading",
           "image_url": "",
-          "label": "She is reading. She is not writing."
+          "label": "She is reading."
+        },
+        {
+          "id": "talking",
+          "image_url": "",
+          "label": "She is talking."
+        },
+        {
+          "id": "cooking",
+          "image_url": "",
+          "label": "She is cooking."
         }
       ],
-      "audio_text": "She is reading.",
-      "answer_audio_text": "She is not reading. She is writing.",
+      "audio_text": "She is not reading. She is writing.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_17_not_reading.webp",
       "spanish_translation": "Ella no est\u00e1 leyendo. Ella est\u00e1 escribiendo.",
-      "pedagogy_note": "Mission beat 17/22: the second false report is repaired with not and the visible writing action; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 17/22: a complete negative English clue identifies the writing woman; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "She is not reading. She is writing.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_17_not_reading.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c017-mission-instruction-a913412ce1052a86e36f",
-          "purpose": "mission-instruction",
-          "text": "La pista dice reading, pero ella est\u00e1 writing. Toca la correcci\u00f3n verdadera con not.",
-          "mode": "prompt",
-          "variant": "mission-instruction",
-          "image_ref": "/lesson-assets/a1_u1_reunion_17_not_reading.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
-        },
-        {
-          "id": "lesson-10-family-mission-c017-prompt-fe1d6b2c7a407cbf236a",
-          "purpose": "prompt",
-          "text": "She is reading.",
+          "id": "lesson-10-family-mission-c017-prompt-turn-1-60c3ec160555783c24e8",
+          "purpose": "prompt-turn-1",
+          "text": "She is not reading. She is writing.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_17_not_reading.webp",
@@ -1837,38 +2927,74 @@
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c017-answer-2c5022add434bdf85249",
-          "purpose": "answer",
-          "text": "She is not reading. She is writing.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u1_reunion_17_not_reading.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
         }
       ],
       "mission_chapter_id": "repair-the-clues",
       "mission_game": {
-        "kind": "not-correction",
-        "instruction_es": "La pista dice reading, pero ella est\u00e1 writing. Toca la correcci\u00f3n verdadera con not.",
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha la frase completa y encuentra a qui\u00e9n describe.",
         "validation": "single",
         "targets": [
           {
-            "id": "false-report",
-            "label_es": "Pista falsa",
+            "id": "writing",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.08,
-              "y": 0.13,
-              "width": 0.84,
-              "height": 0.72
+              "x": 0.075,
+              "y": 0.38499999999999995,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
-              "correct"
+              "not-reading"
             ]
+          },
+          {
+            "id": "reading",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.305,
+              "y": 0.38499999999999995,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "reading"
+            ]
+          },
+          {
+            "id": "talking",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.535,
+              "y": 0.38499999999999995,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "talking"
+            ]
+          },
+          {
+            "id": "cooking",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.765,
+              "y": 0.345,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "cooking"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "not-reading",
+            "text": "She is not reading. She is writing.",
+            "answer_text": "She is not reading. She is writing.",
+            "target_id": "writing",
+            "option_id": "not-reading"
           }
         ],
         "tutorial_mode": null,
@@ -1877,48 +3003,53 @@
     },
     {
       "slide_id": "M18",
-      "interaction_type": "mission-listen",
-      "prompt": "They are running.",
+      "interaction_type": "mission-game",
+      "prompt": "",
       "stage": "Listen",
-      "correct_option_id": "correct",
+      "correct_option_id": "not-running",
       "options": [
         {
-          "id": "correct",
+          "id": "not-running",
           "image_url": "",
           "label": "They are not running. They are sitting."
         },
         {
-          "id": "wrong",
+          "id": "running",
           "image_url": "",
-          "label": "They are running. They are not sitting."
+          "label": "They are running."
+        },
+        {
+          "id": "talking",
+          "image_url": "",
+          "label": "They are talking."
+        },
+        {
+          "id": "playing",
+          "image_url": "",
+          "label": "They are playing."
         }
       ],
-      "audio_text": "They are running.",
-      "answer_audio_text": "They are not running. They are sitting.",
+      "audio_text": "They are not running. They are sitting.",
+      "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_18_not_running.webp",
       "spanish_translation": "Ellos no est\u00e1n corriendo. Ellos est\u00e1n sentados.",
-      "pedagogy_note": "Mission beat 18/22: the third false report is repaired with not and the visible sitting action; the completed interaction advances the same family celebration adventure.",
+      "pedagogy_note": "Mission beat 18/22: a plural negative clue identifies the seated pair; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "They are not running. They are sitting.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_18_not_running.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c018-mission-instruction-17ca128aec9a0154ee7a",
-          "purpose": "mission-instruction",
-          "text": "Escucha la pista falsa, observa la escena y toca la correcci\u00f3n que usa not.",
-          "mode": "prompt",
-          "variant": "mission-instruction",
-          "image_ref": "/lesson-assets/a1_u1_reunion_18_not_running.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
-        },
-        {
-          "id": "lesson-10-family-mission-c018-prompt-0bf8f2985d792981ab9d",
-          "purpose": "prompt",
-          "text": "They are running.",
+          "id": "lesson-10-family-mission-c018-prompt-turn-1-56a3b63d97ada27be0e6",
+          "purpose": "prompt-turn-1",
+          "text": "They are not running. They are sitting.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_u1_reunion_18_not_running.webp",
@@ -1926,38 +3057,74 @@
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
-        },
-        {
-          "id": "lesson-10-family-mission-c018-answer-fe1871cbb55741418b40",
-          "purpose": "answer",
-          "text": "They are not running. They are sitting.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u1_reunion_18_not_running.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
         }
       ],
       "mission_chapter_id": "repair-the-clues",
       "mission_game": {
-        "kind": "not-correction",
-        "instruction_es": "Escucha la pista falsa, observa la escena y toca la correcci\u00f3n que usa not.",
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha la frase completa y encuentra al grupo.",
         "validation": "single",
         "targets": [
           {
-            "id": "false-report",
-            "label_es": "Pista falsa",
+            "id": "sitting",
+            "label_es": "Grupo",
             "rect": {
-              "x": 0.08,
-              "y": 0.13,
-              "width": 0.84,
-              "height": 0.72
+              "x": 0.06499999999999999,
+              "y": 0.505,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
-              "correct"
+              "not-running"
             ]
+          },
+          {
+            "id": "running",
+            "label_es": "Grupo",
+            "rect": {
+              "x": 0.285,
+              "y": 0.40499999999999997,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "running"
+            ]
+          },
+          {
+            "id": "talking",
+            "label_es": "Grupo",
+            "rect": {
+              "x": 0.515,
+              "y": 0.38499999999999995,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "talking"
+            ]
+          },
+          {
+            "id": "playing",
+            "label_es": "Grupo",
+            "rect": {
+              "x": 0.755,
+              "y": 0.465,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "playing"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "not-running",
+            "text": "They are not running. They are sitting.",
+            "answer_text": "They are not running. They are sitting.",
+            "target_id": "sitting",
+            "option_id": "not-running"
           }
         ],
         "tutorial_mode": null,
@@ -1966,96 +3133,107 @@
     },
     {
       "slide_id": "M19",
-      "interaction_type": "mission-clue",
-      "prompt": "Who is he?",
-      "stage": "Recognize",
+      "interaction_type": "mission-speak",
+      "prompt": "He is the father.",
+      "stage": "Speak",
       "correct_option_id": "father",
       "options": [
         {
           "id": "father",
-          "image_url": "",
+          "image_url": "/lesson-assets/a1_u1_reunion_19_who_father.webp",
           "label": "He is the father."
-        },
-        {
-          "id": "mother",
-          "image_url": "",
-          "label": "He is the mother."
-        },
-        {
-          "id": "sister",
-          "image_url": "",
-          "label": "He is the sister."
         }
       ],
-      "audio_text": "Who is he?",
-      "answer_audio_text": "He is the father.",
-      "prompt_image_url": "/lesson-assets/a1_u1_reunion_19_who_father.webp",
-      "spanish_translation": "\u00bfQui\u00e9n es \u00e9l? \u00c9l es el padre.",
-      "pedagogy_note": "Mission beat 19/22: the greeter asks who the clearly indicated father is; the completed interaction advances the same family celebration adventure.",
+      "audio_text": "He is the father.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "\u00c9l es el padre.",
+      "pedagogy_note": "Mission beat 19/22: the learner answers who the father is through the real pronunciation flow; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Who is he?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_19_who_father.webp"
+        },
+        {
+          "text": "He is the father.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_19_who_father.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c019-mission-instruction-5629a240481583f19d2e",
-          "purpose": "mission-instruction",
-          "text": "Mira a la persona se\u00f1alada, escucha la pregunta y elige la respuesta correcta.",
-          "mode": "prompt",
-          "variant": "mission-instruction",
-          "image_ref": "/lesson-assets/a1_u1_reunion_19_who_father.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
-        },
-        {
-          "id": "lesson-10-family-mission-c019-prompt-7b2eb95dce3ab94aaff9",
-          "purpose": "prompt",
+          "id": "lesson-10-family-mission-c019-mission-cue-ec851db3d1a278011f1e",
+          "purpose": "mission-cue",
           "text": "Who is he?",
           "mode": "prompt",
-          "variant": "prompt",
+          "variant": "question",
           "image_ref": "/lesson-assets/a1_u1_reunion_19_who_father.webp",
           "semantic_role": "question",
-          "speaker_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 4
+        },
+        {
+          "id": "lesson-10-family-mission-c019-prompt-turn-1-a2c7700e5a8b8f743a7e",
+          "purpose": "prompt-turn-1",
+          "text": "Who is he?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_reunion_19_who_father.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c019-answer-a262f95695705cf411cf",
-          "purpose": "answer",
+          "id": "lesson-10-family-mission-c019-prompt-turn-2-879b50969ee1cb733c08",
+          "purpose": "prompt-turn-2",
           "text": "He is the father.",
-          "mode": "prompt",
-          "variant": "answer",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_u1_reunion_19_who_father.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "welcome-everyone",
       "mission_game": {
-        "kind": "who-dialogue",
-        "instruction_es": "Mira a la persona se\u00f1alada, escucha la pregunta y elige la respuesta correcta.",
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta y responde en voz alta.",
         "validation": "single",
         "targets": [
           {
             "id": "father",
-            "label_es": "Padre se\u00f1alado",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.31,
-              "y": 0.1,
-              "width": 0.38,
-              "height": 0.75
+              "x": 0.415,
+              "y": 0.415,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "father"
             ]
           }
         ],
+        "cues": [
+          {
+            "id": "father",
+            "text": "Who is he?",
+            "answer_text": "He is the father.",
+            "target_id": "father",
+            "option_id": "father"
+          }
+        ],
         "tutorial_mode": null,
-        "cue_audio_text": null
+        "cue_audio_text": "Who is he?"
       }
     },
     {
@@ -2073,28 +3251,28 @@
       ],
       "audio_text": "She is the grandmother.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_u1_reunion_20_who_grandmother.webp",
-      "spanish_translation": "\u00bfQui\u00e9n es ella? Ella es la abuela.",
-      "pedagogy_note": "Mission beat 20/22: the learner hears who is she and speaks the grandmother answer; the completed interaction advances the same family celebration adventure.",
+      "prompt_image_url": "",
+      "spanish_translation": "Ella es la abuela.",
+      "pedagogy_note": "Mission beat 20/22: the learner answers who the grandmother is through the real pronunciation flow; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Who is she?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_20_who_grandmother.webp"
+        },
+        {
+          "text": "She is the grandmother.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_20_who_grandmother.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c020-mission-instruction-6e3ce6857923167b38fe",
-          "purpose": "mission-instruction",
-          "text": "Escucha \u201cWho is she?\u201d. Despu\u00e9s escucha el modelo y di: \u201cShe is the grandmother.\u201d",
-          "mode": "prompt",
-          "variant": "mission-instruction",
-          "image_ref": "/lesson-assets/a1_u1_reunion_20_who_grandmother.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
-        },
-        {
-          "id": "lesson-10-family-mission-c020-mission-cue-6132c18228167cfe6c86",
+          "id": "lesson-10-family-mission-c020-mission-cue-5a1ab6aecb10dfb02afc",
           "purpose": "mission-cue",
           "text": "Who is she?",
           "mode": "prompt",
@@ -2103,11 +3281,23 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 4
         },
         {
-          "id": "lesson-10-family-mission-c020-prompt-12791f3a64c76f55548c",
-          "purpose": "prompt",
+          "id": "lesson-10-family-mission-c020-prompt-turn-1-62cc841d644f9dc6f699",
+          "purpose": "prompt-turn-1",
+          "text": "Who is she?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_reunion_20_who_grandmother.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c020-prompt-turn-2-a3e7dc3c534025ad11c0",
+          "purpose": "prompt-turn-2",
           "text": "She is the grandmother.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
@@ -2120,22 +3310,31 @@
       ],
       "mission_chapter_id": "welcome-everyone",
       "mission_game": {
-        "kind": "speak",
-        "instruction_es": "Escucha \u201cWho is she?\u201d. Despu\u00e9s escucha el modelo y di: \u201cShe is the grandmother.\u201d",
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta y responde en voz alta.",
         "validation": "single",
         "targets": [
           {
             "id": "grandmother",
-            "label_es": "Abuela se\u00f1alada",
+            "label_es": "Persona",
             "rect": {
-              "x": 0.31,
-              "y": 0.1,
-              "width": 0.38,
-              "height": 0.75
+              "x": 0.415,
+              "y": 0.415,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "grandmother"
             ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "grandmother",
+            "text": "Who is she?",
+            "answer_text": "She is the grandmother.",
+            "target_id": "grandmother",
+            "option_id": "grandmother"
           }
         ],
         "tutorial_mode": null,
@@ -2144,96 +3343,107 @@
     },
     {
       "slide_id": "M21",
-      "interaction_type": "mission-listen",
-      "prompt": "Who are they?",
-      "stage": "Listen",
+      "interaction_type": "mission-speak",
+      "prompt": "They are the parents.",
+      "stage": "Speak",
       "correct_option_id": "parents",
       "options": [
         {
           "id": "parents",
-          "image_url": "",
+          "image_url": "/lesson-assets/a1_u1_reunion_21_who_parents.webp",
           "label": "They are the parents."
-        },
-        {
-          "id": "brothers",
-          "image_url": "",
-          "label": "They are the brothers."
-        },
-        {
-          "id": "sisters",
-          "image_url": "",
-          "label": "They are the sisters."
         }
       ],
-      "audio_text": "Who are they?",
-      "answer_audio_text": "They are the parents.",
-      "prompt_image_url": "/lesson-assets/a1_u1_reunion_21_who_parents.webp",
-      "spanish_translation": "\u00bfQui\u00e9nes son ellos? Ellos son los padres.",
-      "pedagogy_note": "Mission beat 21/22: the plural who question resolves the parents relationship pass; the completed interaction advances the same family celebration adventure.",
+      "audio_text": "They are the parents.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Ellos son los padres.",
+      "pedagogy_note": "Mission beat 21/22: the learner answers who the parents are through the real pronunciation flow; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Who are they?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_21_who_parents.webp"
+        },
+        {
+          "text": "They are the parents.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_21_who_parents.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c021-mission-instruction-865f0447f46c0ec340bc",
-          "purpose": "mission-instruction",
-          "text": "Escucha la pregunta plural y entrega la respuesta a la pareja se\u00f1alada.",
-          "mode": "prompt",
-          "variant": "mission-instruction",
-          "image_ref": "/lesson-assets/a1_u1_reunion_21_who_parents.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
-        },
-        {
-          "id": "lesson-10-family-mission-c021-prompt-fc6532bcbe4d1632c0cc",
-          "purpose": "prompt",
+          "id": "lesson-10-family-mission-c021-mission-cue-1295bd51e3cdd2380b2e",
+          "purpose": "mission-cue",
           "text": "Who are they?",
           "mode": "prompt",
-          "variant": "prompt",
+          "variant": "question",
           "image_ref": "/lesson-assets/a1_u1_reunion_21_who_parents.webp",
           "semantic_role": "question",
-          "speaker_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 4
+        },
+        {
+          "id": "lesson-10-family-mission-c021-prompt-turn-1-6f42e1791fec15027115",
+          "purpose": "prompt-turn-1",
+          "text": "Who are they?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_reunion_21_who_parents.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-10-family-mission-c021-answer-66c5b49b2d9c668f025a",
-          "purpose": "answer",
+          "id": "lesson-10-family-mission-c021-prompt-turn-2-88f9490f9e04544d1aca",
+          "purpose": "prompt-turn-2",
           "text": "They are the parents.",
-          "mode": "prompt",
-          "variant": "answer",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
           "image_ref": "/lesson-assets/a1_u1_reunion_21_who_parents.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
       ],
       "mission_chapter_id": "welcome-everyone",
       "mission_game": {
-        "kind": "who-dialogue",
-        "instruction_es": "Escucha la pregunta plural y entrega la respuesta a la pareja se\u00f1alada.",
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta y responde en voz alta.",
         "validation": "single",
         "targets": [
           {
             "id": "parents",
-            "label_es": "Pareja de padres",
+            "label_es": "Pareja",
             "rect": {
-              "x": 0.21,
-              "y": 0.12,
-              "width": 0.58,
-              "height": 0.72
+              "x": 0.415,
+              "y": 0.415,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "parents"
             ]
           }
         ],
+        "cues": [
+          {
+            "id": "parents",
+            "text": "Who are they?",
+            "answer_text": "They are the parents.",
+            "target_id": "parents",
+            "option_id": "parents"
+          }
+        ],
         "tutorial_mode": null,
-        "cue_audio_text": null
+        "cue_audio_text": "Who are they?"
       }
     },
     {
@@ -2251,28 +3461,28 @@
       ],
       "audio_text": "They are a family.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_u1_reunion_22_family_arrival.webp",
-      "spanish_translation": "\u00bfQui\u00e9nes son ellos? Ellos son una familia.",
-      "pedagogy_note": "Mission beat 22/22: the last family groups arrive and the learner speaks the reunion line; the completed interaction advances the same family celebration adventure.",
+      "prompt_image_url": "",
+      "spanish_translation": "Ellos son una familia.",
+      "pedagogy_note": "Mission beat 22/22: the learner identifies the reunited family aloud to open the celebration; the completed interaction advances the same family celebration adventure.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Who are they?",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_22_family_arrival.webp"
+        },
+        {
+          "text": "They are a family.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_22_family_arrival.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-10-family-mission-c022-mission-instruction-6f70fb41e43354486b76",
-          "purpose": "mission-instruction",
-          "text": "Toca el punto de reuni\u00f3n para recibir a los \u00faltimos grupos. Despu\u00e9s escucha el modelo y di: \u201cThey are a family.\u201d",
-          "mode": "prompt",
-          "variant": "mission-instruction",
-          "image_ref": "/lesson-assets/a1_u1_reunion_22_family_arrival.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
-        },
-        {
-          "id": "lesson-10-family-mission-c022-mission-cue-a52e13f4b5fdad969253",
+          "id": "lesson-10-family-mission-c022-mission-cue-832732eda1489dc6bc84",
           "purpose": "mission-cue",
           "text": "Who are they?",
           "mode": "prompt",
@@ -2281,11 +3491,23 @@
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 3
+          "revision": 4
         },
         {
-          "id": "lesson-10-family-mission-c022-prompt-c1280903f0bed31d1b55",
-          "purpose": "prompt",
+          "id": "lesson-10-family-mission-c022-prompt-turn-1-e2fe336bc890d0035f05",
+          "purpose": "prompt-turn-1",
+          "text": "Who are they?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u1_reunion_22_family_arrival.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-10-family-mission-c022-prompt-turn-2-66fb0e3e5fb14ca6f7f4",
+          "purpose": "prompt-turn-2",
           "text": "They are a family.",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
@@ -2298,22 +3520,31 @@
       ],
       "mission_chapter_id": "welcome-everyone",
       "mission_game": {
-        "kind": "finale",
-        "instruction_es": "Toca el punto de reuni\u00f3n para recibir a los \u00faltimos grupos. Despu\u00e9s escucha el modelo y di: \u201cThey are a family.\u201d",
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta y responde en voz alta.",
         "validation": "single",
         "targets": [
           {
-            "id": "reunion",
-            "label_es": "Punto de reuni\u00f3n familiar",
+            "id": "family",
+            "label_es": "Familia",
             "rect": {
-              "x": 0.12,
-              "y": 0.12,
-              "width": 0.76,
-              "height": 0.75
+              "x": 0.415,
+              "y": 0.415,
+              "width": 0.17,
+              "height": 0.17
             },
             "accepted_option_ids": [
               "family"
             ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "family",
+            "text": "Who are they?",
+            "answer_text": "They are a family.",
+            "target_id": "family",
+            "option_id": "family"
           }
         ],
         "tutorial_mode": null,
@@ -2322,11 +3553,11 @@
     }
   ],
   "experience_type": "mission",
-  "content_revision": 3,
+  "content_revision": 4,
   "mission": {
     "label": "MISI\u00d3N FINAL \u00b7 UNIDAD 1",
     "title": "\u00a1Todos a la celebraci\u00f3n!",
-    "briefing": "La celebraci\u00f3n familiar est\u00e1 por comenzar, pero todav\u00eda falta reunir a todos. Encuentra a cada persona, descubre qu\u00e9 est\u00e1 haciendo y responde qui\u00e9n es. Vas a tocar, unir, escuchar y hablar. Yo te mostrar\u00e9 el primer paso.",
+    "briefing": "La celebraci\u00f3n est\u00e1 por comenzar y todav\u00eda faltan invitados. Escucha cada frase, encuentra a las personas y descubre qu\u00e9 est\u00e1n haciendo. Al final responder\u00e1s en voz alta para abrir la celebraci\u00f3n. Primero practicaremos juntos.",
     "kickoff_image_url": "/lesson-assets/a1_u1_reunion_kickoff.webp",
     "objectives": [
       "Encuentra personas",
@@ -2339,27 +3570,27 @@
       {
         "id": "find-the-people",
         "title": "Encuentra a las personas",
-        "objective": "Sigue la luz y localiza a quienes faltan."
+        "objective": "Escucha y encuentra a cada invitado."
       },
       {
         "id": "connect-the-family",
-        "title": "Conecta a la familia",
-        "objective": "Une a cada persona con su relaci\u00f3n correcta."
+        "title": "Descubre la familia",
+        "objective": "Identifica a cada persona y a cada grupo."
       },
       {
         "id": "follow-the-actions",
         "title": "Sigue las acciones",
-        "objective": "Recorre las pistas en el orden que muestran y dicen."
+        "objective": "Escucha y encuentra qu\u00e9 est\u00e1 haciendo cada persona."
       },
       {
         "id": "repair-the-clues",
-        "title": "Repara las pistas",
-        "objective": "Corrige los reportes falsos con not."
+        "title": "Encuentra la verdad",
+        "objective": "Escucha la frase completa y elige a qui\u00e9n describe."
       },
       {
         "id": "welcome-everyone",
         "title": "Recibe a todos",
-        "objective": "Responde qui\u00e9nes son y re\u00fane a la familia."
+        "objective": "Escucha las preguntas y responde en voz alta."
       }
     ]
   }

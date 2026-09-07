@@ -87,27 +87,20 @@ MISSION_CHAPTERS = (
     + ["welcome-everyone"] * 4
 )
 MISSION_STAGES = [
-    "Learn", "Listen", "Use", "Use", "Use", "Recognize", "Recognize", "Use",
-    "Listen", "Listen", "Use", "Use", "Listen", "Use", "Listen", "Use",
-    "Recognize", "Listen", "Recognize", "Speak", "Listen", "Speak",
+    *(["Listen"] * 18),
+    *(["Speak"] * 4),
 ]
 MISSION_INTERACTION_SEQUENCE = [
-    "mission-clue",
-    *(["mission-sentence"] * 16),
-    "mission-listen",
-    "mission-clue",
-    "mission-speak",
-    "mission-listen",
+    *(["mission-game"] * 18),
+    *(["mission-speak"] * 3),
     "mission-finale",
 ]
 MISSION_KIND_SEQUENCE = [
-    "hotspot", "hotspot", "label-placement", "label-placement",
-    "relationship-link", "relationship-link", "relationship-link",
-    "relationship-link", "relationship-link",
-    "action-sequence", "action-sequence", "action-sequence",
-    "action-sequence", "action-sequence", "action-sequence",
-    "not-correction", "not-correction", "not-correction",
-    "who-dialogue", "speak", "who-dialogue", "finale",
+    "guided-search", "crowd-search", "crowd-search",
+    *(["family-link"] * 6),
+    *(["action-hunt"] * 6),
+    *(["contrast-hunt"] * 3),
+    *(["voice-gate"] * 4),
 ]
 MISSION_HERO_ASSETS = [
     f"a1_u1_reunion_{index:02d}_{suffix}.webp"
@@ -302,7 +295,7 @@ class LessonStructureTests(unittest.TestCase):
         mission = LESSONS["lesson-10-family-mission"]
         self.assertEqual([], mission.vocabulary)
         self.assertEqual("mission", mission.experience_type)
-        self.assertEqual(3, mission.content_revision)
+        self.assertEqual(4, mission.content_revision)
         self.assertEqual(22, len(mission.cards))
         self.assertEqual(UNIT_ONE_GOLD, mission.review_vocabulary)
         self.assertEqual(

@@ -253,36 +253,36 @@ Current restructuring target:
 
 The learner-facing title is `¡Todos a la celebración!`. A family celebration is about to begin, but everyone has not yet arrived. Learned English is the tool for finding each person, establishing the family connections, following what they are doing, correcting broken reports, answering the greeter, and bringing the whole family together. There is no album, film set, studio production, syllable opening, or repeated sentence-order board.
 
-The opening plays a short mission-specific chime, shows the three objectives `Encuentra personas`, `Sigue sus acciones`, and `Reúne a la familia`, and speaks this briefing in Spanish before enabling the first action: `La celebración familiar está por comenzar, pero todavía falta reunir a todos. Encuentra a cada persona, descubre qué está haciendo y responde quién es. Vas a tocar, unir, escuchar y hablar. Yo te mostraré el primer paso.` Beat 1 is a guided, nonpunitive example: the learner hears `A boy.` and is shown once how to touch the person. Every later mechanic states and speaks the exact next action in Spanish before input unlocks.
+The opening plays the distinct 3.2-second acoustic mission cue, shows the three objectives `Encuentra personas`, `Sigue sus acciones`, and `Reúne a la familia`, and speaks this briefing in Spanish before enabling Start: `La celebración está por comenzar y todavía faltan invitados. Escucha cada frase, encuentra a las personas y descubre qué están haciendo. Al final responderás en voz alta para abrir la celebración. Primero practicaremos juntos.` Beat 1 is a guided, nonpunitive example: the learner hears `A boy.` and learns once that a pulsing point selects a person. During active play, the current mechanic remains visible in concise Spanish but is not narrated; the assessed audio is always English, finishes before input unlocks, and can be repeated with the speaker button.
 
 The 22 beats have these fixed responsibilities:
 
 1. Guided person search for `A boy.`
 2. Searchlight sequence for `A girl.`, `A man.`, and `A woman.`
-3. Place `he`, `she`, and `they` signals on the matching person or group with correct `is/are` agreement.
-4. Route the boy, girl, man, and woman through child/adult checkpoints, then confirm `children` and `adults` with `and`.
-5. Distinguish `A baby.` from `Babies.` and connect baby/babies to child/children.
-6. Connect the singular `brother` and `sister` relationships.
-7. Mark the plural `brothers` and `sisters` groups.
-8. Connect `father` and `mother` into `parents`.
-9. Complete the generation bridge with `grandfather`, `grandmother`, `grandparents`, and `grandchildren`.
-10. Follow the `eating` and `drinking` clues.
-11. Follow the `reading` and `writing` clues.
-12. Follow the `running` and `swimming` clues.
-13. Follow the `sitting` and `sleeping` clues.
-14. Follow the `playing` and `studying` clues.
-15. Follow the `working`, `cooking`, and `talking` clues.
-16. Repair `He is not eating. He is drinking.`
-17. Repair `She is not reading. She is writing.`
-18. Repair `They are not running. They are sitting.`
-19. Choose and resolve `Who is he?` for the clearly indicated father.
-20. Hear `Who is she?` and speak the grandmother answer.
-21. Hear `Who are they?` and deliver the matching parents relationship pass.
-22. Bring the remaining family groups into the newly composed final scene and speak `They are a family.`
+3. Hear four complete `he/she + is` descriptions and find each matching person among equal candidates.
+4. Hear the six child/adult singular and plural descriptions one at a time and find the matching person or group.
+5. Distinguish one baby from two babies through `A baby is a child.` and `Babies are children.`
+6. Find the brother and sister from their complete English relationship sentences.
+7. Find the brothers and sisters groups from the plural sentences.
+8. Find the father, mother, and parents from their complete relationship sentences.
+9. Find grandfather, grandmother, grandparents, and grandchildren without overlapping valid targets.
+10. Find who is `eating` and who is `drinking`.
+11. Find who is `reading` and who is `writing`.
+12. Find who is `running` and who is `swimming`.
+13. Find who is `sitting` and who is `sleeping`.
+14. Find who is `playing` and who is `studying`.
+15. Find who is `working`, `cooking`, and `talking`.
+16. Use the full contrast `He is not eating. He is drinking.` to find the correct person among four visible actions.
+17. Use the full contrast `She is not reading. She is writing.` to find the correct person among four visible actions.
+18. Use the full contrast `They are not running. They are sitting.` to find the correct group among four visible groups.
+19. Hear `Who is he?`, hear `He is the father.` as the model, then say the father answer through the pronunciation engine.
+20. Hear `Who is she?`, hear `She is the grandmother.` as the model, then say the grandmother answer.
+21. Hear `Who are they?`, hear `They are the parents.` as the model, then say the parents answer.
+22. Hear `Who are they?`, hear `They are a family.` as the model, then say the final answer and open the celebration.
 
 The successful-path coverage is exact and auditable: beats 1-2 cover `a`, `boy`, `girl`, `man`, and `woman`; beat 3 covers `he`, `she`, `is`, `they`, and `are`; beats 4-5 cover `the`, `and`, `an`, `child`, `children`, `adult`, `adults`, `baby`, and `babies`; beats 6-9 cover `brother`, `brothers`, `sister`, `sisters`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`, and `grandchildren`; beats 10-15 cover all thirteen learned actions; beats 16-18 cover `not`; beats 19-21 cover `who` and all three question forms; and beat 22 covers `family`.
 
-Every actionable screen must make the current goal and exact gesture apparent without trial and error. When an order matters, Spanish guidance and visible first/next state define it; the learner is never asked to infer an arbitrary sentence or character order. A wrong touch or placement leaves the solved mission state intact and returns only the attempted item, while Undo removes the last placement. Reset may exist as an optional control but is never the only way to remove or correct an item. Every drag operation also has a complete tap-source, tap-destination path.
+Every actionable screen makes the current goal and one required gesture apparent without trial and error. The 18 listening challenges show a large full-width scene with at least four equally styled pulsing candidate points, play one English cue at a time, and validate a touch immediately. Correct answers advance automatically; wrong answers preserve every completed cue, show concise feedback, and repeat the current English cue. There is no answer bank, drag requirement, `Comprobar`, Undo, or Reset. The full instruction, scene, targets, cue progress, feedback, and replay control fit the supported phone viewport without vertical lesson scrolling. The final four cards remain inside the mission but use the real graded pronunciation flow, with one unambiguous image and no duplicate selectable copy.
 
 ## Difficulty Ramp
 

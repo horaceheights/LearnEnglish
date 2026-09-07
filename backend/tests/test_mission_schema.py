@@ -42,7 +42,7 @@ def mission_lesson_payload() -> dict:
             "sub_lesson_id": "1.10",
             "sub_lesson_title": "Family mission",
             "experience_type": "mission",
-            "content_revision": 2,
+            "content_revision": 4,
             "mission": {
                 "label": "Final mission",
                 "title": "Find the family",
@@ -59,15 +59,15 @@ def mission_lesson_payload() -> dict:
             "cards": [
                 {
                     "slide_id": "M01",
-                    "interaction_type": "mission-brief",
+                    "interaction_type": "mission-game",
                     "mission_chapter_id": "arrival",
                     "prompt": "Meet the family.",
-                    "stage": "Learn",
+                    "stage": "Listen",
                     "correct_option_id": "start",
                     "options": [{"id": "start", "label": "Start", "image_url": ""}],
                     "mission_game": {
-                        "kind": "hotspot",
-                        "instruction_es": "Toca a la persona iluminada.",
+                        "kind": "guided-search",
+                        "instruction_es": "Escucha y toca a la persona.",
                         "validation": "single",
                         "tutorial_mode": "guided-no-fail",
                         "targets": [
@@ -78,19 +78,28 @@ def mission_lesson_payload() -> dict:
                                 "accepted_option_ids": ["start"],
                             }
                         ],
+                        "cues": [
+                            {
+                                "id": "start",
+                                "text": "A boy.",
+                                "answer_text": "A boy.",
+                                "target_id": "person",
+                                "option_id": "start",
+                            }
+                        ],
                     },
                 },
                 {
                     "slide_id": "M02",
-                    "interaction_type": "mission-clue",
+                    "interaction_type": "mission-speak",
                     "mission_chapter_id": "clues",
-                    "prompt": "Who is he?",
-                    "stage": "Recognize",
+                    "prompt": "He is the father.",
+                    "stage": "Speak",
                     "correct_option_id": "father",
                     "options": [{"id": "father", "label": "The father", "image_url": ""}],
                     "mission_game": {
-                        "kind": "who-dialogue",
-                        "instruction_es": "Escucha y responde quién es.",
+                        "kind": "voice-gate",
+                        "instruction_es": "Escucha la pregunta y responde en voz alta.",
                         "validation": "single",
                         "cue_audio_text": "Who is he?",
                         "targets": [
@@ -99,6 +108,15 @@ def mission_lesson_payload() -> dict:
                                 "label_es": "Padre señalado",
                                 "rect": {"x": 0.3, "y": 0.1, "width": 0.4, "height": 0.7},
                                 "accepted_option_ids": ["father"],
+                            }
+                        ],
+                        "cues": [
+                            {
+                                "id": "father",
+                                "text": "Who is he?",
+                                "answer_text": "He is the father.",
+                                "target_id": "father",
+                                "option_id": "father",
                             }
                         ],
                     },
@@ -121,9 +139,9 @@ class MissionSchemaTests(unittest.TestCase):
         lesson = MissionLesson(**mission_lesson_payload())
 
         self.assertEqual(lesson.experience_type, "mission")
-        self.assertEqual(lesson.content_revision, 2)
+        self.assertEqual(lesson.content_revision, 4)
         self.assertEqual(lesson.cards[1].mission_chapter_id, "clues")
-        self.assertEqual(lesson.cards[0].mission_game.kind, "hotspot")
+        self.assertEqual(lesson.cards[0].mission_game.kind, "guided-search")
         self.assertEqual(lesson.cards[1].mission_game.cue_audio_text, "Who is he?")
         self.assertEqual(
             lesson.cards[1].mission_game.targets[0].accepted_option_ids,
@@ -152,6 +170,7 @@ class MissionSchemaTests(unittest.TestCase):
         payload["cards"][1]["mission_game"]["targets"][0]["accepted_option_ids"] = [
             "missing"
         ]
+        payload["cards"][1]["mission_game"]["cues"][0]["option_id"] = "missing"
 
         with self.assertRaisesRegex(ValidationError, "missing option IDs: missing"):
             MissionLesson(**payload)
@@ -165,29 +184,47 @@ class MissionSchemaTests(unittest.TestCase):
             {"id": "other", "label": "The mother", "image_url": ""}
         )
 
-        with self.assertRaisesRegex(ValidationError, "declared correct options"):
+        with self.assertRaisesRegex(ValidationError, "cue answers"):
             MissionLesson(**payload)
 
-    def test_ordered_game_targets_must_match_the_correct_answer_order(self):
+    def test_ordered_game_cues_must_match_the_correct_answer_order(self):
         payload = mission_lesson_payload()
-        card = payload["cards"][1]
-        card["options"].append({"id": "mother", "label": "The mother", "image_url": ""})
-        card["correct_option_ids"] = ["father", "mother"]
+        card = payload["cards"][0]
+        card["options"].append({"id": "girl", "label": "A girl", "image_url": ""})
+        card["correct_option_ids"] = ["start", "girl"]
         card["mission_game"].update(
             {
+                "kind": "crowd-search",
                 "validation": "ordered",
+                "tutorial_mode": None,
                 "targets": [
                     {
                         "id": "first",
                         "label_es": "Primero",
                         "rect": {"x": 0.1, "y": 0.1, "width": 0.3, "height": 0.6},
-                        "accepted_option_ids": ["mother"],
+                        "accepted_option_ids": ["girl"],
                     },
                     {
                         "id": "second",
                         "label_es": "Después",
                         "rect": {"x": 0.6, "y": 0.1, "width": 0.3, "height": 0.6},
-                        "accepted_option_ids": ["father"],
+                        "accepted_option_ids": ["start"],
+                    },
+                ],
+                "cues": [
+                    {
+                        "id": "girl",
+                        "text": "A girl.",
+                        "answer_text": "A girl.",
+                        "target_id": "first",
+                        "option_id": "girl",
+                    },
+                    {
+                        "id": "start",
+                        "text": "A boy.",
+                        "answer_text": "A boy.",
+                        "target_id": "second",
+                        "option_id": "start",
                     },
                 ],
             }

@@ -1,80 +1,88 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "provider": "ElevenLabs Sound Effects",
-  "generated_on": "2026-09-05",
-  "provider_generation_count": 7,
+  "generated_on": "2026-09-07",
+  "provider_generation_count": 8,
   "generation_settings": {
-    "duration_seconds": 2.0,
+    "duration_seconds": "2.2 for frequent cues, 3.2 for opening, 4.2 for finale",
     "prompt_influence_percent": 30,
     "automatic_prompt_improvement": false,
     "shared_to_explore": false,
-    "download_format": "mp3_44100"
+    "download_format": "mp3_44100",
+    "post_processing": "Peak-matched locally after download; no synthesis or replacement content was added."
   },
   "review_status": "preview_candidate",
   "production_gate": "Listen to every cue in context on phone and tablet before Production promotion.",
   "assets": [
     {
-      "file": "tile-place-v1.mp3",
-      "role": "frequent tile placement",
+      "file": "mission-start-v2.mp3",
+      "role": "mission opening and invitation",
+      "duration_seconds": 3.2,
       "source_variation": 1,
-      "sha256": "9a838fc6db5ca49122510789ede1ed952c9bf297e371bb70efea753ae3bcc56d",
-      "peak_dbfs": -4.2,
-      "rms_dbfs": -42.2,
-      "prompt": "A very short, gentle modern UI tile-placement sound for a language-learning app: a soft paper card tap with a tiny warm glassy tick, clean and tactile, restrained, friendly, about 0.25 seconds of sound followed by silence. No voice, no music, no coin, no bell, no arcade reward, no harsh click, no bass."
+      "sha256": "0131a56f11bbde461b0496afb8c4b68a427de4c3aa392633553695fa5223bc02",
+      "peak_dbfs": -3.4,
+      "rms_dbfs": -21.9,
+      "prompt": "A real wooden garden gate opens, followed by two distinct footsteps on a stone path. A warm acoustic marimba and nylon-string guitar invitation motif rises over subtle outdoor courtyard ambience. Polished, modern educational adventure cue, welcoming and human. No voice, no synth bleeps, no arcade sounds."
     },
     {
-      "file": "page-restored-v1.mp3",
-      "role": "correct answer and restored album page",
+      "file": "person-found-v2.mp3",
+      "role": "correct person or answer found",
+      "duration_seconds": 2.2,
       "source_variation": 1,
-      "sha256": "570da0e8b3c522544ac866746d8a8097c0de5ce87e7bc5d8520791c8bfb52e47",
-      "peak_dbfs": -0.1,
-      "rms_dbfs": -17.2,
-      "prompt": "A compact warm correct-answer confirmation for a calm language-learning mission: one soft wooden note rising into a small bright shimmer, joyful and modern but restrained, about 0.7 seconds followed by silence. No voice, no applause, no coin, no jackpot, no arcade melody, no bass boom, no harsh bell."
+      "sha256": "3b27d3e043d7fe46d9e4335bc8021e6f53e7196564dcb3bcb3fac2f65cfe0731",
+      "peak_dbfs": -8.5,
+      "rms_dbfs": -26.3,
+      "prompt": "A tactile wooden percussion click followed by a warm two-note acoustic marimba discovery flourish. Natural room tone, human and rewarding, with a gentle resonance that resolves clearly. Modern educational game feedback. No voice, no coin, no jackpot, no arcade bleeps, no synthetic alarm."
     },
     {
-      "file": "page-turn-v1.mp3",
-      "role": "mission chapter transition",
+      "file": "chapter-arrival-v2.mp3",
+      "role": "arrival in a new mission chapter",
+      "duration_seconds": 2.2,
       "source_variation": 1,
-      "sha256": "4bd36e10857aec865a7fb9bf645dc3b9496d2ab8dd84510a4d659ec97a7e9c35",
-      "peak_dbfs": -0.2,
-      "rms_dbfs": -21.8,
-      "prompt": "A short tactile family-photo-album chapter transition: one soft thick paper page turn, a gentle airy swish, and a tiny warm discovery sparkle at the end, elegant and modern, about 0.9 seconds followed by silence. No voice, no music, no magical explosion, no cartoon swoosh, no bass impact."
+      "sha256": "5b3ce688d80b4ebb8a03c229439212a77ee3c3152ef568187f2b2e6f3b71c42b",
+      "peak_dbfs": -5.0,
+      "rms_dbfs": -29.0,
+      "prompt": "Real footsteps arrive on a stone patio, a light fabric banner flutters, then a short warm acoustic marimba and nylon-string guitar flourish marks entry into a new part of the adventure. Upbeat, grounded and natural. No voice, no electronic bleeps, no cartoon swoosh."
     },
     {
-      "file": "voice-stamp-v1.mp3",
-      "role": "mission speaking confirmation",
+      "file": "voice-confirm-v2.mp3",
+      "role": "successful spoken answer",
+      "duration_seconds": 2.2,
       "source_variation": 1,
-      "sha256": "c13a12bb23ef3b4584b11524aab50df322936816152d8cba5ef2d4dfed14310c",
-      "peak_dbfs": -1.1,
+      "sha256": "9c0f827eea87bfa1e60a857e70e135a0cde0aad7c12c31363d7d6b5f7fdbfe16",
+      "peak_dbfs": -5.8,
+      "rms_dbfs": -23.4,
+      "prompt": "Natural microphone-room presence, a soft hand-percussion pulse, then a warm rising acoustic marimba and small bell resonance that confirms a spoken answer. Confident, fresh and human, with a clear beginning and gentle tail. No voice, no phone notification, no synthetic arcade sound."
+    },
+    {
+      "file": "gentle-miss-v2.mp3",
+      "role": "encouraging incorrect-answer feedback",
+      "duration_seconds": 2.2,
+      "source_variation": 1,
+      "sha256": "d09548bc86b8b4223248b77918542842714566e1c95e607d2bf8133cc0573b38",
+      "peak_dbfs": -3.4,
       "rms_dbfs": -19.0,
-      "prompt": "A brief friendly recording-confirmation pulse for a language-learning app: a soft microphone stop click followed by one smooth warm digital pulse, confident and human, about 0.5 seconds followed by silence. No voice, no speech, no phone notification, no error beep, no robotic alarm, no music, no bass."
+      "prompt": "A friendly real woodblock tap, followed by a quiet downward muted marimba interval and a soft reassuring acoustic tail. It should communicate try once more without punishment, warm and encouraging. No voice, no buzzer, no error alarm, no comedy, no electronic arcade bleeps."
     },
     {
-      "file": "mission-finale-v1.mp3",
-      "role": "completed family-album reveal",
+      "file": "speaking-turn-v3.mp3",
+      "role": "clear handoff to the learner before recording",
+      "duration_seconds": 2.2,
       "source_variation": 1,
-      "sha256": "67ab140fc1c45d5a4a9a5229b97e324f1228190ec11f3be04b45abda5a4c2827",
-      "peak_dbfs": -2.8,
-      "rms_dbfs": -28.5,
-      "prompt": "A warm family-photo-album mission completion flourish for a language-learning app: a light camera shutter, soft paper settling, then a brief uplifting three-note acoustic shimmer, celebratory and heartfelt but compact, about 1.5 seconds. No voice, no applause, no crowd, no fanfare, no coin, no jackpot, no arcade music, no bass boom."
+      "sha256": "a1a173c1059c0d17dbea774032e93a5ade5d95417f71f48145caffffffd34ea6",
+      "peak_dbfs": -3.5,
+      "rms_dbfs": -19.2,
+      "prompt": "A calm speaking-turn cue made from one soft wooden click, a brief natural breath of room space, and one warm acoustic bell tone that blooms gently and leaves clear silence for the learner. It means now it is your turn to speak. No voice, no countdown, no phone notification, no electronic beep."
     },
     {
-      "file": "try-again-v1.mp3",
-      "role": "gentle incorrect-answer feedback",
+      "file": "mission-finale-v2.mp3",
+      "role": "completed mission celebration",
+      "duration_seconds": 4.16,
       "source_variation": 1,
-      "sha256": "149dbe5bca254ff716a327b835e97a489c34193b908d3d45ff7e5969385d9cf1",
+      "sha256": "8c5b268090acf85bdd2bb6d5069a86d8117d5c5933a749dd0cc51e0955e1c157",
       "peak_dbfs": -5.5,
-      "rms_dbfs": -23.0,
-      "prompt": "A gentle non-punitive try-again cue for a calm language-learning app: two soft muted wooden-paper tones that step slightly downward, warm and encouraging, about 0.55 seconds followed by silence. No voice, no buzzer, no alarm, no harsh error beep, no failure horn, no bass, no comedy, no arcade sound."
-    },
-    {
-      "file": "ready-cue-v2.mp3",
-      "role": "speaking and feedback recording readiness",
-      "source_variation": 1,
-      "sha256": "256109cd96be3d8ed09718df357fb8a8f9e675d48af349a814d80ff47266de29",
-      "peak_dbfs": -5.1,
-      "rms_dbfs": -23.0,
-      "prompt": "A short microphone-ready cue for a friendly language-learning app: two very soft warm ascending wooden-glass pulses with a clean breath of space, inviting the learner to start speaking, about 0.45 seconds followed by silence. No voice, no countdown words, no alarm, no phone notification, no harsh beep, no arcade sound, no music, no bass."
+      "rms_dbfs": -24.2,
+      "prompt": "Real family courtyard celebration ambience, gentle handclaps and joyful movement, warm acoustic guitar and marimba flourish resolving brightly, heartfelt polished ending. No speech, no crowd chant, no electronic bleeps."
     }
   ]
 }

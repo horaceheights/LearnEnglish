@@ -123,7 +123,7 @@ def copied_asset(asset: CourseAudioAsset, **updates: object) -> CourseAudioAsset
 
 
 class PersistentCardAudioTests(unittest.TestCase):
-    def test_mission_onboarding_and_directions_use_immutable_audio_contracts(self):
+    def test_mission_onboarding_and_english_cues_use_immutable_audio_contracts(self):
         mission = LESSONS["lesson-10-family-mission"]
         first_card = mission.cards[0]
 
@@ -135,14 +135,21 @@ class PersistentCardAudioTests(unittest.TestCase):
 
         for card in mission.cards:
             with self.subTest(slide=card.slide_id):
-                instruction = [
+                instructions = [
                     asset
                     for asset in card.audio_assets
                     if asset.purpose == "mission-instruction"
                 ]
-                self.assertEqual(1, len(instruction))
-                self.assertEqual(card.mission_game.instruction_es, instruction[0].text)
-                self.assertEqual(card.prompt_image_url, instruction[0].image_ref)
+                self.assertEqual([], instructions)
+                prompt_turns = [
+                    asset.text
+                    for asset in card.audio_assets
+                    if asset.purpose.startswith("prompt-turn-")
+                ]
+                expected = [cue.text for cue in card.mission_game.cues]
+                if card.mission_game.kind == "voice-gate":
+                    expected.append(card.prompt)
+                self.assertEqual(expected, prompt_turns)
 
         grandmother_card = mission.cards[19]
         cues = [
@@ -162,7 +169,10 @@ class PersistentCardAudioTests(unittest.TestCase):
                 if candidate.slide_id == slide_id
             )
             assets = assets_for_card(mission.id, card_index, card)
-            self.assertTrue(any(asset.purpose == "prompt" for asset in assets))
+            self.assertTrue(any(
+                asset.purpose == "prompt" or asset.purpose.startswith("prompt-turn-")
+                for asset in assets
+            ))
             self.assertFalse(any(asset.purpose == "answer" for asset in assets))
 
         fallback_card = LessonCard(
