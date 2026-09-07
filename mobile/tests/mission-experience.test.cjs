@@ -161,9 +161,9 @@ assert.deepEqual(
   })),
   [
     { cardIndexes: [0, 1, 2], label: 'Encuentra a las personas' },
-    { cardIndexes: [3, 4, 5, 6, 7, 8], label: 'Conecta a la familia' },
+    { cardIndexes: [3, 4, 5, 6, 7, 8], label: 'Descubre la familia' },
     { cardIndexes: [9, 10, 11, 12, 13, 14], label: 'Sigue las acciones' },
-    { cardIndexes: [15, 16, 17], label: 'Repara las pistas' },
+    { cardIndexes: [15, 16, 17], label: 'Encuentra la verdad' },
     { cardIndexes: [18, 19, 20, 21], label: 'Recibe a todos' },
   ],
   'Engine QA must expose all five authored mission chapters in story order with global card indexes.',
