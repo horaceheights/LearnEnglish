@@ -188,11 +188,8 @@ MAX_MISSION_CONSTRUCTION_TILES = 8
 MIN_MISSION_TARGET_WIDTH = 0.12
 MIN_MISSION_TARGET_HEIGHT = 0.16
 MISSION_INTERACTIONS = frozenset({
-    "mission-brief",
-    "mission-clue",
-    "mission-listen",
+    "mission-game",
     "mission-speak",
-    "mission-sentence",
     "mission-finale",
     *MISSION_COMPLETION_INTERACTIONS,
 })
@@ -215,10 +212,8 @@ MISSION_CARD_COUNTS = {
 }
 MISSION_REQUIRED_INTERACTIONS = {
     "lesson-10-family-mission": frozenset({
-        "mission-clue",
-        "mission-listen",
+        "mission-game",
         "mission-speak",
-        "mission-sentence",
         "mission-finale",
     }),
 }
@@ -227,25 +222,23 @@ MISSION_HERO_PREFIXES = {
 }
 MISSION_REQUIRED_KINDS = {
     "lesson-10-family-mission": frozenset({
-        "hotspot",
-        "label-placement",
-        "relationship-link",
-        "action-sequence",
-        "not-correction",
-        "who-dialogue",
-        "speak",
-        "finale",
+        "guided-search",
+        "crowd-search",
+        "family-link",
+        "action-hunt",
+        "contrast-hunt",
+        "voice-gate",
     }),
 }
 MISSION_KIND_SEQUENCE = {
     "lesson-10-family-mission": [
-        "hotspot", "hotspot", "label-placement", "label-placement",
-        "relationship-link", "relationship-link", "relationship-link",
-        "relationship-link", "relationship-link",
-        "action-sequence", "action-sequence", "action-sequence",
-        "action-sequence", "action-sequence", "action-sequence",
-        "not-correction", "not-correction", "not-correction",
-        "who-dialogue", "speak", "who-dialogue", "finale",
+        "guided-search", "crowd-search", "crowd-search",
+        "family-link", "family-link", "family-link", "family-link",
+        "family-link", "family-link",
+        "action-hunt", "action-hunt", "action-hunt",
+        "action-hunt", "action-hunt", "action-hunt",
+        "contrast-hunt", "contrast-hunt", "contrast-hunt",
+        "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
 }
 MISSION_CHAPTER_SEQUENCE = {
@@ -480,12 +473,30 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             instruction = str(getattr(game, "instruction_es", "") or "")
             validation = str(getattr(game, "validation", "") or "")
             targets = list(getattr(game, "targets", []) or [])
+            cues = list(getattr(game, "cues", []) or [])
             if not instruction.strip():
                 errors.append(f"{location} mission_game requires an exact Spanish instruction.")
+            if re.search(
+                r"\b(?:modelo|señal|señales|destino|origen|relación singular|relación plural|pista dice)\b",
+                instruction,
+                flags=re.IGNORECASE,
+            ):
+                errors.append(
+                    f"{location} uses technical or answer-leaking mission instructions."
+                )
+            if re.search(
+                r"\b(?:boy|girl|man|woman|baby|babies|child|children|brother|brothers|sister|sisters|adult|adults|father|mother|parents|grandfather|grandmother|grandparents|grandchildren|eating|drinking|reading|writing|running|sitting|swimming|sleeping|playing|studying|working|cooking|talking)\b",
+                instruction,
+                flags=re.IGNORECASE,
+            ):
+                errors.append(f"{location} reveals assessed English in its Spanish instruction.")
             if validation not in {"single", "ordered", "unordered"}:
                 errors.append(f"{location} has unsupported mission validation {validation!r}.")
             if not targets:
                 errors.append(f"{location} mission_game requires at least one target.")
+                continue
+            if not cues:
+                errors.append(f"{location} mission_game requires at least one English audio cue.")
                 continue
             target_ids = [str(getattr(target, "id", "") or "") for target in targets]
             if any(not target_id for target_id in target_ids) or len(target_ids) != len(set(target_ids)):
@@ -496,12 +507,14 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 for option in list(getattr(card, "options", []) or [])
             }
             accepted_ids: list[str] = []
+            accepted_by_target: dict[str, set[str]] = {}
             for target in targets:
                 accepted = [
                     str(value or "")
                     for value in list(getattr(target, "accepted_option_ids", []) or [])
                 ]
                 accepted_ids.extend(accepted)
+                accepted_by_target[str(getattr(target, "id", "") or "")] = set(accepted)
                 missing = sorted(set(accepted) - option_ids)
                 if not accepted or any(not value for value in accepted):
                     errors.append(
@@ -531,19 +544,59 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             expected_ids = list(getattr(card, "correct_option_ids", []) or [])
             if not expected_ids:
                 expected_ids = [str(getattr(card, "correct_option_id", "") or "")]
-            answers_match = (
-                accepted_ids == expected_ids
-                if validation == "ordered"
-                else set(accepted_ids) == set(expected_ids)
-            )
-            if not answers_match:
-                errors.append(
-                    f"{location} mission targets do not match its declared correct answers."
+            cue_ids = [str(getattr(cue, "id", "") or "") for cue in cues]
+            cue_target_ids = [str(getattr(cue, "target_id", "") or "") for cue in cues]
+            cue_option_ids = [str(getattr(cue, "option_id", "") or "") for cue in cues]
+            cue_texts = [str(getattr(cue, "text", "") or "") for cue in cues]
+            if any(not cue_id for cue_id in cue_ids) or len(cue_ids) != len(set(cue_ids)):
+                errors.append(f"{location} mission cue IDs must be nonempty and unique.")
+            missing_cue_targets = sorted(set(cue_target_ids) - set(target_ids))
+            missing_cue_options = sorted(set(cue_option_ids) - option_ids)
+            if missing_cue_targets:
+                errors.append(f"{location} mission cues reference missing targets {missing_cue_targets}.")
+            if missing_cue_options:
+                errors.append(f"{location} mission cues reference missing options {missing_cue_options}.")
+            incoherent_cues = [
+                cue_id
+                for cue_id, target_id, option_id in zip(
+                    cue_ids, cue_target_ids, cue_option_ids
                 )
-            if validation == "single" and len(targets) != 1:
-                errors.append(f"{location} single validation requires exactly one target.")
-            if validation == "ordered" and len(targets) < 2:
-                errors.append(f"{location} ordered validation requires multiple targets.")
+                if target_id in accepted_by_target
+                and option_id not in accepted_by_target[target_id]
+            ]
+            if incoherent_cues:
+                errors.append(
+                    f"{location} mission cues are not accepted by their targets: {incoherent_cues}."
+                )
+            if cue_option_ids != expected_ids:
+                errors.append(
+                    f"{location} mission cues do not match its declared correct answers."
+                )
+            if validation == "single" and len(cues) != 1:
+                errors.append(f"{location} single validation requires exactly one cue.")
+            if validation == "ordered" and len(cues) < 2:
+                errors.append(f"{location} ordered validation requires multiple cues.")
+            if kind != "voice-gate" and len(targets) < 4:
+                errors.append(
+                    f"{location} visual mission challenges require at least four visible candidates."
+                )
+            if kind == "voice-gate" and (
+                card.stage != "Speak" or len(cues) != 1
+            ):
+                errors.append(f"{location} voice gates require one Speak-stage cue.")
+            turn_texts = [
+                str(getattr(turn, "text", "") or "")
+                for turn in list(getattr(card, "audio_turns", []) or [])
+            ]
+            expected_turn_texts = (
+                [cue_texts[0], str(getattr(card, "prompt", "") or "")]
+                if kind == "voice-gate"
+                else cue_texts
+            )
+            if turn_texts != expected_turn_texts:
+                errors.append(
+                    f"{location} must bind one exact persistent-audio turn per active cue."
+                )
 
         required_kinds = MISSION_REQUIRED_KINDS.get(lesson.id, frozenset())
         missing_kinds = sorted(required_kinds - set(mission_kinds))
@@ -704,9 +757,9 @@ def validate_mission_contracts(lessons=None) -> list[str]:
 
         if lesson.id != "lesson-10-family-mission":
             continue
-        if lesson.content_revision != 3:
+        if lesson.content_revision != 4:
             errors.append(
-                f"{lesson.id} celebration adventure must declare content_revision 3."
+                f"{lesson.id} real-game mission must declare content_revision 4."
             )
         if str(getattr(mission, "title", "") or "") != "¡Todos a la celebración!":
             errors.append(

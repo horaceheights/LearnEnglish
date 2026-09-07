@@ -44,7 +44,7 @@ const RECORDING_OPTIONS: RecordingOptions = {
 
 const CLARITY_OPTIONS = ['Muy fácil', 'Fácil', 'Algo confusa', 'Muy confusa'];
 const SUPPORT_OPTIONS = ['Sí, ambos', 'Solo imágenes', 'Solo audio', 'Ninguno'];
-const READY_CUE = require('../../assets/sfx/ready-cue-v2.mp3');
+const READY_CUE = require('../../assets/sfx/speaking-turn-v3.mp3');
 const READY_CUE_VOLUME = 0.38;
 
 type Props = {

@@ -115,20 +115,34 @@ class MissionGameTarget(BaseModel):
         return values
 
 
+class MissionGameCue(BaseModel):
+    id: str = Field(min_length=1)
+    text: str = Field(min_length=1)
+    answer_text: str = Field(min_length=1)
+    target_id: str = Field(min_length=1)
+    option_id: str = Field(min_length=1)
+
+    @field_validator("id", "text", "answer_text", "target_id", "option_id")
+    @classmethod
+    def require_exact_nonempty_value(cls, value: str) -> str:
+        if not value.strip() or value != value.strip():
+            raise ValueError("Mission cue values must be exact nonblank values.")
+        return value
+
+
 class MissionGame(BaseModel):
     kind: Literal[
-        "hotspot",
-        "label-placement",
-        "relationship-link",
-        "action-sequence",
-        "not-correction",
-        "who-dialogue",
-        "speak",
-        "finale",
+        "guided-search",
+        "crowd-search",
+        "family-link",
+        "action-hunt",
+        "contrast-hunt",
+        "voice-gate",
     ]
     instruction_es: str = Field(min_length=1)
     validation: Literal["single", "ordered", "unordered"]
     targets: list[MissionGameTarget] = Field(min_length=1)
+    cues: list[MissionGameCue] = Field(min_length=1)
     tutorial_mode: Literal["guided-no-fail"] | None = None
     cue_audio_text: str | None = None
 
@@ -151,12 +165,26 @@ class MissionGame(BaseModel):
         target_ids = [target.id for target in self.targets]
         if len(target_ids) != len(set(target_ids)):
             raise ValueError("Mission target IDs must be unique within a card.")
-        if self.validation == "single" and len(self.targets) != 1:
-            raise ValueError("Single mission validation requires exactly one target.")
-        if self.validation == "ordered" and len(self.targets) < 2:
-            raise ValueError("Ordered mission validation requires at least two targets.")
-        if self.tutorial_mode is not None and self.kind != "hotspot":
-            raise ValueError("Guided no-fail tutorials are reserved for hotspot missions.")
+        cue_ids = [cue.id for cue in self.cues]
+        if len(cue_ids) != len(set(cue_ids)):
+            raise ValueError("Mission cue IDs must be unique within a card.")
+        option_ids = {
+            option_id
+            for target in self.targets
+            for option_id in target.accepted_option_ids
+        }
+        missing_targets = sorted({cue.target_id for cue in self.cues} - set(target_ids))
+        if missing_targets:
+            raise ValueError(f"Mission cues reference missing targets: {', '.join(missing_targets)}")
+        missing_options = sorted({cue.option_id for cue in self.cues} - option_ids)
+        if missing_options:
+            raise ValueError(f"Mission cues reference missing options: {', '.join(missing_options)}")
+        if self.validation == "single" and len(self.cues) != 1:
+            raise ValueError("Single mission validation requires exactly one cue.")
+        if self.validation == "ordered" and len(self.cues) < 2:
+            raise ValueError("Ordered mission validation requires at least two cues.")
+        if self.tutorial_mode is not None and self.kind != "guided-search":
+            raise ValueError("Guided no-fail tutorials are reserved for guided searches.")
         return self
 
 
@@ -174,39 +202,47 @@ class MissionLessonCard(LessonCard):
     @model_validator(mode="after")
     def require_game_targets_to_match_answers(self):
         option_ids = {option.id for option in self.options}
-        accepted_ids = [
+        target_option_ids = [
             option_id
             for target in self.mission_game.targets
             for option_id in target.accepted_option_ids
         ]
-        missing_ids = sorted(set(accepted_ids) - option_ids)
+        missing_ids = sorted(set(target_option_ids) - option_ids)
         if missing_ids:
             raise ValueError(
                 "Mission targets reference missing option IDs: "
                 + ", ".join(missing_ids)
                 + "."
             )
-        if len(accepted_ids) != len(set(accepted_ids)):
+        if len(target_option_ids) != len(set(target_option_ids)):
             raise ValueError(
                 "One mission option cannot satisfy more than one target on the same card."
             )
 
         expected_ids = self.correct_option_ids or [self.correct_option_id]
-        if self.mission_game.validation == "ordered":
-            if accepted_ids != expected_ids:
-                raise ValueError(
-                    "Ordered mission target answers must match correct_option_ids in order."
-                )
-        elif set(accepted_ids) != set(expected_ids):
+        cue_option_ids = [cue.option_id for cue in self.mission_game.cues]
+        if cue_option_ids != expected_ids:
             raise ValueError(
-                "Mission target answers must match the card's declared correct options."
+                "Mission cue answers must match correct_option_ids in order."
+            )
+        targets_by_id = {target.id: target for target in self.mission_game.targets}
+        incoherent_cues = [
+            cue.id
+            for cue in self.mission_game.cues
+            if cue.option_id not in targets_by_id[cue.target_id].accepted_option_ids
+        ]
+        if incoherent_cues:
+            raise ValueError(
+                "Mission cues must bind an option accepted by their target: "
+                + ", ".join(incoherent_cues)
+                + "."
             )
 
-        if self.mission_game.kind == "speak":
+        if self.mission_game.kind == "voice-gate":
             if self.stage != "Speak" or self.mission_game.validation != "single":
-                raise ValueError("Mission speak games require one Speak-stage target.")
-        elif self.stage == "Speak" and self.mission_game.kind != "finale":
-            raise ValueError("Only speak or finale mission games may use the Speak stage.")
+                raise ValueError("Mission voice gates require one Speak-stage cue.")
+        elif self.stage == "Speak":
+            raise ValueError("Only mission voice gates may use the Speak stage.")
         return self
 
 

@@ -10,13 +10,13 @@ const player = fs.readFileSync(path.join(frontendRoot, "components", "LessonPlay
 const sfxHook = fs.readFileSync(path.join(frontendRoot, "lib", "useStaticSfx.js"), "utf8");
 
 const staticPaths = [
-  "/sfx/tile-place-v1.mp3",
-  "/sfx/page-restored-v1.mp3",
-  "/sfx/page-turn-v1.mp3",
-  "/sfx/ready-cue-v2.mp3",
-  "/sfx/voice-stamp-v1.mp3",
-  "/sfx/mission-finale-v1.mp3",
-  "/sfx/try-again-v1.mp3",
+  "/sfx/mission-start-v2.mp3",
+  "/sfx/person-found-v2.mp3",
+  "/sfx/chapter-arrival-v2.mp3",
+  "/sfx/speaking-turn-v3.mp3",
+  "/sfx/voice-confirm-v2.mp3",
+  "/sfx/mission-finale-v2.mp3",
+  "/sfx/gentle-miss-v2.mp3",
 ];
 
 test("mission sound effects resolve only to versioned local assets", () => {
@@ -38,6 +38,7 @@ test("the shared player prevents overlapping or overstimulating effects", () => 
 test("lesson and mission events receive semantic static cues without lesson-ID routing", () => {
   assert.match(player, /useStaticSfx\(\)/);
   assert.match(player, /await playUiSfx\("readyCue"/);
+  assert.match(player, /playUiSfx\("missionStart"/);
   assert.match(player, /playUiSfx\("tilePlace"/);
   assert.match(player, /playUiSfx\("pageTurn", \{ debounceMs: 180, restart: false/);
   assert.match(player, /"missionFinale"[\s\S]*?: "pageRestored"/);
