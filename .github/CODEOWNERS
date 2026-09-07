@@ -1,10 +1,12 @@
-# Preview release trust boundary
+# Mobile release trust boundary
 /.github/CODEOWNERS @horaceheights
 /.github/workflows/ @horaceheights
 
 /AGENTS.md @horaceheights
 /render.yaml @horaceheights
 /docs/product/project-guardrails.md @horaceheights
+/docs/maintenance/repository-hygiene.md @horaceheights
+/docs/operations/persistent-course-audio.md @horaceheights
 /mobile/RELEASE.md @horaceheights
 
 /mobile/app.json @horaceheights
@@ -13,6 +15,8 @@
 /mobile/package-lock.json @horaceheights
 /mobile/release-integrity.json @horaceheights
 /scripts/validate_lesson_cards.py @horaceheights
+/scripts/audit-repository-hygiene.ps1 @horaceheights
+/scripts/export_persistent_audio_catalog.py @horaceheights
 /mobile/scripts/promote-preview.ps1 @horaceheights
 /mobile/scripts/publish-preview.ps1 @horaceheights
 /mobile/scripts/release-guard.ps1 @horaceheights

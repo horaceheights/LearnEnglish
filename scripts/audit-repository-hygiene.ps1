@@ -21,25 +21,6 @@ if (-not $currentBranch) {
 Write-Output "Base: $BaseRef ($baseCommit)"
 Write-Output "Current checkout: $currentBranch"
 
-$previewRef = 'origin/release/preview'
-git rev-parse --verify --quiet $previewRef | Out-Null
-if ($LASTEXITCODE -eq 0) {
-    $previewCounts = (git rev-list --left-right --count "$BaseRef...$previewRef") -split '\s+'
-    $canonicalOnly = [int]$previewCounts[0]
-    $previewOnly = [int]$previewCounts[1]
-    $previewState = if ($previewOnly -gt 0) {
-        'SYNC REQUIRED: Preview-only history must return to the canonical line'
-    } elseif ($canonicalOnly -gt 0) {
-        'Preview is behind the canonical line'
-    } else {
-        'canonical and Preview histories are synchronized'
-    }
-    Write-Output ("Release integration: canonical-only={0}, preview-only={1}, {2}" -f $canonicalOnly, $previewOnly, $previewState)
-    if ($previewOnly -gt 0) {
-        $findings++
-    }
-}
-
 Write-Output ''
 Write-Output 'Local branches compared with the canonical line:'
 
@@ -51,6 +32,27 @@ foreach ($branchName in $localBranches) {
     $state = if ($ahead -eq 0 -and $branchName -ne 'main') { 'fully merged/superseded' } elseif ($ahead -gt 0) { 'local-only commits' } else { 'canonical' }
     Write-Output ("  {0}: behind={1}, ahead={2}, {3}" -f $branchName, $behind, $ahead, $state)
     if ($ahead -eq 0 -and $branchName -ne 'main') {
+        $findings++
+    }
+}
+
+Write-Output ''
+Write-Output 'Remote task branches compared with the canonical line:'
+
+$remoteBranches = git for-each-ref --format='%(refname:short)' refs/remotes/origin |
+    Where-Object { $_ -notin @('origin', 'origin/HEAD', 'origin/main') }
+
+if (@($remoteBranches).Count -eq 0) {
+    Write-Output '  none'
+}
+
+foreach ($branchName in $remoteBranches) {
+    $counts = (git rev-list --left-right --count "$BaseRef...$branchName") -split '\s+'
+    $behind = [int]$counts[0]
+    $ahead = [int]$counts[1]
+    $state = if ($ahead -eq 0) { 'fully merged/superseded; delete remote branch' } else { 'unmerged; preserve' }
+    Write-Output ("  {0}: behind={1}, ahead={2}, {3}" -f $branchName, $behind, $ahead, $state)
+    if ($ahead -eq 0) {
         $findings++
     }
 }

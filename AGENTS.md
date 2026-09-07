@@ -13,18 +13,18 @@
 
 - Treat `origin/main` as the canonical integration line and keep the primary checkout on an up-to-date local `main` when no recovery operation is in progress.
 - Start task branches from a freshly fetched `origin/main`; do not continue new work on a stale feature or release worktree.
-- Assume other coding tasks may be running concurrently. Use an isolated branch/worktree, inspect active worktrees and overlapping files before editing, and preserve unrelated changes. Before merging into or publishing from `release/preview`, fetch and incorporate the latest remote `release/preview`, then rerun release checks. If overlapping changes cannot be combined safely, stop and ask the user. Never publish a stale snapshot.
+- Assume other coding tasks may be running concurrently. Use an isolated branch/worktree, inspect active worktrees and overlapping files before editing, and preserve unrelated changes. Every task branch must target a pull request into current `main`; release branches are not part of the workflow. Before merging or publishing, refresh `origin/main` and rerun the applicable checks. If overlapping changes cannot be combined safely, stop and ask the user. Never publish a stale snapshot.
 - Run `scripts/audit-repository-hygiene.ps1` at the start and end of branch, recovery, or release work.
-- After a task is integrated, remove its clean worktree and delete its fully merged local and remote task branches. Never remove a dirty worktree or an unmerged branch until its local-only state is reviewed and preserved in a named commit or tag.
+- After a task is integrated into `main`, remove its clean worktree and delete its fully merged local and remote task branches. Remote pull-request branches should also be deleted automatically on merge. Never remove a dirty worktree or an unmerged branch until its local-only state is reviewed and preserved in a named commit or tag.
 - Do not force-push, rewrite, prune, or discard repository state without first naming the exact affected refs or paths to the user.
 
 # Release workflow
 
-- After completing and verifying an OTA-compatible mobile change, commit only the files that belong to the current task and push the task branch to `origin`.
-- Never publish Expo Preview directly from a task branch, local checkout, temporary worktree, or stale branch. In particular, never invoke `eas update`, `npx eas-cli update`, or `mobile/scripts/publish-preview.ps1` as a local fallback.
-- The shared Preview channel may be published only by the protected GitHub Actions workflow from the exact remote head of `release/preview`. Move an approved change onto that branch only after the release-integrity checks pass and the branch still contains the current canonical release.
+- After completing and verifying a change, commit only the files that belong to the current task, push the task branch, open a pull request into `main`, and merge only after its required checks pass.
+- Never publish Expo Preview or Production directly from a task branch, local checkout, temporary worktree, or stale branch. In particular, never invoke `eas update`, `npx eas-cli update`, `mobile/scripts/publish-preview.ps1`, or `mobile/scripts/promote-preview.ps1` as a local fallback.
+- `origin/main` is the sole mobile release authority. The shared Preview and Production channels may be changed only by their protected GitHub Actions workflows from the exact remote head of protected `main`; no release branch is created or retained.
 - Treat a successful CI Preview publication as the default final step. If the protected workflow, environment, or CI credential is unavailable, stop after pushing the verified task branch and report the blocked release; do not bypass the release authority.
-- Preview release checks must fail closed unless the candidate preserves the versioned course fingerprint, exactly 70 lessons in seven units of ten, the release-commit label, and the current canonical ancestry. The published EAS update commit must be verified against the GitHub commit after publication.
-- Never publish or promote to Production without explicit user approval after Preview testing.
+- Release checks must fail closed unless the exact `main` candidate preserves the versioned course fingerprint, exactly 70 lessons in seven units of ten, and the release-commit label. The published EAS update commit must be verified against the GitHub commit after publication.
+- Never publish or promote to Production without explicit user approval after testing the exact same commit in Preview. Production republishes that immutable tested Preview group rather than building different local content.
 - Preserve unrelated working-tree changes. If they prevent the clean-tree release guard from passing, publish from a clean temporary worktree at the pushed commit.
 - Native dependency, Expo configuration, permission, native-module, or app-version changes require a new Preview build instead of an OTA update.

@@ -38,13 +38,13 @@ function Assert-CleanReleaseCommit {
   Write-Host "Commit verificado: $commit" -ForegroundColor Green
 }
 
-function Assert-PreviewReleaseLineage {
+function Assert-MainReleaseLineage {
   $repositoryRoot = Get-ReleaseRepositoryRoot
-  $authorityBranch = 'origin/release/preview'
+  $authorityBranch = 'origin/main'
 
   & git -C $repositoryRoot rev-parse --verify --quiet $authorityBranch | Out-Null
   if ($LASTEXITCODE -ne 0) {
-    throw "No se encontró la autoridad de Preview ($authorityBranch). Ejecuta git fetch origin release/preview antes de publicar."
+    throw "No se encontró la autoridad de publicación ($authorityBranch). Ejecuta git fetch origin main antes de publicar."
   }
 
   $headCommit = (& git -C $repositoryRoot rev-parse HEAD).Trim()
@@ -58,14 +58,14 @@ function Assert-PreviewReleaseLineage {
   }
 
   if ($headCommit -ne $authorityCommit) {
-    throw "Publicación bloqueada: HEAD ($($headCommit.Substring(0, 7))) debe ser exactamente el commit autorizado por $authorityBranch ($($authorityCommit.Substring(0, 7))). Integra y verifica el cambio, después actualiza la rama dedicada release/preview antes de publicar."
+    throw "Publicación bloqueada: HEAD ($($headCommit.Substring(0, 7))) debe ser exactamente el commit autorizado por $authorityBranch ($($authorityCommit.Substring(0, 7))). Integra y verifica el cambio en main antes de publicar."
   }
 
-  Assert-PreviewReleaseIntegrity
-  Write-Host "Autoridad de Preview verificada: $authorityBranch en $($headCommit.Substring(0, 7))" -ForegroundColor Green
+  Assert-ReleaseIntegrity
+  Write-Host "Autoridad de publicación verificada: $authorityBranch en $($headCommit.Substring(0, 7))" -ForegroundColor Green
 }
 
-function Assert-PreviewReleaseIntegrity {
+function Assert-ReleaseIntegrity {
   $repositoryRoot = Get-ReleaseRepositoryRoot
   $integrityVerifier = Join-Path $repositoryRoot 'mobile\scripts\verify-release-integrity.cjs'
 
@@ -75,8 +75,101 @@ function Assert-PreviewReleaseIntegrity {
 
   & node $integrityVerifier --repository-root $repositoryRoot
   if ($LASTEXITCODE -ne 0) {
-    throw 'Publicación bloqueada: el contenido de Preview no coincide con el manifiesto versionado de integridad.'
+    throw 'Publicación bloqueada: el contenido no coincide con el manifiesto versionado de integridad.'
   }
+}
+
+function Assert-SharedBackendRelease {
+  param(
+    [Parameter(Mandatory = $true)]
+    [string]$ExpectedCommit,
+    [Parameter(Mandatory = $true)]
+    [string]$RepositoryRoot,
+    [Parameter(Mandatory = $true)]
+    [string]$StatusUrl
+  )
+
+  try {
+    $uri = [Uri]$StatusUrl
+  } catch {
+    throw 'Publicación bloqueada: SHARED_BACKEND_STATUS_URL no es una URL válida.'
+  }
+  if (
+    $uri.Scheme -cne 'https' -or
+    [string]::IsNullOrWhiteSpace($uri.Host) -or
+    $uri.AbsolutePath -cne '/api/release/status'
+  ) {
+    throw 'Publicación bloqueada: el estado del backend compartido debe usar la ruta HTTPS autorizada.'
+  }
+
+  & git -C $RepositoryRoot fetch --no-tags origin refs/heads/main:refs/remotes/origin/main
+  if ($LASTEXITCODE -ne 0) {
+    throw 'Publicación bloqueada: no se pudo actualizar origin/main.'
+  }
+  $remoteMainCommit = (& git -C $RepositoryRoot rev-parse refs/remotes/origin/main).Trim().ToLowerInvariant()
+  if ($LASTEXITCODE -ne 0 -or $remoteMainCommit -notmatch '^[0-9a-f]{40}$') {
+    throw 'Publicación bloqueada: origin/main no devolvió un commit válido.'
+  }
+  if (-not [string]::Equals($ExpectedCommit, $remoteMainCommit, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Publicación bloqueada: el candidato debe ser exactamente origin/main ($remoteMainCommit), no $ExpectedCommit."
+  }
+
+  $catalogPath = Join-Path $RepositoryRoot 'backend/approved-course-audio/catalog.json'
+  $catalog = Get-Content -Raw -LiteralPath $catalogPath | ConvertFrom-Json
+  # Git may check out text as CRLF on the Windows publisher while Render uses
+  # LF. Hash normalized UTF-8 so identical versioned JSON has one identity.
+  $catalogText = [System.IO.File]::ReadAllText($catalogPath).Replace("`r`n", "`n")
+  $sha256 = [System.Security.Cryptography.SHA256]::Create()
+  try {
+    $catalogHashBytes = $sha256.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($catalogText))
+  } finally {
+    $sha256.Dispose()
+  }
+  $expectedCatalogSha256 = -join ($catalogHashBytes | ForEach-Object { $_.ToString('x2') })
+  $expectedAssetCount = [int]$catalog.asset_count
+  $lastObservation = 'el backend todavía no respondió.'
+
+  for ($attempt = 1; $attempt -le 30; $attempt += 1) {
+    try {
+      $status = Invoke-RestMethod -Uri $StatusUrl -TimeoutSec 20
+      $observedCommit = [string]$status.git_commit
+      $observedBranch = [string]$status.git_branch
+      $observedEnvironment = [string]$status.environment
+      $audio = $status.audio
+      $lastObservation = (
+        "environment=$observedEnvironment, branch=$observedBranch, commit=$observedCommit, " +
+        "catalog=$([string]$audio.catalog_sha256), assets=$([string]$audio.catalog_asset_count), " +
+        "ready=$([string]$audio.ready), missing=$([string]$audio.missing), invalid=$([string]$audio.invalid)"
+      )
+
+      if (
+        $observedEnvironment -ceq 'production' -and
+        $observedBranch -ceq 'main' -and
+        [string]::Equals($observedCommit, $remoteMainCommit, [System.StringComparison]::OrdinalIgnoreCase) -and
+        [string]::Equals(
+          [string]$audio.catalog_sha256,
+          $expectedCatalogSha256,
+          [System.StringComparison]::OrdinalIgnoreCase
+        ) -and
+        [int]$audio.catalog_asset_count -eq $expectedAssetCount -and
+        [bool]$audio.ready -and
+        [int]$audio.missing -eq 0 -and
+        [int]$audio.invalid -eq 0 -and
+        [int]$audio.error_count -eq 0
+      ) {
+        Write-Host "Backend compartido verificado: main $($remoteMainCommit.Substring(0, 7)), catálogo $($expectedCatalogSha256.Substring(0, 12)), $expectedAssetCount audios." -ForegroundColor Green
+        return
+      }
+    } catch {
+      $lastObservation = $_.Exception.Message
+    }
+
+    if ($attempt -lt 30) {
+      Start-Sleep -Seconds 10
+    }
+  }
+
+  throw "Publicación bloqueada: el backend compartido de main no coincide con el candidato o su audio no está listo ($lastObservation)."
 }
 
 function Invoke-CheckedCommand {

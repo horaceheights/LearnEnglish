@@ -8,8 +8,16 @@ const repositoryRoot = path.resolve(__dirname, '../..');
 const workflowsRoot = path.join(repositoryRoot, '.github/workflows');
 const integritySource = fs.readFileSync(path.join(workflowsRoot, 'preview-integrity.yml'), 'utf8');
 const publishWorkflowSource = fs.readFileSync(path.join(workflowsRoot, 'publish-preview.yml'), 'utf8');
+const productionWorkflowSource = fs.readFileSync(
+  path.join(workflowsRoot, 'publish-production.yml'),
+  'utf8',
+);
 const publishScriptSource = fs.readFileSync(
   path.join(repositoryRoot, 'mobile/scripts/publish-preview.ps1'),
+  'utf8',
+);
+const releaseGuardSource = fs.readFileSync(
+  path.join(repositoryRoot, 'mobile/scripts/release-guard.ps1'),
   'utf8',
 );
 const promoteScriptSource = fs.readFileSync(
@@ -33,6 +41,24 @@ const projectGuardrailsSource = fs.readFileSync(
   'utf8',
 );
 const releaseGuideSource = fs.readFileSync(path.join(repositoryRoot, 'mobile/RELEASE.md'), 'utf8');
+const agentsSource = fs.readFileSync(path.join(repositoryRoot, 'AGENTS.md'), 'utf8');
+const hygieneGuideSource = fs.readFileSync(
+  path.join(repositoryRoot, 'docs/maintenance/repository-hygiene.md'),
+  'utf8',
+);
+const audioOperationsSource = fs.readFileSync(
+  path.join(repositoryRoot, 'docs/operations/persistent-course-audio.md'),
+  'utf8',
+);
+const hygieneScriptSource = fs.readFileSync(
+  path.join(repositoryRoot, 'scripts/audit-repository-hygiene.ps1'),
+  'utf8',
+);
+const audioExporterSource = fs.readFileSync(
+  path.join(repositoryRoot, 'scripts/export_persistent_audio_catalog.py'),
+  'utf8',
+);
+const backendMainSource = fs.readFileSync(path.join(repositoryRoot, 'backend/app/main.py'), 'utf8');
 const mobilePackage = JSON.parse(
   fs.readFileSync(path.join(repositoryRoot, 'mobile/package.json'), 'utf8'),
 );
@@ -44,9 +70,10 @@ const pinnedActions = {
   expo: 'eab7a230208c952974db8c3245cfd78402c7b385',
 };
 
-test('release/preview runs full integrity checks on pull requests and pushes', () => {
-  assert.match(integritySource, /pull_request:[\s\S]*?branches:[\s\S]*?- release\/preview/);
-  assert.match(integritySource, /push:[\s\S]*?branches:[\s\S]*?- release\/preview/);
+test('main runs full integrity checks on pull requests and pushes', () => {
+  assert.match(integritySource, /pull_request:[\s\S]*?branches:[\s\S]*?- main/);
+  assert.match(integritySource, /push:[\s\S]*?branches:[\s\S]*?- main/);
+  assert.doesNotMatch(integritySource, /release\/preview/);
   assert.match(integritySource, /permissions:[\s\S]*?contents: read/);
   assert.match(integritySource, /runs-on: windows-latest/);
   assert.match(integritySource, new RegExp(`actions/checkout@${pinnedActions.checkout} # v6[\\s\\S]*?fetch-depth: 0`));
@@ -60,11 +87,12 @@ test('release/preview runs full integrity checks on pull requests and pushes', (
   assert.doesNotMatch(integritySource, /eas update/);
 });
 
-test('manual publication is serialized and bound to the protected branch and environment', () => {
+test('manual Preview publication is serialized and bound to protected main and the protected environment', () => {
   assert.match(publishWorkflowSource, /on:\s*\n\s*workflow_dispatch:/);
   assert.doesNotMatch(publishWorkflowSource, /\n\s+(?:push|pull_request|schedule):/);
   assert.match(publishWorkflowSource, /cancel-in-progress: false/);
-  assert.match(publishWorkflowSource, /refs\/heads\/release\/preview/);
+  assert.match(publishWorkflowSource, /refs\/heads\/main/);
+  assert.doesNotMatch(publishWorkflowSource, /release\/preview/);
   assert.match(publishWorkflowSource, /github\.ref_protected/);
   assert.match(publishWorkflowSource, /environment:\s*\n\s*name: preview-release/);
   assert.match(publishWorkflowSource, /EXPO_TOKEN: \$\{\{ secrets\.EXPO_TOKEN \}\}/);
@@ -120,22 +148,23 @@ test('the publisher fails closed outside the exact GitHub release authority', ()
     assert.match(publishScriptSource, new RegExp(`-Name '${requiredVariable}'`));
   }
 
-  assert.match(publishScriptSource, /refs\/heads\/release\/preview/);
-  assert.match(publishScriptSource, /release\/preview debe tener protección o un ruleset activo/);
-  assert.match(publishScriptSource, /\.github\/workflows\/publish-preview\.yml@refs\/heads\/release\/preview/);
+  assert.match(publishScriptSource, /refs\/heads\/main/);
+  assert.match(publishScriptSource, /main debe tener protección o un ruleset activo/);
+  assert.match(publishScriptSource, /\.github\/workflows\/publish-preview\.yml@refs\/heads\/main/);
   assert.match(publishScriptSource, /rev-parse HEAD/);
-  assert.match(publishScriptSource, /ls-remote --exit-code origin refs\/heads\/release\/preview/);
+  assert.match(publishScriptSource, /ls-remote --exit-code origin refs\/heads\/main/);
   assert.match(publishScriptSource, /EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA/);
-  assert.match(publishScriptSource, /function Assert-SharedBackendRelease/);
-  assert.match(publishScriptSource, /\/api\/release\/status/);
-  assert.match(publishScriptSource, /refs\/heads\/main:refs\/remotes\/origin\/main/);
-  assert.match(publishScriptSource, /merge-base --is-ancestor \$ExpectedCommit \$remoteMainCommit/);
-  assert.match(publishScriptSource, /\$observedEnvironment -ceq 'production'/);
-  assert.match(publishScriptSource, /\$observedBranch -ceq 'main'/);
-  assert.match(publishScriptSource, /\.Replace\("`r`n", "`n"\)/);
-  assert.match(publishScriptSource, /catalog_sha256/);
-  assert.match(publishScriptSource, /audio\.ready/);
-  assert.match(publishScriptSource, /candidato Preview todavía no está reconciliado en main/);
+  assert.match(releaseGuardSource, /function Assert-SharedBackendRelease/);
+  assert.match(releaseGuardSource, /\/api\/release\/status/);
+  assert.match(releaseGuardSource, /refs\/heads\/main:refs\/remotes\/origin\/main/);
+  assert.match(releaseGuardSource, /\[string\]::Equals\(\$ExpectedCommit, \$remoteMainCommit/);
+  assert.match(releaseGuardSource, /\$observedEnvironment -ceq 'production'/);
+  assert.match(releaseGuardSource, /\$observedBranch -ceq 'main'/);
+  assert.match(releaseGuardSource, /\.Replace\("`r`n", "`n"\)/);
+  assert.match(releaseGuardSource, /catalog_sha256/);
+  assert.match(releaseGuardSource, /audio\.ready/);
+  assert.match(publishScriptSource, /Assert-SharedBackendRelease/);
+  assert.doesNotMatch(publishScriptSource, /reconciliado en main/);
   assert.doesNotMatch(publishScriptSource, /rev-parse --short=7 HEAD/);
   assert.match(publishScriptSource, /eas update --channel preview[\s\S]*?--non-interactive/);
 });
@@ -217,6 +246,12 @@ test('Production promotion reruns strict review against the exact tested Preview
     'powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-preview.ps1 -ReviewPolicy Production',
   );
   assert.match(promoteScriptSource, /Assert-CleanReleaseCommit/);
+  assert.match(promoteScriptSource, /Assert-GitHubProductionPublishAuthority/);
+  assert.match(promoteScriptSource, /refs\/heads\/main/);
+  assert.match(promoteScriptSource, /publish-production\.yml@refs\/heads\/main/);
+  assert.match(promoteScriptSource, /ls-remote --exit-code origin refs\/heads\/main/);
+  assert.match(promoteScriptSource, /Assert-MainReleaseLineage/);
+  assert.match(promoteScriptSource, /Assert-SharedBackendRelease/);
   assert.match(promoteScriptSource, /npm run verify:production/);
   assert.match(promoteScriptSource, /eas-cli update:view \$ExpectedGroup --json/);
   assert.match(promoteScriptSource, /PSObject\.Properties\['gitCommitHash'\]/);
@@ -224,18 +259,98 @@ test('Production promotion reruns strict review against the exact tested Preview
   assert.match(promoteScriptSource, /\$observedPlatforms -contains 'ios'/);
   assert.match(
     promoteScriptSource,
-    /npm run verify:production[\s\S]*?Assert-TestedPreviewGroup[\s\S]*?eas-cli update:republish/,
+    /npm run verify:production[\s\S]*?Assert-SharedBackendRelease[\s\S]*?Assert-TestedPreviewGroup[\s\S]*?eas-cli update:republish[\s\S]*?Assert-PublishedProductionCommit/,
     'Strict Production verification and immutable Preview binding must finish before promotion.',
   );
 });
 
-test('CODEOWNERS protects the complete Preview release trust boundary', () => {
+test('main is the only active integration and release branch', () => {
+  for (const [name, source] of [
+    ['AGENTS.md', agentsSource],
+    ['Preview workflow', publishWorkflowSource],
+    ['Production workflow', productionWorkflowSource],
+    ['integrity workflow', integritySource],
+    ['Preview publisher', publishScriptSource],
+    ['Production publisher', promoteScriptSource],
+    ['release guide', releaseGuideSource],
+    ['hygiene guide', hygieneGuideSource],
+    ['audio operations guide', audioOperationsSource],
+    ['hygiene auditor', hygieneScriptSource],
+    ['audio exporter', audioExporterSource],
+    ['backend release status', backendMainSource],
+  ]) {
+    assert.doesNotMatch(source, /release\/preview/, `${name} must not depend on a release branch.`);
+  }
+  assert.match(audioExporterSource, /DEFAULT_SOURCE_REF = "main"/);
+  assert.match(hygieneScriptSource, /fully merged\/superseded; delete remote branch/);
+  assert.match(agentsSource, /Every task branch must target a pull request into current `main`/);
+});
+
+test('Production publication is manual, confirmed, serialized, and sourced only from protected main', () => {
+  assert.match(productionWorkflowSource, /on:\s*\n\s*workflow_dispatch:/);
+  assert.doesNotMatch(productionWorkflowSource, /\n\s+(?:push|pull_request|schedule):/);
+  assert.match(productionWorkflowSource, /confirmed:[\s\S]*?type: boolean/);
+  assert.match(productionWorkflowSource, /refs\/heads\/main/);
+  assert.match(productionWorkflowSource, /github\.ref_protected/);
+  assert.match(productionWorkflowSource, /cancel-in-progress: false/);
+  assert.match(productionWorkflowSource, /environment:\s*\n\s*name: preview-release/);
+  assert.match(productionWorkflowSource, /run: npm run verify:production/);
+  assert.match(
+    productionWorkflowSource,
+    new RegExp(`run: npm run verify:production[\\s\\S]*?expo/expo-github-action@${pinnedActions.expo} # v9[\\s\\S]*?promote-preview\\.ps1`),
+    'The strict Production gate must finish before the Expo credential is initialized.',
+  );
+  assert.equal(
+    productionWorkflowSource.match(/\$\{\{ secrets\.EXPO_TOKEN \}\}/g)?.length,
+    2,
+    'Only the pinned Expo setup action and final production publisher may receive EXPO_TOKEN.',
+  );
+  assert.match(productionWorkflowSource, /-Confirmation \$env:PRODUCTION_CONFIRMATION/);
+  assert.match(productionWorkflowSource, /SHARED_BACKEND_STATUS_URL: https:\/\/learnenglish-fxki\.onrender\.com\/api\/release\/status/);
+  assert.doesNotMatch(productionWorkflowSource, /run:\s*(?:npx\s+)?eas(?:-cli)?\s+update/);
+});
+
+test('a direct local Production publisher invocation stops before any Expo command', () => {
+  const result = spawnSync(
+    'powershell.exe',
+    [
+      '-NoProfile',
+      '-ExecutionPolicy',
+      'Bypass',
+      '-File',
+      path.join(repositoryRoot, 'mobile/scripts/promote-preview.ps1'),
+      '-GroupId',
+      '11111111-1111-1111-1111-111111111111',
+      '-Confirmation',
+      'PUBLISH PRODUCTION',
+    ],
+    {
+      cwd: path.join(repositoryRoot, 'mobile'),
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        GITHUB_ACTIONS: 'false',
+      },
+    },
+  );
+
+  const output = `${result.stdout || ''}\n${result.stderr || ''}`;
+  assert.notEqual(result.status, 0);
+  assert.match(output, /Production solamente se publica mediante GitHub Actions/);
+  assert.doesNotMatch(output, /Enviando el bundle probado a Production/);
+});
+
+test('CODEOWNERS protects the complete mobile release trust boundary', () => {
   for (const protectedPath of [
     '/.github/CODEOWNERS',
     '/.github/workflows/',
     '/render.yaml',
+    '/docs/maintenance/repository-hygiene.md',
+    '/docs/operations/persistent-course-audio.md',
     '/mobile/release-integrity.json',
     '/scripts/validate_lesson_cards.py',
+    '/scripts/audit-repository-hygiene.ps1',
+    '/scripts/export_persistent_audio_catalog.py',
     '/mobile/scripts/promote-preview.ps1',
     '/mobile/scripts/publish-preview.ps1',
     '/mobile/scripts/release-guard.ps1',

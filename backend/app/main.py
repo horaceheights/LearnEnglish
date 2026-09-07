@@ -308,8 +308,6 @@ def release_status():
     configured_environment = os.getenv("APP_ENVIRONMENT", "").strip().lower()
     if configured_environment:
         environment = configured_environment
-    elif branch == "release/preview":
-        environment = "preview"
     elif branch == "main":
         environment = "production"
     else:

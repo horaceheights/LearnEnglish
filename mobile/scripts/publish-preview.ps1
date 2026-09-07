@@ -20,114 +20,20 @@ function Get-RequiredProcessEnvironmentVariable {
   return $value.Trim()
 }
 
-function Assert-SharedBackendRelease {
-  param(
-    [Parameter(Mandatory = $true)]
-    [string]$ExpectedCommit,
-    [Parameter(Mandatory = $true)]
-    [string]$RepositoryRoot,
-    [Parameter(Mandatory = $true)]
-    [string]$StatusUrl
-  )
-
-  try {
-    $uri = [Uri]$StatusUrl
-  } catch {
-    throw 'Publicación bloqueada: SHARED_BACKEND_STATUS_URL no es una URL válida.'
-  }
-  if (
-    $uri.Scheme -cne 'https' -or
-    [string]::IsNullOrWhiteSpace($uri.Host) -or
-    $uri.AbsolutePath -cne '/api/release/status'
-  ) {
-    throw 'Publicación bloqueada: el estado del backend compartido debe usar la ruta HTTPS autorizada.'
-  }
-
-  & git -C $RepositoryRoot fetch --no-tags origin refs/heads/main:refs/remotes/origin/main
-  if ($LASTEXITCODE -ne 0) {
-    throw 'Publicación bloqueada: no se pudo actualizar origin/main.'
-  }
-  $remoteMainCommit = (& git -C $RepositoryRoot rev-parse refs/remotes/origin/main).Trim().ToLowerInvariant()
-  if ($LASTEXITCODE -ne 0 -or $remoteMainCommit -notmatch '^[0-9a-f]{40}$') {
-    throw 'Publicación bloqueada: origin/main no devolvió un commit válido.'
-  }
-  & git -C $RepositoryRoot merge-base --is-ancestor $ExpectedCommit $remoteMainCommit
-  if ($LASTEXITCODE -ne 0) {
-    throw 'Publicación bloqueada: el candidato Preview todavía no está reconciliado en main para el backend compartido.'
-  }
-
-  $catalogPath = Join-Path $RepositoryRoot 'backend/approved-course-audio/catalog.json'
-  $catalog = Get-Content -Raw -LiteralPath $catalogPath | ConvertFrom-Json
-  # Git may check out text as CRLF on the Windows publisher while Render uses
-  # LF. Hash normalized UTF-8 so identical versioned JSON has one identity.
-  $catalogText = [System.IO.File]::ReadAllText($catalogPath).Replace("`r`n", "`n")
-  $sha256 = [System.Security.Cryptography.SHA256]::Create()
-  try {
-    $catalogHashBytes = $sha256.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($catalogText))
-  } finally {
-    $sha256.Dispose()
-  }
-  $expectedCatalogSha256 = -join ($catalogHashBytes | ForEach-Object { $_.ToString('x2') })
-  $expectedAssetCount = [int]$catalog.asset_count
-  $lastObservation = 'el backend todavía no respondió.'
-
-  for ($attempt = 1; $attempt -le 30; $attempt += 1) {
-    try {
-      $status = Invoke-RestMethod -Uri $StatusUrl -TimeoutSec 20
-      $observedCommit = [string]$status.git_commit
-      $observedBranch = [string]$status.git_branch
-      $observedEnvironment = [string]$status.environment
-      $audio = $status.audio
-      $lastObservation = (
-        "environment=$observedEnvironment, branch=$observedBranch, commit=$observedCommit, " +
-        "catalog=$([string]$audio.catalog_sha256), assets=$([string]$audio.catalog_asset_count), " +
-        "ready=$([string]$audio.ready), missing=$([string]$audio.missing), invalid=$([string]$audio.invalid)"
-      )
-
-      if (
-        $observedEnvironment -ceq 'production' -and
-        $observedBranch -ceq 'main' -and
-        [string]::Equals($observedCommit, $remoteMainCommit, [System.StringComparison]::OrdinalIgnoreCase) -and
-        [string]::Equals(
-          [string]$audio.catalog_sha256,
-          $expectedCatalogSha256,
-          [System.StringComparison]::OrdinalIgnoreCase
-        ) -and
-        [int]$audio.catalog_asset_count -eq $expectedAssetCount -and
-        [bool]$audio.ready -and
-        [int]$audio.missing -eq 0 -and
-        [int]$audio.invalid -eq 0 -and
-        [int]$audio.error_count -eq 0
-      ) {
-        Write-Host "Backend compartido verificado: main $($remoteMainCommit.Substring(0, 7)), catálogo $($expectedCatalogSha256.Substring(0, 12)), $expectedAssetCount audios." -ForegroundColor Green
-        return
-      }
-    } catch {
-      $lastObservation = $_.Exception.Message
-    }
-
-    if ($attempt -lt 30) {
-      Start-Sleep -Seconds 10
-    }
-  }
-
-  throw "Publicación bloqueada: el backend compartido de main no coincide con el candidato o su audio no está listo ($lastObservation)."
-}
-
-function Get-RemotePreviewAuthorityCommit {
+function Get-RemoteMainAuthorityCommit {
   param(
     [Parameter(Mandatory = $true)]
     [string]$RepositoryRoot
   )
 
-  $remoteLines = @(& git -C $RepositoryRoot ls-remote --exit-code origin refs/heads/release/preview)
+  $remoteLines = @(& git -C $RepositoryRoot ls-remote --exit-code origin refs/heads/main)
   if ($LASTEXITCODE -ne 0 -or $remoteLines.Count -ne 1) {
-    throw 'Publicación bloqueada: no se pudo comprobar el head remoto de release/preview.'
+    throw 'Publicación bloqueada: no se pudo comprobar el head remoto de main.'
   }
 
   $remoteCommit = (($remoteLines[0] -split '\s+')[0]).Trim()
   if ($remoteCommit -notmatch '^[0-9a-fA-F]{40}$') {
-    throw 'Publicación bloqueada: GitHub devolvió un commit inválido para release/preview.'
+    throw 'Publicación bloqueada: GitHub devolvió un commit inválido para main.'
   }
 
   return $remoteCommit.ToLowerInvariant()
@@ -150,13 +56,13 @@ function Assert-GitHubPreviewPublishAuthority {
   }
 
   $githubRef = Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_REF'
-  if ($githubRef -cne 'refs/heads/release/preview') {
-    throw "Publicación bloqueada: la referencia autorizada es refs/heads/release/preview, no $githubRef."
+  if ($githubRef -cne 'refs/heads/main') {
+    throw "Publicación bloqueada: la referencia autorizada es refs/heads/main, no $githubRef."
   }
 
   $githubRefProtected = Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_REF_PROTECTED'
   if ($githubRefProtected -cne 'true') {
-    throw 'Publicación bloqueada: release/preview debe tener protección o un ruleset activo en GitHub.'
+    throw 'Publicación bloqueada: main debe tener protección o un ruleset activo en GitHub.'
   }
 
   $githubRepository = Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_REPOSITORY'
@@ -169,7 +75,7 @@ function Assert-GitHubPreviewPublishAuthority {
   }
 
   $workflowRef = Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_WORKFLOW_REF'
-  $expectedWorkflowSuffix = '/.github/workflows/publish-preview.yml@refs/heads/release/preview'
+  $expectedWorkflowSuffix = '/.github/workflows/publish-preview.yml@refs/heads/main'
   if (-not $workflowRef.EndsWith($expectedWorkflowSuffix, [System.StringComparison]::OrdinalIgnoreCase)) {
     throw "Publicación bloqueada: workflow no autorizado ($workflowRef)."
   }
@@ -197,9 +103,9 @@ function Assert-GitHubPreviewPublishAuthority {
     throw "Publicación bloqueada: GITHUB_SHA ($($githubSha.Substring(0, 7))) no coincide con HEAD ($($headCommit.Substring(0, 7)))."
   }
 
-  $remoteCommit = Get-RemotePreviewAuthorityCommit -RepositoryRoot $repositoryRoot
+  $remoteCommit = Get-RemoteMainAuthorityCommit -RepositoryRoot $repositoryRoot
   if (-not [string]::Equals($remoteCommit, $githubSha, [System.StringComparison]::OrdinalIgnoreCase)) {
-    throw "Publicación bloqueada: release/preview avanzó a $($remoteCommit.Substring(0, 7)); este job todavía contiene $($githubSha.Substring(0, 7))."
+    throw "Publicación bloqueada: main avanzó a $($remoteCommit.Substring(0, 7)); este job todavía contiene $($githubSha.Substring(0, 7))."
   }
 
   return [PSCustomObject]@{
@@ -298,7 +204,7 @@ if ([string]::IsNullOrWhiteSpace($Message)) {
 }
 
 $authority = Assert-GitHubPreviewPublishAuthority
-Assert-PreviewReleaseLineage
+Assert-MainReleaseLineage
 Assert-CleanReleaseCommit
 $releaseCommit = $authority.Commit
 $previousReleaseCommit = [Environment]::GetEnvironmentVariable('EXPO_PUBLIC_RELEASE_COMMIT', 'Process')
@@ -309,7 +215,7 @@ Push-Location $mobileRoot
 try {
   # Check the live remote head again immediately before the irreversible upload.
   $authority = Assert-GitHubPreviewPublishAuthority
-  Assert-PreviewReleaseLineage
+  Assert-MainReleaseLineage
   Assert-CleanReleaseCommit
   Assert-SharedBackendRelease `
     -ExpectedCommit $authority.Commit `

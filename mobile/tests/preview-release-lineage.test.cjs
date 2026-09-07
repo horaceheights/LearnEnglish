@@ -92,15 +92,16 @@ function verifyFixture(repositoryRoot) {
   return verifyReleaseIntegrity({ repositoryRoot, verifyGitBaseline: false });
 }
 
-test('Preview publishing requires the exact dedicated release authority and integrity check', () => {
-  assert.match(guardSource, /\$authorityBranch = 'origin\/release\/preview'/);
+test('publishing requires the exact main release authority and integrity check', () => {
+  assert.match(guardSource, /\$authorityBranch = 'origin\/main'/);
   assert.match(guardSource, /if \(\$headCommit -ne \$authorityCommit\)/);
-  assert.match(guardSource, /Assert-PreviewReleaseIntegrity/);
+  assert.match(guardSource, /Assert-ReleaseIntegrity/);
+  assert.doesNotMatch(guardSource, /origin\/release\/preview/);
   assert.doesNotMatch(guardSource, /origin\/codex\/restore-complete-a1-preview/);
   assert.doesNotMatch(guardSource, /merge-base --is-ancestor \$canonicalBranch HEAD/);
   assert.match(
     publishSource,
-    /Assert-PreviewReleaseLineage[\s\S]*?Assert-CleanReleaseCommit/,
+    /Assert-MainReleaseLineage[\s\S]*?Assert-CleanReleaseCommit/,
     'The Preview publisher must verify the exact release authority before publishing.',
   );
 });
@@ -122,7 +123,7 @@ test('the versioned manifest locks the complete recovery baseline and release id
   );
   assert.equal(
     integrityManifest.requiredReleaseIdentityFiles.at(-1).expectedGitBlob,
-    '246a7cecc3bdef9d3d6434d9a3cf2784bc7812aa',
+    '1b68c33f01f8f105784794e3ac53e5dc0ca2a731',
   );
 });
 
