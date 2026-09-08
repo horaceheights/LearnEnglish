@@ -3,13 +3,7 @@ import { Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, Vie
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useReducedMotion } from '../hooks/useReducedMotion';
-import {
-  fitMissionSceneFrame,
-  isCollectiveMissionTarget,
-  missionPersonTargetSize,
-  MISSION_SCENE_BORDER_WIDTH,
-  missionTargetTouchWidth,
-} from '../missionSceneGeometry';
+import { fitMissionHeadScene, type HeadMarker } from '../missionTargetInteraction';
 import type { LessonCard, MissionGame, MissionGameTarget } from '../types';
 import { OptionMediaImage } from './OptionMediaImage';
 
@@ -17,10 +11,12 @@ type Result = 'correct' | 'wrong' | null;
 
 type Props = {
   card: LessonCard & { mission_game: MissionGame };
+  cueOrder: number[];
   cueUnavailable: boolean;
   interactionReady: boolean;
   onCueRequest: (cueIndex: number) => void;
   onMisstep: (optionIds: string[]) => void;
+  onTargetFound: () => void;
   onSubmit: (optionIds: string[]) => void;
   result: Result;
 };
@@ -34,38 +30,24 @@ const KIND_LABELS: Record<MissionGame['kind'], string> = {
   'voice-gate': 'RETO DE VOZ',
 };
 
-function percent(value: number): `${number}%` {
-  return `${Math.round(value * 10000) / 100}%`;
-}
-
-function targetCenter(target: MissionGameTarget) {
-  return {
-    x: target.rect.x + target.rect.width / 2,
-    y: target.rect.y + target.rect.height / 2,
-  };
-}
-
 function TargetDot({
   disabled,
   isSolved,
   isWrong,
   onPress,
-  sceneCanvasWidth,
+  marker,
   target,
 }: {
   disabled: boolean;
   isSolved: boolean;
   isWrong: boolean;
   onPress: () => void;
-  sceneCanvasWidth: number;
+  marker: HeadMarker;
   target: MissionGameTarget;
 }) {
   const reduceMotion = useReducedMotion();
   const pulse = useRef(new Animated.Value(0)).current;
-  const center = targetCenter(target);
-  const collective = isCollectiveMissionTarget(target.label_es);
-  const targetHeight = missionPersonTargetSize(sceneCanvasWidth);
-  const targetWidth = missionTargetTouchWidth(sceneCanvasWidth, collective);
+  const { collective, width: targetWidth, height: targetHeight } = marker;
 
   useEffect(() => {
     pulse.stopAnimation();
@@ -98,15 +80,13 @@ function TargetDot({
       accessibilityRole="button"
       accessibilityState={{ disabled, selected: isSolved }}
       disabled={disabled || isSolved}
-      hitSlop={8}
       onPress={onPress}
       style={[
         styles.targetHitArea,
         {
-          left: percent(center.x),
-          top: percent(center.y),
+          left: marker.x,
+          top: marker.y,
           height: targetHeight,
-          transform: [{ translateX: -targetWidth / 2 }, { translateY: -targetHeight / 2 }],
           width: targetWidth,
         },
       ]}
@@ -122,7 +102,7 @@ function TargetDot({
             transform: [{
               scale: pulse.interpolate({
                 inputRange: [0, 1],
-                outputRange: collective ? [0.9, 1.18] : [0.78, 1.7],
+                outputRange: [0.9, 1.12],
               }),
             }],
           },
@@ -146,10 +126,12 @@ function TargetDot({
 
 export function MissionGameSurface({
   card,
+  cueOrder,
   cueUnavailable,
   interactionReady,
   onCueRequest,
   onMisstep,
+  onTargetFound,
   onSubmit,
   result,
 }: Props) {
@@ -161,11 +143,11 @@ export function MissionGameSurface({
   const [wrongTargetId, setWrongTargetId] = useState<string | null>(null);
   const [sceneSlotSize, setSceneSlotSize] = useState({ height: 0, width: 0 });
   const transitionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const currentCue = game.cues[cueIndex] ?? game.cues[0];
+  const selectionLockRef = useRef(false);
+  const currentCue = game.cues[cueOrder[cueIndex] ?? cueIndex] ?? game.cues[0];
   const heroImageUrl = card.prompt_image_url
     || card.options.find((option) => option.image_url)?.image_url
     || '';
-  const guided = game.tutorial_mode === 'guided-no-fail';
   const useLandscapeGameRail = viewportWidth > viewportHeight && viewportHeight < 600;
   const resolving = Boolean(feedback);
   const disabled = !interactionReady || resolving || result === 'correct';
@@ -174,12 +156,12 @@ export function MissionGameSurface({
     [cueIndex, game.cues.length],
   );
   const sceneFrame = useMemo(
-    () => fitMissionSceneFrame(
+    () => fitMissionHeadScene(
       sceneSlotSize.width,
       sceneSlotSize.height,
-      MISSION_SCENE_BORDER_WIDTH,
+      game.targets,
     ),
-    [sceneSlotSize.height, sceneSlotSize.width],
+    [game.targets, sceneSlotSize.height, sceneSlotSize.width],
   );
 
   useEffect(() => {
@@ -187,6 +169,7 @@ export function MissionGameSurface({
     setFeedback('');
     setSolvedTargetIds([]);
     setWrongTargetId(null);
+    selectionLockRef.current = false;
     if (transitionTimerRef.current) clearTimeout(transitionTimerRef.current);
   }, [card.slide_id]);
 
@@ -195,14 +178,16 @@ export function MissionGameSurface({
   }, []);
 
   const chooseTarget = useCallback((target: MissionGameTarget) => {
-    if (disabled || !currentCue) return;
+    if (disabled || !currentCue || selectionLockRef.current) return;
+    selectionLockRef.current = true;
     if (target.id !== currentCue.target_id) {
       setWrongTargetId(target.id);
       setFeedback('Escucha otra vez. Tus aciertos siguen guardados.');
-      if (!guided) onMisstep([target.id]);
+      onMisstep([target.id]);
       transitionTimerRef.current = setTimeout(() => {
         setWrongTargetId(null);
         setFeedback('');
+        selectionLockRef.current = false;
         onCueRequest(cueIndex);
       }, 850);
       return;
@@ -212,17 +197,19 @@ export function MissionGameSurface({
     setSolvedTargetIds(nextSolved);
     setWrongTargetId(null);
     setFeedback(currentCue.answer_text);
+    onTargetFound();
     transitionTimerRef.current = setTimeout(() => {
       const nextCueIndex = cueIndex + 1;
       if (nextCueIndex < game.cues.length) {
         setCueIndex(nextCueIndex);
         setFeedback('');
+        selectionLockRef.current = false;
         onCueRequest(nextCueIndex);
         return;
       }
       onSubmit(game.cues.map((cue) => cue.option_id));
-    }, 720);
-  }, [cueIndex, currentCue, disabled, game.cues, guided, onCueRequest, onMisstep, onSubmit, solvedTargetIds]);
+    }, 2200);
+  }, [cueIndex, currentCue, disabled, game.cues, onCueRequest, onMisstep, onSubmit, onTargetFound, solvedTargetIds]);
 
   if (!currentCue || !heroImageUrl) return null;
 
@@ -294,23 +281,14 @@ export function MissionGameSurface({
         }}
         style={[styles.sceneSlot, useLandscapeGameRail ? styles.sceneSlotLandscape : null]}
       >
-        {sceneFrame.width > 0 && sceneFrame.height > 0 ? (
-          <View style={[styles.imageFrame, { height: sceneFrame.height, width: sceneFrame.width }]}>
-            <View style={styles.sceneCanvas}>
+        {sceneFrame ? (
+          <View style={{ height: sceneFrame.height, width: sceneFrame.width }}>
+            <View style={[styles.imageFrame, {
+              left: sceneFrame.imageX - 4, top: sceneFrame.imageY - 4,
+              width: sceneFrame.imageWidth + 8, height: sceneFrame.imageHeight + 8,
+            }]}>
+              <View style={styles.sceneCanvas}>
               <OptionMediaImage accessibilityLabel="Escena de la misión" imageUrl={heroImageUrl} />
-              <View pointerEvents={disabled ? 'none' : 'auto'} style={StyleSheet.absoluteFill}>
-                {game.targets.map((target) => (
-                  <TargetDot
-                    disabled={disabled}
-                    isSolved={solvedTargetIds.includes(target.id)}
-                    isWrong={wrongTargetId === target.id}
-                    key={target.id}
-                    onPress={() => chooseTarget(target)}
-                    sceneCanvasWidth={sceneFrame.canvasWidth}
-                    target={target}
-                  />
-                ))}
-              </View>
 
               {!interactionReady && !feedback && !cueUnavailable ? (
                 <View pointerEvents="none" style={styles.listeningBadge}>
@@ -339,6 +317,32 @@ export function MissionGameSurface({
               ) : null}
             </View>
           </View>
+          <View pointerEvents={disabled ? 'none' : 'box-none'} style={StyleSheet.absoluteFill}>
+            {sceneFrame.markers.map((marker, index) => (
+              <View key={marker.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
+                {marker.heads.map((head, headIndex) => {
+                  const fromX = marker.x + marker.width / 2;
+                  const fromY = marker.y + marker.height - 7;
+                  const dx = head.x - fromX;
+                  const dy = head.y - 3 - fromY;
+                  const length = Math.hypot(dx, dy);
+                  return <View key={headIndex} pointerEvents="none" style={{
+                    position: 'absolute', backgroundColor: '#fff', borderColor: '#245f53',
+                    borderWidth: .5, height: 3, width: length,
+                    left: (fromX + head.x) / 2 - length / 2,
+                    top: (fromY + head.y - 3) / 2 - 1.5,
+                    transform: [{ rotate: `${Math.atan2(dy, dx)}rad` }],
+                  }} />;
+                })}
+                <TargetDot disabled={disabled}
+                  isSolved={solvedTargetIds.includes(marker.id)}
+                  isWrong={wrongTargetId === marker.id}
+                  onPress={() => chooseTarget(game.targets[index])}
+                  marker={marker} target={game.targets[index]} />
+              </View>
+            ))}
+          </View>
+          </View>
         ) : null}
       </View>
 
@@ -362,7 +366,7 @@ const styles = StyleSheet.create({
   audioButtonRetry: { backgroundColor: '#b9553f' },
   sceneSlot: { alignItems: 'center', flex: 1, justifyContent: 'center', minHeight: 0, width: '100%' },
   sceneSlotLandscape: { width: 'auto' },
-  imageFrame: { backgroundColor: '#dbe8e2', borderColor: '#fff', borderRadius: 22, borderWidth: MISSION_SCENE_BORDER_WIDTH, overflow: 'hidden' },
+  imageFrame: { position: 'absolute', backgroundColor: '#dbe8e2', borderColor: '#fff', borderRadius: 22, borderWidth: 4, overflow: 'hidden' },
   sceneCanvas: { borderRadius: 18, flex: 1, overflow: 'hidden', position: 'relative' },
   targetHitArea: { alignItems: 'center', justifyContent: 'center', position: 'absolute' },
   pulseRing: { backgroundColor: 'rgba(255,255,255,0.72)', borderColor: '#f4c75f', borderRadius: 999, borderWidth: 3, height: 38, position: 'absolute', width: 38 },

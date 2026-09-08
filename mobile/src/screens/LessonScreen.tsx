@@ -87,6 +87,7 @@ import {
 } from '../lessonAudioCache';
 import { isMissionLesson, missionChapterProgress } from '../missionExperience';
 import { missionSuccessSoundEvent, useMissionSoundEffects } from '../missionSoundEffects';
+import { missionCueOrder } from '../missionTargetInteraction';
 import {
   prepareCardChoice,
   registerCardAttempt,
@@ -921,6 +922,10 @@ export function LessonScreen({
   ]);
 
   const currentCard = lesson?.cards[cardIndex];
+  const missionOrder = useMemo(
+    () => missionCueOrder(currentCard?.mission_game),
+    [currentCard?.mission_game, cardRunId],
+  );
   const missionIntroAsset = lesson?.cards[0]
     ? findCourseAudioAsset(lesson.cards[0], 'mission-intro')
     : null;
@@ -1249,7 +1254,7 @@ export function LessonScreen({
       setMissionInteractionReady(true);
     }, COURSE_AUDIO_FALLBACK_MS);
 
-    const cueTurn = promptTurnSequence?.[cueIndex];
+    const cueTurn = promptTurnSequence?.[missionOrder[cueIndex] ?? cueIndex];
     const cueAsset = cueTurn?.asset ?? missionCueAsset;
     if (!cueAsset) {
       replayPrompt();
@@ -1304,7 +1309,7 @@ export function LessonScreen({
       setMissionCueUnavailable(true);
       setMissionInteractionReady(true);
     });
-  }, [ensureAudioPreloaded, isOffline, missionCueAsset, missionCuePlayer, promptTurnSequence, replayPrompt, stopMissionSound]);
+  }, [ensureAudioPreloaded, isOffline, missionCueAsset, missionCuePlayer, missionOrder, promptTurnSequence, replayPrompt, stopMissionSound]);
 
   useEffect(() => {
     if (!showMissionKickoff || !isAppActive) return undefined;
@@ -2200,8 +2205,9 @@ export function LessonScreen({
         setCompletedCards(completion.completedCards);
         if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
       }
-      if (missionExperience) playMissionSound(missionSuccessSoundEvent(currentCard));
-      else void playSuccessChime();
+      if (missionExperience) {
+        if (!usesMissionGameSurface) playMissionSound(missionSuccessSoundEvent(currentCard));
+      } else void playSuccessChime();
       if (waitsForGrammarAnimation) {
         return;
       }
@@ -2253,6 +2259,10 @@ export function LessonScreen({
 
   const recordMissionMisstep = (optionIds: string[]) => {
     if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
+    if (currentCard.mission_game?.tutorial_mode === 'guided-no-fail') {
+      playMissionSound('try-again');
+      return;
+    }
     const correctOptionKey = orderedCorrectOptionIds(currentCard).join('|');
     const selectedOptionKey = optionIds.join('|') || 'invalid-placement';
     const attempt = prepareCardChoice(attemptedCardsRef.current, completedCardsRef.current, cardIndex);
@@ -3144,6 +3154,9 @@ export function LessonScreen({
               cueUnavailable={missionCueUnavailable}
               interactionReady={missionInteractionReady}
               onCueRequest={playMissionCueAt}
+              cueOrder={missionOrder}
+              key={`mission-${cardIndex}-${cardRunId}`}
+              onTargetFound={() => playMissionSound('tile-place')}
               onMisstep={recordMissionMisstep}
               onSubmit={submitMissionSelection}
               result={result}

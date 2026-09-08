@@ -255,6 +255,8 @@ The learner-facing title is `¡Todos a la celebración!`. A family celebration i
 
 The opening plays the distinct 3.2-second acoustic mission cue, shows the three objectives `Encuentra personas`, `Sigue sus acciones`, and `Reúne a la familia`, and speaks this briefing in Spanish before enabling Start: `La celebración está por comenzar y todavía faltan invitados. Escucha cada frase, encuentra a las personas y descubre qué están haciendo. Al final responderás en voz alta para abrir la celebración. Primero practicaremos juntos.` Beat 1 begins as a guided, nonpunitive example: the learner hears `A boy.` and learns once that a pulsing point selects a person, then practices the other three visible people before the beat advances. During active play, the current mechanic remains visible in concise Spanish but is not narrated; the assessed audio is always English, finishes before input unlocks, and can be repeated with the speaker button.
 
+The story order below stays fixed, but listening cues inside each scene are shuffled on each fresh run. Only the initial guided `A boy.` cue stays first; replay, retries, and rotation preserve the current permutation. Every cue retains its exact English audio and target binding. Correct dots give immediate sound and visual feedback, then leave a 2.2-second feedback beat before the next clue. Markers sit above the reviewed heads, with one pointer per person in a group and measured headroom where the scene edge is too close; neither faces nor neighboring controls may be covered.
+
 The 22 beats have these fixed responsibilities:
 
 1. Guided person search for `A boy.`

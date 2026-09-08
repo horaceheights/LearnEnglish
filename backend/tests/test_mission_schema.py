@@ -165,6 +165,20 @@ class MissionSchemaTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError, "fit within image width"):
             MissionLesson(**payload)
 
+    def test_head_anchors_are_serialized_and_reject_out_of_image_positions(self):
+        payload = mission_lesson_payload()
+        target = payload["cards"][0]["mission_game"]["targets"][0]
+        target["head_anchors"] = [{"x": 0.25, "y": 0.1}]
+        lesson = MissionLesson(**payload)
+        self.assertEqual(
+            lesson.model_dump()["cards"][0]["mission_game"]["targets"][0]["head_anchors"],
+            [{"x": 0.25, "y": 0.1}],
+        )
+        for invalid in [-0.01, 1.01]:
+            target["head_anchors"] = [{"x": invalid, "y": 0.1}]
+            with self.assertRaises(ValidationError):
+                MissionLesson(**payload)
+
     def test_every_visible_mission_target_must_be_practiced_exactly_once(self):
         payload = mission_lesson_payload()
         card = payload["cards"][0]

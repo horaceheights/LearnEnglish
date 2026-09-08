@@ -97,7 +97,7 @@ test('short mission cues use a stable dedicated player and status subscription',
 test('the tap layer is gated only by interaction readiness', () => {
   assert.match(
     missionSurface,
-    /pointerEvents=\{disabled \? 'none' : 'auto'\}/,
+    /pointerEvents=\{disabled \? 'none' : 'box-none'\}/,
     'The scene still gates taps on readiness, so readiness must always resolve.',
   );
   assert.match(

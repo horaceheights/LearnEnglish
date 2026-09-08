@@ -41,10 +41,11 @@ test('mission scene frame preserves the complete 3:2 canvas in every orientation
 });
 
 test('mobile and web place hotspots on the fitted image canvas instead of a cropped flex box', () => {
-  assert.match(surface, /fitMissionSceneFrame\(/);
+  assert.match(surface, /fitMissionHeadScene\(/);
   assert.match(surface, /style=\{\[styles\.sceneSlot, useLandscapeGameRail \? styles\.sceneSlotLandscape : null\]\}/);
   assert.match(surface, /style=\{styles\.sceneCanvas\}/);
-  assert.match(surface, /sceneCanvasWidth=\{sceneFrame\.canvasWidth\}/);
+  assert.match(surface, /width: sceneFrame\.imageWidth \+ 8, height: sceneFrame\.imageHeight \+ 8/);
+  assert.match(surface, /left: sceneFrame\.imageX - 4, top: sceneFrame\.imageY - 4/);
   assert.match(surface, /useWindowDimensions\(\)/);
   assert.match(surface, /useLandscapeGameRail/);
   assert.match(surface, /styles\.surfaceLandscape/);
