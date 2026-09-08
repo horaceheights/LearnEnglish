@@ -69,11 +69,12 @@ const VERIFIED_CENTRES = {
       'adults': [0.73, 0.88],
     },
     // a1_u1_reunion_05_babies.webp
+    // Rechecked 2026-09-08: babies above canopies, children below upper bodies.
     M05: {
-      'one-baby': [0.30, 0.34],
-      'three-babies': [0.69, 0.34],
-      'boy': [0.25, 0.69],
-      'children': [0.70, 0.69],
+      'one-baby': [0.31, 0.13],
+      'three-babies': [0.69, 0.13],
+      'boy': [0.25, 0.85],
+      'children': [0.73, 0.85],
     },
     // a1_u1_reunion_06_brother_sister.webp
     M06: {
@@ -177,7 +178,7 @@ function centre(target) {
   ];
 }
 
-test('every mission tap target still sits on the subject it names', () => {
+test('every mission tap target retains its visually reviewed subject association', () => {
   const checked = [];
   for (const card of mission.cards) {
     const game = card.mission_game;
