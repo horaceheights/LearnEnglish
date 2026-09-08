@@ -257,6 +257,8 @@ The opening plays the distinct 3.2-second acoustic mission cue, shows the three 
 
 The story order below stays fixed, but listening cues inside each scene are shuffled on each fresh run. Only the initial guided `A boy.` cue stays first; replay, retries, and rotation preserve the current permutation. Every cue retains its exact English audio and target binding. Correct dots give immediate sound and visual feedback, then leave a 2.2-second feedback beat before the next clue. Markers sit above the reviewed heads, with one pointer per person in a group and measured headroom where the scene edge is too close; neither faces nor neighboring controls may be covered.
 
+Phone landscape has its own compact side-panel presentation of these same listening beats. Navigation, mission progress, simple directions, replay, and feedback occupy the panel; the complete uncropped scene and its markers receive the full safe-area height beside it. The standard full-width header and QA toolbar must not remain stacked above that panel. An options sheet retains help and QA controls. Portrait keeps its approved presentation, and rotation never starts another clue sequence or discards solved people.
+
 The 22 beats have these fixed responsibilities:
 
 1. Guided person search for `A boy.`
