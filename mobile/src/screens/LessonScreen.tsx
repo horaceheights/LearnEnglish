@@ -950,9 +950,16 @@ export function LessonScreen({
     () => missionChapterProgress(lesson, cardIndex, completedCards, furthestCardIndex),
     [cardIndex, completedCards, furthestCardIndex, lesson],
   );
-  const promptTurnSequence = currentCard
-    ? findCourseAudioTurnSequence(currentCard, 'prompt')
-    : null;
+  // Rebuilt on every call, so this has to be memoised: playMissionCueAt depends
+  // on it, the cue effect depends on that callback, and the effect restarts the
+  // clue each time the identity moves. Restarting swaps the audio player before
+  // a one-second clue can be heard and rearms the fallback that would otherwise
+  // hand the scene back, so an unstable reference here leaves the card silent
+  // and untouchable.
+  const promptTurnSequence = useMemo(
+    () => (currentCard ? findCourseAudioTurnSequence(currentCard, 'prompt') : null),
+    [currentCard],
+  );
   const pronunciationTurnSequence = currentCard?.stage === 'Pronunciation Practice'
     || currentCard?.stage === 'Speak'
       ? promptTurnSequence
