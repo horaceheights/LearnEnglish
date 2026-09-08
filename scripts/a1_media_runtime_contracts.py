@@ -136,6 +136,7 @@ LESSON_RENDER_FILES = (
     "mobile/src/components/OptionMediaImage.tsx",
     "mobile/src/components/LessonCardView.tsx",
     "mobile/src/components/PronunciationPractice.tsx",
+    "mobile/src/components/MissionVoicePresentation.tsx",
     "frontend/components/LessonPlayer.js",
 )
 RENDER_PROFILE_SPECS = {
@@ -394,7 +395,9 @@ def card_media_usages(
     }
     usages: list[dict[str, Any]] = []
 
-    prompt_source = media_filename(card.get("prompt_image_url"))
+    mission_question = (card.get("mission_game") or {}).get("kind") == "voice-gate"
+    question_turn = (card.get("audio_turns") or [{}])[0] if mission_question else {}
+    prompt_source = media_filename(question_turn.get("image_url") if mission_question else card.get("prompt_image_url"))
     if prompt_source:
         # Web and mobile route prompt stills through the same 3:2 resolver as
         # image options, so approval must bind those final pixels too.
@@ -410,6 +413,7 @@ def card_media_usages(
                 "rendered_filename": prompt_rendered,
                 "context": {
                     **common,
+                    **({"prompt": question_turn.get("text"), "audio_text": question_turn.get("text")} if mission_question else {}),
                     "media_role": "prompt",
                     "option_id": None,
                     "option_label": None,

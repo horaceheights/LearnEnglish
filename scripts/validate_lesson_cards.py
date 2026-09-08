@@ -604,7 +604,7 @@ def validate_mission_contracts(lessons=None) -> list[str]:
                 for turn in list(getattr(card, "audio_turns", []) or [])
             ]
             expected_turn_texts = (
-                [cue_texts[0], str(getattr(card, "prompt", "") or "")]
+                [cue_texts[0]]
                 if kind == "voice-gate"
                 else cue_texts
             )

@@ -1015,7 +1015,7 @@ export function LessonScreen({
     currentCard?.mission_game
     && currentCard.mission_game.kind !== 'voice-gate',
   );
-  const usesMissionPhoneLandscape = usesMissionGameSurface && !isPortrait && viewportHeight < 600;
+  const usesMissionPhoneLandscape = isMissionGameCard && !isPortrait && viewportHeight < 600;
   const missionVoiceGateProgress = isMissionVoiceGate && currentCard?.mission_game
     ? {
         question: currentCard.mission_game.cue_audio_text || currentCard.mission_game.cues[0]?.text || '',
@@ -3196,6 +3196,17 @@ export function LessonScreen({
             optionsInteractive={!isAutomaticSingleCard}
             pronunciationAudioTurns={pronunciationTurnSequence}
             missionVoiceGate={missionVoiceGateProgress}
+            missionLandscapeHeader={usesMissionPhoneLandscape ? (
+              <MissionLandscapeHeader
+                location={lessonLocation}
+                title={lesson.mission?.title ?? lesson.title}
+                step={cardIndex + 1}
+                total={lesson.cards.length}
+                onBack={() => confirmLessonExit('previous')}
+                onHome={() => confirmLessonExit('home')}
+                onMenu={() => setShowMissionLandscapeMenu(true)}
+              />
+            ) : null}
             onPronunciationAttempted={pronunciationAttempted}
             onPronunciationReplayAvailabilityChange={setPronunciationReplayAvailable}
             onPronunciationPassed={pronunciationPassed}

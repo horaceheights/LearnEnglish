@@ -46,7 +46,11 @@ try {
   & node tests/mission-target-interaction.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la verificación visual vinculada de los blancos de la misión.' }
   & node tests/mission-phone-landscape.test.cjs
-  if ($LASTEXITCODE -ne 0) { throw 'Falló el diseño independiente de la misión en teléfono horizontal.' }
+  if ($LASTEXITCODE -ne 0) { throw 'Mission phone landscape checks failed.' }
+  & node --test tests/mission-native-layout.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Native mission layout regression failed.' }
+  & node --test tests/mission-recall-content.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Mission recall image and audio contracts failed.' }
 
   & node tests/mission-scene-layout.test.cjs (Join-Path $outputDirectory 'missionSceneGeometry.js')
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de encuadre y objetivos de las escenas de misión.' }

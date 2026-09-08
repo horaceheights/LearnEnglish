@@ -97,18 +97,19 @@ function VoiceGateHeader({ cardIndex, game, onReplayEnglish, speech }) {
 function VoiceGateConsole({ card, isMobile, onPrepareSpeech, onRetrySpeech, speech }) {
   const busy = speech.recording || speech.scoring;
   const accepted = Boolean(speech.outcome?.accepted);
-  const stateLabel = accepted ? "ENTRADA ACTIVADA" : speech.scoring ? "COMPROBANDO TU VOZ" : speech.recording ? "TE ESCUCHAMOS" : "DI LA FRASE PARA ABRIR";
+  const stateLabel = accepted ? "ENTRADA ACTIVADA" : speech.scoring ? "REVISANDO TU RESPUESTA" : speech.recording ? "TE ESCUCHAMOS" : speech.asking ? "ESCUCHA LA PREGUNTA" : "RESPONDE EN VOZ ALTA";
   return (
     <section className={`voice-console ${accepted ? "accepted" : ""}`} aria-live="polite">
       <div className={`voice-orb ${busy ? "busy" : ""} ${accepted ? "accepted" : ""}`}>{accepted ? "✓" : "🎤"}<i /></div>
       <div className="voice-command">
         <div className="speech-label">{stateLabel}</div>
-        <strong>{card.prompt}</strong>
-        <div>{speech.error || speech.status || "La entrada escucha tu respuesta."}</div>
-        {!busy ? <small className="voice-replay-hint">🔊 Toca para escuchar otra vez</small> : null}
+        {speech.result ? <strong>{card.prompt}</strong> : null}
+        <div>{speech.error || (speech.result ? speech.result.feedback?.messages?.es || (accepted ? "¡Muy bien!" : "Inténtalo otra vez.")
+          : speech.recording ? "Responde con una frase completa." : speech.scoring ? "Revisando tu respuesta…" : "Escucha la pregunta.")}</div>
       </div>
-      {!speech.ready && !busy ? <button onClick={onPrepareSpeech} style={buttonStyle(false)} type="button">Escuchar y responder</button> : null}
+      {!speech.ready && !busy && !speech.error ? <button onClick={onPrepareSpeech} style={buttonStyle(false)} type="button">Escuchar y responder</button> : null}
       {speech.error && !busy ? <button onClick={onRetrySpeech} style={buttonStyle(false)} type="button">Intentar otra vez</button> : null}
+      <style jsx>{missionStyles}</style>
       <style jsx>{`
         .voice-console { align-items:center; background:#f7e5b8; border:2px solid #d69e35; border-radius:18px; display:grid; gap:9px; grid-template-columns:auto minmax(0,1fr) auto; margin:0 auto; max-width:820px; padding:${isMobile ? "7px 9px" : "10px 14px"}; width:100%; }
         .voice-console.accepted { background:#dff5e8; border-color:#3b9367; }
@@ -118,9 +119,8 @@ function VoiceGateConsole({ card, isMobile, onPrepareSpeech, onRetrySpeech, spee
         .voice-orb.accepted { background:#30936c; border-color:#a8e1c8; }
         .voice-command { display:grid; min-width:0; text-align:left; }
         .speech-label { color:#7b591c; font-size:11px; font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
-        .voice-replay-hint { color:#78501c; font-size:10px; font-weight:850; margin-top:2px; }
-        strong { color:#214c45; font-size:${isMobile ? "19px" : "24px"}; line-height:1.15; }
-        button { justify-self:center; }
+        .voice-command strong { color:#214c45; font-size:${isMobile ? "19px" : "24px"}; line-height:1.15; overflow-wrap:break-word; }
+        .voice-console>button { justify-self:center; }
         @keyframes voice-pulse { from{transform:scale(.9);opacity:.6} to{transform:scale(1.25);opacity:.05} }
         @media(max-width:520px){.voice-console{grid-template-columns:auto minmax(0,1fr)}.voice-console>button{grid-column:1/3;width:100%}}
       `}</style>
@@ -164,7 +164,9 @@ export default function CelebrationMission({
   const chapterIndex = Math.max(0, chapters.findIndex((chapter) => chapter.isActive));
   const cue = game.cues?.[cueOrder[cueIndex] ?? cueIndex] || game.cues?.[0];
   const isVoiceGate = game.kind === "voice-gate";
-  const heroImage = imageSrc || resolveImage(card.options?.find((option) => option.image_url)?.image_url || "");
+  const heroImage = isVoiceGate && speech.asking
+    ? resolveImage(card.audio_turns?.[0]?.image_url || "")
+    : imageSrc || resolveImage(card.options?.find((option) => option.image_url)?.image_url || "");
   const locked = !interactionReady || Boolean(feedback) || lastResult === "correct";
   const missionProgress = Math.round((cardIndex / lesson.cards.length) * 100);
   const cueProgress = useMemo(() => `${Math.min(cueIndex + 1, game.cues.length)} de ${game.cues.length}`, [cueIndex, game.cues.length]);
@@ -234,7 +236,7 @@ export default function CelebrationMission({
     <main className={`mission-shell mission-game ${isVoiceGate ? "mission-voice-game" : ""}`} aria-label={`${lesson.mission.label}. Reto ${cardIndex + 1} de ${lesson.cards.length}.`}>
       <header className="game-header">
         <div className="mission-topline">
-          <button aria-label="Salir de la misión" onClick={onExit} style={{ ...buttonStyle(false), minHeight: 40, padding: "6px 10px" }} type="button">← Salir</button>
+          <button aria-label="Salir de la misión" onClick={onExit} style={{ ...buttonStyle(false), minHeight: isVoiceGate ? 48 : 40, minWidth: isVoiceGate ? 48 : undefined, padding: "6px 10px" }} type="button">{isVoiceGate ? "←" : "← Salir"}</button>
           <div><span>{lesson.mission.label}</span><strong>{lesson.mission.title}</strong></div>
           <b>{cardIndex + 1}/{lesson.cards.length}</b>
         </div>
@@ -254,7 +256,9 @@ export default function CelebrationMission({
 
       <div className="scene-slot" ref={sceneSlotRef}>
         <section className={`scene ${isVoiceGate ? "voice-scene" : "head-scene"} ${isVoiceGate && speech.outcome?.accepted ? "voice-scene-open" : ""}`}
-          style={!isVoiceGate ? { width: headScene?.width || 0, height: headScene?.height || 0 } : undefined}>
+          style={!isVoiceGate ? { width: headScene?.width || 0, height: headScene?.height || 0 }
+            : { width: Math.max(0, Math.min(slotSize.width - 8, (slotSize.height - 8) * 1.5)) + 8,
+                height: Math.max(0, Math.min(slotSize.width - 8, (slotSize.height - 8) * 1.5)) / 1.5 + 8 }}>
           <div className={isVoiceGate ? "voice-art" : "scene-art"} style={!isVoiceGate && headScene ? {
             left: headScene.imageX - 4, top: headScene.imageY - 4,
             width: headScene.imageWidth + 8, height: headScene.imageHeight + 8,
@@ -350,7 +354,7 @@ const missionStyles = `
   .voice-question>div { display:grid; }
   .voice-question small { color:#a45b3f; font-size:8px; }
   .voice-question strong { font-size:17px; line-height:1.05; }
-  .voice-question button { background:#278c73;border:0;border-radius:11px;color:#fff;font-size:18px;height:37px;width:37px; }
+  .voice-question button { background:#278c73;border:0;border-radius:11px;color:#fff;font-size:18px;height:48px;width:48px; }
   .scene-slot { align-items:center; container-type:size; display:flex; flex:1; justify-content:center; min-height:0; width:100%; }
   .scene { aspect-ratio:3/2; background:#d9e6df; border:4px solid #fff; border-radius:21px; box-sizing:border-box; flex:none; overflow:hidden; position:relative; width:100%; }
   .scene.head-scene { aspect-ratio:auto; background:transparent; border:0; overflow:visible; }
@@ -378,9 +382,10 @@ const missionStyles = `
   @keyframes pulse { 0%{opacity:.75;transform:scale(.9)} 100%{opacity:.05;transform:scale(1.12)} }
   @keyframes collective-pulse { 0%{opacity:.75;transform:scale(.9)} 100%{opacity:.05;transform:scale(1.12)} }
   @container (min-aspect-ratio:3/2) { .scene { height:100%; width:auto; } }
-  @media (max-width:760px) and (orientation:portrait) { .mission-voice-game .scene-slot { align-items:flex-start; container-type:normal; flex:0 0 auto; } .voice-scene { aspect-ratio:1.35/1; height:auto; width:100%; } }
+  .mission-voice-game .scene-slot { min-height:0; flex:1; }
+  .mission-voice-game .voice-console { flex-shrink:0; box-sizing:border-box; }
   @media (max-width:760px) { .mission-shell { border-radius:18px; gap:6px; height:calc(100svh - 16px); min-height:430px; padding:7px; } .intro-copy h1{font-size:1.9rem}.intro-copy p{line-height:1.25}.intro-objectives>div{font-size:10px;padding:4px 6px}.intro-objectives b{flex-basis:24px;height:24px}.game-header{padding:6px 8px}.game-header .mission-topline div strong{font-size:16px}.game-header small{font-size:7px}.cue-panel{padding:6px 8px}.cue-panel b{font-size:13px}.speech-console{flex:0 0 auto} }
-  @media (max-height:600px) and (min-width:600px) {
+  @media (max-height:600px) and (orientation:landscape) {
     .mission-shell { gap:6px; height:calc(100svh - 16px); min-height:0; padding:8px; }
     .mission-game { display:grid; grid-template-columns:minmax(230px,.8fr) minmax(0,1.45fr); grid-template-rows:auto 1fr auto; }
     .mission-game .game-header { grid-column:1; grid-row:1; }
@@ -394,6 +399,16 @@ const missionStyles = `
     .mission-game .cue-panel { grid-template-columns:minmax(0,1fr) auto; }
     .mission-game .cue-panel>span { grid-column:1; }
     .mission-game .cue-panel>button { grid-column:2; grid-row:1 / 3; }
+    .mission-voice-game { grid-template-columns:minmax(210px,.8fr) minmax(0,1.45fr); grid-template-rows:auto minmax(0,1fr) auto; }
+    .mission-voice-game .game-header ol { display:none; }
+    .mission-voice-game .game-header .mission-topline>b { flex-shrink:0; min-width:0; }
+    .mission-voice-game .game-header .mission-topline div strong { font-size:13px; }
+    .mission-voice-game .voice-game-header { align-self:stretch; align-content:space-between; grid-row:2 / 4; min-height:0; }
+    .mission-voice-game .scene-slot { grid-row:1 / 3; min-height:0; }
+    .mission-voice-game .voice-console { grid-column:2; grid-row:3; grid-template-columns:auto minmax(0,1fr); padding:7px; }
+    .mission-voice-game .voice-console>button { grid-column:1 / 3; width:100%; }
+    .mission-voice-game .voice-orb { height:32px; width:32px; }
+    .mission-voice-game .voice-command { font-size:13px; line-height:1.2; }
   }
   @media (prefers-reduced-motion:reduce) { .target-dot i{animation:none;opacity:.35;transform:scale(1.1)} }
 `;

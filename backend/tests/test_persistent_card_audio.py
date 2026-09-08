@@ -148,7 +148,9 @@ class PersistentCardAudioTests(unittest.TestCase):
                 ]
                 expected = [cue.text for cue in card.mission_game.cues]
                 if card.mission_game.kind == "voice-gate":
-                    expected.append(card.prompt)
+                    self.assertNotIn(card.prompt, prompt_turns)
+                    self.assertEqual("female-character", card.audio_turns[0].speaker_role)
+                    self.assertNotEqual(card.options[0].image_url, card.audio_turns[0].image_url)
                 self.assertEqual(expected, prompt_turns)
 
         grandmother_card = mission.cards[19]

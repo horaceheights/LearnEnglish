@@ -258,10 +258,9 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
             "question" if raw_prompt.lower() == "what is it?" else "prompt"
         )
         if card.audio_turns:
-            # Mission voice gates intentionally play a short question before the
-            # answer model that the learner must pronounce. ``audio_text`` remains
-            # the assessment phrase, while the authored turn sequence owns the
-            # complete question + model playback.
+            # Mission recall gates play only the visitor's question. audio_text
+            # remains the private grading answer; the authored turn owns the
+            # question-shot image and speech, not an upfront answer model.
             prompt_canonical_text = (
                 " ".join(turn.text for turn in card.audio_turns)
                 if getattr(card, "mission_game", None) is not None
