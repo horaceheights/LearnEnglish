@@ -936,8 +936,8 @@ const missionBlueprintV4 = [
     ],
     choices: [['he-boy', 'He is a boy.'], ['she-girl', 'She is a girl.'], ['he-man', 'He is a man.'], ['she-woman', 'She is a woman.']],
     targets: [
-      missionCandidate('boy', 'he-boy', 0.16, 0.66), missionCandidate('girl', 'she-girl', 0.82, 0.66),
-      missionCandidate('man', 'he-man', 0.38, 0.40), missionCandidate('woman', 'she-woman', 0.64, 0.40),
+      missionCandidate('boy', 'he-boy', 0.21, 0.56), missionCandidate('man', 'he-man', 0.37, 0.52),
+      missionCandidate('girl', 'she-girl', 0.66, 0.57), missionCandidate('woman', 'she-woman', 0.79, 0.53),
     ],
   }),
   missionGameCard({
@@ -959,9 +959,9 @@ const missionBlueprintV4 = [
       ['children', 'The boy and the girl are children.'], ['adults', 'The man and the woman are adults.'],
     ],
     targets: [
-      missionCandidate('boy', 'boy-child', 0.20, 0.64), missionCandidate('girl', 'girl-child', 0.80, 0.64),
-      missionCandidate('man', 'man-adult', 0.38, 0.34), missionCandidate('woman', 'woman-adult', 0.62, 0.34),
-      missionCandidate('children', 'children', 0.28, 0.82, 'Grupo'), missionCandidate('adults', 'adults', 0.72, 0.82, 'Grupo'),
+      missionCandidate('boy', 'boy-child', 0.19, 0.50), missionCandidate('girl', 'girl-child', 0.31, 0.52),
+      missionCandidate('man', 'man-adult', 0.67, 0.46), missionCandidate('woman', 'woman-adult', 0.80, 0.48),
+      missionCandidate('children', 'children', 0.25, 0.88, 'Grupo'), missionCandidate('adults', 'adults', 0.73, 0.88, 'Grupo'),
     ],
   }),
   missionGameCard({
@@ -990,8 +990,8 @@ const missionBlueprintV4 = [
     ],
     choices: [['brother', 'He is the brother.'], ['sister', 'She is the sister.'], ['father', 'He is the father.'], ['mother', 'She is the mother.']],
     targets: [
-      missionCandidate('brother', 'brother', 0.25, 0.55), missionCandidate('sister', 'sister', 0.75, 0.55),
-      missionCandidate('father', 'father', 0.38, 0.28), missionCandidate('mother', 'mother', 0.62, 0.28),
+      missionCandidate('brother', 'brother', 0.33, 0.55), missionCandidate('sister', 'sister', 0.66, 0.55),
+      missionCandidate('father', 'father', 0.09, 0.30), missionCandidate('mother', 'mother', 0.90, 0.30),
     ],
   }),
   missionGameCard({
@@ -1005,8 +1005,8 @@ const missionBlueprintV4 = [
     ],
     choices: [['brothers', 'They are the brothers.'], ['sisters', 'They are the sisters.'], ['parents', 'They are the parents.'], ['grandparents', 'They are the grandparents.']],
     targets: [
-      missionCandidate('brothers', 'brothers', 0.23, 0.48, 'Grupo'), missionCandidate('sisters', 'sisters', 0.77, 0.48, 'Grupo'),
-      missionCandidate('parents', 'parents', 0.32, 0.78, 'Grupo'), missionCandidate('grandparents', 'grandparents', 0.68, 0.78, 'Grupo'),
+      missionCandidate('brothers', 'brothers', 0.23, 0.52, 'Grupo'), missionCandidate('sisters', 'sisters', 0.77, 0.52, 'Grupo'),
+      missionCandidate('parents', 'parents', 0.50, 0.18, 'Grupo'), missionCandidate('grandparents', 'grandparents', 0.50, 0.70, 'Grupo'),
     ],
   }),
   missionGameCard({
@@ -1021,8 +1021,8 @@ const missionBlueprintV4 = [
     ],
     choices: [['father', 'He is the father.'], ['mother', 'She is the mother.'], ['parents', 'They are the parents.'], ['children', 'They are the children.']],
     targets: [
-      missionCandidate('father', 'father', 0.36, 0.38), missionCandidate('mother', 'mother', 0.64, 0.38),
-      missionCandidate('parents', 'parents', 0.50, 0.66, 'Pareja'), missionCandidate('children', 'children', 0.50, 0.84, 'Grupo'),
+      missionCandidate('father', 'father', 0.32, 0.45), missionCandidate('mother', 'mother', 0.68, 0.45),
+      missionCandidate('parents', 'parents', 0.50, 0.82, 'Pareja'), missionCandidate('children', 'children', 0.50, 0.18, 'Grupo'),
     ],
   }),
   missionGameCard({
@@ -1041,8 +1041,8 @@ const missionBlueprintV4 = [
       ['grandparents', 'They are the grandparents.'], ['grandchildren', 'They are the grandchildren.'],
     ],
     targets: [
-      missionCandidate('grandfather', 'grandfather', 0.34, 0.30), missionCandidate('grandmother', 'grandmother', 0.66, 0.30),
-      missionCandidate('grandparents', 'grandparents', 0.50, 0.49, 'Pareja'), missionCandidate('grandchildren', 'grandchildren', 0.50, 0.78, 'Grupo'),
+      missionCandidate('grandfather', 'grandfather', 0.14, 0.48), missionCandidate('grandmother', 'grandmother', 0.29, 0.50),
+      missionCandidate('grandparents', 'grandparents', 0.21, 0.88, 'Pareja'), missionCandidate('grandchildren', 'grandchildren', 0.75, 0.55, 'Grupo'),
     ],
   }),
   missionGameCard({
