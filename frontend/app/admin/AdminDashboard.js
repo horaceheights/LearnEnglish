@@ -255,7 +255,13 @@ export default function AdminDashboard({ summary }) {
                   const firstTryRate = percentage(learner.first_try_correct, learner.cards_practiced);
                   return (
                     <tr key={learner.id}>
-                      <td className={styles.stickyColumn}><strong>{learner.display_name}</strong><small>{number(learner.cards_practiced)} cards practiced</small></td>
+                      <td className={styles.stickyColumn}>
+                        <strong>{learner.display_name}</strong>
+                        <small className={styles.releaseInfo} title={learner.app_reported_at ? `Last reported ${friendlyDate(learner.app_reported_at)}${learner.release_commit ? ` · Commit ${learner.release_commit}` : ""}` : "This learner's app has not reported its release yet."}>
+                          Version {learner.app_version || "Not reported"} · Commit {learner.release_commit?.slice(0, 7) || "Not reported"}
+                        </small>
+                        <small>{number(learner.cards_practiced)} cards practiced</small>
+                      </td>
                       <td><span className={`${styles.statusPill} ${styles[`status-${status.key}`]}`}>{status.label}</span></td>
                       <td className={styles.center}>{number(learner.visits)}</td>
                       <td className={styles.metricCell}><strong>{number(learner.completed_sessions)} <small>· {completionRate}%</small></strong><Bar value={completionRate} /></td>
@@ -271,7 +277,7 @@ export default function AdminDashboard({ summary }) {
             </table>
             {!visibleLearners.length && <p className={styles.emptyState}>No learners match this view.</p>}
           </div>
-          <p className={styles.tableNote}>Lesson columns show average completed-run scores. “In progress” means a lesson was opened but not finished.</p>
+          <p className={styles.tableNote}>App details show the latest version and commit reported by each learner's device. Lesson columns show average completed-run scores. “In progress” means a lesson was opened but not finished.</p>
         </section>
 
         <section className={styles.sectionCard}>

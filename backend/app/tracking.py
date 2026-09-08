@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import time
 import uuid
 from datetime import datetime, timezone
@@ -60,6 +61,10 @@ def init_db() -> None:
                 """
             )
         )
+        user_columns = {column["name"] for column in inspect(db).get_columns("users")}
+        for column in ("app_version", "release_commit", "app_reported_at"):
+            if column not in user_columns:
+                db.execute(text(f"ALTER TABLE users ADD COLUMN {column} TEXT"))
         db.execute(
             text(
                 """
@@ -178,6 +183,28 @@ class LessonFeedbackCreate(BaseModel):
     update_id: str | None = Field(default=None, max_length=80)
     viewport_width: int | None = None
     viewport_height: int | None = None
+
+
+def record_client_release(user_id: str, app_version: str | None, release_commit: str | None) -> None:
+    """Remember one client's reported release, never infer it from the server."""
+    version = (app_version or "").strip()
+    commit = (release_commit or "").strip().lower()
+    version = version if version and len(version) <= 40 else None
+    commit = commit if re.fullmatch(r"[0-9a-f]{7,40}", commit) else None
+    if not version and not commit:
+        # Already-shipped clients do not report release metadata.
+        return
+    with engine.begin() as db:
+        db.execute(
+            text(
+                """
+                UPDATE users SET app_version = :version, release_commit = :commit,
+                    app_reported_at = :reported_at
+                WHERE id = :user_id
+                """
+            ),
+            {"version": version, "commit": commit, "reported_at": now_iso(), "user_id": user_id},
+        )
 
 
 def row_to_user(row: RowMapping) -> dict[str, Any]:
@@ -449,7 +476,11 @@ def finish_session(session_id: str, payload: SessionFinish) -> dict[str, Any] | 
             ),
             {"finished_order": finished_order, "session_id": session_id},
         )
-    return {"id": session_id, "finished_at": timestamp, "score": payload.score, "total_cards": payload.total_cards}
+        user_id = db.execute(
+            text("SELECT user_id FROM lesson_sessions WHERE id = :session_id"),
+            {"session_id": session_id},
+        ).scalar_one()
+    return {"id": session_id, "user_id": user_id, "finished_at": timestamp, "score": payload.score, "total_cards": payload.total_cards}
 
 
 def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
@@ -733,6 +764,9 @@ def admin_summary() -> dict[str, Any]:
                     u.id,
                     u.display_name,
                     u.updated_at,
+                    u.app_version,
+                    u.release_commit,
+                    u.app_reported_at,
                     COALESCE(st.sessions, 0) AS sessions,
                     COALESCE(st.completed_sessions, 0) AS completed_sessions,
                     st.last_seen AS last_seen,
