@@ -11,7 +11,7 @@ const lessonScreen = fs.readFileSync(
 // The mission clue is started by an effect that depends on playMissionCueAt.
 // If any value that callback depends on is rebuilt during render, the callback
 // is rebuilt too, the effect re-runs, and the clue restarts on every pass:
-// the audio player is swapped before a one-second clip can be heard and the
+// the audio player subscription changes before a one-second clip can be heard and the
 // fallback that would hand the scene back is rearmed before it can fire. The
 // card then sits silent and untouchable, which is exactly what shipped.
 test('audio turn sequences are not rebuilt during render', () => {
@@ -36,7 +36,7 @@ test('audio turn sequences are not rebuilt during render', () => {
 
 test('the mission clue callback keeps its declared dependencies', () => {
   const deps = lessonScreen.match(
-    /\}, \[missionCueAsset, playAudioSource, promptTurnSequence, replayPrompt, stopMissionSound\]\);/u,
+    /\}, \[ensureAudioPreloaded, isOffline, missionCueAsset, missionCuePlayer, promptTurnSequence, replayPrompt, stopMissionSound\]\);/u,
   );
   assert.ok(
     deps,

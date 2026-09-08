@@ -111,9 +111,6 @@ const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v3';
 const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const COURSE_AUDIO_FALLBACK_MS = 12000;
-// How long the player swap needs before a reported finish belongs to the cue we
-// just asked for rather than the one it replaced.
-const MISSION_CUE_SETTLE_MS = 700;
 const OFFLINE_ADVANCE_DELAY_MS = 900;
 
 function isRemoteAudioSource(source: AudioSource): source is string {
@@ -254,6 +251,15 @@ export function LessonScreen({
     downloadFirst: true,
     keepAudioSessionActive: true,
   });
+  // Mission clues use one stable player for the entire screen. Replacing the
+  // general lesson player for every short clue made the status hook unsubscribe
+  // during the exact moment Android reported playback, producing false silence
+  // warnings even when the immutable MP3 was healthy.
+  const missionCuePlayer = useAudioPlayer(null, {
+    downloadFirst: true,
+    keepAudioSessionActive: true,
+  });
+  const missionCuePlayerStatus = useAudioPlayerStatus(missionCuePlayer);
   const { fontScale, height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const isOffline = useConnectivity();
   const reduceMotion = useReducedMotion();
@@ -283,10 +289,7 @@ export function LessonScreen({
   const missionCueFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const missionCueAwaitingRef = useRef(false);
   const missionCueWasPlayingRef = useRef(false);
-  // A cue clip is about one second long, so it can start and finish before the
-  // status hook re-subscribes to the freshly created player. Timestamping the
-  // request lets a later finish be trusted without having observed `playing`.
-  const missionCueArmedAtRef = useRef(0);
+  const missionCueRequestRef = useRef(0);
   const missionIntroFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const missionIntroAwaitingRef = useRef(false);
   const missionIntroWasPlayingRef = useRef(false);
@@ -761,6 +764,7 @@ export function LessonScreen({
       try {
         audioPlayerRef.current.pause();
         audioPlaylistRef.current.pause();
+        missionCuePlayer.pause();
       } catch {
         // The native player may already be unavailable while React is tearing down.
       }
@@ -791,7 +795,7 @@ export function LessonScreen({
       });
       retiredAudioPlaylistsRef.current = [];
     };
-  }, [translationOpacity]);
+  }, [missionCuePlayer, translationOpacity]);
 
   const load = async () => {
     setDiagnosticContext({ lessonId, operation: 'lesson_load', qaMode });
@@ -1228,12 +1232,14 @@ export function LessonScreen({
     // Assessed English speech owns the audio session. Decorative transition
     // sounds must never mask or race the clue the learner needs to answer.
     stopMissionSound();
+    missionCuePlayer.pause();
     setMissionInteractionReady(false);
     setMissionCueUnavailable(false);
     missionCueAwaitingRef.current = true;
     missionCueWasPlayingRef.current = false;
-    missionCueArmedAtRef.current = Date.now();
+    const requestId = ++missionCueRequestRef.current;
     missionCueFallbackTimerRef.current = setTimeout(() => {
+      if (missionCueRequestRef.current !== requestId) return;
       missionCueFallbackTimerRef.current = null;
       missionCueAwaitingRef.current = false;
       missionCueWasPlayingRef.current = false;
@@ -1244,19 +1250,61 @@ export function LessonScreen({
     }, COURSE_AUDIO_FALLBACK_MS);
 
     const cueTurn = promptTurnSequence?.[cueIndex];
-    if (cueTurn) {
-      // A mission asks for one clue at a time. Route that single immutable clip
-      // through the same dependable player used by ordinary lesson prompts;
-      // the playlist engine is reserved for actual multi-turn playback.
-      playAudioSource(lessonAudioAssetSource(cueTurn.asset), 'mission', `cue-${cueIndex + 1}`);
+    const cueAsset = cueTurn?.asset ?? missionCueAsset;
+    if (!cueAsset) {
+      replayPrompt();
       return;
     }
-    if (missionCueAsset) {
-      playAudioSource(lessonAudioAssetSource(missionCueAsset), 'mission', 'cue');
-      return;
-    }
-    replayPrompt();
-  }, [missionCueAsset, playAudioSource, promptTurnSequence, replayPrompt, stopMissionSound]);
+
+    void (async () => {
+      // Prefer the app-owned local copy. Awaiting this specific asset prevents
+      // the mission from racing the lesson-wide background cache on first load.
+      const cachedSource = isOffline ? null : await cacheCourseAudioAsset(cueAsset);
+      const source = cachedSource ?? lessonAudioAssetSource(cueAsset);
+      const preloaded = await ensureAudioPreloaded(source);
+      if (
+        !preloaded
+        || !audioPlayerActiveRef.current
+        || missionCueRequestRef.current !== requestId
+      ) {
+        if (missionCueRequestRef.current === requestId) {
+          throw new Error('The mission clue audio could not be prepared.');
+        }
+        return;
+      }
+
+      await setAudioModeAsync({
+        allowsRecording: false,
+        playsInSilentMode: true,
+      });
+      if (
+        !audioPlayerActiveRef.current
+        || missionCueRequestRef.current !== requestId
+      ) return;
+
+      missionCuePlayer.pause();
+      missionCuePlayer.replace(source);
+      addDiagnosticBreadcrumb('mission_cue_started', {
+        cue_index: cueIndex + 1,
+        source: cachedSource ? 'cache' : 'remote',
+      });
+      missionCuePlayer.play();
+    })().catch((playbackError) => {
+      if (missionCueRequestRef.current !== requestId) return;
+      captureDiagnosticError(
+        playbackError,
+        'mission_cue_playback',
+        { cue_index: cueIndex + 1 },
+        'warning',
+      );
+      if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
+      missionCueFallbackTimerRef.current = null;
+      missionCueAwaitingRef.current = false;
+      missionCueWasPlayingRef.current = false;
+      setMissionCueUnavailable(true);
+      setMissionInteractionReady(true);
+    });
+  }, [ensureAudioPreloaded, isOffline, missionCueAsset, missionCuePlayer, promptTurnSequence, replayPrompt, stopMissionSound]);
 
   useEffect(() => {
     if (!showMissionKickoff || !isAppActive) return undefined;
@@ -1452,7 +1500,7 @@ export function LessonScreen({
     promptAutoplayWasPlayingRef.current = false;
     missionCueAwaitingRef.current = false;
     missionCueWasPlayingRef.current = false;
-    missionCueArmedAtRef.current = 0;
+    missionCueRequestRef.current += 1;
     setMissionInteractionReady(false);
     setMissionCueUnavailable(false);
     setPromptAutoplayFinished(false);
@@ -1552,19 +1600,13 @@ export function LessonScreen({
     }
 
     if (!missionCueAwaitingRef.current) return;
-    if (courseAudioPlaybackStatus.playing) {
+    if (missionCuePlayerStatus.playing) {
       missionCueWasPlayingRef.current = true;
       setMissionCueUnavailable(false);
     }
-    // `playing` can be missed entirely: playback starts before React re-subscribes
-    // the status hook to the newly created player, and a one-second clue can be
-    // over by then. Once the swap has settled, a finish is this cue's finish and
-    // no longer a stale event from the clip that came before it.
-    const finishIsOurs = missionCueWasPlayingRef.current
-      || Date.now() - missionCueArmedAtRef.current > MISSION_CUE_SETTLE_MS;
     if (
-      !courseAudioPlaybackStatus.error
-      && (!courseAudioPlaybackStatus.didJustFinish || !finishIsOurs)
+      !missionCuePlayerStatus.error
+      && (!missionCuePlayerStatus.didJustFinish || !missionCueWasPlayingRef.current)
     ) return;
 
     missionCueAwaitingRef.current = false;
@@ -1573,9 +1615,16 @@ export function LessonScreen({
     missionCueFallbackTimerRef.current = null;
     // Either way the scene becomes tappable. A clue that failed to sound leaves
     // the replay prompt up, but it can never strand the learner on a dead card.
-    setMissionCueUnavailable(Boolean(courseAudioPlaybackStatus.error));
+    setMissionCueUnavailable(Boolean(missionCuePlayerStatus.error));
     setMissionInteractionReady(true);
-  }, [courseAudioPlaybackStatus.didJustFinish, courseAudioPlaybackStatus.error, courseAudioPlaybackStatus.playing]);
+  }, [
+    courseAudioPlaybackStatus.didJustFinish,
+    courseAudioPlaybackStatus.error,
+    courseAudioPlaybackStatus.playing,
+    missionCuePlayerStatus.didJustFinish,
+    missionCuePlayerStatus.error,
+    missionCuePlayerStatus.playing,
+  ]);
 
   const advance = useCallback(() => {
     if (!lesson) return;
@@ -1686,6 +1735,7 @@ export function LessonScreen({
       try {
         audioPlayerRef.current.pause();
         audioPlaylistRef.current.pause();
+        missionCuePlayer.pause();
       } catch {
         // The player may already be unavailable while Android backgrounds it.
       }
@@ -1715,6 +1765,7 @@ export function LessonScreen({
       promptAutoplayWasPlayingRef.current = false;
       missionCueAwaitingRef.current = false;
       missionCueWasPlayingRef.current = false;
+      missionCueRequestRef.current += 1;
       missionIntroAwaitingRef.current = false;
       missionIntroWasPlayingRef.current = false;
       setMissionInteractionReady(false);
@@ -1787,6 +1838,7 @@ export function LessonScreen({
     grammarCompleted,
     isAppActive,
     isPronunciation,
+    missionCuePlayer,
     playAnswerAfterChime,
     playAudio,
     qaAutoAdvance,

@@ -7,7 +7,7 @@ const mobileRoot = path.resolve(__dirname, '..');
 const lessonScreen = fs.readFileSync(
   path.join(mobileRoot, 'src', 'screens', 'LessonScreen.tsx'),
   'utf8',
-);
+).replace(/\r\n/g, '\n');
 const missionSurface = fs.readFileSync(
   path.join(mobileRoot, 'src', 'components', 'MissionGameSurface.tsx'),
   'utf8',
@@ -47,7 +47,7 @@ test('resolving a mission cue never leaves the scene locked', () => {
   const resolution = section(
     lessonScreen,
     'if (!missionCueAwaitingRef.current) return;',
-    '}, [courseAudioPlaybackStatus.didJustFinish',
+    '  const advance = useCallback(',
     'the mission cue resolution effect',
   );
 
@@ -63,36 +63,34 @@ test('resolving a mission cue never leaves the scene locked', () => {
   );
 });
 
-// Playback starts before React re-subscribes the status hook to the freshly
-// created player, so a one-second clue can finish unobserved. The unlock must
-// not depend on having caught `playing` in flight.
-test('a finish is accepted even when the playing window was missed', () => {
+test('short mission cues use a stable dedicated player and status subscription', () => {
   assert.match(
     lessonScreen,
-    /const MISSION_CUE_SETTLE_MS = \d+;/,
-    'A settle window must exist so a later finish can be attributed to this cue.',
+    /const missionCuePlayer = useAudioPlayer\(null,[\s\S]*?const missionCuePlayerStatus = useAudioPlayerStatus\(missionCuePlayer\)/,
+    'The mission must observe one stable player instead of swapping the status subscription for every short cue.',
   );
-  assert.match(
+  const request = section(
     lessonScreen,
-    /missionCueArmedAtRef/,
-    'The cue request must be timestamped to make the settle window measurable.',
+    'const playMissionCueAt = useCallback(',
+    'useEffect(() => {\n    if (!showMissionKickoff',
+    'the mission cue request',
   );
+  assert.match(request, /await cacheCourseAudioAsset\(cueAsset\)/);
+  assert.match(request, /await ensureAudioPreloaded\(source\)/);
+  assert.match(request, /missionCuePlayer\.replace\(source\)/);
+  assert.match(request, /missionCuePlayer\.play\(\)/);
+  assert.doesNotMatch(request, /playAudioSource\(/);
 
   const resolution = section(
     lessonScreen,
     'if (!missionCueAwaitingRef.current) return;',
-    '}, [courseAudioPlaybackStatus.didJustFinish',
+    '  const advance = useCallback(',
     'the mission cue resolution effect',
   );
   assert.match(
     resolution,
-    /MISSION_CUE_SETTLE_MS/,
-    'Cue resolution must allow a finish that arrives after the player swap settles.',
-  );
-  assert.doesNotMatch(
-    resolution,
-    /!courseAudioPlaybackStatus\.didJustFinish \|\| !missionCueWasPlayingRef\.current/,
-    'Requiring an observed `playing` window strands short clues permanently.',
+    /missionCuePlayerStatus/,
+    'Mission readiness must be resolved from the dedicated player status.',
   );
 });
 
