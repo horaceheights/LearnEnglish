@@ -111,6 +111,9 @@ const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v3';
 const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const COURSE_AUDIO_FALLBACK_MS = 12000;
+// How long the player swap needs before a reported finish belongs to the cue we
+// just asked for rather than the one it replaced.
+const MISSION_CUE_SETTLE_MS = 700;
 const OFFLINE_ADVANCE_DELAY_MS = 900;
 
 function isRemoteAudioSource(source: AudioSource): source is string {
@@ -280,6 +283,10 @@ export function LessonScreen({
   const missionCueFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const missionCueAwaitingRef = useRef(false);
   const missionCueWasPlayingRef = useRef(false);
+  // A cue clip is about one second long, so it can start and finish before the
+  // status hook re-subscribes to the freshly created player. Timestamping the
+  // request lets a later finish be trusted without having observed `playing`.
+  const missionCueArmedAtRef = useRef(0);
   const missionIntroFallbackTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const missionIntroAwaitingRef = useRef(false);
   const missionIntroWasPlayingRef = useRef(false);
@@ -1210,10 +1217,15 @@ export function LessonScreen({
     setMissionCueUnavailable(false);
     missionCueAwaitingRef.current = true;
     missionCueWasPlayingRef.current = false;
+    missionCueArmedAtRef.current = Date.now();
     missionCueFallbackTimerRef.current = setTimeout(() => {
       missionCueFallbackTimerRef.current = null;
       missionCueAwaitingRef.current = false;
+      missionCueWasPlayingRef.current = false;
       setMissionCueUnavailable(true);
+      // Audio never reported back. Offer the replay button, but hand the scene
+      // to the learner anyway: a silent clue must cost a replay, not the lesson.
+      setMissionInteractionReady(true);
     }, COURSE_AUDIO_FALLBACK_MS);
 
     const cueTurn = promptTurnSequence?.[cueIndex];
@@ -1425,6 +1437,7 @@ export function LessonScreen({
     promptAutoplayWasPlayingRef.current = false;
     missionCueAwaitingRef.current = false;
     missionCueWasPlayingRef.current = false;
+    missionCueArmedAtRef.current = 0;
     setMissionInteractionReady(false);
     setMissionCueUnavailable(false);
     setPromptAutoplayFinished(false);
@@ -1528,22 +1541,25 @@ export function LessonScreen({
       missionCueWasPlayingRef.current = true;
       setMissionCueUnavailable(false);
     }
+    // `playing` can be missed entirely: playback starts before React re-subscribes
+    // the status hook to the newly created player, and a one-second clue can be
+    // over by then. Once the swap has settled, a finish is this cue's finish and
+    // no longer a stale event from the clip that came before it.
+    const finishIsOurs = missionCueWasPlayingRef.current
+      || Date.now() - missionCueArmedAtRef.current > MISSION_CUE_SETTLE_MS;
     if (
       !courseAudioPlaybackStatus.error
-      && (!courseAudioPlaybackStatus.didJustFinish || !missionCueWasPlayingRef.current)
+      && (!courseAudioPlaybackStatus.didJustFinish || !finishIsOurs)
     ) return;
 
     missionCueAwaitingRef.current = false;
     missionCueWasPlayingRef.current = false;
     if (missionCueFallbackTimerRef.current) clearTimeout(missionCueFallbackTimerRef.current);
     missionCueFallbackTimerRef.current = null;
-    if (courseAudioPlaybackStatus.error) {
-      setMissionCueUnavailable(true);
-      setMissionInteractionReady(false);
-    } else {
-      setMissionCueUnavailable(false);
-      setMissionInteractionReady(true);
-    }
+    // Either way the scene becomes tappable. A clue that failed to sound leaves
+    // the replay prompt up, but it can never strand the learner on a dead card.
+    setMissionCueUnavailable(Boolean(courseAudioPlaybackStatus.error));
+    setMissionInteractionReady(true);
   }, [courseAudioPlaybackStatus.didJustFinish, courseAudioPlaybackStatus.error, courseAudioPlaybackStatus.playing]);
 
   const advance = useCallback(() => {
