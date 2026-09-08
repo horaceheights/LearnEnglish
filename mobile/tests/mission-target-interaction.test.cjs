@@ -5,6 +5,7 @@ const test = require('node:test');
 const { fitMissionHeadScene, missionCueOrder } = require('../src/missionTargetInteraction.js');
 const mission = require('../src/generated/lesson-10-family-mission.json');
 const anchors = require('../../scripts/mission-head-anchors.json');
+const chestAnchors = require('../../scripts/mission-group-chest-anchors.json');
 const read = name => fs.readFileSync(path.join(__dirname, name), 'utf8').replaceAll('\r', '');
 const surface = read('../src/components/MissionGameSurface.tsx');
 const screen = read('../src/screens/LessonScreen.tsx');
@@ -36,7 +37,7 @@ test('actual markers fit, never overlap, and clear every reviewed face at all vi
       for (const [i,m] of l.markers.entries()) {
         assert.ok(m.width >= 48 && m.height >= 48);
         assert.ok(m.x >= 0 && m.y >= 0 && m.x+m.width <= width && m.y+m.height <= height);
-        for (const h of m.heads) assert.ok(m.y+m.height <= h.y-7);
+        for (const h of m.heads) assert.ok(m.chest ? m.y >= h.y+l.imageHeight*.12 : m.y+m.height <= h.y-7);
         for (const o of l.markers.slice(i+1)) {
           assert.ok(m.x+m.width <= o.x || o.x+o.width <= m.x || m.y+m.height <= o.y || o.y+o.height <= m.y,
             card.slide_id+': overlapping touch areas');
@@ -48,6 +49,35 @@ test('actual markers fit, never overlap, and clear every reviewed face at all vi
       }
     }
   }
+});
+
+test('only reviewed standing groups move; images, individual dots and group-only markers remain exact', () => {
+  const changed=[];
+  for(const card of mission.cards.slice(0,18)) {
+    const targets=card.mission_game.targets;
+    for(const t of targets) {
+      assert.deepEqual(t.group_chest_anchor ?? undefined, chestAnchors[card.slide_id]?.[t.id]);
+      if(t.group_chest_anchor)changed.push(card.slide_id+'/'+t.id);
+    }
+    for(const [width,height]of [[296,410],[388,680],[400,190],[650,190],[960,430]]) {
+      const original=fitMissionHeadScene(width,height,targets.map(({group_chest_anchor,...t})=>t));
+      const actual=fitMissionHeadScene(width,height,targets);
+      assert.deepEqual({...actual,markers:[]},{...original,markers:[]});
+      for(const [i,m]of actual.markers.entries()) {
+        if(!targets[i].group_chest_anchor)assert.deepEqual(m,original.markers[i]);
+        else {
+          assert.equal(m.chest,true,card.slide_id+'/'+m.id);
+          const a=targets[i].group_chest_anchor;
+          assert.ok(Math.abs(m.x+m.width/2-(actual.imageX+a.x*actual.imageWidth))<.001);
+          assert.ok(m.y>=actual.imageY && m.y+m.height<=actual.imageY+actual.imageHeight);
+          assert.ok((m.y+m.height/2-actual.imageY)/actual.imageHeight<=.7);
+        }
+      }
+    }
+  }
+  assert.deepEqual(changed,['M04/children','M04/adults','M08/parents','M09/grandparents']);
+  assert.ok(surface.includes('!marker.chest && marker.heads.map'));
+  assert.ok(read('../../frontend/components/CelebrationMission.js').includes('marker.chest ? [] : marker.heads.map'));
 });
 
 test('shuffle keeps all targets and their exact audio indices, without changing authored content', () => {

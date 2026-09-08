@@ -259,6 +259,8 @@ The story order below stays fixed, but listening cues inside each scene are shuf
 
 Phone landscape has its own compact side-panel presentation of these same listening beats. Navigation, mission progress, simple directions, replay, and feedback occupy the panel; the complete uncropped scene and its markers receive the full safe-area height beside it. The standard full-width header and QA toolbar must not remain stacked above that panel. An options sheet retains help and QA controls. Portrait keeps its approved presentation, and rotation never starts another clue sequence or discards solved people.
 
+For standing pairs that also have an individual dot for each member, the shared capsule sits between their chests instead of creating a third overhead control. This applies to the children/adults in beat 4, parents in beat 8, and grandparents in beat 9. Reviewed normalized chest anchors preserve the exact image fit and individual overhead dots. These capsules omit long head pointers; all group-only targets, including beat 5, retain the approved overhead treatment. Both orientations keep the complete touch bounds away from faces.
+
 The 22 beats have these fixed responsibilities:
 
 1. Guided person search for `A boy.`

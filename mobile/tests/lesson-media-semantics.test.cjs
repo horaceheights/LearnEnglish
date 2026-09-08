@@ -19,7 +19,8 @@ const unitOneBuilderSource = fs.readFileSync(unitOneBuilderPath, 'utf8')
 // Exercise the real authoring source without generating or changing any files.
 vm.runInNewContext(unitOneBuilderSource, {
   readFileSync: (filename, encoding) => {
-    assert.equal(filename, path.join(repositoryRoot, 'scripts', 'mission-head-anchors.json'));
+    assert.ok(['mission-head-anchors.json', 'mission-group-chest-anchors.json']
+      .some(name => filename === path.join(repositoryRoot, 'scripts', name)));
     return fs.readFileSync(filename, encoding);
   },
   writeFileSync: (filename, contents) => {

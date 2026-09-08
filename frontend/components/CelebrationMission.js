@@ -262,7 +262,7 @@ export default function CelebrationMission({
             <Image alt={`Escena del reto ${cardIndex + 1}`} fill priority sizes="(max-width: 760px) 96vw, 900px" src={heroImage} style={{ objectFit: "cover" }} unoptimized />
           </div>
           {!isVoiceGate && headScene ? <svg aria-hidden="true" className="head-pointers" width={headScene.width} height={headScene.height}>
-            {headScene.markers.flatMap(marker => marker.heads.map((head, index) => (
+            {headScene.markers.flatMap(marker => marker.chest ? [] : marker.heads.map((head, index) => (
               <line key={`${marker.id}-${index}`} x1={marker.x + marker.width / 2} y1={marker.y + marker.height - 7}
                 x2={head.x} y2={head.y - 3} stroke="#fff" strokeWidth="3" />
             )))}

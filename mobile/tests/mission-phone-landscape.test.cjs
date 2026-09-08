@@ -35,7 +35,7 @@ test('landscape fits the whole native safe area, not the space below the old sta
       for(const m of l.markers) {
         assert.ok(m.width>=48 && m.height>=48);
         assert.ok(m.x>=0 && m.y>=0 && m.x+m.width<=l.width && m.y+m.height<=l.height);
-        for(const h of m.heads) assert.ok(m.y+m.height<h.y);
+        for(const h of m.heads) assert.ok(m.chest ? m.y>=h.y+l.imageHeight*.12 : m.y+m.height<h.y);
       }
     }
   }
