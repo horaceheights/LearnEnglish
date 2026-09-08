@@ -55,7 +55,8 @@ test('mobile and web place hotspots on the fitted image canvas instead of a crop
   assert.match(webMission, /@container \(min-aspect-ratio:3\/2\)/);
   assert.match(webMission, /@media \(max-height:600px\) and \(min-width:600px\)/);
   assert.match(webMission, /\.mission-game \{ display:grid/);
-  assert.match(webMission, /\.mission-shell \{ min-height:0; \}/);
+  assert.match(webMission, /\.mission-shell \{ gap:6px; height:calc\(100svh - 16px\); min-height:0; padding:8px; \}/);
+  assert.match(webMission, /\.scene \{ aspect-ratio:3\/2;[^\n]*box-sizing:border-box/);
 });
 
 test('person targets stay round while pairs and groups use a wider neutral capsule', () => {

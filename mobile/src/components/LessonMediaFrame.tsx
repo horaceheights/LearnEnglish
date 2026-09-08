@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   },
   media: {
     ...LESSON_MEDIA_VIEWPORT_STYLE,
+    aspectRatio: 3 / 2,
     position: 'relative',
     width: '100%',
   },
