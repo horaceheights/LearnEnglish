@@ -29,14 +29,16 @@ function frameMaxWidth(maxHeight: number): number {
 export function LessonMediaFrame({
   children,
   frameStyle,
+  mediaAspectRatio = 3 / 2,
   maxHeight,
 }: PropsWithChildren<{
   frameStyle?: StyleProp<ViewStyle>;
+  mediaAspectRatio?: number;
   maxHeight: number;
 }>) {
   return (
     <View style={[styles.frame, { maxWidth: frameMaxWidth(maxHeight) }, frameStyle]}>
-      <View style={styles.media}>{children}</View>
+      <View style={[styles.media, { aspectRatio: mediaAspectRatio }]}>{children}</View>
     </View>
   );
 }

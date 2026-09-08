@@ -55,16 +55,25 @@ test("the mission consumes the viewport without lesson scrolling or answer banks
   assert.match(mission, /@container \(min-aspect-ratio:3\/2\)/);
   assert.match(mission, /@media \(max-height:600px\) and \(min-width:600px\)/);
   assert.match(mission, /\.mission-game \{ display:grid/);
-  assert.match(mission, /\.mission-shell \{ min-height:0; \}/);
+  assert.match(mission, /\.mission-shell \{ gap:6px; height:calc\(100svh - 16px\); min-height:0; padding:8px; \}/);
+  assert.match(mission, /\.scene \{ aspect-ratio:3\/2;[^\n]*box-sizing:border-box/);
   assert.doesNotMatch(mission, /overflow-y:scroll|overflowY: "auto"/);
   assert.doesNotMatch(mission, /option-bank|answer-bank/);
 });
 
 test("four voice gates stay inside the adventure and use real pronunciation state", () => {
   assert.match(mission, /game\.kind === "voice-gate"/);
-  assert.match(mission, /<SpeechConsole/);
+  assert.match(mission, /<VoiceGateHeader/);
+  assert.match(mission, /<VoiceGateConsole/);
+  assert.match(mission, /ABRE LA CELEBRACIÓN/);
+  assert.match(mission, /Array\.from\(\{ length: total \}/);
+  assert.match(mission, /voice-scene-open/);
+  assert.match(mission, /Toca para escuchar otra vez/);
+  assert.match(mission, /\.voice-scene \{ aspect-ratio:1\.35\/1; height:auto; width:100%; \}/);
+  assert.match(mission, /\.mission-voice-game \.scene-slot \{ align-items:flex-start; container-type:normal; flex:0 0 auto; \}/);
   assert.match(mission, /speech\.recording \|\| speech\.scoring/);
   assert.match(mission, /onPrepareSpeech/);
+  assert.doesNotMatch(mission, /Tu turno/);
   assert.match(player, /if \(currentCard\.mission_game\.kind === "voice-gate"\) setMissionSpeechReady\(true\)/);
 });
 

@@ -67,22 +67,61 @@ function MissionIntro({ introReady, isMobile, lesson, onBegin, onExit, onReplayI
   );
 }
 
-function SpeechConsole({ card, isMobile, onPrepareSpeech, onRetrySpeech, speech }) {
+function VoiceGateHeader({ cardIndex, game, onReplayEnglish, speech }) {
+  const step = Math.max(1, cardIndex - 17);
+  const total = 4;
+  return (
+    <section className="voice-game-header">
+      <div className="voice-game-heading">
+        <div><small>ABRE LA CELEBRACIÓN</small><strong>Activa la entrada con tu voz</strong></div>
+        <b>VOZ {step}/{total}</b>
+      </div>
+      <div className="voice-locks" aria-label={`Voz ${step} de ${total}`}>
+        {Array.from({ length: total }, (_item, index) => (
+          <i className={index < step - 1 ? "done" : index === step - 1 ? "active" : ""} key={index}>
+            {index < step - 1 ? "✓" : index === step - 1 ? "●" : "◆"}
+          </i>
+        ))}
+      </div>
+      <div className="voice-question">
+        <span>💬</span>
+        <div><small>TE PREGUNTAN</small><strong>{game.cue_audio_text || game.cues?.[0]?.text}</strong></div>
+        <button aria-label="Repetir la pregunta en inglés" disabled={speech.recording || speech.scoring} onClick={() => onReplayEnglish(0)} type="button">🔊</button>
+      </div>
+      <style jsx>{missionStyles}</style>
+    </section>
+  );
+}
+
+function VoiceGateConsole({ card, isMobile, onPrepareSpeech, onRetrySpeech, speech }) {
   const busy = speech.recording || speech.scoring;
   const accepted = Boolean(speech.outcome?.accepted);
+  const stateLabel = accepted ? "ENTRADA ACTIVADA" : speech.scoring ? "COMPROBANDO TU VOZ" : speech.recording ? "TE ESCUCHAMOS" : "DI LA FRASE PARA ABRIR";
   return (
-    <section className={`speech-console ${accepted ? "accepted" : ""}`} aria-live="polite">
-      <div className="speech-label">{accepted ? "Voz confirmada" : busy ? "Te escucho…" : "Tu turno"}</div>
-      <strong>{card.prompt}</strong>
-      <div>{speech.error || speech.status || "Responde en voz alta."}</div>
-      {!speech.ready && !busy ? <button onClick={onPrepareSpeech} style={buttonStyle(false)} type="button">🎤 Escuchar y responder</button> : null}
+    <section className={`voice-console ${accepted ? "accepted" : ""}`} aria-live="polite">
+      <div className={`voice-orb ${busy ? "busy" : ""} ${accepted ? "accepted" : ""}`}>{accepted ? "✓" : "🎤"}<i /></div>
+      <div className="voice-command">
+        <div className="speech-label">{stateLabel}</div>
+        <strong>{card.prompt}</strong>
+        <div>{speech.error || speech.status || "La entrada escucha tu respuesta."}</div>
+        {!busy ? <small className="voice-replay-hint">🔊 Toca para escuchar otra vez</small> : null}
+      </div>
+      {!speech.ready && !busy ? <button onClick={onPrepareSpeech} style={buttonStyle(false)} type="button">Escuchar y responder</button> : null}
       {speech.error && !busy ? <button onClick={onRetrySpeech} style={buttonStyle(false)} type="button">Intentar otra vez</button> : null}
       <style jsx>{`
-        .speech-console { background:#fff7df; border:2px solid #e0b95b; border-radius:18px; display:grid; gap:7px; margin:0 auto; max-width:760px; padding:${isMobile ? "9px" : "13px"}; text-align:center; width:100%; }
-        .speech-console.accepted { background:#e5f7ed; border-color:#3b9367; }
+        .voice-console { align-items:center; background:#f7e5b8; border:2px solid #d69e35; border-radius:18px; display:grid; gap:9px; grid-template-columns:auto minmax(0,1fr) auto; margin:0 auto; max-width:820px; padding:${isMobile ? "7px 9px" : "10px 14px"}; width:100%; }
+        .voice-console.accepted { background:#dff5e8; border-color:#3b9367; }
+        .voice-orb { align-items:center; background:#d96845; border:4px solid #ffe1a0; border-radius:999px; color:#fff; display:flex; font-size:22px; height:54px; justify-content:center; position:relative; width:54px; }
+        .voice-orb i { border:2px solid #d96845; border-radius:999px; inset:-8px; opacity:.2; position:absolute; }
+        .voice-orb.busy i { animation:voice-pulse .75s ease-out infinite alternate; }
+        .voice-orb.accepted { background:#30936c; border-color:#a8e1c8; }
+        .voice-command { display:grid; min-width:0; text-align:left; }
         .speech-label { color:#7b591c; font-size:11px; font-weight:950; letter-spacing:.08em; text-transform:uppercase; }
+        .voice-replay-hint { color:#78501c; font-size:10px; font-weight:850; margin-top:2px; }
         strong { color:#214c45; font-size:${isMobile ? "19px" : "24px"}; line-height:1.15; }
         button { justify-self:center; }
+        @keyframes voice-pulse { from{transform:scale(.9);opacity:.6} to{transform:scale(1.25);opacity:.05} }
+        @media(max-width:520px){.voice-console{grid-template-columns:auto minmax(0,1fr)}.voice-console>button{grid-column:1/3;width:100%}}
       `}</style>
     </section>
   );
@@ -171,7 +210,7 @@ export default function CelebrationMission({
   };
 
   return (
-    <main className="mission-shell mission-game" aria-label={`${lesson.mission.label}. Reto ${cardIndex + 1} de ${lesson.cards.length}.`}>
+    <main className={`mission-shell mission-game ${isVoiceGate ? "mission-voice-game" : ""}`} aria-label={`${lesson.mission.label}. Reto ${cardIndex + 1} de ${lesson.cards.length}.`}>
       <header className="game-header">
         <div className="mission-topline">
           <button aria-label="Salir de la misión" onClick={onExit} style={{ ...buttonStyle(false), minHeight: 40, padding: "6px 10px" }} type="button">← Salir</button>
@@ -184,14 +223,16 @@ export default function CelebrationMission({
         <div className="mission-meter"><span style={{ background: ACT_COLORS[chapterIndex], width: `${missionProgress}%` }} /></div>
       </header>
 
-      <section className="cue-panel">
+      {isVoiceGate ? (
+        <VoiceGateHeader cardIndex={cardIndex} game={game} onReplayEnglish={onReplayEnglish} speech={speech} />
+      ) : <section className="cue-panel">
         <div><small>{KIND_LABELS[game.kind]}</small><b>{game.instruction_es}</b></div>
-        {!isVoiceGate ? <span>PISTA {cueProgress}</span> : null}
+        <span>PISTA {cueProgress}</span>
         <button aria-label="Repetir la frase en inglés" disabled={Boolean(feedback)} onClick={() => onReplayEnglish(cueIndex)} type="button">🔊</button>
-      </section>
+      </section>}
 
       <div className="scene-slot">
-        <section className="scene">
+        <section className={`scene ${isVoiceGate ? "voice-scene" : ""} ${isVoiceGate && speech.outcome?.accepted ? "voice-scene-open" : ""}`}>
           <Image alt={`Escena del reto ${cardIndex + 1}`} fill priority sizes="(max-width: 760px) 96vw, 900px" src={heroImage} style={{ objectFit: "cover" }} unoptimized />
           {!isVoiceGate ? game.targets.map((target) => {
           const x = (target.rect.x + target.rect.width / 2) * 100;
@@ -219,7 +260,7 @@ export default function CelebrationMission({
         </section>
       </div>
 
-      {isVoiceGate ? <SpeechConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} /> : (
+      {isVoiceGate ? <VoiceGateConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} /> : (
         <div className="cue-dots" aria-label={`Pista ${cueProgress}`}>{game.cues.map((item, index) => <i className={index < cueIndex ? "done" : index === cueIndex ? "current" : ""} key={item.id} />)}</div>
       )}
       <style jsx>{missionStyles}</style>
@@ -262,8 +303,26 @@ const missionStyles = `
   .cue-panel b { color:#203c37; font-size:15px; line-height:1.25; }
   .cue-panel>span { color:#477069; font-size:10px; font-weight:950; }
   .cue-panel button { background:#278c73; border:0; border-radius:14px; color:#fff; cursor:pointer; font-size:21px; height:45px; width:45px; }
+  .voice-game-header { background:#173f39; border:2px solid #e3b653; border-radius:17px; color:#fff; display:grid; gap:6px; padding:7px 10px; }
+  .voice-game-heading { align-items:center; display:flex; gap:8px; justify-content:space-between; }
+  .voice-game-heading>div { display:grid; min-width:0; }
+  .voice-game-heading small,.voice-question small { color:#ffd986; font-size:9px; font-weight:950; letter-spacing:.09em; }
+  .voice-game-heading strong { font-size:16px; line-height:1.05; }
+  .voice-game-heading>b { color:#ffe5a9; font-size:10px; white-space:nowrap; }
+  .voice-locks { align-items:center; display:flex; gap:8px; justify-content:center; }
+  .voice-locks i { align-items:center; background:#f4efe2; border:2px solid #758a82; border-radius:999px; color:#7d8984; display:flex; font-size:12px; font-style:normal; height:30px; justify-content:center; width:30px; }
+  .voice-locks i.done { background:#38a77c;border-color:#8fe0bd;color:#fff; }
+  .voice-locks i.active { background:#ffd986;border-color:#fff6d7;color:#704816;transform:scale(1.08); }
+  .voice-question { align-items:center; background:#fff8e8; border-radius:12px; color:#244640; display:grid; gap:7px; grid-template-columns:auto minmax(0,1fr) auto; padding:6px 8px; }
+  .voice-question>span { align-items:center; background:#d86b48; border-radius:999px; display:flex; height:31px; justify-content:center; width:31px; }
+  .voice-question>div { display:grid; }
+  .voice-question small { color:#a45b3f; font-size:8px; }
+  .voice-question strong { font-size:17px; line-height:1.05; }
+  .voice-question button { background:#278c73;border:0;border-radius:11px;color:#fff;font-size:18px;height:37px;width:37px; }
   .scene-slot { align-items:center; container-type:size; display:flex; flex:1; justify-content:center; min-height:0; width:100%; }
-  .scene { aspect-ratio:3/2; background:#d9e6df; border:4px solid #fff; border-radius:21px; flex:none; overflow:hidden; position:relative; width:100%; }
+  .scene { aspect-ratio:3/2; background:#d9e6df; border:4px solid #fff; border-radius:21px; box-sizing:border-box; flex:none; overflow:hidden; position:relative; width:100%; }
+  .voice-scene { border-color:#e3b653; box-shadow:0 0 0 3px rgba(227,182,83,.18); }
+  .voice-scene-open { border-color:#38a77c; box-shadow:0 0 24px rgba(56,167,124,.52); }
   .target-dot { align-items:center; background:transparent; border:0; cursor:pointer; display:flex; height:clamp(44px,17cqw,58px); justify-content:center; padding:0; position:absolute; transform:translate(-50%,-50%); width:clamp(44px,17cqw,58px); }
   .target-dot i { animation:pulse 1.15s ease-out infinite; background:rgba(255,255,255,.68); border:3px solid #f4c75f; border-radius:999px; height:36px; position:absolute; width:36px; }
   .target-dot span { align-items:center; background:#245f53; border:3px solid #fff; border-radius:999px; box-shadow:0 3px 8px rgba(18,50,44,.38); color:#fff; display:flex; font-size:14px; font-weight:950; height:36px; justify-content:center; position:relative; width:36px; }
@@ -283,14 +342,17 @@ const missionStyles = `
   @keyframes pulse { 0%{opacity:.75;transform:scale(.75)} 100%{opacity:.05;transform:scale(1.75)} }
   @keyframes collective-pulse { 0%{opacity:.75;transform:scale(.9)} 100%{opacity:.05;transform:scale(1.18)} }
   @container (min-aspect-ratio:3/2) { .scene { height:100%; width:auto; } }
+  @media (max-width:760px) and (orientation:portrait) { .mission-voice-game .scene-slot { align-items:flex-start; container-type:normal; flex:0 0 auto; } .voice-scene { aspect-ratio:1.35/1; height:auto; width:100%; } }
   @media (max-width:760px) { .mission-shell { border-radius:18px; gap:6px; height:calc(100svh - 16px); min-height:430px; padding:7px; } .intro-copy h1{font-size:1.9rem}.intro-copy p{line-height:1.25}.intro-objectives>div{font-size:10px;padding:4px 6px}.intro-objectives b{flex-basis:24px;height:24px}.game-header{padding:6px 8px}.game-header .mission-topline div strong{font-size:16px}.game-header small{font-size:7px}.cue-panel{padding:6px 8px}.cue-panel b{font-size:13px}.speech-console{flex:0 0 auto} }
   @media (max-height:600px) and (min-width:600px) {
-    .mission-shell { min-height:0; }
+    .mission-shell { gap:6px; height:calc(100svh - 16px); min-height:0; padding:8px; }
     .mission-game { display:grid; grid-template-columns:minmax(230px,.8fr) minmax(0,1.45fr); grid-template-rows:auto 1fr auto; }
     .mission-game .game-header { grid-column:1; grid-row:1; }
     .mission-game .cue-panel { align-self:start; grid-column:1; grid-row:2; }
+    .mission-game .voice-game-header { align-self:start; grid-column:1; grid-row:2; }
     .mission-game .scene-slot { grid-column:2; grid-row:1 / 4; height:100%; }
     .mission-game .cue-dots { grid-column:1; grid-row:3; }
+    .mission-game .voice-console { align-self:end; grid-column:1; grid-row:3; }
     .mission-game .game-header .mission-topline div strong { font-size:15px; }
     .mission-game .game-header small { font-size:7px; }
     .mission-game .cue-panel { grid-template-columns:minmax(0,1fr) auto; }

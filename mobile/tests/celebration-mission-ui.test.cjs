@@ -9,12 +9,14 @@ const mission = JSON.parse(fs.readFileSync(
   'utf8',
 ));
 const surface = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionGameSurface.tsx'), 'utf8');
+const lessonCard = fs.readFileSync(path.join(mobileRoot, 'src/components/LessonCardView.tsx'), 'utf8');
+const pronunciation = fs.readFileSync(path.join(mobileRoot, 'src/components/PronunciationPractice.tsx'), 'utf8');
 const kickoff = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionKickoff.tsx'), 'utf8');
 const screen = fs.readFileSync(path.join(mobileRoot, 'src/screens/LessonScreen.tsx'), 'utf8');
 const images = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSources.ts'), 'utf8');
 
 assert.equal(mission.cards.length, 22);
-assert.equal(mission.content_revision, 5);
+assert.equal(mission.content_revision, 6);
 assert.deepEqual(
   [...new Set(mission.cards.map((card) => card.mission_game.kind))].sort(),
   ['action-hunt', 'contrast-hunt', 'crowd-search', 'family-link', 'guided-search', 'voice-gate'].sort(),
@@ -43,6 +45,8 @@ assert.match(screen, /cueUnavailable=\{missionCueUnavailable\}/);
 assert.match(screen, /interactionReady=\{missionInteractionReady\}/);
 assert.match(screen, /onCueRequest=\{playMissionCueAt\}/);
 assert.match(screen, /!missionExperience && needsAccessibleScrolling/);
+assert.match(screen, /!isMissionGameCard \? <View/);
+assert.match(screen, /missionVoiceGate=\{missionVoiceGateProgress\}/);
 assert.doesNotMatch(screen, /interactionReady=\{true\}/);
 assert.match(screen, /!isMissionTileCard && !isMissionGameCard/);
 assert.match(
@@ -52,5 +56,15 @@ assert.match(
 
 const bundledReunionImages = images.match(/'a1_u1_reunion_[^']+\.webp': require/g) || [];
 assert.equal(bundledReunionImages.length, 23);
+
+assert.match(lessonCard, /ABRE LA CELEBRACIÓN/);
+assert.match(lessonCard, /Activa la entrada con tu voz/);
+assert.match(lessonCard, /Array\.from\(\{ length: missionVoiceGate\.total \}/);
+assert.match(lessonCard, /presentation=\{isMissionVoiceGate \? 'mission-voice-gate' : 'standard'\}/);
+assert.match(pronunciation, /presentation === 'mission-voice-gate'/);
+assert.match(pronunciation, /mediaAspectRatio=\{missionVoiceGate && !isLandscape \? 1\.35 : 3 \/ 2\}/);
+assert.match(pronunciation, /Toca para escuchar otra vez/);
+assert.match(pronunciation, /ENTRADA ACTIVADA/);
+assert.match(pronunciation, /INVITADO RECIBIDO/);
 
 console.log('celebration mission mobile UI contract passed');

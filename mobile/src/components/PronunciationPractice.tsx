@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useEffectEvent, useMemo, useRef, useState } from 'react';
 import { Alert, Animated, Easing, Image, Linking, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { File } from 'expo-file-system';
 import {
   AudioModule,
@@ -68,6 +69,7 @@ type Props = {
   offlinePracticeEnabled?: boolean;
   videoName?: string | null;
   level: string;
+  presentation?: 'standard' | 'mission-voice-gate';
   userId?: string;
   onAttempted?: () => void;
   headerReplayRequestId?: number;
@@ -246,6 +248,7 @@ export function PronunciationPractice({
   offlinePracticeEnabled = false,
   videoName,
   level,
+  presentation = 'standard',
   userId,
   onAttempted,
   headerReplayRequestId = 0,
@@ -254,6 +257,7 @@ export function PronunciationPractice({
   onUnavailable,
 }: Props) {
   const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
+  const missionVoiceGate = presentation === 'mission-voice-gate';
   const reduceMotion = useReducedMotion();
   const practiceVideoPlayer = useVideoPlayer(
     videoName ? { uri: lessonVideoUrl(videoName), useCaching: true } : null,
@@ -1917,16 +1921,28 @@ export function PronunciationPractice({
     </View>
   ) : null;
 
-  const activeMascot = listeningMascot ?? gradingMascot;
+  const activeMascot = missionVoiceGate ? null : listeningMascot ?? gradingMascot;
+  const missionVoiceLabel = phase === 'listening'
+    ? 'TE ESCUCHAMOS'
+    : phase === 'checking'
+      ? 'COMPROBANDO TU VOZ'
+      : phase === 'success'
+        ? 'ENTRADA ACTIVADA'
+        : 'DI LA FRASE PARA ABRIR';
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, missionVoiceGate ? styles.containerMission : null]}>
       {activeModelTurnImageUrl || imageUrl ? (
         <View style={isLandscape ? styles.landscapeMediaRow : styles.portraitMediaRow}>
           {/* Guardrail: equal side columns keep the centered image and mascot from ever overlapping. */}
           {isLandscape ? <View style={styles.mascotColumn}>{activeMascot}</View> : null}
           <LessonMediaFrame
-            frameStyle={isLandscape ? styles.practiceFrameLandscape : null}
+            frameStyle={[
+              isLandscape ? styles.practiceFrameLandscape : null,
+              missionVoiceGate ? styles.practiceFrameMission : null,
+              missionVoiceGate && passed ? styles.practiceFrameMissionPassed : null,
+            ]}
+            mediaAspectRatio={missionVoiceGate && !isLandscape ? 1.35 : 3 / 2}
             maxHeight={imageHeight}
           >
             <OptionMediaImage
@@ -1944,6 +1960,12 @@ export function PronunciationPractice({
                 style={styles.practiceVideoLayer}
               />
             ) : null}
+            {missionVoiceGate && passed ? (
+              <View pointerEvents="none" style={styles.missionGuestConfirmed}>
+                <Ionicons color="#fff" name="checkmark-circle" size={24} />
+                <Text style={styles.missionGuestConfirmedText}>INVITADO RECIBIDO</Text>
+              </View>
+            ) : null}
           </LessonMediaFrame>
           {isLandscape ? <View style={styles.mascotColumn} /> : null}
         </View>
@@ -1954,7 +1976,29 @@ export function PronunciationPractice({
         accessibilityRole="button"
         disabled={phase === 'checking' || phase === 'listening' || phase === 'ready' || reviewingRecording}
         onPress={() => phase === 'permission' ? void startListening() : playModel()}
+        style={missionVoiceGate ? styles.missionVoiceControl : null}
       >
+        {missionVoiceGate ? (
+          <View style={[
+            styles.missionMic,
+            phase === 'listening' ? styles.missionMicListening : null,
+            phase === 'checking' ? styles.missionMicChecking : null,
+            phase === 'success' ? styles.missionMicSuccess : null,
+          ]}>
+            <Ionicons
+              color="#fff"
+              name={phase === 'success' ? 'checkmark' : phase === 'checking' ? 'sparkles' : 'mic'}
+              size={25}
+            />
+          </View>
+        ) : null}
+        {missionVoiceGate ? <Text style={styles.missionVoiceLabel}>{missionVoiceLabel}</Text> : null}
+        {missionVoiceGate && phase !== 'listening' && phase !== 'checking' && phase !== 'ready' ? (
+          <View style={styles.missionReplayHint}>
+            <Ionicons color="#78501c" name="volume-high" size={14} />
+            <Text style={styles.missionReplayHintText}>Toca para escuchar otra vez</Text>
+          </View>
+        ) : null}
         {phase === 'listening' ? (
           <View style={styles.liveAssessment}>
             <Text style={styles.phrase}>{phrase}</Text>
@@ -1982,8 +2026,8 @@ export function PronunciationPractice({
           </View>
         ) : <Text style={styles.phrase}>{phrase}</Text>}
       </Pressable>
-      <View style={styles.statusRow}>
-        {!isLandscape ? gradingMascot : null}
+      <View style={[styles.statusRow, missionVoiceGate ? styles.statusRowMission : null]}>
+        {!isLandscape && !missionVoiceGate ? gradingMascot : null}
         <View style={styles.signalStack}>
           <View style={styles.signalRow}>
             <Animated.View
@@ -2024,7 +2068,7 @@ export function PronunciationPractice({
             </View>
           </View>
         </View>
-        {!isLandscape ? listeningMascot : null}
+        {!isLandscape && !missionVoiceGate ? listeningMascot : null}
         <Text style={[styles.message, { color: statusColor }]}>{message}</Text>
       </View>
       {attempt > 0 && phase !== 'success' ? <Text style={styles.attempt}>Intento {attempt + 1}</Text> : null}
@@ -2107,10 +2151,23 @@ export function PronunciationPractice({
 
 const styles = StyleSheet.create({
   container: { gap: 6, marginTop: 4 },
+  containerMission: {
+    backgroundColor: '#fff9ea',
+    borderColor: '#edc976',
+    borderRadius: 18,
+    borderWidth: 2,
+    flex: 1,
+    gap: 5,
+    marginTop: 0,
+    minHeight: 0,
+    padding: 7,
+  },
   landscapeMediaRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', width: '100%' },
   mascotColumn: { alignItems: 'center', justifyContent: 'center', width: 112 },
   portraitMediaRow: { alignItems: 'center', width: '100%' },
   practiceFrameLandscape: { flex: 1, minWidth: 0, width: undefined },
+  practiceFrameMission: { borderColor: '#e4ad3d', borderWidth: 3, overflow: 'hidden' },
+  practiceFrameMissionPassed: { borderColor: '#36a476', borderWidth: 4 },
   practiceVideoLayer: {
     bottom: 0,
     height: '100%',
@@ -2122,12 +2179,48 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   phrase: { color: '#24333a', fontSize: 18, fontWeight: '900', lineHeight: 22, textAlign: 'center' },
+  missionVoiceControl: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: '#f3e2b8',
+    borderColor: '#d39c35',
+    borderRadius: 18,
+    borderWidth: 2,
+    flexDirection: 'row',
+    gap: 9,
+    justifyContent: 'center',
+    minHeight: 58,
+    paddingHorizontal: 13,
+    paddingVertical: 6,
+    width: '100%',
+  },
+  missionMic: { alignItems: 'center', backgroundColor: '#d96845', borderRadius: 24, height: 46, justifyContent: 'center', width: 46 },
+  missionMicListening: { backgroundColor: '#d65353', transform: [{ scale: 1.06 }] },
+  missionMicChecking: { backgroundColor: '#7760ad' },
+  missionMicSuccess: { backgroundColor: '#30936c' },
+  missionVoiceLabel: { color: '#78501c', fontSize: 9, fontWeight: '900', letterSpacing: 0.8, maxWidth: 108, textAlign: 'center' },
+  missionReplayHint: { alignItems: 'center', flexDirection: 'row', gap: 4 },
+  missionReplayHintText: { color: '#78501c', fontSize: 10, fontWeight: '800' },
+  missionGuestConfirmed: {
+    alignItems: 'center',
+    backgroundColor: 'rgba(28,111,78,0.94)',
+    borderRadius: 14,
+    bottom: 8,
+    flexDirection: 'row',
+    gap: 6,
+    left: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    position: 'absolute',
+  },
+  missionGuestConfirmedText: { color: '#fff', fontSize: 10, fontWeight: '900', letterSpacing: 0.7 },
   liveAssessment: { alignItems: 'center', gap: 3 },
   syllableSlots: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, justifyContent: 'center' },
   syllableSlot: { borderRadius: 7, borderWidth: 1.5, fontSize: 12, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 7, paddingVertical: 3 },
   syllableSlotRecognized: { backgroundColor: '#dff4e7', borderColor: '#2f8f62', color: '#17623f' },
   syllableSlotMissing: { backgroundColor: '#ffffff', borderColor: '#b8c3c8', color: '#64747b' },
   statusRow: { alignItems: 'center', flexDirection: 'row', justifyContent: 'center', minHeight: 32 },
+  statusRowMission: { backgroundColor: '#fffdf8', borderRadius: 12, minHeight: 38, paddingHorizontal: 8 },
   signalStack: { alignItems: 'center', marginRight: 8 },
   signalRow: { alignItems: 'center', flexDirection: 'row' },
   listeningMascotWrap: { height: 104, position: 'relative', width: 94 },
