@@ -376,7 +376,9 @@ const styles = StyleSheet.create({
   landscapeCorrect: { backgroundColor: '#e5f6ec', borderColor: '#32a77e' },
   landscapeWrong: { backgroundColor: '#fff0e8', borderColor: '#c95048' },
   instructionCopy: { flex: 1, minWidth: 0 },
-  instructionCopyLandscape: { flexBasis: 'auto', flexGrow: 0, flexShrink: 1 },
+  // Reset the portrait flex shorthand too: Yoga otherwise retains a zero basis
+  // and collapses the panel while its text/speaker overflow below the viewport.
+  instructionCopyLandscape: { flex: 0, flexBasis: 'auto', flexGrow: 0, flexShrink: 1 },
   instructionMeta: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   kindLabel: { color: '#d86643', fontSize: 10, fontWeight: '900', letterSpacing: 0.8 },
   cueProgress: { color: '#477069', fontSize: 10, fontWeight: '900', letterSpacing: 0.4 },

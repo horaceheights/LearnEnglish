@@ -2367,7 +2367,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       return;
     }
     const cueTurn = cardAudioTurnSequence(currentCard, "prompt")?.[missionOrder[cueIndex] ?? cueIndex];
-    if (cueTurn && currentCard.mission_game.kind !== "voice-gate") {
+    if (cueTurn) {
       playCourseTurnSequence([cueTurn], { onEnd });
       return;
     }
@@ -2403,19 +2403,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   const prepareMissionSpeech = useCallback(() => {
     if (!currentCard?.mission_game || missionSpeechReady) return;
-    const cueText = currentCard.mission_game.cue_audio_text?.trim();
-    if (!cueText) {
-      setMissionSpeechReady(true);
-      return;
-    }
-    speakText(cueText, {
-      audioAssetId: cardAudioAsset(currentCard, { purpose: "mission-cue" })?.id
-        || MISSING_CARD_AUDIO_ASSET_ID,
-      lang: "en-US",
-      voiceMode: "question",
-      onEnd: () => setMissionSpeechReady(true),
-    });
-  }, [currentCard, missionSpeechReady, speakText]);
+    playMissionDirections(0);
+  }, [currentCard, missionSpeechReady, playMissionDirections]);
   const optionCount = currentCard?.options.length || 2;
   const activePronunciationOption = isPronunciationCard ? currentCard?.options[activePronunciationOptionIndex] : null;
   const activePronunciationPrompt =
@@ -4007,6 +3996,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     if (!currentCard || !activePronunciationPrompt || isPronunciationRecording || isPronunciationScoring) {
       return;
     }
+    const turnSequence = cardAudioTurnSequence(currentCard, "prompt");
+    const missionRecall = currentCard.mission_game?.kind === "voice-gate";
+    if (missionRecall && (turnSequence?.length !== 1
+      || turnSequence[0].turn.text !== currentCard.mission_game.cue_audio_text)) {
+      setPronunciationError("No pudimos preparar la pregunta. Inténtalo otra vez.");
+      return;
+    }
+    if (missionRecall && !isRetry && !missionInstructionReady) return;
 
     if (typeof window === "undefined" || !navigator.mediaDevices?.getUserMedia || !(window.AudioContext || window.webkitAudioContext)) {
       const isInsecureOrigin = typeof window !== "undefined" && !isSecureRecordingContext();
@@ -4187,7 +4184,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       }
     };
 
-    const turnSequence = cardAudioTurnSequence(currentCard, "prompt");
     const modelOptions = {
       voiceMode: "prompt",
       wordByWord: true,
@@ -4207,7 +4203,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       },
     };
     let speechDelay = 0;
-    if (currentCard.audio_turns?.length) {
+    if (missionRecall && !isRetry) {
+      // The mission already played the visitor's question. Open the microphone
+      // without a second question or an answer-model playback.
+      modelOptions.onEnd();
+    } else if (currentCard.audio_turns?.length) {
       if (turnSequence) {
         speechDelay = playCourseTurnSequence(turnSequence, modelOptions);
       } else {
@@ -4225,7 +4225,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       });
     }
     const startDelay = Math.min(Math.max(speechDelay + 8000, 10000), 16000);
-    pronunciationStartTimeoutRef.current = window.setTimeout(startListening, startDelay);
+    pronunciationStartTimeoutRef.current = window.setTimeout(missionRecall ? () => {
+      if (!listeningStarted) setPronunciationError("No se pudo escuchar la pregunta. Inténtalo otra vez.");
+    } : startListening, startDelay);
   };
   beginPronunciationRecordingRef.current = beginPronunciationRecording;
 
@@ -5213,6 +5215,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           onScenePlacement={() => playUiSfx("tilePlace", { debounceMs: 140, volume: 0.64 })}
           resolveImage={lessonOptionImageSrc}
           speech={{
+            asking: !missionInstructionReady || (!isPronunciationRecording && !isPronunciationScoring
+              && !pronunciationResult && pronunciationStatus === "Listen..."),
             error: pronunciationError,
             outcome: pronunciationOutcome,
             ready: missionSpeechReady,

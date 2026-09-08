@@ -77,7 +77,7 @@ mission.cards.forEach((card) => {
     assert.ok(targets.get(cue.target_id).accepted_option_ids.includes(cue.option_id));
   }
   const expectedTurns = game.kind === 'voice-gate'
-    ? [game.cues[0].text, card.prompt]
+    ? [game.cues[0].text]
     : game.cues.map((cue) => cue.text);
   assert.deepEqual(card.audio_turns.map((turn) => turn.text), expectedTurns);
 });

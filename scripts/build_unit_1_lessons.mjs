@@ -569,8 +569,11 @@ function missionGameCard({
       ...{
         audio_turns: (isVoiceGate
           ? [
-              { text: cueAudio || cues[0]?.text || '', speaker_role: 'teacher', image_url: media(image) },
-              { text: prompt, speaker_role: 'teacher', image_url: media(image) },
+              {
+                text: cueAudio || cues[0]?.text || '',
+                speaker_role: 'female-character',
+                image_url: media(`a1_u1_reunion_${beat}_question_${imageOptionId}.webp`),
+              },
             ]
           : completeCues.map((cue) => ({
           text: cue.text,
@@ -1071,7 +1074,7 @@ const missionBlueprintV5 = [
       missionCue('eating', 'She is eating.', 'She is eating.', 'eating'),
       missionCue('drinking', 'He is drinking.', 'He is drinking.', 'drinking'),
     ],
-    choices: [['eating', 'She is eating.'], ['drinking', 'He is drinking.'], ['reading', 'She is reading.'], ['sitting', 'He is sitting.']],
+    choices: [['eating', 'The mother is eating.'], ['drinking', 'The grandfather is drinking.'], ['reading', 'The girl is reading.'], ['sitting', 'The father is sitting.']],
     targets: [
       missionCandidate('eating', 'eating', 0.24, 0.35), missionCandidate('drinking', 'drinking', 0.76, 0.35),
       missionCandidate('reading', 'reading', 0.28, 0.72), missionCandidate('sitting', 'sitting', 0.72, 0.72),
@@ -1086,7 +1089,7 @@ const missionBlueprintV5 = [
       missionCue('reading', 'She is reading.', 'She is reading.', 'reading'),
       missionCue('writing', 'He is writing.', 'He is writing.', 'writing'),
     ],
-    choices: [['reading', 'She is reading.'], ['writing', 'He is writing.'], ['talking', 'She is talking.'], ['drinking', 'He is drinking.']],
+    choices: [['reading', 'The grandmother is reading.'], ['writing', 'The father is writing.'], ['talking', 'She is talking.'], ['drinking', 'He is drinking.']],
     targets: [
       missionCandidate('reading', 'reading', 0.13, 0.51), missionCandidate('writing', 'writing', 0.36, 0.51),
       missionCandidate('talking', 'talking', 0.65, 0.49), missionCandidate('drinking', 'drinking', 0.87, 0.47),
@@ -1101,7 +1104,7 @@ const missionBlueprintV5 = [
       missionCue('running', 'She is running.', 'She is running.', 'running'),
       missionCue('swimming', 'She is swimming.', 'She is swimming.', 'swimming'),
     ],
-    choices: [['running', 'She is running.'], ['swimming', 'She is swimming.'], ['sitting', 'She is sitting.'], ['talking', 'She is talking.']],
+    choices: [['running', 'She is running.'], ['swimming', 'She is swimming.'], ['sitting', 'The boy is sitting.'], ['talking', 'She is talking.']],
     targets: [
       missionCandidate('running', 'running', 0.16, 0.48), missionCandidate('swimming', 'swimming', 0.45, 0.61),
       missionCandidate('sitting', 'sitting', 0.70, 0.52), missionCandidate('talking', 'talking', 0.88, 0.36),
@@ -1131,7 +1134,7 @@ const missionBlueprintV5 = [
       missionCue('playing', 'They are playing.', 'They are playing.', 'playing'),
       missionCue('studying', 'She is studying.', 'She is studying.', 'studying'),
     ],
-    choices: [['playing', 'They are playing.'], ['studying', 'She is studying.'], ['reading', 'They are reading.'], ['talking', 'She is talking.']],
+    choices: [['playing', 'The babies are playing.'], ['studying', 'The girl is studying.'], ['reading', 'The parents are reading.'], ['talking', 'She is talking.']],
     targets: [
       missionCandidate('playing', 'playing', 0.13, 0.57, 'Grupo'), missionCandidate('studying', 'studying', 0.39, 0.55),
       missionCandidate('reading', 'reading', 0.65, 0.55, 'Grupo'), missionCandidate('talking', 'talking', 0.88, 0.43),
@@ -1147,7 +1150,7 @@ const missionBlueprintV5 = [
       missionCue('cooking', 'He is cooking.', 'He is cooking.', 'cooking'),
       missionCue('talking', 'They are talking.', 'They are talking.', 'talking'),
     ],
-    choices: [['working', 'She is working.'], ['cooking', 'He is cooking.'], ['talking', 'They are talking.'], ['reading', 'He is reading.']],
+    choices: [['working', 'The grandmother is working.'], ['cooking', 'The father is cooking.'], ['talking', 'The sisters are talking.'], ['reading', 'The grandfather is reading.']],
     targets: [
       missionCandidate('working', 'working', 0.12, 0.52), missionCandidate('cooking', 'cooking', 0.35, 0.42),
       missionCandidate('talking', 'talking', 0.63, 0.47, 'Grupo'), missionCandidate('reading', 'reading', 0.87, 0.52),

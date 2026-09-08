@@ -17,6 +17,7 @@ import {
 } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
 import { PronunciationPractice } from './PronunciationPractice';
+import type { ReactNode } from 'react';
 
 const TEXT_OPTION_THEMES = [
   { accent: '#6947ad', background: '#f3effc', border: '#b9a8df' },
@@ -62,6 +63,7 @@ type Props = {
   optionsInteractive?: boolean;
   pronunciationAudioTurns?: CourseAudioTurnPlayback[] | null;
   missionVoiceGate?: { question: string; step: number; total: number } | null;
+  missionLandscapeHeader?: ReactNode;
   userId?: string;
   selectedId: string | null;
   selectedIds?: string[];
@@ -94,6 +96,7 @@ export function LessonCardView({
   optionsInteractive = true,
   pronunciationAudioTurns = null,
   missionVoiceGate = null,
+  missionLandscapeHeader = null,
   userId,
   selectedId,
   selectedIds = EMPTY_SELECTED_IDS,
@@ -498,16 +501,18 @@ export function LessonCardView({
         </LessonMediaFrame>
       ) : null}
       {isPronunciation ? (
-        <View style={isMissionVoiceGate ? styles.missionVoiceSurface : null}>
+        <View style={isMissionVoiceGate ? [styles.missionVoiceSurface,
+          missionLandscapeHeader ? styles.missionVoiceSurfaceLandscape : null] : null}>
           {missionVoiceGate ? (
-            <>
-              <View style={styles.missionVoiceHeading}>
+            <View style={[styles.missionVoiceBriefing, missionLandscapeHeader ? styles.missionVoiceBriefingLandscape : null]}>
+              {missionLandscapeHeader ? <View style={styles.missionVoiceNavigation}>{missionLandscapeHeader}</View> : null}
+              {!missionLandscapeHeader ? <View style={styles.missionVoiceHeading}>
                 <View style={styles.missionVoiceHeadingCopy}>
                   <Text style={styles.missionVoiceEyebrow}>ABRE LA CELEBRACIÓN</Text>
                   <Text style={styles.missionVoiceTitle}>Activa la entrada con tu voz</Text>
                 </View>
                 <Text style={styles.missionVoiceCounter}>VOZ {missionVoiceGate.step}/{missionVoiceGate.total}</Text>
-              </View>
+              </View> : null}
               <View accessibilityLabel={`Voz ${missionVoiceGate.step} de ${missionVoiceGate.total}`} style={styles.missionVoiceLocks}>
                 {Array.from({ length: missionVoiceGate.total }, (_item, index) => {
                   const complete = index < missionVoiceGate.step - 1;
@@ -536,7 +541,7 @@ export function LessonCardView({
                   <Text style={styles.missionVoiceQuestionText}>{missionVoiceGate.question}</Text>
                 </View>
               </View>
-            </>
+            </View>
           ) : null}
           <PronunciationPractice
             audioTurns={pronunciationAudioTurns}
@@ -1158,6 +1163,10 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   missionVoiceSurface: { flex: 1, gap: 6, minHeight: 0 },
+  missionVoiceSurfaceLandscape: { flexDirection: 'row', minWidth: 0 },
+  missionVoiceNavigation: { backgroundColor: '#fff8e8', borderRadius: 12, padding: 4 },
+  missionVoiceBriefing: { gap: 6, flexShrink: 0 },
+  missionVoiceBriefingLandscape: { width: '30%', minWidth: 210, maxWidth: 280, justifyContent: 'space-between' },
   missionVoiceHeading: { alignItems: 'center', flexDirection: 'row', gap: 8, justifyContent: 'space-between' },
   missionVoiceHeadingCopy: { flex: 1, minWidth: 0 },
   missionVoiceEyebrow: { color: '#ffd986', fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },

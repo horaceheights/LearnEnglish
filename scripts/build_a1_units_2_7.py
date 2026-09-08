@@ -769,36 +769,51 @@ def is_unit_one_lesson_context(context: object) -> bool:
     )
 
 
-def refresh_unit_one_runtime_manifest() -> None:
+def refresh_unit_one_runtime_manifest(lesson_id: str | None = None) -> None:
     """Refresh Unit 1 runtime bindings without rebuilding Units 2-7."""
 
     manifest_payload = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    def selected(context: object) -> bool:
+        return is_unit_one_lesson_context(context) and (lesson_id is None or context.get("lesson_id") == lesson_id)
     retained_assets: list[dict[str, Any]] = []
     for raw_item in manifest_payload.get("assets", []):
+        if not any(selected(context) for context in raw_item.get("review_contexts", [])):
+            retained_assets.append(raw_item)
+            continue
         item = dict(raw_item)
         review_contexts = [
             context
             for context in item.get("review_contexts", [])
-            if not is_unit_one_lesson_context(context)
+            if not selected(context)
         ]
         if not review_contexts:
             continue
         item["review_contexts"] = review_contexts
-        item["card_refs"] = [
-            card_ref
-            for card_ref in item.get("card_refs", [])
-            if not str(card_ref).startswith("1.")
-        ]
+        item["card_refs"] = sorted({"|".join((str(c["sub_lesson_id"]), c["stage"], c["slide_id"] or "<none>"))
+                                    for c in review_contexts})
         retained_assets.append(item)
 
     unit_one_catalog = AssetCatalog()
     add_unit_one_runtime_contracts(unit_one_catalog)
     add_course_browser_runtime_contracts(unit_one_catalog, unit_id="unit-1")
-    unit_one_assets = [
-        item for item in unit_one_catalog.items.values() if item["review_contexts"]
-    ]
+    unit_one_assets = []
+    for item in unit_one_catalog.items.values():
+        item["review_contexts"] = [c for c in item["review_contexts"] if selected(c)]
+        if item["review_contexts"]:
+            item["card_refs"] = sorted({"|".join((str(c["sub_lesson_id"]), c["stage"], c["slide_id"] or "<none>"))
+                                        for c in item["review_contexts"]})
+            unit_one_assets.append(item)
+    if lesson_id and not unit_one_assets:
+        raise ValueError(f"No Unit 1 runtime contracts for {lesson_id}")
+    merged = {item["asset_id"]: item for item in retained_assets}
+    for item in unit_one_assets:
+        if item["asset_id"] in merged:
+            prior = merged[item["asset_id"]]
+            item["review_contexts"] = [*prior["review_contexts"], *item["review_contexts"]]
+            item["card_refs"] = sorted(set(prior["card_refs"] + item["card_refs"]))
+        merged[item["asset_id"]] = item
     manifest_payload["assets"] = sorted(
-        [*retained_assets, *unit_one_assets],
+        merged.values(),
         key=lambda item: item["asset_id"],
     )
     MANIFEST.write_text(
@@ -818,9 +833,12 @@ def main() -> None:
         action="store_true",
         help="Refresh only Unit 1 runtime media bindings in the existing manifest.",
     )
+    parser.add_argument("--lesson-id", help="With --unit-one-runtime-only, refresh just this lesson and preserve other reviewed bindings.")
     args = parser.parse_args()
+    if args.lesson_id and not args.unit_one_runtime_only:
+        parser.error("--lesson-id requires --unit-one-runtime-only")
     if args.unit_one_runtime_only:
-        refresh_unit_one_runtime_manifest()
+        refresh_unit_one_runtime_manifest(args.lesson_id)
         return
 
     plan = json.loads(PLAN.read_text(encoding="utf-8"))

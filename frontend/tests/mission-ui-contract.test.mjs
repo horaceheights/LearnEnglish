@@ -53,7 +53,7 @@ test("the mission consumes the viewport without lesson scrolling or answer banks
   assert.match(mission, /\.scene-slot \{[^\n]*flex:1/);
   assert.match(mission, /\.scene \{ aspect-ratio:3\/2/);
   assert.match(mission, /@container \(min-aspect-ratio:3\/2\)/);
-  assert.match(mission, /@media \(max-height:600px\) and \(min-width:600px\)/);
+  assert.match(mission, /@media \(max-height:600px\) and \(orientation:landscape\)/);
   assert.match(mission, /\.mission-game \{ display:grid/);
   assert.match(mission, /\.mission-shell \{ gap:6px; height:calc\(100svh - 16px\); min-height:0; padding:8px; \}/);
   assert.match(mission, /\.scene \{ aspect-ratio:3\/2;[^\n]*box-sizing:border-box/);
@@ -68,13 +68,23 @@ test("four voice gates stay inside the adventure and use real pronunciation stat
   assert.match(mission, /ABRE LA CELEBRACIÓN/);
   assert.match(mission, /Array\.from\(\{ length: total \}/);
   assert.match(mission, /voice-scene-open/);
-  assert.match(mission, /Toca para escuchar otra vez/);
-  assert.match(mission, /\.voice-scene \{ aspect-ratio:1\.35\/1; height:auto; width:100%; \}/);
-  assert.match(mission, /\.mission-voice-game \.scene-slot \{ align-items:flex-start; container-type:normal; flex:0 0 auto; \}/);
+  assert.match(mission, /speech\.result \? <strong>\{card\.prompt\}/);
+  assert.match(mission, /Math\.min\(slotSize\.width - 8, \(slotSize\.height - 8\) \* 1\.5\)/);
+  assert.match(mission, /\.mission-voice-game \.scene-slot \{ min-height:0; flex:1; \}/);
   assert.match(mission, /speech\.recording \|\| speech\.scoring/);
   assert.match(mission, /onPrepareSpeech/);
   assert.doesNotMatch(mission, /Tu turno/);
   assert.match(player, /if \(currentCard\.mission_game\.kind === "voice-gate"\) setMissionSpeechReady\(true\)/);
+});
+
+test("recall questions switch shots without revealing or playing the grading answer", () => {
+  assert.match(mission, /isVoiceGate && speech\.asking[\s\S]*?card\.audio_turns\?\.\[0\]\?\.image_url/);
+  assert.match(player, /missionRecall && \(turnSequence\?\.length !== 1/);
+  assert.match(player, /turnSequence\[0\]\.turn\.text !== currentCard\.mission_game\.cue_audio_text/);
+  assert.match(player, /if \(missionRecall && !isRetry && !missionInstructionReady\) return/);
+  assert.match(player, /if \(missionRecall && !isRetry\) \{[\s\S]*?modelOptions\.onEnd\(\)/);
+  assert.match(player, /window\.setTimeout\(missionRecall \? \(\) =>/);
+  assert.doesNotMatch(mission, /Toca para escuchar otra vez/);
 });
 
 test("completion keeps the celebration story and contains no rejected album framing", () => {

@@ -43,6 +43,7 @@ import {
 import type { PronunciationResult } from '../types';
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
+import { MissionVoicePresentation } from './MissionVoicePresentation';
 import {
   addSpeechListener,
   nativeStreamingAvailable,
@@ -604,7 +605,7 @@ export function PronunciationPractice({
     setNoSpeechFailure(false);
     setServiceUnavailable(false);
     setPhase('model');
-    setMessage(attemptRef.current ? 'Escucha otra vez…' : 'Escucha la frase.');
+    setMessage(missionVoiceGate ? 'Escucha la pregunta.' : attemptRef.current ? 'Escucha otra vez…' : 'Escucha la frase.');
     heardSpeech.current = false;
     silenceStartedAt.current = null;
     captureFinishing.current = false;
@@ -629,6 +630,9 @@ export function PronunciationPractice({
         playsInSilentMode: true,
       });
       if (!isCurrentRun(runId)) return;
+      if (missionVoiceGate && audioTurns?.length !== 1) {
+        throw new Error('Mission recall requires exactly one question turn; never fall back to the grading answer.');
+      }
       if (audioTurns?.length) {
         const nextPlaylist = createAudioPlaylist({
           loop: 'none',
@@ -706,7 +710,7 @@ export function PronunciationPractice({
       });
       showUnavailableState('No pudimos reproducir la frase. Revisa tu conexión e inténtalo otra vez.');
     }
-  }, [audioProvider, audioTurns, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, offlinePracticeEnabled, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
+  }, [audioProvider, audioTurns, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, missionVoiceGate, offlinePracticeEnabled, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
   const playModelEvent = useEffectEvent(playModel);
   const headerReplayAvailable = isAppActive
     && (!isOffline || offlinePracticeEnabled)
@@ -1920,6 +1924,24 @@ export function PronunciationPractice({
       />
     </View>
   ) : null;
+
+  if (missionVoiceGate) {
+    return <MissionVoicePresentation
+      asking={phase === 'model'}
+      imageUrl={phase === 'model' ? (audioTurns?.[0]?.turn.image_url || imageUrl || '') : imageUrl || ''}
+      listening={phase === 'listening'}
+      checking={phase === 'checking'}
+      accepted={Boolean(result && passed)}
+      answer={result ? phrase : null}
+      message={phase === 'model' ? 'Escucha la pregunta.' : phase === 'listening'
+        ? 'Responde con una frase completa.' : message}
+      replayDisabled={phase === 'checking' || phase === 'listening' || phase === 'ready' || reviewingRecording}
+      unavailable={serviceUnavailable}
+      offline={isOffline}
+      onReplay={() => phase === 'permission' ? void startListening() : void playModel()}
+      onContinue={onUnavailable}
+    />;
+  }
 
   const activeMascot = missionVoiceGate ? null : listeningMascot ?? gradingMascot;
   const missionVoiceLabel = phase === 'listening'

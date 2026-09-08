@@ -281,10 +281,14 @@ The 22 beats have these fixed responsibilities:
 16. Use the full contrast `He is not eating. He is drinking.` and then practice the remaining `eating`, `reading`, and `sitting` targets.
 17. Use the full contrast `She is not reading. She is writing.` and then practice the remaining `reading`, `talking`, and `cooking` targets.
 18. Use the full contrast `They are not running. They are sitting.` and then practice the remaining `running`, `talking`, and `playing` groups.
-19. Hear `Who is he?`, hear `He is the father.` as the model, then say the father answer through the pronunciation engine.
-20. Hear `Who is she?`, hear `She is the grandmother.` as the model, then say the grandmother answer.
-21. Hear `Who are they?`, hear `They are the parents.` as the model, then say the parents answer.
-22. Hear `Who are they?`, hear `They are a family.` as the model, then say the final answer and open the celebration.
+19. A visitor looks at the learner and indicates the father while asking `Who is he?`. Cut to the closer father shot, open the microphone, and assess the learner's unaided `He is the father.`
+20. Ask `Who is she?` while the visitor indicates the grandmother; switch to her closer view and assess `She is the grandmother.` without an upfront answer.
+21. Ask `Who are they?` while the visitor indicates both parents; switch to their closer view and assess `They are the parents.`
+22. Ask `Who are they?` while the visitor indicates the whole family; switch to the group view and assess `They are a family.` to open the celebration.
+
+These four voice gates test recall rather than repetition. Only the question plays before recording, including on replay and retry. No answer text, syllable breakdown, translation, or revealing accessibility label appears until grading. One contained result panel then shows the answer and feedback, with no duplicate messages or overflow in portrait or landscape. The two shots retain the same people, clothing, and location.
+
+Beats 10-15 mix pronouns with family-role subjects already learned in Unit 1. In beat 15, the four cues are `The grandmother is working.`, `The father is cooking.`, `The sisters are talking.`, and `The grandfather is reading.`; beat 12 correctly identifies the seated boy as `The boy is sitting.` Both cue types remain in the mission, bound to the visible actions rather than inferred from filenames.
 
 The successful-path coverage is exact and auditable: beats 1-2 cover `a`, `boy`, `girl`, `man`, and `woman`; beat 3 covers `he`, `she`, `is`, `they`, and `are`; beats 4-5 cover `the`, `and`, `an`, `child`, `children`, `adult`, `adults`, `baby`, and `babies`; beats 6-9 cover `brother`, `brothers`, `sister`, `sisters`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`, and `grandchildren`; beats 10-15 cover all thirteen learned actions; beats 16-18 cover `not`; beats 19-21 cover `who` and all three question forms; and beat 22 covers `family`.
 

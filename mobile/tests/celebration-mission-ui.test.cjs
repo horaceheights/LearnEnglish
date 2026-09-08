@@ -55,13 +55,16 @@ assert.match(
 );
 
 const bundledReunionImages = images.match(/'a1_u1_reunion_[^']+\.webp': require/g) || [];
-assert.equal(bundledReunionImages.length, 23);
+assert.equal(bundledReunionImages.length, 27);
 
 assert.match(lessonCard, /ABRE LA CELEBRACIÓN/);
 assert.match(lessonCard, /Activa la entrada con tu voz/);
 assert.match(lessonCard, /Array\.from\(\{ length: missionVoiceGate\.total \}/);
 assert.match(lessonCard, /presentation=\{isMissionVoiceGate \? 'mission-voice-gate' : 'standard'\}/);
 assert.match(pronunciation, /presentation === 'mission-voice-gate'/);
+assert.match(pronunciation, /answer=\{result \? phrase : null\}/);
+assert.match(pronunciation, /Mission recall requires exactly one question turn/);
+assert.match(pronunciation, /phase === 'model' \? \(audioTurns\?\.\[0\]\?\.turn\.image_url/);
 assert.match(pronunciation, /mediaAspectRatio=\{missionVoiceGate && !isLandscape \? 1\.35 : 3 \/ 2\}/);
 assert.match(pronunciation, /Toca para escuchar otra vez/);
 assert.match(pronunciation, /ENTRADA ACTIVADA/);
