@@ -11,6 +11,7 @@ const mission = JSON.parse(fs.readFileSync(
 const surface = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionGameSurface.tsx'), 'utf8');
 const lessonCard = fs.readFileSync(path.join(mobileRoot, 'src/components/LessonCardView.tsx'), 'utf8');
 const pronunciation = fs.readFileSync(path.join(mobileRoot, 'src/components/PronunciationPractice.tsx'), 'utf8');
+const voicePresentation = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionVoicePresentation.tsx'), 'utf8');
 const kickoff = fs.readFileSync(path.join(mobileRoot, 'src/components/MissionKickoff.tsx'), 'utf8');
 const screen = fs.readFileSync(path.join(mobileRoot, 'src/screens/LessonScreen.tsx'), 'utf8');
 const images = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSources.ts'), 'utf8');
@@ -62,7 +63,9 @@ assert.match(lessonCard, /Activa la entrada con tu voz/);
 assert.match(lessonCard, /Array\.from\(\{ length: missionVoiceGate\.total \}/);
 assert.match(lessonCard, /presentation=\{isMissionVoiceGate \? 'mission-voice-gate' : 'standard'\}/);
 assert.match(pronunciation, /presentation === 'mission-voice-gate'/);
-assert.match(pronunciation, /answer=\{result \? phrase : null\}/);
+assert.match(pronunciation, /answer=\{phase === 'model' \? null : phrase\}/);
+assert.match(voicePresentation, /answer && !unavailable \? <Text/);
+assert.match(pronunciation, /phase === 'listening' \|\| phase === 'ready'[\s\S]*?'Lee la frase en voz alta\.'/);
 assert.match(pronunciation, /Mission recall requires exactly one question turn/);
 assert.match(pronunciation, /phase === 'model' \? \(audioTurns\?\.\[0\]\?\.turn\.image_url/);
 assert.match(pronunciation, /mediaAspectRatio=\{missionVoiceGate && !isLandscape \? 1\.35 : 3 \/ 2\}/);
