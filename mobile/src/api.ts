@@ -4,6 +4,7 @@ import { File } from 'expo-file-system';
 
 import { API_BASE_URL, APP_API_KEY } from './config';
 import { getPreviewLesson } from './previewLessons';
+import { getCurrentUpdateReceipt } from './updates';
 import type {
   LearnerProfile,
   LessonFeedbackInput,
@@ -72,6 +73,11 @@ async function jsonRequest<T>(path: string, init?: RequestInit): Promise<T> {
       try {
         const headers = tracedHeaders(init?.headers, span);
         headers.set('Content-Type', 'application/json');
+        const release = getCurrentUpdateReceipt();
+        headers.set('X-App-Version', release.version);
+        if (release.commit && /^[0-9a-f]{7,40}$/i.test(release.commit)) {
+          headers.set('X-Release-Commit', release.commit);
+        }
         const response = await fetch(`${API_BASE_URL}${path}`, {
           ...init,
           headers,

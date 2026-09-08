@@ -32,6 +32,8 @@ async function apiRequest(path, options = {}) {
     headers: {
       "Content-Type": "application/json",
       "X-App-Key": APP_API_KEY,
+      "X-App-Version": process.env.NEXT_PUBLIC_APP_VERSION || "",
+      "X-Release-Commit": process.env.NEXT_PUBLIC_RELEASE_COMMIT || "",
       ...(options.headers || {}),
     },
   });

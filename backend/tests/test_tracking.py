@@ -52,6 +52,27 @@ class TrackingDatabaseConfigurationTests(unittest.TestCase):
         finally:
             legacy_engine.dispose()
 
+    def test_init_db_adds_optional_release_columns_without_changing_legacy_users(self):
+        legacy_engine = create_engine("sqlite://", poolclass=StaticPool)
+        try:
+            with legacy_engine.begin() as db:
+                db.execute(text("""
+                    CREATE TABLE users (id TEXT PRIMARY KEY, display_name TEXT NOT NULL,
+                        profile_json TEXT NOT NULL, created_at TEXT NOT NULL, updated_at TEXT NOT NULL)
+                """))
+                db.execute(text("INSERT INTO users VALUES ('legacy', 'Ana', '{}', 'created', 'updated')"))
+            with patch.object(tracking, "engine", legacy_engine):
+                tracking.init_db()
+                tracking.init_db()
+                learner = tracking.admin_summary()["learners"][0]
+                self.assertEqual("Ana", learner["display_name"])
+                self.assertEqual("updated", learner["updated_at"])
+                self.assertIsNone(learner["app_version"])
+                self.assertIsNone(learner["release_commit"])
+                self.assertIsNone(learner["app_reported_at"])
+        finally:
+            legacy_engine.dispose()
+
 
 class AdminSummaryTests(unittest.TestCase):
     def setUp(self):
@@ -67,6 +88,28 @@ class AdminSummaryTests(unittest.TestCase):
     def tearDown(self):
         self.engine_patch.stop()
         self.test_engine.dispose()
+
+    def test_release_report_preserves_activity_and_legacy_clients_do_not_erase_it(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Ana"))
+        tracking.record_client_release(user["id"], "1.6.0", "ABC1234")
+        tracking.record_client_release(user["id"], None, None)
+        learner = tracking.admin_summary()["learners"][0]
+        self.assertEqual("1.6.0", learner["app_version"])
+        self.assertEqual("abc1234", learner["release_commit"])
+        self.assertIsNotNone(learner["app_reported_at"])
+        self.assertIsNone(learner["last_seen"])
+        self.assertEqual(0, learner["visits"])
+        self.assertEqual(user["updated_at"], learner["updated_at"])
+
+    def test_partial_report_never_borrows_a_commit_from_another_release(self):
+        user = tracking.create_or_update_user(UserCreate(display_name="Ana"))
+        tracking.record_client_release(user["id"], "1.6.0", "abc1234")
+        tracking.record_client_release(user["id"], "1.7.0", "embedded")
+        learner = tracking.admin_summary()["learners"][0]
+        self.assertEqual("1.7.0", learner["app_version"])
+        self.assertIsNone(learner["release_commit"])
+        tracking.record_client_release(user["id"], "x" * 41, "expo-update-id")
+        self.assertEqual(learner, tracking.admin_summary()["learners"][0])
 
     def test_summary_explains_activity_and_scores_by_lesson(self):
         user = tracking.create_or_update_user(UserCreate(display_name="Ana"))

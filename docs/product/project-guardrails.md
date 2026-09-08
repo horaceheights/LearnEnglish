@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-09-07
+Last reviewed: 2026-09-08
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -340,6 +340,7 @@ Do not force every word through every step in a single lesson when that would ma
 
 ## 8. Feedback and Interaction
 
+- The admin learner table shows the latest client-reported app version and seven-character Git commit immediately below each learner's name, preserving the cards-practiced line. Web reports its bundled package version and Vercel commit; mobile uses the same running-release identity as the update menu. Keep both values from the same report, expose its timestamp, and show missing values as `Not reported`; never substitute the dashboard/backend release or an Expo update/group ID. Older clients without these optional headers remain compatible and do not erase the last known report.
 - Cold-start, course, and lesson loading surfaces use the shared playful SpanGlish loader. Keep backend lifecycle details such as server wake-up or connection state out of learner-facing loading copy, and respect reduced-motion settings.
 - Starting a lesson while connected silently caches every immutable course-audio asset for that lesson with bounded concurrency and no learner-facing spinner or progress status. Canonical A1 still images remain bundled in the app. Once cached, ordinary lesson audio must resolve to the local file after connectivity loss; an uncached clip may fail silent but may never block answering or card progression. Deliberate user-managed lesson or unit downloads remain a separate offline-packs feature.
 - The active standard lesson is checkpointed locally after every progress change and flushed again when the app backgrounds or unmounts. Losing connectivity must never replace that checkpoint with older backend progress. A locally completed lesson remains stored as pending until the backend confirms completion; reopening or reconnecting restores the exact card, first-attempt/score state, and pending completion, then retries missing session or completion synchronization without awarding progress twice.

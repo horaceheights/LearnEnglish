@@ -59,6 +59,7 @@ from .tracking import (
     get_user_by_name,
     get_user,
     init_db,
+    record_client_release,
     reset_user_activity,
     storage_info,
 )
@@ -457,37 +458,48 @@ def get_lesson(lesson_id: str):
     return lesson_for_delivery(lesson)
 
 
+def report_client_release(user_id: str, request: Request) -> None:
+    record_client_release(user_id, request.headers.get("X-App-Version"), request.headers.get("X-Release-Commit"))
+
+
 @app.post("/api/users")
-def create_user(payload: UserCreate):
-    return create_or_update_user(payload)
+def create_user(payload: UserCreate, request: Request):
+    user = create_or_update_user(payload)
+    report_client_release(user["id"], request)
+    return user
 
 
 @app.put("/api/users/{user_id}")
-def update_user(user_id: str, payload: UserCreate):
-    return create_or_update_user(payload, user_id=user_id)
+def update_user(user_id: str, payload: UserCreate, request: Request):
+    user = create_or_update_user(payload, user_id=user_id)
+    report_client_release(user["id"], request)
+    return user
 
 
 @app.get("/api/users/{user_id}")
-def read_user(user_id: str):
+def read_user(user_id: str, request: Request):
     user = get_user(user_id)
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
+    report_client_release(user["id"], request)
     return user
 
 
 @app.get("/api/users/{user_id}/lesson-progress")
-def read_lesson_progress(user_id: str):
+def read_lesson_progress(user_id: str, request: Request):
     progress = get_lesson_progress(user_id)
     if progress is None:
         raise HTTPException(status_code=404, detail="User not found")
+    report_client_release(user_id, request)
     return progress
 
 
 @app.get("/api/users/by-name/{display_name}")
-def read_user_by_name(display_name: str):
+def read_user_by_name(display_name: str, request: Request):
     user = get_user_by_name(display_name)
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
+    report_client_release(user["id"], request)
     return user
 
 
@@ -506,30 +518,37 @@ def reset_user_progress(user_id: str):
 
 
 @app.post("/api/sessions")
-def start_session(payload: SessionCreate):
-    return create_session(payload)
+def start_session(payload: SessionCreate, request: Request):
+    session = create_session(payload)
+    report_client_release(payload.user_id, request)
+    return session
 
 
 @app.patch("/api/sessions/{session_id}/finish")
-def complete_session(session_id: str, payload: SessionFinish):
+def complete_session(session_id: str, payload: SessionFinish, request: Request):
     session = finish_session(session_id, payload)
     if session is None:
         raise HTTPException(status_code=404, detail="Session not found")
+    report_client_release(session["user_id"], request)
     return session
 
 
 @app.post("/api/card-attempts")
-def log_card_attempt(payload: CardAttemptCreate):
+def log_card_attempt(payload: CardAttemptCreate, request: Request):
     try:
-        return create_attempt(payload)
+        attempt = create_attempt(payload)
+        report_client_release(payload.user_id, request)
+        return attempt
     except ValueError as error:
         raise HTTPException(status_code=409, detail=str(error)) from error
 
 
 @app.post("/api/feedback")
-def save_lesson_feedback(payload: LessonFeedbackCreate):
+def save_lesson_feedback(payload: LessonFeedbackCreate, request: Request):
     try:
-        return create_lesson_feedback(payload)
+        feedback = create_lesson_feedback(payload)
+        report_client_release(payload.user_id, request)
+        return feedback
     except ValueError as error:
         raise HTTPException(status_code=404, detail=str(error)) from error
 

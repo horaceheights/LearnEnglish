@@ -1,6 +1,14 @@
+import { createRequire } from "node:module";
+
+const { version } = createRequire(import.meta.url)("./package.json");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_APP_VERSION: version,
+    NEXT_PUBLIC_RELEASE_COMMIT: process.env.VERCEL_GIT_COMMIT_SHA || process.env.NEXT_PUBLIC_RELEASE_COMMIT || "",
+  },
   async headers() {
     return [
       {
