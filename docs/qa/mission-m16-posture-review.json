@@ -1,0 +1,40 @@
+{
+  "date": "2026-09-08",
+  "review": "agent-assisted Preview visual check; human Production approval remains pending",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Asset type: photorealistic 3:2 landscape English-learning game scene, 1536x1024. Image 1 is the edit target and identity/wardrobe/setting reference. Correct the ambiguous posture: keep EXACTLY these same four men and their existing left-to-right action order, clothing, faces, ages, and warm garden celebration with trees, bunting and lanterns. Recompose as a full-body eye-level scene: first man in olive overshirt stands upright on both feet drinking from a clear water glass touching his lips; second man in navy shirt stands upright on both feet visibly biting a sandwich; third older mustached man in beige stands upright on both feet reading an open newspaper, eyes looking at its printed front; fourth man in light blue shirt is the ONLY seated person, resting naturally on one clearly visible chair with bent knees and feet on the ground, empty hands relaxed on his thighs, not eating, drinking, reading or talking. Remove the long foreground table and the first three chairs so nothing hides their straight standing legs or the fourth man's unmistakably seated hips and knees. All four complete bodies and shoes comfortably inside the frame, with clear gaps between people and clear space above heads for later UI markers. Keep people large enough to identify these actions on a phone. One unified plausible garden photograph, natural anatomy, realistic skin/fabric/wood textures, not a collage. Do not add any other people, text, labels, circles, dots, arrows, panels or watermarks. Critical: ONLY ONE person sitting; other three unmistakably standing.",
+  "source": "C:/Users/gorre/.codex/generated_images/01a05f2d-b8bd-7c13-8c60-d3a3f80202d0/exec-5fbf1691-292b-4efe-8e2c-02c685350e0c.png",
+  "filename": "a1_u1_reunion_16_not_eating_v2.webp",
+  "sha256": "439305ddd4efa2c9fbd21ce8ea5e97967f8747160bd3304d73ff1faaaaf09156",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "encoding": "WebP quality 95; no crop, scaling or compositing",
+  "people": [
+    {
+      "id": "drinking",
+      "posture": "standing",
+      "action": "drinking",
+      "evidence": "Glass touches lips; straight legs, both feet on ground."
+    },
+    {
+      "id": "eating",
+      "posture": "standing",
+      "action": "eating",
+      "evidence": "Sandwich at mouth; straight legs, both feet on ground."
+    },
+    {
+      "id": "reading",
+      "posture": "standing",
+      "action": "reading",
+      "evidence": "Older man looks down at open printed newspaper; straight legs."
+    },
+    {
+      "id": "sitting",
+      "posture": "sitting",
+      "action": null,
+      "evidence": "Only chair, hips on seat, knees bent; empty hands on thighs."
+    }
+  ]
+}

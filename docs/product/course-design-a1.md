@@ -278,7 +278,7 @@ The 22 beats have these fixed responsibilities:
 13. Find all four visible actions: `sitting`, `sleeping`, `reading`, and `working`.
 14. Find all four visible actions: `playing`, `studying`, `reading`, and `talking`.
 15. Find all four visible actions: `working`, `cooking`, `talking`, and `reading`.
-16. Use the full contrast `He is not eating. He is drinking.` and then practice the remaining `eating`, `reading`, and `sitting` targets.
+16. Use the full contrast `He is not eating. He is drinking.` and then practice the remaining `eating`, `reading`, and `sitting` targets. The drinker, eater and reader stand with visible straight legs; only the empty-handed fourth man is seated, so each complete clue identifies one person.
 17. Use the full contrast `She is not reading. She is writing.` and then practice the remaining `reading`, `talking`, and `cooking` targets.
 18. Use the full contrast `They are not running. They are sitting.` and then practice the remaining `running`, `talking`, and `playing` groups.
 19. A visitor looks at the learner and indicates the father while asking `Who is he?`. Cut to the closer father shot, show `He is the father.`, and assess the learner pronouncing the written sentence.
