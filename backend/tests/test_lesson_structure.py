@@ -108,7 +108,7 @@ MISSION_HERO_ASSETS = [
         "people_path", "four_people_search", "pronoun_arrival", "age_groups",
         "babies", "brother_sister", "sibling_pairs", "parents", "generations",
         "eat_drink", "read_write", "run_swim", "sit_sleep", "play_study",
-        "work_cook_talk", "not_eating", "not_reading", "not_running",
+        "work_cook_talk", "not_eating_v2", "not_reading", "not_running",
         "who_father", "who_grandmother", "who_parents", "family_arrival",
     ), 1)
 ]

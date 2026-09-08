@@ -41,3 +41,9 @@ issue is unchanged by this scoped pronunciation update. Automated metadata check
 cannot prove that visible distinction. Do not publish a new Preview until the scene
 and its clue/anchor bindings have been corrected and visually checked, or the user
 explicitly approves an exception to the ambiguity release guardrail.
+
+Resolved by the subsequently approved M16 correction: see
+`mission-m16-posture-2026-09-08.md`. The replacement has only one seated person;
+the other three stand. The scene, all four clue bindings and target positions
+were visually checked, and the full Preview preflight passes. The original hold
+above is retained as historical evidence, not an outstanding scene blocker.
