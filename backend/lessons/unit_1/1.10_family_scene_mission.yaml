@@ -10,7 +10,7 @@
   "sub_lesson_id": "1.10",
   "sub_lesson_title": "¡Todos a la celebración!",
   "experience_type": "mission",
-  "content_revision": 4,
+  "content_revision": 5,
   "mission": {
     "label": "MISIÓN FINAL · UNIDAD 1",
     "title": "¡Todos a la celebración!",
@@ -146,12 +146,33 @@
           "label": "A woman."
         }
       ],
-      "audio_text": "A boy.",
+      "audio_text": "A boy. A girl. A man. A woman.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_01_people_path.webp",
+      "correct_option_ids": [
+        "boy",
+        "girl",
+        "man",
+        "woman"
+      ],
       "audio_turns": [
         {
           "text": "A boy.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_01_people_path.webp"
+        },
+        {
+          "text": "A girl.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_01_people_path.webp"
+        },
+        {
+          "text": "A man.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_01_people_path.webp"
+        },
+        {
+          "text": "A woman.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_01_people_path.webp"
         }
@@ -159,7 +180,7 @@
       "mission_game": {
         "kind": "guided-search",
         "instruction_es": "Escucha y toca a la persona.",
-        "validation": "single",
+        "validation": "ordered",
         "targets": [
           {
             "id": "boy",
@@ -221,6 +242,27 @@
             "answer_text": "A boy.",
             "target_id": "boy",
             "option_id": "boy"
+          },
+          {
+            "id": "practice-girl",
+            "text": "A girl.",
+            "answer_text": "A girl.",
+            "target_id": "girl",
+            "option_id": "girl"
+          },
+          {
+            "id": "practice-man",
+            "text": "A man.",
+            "answer_text": "A man.",
+            "target_id": "man",
+            "option_id": "man"
+          },
+          {
+            "id": "practice-woman",
+            "text": "A woman.",
+            "answer_text": "A woman.",
+            "target_id": "woman",
+            "option_id": "woman"
           }
         ],
         "tutorial_mode": "guided-no-fail"
@@ -257,13 +299,14 @@
           "label": "A boy."
         }
       ],
-      "audio_text": "A girl. A man. A woman.",
+      "audio_text": "A girl. A man. A woman. A boy.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp",
       "correct_option_ids": [
         "girl",
         "man",
-        "woman"
+        "woman",
+        "boy"
       ],
       "audio_turns": [
         {
@@ -278,6 +321,11 @@
         },
         {
           "text": "A woman.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp"
+        },
+        {
+          "text": "A boy.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_02_four_people_search.webp"
         }
@@ -361,6 +409,13 @@
             "answer_text": "A woman.",
             "target_id": "woman",
             "option_id": "woman"
+          },
+          {
+            "id": "practice-boy",
+            "text": "A boy.",
+            "answer_text": "A boy.",
+            "target_id": "boy",
+            "option_id": "boy"
           }
         ]
       },
@@ -762,12 +817,14 @@
           "label": "They are children."
         }
       ],
-      "audio_text": "A baby is a child. Babies are children.",
+      "audio_text": "A baby is a child. Babies are children. A boy. They are children.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_05_babies.webp",
       "correct_option_ids": [
         "baby-child",
-        "babies-children"
+        "babies-children",
+        "boy",
+        "children"
       ],
       "audio_turns": [
         {
@@ -777,6 +834,16 @@
         },
         {
           "text": "Babies are children.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_05_babies.webp"
+        },
+        {
+          "text": "A boy.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_05_babies.webp"
+        },
+        {
+          "text": "They are children.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_05_babies.webp"
         }
@@ -801,7 +868,7 @@
           },
           {
             "id": "three-babies",
-            "label_es": "Persona",
+            "label_es": "Grupo",
             "rect": {
               "x": 0.605,
               "y": 0.255,
@@ -853,6 +920,20 @@
             "answer_text": "Babies are children.",
             "target_id": "three-babies",
             "option_id": "babies-children"
+          },
+          {
+            "id": "practice-boy",
+            "text": "A boy.",
+            "answer_text": "A boy.",
+            "target_id": "boy",
+            "option_id": "boy"
+          },
+          {
+            "id": "practice-children",
+            "text": "They are children.",
+            "answer_text": "They are children.",
+            "target_id": "children",
+            "option_id": "children"
           }
         ]
       },
@@ -888,12 +969,14 @@
           "label": "She is the mother."
         }
       ],
-      "audio_text": "He is the brother. She is the sister.",
+      "audio_text": "He is the brother. She is the sister. He is the father. She is the mother.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp",
       "correct_option_ids": [
         "brother",
-        "sister"
+        "sister",
+        "father",
+        "mother"
       ],
       "audio_turns": [
         {
@@ -905,6 +988,16 @@
           "text": "She is the sister.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp"
+        },
+        {
+          "text": "He is the father.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp"
+        },
+        {
+          "text": "She is the mother.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_06_brother_sister.webp"
         }
       ],
       "mission_game": {
@@ -913,11 +1006,24 @@
         "validation": "ordered",
         "targets": [
           {
+            "id": "father",
+            "label_es": "Persona",
+            "rect": {
+              "x": 0.14999999999999997,
+              "y": 0.345,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "father"
+            ]
+          },
+          {
             "id": "brother",
             "label_es": "Persona",
             "rect": {
-              "x": 0.245,
-              "y": 0.465,
+              "x": 0.32999999999999996,
+              "y": 0.365,
               "width": 0.17,
               "height": 0.17
             },
@@ -929,8 +1035,8 @@
             "id": "sister",
             "label_es": "Persona",
             "rect": {
-              "x": 0.5750000000000001,
-              "y": 0.465,
+              "x": 0.53,
+              "y": 0.365,
               "width": 0.17,
               "height": 0.17
             },
@@ -939,24 +1045,11 @@
             ]
           },
           {
-            "id": "father",
-            "label_es": "Persona",
-            "rect": {
-              "x": 0.0049999999999999906,
-              "y": 0.21499999999999997,
-              "width": 0.17,
-              "height": 0.17
-            },
-            "accepted_option_ids": [
-              "father"
-            ]
-          },
-          {
             "id": "mother",
             "label_es": "Persona",
             "rect": {
-              "x": 0.8150000000000001,
-              "y": 0.21499999999999997,
+              "x": 0.7100000000000001,
+              "y": 0.345,
               "width": 0.17,
               "height": 0.17
             },
@@ -979,6 +1072,20 @@
             "answer_text": "She is the sister.",
             "target_id": "sister",
             "option_id": "sister"
+          },
+          {
+            "id": "practice-father",
+            "text": "He is the father.",
+            "answer_text": "He is the father.",
+            "target_id": "father",
+            "option_id": "father"
+          },
+          {
+            "id": "practice-mother",
+            "text": "She is the mother.",
+            "answer_text": "She is the mother.",
+            "target_id": "mother",
+            "option_id": "mother"
           }
         ]
       },
@@ -1014,12 +1121,14 @@
           "label": "They are the grandparents."
         }
       ],
-      "audio_text": "They are the brothers. They are the sisters.",
+      "audio_text": "They are the brothers. They are the sisters. They are the parents. They are the grandparents.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp",
       "correct_option_ids": [
         "brothers",
-        "sisters"
+        "sisters",
+        "parents",
+        "grandparents"
       ],
       "audio_turns": [
         {
@@ -1031,6 +1140,16 @@
           "text": "They are the sisters.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp"
+        },
+        {
+          "text": "They are the parents.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp"
+        },
+        {
+          "text": "They are the grandparents.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_07_sibling_pairs.webp"
         }
       ],
       "mission_game": {
@@ -1039,11 +1158,37 @@
         "validation": "ordered",
         "targets": [
           {
+            "id": "parents",
+            "label_es": "Pareja",
+            "rect": {
+              "x": 0.19,
+              "y": 0.16999999999999998,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "parents"
+            ]
+          },
+          {
+            "id": "grandparents",
+            "label_es": "Pareja",
+            "rect": {
+              "x": 0.6000000000000001,
+              "y": 0.16499999999999998,
+              "width": 0.17,
+              "height": 0.17
+            },
+            "accepted_option_ids": [
+              "grandparents"
+            ]
+          },
+          {
             "id": "brothers",
             "label_es": "Grupo",
             "rect": {
-              "x": 0.14500000000000002,
-              "y": 0.435,
+              "x": 0.3,
+              "y": 0.5950000000000001,
               "width": 0.17,
               "height": 0.17
             },
@@ -1055,39 +1200,13 @@
             "id": "sisters",
             "label_es": "Grupo",
             "rect": {
-              "x": 0.685,
-              "y": 0.435,
+              "x": 0.545,
+              "y": 0.5950000000000001,
               "width": 0.17,
               "height": 0.17
             },
             "accepted_option_ids": [
               "sisters"
-            ]
-          },
-          {
-            "id": "parents",
-            "label_es": "Grupo",
-            "rect": {
-              "x": 0.415,
-              "y": 0.09499999999999999,
-              "width": 0.17,
-              "height": 0.17
-            },
-            "accepted_option_ids": [
-              "parents"
-            ]
-          },
-          {
-            "id": "grandparents",
-            "label_es": "Grupo",
-            "rect": {
-              "x": 0.415,
-              "y": 0.615,
-              "width": 0.17,
-              "height": 0.17
-            },
-            "accepted_option_ids": [
-              "grandparents"
             ]
           }
         ],
@@ -1105,6 +1224,20 @@
             "answer_text": "They are the sisters.",
             "target_id": "sisters",
             "option_id": "sisters"
+          },
+          {
+            "id": "practice-parents",
+            "text": "They are the parents.",
+            "answer_text": "They are the parents.",
+            "target_id": "parents",
+            "option_id": "parents"
+          },
+          {
+            "id": "practice-grandparents",
+            "text": "They are the grandparents.",
+            "answer_text": "They are the grandparents.",
+            "target_id": "grandparents",
+            "option_id": "grandparents"
           }
         ]
       },
@@ -1140,13 +1273,14 @@
           "label": "They are the children."
         }
       ],
-      "audio_text": "He is the father. She is the mother. They are the parents.",
+      "audio_text": "He is the father. She is the mother. They are the parents. They are the children.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_08_parents.webp",
       "correct_option_ids": [
         "father",
         "mother",
-        "parents"
+        "parents",
+        "children"
       ],
       "audio_turns": [
         {
@@ -1163,6 +1297,11 @@
           "text": "They are the parents.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_08_parents.webp"
+        },
+        {
+          "text": "They are the children.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_08_parents.webp"
         }
       ],
       "mission_game": {
@@ -1174,8 +1313,8 @@
             "id": "father",
             "label_es": "Persona",
             "rect": {
-              "x": 0.235,
-              "y": 0.365,
+              "x": 0.16499999999999998,
+              "y": 0.26499999999999996,
               "width": 0.17,
               "height": 0.17
             },
@@ -1187,8 +1326,8 @@
             "id": "mother",
             "label_es": "Persona",
             "rect": {
-              "x": 0.5950000000000001,
-              "y": 0.365,
+              "x": 0.27499999999999997,
+              "y": 0.425,
               "width": 0.17,
               "height": 0.17
             },
@@ -1200,8 +1339,8 @@
             "id": "parents",
             "label_es": "Pareja",
             "rect": {
-              "x": 0.415,
-              "y": 0.735,
+              "x": 0.21999999999999997,
+              "y": 0.5750000000000001,
               "width": 0.17,
               "height": 0.17
             },
@@ -1213,8 +1352,8 @@
             "id": "children",
             "label_es": "Grupo",
             "rect": {
-              "x": 0.415,
-              "y": 0.09499999999999999,
+              "x": 0.635,
+              "y": 0.465,
               "width": 0.17,
               "height": 0.17
             },
@@ -1244,6 +1383,13 @@
             "answer_text": "They are the parents.",
             "target_id": "parents",
             "option_id": "parents"
+          },
+          {
+            "id": "practice-children",
+            "text": "They are the children.",
+            "answer_text": "They are the children.",
+            "target_id": "children",
+            "option_id": "children"
           }
         ]
       },
@@ -1431,12 +1577,14 @@
           "label": "He is sitting."
         }
       ],
-      "audio_text": "She is eating. He is drinking.",
+      "audio_text": "She is eating. He is drinking. She is reading. He is sitting.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp",
       "correct_option_ids": [
         "eating",
-        "drinking"
+        "drinking",
+        "reading",
+        "sitting"
       ],
       "audio_turns": [
         {
@@ -1446,6 +1594,16 @@
         },
         {
           "text": "He is drinking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp"
+        },
+        {
+          "text": "She is reading.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp"
+        },
+        {
+          "text": "He is sitting.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_10_eat_drink.webp"
         }
@@ -1522,6 +1680,20 @@
             "answer_text": "He is drinking.",
             "target_id": "drinking",
             "option_id": "drinking"
+          },
+          {
+            "id": "practice-reading",
+            "text": "She is reading.",
+            "answer_text": "She is reading.",
+            "target_id": "reading",
+            "option_id": "reading"
+          },
+          {
+            "id": "practice-sitting",
+            "text": "He is sitting.",
+            "answer_text": "He is sitting.",
+            "target_id": "sitting",
+            "option_id": "sitting"
           }
         ]
       },
@@ -1557,12 +1729,14 @@
           "label": "He is drinking."
         }
       ],
-      "audio_text": "She is reading. He is writing.",
+      "audio_text": "She is reading. He is writing. She is talking. He is drinking.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_11_read_write.webp",
       "correct_option_ids": [
         "reading",
-        "writing"
+        "writing",
+        "talking",
+        "drinking"
       ],
       "audio_turns": [
         {
@@ -1572,6 +1746,16 @@
         },
         {
           "text": "He is writing.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_11_read_write.webp"
+        },
+        {
+          "text": "She is talking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_11_read_write.webp"
+        },
+        {
+          "text": "He is drinking.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_11_read_write.webp"
         }
@@ -1648,6 +1832,20 @@
             "answer_text": "He is writing.",
             "target_id": "writing",
             "option_id": "writing"
+          },
+          {
+            "id": "practice-talking",
+            "text": "She is talking.",
+            "answer_text": "She is talking.",
+            "target_id": "talking",
+            "option_id": "talking"
+          },
+          {
+            "id": "practice-drinking",
+            "text": "He is drinking.",
+            "answer_text": "He is drinking.",
+            "target_id": "drinking",
+            "option_id": "drinking"
           }
         ]
       },
@@ -1683,12 +1881,14 @@
           "label": "She is talking."
         }
       ],
-      "audio_text": "She is running. She is swimming.",
+      "audio_text": "She is running. She is swimming. She is sitting. She is talking.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_12_run_swim.webp",
       "correct_option_ids": [
         "running",
-        "swimming"
+        "swimming",
+        "sitting",
+        "talking"
       ],
       "audio_turns": [
         {
@@ -1698,6 +1898,16 @@
         },
         {
           "text": "She is swimming.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_12_run_swim.webp"
+        },
+        {
+          "text": "She is sitting.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_12_run_swim.webp"
+        },
+        {
+          "text": "She is talking.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_12_run_swim.webp"
         }
@@ -1774,6 +1984,20 @@
             "answer_text": "She is swimming.",
             "target_id": "swimming",
             "option_id": "swimming"
+          },
+          {
+            "id": "practice-sitting",
+            "text": "She is sitting.",
+            "answer_text": "She is sitting.",
+            "target_id": "sitting",
+            "option_id": "sitting"
+          },
+          {
+            "id": "practice-talking",
+            "text": "She is talking.",
+            "answer_text": "She is talking.",
+            "target_id": "talking",
+            "option_id": "talking"
           }
         ]
       },
@@ -1809,12 +2033,14 @@
           "label": "She is working."
         }
       ],
-      "audio_text": "He is sitting. She is sleeping.",
+      "audio_text": "He is sitting. She is sleeping. He is reading. She is working.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp",
       "correct_option_ids": [
         "sitting",
-        "sleeping"
+        "sleeping",
+        "reading",
+        "working"
       ],
       "audio_turns": [
         {
@@ -1824,6 +2050,16 @@
         },
         {
           "text": "She is sleeping.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp"
+        },
+        {
+          "text": "He is reading.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp"
+        },
+        {
+          "text": "She is working.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_13_sit_sleep.webp"
         }
@@ -1900,6 +2136,20 @@
             "answer_text": "She is sleeping.",
             "target_id": "sleeping",
             "option_id": "sleeping"
+          },
+          {
+            "id": "practice-reading",
+            "text": "He is reading.",
+            "answer_text": "He is reading.",
+            "target_id": "reading",
+            "option_id": "reading"
+          },
+          {
+            "id": "practice-working",
+            "text": "She is working.",
+            "answer_text": "She is working.",
+            "target_id": "working",
+            "option_id": "working"
           }
         ]
       },
@@ -1935,12 +2185,14 @@
           "label": "She is talking."
         }
       ],
-      "audio_text": "They are playing. She is studying.",
+      "audio_text": "They are playing. She is studying. They are reading. She is talking.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_14_play_study.webp",
       "correct_option_ids": [
         "playing",
-        "studying"
+        "studying",
+        "reading",
+        "talking"
       ],
       "audio_turns": [
         {
@@ -1950,6 +2202,16 @@
         },
         {
           "text": "She is studying.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_14_play_study.webp"
+        },
+        {
+          "text": "They are reading.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_14_play_study.webp"
+        },
+        {
+          "text": "She is talking.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_14_play_study.webp"
         }
@@ -2026,6 +2288,20 @@
             "answer_text": "She is studying.",
             "target_id": "studying",
             "option_id": "studying"
+          },
+          {
+            "id": "practice-reading",
+            "text": "They are reading.",
+            "answer_text": "They are reading.",
+            "target_id": "reading",
+            "option_id": "reading"
+          },
+          {
+            "id": "practice-talking",
+            "text": "She is talking.",
+            "answer_text": "She is talking.",
+            "target_id": "talking",
+            "option_id": "talking"
           }
         ]
       },
@@ -2061,13 +2337,14 @@
           "label": "He is reading."
         }
       ],
-      "audio_text": "She is working. He is cooking. They are talking.",
+      "audio_text": "She is working. He is cooking. They are talking. He is reading.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp",
       "correct_option_ids": [
         "working",
         "cooking",
-        "talking"
+        "talking",
+        "reading"
       ],
       "audio_turns": [
         {
@@ -2082,6 +2359,11 @@
         },
         {
           "text": "They are talking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp"
+        },
+        {
+          "text": "He is reading.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp"
         }
@@ -2165,6 +2447,13 @@
             "answer_text": "They are talking.",
             "target_id": "talking",
             "option_id": "talking"
+          },
+          {
+            "id": "practice-reading",
+            "text": "He is reading.",
+            "answer_text": "He is reading.",
+            "target_id": "reading",
+            "option_id": "reading"
           }
         ]
       },
@@ -2200,12 +2489,33 @@
           "label": "He is sitting."
         }
       ],
-      "audio_text": "He is not eating. He is drinking.",
+      "audio_text": "He is not eating. He is drinking. He is eating. He is reading. He is sitting.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_16_not_eating.webp",
+      "correct_option_ids": [
+        "not-eating",
+        "eating",
+        "reading",
+        "sitting"
+      ],
       "audio_turns": [
         {
           "text": "He is not eating. He is drinking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_16_not_eating.webp"
+        },
+        {
+          "text": "He is eating.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_16_not_eating.webp"
+        },
+        {
+          "text": "He is reading.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_16_not_eating.webp"
+        },
+        {
+          "text": "He is sitting.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_16_not_eating.webp"
         }
@@ -2213,7 +2523,7 @@
       "mission_game": {
         "kind": "contrast-hunt",
         "instruction_es": "Escucha la frase completa y encuentra a quién describe.",
-        "validation": "single",
+        "validation": "ordered",
         "targets": [
           {
             "id": "drinking",
@@ -2275,6 +2585,27 @@
             "answer_text": "He is not eating. He is drinking.",
             "target_id": "drinking",
             "option_id": "not-eating"
+          },
+          {
+            "id": "practice-eating",
+            "text": "He is eating.",
+            "answer_text": "He is eating.",
+            "target_id": "eating",
+            "option_id": "eating"
+          },
+          {
+            "id": "practice-reading",
+            "text": "He is reading.",
+            "answer_text": "He is reading.",
+            "target_id": "reading",
+            "option_id": "reading"
+          },
+          {
+            "id": "practice-sitting",
+            "text": "He is sitting.",
+            "answer_text": "He is sitting.",
+            "target_id": "sitting",
+            "option_id": "sitting"
           }
         ]
       },
@@ -2310,12 +2641,33 @@
           "label": "She is cooking."
         }
       ],
-      "audio_text": "She is not reading. She is writing.",
+      "audio_text": "She is not reading. She is writing. She is reading. She is talking. She is cooking.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_17_not_reading.webp",
+      "correct_option_ids": [
+        "not-reading",
+        "reading",
+        "talking",
+        "cooking"
+      ],
       "audio_turns": [
         {
           "text": "She is not reading. She is writing.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_17_not_reading.webp"
+        },
+        {
+          "text": "She is reading.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_17_not_reading.webp"
+        },
+        {
+          "text": "She is talking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_17_not_reading.webp"
+        },
+        {
+          "text": "She is cooking.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_17_not_reading.webp"
         }
@@ -2323,7 +2675,7 @@
       "mission_game": {
         "kind": "contrast-hunt",
         "instruction_es": "Escucha la frase completa y encuentra a quién describe.",
-        "validation": "single",
+        "validation": "ordered",
         "targets": [
           {
             "id": "writing",
@@ -2385,6 +2737,27 @@
             "answer_text": "She is not reading. She is writing.",
             "target_id": "writing",
             "option_id": "not-reading"
+          },
+          {
+            "id": "practice-reading",
+            "text": "She is reading.",
+            "answer_text": "She is reading.",
+            "target_id": "reading",
+            "option_id": "reading"
+          },
+          {
+            "id": "practice-talking",
+            "text": "She is talking.",
+            "answer_text": "She is talking.",
+            "target_id": "talking",
+            "option_id": "talking"
+          },
+          {
+            "id": "practice-cooking",
+            "text": "She is cooking.",
+            "answer_text": "She is cooking.",
+            "target_id": "cooking",
+            "option_id": "cooking"
           }
         ]
       },
@@ -2420,12 +2793,33 @@
           "label": "They are playing."
         }
       ],
-      "audio_text": "They are not running. They are sitting.",
+      "audio_text": "They are not running. They are sitting. They are running. They are talking. They are playing.",
       "answer_audio_text": null,
       "prompt_image_url": "/lesson-assets/a1_u1_reunion_18_not_running.webp",
+      "correct_option_ids": [
+        "not-running",
+        "running",
+        "talking",
+        "playing"
+      ],
       "audio_turns": [
         {
           "text": "They are not running. They are sitting.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_18_not_running.webp"
+        },
+        {
+          "text": "They are running.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_18_not_running.webp"
+        },
+        {
+          "text": "They are talking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u1_reunion_18_not_running.webp"
+        },
+        {
+          "text": "They are playing.",
           "speaker_role": "teacher",
           "image_url": "/lesson-assets/a1_u1_reunion_18_not_running.webp"
         }
@@ -2433,7 +2827,7 @@
       "mission_game": {
         "kind": "contrast-hunt",
         "instruction_es": "Escucha la frase completa y encuentra al grupo.",
-        "validation": "single",
+        "validation": "ordered",
         "targets": [
           {
             "id": "sitting",
@@ -2495,6 +2889,27 @@
             "answer_text": "They are not running. They are sitting.",
             "target_id": "sitting",
             "option_id": "not-running"
+          },
+          {
+            "id": "practice-running",
+            "text": "They are running.",
+            "answer_text": "They are running.",
+            "target_id": "running",
+            "option_id": "running"
+          },
+          {
+            "id": "practice-talking",
+            "text": "They are talking.",
+            "answer_text": "They are talking.",
+            "target_id": "talking",
+            "option_id": "talking"
+          },
+          {
+            "id": "practice-playing",
+            "text": "They are playing.",
+            "answer_text": "They are playing.",
+            "target_id": "playing",
+            "option_id": "playing"
           }
         ]
       },

@@ -1,8 +1,15 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import {
+  fitMissionSceneFrame,
+  isCollectiveMissionTarget,
+  missionPersonTargetSize,
+  MISSION_SCENE_BORDER_WIDTH,
+  missionTargetTouchWidth,
+} from '../missionSceneGeometry';
 import type { LessonCard, MissionGame, MissionGameTarget } from '../types';
 import { OptionMediaImage } from './OptionMediaImage';
 
@@ -27,8 +34,6 @@ const KIND_LABELS: Record<MissionGame['kind'], string> = {
   'voice-gate': 'RETO DE VOZ',
 };
 
-const DOT_SIZE = 58;
-
 function percent(value: number): `${number}%` {
   return `${Math.round(value * 10000) / 100}%`;
 }
@@ -45,17 +50,22 @@ function TargetDot({
   isSolved,
   isWrong,
   onPress,
+  sceneCanvasWidth,
   target,
 }: {
   disabled: boolean;
   isSolved: boolean;
   isWrong: boolean;
   onPress: () => void;
+  sceneCanvasWidth: number;
   target: MissionGameTarget;
 }) {
   const reduceMotion = useReducedMotion();
   const pulse = useRef(new Animated.Value(0)).current;
   const center = targetCenter(target);
+  const collective = isCollectiveMissionTarget(target.label_es);
+  const targetHeight = missionPersonTargetSize(sceneCanvasWidth);
+  const targetWidth = missionTargetTouchWidth(sceneCanvasWidth, collective);
 
   useEffect(() => {
     pulse.stopAnimation();
@@ -95,7 +105,9 @@ function TargetDot({
         {
           left: percent(center.x),
           top: percent(center.y),
-          transform: [{ translateX: -DOT_SIZE / 2 }, { translateY: -DOT_SIZE / 2 }],
+          height: targetHeight,
+          transform: [{ translateX: -targetWidth / 2 }, { translateY: -targetHeight / 2 }],
+          width: targetWidth,
         },
       ]}
     >
@@ -103,19 +115,30 @@ function TargetDot({
         pointerEvents="none"
         style={[
           styles.pulseRing,
+          collective ? [styles.pulseRingCollective, { width: targetWidth - 8 }] : null,
           isWrong ? styles.pulseRingWrong : null,
           {
             opacity: pulse.interpolate({ inputRange: [0, 1], outputRange: [0.72, 0.06] }),
-            transform: [{ scale: pulse.interpolate({ inputRange: [0, 1], outputRange: [0.78, 1.7] }) }],
+            transform: [{
+              scale: pulse.interpolate({
+                inputRange: [0, 1],
+                outputRange: collective ? [0.9, 1.18] : [0.78, 1.7],
+              }),
+            }],
           },
         ]}
       />
       <View style={[
         styles.targetDot,
+        collective ? [styles.targetDotCollective, { width: targetWidth - 14 }] : null,
         isWrong ? styles.targetDotWrong : null,
         isSolved ? styles.targetDotSolved : null,
       ]}>
-        <Ionicons color="#fff" name={isSolved ? 'checkmark' : 'radio-button-on'} size={isSolved ? 22 : 16} />
+        <Ionicons
+          color="#fff"
+          name={isSolved ? 'checkmark' : collective ? 'people' : 'radio-button-on'}
+          size={isSolved ? 22 : collective ? 18 : 16}
+        />
       </View>
     </Pressable>
   );
@@ -130,22 +153,33 @@ export function MissionGameSurface({
   onSubmit,
   result,
 }: Props) {
+  const { height: viewportHeight, width: viewportWidth } = useWindowDimensions();
   const game = card.mission_game;
   const [cueIndex, setCueIndex] = useState(0);
   const [feedback, setFeedback] = useState('');
   const [solvedTargetIds, setSolvedTargetIds] = useState<string[]>([]);
   const [wrongTargetId, setWrongTargetId] = useState<string | null>(null);
+  const [sceneSlotSize, setSceneSlotSize] = useState({ height: 0, width: 0 });
   const transitionTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentCue = game.cues[cueIndex] ?? game.cues[0];
   const heroImageUrl = card.prompt_image_url
     || card.options.find((option) => option.image_url)?.image_url
     || '';
   const guided = game.tutorial_mode === 'guided-no-fail';
+  const useLandscapeGameRail = viewportWidth > viewportHeight && viewportHeight < 600;
   const resolving = Boolean(feedback);
   const disabled = !interactionReady || resolving || result === 'correct';
   const cueProgress = useMemo(
     () => `${Math.min(cueIndex + 1, game.cues.length)} de ${game.cues.length}`,
     [cueIndex, game.cues.length],
+  );
+  const sceneFrame = useMemo(
+    () => fitMissionSceneFrame(
+      sceneSlotSize.width,
+      sceneSlotSize.height,
+      MISSION_SCENE_BORDER_WIDTH,
+    ),
+    [sceneSlotSize.height, sceneSlotSize.width],
   );
 
   useEffect(() => {
@@ -192,101 +226,131 @@ export function MissionGameSurface({
 
   if (!currentCue || !heroImageUrl) return null;
 
-  return (
-    <View style={styles.surface}>
-      <View style={styles.instructionPanel}>
-        <View style={styles.instructionCopy}>
-          <View style={styles.instructionMeta}>
-            <Text style={styles.kindLabel}>{KIND_LABELS[game.kind]}</Text>
-            <Text style={styles.cueProgress}>PISTA {cueProgress}</Text>
-          </View>
-          <Text adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={2} style={styles.instruction}>
-            {game.instruction_es}
-          </Text>
+  const instructionPanel = (
+    <View style={styles.instructionPanel}>
+      <View style={styles.instructionCopy}>
+        <View style={styles.instructionMeta}>
+          <Text style={styles.kindLabel}>{KIND_LABELS[game.kind]}</Text>
+          <Text style={styles.cueProgress}>PISTA {cueProgress}</Text>
         </View>
-        <Pressable
-          accessibilityHint="Reproduce otra vez la frase en inglés."
-          accessibilityLabel="Repetir la frase"
-          accessibilityRole="button"
-          disabled={resolving || result === 'correct'}
-          hitSlop={7}
-          onPress={() => onCueRequest(cueIndex)}
-          style={({ pressed }) => [
-            styles.audioButton,
-            !interactionReady && !cueUnavailable ? styles.audioButtonPlaying : null,
-            cueUnavailable ? styles.audioButtonRetry : null,
-            pressed ? styles.pressed : null,
+        <Text adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={2} style={styles.instruction}>
+          {game.instruction_es}
+        </Text>
+      </View>
+      <Pressable
+        accessibilityHint="Reproduce otra vez la frase en inglés."
+        accessibilityLabel="Repetir la frase"
+        accessibilityRole="button"
+        disabled={resolving || result === 'correct'}
+        hitSlop={7}
+        onPress={() => onCueRequest(cueIndex)}
+        style={({ pressed }) => [
+          styles.audioButton,
+          !interactionReady && !cueUnavailable ? styles.audioButtonPlaying : null,
+          cueUnavailable ? styles.audioButtonRetry : null,
+          pressed ? styles.pressed : null,
+        ]}
+      >
+        <Ionicons
+          color="#fff"
+          name={cueUnavailable || interactionReady ? 'volume-high' : 'volume-medium'}
+          size={23}
+        />
+      </Pressable>
+    </View>
+  );
+  const progressDots = (
+    <View style={styles.progressDots}>
+      {game.cues.map((cue, index) => (
+        <View
+          accessibilityLabel={`Pista ${index + 1}`}
+          key={cue.id}
+          style={[
+            styles.progressDot,
+            index < cueIndex ? styles.progressDotDone : null,
+            index === cueIndex ? styles.progressDotCurrent : null,
           ]}
-        >
-          <Ionicons
-            color="#fff"
-            name={cueUnavailable || interactionReady ? 'volume-high' : 'volume-medium'}
-            size={23}
-          />
-        </Pressable>
-      </View>
+        />
+      ))}
+    </View>
+  );
 
-      <View style={styles.imageFrame}>
-        <OptionMediaImage accessibilityLabel="Escena de la misión" imageUrl={heroImageUrl} />
-        <View pointerEvents={disabled ? 'none' : 'auto'} style={StyleSheet.absoluteFill}>
-          {game.targets.map((target) => (
-            <TargetDot
-              disabled={disabled}
-              isSolved={solvedTargetIds.includes(target.id)}
-              isWrong={wrongTargetId === target.id}
-              key={target.id}
-              onPress={() => chooseTarget(target)}
-              target={target}
-            />
-          ))}
+  return (
+    <View style={[styles.surface, useLandscapeGameRail ? styles.surfaceLandscape : null]}>
+      {useLandscapeGameRail ? (
+        <View style={styles.landscapeRail}>
+          {instructionPanel}
+          {progressDots}
         </View>
+      ) : instructionPanel}
 
-        {!interactionReady && !feedback && !cueUnavailable ? (
-          <View pointerEvents="none" style={styles.listeningBadge}>
-            <Ionicons color="#fff" name="ear" size={18} />
-            <Text style={styles.listeningText}>Escucha…</Text>
-          </View>
-        ) : null}
+      <View
+        onLayout={({ nativeEvent }) => {
+          const width = Math.round(nativeEvent.layout.width * 2) / 2;
+          const height = Math.round(nativeEvent.layout.height * 2) / 2;
+          setSceneSlotSize((current) => (
+            current.width === width && current.height === height ? current : { height, width }
+          ));
+        }}
+        style={[styles.sceneSlot, useLandscapeGameRail ? styles.sceneSlotLandscape : null]}
+      >
+        {sceneFrame.width > 0 && sceneFrame.height > 0 ? (
+          <View style={[styles.imageFrame, { height: sceneFrame.height, width: sceneFrame.width }]}>
+            <View style={styles.sceneCanvas}>
+              <OptionMediaImage accessibilityLabel="Escena de la misión" imageUrl={heroImageUrl} />
+              <View pointerEvents={disabled ? 'none' : 'auto'} style={StyleSheet.absoluteFill}>
+                {game.targets.map((target) => (
+                  <TargetDot
+                    disabled={disabled}
+                    isSolved={solvedTargetIds.includes(target.id)}
+                    isWrong={wrongTargetId === target.id}
+                    key={target.id}
+                    onPress={() => chooseTarget(target)}
+                    sceneCanvasWidth={sceneFrame.canvasWidth}
+                    target={target}
+                  />
+                ))}
+              </View>
 
-        {cueUnavailable && !feedback ? (
-          <View accessibilityLiveRegion="assertive" pointerEvents="none" style={styles.retryBadge}>
-            <Ionicons color="#fff" name="volume-high" size={19} />
-            <Text style={styles.retryText}>No se escuchó. Toca 🔊 para repetir.</Text>
-          </View>
-        ) : null}
+              {!interactionReady && !feedback && !cueUnavailable ? (
+                <View pointerEvents="none" style={styles.listeningBadge}>
+                  <Ionicons color="#fff" name="ear" size={18} />
+                  <Text style={styles.listeningText}>Escucha…</Text>
+                </View>
+              ) : null}
 
-        {feedback ? (
-          <View accessibilityLiveRegion="polite" pointerEvents="none" style={[
-            styles.feedback,
-            wrongTargetId ? styles.feedbackWrong : styles.feedbackCorrect,
-          ]}>
-            <Ionicons color="#fff" name={wrongTargetId ? 'ear' : 'checkmark-circle'} size={22} />
-            <Text adjustsFontSizeToFit minimumFontScale={0.74} numberOfLines={2} style={styles.feedbackText}>
-              {feedback}
-            </Text>
+              {cueUnavailable && !feedback ? (
+                <View accessibilityLiveRegion="assertive" pointerEvents="none" style={styles.retryBadge}>
+                  <Ionicons color="#fff" name="volume-high" size={19} />
+                  <Text style={styles.retryText}>No se escuchó. Toca 🔊 para repetir.</Text>
+                </View>
+              ) : null}
+
+              {feedback ? (
+                <View accessibilityLiveRegion="polite" pointerEvents="none" style={[
+                  styles.feedback,
+                  wrongTargetId ? styles.feedbackWrong : styles.feedbackCorrect,
+                ]}>
+                  <Ionicons color="#fff" name={wrongTargetId ? 'ear' : 'checkmark-circle'} size={22} />
+                  <Text adjustsFontSizeToFit minimumFontScale={0.74} numberOfLines={2} style={styles.feedbackText}>
+                    {feedback}
+                  </Text>
+                </View>
+              ) : null}
+            </View>
           </View>
         ) : null}
       </View>
 
-      <View style={styles.progressDots}>
-        {game.cues.map((cue, index) => (
-          <View
-            accessibilityLabel={`Pista ${index + 1}`}
-            key={cue.id}
-            style={[
-              styles.progressDot,
-              index < cueIndex ? styles.progressDotDone : null,
-              index === cueIndex ? styles.progressDotCurrent : null,
-            ]}
-          />
-        ))}
-      </View>
+      {!useLandscapeGameRail ? progressDots : null}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   surface: { alignSelf: 'center', flex: 1, gap: 8, maxWidth: 900, minHeight: 0, width: '100%' },
+  surfaceLandscape: { flexDirection: 'row' },
+  landscapeRail: { flexBasis: '34%', flexGrow: 0, flexShrink: 1, gap: 8, justifyContent: 'space-between', maxWidth: 320, minWidth: 210 },
   instructionPanel: { alignItems: 'center', backgroundColor: '#fffdf7', borderColor: '#9bcdbf', borderRadius: 17, borderWidth: 1.5, flexDirection: 'row', gap: 10, paddingHorizontal: 12, paddingVertical: 8 },
   instructionCopy: { flex: 1, minWidth: 0 },
   instructionMeta: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
@@ -296,11 +360,16 @@ const styles = StyleSheet.create({
   audioButton: { alignItems: 'center', backgroundColor: '#278c73', borderRadius: 15, height: 48, justifyContent: 'center', width: 48 },
   audioButtonPlaying: { backgroundColor: '#d06845' },
   audioButtonRetry: { backgroundColor: '#b9553f' },
-  imageFrame: { backgroundColor: '#dbe8e2', borderColor: '#fff', borderRadius: 22, borderWidth: 4, flex: 1, minHeight: 210, overflow: 'hidden', position: 'relative', width: '100%' },
-  targetHitArea: { alignItems: 'center', height: DOT_SIZE, justifyContent: 'center', position: 'absolute', width: DOT_SIZE },
+  sceneSlot: { alignItems: 'center', flex: 1, justifyContent: 'center', minHeight: 0, width: '100%' },
+  sceneSlotLandscape: { width: 'auto' },
+  imageFrame: { backgroundColor: '#dbe8e2', borderColor: '#fff', borderRadius: 22, borderWidth: MISSION_SCENE_BORDER_WIDTH, overflow: 'hidden' },
+  sceneCanvas: { borderRadius: 18, flex: 1, overflow: 'hidden', position: 'relative' },
+  targetHitArea: { alignItems: 'center', justifyContent: 'center', position: 'absolute' },
   pulseRing: { backgroundColor: 'rgba(255,255,255,0.72)', borderColor: '#f4c75f', borderRadius: 999, borderWidth: 3, height: 38, position: 'absolute', width: 38 },
+  pulseRingCollective: { height: 42 },
   pulseRingWrong: { borderColor: '#e15d52' },
   targetDot: { alignItems: 'center', backgroundColor: '#245f53', borderColor: '#fff', borderRadius: 999, borderWidth: 3, elevation: 6, height: 38, justifyContent: 'center', shadowColor: '#173a34', shadowOffset: { height: 2, width: 0 }, shadowOpacity: 0.34, shadowRadius: 4, width: 38 },
+  targetDotCollective: { height: 38 },
   targetDotWrong: { backgroundColor: '#c95048' },
   targetDotSolved: { backgroundColor: '#32a77e', borderColor: '#dcfff3' },
   listeningBadge: { alignItems: 'center', alignSelf: 'center', backgroundColor: 'rgba(24,58,53,0.92)', borderRadius: 999, bottom: 14, flexDirection: 'row', gap: 7, paddingHorizontal: 13, paddingVertical: 7, position: 'absolute' },

@@ -46,7 +46,7 @@ const heroFilename = (card) => filename(
 const tokens = (text) => String(text || '').toLowerCase().match(/[a-z]+/g) || [];
 
 assert.equal(mission.experience_type, 'mission');
-assert.equal(mission.content_revision, 4, 'The real-game mission must invalidate the rejected worksheet revision.');
+assert.equal(mission.content_revision, 5, 'The complete-target mission must invalidate the earlier partial-dot revision.');
 assert.equal(mission.cards.length, 22);
 assert.deepEqual(mission.cards.map((card) => card.slide_id), Array.from({ length: 22 }, (_item, index) => `M${String(index + 1).padStart(2, '0')}`));
 assert.deepEqual(mission.cards.map((card) => card.mission_chapter_id), chapterIds);

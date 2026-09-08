@@ -176,6 +176,15 @@ class MissionGame(BaseModel):
         missing_targets = sorted({cue.target_id for cue in self.cues} - set(target_ids))
         if missing_targets:
             raise ValueError(f"Mission cues reference missing targets: {', '.join(missing_targets)}")
+        cue_target_ids = [cue.target_id for cue in self.cues]
+        if len(cue_target_ids) != len(set(cue_target_ids)):
+            raise ValueError("Every mission target may receive only one cue per card.")
+        unpracticed_targets = sorted(set(target_ids) - set(cue_target_ids))
+        if unpracticed_targets:
+            raise ValueError(
+                "Every visible mission target requires a cue: "
+                + ", ".join(unpracticed_targets)
+            )
         missing_options = sorted({cue.option_id for cue in self.cues} - option_ids)
         if missing_options:
             raise ValueError(f"Mission cues reference missing options: {', '.join(missing_options)}")

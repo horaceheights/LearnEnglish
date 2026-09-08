@@ -295,7 +295,7 @@ class LessonStructureTests(unittest.TestCase):
         mission = LESSONS["lesson-10-family-mission"]
         self.assertEqual([], mission.vocabulary)
         self.assertEqual("mission", mission.experience_type)
-        self.assertEqual(4, mission.content_revision)
+        self.assertEqual(5, mission.content_revision)
         self.assertEqual(22, len(mission.cards))
         self.assertEqual(UNIT_ONE_GOLD, mission.review_vocabulary)
         self.assertEqual(

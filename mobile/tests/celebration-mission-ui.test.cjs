@@ -14,7 +14,7 @@ const screen = fs.readFileSync(path.join(mobileRoot, 'src/screens/LessonScreen.t
 const images = fs.readFileSync(path.join(mobileRoot, 'src/lessonImageSources.ts'), 'utf8');
 
 assert.equal(mission.cards.length, 22);
-assert.equal(mission.content_revision, 4);
+assert.equal(mission.content_revision, 5);
 assert.deepEqual(
   [...new Set(mission.cards.map((card) => card.mission_game.kind))].sort(),
   ['action-hunt', 'contrast-hunt', 'crowd-search', 'family-link', 'guided-search', 'voice-gate'].sort(),

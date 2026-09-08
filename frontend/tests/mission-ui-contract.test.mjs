@@ -35,20 +35,27 @@ test("active challenges are English-audio driven and never read Spanish answers"
   assert.match(mission, /disabled=\{locked \|\| solved\}/);
 });
 
-test("the game uses large equal tap targets with immediate validation and no worksheet controls", () => {
+test("the game uses large scope-aware tap targets with immediate validation and no worksheet controls", () => {
   assert.match(mission, /className={`target-dot/);
   assert.match(mission, /game\.targets\.map/);
   assert.match(mission, /onComplete\(game\.cues\.map/);
   assert.match(mission, /onReplayEnglish\(nextCue\)/);
   assert.match(mission, /Tus aciertos siguen guardados/);
-  assert.match(mission, /height:58px/);
+  assert.match(mission, /height:clamp\(44px,17cqw,58px\)/);
+  assert.match(mission, /width:clamp\(66px,24cqw,132px\)/);
+  assert.match(mission, /className={`target-dot \$\{collective/);
   assert.doesNotMatch(mission, /draggable|onDragStart|onDrop|Comprobar|Deshacer|Reiniciar/);
 });
 
 test("the mission consumes the viewport without lesson scrolling or answer banks", () => {
   assert.match(mission, /height:calc\(100svh - 40px\)/);
   assert.match(mission, /overflow:hidden/);
-  assert.match(mission, /\.scene \{[\s\S]*?flex:1/);
+  assert.match(mission, /\.scene-slot \{[^\n]*flex:1/);
+  assert.match(mission, /\.scene \{ aspect-ratio:3\/2/);
+  assert.match(mission, /@container \(min-aspect-ratio:3\/2\)/);
+  assert.match(mission, /@media \(max-height:600px\) and \(min-width:600px\)/);
+  assert.match(mission, /\.mission-game \{ display:grid/);
+  assert.match(mission, /\.mission-shell \{ min-height:0; \}/);
   assert.doesNotMatch(mission, /overflow-y:scroll|overflowY: "auto"/);
   assert.doesNotMatch(mission, /option-bank|answer-bank/);
 });
