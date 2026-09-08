@@ -334,7 +334,7 @@ export function MissionGameSurface({
           <View pointerEvents={disabled ? 'none' : 'box-none'} style={StyleSheet.absoluteFill}>
             {sceneFrame.markers.map((marker, index) => (
               <View key={marker.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
-                {marker.heads.map((head, headIndex) => {
+                {!marker.chest && marker.heads.map((head, headIndex) => {
                   const fromX = marker.x + marker.width / 2;
                   const fromY = marker.y + marker.height - 7;
                   const dx = head.x - fromX;

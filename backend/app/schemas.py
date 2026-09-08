@@ -101,6 +101,8 @@ class MissionGameTarget(BaseModel):
     rect: MissionNormalizedRect
     accepted_option_ids: list[str] = Field(min_length=1)
     head_anchors: list[MissionHeadAnchor] = Field(default_factory=list, max_length=12)
+    # Optional reviewed chest position for standing groups with individual member dots.
+    group_chest_anchor: MissionHeadAnchor | None = None
 
     @field_validator("id", "label_es")
     @classmethod
@@ -170,6 +172,18 @@ class MissionGame(BaseModel):
 
     @model_validator(mode="after")
     def require_coherent_target_plan(self):
+        individual_heads = {
+            (t.head_anchors[0].x, t.head_anchors[0].y)
+            for t in self.targets if t.label_es == "Persona" and len(t.head_anchors) == 1
+        }
+        for target in self.targets:
+            if target.group_chest_anchor is not None:
+                if (target.label_es not in {"Grupo", "Pareja", "Familia"}
+                        or len(target.head_anchors) < 2
+                        or any((h.x, h.y) not in individual_heads for h in target.head_anchors)):
+                    raise ValueError("Chest group markers require individual targets for every member.")
+                if target.group_chest_anchor.y <= max(h.y for h in target.head_anchors):
+                    raise ValueError("Reviewed group chest anchors must be below their heads.")
         target_ids = [target.id for target in self.targets]
         if len(target_ids) != len(set(target_ids)):
             raise ValueError("Mission target IDs must be unique within a card.")

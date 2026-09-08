@@ -2,6 +2,7 @@ import type { MissionGame, MissionGameTarget } from './types';
 export type HeadMarker = {
   id: string; x: number; y: number; width: number; height: number;
   collective: boolean; heads: { x: number; y: number }[];
+  chest?: boolean;
 };
 export type HeadScene = {
   width: number; height: number; imageWidth: number; imageHeight: number;

@@ -74,6 +74,37 @@ function layoutAtWidth(stageWidth, imageWidth, targets) {
     }) };
 }
 
+// Relocate only explicitly reviewed standing-group capsules. The original scene
+// fit and every other marker stay identical, including approved group-only scenes.
+function placeChestGroups(layout, targets) {
+  const faces = layout.markers.flatMap(m => m.heads).map(h => ({
+    x: h.x - layout.imageWidth * .03, y: h.y,
+    width: layout.imageWidth * .06, height: layout.imageHeight * .12,
+  }));
+  const markers = layout.markers.map(marker => {
+    const target = targets.find(t => t.id === marker.id);
+    const anchor = target.group_chest_anchor;
+    const hasIndividualMembers = target.head_anchors?.length > 1
+      && target.head_anchors.every(h => targets.some(t => t.label_es === 'Persona'
+        && t.head_anchors?.length === 1 && t.head_anchors[0].x === h.x && t.head_anchors[0].y === h.y));
+    if (!anchor || !marker.collective || !hasIndividualMembers) return marker;
+    const candidate = { ...marker, chest: true,
+      x: clamp(layout.imageX + anchor.x * layout.imageWidth - marker.width / 2,
+        layout.imageX, layout.imageX + layout.imageWidth - marker.width),
+      y: layout.imageY + anchor.y * layout.imageHeight - marker.height / 2 };
+    // Keep the complete 48dp touch/pulse envelope below faces even on short phones.
+    const blockers = [...faces, ...layout.markers.filter(m => m.id !== marker.id)];
+    for (let pass = 0; pass <= blockers.length; pass += 1) {
+      const collisions = blockers.filter(other => overlaps(candidate, other));
+      if (!collisions.length) break;
+      candidate.y = Math.max(...collisions.map(other => other.y + other.height + GAP));
+    }
+    if (candidate.y + candidate.height > layout.imageY + layout.imageHeight) return marker;
+    return candidate;
+  });
+  return { ...layout, markers };
+}
+
 function fitMissionHeadScene(width, height, targets) {
   if (width < 80 || height < 80) return null;
   if (height < 240 && width > height * 1.6) {
@@ -93,14 +124,14 @@ function fitMissionHeadScene(width, height, targets) {
         x += m.width + GAP;
         return marker;
       });
-      return { ...layout, imageY: 60, height: imageWidth / 1.5 + 64,
-        markers: targets.map(t => markers.find(m => m.id === t.id)) };
+      return placeChestGroups({ ...layout, imageY: 60, height: imageWidth / 1.5 + 64,
+        markers: targets.map(t => markers.find(m => m.id === t.id)) }, targets);
     }
   }
   // Search downward because collision tiers make the fit discontinuous.
   for (let imageWidth = Math.min(width - 8, (height - 8) * 1.5); imageWidth >= 64; imageWidth -= 1) {
     const layout = layoutAtWidth(width, imageWidth, targets);
-    if (layout.height <= height) return layout;
+    if (layout.height <= height) return placeChestGroups(layout, targets);
   }
   return null;
 }

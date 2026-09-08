@@ -37,6 +37,7 @@ export type MissionGameTarget = {
   rect: { x: number; y: number; width: number; height: number };
   accepted_option_ids: string[];
   head_anchors?: { x: number; y: number }[];
+  group_chest_anchor?: { x: number; y: number } | null;
 };
 
 export type MissionGameCue = {
