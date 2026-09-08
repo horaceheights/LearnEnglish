@@ -990,8 +990,10 @@ const missionBlueprintV5 = [
     ],
     choices: [['baby-child', 'A baby is a child.'], ['babies-children', 'Babies are children.'], ['boy', 'A boy.'], ['children', 'They are children.']],
     targets: [
-      missionCandidate('one-baby', 'baby-child', 0.30, 0.34), missionCandidate('three-babies', 'babies-children', 0.69, 0.34, 'Grupo'),
-      missionCandidate('boy', 'boy', 0.25, 0.69), missionCandidate('children', 'children', 0.70, 0.69, 'Grupo'),
+      // Keep the babies' faces/count visible above the stroller canopies;
+      // the standing children's markers sit below their upper bodies.
+      missionCandidate('one-baby', 'baby-child', 0.31, 0.13), missionCandidate('three-babies', 'babies-children', 0.69, 0.13, 'Grupo'),
+      missionCandidate('boy', 'boy', 0.25, 0.85), missionCandidate('children', 'children', 0.73, 0.85, 'Grupo'),
     ],
   }),
   missionGameCard({
