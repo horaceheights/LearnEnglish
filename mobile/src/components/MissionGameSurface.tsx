@@ -322,7 +322,7 @@ export function MissionGameSurface({
               {cueUnavailable && !feedback ? (
                 <View accessibilityLiveRegion="assertive" pointerEvents="none" style={styles.retryBadge}>
                   <Ionicons color="#fff" name="volume-high" size={19} />
-                  <Text style={styles.retryText}>No se escuchó. Toca 🔊 para repetir.</Text>
+                  <Text style={styles.retryText}>El audio no se pudo reproducir. Toca el botón de sonido.</Text>
                 </View>
               ) : null}
 

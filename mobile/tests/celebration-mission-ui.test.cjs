@@ -32,12 +32,12 @@ assert.match(surface, /Animated\.loop/);
 assert.match(surface, /onCueRequest\(nextCueIndex\)/);
 assert.match(surface, /onSubmit\(game\.cues\.map/);
 assert.match(surface, /Tus aciertos siguen guardados/);
-assert.match(surface, /No se escuchó\. Toca 🔊 para repetir\./);
+assert.match(surface, /El audio no se pudo reproducir\. Toca el botón de sonido\./);
 assert.doesNotMatch(surface, /PanResponder|Draggable|Comprobar|Deshacer|Reiniciar/);
 assert.match(screen, /playMissionSound\('mission-start'\)/);
 assert.match(
   screen,
-  /const playMissionCueAt[\s\S]*?stopMissionSound\(\)[\s\S]*?playAudioSource\(lessonAudioAssetSource\(cueTurn\.asset\), 'mission', `cue-\$\{cueIndex \+ 1\}`\)/,
+  /const playMissionCueAt[\s\S]*?stopMissionSound\(\)[\s\S]*?await cacheCourseAudioAsset\(cueAsset\)[\s\S]*?missionCuePlayer\.replace\(source\)[\s\S]*?missionCuePlayer\.play\(\)/,
 );
 assert.doesNotMatch(screen, /playAudioSequence\(\[cueTurn\]/);
 assert.match(screen, /onStart=\{\(\) => \{[\s\S]*?stopMissionSound\(\)[\s\S]*?setMissionKickoffComplete\(true\)/);
