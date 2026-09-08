@@ -41,7 +41,7 @@ test('real native Yoga rejects the previous flex shorthand and keeps landscape f
   assert.ok(fixed.copyHeight >= 48 + 98);
   assert.ok(fixed.bottom <= 284);
 });
-test('voice result reserves natural copy height and gives the remaining height to the complete image', () => {
+test('written voice answer fits before and after grading with replay and recovery controls', () => {
   assert.equal(voice.surface.flex, 1);
   assert.equal(voice.sceneSlot.flex, 1);
   assert.equal(voice.sceneSlot.minHeight, 0);
@@ -49,13 +49,15 @@ test('voice result reserves natural copy height and gives the remaining height t
   assert.notEqual(voice.console.flexDirection, 'row', 'answer cannot share the icon/replay row');
   assert.equal(voice.replay.minHeight, 48);
   for (const [width, height] of [[320,300],[360,400],[260,264],[520,350]]) {
-    for (const scale of [1,1.3]) {
+    for (const scale of [1,1.3]) for (const actionRows of [0,1,2]) {
       const config = Yoga.Config.create(); config.setUseWebDefaults(false);
       const root = Yoga.Node.create(config); root.setWidth(width); root.setHeight(height);
       root.setGap(Yoga.GUTTER_ALL,voice.surface.gap);
       const scene=Yoga.Node.create(config);scene.setFlex(voice.sceneSlot.flex);scene.setMinHeight(0);root.insertChild(scene,0);
       const result=Yoga.Node.create(config);result.setFlexShrink(voice.console.flexShrink);
-      result.setHeight(16 + 24 + 4 + voice.answer.lineHeight*2*scale + 4 + voice.message.lineHeight*2*scale);
+      // Two recovery actions mean the service is unavailable: no recording or answer panel.
+      result.setHeight(16 + 24 + 4 + (actionRows === 2 ? 0 : voice.answer.lineHeight*2*scale) + 4 + voice.message.lineHeight*2*scale
+        + actionRows * (voice.replay.minHeight + voice.console.gap));
       root.insertChild(result,1);root.calculateLayout(undefined,undefined,Yoga.DIRECTION_LTR);
       assert.ok(scene.getComputedHeight()>0);
       assert.ok(result.getComputedTop()+result.getComputedHeight()<=height+0.01);

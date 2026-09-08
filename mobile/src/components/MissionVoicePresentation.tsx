@@ -3,8 +3,8 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { OptionMediaImage } from './OptionMediaImage';
 
-// Recording and grading remain in the shared engine. Only graded answers enter
-// this presentation: hidden answer text must not leak through labels or live UI.
+// Recording and grading remain in the shared engine. After the question, the
+// written answer supports pronunciation and stays in this single feedback panel.
 export function MissionVoicePresentation({
   imageUrl, asking, listening, checking, accepted, answer, message,
   replayDisabled, unavailable, offline, onReplay, onContinue,
@@ -34,7 +34,7 @@ export function MissionVoicePresentation({
           <Ionicons name={accepted ? 'checkmark-circle' : checking ? 'sparkles' : 'mic'} color="#28624e" size={24} />
           <Text adjustsFontSizeToFit minimumFontScale={0.85} numberOfLines={2} style={styles.label}>{label}</Text>
         </View>
-        {answer ? <Text accessibilityLiveRegion="polite" adjustsFontSizeToFit minimumFontScale={0.8}
+        {answer && !unavailable ? <Text accessibilityLiveRegion="polite" adjustsFontSizeToFit minimumFontScale={0.8}
           numberOfLines={2} style={styles.answer}>{answer}</Text> : null}
         <Text accessibilityLiveRegion="polite" adjustsFontSizeToFit minimumFontScale={0.85}
           numberOfLines={2} style={styles.message}>{message}</Text>

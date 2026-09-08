@@ -68,7 +68,8 @@ test("four voice gates stay inside the adventure and use real pronunciation stat
   assert.match(mission, /ABRE LA CELEBRACIÓN/);
   assert.match(mission, /Array\.from\(\{ length: total \}/);
   assert.match(mission, /voice-scene-open/);
-  assert.match(mission, /speech\.result \? <strong>\{card\.prompt\}/);
+  assert.match(mission, /!speech\.asking && !speech\.error \? <strong>\{card\.prompt\}/);
+  assert.match(mission, /speech\.asking \? "Escucha la pregunta\." : "Lee la frase en voz alta\."/);
   assert.match(mission, /Math\.min\(slotSize\.width - 8, \(slotSize\.height - 8\) \* 1\.5\)/);
   assert.match(mission, /\.mission-voice-game \.scene-slot \{ min-height:0; flex:1; \}/);
   assert.match(mission, /speech\.recording \|\| speech\.scoring/);
@@ -77,7 +78,7 @@ test("four voice gates stay inside the adventure and use real pronunciation stat
   assert.match(player, /if \(currentCard\.mission_game\.kind === "voice-gate"\) setMissionSpeechReady\(true\)/);
 });
 
-test("recall questions switch shots without revealing or playing the grading answer", () => {
+test("pronunciation questions switch shots and never play the written answer upfront", () => {
   assert.match(mission, /isVoiceGate && speech\.asking[\s\S]*?card\.audio_turns\?\.\[0\]\?\.image_url/);
   assert.match(player, /missionRecall && \(turnSequence\?\.length !== 1/);
   assert.match(player, /turnSequence\[0\]\.turn\.text !== currentCard\.mission_game\.cue_audio_text/);

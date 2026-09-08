@@ -1932,9 +1932,9 @@ export function PronunciationPractice({
       listening={phase === 'listening'}
       checking={phase === 'checking'}
       accepted={Boolean(result && passed)}
-      answer={result ? phrase : null}
-      message={phase === 'model' ? 'Escucha la pregunta.' : phase === 'listening'
-        ? 'Responde con una frase completa.' : message}
+      answer={phase === 'model' ? null : phrase}
+      message={phase === 'model' ? 'Escucha la pregunta.' : phase === 'listening' || phase === 'ready'
+        ? 'Lee la frase en voz alta.' : message}
       replayDisabled={phase === 'checking' || phase === 'listening' || phase === 'ready' || reviewingRecording}
       unavailable={serviceUnavailable}
       offline={isOffline}

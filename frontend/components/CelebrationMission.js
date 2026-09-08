@@ -103,9 +103,9 @@ function VoiceGateConsole({ card, isMobile, onPrepareSpeech, onRetrySpeech, spee
       <div className={`voice-orb ${busy ? "busy" : ""} ${accepted ? "accepted" : ""}`}>{accepted ? "✓" : "🎤"}<i /></div>
       <div className="voice-command">
         <div className="speech-label">{stateLabel}</div>
-        {speech.result ? <strong>{card.prompt}</strong> : null}
+        {!speech.asking && !speech.error ? <strong>{card.prompt}</strong> : null}
         <div>{speech.error || (speech.result ? speech.result.feedback?.messages?.es || (accepted ? "¡Muy bien!" : "Inténtalo otra vez.")
-          : speech.recording ? "Responde con una frase completa." : speech.scoring ? "Revisando tu respuesta…" : "Escucha la pregunta.")}</div>
+          : speech.scoring ? "Revisando tu respuesta…" : speech.asking ? "Escucha la pregunta." : "Lee la frase en voz alta.")}</div>
       </div>
       {!speech.ready && !busy && !speech.error ? <button onClick={onPrepareSpeech} style={buttonStyle(false)} type="button">Escuchar y responder</button> : null}
       {speech.error && !busy ? <button onClick={onRetrySpeech} style={buttonStyle(false)} type="button">Intentar otra vez</button> : null}
