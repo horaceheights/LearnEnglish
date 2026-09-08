@@ -253,7 +253,7 @@ Current restructuring target:
 
 The learner-facing title is `¡Todos a la celebración!`. A family celebration is about to begin, but everyone has not yet arrived. Learned English is the tool for finding each person, establishing the family connections, following what they are doing, correcting broken reports, answering the greeter, and bringing the whole family together. There is no album, film set, studio production, syllable opening, or repeated sentence-order board.
 
-The opening plays the distinct 3.2-second acoustic mission cue, shows the three objectives `Encuentra personas`, `Sigue sus acciones`, and `Reúne a la familia`, and speaks this briefing in Spanish before enabling Start: `La celebración está por comenzar y todavía faltan invitados. Escucha cada frase, encuentra a las personas y descubre qué están haciendo. Al final responderás en voz alta para abrir la celebración. Primero practicaremos juntos.` Beat 1 is a guided, nonpunitive example: the learner hears `A boy.` and learns once that a pulsing point selects a person. During active play, the current mechanic remains visible in concise Spanish but is not narrated; the assessed audio is always English, finishes before input unlocks, and can be repeated with the speaker button.
+The opening plays the distinct 3.2-second acoustic mission cue, shows the three objectives `Encuentra personas`, `Sigue sus acciones`, and `Reúne a la familia`, and speaks this briefing in Spanish before enabling Start: `La celebración está por comenzar y todavía faltan invitados. Escucha cada frase, encuentra a las personas y descubre qué están haciendo. Al final responderás en voz alta para abrir la celebración. Primero practicaremos juntos.` Beat 1 begins as a guided, nonpunitive example: the learner hears `A boy.` and learns once that a pulsing point selects a person, then practices the other three visible people before the beat advances. During active play, the current mechanic remains visible in concise Spanish but is not narrated; the assessed audio is always English, finishes before input unlocks, and can be repeated with the speaker button.
 
 The 22 beats have these fixed responsibilities:
 
@@ -261,20 +261,20 @@ The 22 beats have these fixed responsibilities:
 2. Searchlight sequence for `A girl.`, `A man.`, and `A woman.`
 3. Hear four complete `he/she + is` descriptions and find each matching person among equal candidates.
 4. Hear the six child/adult singular and plural descriptions one at a time and find the matching person or group.
-5. Distinguish one baby from two babies through `A baby is a child.` and `Babies are children.`
-6. Find the brother and sister from their complete English relationship sentences.
-7. Find the brothers and sisters groups from the plural sentences.
-8. Find the father, mother, and parents from their complete relationship sentences.
+5. Find one baby, three babies, the boy, and the children group through their complete singular and plural descriptions.
+6. Find the father, brother, sister, and mother from their complete English relationship sentences.
+7. Find the parents, grandparents, brothers, and sisters groups from the plural relationship sentences.
+8. Find the father, mother, parents, and children, using round individual targets and wider group targets.
 9. Find grandfather, grandmother, grandparents, and grandchildren without overlapping valid targets.
-10. Find who is `eating` and who is `drinking`.
-11. Find who is `reading` and who is `writing`.
-12. Find who is `running` and who is `swimming`.
-13. Find who is `sitting` and who is `sleeping`.
-14. Find who is `playing` and who is `studying`.
-15. Find who is `working`, `cooking`, and `talking`.
-16. Use the full contrast `He is not eating. He is drinking.` to find the correct person among four visible actions.
-17. Use the full contrast `She is not reading. She is writing.` to find the correct person among four visible actions.
-18. Use the full contrast `They are not running. They are sitting.` to find the correct group among four visible groups.
+10. Find all four visible actions: `eating`, `drinking`, `reading`, and `sitting`.
+11. Find all four visible actions: `reading`, `writing`, `talking`, and `drinking`.
+12. Find all four visible actions: `running`, `swimming`, `sitting`, and `talking`.
+13. Find all four visible actions: `sitting`, `sleeping`, `reading`, and `working`.
+14. Find all four visible actions: `playing`, `studying`, `reading`, and `talking`.
+15. Find all four visible actions: `working`, `cooking`, `talking`, and `reading`.
+16. Use the full contrast `He is not eating. He is drinking.` and then practice the remaining `eating`, `reading`, and `sitting` targets.
+17. Use the full contrast `She is not reading. She is writing.` and then practice the remaining `reading`, `talking`, and `cooking` targets.
+18. Use the full contrast `They are not running. They are sitting.` and then practice the remaining `running`, `talking`, and `playing` groups.
 19. Hear `Who is he?`, hear `He is the father.` as the model, then say the father answer through the pronunciation engine.
 20. Hear `Who is she?`, hear `She is the grandmother.` as the model, then say the grandmother answer.
 21. Hear `Who are they?`, hear `They are the parents.` as the model, then say the parents answer.
@@ -282,7 +282,7 @@ The 22 beats have these fixed responsibilities:
 
 The successful-path coverage is exact and auditable: beats 1-2 cover `a`, `boy`, `girl`, `man`, and `woman`; beat 3 covers `he`, `she`, `is`, `they`, and `are`; beats 4-5 cover `the`, `and`, `an`, `child`, `children`, `adult`, `adults`, `baby`, and `babies`; beats 6-9 cover `brother`, `brothers`, `sister`, `sisters`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`, and `grandchildren`; beats 10-15 cover all thirteen learned actions; beats 16-18 cover `not`; beats 19-21 cover `who` and all three question forms; and beat 22 covers `family`.
 
-Every actionable screen makes the current goal and one required gesture apparent without trial and error. The 18 listening challenges show a large full-width scene with at least four equally styled pulsing candidate points, play one English cue at a time, and validate a touch immediately. Correct answers advance automatically; wrong answers preserve every completed cue, show concise feedback, and repeat the current English cue. There is no answer bank, drag requirement, `Comprobar`, Undo, or Reset. The full instruction, scene, targets, cue progress, feedback, and replay control fit the supported phone viewport without vertical lesson scrolling. The final four cards remain inside the mission but use the real graded pronunciation flow, with one unambiguous image and no duplicate selectable copy.
+Every actionable screen makes the current goal and one required gesture apparent without trial and error. The 18 listening challenges show one complete uncropped 3:2 scene with at least four neutral pulsing candidates, play one English cue at a time, and validate a touch immediately. Single-person candidates are round; pairs and groups use a wider capsule spanning their members. Every visible candidate sits on a real person, pair, group, or action and receives exactly one cue, so the beat cannot advance while an unpracticed target remains. Correct answers advance automatically to the next cue; wrong answers preserve every completed cue, show concise feedback, and repeat the current English cue. There is no answer bank, drag requirement, `Comprobar`, Undo, or Reset. The full instruction, scene, targets, cue progress, feedback, and replay control fit the supported phone viewport without vertical lesson scrolling; short landscape screens use a compact control rail beside the large scene rather than stacking those elements. The final four cards remain inside the mission but use the real graded pronunciation flow, with one unambiguous image and no duplicate selectable copy.
 
 ## Difficulty Ramp
 
@@ -361,7 +361,7 @@ The approved Unit 1 rebuild now includes all ten roadmap lessons:
 | `1.9` | Unit 1 Story Review | 54-card fresh-scene review ready for learner review |
 | `1.10` | ¡Todos a la celebración! | 22-beat find/connect/action/correct/Who adventure ready for Preview learner review |
 
-Every standard lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10, including the approved celebration-adventure contract above. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat, 46-target mission contract for 1.10.
+Every standard lesson uses the same `Learn -> Recognize -> Listen -> Speak -> Use` journey. A lesson declared as `experience_type: mission` instead uses one continuous learner-facing mission; its internal stage values remain engine/modality metadata and may interleave in story order. The checked-in Unit 1 builder preserves 1.1 while reproducibly generating 1.2 through 1.10, including the approved celebration-adventure contract above. Automated checks enforce the story sequence, intentional card counts, vocabulary boundaries, bidirectional image/text recognition, audio-only listening choices, speaking cards, multi-word completion, valid media, the fresh-scene boundary for the comprehensive review, and the distinct 22-beat, 74-target mission contract for 1.10.
 
 The previously built family lessons supply the existing assets and cards for the new `1.4` through `1.7` sequence. `Places Around Me` leaves Unit 1 and becomes the start of Unit 2.
 

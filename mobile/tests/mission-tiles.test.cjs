@@ -18,10 +18,20 @@ assert.ok(
   Math.min(...mission.cards.slice(0, 18).map((card) => card.mission_game.targets.length)) >= 4,
   'Every listening challenge must present at least four equally credible tap candidates.',
 );
+for (const card of mission.cards.slice(0, 18)) {
+  const targetIds = card.mission_game.targets.map((target) => target.id).sort();
+  const cueTargetIds = card.mission_game.cues.map((cue) => cue.target_id).sort();
+  assert.deepEqual(
+    cueTargetIds,
+    targetIds,
+    `${card.slide_id} must practice every visible dot exactly once before advancing.`,
+  );
+}
 
 test('mobile mission uses large direct tap targets and contains no drag worksheet', () => {
   assert.match(surface, /function TargetDot/);
-  assert.match(surface, /const DOT_SIZE = 58/);
+  assert.match(surface, /missionPersonTargetSize/);
+  assert.match(surface, /missionTargetTouchWidth/);
   assert.match(surface, /hitSlop=\{8\}/);
   assert.match(surface, /onPress=\{onPress\}/);
   assert.match(surface, /Animated\.loop/);
@@ -46,7 +56,10 @@ test('mission surfaces consume available screen space without lesson scrolling',
   assert.match(kickoff, /minHeight: 0/);
   assert.match(kickoff, /adjustsFontSizeToFit/);
   assert.match(surface, /surface: \{[^\n]*flex: 1/);
-  assert.match(surface, /imageFrame: \{[^\n]*flex: 1[^\n]*minHeight: 210/);
+  assert.match(surface, /sceneSlot: \{[^\n]*flex: 1[^\n]*minHeight: 0/);
+  assert.match(surface, /fitMissionSceneFrame\(/);
+  assert.match(surface, /style=\{styles\.sceneCanvas\}/);
+  assert.doesNotMatch(surface, /imageFrame: \{[^\n]*flex: 1/);
   assert.match(surface, /adjustsFontSizeToFit/);
   assert.match(lessonScreen, /!missionExperience && needsAccessibleScrolling/);
   assert.match(webMission, /height:calc\(100svh - 40px\)/);
@@ -66,5 +79,7 @@ test('protected interaction verification runs the real-game mission contracts', 
   assert.match(verifier, /node tests\/mission-experience\.test\.cjs/);
   assert.match(verifier, /node tests\/lesson-mission-contract\.test\.cjs/);
   assert.match(verifier, /node tests\/mission-tiles\.test\.cjs/);
+  assert.match(verifier, /node tests\/mission-target-placement\.test\.cjs/);
+  assert.match(verifier, /node tests\/mission-scene-layout\.test\.cjs/);
   assert.match(verifier, /node tests\/mission-sound-effects\.test\.cjs/);
 });

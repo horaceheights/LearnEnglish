@@ -554,6 +554,21 @@ def validate_mission_contracts(lessons=None) -> list[str]:
             missing_cue_options = sorted(set(cue_option_ids) - option_ids)
             if missing_cue_targets:
                 errors.append(f"{location} mission cues reference missing targets {missing_cue_targets}.")
+            duplicate_cue_targets = sorted(
+                target_id
+                for target_id in set(cue_target_ids)
+                if cue_target_ids.count(target_id) > 1
+            )
+            unpracticed_targets = sorted(set(target_ids) - set(cue_target_ids))
+            if duplicate_cue_targets:
+                errors.append(
+                    f"{location} repeats cues for targets {duplicate_cue_targets}; "
+                    "each visible target must be practiced exactly once."
+                )
+            if unpracticed_targets:
+                errors.append(
+                    f"{location} leaves visible targets {unpracticed_targets} without a cue."
+                )
             if missing_cue_options:
                 errors.append(f"{location} mission cues reference missing options {missing_cue_options}.")
             incoherent_cues = [
@@ -757,9 +772,9 @@ def validate_mission_contracts(lessons=None) -> list[str]:
 
         if lesson.id != "lesson-10-family-mission":
             continue
-        if lesson.content_revision != 4:
+        if lesson.content_revision != 5:
             errors.append(
-                f"{lesson.id} real-game mission must declare content_revision 4."
+                f"{lesson.id} real-game mission must declare content_revision 5."
             )
         if str(getattr(mission, "title", "") or "") != "¡Todos a la celebración!":
             errors.append(

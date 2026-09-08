@@ -165,6 +165,37 @@ class MissionSchemaTests(unittest.TestCase):
         with self.assertRaisesRegex(ValidationError, "fit within image width"):
             MissionLesson(**payload)
 
+    def test_every_visible_mission_target_must_be_practiced_exactly_once(self):
+        payload = mission_lesson_payload()
+        card = payload["cards"][0]
+        card["options"].append({"id": "girl", "label": "A girl", "image_url": ""})
+        card["mission_game"]["targets"].append(
+            {
+                "id": "girl",
+                "label_es": "Persona",
+                "rect": {"x": 0.6, "y": 0.1, "width": 0.3, "height": 0.6},
+                "accepted_option_ids": ["girl"],
+            }
+        )
+
+        with self.assertRaisesRegex(ValidationError, "Every visible mission target requires a cue"):
+            MissionLesson(**payload)
+
+        card["mission_game"]["cues"].append(
+            {
+                "id": "girl",
+                "text": "A girl.",
+                "answer_text": "A girl.",
+                "target_id": "person",
+                "option_id": "start",
+            }
+        )
+        card["correct_option_ids"] = ["start", "start"]
+        card["mission_game"]["validation"] = "ordered"
+
+        with self.assertRaisesRegex(ValidationError, "only one cue"):
+            MissionLesson(**payload)
+
     def test_mission_targets_must_reference_declared_correct_options(self):
         payload = mission_lesson_payload()
         payload["cards"][1]["mission_game"]["targets"][0]["accepted_option_ids"] = [

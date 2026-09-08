@@ -17,7 +17,7 @@ $outputDirectory = [System.IO.Path]::Combine(
 Push-Location $mobileRoot
 try {
   [System.IO.Directory]::CreateDirectory($outputDirectory) | Out-Null
-  & node $typescriptCompiler src/config.ts src/courseAudioSources.ts src/types.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/lessonResume.ts src/missionExperience.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
+  & node $typescriptCompiler src/config.ts src/courseAudioSources.ts src/types.ts src/lessonHelp.ts src/lessonMistakeHints.ts src/lessonProgress.ts src/lessonResume.ts src/missionExperience.ts src/missionSceneGeometry.ts src/pronunciationAudioGate.ts src/sentenceTranslations.ts --ignoreConfig --module commonjs --outDir $outputDirectory --skipLibCheck --target ES2020
   if ($LASTEXITCODE -ne 0) { throw 'No se pudo compilar el modelo de progreso.' }
 
   & node tests/lesson-help.test.cjs (Join-Path $outputDirectory 'lessonHelp.js')
@@ -40,6 +40,12 @@ try {
 
   & node tests/mission-tiles.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de interacción y diseño de fichas de misión.' }
+
+  & node tests/mission-target-placement.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la verificación visual vinculada de los blancos de la misión.' }
+
+  & node tests/mission-scene-layout.test.cjs (Join-Path $outputDirectory 'missionSceneGeometry.js')
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de encuadre y objetivos de las escenas de misión.' }
 
   & node tests/mission-sound-effects.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de efectos de sonido de misión.' }

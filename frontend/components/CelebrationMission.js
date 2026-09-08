@@ -190,17 +190,19 @@ export default function CelebrationMission({
         <button aria-label="Repetir la frase en inglés" disabled={Boolean(feedback)} onClick={() => onReplayEnglish(cueIndex)} type="button">🔊</button>
       </section>
 
-      <section className="scene">
-        <Image alt={`Escena del reto ${cardIndex + 1}`} fill priority sizes="(max-width: 760px) 96vw, 900px" src={heroImage} style={{ objectFit: "cover" }} unoptimized />
-        {!isVoiceGate ? game.targets.map((target) => {
+      <div className="scene-slot">
+        <section className="scene">
+          <Image alt={`Escena del reto ${cardIndex + 1}`} fill priority sizes="(max-width: 760px) 96vw, 900px" src={heroImage} style={{ objectFit: "cover" }} unoptimized />
+          {!isVoiceGate ? game.targets.map((target) => {
           const x = (target.rect.x + target.rect.width / 2) * 100;
           const y = (target.rect.y + target.rect.height / 2) * 100;
           const solved = solvedTargets.includes(target.id);
           const wrong = wrongTarget === target.id;
+          const collective = ["Grupo", "Pareja", "Familia"].includes(target.label_es);
           return (
             <button
               aria-label={target.label_es || "Persona"}
-              className={`target-dot ${solved ? "solved" : ""} ${wrong ? "wrong" : ""}`}
+              className={`target-dot ${collective ? "collective" : ""} ${solved ? "solved" : ""} ${wrong ? "wrong" : ""}`}
               disabled={locked || solved}
               key={target.id}
               onClick={() => chooseTarget(target)}
@@ -208,13 +210,14 @@ export default function CelebrationMission({
               type="button"
             >
               <i />
-              <span>{solved ? "✓" : "●"}</span>
+              <span>{solved ? "✓" : collective ? "● ●" : "●"}</span>
             </button>
           );
-        }) : null}
-        {!interactionReady && !feedback && !isVoiceGate ? <div className="listening">👂 Escucha…</div> : null}
-        {feedback ? <div className={`feedback ${wrongTarget ? "wrong" : "correct"}`}>{wrongTarget ? "👂" : "✓"} {feedback}</div> : null}
-      </section>
+          }) : null}
+          {!interactionReady && !feedback && !isVoiceGate ? <div className="listening">👂 Escucha…</div> : null}
+          {feedback ? <div className={`feedback ${wrongTarget ? "wrong" : "correct"}`}>{wrongTarget ? "👂" : "✓"} {feedback}</div> : null}
+        </section>
+      </div>
 
       {isVoiceGate ? <SpeechConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} /> : (
         <div className="cue-dots" aria-label={`Pista ${cueProgress}`}>{game.cues.map((item, index) => <i className={index < cueIndex ? "done" : index === cueIndex ? "current" : ""} key={item.id} />)}</div>
@@ -259,10 +262,14 @@ const missionStyles = `
   .cue-panel b { color:#203c37; font-size:15px; line-height:1.25; }
   .cue-panel>span { color:#477069; font-size:10px; font-weight:950; }
   .cue-panel button { background:#278c73; border:0; border-radius:14px; color:#fff; cursor:pointer; font-size:21px; height:45px; width:45px; }
-  .scene { background:#d9e6df; border:4px solid #fff; border-radius:21px; flex:1; min-height:210px; overflow:hidden; position:relative; width:100%; }
-  .target-dot { align-items:center; background:transparent; border:0; cursor:pointer; display:flex; height:58px; justify-content:center; margin:-29px 0 0 -29px; padding:0; position:absolute; width:58px; }
+  .scene-slot { align-items:center; container-type:size; display:flex; flex:1; justify-content:center; min-height:0; width:100%; }
+  .scene { aspect-ratio:3/2; background:#d9e6df; border:4px solid #fff; border-radius:21px; flex:none; overflow:hidden; position:relative; width:100%; }
+  .target-dot { align-items:center; background:transparent; border:0; cursor:pointer; display:flex; height:clamp(44px,17cqw,58px); justify-content:center; padding:0; position:absolute; transform:translate(-50%,-50%); width:clamp(44px,17cqw,58px); }
   .target-dot i { animation:pulse 1.15s ease-out infinite; background:rgba(255,255,255,.68); border:3px solid #f4c75f; border-radius:999px; height:36px; position:absolute; width:36px; }
   .target-dot span { align-items:center; background:#245f53; border:3px solid #fff; border-radius:999px; box-shadow:0 3px 8px rgba(18,50,44,.38); color:#fff; display:flex; font-size:14px; font-weight:950; height:36px; justify-content:center; position:relative; width:36px; }
+  .target-dot.collective { width:clamp(66px,24cqw,132px); }
+  .target-dot.collective i { animation-name:collective-pulse; height:40px; width:calc(100% - 8px); }
+  .target-dot.collective span { font-size:11px; height:36px; letter-spacing:2px; width:calc(100% - 14px); }
   .target-dot.solved span { background:#32a77e; }
   .target-dot.wrong span { background:#c95048; }
   .listening,.feedback { align-items:center; border-radius:999px; bottom:11px; color:#fff; display:flex; font-size:14px; font-weight:950; justify-content:center; left:50%; max-width:92%; padding:8px 14px; position:absolute; text-align:center; transform:translateX(-50%); }
@@ -274,6 +281,21 @@ const missionStyles = `
   .cue-dots i.done { background:#56ae91; }
   .cue-dots i.current { background:#d77b4c; width:22px; }
   @keyframes pulse { 0%{opacity:.75;transform:scale(.75)} 100%{opacity:.05;transform:scale(1.75)} }
-  @media (max-width:760px) { .mission-shell { border-radius:18px; gap:6px; height:calc(100svh - 16px); min-height:430px; padding:7px; } .intro-copy h1{font-size:1.9rem}.intro-copy p{line-height:1.25}.intro-objectives>div{font-size:10px;padding:4px 6px}.intro-objectives b{flex-basis:24px;height:24px}.game-header{padding:6px 8px}.game-header .mission-topline div strong{font-size:16px}.game-header small{font-size:7px}.cue-panel{padding:6px 8px}.cue-panel b{font-size:13px}.scene{min-height:185px}.speech-console{flex:0 0 auto} }
+  @keyframes collective-pulse { 0%{opacity:.75;transform:scale(.9)} 100%{opacity:.05;transform:scale(1.18)} }
+  @container (min-aspect-ratio:3/2) { .scene { height:100%; width:auto; } }
+  @media (max-width:760px) { .mission-shell { border-radius:18px; gap:6px; height:calc(100svh - 16px); min-height:430px; padding:7px; } .intro-copy h1{font-size:1.9rem}.intro-copy p{line-height:1.25}.intro-objectives>div{font-size:10px;padding:4px 6px}.intro-objectives b{flex-basis:24px;height:24px}.game-header{padding:6px 8px}.game-header .mission-topline div strong{font-size:16px}.game-header small{font-size:7px}.cue-panel{padding:6px 8px}.cue-panel b{font-size:13px}.speech-console{flex:0 0 auto} }
+  @media (max-height:600px) and (min-width:600px) {
+    .mission-shell { min-height:0; }
+    .mission-game { display:grid; grid-template-columns:minmax(230px,.8fr) minmax(0,1.45fr); grid-template-rows:auto 1fr auto; }
+    .mission-game .game-header { grid-column:1; grid-row:1; }
+    .mission-game .cue-panel { align-self:start; grid-column:1; grid-row:2; }
+    .mission-game .scene-slot { grid-column:2; grid-row:1 / 4; height:100%; }
+    .mission-game .cue-dots { grid-column:1; grid-row:3; }
+    .mission-game .game-header .mission-topline div strong { font-size:15px; }
+    .mission-game .game-header small { font-size:7px; }
+    .mission-game .cue-panel { grid-template-columns:minmax(0,1fr) auto; }
+    .mission-game .cue-panel>span { grid-column:1; }
+    .mission-game .cue-panel>button { grid-column:2; grid-row:1 / 3; }
+  }
   @media (prefers-reduced-motion:reduce) { .target-dot i{animation:none;opacity:.35;transform:scale(1.1)} }
 `;
