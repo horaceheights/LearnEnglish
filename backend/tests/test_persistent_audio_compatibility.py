@@ -24,18 +24,20 @@ from backend.app.persistent_audio_assets import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIEW_AUDIO_COMMIT = "e2e530621ed047d9dc914452b482b9a713f7bf09"
+PREVIEW_AUDIO_COMMIT = "9b9d92fa67907a16f8c7b511fef9b9c9a8b0e050"
 
 
 class PersistentAudioCompatibilityTests(unittest.TestCase):
-    def test_catalog_is_the_complete_published_preview_contract(self):
+    def test_catalog_is_the_complete_preview_candidate_contract(self):
         catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
 
         self.assertEqual(PREVIEW_AUDIO_COMMIT, catalog["source_commit"])
         self.assertEqual(70, catalog["lesson_count"])
-        self.assertEqual(4950, catalog["asset_count"])
-        self.assertEqual(3949, catalog["registry_asset_count"])
-        self.assertEqual(1001, catalog["legacy_manifest_asset_count"])
+        # Recall removes four answer-model turns. Three formerly cached neutral
+        # cues now have newly authored, registry-backed family-noun takes.
+        self.assertEqual(4946, catalog["asset_count"])
+        self.assertEqual(3948, catalog["registry_asset_count"])
+        self.assertEqual(998, catalog["legacy_manifest_asset_count"])
         self.assertEqual(catalog["asset_count"], len(asset_index()))
 
         hello = asset_index()[
