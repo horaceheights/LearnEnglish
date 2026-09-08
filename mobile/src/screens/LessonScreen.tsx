@@ -88,6 +88,7 @@ import {
 import { isMissionLesson, missionChapterProgress } from '../missionExperience';
 import { missionSuccessSoundEvent, useMissionSoundEffects } from '../missionSoundEffects';
 import { missionCueOrder } from '../missionTargetInteraction';
+import { MissionLandscapeHeader } from '../components/MissionLandscapeHeader';
 import {
   prepareCardChoice,
   registerCardAttempt,
@@ -336,6 +337,7 @@ export function LessonScreen({
   const [missionInteractionReady, setMissionInteractionReady] = useState(false);
   const [missionCueUnavailable, setMissionCueUnavailable] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const [showMissionLandscapeMenu, setShowMissionLandscapeMenu] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
   const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
   const [cardRunId, setCardRunId] = useState(0);
@@ -1013,6 +1015,7 @@ export function LessonScreen({
     currentCard?.mission_game
     && currentCard.mission_game.kind !== 'voice-gate',
   );
+  const usesMissionPhoneLandscape = usesMissionGameSurface && !isPortrait && viewportHeight < 600;
   const missionVoiceGateProgress = isMissionVoiceGate && currentCard?.mission_game
     ? {
         question: currentCard.mission_game.cue_audio_text || currentCard.mission_game.cues[0]?.text || '',
@@ -2839,9 +2842,7 @@ export function LessonScreen({
   const needsAccessibleScrolling = fontScale > 1.3
     || viewportHeight < 300
     || needsTextAnswerScrolling;
-  const lessonContent = (
-    <>
-        {qaMode ? (
+  const qaToolbar = qaMode ? (
           <View style={styles.qaToolbar}>
             <View style={styles.qaIdentity}>
               <Text style={styles.qaLabel}>ENGINE QA · v{Updates.runtimeVersion || '1.5.0'} · {updateCode}</Text>
@@ -2896,8 +2897,11 @@ export function LessonScreen({
               </Pressable>
             </View>
           </View>
-        ) : null}
-        <View style={[
+        ) : null;
+  const lessonContent = (
+    <>
+        {!usesMissionPhoneLandscape ? qaToolbar : null}
+        {!usesMissionPhoneLandscape ? <View style={[
           styles.hero,
           useCompactPhoneLayout ? styles.heroCompact : null,
           isPortrait ? styles.heroPortrait : null,
@@ -3019,7 +3023,7 @@ export function LessonScreen({
               {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
             </Text>
           </View> : null}
-        </View>
+        </View> : null}
         {isCompletedSectionPicker ? (
           <View accessibilityLiveRegion="polite" style={styles.sectionPickerPanel}>
             <Text accessibilityRole="header" style={styles.sectionPickerTitle}>Elige una sección</Text>
@@ -3143,7 +3147,7 @@ export function LessonScreen({
           pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'}
           style={[
             styles.cardCarousel,
-            needsTextAnswerScrolling ? styles.cardCarouselVerticalGrowth : null,
+            !usesMissionPhoneLandscape && needsTextAnswerScrolling ? styles.cardCarouselVerticalGrowth : null,
             isCompletedSectionPicker ? styles.reviewContentInactive : null,
             manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
           ]}
@@ -3153,6 +3157,17 @@ export function LessonScreen({
               card={currentCard as typeof currentCard & { mission_game: NonNullable<typeof currentCard.mission_game> }}
               cueUnavailable={missionCueUnavailable}
               interactionReady={missionInteractionReady}
+              landscapeHeader={usesMissionPhoneLandscape ? (
+                <MissionLandscapeHeader
+                  location={lessonLocation}
+                  title={lesson.mission?.title ?? lesson.title}
+                  step={cardIndex + 1}
+                  total={lesson.cards.length}
+                  onBack={() => confirmLessonExit('previous')}
+                  onHome={() => confirmLessonExit('home')}
+                  onMenu={() => setShowMissionLandscapeMenu(true)}
+                />
+              ) : null}
               onCueRequest={playMissionCueAt}
               cueOrder={missionOrder}
               key={`mission-${cardIndex}-${cardRunId}`}
@@ -3234,6 +3249,23 @@ export function LessonScreen({
       />
       <Modal
         animationType="fade"
+        onRequestClose={() => setShowMissionLandscapeMenu(false)}
+        transparent
+        visible={showMissionLandscapeMenu}
+      >
+        <View style={styles.completedPromptBackdrop}>
+          <ScrollView accessibilityViewIsModal style={styles.missionLandscapeMenuScroll} contentContainerStyle={styles.missionLandscapeMenu}>
+            <Text accessibilityRole="header" style={styles.completedPromptTitle}>Ayuda y opciones</Text>
+            <Text style={styles.completedPromptText}>{currentCard.mission_game?.instruction_es}</Text>
+            {qaToolbar}
+            <Pressable accessibilityRole="button" onPress={() => setShowMissionLandscapeMenu(false)} style={styles.completedPromptPrimary}>
+              <Text style={styles.completedPromptPrimaryText}>Volver al reto</Text>
+            </Pressable>
+          </ScrollView>
+        </View>
+      </Modal>
+      <Modal
+        animationType="fade"
         onRequestClose={missionExperience ? onExit : chooseCompletedLessonSections}
         transparent
         visible={completedLessonMode === 'prompt'}
@@ -3284,6 +3316,8 @@ const styles = StyleSheet.create({
   pageScrollableTextAnswers: { flexGrow: 1 },
   completionPage: { alignItems: 'center', flexGrow: 1, justifyContent: 'center', paddingHorizontal: 28, paddingVertical: 24 },
   cardCarousel: { flex: 1 },
+  missionLandscapeMenuScroll: { backgroundColor: '#fffdf8', borderRadius: 20, flexGrow: 0, maxHeight: '100%', maxWidth: 620, width: '100%' },
+  missionLandscapeMenu: { gap: 8, padding: 16 },
   cardCarouselVerticalGrowth: { flexBasis: 'auto', flexGrow: 1, flexShrink: 0 },
   reviewContentInactive: { opacity: 0.28 },
   sectionPickerPanel: {

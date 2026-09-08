@@ -45,6 +45,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Falló la asociación visual de los objetivos.' }
   & node tests/mission-target-interaction.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la verificación visual vinculada de los blancos de la misión.' }
+  & node tests/mission-phone-landscape.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el diseño independiente de la misión en teléfono horizontal.' }
 
   & node tests/mission-scene-layout.test.cjs (Join-Path $outputDirectory 'missionSceneGeometry.js')
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de encuadre y objetivos de las escenas de misión.' }

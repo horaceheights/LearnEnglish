@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Animated, Easing, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { fitMissionHeadScene, type HeadMarker } from '../missionTargetInteraction';
@@ -14,6 +14,7 @@ type Props = {
   cueOrder: number[];
   cueUnavailable: boolean;
   interactionReady: boolean;
+  landscapeHeader?: ReactNode;
   onCueRequest: (cueIndex: number) => void;
   onMisstep: (optionIds: string[]) => void;
   onTargetFound: () => void;
@@ -129,6 +130,7 @@ export function MissionGameSurface({
   cueOrder,
   cueUnavailable,
   interactionReady,
+  landscapeHeader,
   onCueRequest,
   onMisstep,
   onTargetFound,
@@ -149,6 +151,11 @@ export function MissionGameSurface({
     || card.options.find((option) => option.image_url)?.image_url
     || '';
   const useLandscapeGameRail = viewportWidth > viewportHeight && viewportHeight < 600;
+  const landscapeInstruction = game.targets.every((target) => (target.head_anchors?.length ?? 1) > 1)
+    ? 'Escucha y toca al grupo.'
+    : game.targets.some((target) => (target.head_anchors?.length ?? 1) > 1)
+      ? 'Escucha y toca a la persona o al grupo.'
+      : 'Escucha y toca a la persona.';
   const resolving = Boolean(feedback);
   const disabled = !interactionReady || resolving || result === 'correct';
   const cueProgress = useMemo(
@@ -214,14 +221,20 @@ export function MissionGameSurface({
   if (!currentCue || !heroImageUrl) return null;
 
   const instructionPanel = (
-    <View style={styles.instructionPanel}>
-      <View style={styles.instructionCopy}>
-        <View style={styles.instructionMeta}>
-          <Text style={styles.kindLabel}>{KIND_LABELS[game.kind]}</Text>
+    <View style={[
+      styles.instructionPanel,
+      useLandscapeGameRail ? styles.instructionPanelLandscape : null,
+      useLandscapeGameRail && feedback ? (wrongTargetId ? styles.landscapeWrong : styles.landscapeCorrect) : null,
+    ]}>
+      <View style={[styles.instructionCopy, useLandscapeGameRail ? styles.instructionCopyLandscape : null]}>
+        <View style={[styles.instructionMeta, useLandscapeGameRail ? styles.instructionMetaLandscape : null]}>
+          {!useLandscapeGameRail ? <Text style={styles.kindLabel}>{KIND_LABELS[game.kind]}</Text> : null}
           <Text style={styles.cueProgress}>PISTA {cueProgress}</Text>
         </View>
-        <Text adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={2} style={styles.instruction}>
-          {game.instruction_es}
+        <Text accessibilityLiveRegion={useLandscapeGameRail ? 'polite' : 'none'} adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={useLandscapeGameRail ? 4 : 2} style={styles.instruction}>
+          {useLandscapeGameRail && feedback ? feedback
+            : useLandscapeGameRail && cueUnavailable ? 'Toca el botón de sonido para escuchar otra vez.'
+              : useLandscapeGameRail ? landscapeInstruction : game.instruction_es}
         </Text>
       </View>
       <Pressable
@@ -229,10 +242,11 @@ export function MissionGameSurface({
         accessibilityLabel="Repetir la frase"
         accessibilityRole="button"
         disabled={resolving || result === 'correct'}
-        hitSlop={7}
+      hitSlop={useLandscapeGameRail ? 0 : 7}
         onPress={() => onCueRequest(cueIndex)}
         style={({ pressed }) => [
           styles.audioButton,
+          useLandscapeGameRail ? styles.audioButtonLandscape : null,
           !interactionReady && !cueUnavailable ? styles.audioButtonPlaying : null,
           cueUnavailable ? styles.audioButtonRetry : null,
           pressed ? styles.pressed : null,
@@ -266,8 +280,8 @@ export function MissionGameSurface({
     <View style={[styles.surface, useLandscapeGameRail ? styles.surfaceLandscape : null]}>
       {useLandscapeGameRail ? (
         <View style={styles.landscapeRail}>
+          {landscapeHeader}
           {instructionPanel}
-          {progressDots}
         </View>
       ) : instructionPanel}
 
@@ -290,21 +304,21 @@ export function MissionGameSurface({
               <View style={styles.sceneCanvas}>
               <OptionMediaImage accessibilityLabel="Escena de la misión" imageUrl={heroImageUrl} />
 
-              {!interactionReady && !feedback && !cueUnavailable ? (
+              {!useLandscapeGameRail && !interactionReady && !feedback && !cueUnavailable ? (
                 <View pointerEvents="none" style={styles.listeningBadge}>
                   <Ionicons color="#fff" name="ear" size={18} />
                   <Text style={styles.listeningText}>Escucha…</Text>
                 </View>
               ) : null}
 
-              {cueUnavailable && !feedback ? (
+              {!useLandscapeGameRail && cueUnavailable && !feedback ? (
                 <View accessibilityLiveRegion="assertive" pointerEvents="none" style={styles.retryBadge}>
                   <Ionicons color="#fff" name="volume-high" size={19} />
                   <Text style={styles.retryText}>El audio no se pudo reproducir. Toca el botón de sonido.</Text>
                 </View>
               ) : null}
 
-              {feedback ? (
+              {!useLandscapeGameRail && feedback ? (
                 <View accessibilityLiveRegion="polite" pointerEvents="none" style={[
                   styles.feedback,
                   wrongTargetId ? styles.feedbackWrong : styles.feedbackCorrect,
@@ -353,10 +367,16 @@ export function MissionGameSurface({
 
 const styles = StyleSheet.create({
   surface: { alignSelf: 'center', flex: 1, gap: 8, maxWidth: 900, minHeight: 0, width: '100%' },
-  surfaceLandscape: { flexDirection: 'row' },
-  landscapeRail: { flexBasis: '34%', flexGrow: 0, flexShrink: 1, gap: 8, justifyContent: 'space-between', maxWidth: 320, minWidth: 210 },
+  surfaceLandscape: { flexDirection: 'row', maxWidth: '100%' },
+  landscapeRail: { flexBasis: '30%', flexGrow: 0, flexShrink: 0, gap: 8, justifyContent: 'space-between', maxWidth: 280, minWidth: 210 },
   instructionPanel: { alignItems: 'center', backgroundColor: '#fffdf7', borderColor: '#9bcdbf', borderRadius: 17, borderWidth: 1.5, flexDirection: 'row', gap: 10, paddingHorizontal: 12, paddingVertical: 8 },
+  instructionPanelLandscape: { alignItems: 'stretch', flexDirection: 'column', gap: 0, paddingHorizontal: 10, paddingVertical: 4, position: 'relative' },
+  instructionMetaLandscape: { alignItems: 'flex-start', justifyContent: 'center', minHeight: 48, paddingRight: 50 },
+  audioButtonLandscape: { position: 'absolute', right: 8, top: 4 },
+  landscapeCorrect: { backgroundColor: '#e5f6ec', borderColor: '#32a77e' },
+  landscapeWrong: { backgroundColor: '#fff0e8', borderColor: '#c95048' },
   instructionCopy: { flex: 1, minWidth: 0 },
+  instructionCopyLandscape: { flexBasis: 'auto', flexGrow: 0, flexShrink: 1 },
   instructionMeta: { alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' },
   kindLabel: { color: '#d86643', fontSize: 10, fontWeight: '900', letterSpacing: 0.8 },
   cueProgress: { color: '#477069', fontSize: 10, fontWeight: '900', letterSpacing: 0.4 },
