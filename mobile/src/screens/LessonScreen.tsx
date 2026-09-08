@@ -999,10 +999,18 @@ export function LessonScreen({
     || currentCard?.interaction_type === 'mission-sentence'
     || currentCard?.interaction_type === 'mission-finale';
   const isMissionGameCard = Boolean(currentCard?.mission_game);
+  const isMissionVoiceGate = currentCard?.mission_game?.kind === 'voice-gate';
   const usesMissionGameSurface = Boolean(
     currentCard?.mission_game
     && currentCard.mission_game.kind !== 'voice-gate',
   );
+  const missionVoiceGateProgress = isMissionVoiceGate && currentCard?.mission_game
+    ? {
+        question: currentCard.mission_game.cue_audio_text || currentCard.mission_game.cues[0]?.text || '',
+        step: Math.max(1, cardIndex - ((lesson?.cards.length ?? 4) - 4) + 1),
+        total: 4,
+      }
+    : null;
   // `Use` is a grammar-animation stage in standard lessons, but a dedicated
   // mission surface has no LessonCardView animation callback to wait for.
   // Keeping those lifecycles separate prevents a correct mission check from
@@ -2958,7 +2966,7 @@ export function LessonScreen({
             </Text>
           </View>
         ) : null}
-        {!usesMissionGameSurface ? <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
+        {!isMissionGameCard ? <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
           styles.contentHeader,
           useCompactPhoneLayout ? styles.contentHeaderCompact : null,
           isPortrait ? styles.contentHeaderPortrait : null,
@@ -3107,6 +3115,7 @@ export function LessonScreen({
             offlinePronunciationPracticeEnabled={isOffline && offlinePronunciationAccepted}
             optionsInteractive={!isAutomaticSingleCard}
             pronunciationAudioTurns={pronunciationTurnSequence}
+            missionVoiceGate={missionVoiceGateProgress}
             onPronunciationAttempted={pronunciationAttempted}
             onPronunciationReplayAvailabilityChange={setPronunciationReplayAvailable}
             onPronunciationPassed={pronunciationPassed}

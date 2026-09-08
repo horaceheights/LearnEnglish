@@ -1,6 +1,7 @@
 import { Animated, Easing, PanResponder, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useVideoPlayer, VideoView, type VideoSource } from 'expo-video';
+import { Ionicons } from '@expo/vector-icons';
 
 import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } from '../actionVideos';
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
@@ -60,6 +61,7 @@ type Props = {
   offlinePronunciationPracticeEnabled?: boolean;
   optionsInteractive?: boolean;
   pronunciationAudioTurns?: CourseAudioTurnPlayback[] | null;
+  missionVoiceGate?: { question: string; step: number; total: number } | null;
   userId?: string;
   selectedId: string | null;
   selectedIds?: string[];
@@ -91,6 +93,7 @@ export function LessonCardView({
   offlinePronunciationPracticeEnabled = false,
   optionsInteractive = true,
   pronunciationAudioTurns = null,
+  missionVoiceGate = null,
   userId,
   selectedId,
   selectedIds = EMPTY_SELECTED_IDS,
@@ -112,6 +115,7 @@ export function LessonCardView({
   const { height: viewportHeight, width: viewportWidth, fontScale } = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const isPronunciation = card.stage === 'Pronunciation Practice' || card.stage === 'Speak';
+  const isMissionVoiceGate = Boolean(missionVoiceGate);
   const isGrammar = card.stage === 'Grammar' || card.stage === 'New Grammar' || card.stage === 'Use';
   const isMissionTile = card.interaction_type === 'mission-word-parts'
     || card.interaction_type === 'mission-sentence'
@@ -433,6 +437,7 @@ export function LessonCardView({
       isTabletLandscape ? styles.cardTabletLandscape : null,
       isPronunciation ? styles.pronunciationCard : null,
       isPronunciation && !isLandscape ? styles.pronunciationCardPortrait : null,
+      isMissionVoiceGate ? styles.missionVoiceCard : null,
       allowVerticalGrowth ? styles.cardVerticalGrowth : null,
     ]}
       onLayout={({ nativeEvent }) => {
@@ -493,30 +498,72 @@ export function LessonCardView({
         </LessonMediaFrame>
       ) : null}
       {isPronunciation ? (
-        <PronunciationPractice
-          audioTurns={pronunciationAudioTurns}
-          audioProvider={audioProvider}
-          audioVoice={audioVoice}
-          imageHeight={showHelp
-            ? featureImageHeight * 0.65
-            : result
-              ? featureImageHeight * 0.72
-              : featureImageHeight}
-          imageLabel={card.options[0]?.label || card.prompt}
-          imageUrl={card.options[0]?.image_url}
-          isAppActive={isAppActive}
-          isOffline={isOffline}
-          offlinePracticeEnabled={offlinePronunciationPracticeEnabled}
-          videoName={null}
-          level={level}
-          onAttempted={onPronunciationAttempted}
-          onHeaderReplayAvailabilityChange={onPronunciationReplayAvailabilityChange}
-          onPassed={onPronunciationPassed}
-          onUnavailable={onPronunciationUnavailable}
-          phrase={card.audio_text || card.prompt}
-          headerReplayRequestId={pronunciationReplayRequestId}
-          userId={userId}
-        />
+        <View style={isMissionVoiceGate ? styles.missionVoiceSurface : null}>
+          {missionVoiceGate ? (
+            <>
+              <View style={styles.missionVoiceHeading}>
+                <View style={styles.missionVoiceHeadingCopy}>
+                  <Text style={styles.missionVoiceEyebrow}>ABRE LA CELEBRACIÓN</Text>
+                  <Text style={styles.missionVoiceTitle}>Activa la entrada con tu voz</Text>
+                </View>
+                <Text style={styles.missionVoiceCounter}>VOZ {missionVoiceGate.step}/{missionVoiceGate.total}</Text>
+              </View>
+              <View accessibilityLabel={`Voz ${missionVoiceGate.step} de ${missionVoiceGate.total}`} style={styles.missionVoiceLocks}>
+                {Array.from({ length: missionVoiceGate.total }, (_item, index) => {
+                  const complete = index < missionVoiceGate.step - 1;
+                  const active = index === missionVoiceGate.step - 1;
+                  return (
+                    <View key={index} style={[
+                      styles.missionVoiceLock,
+                      complete ? styles.missionVoiceLockComplete : null,
+                      active ? styles.missionVoiceLockActive : null,
+                    ]}>
+                      <Ionicons
+                        color={complete ? '#fff' : active ? '#704816' : '#7d8984'}
+                        name={complete ? 'checkmark' : active ? 'mic' : 'lock-closed'}
+                        size={17}
+                      />
+                    </View>
+                  );
+                })}
+              </View>
+              <View style={styles.missionVoiceQuestion}>
+                <View style={styles.missionVoiceQuestionIcon}>
+                  <Ionicons color="#fff" name="chatbubble-ellipses" size={19} />
+                </View>
+                <View style={styles.missionVoiceQuestionCopy}>
+                  <Text style={styles.missionVoiceQuestionLabel}>TE PREGUNTAN</Text>
+                  <Text style={styles.missionVoiceQuestionText}>{missionVoiceGate.question}</Text>
+                </View>
+              </View>
+            </>
+          ) : null}
+          <PronunciationPractice
+            audioTurns={pronunciationAudioTurns}
+            audioProvider={audioProvider}
+            audioVoice={audioVoice}
+            imageHeight={showHelp
+              ? featureImageHeight * 0.65
+              : result
+                ? featureImageHeight * 0.72
+                : featureImageHeight}
+            imageLabel={card.options[0]?.label || card.prompt}
+            imageUrl={card.options[0]?.image_url}
+            isAppActive={isAppActive}
+            isOffline={isOffline}
+            offlinePracticeEnabled={offlinePronunciationPracticeEnabled}
+            videoName={null}
+            level={level}
+            onAttempted={onPronunciationAttempted}
+            onHeaderReplayAvailabilityChange={onPronunciationReplayAvailabilityChange}
+            onPassed={onPronunciationPassed}
+            onUnavailable={onPronunciationUnavailable}
+            phrase={card.audio_text || card.prompt}
+            presentation={isMissionVoiceGate ? 'mission-voice-gate' : 'standard'}
+            headerReplayRequestId={pronunciationReplayRequestId}
+            userId={userId}
+          />
+        </View>
       ) : (
         <>
           {isMissionTile ? (
@@ -1102,6 +1149,48 @@ const styles = StyleSheet.create({
   cardVerticalGrowth: { flexBasis: 'auto', flexGrow: 1, flexShrink: 0 },
   pronunciationCard: { justifyContent: 'flex-start', paddingBottom: 4, paddingTop: 3 },
   pronunciationCardPortrait: { paddingBottom: 6, paddingTop: 3 },
+  missionVoiceCard: {
+    backgroundColor: '#173f39',
+    borderColor: '#e3b653',
+    borderRadius: 24,
+    borderWidth: 2,
+    overflow: 'hidden',
+    padding: 8,
+  },
+  missionVoiceSurface: { flex: 1, gap: 6, minHeight: 0 },
+  missionVoiceHeading: { alignItems: 'center', flexDirection: 'row', gap: 8, justifyContent: 'space-between' },
+  missionVoiceHeadingCopy: { flex: 1, minWidth: 0 },
+  missionVoiceEyebrow: { color: '#ffd986', fontSize: 9, fontWeight: '900', letterSpacing: 1.1 },
+  missionVoiceTitle: { color: '#fffaf0', fontSize: 16, fontWeight: '900', lineHeight: 18 },
+  missionVoiceCounter: { color: '#ffe5a9', fontSize: 10, fontWeight: '900' },
+  missionVoiceLocks: { alignItems: 'center', flexDirection: 'row', gap: 7, justifyContent: 'center' },
+  missionVoiceLock: {
+    alignItems: 'center',
+    backgroundColor: '#f4efe2',
+    borderColor: '#758a82',
+    borderRadius: 18,
+    borderWidth: 2,
+    height: 35,
+    justifyContent: 'center',
+    width: 35,
+  },
+  missionVoiceLockActive: { backgroundColor: '#ffd986', borderColor: '#fff6d7', transform: [{ scale: 1.08 }] },
+  missionVoiceLockComplete: { backgroundColor: '#38a77c', borderColor: '#8fe0bd' },
+  missionVoiceQuestion: {
+    alignItems: 'center',
+    backgroundColor: '#fff8e8',
+    borderColor: '#e4bc65',
+    borderRadius: 15,
+    borderWidth: 1.5,
+    flexDirection: 'row',
+    gap: 9,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  missionVoiceQuestionIcon: { alignItems: 'center', backgroundColor: '#d86b48', borderRadius: 18, height: 35, justifyContent: 'center', width: 35 },
+  missionVoiceQuestionCopy: { flex: 1, minWidth: 0 },
+  missionVoiceQuestionLabel: { color: '#a45b3f', fontSize: 8, fontWeight: '900', letterSpacing: 0.9 },
+  missionVoiceQuestionText: { color: '#244640', fontSize: 18, fontWeight: '900', lineHeight: 21 },
   help: { backgroundColor: '#fff4df', borderRadius: 12, marginBottom: 6, paddingHorizontal: 10, paddingVertical: 6 },
   flyingAnswer: { alignItems: 'center', left: 0, position: 'absolute', right: 0, top: -64, zIndex: 20 },
   flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },

@@ -772,9 +772,9 @@ def validate_mission_contracts(lessons=None) -> list[str]:
 
         if lesson.id != "lesson-10-family-mission":
             continue
-        if lesson.content_revision != 5:
+        if lesson.content_revision != 6:
             errors.append(
-                f"{lesson.id} real-game mission must declare content_revision 5."
+                f"{lesson.id} voice-game mission must declare content_revision 6."
             )
         if str(getattr(mission, "title", "") or "") != "¡Todos a la celebración!":
             errors.append(
