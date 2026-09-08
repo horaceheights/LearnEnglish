@@ -22,6 +22,7 @@ import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
 import CelebrationMission from "./CelebrationMission";
+import { missionCueOrder } from "../lib/missionTargetInteraction.cjs";
 import MissionCompletion from "./MissionCompletion";
 import MissionJourney from "./MissionJourney";
 
@@ -2276,6 +2277,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }, [playUiSfx]);
 
   const currentCard = activeLesson.cards[cardIndex];
+  const missionOrder = useMemo(() => missionCueOrder(currentCard?.mission_game), [currentCard]);
   const [activeTurnImageUrl, setActiveTurnImageUrl] = useState(null);
   const totalCards = activeLesson.cards.length;
   const finalMissionCard = isMissionExperience ? activeLesson.cards[activeLesson.cards.length - 1] : null;
@@ -2364,7 +2366,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       onEnd?.();
       return;
     }
-    const cueTurn = cardAudioTurnSequence(currentCard, "prompt")?.[cueIndex];
+    const cueTurn = cardAudioTurnSequence(currentCard, "prompt")?.[missionOrder[cueIndex] ?? cueIndex];
     if (cueTurn && currentCard.mission_game.kind !== "voice-gate") {
       playCourseTurnSequence([cueTurn], { onEnd });
       return;
@@ -2384,7 +2386,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       voiceMode: text.endsWith("?") ? "question" : "prompt",
       onEnd,
     });
-  }, [cardPromptText, currentCard, playCourseTurnSequence, speakText]);
+  }, [cardPromptText, currentCard, missionOrder, playCourseTurnSequence, speakText]);
 
   const playMissionDirections = useCallback((cueIndex = 0) => {
     if (!currentCard?.mission_game) {
@@ -4452,7 +4454,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
       const praise = PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)];
       const praisePitch = [1.0, 1.1, 1.2, 1.28][Math.floor(Math.random() * 4)];
-      playUiSfx(
+      if (!currentCard.mission_game || currentCard.mission_game.kind === "voice-gate") playUiSfx(
         isMissionExperience && currentCard.interaction_type === "mission-finale"
           ? "missionFinale"
           : "pageRestored",
@@ -4534,6 +4536,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   const recordMissionMisstep = (attemptedIds = []) => {
     if (lastResult === "correct") return;
+    if (currentCard.mission_game?.tutorial_mode === "guided-no-fail") {
+      playUiSfx("tryAgain", { debounceMs: 280, volume: 0.42 });
+      return;
+    }
     const firstTry = !wrongAttempts[cardIndex];
     const correctOptionKey = orderedCorrectOptionIds(currentCard).join("|");
     const selectedOptionKey = attemptedIds.join("|") || "invalid-placement";
@@ -5183,6 +5189,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     return (
       <div style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
         <CelebrationMission
+          cueOrder={missionOrder}
           card={currentCard}
           cardIndex={cardIndex}
           imageSrc={currentCard.prompt_image_url ? lessonOptionImageSrc(currentCard.prompt_image_url) : ""}
@@ -5203,7 +5210,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           onReplayEnglish={(cueIndex) => playMissionDirections(cueIndex)}
           onReplayIntro={playMissionIntroNarration}
           onRetrySpeech={() => beginPronunciationRecording({ isRetry: true })}
-          onScenePlacement={() => playUiSfx("tilePlace", { debounceMs: 70, volume: 0.36 })}
+          onScenePlacement={() => playUiSfx("tilePlace", { debounceMs: 140, volume: 0.64 })}
           resolveImage={lessonOptionImageSrc}
           speech={{
             error: pronunciationError,

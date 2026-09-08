@@ -14,10 +14,14 @@ const mediaBuilder = fs.readFileSync(path.join(repositoryRoot, 'scripts', 'build
 const unitOneBuilderPath = path.join(repositoryRoot, 'scripts', 'build_unit_1_lessons.mjs');
 const authoredUnitOne = [];
 const unitOneBuilderSource = fs.readFileSync(unitOneBuilderPath, 'utf8')
-  .replace(/^import \{ writeFileSync \} from 'node:fs';\r?\n/m, '')
+  .replace(/^import \{ readFileSync, writeFileSync \} from 'node:fs';\r?\n/m, '')
   .replace(/^import \{ join \} from 'node:path';\r?\n/m, '');
 // Exercise the real authoring source without generating or changing any files.
 vm.runInNewContext(unitOneBuilderSource, {
+  readFileSync: (filename, encoding) => {
+    assert.equal(filename, path.join(repositoryRoot, 'scripts', 'mission-head-anchors.json'));
+    return fs.readFileSync(filename, encoding);
+  },
   writeFileSync: (filename, contents) => {
     assert.equal(path.dirname(filename), path.join(repositoryRoot, 'backend', 'lessons', 'unit_1'));
     authoredUnitOne.push(JSON.parse(contents));

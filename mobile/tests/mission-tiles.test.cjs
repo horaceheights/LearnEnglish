@@ -30,12 +30,12 @@ for (const card of mission.cards.slice(0, 18)) {
 
 test('mobile mission uses large direct tap targets and contains no drag worksheet', () => {
   assert.match(surface, /function TargetDot/);
-  assert.match(surface, /missionPersonTargetSize/);
-  assert.match(surface, /missionTargetTouchWidth/);
-  assert.match(surface, /hitSlop=\{8\}/);
+  assert.match(surface, /height: targetHeight/);
+  assert.match(surface, /width: targetWidth/);
+  assert.doesNotMatch(surface, /hitSlop=\{8\}/, 'Measured 48dp bounds must not grow into adjacent controls.');
   assert.match(surface, /onPress=\{onPress\}/);
   assert.match(surface, /Animated\.loop/);
-  assert.match(surface, /targetCenter\(target\)/);
+  assert.match(surface, /left: marker\.x/);
   assert.doesNotMatch(surface, /PanResponder|measureInWindow|onDrop|draggable/);
 });
 
@@ -57,7 +57,7 @@ test('mission surfaces consume available screen space without lesson scrolling',
   assert.match(kickoff, /adjustsFontSizeToFit/);
   assert.match(surface, /surface: \{[^\n]*flex: 1/);
   assert.match(surface, /sceneSlot: \{[^\n]*flex: 1[^\n]*minHeight: 0/);
-  assert.match(surface, /fitMissionSceneFrame\(/);
+  assert.match(surface, /fitMissionHeadScene\(/);
   assert.match(surface, /style=\{styles\.sceneCanvas\}/);
   assert.doesNotMatch(surface, /imageFrame: \{[^\n]*flex: 1/);
   assert.match(surface, /adjustsFontSizeToFit/);

@@ -26,7 +26,7 @@ assert.match(kickoff, /Comenzar misión/);
 assert.match(kickoff, /Escuchar otra vez/);
 assert.match(kickoff, /disabled=\{!ready\}/);
 assert.doesNotMatch(kickoff, /ScrollView/);
-assert.match(surface, /game\.cues\[cueIndex\]/);
+assert.match(surface, /game\.cues\[cueOrder\[cueIndex\] \?\? cueIndex\]/);
 assert.match(surface, /TargetDot/);
 assert.match(surface, /Animated\.loop/);
 assert.match(surface, /onCueRequest\(nextCueIndex\)/);

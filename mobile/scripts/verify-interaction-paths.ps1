@@ -42,6 +42,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de interacción y diseño de fichas de misión.' }
 
   & node tests/mission-target-placement.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la asociación visual de los objetivos.' }
+  & node tests/mission-target-interaction.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la verificación visual vinculada de los blancos de la misión.' }
 
   & node tests/mission-scene-layout.test.cjs (Join-Path $outputDirectory 'missionSceneGeometry.js')

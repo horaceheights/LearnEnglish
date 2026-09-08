@@ -1,4 +1,4 @@
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const outputDir = join(process.cwd(), 'backend', 'lessons', 'unit_1');
@@ -1231,8 +1231,15 @@ const missionBlueprintV5 = [
   }),
 ];
 
+const missionHeadAnchors = JSON.parse(readFileSync(join(process.cwd(), 'scripts', 'mission-head-anchors.json'), 'utf8'));
 const lesson110Cards = missionBlueprintV5.map(({ chapter, phase, card }, index) => {
   const { translation, ...cardFields } = card;
+  const slideId = `M${String(index + 1).padStart(2, '0')}`;
+  if (cardFields.mission_game.kind !== 'voice-gate') {
+    for (const target of cardFields.mission_game.targets) {
+      target.head_anchors = missionHeadAnchors[slideId][target.id].map(([x, y]) => ({ x, y }));
+    }
+  }
   return {
     slide_id: `M${String(index + 1).padStart(2, '0')}`,
     ...cardFields,

@@ -88,11 +88,19 @@ class MissionNormalizedRect(BaseModel):
         return self
 
 
+class MissionHeadAnchor(BaseModel):
+    """Reviewed crown position in the complete, uncropped scene."""
+
+    x: float = Field(ge=0, le=1)
+    y: float = Field(ge=0, le=1)
+
+
 class MissionGameTarget(BaseModel):
     id: str = Field(min_length=1)
     label_es: str = Field(min_length=1)
     rect: MissionNormalizedRect
     accepted_option_ids: list[str] = Field(min_length=1)
+    head_anchors: list[MissionHeadAnchor] = Field(default_factory=list, max_length=12)
 
     @field_validator("id", "label_es")
     @classmethod

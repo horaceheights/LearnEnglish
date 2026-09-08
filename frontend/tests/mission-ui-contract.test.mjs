@@ -27,7 +27,7 @@ test("the kickoff narrates the objective and remains locked until its audio ends
 });
 
 test("active challenges are English-audio driven and never read Spanish answers", () => {
-  assert.match(player, /cardAudioTurnSequence\(currentCard, "prompt"\)\?\.\[cueIndex\]/);
+  assert.match(player, /cardAudioTurnSequence\(currentCard, "prompt"\)\?\.\[missionOrder\[cueIndex\] \?\? cueIndex\]/);
   assert.match(player, /playCourseTurnSequence\(\[cueTurn\], \{ onEnd \}\)/);
   assert.match(player, /playMissionEnglishClue\(cueIndex, unlock\)/);
   assert.doesNotMatch(player, /speakText\(currentCard\.mission_game\.instruction_es/);
