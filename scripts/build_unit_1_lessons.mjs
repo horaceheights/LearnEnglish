@@ -1345,7 +1345,54 @@ const lessons = [
   ['1.8_who_is_he_who_are_they.yaml', lesson18], ['1.9_unit_1_spiral_review.yaml', lesson19],
   ['1.10_family_scene_mission.yaml', lesson110],
 ];
+
+// The final four Use cards progress to full construction only when their existing
+// target fits the reviewed 2–8 word bank. Keep single words and longer targets
+// as guided completion, and preserve the earlier scaffold and every story beat.
+const constructionTranslations = {
+  '1.2': { U4: 'La niña está leyendo.', U5: 'Ella está leyendo.', U6: 'La mujer está escribiendo.', U7: 'La mujer está escribiendo. Ella está escribiendo.' },
+  '1.3': { U4: 'El hombre está sentado.', U5: 'Él está nadando.', U6: 'Ella está durmiendo.' },
+  '1.4': { U5: 'Un hermano.', U7: 'Ellos son una familia.' },
+  '1.5': { U4: 'Ella es la madre.', U5: 'Ellos son los padres.', U6: 'Él es el abuelo.', U7: 'Ella es la abuela. Ellos son los abuelos.' },
+  '1.6': { U4: 'La madre está cocinando.', U5: 'Los padres están hablando.', U6: 'Los padres están hablando.', U7: 'Los padres están hablando. Ellos están hablando.' },
+  '1.7': { U4: 'Ella no está leyendo.', U5: 'Ellos están corriendo.', U6: 'Ellos no están sentados.', U7: 'Ellos no están durmiendo. Ellos están hablando.' },
+  '1.8': { U7: '¿Quiénes son ellos?', U8: 'Ellos son los niños.', U9: '¿Quiénes son ellos?', U10: 'Ellos son los abuelos.' },
+  '1.9': { U5: 'Las hermanas están jugando.', U6: '¿Quién es él? Él es el padre.', U8: 'Ellos son los abuelos. No están durmiendo.' },
+};
+
+function applyConstructionProgression(lesson) {
+  const translations = constructionTranslations[lesson.sub_lesson_id];
+  if (!translations) return;
+  const finalCards = lesson.cards.filter((card) => card.stage === 'Use').slice(-4);
+  const converted = [];
+  for (const card of finalCards) {
+    const target = card.answer_audio_text;
+    const words = target.match(/[A-Za-z]+(?:'[A-Za-z]+)?/g) || [];
+    if (words.length < 2 || words.length > 8) continue;
+    const translation = translations[card.slide_id];
+    if (!translation) throw new Error(`${lesson.sub_lesson_id} ${card.slide_id} requires a reviewed full construction translation`);
+    const ordered = words.map((word, index) => textOption(`word-${index + 1}`, word));
+    Object.assign(card, {
+      interaction_type: 'complete-sentence',
+      prompt: target.replace(/[A-Za-z]+(?:'[A-Za-z]+)?/g, '___'),
+      audio_text: target,
+      correct_option_id: ordered[0].id,
+      correct_option_ids: ordered.map((option) => option.id),
+      options: [...ordered.filter((_, index) => index % 2 === 1), ...ordered.filter((_, index) => index % 2 === 0)],
+      translation,
+      spanish_translation: translation,
+    });
+    converted.push(card.slide_id);
+  }
+  if (JSON.stringify(converted) !== JSON.stringify(Object.keys(translations))) {
+    throw new Error(`${lesson.sub_lesson_id} construction scope changed; review the final-four progression`);
+  }
+  lesson.content_revision = 2;
+}
+
 for (const [filename, lesson] of lessons) {
+  if (process.argv.includes('--standard-only') && lesson.experience_type === 'mission') continue;
+  applyConstructionProgression(lesson);
   writeFileSync(join(outputDir, filename), `${JSON.stringify(lesson, null, 2)}\n`, 'utf8');
   const counts = Object.fromEntries(stageOrder.map((stage) => [stage, lesson.cards.filter((card) => card.stage === stage).length]));
   console.log(`${lesson.sub_lesson_id} ${lesson.sub_lesson_title}: ${lesson.cards.length} cards ${JSON.stringify(counts)}`);

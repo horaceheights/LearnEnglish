@@ -2082,26 +2082,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "___ brother.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "a",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "a",
+          "id": "word-2",
           "image_url": "",
-          "label": "A"
+          "label": "brother"
         },
         {
-          "id": "the",
+          "id": "word-1",
           "image_url": "",
-          "label": "The"
+          "label": "A"
         }
       ],
-      "audio_text": "___ brother.",
+      "audio_text": "A brother.",
       "answer_audio_text": "A brother.",
       "prompt_image_url": "/lesson-assets/boy.webp",
-      "spanish_translation": "___ hermano.",
+      "spanish_translation": "Un hermano.",
       "pedagogy_note": "Story beat 05: 1.4 story; this use card advances the same ordered arc.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -2109,11 +2113,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-children-siblings-c040-prompt-bf9ff57b3502bd451e47",
+          "id": "lesson-4-children-siblings-c040-prompt-6894c4921396e34125ec",
           "purpose": "prompt",
           "text": "A brother.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/boy.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -2190,35 +2194,42 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete4",
-      "prompt": "___ are ___ family.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "they",
+      "correct_option_id": "word-1",
       "correct_option_ids": [
-        "they",
-        "a"
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
       ],
       "options": [
         {
-          "id": "family",
+          "id": "word-2",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "family"
         },
         {
-          "id": "they",
+          "id": "word-1",
           "image_url": "",
           "label": "They"
         },
         {
-          "id": "a",
+          "id": "word-3",
           "image_url": "",
           "label": "a"
         }
       ],
-      "audio_text": "___ are ___ family.",
+      "audio_text": "They are a family.",
       "answer_audio_text": "They are a family.",
       "prompt_image_url": "/lesson-assets/family_all_members.webp",
-      "spanish_translation": "___ son una familia.",
+      "spanish_translation": "Ellos son una familia.",
       "pedagogy_note": "Story beat 07: 1.4 story; this use card advances the same ordered arc.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -2226,11 +2237,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-children-siblings-c042-prompt-52a6c3ce2cfc02dd3d63",
+          "id": "lesson-4-children-siblings-c042-prompt-f8c73981664aaeef3a83",
           "purpose": "prompt",
           "text": "They are a family.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/family_all_members.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

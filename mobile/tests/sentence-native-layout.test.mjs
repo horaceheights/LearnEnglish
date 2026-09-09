@@ -89,3 +89,33 @@ test('native Yoga bounds both construction panes while enlarged content remains 
     }
   }
 });
+
+test('long completed words and punctuation fit native slots when replay moves into the instruction row', () => {
+  assert.match(source, /onWidth\(option\.id, event\.nativeEvent\.layout\.width\)/);
+  assert.match(source, /wideSlots \? styles\.importanceWide/);
+  assert.match(source, /wideSlots \? styles\.replayAbove/);
+  for (const paneWidth of [308, 301, 378, 500]) {
+    for (const scale of [1, 1.3, 1.5, 2]) {
+      // Native bold grandparents plus its period, measured wider than the old
+      // five-letter estimate. Use the actual full-width mode's padding/border.
+      const textWidth = 128 * scale;
+      const config = Yoga.Config.create(); config.setUseWebDefaults(false);
+      const pane = Yoga.Node.create(config); pane.setWidth(paneWidth);
+      pane.setPadding(Yoga.EDGE_LEFT, styles.importance.paddingLeft);
+      pane.setPadding(Yoga.EDGE_RIGHT, styles.importanceWide.paddingRight);
+      pane.setBorder(Yoga.EDGE_ALL, styles.importance.borderWidth);
+      const slot = Yoga.Node.create(config); slot.setFlexShrink(styles.slot.flexShrink);
+      slot.setAlignSelf(Yoga.ALIGN_CENTER);
+      slot.setPadding(Yoga.EDGE_HORIZONTAL, styles.slot.paddingHorizontal);
+      const word = Yoga.Node.create(config);
+      word.setMeasureFunc(() => ({ width: textWidth, height: 24 * scale }));
+      slot.insertChild(word, 0); pane.insertChild(slot, 0);
+      pane.calculateLayout(undefined, undefined, Yoga.DIRECTION_LTR);
+      assert.ok(word.getComputedWidth() >= textWidth - 1);
+      assert.ok(slot.getComputedLeft() >= styles.importance.paddingLeft);
+      assert.ok(slot.getComputedLeft() + slot.getComputedWidth() <= paneWidth - styles.importanceWide.paddingRight);
+      assert.ok(styles.replayAbove.top + styles.replay.height <= styles.importance.paddingVertical + 48);
+      pane.freeRecursive(); config.free();
+    }
+  }
+});

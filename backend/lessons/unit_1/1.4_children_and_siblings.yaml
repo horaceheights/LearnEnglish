@@ -999,28 +999,32 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "___ brother.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "a",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "a",
+          "id": "word-2",
           "image_url": "",
-          "label": "A"
+          "label": "brother"
         },
         {
-          "id": "the",
+          "id": "word-1",
           "image_url": "",
-          "label": "The"
+          "label": "A"
         }
       ],
-      "audio_text": "___ brother.",
+      "audio_text": "A brother.",
       "answer_audio_text": "A brother.",
       "prompt_image_url": "/lesson-assets/boy.webp",
-      "translation": "___ hermano.",
-      "spanish_translation": "___ hermano.",
-      "pedagogy_note": "Story beat 05: 1.4 story; this use card advances the same ordered arc."
+      "translation": "Un hermano.",
+      "spanish_translation": "Un hermano.",
+      "pedagogy_note": "Story beat 05: 1.4 story; this use card advances the same ordered arc.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
     },
     {
       "slide_id": "U6",
@@ -1049,37 +1053,45 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete4",
-      "prompt": "___ are ___ family.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "they",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "family",
+          "id": "word-2",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "family"
         },
         {
-          "id": "they",
+          "id": "word-1",
           "image_url": "",
           "label": "They"
         },
         {
-          "id": "a",
+          "id": "word-3",
           "image_url": "",
           "label": "a"
         }
       ],
-      "audio_text": "___ are ___ family.",
+      "audio_text": "They are a family.",
       "answer_audio_text": "They are a family.",
       "prompt_image_url": "/lesson-assets/family_all_members.webp",
       "correct_option_ids": [
-        "they",
-        "a"
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
       ],
-      "translation": "___ son una familia.",
-      "spanish_translation": "___ son una familia.",
+      "translation": "Ellos son una familia.",
+      "spanish_translation": "Ellos son una familia.",
       "pedagogy_note": "Story beat 07: 1.4 story; this use card advances the same ordered arc."
     }
-  ]
+  ],
+  "content_revision": 2
 }
