@@ -9,6 +9,46 @@ const source = fs.readFileSync(new URL('../src/components/SentenceConstruction.t
 const styles = vm.runInNewContext(source.slice(source.lastIndexOf('const styles = ') + 15).replace(/;\s*$/, ''),
   { StyleSheet: { create: value => value } });
 
+test('wide native glyphs grow word tiles and wrap whole tiles instead of splitting words', () => {
+  assert.match(source, /styles\.wordTile, \{ minWidth: width/);
+  assert.match(source, /<Text numberOfLines=\{1\} style=\{\[styles\.word,/);
+  for (const width of [280, 350, 680]) {
+    for (const scale of [1, 1.3, 1.5, 2]) {
+      const config = Yoga.Config.create(); config.setUseWebDefaults(false);
+      const bank = Yoga.Node.create(config);
+      bank.setWidth(width); bank.setFlexDirection(Yoga.FLEX_DIRECTION_ROW);
+      bank.setFlexWrap(Yoga.WRAP_WRAP); bank.setGap(Yoga.GUTTER_ALL, styles.bank.gap);
+      const nodes = [];
+      // Exercise a font whose bold "woman" is wider than the old 5 * .62em estimate.
+      for (const naturalWidth of [80, 80, 34, 13, 18, 17].map(value => value * scale)) {
+        const wrapper = Yoga.Node.create(config);
+        wrapper.setMinWidth(sentenceLayout(width, 600, scale, 6).tileWidth);
+        wrapper.setFlexShrink(styles.wordTile.flexShrink);
+        const tile = Yoga.Node.create(config);
+        tile.setAlignItems(Yoga.ALIGN_CENTER); tile.setJustifyContent(Yoga.JUSTIFY_CENTER);
+        tile.setPadding(Yoga.EDGE_ALL, styles.tile.padding);
+        tile.setBorder(Yoga.EDGE_ALL, styles.tile.borderWidth);
+        const label = Yoga.Node.create(config);
+        label.setFlexShrink(styles.word.flexShrink);
+        label.setMeasureFunc((available, mode) => ({
+          width: mode === Yoga.MEASURE_MODE_UNDEFINED ? naturalWidth : Math.min(available, naturalWidth),
+          height: 22 * scale,
+        }));
+        tile.insertChild(label, 0); wrapper.insertChild(tile, 0); bank.insertChild(wrapper, nodes.length);
+        nodes.push({ wrapper, label, naturalWidth });
+      }
+      bank.calculateLayout(undefined, undefined, Yoga.DIRECTION_LTR);
+      for (const { wrapper, label, naturalWidth } of nodes) {
+        assert.ok(label.getComputedWidth() >= naturalWidth - 1, 'The complete label fits without clipping or ellipsis.');
+        assert.ok(wrapper.getComputedLeft() + wrapper.getComputedWidth() <= width + 1, 'Whole tiles stay inside the bank.');
+        assert.ok(label.getComputedHeight() <= Math.ceil(22 * scale) + 1, `${width}/${scale}: one text line with edge rounding.`);
+      }
+      assert.ok(nodes[0].wrapper.getComputedWidth() >= nodes[0].naturalWidth + 20 - 1);
+      bank.freeRecursive(); config.free();
+    }
+  }
+});
+
 test('native Yoga bounds both construction panes while enlarged content remains scrollable', () => {
   for (const [width, height] of [[320, 568], [390, 844], [740, 360], [800, 1280], [1280, 800]]) {
     for (const scale of [1, 1.3, 1.5, 2]) {

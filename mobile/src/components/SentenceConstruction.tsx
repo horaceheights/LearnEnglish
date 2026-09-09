@@ -59,7 +59,7 @@ function WordTile({ option, disabled, width, height, textSize, onPlace, measureT
     onPanResponderTerminate: cancel,
     onPanResponderTerminationRequest: () => true,
   }), [allowDrag, disabled, measureTargets, onPlace, option.id, offset, viewportKey]);
-  return <Animated.View {...pan.panHandlers} style={{ width, zIndex: moving ? 20 : 0, transform: offset.getTranslateTransform() }}>
+  return <Animated.View {...pan.panHandlers} style={[styles.wordTile, { minWidth: width, zIndex: moving ? 20 : 0, transform: offset.getTranslateTransform() }]}>
     <Pressable ref={tile} disabled={disabled} accessibilityRole="button"
       accessibilityLabel={`Ficha ${option.label}`}
       accessibilityHint={allowDrag ? 'Toca para colocar en el siguiente espacio, o arrastra a un espacio vacío.' : 'Toca para colocar en el siguiente espacio.'}
@@ -67,7 +67,7 @@ function WordTile({ option, disabled, width, height, textSize, onPlace, measureT
       onPressIn={() => { dragged.current = false; }}
       onPress={() => { if (!dragged.current) onPlace(option.id); }}
       style={[styles.tile, { minHeight: height }, disabled ? styles.used : null]}>
-      <Text style={[styles.word, { fontSize: textSize }]}>{option.label}</Text>
+      <Text numberOfLines={1} style={[styles.word, { fontSize: textSize }]}>{option.label}</Text>
     </Pressable>
   </Animated.View>;
 }
@@ -125,7 +125,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
           onPress={() => remove(index)}
           style={[styles.slot, { minWidth: layout.tileWidth, minHeight: layout.tileHeight },
             result === 'correct' ? styles.correct : null]}>
-          <Text style={[styles.word, { fontSize: layout.textSize }]}>
+          <Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }]}>
             {card.options.find((option) => option.id === id)?.label || '___'}{punctuation[index]?.trim()}
           </Text>
         </Pressable>)}
@@ -169,16 +169,17 @@ const styles = StyleSheet.create({
   importance: { flexShrink: 1, maxHeight: '50%', paddingVertical: 8, paddingLeft: 8, paddingRight: 48, borderRadius: 24, borderWidth: 2, borderColor: '#e9d6b8', backgroundColor: '#fcf9f3' },
   instruction: { fontSize: 14, textAlign: 'center', fontWeight: '700', color: '#67583f', marginBottom: 6 },
   slots: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center' },
-  slot: { borderBottomWidth: 2, borderColor: '#b5a389', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8, borderRadius: 8 },
+  slot: { flexShrink: 0, borderBottomWidth: 2, borderColor: '#b5a389', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8, borderRadius: 8 },
   correct: { backgroundColor: '#dbf3db', borderColor: '#279487' },
   replay: { position: 'absolute', right: 0, top: '35%', width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   cardContent: { gap: 6, padding: 10 },
   card: { flex: 1, minHeight: 0, borderRadius: 24, borderWidth: 2, borderColor: '#eadfce', backgroundColor: '#fffdfa' },
   hint: { color: '#67583f', fontSize: 14, textAlign: 'center' },
   bank: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: 6, padding: 2 },
+  wordTile: { flexShrink: 0 },
   tile: { borderRadius: 15, borderWidth: 2, borderColor: '#b9a8df', backgroundColor: '#f3effc', padding: 8, alignItems: 'center', justifyContent: 'center' },
   used: { opacity: 0.3 },
-  word: { fontWeight: '800', color: '#6947ad', textAlign: 'center' },
+  word: { flexShrink: 0, fontWeight: '800', color: '#6947ad', textAlign: 'center' },
   controls: { flexDirection: 'row', justifyContent: 'center', gap: 12, flexShrink: 0 },
   control: { minHeight: 48, minWidth: 80, padding: 10, justifyContent: 'center' },
   controlText: { color: '#2f6f9f', fontSize: 16, fontWeight: '700', textAlign: 'center' },

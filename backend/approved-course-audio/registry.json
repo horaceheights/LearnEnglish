@@ -89799,6 +89799,74 @@
           "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
         }
       }
+    },
+    "59c4636859fe9e710ddaa8f3d64311e49efc764d16278e51bb5d1da0feb8901c": {
+      "file": "takes/59c4636859fe9e710ddaa8f3d64311e49efc764d16278e51bb5d1da0feb8901c.mp3",
+      "audio_sha256": "59c4636859fe9e710ddaa8f3d64311e49efc764d16278e51bb5d1da0feb8901c",
+      "bytes": 31149,
+      "text": "A man. He is a man.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-09T16:08:07.082584+00:00",
+        "approved_at": "2026-09-09T16:08:05.288696+00:00",
+        "request_id": "jGArNdQzhcUtVvyh1e6u",
+        "trace_id": "7096b925043db8e3e6d10d0e5e99cc24",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "A man. He is a man.",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "jGArNdQzhcUtVvyh1e6u",
+            "trace_id": "7096b925043db8e3e6d10d0e5e99cc24"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
     }
   },
   "bindings": {
@@ -111720,6 +111788,26 @@
     "lesson-1-people-actions-c042-answer-a6108639a4d5e67f93e4": {
       "take_id": "892f924b7b3de713036b24126c02fb21c8633328636998505f4c262fe15421a4",
       "approved_at": "2026-09-09T14:59:29.828880+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-1-people-actions-c039-prompt-ab971e5e90aec79da305": {
+      "take_id": "b4af999ed03d97aeafefc514643d72ff6e980476db0bfcd62a85868e4b400b9e",
+      "approved_at": "2026-09-02T02:26:26.047561+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-1-people-actions-c041-prompt-699c6265a2fffc6e7471": {
+      "take_id": "1a23ff4134c74e8b11c743737226068a8bb4c7fdebf3f3a8820629089699525c",
+      "approved_at": "2026-09-02T02:26:26.047561+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-1-people-actions-c040-prompt-74454d3e8be7220c75b4": {
+      "take_id": "59c4636859fe9e710ddaa8f3d64311e49efc764d16278e51bb5d1da0feb8901c",
+      "approved_at": "2026-09-09T16:08:05.288696+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-1-people-actions-c040-answer-4238a89bdcb6ed7c4493": {
+      "take_id": "59c4636859fe9e710ddaa8f3d64311e49efc764d16278e51bb5d1da0feb8901c",
+      "approved_at": "2026-09-09T16:08:05.288696+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     }
   }

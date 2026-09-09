@@ -3,7 +3,7 @@
 .location { color: #9c741d; text-align: center; font-size: 14px; font-weight: 800; }
 .instruction { font-size: 14px; font-weight: 700; text-align: center; margin: 6px 0; color: #67583f; }
 .slots, .bank { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
-.slot, .tile { min-width: max(72px, 5.5em); min-height: 48px; padding: 8px; font-size: clamp(18px, 2.5vw, 26px); font-weight: 800; border-radius: 12px; color: #6947ad; cursor: pointer; }
+.slot, .tile { min-width: max(72px, 5.5em); min-height: 48px; padding: 8px; font-size: clamp(18px, 2.5vw, 26px); font-weight: 800; border-radius: 12px; color: #6947ad; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
 .slot { background: transparent; border: 0; border-bottom: 2px solid #b5a389; }
 .correct { background: #dbf3db; border-color: #279487; }
 .replay { position: absolute; top: 30%; right: 0; width: 48px; height: 48px; display: grid; place-items: center; background: transparent; border: 0; color: #278c73; cursor: pointer; }
