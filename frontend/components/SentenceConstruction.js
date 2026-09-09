@@ -10,16 +10,31 @@ export default function SentenceConstruction({ card, selected, result, onChange,
   const locked = result === "correct";
   const root = useRef(null);
   const slotRefs = useRef([]);
+  const wordRefs = useRef([]);
   const drag = useRef(null);
   const history = useRef([]);
   const [moving, setMoving] = useState(null);
   const [translated, setTranslated] = useState(false);
+  const [wideSlots, setWideSlots] = useState(false);
   const cancel = () => { drag.current = null; setMoving(null); };
   useEffect(() => {
     window.addEventListener("resize", cancel);
     return () => window.removeEventListener("resize", cancel);
   }, []);
   useEffect(cancel, [card.slide_id, result]);
+  useEffect(() => {
+    const measure = () => {
+      const needed = Math.max(0, ...wordRefs.current.filter(Boolean).map((word) =>
+        word.getBoundingClientRect().width + parseFloat(getComputedStyle(word).fontSize)));
+      setWideSlots(needed > root.current.getBoundingClientRect().width - 64);
+    };
+    const observer = new ResizeObserver(measure);
+    observer.observe(root.current);
+    wordRefs.current.filter(Boolean).forEach((word) => observer.observe(word));
+    measure();
+    return () => observer.disconnect();
+  }, [card]);
+  useEffect(cancel, [wideSlots]);
   const place = (id, index) => {
     if (locked) return;
     const next = placeSentenceWord(card, slots, id, index);
@@ -59,7 +74,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
     cancel();
   };
   return <section ref={root} className={styles.activity} aria-label="Construye la frase completa">
-    <div className={styles.importance}>
+    <div className={`${styles.importance} ${wideSlots ? styles.wideSlots : ""}`}>
       <div className={styles.location}>{location} · COMPLETA</div>
       <button type="button" className={styles.translation} aria-label="Mostrar traducción" onClick={() => setTranslated(!translated)}>{translated ? card.spanish_translation : "Escucha y forma la frase."}</button>
       <div className={styles.slots} aria-label="Frase en construcción">
@@ -81,7 +96,8 @@ export default function SentenceConstruction({ card, selected, result, onChange,
       <div className={styles.imageFrame}><img src={imageSrc} alt="Persona de la frase" /></div>
       <p className={styles.instruction}>{showHelp ? "Escucha con el altavoz. Toca las fichas en orden; toca una palabra colocada para devolverla. Toca la instrucción para traducir." : "Toca o arrastra cada palabra arriba."}</p>
       <div className={styles.bank} aria-label="Palabras disponibles">
-        {card.options.map((option) => <button key={option.id} type="button"
+        {card.options.map((option, index) => <button key={option.id} type="button"
+          ref={(element) => { wordRefs.current[index] = element; }}
           className={styles.tile} disabled={locked || slots.includes(option.id)}
           aria-label={`Ficha ${option.label}`}
           onPointerDown={(event) => start(event, option)} onPointerMove={move}

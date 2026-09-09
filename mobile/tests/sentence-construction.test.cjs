@@ -10,6 +10,9 @@ const api = {};
 vm.runInNewContext(compiled, { exports: api });
 const lesson = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/lesson-1-people-actions.json')));
 const pilots = lesson.cards.filter(api.isSentenceConstruction);
+const rollout = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json')))
+  .filter(lesson => ['1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'].includes(lesson.sub_lesson_id))
+  .flatMap(lesson => lesson.cards.filter(api.isSentenceConstruction));
 
 test('three ordinary completions lead to four constructions with only required words', () => {
   assert.deepEqual(pilots.map(card => card.slide_id), ['U4', 'U5', 'U6', 'U7']);
@@ -27,15 +30,17 @@ test('three ordinary completions lead to four constructions with only required w
 });
 
 test('tap, arbitrary drop, outside drop, removal and repair share ordered validation', () => {
-  for (const card of pilots) {
+  assert.equal(rollout.length, 28);
+  for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;
-    selected = api.placeSentenceWord(card, selected, expected[2], 2);
-    assert.equal(selected[2], expected[2]);
+    const dropIndex = Math.min(2, expected.length - 1);
+    selected = api.placeSentenceWord(card, selected, expected[dropIndex], dropIndex);
+    assert.equal(selected[dropIndex], expected[dropIndex]);
     assert.equal(api.sentenceIsCorrect(card, selected), false);
     assert.deepEqual(api.placeSentenceWord(card, selected, expected[0], -1), selected);
-    assert.deepEqual(api.placeSentenceWord(card, selected, expected[0], 2), selected);
-    assert.deepEqual(api.placeSentenceWord(card, selected, expected[2], 1), selected);
+    assert.deepEqual(api.placeSentenceWord(card, selected, expected[0], dropIndex), selected);
+    assert.deepEqual(api.placeSentenceWord(card, selected, expected[dropIndex], 0), selected);
     for (const id of expected) if (!selected.includes(id)) selected = api.placeSentenceWord(card, selected, id);
     assert.equal(api.sentenceIsCorrect(card, selected), true);
     [selected[0], selected[1]] = [selected[1], selected[0]];

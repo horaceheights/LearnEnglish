@@ -1,6 +1,6 @@
 # SpanGlish Product Roadmap
 
-Last reviewed: 2026-09-05
+Last reviewed: 2026-09-09
 
 This is the persistent source of truth for product priorities. When work is
 completed, update this file in the same commit. When asked "what is next?",
@@ -26,6 +26,8 @@ The product should:
 - Use animation, audio, haptics, and visual coaching as teaching tools
 - Preserve a clear path from beginner recognition to real conversation
 - Eventually provide differentiated pronunciation and visual mouth coaching
+
+Recent delivery: the approved Lesson 1.1 Completa progression extends to 28 eligible final-section cards in Lessons 1.2–1.9. Earlier guided completion and out-of-range targets remain intact; installed-device review of the new long-word banks remains part of Preview testing. See `docs/qa/unit-1-completa-rollout.md`.
 
 ## Engine-first strategy
 

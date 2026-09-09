@@ -17,11 +17,12 @@ type Props = {
   onReplay: () => void;
 };
 
-function WordTile({ option, disabled, width, height, textSize, onPlace, measureTargets, viewportKey, allowDrag } : {
+function WordTile({ option, disabled, width, height, textSize, onPlace, measureTargets, viewportKey, allowDrag, onWidth } : {
   option: ChoiceOption; disabled: boolean; width: number; height: number; textSize: number;
   onPlace: (id: string, slot?: number) => void;
   measureTargets: (callback: (slots: Bounds[], area: Bounds | null) => void) => void;
   viewportKey: string; allowDrag: boolean;
+  onWidth: (id: string, width: number) => void;
 }) {
   const offset = useRef(new Animated.ValueXY()).current;
   const tile = useRef<View>(null);
@@ -59,7 +60,7 @@ function WordTile({ option, disabled, width, height, textSize, onPlace, measureT
     onPanResponderTerminate: cancel,
     onPanResponderTerminationRequest: () => true,
   }), [allowDrag, disabled, measureTargets, onPlace, option.id, offset, viewportKey]);
-  return <Animated.View {...pan.panHandlers} style={[styles.wordTile, { minWidth: width, zIndex: moving ? 20 : 0, transform: offset.getTranslateTransform() }]}>
+  return <Animated.View {...pan.panHandlers} onLayout={(event) => onWidth(option.id, event.nativeEvent.layout.width)} style={[styles.wordTile, { minWidth: width, zIndex: moving ? 20 : 0, transform: offset.getTranslateTransform() }]}>
     <Pressable ref={tile} disabled={disabled} accessibilityRole="button"
       accessibilityLabel={`Ficha ${option.label}`}
       accessibilityHint={allowDrag ? 'Toca para colocar en el siguiente espacio, o arrastra a un espacio vacío.' : 'Toca para colocar en el siguiente espacio.'}
@@ -75,6 +76,7 @@ function WordTile({ option, disabled, width, height, textSize, onPlace, measureT
 export function SentenceConstruction({ card, selected, result, disabled, showHelp, onChange, onReplay }: Props) {
   const viewport = useWindowDimensions();
   const [translated, setTranslated] = useState(false);
+  const [wordWidths, setWordWidths] = useState<Record<string, number>>({});
   const [size, setSize] = useState({ width: viewport.width - 12, height: viewport.height - 240 });
   const root = useRef<View>(null);
   const slotsRef = useRef<Array<View | null>>([]);
@@ -82,6 +84,13 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const slots = sentenceSlots(card, selected);
   const landscape = viewport.width > viewport.height && viewport.height < 600;
   const layout = sentenceLayout(landscape ? size.width * 0.48 : size.width - 40, size.height, viewport.fontScale, slots.length);
+  // Use measured glyph widths and leave room for punctuation. Move replay into
+  // the instruction row when reserving a side rail would clip a complete word.
+  const paneWidth = landscape ? size.width * 0.48 : size.width;
+  const wideSlots = Math.max(0, ...card.options.map((option) => wordWidths[option.id] || 0))
+    + layout.textSize * viewport.fontScale > paneWidth - 60;
+  const measureWord = (id: string, width: number) => setWordWidths((previous) =>
+    previous[id] === width ? previous : { ...previous, [id]: width });
   const locked = disabled || result === 'correct';
   const punctuation = card.prompt.split('___').slice(1);
   const place = (id: string, index?: number) => {
@@ -112,9 +121,9 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const compact = layout.scrollBank || landscape;
   const CardContainer = compact ? ScrollView : View;
   return <View ref={root} style={[styles.root, landscape ? styles.landscape : null]} onLayout={(event) => setSize(event.nativeEvent.layout)}>
-    <View style={[styles.importance, landscape ? styles.importanceLandscape : null]}>
+    <View style={[styles.importance, landscape ? styles.importanceLandscape : null, wideSlots ? styles.importanceWide : null]}>
       <Pressable accessibilityRole="button" accessibilityLabel="Mostrar traducción"
-        style={{ minHeight: 48, justifyContent: 'center' }} onPress={() => setTranslated(!translated)}>
+        style={{ minHeight: 48, justifyContent: 'center', paddingRight: wideSlots ? 48 : 0 }} onPress={() => setTranslated(!translated)}>
         <Text style={styles.instruction}>{translated ? card.spanish_translation : 'Escucha y forma la frase.'}</Text>
       </Pressable>
       <ScrollView style={styles.slotScroll} contentContainerStyle={styles.slots} accessibilityLabel="Frase en construcción" persistentScrollbar>
@@ -130,7 +139,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
           </Text>
         </Pressable>)}
       </ScrollView>
-      <Pressable onPress={onReplay} accessibilityRole="button" accessibilityLabel="Repetir frase en inglés" style={styles.replay}>
+      <Pressable onPress={onReplay} accessibilityRole="button" accessibilityLabel="Repetir frase en inglés" style={[styles.replay, wideSlots ? styles.replayAbove : null]}>
         <Ionicons name="volume-high" color="#278c73" size={28} />
       </Pressable>
     </View>
@@ -144,7 +153,8 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
         {card.options.map((option) => <WordTile key={option.id} option={option}
           disabled={locked || slots.includes(option.id)} width={layout.tileWidth} height={layout.tileHeight}
           textSize={layout.textSize} allowDrag={!compact} onPlace={place} measureTargets={measureTargets}
-          viewportKey={`${viewport.width}:${viewport.height}:${viewport.fontScale}:${size.width}:${size.height}`} />)}
+          onWidth={measureWord}
+          viewportKey={`${viewport.width}:${viewport.height}:${viewport.fontScale}:${size.width}:${size.height}:${wideSlots}`} />)}
       </View>
       <View style={styles.controls}>
         <Pressable style={styles.control} disabled={locked || !slots.some(Boolean)}
@@ -165,6 +175,7 @@ const styles = StyleSheet.create({
   root: { flex: 1, minHeight: 0, gap: 6, width: '100%' },
   landscape: { flexDirection: 'row' },
   importanceLandscape: { width: '48%', maxHeight: '100%', paddingRight: 40 },
+  importanceWide: { paddingRight: 8 },
   slotScroll: { flexGrow: 0, flexShrink: 1 },
   importance: { flexShrink: 1, maxHeight: '50%', paddingVertical: 8, paddingLeft: 8, paddingRight: 48, borderRadius: 24, borderWidth: 2, borderColor: '#e9d6b8', backgroundColor: '#fcf9f3' },
   instruction: { fontSize: 14, textAlign: 'center', fontWeight: '700', color: '#67583f', marginBottom: 6 },
@@ -172,6 +183,7 @@ const styles = StyleSheet.create({
   slot: { flexShrink: 0, borderBottomWidth: 2, borderColor: '#b5a389', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8, borderRadius: 8 },
   correct: { backgroundColor: '#dbf3db', borderColor: '#279487' },
   replay: { position: 'absolute', right: 0, top: '35%', width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
+  replayAbove: { top: 8 },
   cardContent: { gap: 6, padding: 10 },
   card: { flex: 1, minHeight: 0, borderRadius: 24, borderWidth: 2, borderColor: '#eadfce', backgroundColor: '#fffdfa' },
   hint: { color: '#67583f', fontSize: 14, textAlign: 'center' },

@@ -294,9 +294,11 @@ class PersistentCardAudioTests(unittest.TestCase):
             Counter(asset.speaker_role for asset, _card in selected),
         )
         self.assertEqual(256, len(selected))
-        self.assertEqual(70, len(jobs))
-        self.assertEqual(75, sum(len(job.request_fragments()) for job in jobs))
-        self.assertEqual(880, sum(job.estimated_character_cost() for job in jobs))
+        # 1.8 U7/U9 now reuse the complete Liam question rather than two
+        # masked question forms; the cast and immutable asset count stay fixed.
+        self.assertEqual(69, len(jobs))
+        self.assertEqual(74, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(872, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},
