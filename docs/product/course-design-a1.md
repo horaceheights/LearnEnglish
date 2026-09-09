@@ -46,6 +46,7 @@ Goal: Understand simple subject + action sentences.
 Lessons:
 
 1. 1.1 Meet the People: `a`, `boy`, `girl`, `man`, `woman`, `he`, `she`, `is`; build `He/She is a ...` identity sentences before actions are introduced
+   - Completa pilot: U2 constructs all four words in `He is a boy.`; final U7 constructs all six words in `A woman. She is a woman.`. Both play the full English model with replay and provide only the required tiles. Keep the 42-card sequence and all other cards unchanged.
 2. 1.2 People in Action: `the`, `eating`, `drinking`, `reading`, `writing`; reuse `he` and `she` only inside fuller action sentences
 3. 1.3 Two People: They and Are: `and`, `they`, `are`, `running`, `sitting`, `swimming`, `sleeping`
 4. 1.4 Children and Siblings: `a family`, `baby/babies`, `child/children`, `brother/brothers`, `sister/sisters`

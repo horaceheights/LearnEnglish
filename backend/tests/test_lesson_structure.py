@@ -562,6 +562,7 @@ class LessonStructureTests(unittest.TestCase):
                     continue
                 if (
                     card.interaction_type in MISSION_COMPLETION_INTERACTIONS
+                    or card.interaction_type == "complete-sentence"
                     or getattr(card, "mission_game", None) is not None
                 ):
                     with self.subTest(lesson=lesson.id, card=index, check="mission bank"):
@@ -1347,7 +1348,7 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(cards)
                 self.assertTrue(all(card.interaction_type in {
                     None, "choice", "choose2", "choose4", "complete", "complete2",
-                    "complete4", "response-choice", "mission-word-parts",
+                    "complete4", "complete-sentence", "response-choice", "mission-word-parts",
                     "mission-sentence", "mission-finale",
                 } for card in cards))
                 self.assertTrue(all(card.answer_audio_text for card in cards))
@@ -1475,14 +1476,24 @@ class LessonStructureTests(unittest.TestCase):
             3,
         )
 
-    def test_lesson_1_closes_with_ordered_two_word_completions(self):
-        cards = [
-            card for card in LESSONS["lesson-1-people-actions"].cards
-            if card.correct_option_ids
-        ]
-        self.assertEqual(["U5", "U7"], [card.slide_id for card in cards])
-        self.assertEqual([["he", "a"], ["she", "a"]], [card.correct_option_ids for card in cards])
-        self.assertTrue(all(card.prompt.count("___") == 2 for card in cards))
+    def test_lesson_1_sentence_construction_pilot(self):
+        lesson = LESSONS["lesson-1-people-actions"]
+        cards = [card for card in lesson.cards if card.interaction_type == "complete-sentence"]
+        self.assertEqual(["U2", "U7"], [card.slide_id for card in cards])
+        self.assertEqual([4, 6], [len(card.options) for card in cards])
+        self.assertIs(cards[-1], lesson.cards[-1])
+        for card in cards:
+            self.assertEqual(set(card.correct_option_ids), {option.id for option in card.options})
+            self.assertEqual(card.prompt.count("___"), len(card.options))
+            self.assertEqual(card.audio_text, card.answer_audio_text)
+            self.assertFalse(re.search(r"[A-Za-z]", card.prompt))
+            prompt_assets = [asset for asset in card.audio_assets if asset.purpose == "prompt"]
+            self.assertEqual(1, len(prompt_assets))
+            self.assertEqual("prompt", prompt_assets[0].variant)
+            self.assertEqual(card.answer_audio_text, prompt_assets[0].text)
+        ordinary = next(card for card in lesson.cards if card.slide_id == "U5")
+        self.assertEqual(["he", "a"], ordinary.correct_option_ids)
+        self.assertEqual("completion-prompt", ordinary.audio_assets[0].variant)
 
     def test_new_words_continue_into_active_stages(self):
         expected_examples = {

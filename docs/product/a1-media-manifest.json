@@ -112577,14 +112577,21 @@
           "sub_lesson_id": "1.1",
           "stage": "Use",
           "slide_id": "U7",
-          "interaction_type": "complete4",
+          "interaction_type": "complete-sentence",
           "surface_label": null,
-          "prompt": "___ is ___ woman.",
-          "audio_text": "___ is ___ woman.",
-          "answer_audio_text": "She is a woman.",
-          "spanish_translation": "___ es ___ mujer.",
-          "correct_option_id": "she",
+          "prompt": "___ ___. ___ ___ ___ ___.",
+          "audio_text": "A woman. She is a woman.",
+          "answer_audio_text": "A woman. She is a woman.",
+          "spanish_translation": "Una mujer. Ella es una mujer.",
+          "correct_option_id": "a-start",
           "options": [
+            {
+              "id": "woman-last",
+              "label": "woman",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
             {
               "id": "a",
               "label": "a",
@@ -112593,8 +112600,8 @@
               "is_correct": false
             },
             {
-              "id": "he",
-              "label": "He",
+              "id": "is",
+              "label": "is",
               "source_filename": null,
               "rendered_filename": null,
               "is_correct": false
@@ -112602,6 +112609,20 @@
             {
               "id": "she",
               "label": "She",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "woman-first",
+              "label": "woman",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "a-start",
+              "label": "A",
               "source_filename": null,
               "rendered_filename": null,
               "is_correct": true
@@ -112614,7 +112635,7 @@
           "source_filename": "a1_l1_woman_transfer.webp",
           "rendered_filename": "a1_l1_woman_transfer.webp",
           "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "714ebc14c13f633e6f74f05f905d3e476158ab02896733c0dd88881df8c3cc25",
+          "render_signature_sha256": "dc0ab48849bfc8c6ce0aa40b159be1c9c7c99c259ae97902ff4cbb9130d8f777",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",
@@ -124210,24 +124231,17 @@
           "sub_lesson_id": "1.1",
           "stage": "Use",
           "slide_id": "U2",
-          "interaction_type": "complete4",
+          "interaction_type": "complete-sentence",
           "surface_label": null,
-          "prompt": "He is a ___.",
-          "audio_text": "He is a ___.",
+          "prompt": "___ ___ ___ ___.",
+          "audio_text": "He is a boy.",
           "answer_audio_text": "He is a boy.",
-          "spanish_translation": "Él es un ___.",
-          "correct_option_id": "boy",
+          "spanish_translation": "Él es un niño.",
+          "correct_option_id": "he",
           "options": [
             {
-              "id": "man",
-              "label": "man",
-              "source_filename": null,
-              "rendered_filename": null,
-              "is_correct": false
-            },
-            {
-              "id": "woman",
-              "label": "woman",
+              "id": "a",
+              "label": "a",
               "source_filename": null,
               "rendered_filename": null,
               "is_correct": false
@@ -124237,7 +124251,21 @@
               "label": "boy",
               "source_filename": null,
               "rendered_filename": null,
+              "is_correct": false
+            },
+            {
+              "id": "he",
+              "label": "He",
+              "source_filename": null,
+              "rendered_filename": null,
               "is_correct": true
+            },
+            {
+              "id": "is",
+              "label": "is",
+              "source_filename": null,
+              "rendered_filename": null,
+              "is_correct": false
             }
           ],
           "media_role": "prompt",
@@ -124247,7 +124275,7 @@
           "source_filename": "a1_l1_boy_transfer.webp",
           "rendered_filename": "a1_l1_boy_transfer.webp",
           "render_profile": "lesson-prompt-3x2-v1",
-          "render_signature_sha256": "714ebc14c13f633e6f74f05f905d3e476158ab02896733c0dd88881df8c3cc25",
+          "render_signature_sha256": "dc0ab48849bfc8c6ce0aa40b159be1c9c7c99c259ae97902ff4cbb9130d8f777",
           "viewport_width": null,
           "viewport_height": null,
           "resize_mode": "profile-bound",

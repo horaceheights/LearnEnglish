@@ -25,6 +25,8 @@ import CelebrationMission from "./CelebrationMission";
 import { missionCueOrder } from "../lib/missionTargetInteraction.cjs";
 import MissionCompletion from "./MissionCompletion";
 import MissionJourney from "./MissionJourney";
+import SentenceConstruction from "./SentenceConstruction";
+import { isSentenceConstruction, sentenceIsCorrect } from "../../mobile/src/sentenceConstruction";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260903-full-bleed-v8";
@@ -2285,6 +2287,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     || finalMissionCard?.options?.find((option) => option.id === finalMissionCard.correct_option_id)?.image_url
     || finalMissionCard?.options?.find((option) => option.image_url)?.image_url
     || "";
+  const isSentenceCard = isSentenceConstruction(currentCard);
   const isMissionTileCard = [
     "mission-word-parts",
     "mission-sentence",
@@ -2302,8 +2305,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       : currentCard.audio_text ?? currentCard.prompt
     : "";
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
-  const cardPromptHasVisualBlank = authoredCardPromptHasVisualBlank
-    || hasVisualAudioPlaceholder(cardPromptText);
+  const cardPromptHasVisualBlank = !isSentenceCard && (authoredCardPromptHasVisualBlank
+    || hasVisualAudioPlaceholder(cardPromptText));
   const cardCorrectOption = currentCard?.options.find(
     (option) => option.id === currentCard.correct_option_id
   );
@@ -4414,12 +4417,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setSelectedOptionId(finalOptionId);
     setSelectedOptionIds(nextSelectedOptionIds);
     setLastResult(null);
-    if (nextSelectedOptionIds.length < correctOptionIds.length) {
+    if (nextSelectedOptionIds.length < correctOptionIds.length || (isSentenceCard && nextSelectedOptionIds.includes(""))) {
       return;
     }
 
     const isUnorderedMission = currentCard?.mission_game?.validation === "unordered";
-    const isCorrect = isUnorderedMission
+    const isCorrect = isSentenceCard ? sentenceIsCorrect(currentCard, nextSelectedOptionIds)
+      : isUnorderedMission
       ? nextSelectedOptionIds.length === correctOptionIds.length
         && nextSelectedOptionIds.every((selectedId) => correctOptionIds.includes(selectedId))
       : nextSelectedOptionIds.every((selectedId, index) => selectedId === correctOptionIds[index]);
@@ -5342,7 +5346,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   </span>
                 </button>
               </>
-            ) : !compactPracticeHeader ? (
+            ) : !compactPracticeHeader && !isSentenceCard ? (
               <button
                 type="button"
                 onClick={playCurrentCardPrompt}
@@ -5396,6 +5400,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             ) : null}
           </section>
 
+          {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard}
+            selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={showHelp}
+            onChange={evaluateChoiceSelection} onReplay={playCurrentCardPrompt}
+            imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)} /> : (
           <section style={boardStyle}>
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
@@ -5927,7 +5935,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 </button>
               </div>
             )}
-          </section>
+          </section>)}
         </main>
       </div>
     </div>

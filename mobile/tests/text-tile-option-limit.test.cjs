@@ -37,7 +37,7 @@ for (const filename of lessonFiles) {
     }
     const isMissionConstruction = lesson.experience_type === 'mission'
       && missionConstructionInteractions.has(card.interaction_type);
-    if (isMissionConstruction) {
+    if (isMissionConstruction || card.interaction_type === 'complete-sentence') {
       missionConstructionBanks += 1;
       assert.ok(
         card.options.length <= 8,

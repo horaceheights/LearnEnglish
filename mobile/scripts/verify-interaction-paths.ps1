@@ -38,6 +38,9 @@ try {
   & node tests/lesson-mission-contract.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el contrato curricular continuo de la misión 1.10.' }
 
+  & node --test tests/sentence-construction.test.cjs tests/sentence-native-layout.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Sentence construction regression failed.' }
+
   & node tests/mission-tiles.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de interacción y diseño de fichas de misión.' }
 

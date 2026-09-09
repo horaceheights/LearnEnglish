@@ -138,6 +138,10 @@ LESSON_RENDER_FILES = (
     "mobile/src/components/PronunciationPractice.tsx",
     "mobile/src/components/MissionVoicePresentation.tsx",
     "frontend/components/LessonPlayer.js",
+    "frontend/components/SentenceConstruction.js",
+    "frontend/components/SentenceConstruction.module.css",
+    "mobile/src/components/SentenceConstruction.tsx",
+    "mobile/src/sentenceConstruction.ts",
 )
 RENDER_PROFILE_SPECS = {
     "lesson-prompt-3x2-v1": {

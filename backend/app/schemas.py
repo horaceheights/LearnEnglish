@@ -1,4 +1,5 @@
 from typing import Any, Literal
+import re
 
 from pydantic import BaseModel, Field, field_validator, model_validator
 
@@ -69,6 +70,27 @@ class LessonCard(BaseModel):
     audio_revision: int = Field(default=1, ge=1)
     answer_audio_revision: int = Field(default=1, ge=1)
     audio_assets: list[CourseAudioAsset] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def require_complete_sentence_contract(self):
+        if self.interaction_type != "complete-sentence":
+            return self
+        ids = [option.id for option in self.options]
+        ordered = self.correct_option_ids
+        if (self.stage != "Use" or not 2 <= len(ids) <= 8
+                or len(ids) != len(set(ids)) or len(ordered) != len(ids)
+                or set(ordered) != set(ids) or self.correct_option_id != ordered[0]):
+            raise ValueError("Sentence construction needs exactly its ordered word tiles in Use.")
+        if any(option.image_url or not re.fullmatch(r"[A-Za-z]+(?:'[A-Za-z]+)?", option.label or "") for option in self.options):
+            raise ValueError("Sentence construction tiles must contain one word each.")
+        if re.sub(r"___|[\s.!?,]", "", self.prompt) or self.prompt.count("___") != len(ids):
+            raise ValueError("Sentence construction must hide every word behind its own blank.")
+        labels = {option.id: option.label for option in self.options}
+        words = iter(labels[option_id] for option_id in ordered)
+        completed = re.sub(r"___", lambda _: next(words), self.prompt)
+        if self.audio_text != completed or self.answer_audio_text != completed:
+            raise ValueError("Sentence construction audio must model the exact complete phrase.")
+        return self
 
 
 class MissionNormalizedRect(BaseModel):

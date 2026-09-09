@@ -1669,6 +1669,7 @@ def validate_text_tile_option_limit() -> list[str]:
                 continue
             if (
                 card.interaction_type in MISSION_COMPLETION_INTERACTIONS
+                or card.interaction_type == "complete-sentence"
                 or getattr(card, "mission_game", None) is not None
             ):
                 # Mission game banks are not ordinary multiple-choice banks. The

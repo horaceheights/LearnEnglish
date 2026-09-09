@@ -24,7 +24,7 @@ from backend.app.persistent_audio_assets import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIEW_AUDIO_COMMIT = "e7c0b08ef5a3ace8e430202e75bb9e7052381463"
+PREVIEW_AUDIO_COMMIT = "995e9fe87ab4cf28fc2fedefdec96496ee68c677"
 
 
 class PersistentAudioCompatibilityTests(unittest.TestCase):
@@ -33,8 +33,8 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
 
         self.assertEqual(PREVIEW_AUDIO_COMMIT, catalog["source_commit"])
         self.assertEqual(70, catalog["lesson_count"])
-        # Recall removes four answer-model turns. Three formerly cached neutral
-        # cues now have newly authored, registry-backed family-noun takes.
+        # The two sentence pilots replace prompt/answer contracts without
+        # changing the complete course's immutable asset or backing counts.
         self.assertEqual(4946, catalog["asset_count"])
         self.assertEqual(3948, catalog["registry_asset_count"])
         self.assertEqual(998, catalog["legacy_manifest_asset_count"])

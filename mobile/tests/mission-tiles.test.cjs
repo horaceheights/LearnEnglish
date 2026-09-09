@@ -61,7 +61,7 @@ test('mission surfaces consume available screen space without lesson scrolling',
   assert.match(surface, /style=\{styles\.sceneCanvas\}/);
   assert.doesNotMatch(surface, /imageFrame: \{[^\n]*flex: 1/);
   assert.match(surface, /adjustsFontSizeToFit/);
-  assert.match(lessonScreen, /!missionExperience && needsAccessibleScrolling/);
+  assert.match(lessonScreen, /!missionExperience && !isSentenceCard && needsAccessibleScrolling/);
   assert.match(webMission, /height:calc\(100svh - 40px\)/);
   assert.match(webMission, /overflow:hidden/);
 });
