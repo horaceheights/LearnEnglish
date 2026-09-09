@@ -55,7 +55,7 @@ const missionHeroAssets = [
   'a1_u1_reunion_13_sit_sleep.webp',
   'a1_u1_reunion_14_play_study.webp',
   'a1_u1_reunion_15_work_cook_talk.webp',
-  'a1_u1_reunion_16_not_eating.webp',
+  'a1_u1_reunion_16_not_eating_v2.webp',
   'a1_u1_reunion_17_not_reading.webp',
   'a1_u1_reunion_18_not_running.webp',
   'a1_u1_reunion_19_who_father.webp',
@@ -1164,8 +1164,8 @@ const missionBlueprintV5 = [
     cues: [missionCue('not-eating', 'He is not eating. He is drinking.', 'He is not eating. He is drinking.', 'drinking')],
     choices: [['not-eating', 'He is not eating. He is drinking.'], ['eating', 'He is eating.'], ['reading', 'He is reading.'], ['sitting', 'He is sitting.']],
     targets: [
-      missionCandidate('drinking', 'not-eating', 0.17, 0.45), missionCandidate('eating', 'eating', 0.41, 0.45),
-      missionCandidate('reading', 'reading', 0.64, 0.45), missionCandidate('sitting', 'sitting', 0.86, 0.45),
+      missionCandidate('drinking', 'not-eating', 0.19, 0.48), missionCandidate('eating', 'eating', 0.39, 0.50),
+      missionCandidate('reading', 'reading', 0.61, 0.53), missionCandidate('sitting', 'sitting', 0.85, 0.64),
     ],
   }),
   missionGameCard({

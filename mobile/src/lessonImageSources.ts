@@ -914,7 +914,7 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'a1_u1_reunion_13_sit_sleep.webp': require('../assets/lesson-assets/a1_u1_reunion_13_sit_sleep.webp'),
   'a1_u1_reunion_14_play_study.webp': require('../assets/lesson-assets/a1_u1_reunion_14_play_study.webp'),
   'a1_u1_reunion_15_work_cook_talk.webp': require('../assets/lesson-assets/a1_u1_reunion_15_work_cook_talk.webp'),
-  'a1_u1_reunion_16_not_eating.webp': require('../assets/lesson-assets/a1_u1_reunion_16_not_eating.webp'),
+  'a1_u1_reunion_16_not_eating_v2.webp': require('../assets/lesson-assets/a1_u1_reunion_16_not_eating_v2.webp'),
   'a1_u1_reunion_17_not_reading.webp': require('../assets/lesson-assets/a1_u1_reunion_17_not_reading.webp'),
   'a1_u1_reunion_18_not_running.webp': require('../assets/lesson-assets/a1_u1_reunion_18_not_running.webp'),
   'a1_u1_reunion_19_question_father.webp': require('../assets/lesson-assets/a1_u1_reunion_19_question_father.webp'),

@@ -26,7 +26,7 @@ const VERIFIED_IMAGE_SHA256 = {
   M13: ['a1_u1_reunion_13_sit_sleep.webp', 'efef7094991a79e1eb56683e018a9cfd8eefec1926b08bcf1eac912098f0f331'],
   M14: ['a1_u1_reunion_14_play_study.webp', '50c0c3c6b769b4d80310915c4102f6c9007a01d4768312179a43f8dc785b990f'],
   M15: ['a1_u1_reunion_15_work_cook_talk.webp', '34e35c1738a33cf2fa1bfd4dc79fb048ecbfe1893835c38c1206dfead70d47b2'],
-  M16: ['a1_u1_reunion_16_not_eating.webp', 'c05aa7bf34c88d40605a3dbcedbf405a7124b60547d3a965c14b767706d36df0'],
+  M16: ['a1_u1_reunion_16_not_eating_v2.webp', '439305ddd4efa2c9fbd21ce8ea5e97967f8747160bd3304d73ff1faaaaf09156'],
   M17: ['a1_u1_reunion_17_not_reading.webp', 'fd26ff80779249181a82251748cb89fc6024bfbf93bcbd0d3ed0f867bb710514'],
   M18: ['a1_u1_reunion_18_not_running.webp', '14255acdb5e0139909fff8b41aaec47436b7f5643a3c0b415d17505301446612'],
 };
@@ -146,12 +146,12 @@ const VERIFIED_CENTRES = {
       'talking': [0.63, 0.47],
       'reading': [0.87, 0.52],
     },
-    // a1_u1_reunion_16_not_eating.webp
+    // M16 v2: visually rechecked on 2026-09-08; only the rightmost man is seated.
     M16: {
-      'drinking': [0.17, 0.45],
-      'eating': [0.41, 0.45],
-      'reading': [0.64, 0.45],
-      'sitting': [0.86, 0.45],
+      'drinking': [0.19, 0.48],
+      'eating': [0.39, 0.50],
+      'reading': [0.61, 0.53],
+      'sitting': [0.85, 0.64],
     },
     // a1_u1_reunion_17_not_reading.webp
     M17: {
@@ -171,6 +171,27 @@ const VERIFIED_CENTRES = {
 
 const TOLERANCE = 0.04;
 
+test('M16 cues retain one answer each against the hash-bound visual inspection', () => {
+  // These observations were read from the final pixels, not inferred from filenames.
+  // This pins the Preview review; it does not claim automated image understanding.
+  const review = require('../../docs/qa/mission-m16-posture-review.json');
+  const card = mission.cards.find(c => c.slide_id === 'M16');
+  assert.equal(card.prompt_image_url, '/lesson-assets/' + review.filename);
+  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(canonicalImageRoot, review.filename))).digest('hex'), review.sha256);
+  assert.deepEqual(card.mission_game.cues.map(c => c.text),
+    ['He is not eating. He is drinking.', 'He is eating.', 'He is reading.', 'He is sitting.']);
+  const predicates = [
+    p => p.action === 'drinking' && p.action !== 'eating',
+    p => p.action === 'eating', p => p.action === 'reading', p => p.posture === 'sitting',
+  ];
+  for (const [i, cue] of card.mission_game.cues.entries()) {
+    assert.deepEqual(review.people.filter(predicates[i]).map(p => p.id), [cue.target_id]);
+    assert.equal(card.audio_assets[i].text, cue.text);
+    assert.equal(card.audio_assets[i].image_ref, card.prompt_image_url);
+  }
+  assert.deepEqual(review.people.filter(p => p.posture === 'standing').map(p => p.id), ['drinking','eating','reading']);
+});
+
 function centre(target) {
   return [
     target.rect.x + target.rect.width / 2,
@@ -188,6 +209,7 @@ test('every mission tap target retains its visually reviewed subject association
     assert.ok(expected, `${card.slide_id} has no verified target placement on record.`);
     const [imageName, expectedImageSha256] = VERIFIED_IMAGE_SHA256[card.slide_id] || [];
     assert.ok(imageName, `${card.slide_id} has no visually verified image bytes on record.`);
+    assert.equal(card.prompt_image_url, '/lesson-assets/' + imageName, 'Audit the image the learner actually receives');
     const actualImageSha256 = crypto.createHash('sha256')
       .update(fs.readFileSync(path.join(canonicalImageRoot, imageName)))
       .digest('hex');
