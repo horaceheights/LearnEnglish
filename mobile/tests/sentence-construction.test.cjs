@@ -11,16 +11,19 @@ vm.runInNewContext(compiled, { exports: api });
 const lesson = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/lesson-1-people-actions.json')));
 const pilots = lesson.cards.filter(api.isSentenceConstruction);
 
-test('two scoped pilots expose only required words and full prompt audio', () => {
-  assert.deepEqual(pilots.map(card => card.slide_id), ['U2', 'U7']);
-  assert.deepEqual(pilots.map(card => card.options.length), [4, 6]);
+test('three ordinary completions lead to four constructions with only required words', () => {
+  assert.deepEqual(pilots.map(card => card.slide_id), ['U4', 'U5', 'U6', 'U7']);
+  assert.deepEqual(pilots.map(card => card.options.length), [4, 6, 4, 6]);
   for (const card of pilots) {
     assert.doesNotMatch(card.prompt, /[a-z]/i);
     assert.equal(card.options.length, card.correct_option_ids.length);
     assert.equal(card.audio_text, card.answer_audio_text);
     assert.equal(card.audio_assets.find(a => a.purpose === 'prompt').variant, 'prompt');
   }
-  assert.equal(lesson.cards.find(c => c.slide_id === 'U5').audio_assets[0].variant, 'completion-prompt');
+  for (const card of lesson.cards.filter(c => ['U1', 'U2', 'U3'].includes(c.slide_id))) {
+    assert.equal(api.isSentenceConstruction(card), false);
+    assert.equal(card.audio_assets[0].variant, 'completion-prompt');
+  }
 });
 
 test('tap, arbitrary drop, outside drop, removal and repair share ordered validation', () => {
@@ -47,7 +50,7 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
 });
 
 test('identical woman occurrences are interchangeable but one tile cannot be reused', () => {
-  const card = pilots[1];
+  const card = pilots[3];
   const ids = [...card.correct_option_ids];
   [ids[1], ids[5]] = [ids[5], ids[1]];
   assert.equal(api.sentenceIsCorrect(card, ids), true);

@@ -1479,8 +1479,8 @@ class LessonStructureTests(unittest.TestCase):
     def test_lesson_1_sentence_construction_pilot(self):
         lesson = LESSONS["lesson-1-people-actions"]
         cards = [card for card in lesson.cards if card.interaction_type == "complete-sentence"]
-        self.assertEqual(["U2", "U7"], [card.slide_id for card in cards])
-        self.assertEqual([4, 6], [len(card.options) for card in cards])
+        self.assertEqual(["U4", "U5", "U6", "U7"], [card.slide_id for card in cards])
+        self.assertEqual([4, 6, 4, 6], [len(card.options) for card in cards])
         self.assertIs(cards[-1], lesson.cards[-1])
         for card in cards:
             self.assertEqual(set(card.correct_option_ids), {option.id for option in card.options})
@@ -1491,9 +1491,11 @@ class LessonStructureTests(unittest.TestCase):
             self.assertEqual(1, len(prompt_assets))
             self.assertEqual("prompt", prompt_assets[0].variant)
             self.assertEqual(card.answer_audio_text, prompt_assets[0].text)
-        ordinary = next(card for card in lesson.cards if card.slide_id == "U5")
-        self.assertEqual(["he", "a"], ordinary.correct_option_ids)
-        self.assertEqual("completion-prompt", ordinary.audio_assets[0].variant)
+        ordinary = [card for card in lesson.cards if card.slide_id in {"U1", "U2", "U3"}]
+        self.assertEqual(3, len(ordinary))
+        for card in ordinary:
+            self.assertNotEqual("complete-sentence", card.interaction_type)
+            self.assertEqual("completion-prompt", card.audio_assets[0].variant)
 
     def test_new_words_continue_into_active_stages(self):
         expected_examples = {

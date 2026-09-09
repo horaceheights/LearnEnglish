@@ -731,12 +731,16 @@ class PersistentCardAudioTests(unittest.TestCase):
         self.assertEqual("Pants.", registry["takes"][pants_take_id]["text"])
 
     def test_ordered_multi_blank_completion_builds_one_gap_per_answer(self):
-        card = next(
-            card for card in LESSONS["lesson-1-people-actions"].cards
-            if card.slide_id == "U5"
+        # Keep ordinary multi-blank coverage independent of lesson 1.1's
+        # approved move from two missing words to whole-sentence construction.
+        card = LessonCard(
+            stage="Use", interaction_type="complete4", prompt="___ is ___ man.",
+            audio_text="___ is ___ man.", answer_audio_text="He is a man.",
+            correct_option_id="he", correct_option_ids=["he", "a"],
+            options=[ChoiceOption(id="he", label="He"), ChoiceOption(id="a", label="a")],
         )
         asset = next(
-            asset for asset in card.audio_assets
+            asset for asset in assets_for_card("multi-blank-test", 0, card)
             if asset.variant == "completion-prompt"
         )
         blanks = blank_texts_for(card, asset.text)
