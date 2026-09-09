@@ -28,7 +28,7 @@ vm.runInNewContext(unitOneBuilderSource, {
     authoredUnitOne.push(JSON.parse(contents));
   },
   join: path.join,
-  process: { cwd: () => repositoryRoot },
+  process: { cwd: () => repositoryRoot, argv: [] },
   console: { log: () => {} },
 }, { filename: unitOneBuilderPath, timeout: 2000 });
 assert.equal(authoredUnitOne.length, 9, 'source-level QA must capture lessons 1.2 through 1.10 without disk writes');
@@ -355,10 +355,6 @@ assert.deepEqual(
 
 const expectedLessonFiveCompletionLabels = new Map([
   ['U3', ['father', 'mother']],
-  ['U4', ['father', 'mother']],
-  ['U5', ['parents', 'sisters']],
-  ['U6', ['grandmother', 'grandfather']],
-  ['U7', ['grandfather', 'grandmother', 'grandparents']],
 ]);
 for (const [slideId, expectedLabels] of expectedLessonFiveCompletionLabels) {
   assert.deepEqual(
@@ -366,6 +362,28 @@ for (const [slideId, expectedLabels] of expectedLessonFiveCompletionLabels) {
     expectedLabels,
     `Lesson 1.5 ${slideId} must use visibly false family-role completion alternatives`,
   );
+}
+
+// Former guided banks now construct the complete approved claim. Check both
+// authoring and bundled content, including every repeated word and no distractors.
+for (const [number, slideId, target] of [
+  ['1.5', 'U4', 'She is the mother.'],
+  ['1.5', 'U5', 'They are the parents.'],
+  ['1.5', 'U6', 'He is the grandfather.'],
+  ['1.5', 'U7', 'She is the grandmother. They are the grandparents.'],
+  ['1.8', 'U8', 'They are the children.'],
+  ['1.8', 'U10', 'They are the grandparents.'],
+  ['1.9', 'U8', 'They are the grandparents. They are not sleeping.'],
+]) {
+  for (const current of [cardBySlide(number, 'Use', slideId), authoredUnitOne.find(item => item.sub_lesson_id === number).cards.find(item => item.slide_id === slideId)]) {
+    assert.equal(current.interaction_type, 'complete-sentence');
+    assert.equal(current.audio_text, target);
+    assert.equal(current.answer_audio_text, target);
+    const words = target.match(/[A-Za-z]+/g);
+    assert.deepEqual(current.correct_option_ids.map(id => current.options.find(option => option.id === id).label), words);
+    assert.deepEqual(current.options.map(option => option.label).sort(), [...words].sort());
+    assert.equal(current.options.length, new Set(current.correct_option_ids).size);
+  }
 }
 
 const expectedLessonEightQuestions = new Map([
@@ -438,8 +456,6 @@ const expectedLessonEightCompletionLabels = new Map([
   ['U2', ['mother', 'father']],
   ['U4', ['mother', 'father']],
   ['U6', ['brothers', 'parents']],
-  ['U8', ['children', 'parents']],
-  ['U10', ['is', 'are', 'grandparents']],
 ]);
 for (const [slideId, expectedLabels] of expectedLessonEightCompletionLabels) {
   assert.deepEqual(
@@ -454,11 +470,7 @@ assert.deepEqual(
   ['sisters', 'parents', 'talking'],
   'Lesson 1.9 U7 must use a visibly false group alternative for the parents scene',
 );
-assert.deepEqual(
-  cardBySlide('1.9', 'Use', 'U8').options.map((option) => option.label),
-  ['brothers', 'grandparents', 'not'],
-  'Lesson 1.9 U8 must use a visibly false group alternative for the grandparents scene',
-);
+
 
 const unitOneMission = lesson('1.10');
 const expectedMissionHeroes = [
