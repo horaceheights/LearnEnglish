@@ -9,6 +9,14 @@ const frontendRoot = path.resolve(testDir, "..");
 const player = fs.readFileSync(path.join(frontendRoot, "components", "LessonPlayer.js"), "utf8");
 const sfxHook = fs.readFileSync(path.join(frontendRoot, "lib", "useStaticSfx.js"), "utf8");
 
+test("construction word measurement ignores page-turn transforms", () => {
+  const construction = fs.readFileSync(path.join(frontendRoot, "components", "SentenceConstruction.js"), "utf8");
+  const measure = construction.slice(construction.indexOf("const measure = () =>"), construction.indexOf("const observer = new ResizeObserver"));
+  assert.match(measure, /word\.offsetWidth/);
+  assert.match(measure, /root\.current\.offsetWidth/);
+  assert.doesNotMatch(measure, /getBoundingClientRect/);
+});
+
 const staticPaths = [
   "/sfx/mission-start-v2.mp3",
   "/sfx/person-found-v2.mp3",
