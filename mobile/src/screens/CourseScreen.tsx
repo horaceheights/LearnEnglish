@@ -668,8 +668,8 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
             </View>
           </View>
         ) : null}
-        <View style={styles.topBar}>
-          <View style={styles.brandBlock}>
+        <View style={[styles.topBar, onOpenQA ? styles.topBarWithQA : null]}>
+          <View style={[styles.brandBlock, onOpenQA ? styles.brandBlockWithQA : null]}>
             <Pressable
               accessibilityLabel="Ir a Inicio"
               accessibilityRole="button"
@@ -689,19 +689,33 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
               <Text numberOfLines={1} style={styles.greeting}>{profile.displayName}</Text>
             </View>
           </View>
-          <Pressable
-            accessibilityHint="Abre el menú de opciones"
-            accessibilityLabel="Opciones"
-            accessibilityRole="button"
-            onPress={() => setIsAccountMenuOpen(true)}
-            style={({ pressed }) => [styles.settingsButton, isAccountMenuOpen ? styles.settingsButtonOpen : null, pressed ? styles.pressed : null]}
-          >
-            <MaterialIcons
-              color={isAccountMenuOpen ? '#fff' : '#16766f'}
-              name="settings"
-              size={25}
-            />
-          </Pressable>
+          <View style={styles.headerActions}>
+            {onOpenQA ? (
+              <Pressable
+                accessibilityHint="Abre las herramientas internas de prueba"
+                accessibilityLabel="QA test"
+                accessibilityRole="button"
+                onPress={openQA}
+                style={({ pressed }) => [styles.qaButton, pressed ? styles.pressed : null]}
+              >
+                <MaterialIcons color="#725095" name="science" size={20} />
+                <Text style={styles.qaButtonLabel}>QA test</Text>
+              </Pressable>
+            ) : null}
+            <Pressable
+              accessibilityHint="Abre el menú de opciones"
+              accessibilityLabel="Opciones"
+              accessibilityRole="button"
+              onPress={() => setIsAccountMenuOpen(true)}
+              style={({ pressed }) => [styles.settingsButton, isAccountMenuOpen ? styles.settingsButtonOpen : null, pressed ? styles.pressed : null]}
+            >
+              <MaterialIcons
+                color={isAccountMenuOpen ? '#fff' : '#16766f'}
+                name="settings"
+                size={25}
+              />
+            </Pressable>
+          </View>
         </View>
 
         <Modal
@@ -747,17 +761,6 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
                 </View>
                 <Text style={styles.menuOptionArrow}>&gt;</Text>
               </Pressable>
-
-              {onOpenQA ? (
-                <Pressable accessibilityRole="button" onPress={openQA} style={({ pressed }) => [styles.menuOption, pressed ? styles.menuOptionPressed : null]}>
-                  <View style={[styles.menuOptionMark, styles.menuOptionMarkQA]}><Text style={styles.menuOptionMarkText}>QA</Text></View>
-                  <View style={styles.menuOptionCopy}>
-                    <Text style={styles.menuOptionTitle}>QA test</Text>
-                    <Text style={styles.menuOptionDescription}>Herramientas internas de prueba.</Text>
-                  </View>
-                  <Text style={styles.menuOptionArrow}>&gt;</Text>
-                </Pressable>
-              ) : null}
 
               <Pressable
                 accessibilityRole="button"
@@ -958,6 +961,24 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   brandBlock: { alignItems: 'center', flex: 1, flexDirection: 'row', minWidth: 0 },
+  topBarWithQA: { flexWrap: 'wrap', gap: 12 },
+  brandBlockWithQA: { flexBasis: 240 },
+  headerActions: { alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-end', marginLeft: 'auto', maxWidth: '100%' },
+  qaButton: {
+    alignItems: 'center',
+    backgroundColor: '#eee3f7',
+    borderColor: '#d8c4e9',
+    borderRadius: 16,
+    borderWidth: 1,
+    flexDirection: 'row',
+    flexShrink: 1,
+    gap: 6,
+    minHeight: 48,
+    minWidth: 48,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  qaButtonLabel: { color: '#725095', flexShrink: 1, fontSize: 13, fontWeight: '900' },
   logo: { height: 43, width: 132 },
   greetingBlock: { borderLeftColor: '#e7ded0', borderLeftWidth: 1, flex: 1, marginLeft: 12, minWidth: 0, paddingLeft: 12 },
   greeting: { color: '#24333a', fontSize: 18, fontWeight: '900', marginTop: 2 },
@@ -1002,7 +1023,6 @@ const styles = StyleSheet.create({
   menuOptionDisabled: { opacity: 0.72 },
   menuOptionMark: { alignItems: 'center', borderRadius: 11, height: 36, justifyContent: 'center', width: 36 },
   menuOptionMarkProfile: { backgroundColor: '#dff4ef' },
-  menuOptionMarkQA: { backgroundColor: '#eee3f7' },
   menuOptionMarkUpdate: { backgroundColor: '#dff4ef' },
   menuOptionMarkSignOut: { backgroundColor: '#ffe8c7' },
   menuOptionMarkExit: { backgroundColor: '#fbeceb' },
