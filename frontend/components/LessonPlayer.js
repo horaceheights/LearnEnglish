@@ -21,6 +21,7 @@ import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/less
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
 import useStaticSfx from "../lib/useStaticSfx";
+import useLessonPageTurn from "../lib/useLessonPageTurn";
 import CelebrationMission from "./CelebrationMission";
 import { missionCueOrder } from "../lib/missionTargetInteraction.cjs";
 import MissionCompletion from "./MissionCompletion";
@@ -2263,7 +2264,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const spokenPromptKeyRef = useRef("");
   const courseTurnRunRef = useRef(0);
   const preloadedAudioKeysRef = useRef(new Set());
-  const previousMissionPositionRef = useRef(null);
   const missionIntroPlaybackKeyRef = useRef("");
   const missionInstructionPlaybackKeyRef = useRef("");
   const isMissionExperience = isMissionLesson(activeLesson);
@@ -2271,6 +2271,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     && activeLesson.cards.every((card) => Boolean(card?.mission_game));
   const { speakText, stopSpeech } = useSpeech();
   const { play: playUiSfx, stop: stopUiSfx } = useStaticSfx();
+  const { pageRef, isPageTurning, startPageTurn } = useLessonPageTurn({
+    onStart: () => {
+      courseTurnRunRef.current += 1;
+      stopSpeech();
+      stopUiSfx();
+      void playUiSfx("pageTurn", { volume: 0.45 });
+    },
+    onFinish: stopUiSfx,
+  });
   const viewportWidth = useViewportWidth();
   const isTablet = viewportWidth <= 1080;
   const isMobile = viewportWidth <= 760;
@@ -3377,6 +3386,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       if (cardIndex >= totalCards - 1) {
         setIsComplete(true);
       } else {
+        if (!startPageTurn(1)) return;
         setCardIndex((current) => current + 1);
       }
       setSelectedOptionId(null);
@@ -3385,33 +3395,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }, autoAdvanceDelayMs);
 
     return () => window.clearTimeout(timeoutId);
-  }, [autoAdvanceDelayMs, cardIndex, lastResult, started, totalCards]);
-
-  useEffect(() => {
-    if (!started || !isMissionExperience) {
-      previousMissionPositionRef.current = null;
-      return;
-    }
-
-    const lessonKey = `${activeLesson.id}:${activeLesson.content_revision}`;
-    const previousPosition = previousMissionPositionRef.current;
-    if (
-      !isComplete
-      && previousPosition?.lessonKey === lessonKey
-      && previousPosition.cardIndex !== cardIndex
-    ) {
-      playUiSfx("pageTurn", { debounceMs: 180, restart: false, volume: 0.45 });
-    }
-    previousMissionPositionRef.current = { cardIndex, lessonKey };
-  }, [
-    activeLesson.content_revision,
-    activeLesson.id,
-    cardIndex,
-    isComplete,
-    isMissionExperience,
-    playUiSfx,
-    started,
-  ]);
+  }, [autoAdvanceDelayMs, cardIndex, lastResult, started, startPageTurn, totalCards]);
 
   useEffect(() => {
     resetPronunciationPractice();
@@ -3458,6 +3442,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       || !isMissionGameExperience
       || !missionIntroComplete
       || isComplete
+      || isPageTurning
       || !currentCard?.mission_game
     ) {
       return;
@@ -3473,6 +3458,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     currentCard,
     isComplete,
     isMissionGameExperience,
+    isPageTurning,
     missionIntroComplete,
     playMissionDirections,
     started,
@@ -3483,6 +3469,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       (!isRecognitionLesson && !cardPromptHasVisualBlank && !currentCard?.audio_turns?.length)
       || isPronunciationCard
       || isMissionGameExperience
+      || isPageTurning
       || !started
       || isComplete
       || !currentCard
@@ -3529,6 +3516,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     currentCard,
     isComplete,
     isMissionGameExperience,
+    isPageTurning,
     isPronunciationCard,
     isRecognitionLesson,
     lastResult,
@@ -3589,6 +3577,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     if (
       !isPronunciationCard
       || !started
+      || isPageTurning
       || isComplete
       || !currentCard
       || lastResult === "correct"
@@ -3621,6 +3610,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     isComplete,
     isMissionGameExperience,
     isPronunciationCard,
+    isPageTurning,
     lastResult,
     missionInstructionReady,
     missionIntroComplete,
@@ -5193,7 +5183,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   if (isMissionGameExperience) {
     return (
-      <div style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
+      <div ref={pageRef} inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
         <CelebrationMission
           cueOrder={missionOrder}
           card={currentCard}
@@ -5235,9 +5225,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }
 
   return (
-    <div style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
+    <div inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
       <div style={shellStyle}>
-          <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
+          <main ref={pageRef} style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
           <section style={heroStyle}>
             <div
               style={{

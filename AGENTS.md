@@ -18,6 +18,8 @@
 - After a task is integrated into `main`, remove its clean worktree and delete its fully merged local and remote task branches. Remote pull-request branches should also be deleted automatically on merge. Never remove a dirty worktree or an unmerged branch until its local-only state is reviewed and preserved in a named commit or tag.
 - Do not force-push, rewrite, prune, or discard repository state without first naming the exact affected refs or paths to the user.
 
+- Before every push, merge, or Preview publication, fetch `origin/main`, inspect commits added since the task base, and review overlapping files for both textual and behavioral conflicts. Combine current `main` into the task branch and rerun the applicable checks when it has advanced. Recheck immediately before merging; never treat an earlier clean merge or green check on a stale base as sufficient. Stop only if an overlap cannot be resolved safely.
+
 # Release workflow
 
 - After completing and verifying a change, commit only the files that belong to the current task, push the task branch, open a pull request into `main`, and merge only after its required checks pass.

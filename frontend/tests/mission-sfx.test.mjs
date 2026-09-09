@@ -40,7 +40,8 @@ test("lesson and mission events receive semantic static cues without lesson-ID r
   assert.match(player, /await playUiSfx\("readyCue"/);
   assert.match(player, /playUiSfx\("missionStart"/);
   assert.match(player, /playUiSfx\("tilePlace"/);
-  assert.match(player, /playUiSfx\("pageTurn", \{ debounceMs: 180, restart: false/);
+  assert.match(player, /playUiSfx\("pageTurn", \{ volume: 0\.45/);
+  assert.match(player, /onFinish: stopUiSfx/);
   assert.match(player, /"missionFinale"[\s\S]*?: "pageRestored"/);
   assert.match(player, /playUiSfx\("voiceStamp"/);
   assert.match(player, /playUiSfx\("tryAgain"/);

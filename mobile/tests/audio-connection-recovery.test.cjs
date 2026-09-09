@@ -213,7 +213,7 @@ function readinessHarness() {
   const screen = fs.readFileSync(path.resolve(__dirname, '../src/screens/LessonScreen.tsx'), 'utf8');
   assert.match(screen, /const advance = useCallback\(\(\) => \{\s*if \(!lesson \|\| !cardAudioReadyRef\.current\) return;/);
   assert.match(screen, /const completeAutomaticSingleCard = useCallback[\s\S]*?!cardAudioReadyRef\.current/);
-  assert.match(screen, /isAppActive=\{isAppActive && cardAudio\.ready\}/);
+  assert.match(screen, /isAppActive=\{isAppActive && cardAudio\.ready && !isPageTurning\}/);
   assert.match(screen, /<AudioConnectionNotice[\s\S]*?onRetry=\{cardAudio\.retry\}[\s\S]*?onExit=\{onExit\}/);
   assert.doesNotMatch(screen, /single_card_completed_without_audio/);
   const hookSource = fs.readFileSync(path.resolve(__dirname, '../src/hooks/useLessonAudioReadiness.ts'), 'utf8');
