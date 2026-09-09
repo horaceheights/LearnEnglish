@@ -88,6 +88,11 @@ test('native Preview uses the same protected publisher and verifies both exact-c
   for (const included of ['mobile/src/pageCurlGeometry.ts', 'mobile/package-lock.json', 'mobile/assets/icon.png']) {
     assert.equal(ignore.ignores(included), false, included);
   }
+  // EAS walks the archive directory by directory and tests the bare entry, so an
+  // excluded "mobile" prunes the app before any file below it is considered.
+  for (const included of ['mobile', 'mobile/src', 'mobile/assets']) {
+    assert.equal(ignore.ignores(included), false, included);
+  }
 });
 
 test('main runs full integrity checks on pull requests and pushes', () => {
