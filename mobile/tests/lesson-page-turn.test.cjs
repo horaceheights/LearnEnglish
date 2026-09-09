@@ -164,6 +164,8 @@ test('every native prompt and microphone waits for the turn; only actual changes
   assert.match(screen, /!usesMissionGameSurface\s+\|\| isPageTurning/);
   assert.match(screen, /isCompletedSectionPicker\s+\|\| isPageTurning/);
   assert.match(screen, /pronunciationAutoplayReady=\{!isPageTurning\}/);
+  assert.match(screen, /accessibilityElementsHidden=\{isPageTurning\}/);
+  assert.match(screen, /importantForAccessibility=\{isPageTurning \? 'no-hide-descendants' : 'auto'\}/);
   assert.match(screen, /isAppActive=\{isAppActive && cardAudio\.ready\}/);
   const cardView = fs.readFileSync(path.resolve(__dirname, '../src/components/LessonCardView.tsx'), 'utf8');
   const pronunciation = fs.readFileSync(path.resolve(__dirname, '../src/components/PronunciationPractice.tsx'), 'utf8');

@@ -3111,6 +3111,8 @@ export function LessonScreen({
           ref={pageRef}
           collapsable={false}
           onLayout={onPageLayout}
+          accessibilityElementsHidden={isPageTurning}
+          importantForAccessibility={isPageTurning ? 'no-hide-descendants' : 'auto'}
           {...(manualCardNavigation && !isMissionTileCard && !isMissionGameCard && !isSentenceCard ? cardPanResponder.panHandlers : {})}
           pointerEvents={isCompletedSectionPicker || isPageTurning ? 'none' : 'auto'}
           style={[
