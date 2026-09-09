@@ -19,4 +19,6 @@ Navigation waits for capture readiness. Capture failure/timeout advances once, l
 
 Version 1.7.0 requires new native Preview installations. The protected `publish-preview.yml` workflow adds `delivery: native-build`, uses the existing exact-main/course/backend gates, builds both internal Preview platforms, and checks each build's commit, version, runtime, channel, and result. Git metadata is retained; the archive includes only mobile. The app's commit label also reads the immutable native build commit. No local publication or Production promotion is used.
 
+The release-identity manifest pins the reviewed publisher and commit-label changes, including the new native commit/runtime checks. Its complete-course baseline, catalog hash, seven-unit topology, and lesson counts are unchanged. A real-repository integrity test complements the synthetic rejection fixtures so local preflight also catches stale identity bindings.
+
 Final device review must cover curl smoothness and capture latency on the installed Android/iOS builds, video-backed slides, section/back navigation, consecutive Speak cards, and interruption by rotation/backgrounding. A JavaScript export and browser inspection do not replace these native checks.

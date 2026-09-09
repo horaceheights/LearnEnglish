@@ -19,10 +19,11 @@
   "requiredReleaseIdentityFiles": [
     {
       "path": "mobile/src/updates.ts",
-      "expectedGitBlob": "4fde689132980f21a231d1be1442750f60ec57fe",
+      "expectedGitBlob": "fd86c2df4c17480306d4a29fc166d118aae4a977",
       "requiredMarkers": [
         "process.env.EXPO_PUBLIC_RELEASE_COMMIT",
-        "releaseVersionLabel"
+        "releaseVersionLabel",
+        "Constants.expoConfig?.extra?.releaseCommit"
       ]
     },
     {
@@ -35,11 +36,13 @@
     },
     {
       "path": "mobile/scripts/publish-preview.ps1",
-      "expectedGitBlob": "1b68c33f01f8f105784794e3ac53e5dc0ca2a731",
+      "expectedGitBlob": "bf69092b3ade2353da21c6a383e42b3c7958817e",
       "requiredMarkers": [
         "Get-RequiredProcessEnvironmentVariable -Name 'GITHUB_SHA'",
         "EXPO_PUBLIC_RELEASE_COMMIT debe ser exactamente GITHUB_SHA",
-        "PSObject.Properties['gitCommitHash']"
+        "PSObject.Properties['gitCommitHash']",
+        "$build.gitCommitHash -cne $releaseCommit",
+        "$build.runtimeVersion -cne $expectedVersion"
       ]
     }
   ]
