@@ -1,6 +1,9 @@
 # Package only mobile while retaining Git metadata for the protected CI build.
+# The re-include must not carry a trailing slash. EAS matches the bare
+# directory entry "mobile" while archiving, and "!/mobile/" matches only
+# "mobile/", so it pruned the whole app subtree in build 5e97edb1.
 /*
-!/mobile/
+!/mobile
 
 # EAS archives from the Git repository root. Exclude every non-mobile
 # application and local development directory explicitly.
