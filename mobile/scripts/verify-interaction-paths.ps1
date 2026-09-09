@@ -82,6 +82,9 @@ try {
   & node tests/phrase-option-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de diseño horizontal de frases.' }
 
+  & node --test tests/prompt-choice-layout.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Prompt-image and text-choice layout regression failed.' }
+
   & node tests/text-tile-option-limit.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el límite de respuestas ordinarias o el máximo de fichas de construcción.' }
 
