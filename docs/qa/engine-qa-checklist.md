@@ -46,7 +46,8 @@ For every defect, capture:
 
 ## QA controls
 
-- [ ] Engine QA opens from the home screen
+- [ ] `QA test` opens Engine QA in one tap from the mobile course header, without opening the account menu; it is absent for accounts without QA access
+- [ ] The course header keeps QA and account controls readable and reachable on narrow phones and with enlarged text; the account popup no longer duplicates QA
 - [ ] All seven unit buttons are reachable without vertical scrolling
 - [ ] Selecting a unit shows exactly its ten lesson buttons
 - [ ] Lesson selection loads the correct lesson

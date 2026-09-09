@@ -1,6 +1,6 @@
 # SpanGlish Project Guardrails
 
-Last reviewed: 2026-09-08
+Last reviewed: 2026-09-09
 
 This file is the durable product and engineering memory for SpanGlish. It exists so established decisions survive context compaction and new Codex tasks. Read it before changing lessons, shared lesson behavior, media, audio, pronunciation, or release code.
 
@@ -398,6 +398,8 @@ The course browser must preserve the curriculum hierarchy. Its default view show
 Every Preview and Engine QA release must embed the same complete A1 catalog: Units 1-7 with exactly ten lessons per unit (70 lessons total). A targeted QA or audio update may change individual lessons, but it must never publish a partial catalog or replace the complete catalog with only the lessons under test.
 
 Engine QA uses a compact `Unit -> Lesson -> Stage/Chapter -> Card` location navigator over that complete catalog. Standard lessons expose stages and declared mission lessons expose their ordered chapters. All seven units remain directly reachable, but the hub renders only the selected unit's ten lessons before the stage/chapter and card controls; it must never restore a flattened 70-lesson stack. The last QA location is stored only in the QA namespace and restored after returning from the real lesson player or reopening the hub. Instructions and diagnostic tools remain available without displacing the primary navigator.
+
+For accounts with QA access, the mobile course menu exposes `QA test` directly in its top header beside the account control, outside the account popup. One tap opens the existing Engine QA hub. Keep the current access gate and QA-only location/progress isolation; allow the header actions to wrap on narrow screens or with enlarged text.
 
 ## 10. Authoring and Verification
 

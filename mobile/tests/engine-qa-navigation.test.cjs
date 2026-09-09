@@ -1,6 +1,8 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
+const ts = require('typescript');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const qaSource = fs.readFileSync(
@@ -85,5 +87,84 @@ assert.deepEqual(
   Object.fromEntries(Array.from({ length: 7 }, (_, index) => [`unit-${index + 1}`, 10])),
   'The compact QA navigator requires seven units with ten lessons each.',
 );
+
+// Render the course entry with native boundaries stubbed: the shortcut must be
+// available before opening a modal, use the existing callback, and honor access.
+const courseSource = fs.readFileSync(path.join(mobileRoot, 'src/screens/CourseScreen.tsx'), 'utf8');
+const state = [];
+let stateIndex = 0;
+const native = Object.fromEntries(
+  ['ActivityIndicator', 'Image', 'Modal', 'Pressable', 'ScrollView', 'Text', 'View'].map(name => [name, name]),
+);
+const modules = {
+  react: {
+    useCallback: callback => callback,
+    useEffect: () => {},
+    useMemo: factory => factory(),
+    useState: initial => {
+      const index = stateIndex++;
+      if (!(index in state)) state[index] = initial;
+      return [state[index], value => { state[index] = value; }];
+    },
+  },
+  'react/jsx-runtime': require('react/jsx-runtime'),
+  'react-native': {
+    ...native,
+    StyleSheet: { create: styles => styles, absoluteFill: {} },
+    useWindowDimensions: () => ({ width: 360, height: 780, fontScale: 1 }),
+  },
+  'react-native-safe-area-context': { SafeAreaView: 'SafeAreaView' },
+  '@expo/vector-icons': { MaterialIcons: 'MaterialIcons' },
+  'expo-constants': { default: { nativeAppVersion: '1.6.0' } },
+  'expo-updates': { channel: 'preview', useUpdates: () => ({ isUpdatePending: false }) },
+  '../previewLessons': { getPreviewLessonMetadata: () => undefined },
+  '../updates': { releaseVersionLabel: () => 'Versión de prueba' },
+  '../components/PlayfulLoading': { PlayfulLoading: 'PlayfulLoading' },
+};
+const courseModule = { exports: {} };
+vm.runInNewContext(ts.transpileModule(courseSource, {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, target: ts.ScriptTarget.ES2020 },
+}).outputText, {
+  exports: courseModule.exports,
+  require: name => modules[name] || {},
+});
+function walk(element, predicate) {
+  if (!element || typeof element !== 'object') return [];
+  if (Array.isArray(element)) return element.flatMap(child => walk(child, predicate));
+  return [...(predicate(element) ? [element] : []), ...walk(element.props?.children, predicate)];
+}
+const byLabel = label => element => element.props?.accessibilityLabel === label;
+let qaOpened = 0;
+const courseProps = {
+  profile: { displayName: 'QA reviewer', userId: 1 },
+  onHome: () => {}, onViewProfile: () => {}, onSignOut: () => {},
+  onOpenLesson: () => assert.fail('Opening QA must not start a learner lesson.'),
+  onOpenQA: () => { qaOpened++; },
+};
+function renderCourse(props = courseProps) {
+  stateIndex = 0;
+  return courseModule.exports.CourseScreen(props);
+}
+let course = renderCourse();
+const shortcuts = walk(course, byLabel('QA test'));
+assert.equal(shortcuts.length, 1, 'An authorized account has exactly one QA shortcut.');
+const modal = walk(course, element => element.type === 'Modal')[0];
+assert.equal(modal.props.visible, false);
+assert.equal(walk(modal, byLabel('QA test')).length, 0, 'QA must be outside the account popup.');
+const settings = walk(course, byLabel('Opciones'))[0];
+assert.ok(walk(course, element => element.type === 'View'
+  && walk(element, byLabel('QA test')).length === 1
+  && walk(element, byLabel('Opciones')).length === 1).length,
+'QA and account controls must share the main header.');
+shortcuts[0].props.onPress();
+assert.equal(qaOpened, 1, 'One direct tap opens the existing QA hub.');
+settings.props.onPress();
+course = renderCourse();
+assert.equal(walk(course, element => element.type === 'Modal')[0].props.visible, true,
+  'The account menu must remain functional.');
+walk(course, byLabel('Cerrar'))[0].props.onPress();
+assert.equal(walk(renderCourse(), element => element.type === 'Modal')[0].props.visible, false);
+assert.equal(walk(renderCourse({ ...courseProps, onOpenQA: undefined }), byLabel('QA test')).length, 0,
+  'Accounts without QA access must not see the shortcut.');
 
 console.log('Engine QA keeps the complete course reachable through a compact, restorable location navigator.');
