@@ -196,6 +196,9 @@ try {
   & node tests/offline-lesson-media.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de audio y pronunciación sin conexión.' }
 
+  & node tests/audio-connection-recovery.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la pausa y recuperación del audio con mala conexión.' }
+
   & node tests/pronunciation-media-frame.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el marco compartido de imágenes de pronunciación.' }
 } finally {

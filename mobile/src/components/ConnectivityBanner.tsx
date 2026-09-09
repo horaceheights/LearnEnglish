@@ -9,7 +9,7 @@ export function ConnectivityBanner() {
   return (
     <View accessible accessibilityLiveRegion="assertive" accessibilityRole="alert" style={styles.banner}>
       <Text style={styles.text}>
-        Sin conexión. El audio no guardado puede no sonar; la lección seguirá y la pronunciación puede omitirse sin puntaje.
+        Sin conexión. El audio guardado sigue disponible. Si falta audio, pausaremos la actividad hasta poder cargarlo.
       </Text>
     </View>
   );
