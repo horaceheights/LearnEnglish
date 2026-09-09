@@ -9,6 +9,7 @@ import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
+import { promptChoiceRowHeight } from '../promptChoiceLayout';
 import type { ChoiceOption, LessonCard } from '../types';
 import {
   LESSON_MEDIA_FRAME_STYLE,
@@ -145,7 +146,7 @@ export function LessonCardView({
   // compact landscape row. Stack that bank at full width inside the scroll-safe page.
   const useStackedCompactLandscapeText = isCompactLandscape && hasMultilineTextOption;
   // Image-to-text cards are a recurring lesson pattern. Keep the complete
-  // prompt image and a 2x2 phrase grid inside a phone's usable portrait area.
+  // prompt image and full-width phrase rows inside the usable portrait area.
   const useDensePortraitTextLayout =
     !isLandscape &&
     Boolean(card.prompt_image_url) &&
@@ -303,8 +304,23 @@ export function LessonCardView({
   const textOptionRows = hasTextOnlyOptions
     ? Math.ceil(card.options.length / textOptionColumns)
     : 0;
+  const balancesPromptWithChoices = !isLandscape && !isPronunciation && !isMissionTile
+    && !useCompactCompletionTiles && Boolean(activeTurnImageUrl || card.prompt_image_url)
+    && hasTextOnlyOptions && !allowVerticalGrowth;
+  const effectiveTextOptionHeight = balancesPromptWithChoices
+    ? promptChoiceRowHeight({
+        availableHeight: availableCardHeight,
+        feedbackHeight: feedbackReservedHeight,
+        labels: card.options.map(option => option.label),
+        textWidth: Math.max(48, viewportWidth - 92),
+        fontSize: textOptionFontSize,
+        fontScale: textOptionScale,
+        minimumFontSize: textOptionMinimumFontSize,
+        preferredRowHeight: uniformTextOptionHeight,
+      })
+    : uniformTextOptionHeight;
   const textOptionsReservedHeight = hasTextOnlyOptions
-    ? (textOptionRows * uniformTextOptionHeight) + (Math.max(0, textOptionRows - 1) * 10)
+    ? (textOptionRows * effectiveTextOptionHeight) + (Math.max(0, textOptionRows - 1) * 10)
     : 0;
   const featureReservedHeight = isPronunciation
     ? result
@@ -627,9 +643,9 @@ export function LessonCardView({
                     styles.option,
                     {
                       minHeight: hasTextOnlyOptions
-                        ? uniformTextOptionHeight
+                        ? effectiveTextOptionHeight
                         : optionMinHeight,
-                      height: hasTextOnlyOptions ? uniformTextOptionHeight : undefined,
+                      height: hasTextOnlyOptions ? effectiveTextOptionHeight : undefined,
                       padding: isTabletLandscape ? 8 : 5,
                       width: constrainedPortraitImageOptionWidth
                         ?? constrainedLandscapeImageOptionWidth
