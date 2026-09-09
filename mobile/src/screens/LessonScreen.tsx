@@ -89,6 +89,7 @@ import {
 import { isMissionLesson, missionChapterProgress } from '../missionExperience';
 import { missionSuccessSoundEvent, useMissionSoundEffects } from '../missionSoundEffects';
 import { useLessonPageTurn } from '../hooks/useLessonPageTurn';
+import { LessonPageCurl } from '../components/LessonPageCurl';
 import { missionCueOrder } from '../missionTargetInteraction';
 import { MissionLandscapeHeader } from '../components/MissionLandscapeHeader';
 import {
@@ -395,10 +396,11 @@ export function LessonScreen({
     isAppActive,
     reducedStimulation: reduceMotion,
   });
-  const { busy: pageTurnBusy, isPageTurning, startPageTurn, pageTurnStyle } = useLessonPageTurn({
+  const { busy: pageTurnBusy, isPageTurning, startPageTurn, pageRef, onPageLayout, snapshot, turn, revealPage } = useLessonPageTurn({
     active: isAppActive,
     reduceMotion,
-    width: viewportWidth,
+    viewportWidth,
+    viewportHeight,
     onStart: () => {
       audioPlaybackRequestRef.current += 1;
       audioPlayerRef.current.pause();
@@ -1737,13 +1739,14 @@ export function LessonScreen({
       setIsComplete(true);
       return;
     }
-    if (!startPageTurn(1)) return;
-    setCardIndex((current) => current + 1);
-    pronunciationPassHandledRef.current = false;
-    setGrammarCompleted(false);
-    setSelectedId(null);
-    setSelectedIds([]);
-    setResult(null);
+    startPageTurn(1, () => {
+      setCardIndex((current) => current + 1);
+      pronunciationPassHandledRef.current = false;
+      setGrammarCompleted(false);
+      setSelectedId(null);
+      setSelectedIds([]);
+      setResult(null);
+    });
   }, [cardIndex, completedLessonMode, lesson, pageTurnBusy, startPageTurn, reviewStageBounds]);
 
   const completeAutomaticSingleCard = useCallback((awardScore = true) => {
@@ -2431,25 +2434,28 @@ export function LessonScreen({
 
   const openStage = useCallback((startIndex: number) => {
     if (!lesson || pageTurnBusy.current || (!qaMode && startIndex > furthestCardIndex)) return;
-    if (startIndex !== cardIndex && !startPageTurn(startIndex > cardIndex ? 1 : -1)) return;
-    addDiagnosticBreadcrumb('lesson_stage_opened', {
-      from_card: cardIndex + 1,
-      to_card: startIndex + 1,
-    });
-    cardTranslateX.stopAnimation();
-    cardTranslateX.setValue(0);
-    const boundedStart = Math.min(Math.max(startIndex, 0), lesson.cards.length - 1);
-    if (completedLessonMode !== 'standard') {
-      const selectedStage = lesson.cards[boundedStart].stage;
-      let end = boundedStart;
-      while (end + 1 < lesson.cards.length && lesson.cards[end + 1].stage === selectedStage) end += 1;
-      resetCardState();
-      setReviewStageBounds({ end, start: boundedStart });
-      setCompletedLessonMode('review');
-    } else {
-      clearCardInteractionState();
-    }
-    setCardIndex(boundedStart);
+    const navigate = () => {
+      addDiagnosticBreadcrumb('lesson_stage_opened', {
+        from_card: cardIndex + 1,
+        to_card: startIndex + 1,
+      });
+      cardTranslateX.stopAnimation();
+      cardTranslateX.setValue(0);
+      const boundedStart = Math.min(Math.max(startIndex, 0), lesson.cards.length - 1);
+      if (completedLessonMode !== 'standard') {
+        const selectedStage = lesson.cards[boundedStart].stage;
+        let end = boundedStart;
+        while (end + 1 < lesson.cards.length && lesson.cards[end + 1].stage === selectedStage) end += 1;
+        resetCardState();
+        setReviewStageBounds({ end, start: boundedStart });
+        setCompletedLessonMode('review');
+      } else {
+        clearCardInteractionState();
+      }
+      setCardIndex(boundedStart);
+    };
+    if (startIndex === cardIndex) navigate();
+    else startPageTurn(startIndex > cardIndex ? 1 : -1, navigate);
   }, [
     cardIndex,
     cardTranslateX,
@@ -2466,9 +2472,9 @@ export function LessonScreen({
   const openQaCard = useCallback((nextIndex: number) => {
     if (!lesson || pageTurnBusy.current) return;
     const boundedIndex = Math.min(Math.max(nextIndex, 0), lesson.cards.length - 1);
-    if (boundedIndex !== cardIndex && !startPageTurn(boundedIndex > cardIndex ? 1 : -1)) return;
-    setCardIndex(boundedIndex);
-    resetCardState();
+    const navigate = () => { setCardIndex(boundedIndex); resetCardState(); };
+    if (boundedIndex === cardIndex) navigate();
+    else startPageTurn(boundedIndex > cardIndex ? 1 : -1, navigate);
   }, [cardIndex, lesson, pageTurnBusy, resetCardState, startPageTurn]);
 
   const settleCard = useCallback(() => {
@@ -2522,8 +2528,7 @@ export function LessonScreen({
       return;
     }
 
-    if (!startPageTurn(direction)) return;
-    setCardIndex(nextIndex);
+    startPageTurn(direction, () => setCardIndex(nextIndex));
   }, [
     cardIndex,
     cardTranslateX,
@@ -3103,13 +3108,16 @@ export function LessonScreen({
           </View>
         </View> : null}
         <Animated.View
+          ref={pageRef}
+          collapsable={false}
+          onLayout={onPageLayout}
           {...(manualCardNavigation && !isMissionTileCard && !isMissionGameCard && !isSentenceCard ? cardPanResponder.panHandlers : {})}
           pointerEvents={isCompletedSectionPicker || isPageTurning ? 'none' : 'auto'}
           style={[
             styles.cardCarousel,
             !isSentenceCard && !usesMissionPhoneLandscape && needsTextAnswerScrolling ? styles.cardCarouselVerticalGrowth : null,
             isCompletedSectionPicker ? styles.reviewContentInactive : null,
-            isPageTurning ? pageTurnStyle : manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
+            !isPageTurning && manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
           ]}
         >
           {isSentenceCard ? (
@@ -3188,6 +3196,7 @@ export function LessonScreen({
             pronunciationReplayRequestId={pronunciationReplayRequestId}
             userId={profile.userId}
           />}
+          {snapshot ? <LessonPageCurl snapshot={snapshot} turn={turn} onReady={revealPage} /> : null}
         </Animated.View>
     </>
   );

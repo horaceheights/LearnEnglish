@@ -70,6 +70,26 @@ const pinnedActions = {
   expo: 'eab7a230208c952974db8c3245cfd78402c7b385',
 };
 
+test('native Preview uses the same protected publisher and verifies both exact-commit builds', () => {
+  assert.match(publishWorkflowSource, /delivery:[\s\S]*?native-build/);
+  assert.match(publishScriptSource, /ValidateSet\('update', 'native-build'\)/);
+  const build = publishScriptSource.slice(publishScriptSource.indexOf("if ($Delivery -eq 'native-build')"));
+  assert.match(build, /eas build --profile preview --platform all --non-interactive --wait --json/);
+  assert.match(build, /\$build\.gitCommitHash -cne \$releaseCommit/);
+  assert.match(build, /\$build\.status -cne 'FINISHED'/);
+  assert.match(build, /\$build\.channel -cne 'preview'/);
+  assert.match(build, /\$platforms -notcontains 'ANDROID' -or \$platforms -notcontains 'IOS'/);
+  assert.ok(publishScriptSource.indexOf('Assert-SharedBackendRelease `') < publishScriptSource.indexOf("if ($Delivery -eq 'native-build')"));
+  assert.doesNotMatch(build, /EAS_NO_VCS/);
+  const ignore = require('ignore')().add(fs.readFileSync(path.join(repositoryRoot, '.easignore'), 'utf8'));
+  for (const excluded of ['backend/app/main.py', 'frontend/app/page.js', '.codex-task-worktrees/task/mobile/app.json', 'mobile/node_modules/react/index.js', 'mobile/.env.local']) {
+    assert.equal(ignore.ignores(excluded), true, excluded);
+  }
+  for (const included of ['mobile/src/pageCurlGeometry.ts', 'mobile/package-lock.json', 'mobile/assets/icon.png']) {
+    assert.equal(ignore.ignores(included), false, included);
+  }
+});
+
 test('main runs full integrity checks on pull requests and pushes', () => {
   assert.match(integritySource, /pull_request:[\s\S]*?branches:[\s\S]*?- main/);
   assert.match(integritySource, /push:[\s\S]*?branches:[\s\S]*?- main/);

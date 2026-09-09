@@ -1,5 +1,7 @@
 param(
-  [string]$Message
+  [string]$Message,
+  [ValidateSet('update', 'native-build')]
+  [string]$Delivery = 'update'
 )
 
 Set-StrictMode -Version Latest
@@ -221,6 +223,35 @@ try {
     -ExpectedCommit $authority.Commit `
     -RepositoryRoot $authority.RepositoryRoot `
     -StatusUrl $authority.SharedBackendStatusUrl
+
+  if ($Delivery -eq 'native-build') {
+    # Keep Git metadata: the root .easignore packages only mobile/ while the
+    # builder records and exposes the exact GitHub commit in both native apps.
+    $buildLines = @(& eas build --profile preview --platform all --non-interactive --wait --json --message $Message)
+    if ($LASTEXITCODE -ne 0) { throw 'Expo no pudo completar los builds nativos de Preview.' }
+    $null = Assert-GitHubPreviewPublishAuthority
+    $builds = @(($buildLines -join [Environment]::NewLine) | ConvertFrom-Json)
+    $expectedVersion = (Get-Content -Raw -LiteralPath (Join-Path $mobileRoot 'app.json') | ConvertFrom-Json).expo.version
+    $platforms = @()
+    foreach ($build in $builds) {
+      if ($build.status -cne 'FINISHED' -or $build.gitCommitHash -cne $releaseCommit -or
+          $build.channel -cne 'preview' -or $build.buildProfile -cne 'preview' -or
+          $build.distribution -cne 'INTERNAL' -or $build.appVersion -cne $expectedVersion -or
+          $build.runtimeVersion -cne $expectedVersion) {
+        throw 'El build nativo no coincide con el commit y perfil autorizados de Preview.'
+      }
+      $platforms += $build.platform
+      Write-Host "Preview nativo verificado: $($build.platform), $releaseCommit, $($build.id)"
+      if ($env:GITHUB_STEP_SUMMARY) {
+        Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY -Value "- $($build.platform): $($build.artifacts.buildUrl) (commit $releaseCommit)"
+      }
+    }
+    if ($platforms -notcontains 'ANDROID' -or $platforms -notcontains 'IOS') {
+      throw 'Falta una plataforma en los builds de Preview.'
+    }
+    Write-Host 'Instala estos nuevos builds de Preview para probar la dependencia nativa.' -ForegroundColor Green
+    return
+  }
 
   Write-Host 'Publicando solamente en Preview...' -ForegroundColor Cyan
   Invoke-CheckedCommand -FailureMessage 'Expo no pudo publicar la actualización de Preview.' -Command {
