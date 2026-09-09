@@ -17,15 +17,9 @@ Si más adelante se crea un backend exclusivo para Preview, debe tener servicio,
 
 ## Configuración inicial por teléfono
 
-Preview se compila en la nube de Expo; no necesita el servidor local de Metro. Crea e instala un build una vez por plataforma:
+Preview se compila en la nube de Expo; no necesita el servidor local de Metro. Desde el head protegido de `main`, ejecuta **Publish SpanGlish Preview** con `delivery: native-build` y una descripción. El workflow entrega un build interno para Android y otro para iOS.
 
-```powershell
-cd mobile
-npm run build:preview -- -Platform android
-npm run build:preview -- -Platform ios
-```
-
-El comando empaqueta únicamente `mobile/`. El backend, el frontend web, el historial de Git y los archivos locales de desarrollo no forman parte de la carga a Expo.
+El archivo de carga contiene únicamente `mobile/`. El backend, el frontend web, el historial de Git y los archivos locales de desarrollo no se suben a Expo; EAS conserva el hash del commit como metadato de cada build.
 
 Comparte el enlace de instalación de Preview únicamente con la persona que aprueba los cambios. La app se llama **SpanGlish Preview**, se puede instalar al lado de SpanGlish Production y muestra una franja amarilla indicando que los cambios aún no llegaron a los testers.
 
@@ -116,6 +110,8 @@ Se necesita un build nuevo cuando cambia cualquiera de estos elementos:
 - versión visible de la aplicación.
 
 En ese caso, incrementa la versión de la app y crea el build de Preview antes del build de Production.
+
+Para un build nativo, ejecuta **Publish SpanGlish Preview** desde el head protegido de `main` con `delivery: native-build`. El mismo gate de curso y backend verifica el candidato; EAS compila Android e iOS con el perfil interno `preview`, conserva el hash Git y lo incluye en la etiqueta de la app. El workflow comprueba el commit y ambos resultados y entrega los enlaces de instalación. Esta opción no ejecuta una OTA ni publica en Production. Instala el nuevo build: **Actualizar** no puede agregar módulos nativos.
 
 ## Si un cambio falla
 

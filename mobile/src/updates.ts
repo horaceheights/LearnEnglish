@@ -10,7 +10,7 @@ import * as Updates from 'expo-updates';
  * are not guaranteed to report the legacy Standalone value.
  */
 export const canUseEasUpdates = Updates.isEnabled;
-export const currentReleaseCommit = (process.env.EXPO_PUBLIC_RELEASE_COMMIT || 'embedded').slice(0, 7);
+export const currentReleaseCommit = (Constants.expoConfig?.extra?.releaseCommit || process.env.EXPO_PUBLIC_RELEASE_COMMIT || 'embedded').slice(0, 7);
 
 const UPDATE_COMPLETED_STORAGE_KEY = 'app:update-completed-message';
 

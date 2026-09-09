@@ -123,8 +123,12 @@ test('the versioned manifest locks the complete recovery baseline and release id
   );
   assert.equal(
     integrityManifest.requiredReleaseIdentityFiles.at(-1).expectedGitBlob,
-    '1b68c33f01f8f105784794e3ac53e5dc0ca2a731',
+    'bf69092b3ade2353da21c6a383e42b3c7958817e',
   );
+});
+
+test('the real repository preserves the pinned course and reviewed release identity', () => {
+  assert.doesNotThrow(() => verifyReleaseIntegrity({ repositoryRoot: path.resolve(__dirname, '../..') }));
 });
 
 test('a complete 70-lesson, seven-unit fixture passes integrity verification', (t) => {

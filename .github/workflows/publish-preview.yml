@@ -7,6 +7,13 @@ on:
         description: Short description shown in Expo
         required: true
         type: string
+      delivery:
+        description: Use native-build when native dependencies or the app version change
+        type: choice
+        default: update
+        options:
+          - update
+          - native-build
 
 permissions:
   contents: read
@@ -42,7 +49,7 @@ jobs:
     name: Verify and publish exact commit
     needs: authorize
     runs-on: windows-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     environment:
       name: preview-release
     env:
@@ -105,6 +112,7 @@ jobs:
         shell: pwsh
         env:
           RELEASE_MESSAGE: ${{ inputs.message }}
+          RELEASE_DELIVERY: ${{ inputs.delivery }}
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
           SHARED_BACKEND_STATUS_URL: https://learnenglish-fxki.onrender.com/api/release/status
-        run: .\scripts\publish-preview.ps1 -Message $env:RELEASE_MESSAGE
+        run: .\scripts\publish-preview.ps1 -Message $env:RELEASE_MESSAGE -Delivery $env:RELEASE_DELIVERY

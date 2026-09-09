@@ -1,3 +1,7 @@
+# Package only mobile while retaining Git metadata for the protected CI build.
+/*
+!/mobile/
+
 # EAS archives from the Git repository root. Exclude every non-mobile
 # application and local development directory explicitly.
 .agents/

@@ -9,6 +9,10 @@ module.exports = ({ config }) => {
 
   return {
     ...config,
+    extra: {
+      ...config.extra,
+      releaseCommit: process.env.EAS_BUILD_GIT_COMMIT_HASH || process.env.EXPO_PUBLIC_RELEASE_COMMIT || '',
+    },
     ...(variantName ? { name: `${config.name} ${variantName}` } : {}),
     ...(variantScheme ? { scheme: variantScheme } : {}),
     android: {

@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { placeSentenceWord, sentenceHint, sentenceSlots } from "../../mobile/src/sentenceConstruction";
 import styles from "./SentenceConstruction.module.css";
 
-export default function SentenceConstruction({ card, selected, result, onChange, onReplay, imageSrc, location, showHelp }) {
+export default function SentenceConstruction({ card, selected, result, onChange, onReplay, imageSrc, location, showHelp, surfaceRef }) {
   const slots = sentenceSlots(card, selected);
   const punctuation = card.prompt.split("___").slice(1);
   const locked = result === "correct";
   const root = useRef(null);
+  const setRoot = useCallback(node => { root.current = node; if (surfaceRef) surfaceRef.current = node; }, [surfaceRef]);
   const slotRefs = useRef([]);
   const wordRefs = useRef([]);
   const drag = useRef(null);
@@ -74,7 +75,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
     } else place(d.id);
     cancel();
   };
-  return <section ref={root} className={styles.activity} aria-label="Construye la frase completa">
+  return <section ref={setRoot} data-lesson-page className={styles.activity} aria-label="Construye la frase completa">
     <div className={`${styles.importance} ${wideSlots ? styles.wideSlots : ""}`}>
       <div className={styles.location}>{location} · COMPLETA</div>
       <button type="button" className={styles.translation} aria-label="Mostrar traducción" onClick={() => setTranslated(!translated)}>{translated ? card.spanish_translation : "Escucha y forma la frase."}</button>

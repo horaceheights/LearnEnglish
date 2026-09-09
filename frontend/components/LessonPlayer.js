@@ -3386,8 +3386,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       if (cardIndex >= totalCards - 1) {
         setIsComplete(true);
       } else {
-        if (!startPageTurn(1)) return;
-        setCardIndex((current) => current + 1);
+        startPageTurn(1, () => {
+          setCardIndex((current) => current + 1);
+          setSelectedOptionId(null);
+          setSelectedOptionIds([]);
+          setLastResult(null);
+        });
+        return;
       }
       setSelectedOptionId(null);
       setSelectedOptionIds([]);
@@ -5183,7 +5188,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
   if (isMissionGameExperience) {
     return (
-      <div ref={pageRef} inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
+      <div ref={pageRef} data-lesson-page inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
         <CelebrationMission
           cueOrder={missionOrder}
           card={currentCard}
@@ -5227,7 +5232,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   return (
     <div inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
       <div style={shellStyle}>
-          <main ref={pageRef} style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
+          <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
           <section style={heroStyle}>
             <div
               style={{
@@ -5390,11 +5395,11 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             ) : null}
           </section>
 
-          {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard}
+          {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard} surfaceRef={pageRef}
             selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={showHelp}
             onChange={evaluateChoiceSelection} onReplay={playCurrentCardPrompt}
             imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)} /> : (
-          <section style={boardStyle}>
+          <section ref={pageRef} data-lesson-page style={boardStyle}>
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
                 style={{
