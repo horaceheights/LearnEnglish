@@ -1910,43 +1910,54 @@
       },
       {
         "slide_id": "U2",
-        "interaction_type": "complete4",
-        "prompt": "He is a ___.",
+        "interaction_type": "complete-sentence",
+        "prompt": "___ ___ ___ ___.",
         "stage": "Use",
-        "correct_option_id": "boy",
+        "correct_option_id": "he",
+        "correct_option_ids": [
+          "he",
+          "is",
+          "a",
+          "boy"
+        ],
         "options": [
           {
-            "id": "man",
+            "id": "a",
             "image_url": "",
-            "label": "man"
-          },
-          {
-            "id": "woman",
-            "image_url": "",
-            "label": "woman"
+            "label": "a"
           },
           {
             "id": "boy",
             "image_url": "",
             "label": "boy"
+          },
+          {
+            "id": "he",
+            "image_url": "",
+            "label": "He"
+          },
+          {
+            "id": "is",
+            "image_url": "",
+            "label": "is"
           }
         ],
-        "audio_text": "He is a ___.",
+        "audio_text": "He is a boy.",
         "answer_audio_text": "He is a boy.",
         "prompt_image_url": "/lesson-assets/a1_l1_boy_transfer.webp",
-        "spanish_translation": "\u00c9l es un ___.",
-        "pedagogy_note": "The second boy card completes the same full sentence from its final noun.",
+        "spanish_translation": "\u00c9l es un ni\u00f1o.",
+        "pedagogy_note": "Listen to the complete familiar boy sentence, then construct every word with exactly the required tiles.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c037-prompt-50c68dd329e451d4a6bd",
+            "id": "lesson-1-people-actions-c037-prompt-943b8d45827077cff70d",
             "purpose": "prompt",
             "text": "He is a boy.",
             "mode": "prompt",
-            "variant": "completion-prompt",
+            "variant": "prompt",
             "image_ref": "/lesson-assets/a1_l1_boy_transfer.webp",
             "semantic_role": "teacher",
             "speaker_role": "teacher",
@@ -2194,47 +2205,66 @@
       },
       {
         "slide_id": "U7",
-        "interaction_type": "complete4",
-        "prompt": "___ is ___ woman.",
+        "interaction_type": "complete-sentence",
+        "prompt": "___ ___. ___ ___ ___ ___.",
         "stage": "Use",
-        "correct_option_id": "she",
+        "correct_option_id": "a-start",
         "correct_option_ids": [
+          "a-start",
+          "woman-first",
           "she",
-          "a"
+          "is",
+          "a",
+          "woman-last"
         ],
         "options": [
+          {
+            "id": "woman-last",
+            "image_url": "",
+            "label": "woman"
+          },
           {
             "id": "a",
             "image_url": "",
             "label": "a"
           },
           {
-            "id": "he",
+            "id": "is",
             "image_url": "",
-            "label": "He"
+            "label": "is"
           },
           {
             "id": "she",
             "image_url": "",
             "label": "She"
+          },
+          {
+            "id": "woman-first",
+            "image_url": "",
+            "label": "woman"
+          },
+          {
+            "id": "a-start",
+            "image_url": "",
+            "label": "A"
           }
         ],
-        "audio_text": "___ is ___ woman.",
-        "answer_audio_text": "She is a woman.",
+        "audio_text": "A woman. She is a woman.",
+        "answer_audio_text": "A woman. She is a woman.",
         "prompt_image_url": "/lesson-assets/a1_l1_woman_transfer.webp",
-        "spanish_translation": "___ es ___ mujer.",
-        "pedagogy_note": "The lesson resolves with the matching two-step woman sentence and the same ordered construction skill.",
+        "spanish_translation": "Una mujer. Ella es una mujer.",
+        "pedagogy_note": "The final construction retrieves the complete two-part woman phrase from Speak. Both woman tiles are interchangeable; every word must be placed.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_revision": 1,
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-1-people-actions-c042-prompt-1abd739a48769c3c799c",
+            "id": "lesson-1-people-actions-c042-prompt-50a6c3edc69f6f0574e3",
             "purpose": "prompt",
-            "text": "She is a woman.",
+            "text": "A woman. She is a woman.",
             "mode": "prompt",
-            "variant": "completion-prompt",
+            "variant": "prompt",
             "image_ref": "/lesson-assets/a1_l1_woman_transfer.webp",
             "semantic_role": "teacher",
             "speaker_role": "teacher",
@@ -2242,9 +2272,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-1-people-actions-c042-answer-2329eab80ddacc993bfd",
+            "id": "lesson-1-people-actions-c042-answer-a6108639a4d5e67f93e4",
             "purpose": "answer",
-            "text": "She is a woman.",
+            "text": "A woman. She is a woman.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_l1_woman_transfer.webp",

@@ -1,5 +1,6 @@
 id: lesson-1-people-actions
 title: 1.1 Meet the People
+content_revision: 2
 level: Beginner A1
 unit_id: unit-1
 unit_title: 'Unit 1: People, Family, and Actions'
@@ -490,19 +491,21 @@ cards:
   spanish_translation: ___ es un niño.
   pedagogy_note: The learner supplies the pronoun for the first person in the story.
 - slide_id: U2
-  interaction_type: complete4
-  prompt: He is a ___.
+  interaction_type: complete-sentence
+  prompt: ___ ___ ___ ___.
   stage: Use
-  correct_option_id: boy
+  correct_option_id: he
+  correct_option_ids: [he, is, a, boy]
   options:
-  - {id: man, image_url: '', label: man}
-  - {id: woman, image_url: '', label: woman}
+  - {id: a, image_url: '', label: a}
   - {id: boy, image_url: '', label: boy}
-  audio_text: He is a ___.
+  - {id: he, image_url: '', label: He}
+  - {id: is, image_url: '', label: is}
+  audio_text: He is a boy.
   answer_audio_text: He is a boy.
   prompt_image_url: /lesson-assets/a1_l1_boy_transfer.webp
-  spanish_translation: Él es un ___.
-  pedagogy_note: The second boy card completes the same full sentence from its final noun.
+  spanish_translation: Él es un niño.
+  pedagogy_note: Listen to the complete familiar boy sentence, then construct every word with exactly the required tiles.
 - slide_id: U3
   interaction_type: complete2
   prompt: ___ is a girl.
@@ -558,17 +561,20 @@ cards:
   spanish_translation: Ella es ___ mujer.
   pedagogy_note: The next completion focuses on the article that introduced every person.
 - slide_id: U7
-  interaction_type: complete4
-  prompt: ___ is ___ woman.
+  interaction_type: complete-sentence
+  prompt: ___ ___. ___ ___ ___ ___.
   stage: Use
-  correct_option_id: she
-  correct_option_ids: [she, a]
+  correct_option_id: a-start
+  correct_option_ids: [a-start, woman-first, she, is, a, woman-last]
   options:
+  - {id: woman-last, image_url: '', label: woman}
   - {id: a, image_url: '', label: a}
-  - {id: he, image_url: '', label: He}
+  - {id: is, image_url: '', label: is}
   - {id: she, image_url: '', label: She}
-  audio_text: ___ is ___ woman.
-  answer_audio_text: She is a woman.
+  - {id: woman-first, image_url: '', label: woman}
+  - {id: a-start, image_url: '', label: A}
+  audio_text: A woman. She is a woman.
+  answer_audio_text: A woman. She is a woman.
   prompt_image_url: /lesson-assets/a1_l1_woman_transfer.webp
-  spanish_translation: ___ es ___ mujer.
-  pedagogy_note: The lesson resolves with the matching two-step woman sentence and the same ordered construction skill.
+  spanish_translation: Una mujer. Ella es una mujer.
+  pedagogy_note: The final construction retrieves the complete two-part woman phrase from Speak. Both woman tiles are interchangeable; every word must be placed.

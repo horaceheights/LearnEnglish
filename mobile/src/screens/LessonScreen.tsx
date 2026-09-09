@@ -1,3 +1,5 @@
+import { SentenceConstruction } from '../components/SentenceConstruction';
+import { isSentenceConstruction, sentenceIsCorrect } from '../sentenceConstruction';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
@@ -1016,6 +1018,7 @@ export function LessonScreen({
   const isPronunciationAudioReady = !pronunciationAudioGateKey
     || (isOffline && offlinePronunciationAccepted)
     || pronunciationAudioReadyKey === pronunciationAudioGateKey;
+  const isSentenceCard = isSentenceConstruction(currentCard);
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isMissionTileCard = currentCard?.interaction_type === 'mission-word-parts'
     || currentCard?.interaction_type === 'mission-sentence'
@@ -1040,7 +1043,7 @@ export function LessonScreen({
   // becoming a permanent green state.
   const waitsForGrammarAnimation = shouldWaitForGrammarAnimation(
     currentCard?.stage ?? '',
-    usesMissionGameSurface,
+    usesMissionGameSurface || isSentenceCard,
   );
   const useCompactListenInstruction = usesCompactListenInstruction(
     currentCard?.stage ?? '',
@@ -1081,8 +1084,8 @@ export function LessonScreen({
       ? contrastAnswerAudio
       : '';
   const visiblePromptAudio = correctContrastPrompt || promptAudio;
-  const promptHasVisualBlank = authoredPromptHasVisualBlank
-    || hasVisualAudioPlaceholder(promptAudio);
+  const promptHasVisualBlank = !isSentenceCard && (authoredPromptHasVisualBlank
+    || hasVisualAudioPlaceholder(promptAudio));
   const completionPromptAsset = promptHasVisualBlank && currentCard
     ? findCourseAudioAsset(currentCard, 'prompt', 'prompt', 'completion-prompt')
     : null;
@@ -2105,7 +2108,7 @@ export function LessonScreen({
     setSelectedId(finalOptionId);
     setSelectedIds(nextSelectedIds);
     setResult(null);
-    if (nextSelectedIds.length < correctOptionIds.length) {
+    if (nextSelectedIds.length < correctOptionIds.length || (isSentenceCard && nextSelectedIds.includes(''))) {
       if (missionExperience && isMissionTileCard) playMissionSound('tile-place');
       addDiagnosticBreadcrumb('answer_sequence_progressed', {
         card_number: cardIndex + 1,
@@ -2114,7 +2117,8 @@ export function LessonScreen({
       });
       return;
     }
-    const correct = currentCard.mission_game?.validation === 'unordered'
+    const correct = isSentenceCard ? sentenceIsCorrect(currentCard, nextSelectedIds)
+      : currentCard.mission_game?.validation === 'unordered'
       ? nextSelectedIds.length === correctOptionIds.length
         && nextSelectedIds.every((selectedOptionId) => correctOptionIds.includes(selectedOptionId))
       : nextSelectedIds.every((selectedOptionId, index) => selectedOptionId === correctOptionIds[index]);
@@ -2973,7 +2977,7 @@ export function LessonScreen({
             </Text>
           </View>
         ) : null}
-        {!isMissionGameCard ? <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
+        {!isMissionGameCard && !isSentenceCard ? <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
           styles.contentHeader,
           useCompactPhoneLayout ? styles.contentHeaderCompact : null,
           isPortrait ? styles.contentHeaderPortrait : null,
@@ -3084,16 +3088,20 @@ export function LessonScreen({
           </View>
         </View> : null}
         <Animated.View
-          {...(manualCardNavigation && !isMissionTileCard && !isMissionGameCard ? cardPanResponder.panHandlers : {})}
+          {...(manualCardNavigation && !isMissionTileCard && !isMissionGameCard && !isSentenceCard ? cardPanResponder.panHandlers : {})}
           pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'}
           style={[
             styles.cardCarousel,
-            !usesMissionPhoneLandscape && needsTextAnswerScrolling ? styles.cardCarouselVerticalGrowth : null,
+            !isSentenceCard && !usesMissionPhoneLandscape && needsTextAnswerScrolling ? styles.cardCarouselVerticalGrowth : null,
             isCompletedSectionPicker ? styles.reviewContentInactive : null,
             manualCardNavigation ? { transform: [{ translateX: cardTranslateX }] } : null,
           ]}
         >
-          {usesMissionGameSurface && currentCard.mission_game ? (
+          {isSentenceCard ? (
+            <SentenceConstruction key={`${currentCard.slide_id}-${cardRunId}`} card={currentCard}
+              selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={showHelp}
+              onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} />
+          ) : usesMissionGameSurface && currentCard.mission_game ? (
             <MissionGameSurface
               card={currentCard as typeof currentCard & { mission_game: NonNullable<typeof currentCard.mission_game> }}
               cueUnavailable={missionCueUnavailable}
@@ -3177,7 +3185,7 @@ export function LessonScreen({
         onExit={onExit}
       />
       <StatusBar hidden />
-      {!missionExperience && needsAccessibleScrolling ? (
+      {!missionExperience && !isSentenceCard && needsAccessibleScrolling ? (
         <ScrollView
           contentContainerStyle={[
             styles.pageScrollable,

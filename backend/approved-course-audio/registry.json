@@ -89731,6 +89731,74 @@
           "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
         }
       }
+    },
+    "892f924b7b3de713036b24126c02fb21c8633328636998505f4c262fe15421a4": {
+      "file": "takes/892f924b7b3de713036b24126c02fb21c8633328636998505f4c262fe15421a4.mp3",
+      "audio_sha256": "892f924b7b3de713036b24126c02fb21c8633328636998505f4c262fe15421a4",
+      "bytes": 32877,
+      "text": "A woman. She is a woman.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-09T14:59:32.170793+00:00",
+        "approved_at": "2026-09-09T14:59:29.828880+00:00",
+        "request_id": "Igu5Nq9IoSHR6qBcQGeh",
+        "trace_id": "2807a143e847d2dd7323ea057c427c5b",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "A woman. She is a woman.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "Igu5Nq9IoSHR6qBcQGeh",
+            "trace_id": "2807a143e847d2dd7323ea057c427c5b"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
     }
   },
   "bindings": {
@@ -111638,6 +111706,21 @@
       "take_id": "a32fffdf8ec86f62873ff26554d8c48efdbd1ab226e0d89a485aaadce9011591",
       "approved_at": "2026-09-07T20:11:30.015620+00:00",
       "approval_note": "M16 posture correction: unchanged approved recording rebound to the reviewed v2 scene. No provider request."
+    },
+    "lesson-1-people-actions-c037-prompt-943b8d45827077cff70d": {
+      "take_id": "d3084fd7be5823ea93ee56620f3ab383a3c912a4455af85d5d2f9795527242aa",
+      "approved_at": "2026-09-02T02:26:26.047561+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-1-people-actions-c042-prompt-50a6c3edc69f6f0574e3": {
+      "take_id": "892f924b7b3de713036b24126c02fb21c8633328636998505f4c262fe15421a4",
+      "approved_at": "2026-09-09T14:59:29.828880+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-1-people-actions-c042-answer-a6108639a4d5e67f93e4": {
+      "take_id": "892f924b7b3de713036b24126c02fb21c8633328636998505f4c262fe15421a4",
+      "approved_at": "2026-09-09T14:59:29.828880+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     }
   }
 }
