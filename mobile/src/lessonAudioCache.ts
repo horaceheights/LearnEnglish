@@ -1,6 +1,9 @@
 import { Directory, File, Paths } from 'expo-file-system';
+import { fetch } from 'expo/fetch';
 
 import { courseAudioAssetUrl } from './config';
+import { downloadAudioBytes } from './audioDownload';
+import { addDiagnosticBreadcrumb } from './diagnostics';
 import type { CourseAudioAsset, Lesson, LessonCard } from './types';
 
 const LESSON_AUDIO_CACHE_DIRECTORY = new Directory(Paths.cache, 'spanglish-course-audio-v2');
@@ -54,17 +57,15 @@ export async function cacheCourseAudioAsset(asset: CourseAudioAsset): Promise<st
     const partialDestination = partialAudioCacheFile(asset.id);
     try {
       LESSON_AUDIO_CACHE_DIRECTORY.create({ idempotent: true, intermediates: true });
-      const downloaded = await File.downloadFileAsync(
-        courseAudioAssetUrl(asset.id),
-        partialDestination,
-        { idempotent: true },
-      );
-      if (!downloaded.exists || downloaded.size <= 0) {
-        throw new Error(`Downloaded course audio is empty: ${asset.id}`);
-      }
-      await downloaded.move(destination, { overwrite: true });
+      const bytes = await downloadAudioBytes(courseAudioAssetUrl(asset.id), fetch);
+      partialDestination.write(bytes);
+      await partialDestination.move(destination, { overwrite: true });
       return destination.exists && destination.size > 0 ? destination.uri : null;
-    } catch {
+    } catch (error) {
+      addDiagnosticBreadcrumb('audio_cache_download_failed', {
+        asset_id: asset.id,
+        reason: error instanceof Error ? error.message : 'Audio download failed',
+      });
       try {
         if (partialDestination.exists) partialDestination.delete();
       } catch {

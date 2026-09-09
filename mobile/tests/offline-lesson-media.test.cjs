@@ -14,7 +14,7 @@ assert.match(
 );
 assert.match(
   cacheSource,
-  /File\.downloadFileAsync\([\s\S]*?partialDestination[\s\S]*?idempotent: true[\s\S]*?await downloaded\.move\(destination, \{ overwrite: true \}\)/,
+  /await downloadAudioBytes\([\s\S]*?partialDestination\.write\(bytes\)[\s\S]*?await partialDestination\.move\(destination, \{ overwrite: true \}\)/,
   'Downloads must use a disposable partial file before becoming playable cache entries.',
 );
 assert.match(
@@ -34,9 +34,10 @@ assert.match(
 );
 assert.match(
   lessonScreenSource,
-  /\|\| currentCardAudioCached[\s\S]*?\) return;/,
-  'The non-pronunciation recovery path must leave fully cached card audio playing normally.',
+  /useLessonAudioReadiness\([\s\S]*?currentCard\?\.audio_assets/,
+  'The readiness gate must check this card\'s local assets; cached cards still work offline.',
 );
+assert.doesNotMatch(lessonScreenSource, /single_card_completed_without_audio/);
 
 assert.match(
   lessonScreenSource,
