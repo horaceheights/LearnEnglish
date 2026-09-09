@@ -63,6 +63,7 @@ type Props = {
   offlinePronunciationPracticeEnabled?: boolean;
   optionsInteractive?: boolean;
   pronunciationAudioTurns?: CourseAudioTurnPlayback[] | null;
+  pronunciationAutoplayReady?: boolean;
   missionVoiceGate?: { question: string; step: number; total: number } | null;
   missionLandscapeHeader?: ReactNode;
   userId?: string;
@@ -96,6 +97,7 @@ export function LessonCardView({
   offlinePronunciationPracticeEnabled = false,
   optionsInteractive = true,
   pronunciationAudioTurns = null,
+  pronunciationAutoplayReady = true,
   missionVoiceGate = null,
   missionLandscapeHeader = null,
   userId,
@@ -571,6 +573,7 @@ export function LessonCardView({
             imageLabel={card.options[0]?.label || card.prompt}
             imageUrl={card.options[0]?.image_url}
             isAppActive={isAppActive}
+            autoplayReady={pronunciationAutoplayReady}
             isOffline={isOffline}
             offlinePracticeEnabled={offlinePronunciationPracticeEnabled}
             videoName={null}

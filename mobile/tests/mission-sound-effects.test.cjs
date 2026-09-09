@@ -105,7 +105,7 @@ test('global decorative cues honor silent mode with fatigue-safe volumes', () =>
 });
 
 test('mission semantics are metadata-driven and retain visible equivalents', () => {
-  assert.match(lessonScreen, /enabled: missionExperience/);
+  assert.match(lessonScreen, /enabled: true/); // Page turns now serve ordinary lessons too.
   assert.match(lessonScreen, /reducedStimulation: reduceMotion/);
   assert.match(lessonScreen, /nextSelectedIds\.length < correctOptionIds\.length[\s\S]*?playMissionSound\('tile-place'\)/);
   assert.match(lessonScreen, /playMissionSound\(missionSuccessSoundEvent\(currentCard\)\)/);

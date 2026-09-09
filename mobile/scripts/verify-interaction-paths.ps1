@@ -61,6 +61,9 @@ try {
   & node tests/mission-sound-effects.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de efectos de sonido de misión.' }
 
+  & node --test tests/lesson-page-turn.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Lesson page-turn and speech sequencing regression failed.' }
+
   & node tests/lesson-mistake-hints.test.cjs (Join-Path $outputDirectory 'lessonMistakeHints.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de pistas educativas.' }
 

@@ -25,8 +25,9 @@ export default function SentenceConstruction({ card, selected, result, onChange,
   useEffect(() => {
     const measure = () => {
       const needed = Math.max(0, ...wordRefs.current.filter(Boolean).map((word) =>
-        word.getBoundingClientRect().width + parseFloat(getComputedStyle(word).fontSize)));
-      setWideSlots(needed > root.current.getBoundingClientRect().width - 64);
+        word.offsetWidth + parseFloat(getComputedStyle(word).fontSize)));
+      // Parent page turns change visual bounds, not the space a word needs.
+      setWideSlots(needed > root.current.offsetWidth - 64);
     };
     const observer = new ResizeObserver(measure);
     observer.observe(root.current);

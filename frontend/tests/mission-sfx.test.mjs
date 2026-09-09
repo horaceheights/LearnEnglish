@@ -9,6 +9,14 @@ const frontendRoot = path.resolve(testDir, "..");
 const player = fs.readFileSync(path.join(frontendRoot, "components", "LessonPlayer.js"), "utf8");
 const sfxHook = fs.readFileSync(path.join(frontendRoot, "lib", "useStaticSfx.js"), "utf8");
 
+test("construction word measurement ignores page-turn transforms", () => {
+  const construction = fs.readFileSync(path.join(frontendRoot, "components", "SentenceConstruction.js"), "utf8");
+  const measure = construction.slice(construction.indexOf("const measure = () =>"), construction.indexOf("const observer = new ResizeObserver"));
+  assert.match(measure, /word\.offsetWidth/);
+  assert.match(measure, /root\.current\.offsetWidth/);
+  assert.doesNotMatch(measure, /getBoundingClientRect/);
+});
+
 const staticPaths = [
   "/sfx/mission-start-v2.mp3",
   "/sfx/person-found-v2.mp3",
@@ -40,7 +48,8 @@ test("lesson and mission events receive semantic static cues without lesson-ID r
   assert.match(player, /await playUiSfx\("readyCue"/);
   assert.match(player, /playUiSfx\("missionStart"/);
   assert.match(player, /playUiSfx\("tilePlace"/);
-  assert.match(player, /playUiSfx\("pageTurn", \{ debounceMs: 180, restart: false/);
+  assert.match(player, /playUiSfx\("pageTurn", \{ volume: 0\.45/);
+  assert.match(player, /onFinish: stopUiSfx/);
   assert.match(player, /"missionFinale"[\s\S]*?: "pageRestored"/);
   assert.match(player, /playUiSfx\("voiceStamp"/);
   assert.match(player, /playUiSfx\("tryAgain"/);
