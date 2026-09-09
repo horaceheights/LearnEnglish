@@ -3154,7 +3154,8 @@ export function LessonScreen({
             key={`lesson-card-${cardIndex}-${cardRunId}`}
             level={lesson.level}
             lessonId={lesson.id}
-            isAppActive={isAppActive && cardAudio.ready && !isPageTurning}
+            isAppActive={isAppActive && cardAudio.ready}
+            pronunciationAutoplayReady={!isPageTurning}
             isOffline={isOffline}
             offlinePronunciationPracticeEnabled={isOffline && offlinePronunciationAccepted}
             optionsInteractive={!isAutomaticSingleCard}

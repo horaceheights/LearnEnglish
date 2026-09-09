@@ -110,9 +110,34 @@ test('every native prompt and microphone waits for the turn; only actual changes
   assert.match(screen, /onFinish: stopMissionSound/);
   assert.match(screen, /!usesMissionGameSurface\s+\|\| isPageTurning/);
   assert.match(screen, /isCompletedSectionPicker\s+\|\| isPageTurning/);
-  assert.match(screen, /isAppActive=\{isAppActive && cardAudio.ready && !isPageTurning\}/);
+  assert.match(screen, /pronunciationAutoplayReady=\{!isPageTurning\}/);
+  assert.match(screen, /isAppActive=\{isAppActive && cardAudio\.ready\}/);
+  const cardView = fs.readFileSync(path.resolve(__dirname, '../src/components/LessonCardView.tsx'), 'utf8');
+  const pronunciation = fs.readFileSync(path.resolve(__dirname, '../src/components/PronunciationPractice.tsx'), 'utf8');
+  assert.match(cardView, /autoplayReady=\{pronunciationAutoplayReady\}/);
+  assert.match(pronunciation, /if \(!autoplayReady\) return undefined;\s+const runId[\s\S]*?playModelEvent\(runId\)/);
+  assert.match(pronunciation, /\[autoplayReady, discardNativeRecording, phrase\]/);
   assert.match(screen, /if \(!startPageTurn\(1\)\) return;\s+setCardIndex/);
   assert.match(screen, /if \(!startPageTurn\(direction\)\) return;\s+setCardIndex/);
   assert.match(screen, /startIndex !== cardIndex && !startPageTurn/);
   assert.equal((screen.match(/playMissionSound\('page-turn'\)/g) || []).length, 1);
+});
+
+test('two consecutive Speak cards start only when the page settles, without an interruption', () => {
+  const source = fs.readFileSync(path.resolve(__dirname, '../src/components/PronunciationPractice.tsx'), 'utf8');
+  const body = source.match(/useEffect\(\(\) => \{(\s+if \(!autoplayReady\) return undefined;[\s\S]*?)\n  \}, \[autoplayReady, discardNativeRecording, phrase\]\);/)[1];
+  const plays = [];
+  for (const phrase of ['He is a boy.', 'She is a girl.']) {
+    const refs = { runIdRef: { current: 0 }, attemptRef: { current: 0 }, noSpeechRound: { current: 0 }, retryTimer: { current: null }, modelLoadTimer: { current: null }, phraseCompleteTimer: { current: null }, streamingCapture: { current: false } };
+    const effect = new Function('autoplayReady', 'setAttempt', 'playModelEvent', 'clearTimeout', 'discardNativeRecording', ...Object.keys(refs), body);
+    const run = ready => effect(ready, () => {}, id => plays.push({ phrase, id }), () => {}, () => {}, ...Object.values(refs));
+    assert.equal(run(false), undefined);
+    assert.equal(refs.runIdRef.current, 0);
+    const cleanup = run(true);
+    assert.equal(plays.at(-1).phrase, phrase);
+    assert.equal(plays.at(-1).id, 1);
+    cleanup();
+    assert.equal(refs.runIdRef.current, 2, 'Leaving the card invalidates any pending model playback.');
+  }
+  assert.equal(plays.length, 2);
 });

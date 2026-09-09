@@ -66,6 +66,7 @@ type Props = {
   imageLabel?: string;
   imageUrl?: string;
   isAppActive: boolean;
+  autoplayReady?: boolean;
   isOffline: boolean;
   offlinePracticeEnabled?: boolean;
   videoName?: string | null;
@@ -245,6 +246,7 @@ export function PronunciationPractice({
   imageLabel,
   imageUrl,
   isAppActive,
+  autoplayReady = true,
   isOffline,
   offlinePracticeEnabled = false,
   videoName,
@@ -712,7 +714,7 @@ export function PronunciationPractice({
     }
   }, [audioProvider, audioTurns, audioVoice, discardNativeRecording, isAppActive, isCurrentRun, isOffline, missionVoiceGate, offlinePracticeEnabled, pauseForInterruption, phrase, resetVoiceEvidence, showUnavailableState]);
   const playModelEvent = useEffectEvent(playModel);
-  const headerReplayAvailable = isAppActive
+  const headerReplayAvailable = autoplayReady && isAppActive
     && (!isOffline || offlinePracticeEnabled)
     && phase !== 'ready'
     && phase !== 'listening'
@@ -1721,6 +1723,7 @@ export function PronunciationPractice({
   }, [discardNativeRecording]);
 
   useEffect(() => {
+    if (!autoplayReady) return undefined;
     const runId = runIdRef.current + 1;
     runIdRef.current = runId;
     attemptRef.current = 0;
@@ -1737,7 +1740,7 @@ export function PronunciationPractice({
       if (streamingCapture.current) void discardNativeRecording();
       streamingCapture.current = false;
     };
-  }, [discardNativeRecording, phrase]);
+  }, [autoplayReady, discardNativeRecording, phrase]);
 
   useEffect(() => {
     if (!modelSequenceActive || !audioTurns?.length) return;

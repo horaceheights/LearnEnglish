@@ -5,7 +5,7 @@ The existing `chapter-arrival-v2.mp3` cue now accompanies actual slide changes i
 Verification:
 
 - Complete Preview preflight passed: video and lesson validation, static effects, course audio, TypeScript, interaction regressions, native Yoga regressions, and Android production bundle export.
-- 17 focused transition/audio tests passed. Both production page-turn hooks were exercised with a deterministic clock: duplicate navigation, forward/backward arrival, reduced stimulation, rotation, backgrounding, unmount, bounded sound cancellation, and speech gating.
+- 19 focused transition/audio/pronunciation tests passed. Both production page-turn hooks were exercised with a deterministic clock: duplicate navigation, forward/backward arrival, reduced stimulation, rotation, backgrounding, unmount, bounded sound cancellation, and speech gating. Two consecutive Speak startup effects wait for the dedicated autoplay gate without showing an app-interruption state.
 - All 14 frontend tests and the production web build passed; 61 backend lesson tests passed.
 - Browser QA used the real LessonPlayer with canonical Lesson 1.1 Recognize cards in a temporary local fixture. Four consecutive correct selections advanced to the expected cards. Checked settled two-image, sentence-choice, and four-image cards at desktop, 390x844 portrait, 844x390 landscape, and 768x1024 tablet sizes. Removed the fixture afterward.
 - Existing pending human semantic-media reviews remain Preview advisories. No media approvals were changed. Android/iOS hardware playback and the perceived page-turn sound/animation still require review in the protected Preview app; browser checks and an Android export are not on-device evidence.
