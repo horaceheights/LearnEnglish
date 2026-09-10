@@ -1050,6 +1050,25 @@ export function LessonScreen({
     }, COURSE_AUDIO_FALLBACK_MS);
     playAudioSource(lessonAudioAssetSource(missionIntroAsset), 'mission', 'intro');
   }, [missionIntroAsset, playAudioSource]);
+
+  // Starting the mission while the briefing is still speaking has to silence it.
+  // The briefing runs on the shared course player, so stopping the mission sound
+  // effects leaves it talking, and it then runs over the first clue.
+  const stopMissionIntro = useCallback(() => {
+    if (missionIntroFallbackTimerRef.current) clearTimeout(missionIntroFallbackTimerRef.current);
+    missionIntroFallbackTimerRef.current = null;
+    missionIntroAwaitingRef.current = false;
+    missionIntroWasPlayingRef.current = false;
+    // Retire any request still resolving. Tapping during the preload would
+    // otherwise let the briefing start after the mission had already moved on.
+    audioPlaybackRequestRef.current += 1;
+    try {
+      audioPlayerRef.current.pause();
+      audioPlaylistRef.current.pause();
+    } catch {
+      // A clip that already ended needs no stopping.
+    }
+  }, []);
   const missionChapters = useMemo(
     () => missionChapterProgress(lesson, cardIndex, completedCards, furthestCardIndex),
     [cardIndex, completedCards, furthestCardIndex, lesson],
@@ -2866,6 +2885,7 @@ export function LessonScreen({
           onReplay={playMissionIntro}
           onStart={() => {
             stopMissionSound();
+            stopMissionIntro();
             setMissionKickoffComplete(true);
           }}
           presentation={lesson.mission!}

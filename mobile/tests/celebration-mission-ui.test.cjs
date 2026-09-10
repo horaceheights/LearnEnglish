@@ -42,6 +42,30 @@ assert.match(
 );
 assert.doesNotMatch(screen, /playAudioSequence\(\[cueTurn\]/);
 assert.match(screen, /onStart=\{\(\) => \{[\s\S]*?stopMissionSound\(\)[\s\S]*?setMissionKickoffComplete\(true\)/);
+
+// The briefing speaks through the shared course player while the sound effects
+// have a player of their own, so stopMissionSound alone leaves it talking and it
+// runs over the first clue.
+assert.match(
+  screen,
+  /onStart=\{\(\) => \{[\s\S]*?stopMissionIntro\(\)[\s\S]*?setMissionKickoffComplete\(true\)/,
+  'Starting the mission must silence the briefing, not just the sound effects.',
+);
+const stopIntro = screen.slice(
+  screen.indexOf('const stopMissionIntro = useCallback('),
+  screen.indexOf('const missionChapters = useMemo('),
+);
+assert.ok(stopIntro.length > 0, 'Could not find stopMissionIntro.');
+assert.match(
+  stopIntro,
+  /audioPlaybackRequestRef\.current \+= 1;/u,
+  'A briefing still preloading would start after the tap unless its request is retired.',
+);
+assert.match(
+  stopIntro,
+  /audioPlayerRef\.current\.pause\(\)/u,
+  'The briefing plays on the shared course player, so that is what must stop.',
+);
 assert.match(screen, /cueUnavailable=\{missionCueUnavailable\}/);
 assert.match(screen, /interactionReady=\{missionInteractionReady\}/);
 assert.match(screen, /onCueRequest=\{playMissionCueAt\}/);
