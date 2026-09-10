@@ -83,6 +83,8 @@ import {
 import { lessonStageColorForCard } from '../lessonStageTheme';
 import { sectionBriefingForBoundary, type SectionBriefing } from '../lessonSectionBriefing';
 import { LessonSectionBriefing } from '../components/LessonSectionBriefing';
+import { MissionChapterBreak } from '../components/MissionChapterBreak';
+import { missionChapterBreakForAdvance, type MissionChapterBreak as MissionChapterBreakContent } from '../missionChapterBreak';
 import {
   cacheCourseAudioAsset,
   cacheLessonAudio,
@@ -352,6 +354,8 @@ export function LessonScreen({
   const [missionKickoffAudioReady, setMissionKickoffAudioReady] = useState(false);
   const [missionInteractionReady, setMissionInteractionReady] = useState(false);
   const [missionCueUnavailable, setMissionCueUnavailable] = useState(false);
+  const [missionChapterBreak, setMissionChapterBreak] = useState<MissionChapterBreakContent | null>(null);
+  const missionChapterBreakFromRef = useRef<number | null>(null);
   const [showHelp, setShowHelp] = useState(false);
   const [showMissionLandscapeMenu, setShowMissionLandscapeMenu] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
@@ -867,6 +871,8 @@ export function LessonScreen({
     setCompletedLessonMode(previouslyCompleted && !qaMode ? 'prompt' : 'standard');
     setMissionCompletionAcknowledged(false);
     setMissionKickoffComplete(false);
+    setMissionChapterBreak(null);
+    missionChapterBreakFromRef.current = null;
     setReviewStageBounds(null);
     try {
       const nextLesson = await getLesson(lessonId);
@@ -1418,13 +1424,25 @@ export function LessonScreen({
       || !usesMissionGameSurface
       || isPageTurning
       || showMissionKickoff
+      // A clue that starts under the act card is a clue nobody hears.
+      || missionChapterBreak
       || result !== null
       || !isAppActive
       || !cardAudio.ready
     ) return undefined;
     const timer = setTimeout(() => playMissionCueAt(0), 180);
     return () => clearTimeout(timer);
-  }, [cardAudio.ready, cardIndex, currentCard?.mission_game, isAppActive, isPageTurning, missionExperience, playMissionCueAt, result, showMissionKickoff, usesMissionGameSurface]);
+  }, [cardAudio.ready, cardIndex, currentCard?.mission_game, isAppActive, isPageTurning, missionChapterBreak, missionExperience, playMissionCueAt, result, showMissionKickoff, usesMissionGameSurface]);
+
+  // An act closes when the next beat belongs to the next chapter. Deriving it
+  // from the step the learner just took keeps resumes and section jumps quiet.
+  useEffect(() => {
+    const previousIndex = missionChapterBreakFromRef.current;
+    missionChapterBreakFromRef.current = cardIndex;
+    if (previousIndex === null) return;
+    const closing = missionChapterBreakForAdvance(lesson, previousIndex, cardIndex);
+    if (closing) setMissionChapterBreak(closing);
+  }, [cardIndex, lesson]);
 
   const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
     const target = promptTapTargetRef.current;
@@ -3380,6 +3398,12 @@ export function LessonScreen({
             userId={profile.userId}
           />}
           {snapshot ? <LessonPageCurl snapshot={snapshot} turn={turn} onReady={revealPage} /> : null}
+          {missionChapterBreak && !isPageTurning ? (
+            <MissionChapterBreak
+              content={missionChapterBreak}
+              onDone={() => setMissionChapterBreak(null)}
+            />
+          ) : null}
         </Animated.View>
     </>
   );
