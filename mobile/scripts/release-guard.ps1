@@ -114,6 +114,39 @@ function Assert-SharedBackendRelease {
     throw "Publicación bloqueada: el candidato debe ser exactamente origin/main ($remoteMainCommit), no $ExpectedCommit."
   }
 
+  # Render rebuilds only when files under its rootDir change, so a candidate that
+  # touches nothing in backend/ leaves the shared service on an earlier main
+  # commit and no push will ever advance it. Demanding an identical commit turns
+  # every mobile-only release into a manual redeploy of byte-identical code.
+  # Accept an earlier commit only when it is reviewed main history and its
+  # backend tree matches the candidate exactly: the service is then already
+  # running the code this build expects. The catalog hash, asset count and
+  # readiness checks below still prove the audio content matches.
+  function Test-SharedBackendCommit {
+    param(
+      [Parameter(Mandatory = $true)][string]$ObservedCommit,
+      [Parameter(Mandatory = $true)][string]$CandidateCommit
+    )
+
+    if ([string]::Equals($ObservedCommit, $CandidateCommit, [System.StringComparison]::OrdinalIgnoreCase)) {
+      return $true
+    }
+    if ($ObservedCommit -notmatch '^[0-9a-f]{40}$') { return $false }
+
+    # git reports these differences through the exit code, not as failures.
+    $PSNativeCommandUseErrorActionPreference = $false
+
+    # --quiet keeps an unknown commit from writing "fatal:" into the release log.
+    & git -C $RepositoryRoot rev-parse --verify --quiet "$ObservedCommit^{commit}" | Out-Null
+    if ($LASTEXITCODE -ne 0) { return $false }
+
+    & git -C $RepositoryRoot merge-base --is-ancestor $ObservedCommit $CandidateCommit
+    if ($LASTEXITCODE -ne 0) { return $false }
+
+    & git -C $RepositoryRoot diff --quiet $ObservedCommit $CandidateCommit -- backend
+    return ($LASTEXITCODE -eq 0)
+  }
+
   $catalogPath = Join-Path $RepositoryRoot 'backend/approved-course-audio/catalog.json'
   $catalog = Get-Content -Raw -LiteralPath $catalogPath | ConvertFrom-Json
   # Git may check out text as CRLF on the Windows publisher while Render uses
@@ -145,7 +178,7 @@ function Assert-SharedBackendRelease {
       if (
         $observedEnvironment -ceq 'production' -and
         $observedBranch -ceq 'main' -and
-        [string]::Equals($observedCommit, $remoteMainCommit, [System.StringComparison]::OrdinalIgnoreCase) -and
+        (Test-SharedBackendCommit -ObservedCommit $observedCommit -CandidateCommit $remoteMainCommit) -and
         [string]::Equals(
           [string]$audio.catalog_sha256,
           $expectedCatalogSha256,
@@ -157,7 +190,12 @@ function Assert-SharedBackendRelease {
         [int]$audio.invalid -eq 0 -and
         [int]$audio.error_count -eq 0
       ) {
-        Write-Host "Backend compartido verificado: main $($remoteMainCommit.Substring(0, 7)), catálogo $($expectedCatalogSha256.Substring(0, 12)), $expectedAssetCount audios." -ForegroundColor Green
+        $deployedNote = if ([string]::Equals($observedCommit, $remoteMainCommit, [System.StringComparison]::OrdinalIgnoreCase)) {
+          "main $($remoteMainCommit.Substring(0, 7))"
+        } else {
+          "main $($observedCommit.Substring(0, 7)), backend idéntico al candidato $($remoteMainCommit.Substring(0, 7))"
+        }
+        Write-Host "Backend compartido verificado: $deployedNote, catálogo $($expectedCatalogSha256.Substring(0, 12)), $expectedAssetCount audios." -ForegroundColor Green
         return
       }
     } catch {
@@ -169,7 +207,10 @@ function Assert-SharedBackendRelease {
     }
   }
 
-  throw "Publicación bloqueada: el backend compartido de main no coincide con el candidato o su audio no está listo ($lastObservation)."
+  throw (
+    'Publicación bloqueada: el backend compartido de main no coincide con el candidato o su audio no está listo ' +
+    "($lastObservation). Si backend/ cambió en este candidato, vuelve a desplegar Render antes de publicar."
+  )
 }
 
 function Invoke-CheckedCommand {
