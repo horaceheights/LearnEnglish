@@ -188,6 +188,22 @@ test('the publisher fails closed outside the exact GitHub release authority', ()
   assert.match(releaseGuardSource, /\.Replace\("`r`n", "`n"\)/);
   assert.match(releaseGuardSource, /catalog_sha256/);
   assert.match(releaseGuardSource, /audio\.ready/);
+  // Render only rebuilds on backend/ changes, so the shared service can sit on an
+  // earlier main commit that no push will advance. An older deploy is allowed
+  // only when it is main history and its backend tree matches the candidate
+  // exactly; drop either check and the guard would wave through a stale backend.
+  assert.match(releaseGuardSource, /function Test-SharedBackendCommit/);
+  assert.match(releaseGuardSource, /merge-base --is-ancestor \$ObservedCommit \$CandidateCommit/);
+  assert.match(
+    releaseGuardSource,
+    /diff --quiet \$ObservedCommit \$CandidateCommit -- backend/,
+    'An earlier backend deploy is only acceptable when backend/ is byte-identical.',
+  );
+  assert.match(
+    releaseGuardSource,
+    /\(Test-SharedBackendCommit -ObservedCommit \$observedCommit -CandidateCommit \$remoteMainCommit\) -and/,
+    'The readiness loop must gate on the shared backend commit check.',
+  );
   assert.match(publishScriptSource, /Assert-SharedBackendRelease/);
   assert.doesNotMatch(publishScriptSource, /reconciliado en main/);
   assert.doesNotMatch(publishScriptSource, /rev-parse --short=7 HEAD/);
