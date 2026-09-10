@@ -217,6 +217,9 @@ try {
   & node --test tests/celebration-mission-ui.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el contrato de interfaz de la misión de celebración.' }
 
+  & node --test tests/mission-chapter-break.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el cierre de acto de la misión.' }
+
   & node --test tests/multi-blank-completion.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de las completaciones ordenadas.' }
 
