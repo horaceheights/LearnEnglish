@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { missionChapterProgress } from "../lib/missionExperience.mjs";
+import { missionChapterProgress, missionProgressPercent } from "../lib/missionExperience.mjs";
 import { fitMissionHeadScene } from "../lib/missionTargetInteraction.cjs";
 
 const ACT_ICONS = ["◉", "∿", "➤", "✦", "●"];
@@ -168,7 +168,7 @@ export default function CelebrationMission({
     ? resolveImage(card.audio_turns?.[0]?.image_url || "")
     : imageSrc || resolveImage(card.options?.find((option) => option.image_url)?.image_url || "");
   const locked = !interactionReady || Boolean(feedback) || lastResult === "correct";
-  const missionProgress = Math.round((cardIndex / lesson.cards.length) * 100);
+  const missionProgress = missionProgressPercent(lesson, cardIndex, lastResult === "correct");
   const cueProgress = useMemo(() => `${Math.min(cueIndex + 1, game.cues.length)} de ${game.cues.length}`, [cueIndex, game.cues.length]);
   const headScene = useMemo(() => fitMissionHeadScene(slotSize.width, slotSize.height, game.targets),
     [slotSize, game.targets]);

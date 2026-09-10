@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { isMissionLesson, missionChapterProgress } from "../lib/missionExperience.mjs";
+import { isMissionLesson, missionChapterProgress, missionProgressPercent } from "../lib/missionExperience.mjs";
 
 function missionLesson(overrides = {}) {
   return {
@@ -65,4 +65,26 @@ test("chapter progress follows the authored mission sequence", () => {
       { completed: 0, isActive: true, isComplete: false, isUnlocked: true, range: [2, 3] },
     ],
   );
+});
+
+test("the mission meter counts settled beats, not the beat in hand", () => {
+  const lesson = { cards: new Array(22) };
+
+  // Nothing is behind the learner on the opening beat.
+  assert.equal(missionProgressPercent(lesson, 0, false), 0);
+  assert.equal(missionProgressPercent(lesson, 0, true), 5);
+
+  // Reading the card index alone leaves the closing beat short of full, which is
+  // the one moment the mission is supposed to look finished.
+  assert.equal(missionProgressPercent(lesson, 21, false), 95);
+  assert.equal(missionProgressPercent(lesson, 21, true), 100);
+});
+
+test("the mission meter stays inside its bounds", () => {
+  const lesson = { cards: new Array(4) };
+
+  assert.equal(missionProgressPercent(lesson, -3, false), 0);
+  assert.equal(missionProgressPercent(lesson, 9, true), 100);
+  assert.equal(missionProgressPercent({ cards: [] }, 0, true), 0);
+  assert.equal(missionProgressPercent(undefined, 2, true), 0);
 });
