@@ -1,12 +1,12 @@
-import { missionChapterProgress } from "../lib/missionExperience.mjs";
+import { missionChapterProgress, missionProgressPercent } from "../lib/missionExperience.mjs";
 
 const CHAPTER_COLORS = ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"];
 
-export default function MissionJourney({ cardIndex, isMobile, lesson }) {
+export default function MissionJourney({ cardIndex, isMobile, lastResult, lesson }) {
   const chapters = missionChapterProgress(lesson, cardIndex);
   const currentChapter = chapters.find((chapter) => chapter.isActive) || chapters[0];
   const currentStep = Math.min(cardIndex + 1, lesson.cards.length);
-  const progressPercent = Math.round((cardIndex / lesson.cards.length) * 100);
+  const progressPercent = missionProgressPercent(lesson, cardIndex, lastResult === "correct");
 
   return (
     <div

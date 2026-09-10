@@ -75,3 +75,18 @@ export function missionChapterProgress(lesson, currentCardIndex) {
     };
   });
 }
+
+// The meter reports how much of the mission is behind the learner. A beat only
+// counts once it is answered, so the bar sits at zero on the opening beat and
+// fills completely as the final one resolves. Reading it straight from the card
+// index instead leaves the last beat showing an unfinished bar, which is the one
+// moment the mission is meant to feel finished.
+export function missionProgressPercent(lesson, currentCardIndex, currentBeatSolved = false) {
+  const total = lesson?.cards?.length ?? 0;
+  if (total <= 0) return 0;
+  const settled = Math.min(
+    Math.max(currentCardIndex, 0) + (currentBeatSolved ? 1 : 0),
+    total,
+  );
+  return Math.round((settled / total) * 100);
+}

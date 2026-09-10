@@ -5310,7 +5310,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             </div>
             {isMissionExperience ? (
               <>
-                <MissionJourney cardIndex={cardIndex} isMobile={isMobile} lesson={activeLesson} />
+                <MissionJourney cardIndex={cardIndex} isMobile={isMobile} lastResult={lastResult} lesson={activeLesson} />
                 <button
                   aria-label={cardPromptText.trim() ? `Escuchar pista: ${cardPromptText}` : "Pista visual de la misión"}
                   disabled={!cardPromptText.trim()}
