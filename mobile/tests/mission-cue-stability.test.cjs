@@ -34,15 +34,56 @@ test('audio turn sequences are not rebuilt during render', () => {
   }
 });
 
-test('the mission clue callback keeps its declared dependencies', () => {
-  const deps = lessonScreen.match(
-    /\}, \[ensureAudioPreloaded, isOffline, missionCueAsset, missionCuePlayer, promptTurnSequence, replayPrompt, stopMissionSound\]\);/u,
+// Anything that builds a fresh array or object during render hands its consumer
+// a new identity every pass. Pinning the exact dependency list would only break
+// on honest edits, so check the property that actually matters: whatever
+// playMissionCueAt depends on has to survive a render unchanged.
+const BUILDS_A_FRESH_VALUE = [
+  /findCourseAudioTurnSequence\(/u,
+  /findCourseAudioTurnSequences\(/u,
+  /\.map\(/u,
+  /\.filter\(/u,
+  /\.flatMap\(/u,
+  /\.concat\(/u,
+  /\.slice\(/u,
+  /=\s*\[/u,
+];
+
+function renderScopeDeclaration(name) {
+  const match = lessonScreen.match(
+    new RegExp(String.raw`^ {2}const ${name} = ([\s\S]*?);$`, 'mu'),
   );
-  assert.ok(
-    deps,
-    'playMissionCueAt no longer declares the expected dependencies; re-check that '
-    + 'each one is stable across renders before changing this list.',
+  return match ? match[1] : null;
+}
+
+test('every mission clue dependency survives a render unchanged', () => {
+  const declaration = lessonScreen.match(
+    /const playMissionCueAt = useCallback\(([\s\S]*?)\}, \[([^\]]*)\]\);/u,
   );
+  assert.ok(declaration, 'Could not find playMissionCueAt and its dependency list.');
+
+  const dependencies = declaration[2]
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+  assert.ok(dependencies.length > 0, 'playMissionCueAt declares no dependencies.');
+
+  for (const dependency of dependencies) {
+    const body = renderScopeDeclaration(dependency);
+    // Destructured hook results and imports have no render-scope const of their
+    // own; a hook call is stable by construction.
+    if (!body || /^use[A-Z]/u.test(body.trim())) continue;
+
+    const rebuilds = BUILDS_A_FRESH_VALUE.some((pattern) => pattern.test(body));
+    if (!rebuilds) continue;
+
+    assert.match(
+      body,
+      /useMemo\(|useCallback\(/u,
+      `${dependency} builds a new value during render, so playMissionCueAt is `
+      + 'rebuilt every pass and the effect restarts the clue in a loop. Memoise it.',
+    );
+  }
 });
 
 test('the clue effect still restarts only when the card or callback changes', () => {
