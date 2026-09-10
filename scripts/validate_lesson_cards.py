@@ -265,6 +265,31 @@ def _mission_language_tokens(text: str | None) -> set[str]:
     return set(re.findall(r"[a-z]+", normalized.lower()))
 
 
+# These words carry no referent, so they cannot help a spoken clue pick out one
+# region of a composite mission hero. Removing them leaves the claim a clue
+# actually makes about its target.
+MISSION_CUE_FUNCTION_WORDS = frozenset(
+    {"a", "an", "the", "is", "are", "he", "she", "they", "and", "who"}
+)
+
+
+def _mission_cue_claim(text: str | None) -> frozenset[str]:
+    """Return the content words a mission clue asserts about its own target.
+
+    A contrast hunt pairs a negative sentence with the affirmative one that
+    actually identifies the region (``He is not eating. He is drinking.``). Only
+    the affirmative half describes the answer, so the negated sentence is dropped
+    instead of being counted as a claim.
+    """
+
+    affirmative = [
+        sentence
+        for sentence in re.split(r"(?<=[.!?])\s+", str(text or ""))
+        if not re.search(r"\bnot\b", sentence, re.IGNORECASE)
+    ]
+    return frozenset(_mission_language_tokens(" ".join(affirmative)) - MISSION_CUE_FUNCTION_WORDS)
+
+
 def _correct_option(card: object) -> object | None:
     correct_id = str(getattr(card, "correct_option_id", "") or "")
     return next(
@@ -1815,6 +1840,47 @@ def validate_family_adult_ambiguity(lessons=None) -> list[str]:
     return errors
 
 
+def validate_mission_cue_ambiguity(lessons=None) -> list[str]:
+    """Reject mission clues that another clue on the same card already satisfies.
+
+    ``validate_family_adult_ambiguity`` skips mission cards on purpose: entailment
+    against the whole composite hero would flag every local label. The clue set is
+    still checkable without any visual model. When one clue's claim is contained in
+    another's, both clues are true of the second clue's region, and the learner can
+    only reach the intended target by elimination.
+
+    Singular and plural stay distinct tokens deliberately. ``child``/``children``
+    and ``adult``/``adults`` name different regions, and the Persona/Grupo marker
+    already carries that distinction for the learner.
+    """
+
+    errors: list[str] = []
+    lesson_catalog = LESSONS if lessons is None else lessons
+    for lesson in lesson_catalog.values():
+        for card in lesson.cards:
+            mission_game = getattr(card, "mission_game", None)
+            if mission_game is None or mission_game.kind == "voice-gate":
+                # A voice gate answers a single spoken prompt aloud, so it has no
+                # competing regions to confuse.
+                continue
+            claims = [
+                (cue, _mission_cue_claim(cue.text))
+                for cue in list(getattr(mission_game, "cues", []) or [])
+            ]
+            for cue, claim in claims:
+                if not claim:
+                    continue
+                for other, other_claim in claims:
+                    if other.id == cue.id or not claim <= other_claim:
+                        continue
+                    errors.append(
+                        f"{lesson.id} {card.slide_id} clue {cue.id!r} ({cue.text!r}) is also "
+                        f"true of the region answering clue {other.id!r} ({other.text!r}), so "
+                        f"target {cue.target_id!r} cannot be identified from the clue alone."
+                    )
+    return errors
+
+
 def validate_negative_visual_contracts() -> list[str]:
     errors: list[str] = []
     for lesson in LESSONS.values():
@@ -2488,6 +2554,7 @@ def main(argv: list[str] | None = None) -> int:
         *validate_text_tile_option_limit(),
         *validate_duplicate_option_images(),
         *validate_family_adult_ambiguity(),
+        *validate_mission_cue_ambiguity(),
         *validate_negative_visual_contracts(),
         *validate_interaction_requirements(),
         *validate_mission_contracts(),

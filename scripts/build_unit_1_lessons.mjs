@@ -986,12 +986,15 @@ const missionBlueprintV5 = [
     beat: 5, chapter: 'connect-the-family', kind: 'family-link', stage: 'Listen',
     phase: 'one baby and a clearly plural baby group connect to child and children',
     instruction: 'Escucha y toca la imagen correcta.', validation: 'ordered',
-    translation: 'Un bebé es un niño. Los bebés son niños.',
+    translation: 'Un bebé también es un niño. Los bebés también son niños.',
     cues: [
       missionCue('baby-child', 'A baby is a child.', 'A baby is a child.', 'one-baby'),
       missionCue('babies-children', 'Babies are children.', 'Babies are children.', 'three-babies'),
     ],
-    choices: [['baby-child', 'A baby is a child.'], ['babies-children', 'Babies are children.'], ['boy', 'A boy.'], ['children', 'They are children.']],
+    // Every clue must name its subject. Bare category labels such as `A boy.` or
+    // `They are children.` are true of more than one region here, and the second
+    // one directly contradicts the `Babies are children.` clue this card teaches.
+    choices: [['baby-child', 'A baby is a child.'], ['babies-children', 'Babies are children.'], ['boy', 'The boy is a child.'], ['children', 'The boy and the girl are children.']],
     targets: [
       // Keep the babies' faces/count visible above the stroller canopies;
       // the standing children's markers sit below their upper bodies.
@@ -1071,8 +1074,8 @@ const missionBlueprintV5 = [
     instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
     translation: 'Ella está comiendo. Él está bebiendo.',
     cues: [
-      missionCue('eating', 'She is eating.', 'She is eating.', 'eating'),
-      missionCue('drinking', 'He is drinking.', 'He is drinking.', 'drinking'),
+      missionCue('eating', 'The mother is eating.', 'The mother is eating.', 'eating'),
+      missionCue('drinking', 'The grandfather is drinking.', 'The grandfather is drinking.', 'drinking'),
     ],
     choices: [['eating', 'The mother is eating.'], ['drinking', 'The grandfather is drinking.'], ['reading', 'The girl is reading.'], ['sitting', 'The father is sitting.']],
     targets: [
@@ -1086,8 +1089,8 @@ const missionBlueprintV5 = [
     instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
     translation: 'Ella está leyendo. Él está escribiendo.',
     cues: [
-      missionCue('reading', 'She is reading.', 'She is reading.', 'reading'),
-      missionCue('writing', 'He is writing.', 'He is writing.', 'writing'),
+      missionCue('reading', 'The grandmother is reading.', 'The grandmother is reading.', 'reading'),
+      missionCue('writing', 'The father is writing.', 'The father is writing.', 'writing'),
     ],
     choices: [['reading', 'The grandmother is reading.'], ['writing', 'The father is writing.'], ['talking', 'She is talking.'], ['drinking', 'He is drinking.']],
     targets: [
@@ -1131,8 +1134,8 @@ const missionBlueprintV5 = [
     instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
     translation: 'Ellos están jugando. Ella está estudiando.',
     cues: [
-      missionCue('playing', 'They are playing.', 'They are playing.', 'playing'),
-      missionCue('studying', 'She is studying.', 'She is studying.', 'studying'),
+      missionCue('playing', 'The babies are playing.', 'The babies are playing.', 'playing'),
+      missionCue('studying', 'The girl is studying.', 'The girl is studying.', 'studying'),
     ],
     choices: [['playing', 'The babies are playing.'], ['studying', 'The girl is studying.'], ['reading', 'The parents are reading.'], ['talking', 'She is talking.']],
     targets: [
@@ -1146,9 +1149,9 @@ const missionBlueprintV5 = [
     instruction: 'Escucha y encuentra quién hace la acción.', validation: 'ordered',
     translation: 'Ella está trabajando. Él está cocinando. Ellos están hablando.',
     cues: [
-      missionCue('working', 'She is working.', 'She is working.', 'working'),
-      missionCue('cooking', 'He is cooking.', 'He is cooking.', 'cooking'),
-      missionCue('talking', 'They are talking.', 'They are talking.', 'talking'),
+      missionCue('working', 'The grandmother is working.', 'The grandmother is working.', 'working'),
+      missionCue('cooking', 'The father is cooking.', 'The father is cooking.', 'cooking'),
+      missionCue('talking', 'The sisters are talking.', 'The sisters are talking.', 'talking'),
     ],
     choices: [['working', 'The grandmother is working.'], ['cooking', 'The father is cooking.'], ['talking', 'The sisters are talking.'], ['reading', 'The grandfather is reading.']],
     targets: [
