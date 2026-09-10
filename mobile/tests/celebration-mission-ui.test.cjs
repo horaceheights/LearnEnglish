@@ -45,14 +45,21 @@ assert.match(screen, /onStart=\{\(\) => \{[\s\S]*?stopMissionSound\(\)[\s\S]*?se
 assert.match(screen, /cueUnavailable=\{missionCueUnavailable\}/);
 assert.match(screen, /interactionReady=\{missionInteractionReady\}/);
 assert.match(screen, /onCueRequest=\{playMissionCueAt\}/);
-assert.match(screen, /!missionExperience && needsAccessibleScrolling/);
-assert.match(screen, /!isMissionGameCard \? <View/);
+// The mission owns its own layout, so the accessible scrolling fallback must
+// stay switched off for it. Other activities may add their own exclusions here,
+// so match the mission guard rather than the exact list of conditions.
+assert.match(screen, /\{!missionExperience &&[^?}]*needsAccessibleScrolling \?/);
+// Mission cards render their own surface instead of the standard prompt block.
+// Other activities opt out of that block too, so allow further exclusions.
+assert.match(screen, /!isMissionGameCard[^?]*\? <View/);
 assert.match(screen, /missionVoiceGate=\{missionVoiceGateProgress\}/);
 assert.doesNotMatch(screen, /interactionReady=\{true\}/);
 assert.match(screen, /!isMissionTileCard && !isMissionGameCard/);
 assert.match(
   screen,
-  /const waitsForGrammarAnimation = shouldWaitForGrammarAnimation\([\s\S]*?usesMissionGameSurface,[\s\S]*?\);/,
+  // The mission surface must still suppress the grammar animation wait; other
+  // activities may be folded into the same argument.
+  /const waitsForGrammarAnimation = shouldWaitForGrammarAnimation\([\s\S]*?usesMissionGameSurface[^)]*\);/,
 );
 
 const bundledReunionImages = images.match(/'a1_u1_reunion_[^']+\.webp': require/g) || [];

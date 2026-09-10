@@ -210,6 +210,30 @@ try {
 
   & node tests/pronunciation-media-frame.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el marco compartido de imágenes de pronunciación.' }
+
+  & node --test tests/mission-cue-stability.test.cjs tests/mission-cue-unlock.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección del audio de las pistas de misión.' }
+
+  & node --test tests/celebration-mission-ui.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el contrato de interfaz de la misión de celebración.' }
+
+  & node --test tests/multi-blank-completion.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de las completaciones ordenadas.' }
+
+  & node --test tests/bundled-unit2-images.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación de imágenes empaquetadas de la unidad 2.' }
+
+  # This runner names every suite by hand, so a new test file joins the repository
+  # already unenforced. That is how the mission audio guards sat red and unnoticed.
+  # Fail loudly instead of letting the next one drift the same way.
+  $referencedSuites = Get-Content -LiteralPath $PSCommandPath -Raw
+  $unreferencedSuites = Get-ChildItem -LiteralPath 'tests' -File |
+    Where-Object { $_.Name -like '*.test.cjs' -or $_.Name -like '*.test.mjs' } |
+    Where-Object { -not $referencedSuites.Contains("tests/$($_.Name)") } |
+    ForEach-Object { $_.Name }
+  if ($unreferencedSuites) {
+    throw "Estas pruebas existen pero nadie las ejecuta: $($unreferencedSuites -join ', ')"
+  }
 } finally {
   Pop-Location
   $resolvedOutputDirectory = [System.IO.Path]::GetFullPath($outputDirectory)

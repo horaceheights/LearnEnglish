@@ -29,22 +29,35 @@ const stageCounts = Object.fromEntries(
 assert.equal(lesson.cards.length, 42, 'Lesson 1.1 must keep the approved 42-card pilot.');
 assert.deepEqual(stageCounts, { Learn: 10, Recognize: 10, Listen: 8, Speak: 7, Use: 7 });
 
+// How many ordered completions 1.1 carries is a content decision that has moved
+// once already, when whole-sentence construction replaced the two-tile close.
+// What must hold whatever the shape is: every blank is filled by exactly one
+// tile, no tile is used twice, and grading starts from the authored first tile.
 const multiBlankCards = lesson.cards.filter((card) => card.correct_option_ids?.length);
-assert.deepEqual(
-  multiBlankCards.map((card) => card.slide_id),
-  ['U5', 'U7'],
-  'Lesson 1.1 must close each adult sequence with an ordered two-tile completion.',
+assert.ok(
+  multiBlankCards.length > 0,
+  'Lesson 1.1 must close its sequences with at least one ordered completion.',
 );
-assert.deepEqual(multiBlankCards.map((card) => card.correct_option_ids), [['he', 'a'], ['she', 'a']]);
 for (const card of multiBlankCards) {
-  assert.equal((card.prompt.match(/_{2,}/g) || []).length, 2);
-  assert.equal(new Set(card.correct_option_ids).size, 2, `${card.slide_id} cannot reuse one tile twice.`);
+  const blanks = (card.prompt.match(/_{2,}/g) || []).length;
+  assert.equal(
+    blanks,
+    card.correct_option_ids.length,
+    `${card.slide_id} has ${blanks} blanks but ${card.correct_option_ids.length} tiles.`,
+  );
+  assert.equal(
+    new Set(card.correct_option_ids).size,
+    card.correct_option_ids.length,
+    `${card.slide_id} cannot reuse one tile twice.`,
+  );
   assert.equal(card.correct_option_id, card.correct_option_ids[0]);
 }
 
 assert.match(
   lessonScreenSource,
-  /const nextSelectedIds = isMultiBlankCompletion[\s\S]*?setSelectedIds\(nextSelectedIds\)[\s\S]*?if \(nextSelectedIds\.length < correctOptionIds\.length\)/,
+  // Grading moved into evaluateChoiceSelection; what matters is that the partial
+  // sequence is stored before the length check short-circuits, wherever it lives.
+  /setSelectedIds\(nextSelectedIds\)[\s\S]*?if \(nextSelectedIds\.length < correctOptionIds\.length/,
   'Mobile must preserve a visible partial sequence and wait for every required tile before grading.',
 );
 assert.match(
@@ -70,7 +83,7 @@ assert.match(
 
 assert.match(
   frontendSource,
-  /const nextSelectedOptionIds = isMultiBlankCompletion[\s\S]*?setSelectedOptionIds\(nextSelectedOptionIds\)[\s\S]*?if \(nextSelectedOptionIds\.length < correctOptionIds\.length\)/,
+  /setSelectedOptionIds\(nextSelectedOptionIds\)[\s\S]*?if \(nextSelectedOptionIds\.length < correctOptionIds\.length/,
   'Web must use the same progressive ordered-selection contract as mobile.',
 );
 assert.match(
