@@ -81,6 +81,8 @@ import {
   type SavedLessonRun,
 } from '../lessonResume';
 import { lessonStageColorForCard } from '../lessonStageTheme';
+import { sectionBriefingForBoundary, type SectionBriefing } from '../lessonSectionBriefing';
+import { LessonSectionBriefing } from '../components/LessonSectionBriefing';
 import {
   cacheCourseAudioAsset,
   cacheLessonAudio,
@@ -115,10 +117,14 @@ void Promise.all([preload(SUCCESS_CHIME), preload(TRY_AGAIN_CUE)]).catch((preloa
   captureDiagnosticError(preloadError, 'feedback_audio_preload', {}, 'warning');
 });
 const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v3';
+const CONSTRUCTION_HELP_STORAGE_PREFIX = 'spanglish-construction-help-v1';
 const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const COURSE_AUDIO_FALLBACK_MS = 12000;
 const OFFLINE_ADVANCE_DELAY_MS = 900;
+// How long an automatic single-option card rests after its audio before moving
+// on. The visible countdown must animate over exactly this window.
+const AUTOMATIC_CARD_DWELL_MS = 3000;
 
 function isRemoteAudioSource(source: AudioSource): source is string {
   return typeof source === 'string' && /^https?:\/\//i.test(source);
@@ -337,6 +343,10 @@ export function LessonScreen({
   const [isLoading, setIsLoading] = useState(true);
   const [isAppActive, setIsAppActive] = useState(AppState.currentState === 'active');
   const [isComplete, setIsComplete] = useState(false);
+  const [sectionBriefing, setSectionBriefing] = useState<SectionBriefing | null>(null);
+  const sectionBriefingRef = useRef<SectionBriefing | null>(null);
+  const openingBriefingShownRef = useRef(false);
+  const automaticCountdown = useRef(new Animated.Value(0)).current;
   const [missionCompletionAcknowledged, setMissionCompletionAcknowledged] = useState(false);
   const [missionKickoffComplete, setMissionKickoffComplete] = useState(false);
   const [missionKickoffAudioReady, setMissionKickoffAudioReady] = useState(false);
@@ -348,6 +358,8 @@ export function LessonScreen({
   const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
   const [cardRunId, setCardRunId] = useState(0);
   const [sentenceHelpStatus, setSentenceHelpStatus] = useState<'loading' | 'pending' | 'seen'>('loading');
+  const [constructionHelpStatus, setConstructionHelpStatus] = useState<'loading' | 'pending' | 'seen'>('loading');
+  const [showConstructionCoachmark, setShowConstructionCoachmark] = useState(false);
   const [sentenceAnchorBottom, setSentenceAnchorBottom] = useState<number | undefined>(undefined);
   const [showSentenceCoachmark, setShowSentenceCoachmark] = useState(false);
   const [sentenceHelpActivity, setSentenceHelpActivity] = useState(0);
@@ -364,6 +376,7 @@ export function LessonScreen({
   );
   const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
   const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
+  const constructionHelpStorageKey = `${CONSTRUCTION_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
   const lessonResumePersistence = useMemo(
     () => createLessonResumePersistence(AsyncStorage, lessonResumeStorageKey),
@@ -485,6 +498,25 @@ export function LessonScreen({
       });
     return () => { active = false; };
   }, [qaMode, sentenceHelpStorageKey]);
+
+  // The Use section changes mechanic partway through: guided blanks become a
+  // full construction. The first one gets a short one-time explanation.
+  useEffect(() => {
+    if (qaMode) {
+      setConstructionHelpStatus('seen');
+      return undefined;
+    }
+    let active = true;
+    setConstructionHelpStatus('loading');
+    AsyncStorage.getItem(constructionHelpStorageKey)
+      .then((stored) => {
+        if (active) setConstructionHelpStatus(stored === 'seen' ? 'seen' : 'pending');
+      })
+      .catch(() => {
+        if (active) setConstructionHelpStatus('pending');
+      });
+    return () => { active = false; };
+  }, [constructionHelpStorageKey, qaMode]);
 
   const ensureAudioPreloaded = useCallback((source: AudioSource) => {
     if (isOffline && isRemoteAudioSource(source)) {
@@ -872,6 +904,9 @@ export function LessonScreen({
       setCompletedCards(new Set(completedCardsRef.current));
       setSessionId(savedRun?.sessionId ?? '');
       setIsComplete(savedRun?.completionPending ?? false);
+      // A restored run resumes exactly where it stopped; only a genuine start of
+      // the lesson opens with the briefing.
+      openingBriefingShownRef.current = Boolean(savedRun) || nextCardIndex > 0 || Boolean(previouslyCompleted);
       resumeHydratedRef.current = true;
     } catch (loadError) {
       captureDiagnosticError(loadError, 'lesson_load', { lesson_id: lessonId });
@@ -882,6 +917,25 @@ export function LessonScreen({
   };
 
   useEffect(() => { void load(); }, [initialCardIndex, lessonId, lessonResumeStorageKey, previouslyCompleted, qaMode]);
+
+  // Open a fresh standard run with the same briefing surface the section
+  // boundaries use, so the first card is never the first thing the learner sees.
+  useEffect(() => {
+    if (
+      isLoading
+      || !lesson
+      || qaMode
+      || missionExperience
+      || isComplete
+      || completedLessonMode !== 'standard'
+      || cardIndex !== 0
+      || openingBriefingShownRef.current
+    ) return;
+    const opening = sectionBriefingForBoundary(lesson, null);
+    if (!opening) return;
+    openingBriefingShownRef.current = true;
+    setSectionBriefing(opening);
+  }, [cardIndex, completedLessonMode, isComplete, isLoading, lesson, missionExperience, qaMode]);
 
   useEffect(() => {
     if (qaMode || completedLessonMode !== 'standard' || !lesson || !resumeHydratedRef.current) return;
@@ -1569,6 +1623,7 @@ export function LessonScreen({
       !isAppActive
       || isCompletedSectionPicker
       || isPageTurning
+      || sectionBriefing
       || !currentCard
       || isPronunciation
       || !cardAudio.ready
@@ -1613,7 +1668,7 @@ export function LessonScreen({
       promptAutoplayFallbackTimerRef.current = null;
       promptAutoplayAwaitingRef.current = false;
     };
-  }, [cardAudio.ready, cardIndex, completionPromptSource, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPageTurning, isPronunciation, missionExperience, playAudio, playAudioSequence, playAudioSource, promptAudio, promptHasVisualBlank, promptTurnSequence, result]);
+  }, [cardAudio.ready, cardIndex, completionPromptSource, currentCard, isAppActive, isAutomaticSingleCard, isCompletedSectionPicker, isPageTurning, isPronunciation, missionExperience, playAudio, playAudioSequence, playAudioSource, promptAudio, promptHasVisualBlank, promptTurnSequence, result, sectionBriefing]);
 
   useEffect(() => {
     if (!promptAutoplayAwaitingRef.current) return;
@@ -1673,6 +1728,57 @@ export function LessonScreen({
     missionCuePlayerStatus.error,
     missionCuePlayerStatus.playing,
   ]);
+
+  useEffect(() => {
+    sectionBriefingRef.current = sectionBriefing;
+  }, [sectionBriefing]);
+
+  // The `Automático` pill drains over the same window the advance timer uses, so
+  // the learner can see that the card will move on by itself.
+  const startAutomaticCountdown = useCallback(() => {
+    automaticCountdown.stopAnimation();
+    if (reduceMotion) {
+      automaticCountdown.setValue(1);
+      return;
+    }
+    automaticCountdown.setValue(0);
+    Animated.timing(automaticCountdown, {
+      duration: AUTOMATIC_CARD_DWELL_MS,
+      easing: Easing.linear,
+      toValue: 1,
+      useNativeDriver: true,
+    }).start();
+  }, [automaticCountdown, reduceMotion]);
+
+  useEffect(() => {
+    automaticCountdown.stopAnimation();
+    automaticCountdown.setValue(0);
+  }, [automaticCountdown, cardIndex, cardRunId]);
+
+  useEffect(() => {
+    if (!isSentenceCard || constructionHelpStatus !== 'pending' || sectionBriefing || isPageTurning) return;
+    setShowConstructionCoachmark(true);
+  }, [constructionHelpStatus, isPageTurning, isSentenceCard, sectionBriefing]);
+
+  const dismissConstructionCoachmark = useCallback(() => {
+    setShowConstructionCoachmark(false);
+    setConstructionHelpStatus('seen');
+    if (qaMode) return;
+    void AsyncStorage.setItem(constructionHelpStorageKey, 'seen').catch((storageError) => {
+      captureDiagnosticError(storageError, 'construction_help_persist', {}, 'warning');
+    });
+  }, [constructionHelpStorageKey, qaMode]);
+
+  const commitAdvance = useCallback(() => {
+    startPageTurn(1, () => {
+      setCardIndex((current) => current + 1);
+      pronunciationPassHandledRef.current = false;
+      setGrammarCompleted(false);
+      setSelectedId(null);
+      setSelectedIds([]);
+      setResult(null);
+    });
+  }, [startPageTurn]);
 
   const advance = useCallback(() => {
     if (!lesson || !cardAudioReadyRef.current) return;
@@ -1739,15 +1845,37 @@ export function LessonScreen({
       setIsComplete(true);
       return;
     }
-    startPageTurn(1, () => {
-      setCardIndex((current) => current + 1);
-      pronunciationPassHandledRef.current = false;
-      setGrammarCompleted(false);
-      setSelectedId(null);
-      setSelectedIds([]);
-      setResult(null);
-    });
-  }, [cardIndex, completedLessonMode, lesson, pageTurnBusy, startPageTurn, reviewStageBounds]);
+    // A section change shows a briefing instead of turning the page: the change
+    // of surface is itself the transition, so no curl or arrival cue runs while a
+    // briefing is entered or left. Derived from the authored stage boundaries;
+    // replay, review, and QA jumps stay unchanged.
+    const briefing = completedLessonMode === 'standard' && !qaMode && !missionExperience
+      ? sectionBriefingForBoundary(lesson, cardIndex)
+      : null;
+    if (briefing) {
+      addDiagnosticBreadcrumb('lesson_section_briefing_shown', {
+        done_stage: briefing.doneStage ?? '',
+        next_stage: briefing.nextStage,
+      });
+      audioPlaybackRequestRef.current += 1;
+      audioPlayerRef.current.pause();
+      audioPlaylistRef.current.pause();
+      setActiveAudioSequence(null);
+      setActiveTurnImageUrl(null);
+      setSectionBriefing(briefing);
+      return;
+    }
+    commitAdvance();
+  }, [
+    cardIndex,
+    commitAdvance,
+    completedLessonMode,
+    lesson,
+    missionExperience,
+    pageTurnBusy,
+    qaMode,
+    reviewStageBounds,
+  ]);
 
   const completeAutomaticSingleCard = useCallback((awardScore = true) => {
     if (!cardAudioReadyRef.current) return;
@@ -1755,6 +1883,7 @@ export function LessonScreen({
       appWasInterruptedRef.current = true;
       return;
     }
+    if (sectionBriefingRef.current) return;
     if (!isAutomaticSingleCard || singleCardAdvanceTimerRef.current) return;
     singleCardAudioAwaitingRef.current = false;
     singleCardAudioWasPlayingRef.current = false;
@@ -1768,11 +1897,13 @@ export function LessonScreen({
       setCompletedCards(completion.completedCards);
       if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
     }
+    // The learner sees this same window drain in the `Automático` pill.
+    startAutomaticCountdown();
     singleCardAdvanceTimerRef.current = setTimeout(() => {
       singleCardAdvanceTimerRef.current = null;
       advance();
-    }, 3000);
-  }, [advance, cardIndex, isAutomaticSingleCard]);
+    }, AUTOMATIC_CARD_DWELL_MS);
+  }, [advance, cardIndex, isAutomaticSingleCard, startAutomaticCountdown]);
 
   useEffect(() => {
     if (!isAppActive) {
@@ -2411,6 +2542,7 @@ export function LessonScreen({
     setActiveAudioSequence(null);
     setActiveTurnImageUrl(null);
     clearCardInteractionState();
+    setSectionBriefing(null);
     setCompletedLessonMode('sections');
     setReviewStageBounds(null);
   }, [audioPlayer, clearCardInteractionState]);
@@ -2426,6 +2558,9 @@ export function LessonScreen({
     setCardIndex(0);
     setFurthestCardIndex(0);
     setReviewStageBounds(null);
+    // A deliberate replay is a genuine fresh run, so it opens with the briefing.
+    openingBriefingShownRef.current = false;
+    setSectionBriefing(null);
     setCompletedLessonMode('standard');
     setMissionCompletionAcknowledged(false);
     setSessionId('');
@@ -2722,6 +2857,37 @@ export function LessonScreen({
     );
   }
 
+  if (sectionBriefing) {
+    return (
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.briefingTopRow}>
+          <Pressable
+            accessibilityLabel="Salir de la lección"
+            accessibilityRole="button"
+            onPress={() => confirmLessonExit('previous')}
+            style={styles.briefingExit}
+          >
+            <Ionicons color="#244c45" name="arrow-back" size={22} />
+          </Pressable>
+          <Text style={styles.briefingContext}>
+            UNIDAD {lesson.sub_lesson_id?.split('.')[0] ?? '1'} · LECCIÓN {lesson.sub_lesson_id ?? ''}
+          </Text>
+        </View>
+        <LessonSectionBriefing
+          briefing={sectionBriefing}
+          cards={lesson.cards}
+          lessonId={lesson.id}
+          onContinue={() => {
+            const kind = sectionBriefing.kind;
+            setSectionBriefing(null);
+            sectionBriefingRef.current = null;
+            if (kind === 'bridge') commitAdvance();
+          }}
+        />
+      </SafeAreaView>
+    );
+  }
+
   if (isComplete) {
     if (missionExperience && !missionCompletionAcknowledged) {
       return (
@@ -2987,6 +3153,21 @@ export function LessonScreen({
             ]}>
               {lessonStageLabel(lesson.id, currentCard.stage).toUpperCase()}
             </Text>
+            {isAutomaticSingleCard ? (
+              // This section plays by itself; show the learner that the card is
+              // about to move on instead of letting it happen unannounced.
+              <View accessibilityLabel="Esta sección avanza sola" style={styles.autoPill}>
+                <Ionicons color="#4f7cac" name="play-circle" size={16} />
+                <Text style={styles.autoPillText}>Automático</Text>
+                <View style={styles.autoTrack}>
+                  <Animated.View style={[styles.autoFill, {
+                    transform: [{
+                      scaleX: automaticCountdown.interpolate({ inputRange: [0, 1], outputRange: [1, 0] }),
+                    }],
+                  }]} />
+                </View>
+              </View>
+            ) : null}
           </View> : null}
         </View> : null}
         {isCompletedSectionPicker ? (
@@ -3241,6 +3422,12 @@ export function LessonScreen({
         promptInteractionMode={promptInteractionMode}
         visible={showSentenceCoachmark}
       />
+      <SentenceHelpOverlay
+        onDismiss={dismissConstructionCoachmark}
+        onSuppress={dismissConstructionCoachmark}
+        variant="construction"
+        visible={showConstructionCoachmark}
+      />
       <Modal
         animationType="fade"
         onRequestClose={() => setShowMissionLandscapeMenu(false)}
@@ -3301,6 +3488,30 @@ export function LessonScreen({
 
 const styles = StyleSheet.create({
   safeArea: { backgroundColor: '#fbf7ef', flex: 1 },
+  briefingTopRow: { alignItems: 'center', flexDirection: 'row', gap: 8, paddingHorizontal: 14, paddingTop: 8 },
+  briefingExit: {
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 14,
+    height: 44,
+    justifyContent: 'center',
+    width: 44,
+  },
+  briefingContext: { color: '#8a5a20', flex: 1, fontSize: 16, fontWeight: '900', letterSpacing: 0.8, textAlign: 'right' },
+  autoPill: {
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: '#e8eef7',
+    borderRadius: 999,
+    flexDirection: 'row',
+    gap: 6,
+    marginTop: 3,
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+  },
+  autoPillText: { color: '#3b5f88', fontSize: 12, fontWeight: '800' },
+  autoTrack: { backgroundColor: '#c3d2e6', borderRadius: 3, height: 5, overflow: 'hidden', width: 54 },
+  autoFill: { backgroundColor: '#4f7cac', height: '100%', transformOrigin: 'left center', width: '100%' },
   page: { flex: 1, gap: 6, padding: 6 },
   pagePortrait: { gap: 7, padding: 10 },
   pageCompact: { gap: 4, padding: 4 },

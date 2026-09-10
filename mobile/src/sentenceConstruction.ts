@@ -44,3 +44,52 @@ export function sentenceLayout(width: number, height: number, fontScale: number,
     imageHeight: Math.max(0, Math.min(300, height - reserved)),
     scrollBank: height < reserved + 100 };
 }
+
+export type TileBounds = { x: number; y: number; width: number; height: number };
+
+export type TileFlightPath = {
+  height: number;
+  left: number;
+  scaleX: number;
+  scaleY: number;
+  top: number;
+  translateX: number;
+  translateY: number;
+  width: number;
+};
+
+// Minimum travel, in points, before a placement is worth animating. Tapping a
+// tile that already sits on its slot should just commit.
+const MIN_FLIGHT_DISTANCE = 8;
+
+function usableBounds(bounds: TileBounds | null | undefined): bounds is TileBounds {
+  return Boolean(bounds)
+    && Number.isFinite(bounds!.x) && Number.isFinite(bounds!.y)
+    && Number.isFinite(bounds!.width) && Number.isFinite(bounds!.height)
+    && bounds!.width > 0 && bounds!.height > 0;
+}
+
+// Describes a word tile travelling from the bank into its slot. The returned
+// view is anchored on the destination, so the animation interpolates translate
+// and scale from these start values back to 0/1. Pure numbers only: this module
+// is shared with the web player and must not import react-native.
+export function tileFlightPath(
+  from: TileBounds | null | undefined,
+  to: TileBounds | null | undefined,
+  origin: { x: number; y: number } = { x: 0, y: 0 },
+): TileFlightPath | null {
+  if (!usableBounds(from) || !usableBounds(to)) return null;
+  const translateX = (from.x + from.width / 2) - (to.x + to.width / 2);
+  const translateY = (from.y + from.height / 2) - (to.y + to.height / 2);
+  if (Math.hypot(translateX, translateY) < MIN_FLIGHT_DISTANCE) return null;
+  return {
+    height: to.height,
+    left: to.x - origin.x,
+    scaleX: from.width / to.width,
+    scaleY: from.height / to.height,
+    top: to.y - origin.y,
+    translateX,
+    translateY,
+    width: to.width,
+  };
+}
