@@ -83,19 +83,49 @@ test('navigation that is not forward progress stays quiet', () => {
 });
 
 test('the act moment closes itself and never traps the learner', () => {
+  const visible = breakComponent.match(/const VISIBLE_MS = (\d+);/u);
+  assert.ok(visible, 'The moment must time out on its own; the mission runs continuously.');
+  // Two short lines and an objective, read without hurrying. It flashed past at
+  // half this and the act was gone before it registered.
+  assert.ok(
+    Number(visible[1]) >= 4000,
+    `The act card is only up for ${visible[1]}ms, which is not long enough to read it.`,
+  );
+
   assert.match(
     breakComponent,
-    /const VISIBLE_MS = \d+;/u,
-    'The moment must time out on its own; the mission runs continuously.',
+    /countdownRun\.start\(\(\{ finished \}\) => \{[\s\S]*?onDoneRef\.current\(\)/u,
+    'The countdown bar must be what ends the moment, so the two cannot disagree.',
   );
   assert.match(
     breakComponent,
-    /setTimeout\(\(\) => onDoneRef\.current\(\), VISIBLE_MS\)/u,
-    'The timer must read onDone through a ref, or a re-render restarts it.',
+    /duration: VISIBLE_MS/u,
+    'The bar must run for exactly as long as the moment lasts.',
   );
+  assert.doesNotMatch(
+    breakComponent,
+    /setTimeout\(/u,
+    'A second timer beside the bar could finish at a different moment than the bar shows.',
+  );
+
   assert.match(breakComponent, /accessibilityRole="button"/u);
   assert.match(breakComponent, /onPress=\{onDone\}/u, 'Tapping must move on early.');
   assert.match(breakComponent, /useReducedMotion\(\)/u);
+});
+
+test('the countdown bar fills across the whole moment', () => {
+  assert.match(
+    breakComponent,
+    /outputRange: \['0%', '100%'\]/u,
+    'The bar must fill from empty to full so it reads as time running out.',
+  );
+  assert.match(
+    breakComponent,
+    /easing: Easing\.linear/u,
+    'A linear fill is what makes the bar a truthful clock.',
+  );
+  assert.match(breakComponent, /countdownTrack/u);
+  assert.match(breakComponent, /countdownFill/u);
 });
 
 test('the clue waits for the act moment to pass', () => {
