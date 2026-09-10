@@ -1,12 +1,25 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Animated, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Animated, Easing, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import type { ChoiceOption, LessonCard } from '../types';
-import { placeSentenceWord, sentenceHint, sentenceLayout, sentenceSlots } from '../sentenceConstruction';
+import {
+  placeSentenceWord,
+  sentenceHint,
+  sentenceLayout,
+  sentenceSlots,
+  tileFlightPath,
+  type TileFlightPath,
+} from '../sentenceConstruction';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
 
 type Bounds = { x: number; y: number; width: number; height: number };
+type Flight = { label: string; path: TileFlightPath; slot: number };
+
+// Long enough to read as the word travelling, short enough that it never delays
+// validation: the answer is committed before the flight starts.
+const FLIGHT_MS = 220;
 type Props = {
   card: LessonCard;
   selected: string[];
@@ -17,12 +30,13 @@ type Props = {
   onReplay: () => void;
 };
 
-function WordTile({ option, disabled, width, height, textSize, onPlace, measureTargets, viewportKey, allowDrag, onWidth } : {
+function WordTile({ option, disabled, width, height, textSize, onPlace, measureTargets, viewportKey, allowDrag, onWidth, registerMeasure } : {
   option: ChoiceOption; disabled: boolean; width: number; height: number; textSize: number;
   onPlace: (id: string, slot?: number) => void;
   measureTargets: (callback: (slots: Bounds[], area: Bounds | null) => void) => void;
   viewportKey: string; allowDrag: boolean;
   onWidth: (id: string, width: number) => void;
+  registerMeasure: (id: string, measure: ((callback: (bounds: Bounds | null) => void) => void) | null) => void;
 }) {
   const offset = useRef(new Animated.ValueXY()).current;
   const tile = useRef<View>(null);
@@ -33,6 +47,14 @@ function WordTile({ option, disabled, width, height, textSize, onPlace, measureT
   const [moving, setMoving] = useState(false);
   const cancel = () => { offset.setValue({ x: 0, y: 0 }); setMoving(false); origin.current = null; };
   useEffect(() => { cancel(); }, [viewportKey, disabled]);
+  // Expose this tile's on-screen bounds so a placement can fly from here.
+  useEffect(() => {
+    registerMeasure(option.id, (callback) => {
+      if (!tile.current) { callback(null); return; }
+      tile.current.measureInWindow((x, y, w, h) => callback({ x, y, width: w, height: h }));
+    });
+    return () => registerMeasure(option.id, null);
+  }, [option.id, registerMeasure]);
   const pan = useMemo(() => PanResponder.create({
     onMoveShouldSetPanResponder: (_, gesture) => allowDrag && !disabled && Math.hypot(gesture.dx, gesture.dy) > 6,
     onPanResponderGrant: () => {
@@ -75,12 +97,35 @@ function WordTile({ option, disabled, width, height, textSize, onPlace, measureT
 
 export function SentenceConstruction({ card, selected, result, disabled, showHelp, onChange, onReplay }: Props) {
   const viewport = useWindowDimensions();
+  const reduceMotion = useReducedMotion();
   const [translated, setTranslated] = useState(false);
   const [wordWidths, setWordWidths] = useState<Record<string, number>>({});
   const [size, setSize] = useState({ width: viewport.width - 12, height: viewport.height - 240 });
+  const [flight, setFlight] = useState<Flight | null>(null);
+  const flightValue = useRef(new Animated.Value(0)).current;
+  const flightAnimation = useRef<Animated.CompositeAnimation | null>(null);
+  const tileMeasures = useRef<Record<string, ((callback: (bounds: Bounds | null) => void) => void) | undefined>>({});
+  const registerMeasure = useMemo(() => (
+    (id: string, measure: ((callback: (bounds: Bounds | null) => void) => void) | null) => {
+      if (measure) tileMeasures.current[id] = measure;
+      else delete tileMeasures.current[id];
+    }
+  ), []);
   const root = useRef<View>(null);
   const slotsRef = useRef<Array<View | null>>([]);
   const history = useRef<string[]>([]);
+  // A resize, rotation or new card ends the decorative flight without replaying it.
+  useEffect(() => {
+    return () => {
+      flightAnimation.current?.stop();
+      flightAnimation.current = null;
+    };
+  }, []);
+  useEffect(() => {
+    flightAnimation.current?.stop();
+    flightAnimation.current = null;
+    setFlight(null);
+  }, [card.slide_id, viewport.width, viewport.height, viewport.fontScale]);
   const slots = sentenceSlots(card, selected);
   const landscape = viewport.width > viewport.height && viewport.height < 600;
   const layout = sentenceLayout(landscape ? size.width * 0.48 : size.width - 40, size.height, viewport.fontScale, slots.length);
@@ -93,12 +138,43 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
     previous[id] === width ? previous : { ...previous, [id]: width });
   const locked = disabled || result === 'correct';
   const punctuation = card.prompt.split('___').slice(1);
+
+  const startFlight = (id: string, slot: number) => {
+    const measureTile = tileMeasures.current[id];
+    const label = card.options.find((option) => option.id === id)?.label;
+    if (!measureTile || !label) return;
+    measureTile((tileBounds) => {
+      if (!tileBounds) return;
+      measureTargets((slotBounds, area) => {
+        const path = tileFlightPath(tileBounds, slotBounds[slot], area ?? { x: 0, y: 0 });
+        if (!path) return;
+        flightValue.setValue(0);
+        setFlight({ label, path, slot });
+        const animation = Animated.timing(flightValue, {
+          duration: FLIGHT_MS,
+          easing: Easing.out(Easing.cubic),
+          toValue: 1,
+          useNativeDriver: true,
+        });
+        flightAnimation.current = animation;
+        animation.start(() => {
+          flightAnimation.current = null;
+          setFlight(null);
+        });
+      });
+    });
+  };
+
   const place = (id: string, index?: number) => {
     if (locked) return;
     const next = placeSentenceWord(card, slots, id, index);
-    if (!next.some((value, i) => value !== slots[i])) return;
+    const target = next.findIndex((value, i) => value !== slots[i]);
+    if (target < 0) return;
     history.current.push(id);
+    // Commit first: the word is placed and validated exactly as before, and the
+    // flight is decorative on top. A measurement failure can never block play.
     onChange(next);
+    if (!reduceMotion) startFlight(id, target);
   };
   const remove = (index: number) => {
     if (locked) return;
@@ -134,7 +210,8 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
           onPress={() => remove(index)}
           style={[styles.slot, { minWidth: layout.tileWidth, minHeight: layout.tileHeight },
             result === 'correct' ? styles.correct : null]}>
-          <Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }]}>
+          <Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize },
+            flight?.slot === index ? styles.arriving : null]}>
             {card.options.find((option) => option.id === id)?.label || '___'}{punctuation[index]?.trim()}
           </Text>
         </Pressable>)}
@@ -153,7 +230,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
         {card.options.map((option) => <WordTile key={option.id} option={option}
           disabled={locked || slots.includes(option.id)} width={layout.tileWidth} height={layout.tileHeight}
           textSize={layout.textSize} allowDrag={!compact} onPlace={place} measureTargets={measureTargets}
-          onWidth={measureWord}
+          onWidth={measureWord} registerMeasure={registerMeasure}
           viewportKey={`${viewport.width}:${viewport.height}:${viewport.fontScale}:${size.width}:${size.height}:${wideSlots}`} />)}
       </View>
       <View style={styles.controls}>
@@ -168,6 +245,19 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
         {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? sentenceHint(card, slots) : ' '}
       </Text>
     </CardContainer>
+    {flight ? <Animated.View accessibilityElementsHidden importantForAccessibility="no-hide-descendants"
+      pointerEvents="none"
+      style={[styles.flight, {
+        height: flight.path.height, left: flight.path.left, top: flight.path.top, width: flight.path.width,
+        transform: [
+          { translateX: flightValue.interpolate({ inputRange: [0, 1], outputRange: [flight.path.translateX, 0] }) },
+          { translateY: flightValue.interpolate({ inputRange: [0, 1], outputRange: [flight.path.translateY, 0] }) },
+          { scaleX: flightValue.interpolate({ inputRange: [0, 1], outputRange: [flight.path.scaleX, 1] }) },
+          { scaleY: flightValue.interpolate({ inputRange: [0, 1], outputRange: [flight.path.scaleY, 1] }) },
+        ],
+      }]}>
+      <Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }]}>{flight.label}</Text>
+    </Animated.View> : null}
   </View>;
 }
 
@@ -181,6 +271,8 @@ const styles = StyleSheet.create({
   instruction: { fontSize: 14, textAlign: 'center', fontWeight: '700', color: '#67583f', marginBottom: 6 },
   slots: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, justifyContent: 'center' },
   slot: { flexShrink: 0, borderBottomWidth: 2, borderColor: '#b5a389', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 8, borderRadius: 8 },
+  arriving: { opacity: 0 },
+  flight: { position: 'absolute', alignItems: 'center', justifyContent: 'center', zIndex: 30 },
   correct: { backgroundColor: '#dbf3db', borderColor: '#279487' },
   replay: { position: 'absolute', right: 0, top: '35%', width: 48, height: 48, alignItems: 'center', justifyContent: 'center' },
   replayAbove: { top: 8 },

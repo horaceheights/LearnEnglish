@@ -24,9 +24,9 @@ type StageSegment = {
   start: number;
 };
 
-type StageIconName = ComponentProps<typeof Ionicons>['name'];
+export type StageIconName = ComponentProps<typeof Ionicons>['name'];
 
-function stageIcon(stage: string): StageIconName {
+export function stageIcon(stage: string): StageIconName {
   const normalized = stage.toLowerCase();
 
   if (normalized === 'speak') return 'mic-outline';

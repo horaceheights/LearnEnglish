@@ -77,3 +77,48 @@ test('phone, tablet, landscape and accessibility sizes retain target and label f
     }
   }
 });
+
+test('a placed word travels from the bank into its slot', () => {
+  const bank = { x: 40, y: 600, width: 90, height: 50 };
+  const slot = { x: 150, y: 200, width: 120, height: 56 };
+  const path = api.tileFlightPath(bank, slot, { x: 10, y: 20 });
+
+  // The flying view is anchored on the destination, in root-relative space.
+  assert.equal(path.left, 140);
+  assert.equal(path.top, 180);
+  assert.equal(path.width, 120);
+  assert.equal(path.height, 56);
+  // It starts over the bank tile at the bank tile's size, then settles to 0/1.
+  assert.equal(path.translateX, (40 + 45) - (150 + 60));
+  assert.equal(path.translateY, (600 + 25) - (200 + 28));
+  assert.ok(Math.abs(path.scaleX - 90 / 120) < 1e-9);
+  assert.ok(Math.abs(path.scaleY - 50 / 56) < 1e-9);
+});
+
+test('an unmeasurable or already-arrived placement skips the flight', () => {
+  const slot = { x: 150, y: 200, width: 120, height: 56 };
+  assert.equal(api.tileFlightPath(null, slot), null);
+  assert.equal(api.tileFlightPath(undefined, slot), null);
+  assert.equal(api.tileFlightPath(slot, null), null);
+  assert.equal(api.tileFlightPath({ x: 0, y: 0, width: 0, height: 10 }, slot), null);
+  assert.equal(api.tileFlightPath({ x: NaN, y: 0, width: 10, height: 10 }, slot), null);
+  // Same centre: nothing to animate.
+  assert.equal(api.tileFlightPath({ x: 155, y: 202, width: 110, height: 52 }, slot), null);
+});
+
+test('the flight is decorative: placement commits first and reduced motion skips it', () => {
+  const component = fs.readFileSync(path.join(__dirname, '../src/components/SentenceConstruction.tsx'), 'utf8');
+  assert.match(
+    component,
+    /onChange\(next\);\s+if \(!reduceMotion\) startFlight\(id, target\);/,
+    'The answer must be committed and validated before the decorative flight starts.',
+  );
+  assert.match(component, /useReducedMotion/);
+  assert.match(component, /pointerEvents="none"/, 'The flying word must not intercept touches.');
+  assert.match(component, /useNativeDriver: true/);
+  assert.match(
+    component,
+    /flightAnimation\.current\?\.stop\(\)/,
+    'A resize, rotation or new card must end the flight instead of replaying it.',
+  );
+});

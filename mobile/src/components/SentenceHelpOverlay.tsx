@@ -4,11 +4,14 @@ import type { PromptInteractionMode } from '../lessonHelp';
 
 const LISTENING_SQUIRREL = require('../../assets/mascots/serious/listening-frames-normalized/listening-06.png');
 
+export type SentenceHelpVariant = 'prompt' | 'construction';
+
 type Props = {
   anchorBottom?: number;
   onDismiss: () => void;
   onSuppress: () => void;
   promptInteractionMode?: PromptInteractionMode;
+  variant?: SentenceHelpVariant;
   visible: boolean;
 };
 
@@ -17,10 +20,12 @@ export function SentenceHelpOverlay({
   onDismiss,
   onSuppress,
   promptInteractionMode = 'gestures',
+  variant = 'prompt',
   visible,
 }: Props) {
   const { height, width } = useWindowDimensions();
   const isLandscape = width > height;
+  const isConstruction = variant === 'construction';
   const estimatedHeight = isLandscape ? 150 : 216;
   const fallbackTop = height * (isLandscape ? 0.26 : 0.29);
   const desiredTop = anchorBottom === undefined
@@ -62,10 +67,12 @@ export function SentenceHelpOverlay({
               />
               <View style={styles.copy}>
                 <Text accessibilityRole="header" style={styles.title}>
-                  ¿Necesitas ayuda?
+                  {isConstruction ? '¡Ahora armas la frase!' : '¿Necesitas ayuda?'}
                 </Text>
                 <Text style={styles.message}>
-                  {promptInteractionMode === 'visual-instruction' ? (
+                  {isConstruction ? (
+                    <>Ahora <Text style={styles.emphasis}>todas</Text> las palabras están en blanco. El banco tiene exactamente las que necesitas.</>
+                  ) : promptInteractionMode === 'visual-instruction' ? (
                     <>La instrucción en español es <Text style={styles.emphasis}>solo visual</Text>.</>
                   ) : promptInteractionMode === 'translation-on-tap' ? (
                     <>Toca la <Text style={styles.emphasis}>frase</Text> para ver su traducción.</>
@@ -74,7 +81,9 @@ export function SentenceHelpOverlay({
                   )}
                 </Text>
                 <Text style={styles.message}>
-                  {promptInteractionMode === 'visual-instruction' ? (
+                  {isConstruction ? (
+                    <>Toca cada palabra <Text style={styles.emphasis}>en orden</Text>; toca una palabra colocada para devolverla.</>
+                  ) : promptInteractionMode === 'visual-instruction' ? (
                     <>Usa el <Text style={styles.emphasis}>botón de sonido</Text> para escuchar la frase en inglés cuando esté disponible.</>
                   ) : promptInteractionMode === 'translation-on-tap' ? (
                     <>Toca el <Text style={styles.emphasis}>botón de sonido</Text> para escucharla otra vez.</>
@@ -90,17 +99,19 @@ export function SentenceHelpOverlay({
                   >
                     <Text style={styles.buttonText}>Entiendo</Text>
                   </Pressable>
-                  <Pressable
-                    accessibilityRole="button"
-                    onPress={onSuppress}
-                    style={({ pressed }) => [
-                      styles.button,
-                      styles.secondaryButton,
-                      pressed ? styles.buttonPressed : null,
-                    ]}
-                  >
-                    <Text style={styles.secondaryButtonText}>No mostrar</Text>
-                  </Pressable>
+                  {isConstruction ? null : (
+                    <Pressable
+                      accessibilityRole="button"
+                      onPress={onSuppress}
+                      style={({ pressed }) => [
+                        styles.button,
+                        styles.secondaryButton,
+                        pressed ? styles.buttonPressed : null,
+                      ]}
+                    >
+                      <Text style={styles.secondaryButtonText}>No mostrar</Text>
+                    </Pressable>
+                  )}
                 </View>
               </View>
             </View>

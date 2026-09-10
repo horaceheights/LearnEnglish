@@ -41,6 +41,9 @@ try {
   & node --test tests/sentence-construction.test.cjs tests/sentence-native-layout.test.mjs
   if ($LASTEXITCODE -ne 0) { throw 'Sentence construction regression failed.' }
 
+  & node --test tests/section-briefing.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de las pantallas de transición entre secciones.' }
+
   & node tests/mission-tiles.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de interacción y diseño de fichas de misión.' }
 

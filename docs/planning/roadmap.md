@@ -27,6 +27,8 @@ The product should:
 - Preserve a clear path from beginner recognition to real conversation
 - Eventually provide differentiated pronunciation and visual mouth coaching
 
+Recent delivery: standard lessons now open with a section briefing and show another at every stage boundary, derived from the authored stage boundaries without changing any lesson content. Learn announces its automatic pacing with a visible countdown, Speak warns about the microphone before the permission dialog, the first full construction explains its new mechanic once, and placed Completa words travel into their slots. Mobile only; installed-device review of the pacing and the tile flight remains part of Preview testing. See `docs/qa/lesson-section-briefings-2026-09-09.md`.
+
 Recent delivery: the approved Lesson 1.1 Completa progression extends to 28 eligible final-section cards in Lessons 1.2–1.9. Earlier guided completion and out-of-range targets remain intact; installed-device review of the new long-word banks remains part of Preview testing. See `docs/qa/unit-1-completa-rollout.md`.
 
 ## Engine-first strategy
@@ -173,6 +175,8 @@ Build each interaction once, then create future lessons mostly through content.
 - [x] Produce and review the versioned ElevenLabs opening, confirmation, act-transition, correction, and finale cues for `¡Todos a la celebración!`; ship static assets only and preserve visible equivalents
 - [x] Pronunciation activities
 - [ ] Short conversational response activities
+- [x] Announce every section change with a derived briefing carrying the finished section's summary and the next section's task, plus a visible countdown on automatic cards and a one-time explanation of the first full construction
+- [x] Animate a placed construction word from the bank into its slot without delaying validation
 - [~] Shared animation, sound, help, scoring, analytics, and offline contracts; haptics remain unimplemented
 
 ### P2 exit criteria
