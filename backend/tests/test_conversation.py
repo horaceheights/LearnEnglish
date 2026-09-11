@@ -288,6 +288,12 @@ class ConversationFastApiEndpointTests(unittest.TestCase):
             include_audio=False,
         )
 
+    def test_get_conversation_web_page(self):
+        response = self.client.get("/conversation")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("Liam", response.text)
+        self.assertIn("webkitSpeechRecognition", response.text)
+
 
 if __name__ == "__main__":
     unittest.main()
