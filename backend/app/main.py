@@ -270,6 +270,7 @@ def lesson_for_delivery(lesson: Lesson) -> Lesson:
     return copy_model(lesson, {"cards": cards})
 
 
+@app.get("/health", include_in_schema=False)
 @app.get("/api/health")
 def health() -> dict[str, str]:
     return {"status": "ok"}

@@ -294,6 +294,11 @@ class ConversationFastApiEndpointTests(unittest.TestCase):
         self.assertIn("Liam", response.text)
         self.assertIn("webkitSpeechRecognition", response.text)
 
+    def test_get_health_endpoint(self):
+        response = self.client.get("/health")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {"status": "ok"})
+
 
 if __name__ == "__main__":
     unittest.main()

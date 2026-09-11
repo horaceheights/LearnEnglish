@@ -25,13 +25,15 @@ if hasattr(sys.stdout, "reconfigure"):
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 PORT = 8000
 URL = f"http://127.0.0.1:{PORT}/conversation"
-HEALTH_URL = f"http://127.0.0.1:{PORT}/health"
+HEALTH_URL = f"http://127.0.0.1:{PORT}/api/health"
 
 
 def is_server_running() -> bool:
     try:
         with urllib.request.urlopen(HEALTH_URL, timeout=1.5) as resp:
             return resp.status == 200
+    except urllib.error.HTTPError:
+        return True
     except Exception:
         return False
 
