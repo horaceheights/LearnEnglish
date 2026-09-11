@@ -1,0 +1,44 @@
+# Vercel builds the Next.js app in frontend/, but that build imports three
+# shared modules from mobile/src/ (lessonMistakeHints, sentenceConstruction,
+# pageCurlGeometry), so the project uploads source files from outside its root
+# directory -- which means the whole repository ships with every deployment.
+#
+# Roughly 1 GB of that is authoring material and a separately-deployed service
+# that the web build never reads. Excluding it here is what keeps deployment
+# storage under the plan limit; see docs/ for the media pipeline itself.
+#
+# Anything re-added below must stay reachable from the frontend import graph.
+# The build performs no filesystem reads of its own, so only module resolution
+# matters when deciding whether a path is safe to exclude.
+
+# Lesson authoring material: source stills, video renders, and slide decks.
+# The assets actually served live in frontend/public/lesson-assets.
+Lessons/
+
+# Expo app media. mobile/src/ is deliberately kept whole: it is small, and the
+# frontend resolves into it. mobile/src/actionVideos.ts requires files under
+# mobile/assets/, but nothing in the web build imports actionVideos, so the
+# require is never evaluated and the missing directory cannot break the build.
+mobile/assets/
+mobile/android/
+mobile/ios/
+mobile/node_modules/
+mobile/tests/
+
+# Python service. Deployed separately on Render (see render.yaml); the frontend
+# reaches it over HTTP through lib/api, never from disk.
+backend/
+
+# Documentation, QA manifests, and local tooling.
+docs/
+scripts/
+
+# Local generated output. Neither is tracked, so a Git-integrated build never
+# sees them, but `vercel deploy` from a workstation uploads the working
+# directory -- which here would mean 2.2 GB of tmp/ and 480 MB of output/.
+# output/ is untracked but not git-ignored, so it is also one `git add -A`
+# away from entering the repository.
+tmp/
+output/
+__pycache__/
+venv/
