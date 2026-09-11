@@ -11,9 +11,16 @@
 # The build performs no filesystem reads of its own, so only module resolution
 # matters when deciding whether a path is safe to exclude.
 
+# Patterns for the four top-level deliverables are anchored with a leading
+# slash. Without it these match a directory of that name at ANY depth, which is
+# how an unanchored `scripts/` removed frontend/scripts/vercel-ignore-build.sh
+# and broke every build with "No such file or directory". A failing ignore
+# command errors the deployment rather than falling back to building, so keep
+# these anchored.
+
 # Lesson authoring material: source stills, video renders, and slide decks.
 # The assets actually served live in frontend/public/lesson-assets.
-Lessons/
+/Lessons/
 
 # Expo app media. mobile/src/ is deliberately kept whole: it is small, and the
 # frontend resolves into it. mobile/src/actionVideos.ts requires files under
@@ -27,11 +34,11 @@ mobile/tests/
 
 # Python service. Deployed separately on Render (see render.yaml); the frontend
 # reaches it over HTTP through lib/api, never from disk.
-backend/
+/backend/
 
 # Documentation, QA manifests, and local tooling.
-docs/
-scripts/
+/docs/
+/scripts/
 
 # Local generated output. Neither is tracked, so a Git-integrated build never
 # sees them, but `vercel deploy` from a workstation uploads the working
