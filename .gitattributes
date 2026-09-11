@@ -1,0 +1,58 @@
+# Every tracked text blob in this repository is already LF -- all 478 of them,
+# checked before this file was added -- so these rules declare the existing
+# state rather than changing it. Adding this renormalizes nothing.
+#
+# It exists because core.autocrlf is enabled on at least one workstation, which
+# makes Git want CRLF in the working tree. That is harmless for a file Git only
+# ever hands back to an editor. It is not harmless for a file a Linux runtime
+# executes or parses, and the failure is quiet: a CRLF shebang makes bash exit
+# with "$'\r': command not found" rather than anything that names the cause.
+#
+# The visible symptom of the missing rules was backend/lessons/unit_1/*.yaml
+# showing as modified in git status with an empty diff -- Git wanting CRLF on
+# disk, then normalizing straight back to the identical blob on commit.
+
+* text=auto
+
+# Run by bash in Vercel's Linux build container. CRLF here breaks the Ignored
+# Build Step, which fails safe by building, so a broken one looks like a step
+# that simply never skips.
+*.sh text eol=lf
+
+# Parsed by the Python backend on Render and by the Node lesson tooling.
+*.yaml text eol=lf
+*.yml  text eol=lf
+*.json text eol=lf
+
+# Shared across the web app, the Expo app, and CI.
+*.js   text eol=lf
+*.cjs  text eol=lf
+*.mjs  text eol=lf
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.py   text eol=lf
+
+# Course media. Marked explicitly so Git never attempts a text conversion on
+# them, rather than trusting content detection across ~3400 files.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.svg   text eol=lf
+*.mp4   binary
+*.webm  binary
+*.mp3   binary
+*.wav   binary
+*.m4a   binary
+*.pptx  binary
+*.ttf   binary
+*.otf   binary
+*.woff  binary
+*.woff2 binary
+
+# Signing material, should any ever be committed by accident.
+*.jks      binary
+*.keystore binary
+*.p12      binary
+*.p8       binary
