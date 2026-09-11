@@ -42,6 +42,11 @@ from .pronunciation import (
     score_pronunciation,
 )
 from .azure_pronunciation import transcribe_with_azure
+from .conversation import (
+    ConversationStartRequest,
+    ConversationTurnRequest,
+    get_conversation_service,
+)
 from .tracking import (
     CardAttemptCreate,
     LessonFeedbackCreate,
@@ -143,6 +148,8 @@ _RATE_LIMITS: dict[str, tuple[int, float]] = {
     "/api/audio/course-completion": (90, 60.0),
     "/api/audio/course-completion.mp3": (90, 60.0),
     "/api/feedback/transcribe": (15, 60.0),
+    "/api/conversation/start": (20, 60.0),
+    "/api/conversation/turn": (40, 60.0),
 }
 
 _rate_limit_hits: dict[tuple[str, str], list[float]] = {}
@@ -564,3 +571,29 @@ async def transcribe_lesson_feedback(
 @app.get("/api/admin/summary")
 def read_admin_summary():
     return admin_summary()
+
+
+@app.post("/api/conversation/start")
+def conversation_start(payload: ConversationStartRequest):
+    service = get_conversation_service()
+    try:
+        return service.start_conversation(
+            scenario_id=payload.scenario_id,
+            include_audio=payload.include_audio,
+        )
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error)) from error
+
+
+@app.post("/api/conversation/turn")
+def conversation_turn(payload: ConversationTurnRequest):
+    service = get_conversation_service()
+    try:
+        return service.send_turn(
+            interaction_id=payload.interaction_id,
+            learner_text=payload.learner_text,
+            scenario_id=payload.scenario_id,
+            include_audio=payload.include_audio,
+        )
+    except Exception as error:
+        raise HTTPException(status_code=500, detail=str(error)) from error
