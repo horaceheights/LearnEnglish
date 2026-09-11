@@ -597,3 +597,10 @@ def conversation_turn(payload: ConversationTurnRequest):
         )
     except Exception as error:
         raise HTTPException(status_code=500, detail=str(error)) from error
+
+
+@app.get("/conversation", response_class=HTMLResponse, include_in_schema=False)
+def conversation_web_page():
+    html_path = Path(__file__).parent / "conversation_web.html"
+    return HTMLResponse(content=html_path.read_text(encoding="utf-8"))
+
