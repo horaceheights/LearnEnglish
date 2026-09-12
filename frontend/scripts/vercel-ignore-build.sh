@@ -33,7 +33,12 @@ cd "$root" || build "cannot enter repository root"
 # pageCurlGeometry, plus their local dependencies (types, sentenceTranslations).
 # It is watched whole rather than file-by-file so that a new shared import does
 # not silently stop triggering builds.
-WATCHED=(frontend mobile/src)
+#
+# .vercelignore is watched because it decides which files reach the build at
+# all. Editing it changes the deployment artifact without changing a line of
+# application code, so leaving it out meant such a commit skipped its own build
+# and the change took effect only whenever something else next triggered one.
+WATCHED=(frontend mobile/src .vercelignore)
 
 # Compare against the last commit Vercel actually deployed for this branch, not
 # against HEAD^. A push carrying several commits must be judged as a whole: if
