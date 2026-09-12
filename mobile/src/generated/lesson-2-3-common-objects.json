@@ -25,10 +25,11 @@
     "bus",
     "car",
     "park",
-    "school"
+    "school",
+    "not"
   ],
-  "grammar_function": "A noun; It is a noun.",
-  "prerequisite": "2.1-2.2 non-person identity frame.",
+  "grammar_function": "A noun; It is a noun; negative contrast (It is a... not a...).",
+  "prerequisite": "2.1-2.2 non-person identity frame and Unit 1 not negation.",
   "speaking_outcome": "Produce six short object identity sentences after a model.",
   "purposeful_review_slides": [
     "R7",
@@ -771,50 +772,50 @@
     {
       "slide_id": "R7",
       "interaction_type": "t2i2",
-      "prompt": "It is a bus.",
+      "prompt": "It is a book, not a bus.",
       "stage": "Recognize",
-      "correct_option_id": "bus-2",
+      "correct_option_id": "book-2",
       "options": [
         {
-          "id": "car-1",
-          "image_url": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
+          "id": "bus-1",
+          "image_url": "/lesson-assets/place_bus.webp?v=20260802-uniform-place-frames-v1",
           "label": null
         },
         {
-          "id": "bus-2",
-          "image_url": "/lesson-assets/place_bus.webp?v=20260802-uniform-place-frames-v1",
+          "id": "book-2",
+          "image_url": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
           "label": null
         }
       ],
-      "audio_text": "It is a bus.",
+      "audio_text": "It is a book, not a bus.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es un autob\u00fas.",
-      "pedagogy_note": "2.2 review",
+      "spanish_translation": "Es un libro, no un autob\u00fas.",
+      "pedagogy_note": "Repetition with growth: contrast object with vehicle via negation",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c015-prompt-e1d5c9b646ef1856fa9b",
+          "id": "lesson-2-3-common-objects-c015-prompt-dc70ecdfda4dfd22d0d1",
           "purpose": "prompt",
-          "text": "It is a bus.",
+          "text": "It is a book, not a bus.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/place_bus.webp?v=20260802-uniform-place-frames-v1",
+          "image_ref": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-3-common-objects-c015-answer-4c2f986b762d3bf156d4",
+          "id": "lesson-2-3-common-objects-c015-answer-fd194e0cf98cc1112b3d",
           "purpose": "answer",
-          "text": "It is a bus.",
+          "text": "It is a book, not a bus.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/place_bus.webp?v=20260802-uniform-place-frames-v1",
+          "image_ref": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -827,48 +828,48 @@
       "interaction_type": "i2t2",
       "prompt": "Choose the sentence.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-park-2",
+      "correct_option_id": "it-is-a-pen-not-a-phone-1",
       "options": [
         {
-          "id": "it-is-a-school-1",
+          "id": "it-is-a-pen-not-a-phone-1",
           "image_url": "",
-          "label": "It is a school."
+          "label": "It is a pen, not a phone."
         },
         {
-          "id": "it-is-a-park-2",
+          "id": "it-is-a-phone-not-a-pen-2",
           "image_url": "",
-          "label": "It is a park."
+          "label": "It is a phone, not a pen."
         }
       ],
       "audio_text": "Choose the sentence.",
-      "answer_audio_text": "It is a park.",
-      "prompt_image_url": "/lesson-assets/place_park.webp?v=20260802-kids-playground-park-v1",
+      "answer_audio_text": "It is a pen, not a phone.",
+      "prompt_image_url": "/lesson-assets/a1_pen.webp",
       "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "2.1 review",
+      "pedagogy_note": "Repetition with growth: contrast pen vs phone with negation",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c016-prompt-2eb4b6bdd82ade5a8a04",
+          "id": "lesson-2-3-common-objects-c016-prompt-c48049886d6be4beb421",
           "purpose": "prompt",
           "text": "Choose the sentence.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/place_park.webp?v=20260802-kids-playground-park-v1",
+          "image_ref": "/lesson-assets/a1_pen.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-3-common-objects-c016-answer-4c067e7f450a616013bf",
+          "id": "lesson-2-3-common-objects-c016-answer-8a0b0c54ebff2568554b",
           "purpose": "answer",
-          "text": "It is a park.",
+          "text": "It is a pen, not a phone.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/place_park.webp?v=20260802-kids-playground-park-v1",
+          "image_ref": "/lesson-assets/a1_pen.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1753,55 +1754,55 @@
     {
       "slide_id": "U5",
       "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "prompt": "It is a table, not a ___.",
       "stage": "Use",
-      "correct_option_id": "car-3",
+      "correct_option_id": "chair-1",
       "options": [
         {
-          "id": "bus-1",
+          "id": "chair-1",
           "image_url": "",
-          "label": "bus"
+          "label": "chair"
         },
         {
-          "id": "bike-2",
+          "id": "book-2",
           "image_url": "",
-          "label": "bike"
+          "label": "book"
         },
         {
-          "id": "car-3",
+          "id": "pen-3",
           "image_url": "",
-          "label": "car"
+          "label": "pen"
         }
       ],
-      "audio_text": "It is a ___.",
-      "answer_audio_text": "It is a car.",
-      "prompt_image_url": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
-      "spanish_translation": "Es un ___.",
-      "pedagogy_note": "2.2 review",
+      "audio_text": "It is a table, not a ___.",
+      "answer_audio_text": "It is a table, not a chair.",
+      "prompt_image_url": "/lesson-assets/a1_table.webp",
+      "spanish_translation": "Es una mesa, no una ___.",
+      "pedagogy_note": "Repetition with growth: complete object contrast with negation",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c033-prompt-ac8f52c4fee9da8229d5",
+          "id": "lesson-2-3-common-objects-c033-prompt-6c1ac46b674890027601",
           "purpose": "prompt",
-          "text": "It is a car.",
+          "text": "It is a table, not a chair.",
           "mode": "prompt",
           "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
+          "image_ref": "/lesson-assets/a1_table.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-3-common-objects-c033-answer-4f59966d779fd64dc040",
+          "id": "lesson-2-3-common-objects-c033-answer-d8599cc58a8f49e4d1f0",
           "purpose": "answer",
-          "text": "It is a car.",
+          "text": "It is a table, not a chair.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
+          "image_ref": "/lesson-assets/a1_table.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1811,51 +1812,56 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete2",
-      "prompt": "___ is a school.",
+      "interaction_type": "complete4",
+      "prompt": "It is a bag, not a ___.",
       "stage": "Use",
-      "correct_option_id": "it-1",
+      "correct_option_id": "book-1",
       "options": [
         {
-          "id": "it-1",
+          "id": "book-1",
           "image_url": "",
-          "label": "It"
+          "label": "book"
         },
         {
-          "id": "he-2",
+          "id": "chair-2",
           "image_url": "",
-          "label": "He"
+          "label": "chair"
+        },
+        {
+          "id": "table-3",
+          "image_url": "",
+          "label": "table"
         }
       ],
-      "audio_text": "___ is a school.",
-      "answer_audio_text": "It is a school.",
-      "prompt_image_url": "/lesson-assets/a1_school.webp",
-      "spanish_translation": "___ es una escuela.",
-      "pedagogy_note": "2.1 review and non-person pronoun",
+      "audio_text": "It is a bag, not a ___.",
+      "answer_audio_text": "It is a bag, not a book.",
+      "prompt_image_url": "/lesson-assets/object_backpack.webp?v=20260801-objects-places-v2",
+      "spanish_translation": "Es una bolsa, no un ___.",
+      "pedagogy_note": "Repetition with growth: complete portable object contrast with negation",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c034-prompt-ce361b34154c64a9a6a1",
+          "id": "lesson-2-3-common-objects-c034-prompt-eba2df89f1334fcdf299",
           "purpose": "prompt",
-          "text": "It is a school.",
+          "text": "It is a bag, not a book.",
           "mode": "prompt",
           "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_school.webp",
+          "image_ref": "/lesson-assets/object_backpack.webp?v=20260801-objects-places-v2",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-3-common-objects-c034-answer-5612986f94b35465c259",
+          "id": "lesson-2-3-common-objects-c034-answer-d3c7f194149e96cb8724",
           "purpose": "answer",
-          "text": "It is a school.",
+          "text": "It is a bag, not a book.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_school.webp",
+          "image_ref": "/lesson-assets/object_backpack.webp?v=20260801-objects-places-v2",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",

@@ -677,16 +677,16 @@
           "label": "He is the boy."
         },
         {
-          "id": "she-is-the-girl-2",
+          "id": "it-is-a-book-2",
           "image_url": "",
-          "label": "She is the girl."
+          "label": "It is a book."
         }
       ],
       "audio_text": "Who is he?",
       "answer_audio_text": "He is the boy.",
       "prompt_image_url": "/lesson-assets/boy.webp",
       "spanish_translation": "\u00bfQui\u00e9n es \u00e9l?",
-      "pedagogy_note": "Unit 1 Who contrast review; use established accepted identity phrasing",
+      "pedagogy_note": "Repetition with growth: contrast person answer (He is...) with thing answer (It is...)",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
@@ -721,50 +721,50 @@
     {
       "slide_id": "R8",
       "interaction_type": "i2t2",
-      "prompt": "Who is she?",
+      "prompt": "What is it?",
       "stage": "Recognize",
-      "correct_option_id": "she-is-the-woman-2",
+      "correct_option_id": "it-is-a-book-1",
       "options": [
         {
-          "id": "he-is-the-man-1",
+          "id": "it-is-a-book-1",
           "image_url": "",
-          "label": "He is the man."
+          "label": "It is a book."
         },
         {
-          "id": "she-is-the-woman-2",
+          "id": "she-is-the-girl-2",
           "image_url": "",
-          "label": "She is the woman."
+          "label": "She is the girl."
         }
       ],
-      "audio_text": "Who is she?",
-      "answer_audio_text": "She is the woman.",
-      "prompt_image_url": "/lesson-assets/woman.webp",
-      "spanish_translation": "\u00bfQui\u00e9n es ella?",
-      "pedagogy_note": "Unit 1 Who contrast review",
+      "audio_text": "What is it?",
+      "answer_audio_text": "It is a book.",
+      "prompt_image_url": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
+      "spanish_translation": "\u00bfQu\u00e9 es?",
+      "pedagogy_note": "Repetition with growth: contrast thing answer (It is...) with person answer (She is...)",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-4-what-is-it-c014-prompt-2f43938e05b6514852ab",
+          "id": "lesson-2-4-what-is-it-c014-prompt-d505ee65a5b22cf33d19",
           "purpose": "prompt",
-          "text": "Who is she?",
+          "text": "What is it?",
           "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/woman.webp",
+          "variant": "question",
+          "image_ref": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
           "semantic_role": "question",
           "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-4-what-is-it-c014-answer-86b89e7ea4b1fb97a81f",
+          "id": "lesson-2-4-what-is-it-c014-answer-272bb9a492d73bc0759a",
           "purpose": "answer",
-          "text": "She is the woman.",
+          "text": "It is a book.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/woman.webp",
+          "image_ref": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1795,51 +1795,51 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "choose2",
-      "prompt": "Who is she?",
+      "interaction_type": "complete2",
+      "prompt": "___ is he?",
       "stage": "Use",
-      "correct_option_id": "she-is-the-woman-1",
+      "correct_option_id": "who-1",
       "options": [
         {
-          "id": "she-is-the-woman-1",
+          "id": "who-1",
           "image_url": "",
-          "label": "She is the woman."
+          "label": "Who"
         },
         {
-          "id": "he-is-the-man-2",
+          "id": "what-2",
           "image_url": "",
-          "label": "He is the man."
+          "label": "What"
         }
       ],
-      "audio_text": "Who is she?",
-      "answer_audio_text": "She is the woman.",
-      "prompt_image_url": "/lesson-assets/woman.webp",
-      "spanish_translation": "\u00bfQui\u00e9n es ella?",
-      "pedagogy_note": "Unit 1 question review",
+      "audio_text": "___ is he?",
+      "answer_audio_text": "Who is he?",
+      "prompt_image_url": "/lesson-assets/boy.webp",
+      "spanish_translation": "\u00bf___ es \u00e9l?",
+      "pedagogy_note": "Repetition with growth: contrast Who (people) with What (things)",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-4-what-is-it-c034-prompt-6806e2ce6bb237165d82",
+          "id": "lesson-2-4-what-is-it-c034-prompt-a87a0fb4d10ffc622ab6",
           "purpose": "prompt",
-          "text": "Who is she?",
+          "text": "Who is he?",
           "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/woman.webp",
+          "variant": "completion-prompt",
+          "image_ref": "/lesson-assets/boy.webp",
           "semantic_role": "question",
           "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-2-4-what-is-it-c034-answer-0779a9fcac9e7a1054e1",
+          "id": "lesson-2-4-what-is-it-c034-answer-31942d3040067051838d",
           "purpose": "answer",
-          "text": "She is the woman.",
+          "text": "Who is he?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/woman.webp",
+          "image_ref": "/lesson-assets/boy.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
