@@ -65,8 +65,15 @@ frontend/public/lesson-video-posters/
 # directory -- which here would mean 2.2 GB of tmp/ and 480 MB of output/.
 # output/ is untracked but not git-ignored, so it is also one `git add -A`
 # away from entering the repository.
+# tmp/ is gitignored and was still listed here, so gitignore alone was never
+# treated as protection against a CLI deploy. The agent worktrees are 12 GB and
+# 734 MB -- five times the two directories this section already defended -- and
+# were missing by oversight rather than by decision.
 tmp/
 output/
 __pycache__/
 venv/
 .codex-release-worktrees/
+.codex-task-worktrees/
+.codex-remote-attachments/
+.agents/
