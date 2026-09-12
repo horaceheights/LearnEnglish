@@ -43670,13 +43670,15 @@
       "park",
       "bus",
       "car",
+      "street",
       "book",
+      "chair",
       "bench",
+      "phone",
       "father",
       "mother",
       "girl",
       "boy",
-      "grandparents",
       "running",
       "reading",
       "sitting",
@@ -43704,62 +43706,62 @@
       {
         "slide_id": "M01",
         "interaction_type": "mission-game",
-        "prompt": "The father is running. The mother is reading. The girl is playing. The boy is walking.",
+        "prompt": "The boy is running in the park. The girl is playing in the park. The mother is reading a book. The father is walking in the park.",
         "stage": "Listen",
-        "correct_option_id": "father-running",
+        "correct_option_id": "boy-running",
         "correct_option_ids": [
-          "father-running",
-          "mother-reading",
+          "boy-running",
           "girl-playing",
-          "boy-walking"
+          "mother-reading",
+          "father-walking"
         ],
         "options": [
           {
-            "id": "father-running",
+            "id": "boy-running",
             "image_url": "",
-            "label": "The father is running."
-          },
-          {
-            "id": "mother-reading",
-            "image_url": "",
-            "label": "The mother is reading."
+            "label": "The boy is running in the park."
           },
           {
             "id": "girl-playing",
             "image_url": "",
-            "label": "The girl is playing."
+            "label": "The girl is playing in the park."
           },
           {
-            "id": "boy-walking",
+            "id": "mother-reading",
             "image_url": "",
-            "label": "The boy is walking."
+            "label": "The mother is reading a book."
+          },
+          {
+            "id": "father-walking",
+            "image_url": "",
+            "label": "The father is walking in the park."
           }
         ],
-        "audio_text": "The father is running. The mother is reading. The girl is playing. The boy is walking.",
+        "audio_text": "The boy is running in the park. The girl is playing in the park. The mother is reading a book. The father is walking in the park.",
         "answer_audio_text": null,
         "prompt_image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp",
-        "spanish_translation": "El padre est\u00e1 corriendo. La madre est\u00e1 leyendo. La ni\u00f1a est\u00e1 jugando. El ni\u00f1o est\u00e1 caminando.",
+        "spanish_translation": "El ni\u00f1o est\u00e1 corriendo en el parque. La ni\u00f1a est\u00e1 jugando en el parque. La madre est\u00e1 leyendo un libro. El padre est\u00e1 caminando en el parque.",
         "pedagogy_note": "Mission beat 01/05: the learner identifies four people on the park path from audio cues; the completed interaction advances the park mission.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "text": "The father is running.",
+            "text": "The boy is running in the park.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp"
           },
           {
-            "text": "The mother is reading.",
+            "text": "The girl is playing in the park.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp"
           },
           {
-            "text": "The girl is playing.",
+            "text": "The mother is reading a book.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp"
           },
           {
-            "text": "The boy is walking.",
+            "text": "The father is walking in the park.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp"
           }
@@ -43768,7 +43770,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-2-10-around-me-mission-c001-mission-intro-a9907a9be527e32bc1dc",
+            "id": "lesson-2-10-around-me-mission-c001-mission-intro-b49cf10a2c1fb0b4b307",
             "purpose": "mission-intro",
             "text": "\u00bfPuedes rescatar a la familia y sus pertenencias en el parque para la foto de bienvenida? Escucha con atenci\u00f3n cada pista y toca a las personas y objetos correctos.",
             "mode": "prompt",
@@ -43777,12 +43779,12 @@
             "semantic_role": "teacher",
             "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 2
+            "revision": 3
           },
           {
-            "id": "lesson-2-10-around-me-mission-c001-prompt-turn-1-5dabd0100e515ff2b362",
+            "id": "lesson-2-10-around-me-mission-c001-prompt-turn-1-053ebe1a38ccac2c8e98",
             "purpose": "prompt-turn-1",
-            "text": "The father is running.",
+            "text": "The boy is running in the park.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_01_park_path.webp",
@@ -43792,9 +43794,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c001-prompt-turn-2-dbee8a92e05a16dd2290",
+            "id": "lesson-2-10-around-me-mission-c001-prompt-turn-2-380ca2513a1d4515f99b",
             "purpose": "prompt-turn-2",
-            "text": "The mother is reading.",
+            "text": "The girl is playing in the park.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_01_park_path.webp",
@@ -43804,9 +43806,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c001-prompt-turn-3-d87bb0d8f37782623969",
+            "id": "lesson-2-10-around-me-mission-c001-prompt-turn-3-cadb8ccf267146d21165",
             "purpose": "prompt-turn-3",
-            "text": "The girl is playing.",
+            "text": "The mother is reading a book.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_01_park_path.webp",
@@ -43816,9 +43818,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c001-prompt-turn-4-3963b4f5bca5779d6f24",
+            "id": "lesson-2-10-around-me-mission-c001-prompt-turn-4-66ecfb75628842dd044f",
             "purpose": "prompt-turn-4",
-            "text": "The boy is walking.",
+            "text": "The father is walking in the park.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_01_park_path.webp",
@@ -43828,9 +43830,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c001-answer-834021398b35c0b3584b",
+            "id": "lesson-2-10-around-me-mission-c001-answer-9002be893c5560385dc4",
             "purpose": "answer",
-            "text": "The father is running.",
+            "text": "The boy is running in the park.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_u2_scene_01_park_path.webp",
@@ -43847,94 +43849,114 @@
           "validation": "ordered",
           "targets": [
             {
-              "id": "father-running",
-              "label_es": "Padre corriendo",
+              "id": "boy-running",
+              "label_es": "Ni\u00f1o corriendo",
               "rect": {
-                "x": 0.08,
-                "y": 0.35,
-                "width": 0.18,
-                "height": 0.38
+                "x": 0.1,
+                "y": 0.5,
+                "width": 0.14,
+                "height": 0.28
               },
               "accepted_option_ids": [
-                "father-running"
+                "boy-running"
               ],
-              "head_anchors": [],
-              "group_chest_anchor": null
-            },
-            {
-              "id": "mother-reading",
-              "label_es": "Madre leyendo",
-              "rect": {
-                "x": 0.7,
-                "y": 0.45,
-                "width": 0.18,
-                "height": 0.35
-              },
-              "accepted_option_ids": [
-                "mother-reading"
+              "head_anchors": [
+                {
+                  "x": 0.153,
+                  "y": 0.519
+                }
               ],
-              "head_anchors": [],
               "group_chest_anchor": null
             },
             {
               "id": "girl-playing",
               "label_es": "Ni\u00f1a jugando",
               "rect": {
-                "x": 0.32,
-                "y": 0.5,
-                "width": 0.16,
-                "height": 0.32
+                "x": 0.355,
+                "y": 0.51,
+                "width": 0.14,
+                "height": 0.26
               },
               "accepted_option_ids": [
                 "girl-playing"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.443,
+                  "y": 0.518
+                }
+              ],
               "group_chest_anchor": null
             },
             {
-              "id": "boy-walking",
-              "label_es": "Ni\u00f1o caminando",
+              "id": "mother-reading",
+              "label_es": "Madre leyendo",
               "rect": {
-                "x": 0.52,
-                "y": 0.42,
-                "width": 0.16,
-                "height": 0.35
+                "x": 0.545,
+                "y": 0.55,
+                "width": 0.14,
+                "height": 0.19
               },
               "accepted_option_ids": [
-                "boy-walking"
+                "mother-reading"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.64,
+                  "y": 0.563
+                }
+              ],
+              "group_chest_anchor": null
+            },
+            {
+              "id": "father-walking",
+              "label_es": "Padre caminando",
+              "rect": {
+                "x": 0.832,
+                "y": 0.45,
+                "width": 0.14,
+                "height": 0.25
+              },
+              "accepted_option_ids": [
+                "father-walking"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.902,
+                  "y": 0.461
+                }
+              ],
               "group_chest_anchor": null
             }
           ],
           "cues": [
             {
-              "id": "cue-father-running",
-              "text": "The father is running.",
-              "answer_text": "The father is running.",
-              "target_id": "father-running",
-              "option_id": "father-running"
-            },
-            {
-              "id": "cue-mother-reading",
-              "text": "The mother is reading.",
-              "answer_text": "The mother is reading.",
-              "target_id": "mother-reading",
-              "option_id": "mother-reading"
+              "id": "cue-boy-running",
+              "text": "The boy is running in the park.",
+              "answer_text": "The boy is running in the park.",
+              "target_id": "boy-running",
+              "option_id": "boy-running"
             },
             {
               "id": "cue-girl-playing",
-              "text": "The girl is playing.",
-              "answer_text": "The girl is playing.",
+              "text": "The girl is playing in the park.",
+              "answer_text": "The girl is playing in the park.",
               "target_id": "girl-playing",
               "option_id": "girl-playing"
             },
             {
-              "id": "cue-boy-walking",
-              "text": "The boy is walking.",
-              "answer_text": "The boy is walking.",
-              "target_id": "boy-walking",
-              "option_id": "boy-walking"
+              "id": "cue-mother-reading",
+              "text": "The mother is reading a book.",
+              "answer_text": "The mother is reading a book.",
+              "target_id": "mother-reading",
+              "option_id": "mother-reading"
+            },
+            {
+              "id": "cue-father-walking",
+              "text": "The father is walking in the park.",
+              "answer_text": "The father is walking in the park.",
+              "target_id": "father-walking",
+              "option_id": "father-walking"
             }
           ],
           "tutorial_mode": null,
@@ -43944,7 +43966,7 @@
       {
         "slide_id": "M02",
         "interaction_type": "mission-game",
-        "prompt": "A red book. A green bench. A man is sitting. A woman is talking.",
+        "prompt": "A red book is on the green bench. A green bench in the park. A man is sitting on the bench. A woman is talking on the phone.",
         "stage": "Listen",
         "correct_option_id": "red-book",
         "correct_option_ids": [
@@ -43957,49 +43979,49 @@
           {
             "id": "red-book",
             "image_url": "",
-            "label": "A red book."
+            "label": "A red book is on the green bench."
           },
           {
             "id": "green-bench",
             "image_url": "",
-            "label": "A green bench."
+            "label": "A green bench in the park."
           },
           {
             "id": "man-sitting",
             "image_url": "",
-            "label": "A man is sitting."
+            "label": "A man is sitting on the bench."
           },
           {
             "id": "woman-talking",
             "image_url": "",
-            "label": "A woman is talking."
+            "label": "A woman is talking on the phone."
           }
         ],
-        "audio_text": "A red book. A green bench. A man is sitting. A woman is talking.",
+        "audio_text": "A red book is on the green bench. A green bench in the park. A man is sitting on the bench. A woman is talking on the phone.",
         "answer_audio_text": null,
         "prompt_image_url": "/lesson-assets/a1_u2_scene_02_bench.webp",
-        "spanish_translation": "Un libro rojo. Un banco verde. Un hombre est\u00e1 sentado. Una mujer est\u00e1 hablando.",
+        "spanish_translation": "Un libro rojo est\u00e1 en el banco verde. Un banco verde en el parque. Un hombre est\u00e1 sentado en el banco. Una mujer est\u00e1 hablando por tel\u00e9fono.",
         "pedagogy_note": "Mission beat 02/05: the learner identifies colors, objects, and people around the park bench from audio clues; the completed interaction advances the park mission.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "text": "A red book.",
+            "text": "A red book is on the green bench.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_02_bench.webp"
           },
           {
-            "text": "A green bench.",
+            "text": "A green bench in the park.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_02_bench.webp"
           },
           {
-            "text": "A man is sitting.",
+            "text": "A man is sitting on the bench.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_02_bench.webp"
           },
           {
-            "text": "A woman is talking.",
+            "text": "A woman is talking on the phone.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_02_bench.webp"
           }
@@ -44008,9 +44030,9 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-2-10-around-me-mission-c002-prompt-turn-1-0d7fc13244e5cc3c5cfa",
+            "id": "lesson-2-10-around-me-mission-c002-prompt-turn-1-620ff7224f4d41d18ddd",
             "purpose": "prompt-turn-1",
-            "text": "A red book.",
+            "text": "A red book is on the green bench.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_02_bench.webp",
@@ -44020,9 +44042,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c002-prompt-turn-2-60d3811980771f9b336e",
+            "id": "lesson-2-10-around-me-mission-c002-prompt-turn-2-5bcdecab60f95755abec",
             "purpose": "prompt-turn-2",
-            "text": "A green bench.",
+            "text": "A green bench in the park.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_02_bench.webp",
@@ -44032,9 +44054,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c002-prompt-turn-3-e54441a13cfb44c0fa4a",
+            "id": "lesson-2-10-around-me-mission-c002-prompt-turn-3-4be1fc5f9c6281acf9e1",
             "purpose": "prompt-turn-3",
-            "text": "A man is sitting.",
+            "text": "A man is sitting on the bench.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_02_bench.webp",
@@ -44044,9 +44066,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c002-prompt-turn-4-85d92b7a4b82aefd30bc",
+            "id": "lesson-2-10-around-me-mission-c002-prompt-turn-4-4cefb711690149e75d6a",
             "purpose": "prompt-turn-4",
-            "text": "A woman is talking.",
+            "text": "A woman is talking on the phone.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_02_bench.webp",
@@ -44056,9 +44078,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c002-answer-79b81b420793326a5397",
+            "id": "lesson-2-10-around-me-mission-c002-answer-15544431a24ee710bbf6",
             "purpose": "answer",
-            "text": "A red book.",
+            "text": "A red book is on the green bench.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_u2_scene_02_bench.webp",
@@ -44078,89 +44100,109 @@
               "id": "red-book",
               "label_es": "Libro rojo",
               "rect": {
-                "x": 0.44,
-                "y": 0.5,
-                "width": 0.14,
-                "height": 0.16
+                "x": 0.42,
+                "y": 0.64,
+                "width": 0.16,
+                "height": 0.19
               },
               "accepted_option_ids": [
                 "red-book"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.5,
+                  "y": 0.66
+                }
+              ],
               "group_chest_anchor": null
             },
             {
               "id": "green-bench",
               "label_es": "Banco verde",
               "rect": {
-                "x": 0.25,
-                "y": 0.6,
-                "width": 0.5,
-                "height": 0.28
+                "x": 0.17,
+                "y": 0.5,
+                "width": 0.71,
+                "height": 0.49
               },
               "accepted_option_ids": [
                 "green-bench"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.53,
+                  "y": 0.5
+                }
+              ],
               "group_chest_anchor": null
             },
             {
               "id": "man-sitting",
               "label_es": "Hombre sentado",
               "rect": {
-                "x": 0.28,
-                "y": 0.32,
-                "width": 0.2,
-                "height": 0.42
+                "x": 0.21,
+                "y": 0.21,
+                "width": 0.32,
+                "height": 0.78
               },
               "accepted_option_ids": [
                 "man-sitting"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.38,
+                  "y": 0.21
+                }
+              ],
               "group_chest_anchor": null
             },
             {
               "id": "woman-talking",
               "label_es": "Mujer hablando",
               "rect": {
-                "x": 0.55,
-                "y": 0.3,
+                "x": 0.62,
+                "y": 0.24,
                 "width": 0.2,
-                "height": 0.44
+                "height": 0.72
               },
               "accepted_option_ids": [
                 "woman-talking"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.71,
+                  "y": 0.24
+                }
+              ],
               "group_chest_anchor": null
             }
           ],
           "cues": [
             {
               "id": "cue-red-book",
-              "text": "A red book.",
-              "answer_text": "A red book.",
+              "text": "A red book is on the green bench.",
+              "answer_text": "A red book is on the green bench.",
               "target_id": "red-book",
               "option_id": "red-book"
             },
             {
               "id": "cue-green-bench",
-              "text": "A green bench.",
-              "answer_text": "A green bench.",
+              "text": "A green bench in the park.",
+              "answer_text": "A green bench in the park.",
               "target_id": "green-bench",
               "option_id": "green-bench"
             },
             {
               "id": "cue-man-sitting",
-              "text": "A man is sitting.",
-              "answer_text": "A man is sitting.",
+              "text": "A man is sitting on the bench.",
+              "answer_text": "A man is sitting on the bench.",
               "target_id": "man-sitting",
               "option_id": "man-sitting"
             },
             {
               "id": "cue-woman-talking",
-              "text": "A woman is talking.",
-              "answer_text": "A woman is talking.",
+              "text": "A woman is talking on the phone.",
+              "answer_text": "A woman is talking on the phone.",
               "target_id": "woman-talking",
               "option_id": "woman-talking"
             }
@@ -44172,12 +44214,12 @@
       {
         "slide_id": "M03",
         "interaction_type": "mission-game",
-        "prompt": "A blue bus. A red car. Two people. A man is waiting.",
+        "prompt": "A blue bus is on the street. Two red cars on the street. Two people are walking. A man is waiting for the bus.",
         "stage": "Listen",
         "correct_option_id": "blue-bus",
         "correct_option_ids": [
           "blue-bus",
-          "red-car",
+          "red-cars",
           "two-people",
           "man-waiting"
         ],
@@ -44185,49 +44227,49 @@
           {
             "id": "blue-bus",
             "image_url": "",
-            "label": "A blue bus."
+            "label": "A blue bus is on the street."
           },
           {
-            "id": "red-car",
+            "id": "red-cars",
             "image_url": "",
-            "label": "A red car."
+            "label": "Two red cars on the street."
           },
           {
             "id": "two-people",
             "image_url": "",
-            "label": "Two people."
+            "label": "Two people are walking."
           },
           {
             "id": "man-waiting",
             "image_url": "",
-            "label": "A man is waiting."
+            "label": "A man is waiting for the bus."
           }
         ],
-        "audio_text": "A blue bus. A red car. Two people. A man is waiting.",
+        "audio_text": "A blue bus is on the street. Two red cars on the street. Two people are walking. A man is waiting for the bus.",
         "answer_audio_text": null,
         "prompt_image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp",
-        "spanish_translation": "Un autob\u00fas azul. Un carro rojo. Dos personas. Un hombre est\u00e1 esperando.",
+        "spanish_translation": "Un autob\u00fas azul est\u00e1 en la calle. Dos carros rojos en la calle. Dos personas est\u00e1n caminando. Un hombre est\u00e1 esperando el autob\u00fas.",
         "pedagogy_note": "Mission beat 03/05: the learner identifies transport vehicles, quantities, and waiting people near the bus stop; the completed interaction advances the park mission.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "text": "A blue bus.",
+            "text": "A blue bus is on the street.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp"
           },
           {
-            "text": "A red car.",
+            "text": "Two red cars on the street.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp"
           },
           {
-            "text": "Two people.",
+            "text": "Two people are walking.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp"
           },
           {
-            "text": "A man is waiting.",
+            "text": "A man is waiting for the bus.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp"
           }
@@ -44236,9 +44278,9 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-2-10-around-me-mission-c003-prompt-turn-1-f93ccbaf1e452a61412e",
+            "id": "lesson-2-10-around-me-mission-c003-prompt-turn-1-1e5dace84938fe5dbd6e",
             "purpose": "prompt-turn-1",
-            "text": "A blue bus.",
+            "text": "A blue bus is on the street.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_03_bus_stop.webp",
@@ -44248,9 +44290,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c003-prompt-turn-2-27b3405bfeac8e236128",
+            "id": "lesson-2-10-around-me-mission-c003-prompt-turn-2-f846b3011c61761bc162",
             "purpose": "prompt-turn-2",
-            "text": "A red car.",
+            "text": "Two red cars on the street.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_03_bus_stop.webp",
@@ -44260,9 +44302,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c003-prompt-turn-3-299bb125fd1cd53239f7",
+            "id": "lesson-2-10-around-me-mission-c003-prompt-turn-3-abd2b47663281c466832",
             "purpose": "prompt-turn-3",
-            "text": "Two people.",
+            "text": "Two people are walking.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_03_bus_stop.webp",
@@ -44272,9 +44314,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c003-prompt-turn-4-bcbcf41aadd0e01064e5",
+            "id": "lesson-2-10-around-me-mission-c003-prompt-turn-4-cf771b25abadcd82f171",
             "purpose": "prompt-turn-4",
-            "text": "A man is waiting.",
+            "text": "A man is waiting for the bus.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_03_bus_stop.webp",
@@ -44284,9 +44326,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c003-answer-7f03753170f07e0cc4bb",
+            "id": "lesson-2-10-around-me-mission-c003-answer-9c3aba584684b8b274c6",
             "purpose": "answer",
-            "text": "A blue bus.",
+            "text": "A blue bus is on the street.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_u2_scene_03_bus_stop.webp",
@@ -44306,89 +44348,109 @@
               "id": "blue-bus",
               "label_es": "Autob\u00fas azul",
               "rect": {
-                "x": 0.05,
-                "y": 0.2,
-                "width": 0.4,
-                "height": 0.45
+                "x": 0.095,
+                "y": 0.342,
+                "width": 0.38,
+                "height": 0.395
               },
               "accepted_option_ids": [
                 "blue-bus"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.285,
+                  "y": 0.342
+                }
+              ],
               "group_chest_anchor": null
             },
             {
-              "id": "red-car",
-              "label_es": "Carro rojo",
+              "id": "red-cars",
+              "label_es": "Carros rojos",
               "rect": {
-                "x": 0.5,
-                "y": 0.48,
-                "width": 0.32,
-                "height": 0.3
+                "x": 0.66,
+                "y": 0.523,
+                "width": 0.315,
+                "height": 0.18
               },
               "accepted_option_ids": [
-                "red-car"
+                "red-cars"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.815,
+                  "y": 0.523
+                }
+              ],
               "group_chest_anchor": null
             },
             {
               "id": "two-people",
               "label_es": "Dos personas",
               "rect": {
-                "x": 0.72,
-                "y": 0.35,
-                "width": 0.22,
-                "height": 0.45
+                "x": 0.488,
+                "y": 0.488,
+                "width": 0.14,
+                "height": 0.285
               },
               "accepted_option_ids": [
                 "two-people"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.551,
+                  "y": 0.488
+                }
+              ],
               "group_chest_anchor": null
             },
             {
               "id": "man-waiting",
               "label_es": "Hombre esperando",
               "rect": {
-                "x": 0.42,
-                "y": 0.35,
-                "width": 0.16,
-                "height": 0.42
+                "x": 0.395,
+                "y": 0.476,
+                "width": 0.14,
+                "height": 0.29
               },
               "accepted_option_ids": [
                 "man-waiting"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.435,
+                  "y": 0.476
+                }
+              ],
               "group_chest_anchor": null
             }
           ],
           "cues": [
             {
               "id": "cue-blue-bus",
-              "text": "A blue bus.",
-              "answer_text": "A blue bus.",
+              "text": "A blue bus is on the street.",
+              "answer_text": "A blue bus is on the street.",
               "target_id": "blue-bus",
               "option_id": "blue-bus"
             },
             {
-              "id": "cue-red-car",
-              "text": "A red car.",
-              "answer_text": "A red car.",
-              "target_id": "red-car",
-              "option_id": "red-car"
+              "id": "cue-red-cars",
+              "text": "Two red cars on the street.",
+              "answer_text": "Two red cars on the street.",
+              "target_id": "red-cars",
+              "option_id": "red-cars"
             },
             {
               "id": "cue-two-people",
-              "text": "Two people.",
-              "answer_text": "Two people.",
+              "text": "Two people are walking.",
+              "answer_text": "Two people are walking.",
               "target_id": "two-people",
               "option_id": "two-people"
             },
             {
               "id": "cue-man-waiting",
-              "text": "A man is waiting.",
-              "answer_text": "A man is waiting.",
+              "text": "A man is waiting for the bus.",
+              "answer_text": "A man is waiting for the bus.",
               "target_id": "man-waiting",
               "option_id": "man-waiting"
             }
@@ -44400,7 +44462,7 @@
       {
         "slide_id": "M04",
         "interaction_type": "mission-game",
-        "prompt": "The father. The mother. The girl. Three people.",
+        "prompt": "The father is in the park. The mother is in the park. The girl is in the park. Three people are in the park.",
         "stage": "Listen",
         "correct_option_id": "father",
         "correct_option_ids": [
@@ -44413,49 +44475,49 @@
           {
             "id": "father",
             "image_url": "",
-            "label": "The father."
+            "label": "The father is in the park."
           },
           {
             "id": "mother",
             "image_url": "",
-            "label": "The mother."
+            "label": "The mother is in the park."
           },
           {
             "id": "girl",
             "image_url": "",
-            "label": "The girl."
+            "label": "The girl is in the park."
           },
           {
             "id": "three-people",
             "image_url": "",
-            "label": "Three people."
+            "label": "Three people are in the park."
           }
         ],
-        "audio_text": "The father. The mother. The girl. Three people.",
+        "audio_text": "The father is in the park. The mother is in the park. The girl is in the park. Three people are in the park.",
         "answer_audio_text": null,
         "prompt_image_url": "/lesson-assets/a1_u2_scene_04_parents.webp",
-        "spanish_translation": "El padre. La madre. La ni\u00f1a. Tres personas.",
+        "spanish_translation": "El padre est\u00e1 en el parque. La madre est\u00e1 en el parque. La ni\u00f1a est\u00e1 en el parque. Tres personas est\u00e1n en el parque.",
         "pedagogy_note": "Mission beat 04/05: the learner identifies family members and counts the group of three before taking the photo; the completed interaction advances the park mission.",
         "audio_speaker": null,
         "answer_audio_speaker": null,
         "audio_turns": [
           {
-            "text": "The father.",
+            "text": "The father is in the park.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_04_parents.webp"
           },
           {
-            "text": "The mother.",
+            "text": "The mother is in the park.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_04_parents.webp"
           },
           {
-            "text": "The girl.",
+            "text": "The girl is in the park.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_04_parents.webp"
           },
           {
-            "text": "Three people.",
+            "text": "Three people are in the park.",
             "speaker_role": "teacher",
             "image_url": "/lesson-assets/a1_u2_scene_04_parents.webp"
           }
@@ -44464,9 +44526,9 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-2-10-around-me-mission-c004-prompt-turn-1-d59326459f3a745af079",
+            "id": "lesson-2-10-around-me-mission-c004-prompt-turn-1-9bcf01d9129f2d31ca07",
             "purpose": "prompt-turn-1",
-            "text": "The father.",
+            "text": "The father is in the park.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_04_parents.webp",
@@ -44476,9 +44538,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c004-prompt-turn-2-6a32b2cc4b39ae36b686",
+            "id": "lesson-2-10-around-me-mission-c004-prompt-turn-2-a52e490fa6bc24ef74f4",
             "purpose": "prompt-turn-2",
-            "text": "The mother.",
+            "text": "The mother is in the park.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_04_parents.webp",
@@ -44488,9 +44550,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c004-prompt-turn-3-3ecc0f86ec8c22b1d625",
+            "id": "lesson-2-10-around-me-mission-c004-prompt-turn-3-43d167ad8f8f075c51af",
             "purpose": "prompt-turn-3",
-            "text": "The girl.",
+            "text": "The girl is in the park.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_04_parents.webp",
@@ -44500,9 +44562,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c004-prompt-turn-4-9d6ebf99a649b4b62b5f",
+            "id": "lesson-2-10-around-me-mission-c004-prompt-turn-4-3bcadfd5e2ae9882e235",
             "purpose": "prompt-turn-4",
-            "text": "Three people.",
+            "text": "Three people are in the park.",
             "mode": "prompt",
             "variant": "prompt",
             "image_ref": "/lesson-assets/a1_u2_scene_04_parents.webp",
@@ -44512,9 +44574,9 @@
             "revision": 1
           },
           {
-            "id": "lesson-2-10-around-me-mission-c004-answer-b5055f90dde2b7265612",
+            "id": "lesson-2-10-around-me-mission-c004-answer-c7b90e8ee7ec7d343ea3",
             "purpose": "answer",
-            "text": "The father.",
+            "text": "The father is in the park.",
             "mode": "prompt",
             "variant": "answer",
             "image_ref": "/lesson-assets/a1_u2_scene_04_parents.webp",
@@ -44534,89 +44596,109 @@
               "id": "father",
               "label_es": "Padre",
               "rect": {
-                "x": 0.2,
-                "y": 0.25,
-                "width": 0.22,
-                "height": 0.55
+                "x": 0.263,
+                "y": 0.093,
+                "width": 0.205,
+                "height": 0.865
               },
               "accepted_option_ids": [
                 "father"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.373,
+                  "y": 0.093
+                }
+              ],
               "group_chest_anchor": null
             },
             {
               "id": "mother",
               "label_es": "Madre",
               "rect": {
-                "x": 0.55,
-                "y": 0.28,
-                "width": 0.22,
-                "height": 0.52
+                "x": 0.558,
+                "y": 0.165,
+                "width": 0.155,
+                "height": 0.795
               },
               "accepted_option_ids": [
                 "mother"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.632,
+                  "y": 0.165
+                }
+              ],
               "group_chest_anchor": null
             },
             {
               "id": "girl",
               "label_es": "Ni\u00f1a",
               "rect": {
-                "x": 0.42,
-                "y": 0.45,
-                "width": 0.16,
-                "height": 0.38
+                "x": 0.424,
+                "y": 0.395,
+                "width": 0.164,
+                "height": 0.545
               },
               "accepted_option_ids": [
                 "girl"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.506,
+                  "y": 0.395
+                }
+              ],
               "group_chest_anchor": null
             },
             {
               "id": "three-people",
               "label_es": "Tres personas",
               "rect": {
-                "x": 0.18,
-                "y": 0.22,
-                "width": 0.62,
-                "height": 0.62
+                "x": 0.263,
+                "y": 0.093,
+                "width": 0.45,
+                "height": 0.867
               },
               "accepted_option_ids": [
                 "three-people"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.373,
+                  "y": 0.093
+                }
+              ],
               "group_chest_anchor": null
             }
           ],
           "cues": [
             {
               "id": "cue-father",
-              "text": "The father.",
-              "answer_text": "The father.",
+              "text": "The father is in the park.",
+              "answer_text": "The father is in the park.",
               "target_id": "father",
               "option_id": "father"
             },
             {
               "id": "cue-mother",
-              "text": "The mother.",
-              "answer_text": "The mother.",
+              "text": "The mother is in the park.",
+              "answer_text": "The mother is in the park.",
               "target_id": "mother",
               "option_id": "mother"
             },
             {
               "id": "cue-girl",
-              "text": "The girl.",
-              "answer_text": "The girl.",
+              "text": "The girl is in the park.",
+              "answer_text": "The girl is in the park.",
               "target_id": "girl",
               "option_id": "girl"
             },
             {
               "id": "cue-three-people",
-              "text": "Three people.",
-              "answer_text": "Three people.",
+              "text": "Three people are in the park.",
+              "answer_text": "Three people are in the park.",
               "target_id": "three-people",
               "option_id": "three-people"
             }
@@ -44656,7 +44738,7 @@
         "answer_audio_revision": 1,
         "audio_assets": [
           {
-            "id": "lesson-2-10-around-me-mission-c005-mission-cue-5ce45976423ff810d89c",
+            "id": "lesson-2-10-around-me-mission-c005-mission-cue-bd0fe07bf21cba200031",
             "purpose": "mission-cue",
             "text": "Who is in the park?",
             "mode": "prompt",
@@ -44665,7 +44747,7 @@
             "semantic_role": "question",
             "speaker_role": "teacher",
             "profile_id": "a1-elevenlabs-character-cast-v1",
-            "revision": 2
+            "revision": 3
           },
           {
             "id": "lesson-2-10-around-me-mission-c005-prompt-turn-1-92d1a6a0c091a66c8906",
@@ -44690,15 +44772,20 @@
               "id": "father-park",
               "label_es": "Padre en el parque",
               "rect": {
-                "x": 0.35,
-                "y": 0.25,
-                "width": 0.3,
-                "height": 0.5
+                "x": 0.296,
+                "y": 0.134,
+                "width": 0.446,
+                "height": 0.856
               },
               "accepted_option_ids": [
                 "father-park"
               ],
-              "head_anchors": [],
+              "head_anchors": [
+                {
+                  "x": 0.508,
+                  "y": 0.134
+                }
+              ],
               "group_chest_anchor": null
             }
           ],
@@ -44717,7 +44804,7 @@
       }
     ],
     "experience_type": "mission",
-    "content_revision": 2,
+    "content_revision": 3,
     "mission": {
       "label": "MISI\u00d3N FINAL \u00b7 UNIDAD 2",
       "title": "Encuentro en el parque",
