@@ -33,3 +33,13 @@ Thumbs.db
 .streamlit/secrets.toml
 
 /package-lock.json
+
+# Local generated output. Anchored so it cannot catch a nested output/
+# directory; the deck exception at the top of this file is a different path.
+/output/
+
+# Claude Code workspace state: settings.local.json, a scheduled-task lock, and
+# the dev-server launch config. All machine-local today. If shared project
+# config is ever wanted here, negate the specific file rather than dropping
+# this line -- the .local and .lock files should stay out regardless.
+/.claude/
