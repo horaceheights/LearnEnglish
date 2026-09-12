@@ -1,4 +1,5 @@
 import courseAudioManifest from "./courseAudioManifest.json";
+import { mediaUrl } from "./mediaUrl";
 
 // Identifies this (internal, testing-only) frontend to the backend so a
 // stranger's script can't call the API directly. Not a per-user secret.
@@ -261,7 +262,7 @@ export function getCourseAudioUrl({
     const assetVersion = spokenText === "One"
       ? `${STATIC_ASSET_VERSION}-${CORRECTED_ONE_ASSET_VERSION}`
       : STATIC_ASSET_VERSION;
-    return `/audio-cache/${staticAudioFile}?v=${encodeURIComponent(assetVersion)}`;
+    return mediaUrl(`/audio-cache/${staticAudioFile}`, assetVersion);
   }
 
   throw new Error("Course audio is not approved in the static manifest and has no persistent asset ID.");

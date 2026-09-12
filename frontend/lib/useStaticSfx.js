@@ -2,6 +2,12 @@
 
 import { useCallback, useEffect, useRef } from "react";
 
+import { mediaUrl } from "./mediaUrl";
+
+// These filenames already carry their own -vN suffix, so this only exists to
+// let the object store serve them immutably alongside everything else.
+const SFX_VERSION = "20260903-full-bleed-v8";
+
 const STATIC_SFX_PATHS = Object.freeze({
   missionFinale: "/sfx/mission-finale-v2.mp3",
   missionStart: "/sfx/mission-start-v2.mp3",
@@ -62,8 +68,11 @@ export default function useStaticSfx({ enabled = true, muted = false } = {}) {
       return Promise.resolve(false);
     }
 
-    const source = STATIC_SFX_PATHS[cue];
-    if (!source) return Promise.resolve(false);
+    const cuePath = STATIC_SFX_PATHS[cue];
+    if (!cuePath) return Promise.resolve(false);
+    // Resolved here rather than in the frozen map above so the literal paths
+    // stay greppable -- mission-sfx.test.mjs asserts on this file's source text.
+    const source = mediaUrl(cuePath, SFX_VERSION);
 
     const now = window.performance?.now?.() ?? Date.now();
     const debounceMs = Math.max(MINIMUM_DEBOUNCE_MS, options.debounceMs ?? 120);
