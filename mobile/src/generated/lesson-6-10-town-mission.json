@@ -1,1735 +1,671 @@
 {
   "id": "lesson-6-10-town-mission",
-  "title": "6.10 Town Mission",
+  "title": "6.10 Ruta del barrio",
   "level": "Beginner A1",
   "unit_id": "unit-6",
   "unit_title": "Unit 6: Around Town",
-  "unit_outcome": "Ask where a familiar place is, understand simple directions, and use familiar transportation and schedule language.",
+  "unit_outcome": "Follow navigation clues across neighborhood checkpoints, identify pairs, and speak locations.",
   "lesson_id": "lesson-6",
   "lesson_title": "Unit 6: Around Town",
   "sub_lesson_id": "6.10",
-  "sub_lesson_title": "Town Mission",
-  "goal": "Follow a short visual route by identifying a destination, choosing transport, asking for help, following directions, and checking a schedule.",
+  "sub_lesson_title": "Ruta del barrio",
+  "goal": "Track family movement across town checkpoints and answer location questions aloud.",
   "vocabulary": [],
   "review_vocabulary": [
-    "selected Unit 6 vocabulary and functions"
+    "store",
+    "bank",
+    "school",
+    "park",
+    "walking",
+    "crossing",
+    "waiting",
+    "standing",
+    "next to",
+    "parents",
+    "grandfather"
   ],
-  "grammar_function": "Integrated controlled navigation; no free map drawing, word ordering, or unconstrained conversation.",
-  "prerequisite": "6.9 review readiness met or targeted review completed.",
-  "speaking_outcome": "Repeat six route-critical utterances spanning where, location, directions, ability, help, and schedule.",
+  "grammar_function": "Integrate direction, prepositional location phrases, and movement verbs.",
+  "prerequisite": "Lessons 6.1-6.9 completed.",
+  "speaking_outcome": "Speak full checkpoint location responses aloud across final voice gates.",
   "purposeful_review_slides": [
-    "Use:U1",
-    "Use:U2",
-    "Use:U3",
-    "Use:U4",
-    "Use:U5",
-    "Use:U6",
-    "Use:U7",
-    "Use:U8"
+    "M01",
+    "M02",
+    "M03"
   ],
   "cards": [
     {
-      "slide_id": "L1",
-      "interaction_type": "teach",
-      "prompt": "Find the station.",
-      "stage": "Learn",
-      "correct_option_id": "find-the-station-1",
-      "options": [
-        {
-          "id": "find-the-station-1",
-          "image_url": "/lesson-assets/a1_scene_find-the-station_2ffd5ff.webp",
-          "label": "Find the station."
-        }
-      ],
-      "audio_text": "Find the station.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Encuentra la estaci\u00f3n.",
-      "pedagogy_note": "Mission orientation; Find is already established as lesson-direction language in Unit 1.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c001-prompt-bc8f03e0b17071717141",
-          "purpose": "prompt",
-          "text": "Find the station.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_find-the-station_2ffd5ff.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c001-answer-cc4eaf3abc86fb381b32",
-          "purpose": "answer",
-          "text": "Find the station.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_find-the-station_2ffd5ff.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L2",
-      "interaction_type": "teach",
-      "prompt": "Bus. Train. Taxi.",
-      "stage": "Learn",
-      "correct_option_id": "bus-train-taxi-1",
-      "options": [
-        {
-          "id": "bus-train-taxi-1",
-          "image_url": "/lesson-assets/a1_scene_bus-train-taxi_f10f9ee.webp",
-          "label": "Bus. Train. Taxi."
-        }
-      ],
-      "audio_text": "Bus. Train. Taxi.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Autob\u00fas. Tren. Taxi.",
-      "pedagogy_note": "Mission orientation retrieves known transport words instead of introducing procedural vocabulary.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c002-prompt-7ed4356e5433997a34e6",
-          "purpose": "prompt",
-          "text": "Bus. Train. Taxi.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus-train-taxi_f10f9ee.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c002-answer-b334b0a64c0a30a40a14",
-          "purpose": "answer",
-          "text": "Bus. Train. Taxi.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus-train-taxi_f10f9ee.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L3",
-      "interaction_type": "teach",
-      "prompt": "Can you help me?",
-      "stage": "Learn",
-      "correct_option_id": "can-you-help-me-1",
-      "options": [
-        {
-          "id": "can-you-help-me-1",
-          "image_url": "/lesson-assets/a1_scene_can-you-help-me_eb476e5.webp",
-          "label": "Can you help me?"
-        }
-      ],
-      "audio_text": "Can you help me?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfPuede ayudarme?",
-      "pedagogy_note": "Mission orientation retrieves the taught help request.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c003-prompt-282e9af38a9d2a5a48e7",
-          "purpose": "prompt",
-          "text": "Can you help me?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_can-you-help-me_eb476e5.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c003-answer-9fb5256ee56ab3e7f355",
-          "purpose": "answer",
-          "text": "Can you help me?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_can-you-help-me_eb476e5.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "Go straight. Turn right. The train leaves at nine.",
-      "stage": "Learn",
-      "correct_option_id": "go-straight-turn-right-the-train-leaves-at-nine-1",
-      "options": [
-        {
-          "id": "go-straight-turn-right-the-train-leaves-at-nine-1",
-          "image_url": "/lesson-assets/a1_scene_go-straight-turn-right-the-train-leaves-at-nine_eec262b.webp",
-          "label": "Go straight. Turn right. The train leaves at nine."
-        }
-      ],
-      "audio_text": "Go straight. Turn right. The train leaves at nine.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sigue derecho. Gira a la derecha. El tren sale a las nueve.",
-      "pedagogy_note": "Mission preview uses only taught direction and schedule language.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c004-prompt-2c377527d256c2900fe0",
-          "purpose": "prompt",
-          "text": "Go straight. Turn right. The train leaves at nine.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_go-straight-turn-right-the-train-leaves-at-nine_eec262b.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c004-answer-ea7e53cd0a64a9405177",
-          "purpose": "answer",
-          "text": "Go straight. Turn right. The train leaves at nine.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_go-straight-turn-right-the-train-leaves-at-nine_eec262b.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R1",
-      "interaction_type": "recognize-image",
-      "prompt": "The station",
-      "stage": "Recognize",
-      "correct_option_id": "station-2",
-      "options": [
-        {
-          "id": "hospital-1",
-          "image_url": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
-          "label": null
-        },
-        {
-          "id": "station-2",
-          "image_url": "/lesson-assets/a1_scene_station_2da36ff.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "The station",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "La estaci\u00f3n",
-      "pedagogy_note": "Phrase/audio-to-image direction; known places.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c005-prompt-bd57d2290985735d3ebc",
-          "purpose": "prompt",
-          "text": "The station",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_station_2da36ff.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c005-answer-b3eadea4fe6c4e737cee",
-          "purpose": "answer",
-          "text": "The station",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_station_2da36ff.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "i-go-by-bus-1",
-      "options": [
-        {
-          "id": "i-go-by-bus-1",
-          "image_url": "",
-          "label": "I go by bus."
-        },
-        {
-          "id": "i-go-by-train-2",
-          "image_url": "",
-          "label": "I go by train."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "I go by bus.",
-      "prompt_image_url": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Transport step.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c006-prompt-5da04e6f5eea3de9b6fa",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c006-answer-0b21600bf0597502214c",
-          "purpose": "answer",
-          "text": "I go by bus.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_i-go-by-bus_a31fe3d.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "recognize-text",
-      "prompt": "Where is the station?",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-far-from-the-park-2",
-      "options": [
-        {
-          "id": "it-is-near-the-park-1",
-          "image_url": "",
-          "label": "It is near the park."
-        },
-        {
-          "id": "it-is-far-from-the-park-2",
-          "image_url": "",
-          "label": "It is far from the park."
-        }
-      ],
-      "audio_text": "Where is the station?",
-      "answer_audio_text": "It is far from the park.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-far-from-the-park_6ffa714.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la estaci\u00f3n?",
-      "pedagogy_note": "Distance step.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c007-prompt-fedfb33c97e4cc7365b0",
-          "purpose": "prompt",
-          "text": "Where is the station?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_it-is-far-from-the-park_6ffa714.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c007-answer-8a526f74b81653db8372",
-          "purpose": "answer",
-          "text": "It is far from the park.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-far-from-the-park_6ffa714.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "go-straight-1",
-      "options": [
-        {
-          "id": "go-straight-1",
-          "image_url": "",
-          "label": "Go straight."
-        },
-        {
-          "id": "turn-left-2",
-          "image_url": "",
-          "label": "Turn left."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "Go straight.",
-      "prompt_image_url": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Route step 1.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c008-prompt-0bb2081f24b59c60129f",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c008-answer-db3e05ad28cb94c935f2",
-          "purpose": "answer",
-          "text": "Go straight.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "turn-right-2",
-      "options": [
-        {
-          "id": "turn-left-1",
-          "image_url": "",
-          "label": "Turn left."
-        },
-        {
-          "id": "turn-right-2",
-          "image_url": "",
-          "label": "Turn right."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "Turn right.",
-      "prompt_image_url": "/lesson-assets/a1_scene_turn-right_e21c99d.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Route step 2.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c009-prompt-330490c10917530a590c",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_turn-right_e21c99d.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c009-answer-831e55a07e59499e8528",
-          "purpose": "answer",
-          "text": "Turn right.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_turn-right_e21c99d.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "you-can-cross-the-street-1",
-      "options": [
-        {
-          "id": "you-can-cross-the-street-1",
-          "image_url": "",
-          "label": "You can cross the street."
-        },
-        {
-          "id": "you-cannot-cross-the-street-2",
-          "image_url": "",
-          "label": "You cannot cross the street."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "You can cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Safety/ability step.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c010-prompt-e77245724b115515e8ff",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c010-answer-3eb8579a58f2b09ea959",
-          "purpose": "answer",
-          "text": "You can cross the street.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "recognize-text",
-      "prompt": "Choose the phrase.",
-      "stage": "Recognize",
-      "correct_option_id": "can-you-help-me-1",
-      "options": [
-        {
-          "id": "can-you-help-me-1",
-          "image_url": "",
-          "label": "Can you help me?"
-        },
-        {
-          "id": "water-please-2",
-          "image_url": "",
-          "label": "Water, please."
-        }
-      ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Can you help me?",
-      "prompt_image_url": "/lesson-assets/a1_scene_can-you-help-me_eb476e5.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Help step.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c011-prompt-271bd4db4bb06628ceb6",
-          "purpose": "prompt",
-          "text": "Choose the phrase.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_can-you-help-me_eb476e5.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c011-answer-8650f9ce72508620dfad",
-          "purpose": "answer",
-          "text": "Can you help me?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_can-you-help-me_eb476e5.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "the-train-leaves-at-nine-2",
-      "options": [
-        {
-          "id": "the-train-arrives-at-nine-1",
-          "image_url": "",
-          "label": "The train arrives at nine."
-        },
-        {
-          "id": "the-train-leaves-at-nine-2",
-          "image_url": "",
-          "label": "The train leaves at nine."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "The train leaves at nine.",
-      "prompt_image_url": "/lesson-assets/a1_scene_the-train-leaves-at-nine_681786c.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Schedule step.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c012-prompt-dd171e10f1d14dfffb76",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_the-train-leaves-at-nine_681786c.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c012-answer-47a5d887bc3d5a794675",
-          "purpose": "answer",
-          "text": "The train leaves at nine.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_the-train-leaves-at-nine_681786c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A1",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
+      "slide_id": "M01",
+      "interaction_type": "mission-game",
+      "prompt": "The mother is walking to the store. The grandfather is crossing the street. The father is waiting at the bench. The boy is sitting in the park.",
       "stage": "Listen",
-      "correct_option_id": "station-2",
+      "correct_option_id": "mother-walking",
+      "correct_option_ids": [
+        "mother-walking",
+        "grandfather-crossing",
+        "father-waiting",
+        "boy-sitting"
+      ],
       "options": [
         {
-          "id": "hospital-1",
-          "image_url": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
-          "label": null
+          "id": "mother-walking",
+          "image_url": "",
+          "label": "The mother is walking to the store."
         },
         {
-          "id": "station-2",
-          "image_url": "/lesson-assets/a1_scene_station_2da36ff.webp",
-          "label": null
+          "id": "grandfather-crossing",
+          "image_url": "",
+          "label": "The grandfather is crossing the street."
+        },
+        {
+          "id": "father-waiting",
+          "image_url": "",
+          "label": "The father is waiting at the bench."
+        },
+        {
+          "id": "boy-sitting",
+          "image_url": "",
+          "label": "The boy is sitting in the park."
         }
       ],
-      "audio_text": "The station",
+      "audio_text": "The mother is walking to the store. The grandfather is crossing the street. The father is waiting at the bench. The boy is sitting in the park.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Destination listening.",
+      "prompt_image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp",
+      "spanish_translation": "La madre camina a la tienda, el abuelo cruza la calle, el padre espera en la banca y el ni\u00f1o est\u00e1 sentado en el parque.",
+      "pedagogy_note": "Mission beat 01/03: the learner tracks four family members across the central plaza; every target pairs to a spoken audio cue.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "The mother is walking to the store.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp"
+        },
+        {
+          "text": "The grandfather is crossing the street.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp"
+        },
+        {
+          "text": "The father is waiting at the bench.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp"
+        },
+        {
+          "text": "The boy is sitting in the park.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-10-town-mission-c013-prompt-a71f589b0018d7d2c312",
-          "purpose": "prompt",
-          "text": "The station",
+          "id": "lesson-6-10-town-mission-c001-mission-intro-573ebb254367e33aea96",
+          "purpose": "mission-intro",
+          "text": "Acompa\u00f1a a la familia por el barrio mientras regresan a casa. Sigue las pistas de ubicaci\u00f3n, encuentra qui\u00e9n camina y qui\u00e9n espera, y responde las preguntas en voz alta.",
           "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_station_2da36ff.webp",
+          "variant": "mission-intro",
+          "image_ref": "/lesson-assets/a1_u6_mission_kickoff.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-10-town-mission-c013-answer-8e73f41b4a6bfd9cbe6d",
-          "purpose": "answer",
-          "text": "The station",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_station_2da36ff.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A2",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "goes-by-bus-2",
-      "options": [
-        {
-          "id": "goes-by-taxi-1",
-          "image_url": "/lesson-assets/a1_scene_goes-by-taxi_19b09d5.webp",
-          "label": null
-        },
-        {
-          "id": "goes-by-bus-2",
-          "image_url": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I go by bus.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Transport listening.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c014-prompt-e197cd1bacac922f982d",
-          "purpose": "prompt",
-          "text": "I go by bus.",
+          "id": "lesson-6-10-town-mission-c001-prompt-turn-1-50827ccae10d1909a5ef",
+          "purpose": "prompt-turn-1",
+          "text": "The mother is walking to the store.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
+          "image_ref": "/lesson-assets/a1_u6_scene_01_plaza.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-10-town-mission-c014-answer-d9b5cbef7a840386a302",
-          "purpose": "answer",
-          "text": "I go by bus.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_goes-by-bus_a09526f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A3",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "straight-then-right-3",
-      "options": [
-        {
-          "id": "straight-then-left-1",
-          "image_url": "/lesson-assets/a1_scene_straight-then-left_428d77e.webp",
-          "label": null
-        },
-        {
-          "id": "right-only-2",
-          "image_url": "/lesson-assets/a1_scene_right-only_1fb8406.webp",
-          "label": null
-        },
-        {
-          "id": "straight-then-right-3",
-          "image_url": "/lesson-assets/a1_scene_straight-then-right_df64e4f.webp",
-          "label": null
-        },
-        {
-          "id": "straight-only-4",
-          "image_url": "/lesson-assets/a1_scene_straight-only_3a85e6b.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Go straight. Turn right.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Route listening.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c015-prompt-7e83dc588af2b8ffeb67",
-          "purpose": "prompt",
-          "text": "Go straight. Turn right.",
+          "id": "lesson-6-10-town-mission-c001-prompt-turn-2-6b1a36d56dbfa24b214c",
+          "purpose": "prompt-turn-2",
+          "text": "The grandfather is crossing the street.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_straight-then-right_df64e4f.webp",
+          "image_ref": "/lesson-assets/a1_u6_scene_01_plaza.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-10-town-mission-c015-answer-b90c5d303ed97eef5d5f",
-          "purpose": "answer",
-          "text": "Go straight. Turn right.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_straight-then-right_df64e4f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A4",
-      "interaction_type": "listen-text",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "you-cannot-cross-the-street-2",
-      "options": [
-        {
-          "id": "you-can-cross-the-street-1",
-          "image_url": "",
-          "label": "You can cross the street."
-        },
-        {
-          "id": "you-cannot-cross-the-street-2",
-          "image_url": "",
-          "label": "You cannot cross the street."
-        }
-      ],
-      "audio_text": "You cannot cross the street.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Blocked alternate route check.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c016-prompt-57156df507e5c22f8b53",
-          "purpose": "prompt",
-          "text": "You cannot cross the street.",
+          "id": "lesson-6-10-town-mission-c001-prompt-turn-3-ef35c1ea413f9f4a70a5",
+          "purpose": "prompt-turn-3",
+          "text": "The father is waiting at the bench.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:4f446ea2f3d0dd7d559c",
+          "image_ref": "/lesson-assets/a1_u6_scene_01_plaza.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-10-town-mission-c016-answer-53f4b805b790abbfb31e",
-          "purpose": "answer",
-          "text": "You cannot cross the street.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:4f446ea2f3d0dd7d559c",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A5",
-      "interaction_type": "listen-text",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "excuse-me-can-you-help-me-2",
-      "options": [
-        {
-          "id": "hello-water-please-1",
-          "image_url": "",
-          "label": "Hello. Water, please."
-        },
-        {
-          "id": "excuse-me-can-you-help-me-2",
-          "image_url": "",
-          "label": "Excuse me. Can you help me?"
-        },
-        {
-          "id": "thank-you-goodbye-3",
-          "image_url": "",
-          "label": "Thank you. Goodbye."
-        }
-      ],
-      "audio_text": "Excuse me. Can you help me?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Help request listening.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c017-prompt-65f10e811611267523cf",
-          "purpose": "prompt",
-          "text": "Excuse me. Can you help me?",
+          "id": "lesson-6-10-town-mission-c001-prompt-turn-4-c46661481b285a7a2ab3",
+          "purpose": "prompt-turn-4",
+          "text": "The boy is sitting in the park.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "text-only:2a5d1ba5e11e142b7fbc",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c017-answer-e6790e06fb4344bee37f",
-          "purpose": "answer",
-          "text": "Excuse me. Can you help me?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:2a5d1ba5e11e142b7fbc",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "A6",
-      "interaction_type": "listen-image",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "train-leaves-9-00-4",
-      "options": [
-        {
-          "id": "train-arrives-9-00-1",
-          "image_url": "/lesson-assets/a1_scene_train-arrives-9-00_e656d46_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "bus-leaves-9-00-2",
-          "image_url": "/lesson-assets/a1_scene_bus-leaves-9-00_8cee9f4_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "train-leaves-8-00-3",
-          "image_url": "/lesson-assets/a1_scene_train-leaves-8-00_4f3f6e6_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "train-leaves-9-00-4",
-          "image_url": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3_four-card.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "The train leaves at nine.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "Schedule listening.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c018-prompt-ebcf6e5702f1b0feb137",
-          "purpose": "prompt",
-          "text": "The train leaves at nine.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3_four-card.webp",
+          "image_ref": "/lesson-assets/a1_u6_scene_01_plaza.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-10-town-mission-c018-answer-3ab14354faf5e40e85b8",
+          "id": "lesson-6-10-town-mission-c001-answer-19f1f23d322fb46e726d",
           "purpose": "answer",
-          "text": "The train leaves at nine.",
+          "text": "The mother is walking to the store.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_train-leaves-9-00_499abf3_four-card.webp",
+          "image_ref": "/lesson-assets/a1_u6_scene_01_plaza.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
-      ]
+      ],
+      "mission_chapter_id": "ch1-plaza-crossing",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca a las personas en la plaza.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "mother-walking",
+            "label_es": "Madre caminando",
+            "rect": {
+              "x": 0.05,
+              "y": 0.3,
+              "width": 0.18,
+              "height": 0.52
+            },
+            "accepted_option_ids": [
+              "mother-walking"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.14,
+                "y": 0.22
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "grandfather-crossing",
+            "label_es": "Abuelo cruzando",
+            "rect": {
+              "x": 0.29,
+              "y": 0.32,
+              "width": 0.18,
+              "height": 0.5
+            },
+            "accepted_option_ids": [
+              "grandfather-crossing"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.38,
+                "y": 0.24
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "father-waiting",
+            "label_es": "Padre esperando",
+            "rect": {
+              "x": 0.53,
+              "y": 0.3,
+              "width": 0.18,
+              "height": 0.52
+            },
+            "accepted_option_ids": [
+              "father-waiting"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.62,
+                "y": 0.22
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "boy-sitting",
+            "label_es": "Ni\u00f1o sentado",
+            "rect": {
+              "x": 0.76,
+              "y": 0.36,
+              "width": 0.16,
+              "height": 0.46
+            },
+            "accepted_option_ids": [
+              "boy-sitting"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.84,
+                "y": 0.28
+              }
+            ],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-mother-walk",
+            "text": "The mother is walking to the store.",
+            "answer_text": "The mother is walking to the store.",
+            "target_id": "mother-walking",
+            "option_id": "mother-walking"
+          },
+          {
+            "id": "cue-grandfather-cross",
+            "text": "The grandfather is crossing the street.",
+            "answer_text": "The grandfather is crossing the street.",
+            "target_id": "grandfather-crossing",
+            "option_id": "grandfather-crossing"
+          },
+          {
+            "id": "cue-father-wait",
+            "text": "The father is waiting at the bench.",
+            "answer_text": "The father is waiting at the bench.",
+            "target_id": "father-waiting",
+            "option_id": "father-waiting"
+          },
+          {
+            "id": "cue-boy-sit",
+            "text": "The boy is sitting in the park.",
+            "answer_text": "The boy is sitting in the park.",
+            "target_id": "boy-sitting",
+            "option_id": "boy-sitting"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
     },
     {
-      "slide_id": "S1",
-      "interaction_type": "speak",
-      "prompt": "Where is the station?",
+      "slide_id": "M02",
+      "interaction_type": "mission-game",
+      "prompt": "The girl is standing next to the school. The parents are walking together. The grandmother is looking at the store. The bus arrives at eight.",
+      "stage": "Listen",
+      "correct_option_id": "girl-school",
+      "correct_option_ids": [
+        "girl-school",
+        "parents-walking",
+        "grandmother-looking",
+        "bus-arriving"
+      ],
+      "options": [
+        {
+          "id": "girl-school",
+          "image_url": "",
+          "label": "The girl is standing next to the school."
+        },
+        {
+          "id": "parents-walking",
+          "image_url": "",
+          "label": "The parents are walking together."
+        },
+        {
+          "id": "grandmother-looking",
+          "image_url": "",
+          "label": "The grandmother is looking at the store."
+        },
+        {
+          "id": "bus-arriving",
+          "image_url": "",
+          "label": "The bus arrives at eight."
+        }
+      ],
+      "audio_text": "The girl is standing next to the school. The parents are walking together. The grandmother is looking at the store. The bus arrives at eight.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u6_scene_02_school.webp",
+      "spanish_translation": "La ni\u00f1a est\u00e1 junto a la escuela, los padres caminan juntos, la abuela mira la tienda y el autob\u00fas llega a las ocho.",
+      "pedagogy_note": "Mission beat 02/03: the learner identifies the school checkpoint, the walking parents, the grandmother, and the arriving bus.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "The girl is standing next to the school.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u6_scene_02_school.webp"
+        },
+        {
+          "text": "The parents are walking together.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u6_scene_02_school.webp"
+        },
+        {
+          "text": "The grandmother is looking at the store.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u6_scene_02_school.webp"
+        },
+        {
+          "text": "The bus arrives at eight.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u6_scene_02_school.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-6-10-town-mission-c002-prompt-turn-1-dedc11df18b6f06c219a",
+          "purpose": "prompt-turn-1",
+          "text": "The girl is standing next to the school.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u6_scene_02_school.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-10-town-mission-c002-prompt-turn-2-11692f99c111370493ad",
+          "purpose": "prompt-turn-2",
+          "text": "The parents are walking together.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u6_scene_02_school.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-10-town-mission-c002-prompt-turn-3-45e52925f18bd9d0210e",
+          "purpose": "prompt-turn-3",
+          "text": "The grandmother is looking at the store.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u6_scene_02_school.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "female-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-10-town-mission-c002-prompt-turn-4-9933de86bc7cf78323a8",
+          "purpose": "prompt-turn-4",
+          "text": "The bus arrives at eight.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u6_scene_02_school.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "male-character",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-10-town-mission-c002-answer-900f1d1090dc8cb099a3",
+          "purpose": "answer",
+          "text": "The girl is standing next to the school.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u6_scene_02_school.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "ch2-school-checkpoint",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Toca a las personas y el transporte en orden.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "girl-school",
+            "label_es": "Ni\u00f1a junto a la escuela",
+            "rect": {
+              "x": 0.08,
+              "y": 0.32,
+              "width": 0.18,
+              "height": 0.5
+            },
+            "accepted_option_ids": [
+              "girl-school"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.17,
+                "y": 0.24
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "parents-walking",
+            "label_es": "Padres caminando",
+            "rect": {
+              "x": 0.3,
+              "y": 0.3,
+              "width": 0.22,
+              "height": 0.54
+            },
+            "accepted_option_ids": [
+              "parents-walking"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.38,
+                "y": 0.22
+              },
+              {
+                "x": 0.46,
+                "y": 0.22
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "grandmother-looking",
+            "label_es": "Abuela mirando la tienda",
+            "rect": {
+              "x": 0.58,
+              "y": 0.3,
+              "width": 0.16,
+              "height": 0.52
+            },
+            "accepted_option_ids": [
+              "grandmother-looking"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.66,
+                "y": 0.22
+              }
+            ],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "bus-arriving",
+            "label_es": "Autob\u00fas de las ocho",
+            "rect": {
+              "x": 0.76,
+              "y": 0.32,
+              "width": 0.2,
+              "height": 0.5
+            },
+            "accepted_option_ids": [
+              "bus-arriving"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.86,
+                "y": 0.25
+              }
+            ],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-girl-school",
+            "text": "The girl is standing next to the school.",
+            "answer_text": "The girl is standing next to the school.",
+            "target_id": "girl-school",
+            "option_id": "girl-school"
+          },
+          {
+            "id": "cue-parents-walk",
+            "text": "The parents are walking together.",
+            "answer_text": "The parents are walking together.",
+            "target_id": "parents-walking",
+            "option_id": "parents-walking"
+          },
+          {
+            "id": "cue-grandmother-look",
+            "text": "The grandmother is looking at the store.",
+            "answer_text": "The grandmother is looking at the store.",
+            "target_id": "grandmother-looking",
+            "option_id": "grandmother-looking"
+          },
+          {
+            "id": "cue-bus-arrive",
+            "text": "The bus arrives at eight.",
+            "answer_text": "The bus arrives at eight.",
+            "target_id": "bus-arriving",
+            "option_id": "bus-arriving"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M03",
+      "interaction_type": "mission-finale",
+      "prompt": "The bank is next to the store.",
       "stage": "Speak",
-      "correct_option_id": "where-is-the-station-1",
+      "correct_option_id": "bank-next-store",
       "options": [
         {
-          "id": "where-is-the-station-1",
-          "image_url": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
-          "label": "Where is the station?"
+          "id": "bank-next-store",
+          "image_url": "/lesson-assets/a1_u6_scene_03_corner_checkpoint.webp",
+          "label": "The bank is next to the store."
         }
       ],
-      "audio_text": "Where is the station?",
+      "audio_text": "The bank is next to the store.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la estaci\u00f3n?",
-      "pedagogy_note": "Question evidence.",
+      "prompt_image_url": "/lesson-assets/a1_u6_scene_03_corner_checkpoint.webp",
+      "spanish_translation": "El banco est\u00e1 al lado de la tienda.",
+      "pedagogy_note": "Mission beat 03/03: the learner confirms the bank checkpoint location aloud; the completed interaction finishes the Unit 6 neighborhood route mission.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "Where is the bank?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u6_scene_03_corner_checkpoint.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-10-town-mission-c019-prompt-d283bf5740febcbd7587",
-          "purpose": "prompt",
-          "text": "Where is the station?",
+          "id": "lesson-6-10-town-mission-c003-mission-cue-afb42ee56298afd9d9e6",
+          "purpose": "mission-cue",
+          "text": "Where is the bank?",
+          "mode": "prompt",
+          "variant": "question",
+          "image_ref": "/lesson-assets/a1_u6_scene_03_corner_checkpoint.webp",
+          "semantic_role": "question",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-6-10-town-mission-c003-prompt-turn-1-7e9235fad624e5c9d39b",
+          "purpose": "prompt-turn-1",
+          "text": "Where is the bank?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_ref": "/lesson-assets/a1_u6_scene_03_corner_checkpoint.webp",
           "semantic_role": "question",
-          "speaker_role": "question",
+          "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c019-answer-426628d8fffc39a5d629",
-          "purpose": "answer",
-          "text": "Where is the station?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "speak",
-      "prompt": "It is far from the park.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-far-from-the-park-1",
-      "options": [
-        {
-          "id": "it-is-far-from-the-park-1",
-          "image_url": "/lesson-assets/a1_scene_it-is-far-from-the-park_6ffa714.webp",
-          "label": "It is far from the park."
         }
       ],
-      "audio_text": "It is far from the park.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Est\u00e1 lejos del parque.",
-      "pedagogy_note": "Location evidence.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c020-prompt-0a3e126463f7411d99b9",
-          "purpose": "prompt",
-          "text": "It is far from the park.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_it-is-far-from-the-park_6ffa714.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c020-answer-00623d7b9cdc744c6aba",
-          "purpose": "answer",
-          "text": "It is far from the park.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-far-from-the-park_6ffa714.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "speak",
-      "prompt": "Go straight. Turn right.",
-      "stage": "Speak",
-      "correct_option_id": "go-straight-turn-right-1",
-      "options": [
-        {
-          "id": "go-straight-turn-right-1",
-          "image_url": "/lesson-assets/a1_scene_go-straight-turn-right_7db0dd5.webp",
-          "label": "Go straight. Turn right."
-        }
-      ],
-      "audio_text": "Go straight. Turn right.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Sigue derecho. Gira a la derecha.",
-      "pedagogy_note": "Direction evidence.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c021-prompt-0e4d04fa653f4058a77f",
-          "purpose": "prompt",
-          "text": "Go straight. Turn right.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_go-straight-turn-right_7db0dd5.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c021-answer-cba009cb06a6a9806207",
-          "purpose": "answer",
-          "text": "Go straight. Turn right.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_go-straight-turn-right_7db0dd5.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "speak",
-      "prompt": "You can cross the street.",
-      "stage": "Speak",
-      "correct_option_id": "you-can-cross-the-street-1",
-      "options": [
-        {
-          "id": "you-can-cross-the-street-1",
-          "image_url": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-          "label": "You can cross the street."
-        }
-      ],
-      "audio_text": "You can cross the street.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Puedes cruzar la calle.",
-      "pedagogy_note": "Can evidence.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c022-prompt-dba96a6c119c107c7596",
-          "purpose": "prompt",
-          "text": "You can cross the street.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c022-answer-aeee126e5eb01e835728",
-          "purpose": "answer",
-          "text": "You can cross the street.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_you-can-cross-the-street_15d25f7.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "speak",
-      "prompt": "Excuse me. Can you help me?",
-      "stage": "Speak",
-      "correct_option_id": "excuse-me-can-you-help-me-1",
-      "options": [
-        {
-          "id": "excuse-me-can-you-help-me-1",
-          "image_url": "/lesson-assets/a1_scene_excuse-me-can-you-help-me_dab207f.webp",
-          "label": "Excuse me. Can you help me?"
-        }
-      ],
-      "audio_text": "Excuse me. Can you help me?",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Disculpe. \u00bfPuede ayudarme?",
-      "pedagogy_note": "Request evidence.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c023-prompt-b7da5b97d1652c380753",
-          "purpose": "prompt",
-          "text": "Excuse me. Can you help me?",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_excuse-me-can-you-help-me_dab207f.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c023-answer-7bc28ac725a7b590837b",
-          "purpose": "answer",
-          "text": "Excuse me. Can you help me?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_excuse-me-can-you-help-me_dab207f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "speak",
-      "prompt": "The train leaves at nine.",
-      "stage": "Speak",
-      "correct_option_id": "the-train-leaves-at-nine-1",
-      "options": [
-        {
-          "id": "the-train-leaves-at-nine-1",
-          "image_url": "/lesson-assets/a1_scene_the-train-leaves-at-nine_681786c.webp",
-          "label": "The train leaves at nine."
-        }
-      ],
-      "audio_text": "The train leaves at nine.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El tren sale a las nueve.",
-      "pedagogy_note": "Schedule evidence.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c024-prompt-d58bed8e017119794d34",
-          "purpose": "prompt",
-          "text": "The train leaves at nine.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_the-train-leaves-at-nine_681786c.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c024-answer-b050fa78baaf88cbbe2c",
-          "purpose": "answer",
-          "text": "The train leaves at nine.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_the-train-leaves-at-nine_681786c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "I go by [blank].",
-      "stage": "Use",
-      "correct_option_id": "bus-1",
-      "options": [
-        {
-          "id": "bus-1",
-          "image_url": "",
-          "label": "bus"
-        },
-        {
-          "id": "train-2",
-          "image_url": "",
-          "label": "train"
-        }
-      ],
-      "audio_text": "I go by ___.",
-      "answer_audio_text": "I go by bus.",
-      "prompt_image_url": "/lesson-assets/a1_scene_bus_32c70ce.webp",
-      "spanish_translation": "Voy en [pausa].",
-      "pedagogy_note": "Mission transport.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c025-prompt-e43ce5fe9c9e18ec5c15",
-          "purpose": "prompt",
-          "text": "I go by bus.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_bus_32c70ce.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c025-answer-c0de39fe5e92d02b40a9",
-          "purpose": "answer",
-          "text": "I go by bus.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_bus_32c70ce.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "The station is [blank] the park.",
-      "stage": "Use",
-      "correct_option_id": "far-from-2",
-      "options": [
-        {
-          "id": "near-1",
-          "image_url": "",
-          "label": "near"
-        },
-        {
-          "id": "far-from-2",
-          "image_url": "",
-          "label": "far from"
-        }
-      ],
-      "audio_text": "The station is ___ the park.",
-      "answer_audio_text": "The station is far from the park.",
-      "prompt_image_url": "/lesson-assets/a1_scene_far-from_e6f6b5c.webp",
-      "spanish_translation": "La estaci\u00f3n est\u00e1 [pausa] del parque.",
-      "pedagogy_note": "Mission location.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c026-prompt-b0279b2a1051ba979770",
-          "purpose": "prompt",
-          "text": "The station is far from the park.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_far-from_e6f6b5c.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c026-answer-c29b95acdc96060f3626",
-          "purpose": "answer",
-          "text": "The station is far from the park.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_far-from_e6f6b5c.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "choice",
-      "prompt": "Choose the sentence.",
-      "stage": "Use",
-      "correct_option_id": "go-straight-1",
-      "options": [
-        {
-          "id": "go-straight-1",
-          "image_url": "",
-          "label": "Go straight."
-        },
-        {
-          "id": "turn-left-2",
-          "image_url": "",
-          "label": "Turn left."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "Go straight.",
-      "prompt_image_url": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Controlled route step.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c027-prompt-38772b2d2f5a06c42073",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c027-answer-82bbb920f6b10df3a4a0",
-          "purpose": "answer",
-          "text": "Go straight.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "choice",
-      "prompt": "Choose the sentence.",
-      "stage": "Use",
-      "correct_option_id": "turn-right-2",
-      "options": [
-        {
-          "id": "turn-left-1",
-          "image_url": "",
-          "label": "Turn left."
-        },
-        {
-          "id": "turn-right-2",
-          "image_url": "",
-          "label": "Turn right."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "Turn right.",
-      "prompt_image_url": "/lesson-assets/a1_scene_turn-right_e21c99d.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Controlled route step.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c028-prompt-284400dced6009192251",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_turn-right_e21c99d.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c028-answer-1cf0fbece0e61b547438",
-          "purpose": "answer",
-          "text": "Turn right.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_turn-right_e21c99d.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "You [blank] cross the street.",
-      "stage": "Use",
-      "correct_option_id": "can-1",
-      "options": [
-        {
-          "id": "can-1",
-          "image_url": "",
-          "label": "can"
-        },
-        {
-          "id": "cannot-2",
-          "image_url": "",
-          "label": "cannot"
-        }
-      ],
-      "audio_text": "You ___ cross the street.",
-      "answer_audio_text": "You can cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_scene_can_7e9219a.webp",
-      "spanish_translation": "[pausa] cruzar la calle.",
-      "pedagogy_note": "Safe route.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c029-prompt-504ed3c9314ff7937a38",
-          "purpose": "prompt",
-          "text": "You can cross the street.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_can_7e9219a.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c029-answer-21e5c54dac92654c305b",
-          "purpose": "answer",
-          "text": "You can cross the street.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_can_7e9219a.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "Can you [blank] me?",
-      "stage": "Use",
-      "correct_option_id": "help-1",
-      "options": [
-        {
-          "id": "help-1",
-          "image_url": "",
-          "label": "help"
-        },
-        {
-          "id": "stop-2",
-          "image_url": "",
-          "label": "stop"
-        }
-      ],
-      "audio_text": "Can you ___ me?",
-      "answer_audio_text": "Can you help me?",
-      "prompt_image_url": "/lesson-assets/a1_scene_help_92005ec.webp",
-      "spanish_translation": "\u00bfPuede [pausa]?",
-      "pedagogy_note": "Help request.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c030-prompt-def884be11139db2ccf1",
-          "purpose": "prompt",
-          "text": "Can you help me?",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c030-answer-84f2e4e819399a3431b2",
-          "purpose": "answer",
-          "text": "Can you help me?",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the station?",
-      "stage": "Use",
-      "correct_option_id": "it-is-on-the-left-1",
-      "options": [
-        {
-          "id": "it-is-on-the-left-1",
-          "image_url": "",
-          "label": "It is on the left."
-        },
-        {
-          "id": "it-is-on-the-right-2",
-          "image_url": "",
-          "label": "It is on the right."
-        }
-      ],
-      "audio_text": "Where is the station?",
-      "answer_audio_text": "It is on the left.",
-      "prompt_image_url": "/lesson-assets/a1_scene_it-is-on-the-left_f11a126.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la estaci\u00f3n?",
-      "pedagogy_note": "Location response.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c031-prompt-d64b227e9c626db4922d",
-          "purpose": "prompt",
-          "text": "Where is the station?",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_it-is-on-the-left_f11a126.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c031-answer-19b5283b5a7fb19042b6",
-          "purpose": "answer",
-          "text": "It is on the left.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_it-is-on-the-left_f11a126.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete",
-      "prompt": "The train [blank] at nine.",
-      "stage": "Use",
-      "correct_option_id": "leaves-1",
-      "options": [
-        {
-          "id": "leaves-1",
-          "image_url": "",
-          "label": "leaves"
-        },
-        {
-          "id": "arrives-2",
-          "image_url": "",
-          "label": "arrives"
-        }
-      ],
-      "audio_text": "The train ___ at nine.",
-      "answer_audio_text": "The train leaves at nine.",
-      "prompt_image_url": "/lesson-assets/a1_scene_leaves_8411175.webp",
-      "spanish_translation": "El tren [pausa] a las nueve.",
-      "pedagogy_note": "Mission schedule completion.",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-6-10-town-mission-c032-prompt-7d00688099bcb8780219",
-          "purpose": "prompt",
-          "text": "The train leaves at nine.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_leaves_8411175.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-6-10-town-mission-c032-answer-f166dc39f49c68bf2bb7",
-          "purpose": "answer",
-          "text": "The train leaves at nine.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_leaves_8411175.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
+      "mission_chapter_id": "ch3-walking-home",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha y responde confirmando la ubicaci\u00f3n del banco.",
+        "validation": "single",
+        "targets": [
+          {
+            "id": "bank-checkpoint",
+            "label_es": "Fachada del banco",
+            "rect": {
+              "x": 0.25,
+              "y": 0.2,
+              "width": 0.5,
+              "height": 0.65
+            },
+            "accepted_option_ids": [
+              "bank-next-store"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "bank-checkpoint",
+            "text": "Where is the bank?",
+            "answer_text": "The bank is next to the store.",
+            "target_id": "bank-checkpoint",
+            "option_id": "bank-next-store"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": "Where is the bank?"
+      }
     }
-  ]
+  ],
+  "experience_type": "mission",
+  "content_revision": 1,
+  "mission": {
+    "label": "MISI\u00d3N FINAL \u00b7 UNIDAD 6",
+    "title": "Ruta del barrio",
+    "briefing": "Acompa\u00f1a a la familia por el barrio mientras regresan a casa. Sigue las pistas de ubicaci\u00f3n, encuentra qui\u00e9n camina y qui\u00e9n espera, y responde las preguntas en voz alta.",
+    "kickoff_image_url": "/lesson-assets/a1_u6_mission_kickoff.webp",
+    "objectives": [
+      "Sigue los puntos de referencia del barrio",
+      "Identifica parejas y personas en movimiento",
+      "Confirma ubicaciones del barrio en voz alta"
+    ],
+    "completion_title": "\u00a1Ruta del barrio completada!",
+    "completion_message": "Recorriste el barrio con la familia, identificaste cada punto de referencia y confirmaste las direcciones en ingl\u00e9s.",
+    "chapters": [
+      {
+        "id": "ch1-plaza-crossing",
+        "title": "Cruce de la plaza",
+        "objective": "Ubica qui\u00e9n camina hacia la tienda, qui\u00e9n espera y qui\u00e9n cruza la calle."
+      },
+      {
+        "id": "ch2-school-checkpoint",
+        "title": "Punto de la escuela",
+        "objective": "Identifica qui\u00e9n espera junto a la escuela y el autob\u00fas."
+      },
+      {
+        "id": "ch3-walking-home",
+        "title": "Camino a casa",
+        "objective": "Responde las preguntas de direcci\u00f3n en voz alta."
+      }
+    ]
+  }
 }

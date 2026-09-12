@@ -544,13 +544,11 @@ assert.equal(
   'the audio must name the place because three authored options are on the right',
 );
 
-for (const number of ['3.9', '3.10']) {
-  const media = learnMedia(number);
-  assert.equal(media.get('I am twenty years old.'), 'a1_scene_ana_age_20.webp');
-  assert.equal(media.get('I am from Mexico. I am Mexican.'), 'a1_scene_ana_mexico.webp');
-  assert.equal(media.get('I am a teacher. I have a book.'), 'a1_scene_ana_teacher_book.webp');
-}
-assert.equal(learnMedia('3.9').get('My name is Ana.'), 'a1_scene_ana_name.webp');
+const media39 = learnMedia('3.9');
+assert.equal(media39.get('I am twenty years old.'), 'a1_scene_ana_age_20.webp');
+assert.equal(media39.get('I am from Mexico. I am Mexican.'), 'a1_scene_ana_mexico.webp');
+assert.equal(media39.get('I am a teacher. I have a book.'), 'a1_scene_ana_teacher_book.webp');
+assert.equal(media39.get('My name is Ana.'), 'a1_scene_ana_name.webp');
 
 const requiredUnitTwoReplacementsByLesson = new Map([
   [
@@ -568,9 +566,9 @@ const requiredUnitTwoReplacementsByLesson = new Map([
   [
     '2.10',
     [
-      'unit2_mission_two_blue_cars.webp',
-      'unit2_mission_three_green_books.webp',
-      'unit2_mission_four_yellow_pens.webp',
+      'a1_u2_scene_01_park_path.webp',
+      'a1_u2_scene_02_bench.webp',
+      'a1_u2_scene_03_bus_stop.webp',
     ],
   ],
 ]);
@@ -666,15 +664,14 @@ requiredAssets.push(
   'a1_scene_ana_age_20.webp',
   'a1_scene_ana_mexico.webp',
   'a1_scene_ana_teacher_book.webp',
-  'a1_scene_luis_name.webp',
-  'a1_scene_luis_age_18.webp',
-  'a1_scene_luis_usa.webp',
-  'a1_scene_luis_driver.webp',
+  'a1_u2_scene_01_park_path.webp',
+  'a1_u2_scene_02_bench.webp',
+  'a1_u2_scene_03_bus_stop.webp',
+  'a1_u3_scene_01_kitchen.webp',
+  'a1_u3_scene_02_dining.webp',
   'unit2_near_red_book.webp',
   'unit2_six_white_bags.webp',
   'unit2_mission_two_blue_cars.webp',
-  'unit2_mission_three_green_books.webp',
-  'unit2_mission_four_yellow_pens.webp',
 );
 
 for (const filename of requiredAssets) {

@@ -69,5 +69,5 @@ for (const filename of lessonFiles) {
 
 assert.equal(units.size, 7, 'Expected embedded lessons from all seven A1 units.');
 assert.ok(textTileCards > 500, 'Expected the full A1 text-tile catalog to be audited.');
-assert.equal(missionTapCandidateSets, 18, 'Expected all 18 listening mission challenges to bypass the ordinary visible-tile limit.');
+assert.equal(missionTapCandidateSets, 33, 'Expected all 33 listening mission challenges to bypass the ordinary visible-tile limit.');
 console.log(`Text-tile option limit passed for ${textTileCards} cards across 70 lessons, including ${missionTapCandidateSets} hidden tap-candidate sets and ${missionConstructionBanks} bounded construction banks.`);
