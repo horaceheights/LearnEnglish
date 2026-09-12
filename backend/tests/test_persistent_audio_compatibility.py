@@ -24,7 +24,7 @@ from backend.app.persistent_audio_assets import (
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIEW_AUDIO_COMMIT = "3d07f864d93d69bd3c68625284b8648cef335b53"
+PREVIEW_AUDIO_COMMIT = "13fbeddd2c4e6c0c455a6e585e7d9e431aa97aee"
 
 
 class PersistentAudioCompatibilityTests(unittest.TestCase):
@@ -34,8 +34,8 @@ class PersistentAudioCompatibilityTests(unittest.TestCase):
         self.assertEqual(PREVIEW_AUDIO_COMMIT, catalog["source_commit"])
         self.assertEqual(70, catalog["lesson_count"])
         self.assertEqual(4655, catalog["asset_count"])
-        self.assertEqual(3742, catalog["registry_asset_count"])
-        self.assertEqual(913, catalog["legacy_manifest_asset_count"])
+        self.assertEqual(3777, catalog["registry_asset_count"])
+        self.assertEqual(878, catalog["legacy_manifest_asset_count"])
         self.assertEqual(catalog["asset_count"], len(asset_index()))
 
         hello = asset_index()[

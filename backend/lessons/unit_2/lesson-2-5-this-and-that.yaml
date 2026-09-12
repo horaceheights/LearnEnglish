@@ -295,50 +295,50 @@
     {
       "slide_id": "R7",
       "interaction_type": "i2t2",
-      "prompt": "What is it?",
+      "prompt": "Choose the sentence.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-car-2",
+      "correct_option_id": "this-is-a-phone-1",
       "options": [
         {
-          "id": "it-is-a-bus-1",
+          "id": "this-is-a-phone-1",
           "image_url": "",
-          "label": "It is a bus."
+          "label": "This is a phone."
         },
         {
-          "id": "it-is-a-car-2",
+          "id": "that-is-a-phone-2",
           "image_url": "",
-          "label": "It is a car."
+          "label": "That is a phone."
         }
       ],
-      "audio_text": "What is it?",
-      "answer_audio_text": "It is a car.",
-      "prompt_image_url": "object_car.webp",
-      "spanish_translation": "¿Qué es?",
-      "pedagogy_note": "2.4 review"
+      "audio_text": "Choose the sentence.",
+      "answer_audio_text": "This is a phone.",
+      "prompt_image_url": "a1_near-phone.webp",
+      "spanish_translation": "Elige la oración.",
+      "pedagogy_note": "Repetition with growth: demonstrative near contrast for phone"
     },
     {
       "slide_id": "R8",
       "interaction_type": "i2t2",
       "prompt": "Choose the sentence.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-table-2",
+      "correct_option_id": "that-is-a-chair-2",
       "options": [
         {
-          "id": "it-is-a-chair-1",
+          "id": "this-is-a-chair-1",
           "image_url": "",
-          "label": "It is a chair."
+          "label": "This is a chair."
         },
         {
-          "id": "it-is-a-table-2",
+          "id": "that-is-a-chair-2",
           "image_url": "",
-          "label": "It is a table."
+          "label": "That is a chair."
         }
       ],
       "audio_text": "Choose the sentence.",
-      "answer_audio_text": "It is a table.",
-      "prompt_image_url": "a1_table.webp",
+      "answer_audio_text": "That is a chair.",
+      "prompt_image_url": "a1_far-chair.webp",
       "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "2.3 object review"
+      "pedagogy_note": "Repetition with growth: demonstrative far contrast for chair"
     },
     {
       "slide_id": "N1",
@@ -744,56 +744,51 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "choose2",
-      "prompt": "What is it?",
+      "interaction_type": "complete2",
+      "prompt": "___ is a phone.",
       "stage": "Use",
-      "correct_option_id": "it-is-a-phone-1",
+      "correct_option_id": "this-1",
       "options": [
         {
-          "id": "it-is-a-phone-1",
+          "id": "this-1",
           "image_url": "",
-          "label": "It is a phone."
+          "label": "This"
         },
         {
-          "id": "it-is-a-book-2",
+          "id": "that-2",
           "image_url": "",
-          "label": "It is a book."
+          "label": "That"
         }
       ],
-      "audio_text": "What is it?",
-      "answer_audio_text": "It is a phone.",
+      "audio_text": "___ is a phone.",
+      "answer_audio_text": "This is a phone.",
       "prompt_image_url": "a1_near-phone.webp",
-      "spanish_translation": "¿Qué es?",
-      "pedagogy_note": "2.4 review independent of distance"
+      "spanish_translation": "___ es un teléfono.",
+      "pedagogy_note": "Repetition with growth: demonstrative production with near distance"
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "___ is a chair.",
       "stage": "Use",
-      "correct_option_id": "car-2",
+      "correct_option_id": "that-2",
       "options": [
         {
-          "id": "bike-1",
+          "id": "this-1",
           "image_url": "",
-          "label": "bike"
+          "label": "This"
         },
         {
-          "id": "car-2",
+          "id": "that-2",
           "image_url": "",
-          "label": "car"
-        },
-        {
-          "id": "bus-3",
-          "image_url": "",
-          "label": "bus"
+          "label": "That"
         }
       ],
-      "audio_text": "It is a ___.",
-      "answer_audio_text": "It is a car.",
-      "prompt_image_url": "object_car.webp",
-      "spanish_translation": "Es un ___.",
-      "pedagogy_note": "2.2 delayed review"
+      "audio_text": "___ is a chair.",
+      "answer_audio_text": "That is a chair.",
+      "prompt_image_url": "a1_far-chair.webp",
+      "spanish_translation": "___ es una silla.",
+      "pedagogy_note": "Repetition with growth: demonstrative production with far distance"
     }
   ]
 }

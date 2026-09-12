@@ -685,16 +685,16 @@ class LessonStructureTests(unittest.TestCase):
         )
 
         self.assertEqual("Recognize", card.stage)
-        self.assertEqual("What is it?", card.prompt)
+        self.assertEqual("Choose the words.", card.prompt)
         self.assertEqual(card.prompt, card.audio_text)
         self.assertEqual(
-            ["It is a phone.", "It is a bag."],
+            ["One phone.", "One chair."],
             [option.label for option in card.options],
         )
         correct_option = next(
             option for option in card.options if option.id == card.correct_option_id
         )
-        self.assertEqual("It is a phone.", correct_option.label)
+        self.assertEqual("One phone.", correct_option.label)
         self.assertEqual(correct_option.label, card.answer_audio_text)
 
     def test_listen_hides_text_and_uses_audio_with_image_choices(self):

@@ -24,15 +24,17 @@
     "store",
     "house",
     "is",
-    "a"
+    "a",
+    "not"
   ],
-  "grammar_function": "It is a noun; no motion, driving, riding, or location prepositions.",
-  "prerequisite": "2.1 place identities and non-person it.",
-  "speaking_outcome": "Name all five surroundings/transport items in short identity sentences.",
+  "grammar_function": "It is a noun; negative contrast (It is a... not a...).",
+  "prerequisite": "2.1 place identities and Unit 1 not negation.",
+  "speaking_outcome": "Name all five surroundings/transport items and one contrast sentence intelligibly.",
   "purposeful_review_slides": [
     "R7",
     "R8",
     "N6",
+    "S6",
     "U6"
   ],
   "cards": [
@@ -350,50 +352,50 @@
     {
       "slide_id": "R7",
       "interaction_type": "t2i2",
-      "prompt": "It is a park.",
+      "prompt": "It is a street, not a park.",
       "stage": "Recognize",
-      "correct_option_id": "park-2",
+      "correct_option_id": "street-2",
       "options": [
         {
-          "id": "school-1",
-          "image_url": "a1_school.webp",
+          "id": "park-1",
+          "image_url": "place_park.webp",
           "label": null
         },
         {
-          "id": "park-2",
-          "image_url": "place_park.webp",
+          "id": "street-2",
+          "image_url": "place_street.webp",
           "label": null
         }
       ],
-      "audio_text": "It is a park.",
+      "audio_text": "It is a street, not a park.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es un parque.",
-      "pedagogy_note": "2.1 review"
+      "spanish_translation": "Es una calle, no un parque.",
+      "pedagogy_note": "Repetition with growth: combines street with park and negation"
     },
     {
       "slide_id": "R8",
       "interaction_type": "i2t2",
       "prompt": "Choose the sentence.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-store-2",
+      "correct_option_id": "it-is-a-bridge-not-a-street-1",
       "options": [
         {
-          "id": "it-is-a-school-1",
+          "id": "it-is-a-bridge-not-a-street-1",
           "image_url": "",
-          "label": "It is a school."
+          "label": "It is a bridge, not a street."
         },
         {
-          "id": "it-is-a-store-2",
+          "id": "it-is-a-street-not-a-bridge-2",
           "image_url": "",
-          "label": "It is a store."
+          "label": "It is a street, not a bridge."
         }
       ],
       "audio_text": "Choose the sentence.",
-      "answer_audio_text": "It is a store.",
-      "prompt_image_url": "a1_store.webp",
+      "answer_audio_text": "It is a bridge, not a street.",
+      "prompt_image_url": "place_bridge.webp",
       "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "2.1 review"
+      "pedagogy_note": "Repetition with growth: contrast bridge vs street with negation"
     },
     {
       "slide_id": "N1",
@@ -530,24 +532,24 @@
       "interaction_type": "a2i2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "school-2",
+      "correct_option_id": "bus-2",
       "options": [
         {
-          "id": "park-1",
-          "image_url": "place_park.webp",
+          "id": "car-1",
+          "image_url": "object_car.webp",
           "label": null
         },
         {
-          "id": "school-2",
-          "image_url": "a1_school.webp",
+          "id": "bus-2",
+          "image_url": "place_bus.webp",
           "label": null
         }
       ],
-      "audio_text": "It is a school.",
+      "audio_text": "It is a bus, not a car.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "2.1 delayed listening review"
+      "pedagogy_note": "Repetition with growth: listen for bus vs car contrast"
     },
     {
       "slide_id": "S1",
@@ -647,21 +649,21 @@
     {
       "slide_id": "S6",
       "interaction_type": "repeat",
-      "prompt": "It is a park.",
+      "prompt": "It is a street, not a park.",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-park-1",
+      "correct_option_id": "it-is-a-street-not-a-park-1",
       "options": [
         {
-          "id": "it-is-a-park-1",
-          "image_url": "place_park.webp",
-          "label": "It is a park."
+          "id": "it-is-a-street-not-a-park-1",
+          "image_url": "place_street.webp",
+          "label": "It is a street, not a park."
         }
       ],
-      "audio_text": "It is a park.",
+      "audio_text": "It is a street, not a park.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es un parque.",
-      "pedagogy_note": "2.1 speaking review"
+      "spanish_translation": "Es una calle, no un parque.",
+      "pedagogy_note": "Repetition with growth: speak contrast sentence with negation"
     },
     {
       "slide_id": "U1",
@@ -810,27 +812,32 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete2",
-      "prompt": "It ___ a store.",
+      "interaction_type": "complete4",
+      "prompt": "It is a car, not a ___.",
       "stage": "Use",
-      "correct_option_id": "is-2",
+      "correct_option_id": "bus-1",
       "options": [
         {
-          "id": "are-1",
+          "id": "bus-1",
           "image_url": "",
-          "label": "are"
+          "label": "bus"
         },
         {
-          "id": "is-2",
+          "id": "bike-2",
           "image_url": "",
-          "label": "is"
+          "label": "bike"
+        },
+        {
+          "id": "street-3",
+          "image_url": "",
+          "label": "street"
         }
       ],
-      "audio_text": "It ___ a store.",
-      "answer_audio_text": "It is a store.",
-      "prompt_image_url": "a1_store.webp",
-      "spanish_translation": "___ una tienda.",
-      "pedagogy_note": "2.1 plus Unit 1 be review"
+      "audio_text": "It is a car, not a ___.",
+      "answer_audio_text": "It is a car, not a bus.",
+      "prompt_image_url": "object_car.webp",
+      "spanish_translation": "Es un auto, no un ___.",
+      "pedagogy_note": "Repetition with growth: complete vehicle contrast with negation"
     }
   ]
 }
