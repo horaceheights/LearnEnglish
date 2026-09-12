@@ -82,16 +82,12 @@ EXACT_ROLE_CHANGES = {
         "female-character",
         "male-character",
     ),
-    ("lesson-7-10-a1-final-mission", "R5", "answer_audio_speaker"): (
-        "female-character",
-        "male-character",
-    ),
 }
 
 # Lesson 1.8 adds 25 visitor-question cards with prompt and answer speaker fields.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 452
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 416
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "386dd2b1f5bc99563d8151ba21a9c622a32934bd83bffc17297fd59072a67690"
+    "2b9cc67c821abdf5c333f0046b0e2a712d89648a37448fe43baf678dbd5acd41"
 )
 
 
@@ -187,7 +183,7 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         neutral = forced_neutral_targets()
 
         self.assertEqual(71, len(neutral))
-        self.assertEqual(7, len(EXACT_ROLE_CHANGES))
+        self.assertEqual(6, len(EXACT_ROLE_CHANGES))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(validator))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(lessons))
         self.assertEqual(validator, lessons)

@@ -186,7 +186,7 @@ class LessonStructureTests(unittest.TestCase):
 
     def test_units_2_through_7_have_complete_execution_metadata(self):
         for lesson in LESSONS.values():
-            if lesson.unit_id == "unit-1":
+            if lesson.unit_id == "unit-1" or getattr(lesson, "experience_type", None) == "mission":
                 continue
             with self.subTest(lesson=lesson.id):
                 self.assertGreaterEqual(len(lesson.cards), 32)
@@ -213,6 +213,20 @@ class LessonStructureTests(unittest.TestCase):
                 self.assertTrue(all(card.slide_id for card in lesson.cards))
                 self.assertTrue(all(card.interaction_type for card in lesson.cards))
                 self.assertTrue(all(card.spanish_translation for card in lesson.cards))
+                self.assertTrue(all(card.pedagogy_note for card in lesson.cards))
+
+    def test_all_mission_lessons_have_complete_execution_metadata(self):
+        for lesson in LESSONS.values():
+            if getattr(lesson, "experience_type", None) != "mission":
+                continue
+            with self.subTest(mission=lesson.id):
+                self.assertTrue(lesson.unit_outcome)
+                self.assertTrue(lesson.grammar_function)
+                self.assertTrue(lesson.speaking_outcome)
+                self.assertTrue(lesson.prerequisite)
+                self.assertTrue(lesson.purposeful_review_slides)
+                self.assertTrue(all(card.slide_id for card in lesson.cards))
+                self.assertTrue(all(card.interaction_type for card in lesson.cards))
                 self.assertTrue(all(card.pedagogy_note for card in lesson.cards))
 
     def test_rebuilt_unit_1_stages_preserve_story_order(self):

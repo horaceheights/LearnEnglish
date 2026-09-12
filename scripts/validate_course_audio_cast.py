@@ -74,11 +74,6 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "ana", "R1 R3 R7 R8"),
         ("answer_audio_speaker", "luis", "R2 R4"),
     ],
-    "lesson-3-10-introduction-mission": [
-        ("audio_speaker", "ana", "L1-L4 R5 N2 N4 S1-S5 U1-U5"),
-        ("audio_speaker", "luis", "R3 N3"),
-        ("answer_audio_speaker", "ana", "R1-R4"),
-    ],
     "lesson-4-1-rooms-at-home": [
         ("audio_speaker", "ana", "U5"),
     ],
@@ -106,11 +101,6 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("audio_speaker", "ana", "R5 R6 N3 N4 S4 U4"),
         ("audio_speaker", "female-character", "L3 S5 U5"),
         ("audio_speaker", "male-character", "U6"),
-    ],
-    "lesson-4-10-my-day-mission": [
-        ("audio_speaker", "male-character", "L3 S3"),
-        ("audio_speaker", "female-character", "N4 S6"),
-        ("answer_audio_speaker", "male-character", "R7"),
     ],
     "lesson-6-2-transportation": [
         ("audio_speaker", "female-character", "L8 S6"),
@@ -149,12 +139,6 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("audio_speaker", "ana", "A3 S2 U3"),
         ("audio_speaker", "female-character", "S3"),
         ("answer_audio_speaker", "male-character", "R7"),
-    ],
-    "lesson-7-10-a1-final-mission": [
-        ("audio_speaker", "ana", "S1 S2 S6 U1 U2"),
-        ("answer_audio_speaker", "ana", "R2"),
-        ("answer_audio_speaker", "female-character", "R4"),
-        ("answer_audio_speaker", "male-character", "R5"),
     ],
 }
 

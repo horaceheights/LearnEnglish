@@ -1,1750 +1,871 @@
 {
   "id": "lesson-4-10-my-day-mission",
-  "title": "4.10 My Day Mission",
+  "title": "4.10 Casa en orden",
   "level": "Beginner A1",
   "unit_id": "unit-4",
   "unit_title": "Unit 4: Home and Daily Life",
-  "unit_outcome": "Locate familiar things and describe a short supported routine using known subjects, simple present chunks, days, and clock times.",
+  "unit_outcome": "Follow audio clues to organize rooms, locate family members and furniture, and speak time checks.",
   "lesson_id": "lesson-4",
   "lesson_title": "Unit 4: Home and Daily Life",
   "sub_lesson_id": "4.10",
-  "sub_lesson_title": "My Day Mission",
-  "goal": "Build and tell one supported day from a coherent home-and-routine timeline while also locating one familiar object.",
+  "sub_lesson_title": "Casa en orden",
+  "goal": "Identify people and furniture across house zones and answer questions aloud before visitors arrive.",
   "vocabulary": [],
   "review_vocabulary": [
-    "all Unit 4 contracted language"
+    "kitchen",
+    "living room",
+    "bedroom",
+    "dining room",
+    "sofa",
+    "table",
+    "chairs",
+    "bed",
+    "lamp",
+    "window",
+    "door",
+    "computer",
+    "father",
+    "mother",
+    "boy",
+    "girl",
+    "grandparents",
+    "there is",
+    "there are",
+    "o'clock",
+    "six"
   ],
-  "grammar_function": "Integrated room/object location, there is/are, simple-present routine, First/Then, day, and whole-hour time.",
-  "prerequisite": "4.9 review complete.",
-  "speaking_outcome": "Deliver six model-supported mission utterances covering home/location, time, and a four-step daily sequence.",
+  "grammar_function": "Integrate subject + be + in/on prepositional phrases and There is/There are.",
+  "prerequisite": "Lessons 4.1-4.9 completed.",
+  "speaking_outcome": "Answer location and time questions aloud across final voice gates.",
   "purposeful_review_slides": [
-    "R2",
-    "R3",
-    "R4",
-    "R6",
-    "N3",
-    "N5",
-    "U4",
-    "U8"
+    "M01",
+    "M02",
+    "M03",
+    "M04"
   ],
   "cards": [
     {
-      "slide_id": "L1",
-      "interaction_type": "teach",
-      "prompt": "There is a bed in the bedroom.",
-      "stage": "Learn",
-      "correct_option_id": "there-is-a-bed-in-the-bedroom-1",
+      "slide_id": "M01",
+      "interaction_type": "mission-game",
+      "prompt": "The mother is in the living room. The grandparents are on the sofa. There is a lamp. There is a window.",
+      "stage": "Listen",
+      "correct_option_id": "mother-living-room",
+      "correct_option_ids": [
+        "mother-living-room",
+        "grandparents-sofa",
+        "room-lamp",
+        "room-window"
+      ],
       "options": [
         {
-          "id": "there-is-a-bed-in-the-bedroom-1",
-          "image_url": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "label": "There is a bed in the bedroom."
+          "id": "mother-living-room",
+          "image_url": "",
+          "label": "The mother is in the living room."
+        },
+        {
+          "id": "grandparents-sofa",
+          "image_url": "",
+          "label": "The grandparents are on the sofa."
+        },
+        {
+          "id": "room-lamp",
+          "image_url": "",
+          "label": "There is a lamp."
+        },
+        {
+          "id": "room-window",
+          "image_url": "",
+          "label": "There is a window."
         }
       ],
-      "audio_text": "There is a bed in the bedroom.",
+      "audio_text": "The mother is in the living room. The grandparents are on the sofa. There is a lamp. There is a window.",
       "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hay una cama en el dormitorio.",
-      "pedagogy_note": "mission orientation",
+      "prompt_image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp",
+      "spanish_translation": "La madre est\u00e1 en la sala. Los abuelos est\u00e1n en el sof\u00e1. Hay una l\u00e1mpara. Hay una ventana.",
+      "pedagogy_note": "Mission beat 01/04: the learner locates people and furniture in the living room from audio cues; the completed interaction advances the home mission.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "The mother is in the living room.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+        },
+        {
+          "text": "The grandparents are on the sofa.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+        },
+        {
+          "text": "There is a lamp.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+        },
+        {
+          "text": "There is a window.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c001-prompt-9d82b6990730b39d5a69",
-          "purpose": "prompt",
-          "text": "There is a bed in the bedroom.",
+          "id": "lesson-4-10-my-day-mission-c001-mission-intro-48ea1bebe27c509b41ae",
+          "purpose": "mission-intro",
+          "text": "La familia prepara la casa para recibir una visita especial. Escucha cada pista, encuentra a cada persona en su habitaci\u00f3n y confirma que todo est\u00e9 listo a tiempo.",
+          "mode": "prompt",
+          "variant": "mission-intro",
+          "image_ref": "/lesson-assets/a1_u4_mission_kickoff.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 2
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c001-prompt-turn-1-a7ec74cd9af48fd424ab",
+          "purpose": "prompt-turn-1",
+          "text": "The mother is in the living room.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
+          "image_ref": "/lesson-assets/a1_u4_scene_01_living_room.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-10-my-day-mission-c001-answer-9661edb9919bb935b676",
-          "purpose": "answer",
-          "text": "There is a bed in the bedroom.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L2",
-      "interaction_type": "teach",
-      "prompt": "The book is on the table.",
-      "stage": "Learn",
-      "correct_option_id": "the-book-is-on-the-table-1",
-      "options": [
-        {
-          "id": "the-book-is-on-the-table-1",
-          "image_url": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "label": "The book is on the table."
-        }
-      ],
-      "audio_text": "The book is on the table.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El libro est\u00e1 sobre la mesa.",
-      "pedagogy_note": "mission orientation",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c002-prompt-468f046d7c6601e49bb8",
-          "purpose": "prompt",
-          "text": "The book is on the table.",
+          "id": "lesson-4-10-my-day-mission-c001-prompt-turn-2-f960554e65ce2d8654ce",
+          "purpose": "prompt-turn-2",
+          "text": "The grandparents are on the sofa.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
+          "image_ref": "/lesson-assets/a1_u4_scene_01_living_room.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-10-my-day-mission-c002-answer-00c06441957d8e1213b0",
-          "purpose": "answer",
-          "text": "The book is on the table.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L3",
-      "interaction_type": "teach",
-      "prompt": "It is seven o'clock. I wake up.",
-      "stage": "Learn",
-      "correct_option_id": "it-is-seven-o-clock-i-wake-up-1",
-      "options": [
-        {
-          "id": "it-is-seven-o-clock-i-wake-up-1",
-          "image_url": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "label": "It is seven o'clock. I wake up."
-        }
-      ],
-      "audio_text": "It is seven o'clock. I wake up.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Son las siete. Me despierto.",
-      "pedagogy_note": "mission orientation",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c003-prompt-b95b3eb434af2f4e40b5",
-          "purpose": "prompt",
-          "text": "It is seven o'clock. I wake up.",
+          "id": "lesson-4-10-my-day-mission-c001-prompt-turn-3-32271b35c28b0bf437fd",
+          "purpose": "prompt-turn-3",
+          "text": "There is a lamp.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c003-answer-26cae0da7954243ea329",
-          "purpose": "answer",
-          "text": "It is seven o'clock. I wake up.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "First, I go to school. Then, I study English.",
-      "stage": "Learn",
-      "correct_option_id": "first-i-go-to-school-then-i-study-english-1",
-      "options": [
-        {
-          "id": "first-i-go-to-school-then-i-study-english-1",
-          "image_url": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "label": "First, I go to school. Then, I study English."
-        }
-      ],
-      "audio_text": "First, I go to school. Then, I study English.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Primero, voy a la escuela. Luego, estudio ingl\u00e9s.",
-      "pedagogy_note": "mission orientation",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c004-prompt-1377f961b49d94d1210e",
-          "purpose": "prompt",
-          "text": "First, I go to school. Then, I study English.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
+          "image_ref": "/lesson-assets/a1_u4_scene_01_living_room.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-10-my-day-mission-c004-answer-02cc091019038f29fb72",
-          "purpose": "answer",
-          "text": "First, I go to school. Then, I study English.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R1",
-      "interaction_type": "i2t2",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "this-is-the-bedroom-2",
-      "options": [
-        {
-          "id": "this-is-the-bathroom-1",
-          "image_url": "",
-          "label": "This is the bathroom."
-        },
-        {
-          "id": "this-is-the-bedroom-2",
-          "image_url": "",
-          "label": "This is the bedroom."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "This is the bedroom.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "room",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c005-prompt-cc514cc93f808e33239a",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
+          "id": "lesson-4-10-my-day-mission-c001-prompt-turn-4-6c7d1991628fe79ed291",
+          "purpose": "prompt-turn-4",
+          "text": "There is a window.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
+          "image_ref": "/lesson-assets/a1_u4_scene_01_living_room.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-10-my-day-mission-c005-answer-99f4651b76d1106a81ca",
+          "id": "lesson-4-10-my-day-mission-c001-answer-db8b4281db50f65cf505",
           "purpose": "answer",
-          "text": "This is the bedroom.",
+          "text": "The mother is in the living room.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
+          "image_ref": "/lesson-assets/a1_u4_scene_01_living_room.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
-      ]
+      ],
+      "mission_chapter_id": "ch1-living-room",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca a las personas y objetos en orden.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "mother-living-room",
+            "label_es": "Madre en la sala",
+            "rect": {
+              "x": 0.1,
+              "y": 0.3,
+              "width": 0.22,
+              "height": 0.52
+            },
+            "accepted_option_ids": [
+              "mother-living-room"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "grandparents-sofa",
+            "label_es": "Abuelos en el sof\u00e1",
+            "rect": {
+              "x": 0.42,
+              "y": 0.38,
+              "width": 0.32,
+              "height": 0.45
+            },
+            "accepted_option_ids": [
+              "grandparents-sofa"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "room-lamp",
+            "label_es": "L\u00e1mpara",
+            "rect": {
+              "x": 0.02,
+              "y": 0.45,
+              "width": 0.14,
+              "height": 0.35
+            },
+            "accepted_option_ids": [
+              "room-lamp"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "room-window",
+            "label_es": "Ventana",
+            "rect": {
+              "x": 0.78,
+              "y": 0.2,
+              "width": 0.2,
+              "height": 0.45
+            },
+            "accepted_option_ids": [
+              "room-window"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-mother-living-room",
+            "text": "The mother is in the living room.",
+            "answer_text": "The mother is in the living room.",
+            "target_id": "mother-living-room",
+            "option_id": "mother-living-room"
+          },
+          {
+            "id": "cue-grandparents-sofa",
+            "text": "The grandparents are on the sofa.",
+            "answer_text": "The grandparents are on the sofa.",
+            "target_id": "grandparents-sofa",
+            "option_id": "grandparents-sofa"
+          },
+          {
+            "id": "cue-room-lamp",
+            "text": "There is a lamp.",
+            "answer_text": "There is a lamp.",
+            "target_id": "room-lamp",
+            "option_id": "room-lamp"
+          },
+          {
+            "id": "cue-room-window",
+            "text": "There is a window.",
+            "answer_text": "There is a window.",
+            "target_id": "room-window",
+            "option_id": "room-window"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
     },
     {
-      "slide_id": "R2",
-      "interaction_type": "i2t4",
-      "prompt": "Where is the book?",
-      "stage": "Recognize",
-      "correct_option_id": "the-book-is-on-the-table-4",
+      "slide_id": "M02",
+      "interaction_type": "mission-game",
+      "prompt": "The father is in the kitchen. The boy is in the kitchen. There is a table in the dining room. There are two chairs.",
+      "stage": "Listen",
+      "correct_option_id": "father-kitchen",
+      "correct_option_ids": [
+        "father-kitchen",
+        "boy-kitchen",
+        "dining-table",
+        "two-chairs"
+      ],
       "options": [
         {
-          "id": "the-book-is-in-the-table-1",
+          "id": "father-kitchen",
           "image_url": "",
-          "label": "The book is in the table."
+          "label": "The father is in the kitchen."
         },
         {
-          "id": "the-book-is-under-the-table-2",
+          "id": "boy-kitchen",
           "image_url": "",
-          "label": "The book is under the table."
+          "label": "The boy is in the kitchen."
         },
         {
-          "id": "the-book-is-on-the-table-4",
+          "id": "dining-table",
           "image_url": "",
-          "label": "The book is on the table."
+          "label": "There is a table in the dining room."
+        },
+        {
+          "id": "two-chairs",
+          "image_url": "",
+          "label": "There are two chairs."
         }
       ],
-      "audio_text": "Where is the book?",
-      "answer_audio_text": "The book is on the table.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el libro?",
-      "pedagogy_note": "location",
+      "audio_text": "The father is in the kitchen. The boy is in the kitchen. There is a table in the dining room. There are two chairs.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp",
+      "spanish_translation": "El padre est\u00e1 en la cocina. El ni\u00f1o est\u00e1 en la cocina. Hay una mesa en el comedor. Hay dos sillas.",
+      "pedagogy_note": "Mission beat 02/04: the learner locates people and furniture in the kitchen and dining area; the completed interaction advances the home mission.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "The father is in the kitchen.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+        },
+        {
+          "text": "The boy is in the kitchen.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+        },
+        {
+          "text": "There is a table in the dining room.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+        },
+        {
+          "text": "There are two chairs.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+        }
+      ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-10-my-day-mission-c006-prompt-07ccea99ca2b1fa11a60",
-          "purpose": "prompt",
-          "text": "Where is the book?",
+          "id": "lesson-4-10-my-day-mission-c002-prompt-turn-1-ee9f4a61d27a983bb9e0",
+          "purpose": "prompt-turn-1",
+          "text": "The father is in the kitchen.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
+          "image_ref": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c002-prompt-turn-2-69b13f7071ce44866a14",
+          "purpose": "prompt-turn-2",
+          "text": "The boy is in the kitchen.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c002-prompt-turn-3-c4361a29c9a07c529326",
+          "purpose": "prompt-turn-3",
+          "text": "There is a table in the dining room.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c002-prompt-turn-4-39fec95bcca72c98c69f",
+          "purpose": "prompt-turn-4",
+          "text": "There are two chairs.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c002-answer-f9b813f4fe0036bc5b5c",
+          "purpose": "answer",
+          "text": "The father is in the kitchen.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "ch2-kitchen-dining",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca en orden.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "father-kitchen",
+            "label_es": "Padre en la cocina",
+            "rect": {
+              "x": 0.2,
+              "y": 0.22,
+              "width": 0.22,
+              "height": 0.65
+            },
+            "accepted_option_ids": [
+              "father-kitchen"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "boy-kitchen",
+            "label_es": "Ni\u00f1o en la cocina",
+            "rect": {
+              "x": 0.55,
+              "y": 0.3,
+              "width": 0.18,
+              "height": 0.52
+            },
+            "accepted_option_ids": [
+              "boy-kitchen"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "dining-table",
+            "label_es": "Mesa del comedor",
+            "rect": {
+              "x": 0.72,
+              "y": 0.5,
+              "width": 0.26,
+              "height": 0.35
+            },
+            "accepted_option_ids": [
+              "dining-table"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "two-chairs",
+            "label_es": "Dos sillas",
+            "rect": {
+              "x": 0.7,
+              "y": 0.55,
+              "width": 0.28,
+              "height": 0.38
+            },
+            "accepted_option_ids": [
+              "two-chairs"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-father-kitchen",
+            "text": "The father is in the kitchen.",
+            "answer_text": "The father is in the kitchen.",
+            "target_id": "father-kitchen",
+            "option_id": "father-kitchen"
+          },
+          {
+            "id": "cue-boy-kitchen",
+            "text": "The boy is in the kitchen.",
+            "answer_text": "The boy is in the kitchen.",
+            "target_id": "boy-kitchen",
+            "option_id": "boy-kitchen"
+          },
+          {
+            "id": "cue-dining-table",
+            "text": "There is a table in the dining room.",
+            "answer_text": "There is a table in the dining room.",
+            "target_id": "dining-table",
+            "option_id": "dining-table"
+          },
+          {
+            "id": "cue-two-chairs",
+            "text": "There are two chairs.",
+            "answer_text": "There are two chairs.",
+            "target_id": "two-chairs",
+            "option_id": "two-chairs"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M03",
+      "interaction_type": "mission-game",
+      "prompt": "The girl is in the bedroom. There is a bed. There is a computer. There is a door.",
+      "stage": "Listen",
+      "correct_option_id": "girl-bedroom",
+      "correct_option_ids": [
+        "girl-bedroom",
+        "bedroom-bed",
+        "bedroom-computer",
+        "bedroom-door"
+      ],
+      "options": [
+        {
+          "id": "girl-bedroom",
+          "image_url": "",
+          "label": "The girl is in the bedroom."
+        },
+        {
+          "id": "bedroom-bed",
+          "image_url": "",
+          "label": "There is a bed."
+        },
+        {
+          "id": "bedroom-computer",
+          "image_url": "",
+          "label": "There is a computer."
+        },
+        {
+          "id": "bedroom-door",
+          "image_url": "",
+          "label": "There is a door."
+        }
+      ],
+      "audio_text": "The girl is in the bedroom. There is a bed. There is a computer. There is a door.",
+      "answer_audio_text": null,
+      "prompt_image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp",
+      "spanish_translation": "La ni\u00f1a est\u00e1 en la habitaci\u00f3n. Hay una cama. Hay una computadora. Hay una puerta.",
+      "pedagogy_note": "Mission beat 03/04: the learner locates family members and furniture in the bedroom; the completed interaction advances the home mission.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "The girl is in the bedroom.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+        },
+        {
+          "text": "There is a bed.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+        },
+        {
+          "text": "There is a computer.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+        },
+        {
+          "text": "There is a door.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-10-my-day-mission-c003-prompt-turn-1-2fe3c879296169e0d981",
+          "purpose": "prompt-turn-1",
+          "text": "The girl is in the bedroom.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u4_scene_03_bedroom.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c003-prompt-turn-2-6f2092bed4f086a4958e",
+          "purpose": "prompt-turn-2",
+          "text": "There is a bed.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u4_scene_03_bedroom.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c003-prompt-turn-3-84fb1de56fe610476cfe",
+          "purpose": "prompt-turn-3",
+          "text": "There is a computer.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u4_scene_03_bedroom.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c003-prompt-turn-4-c532750fed1d183d41d0",
+          "purpose": "prompt-turn-4",
+          "text": "There is a door.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_u4_scene_03_bedroom.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-4-10-my-day-mission-c003-answer-2bc34f60c5748c8e3bdb",
+          "purpose": "answer",
+          "text": "The girl is in the bedroom.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_u4_scene_03_bedroom.webp",
+          "semantic_role": "answer",
+          "speaker_role": "answer",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ],
+      "mission_chapter_id": "ch3-bedrooms-study",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca en orden.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "girl-bedroom",
+            "label_es": "Ni\u00f1a en la habitaci\u00f3n",
+            "rect": {
+              "x": 0.12,
+              "y": 0.35,
+              "width": 0.22,
+              "height": 0.48
+            },
+            "accepted_option_ids": [
+              "girl-bedroom"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "bedroom-bed",
+            "label_es": "Cama",
+            "rect": {
+              "x": 0.58,
+              "y": 0.45,
+              "width": 0.35,
+              "height": 0.45
+            },
+            "accepted_option_ids": [
+              "bedroom-bed"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "bedroom-computer",
+            "label_es": "Computadora",
+            "rect": {
+              "x": 0.25,
+              "y": 0.4,
+              "width": 0.15,
+              "height": 0.2
+            },
+            "accepted_option_ids": [
+              "bedroom-computer"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          },
+          {
+            "id": "bedroom-door",
+            "label_es": "Puerta",
+            "rect": {
+              "x": 0.45,
+              "y": 0.15,
+              "width": 0.15,
+              "height": 0.45
+            },
+            "accepted_option_ids": [
+              "bedroom-door"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-girl-bedroom",
+            "text": "The girl is in the bedroom.",
+            "answer_text": "The girl is in the bedroom.",
+            "target_id": "girl-bedroom",
+            "option_id": "girl-bedroom"
+          },
+          {
+            "id": "cue-bedroom-bed",
+            "text": "There is a bed.",
+            "answer_text": "There is a bed.",
+            "target_id": "bedroom-bed",
+            "option_id": "bedroom-bed"
+          },
+          {
+            "id": "cue-bedroom-computer",
+            "text": "There is a computer.",
+            "answer_text": "There is a computer.",
+            "target_id": "bedroom-computer",
+            "option_id": "bedroom-computer"
+          },
+          {
+            "id": "cue-bedroom-door",
+            "text": "There is a door.",
+            "answer_text": "There is a door.",
+            "target_id": "bedroom-door",
+            "option_id": "bedroom-door"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": null
+      }
+    },
+    {
+      "slide_id": "M04",
+      "interaction_type": "mission-finale",
+      "prompt": "It is six o'clock.",
+      "stage": "Speak",
+      "correct_option_id": "time-six",
+      "options": [
+        {
+          "id": "time-six",
+          "image_url": "/lesson-assets/a1_u4_scene_04_clock_check.webp",
+          "label": "It is six o'clock."
+        }
+      ],
+      "audio_text": "It is six o'clock.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Son las seis en punto.",
+      "pedagogy_note": "Mission beat 04/04: the learner confirms the time aloud before guests arrive; the completed interaction finishes the Unit 4 home mission.",
+      "audio_speaker": null,
+      "answer_audio_speaker": null,
+      "audio_turns": [
+        {
+          "text": "What time is it?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_scene_04_clock_check.webp"
+        }
+      ],
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-4-10-my-day-mission-c004-mission-cue-5648b9abed32bbecd24a",
+          "purpose": "mission-cue",
+          "text": "What time is it?",
+          "mode": "prompt",
+          "variant": "question",
+          "image_ref": "/lesson-assets/a1_u4_scene_04_clock_check.webp",
           "semantic_role": "question",
-          "speaker_role": "question",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c006-answer-3c3cbad4cfba87c63365",
-          "purpose": "answer",
-          "text": "The book is on the table.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "i2t2",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "there-is-a-bed-in-the-bedroom-2",
-      "options": [
-        {
-          "id": "there-are-two-chairs-in-the-dining-room-1",
-          "image_url": "",
-          "label": "There are two chairs in the dining room."
-        },
-        {
-          "id": "there-is-a-bed-in-the-bedroom-2",
-          "image_url": "",
-          "label": "There is a bed in the bedroom."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "There is a bed in the bedroom.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "existence",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c007-prompt-e6fee34962bc172c3aba",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
+          "revision": 2
         },
         {
-          "id": "lesson-4-10-my-day-mission-c007-answer-9ec3f05b63e7de0368c2",
-          "purpose": "answer",
-          "text": "There is a bed in the bedroom.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "t2i2",
-      "prompt": "I brush my teeth.",
-      "stage": "Recognize",
-      "correct_option_id": "mission-brush-2",
-      "options": [
-        {
-          "id": "mission-breakfast-1",
-          "image_url": "/lesson-assets/a1_scene_mission-breakfast_b2b191f.webp",
-          "label": null
-        },
-        {
-          "id": "mission-brush-2",
-          "image_url": "/lesson-assets/a1_scene_mission-brush_101d93f.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I brush my teeth.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Me cepillo los dientes.",
-      "pedagogy_note": "routine",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c008-prompt-046b2291e0775f56542b",
-          "purpose": "prompt",
-          "text": "I brush my teeth.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-brush_101d93f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c008-answer-5023e272f0f009c18d28",
-          "purpose": "answer",
-          "text": "I brush my teeth.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-brush_101d93f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "t2i2",
-      "prompt": "I come home.",
-      "stage": "Recognize",
-      "correct_option_id": "mission-home-2",
-      "options": [
-        {
-          "id": "mission-school-1",
-          "image_url": "/lesson-assets/a1_scene_mission-school_c53d4e6.webp",
-          "label": null
-        },
-        {
-          "id": "mission-home-2",
-          "image_url": "/lesson-assets/a1_scene_mission-home_8473c5d.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I come home.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Vuelvo a casa.",
-      "pedagogy_note": "direction endpoints clear",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c009-prompt-914f1c7d6d7568f898f0",
-          "purpose": "prompt",
-          "text": "I come home.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-home_8473c5d.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c009-answer-a39caf0e208181e8c934",
-          "purpose": "answer",
-          "text": "I come home.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-home_8473c5d.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "i2t4",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "first-i-go-to-school-3",
-      "options": [
-        {
-          "id": "then-i-go-to-school-1",
-          "image_url": "",
-          "label": "Then, I go to school."
-        },
-        {
-          "id": "first-i-study-english-2",
-          "image_url": "",
-          "label": "First, I study English."
-        },
-        {
-          "id": "first-i-go-to-school-3",
-          "image_url": "",
-          "label": "First, I go to school."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "First, I go to school.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "first panel highlighted",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c010-prompt-f0799ca7c824990e60d6",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c010-answer-fd45a1c1a68c82c75e46",
-          "purpose": "answer",
-          "text": "First, I go to school.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "i2t2",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "i-wake-up-on-monday-2",
-      "options": [
-        {
-          "id": "i-wake-up-on-sunday-1",
-          "image_url": "",
-          "label": "I wake up on Sunday."
-        },
-        {
-          "id": "i-wake-up-on-monday-2",
-          "image_url": "",
-          "label": "I wake up on Monday."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "I wake up on Monday.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "Monday tile visible",
-      "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c011-prompt-85f5195df1ee4727cd38",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c011-answer-e943871e96566d11d004",
-          "purpose": "answer",
-          "text": "I wake up on Monday.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t4",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-seven-o-clock-3",
-      "options": [
-        {
-          "id": "it-is-three-o-clock-1",
-          "image_url": "",
-          "label": "It is three o'clock."
-        },
-        {
-          "id": "it-is-nine-o-clock-2",
-          "image_url": "",
-          "label": "It is nine o'clock."
-        },
-        {
-          "id": "it-is-seven-o-clock-3",
-          "image_url": "",
-          "label": "It is seven o'clock."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "It is seven o'clock.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
-      "pedagogy_note": "time",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c012-prompt-b79152cdb306a67a3188",
-          "purpose": "prompt",
-          "text": "Choose the sentence.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c012-answer-9f55b946c8cb62bbffab",
-          "purpose": "answer",
-          "text": "It is seven o'clock.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mission-book-table-1",
-      "options": [
-        {
-          "id": "mission-book-table-1",
-          "image_url": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "label": null
-        },
-        {
-          "id": "mission-bedroom-2",
-          "image_url": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "The book is on the table.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c013-prompt-b7ebac0c84238a149735",
-          "purpose": "prompt",
-          "text": "The book is on the table.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c013-answer-a8b07e181f9fb3458491",
-          "purpose": "answer",
-          "text": "The book is on the table.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mission-bedroom-2",
-      "options": [
-        {
-          "id": "mission-book-table-1",
-          "image_url": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "label": null
-        },
-        {
-          "id": "mission-bedroom-2",
-          "image_url": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "There is a bed in the bedroom.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c014-prompt-27b3485fa1564a053262",
-          "purpose": "prompt",
-          "text": "There is a bed in the bedroom.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c014-answer-b02a535d8fcb00557cf6",
-          "purpose": "answer",
-          "text": "There is a bed in the bedroom.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N3",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mission-breakfast-1",
-      "options": [
-        {
-          "id": "mission-breakfast-1",
-          "image_url": "/lesson-assets/a1_scene_mission-breakfast_b2b191f.webp",
-          "label": null
-        },
-        {
-          "id": "mission-brush-2",
-          "image_url": "/lesson-assets/a1_scene_mission-brush_101d93f.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I eat breakfast.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c015-prompt-dc7bdd427b79f0883da9",
-          "purpose": "prompt",
-          "text": "I eat breakfast.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-breakfast_b2b191f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c015-answer-e4ab08b0051d9199830a",
-          "purpose": "answer",
-          "text": "I eat breakfast.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-breakfast_b2b191f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mission-sleep-2",
-      "options": [
-        {
-          "id": "mission-wake-1",
-          "image_url": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "label": null
-        },
-        {
-          "id": "mission-sleep-2",
-          "image_url": "/lesson-assets/a1_scene_mission-sleep_cfb9db2.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "I sleep at night.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden; exact at-night frame was introduced as chunk in 4.8",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c016-prompt-5090109e953c15a4c63e",
-          "purpose": "prompt",
-          "text": "I sleep at night.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-sleep_cfb9db2.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c016-answer-f3ee3df4a9d137b82f06",
-          "purpose": "answer",
-          "text": "I sleep at night.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-sleep_cfb9db2.webp",
-          "semantic_role": "answer",
+          "id": "lesson-4-10-my-day-mission-c004-prompt-turn-1-7c036def08e086c0b8c3",
+          "purpose": "prompt-turn-1",
+          "text": "What time is it?",
+          "mode": "pronunciation_slow",
+          "variant": "split-ing",
+          "image_ref": "/lesson-assets/a1_u4_scene_04_clock_check.webp",
+          "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
-      ]
-    },
-    {
-      "slide_id": "N5",
-      "interaction_type": "a2t2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "first-i-go-to-school-1",
-      "options": [
-        {
-          "id": "first-i-go-to-school-1",
-          "image_url": "",
-          "label": "First, I go to school."
-        },
-        {
-          "id": "then-i-go-to-school-2",
-          "image_url": "",
-          "label": "Then, I go to school."
-        }
       ],
-      "audio_text": "First, I go to school.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "sequence listening",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c017-prompt-a2d4a81eaca19c202307",
-          "purpose": "prompt",
-          "text": "First, I go to school.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "text-only:6f331c5fbd36bdbef87d",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c017-answer-c5cc74e7f6db49cdd095",
-          "purpose": "answer",
-          "text": "First, I go to school.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "text-only:6f331c5fbd36bdbef87d",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "N6",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mission-clock7-2",
-      "options": [
-        {
-          "id": "mission-sleep-1",
-          "image_url": "/lesson-assets/a1_scene_mission-sleep_cfb9db2.webp",
-          "label": null
-        },
-        {
-          "id": "mission-clock7-2",
-          "image_url": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is seven o'clock.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "time",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c018-prompt-ff0a0774d6141593a0fe",
-          "purpose": "prompt",
-          "text": "It is seven o'clock.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c018-answer-8b9950cc0fd4b7103bb7",
-          "purpose": "answer",
-          "text": "It is seven o'clock.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S1",
-      "interaction_type": "repeat",
-      "prompt": "The book is on the table.",
-      "stage": "Speak",
-      "correct_option_id": "the-book-is-on-the-table-1",
-      "options": [
-        {
-          "id": "the-book-is-on-the-table-1",
-          "image_url": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "label": "The book is on the table."
-        }
-      ],
-      "audio_text": "The book is on the table.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "El libro est\u00e1 sobre la mesa.",
-      "pedagogy_note": "location outcome",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c019-prompt-2da99af2c849618b5fd8",
-          "purpose": "prompt",
-          "text": "The book is on the table.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c019-answer-30f7eabf02466eb761f4",
-          "purpose": "answer",
-          "text": "The book is on the table.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "There is a bed in the bedroom.",
-      "stage": "Speak",
-      "correct_option_id": "there-is-a-bed-in-the-bedroom-1",
-      "options": [
-        {
-          "id": "there-is-a-bed-in-the-bedroom-1",
-          "image_url": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "label": "There is a bed in the bedroom."
-        }
-      ],
-      "audio_text": "There is a bed in the bedroom.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Hay una cama en el dormitorio.",
-      "pedagogy_note": "existence outcome",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c020-prompt-dc43b0735562c07a97bb",
-          "purpose": "prompt",
-          "text": "There is a bed in the bedroom.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c020-answer-7e1fe60ba9f119f87c8a",
-          "purpose": "answer",
-          "text": "There is a bed in the bedroom.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "It is seven o'clock. I wake up.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-seven-o-clock-i-wake-up-1",
-      "options": [
-        {
-          "id": "it-is-seven-o-clock-i-wake-up-1",
-          "image_url": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "label": "It is seven o'clock. I wake up."
-        }
-      ],
-      "audio_text": "It is seven o'clock. I wake up.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Son las siete. Me despierto.",
-      "pedagogy_note": "time/routine outcome",
-      "audio_speaker": "male-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c021-prompt-ea2203e4ac84f30c1bb2",
-          "purpose": "prompt",
-          "text": "It is seven o'clock. I wake up.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c021-answer-f2b82723ea00b71416ed",
-          "purpose": "answer",
-          "text": "It is seven o'clock. I wake up.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-wake_07ea1f6.webp",
-          "semantic_role": "answer",
-          "speaker_role": "male-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "repeat",
-      "prompt": "I eat breakfast in the morning.",
-      "stage": "Speak",
-      "correct_option_id": "i-eat-breakfast-in-the-morning-1",
-      "options": [
-        {
-          "id": "i-eat-breakfast-in-the-morning-1",
-          "image_url": "/lesson-assets/a1_scene_mission-breakfast_b2b191f.webp",
-          "label": "I eat breakfast in the morning."
-        }
-      ],
-      "audio_text": "I eat breakfast in the morning.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Desayuno en la ma\u00f1ana.",
-      "pedagogy_note": "routine/time anchor",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c022-prompt-79bf37461c3cac70975a",
-          "purpose": "prompt",
-          "text": "I eat breakfast in the morning.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_mission-breakfast_b2b191f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c022-answer-163b7201b28200b5f8d9",
-          "purpose": "answer",
-          "text": "I eat breakfast in the morning.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-breakfast_b2b191f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "repeat",
-      "prompt": "First, I go to school. Then, I study English.",
-      "stage": "Speak",
-      "correct_option_id": "first-i-go-to-school-then-i-study-english-1",
-      "options": [
-        {
-          "id": "first-i-go-to-school-then-i-study-english-1",
-          "image_url": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "label": "First, I go to school. Then, I study English."
-        }
-      ],
-      "audio_text": "First, I go to school. Then, I study English.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Primero, voy a la escuela. Luego, estudio ingl\u00e9s.",
-      "pedagogy_note": "sequence outcome",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c023-prompt-28f997ba6c360786615e",
-          "purpose": "prompt",
-          "text": "First, I go to school. Then, I study English.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c023-answer-25beb69004019e7c1c37",
-          "purpose": "answer",
-          "text": "First, I go to school. Then, I study English.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "repeat",
-      "prompt": "I sleep at night.",
-      "stage": "Speak",
-      "correct_option_id": "i-sleep-at-night-1",
-      "options": [
-        {
-          "id": "i-sleep-at-night-1",
-          "image_url": "/lesson-assets/a1_scene_mission-sleep_cfb9db2.webp",
-          "label": "I sleep at night."
-        }
-      ],
-      "audio_text": "I sleep at night.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Duermo por la noche.",
-      "pedagogy_note": "taught in 4.8",
-      "audio_speaker": "female-character",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c024-prompt-a594016ea310d4cb938e",
-          "purpose": "prompt",
-          "text": "I sleep at night.",
-          "mode": "pronunciation_slow",
-          "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_mission-sleep_cfb9db2.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c024-answer-16a8c3daf014b54367e6",
-          "purpose": "answer",
-          "text": "I sleep at night.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-sleep_cfb9db2.webp",
-          "semantic_role": "answer",
-          "speaker_role": "female-character",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "This is the ___.",
-      "stage": "Use",
-      "correct_option_id": "bedroom-4",
-      "options": [
-        {
-          "id": "bathroom-1",
-          "image_url": "",
-          "label": "bathroom"
-        },
-        {
-          "id": "kitchen-2",
-          "image_url": "",
-          "label": "kitchen"
-        },
-        {
-          "id": "bedroom-4",
-          "image_url": "",
-          "label": "bedroom"
-        }
-      ],
-      "audio_text": "This is the ___.",
-      "answer_audio_text": "This is the bedroom.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-      "spanish_translation": "Este es el ___.",
-      "pedagogy_note": "room",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c025-prompt-07f6b1ff3a3bc85edb55",
-          "purpose": "prompt",
-          "text": "This is the bedroom.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c025-answer-48b78278bb9e748e8c87",
-          "purpose": "answer",
-          "text": "This is the bedroom.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "The book is ___ the table.",
-      "stage": "Use",
-      "correct_option_id": "on-3",
-      "options": [
-        {
-          "id": "under-1",
-          "image_url": "",
-          "label": "under"
-        },
-        {
-          "id": "next-to-2",
-          "image_url": "",
-          "label": "next to"
-        },
-        {
-          "id": "on-3",
-          "image_url": "",
-          "label": "on"
-        }
-      ],
-      "audio_text": "The book is ___ the table.",
-      "answer_audio_text": "The book is on the table.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-      "spanish_translation": "El libro est\u00e1 ___ la mesa.",
-      "pedagogy_note": "location",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c026-prompt-0078170eacbbb01eeff3",
-          "purpose": "prompt",
-          "text": "The book is on the table.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c026-answer-607c1aec6a7d2bfa857e",
-          "purpose": "answer",
-          "text": "The book is on the table.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-book-table_a5b8bdc.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "There ___ a bed in the bedroom.",
-      "stage": "Use",
-      "correct_option_id": "is-2",
-      "options": [
-        {
-          "id": "are-1",
-          "image_url": "",
-          "label": "are"
-        },
-        {
-          "id": "is-2",
-          "image_url": "",
-          "label": "is"
-        }
-      ],
-      "audio_text": "There ___ a bed in the bedroom.",
-      "answer_audio_text": "There is a bed in the bedroom.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-      "spanish_translation": "___ una cama en el dormitorio.",
-      "pedagogy_note": "existence",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c027-prompt-404afcc7adc4eeb04064",
-          "purpose": "prompt",
-          "text": "There is a bed in the bedroom.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c027-answer-31b9ab7373277939f48d",
-          "purpose": "answer",
-          "text": "There is a bed in the bedroom.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-bedroom_24e0425.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete4",
-      "prompt": "I ___.",
-      "stage": "Use",
-      "correct_option_id": "brush-my-teeth-4",
-      "options": [
-        {
-          "id": "wash-my-face-1",
-          "image_url": "",
-          "label": "wash my face"
-        },
-        {
-          "id": "eat-breakfast-2",
-          "image_url": "",
-          "label": "eat breakfast"
-        },
-        {
-          "id": "brush-my-teeth-4",
-          "image_url": "",
-          "label": "brush my teeth"
-        }
-      ],
-      "audio_text": "I ___.",
-      "answer_audio_text": "I brush my teeth.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-brush_101d93f.webp",
-      "spanish_translation": "Yo ___.",
-      "pedagogy_note": "routine",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c028-prompt-fc16d4da9f39dd31e8ae",
-          "purpose": "prompt",
-          "text": "I brush my teeth.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-brush_101d93f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c028-answer-b6635dcd2937322ce929",
-          "purpose": "answer",
-          "text": "I brush my teeth.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-brush_101d93f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete4",
-      "prompt": "I ___.",
-      "stage": "Use",
-      "correct_option_id": "come-home-3",
-      "options": [
-        {
-          "id": "go-to-school-1",
-          "image_url": "",
-          "label": "go to school"
-        },
-        {
-          "id": "work-2",
-          "image_url": "",
-          "label": "work"
-        },
-        {
-          "id": "come-home-3",
-          "image_url": "",
-          "label": "come home"
-        }
-      ],
-      "audio_text": "I ___.",
-      "answer_audio_text": "I come home.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-home_8473c5d.webp",
-      "spanish_translation": "Yo ___.",
-      "pedagogy_note": "routine",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c029-prompt-4a0448c077e00aa1fdc8",
-          "purpose": "prompt",
-          "text": "I come home.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-home_8473c5d.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c029-answer-33e71b3bcc7117829be7",
-          "purpose": "answer",
-          "text": "I come home.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-home_8473c5d.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete2",
-      "prompt": "___, I go to school.",
-      "stage": "Use",
-      "correct_option_id": "first-2",
-      "options": [
-        {
-          "id": "then-1",
-          "image_url": "",
-          "label": "Then"
-        },
-        {
-          "id": "first-2",
-          "image_url": "",
-          "label": "First"
-        }
-      ],
-      "audio_text": "___, I go to school.",
-      "answer_audio_text": "First, I go to school.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-      "spanish_translation": "___, voy a la escuela.",
-      "pedagogy_note": "sequence",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c030-prompt-b6f1022c3b187ded8944",
-          "purpose": "prompt",
-          "text": "First, I go to school.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c030-answer-ee5730650414361f8ac7",
-          "purpose": "answer",
-          "text": "First, I go to school.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete2",
-      "prompt": "___, I study English.",
-      "stage": "Use",
-      "correct_option_id": "then-2",
-      "options": [
-        {
-          "id": "first-1",
-          "image_url": "",
-          "label": "First"
-        },
-        {
-          "id": "then-2",
-          "image_url": "",
-          "label": "Then"
-        }
-      ],
-      "audio_text": "___, I study English.",
-      "answer_audio_text": "Then, I study English.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-      "spanish_translation": "___, estudio ingl\u00e9s.",
-      "pedagogy_note": "sequence",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c031-prompt-d96b54e8553ba9f5f6d6",
-          "purpose": "prompt",
-          "text": "Then, I study English.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c031-answer-4754c44bb5042103ff73",
-          "purpose": "answer",
-          "text": "Then, I study English.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-sequence-school-study_cefe12b.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete4",
-      "prompt": "It is ___ o'clock.",
-      "stage": "Use",
-      "correct_option_id": "seven-3",
-      "options": [
-        {
-          "id": "nine-1",
-          "image_url": "",
-          "label": "nine"
-        },
-        {
-          "id": "three-2",
-          "image_url": "",
-          "label": "three"
-        },
-        {
-          "id": "seven-3",
-          "image_url": "",
-          "label": "seven"
-        }
-      ],
-      "audio_text": "It is ___ o'clock.",
-      "answer_audio_text": "It is seven o'clock.",
-      "prompt_image_url": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-      "spanish_translation": "Son las ___.",
-      "pedagogy_note": "time",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-4-10-my-day-mission-c032-prompt-d839b733161e32c61759",
-          "purpose": "prompt",
-          "text": "It is seven o'clock.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-4-10-my-day-mission-c032-answer-3e6f37cfbee6b7c54e1d",
-          "purpose": "answer",
-          "text": "It is seven o'clock.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_mission-clock7_7e5733f.webp",
-          "semantic_role": "answer",
-          "speaker_role": "answer",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
+      "mission_chapter_id": "ch4-time-check",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha y responde para confirmar la hora.",
+        "validation": "single",
+        "targets": [
+          {
+            "id": "clock",
+            "label_es": "Reloj",
+            "rect": {
+              "x": 0.35,
+              "y": 0.2,
+              "width": 0.3,
+              "height": 0.55
+            },
+            "accepted_option_ids": [
+              "time-six"
+            ],
+            "head_anchors": [],
+            "group_chest_anchor": null
+          }
+        ],
+        "cues": [
+          {
+            "id": "clock",
+            "text": "What time is it?",
+            "answer_text": "It is six o'clock.",
+            "target_id": "clock",
+            "option_id": "time-six"
+          }
+        ],
+        "tutorial_mode": null,
+        "cue_audio_text": "What time is it?"
+      }
     }
-  ]
+  ],
+  "experience_type": "mission",
+  "content_revision": 2,
+  "mission": {
+    "label": "MISI\u00d3N FINAL \u00b7 UNIDAD 4",
+    "title": "Casa en orden",
+    "briefing": "La familia prepara la casa para recibir una visita especial. Escucha cada pista, encuentra a cada persona en su habitaci\u00f3n y confirma que todo est\u00e9 listo a tiempo.",
+    "kickoff_image_url": "/lesson-assets/a1_u4_mission_kickoff.webp",
+    "objectives": [
+      "Ubica a cada persona en su habitaci\u00f3n",
+      "Verifica muebles y objetos en su lugar",
+      "Confirma la hora antes de que lleguen los invitados"
+    ],
+    "completion_title": "\u00a1Casa lista para la visita!",
+    "completion_message": "Ubicaste a cada persona en su habitaci\u00f3n, verificaste los muebles y confirmaste la hora en voz alta.",
+    "chapters": [
+      {
+        "id": "ch1-living-room",
+        "title": "En la sala",
+        "objective": "Identifica a las personas y los objetos en la sala."
+      },
+      {
+        "id": "ch2-kitchen-dining",
+        "title": "Cocina y comedor",
+        "objective": "Ubica a las personas y los muebles en la cocina y el comedor."
+      },
+      {
+        "id": "ch3-bedrooms-study",
+        "title": "En la habitaci\u00f3n",
+        "objective": "Revisa qui\u00e9n est\u00e1 en el cuarto y qu\u00e9 muebles hay."
+      },
+      {
+        "id": "ch4-time-check",
+        "title": "Control de la hora",
+        "objective": "Responde la pregunta de la hora en voz alta."
+      }
+    ]
+  }
 }

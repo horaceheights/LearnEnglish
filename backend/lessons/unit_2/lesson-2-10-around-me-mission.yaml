@@ -1,815 +1,747 @@
 {
   "id": "lesson-2-10-around-me-mission",
-  "title": "2.10 Around Me Mission",
+  "title": "2.10 Encuentro en el parque",
   "level": "Beginner A1",
   "unit_id": "unit-2",
   "unit_title": "Unit 2: Places, Objects, Numbers, and Colors",
-  "unit_outcome": "Recognize common surroundings and identify, count, and describe concrete objects without using untaught location language.",
+  "unit_outcome": "Follow audio clues to identify people, locations, objects, colors, and numbers in the park.",
   "lesson_id": "lesson-2",
   "lesson_title": "Unit 2: Places, Objects, Numbers, and Colors",
   "sub_lesson_id": "2.10",
-  "sub_lesson_title": "Around Me Mission",
-  "goal": "Identify and describe known places, transport, and objects from one coherent neighborhood scene without location prepositions.",
+  "sub_lesson_title": "Encuentro en el parque",
+  "experience_type": "mission",
+  "content_revision": 2,
+  "mission": {
+    "label": "MISIÓN FINAL · UNIDAD 2",
+    "title": "Encuentro en el parque",
+    "briefing": "¿Puedes rescatar a la familia y sus pertenencias en el parque para la foto de bienvenida? Escucha con atención cada pista y toca a las personas y objetos correctos.",
+    "kickoff_image_url": "/lesson-assets/a1_u2_mission_kickoff.webp",
+    "objectives": [
+      "Localiza a los personajes en el parque",
+      "Identifica objetos y colores",
+      "Reúne a todos para la foto"
+    ],
+    "completion_title": "¡Foto de bienvenida completada!",
+    "completion_message": "Encontraste a todos en el parque, identificaste sus acciones y objetos, y respondiste las preguntas en voz alta.",
+    "chapters": [
+      {
+        "id": "ch1-park-search",
+        "title": "Búsqueda en el parque",
+        "objective": "Escucha y toca a la persona por su acción o lugar."
+      },
+      {
+        "id": "ch2-objects-colors",
+        "title": "Pistas y colores",
+        "objective": "Identifica objetos, medios de transporte y cantidades."
+      },
+      {
+        "id": "ch3-pairs-actions",
+        "title": "Grupos y parejas",
+        "objective": "Encuentra grupos y parejas de dos personas."
+      },
+      {
+        "id": "ch4-photo-call",
+        "title": "Llamado a la foto",
+        "objective": "Responde las preguntas en voz alta para tomar la foto."
+      }
+    ]
+  },
+  "goal": "Locate family members, objects, and transport in the park using Unit 2 vocabulary and speak final responses.",
   "vocabulary": [],
   "review_vocabulary": [
-    "all Unit 2 contracted language"
+    "park",
+    "bus",
+    "car",
+    "book",
+    "bench",
+    "father",
+    "mother",
+    "girl",
+    "boy",
+    "grandparents",
+    "running",
+    "reading",
+    "sitting",
+    "walking",
+    "talking",
+    "eating",
+    "waiting",
+    "red",
+    "blue",
+    "green",
+    "two",
+    "three"
   ],
-  "grammar_function": "Integrated It is..., What is it?, This/That is..., and number-color-noun descriptions.",
-  "prerequisite": "2.9 review complete.",
-  "speaking_outcome": "Deliver six model-supported mission utterances covering place, object, question-answer, demonstrative, and description outcomes.",
+  "grammar_function": "Integrate subject + be + verb-ing + place/object and demonstrative noun phrases.",
+  "prerequisite": "Lessons 2.1-2.9 completed.",
+  "speaking_outcome": "Answer who is in the park and identify objects aloud across final voice gates.",
   "purposeful_review_slides": [
-    "R1",
-    "R3",
-    "R5",
-    "R6",
-    "N3",
-    "N5",
-    "U5",
-    "U7"
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05"
   ],
   "cards": [
     {
-      "slide_id": "L1",
-      "interaction_type": "teach",
-      "prompt": "It is a park.",
-      "stage": "Learn",
-      "correct_option_id": "it-is-a-park-1",
-      "options": [
-        {
-          "id": "it-is-a-park-1",
-          "image_url": "a1_scene_mission-park_4a508f3.webp",
-          "label": "It is a park."
-        }
-      ],
-      "audio_text": "It is a park.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es un parque.",
-      "pedagogy_note": "mission orientation with known language only"
-    },
-    {
-      "slide_id": "L2",
-      "interaction_type": "teach",
-      "prompt": "It is a bus.",
-      "stage": "Learn",
-      "correct_option_id": "it-is-a-bus-1",
-      "options": [
-        {
-          "id": "it-is-a-bus-1",
-          "image_url": "a1_scene_mission-bus_19132e7.webp",
-          "label": "It is a bus."
-        }
-      ],
-      "audio_text": "It is a bus.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es un autobús.",
-      "pedagogy_note": "mission orientation"
-    },
-    {
-      "slide_id": "L3",
-      "interaction_type": "teach",
-      "prompt": "This is a book.",
-      "stage": "Learn",
-      "correct_option_id": "this-is-a-book-1",
-      "options": [
-        {
-          "id": "this-is-a-book-1",
-          "image_url": "a1_scene_mission-book-near_efdc405.webp",
-          "label": "This is a book."
-        }
-      ],
-      "audio_text": "This is a book.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Este es un libro.",
-      "pedagogy_note": "mission orientation; color is not named in this sentence"
-    },
-    {
-      "slide_id": "L4",
-      "interaction_type": "teach",
-      "prompt": "Two blue cars",
-      "stage": "Learn",
-      "correct_option_id": "two-blue-cars-1",
-      "options": [
-        {
-          "id": "two-blue-cars-1",
-          "image_url": "unit2_mission_two_blue_cars.webp",
-          "label": "Two blue cars"
-        }
-      ],
-      "audio_text": "Two blue cars",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Dos automóviles azules",
-      "pedagogy_note": "mission orientation"
-    },
-    {
-      "slide_id": "R1",
-      "interaction_type": "t2i2",
-      "prompt": "It is a park.",
-      "stage": "Recognize",
-      "correct_option_id": "mission-park-2",
-      "options": [
-        {
-          "id": "school-1",
-          "image_url": "a1_school.webp",
-          "label": null
-        },
-        {
-          "id": "mission-park-2",
-          "image_url": "a1_scene_mission-park_4a508f3.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a park.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es un parque.",
-      "pedagogy_note": "place identity"
-    },
-    {
-      "slide_id": "R2",
-      "interaction_type": "t2i2",
-      "prompt": "It is a bus.",
-      "stage": "Recognize",
-      "correct_option_id": "mission-bus-1",
-      "options": [
-        {
-          "id": "mission-bus-1",
-          "image_url": "a1_scene_mission-bus_19132e7.webp",
-          "label": null
-        },
-        {
-          "id": "mission-two-blue-cars-2",
-          "image_url": "unit2_mission_two_blue_cars.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "It is a bus.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es un autobús.",
-      "pedagogy_note": "vehicle identity"
-    },
-    {
-      "slide_id": "R3",
-      "interaction_type": "i2t2",
-      "prompt": "What is it?",
-      "stage": "Recognize",
-      "correct_option_id": "it-is-a-book-1",
-      "options": [
-        {
-          "id": "it-is-a-book-1",
-          "image_url": "",
-          "label": "It is a book."
-        },
-        {
-          "id": "it-is-a-bag-2",
-          "image_url": "",
-          "label": "It is a bag."
-        }
-      ],
-      "audio_text": "What is it?",
-      "answer_audio_text": "It is a book.",
-      "prompt_image_url": "a1_scene_mission-book-near_efdc405.webp",
-      "spanish_translation": "¿Qué es?",
-      "pedagogy_note": "question shown/played before choices"
-    },
-    {
-      "slide_id": "R4",
-      "interaction_type": "i2t2",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "this-is-a-book-2",
-      "options": [
-        {
-          "id": "that-is-a-book-1",
-          "image_url": "",
-          "label": "That is a book."
-        },
-        {
-          "id": "this-is-a-book-2",
-          "image_url": "",
-          "label": "This is a book."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "This is a book.",
-      "prompt_image_url": "a1_scene_mission-book-near_efdc405.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "foreground this cue"
-    },
-    {
-      "slide_id": "R5",
-      "interaction_type": "i2t2",
-      "prompt": "Choose the sentence.",
-      "stage": "Recognize",
-      "correct_option_id": "that-is-a-bag-1",
-      "options": [
-        {
-          "id": "that-is-a-bag-1",
-          "image_url": "",
-          "label": "That is a bag."
-        },
-        {
-          "id": "this-is-a-bag-2",
-          "image_url": "",
-          "label": "This is a bag."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "That is a bag.",
-      "prompt_image_url": "a1_scene_mission-bag-far_c7514ba.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "distance cue"
-    },
-    {
-      "slide_id": "R6",
-      "interaction_type": "t2i4",
-      "prompt": "Two blue cars",
-      "stage": "Recognize",
-      "correct_option_id": "mission-two-blue-cars-2",
-      "options": [
-        {
-          "id": "mission-three-green-books-1",
-          "image_url": "unit2_mission_three_green_books.webp",
-          "label": null
-        },
-        {
-          "id": "mission-two-blue-cars-2",
-          "image_url": "unit2_mission_two_blue_cars_four-card.webp",
-          "label": null
-        },
-        {
-          "id": "mission-four-yellow-pens-3",
-          "image_url": "unit2_mission_four_yellow_pens.webp",
-          "label": null
-        },
-        {
-          "id": "mission-bus-4",
-          "image_url": "a1_scene_mission-bus_19132e7.webp",
-          "label": null
-        }
-      ],
-      "audio_text": "Two blue cars",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Dos automóviles azules",
-      "pedagogy_note": "full phrase truth"
-    },
-    {
-      "slide_id": "R7",
-      "interaction_type": "i2t4",
-      "prompt": "Choose the phrase.",
-      "stage": "Recognize",
-      "correct_option_id": "three-green-books-3",
-      "options": [
-        {
-          "id": "two-green-books-1",
-          "image_url": "",
-          "label": "Two green books"
-        },
-        {
-          "id": "three-blue-books-2",
-          "image_url": "",
-          "label": "Three blue books"
-        },
-        {
-          "id": "three-green-books-3",
-          "image_url": "",
-          "label": "Three green books"
-        }
-      ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Three green books",
-      "prompt_image_url": "unit2_mission_three_green_books.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "controlled mismatch"
-    },
-    {
-      "slide_id": "R8",
-      "interaction_type": "i2t4",
-      "prompt": "Choose the phrase.",
-      "stage": "Recognize",
-      "correct_option_id": "four-yellow-pens-1",
-      "options": [
-        {
-          "id": "four-yellow-pens-1",
-          "image_url": "",
-          "label": "Four yellow pens"
-        },
-        {
-          "id": "three-yellow-pens-2",
-          "image_url": "",
-          "label": "Three yellow pens"
-        },
-        {
-          "id": "four-white-pens-3",
-          "image_url": "",
-          "label": "Four white pens"
-        }
-      ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Four yellow pens",
-      "prompt_image_url": "unit2_mission_four_yellow_pens.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "all forms introduced in 2.8"
-    },
-    {
-      "slide_id": "N1",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
+      "slide_id": "M01",
+      "mission_chapter_id": "ch1-park-search",
+      "interaction_type": "mission-game",
       "stage": "Listen",
-      "correct_option_id": "school-2",
+      "prompt": "The father is running. The mother is reading. The girl is playing. The boy is walking.",
+      "prompt_image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp",
       "options": [
         {
-          "id": "store-1",
-          "image_url": "a1_store.webp",
-          "label": null
+          "id": "father-running",
+          "image_url": "",
+          "label": "The father is running."
         },
         {
-          "id": "school-2",
-          "image_url": "a1_school.webp",
-          "label": null
+          "id": "mother-reading",
+          "image_url": "",
+          "label": "The mother is reading."
+        },
+        {
+          "id": "girl-playing",
+          "image_url": "",
+          "label": "The girl is playing."
+        },
+        {
+          "id": "boy-walking",
+          "image_url": "",
+          "label": "The boy is walking."
         }
       ],
-      "audio_text": "It is a school.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
+      "correct_option_id": "father-running",
+      "correct_option_ids": [
+        "father-running",
+        "mother-reading",
+        "girl-playing",
+        "boy-walking"
+      ],
+      "audio_text": "The father is running. The mother is reading. The girl is playing. The boy is walking.",
+      "audio_turns": [
+        {
+          "text": "The father is running.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp"
+        },
+        {
+          "text": "The mother is reading.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp"
+        },
+        {
+          "text": "The girl is playing.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp"
+        },
+        {
+          "text": "The boy is walking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_01_park_path.webp"
+        }
+      ],
+      "spanish_translation": "El padre está corriendo. La madre está leyendo. La niña está jugando. El niño está caminando.",
+      "pedagogy_note": "Mission beat 01/05: the learner identifies four people on the park path from audio cues; the completed interaction advances the park mission.",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca a las personas en orden.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "father-running",
+            "label_es": "Padre corriendo",
+            "rect": {
+              "x": 0.08,
+              "y": 0.35,
+              "width": 0.18,
+              "height": 0.38
+            },
+            "accepted_option_ids": [
+              "father-running"
+            ]
+          },
+          {
+            "id": "mother-reading",
+            "label_es": "Madre leyendo",
+            "rect": {
+              "x": 0.7,
+              "y": 0.45,
+              "width": 0.18,
+              "height": 0.35
+            },
+            "accepted_option_ids": [
+              "mother-reading"
+            ]
+          },
+          {
+            "id": "girl-playing",
+            "label_es": "Niña jugando",
+            "rect": {
+              "x": 0.32,
+              "y": 0.5,
+              "width": 0.16,
+              "height": 0.32
+            },
+            "accepted_option_ids": [
+              "girl-playing"
+            ]
+          },
+          {
+            "id": "boy-walking",
+            "label_es": "Niño caminando",
+            "rect": {
+              "x": 0.52,
+              "y": 0.42,
+              "width": 0.16,
+              "height": 0.35
+            },
+            "accepted_option_ids": [
+              "boy-walking"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-father-running",
+            "text": "The father is running.",
+            "answer_text": "The father is running.",
+            "target_id": "father-running",
+            "option_id": "father-running"
+          },
+          {
+            "id": "cue-mother-reading",
+            "text": "The mother is reading.",
+            "answer_text": "The mother is reading.",
+            "target_id": "mother-reading",
+            "option_id": "mother-reading"
+          },
+          {
+            "id": "cue-girl-playing",
+            "text": "The girl is playing.",
+            "answer_text": "The girl is playing.",
+            "target_id": "girl-playing",
+            "option_id": "girl-playing"
+          },
+          {
+            "id": "cue-boy-walking",
+            "text": "The boy is walking.",
+            "answer_text": "The boy is walking.",
+            "target_id": "boy-walking",
+            "option_id": "boy-walking"
+          }
+        ]
+      }
     },
     {
-      "slide_id": "N2",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
+      "slide_id": "M02",
+      "mission_chapter_id": "ch2-objects-colors",
+      "interaction_type": "mission-game",
       "stage": "Listen",
-      "correct_option_id": "mission-bus-2",
+      "prompt": "A red book. A green bench. A man is sitting. A woman is talking.",
+      "prompt_image_url": "/lesson-assets/a1_u2_scene_02_bench.webp",
       "options": [
         {
-          "id": "mission-two-blue-cars-1",
-          "image_url": "unit2_mission_two_blue_cars.webp",
-          "label": null
+          "id": "red-book",
+          "image_url": "",
+          "label": "A red book."
         },
         {
-          "id": "mission-bus-2",
-          "image_url": "a1_scene_mission-bus_19132e7.webp",
-          "label": null
+          "id": "green-bench",
+          "image_url": "",
+          "label": "A green bench."
+        },
+        {
+          "id": "man-sitting",
+          "image_url": "",
+          "label": "A man is sitting."
+        },
+        {
+          "id": "woman-talking",
+          "image_url": "",
+          "label": "A woman is talking."
         }
       ],
-      "audio_text": "It is a bus.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
+      "correct_option_id": "red-book",
+      "correct_option_ids": [
+        "red-book",
+        "green-bench",
+        "man-sitting",
+        "woman-talking"
+      ],
+      "audio_text": "A red book. A green bench. A man is sitting. A woman is talking.",
+      "audio_turns": [
+        {
+          "text": "A red book.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_02_bench.webp"
+        },
+        {
+          "text": "A green bench.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_02_bench.webp"
+        },
+        {
+          "text": "A man is sitting.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_02_bench.webp"
+        },
+        {
+          "text": "A woman is talking.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_02_bench.webp"
+        }
+      ],
+      "spanish_translation": "Un libro rojo. Un banco verde. Un hombre está sentado. Una mujer está hablando.",
+      "pedagogy_note": "Mission beat 02/05: the learner identifies colors, objects, and people around the park bench from audio clues; the completed interaction advances the park mission.",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca los elementos en orden.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "red-book",
+            "label_es": "Libro rojo",
+            "rect": {
+              "x": 0.44,
+              "y": 0.5,
+              "width": 0.14,
+              "height": 0.16
+            },
+            "accepted_option_ids": [
+              "red-book"
+            ]
+          },
+          {
+            "id": "green-bench",
+            "label_es": "Banco verde",
+            "rect": {
+              "x": 0.25,
+              "y": 0.6,
+              "width": 0.5,
+              "height": 0.28
+            },
+            "accepted_option_ids": [
+              "green-bench"
+            ]
+          },
+          {
+            "id": "man-sitting",
+            "label_es": "Hombre sentado",
+            "rect": {
+              "x": 0.28,
+              "y": 0.32,
+              "width": 0.2,
+              "height": 0.42
+            },
+            "accepted_option_ids": [
+              "man-sitting"
+            ]
+          },
+          {
+            "id": "woman-talking",
+            "label_es": "Mujer hablando",
+            "rect": {
+              "x": 0.55,
+              "y": 0.3,
+              "width": 0.2,
+              "height": 0.44
+            },
+            "accepted_option_ids": [
+              "woman-talking"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-red-book",
+            "text": "A red book.",
+            "answer_text": "A red book.",
+            "target_id": "red-book",
+            "option_id": "red-book"
+          },
+          {
+            "id": "cue-green-bench",
+            "text": "A green bench.",
+            "answer_text": "A green bench.",
+            "target_id": "green-bench",
+            "option_id": "green-bench"
+          },
+          {
+            "id": "cue-man-sitting",
+            "text": "A man is sitting.",
+            "answer_text": "A man is sitting.",
+            "target_id": "man-sitting",
+            "option_id": "man-sitting"
+          },
+          {
+            "id": "cue-woman-talking",
+            "text": "A woman is talking.",
+            "answer_text": "A woman is talking.",
+            "target_id": "woman-talking",
+            "option_id": "woman-talking"
+          }
+        ]
+      }
     },
     {
-      "slide_id": "N3",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
+      "slide_id": "M03",
+      "mission_chapter_id": "ch2-objects-colors",
+      "interaction_type": "mission-game",
       "stage": "Listen",
-      "correct_option_id": "mission-book-near-2",
+      "prompt": "A blue bus. A red car. Two people. A man is waiting.",
+      "prompt_image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp",
       "options": [
         {
-          "id": "mission-bag-far-1",
-          "image_url": "a1_scene_mission-bag-far_c7514ba.webp",
-          "label": null
+          "id": "blue-bus",
+          "image_url": "",
+          "label": "A blue bus."
         },
         {
-          "id": "mission-book-near-2",
-          "image_url": "a1_scene_mission-book-near_efdc405.webp",
-          "label": null
+          "id": "red-car",
+          "image_url": "",
+          "label": "A red car."
+        },
+        {
+          "id": "two-people",
+          "image_url": "",
+          "label": "Two people."
+        },
+        {
+          "id": "man-waiting",
+          "image_url": "",
+          "label": "A man is waiting."
         }
       ],
-      "audio_text": "What is it? It is a book.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
+      "correct_option_id": "blue-bus",
+      "correct_option_ids": [
+        "blue-bus",
+        "red-car",
+        "two-people",
+        "man-waiting"
+      ],
+      "audio_text": "A blue bus. A red car. Two people. A man is waiting.",
+      "audio_turns": [
+        {
+          "text": "A blue bus.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp"
+        },
+        {
+          "text": "A red car.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp"
+        },
+        {
+          "text": "Two people.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp"
+        },
+        {
+          "text": "A man is waiting.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_03_bus_stop.webp"
+        }
+      ],
+      "spanish_translation": "Un autobús azul. Un carro rojo. Dos personas. Un hombre está esperando.",
+      "pedagogy_note": "Mission beat 03/05: the learner identifies transport vehicles, quantities, and waiting people near the bus stop; the completed interaction advances the park mission.",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca los elementos en orden.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "blue-bus",
+            "label_es": "Autobús azul",
+            "rect": {
+              "x": 0.05,
+              "y": 0.2,
+              "width": 0.4,
+              "height": 0.45
+            },
+            "accepted_option_ids": [
+              "blue-bus"
+            ]
+          },
+          {
+            "id": "red-car",
+            "label_es": "Carro rojo",
+            "rect": {
+              "x": 0.5,
+              "y": 0.48,
+              "width": 0.32,
+              "height": 0.3
+            },
+            "accepted_option_ids": [
+              "red-car"
+            ]
+          },
+          {
+            "id": "two-people",
+            "label_es": "Dos personas",
+            "rect": {
+              "x": 0.72,
+              "y": 0.35,
+              "width": 0.22,
+              "height": 0.45
+            },
+            "accepted_option_ids": [
+              "two-people"
+            ]
+          },
+          {
+            "id": "man-waiting",
+            "label_es": "Hombre esperando",
+            "rect": {
+              "x": 0.42,
+              "y": 0.35,
+              "width": 0.16,
+              "height": 0.42
+            },
+            "accepted_option_ids": [
+              "man-waiting"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-blue-bus",
+            "text": "A blue bus.",
+            "answer_text": "A blue bus.",
+            "target_id": "blue-bus",
+            "option_id": "blue-bus"
+          },
+          {
+            "id": "cue-red-car",
+            "text": "A red car.",
+            "answer_text": "A red car.",
+            "target_id": "red-car",
+            "option_id": "red-car"
+          },
+          {
+            "id": "cue-two-people",
+            "text": "Two people.",
+            "answer_text": "Two people.",
+            "target_id": "two-people",
+            "option_id": "two-people"
+          },
+          {
+            "id": "cue-man-waiting",
+            "text": "A man is waiting.",
+            "answer_text": "A man is waiting.",
+            "target_id": "man-waiting",
+            "option_id": "man-waiting"
+          }
+        ]
+      }
     },
     {
-      "slide_id": "N4",
-      "interaction_type": "a2i2",
-      "prompt": "Listen and choose.",
+      "slide_id": "M04",
+      "mission_chapter_id": "ch3-pairs-actions",
+      "interaction_type": "mission-game",
       "stage": "Listen",
-      "correct_option_id": "mission-bag-far-2",
+      "prompt": "The father. The mother. The girl. Three people.",
+      "prompt_image_url": "/lesson-assets/a1_u2_scene_04_parents.webp",
       "options": [
         {
-          "id": "mission-book-near-1",
-          "image_url": "a1_scene_mission-book-near_efdc405.webp",
-          "label": null
+          "id": "father",
+          "image_url": "",
+          "label": "The father."
         },
         {
-          "id": "mission-bag-far-2",
-          "image_url": "a1_scene_mission-bag-far_c7514ba.webp",
-          "label": null
+          "id": "mother",
+          "image_url": "",
+          "label": "The mother."
+        },
+        {
+          "id": "girl",
+          "image_url": "",
+          "label": "The girl."
+        },
+        {
+          "id": "three-people",
+          "image_url": "",
+          "label": "Three people."
         }
       ],
-      "audio_text": "That is a bag.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
-    },
-    {
-      "slide_id": "N5",
-      "interaction_type": "a2i4",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "mission-three-green-books-3",
-      "options": [
+      "correct_option_id": "father",
+      "correct_option_ids": [
+        "father",
+        "mother",
+        "girl",
+        "three-people"
+      ],
+      "audio_text": "The father. The mother. The girl. Three people.",
+      "audio_turns": [
         {
-          "id": "mission-two-blue-cars-1",
-          "image_url": "unit2_mission_two_blue_cars_four-card.webp",
-          "label": null
+          "text": "The father.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_04_parents.webp"
         },
         {
-          "id": "mission-four-yellow-pens-2",
-          "image_url": "unit2_mission_four_yellow_pens.webp",
-          "label": null
+          "text": "The mother.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_04_parents.webp"
         },
         {
-          "id": "mission-three-green-books-3",
-          "image_url": "unit2_mission_three_green_books.webp",
-          "label": null
+          "text": "The girl.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_04_parents.webp"
         },
         {
-          "id": "mission-bus-4",
-          "image_url": "a1_scene_mission-bus_19132e7.webp",
-          "label": null
+          "text": "Three people.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u2_scene_04_parents.webp"
         }
       ],
-      "audio_text": "Three green books",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
+      "spanish_translation": "El padre. La madre. La niña. Tres personas.",
+      "pedagogy_note": "Mission beat 04/05: the learner identifies family members and counts the group of three before taking the photo; the completed interaction advances the park mission.",
+      "mission_game": {
+        "kind": "guided-search",
+        "instruction_es": "Escucha y toca a los integrantes en orden.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "father",
+            "label_es": "Padre",
+            "rect": {
+              "x": 0.2,
+              "y": 0.25,
+              "width": 0.22,
+              "height": 0.55
+            },
+            "accepted_option_ids": [
+              "father"
+            ]
+          },
+          {
+            "id": "mother",
+            "label_es": "Madre",
+            "rect": {
+              "x": 0.55,
+              "y": 0.28,
+              "width": 0.22,
+              "height": 0.52
+            },
+            "accepted_option_ids": [
+              "mother"
+            ]
+          },
+          {
+            "id": "girl",
+            "label_es": "Niña",
+            "rect": {
+              "x": 0.42,
+              "y": 0.45,
+              "width": 0.16,
+              "height": 0.38
+            },
+            "accepted_option_ids": [
+              "girl"
+            ]
+          },
+          {
+            "id": "three-people",
+            "label_es": "Tres personas",
+            "rect": {
+              "x": 0.18,
+              "y": 0.22,
+              "width": 0.62,
+              "height": 0.62
+            },
+            "accepted_option_ids": [
+              "three-people"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-father",
+            "text": "The father.",
+            "answer_text": "The father.",
+            "target_id": "father",
+            "option_id": "father"
+          },
+          {
+            "id": "cue-mother",
+            "text": "The mother.",
+            "answer_text": "The mother.",
+            "target_id": "mother",
+            "option_id": "mother"
+          },
+          {
+            "id": "cue-girl",
+            "text": "The girl.",
+            "answer_text": "The girl.",
+            "target_id": "girl",
+            "option_id": "girl"
+          },
+          {
+            "id": "cue-three-people",
+            "text": "Three people.",
+            "answer_text": "Three people.",
+            "target_id": "three-people",
+            "option_id": "three-people"
+          }
+        ]
+      }
     },
     {
-      "slide_id": "N6",
-      "interaction_type": "a2t4",
-      "prompt": "Listen and choose.",
-      "stage": "Listen",
-      "correct_option_id": "two-blue-cars-3",
-      "options": [
-        {
-          "id": "two-black-cars-1",
-          "image_url": "",
-          "label": "Two black cars"
-        },
-        {
-          "id": "three-blue-cars-2",
-          "image_url": "",
-          "label": "Three blue cars"
-        },
-        {
-          "id": "two-blue-cars-3",
-          "image_url": "",
-          "label": "Two blue cars"
-        }
-      ],
-      "audio_text": "Two blue cars",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "audio-to-text"
-    },
-    {
-      "slide_id": "S1",
-      "interaction_type": "repeat",
-      "prompt": "It is a park.",
+      "slide_id": "M05",
+      "mission_chapter_id": "ch4-photo-call",
+      "interaction_type": "mission-finale",
       "stage": "Speak",
-      "correct_option_id": "it-is-a-park-1",
-      "options": [
-        {
-          "id": "it-is-a-park-1",
-          "image_url": "a1_scene_mission-park_4a508f3.webp",
-          "label": "It is a park."
-        }
-      ],
-      "audio_text": "It is a park.",
-      "answer_audio_text": null,
+      "prompt": "The father is in the park.",
       "prompt_image_url": "",
-      "spanish_translation": "Es un parque.",
-      "pedagogy_note": "place outcome"
-    },
-    {
-      "slide_id": "S2",
-      "interaction_type": "repeat",
-      "prompt": "It is a bus.",
-      "stage": "Speak",
-      "correct_option_id": "it-is-a-bus-1",
       "options": [
         {
-          "id": "it-is-a-bus-1",
-          "image_url": "a1_scene_mission-bus_19132e7.webp",
-          "label": "It is a bus."
+          "id": "father-park",
+          "image_url": "/lesson-assets/a1_u2_scene_05_photo_father.webp",
+          "label": "The father is in the park."
         }
       ],
-      "audio_text": "It is a bus.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Es un autobús.",
-      "pedagogy_note": "transport outcome"
-    },
-    {
-      "slide_id": "S3",
-      "interaction_type": "repeat",
-      "prompt": "What is it? It is a book.",
-      "stage": "Speak",
-      "correct_option_id": "what-is-it-it-is-a-book-1",
-      "options": [
+      "correct_option_id": "father-park",
+      "audio_text": "The father is in the park.",
+      "audio_turns": [
         {
-          "id": "what-is-it-it-is-a-book-1",
-          "image_url": "a1_scene_mission-book-near_efdc405.webp",
-          "label": "What is it? It is a book."
+          "text": "Who is in the park?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u2_scene_05_photo_father.webp"
         }
       ],
-      "audio_text": "What is it? It is a book.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "¿Qué es? Es un libro.",
-      "pedagogy_note": "question-answer outcome"
-    },
-    {
-      "slide_id": "S4",
-      "interaction_type": "repeat",
-      "prompt": "That is a bag.",
-      "stage": "Speak",
-      "correct_option_id": "that-is-a-bag-1",
-      "options": [
-        {
-          "id": "that-is-a-bag-1",
-          "image_url": "a1_scene_mission-bag-far_c7514ba.webp",
-          "label": "That is a bag."
-        }
-      ],
-      "audio_text": "That is a bag.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Esa es una bolsa.",
-      "pedagogy_note": "demonstrative outcome"
-    },
-    {
-      "slide_id": "S5",
-      "interaction_type": "repeat",
-      "prompt": "Two blue cars",
-      "stage": "Speak",
-      "correct_option_id": "two-blue-cars-1",
-      "options": [
-        {
-          "id": "two-blue-cars-1",
-          "image_url": "unit2_mission_two_blue_cars.webp",
-          "label": "Two blue cars"
-        }
-      ],
-      "audio_text": "Two blue cars",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Dos automóviles azules",
-      "pedagogy_note": "description outcome"
-    },
-    {
-      "slide_id": "S6",
-      "interaction_type": "repeat",
-      "prompt": "Three green books",
-      "stage": "Speak",
-      "correct_option_id": "three-green-books-1",
-      "options": [
-        {
-          "id": "three-green-books-1",
-          "image_url": "unit2_mission_three_green_books.webp",
-          "label": "Three green books"
-        }
-      ],
-      "audio_text": "Three green books",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Tres libros verdes",
-      "pedagogy_note": "description outcome"
-    },
-    {
-      "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
-      "stage": "Use",
-      "correct_option_id": "park-3",
-      "options": [
-        {
-          "id": "school-1",
-          "image_url": "",
-          "label": "school"
-        },
-        {
-          "id": "store-2",
-          "image_url": "",
-          "label": "store"
-        },
-        {
-          "id": "park-3",
-          "image_url": "",
-          "label": "park"
-        }
-      ],
-      "audio_text": "It is a ___.",
-      "answer_audio_text": "It is a park.",
-      "prompt_image_url": "a1_scene_mission-park_4a508f3.webp",
-      "spanish_translation": "Es un ___.",
-      "pedagogy_note": "place identity"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
-      "stage": "Use",
-      "correct_option_id": "bus-2",
-      "options": [
-        {
-          "id": "car-1",
-          "image_url": "",
-          "label": "car"
-        },
-        {
-          "id": "bus-2",
-          "image_url": "",
-          "label": "bus"
-        },
-        {
-          "id": "bike-3",
-          "image_url": "",
-          "label": "bike"
-        }
-      ],
-      "audio_text": "It is a ___.",
-      "answer_audio_text": "It is a bus.",
-      "prompt_image_url": "a1_scene_mission-bus_19132e7.webp",
-      "spanish_translation": "Es un ___.",
-      "pedagogy_note": "transport identity"
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete2",
-      "prompt": "___ is it?",
-      "stage": "Use",
-      "correct_option_id": "what-2",
-      "options": [
-        {
-          "id": "who-1",
-          "image_url": "",
-          "label": "Who"
-        },
-        {
-          "id": "what-2",
-          "image_url": "",
-          "label": "What"
-        }
-      ],
-      "audio_text": "___ is it?",
-      "answer_audio_text": "What is it?",
-      "prompt_image_url": "a1_scene_mission-book-near_efdc405.webp",
-      "spanish_translation": "¿___ es?",
-      "pedagogy_note": "question word"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "___ is a bag.",
-      "stage": "Use",
-      "correct_option_id": "that-2",
-      "options": [
-        {
-          "id": "this-1",
-          "image_url": "",
-          "label": "This"
-        },
-        {
-          "id": "that-2",
-          "image_url": "",
-          "label": "That"
-        }
-      ],
-      "audio_text": "___ is a bag.",
-      "answer_audio_text": "That is a bag.",
-      "prompt_image_url": "a1_scene_mission-bag-far_c7514ba.webp",
-      "spanish_translation": "___ es una bolsa.",
-      "pedagogy_note": "distance"
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete4",
-      "prompt": "Two ___ cars",
-      "stage": "Use",
-      "correct_option_id": "blue-3",
-      "options": [
-        {
-          "id": "green-1",
-          "image_url": "",
-          "label": "green"
-        },
-        {
-          "id": "yellow-2",
-          "image_url": "",
-          "label": "yellow"
-        },
-        {
-          "id": "blue-3",
-          "image_url": "",
-          "label": "blue"
-        }
-      ],
-      "audio_text": "Two ___ cars",
-      "answer_audio_text": "Two blue cars",
-      "prompt_image_url": "unit2_mission_two_blue_cars.webp",
-      "spanish_translation": "Dos automóviles ___",
-      "pedagogy_note": "color slot"
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete4",
-      "prompt": "___ green books",
-      "stage": "Use",
-      "correct_option_id": "three-3",
-      "options": [
-        {
-          "id": "two-1",
-          "image_url": "",
-          "label": "two"
-        },
-        {
-          "id": "four-2",
-          "image_url": "",
-          "label": "four"
-        },
-        {
-          "id": "three-3",
-          "image_url": "",
-          "label": "three"
-        }
-      ],
-      "audio_text": "___ green books",
-      "answer_audio_text": "three green books",
-      "prompt_image_url": "unit2_mission_three_green_books.webp",
-      "spanish_translation": "___ libros verdes",
-      "pedagogy_note": "number slot"
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete4",
-      "prompt": "Four yellow ___.",
-      "stage": "Use",
-      "correct_option_id": "pens-2",
-      "options": [
-        {
-          "id": "bags-1",
-          "image_url": "",
-          "label": "bags"
-        },
-        {
-          "id": "pens-2",
-          "image_url": "",
-          "label": "pens"
-        },
-        {
-          "id": "cars-3",
-          "image_url": "",
-          "label": "cars"
-        }
-      ],
-      "audio_text": "Four yellow ___.",
-      "answer_audio_text": "Four yellow pens.",
-      "prompt_image_url": "unit2_mission_four_yellow_pens.webp",
-      "spanish_translation": "Cuatro ___ amarillos.",
-      "pedagogy_note": "all plural forms introduced"
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "choose4",
-      "prompt": "Choose the phrase.",
-      "stage": "Use",
-      "correct_option_id": "three-green-books-3",
-      "options": [
-        {
-          "id": "green-three-books-1",
-          "image_url": "",
-          "label": "Green three books"
-        },
-        {
-          "id": "three-books-green-2",
-          "image_url": "",
-          "label": "Three books green"
-        },
-        {
-          "id": "three-green-books-3",
-          "image_url": "",
-          "label": "Three green books"
-        }
-      ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Three green books",
-      "prompt_image_url": "unit2_mission_three_green_books.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "adjective-order mission check"
+      "spanish_translation": "El padre está en el parque.",
+      "pedagogy_note": "Mission beat 05/05: the learner answers who is in the park aloud to take the commemorative photo; the completed interaction finishes the Unit 2 park mission.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha y responde para tomar la foto.",
+        "validation": "single",
+        "targets": [
+          {
+            "id": "father-park",
+            "label_es": "Padre en el parque",
+            "rect": {
+              "x": 0.35,
+              "y": 0.25,
+              "width": 0.3,
+              "height": 0.5
+            },
+            "accepted_option_ids": [
+              "father-park"
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "father-park",
+            "text": "Who is in the park?",
+            "answer_text": "The father is in the park.",
+            "target_id": "father-park",
+            "option_id": "father-park"
+          }
+        ],
+        "cue_audio_text": "Who is in the park?"
+      }
     }
   ]
 }

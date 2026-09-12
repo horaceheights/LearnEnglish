@@ -13,7 +13,7 @@ export function AudioConnectionNotice({ visible, waiting, busy, onRetry, onExit 
         </Text>
         <Text style={styles.copy}>
           {waiting
-            ? 'No pudimos cargar el audio. La actividad está en pausa. Revisa tu conexión; continuaremos aquí cuando el audio esté listo.'
+            ? 'Sin conexión, vuelve cuando haya señal.'
             : 'Un momento. Estamos preparando el audio de esta actividad.'}
         </Text>
         <Text style={styles.saved}>Tu lugar y tus respuestas se conservan.</Text>
