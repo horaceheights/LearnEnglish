@@ -91,7 +91,7 @@ class CourseAudioProfileTests(unittest.TestCase):
                     self.assertNotEqual(card.answer_audio_text, fragment)
                 completion_cards.append((lesson.id, card.prompt))
 
-        expected_completion_cards = 389 + sum(
+        expected_completion_cards = 393 + sum(
             7 if l.id == "lesson-2-10-around-me-mission" and getattr(l, "experience_type", None) != "mission"
             else 7 if l.id == "lesson-3-10-introduction-mission" and getattr(l, "experience_type", None) != "mission"
             else 8 if l.id == "lesson-4-10-my-day-mission" and getattr(l, "experience_type", None) != "mission"

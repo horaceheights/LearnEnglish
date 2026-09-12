@@ -25,10 +25,11 @@
     "bus",
     "car",
     "park",
-    "school"
+    "school",
+    "not"
   ],
-  "grammar_function": "A noun; It is a noun.",
-  "prerequisite": "2.1-2.2 non-person identity frame.",
+  "grammar_function": "A noun; It is a noun; negative contrast (It is a... not a...).",
+  "prerequisite": "2.1-2.2 non-person identity frame and Unit 1 not negation.",
   "speaking_outcome": "Produce six short object identity sentences after a model.",
   "purposeful_review_slides": [
     "R7",
@@ -351,50 +352,50 @@
     {
       "slide_id": "R7",
       "interaction_type": "t2i2",
-      "prompt": "It is a bus.",
+      "prompt": "It is a book, not a bus.",
       "stage": "Recognize",
-      "correct_option_id": "bus-2",
+      "correct_option_id": "book-2",
       "options": [
         {
-          "id": "car-1",
-          "image_url": "object_car.webp",
+          "id": "bus-1",
+          "image_url": "place_bus.webp",
           "label": null
         },
         {
-          "id": "bus-2",
-          "image_url": "place_bus.webp",
+          "id": "book-2",
+          "image_url": "object_book.webp",
           "label": null
         }
       ],
-      "audio_text": "It is a bus.",
+      "audio_text": "It is a book, not a bus.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Es un autobús.",
-      "pedagogy_note": "2.2 review"
+      "spanish_translation": "Es un libro, no un autobús.",
+      "pedagogy_note": "Repetition with growth: contrast object with vehicle via negation"
     },
     {
       "slide_id": "R8",
       "interaction_type": "i2t2",
       "prompt": "Choose the sentence.",
       "stage": "Recognize",
-      "correct_option_id": "it-is-a-park-2",
+      "correct_option_id": "it-is-a-pen-not-a-phone-1",
       "options": [
         {
-          "id": "it-is-a-school-1",
+          "id": "it-is-a-pen-not-a-phone-1",
           "image_url": "",
-          "label": "It is a school."
+          "label": "It is a pen, not a phone."
         },
         {
-          "id": "it-is-a-park-2",
+          "id": "it-is-a-phone-not-a-pen-2",
           "image_url": "",
-          "label": "It is a park."
+          "label": "It is a phone, not a pen."
         }
       ],
       "audio_text": "Choose the sentence.",
-      "answer_audio_text": "It is a park.",
-      "prompt_image_url": "place_park.webp",
+      "answer_audio_text": "It is a pen, not a phone.",
+      "prompt_image_url": "a1_pen.webp",
       "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "2.1 review"
+      "pedagogy_note": "Repetition with growth: contrast pen vs phone with negation"
     },
     {
       "slide_id": "N1",
@@ -793,55 +794,60 @@
     {
       "slide_id": "U5",
       "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "prompt": "It is a table, not a ___.",
       "stage": "Use",
-      "correct_option_id": "car-3",
+      "correct_option_id": "chair-1",
       "options": [
         {
-          "id": "bus-1",
+          "id": "chair-1",
           "image_url": "",
-          "label": "bus"
+          "label": "chair"
         },
         {
-          "id": "bike-2",
+          "id": "book-2",
           "image_url": "",
-          "label": "bike"
+          "label": "book"
         },
         {
-          "id": "car-3",
+          "id": "pen-3",
           "image_url": "",
-          "label": "car"
+          "label": "pen"
         }
       ],
-      "audio_text": "It is a ___.",
-      "answer_audio_text": "It is a car.",
-      "prompt_image_url": "object_car.webp",
-      "spanish_translation": "Es un ___.",
-      "pedagogy_note": "2.2 review"
+      "audio_text": "It is a table, not a ___.",
+      "answer_audio_text": "It is a table, not a chair.",
+      "prompt_image_url": "a1_table.webp",
+      "spanish_translation": "Es una mesa, no una ___.",
+      "pedagogy_note": "Repetition with growth: complete object contrast with negation"
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete2",
-      "prompt": "___ is a school.",
+      "interaction_type": "complete4",
+      "prompt": "It is a bag, not a ___.",
       "stage": "Use",
-      "correct_option_id": "it-1",
+      "correct_option_id": "book-1",
       "options": [
         {
-          "id": "it-1",
+          "id": "book-1",
           "image_url": "",
-          "label": "It"
+          "label": "book"
         },
         {
-          "id": "he-2",
+          "id": "chair-2",
           "image_url": "",
-          "label": "He"
+          "label": "chair"
+        },
+        {
+          "id": "table-3",
+          "image_url": "",
+          "label": "table"
         }
       ],
-      "audio_text": "___ is a school.",
-      "answer_audio_text": "It is a school.",
-      "prompt_image_url": "a1_school.webp",
-      "spanish_translation": "___ es una escuela.",
-      "pedagogy_note": "2.1 review and non-person pronoun"
+      "audio_text": "It is a bag, not a ___.",
+      "answer_audio_text": "It is a bag, not a book.",
+      "prompt_image_url": "object_backpack.webp",
+      "spanish_translation": "Es una bolsa, no un ___.",
+      "pedagogy_note": "Repetition with growth: complete portable object contrast with negation"
     }
   ]
 }

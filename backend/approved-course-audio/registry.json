@@ -96911,11 +96911,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "elevenlabs-offline-render",
@@ -97488,6 +97490,2068 @@
             "staged_reuse": false,
             "request_id": "IMZSB9ak0nFumecZMHxw",
             "trace_id": "c4b68e25a160bf7220d264ad5dd6ca4f"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "82fda4b0ca501d15f143114f822be63f69781569b404e3dfa8bf8fede7edccae": {
+      "file": "takes/82fda4b0ca501d15f143114f822be63f69781569b404e3dfa8bf8fede7edccae.mp3",
+      "audio_sha256": "82fda4b0ca501d15f143114f822be63f69781569b404e3dfa8bf8fede7edccae",
+      "bytes": 41517,
+      "text": "The girl is walking in the park.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:22:20.048902+00:00",
+        "approved_at": "2026-09-12T16:22:17.271957+00:00",
+        "request_id": [
+          "N6jyUjdRUU8YtWwTeFd6",
+          "qrcrqSoBJhcvfS3CZsjG"
+        ],
+        "trace_id": [
+          "fb1acee436b0e732d8642e73dfd29eb0",
+          "1e48dcac07af5f7bd8642e73dfd298d8"
+        ],
+        "character_cost": 14,
+        "incremental_character_cost": 14,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "The girl is,",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "N6jyUjdRUU8YtWwTeFd6",
+            "trace_id": "fb1acee436b0e732d8642e73dfd29eb0"
+          },
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "in the park.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "qrcrqSoBJhcvfS3CZsjG",
+            "trace_id": "1e48dcac07af5f7bd8642e73dfd298d8"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "The girl is ___ in the park.",
+        "full_text": "The girl is walking in the park.",
+        "blank_text": "walking"
+      }
+    },
+    "998d2bb8841d8e07780957f5dbed3a2acd7dd52038bd43a6d2015fb8bbdec9b8": {
+      "file": "takes/998d2bb8841d8e07780957f5dbed3a2acd7dd52038bd43a6d2015fb8bbdec9b8.mp3",
+      "audio_sha256": "998d2bb8841d8e07780957f5dbed3a2acd7dd52038bd43a6d2015fb8bbdec9b8",
+      "bytes": 32301,
+      "text": "The girl is walking in the park.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:22:21.784539+00:00",
+        "approved_at": "2026-09-12T16:22:17.271957+00:00",
+        "request_id": "4AhEfv85p9LhSenor23e",
+        "trace_id": "de951dce79c0d1ffd8642e73dfd29d09",
+        "character_cost": 18,
+        "incremental_character_cost": 18,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "The girl is walking in the park.",
+            "character_cost": 18,
+            "incremental_character_cost": 18,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "18",
+            "staged_reuse": false,
+            "request_id": "4AhEfv85p9LhSenor23e",
+            "trace_id": "de951dce79c0d1ffd8642e73dfd29d09"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "8de6c2da85b2c6262d9223fad46af92c6c8296d1420044ff07df5f1597717a54": {
+      "file": "takes/8de6c2da85b2c6262d9223fad46af92c6c8296d1420044ff07df5f1597717a54.mp3",
+      "audio_sha256": "8de6c2da85b2c6262d9223fad46af92c6c8296d1420044ff07df5f1597717a54",
+      "bytes": 33741,
+      "text": "It is a car, not a bus.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:28:39.165434+00:00",
+        "approved_at": "2026-09-12T16:28:38.078007+00:00",
+        "request_id": "B4ncH49ohhRiIvQ0AXt3",
+        "trace_id": "78829a2fbcf2de81b018ae544e1d25f4",
+        "character_cost": 5,
+        "incremental_character_cost": 5,
+        "provider_requests": [
+          {
+            "model_id": "eleven_flash_v2",
+            "text": "It is a car, not <phoneme alphabet=\"cmu-arpabet\" ph=\"EY1\">a</phoneme>?",
+            "character_cost": 5,
+            "incremental_character_cost": 5,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "5",
+            "staged_reuse": false,
+            "request_id": "B4ncH49ohhRiIvQ0AXt3",
+            "trace_id": "78829a2fbcf2de81b018ae544e1d25f4"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "It is a car, not a ___.",
+        "full_text": "It is a car, not a bus.",
+        "blank_text": "bus"
+      }
+    },
+    "763517f62f84790110124a9209626105eee7641e8f533869b56f686d95c2aac2": {
+      "file": "takes/763517f62f84790110124a9209626105eee7641e8f533869b56f686d95c2aac2.mp3",
+      "audio_sha256": "763517f62f84790110124a9209626105eee7641e8f533869b56f686d95c2aac2",
+      "bytes": 32877,
+      "text": "It is a bridge, not a street.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:28:40.632384+00:00",
+        "approved_at": "2026-09-12T16:28:38.078007+00:00",
+        "request_id": "poqtz9MM6ZgupvTkj2qR",
+        "trace_id": "ff29ad535cddfb05b018ae544e1d2730",
+        "character_cost": 16,
+        "incremental_character_cost": 16,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is a bridge, not a street.",
+            "character_cost": 16,
+            "incremental_character_cost": 16,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "16",
+            "staged_reuse": false,
+            "request_id": "poqtz9MM6ZgupvTkj2qR",
+            "trace_id": "ff29ad535cddfb05b018ae544e1d2730"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "8f8e6302d1c4977f2cdf3672bf4dd0225eefb8f0b2580940a5eb814c4a095453": {
+      "file": "takes/8f8e6302d1c4977f2cdf3672bf4dd0225eefb8f0b2580940a5eb814c4a095453.mp3",
+      "audio_sha256": "8f8e6302d1c4977f2cdf3672bf4dd0225eefb8f0b2580940a5eb814c4a095453",
+      "bytes": 31725,
+      "text": "It is a bus, not a car.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:28:42.277541+00:00",
+        "approved_at": "2026-09-12T16:28:38.078007+00:00",
+        "request_id": "7tTlXqG2jfhw592VkZCA",
+        "trace_id": "533d44ab82cdd0637da9e66620794daf",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is a bus, not a car.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "7tTlXqG2jfhw592VkZCA",
+            "trace_id": "533d44ab82cdd0637da9e66620794daf"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "b41ddb0d2b27da9e88baf1a3c9aac379ca8fdedf62cd7f6c3d2984ed5c3adcb6": {
+      "file": "takes/b41ddb0d2b27da9e88baf1a3c9aac379ca8fdedf62cd7f6c3d2984ed5c3adcb6.mp3",
+      "audio_sha256": "b41ddb0d2b27da9e88baf1a3c9aac379ca8fdedf62cd7f6c3d2984ed5c3adcb6",
+      "bytes": 31437,
+      "text": "It is a car, not a bus.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:28:43.939369+00:00",
+        "approved_at": "2026-09-12T16:28:38.078007+00:00",
+        "request_id": "c540VbQPqKEjtKl2dkKF",
+        "trace_id": "41b0783efec753707da9e66620794985",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is a car, not a bus.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "c540VbQPqKEjtKl2dkKF",
+            "trace_id": "41b0783efec753707da9e66620794985"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "911654bedec024e925a428aff798ae0b23c4a201fd76d5df0492f441a9cf43af": {
+      "file": "takes/911654bedec024e925a428aff798ae0b23c4a201fd76d5df0492f441a9cf43af.mp3",
+      "audio_sha256": "911654bedec024e925a428aff798ae0b23c4a201fd76d5df0492f441a9cf43af",
+      "bytes": 31725,
+      "text": "It is a street, not a park.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:28:45.430481+00:00",
+        "approved_at": "2026-09-12T16:28:38.078007+00:00",
+        "request_id": "xK9Yby7k5AYKgmqWSQex",
+        "trace_id": "749e4eb2940cf9597da9e666207942a9",
+        "character_cost": 15,
+        "incremental_character_cost": 15,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is a street, not a park.",
+            "character_cost": 15,
+            "incremental_character_cost": 15,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "15",
+            "staged_reuse": false,
+            "request_id": "xK9Yby7k5AYKgmqWSQex",
+            "trace_id": "749e4eb2940cf9597da9e666207942a9"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "90fd44742e32cbca77ebc36e04999b373b56dcc2e596300dd9b2c9bf718e124c": {
+      "file": "takes/90fd44742e32cbca77ebc36e04999b373b56dcc2e596300dd9b2c9bf718e124c.mp3",
+      "audio_sha256": "90fd44742e32cbca77ebc36e04999b373b56dcc2e596300dd9b2c9bf718e124c",
+      "bytes": 34317,
+      "text": "It is a bag, not a book.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:32:16.675873+00:00",
+        "approved_at": "2026-09-12T16:32:15.700207+00:00",
+        "request_id": "CavczFcF42XuY8espEmG",
+        "trace_id": "6d543c7e0190d43c897222956b88a4e0",
+        "character_cost": 5,
+        "incremental_character_cost": 5,
+        "provider_requests": [
+          {
+            "model_id": "eleven_flash_v2",
+            "text": "It is a bag, not <phoneme alphabet=\"cmu-arpabet\" ph=\"EY1\">a</phoneme>?",
+            "character_cost": 5,
+            "incremental_character_cost": 5,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "5",
+            "staged_reuse": false,
+            "request_id": "CavczFcF42XuY8espEmG",
+            "trace_id": "6d543c7e0190d43c897222956b88a4e0"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "It is a bag, not a ___.",
+        "full_text": "It is a bag, not a book.",
+        "blank_text": "book"
+      }
+    },
+    "5d93f5ef355cd64877b0daf0a8cf674e3146a41b9aca09d67b603e20a0eb1176": {
+      "file": "takes/5d93f5ef355cd64877b0daf0a8cf674e3146a41b9aca09d67b603e20a0eb1176.mp3",
+      "audio_sha256": "5d93f5ef355cd64877b0daf0a8cf674e3146a41b9aca09d67b603e20a0eb1176",
+      "bytes": 35757,
+      "text": "It is a table, not a chair.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:32:17.353419+00:00",
+        "approved_at": "2026-09-12T16:32:15.700207+00:00",
+        "request_id": "gm0sytSxyp5JQfFQIBUr",
+        "trace_id": "f29ea670628985d3897222956b88a19f",
+        "character_cost": 6,
+        "incremental_character_cost": 6,
+        "provider_requests": [
+          {
+            "model_id": "eleven_flash_v2",
+            "text": "It is a table, not <phoneme alphabet=\"cmu-arpabet\" ph=\"EY1\">a</phoneme>?",
+            "character_cost": 6,
+            "incremental_character_cost": 6,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "6",
+            "staged_reuse": false,
+            "request_id": "gm0sytSxyp5JQfFQIBUr",
+            "trace_id": "f29ea670628985d3897222956b88a19f"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "It is a table, not a ___.",
+        "full_text": "It is a table, not a chair.",
+        "blank_text": "chair"
+      }
+    },
+    "371a77c6f9bb9e9d0bb3dc8d471e646dcc5e46f90d8b510335b9b40f587d968e": {
+      "file": "takes/371a77c6f9bb9e9d0bb3dc8d471e646dcc5e46f90d8b510335b9b40f587d968e.mp3",
+      "audio_sha256": "371a77c6f9bb9e9d0bb3dc8d471e646dcc5e46f90d8b510335b9b40f587d968e",
+      "bytes": 31149,
+      "text": "It is a bag, not a book.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:32:18.791340+00:00",
+        "approved_at": "2026-09-12T16:32:15.700207+00:00",
+        "request_id": "sLQ9NpDW9TyZUtDEG7lj",
+        "trace_id": "d717bb83bd553495897222956b88a53d",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is a bag, not a book.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "sLQ9NpDW9TyZUtDEG7lj",
+            "trace_id": "d717bb83bd553495897222956b88a53d"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "128136c7024f06d15d475ab5d2afebb0883a97a280313ecceaf5fdf927eec534": {
+      "file": "takes/128136c7024f06d15d475ab5d2afebb0883a97a280313ecceaf5fdf927eec534.mp3",
+      "audio_sha256": "128136c7024f06d15d475ab5d2afebb0883a97a280313ecceaf5fdf927eec534",
+      "bytes": 30573,
+      "text": "It is a book, not a bus.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:32:20.383458+00:00",
+        "approved_at": "2026-09-12T16:32:15.700207+00:00",
+        "request_id": "d2sHty9HTKwTngpnQUaF",
+        "trace_id": "ed0a916f5d1cfc54897222956b88ae4e",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is a book, not a bus.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "d2sHty9HTKwTngpnQUaF",
+            "trace_id": "ed0a916f5d1cfc54897222956b88ae4e"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "3369700f78f2c8828202fc1ae8baff68a5ed73066166ee463b5980cf48f000be": {
+      "file": "takes/3369700f78f2c8828202fc1ae8baff68a5ed73066166ee463b5980cf48f000be.mp3",
+      "audio_sha256": "3369700f78f2c8828202fc1ae8baff68a5ed73066166ee463b5980cf48f000be",
+      "bytes": 33165,
+      "text": "It is a pen, not a phone.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:32:22.022486+00:00",
+        "approved_at": "2026-09-12T16:32:15.700207+00:00",
+        "request_id": "dz4WwsuMcPoPjtLhA1R5",
+        "trace_id": "ed4c73c3f1823623897222956b88af39",
+        "character_cost": 14,
+        "incremental_character_cost": 14,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is a pen, not a phone.",
+            "character_cost": 14,
+            "incremental_character_cost": 14,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "14",
+            "staged_reuse": false,
+            "request_id": "dz4WwsuMcPoPjtLhA1R5",
+            "trace_id": "ed4c73c3f1823623897222956b88af39"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "e291a5a0fe673d59d1796824acb5efd5e8e481b814819c80600257a7bac939c7": {
+      "file": "takes/e291a5a0fe673d59d1796824acb5efd5e8e481b814819c80600257a7bac939c7.mp3",
+      "audio_sha256": "e291a5a0fe673d59d1796824acb5efd5e8e481b814819c80600257a7bac939c7",
+      "bytes": 32589,
+      "text": "It is a table, not a chair.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:32:23.564466+00:00",
+        "approved_at": "2026-09-12T16:32:15.700207+00:00",
+        "request_id": "gqnRC0keGkv68NSasqzf",
+        "trace_id": "373696f81192469eb5c527cd50e75cf9",
+        "character_cost": 15,
+        "incremental_character_cost": 15,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is a table, not a chair.",
+            "character_cost": 15,
+            "incremental_character_cost": 15,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "15",
+            "staged_reuse": false,
+            "request_id": "gqnRC0keGkv68NSasqzf",
+            "trace_id": "373696f81192469eb5c527cd50e75cf9"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "046cd5776201df563eb255f75581be0c20424d4a13c5a6ab913b304db6223357": {
+      "file": "takes/046cd5776201df563eb255f75581be0c20424d4a13c5a6ab913b304db6223357.mp3",
+      "audio_sha256": "046cd5776201df563eb255f75581be0c20424d4a13c5a6ab913b304db6223357",
+      "bytes": 22221,
+      "text": "Who is he?",
+      "compatible_speaker_roles": [
+        "question"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:34:41.566090+00:00",
+        "approved_at": "2026-09-12T16:34:39.664102+00:00",
+        "request_id": "q7rWHCqVdhWIsEj3Wj0e",
+        "trace_id": "c6cf2b8d96a6ab8210cfee7757e280f2",
+        "character_cost": 3,
+        "incremental_character_cost": 3,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "is he?",
+            "character_cost": 3,
+            "incremental_character_cost": 3,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "3",
+            "staged_reuse": false,
+            "request_id": "q7rWHCqVdhWIsEj3Wj0e",
+            "trace_id": "c6cf2b8d96a6ab8210cfee7757e280f2"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "___ is he?",
+        "full_text": "Who is he?",
+        "blank_text": "Who"
+      }
+    },
+    "d8c8affb126ce1b2adffa8208b740f67853f0c5486e5902525db49e3906169fc": {
+      "file": "takes/d8c8affb126ce1b2adffa8208b740f67853f0c5486e5902525db49e3906169fc.mp3",
+      "audio_sha256": "d8c8affb126ce1b2adffa8208b740f67853f0c5486e5902525db49e3906169fc",
+      "bytes": 19053,
+      "text": "One bag.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:44:48.533979+00:00",
+        "approved_at": "2026-09-12T16:44:46.617828+00:00",
+        "request_id": "m2vnq9O23KOBo9XBNhXa",
+        "trace_id": "489c7dcc7550d175e089df4ab2b87b88",
+        "character_cost": 2,
+        "incremental_character_cost": 2,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "One?",
+            "character_cost": 2,
+            "incremental_character_cost": 2,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "2",
+            "staged_reuse": false,
+            "request_id": "m2vnq9O23KOBo9XBNhXa",
+            "trace_id": "489c7dcc7550d175e089df4ab2b87b88"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "One ___.",
+        "full_text": "One bag.",
+        "blank_text": "bag"
+      }
+    },
+    "823704120a9aa864b0ad6e0ffcdef9df5387853933818ae13cf47d549ac2179b": {
+      "file": "takes/823704120a9aa864b0ad6e0ffcdef9df5387853933818ae13cf47d549ac2179b.mp3",
+      "audio_sha256": "823704120a9aa864b0ad6e0ffcdef9df5387853933818ae13cf47d549ac2179b",
+      "bytes": 21933,
+      "text": "One chair.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:44:50.243846+00:00",
+        "approved_at": "2026-09-12T16:44:46.617828+00:00",
+        "request_id": "F0HVU3YTCb0tXAJDER9r",
+        "trace_id": "a11187cb24646b80ce1f5905bb480181",
+        "character_cost": 3,
+        "incremental_character_cost": 3,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "chair.",
+            "character_cost": 3,
+            "incremental_character_cost": 3,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "3",
+            "staged_reuse": false,
+            "request_id": "F0HVU3YTCb0tXAJDER9r",
+            "trace_id": "a11187cb24646b80ce1f5905bb480181"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "___ chair.",
+        "full_text": "One chair.",
+        "blank_text": "One"
+      }
+    },
+    "60d3788e7ef4c2868e2b1ab019da370445b5d235b284cb5611b78c72e1635cb6": {
+      "file": "takes/60d3788e7ef4c2868e2b1ab019da370445b5d235b284cb5611b78c72e1635cb6.mp3",
+      "audio_sha256": "60d3788e7ef4c2868e2b1ab019da370445b5d235b284cb5611b78c72e1635cb6",
+      "bytes": 18189,
+      "text": "One bag.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:44:51.938485+00:00",
+        "approved_at": "2026-09-12T16:44:46.617828+00:00",
+        "request_id": "HXwvT61i5KkbiLW5q8db",
+        "trace_id": "7afa1bff96b78e15ce1f5905bb48023d",
+        "character_cost": 4,
+        "incremental_character_cost": 4,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "One bag.",
+            "character_cost": 4,
+            "incremental_character_cost": 4,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "4",
+            "staged_reuse": false,
+            "request_id": "HXwvT61i5KkbiLW5q8db",
+            "trace_id": "7afa1bff96b78e15ce1f5905bb48023d"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "00ccee07ba83580159dca0baf568c28a83536557885de0e8714138658a3d13ac": {
+      "file": "takes/00ccee07ba83580159dca0baf568c28a83536557885de0e8714138658a3d13ac.mp3",
+      "audio_sha256": "00ccee07ba83580159dca0baf568c28a83536557885de0e8714138658a3d13ac",
+      "bytes": 16749,
+      "text": "One book.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:44:53.326864+00:00",
+        "approved_at": "2026-09-12T16:44:46.617828+00:00",
+        "request_id": "PKgnhNXdbp1eAfuD0jP8",
+        "trace_id": "41e08796382b6ebbce1f5905bb480841",
+        "character_cost": 5,
+        "incremental_character_cost": 5,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "One book.",
+            "character_cost": 5,
+            "incremental_character_cost": 5,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "5",
+            "staged_reuse": false,
+            "request_id": "PKgnhNXdbp1eAfuD0jP8",
+            "trace_id": "41e08796382b6ebbce1f5905bb480841"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "d53bac6edb6e10e188a728ef8f44625840f2233a4177eda5d01c02645e42184b": {
+      "file": "takes/d53bac6edb6e10e188a728ef8f44625840f2233a4177eda5d01c02645e42184b.mp3",
+      "audio_sha256": "d53bac6edb6e10e188a728ef8f44625840f2233a4177eda5d01c02645e42184b",
+      "bytes": 19629,
+      "text": "One chair.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:44:54.790896+00:00",
+        "approved_at": "2026-09-12T16:44:46.617828+00:00",
+        "request_id": "jxJLfyWdvTsqBBeoYmk9",
+        "trace_id": "becf01173bf933a6ce1f5905bb480fdc",
+        "character_cost": 6,
+        "incremental_character_cost": 6,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "One chair.",
+            "character_cost": 6,
+            "incremental_character_cost": 6,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "6",
+            "staged_reuse": false,
+            "request_id": "jxJLfyWdvTsqBBeoYmk9",
+            "trace_id": "becf01173bf933a6ce1f5905bb480fdc"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "d4877213e4ed85993c5bb35e7626573aab233ecf0d629ce8e355eb5333d8e567": {
+      "file": "takes/d4877213e4ed85993c5bb35e7626573aab233ecf0d629ce8e355eb5333d8e567.mp3",
+      "audio_sha256": "d4877213e4ed85993c5bb35e7626573aab233ecf0d629ce8e355eb5333d8e567",
+      "bytes": 19053,
+      "text": "One phone.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:44:56.469624+00:00",
+        "approved_at": "2026-09-12T16:44:46.617828+00:00",
+        "request_id": "XC3yJznqZpUefAlagxrl",
+        "trace_id": "6ec69366116b8e32ce1f5905bb480de3",
+        "character_cost": 6,
+        "incremental_character_cost": 6,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "One phone.",
+            "character_cost": 6,
+            "incremental_character_cost": 6,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "6",
+            "staged_reuse": false,
+            "request_id": "XC3yJznqZpUefAlagxrl",
+            "trace_id": "6ec69366116b8e32ce1f5905bb480de3"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "264ebeb75b5a052f4dfed7d2659d369c62b98baba0ada92abd489df935a0d05e": {
+      "file": "takes/264ebeb75b5a052f4dfed7d2659d369c62b98baba0ada92abd489df935a0d05e.mp3",
+      "audio_sha256": "264ebeb75b5a052f4dfed7d2659d369c62b98baba0ada92abd489df935a0d05e",
+      "bytes": 32589,
+      "text": "It is black, not white.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:46:11.402995+00:00",
+        "approved_at": "2026-09-12T16:46:09.354772+00:00",
+        "request_id": "JkcsgvKRaSL8xlJX6UgW",
+        "trace_id": "40648020e5c8707b4a347ac0267fd6ed",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is black, not?",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "JkcsgvKRaSL8xlJX6UgW",
+            "trace_id": "40648020e5c8707b4a347ac0267fd6ed"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "It is black, not ___.",
+        "full_text": "It is black, not white.",
+        "blank_text": "white"
+      }
+    },
+    "8d8c2fff3e1ab079a497cf66bf53a31e5c3019935670fc37d07d20a9ef6442d3": {
+      "file": "takes/8d8c2fff3e1ab079a497cf66bf53a31e5c3019935670fc37d07d20a9ef6442d3.mp3",
+      "audio_sha256": "8d8c2fff3e1ab079a497cf66bf53a31e5c3019935670fc37d07d20a9ef6442d3",
+      "bytes": 32013,
+      "text": "It is white, not black.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:46:13.162893+00:00",
+        "approved_at": "2026-09-12T16:46:09.354772+00:00",
+        "request_id": "NTnAOj2yygAcc00BD94d",
+        "trace_id": "cf32c02bce3802014a347ac0267fd168",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is white, not?",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "NTnAOj2yygAcc00BD94d",
+            "trace_id": "cf32c02bce3802014a347ac0267fd168"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "It is white, not ___.",
+        "full_text": "It is white, not black.",
+        "blank_text": "black"
+      }
+    },
+    "a6df2455001f00cbf105ec40816ebff6ef12e26b4480e89e0569adb2131dafe7": {
+      "file": "takes/a6df2455001f00cbf105ec40816ebff6ef12e26b4480e89e0569adb2131dafe7.mp3",
+      "audio_sha256": "a6df2455001f00cbf105ec40816ebff6ef12e26b4480e89e0569adb2131dafe7",
+      "bytes": 29421,
+      "text": "It is black, not white.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:46:14.893144+00:00",
+        "approved_at": "2026-09-12T16:46:09.354772+00:00",
+        "request_id": "e9kaLiUsOKFBvltSDORq",
+        "trace_id": "c54f9ef91339d3074a347ac0267fd86e",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is black, not white.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "e9kaLiUsOKFBvltSDORq",
+            "trace_id": "c54f9ef91339d3074a347ac0267fd86e"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "65fbb79a21734c67d7d4b1c868c8117fcf47e555ac82060189f563938bcffe26": {
+      "file": "takes/65fbb79a21734c67d7d4b1c868c8117fcf47e555ac82060189f563938bcffe26.mp3",
+      "audio_sha256": "65fbb79a21734c67d7d4b1c868c8117fcf47e555ac82060189f563938bcffe26",
+      "bytes": 32589,
+      "text": "It is green, not yellow.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:46:16.787542+00:00",
+        "approved_at": "2026-09-12T16:46:09.354772+00:00",
+        "request_id": "Mzao0sQYUwFyT9hMN3jK",
+        "trace_id": "f4413e792c3af81c4a347ac0267fdb44",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is green, not yellow.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "Mzao0sQYUwFyT9hMN3jK",
+            "trace_id": "f4413e792c3af81c4a347ac0267fdb44"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "1637e3164ccaaf5c1c4daca682a80899a0e282ecdcfaa71877cad19e55ccc86c": {
+      "file": "takes/1637e3164ccaaf5c1c4daca682a80899a0e282ecdcfaa71877cad19e55ccc86c.mp3",
+      "audio_sha256": "1637e3164ccaaf5c1c4daca682a80899a0e282ecdcfaa71877cad19e55ccc86c",
+      "bytes": 28845,
+      "text": "It is red, not blue.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:46:18.623185+00:00",
+        "approved_at": "2026-09-12T16:46:09.354772+00:00",
+        "request_id": "lksNBxn3ZovR84GTTi9D",
+        "trace_id": "1e5a3293ffbae44cdb109894a33bb599",
+        "character_cost": 11,
+        "incremental_character_cost": 11,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is red, not blue.",
+            "character_cost": 11,
+            "incremental_character_cost": 11,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "11",
+            "staged_reuse": false,
+            "request_id": "lksNBxn3ZovR84GTTi9D",
+            "trace_id": "1e5a3293ffbae44cdb109894a33bb599"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "c3c66579975de34f1d4d832f2f10ba0a0310089f17f7b86e64c7d46dc85a78cf": {
+      "file": "takes/c3c66579975de34f1d4d832f2f10ba0a0310089f17f7b86e64c7d46dc85a78cf.mp3",
+      "audio_sha256": "c3c66579975de34f1d4d832f2f10ba0a0310089f17f7b86e64c7d46dc85a78cf",
+      "bytes": 30861,
+      "text": "It is white, not black.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:46:20.360205+00:00",
+        "approved_at": "2026-09-12T16:46:09.354772+00:00",
+        "request_id": "BUuyUy1aXIfwFWZ67v2a",
+        "trace_id": "a2c0446d6f6ac51cdb109894a33bbed7",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "It is white, not black.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "BUuyUy1aXIfwFWZ67v2a",
+            "trace_id": "a2c0446d6f6ac51cdb109894a33bbed7"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "3c5dfd19fa86bfdb00c44f836284a73e13b424d837b521119e2265b251b165b5": {
+      "file": "takes/3c5dfd19fa86bfdb00c44f836284a73e13b424d837b521119e2265b251b165b5.mp3",
+      "audio_sha256": "3c5dfd19fa86bfdb00c44f836284a73e13b424d837b521119e2265b251b165b5",
+      "bytes": 29133,
+      "text": "That is a blue bag.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:47:42.064313+00:00",
+        "approved_at": "2026-09-12T16:47:38.008492+00:00",
+        "request_id": "v4CRQNE55AQn9xlBnPBJ",
+        "trace_id": "660d0a5966e34657c8021fbe563cb120",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "is a blue bag.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "v4CRQNE55AQn9xlBnPBJ",
+            "trace_id": "660d0a5966e34657c8021fbe563cb120"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "___ is a blue bag.",
+        "full_text": "That is a blue bag.",
+        "blank_text": "That"
+      }
+    },
+    "6a45b395bc40bdfb3c93e4d751ac89aec2b5998f22005973e7a43c1746085f17": {
+      "file": "takes/6a45b395bc40bdfb3c93e4d751ac89aec2b5998f22005973e7a43c1746085f17.mp3",
+      "audio_sha256": "6a45b395bc40bdfb3c93e4d751ac89aec2b5998f22005973e7a43c1746085f17",
+      "bytes": 29421,
+      "text": "This is a red book.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "completion-prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "Generated only the learner-visible fragments; missing answers were never sent to ElevenLabs.",
+          "Stitched visible fragments around one deterministic digital-silence gap per blank at 24 kHz mono, 96 kbps MP3."
+        ],
+        "generated_at": "2026-09-12T16:47:44.223024+00:00",
+        "approved_at": "2026-09-12T16:47:38.008492+00:00",
+        "request_id": "8gHda5tMJ2c7f5R7NMXg",
+        "trace_id": "ba349354405a44e08e12f6eb8b3fc50b",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "is a red book.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "8gHda5tMJ2c7f5R7NMXg",
+            "trace_id": "ba349354405a44e08e12f6eb8b3fc50b"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      },
+      "completion_contract": {
+        "visual_prompt": "___ is a red book.",
+        "full_text": "This is a red book.",
+        "blank_text": "This"
+      }
+    },
+    "a3f9857c7bf1846d6de542a724868c6b4f25a3ac03216b3790a37e7cc8f4a42a": {
+      "file": "takes/a3f9857c7bf1846d6de542a724868c6b4f25a3ac03216b3790a37e7cc8f4a42a.mp3",
+      "audio_sha256": "a3f9857c7bf1846d6de542a724868c6b4f25a3ac03216b3790a37e7cc8f4a42a",
+      "bytes": 28557,
+      "text": "That is a blue bag.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:47:46.861652+00:00",
+        "approved_at": "2026-09-12T16:47:38.008492+00:00",
+        "request_id": "bs3gXe6nqmLYHo4Li9Qd",
+        "trace_id": "ed68dc84d52a01538e12f6eb8b3fc121",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "That is a blue bag.",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "bs3gXe6nqmLYHo4Li9Qd",
+            "trace_id": "ed68dc84d52a01538e12f6eb8b3fc121"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "59116c6288d564161a13312becddb81eca28e344735045c33bcf8fd197c406b6": {
+      "file": "takes/59116c6288d564161a13312becddb81eca28e344735045c33bcf8fd197c406b6.mp3",
+      "audio_sha256": "59116c6288d564161a13312becddb81eca28e344735045c33bcf8fd197c406b6",
+      "bytes": 26829,
+      "text": "This is a red book.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-12T16:47:50.049500+00:00",
+        "approved_at": "2026-09-12T16:47:38.008492+00:00",
+        "request_id": "v9dYfFDfpXB3bvTacpYN",
+        "trace_id": "d25e5720667988728e12f6eb8b3fca6f",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "This is a red book.",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "v9dYfFDfpXB3bvTacpYN",
+            "trace_id": "d25e5720667988728e12f6eb8b3fca6f"
           }
         ],
         "review": {
@@ -120226,6 +122290,226 @@
     "lesson-2-10-around-me-mission-c003-prompt-turn-2-f846b3011c61761bc162": {
       "take_id": "1e4a2753e89bf20223b076a3d32af8855370c0e73a7b7eaa2a9a3610b92aa12e",
       "approved_at": "2026-09-12T15:04:54.461464+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-1-places-around-me-c034-prompt-385c9f4b3175e8177f13": {
+      "take_id": "82fda4b0ca501d15f143114f822be63f69781569b404e3dfa8bf8fede7edccae",
+      "approved_at": "2026-09-12T16:22:17.271957+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-1-places-around-me-c016-answer-4394c9f0ed5ff47ddb38": {
+      "take_id": "d19bdc93c28d9c37ada312cf9674095ea228f4d0455f7357f61732738070ed3b",
+      "approved_at": "2026-09-12T15:04:54.461464+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-1-places-around-me-c028-prompt-b02897d5c49b57be4385": {
+      "take_id": "d19bdc93c28d9c37ada312cf9674095ea228f4d0455f7357f61732738070ed3b",
+      "approved_at": "2026-09-12T15:04:54.461464+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-1-places-around-me-c028-answer-900c7acc3729c0be1bb7": {
+      "take_id": "d19bdc93c28d9c37ada312cf9674095ea228f4d0455f7357f61732738070ed3b",
+      "approved_at": "2026-09-12T15:04:54.461464+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-1-places-around-me-c022-prompt-3746e387dfcd1585cc62": {
+      "take_id": "998d2bb8841d8e07780957f5dbed3a2acd7dd52038bd43a6d2015fb8bbdec9b8",
+      "approved_at": "2026-09-12T16:22:17.271957+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-1-places-around-me-c022-answer-f4d64f43ae290b2a0d82": {
+      "take_id": "998d2bb8841d8e07780957f5dbed3a2acd7dd52038bd43a6d2015fb8bbdec9b8",
+      "approved_at": "2026-09-12T16:22:17.271957+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-1-places-around-me-c034-answer-46b6d4d95509b50ef08b": {
+      "take_id": "998d2bb8841d8e07780957f5dbed3a2acd7dd52038bd43a6d2015fb8bbdec9b8",
+      "approved_at": "2026-09-12T16:22:17.271957+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c034-prompt-bbc59eb3a268af4f4c56": {
+      "take_id": "8de6c2da85b2c6262d9223fad46af92c6c8296d1420044ff07df5f1597717a54",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c016-answer-c0cc50228f584b296d80": {
+      "take_id": "763517f62f84790110124a9209626105eee7641e8f533869b56f686d95c2aac2",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c022-prompt-af447ae7f985ccb05ab4": {
+      "take_id": "8f8e6302d1c4977f2cdf3672bf4dd0225eefb8f0b2580940a5eb814c4a095453",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c022-answer-e0a56d6a320f6fbeeba8": {
+      "take_id": "8f8e6302d1c4977f2cdf3672bf4dd0225eefb8f0b2580940a5eb814c4a095453",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c034-answer-e2e98cdd40f299c84908": {
+      "take_id": "b41ddb0d2b27da9e88baf1a3c9aac379ca8fdedf62cd7f6c3d2984ed5c3adcb6",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c015-prompt-57c56ca1882e422c03d0": {
+      "take_id": "911654bedec024e925a428aff798ae0b23c4a201fd76d5df0492f441a9cf43af",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c015-answer-1d6ec3499cf3f4e5815b": {
+      "take_id": "911654bedec024e925a428aff798ae0b23c4a201fd76d5df0492f441a9cf43af",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c028-prompt-d8cd2147a613334caa11": {
+      "take_id": "911654bedec024e925a428aff798ae0b23c4a201fd76d5df0492f441a9cf43af",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-2-streets-and-transportation-c028-answer-cb8c825ef31ad42892ff": {
+      "take_id": "911654bedec024e925a428aff798ae0b23c4a201fd76d5df0492f441a9cf43af",
+      "approved_at": "2026-09-12T16:28:38.078007+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-3-common-objects-c034-prompt-eba2df89f1334fcdf299": {
+      "take_id": "90fd44742e32cbca77ebc36e04999b373b56dcc2e596300dd9b2c9bf718e124c",
+      "approved_at": "2026-09-12T16:32:15.700207+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-3-common-objects-c033-prompt-6c1ac46b674890027601": {
+      "take_id": "5d93f5ef355cd64877b0daf0a8cf674e3146a41b9aca09d67b603e20a0eb1176",
+      "approved_at": "2026-09-12T16:32:15.700207+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-3-common-objects-c034-answer-d3c7f194149e96cb8724": {
+      "take_id": "371a77c6f9bb9e9d0bb3dc8d471e646dcc5e46f90d8b510335b9b40f587d968e",
+      "approved_at": "2026-09-12T16:32:15.700207+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-3-common-objects-c015-prompt-dc70ecdfda4dfd22d0d1": {
+      "take_id": "128136c7024f06d15d475ab5d2afebb0883a97a280313ecceaf5fdf927eec534",
+      "approved_at": "2026-09-12T16:32:15.700207+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-3-common-objects-c015-answer-fd194e0cf98cc1112b3d": {
+      "take_id": "128136c7024f06d15d475ab5d2afebb0883a97a280313ecceaf5fdf927eec534",
+      "approved_at": "2026-09-12T16:32:15.700207+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-3-common-objects-c016-answer-8a0b0c54ebff2568554b": {
+      "take_id": "3369700f78f2c8828202fc1ae8baff68a5ed73066166ee463b5980cf48f000be",
+      "approved_at": "2026-09-12T16:32:15.700207+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-3-common-objects-c033-answer-d8599cc58a8f49e4d1f0": {
+      "take_id": "e291a5a0fe673d59d1796824acb5efd5e8e481b814819c80600257a7bac939c7",
+      "approved_at": "2026-09-12T16:32:15.700207+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-4-what-is-it-c034-prompt-a87a0fb4d10ffc622ab6": {
+      "take_id": "046cd5776201df563eb255f75581be0c20424d4a13c5a6ab913b304db6223357",
+      "approved_at": "2026-09-12T16:34:39.664102+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-6-numbers-1-10-c017-prompt-35ee1b2d4e2c25ab55ec": {
+      "take_id": "87e07e0004b274ee9ae658598e7205ee9553584e53f30c46a206645138eb8766",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-2-6-numbers-1-10-c018-prompt-3bbf1403fdda56488a4b": {
+      "take_id": "87e07e0004b274ee9ae658598e7205ee9553584e53f30c46a206645138eb8766",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-2-6-numbers-1-10-c035-prompt-fd973587034cb9cf87e3": {
+      "take_id": "d8c8affb126ce1b2adffa8208b740f67853f0c5486e5902525db49e3906169fc",
+      "approved_at": "2026-09-12T16:44:46.617828+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-6-numbers-1-10-c036-prompt-25c954f1bdaf4791b8af": {
+      "take_id": "823704120a9aa864b0ad6e0ffcdef9df5387853933818ae13cf47d549ac2179b",
+      "approved_at": "2026-09-12T16:44:46.617828+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-6-numbers-1-10-c035-answer-c6c79fda65aba4e196b3": {
+      "take_id": "60d3788e7ef4c2868e2b1ab019da370445b5d235b284cb5611b78c72e1635cb6",
+      "approved_at": "2026-09-12T16:44:46.617828+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-6-numbers-1-10-c017-answer-3f4605c1f5f3577916cd": {
+      "take_id": "00ccee07ba83580159dca0baf568c28a83536557885de0e8714138658a3d13ac",
+      "approved_at": "2026-09-12T16:44:46.617828+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-6-numbers-1-10-c036-answer-1c146c52ea997de79c94": {
+      "take_id": "d53bac6edb6e10e188a728ef8f44625840f2233a4177eda5d01c02645e42184b",
+      "approved_at": "2026-09-12T16:44:46.617828+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-6-numbers-1-10-c018-answer-2fc4a397f40e6e290840": {
+      "take_id": "d4877213e4ed85993c5bb35e7626573aab233ecf0d629ce8e355eb5333d8e567",
+      "approved_at": "2026-09-12T16:44:46.617828+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-7-basic-colors-c033-prompt-dd78512f44d9048d55a8": {
+      "take_id": "264ebeb75b5a052f4dfed7d2659d369c62b98baba0ada92abd489df935a0d05e",
+      "approved_at": "2026-09-12T16:46:09.354772+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-7-basic-colors-c034-prompt-f49e01c126ca004ccb63": {
+      "take_id": "8d8c2fff3e1ab079a497cf66bf53a31e5c3019935670fc37d07d20a9ef6442d3",
+      "approved_at": "2026-09-12T16:46:09.354772+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-7-basic-colors-c033-answer-169fc13557984ff127a4": {
+      "take_id": "a6df2455001f00cbf105ec40816ebff6ef12e26b4480e89e0569adb2131dafe7",
+      "approved_at": "2026-09-12T16:46:09.354772+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-7-basic-colors-c016-answer-cd8a87ec3499f1cfb06e": {
+      "take_id": "65fbb79a21734c67d7d4b1c868c8117fcf47e555ac82060189f563938bcffe26",
+      "approved_at": "2026-09-12T16:46:09.354772+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-7-basic-colors-c015-answer-7c61156ab6f40bde18b1": {
+      "take_id": "1637e3164ccaaf5c1c4daca682a80899a0e282ecdcfaa71877cad19e55ccc86c",
+      "approved_at": "2026-09-12T16:46:09.354772+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-7-basic-colors-c034-answer-9010628d27b525dd3ba2": {
+      "take_id": "c3c66579975de34f1d4d832f2f10ba0a0310089f17f7b86e64c7d46dc85a78cf",
+      "approved_at": "2026-09-12T16:46:09.354772+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-8-count-and-describe-c034-prompt-8b3165ece9b5993ea8d4": {
+      "take_id": "3c5dfd19fa86bfdb00c44f836284a73e13b424d837b521119e2265b251b165b5",
+      "approved_at": "2026-09-12T16:47:38.008492+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-8-count-and-describe-c033-prompt-9c5c3b85f94078f02743": {
+      "take_id": "6a45b395bc40bdfb3c93e4d751ac89aec2b5998f22005973e7a43c1746085f17",
+      "approved_at": "2026-09-12T16:47:38.008492+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-8-count-and-describe-c014-answer-219eaf644aafc35676fb": {
+      "take_id": "a3f9857c7bf1846d6de542a724868c6b4f25a3ac03216b3790a37e7cc8f4a42a",
+      "approved_at": "2026-09-12T16:47:38.008492+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-8-count-and-describe-c034-answer-5257de33906ab215b6ed": {
+      "take_id": "a3f9857c7bf1846d6de542a724868c6b4f25a3ac03216b3790a37e7cc8f4a42a",
+      "approved_at": "2026-09-12T16:47:38.008492+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-8-count-and-describe-c013-answer-799e9b1e1f398d253f67": {
+      "take_id": "59116c6288d564161a13312becddb81eca28e344735045c33bcf8fd197c406b6",
+      "approved_at": "2026-09-12T16:47:38.008492+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-2-8-count-and-describe-c033-answer-7d34f3a2dc2ac1602e4c": {
+      "take_id": "59116c6288d564161a13312becddb81eca28e344735045c33bcf8fd197c406b6",
+      "approved_at": "2026-09-12T16:47:38.008492+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     }
   }
