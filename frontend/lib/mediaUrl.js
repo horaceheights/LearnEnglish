@@ -39,13 +39,33 @@ export function mediaUrl(path, version, fallbackBase = "") {
 }
 
 /**
- * Some lesson data carries its own ?v= already, so the separator has to be
- * chosen rather than assumed -- appending a second "?" silently breaks the key.
+ * Eleven lesson refs carry their own ?v= already -- a per-asset bust recorded
+ * when that one image was re-rendered. Appending the global version as a second
+ * `v` produced `?v=<per-asset>&v=<global>`, which parsers resolve last-wins, so
+ * the per-asset bust was silently discarded.
+ *
+ * Both are meant to invalidate, so they are combined into one value rather than
+ * one overwriting the other. Concatenating with a dash matches how api.js
+ * already stacks STATIC_ASSET_VERSION with CORRECTED_ONE_ASSET_VERSION.
  */
 function withVersion(url, version) {
   if (!version) {
     return url;
   }
-  const separator = url.includes("?") ? "&" : "?";
-  return `${url}${separator}v=${encodeURIComponent(version)}`;
+
+  const hashAt = url.indexOf("#");
+  const hash = hashAt === -1 ? "" : url.slice(hashAt);
+  const withoutHash = hashAt === -1 ? url : url.slice(0, hashAt);
+
+  const queryAt = withoutHash.indexOf("?");
+  if (queryAt === -1) {
+    return `${withoutHash}?v=${encodeURIComponent(version)}${hash}`;
+  }
+
+  const path = withoutHash.slice(0, queryAt);
+  const params = new URLSearchParams(withoutHash.slice(queryAt + 1));
+  const existing = params.get("v");
+  params.set("v", existing ? `${existing}-${version}` : version);
+
+  return `${path}?${params.toString()}${hash}`;
 }
