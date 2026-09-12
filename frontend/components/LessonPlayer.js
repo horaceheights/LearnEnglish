@@ -28,6 +28,7 @@ import MissionCompletion from "./MissionCompletion";
 import MissionJourney from "./MissionJourney";
 import SentenceConstruction from "./SentenceConstruction";
 import { isSentenceConstruction, sentenceIsCorrect } from "../../mobile/src/sentenceConstruction";
+import { mediaUrl } from "../lib/mediaUrl";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
 const LESSON_IMAGE_VERSION = "20260903-full-bleed-v8";
@@ -376,10 +377,10 @@ function HomeIcon() {
   );
 }
 
+// Falls back to the API host, which served these before the object store
+// existed, so an environment without NEXT_PUBLIC_MEDIA_BASE_URL keeps working.
 function lessonImageSrc(imageUrl) {
-  const source = imageUrl.startsWith("http") ? imageUrl : `${getApiBaseUrl()}${imageUrl}`;
-  const separator = imageUrl.includes("?") ? "&" : "?";
-  return `${source}${separator}v=${LESSON_IMAGE_VERSION}`;
+  return mediaUrl(imageUrl, LESSON_IMAGE_VERSION, getApiBaseUrl());
 }
 
 const OPTION_MEDIA_VARIANTS = {
@@ -1677,8 +1678,10 @@ function lessonLocationLabel(lesson) {
   return `UNIT ${unitNumber} | LESSON ${lessonNumber}`;
 }
 
+// No fallback base: these were served from this origin's /public, so an unset
+// media base leaves the request root-relative exactly as before.
 function lessonVideoSrc(name) {
-  return `/lesson-assets/${name}?v=${LESSON_VIDEO_VERSION}`;
+  return mediaUrl(`/lesson-assets/${name}`, LESSON_VIDEO_VERSION);
 }
 
 const LESSON_ACTION_VIDEOS = {
@@ -1734,7 +1737,7 @@ function lessonActionVideo(imageUrl, optionCount) {
 function lessonTwoCardActionPosterSrc(imageUrl) {
   const normalized = String(imageUrl || "").split("?")[0].split("/").pop()?.replace(/\.[^.]+$/, "");
   const posterName = normalized ? TWO_CARD_ACTION_POSTERS[normalized] : null;
-  return posterName ? `/lesson-assets/${posterName}?v=${LESSON_VIDEO_VERSION}` : null;
+  return posterName ? mediaUrl(`/lesson-assets/${posterName}`, LESSON_VIDEO_VERSION) : null;
 }
 
 function LessonActionMedia({ alt, imageUrl, posterSrc, style, videoName }) {

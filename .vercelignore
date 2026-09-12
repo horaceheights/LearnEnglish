@@ -40,12 +40,40 @@ mobile/tests/
 /docs/
 /scripts/
 
+# Lesson stills that ship but are never requested from this origin. The web app
+# resolves images through lessonImageSrc (frontend/components/LessonPlayer.js),
+# which prefixes getApiBaseUrl(), so every .webp and .png here is fetched from
+# the Render backend's /lesson-assets mount instead. These 303 MB were pure
+# duplicate weight in the build artifact.
+#
+# Only the negated poster pattern and the videos below it are served from here,
+# so the exclusions are by file extension rather than by directory -- a
+# directory exclusion cannot be undone by a later negation.
+frontend/public/lesson-assets/*.webp
+frontend/public/lesson-assets/*.png
+# ...except the two-card posters, which lessonTwoCardActionPosterSrc requests
+# root-relative from this origin. Videos (*.mp4) are not excluded at all: both
+# lessonVideoSrc and the mobile app's VIDEO_BASE_URL point here.
+!frontend/public/lesson-assets/*-two-card-poster.webp
+
+# Superseded copy. No code anywhere in the repository references this directory;
+# the posters actually used live in lesson-assets under the same names.
+frontend/public/lesson-video-posters/
+
 # Local generated output. Neither is tracked, so a Git-integrated build never
 # sees them, but `vercel deploy` from a workstation uploads the working
 # directory -- which here would mean 2.2 GB of tmp/ and 480 MB of output/.
 # output/ is untracked but not git-ignored, so it is also one `git add -A`
 # away from entering the repository.
+# tmp/ is gitignored and was still listed here, so gitignore alone was never
+# treated as protection against a CLI deploy. The agent worktrees are 12 GB and
+# 734 MB -- five times the two directories this section already defended -- and
+# were missing by oversight rather than by decision.
 tmp/
 output/
 __pycache__/
 venv/
+.codex-release-worktrees/
+.codex-task-worktrees/
+.codex-remote-attachments/
+.agents/
