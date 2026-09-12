@@ -25,10 +25,12 @@ const interactionVerifier = fs.readFileSync(
   'utf8',
 );
 
-const { stripTypeScriptTypes } = require('node:module');
-const { listeningChoiceInstruction } = new Function(
-  `${stripTypeScriptTypes(instructionSource).replace(/export function /g, 'function ')}; return { listeningChoiceInstruction };`,
-)();
+const vm = require('node:vm');
+const ts = require('typescript');
+const transpiledInstruction = ts.transpileModule(instructionSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
+const instructionApi = {};
+vm.runInNewContext(transpiledInstruction, { exports: instructionApi });
+const { listeningChoiceInstruction } = instructionApi;
 
 const units = new Set(course.map((lesson) => lesson.unit_id));
 const standardLessons = course.filter((lesson) => lesson.experience_type !== 'mission');

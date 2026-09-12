@@ -3,7 +3,14 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import test from 'node:test';
 import Yoga from 'yoga-layout';
-import { sentenceLayout } from '../src/sentenceConstruction.ts';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const ts = require('typescript');
+const scSource = fs.readFileSync(new URL('../src/sentenceConstruction.ts', import.meta.url), 'utf8');
+const scCompiled = ts.transpileModule(scSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
+const scApi = {};
+vm.runInNewContext(scCompiled, { exports: scApi });
+const { sentenceLayout } = scApi;
 
 const source = fs.readFileSync(new URL('../src/components/SentenceConstruction.tsx', import.meta.url), 'utf8');
 const styles = vm.runInNewContext(source.slice(source.lastIndexOf('const styles = ') + 15).replace(/;\s*$/, ''),

@@ -3,7 +3,14 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import test from 'node:test';
 import Yoga from 'yoga-layout';
-import { promptChoiceLineCount, promptChoiceRowHeight } from '../src/promptChoiceLayout.ts';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const ts = require('typescript');
+const pcSource = fs.readFileSync(new URL('../src/promptChoiceLayout.ts', import.meta.url), 'utf8');
+const pcCompiled = ts.transpileModule(pcSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
+const pcApi = {};
+vm.runInNewContext(pcCompiled, { exports: pcApi });
+const { promptChoiceLineCount, promptChoiceRowHeight } = pcApi;
 
 const source = fs.readFileSync(new URL('../src/components/LessonCardView.tsx', import.meta.url), 'utf8');
 const styles = vm.runInNewContext(source.slice(source.lastIndexOf('const styles = ') + 15), {

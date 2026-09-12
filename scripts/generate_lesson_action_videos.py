@@ -44,6 +44,9 @@ SCENES = {
     "adults-playing": ("family_adults_playing", "adults-playing-scene-v2.mp4", "both adults actively play the activity already shown, with clear purposeful hand and body movement"),
     "grandparents-talking": ("family_grandparents_talking", "grandparents-talking-scene-v2.mp4", "take turns making small conversational hand gestures toward each other and nod gently while seated; keep both faces and hands visible"),
     "children-studying": ("family_children_studying", "children-studying-scene-v2.mp4", "both children clearly study: they look between their learning materials and write short answers with focused, purposeful movement"),
+    "boy-running": ("boy_is_running", "boy-running-scene-v2.mp4", "clearly runs forward along the path with natural running strides, bent elbows, and coordinated arm movement; he must not merely walk"),
+    "boy-eating": ("boy_is_eating", "boy-eating-scene-v2.mp4", "takes one clear bite of the existing sandwich, chews naturally, and holds it with both hands"),
+    "boy-swimming": ("boy_is_swimming", "boy-swimming-scene-v2.mp4", "swims forward in the pool with natural crawl arm strokes, kicking and creating gentle water ripples"),
     "sister-reading": ("girl_is_reading", "girl-reading-scene-v2.mp4", "unmistakably reads the existing open book; her eyes track the lines and one hand gently begins turning a page"),
 }
 
@@ -55,6 +58,11 @@ BUNDLED_SCENES = {
     "girl-walking",
     "mother-cooking",
     "parents-talking",
+    "boy-running",
+    "boy-eating",
+    "boy-swimming",
+    "girl-sleeping",
+    "pair-boy-girl-running",
 }
 
 # Full-bleed masters now preserve the complete action at every option count.
@@ -96,28 +104,26 @@ def source_path(stem: str) -> Path:
     raise FileNotFoundError(f"No lesson image found for {stem}")
 
 
-def generate(client: genai.Client, scene_id: str, model: str = "veo-3.1-lite-generate-preview") -> Path:
+def generate(client: genai.Client, scene_id: str, model: str = "veo-3.1-lite-generate-preview", force: bool = False) -> Path:
     image_stem, output_name, action = SCENES[scene_id]
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     raw_path = RAW_DIR / raw_name_for(output_name)
-    if raw_path.exists():
+    if not force and raw_path.exists():
         print(f"scene={scene_id} reuse-raw={raw_path.name}", flush=True)
         return raw_path
 
     prompt = (
         "Animate this exact educational course image in one continuous four-second shot. "
         f"Every person shown {action}. "
-        "Keep mouths naturally closed unless mouth movement is physically required for eating or talking. "
-        "No dialogue, speech, singing, or music. Quiet natural room tone is acceptable; "
-        "the final educational export removes all audio. "
+        "Keep mouths naturally closed. Completely silent video with no sound. "
         "Preserve every person's exact identity, age, face, clothing, hands, existing objects, setting, lighting, "
         "colors, composition, and framing. Keep the camera completely locked and all heads and important body "
         "parts visible. No zoom, pan, cuts, scene changes, new objects, extra people, text, flicker, morphing, "
+        "warped hands, duplicated objects, or exaggerated motion. "
         "Extend the real surrounding scene naturally to every edge of the landscape video. "
         "No borders, letterboxing, pillarboxing, solid padding, or blurred background panels. "
         "Keep all heads, hands, feet, and action-defining objects inside the central 3:2 safe area. "
-        "warped hands, duplicated objects, or exaggerated motion. The action must be immediately identifiable "
-        "to an A1 English learner without seeing text."
+        "The action must be immediately identifiable to an A1 English learner without seeing text."
     )
     operation = client.models.generate_videos(
         model=model,
@@ -156,6 +162,11 @@ def optimize(scene_id: str, raw_path: Path) -> Path:
     if scene_id in BUNDLED_SCENES:
         MOBILE_VIDEOS.mkdir(parents=True, exist_ok=True)
         shutil.copy2(output_path, MOBILE_VIDEOS / output_path.name)
+    image_stem = SCENES[scene_id][0]
+    from a1_media_runtime_contracts import TWO_CARD_ACTION_POSTERS
+    if image_stem in TWO_CARD_ACTION_POSTERS:
+        from export_action_video_posters import export_poster
+        export_poster(image_stem, output_path)
     print(f"scene={scene_id} optimized={output_path.name} bytes={output_path.stat().st_size}", flush=True)
     return output_path
 
@@ -255,26 +266,42 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("scenes", nargs="*", choices=SCENES)
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--bundled", action="store_true", help="Generate all bundled scenes")
+    parser.add_argument("--force", action="store_true", help="Force regeneration even if raw exists")
     parser.add_argument("--normalize-existing", action="store_true")
     parser.add_argument("--normalize-two-card-existing", action="store_true")
     args = parser.parse_args()
-    scene_ids = list(SCENES) if args.all else args.scenes
+    if args.bundled:
+        scene_ids = list(BUNDLED_SCENES)
+    elif args.all:
+        scene_ids = list(SCENES)
+    else:
+        scene_ids = args.scenes
     if args.normalize_existing:
         normalize_existing()
     if args.normalize_two_card_existing:
         normalize_two_card_existing()
     if not scene_ids and not args.normalize_existing and not args.normalize_two_card_existing:
-        parser.error("Choose one or more scenes, or use --all.")
+        parser.error("Choose one or more scenes, or use --bundled / --all.")
     if not scene_ids:
         return
     client = genai.Client(api_key=api_key())
     failures = []
     for scene_id in scene_ids:
-        try:
-            optimize(scene_id, generate(client, scene_id))
-        except Exception as error:
-            failures.append(scene_id)
-            print(f"scene={scene_id} failed={type(error).__name__}: {error}", flush=True)
+        max_retries = 3
+        for attempt in range(max_retries):
+            try:
+                optimize(scene_id, generate(client, scene_id, force=args.force))
+                time.sleep(10)
+                break
+            except Exception as error:
+                if "429" in str(error) and attempt < max_retries - 1:
+                    print(f"scene={scene_id} rate-limited, waiting 35s before retry...", flush=True)
+                    time.sleep(35)
+                else:
+                    failures.append(scene_id)
+                    print(f"scene={scene_id} failed={type(error).__name__}: {error}", flush=True)
+                    break
     if failures:
         raise SystemExit(f"Failed scenes: {', '.join(failures)}")
 
