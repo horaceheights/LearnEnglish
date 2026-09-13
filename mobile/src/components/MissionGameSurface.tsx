@@ -68,7 +68,7 @@ function TargetDot({
 
   return (
     <Pressable
-      accessibilityHint="Escucha la frase y toca si describe a esta persona o grupo."
+      accessibilityHint={target.subject_kind === 'object' ? 'Escucha la frase y toca si describe este objeto, lugar o grupo.' : 'Escucha la frase y toca si describe a esta persona o grupo.'}
       accessibilityLabel={target.label_es || 'Persona'}
       accessibilityRole="button"
       accessibilityState={{ disabled, selected: isSolved }}
@@ -109,7 +109,7 @@ function TargetDot({
       ]}>
         <Ionicons
           color="#fff"
-          name={isSolved ? 'checkmark' : collective ? 'people' : 'radio-button-on'}
+          name={isSolved ? 'checkmark' : collective ? target.subject_kind === 'object' ? 'layers' : 'people' : 'radio-button-on'}
           size={isSolved ? 22 : collective ? 18 : 16}
         />
       </View>
@@ -143,7 +143,9 @@ export function MissionGameSurface({
     || card.options.find((option) => option.image_url)?.image_url
     || '';
   const useLandscapeGameRail = viewportWidth > viewportHeight && viewportHeight < 600;
-  const landscapeInstruction = game.targets.every((target) => (target.head_anchors?.length ?? 1) > 1)
+  const landscapeInstruction = game.targets.every(target => target.subject_kind === 'object')
+    ? game.instruction_es
+    : game.targets.every((target) => (target.head_anchors?.length ?? 1) > 1)
     ? 'Escucha y toca al grupo.'
     : game.targets.some((target) => (target.head_anchors?.length ?? 1) > 1)
       ? 'Escucha y toca a la persona o al grupo.'
@@ -326,9 +328,9 @@ export function MissionGameSurface({
           <View pointerEvents={disabled ? 'none' : 'box-none'} style={StyleSheet.absoluteFill}>
             {sceneFrame.markers.map((marker, index) => (
               <View key={marker.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
-                {!marker.chest && marker.heads.map((head, headIndex) => {
-                  const fromX = marker.x + marker.width / 2;
-                  const fromY = marker.y + marker.height - 7;
+                {!marker.chest && (marker.leaderHeads || marker.heads).map((head, headIndex) => {
+                  const fromX = marker.leaderFrom?.x ?? marker.x + marker.width / 2;
+                  const fromY = marker.leaderFrom?.y ?? marker.y + marker.height - 7;
                   const dx = head.x - fromX;
                   const dy = head.y - 3 - fromY;
                   const length = Math.hypot(dx, dy);

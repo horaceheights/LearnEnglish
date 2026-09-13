@@ -1,7 +1,7 @@
 from typing import Any, Literal
 import re
 
-from pydantic import BaseModel, Field, field_validator, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator, model_serializer
 
 from .course_audio_profile import narrator_for_speaker
 
@@ -125,6 +125,15 @@ class MissionGameTarget(BaseModel):
     head_anchors: list[MissionHeadAnchor] = Field(default_factory=list, max_length=12)
     # Optional reviewed chest position for standing groups with individual member dots.
     group_chest_anchor: MissionHeadAnchor | None = None
+    # Explicit opt-in for object/venue scenes; never infer geometry from translated labels.
+    subject_kind: Literal["object"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_subject_kind(self, handler):
+        payload = handler(self)
+        if self.subject_kind is None:
+            payload.pop("subject_kind", None)
+        return payload
 
     @field_validator("id", "label_es")
     @classmethod

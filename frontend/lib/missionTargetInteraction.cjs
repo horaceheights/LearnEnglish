@@ -107,8 +107,47 @@ function placeChestGroups(layout, targets) {
   return { ...layout, markers };
 }
 
+function fitObjectRailScene(width, height, targets) {
+  // Short object scenes use the unused side margins instead of a 64px overhead
+  // row. Keep the entire 3:2 image and every 48dp touch target; no crop/scroll.
+  const sides = [[], []];
+  for (const target of targets) sides[target.rect.x + target.rect.width / 2 < .5 ? 0 : 1].push(target);
+  if (sides.some(side => side.length * TOUCH + Math.max(0, side.length - 1) * GAP > height - 8)) return null;
+  const railWidth = targets.some(t => t.head_anchors?.length > 1) ? 68 : TOUCH;
+  const imageWidth = Math.min((height - 8) * 1.5, width - 2 * (railWidth + 12) - 8);
+  if (imageWidth < 64) return null;
+  const imageHeight = imageWidth / 1.5, imageX = (width - imageWidth) / 2, imageY = (height - imageHeight) / 2;
+  const placed = [];
+  sides.forEach((side, sideIndex) => {
+    side.sort((a, b) => a.rect.y + a.rect.height / 2 - b.rect.y - b.rect.height / 2);
+    const blockHeight = side.length * TOUCH + Math.max(0, side.length - 1) * GAP;
+    side.forEach((target, index) => {
+      const collective = target.head_anchors?.length > 1;
+      const markerWidth = collective ? 68 : TOUCH;
+      const x = sideIndex ? imageX + imageWidth + 12 : imageX - 12 - markerWidth;
+      const y = (height - blockHeight) / 2 + index * (TOUCH + GAP);
+      const targetX = imageX + (target.rect.x + (sideIndex ? target.rect.width : 0)) * imageWidth;
+      const targetY = imageY + (target.rect.y + target.rect.height / 2) * imageHeight;
+      placed.push({id: target.id, x, y, width: markerWidth, height: TOUCH, collective,
+        heads: (target.head_anchors || []).map(h => ({x: imageX+h.x*imageWidth, y: imageY+h.y*imageHeight})),
+        leaderFrom: {x: sideIndex ? x+7 : x+markerWidth-7, y: y+TOUCH/2},
+        // One short pointer to the edge of the whole group, not a fan across
+        // every counted object. Full member anchors remain the scope evidence.
+        leaderHeads: [{x: targetX, y: targetY+3}],
+      });
+    });
+  });
+  return {width, height, imageWidth, imageHeight, imageX, imageY,
+    markers: targets.map(t => placed.find(m => m.id === t.id))};
+}
+
 function fitMissionHeadScene(width, height, targets) {
   if (width < 80 || height < 80) return null;
+  const objectScene = targets.length > 0 && targets.every(t => t.subject_kind === 'object');
+  if (objectScene && width > height * 1.6 && height < 400) {
+    const rail = fitObjectRailScene(width, height, targets);
+    if (rail) return rail;
+  }
   if (height < 240 && width > height * 1.6) {
     // Short landscape: one clear overhead row, using the free horizontal space.
     // Pointers still terminate at each exact source-image crown, never a crop.
@@ -133,7 +172,18 @@ function fitMissionHeadScene(width, height, targets) {
   // Search downward because collision tiers make the fit discontinuous.
   for (let imageWidth = Math.min(width - 8, (height - 8) * 1.5); imageWidth >= 64; imageWidth -= 1) {
     const layout = layoutAtWidth(width, imageWidth, targets);
-    if (layout.height <= height) return placeChestGroups(layout, targets);
+    if (layout.height <= height) {
+      if (objectScene) {
+        // Portrait retains overhead dots/capsules, with one group-edge pointer.
+        layout.markers = layout.markers.map(marker => {
+          const target = targets.find(t => t.id === marker.id);
+          return {...marker, leaderHeads: [{x: layout.imageX + (target.rect.x + target.rect.width/2)*layout.imageWidth,
+            y: layout.imageY + target.rect.y*layout.imageHeight + 3}]};
+        });
+        return layout;
+      }
+      return placeChestGroups(layout, targets);
+    }
   }
   return null;
 }
