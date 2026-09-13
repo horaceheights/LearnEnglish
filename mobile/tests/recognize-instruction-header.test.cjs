@@ -34,13 +34,18 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 
 assert.equal(
   emptyRecognizeCards.length,
-  36,
+  39,
   'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
   affectedLessons.size,
-  8,
-  'The shared rule must cover all eight standard lessons that currently contain this interaction.',
+  9,
+  'The shared rule must cover all nine standard lessons that currently contain this interaction.',
+);
+assert.deepEqual(
+  emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-2-9-unit-2-review').map(({ card }) => card.slide_id),
+  ['R4', 'R7', 'R8'],
+  'The three revised review choices use the shared instruction instead of spoken meta-English.',
 );
 assert.ok(
   emptyRecognizeCards.every(({ card }) => (
