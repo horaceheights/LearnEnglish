@@ -93,6 +93,8 @@ Core patterns:
 - `This is a pen. That is a bag.`
 - `Three green books.`
 
+Lesson 2.9's reviewed restructuring contains 48 cards (`8 Learn / 8 Recognize / 18 Listen / 6 Speak / 8 Use`). It revisits surroundings, object identity, same-object near/far contrasts, quantities and colors, with a closing listening number check. Its successful-path inventory covers all 43 vocabulary entries declared by 2.1–2.8. Sixteen fresh review stills replace only repeated review bindings, preserving the original Gemini/unknown-provenance files and their earlier teaching uses. This uses the comprehensive-review length exception below; it is not a new length requirement for every lesson. Human media and device review remain pending.
+
 ### Unit 3: Me and Other People
 
 Goal: Exchange basic personal information and describe oneself or another person with tightly supported A1 questions and answers.

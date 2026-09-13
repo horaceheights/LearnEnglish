@@ -23,6 +23,8 @@ from types import SimpleNamespace
 from uuid import uuid4
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 MODEL = "gpt-image-2.5-sunburst-2026-09-08"
 PRICE_SOURCE = "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst"
 FX = Decimal("16.9707")
@@ -66,6 +68,37 @@ def load_pack(path: Path) -> dict:
             raise ValueError("Every reference must name an earlier asset in this pack.")
         seen.add(item["id"])
     return pack
+
+
+def pack_output_directory(pack: dict) -> Path:
+    name = pack.get("output_namespace") or f"unit-{pack['lesson_number'].split('.')[0]}-mission-v{pack['revision']}"
+    if not re.fullmatch(r"unit-[1-7]-(?:mission|review)-v[1-9][0-9]*", name):
+        raise ValueError("Unsafe output namespace.")
+    return ROOT / "output/imagegen" / name
+
+
+def validate_change_control(pack: dict, asset: dict) -> None:
+    # New paid attempts need an explicit intent; legacy receipts are untouched.
+    from scripts.audit_course_media_preservation import BASELINE, PLANS, audit, validate_plan, lessons
+    baseline = json.loads(BASELINE.read_text(encoding="utf-8"))
+    plans = json.loads(PLANS.read_text(encoding="utf-8"))["changes"]
+    errors = audit(ROOT, baseline, plans)
+    if errors:
+        raise ValueError("Media preservation failed: " + errors[0])
+    control = asset.get("change_control", {})
+    if control.get("kind") == "new-review-scene" and control.get("reason") and not control.get("replaces"):
+        if not pack["lesson_number"].endswith(".9"):
+            raise ValueError("New review scenes must belong to Lesson 9.")
+        return
+    if control.get("kind") != "scoped-replacement" or not control.get("replaces"):
+        raise ValueError("Explicit new-scene intent or scoped replacement evidence is required before spending.")
+    current = lessons(ROOT)
+    for old in control["replaces"]:
+        matching = [plan for plan in plans if plan["lesson_id"] == pack["lesson_id"] and plan["old_filename"] == old
+                    and plan["new_filename"] == asset["runtime_filename"]]
+        if len(matching) != 1:
+            raise ValueError("Missing exact lesson/image replacement exception.")
+        validate_plan(matching[0], baseline, current, ROOT)
 
 
 def validate_budget(output_dir: Path, ceiling: Decimal, reserve: Decimal) -> Decimal:
@@ -204,7 +237,7 @@ def main() -> int:
     asset = next((item for item in pack["assets"] if item["id"] == args.asset_id), None)
     if asset is None:
         raise ValueError("Unknown asset ID.")
-    output_dir = ROOT / "output/imagegen" / f"unit-{pack['lesson_number'].split('.')[0]}-mission-v{pack['revision']}"
+    output_dir = pack_output_directory(pack)
     output = output_dir / (asset["id"] + ".png")
     receipt = output.with_suffix(".receipt.json")
     reference = output_dir / (asset["reference"] + ".png") if asset.get("reference") else None
@@ -212,6 +245,7 @@ def main() -> int:
         raise ValueError("Asset already attempted; do not overwrite or retry it.")
     prompt = pack["shared_prompt"] + "\n\n" + asset["prompt"]
     if args.execute:
+        validate_change_control(pack, asset)
         ceiling = args.max_cost_usd
         declared = Decimal(pack["production"]["initial_batch_ceiling_usd"])
         if ceiling is None or ceiling > declared:
