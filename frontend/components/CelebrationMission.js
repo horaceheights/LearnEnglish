@@ -4,18 +4,10 @@ import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { missionChapterProgress, missionProgressPercent } from "../lib/missionExperience.mjs";
 import { fitMissionHeadScene } from "../lib/missionTargetInteraction.cjs";
+import { missionChallengeLabel, missionVoiceProgress } from "../lib/missionPresentation.cjs";
 
 const ACT_ICONS = ["◉", "∿", "➤", "✦", "●"];
 const ACT_COLORS = ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"];
-const KIND_LABELS = {
-  "action-hunt": "Encuentra la acción",
-  "contrast-hunt": "Mira bien",
-  "crowd-search": "Encuentra a la persona",
-  "family-link": "Reúne a la familia",
-  "guided-search": "Primer reto",
-  "voice-gate": "Reto de voz",
-};
-
 function buttonStyle(disabled = false) {
   return {
     alignItems: "center",
@@ -46,8 +38,8 @@ function MissionIntro({ introReady, isMobile, lesson, onBegin, onExit, onReplayI
         <p>{lesson.mission.briefing}</p>
       </div>
       <div className="intro-image">
-        <Image alt="Una celebración familiar lista para comenzar" fill priority sizes="(max-width: 760px) 96vw, 820px" src={resolveImage(lesson.mission.kickoff_image_url)} style={{ objectFit: "cover" }} unoptimized />
-        <span className="challenge-badge">✦ 22 RETOS · 1 AVENTURA</span>
+        <Image alt={lesson.mission.title} fill priority sizes="(max-width: 760px) 96vw, 820px" src={resolveImage(lesson.mission.kickoff_image_url)} style={{ objectFit: "cover" }} unoptimized />
+        <span className="challenge-badge">✦ {lesson.cards.length} RETOS · 1 AVENTURA</span>
       </div>
       <div className="intro-objectives" aria-label="Lo que harás en la misión">
         {objectives.map((objective, index) => (
@@ -68,13 +60,12 @@ function MissionIntro({ introReady, isMobile, lesson, onBegin, onExit, onReplayI
   );
 }
 
-function VoiceGateHeader({ cardIndex, game, onReplayEnglish, speech }) {
-  const step = Math.max(1, cardIndex - 17);
-  const total = 4;
+function VoiceGateHeader({ cardIndex, game, lesson, onReplayEnglish, speech }) {
+  const { step, total, heading, instruction } = missionVoiceProgress(lesson, cardIndex);
   return (
     <section className="voice-game-header">
       <div className="voice-game-heading">
-        <div><small>ABRE LA CELEBRACIÓN</small><strong>Activa la entrada con tu voz</strong></div>
+        <div><small>{heading}</small><strong>{instruction}</strong></div>
         <b>VOZ {step}/{total}</b>
       </div>
       <div className="voice-locks" aria-label={`Voz ${step} de ${total}`}>
@@ -94,10 +85,10 @@ function VoiceGateHeader({ cardIndex, game, onReplayEnglish, speech }) {
   );
 }
 
-function VoiceGateConsole({ card, isMobile, onPrepareSpeech, onRetrySpeech, speech }) {
+function VoiceGateConsole({ card, isMobile, onPrepareSpeech, onRetrySpeech, speech, successLabel }) {
   const busy = speech.recording || speech.scoring;
   const accepted = Boolean(speech.outcome?.accepted);
-  const stateLabel = accepted ? "ENTRADA ACTIVADA" : speech.scoring ? "REVISANDO TU RESPUESTA" : speech.recording ? "TE ESCUCHAMOS" : speech.asking ? "ESCUCHA LA PREGUNTA" : "RESPONDE EN VOZ ALTA";
+  const stateLabel = accepted ? successLabel : speech.scoring ? "REVISANDO TU RESPUESTA" : speech.recording ? "TE ESCUCHAMOS" : speech.asking ? "ESCUCHA LA PREGUNTA" : "RESPONDE EN VOZ ALTA";
   return (
     <section className={`voice-console ${accepted ? "accepted" : ""}`} aria-live="polite">
       <div className={`voice-orb ${busy ? "busy" : ""} ${accepted ? "accepted" : ""}`}>{accepted ? "✓" : "🎤"}<i /></div>
@@ -247,9 +238,9 @@ export default function CelebrationMission({
       </header>
 
       {isVoiceGate ? (
-        <VoiceGateHeader cardIndex={cardIndex} game={game} onReplayEnglish={onReplayEnglish} speech={speech} />
+        <VoiceGateHeader cardIndex={cardIndex} game={game} lesson={lesson} onReplayEnglish={onReplayEnglish} speech={speech} />
       ) : <section className="cue-panel">
-        <div><small>{KIND_LABELS[game.kind]}</small><b>{game.instruction_es}</b></div>
+        <div><small>{missionChallengeLabel(game)}</small><b>{game.instruction_es}</b></div>
         <span>PISTA {cueProgress}</span>
         <button aria-label="Repetir la frase en inglés" disabled={Boolean(feedback)} onClick={() => onReplayEnglish(cueIndex)} type="button">🔊</button>
       </section>}
@@ -296,7 +287,7 @@ export default function CelebrationMission({
         </section>
       </div>
 
-      {isVoiceGate ? <VoiceGateConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} /> : (
+      {isVoiceGate ? <VoiceGateConsole card={card} isMobile={isMobile} onPrepareSpeech={onPrepareSpeech} onRetrySpeech={onRetrySpeech} speech={speech} successLabel={missionVoiceProgress(lesson, cardIndex).successLabel} /> : (
         <div className="cue-dots" aria-label={`Pista ${cueProgress}`}>{game.cues.map((item, index) => <i className={index < cueIndex ? "done" : index === cueIndex ? "current" : ""} key={item.id} />)}</div>
       )}
       <style jsx>{missionStyles}</style>

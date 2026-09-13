@@ -12,6 +12,9 @@
   "experience_type": "mission",
   "content_revision": 3,
   "mission": {
+    "voice_heading": "CONFIRMA TU ENCUENTRO",
+    "voice_instruction": "Responde en voz alta para terminar",
+    "voice_success_label": "ENCUENTRO CONFIRMADO",
     "label": "MISIÓN FINAL · UNIDAD 2",
     "title": "Encuentro en el parque",
     "briefing": "¿Puedes rescatar a la familia y sus pertenencias en el parque para la foto de bienvenida? Escucha con atención cada pista y toca a las personas y objetos correctos.",
@@ -148,7 +151,7 @@
       "pedagogy_note": "Mission beat 01/05: the learner identifies four people on the park path from audio cues; the completed interaction advances the park mission.",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha y toca a las personas en orden.",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
@@ -323,7 +326,7 @@
       "pedagogy_note": "Mission beat 02/05: the learner identifies colors, objects, and people around the park bench from audio clues; the completed interaction advances the park mission.",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha y toca los elementos en orden.",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
@@ -498,7 +501,7 @@
       "pedagogy_note": "Mission beat 03/05: the learner identifies transport vehicles, quantities, and waiting people near the bus stop; the completed interaction advances the park mission.",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha y toca los elementos en orden.",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
@@ -534,8 +537,12 @@
             ],
             "head_anchors": [
               {
-                "x": 0.815,
-                "y": 0.523
+                "x": 0.723,
+                "y": 0.525
+              },
+              {
+                "x": 0.889,
+                "y": 0.528
               }
             ]
           },
@@ -553,8 +560,12 @@
             ],
             "head_anchors": [
               {
-                "x": 0.551,
-                "y": 0.488
+                "x": 0.521,
+                "y": 0.508
+              },
+              {
+                "x": 0.556,
+                "y": 0.486
               }
             ]
           },
@@ -673,7 +684,7 @@
       "pedagogy_note": "Mission beat 04/05: the learner identifies family members and counts the group of three before taking the photo; the completed interaction advances the park mission.",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha y toca a los integrantes en orden.",
+        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
@@ -749,6 +760,14 @@
               {
                 "x": 0.373,
                 "y": 0.093
+              },
+              {
+                "x": 0.632,
+                "y": 0.165
+              },
+              {
+                "x": 0.506,
+                "y": 0.395
               }
             ]
           }

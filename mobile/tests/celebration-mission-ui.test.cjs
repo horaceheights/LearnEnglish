@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { missionVoiceProgress } = require('../src/missionPresentation.js');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
@@ -89,8 +90,12 @@ assert.match(
 const bundledReunionImages = images.match(/'a1_u1_reunion_[^']+\.webp': require/g) || [];
 assert.equal(bundledReunionImages.length, 27);
 
-assert.match(lessonCard, /ABRE LA CELEBRACIÓN/);
-assert.match(lessonCard, /Activa la entrada con tu voz/);
+assert.match(lessonCard, /\{missionVoiceGate\.heading\}/);
+assert.match(lessonCard, /\{missionVoiceGate\.instruction\}/);
+assert.equal(missionVoiceProgress(mission, 18).heading, 'ABRE LA CELEBRACIÓN');
+assert.equal(missionVoiceProgress(mission, 18).instruction, 'Activa la entrada con tu voz');
+assert.equal(missionVoiceProgress(mission, 18).total, 4);
+assert.equal(missionVoiceProgress(mission, 21).step, 4);
 assert.match(lessonCard, /Array\.from\(\{ length: missionVoiceGate\.total \}/);
 assert.match(lessonCard, /presentation=\{isMissionVoiceGate \? 'mission-voice-gate' : 'standard'\}/);
 assert.match(pronunciation, /presentation === 'mission-voice-gate'/);

@@ -113,6 +113,7 @@ Lessons:
 Core patterns:
 
 - `What is your name? My name is Ana.`
+- Approved Unit 3 addition: `What are you doing? I am reading.` Introduce this question explicitly in 3.3 with new speaker-view scenes before using it in 3.9 or 3.10; do not count its presence in a mission as teaching it. Its canonical cards and audio are part of the pending Units 2–7 parity rollout.
 - `How old are you? I am twenty.`
 - `Where are you from? I am from Mexico.`
 - `What do you do? I am a teacher.`

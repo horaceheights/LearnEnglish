@@ -64,7 +64,7 @@ type Props = {
   optionsInteractive?: boolean;
   pronunciationAudioTurns?: CourseAudioTurnPlayback[] | null;
   pronunciationAutoplayReady?: boolean;
-  missionVoiceGate?: { question: string; step: number; total: number } | null;
+  missionVoiceGate?: { question: string; step: number; total: number; heading: string; instruction: string; successLabel: string } | null;
   missionLandscapeHeader?: ReactNode;
   userId?: string;
   selectedId: string | null;
@@ -526,8 +526,8 @@ export function LessonCardView({
               {missionLandscapeHeader ? <View style={styles.missionVoiceNavigation}>{missionLandscapeHeader}</View> : null}
               {!missionLandscapeHeader ? <View style={styles.missionVoiceHeading}>
                 <View style={styles.missionVoiceHeadingCopy}>
-                  <Text style={styles.missionVoiceEyebrow}>ABRE LA CELEBRACIÓN</Text>
-                  <Text style={styles.missionVoiceTitle}>Activa la entrada con tu voz</Text>
+                  <Text style={styles.missionVoiceEyebrow}>{missionVoiceGate.heading}</Text>
+                  <Text style={styles.missionVoiceTitle}>{missionVoiceGate.instruction}</Text>
                 </View>
                 <Text style={styles.missionVoiceCounter}>VOZ {missionVoiceGate.step}/{missionVoiceGate.total}</Text>
               </View> : null}
@@ -584,6 +584,7 @@ export function LessonCardView({
             onUnavailable={onPronunciationUnavailable}
             phrase={card.audio_text || card.prompt}
             presentation={isMissionVoiceGate ? 'mission-voice-gate' : 'standard'}
+            missionSuccessLabel={missionVoiceGate?.successLabel}
             headerReplayRequestId={pronunciationReplayRequestId}
             userId={userId}
           />

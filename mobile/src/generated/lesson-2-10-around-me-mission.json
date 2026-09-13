@@ -190,7 +190,7 @@
       "mission_chapter_id": "ch1-park-search",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha y toca a las personas en orden.",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
@@ -438,7 +438,7 @@
       "mission_chapter_id": "ch2-objects-colors",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha y toca los elementos en orden.",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
@@ -686,7 +686,7 @@
       "mission_chapter_id": "ch2-objects-colors",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha y toca los elementos en orden.",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
@@ -723,8 +723,12 @@
             ],
             "head_anchors": [
               {
-                "x": 0.815,
-                "y": 0.523
+                "x": 0.723,
+                "y": 0.525
+              },
+              {
+                "x": 0.889,
+                "y": 0.528
               }
             ],
             "group_chest_anchor": null
@@ -743,8 +747,12 @@
             ],
             "head_anchors": [
               {
-                "x": 0.551,
-                "y": 0.488
+                "x": 0.521,
+                "y": 0.508
+              },
+              {
+                "x": 0.556,
+                "y": 0.486
               }
             ],
             "group_chest_anchor": null
@@ -934,7 +942,7 @@
       "mission_chapter_id": "ch3-pairs-actions",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha y toca a los integrantes en orden.",
+        "instruction_es": "Escucha la pista en ingl\u00e9s y toca la respuesta.",
         "validation": "ordered",
         "targets": [
           {
@@ -1013,6 +1021,14 @@
               {
                 "x": 0.373,
                 "y": 0.093
+              },
+              {
+                "x": 0.632,
+                "y": 0.165
+              },
+              {
+                "x": 0.506,
+                "y": 0.395
               }
             ],
             "group_chest_anchor": null
@@ -1162,6 +1178,9 @@
     ],
     "completion_title": "\u00a1Foto de bienvenida completada!",
     "completion_message": "Encontraste a todos en el parque, identificaste sus acciones y objetos, y respondiste las preguntas en voz alta.",
+    "voice_heading": "CONFIRMA TU ENCUENTRO",
+    "voice_instruction": "Responde en voz alta para terminar",
+    "voice_success_label": "ENCUENTRO CONFIRMADO",
     "chapters": [
       {
         "id": "ch1-park-search",

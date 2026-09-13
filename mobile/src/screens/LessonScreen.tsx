@@ -91,6 +91,7 @@ import {
   lessonAudioAssetSource,
 } from '../lessonAudioCache';
 import { isMissionLesson, missionChapterProgress } from '../missionExperience';
+import { missionFinale, missionVoiceProgress } from '../missionPresentation';
 import { missionSuccessSoundEvent, useMissionSoundEffects } from '../missionSoundEffects';
 import { useLessonPageTurn } from '../hooks/useLessonPageTurn';
 import { LessonPageCurl } from '../components/LessonPageCurl';
@@ -1129,13 +1130,7 @@ export function LessonScreen({
     && currentCard.mission_game.kind !== 'voice-gate',
   );
   const usesMissionPhoneLandscape = isMissionGameCard && !isPortrait && viewportHeight < 600;
-  const missionVoiceGateProgress = isMissionVoiceGate && currentCard?.mission_game
-    ? {
-        question: currentCard.mission_game.cue_audio_text || currentCard.mission_game.cues[0]?.text || '',
-        step: Math.max(1, cardIndex - ((lesson?.cards.length ?? 4) - 4) + 1),
-        total: 4,
-      }
-    : null;
+  const missionVoiceGateProgress = missionVoiceProgress(lesson, cardIndex);
   // `Use` is a grammar-animation stage in standard lessons, but a dedicated
   // mission surface has no LessonCardView animation callback to wait for.
   // Keeping those lifecycles separate prevents a correct mission check from
@@ -2881,6 +2876,7 @@ export function LessonScreen({
       <SafeAreaView style={styles.safeArea}>
         <StatusBar hidden />
         <MissionKickoff
+          challengeCount={lesson.cards.length}
           onExit={() => confirmLessonExit('previous')}
           onReplay={playMissionIntro}
           onStart={() => {
@@ -2928,10 +2924,13 @@ export function LessonScreen({
 
   if (isComplete) {
     if (missionExperience && !missionCompletionAcknowledged) {
+      const finale = missionFinale(lesson);
       return (
         <SafeAreaView style={styles.safeArea}>
           <StatusBar hidden />
           <MissionCompletion
+            finalImageUrl={finale.imageUrl}
+            finalPhrase={finale.phrase}
             onContinue={profile.userId && !qaMode
               ? () => setMissionCompletionAcknowledged(true)
               : onExit}

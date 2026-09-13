@@ -7,11 +7,11 @@ import type { MissionPresentation } from '../types';
 type Props = {
   onContinue: () => void;
   presentation: MissionPresentation;
+  finalImageUrl: string;
+  finalPhrase: string;
 };
 
-const FINAL_REUNION = '/lesson-assets/a1_u1_reunion_22_family_arrival.webp';
-
-export function MissionCompletion({ onContinue, presentation }: Props) {
+export function MissionCompletion({ onContinue, presentation, finalImageUrl, finalPhrase }: Props) {
   return (
     <ScrollView contentContainerStyle={styles.page} style={styles.scroll}>
       <View style={styles.badge}>
@@ -19,18 +19,18 @@ export function MissionCompletion({ onContinue, presentation }: Props) {
       </View>
       <Text style={styles.label}>{presentation.label}</Text>
       <Text accessibilityRole="header" style={styles.title}>{presentation.completion_title}</Text>
-      <View style={styles.portraitFrame}>
+      {finalImageUrl ? <View style={styles.portraitFrame}>
         <Image
-          accessibilityLabel="La familia completa reunida en la celebración"
+          accessibilityLabel={presentation.completion_title}
           resizeMode="cover"
-          source={lessonImageSource(FINAL_REUNION)}
+          source={lessonImageSource(finalImageUrl)}
           style={styles.portrait}
         />
         <View style={styles.stamp}>
           <Ionicons color="#fff" name="checkmark" size={19} />
         </View>
-      </View>
-      <Text style={styles.finalLine}>They are a family.</Text>
+      </View> : null}
+      {finalPhrase ? <Text style={styles.finalLine}>{finalPhrase}</Text> : null}
       <Text style={styles.message}>{presentation.completion_message}</Text>
       <View accessibilityLabel="Objetivos de la misión completados" style={styles.restoredRow}>
         {presentation.objectives.map((label) => (

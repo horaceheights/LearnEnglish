@@ -4,6 +4,7 @@ import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } fro
 
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { fitMissionHeadScene, type HeadMarker } from '../missionTargetInteraction';
+import { missionChallengeLabel } from '../missionPresentation';
 import type { LessonCard, MissionGame, MissionGameTarget } from '../types';
 import { OptionMediaImage } from './OptionMediaImage';
 
@@ -20,15 +21,6 @@ type Props = {
   onTargetFound: () => void;
   onSubmit: (optionIds: string[]) => void;
   result: Result;
-};
-
-const KIND_LABELS: Record<MissionGame['kind'], string> = {
-  'action-hunt': 'ENCUENTRA LA ACCIÓN',
-  'contrast-hunt': 'MIRA BIEN',
-  'crowd-search': 'ENCUENTRA A LA PERSONA',
-  'family-link': 'REÚNE A LA FAMILIA',
-  'guided-search': 'PRIMER RETO',
-  'voice-gate': 'RETO DE VOZ',
 };
 
 function TargetDot({
@@ -228,7 +220,7 @@ export function MissionGameSurface({
     ]}>
       <View style={[styles.instructionCopy, useLandscapeGameRail ? styles.instructionCopyLandscape : null]}>
         <View style={[styles.instructionMeta, useLandscapeGameRail ? styles.instructionMetaLandscape : null]}>
-          {!useLandscapeGameRail ? <Text style={styles.kindLabel}>{KIND_LABELS[game.kind]}</Text> : null}
+          {!useLandscapeGameRail ? <Text style={styles.kindLabel}>{missionChallengeLabel(game)}</Text> : null}
           <Text style={styles.cueProgress}>PISTA {cueProgress}</Text>
         </View>
         <Text accessibilityLiveRegion={useLandscapeGameRail ? 'polite' : 'none'} adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={useLandscapeGameRail ? 4 : 2} style={styles.instruction}>

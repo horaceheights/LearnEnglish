@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "reviewer": "Codex visual inspection, 2026-09-13; agent review only, not human semantic approval",
+  "reviews": [
+    {
+      "lesson_id": "lesson-2-10-around-me-mission",
+      "slide_id": "M03",
+      "filename": "a1_u2_scene_03_bus_stop.webp",
+      "sha256": "d86ffc9e4c319715de6182794c4a8223c4c3de77e0cacd3875e8639906f9a9ba",
+      "targets": {
+        "red-cars": [{"x": 0.723, "y": 0.525}, {"x": 0.889, "y": 0.528}],
+        "two-people": [{"x": 0.521, "y": 0.508}, {"x": 0.556, "y": 0.486}]
+      },
+      "note": "Two real car roofs and both walking adults are separate endpoints. A midpoint on the street or only one adult does not represent this group. Other language and scene evidence still needs curriculum remediation."
+    },
+    {
+      "lesson_id": "lesson-2-10-around-me-mission",
+      "slide_id": "M04",
+      "filename": "a1_u2_scene_04_parents.webp",
+      "sha256": "4a2955a6d8c9392cfd33270c79c443a7ed7c1baacad9a62be9456df199bbf0d3",
+      "targets": {
+        "three-people": [{"x": 0.373, "y": 0.093}, {"x": 0.632, "y": 0.165}, {"x": 0.506, "y": 0.395}]
+      },
+      "note": "The three-person capsule connects to father, mother, and child, not only the father's head. No new standing chest-position exception was inferred."
+    }
+  ]
+}

@@ -10,9 +10,10 @@ type Props = {
   onStart: () => void;
   presentation: MissionPresentation;
   ready: boolean;
+  challengeCount: number;
 };
 
-export function MissionKickoff({ onExit, onReplay, onStart, presentation, ready }: Props) {
+export function MissionKickoff({ onExit, onReplay, onStart, presentation, ready, challengeCount }: Props) {
   const { height, width } = useWindowDimensions();
   const compact = height < 720 || width > height;
 
@@ -36,14 +37,14 @@ export function MissionKickoff({ onExit, onReplay, onStart, presentation, ready 
 
       <View style={[styles.imageFrame, compact ? styles.imageFrameCompact : null]}>
         <Image
-          accessibilityLabel="Una celebración familiar lista para comenzar"
+          accessibilityLabel={presentation.title}
           resizeMode="cover"
           source={lessonImageSource(presentation.kickoff_image_url)}
           style={styles.image}
         />
         <View style={styles.missionBadge}>
           <Ionicons color="#fff" name="sparkles" size={18} />
-          <Text style={styles.missionBadgeText}>22 RETOS · 1 AVENTURA</Text>
+          <Text style={styles.missionBadgeText}>{challengeCount} RETOS · 1 AVENTURA</Text>
         </View>
       </View>
 

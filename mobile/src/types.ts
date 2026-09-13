@@ -96,6 +96,9 @@ export type MissionPresentation = {
   objectives: string[];
   completion_title: string;
   completion_message: string;
+  voice_heading?: string;
+  voice_instruction?: string;
+  voice_success_label?: string;
   chapters: MissionChapter[];
 };
 

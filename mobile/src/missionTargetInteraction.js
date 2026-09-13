@@ -41,7 +41,9 @@ function layoutAtWidth(stageWidth, imageWidth, targets) {
     const heads = (target.head_anchors?.length ? target.head_anchors : [
       { x: target.rect.x + target.rect.width / 2, y: target.rect.y + target.rect.height / 2 },
     ]).map(h => ({ x: imageX + h.x * imageWidth, y: h.y * imageHeight }));
-    const collective = ['Grupo', 'Pareja', 'Familia'].includes(target.label_es);
+    // Reviewed member anchors establish scope; translated labels are not geometry.
+    const collective = (target.head_anchors?.length || 0) > 1
+      || ['Grupo', 'Pareja', 'Familia'].includes(target.label_es);
     const width = collective ? Math.min(100, Math.max(68, imageWidth * .18)) : TOUCH;
     const anchorX = heads.reduce((sum, h) => sum + h.x, 0) / heads.length;
     const anchorY = Math.min(...heads.map(h => h.y));
@@ -85,7 +87,7 @@ function placeChestGroups(layout, targets) {
     const target = targets.find(t => t.id === marker.id);
     const anchor = target.group_chest_anchor;
     const hasIndividualMembers = target.head_anchors?.length > 1
-      && target.head_anchors.every(h => targets.some(t => t.label_es === 'Persona'
+      && target.head_anchors.every(h => targets.some(t => !['Grupo', 'Pareja', 'Familia'].includes(t.label_es)
         && t.head_anchors?.length === 1 && t.head_anchors[0].x === h.x && t.head_anchors[0].y === h.y));
     if (!anchor || !marker.collective || !hasIndividualMembers) return marker;
     const candidate = { ...marker, chest: true,

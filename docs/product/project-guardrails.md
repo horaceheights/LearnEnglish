@@ -8,6 +8,16 @@ The detailed A1 syllabus and Unit 1 roadmap live in [`course-design-a1.md`](cour
 
 ## 1. Change Discipline
 
+### Units 2–7: Unit 1 parity rollout (approved 2026-09-13)
+
+- Unit 1 is the established end-to-end reference, not a new pilot to rebuild. Apply its proven onboarding, English-audio timing, recovery, touch feedback, no-scroll portrait/landscape layout, and in-mission pronunciation behavior across Units 2–7 while preserving each unit's language boundary and distinct purpose.
+- Lesson 9 is a fresh cumulative review; Lesson 10 is a continuous, coherent mission that retrieves the unit's functions on the successful path. A mission title, a vocabulary list, a distractor, or a duplicated beat is not evidence that the learner practised a skill. Do not turn every unit into another family-identification scene.
+- Use `docs/product/a1-unit-parity-contracts.json` and `python scripts/audit_a1_unit_parity.py --check` as the rollout acceptance inventory. The implementation floor of 32 listening decisions and four closing speaking tasks prevents the current one-speaking-task mini-missions from being called complete; it is not a target to reach with filler. All unit-specific functions, prior teaching, exact media meaning, and learner testing remain required.
+- Each voice gate has an English question-view followed by a distinct response-view and the written English answer for pronunciation practice. Counters reflect actual authored gates, never a hardcoded count or card offset. Mission headings and success copy describe the current unit's story; Unit 1 retains its established celebration copy.
+- Keep good reviewed photorealistic media. Replace active old illustrations, ambiguous scenes and mismatched still/video pairs deliberately; never delete unused-looking files without tracing crops, posters, bundled references and provenance. Renaming an earlier image does not make a fresh review scene.
+- The historical canvas exporter must preflight its entire output and refuse to replace differing canonical lessons or delete renamed lessons. Media-only refreshes must not rebuild lesson content from that older canvas. Preserve the newer universal Completa work when the concurrent branch is integrated.
+- This acceptance inventory does not mark the rollout finished or grant human semantic approval. Do not publish the candidate until content, immutable audio, visual meaning, both clients and protected release checks are ready.
+
 1. Implement the requested change without removing or redesigning unrelated behavior.
 2. Reuse the established shared component or authoring pattern. Do not fix the same issue independently in every lesson.
 3. Before changing shared behavior, identify which stages and lessons use it and check the effect across all of them.
