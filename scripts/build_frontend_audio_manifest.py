@@ -85,6 +85,36 @@ def prune_unreferenced_audio_files(frontend_cache: Path, audio_names: set[str]) 
     return removed_files
 
 
+def drop_entries_without_audio(
+    manifest: dict[str, str], frontend_cache: Path
+) -> tuple[dict[str, str], list[dict[str, str]]]:
+    """Keep only entries whose MP3 is actually present.
+
+    The manifest is carried forward between runs -- `--lesson-id` seeds it from
+    the previous file, and the placeholder branch rewrites it without copying
+    anything -- so an entry could outlive the clip it names. Seven did: the
+    lowercase `two`, `walking`, `white`, `woman`, `working` and `yellow`
+    variants pointed at MP3s that exist in neither the cache nor the approved
+    takes. Nothing reached them, because every card carries a persistent asset
+    id and getCourseAudioUrl only consults this manifest as a fallback, but a
+    manifest that promises audio it does not have is a trap for whoever does.
+
+    Verified against the file system rather than against audio_sources, because
+    the point is what a browser will find, not what this run intended to write.
+    """
+    kept: dict[str, str] = {}
+    dropped: list[dict[str, str]] = []
+    for key, audio_name in manifest.items():
+        if (frontend_cache / audio_name).is_file():
+            kept[key] = audio_name
+            continue
+        text, mode, lang, variant = (key.split("\n") + ["", "", "", ""])[:4]
+        dropped.append(
+            {"text": text, "mode": mode, "lang": lang, "variant": variant, "expected": audio_name}
+        )
+    return kept, dropped
+
+
 def pronunciation_prompt_from_option(option_id: str) -> str:
     parts = str(option_id or "").split("-")
     action = parts[-1]
@@ -216,6 +246,7 @@ def main(lesson_ids: set[str] | None = None) -> int:
     # Never replace a known-good static bundle with an incomplete one. This can
     # happen after an audio-profile change before the new cache is generated.
     pruned_placeholder_files = 0
+    dropped_without_audio: list[dict[str, str]] = []
     if not missing:
         frontend_cache.mkdir(parents=True, exist_ok=True)
         for audio_name, audio_path in audio_sources.items():
@@ -223,6 +254,9 @@ def main(lesson_ids: set[str] | None = None) -> int:
             if not destination.exists() or destination.stat().st_size != audio_path.stat().st_size:
                 shutil.copy2(audio_path, destination)
 
+        # After the copy, so this reflects what is on disk rather than what the
+        # run meant to put there.
+        manifest, dropped_without_audio = drop_entries_without_audio(manifest, frontend_cache)
         manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
         pruned_placeholder_files = prune_unreferenced_audio_files(
             frontend_cache,
@@ -236,6 +270,11 @@ def main(lesson_ids: set[str] | None = None) -> int:
     elif pruned_placeholder_entries:
         # Missing unrelated clips must not preserve forbidden placeholder TTS.
         # Keep every other known-good entry and delete only newly orphaned MP3s.
+        # This branch copies nothing, so entries can only be honoured by clips
+        # an earlier run left behind.
+        retained_existing_manifest, dropped_without_audio = drop_entries_without_audio(
+            retained_existing_manifest, frontend_cache
+        )
         manifest_path.write_text(
             json.dumps(retained_existing_manifest, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
@@ -254,6 +293,8 @@ def main(lesson_ids: set[str] | None = None) -> int:
                 "pruned_placeholder_files": pruned_placeholder_files,
                 "missing_expected": len(missing),
                 "missing": missing,
+                "dropped_without_audio": len(dropped_without_audio),
+                "dropped": dropped_without_audio,
             },
             indent=2,
         )
