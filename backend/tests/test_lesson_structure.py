@@ -1509,12 +1509,15 @@ class LessonStructureTests(unittest.TestCase):
         self.assertEqual(3, len(ordinary))
         for card in ordinary:
             self.assertNotEqual("complete-sentence", card.interaction_type)
-            self.assertEqual("completion-prompt", card.audio_assets[0].variant)
+            self.assertEqual(2, len(card.correct_option_ids))
+            self.assertEqual("prompt", card.audio_assets[0].variant)
+            self.assertEqual(card.audio_text, card.audio_assets[0].text)
+            self.assertNotIn("___", card.spanish_translation)
 
     def test_unit_1_construction_rollout_preserves_scaffold_and_bounded_banks(self):
         expected = {
             '1.2': ['U4', 'U5', 'U6', 'U7'], '1.3': ['U4', 'U5', 'U6'],
-            '1.4': ['U5', 'U7'], '1.5': ['U4', 'U5', 'U6', 'U7'],
+            '1.4': ['U4', 'U5', 'U6', 'U7'], '1.5': ['U4', 'U5', 'U6', 'U7'],
             '1.6': ['U4', 'U5', 'U6', 'U7'], '1.7': ['U4', 'U5', 'U6', 'U7'],
             '1.8': ['U7', 'U8', 'U9', 'U10'], '1.9': ['U5', 'U6', 'U8'],
         }
@@ -1525,27 +1528,25 @@ class LessonStructureTests(unittest.TestCase):
             constructions = [card for card in uses if card.interaction_type == 'complete-sentence']
             with self.subTest(lesson=lesson.sub_lesson_id):
                 self.assertEqual(expected[lesson.sub_lesson_id], [card.slide_id for card in constructions])
-            for index, card in enumerate(uses):
-                words = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?", card.answer_audio_text)
-                eligible = index >= len(uses) - 4 and 2 <= len(words) <= 8
-                with self.subTest(lesson=lesson.sub_lesson_id, card=card.slide_id):
-                    self.assertEqual(eligible, card.interaction_type == 'complete-sentence')
-                    prompt = next(asset for asset in card.audio_assets if asset.purpose == 'prompt')
-                    if not eligible:
-                        self.assertEqual('completion-prompt', prompt.variant)
-                        continue
+            for card in uses:
+                prompt = next(asset for asset in card.audio_assets if asset.purpose == 'prompt')
+                self.assertEqual('prompt', prompt.variant)
+                self.assertEqual(card.answer_audio_text, prompt.text)
+                self.assertNotIn('___', card.spanish_translation)
+                if card.interaction_type == 'complete-sentence':
+                    words = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?", card.answer_audio_text)
                     labels = {option.id: option.label for option in card.options}
                     self.assertEqual(words, [labels[id] for id in card.correct_option_ids])
                     self.assertCountEqual(words, labels.values())
                     self.assertEqual(len(words), len(labels))
                     self.assertEqual(re.sub(r"[A-Za-z]+(?:'[A-Za-z]+)?", '___', card.answer_audio_text), card.prompt)
                     self.assertEqual(card.answer_audio_text, card.audio_text)
-                    self.assertEqual('prompt', prompt.variant)
-                    self.assertEqual(card.answer_audio_text, prompt.text)
-                    self.assertNotIn('___', card.spanish_translation)
-                    if lesson.sub_lesson_id == '1.8' and card.slide_id in {'U7', 'U9'}:
-                        self.assertEqual('male-character', card.audio_speaker)
-                        self.assertEqual('male-character', card.answer_audio_speaker)
+                else:
+                    self.assertGreaterEqual(card.prompt.count('___'), 2)
+                    self.assertGreaterEqual(len(card.correct_option_ids or []), 2)
+                if lesson.sub_lesson_id == '1.8' and card.slide_id in {'U7', 'U9'}:
+                    self.assertEqual('male-character', card.audio_speaker)
+                    self.assertEqual('male-character', card.answer_audio_speaker)
 
     def test_new_words_continue_into_active_stages(self):
         expected_examples = {

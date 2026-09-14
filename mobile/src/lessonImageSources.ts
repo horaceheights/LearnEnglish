@@ -111,7 +111,6 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'a1_scene_apple-1_ac43e97.webp': require('../assets/lesson-assets/a1_scene_apple-1_ac43e97.webp'),
   'a1_scene_apple-2_0b629d1.webp': require('../assets/lesson-assets/a1_scene_apple-2_0b629d1.webp'),
   'a1_scene_apple_d0be2dc.webp': require('../assets/lesson-assets/a1_scene_apple_d0be2dc.webp'),
-  'a1_scene_apples_76c2436.webp': require('../assets/lesson-assets/a1_scene_apples_76c2436.webp'),
   'a1_scene_are_5f9e580.webp': require('../assets/lesson-assets/a1_scene_are_5f9e580.webp'),
   'a1_scene_arms-highlighted_d408105.webp': require('../assets/lesson-assets/a1_scene_arms-highlighted_d408105.webp'),
   'a1_scene_arrives_13e2af7.webp': require('../assets/lesson-assets/a1_scene_arrives_13e2af7.webp'),

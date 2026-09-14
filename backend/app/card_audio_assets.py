@@ -219,10 +219,15 @@ def assets_for_card(lesson_id: str, card_index: int, card: LessonCard) -> list[C
         if is_word_parts_board
         else (card.audio_text if card.audio_text is not None else card.prompt).strip()
     )
-    # Heard-sentence construction intentionally models every word upfront.
-    has_blank = not is_word_parts_board and card.interaction_type != "complete-sentence" and bool(
-        VISUAL_PLACEHOLDER_PATTERN.search(card.prompt)
-        or VISUAL_PLACEHOLDER_PATTERN.search(raw_prompt)
+    # Heard-sentence construction and Use-stage cards with complete audio_text model every word upfront.
+    has_blank = (
+        not is_word_parts_board
+        and card.interaction_type != "complete-sentence"
+        and not (card.stage == "Use" and card.audio_text and not VISUAL_PLACEHOLDER_PATTERN.search(card.audio_text))
+        and bool(
+            VISUAL_PLACEHOLDER_PATTERN.search(card.prompt)
+            or VISUAL_PLACEHOLDER_PATTERN.search(raw_prompt)
+        )
     )
     is_pronunciation = card.stage in {"Pronunciation Practice", "Speak"}
 

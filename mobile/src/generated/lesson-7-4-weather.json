@@ -1512,26 +1512,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "It is [blank].",
+      "interaction_type": "complete2",
+      "prompt": "___ ___ sunny.",
       "stage": "Use",
-      "correct_option_id": "sunny-1",
+      "correct_option_id": "it",
+      "correct_option_ids": [
+        "it",
+        "is"
+      ],
       "options": [
         {
-          "id": "sunny-1",
+          "id": "it",
           "image_url": "",
-          "label": "sunny"
+          "label": "It"
         },
         {
-          "id": "rainy-2",
+          "id": "is",
           "image_url": "",
-          "label": "rainy"
+          "label": "is"
         }
       ],
-      "audio_text": "It is ___.",
+      "audio_text": "It is sunny.",
       "answer_audio_text": "It is sunny.",
       "prompt_image_url": "/lesson-assets/a1_scene_sunny_b892f06.webp",
-      "spanish_translation": "Est\u00e1 [pausa].",
+      "spanish_translation": "Est\u00e1 soleado.",
       "pedagogy_note": "Weather event.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1539,11 +1543,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-4-weather-c029-prompt-042c8576661430b7986f",
+          "id": "lesson-7-4-weather-c029-prompt-6cecb7e99d6166cd0909",
           "purpose": "prompt",
           "text": "It is sunny.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_sunny_b892f06.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1566,26 +1570,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "It is [blank].",
+      "interaction_type": "complete2",
+      "prompt": "___ ___ rainy.",
       "stage": "Use",
-      "correct_option_id": "rainy-1",
+      "correct_option_id": "it",
+      "correct_option_ids": [
+        "it",
+        "is"
+      ],
       "options": [
         {
-          "id": "rainy-1",
+          "id": "it",
           "image_url": "",
-          "label": "rainy"
+          "label": "It"
         },
         {
-          "id": "cloudy-2",
+          "id": "is",
           "image_url": "",
-          "label": "cloudy"
+          "label": "is"
         }
       ],
-      "audio_text": "It is ___.",
+      "audio_text": "It is rainy.",
       "answer_audio_text": "It is rainy.",
       "prompt_image_url": "/lesson-assets/a1_scene_rainy_14beca1.webp",
-      "spanish_translation": "Est\u00e1 [pausa].",
+      "spanish_translation": "Est\u00e1 lluvioso.",
       "pedagogy_note": "Rain/cloud contrast.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1593,11 +1601,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-4-weather-c030-prompt-6e4a685e93457959d7a1",
+          "id": "lesson-7-4-weather-c030-prompt-29c0c5cc0cdfa769e91b",
           "purpose": "prompt",
           "text": "It is rainy.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_rainy_14beca1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1620,26 +1628,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "It is [blank].",
+      "interaction_type": "complete2",
+      "prompt": "___ ___ cold.",
       "stage": "Use",
-      "correct_option_id": "hot-1",
+      "correct_option_id": "it",
+      "correct_option_ids": [
+        "it",
+        "is"
+      ],
       "options": [
         {
-          "id": "hot-1",
+          "id": "it",
           "image_url": "",
-          "label": "hot"
+          "label": "It"
         },
         {
-          "id": "cold-2",
+          "id": "is",
           "image_url": "",
-          "label": "cold"
+          "label": "is"
         }
       ],
-      "audio_text": "It is ___.",
-      "answer_audio_text": "It is hot.",
+      "audio_text": "It is cold.",
+      "answer_audio_text": "It is cold.",
       "prompt_image_url": "/lesson-assets/a1_scene_hot_4bd8edd.webp",
-      "spanish_translation": "Hace [pausa].",
+      "spanish_translation": "Hace fr\u00edo.",
       "pedagogy_note": "Temperature.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1647,11 +1659,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-4-weather-c031-prompt-cea9932878723b03c16d",
+          "id": "lesson-7-4-weather-c031-prompt-8570ff2e33a912f99653",
           "purpose": "prompt",
-          "text": "It is hot.",
+          "text": "It is cold.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_hot_4bd8edd.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1659,9 +1671,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-4-weather-c031-answer-2bd2b31b149aceb2f5a6",
+          "id": "lesson-7-4-weather-c031-answer-ca2e729142c47560c3f9",
           "purpose": "answer",
-          "text": "It is hot.",
+          "text": "It is cold.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_hot_4bd8edd.webp",
@@ -1674,26 +1686,36 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "It is [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "cold-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "hot-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "hot"
+          "label": "It"
         },
         {
-          "id": "cold-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "cold"
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "hot"
         }
       ],
-      "audio_text": "It is ___.",
-      "answer_audio_text": "It is cold.",
+      "audio_text": "It is hot.",
+      "answer_audio_text": "It is hot.",
       "prompt_image_url": "/lesson-assets/a1_scene_cold_424fa43.webp",
-      "spanish_translation": "Hace [pausa].",
+      "spanish_translation": "Hace calor.",
       "pedagogy_note": "Exact contrast.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1701,11 +1723,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-4-weather-c032-prompt-9945788ed4744e09dc0f",
+          "id": "lesson-7-4-weather-c032-prompt-91bbb0441e80e6579c9f",
           "purpose": "prompt",
-          "text": "It is cold.",
+          "text": "It is hot.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_cold_424fa43.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1713,9 +1735,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-4-weather-c032-answer-c6ed27396a3264e2c498",
+          "id": "lesson-7-4-weather-c032-answer-60b93174844cf0a79c8d",
           "purpose": "answer",
-          "text": "It is cold.",
+          "text": "It is hot.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_cold_424fa43.webp",
@@ -1728,31 +1750,36 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "It is [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "windy-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "sunny-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "sunny"
+          "label": "It"
         },
         {
-          "id": "rainy-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "rainy"
+          "label": "is"
         },
         {
-          "id": "windy-3",
+          "id": "word-3",
           "image_url": "",
           "label": "windy"
         }
       ],
-      "audio_text": "It is ___.",
+      "audio_text": "It is windy.",
       "answer_audio_text": "It is windy.",
       "prompt_image_url": "/lesson-assets/a1_scene_windy_45bf01a.webp",
-      "spanish_translation": "Hace [pausa].",
+      "spanish_translation": "Hace viento.",
       "pedagogy_note": "Four-way event.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1760,11 +1787,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-4-weather-c033-prompt-84057e01d3f888a576bc",
+          "id": "lesson-7-4-weather-c033-prompt-038b457135e4a3bb064b",
           "purpose": "prompt",
           "text": "It is windy.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_windy_45bf01a.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1787,26 +1814,48 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "It is [blank] and sunny.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "hot-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "hot-1",
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
           "image_url": "",
           "label": "hot"
         },
         {
-          "id": "cold-2",
+          "id": "word-4",
           "image_url": "",
-          "label": "cold"
+          "label": "and"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "sunny"
         }
       ],
-      "audio_text": "It is ___ and sunny.",
+      "audio_text": "It is hot and sunny.",
       "answer_audio_text": "It is hot and sunny.",
       "prompt_image_url": "/lesson-assets/a1_scene_hot_4bd8edd.webp",
-      "spanish_translation": "Hace [pausa] y est\u00e1 soleado.",
+      "spanish_translation": "Hace calor y est\u00e1 soleado.",
       "pedagogy_note": "Combines known and with two independent cues.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1814,11 +1863,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-4-weather-c034-prompt-055ca163c4aaf9b90785",
+          "id": "lesson-7-4-weather-c034-prompt-4f3822b4e90fcedd1754",
           "purpose": "prompt",
           "text": "It is hot and sunny.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_hot_4bd8edd.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

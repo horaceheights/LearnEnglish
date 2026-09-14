@@ -634,205 +634,307 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "I [blank] apples.",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "like-1",
+      "correct_option_id": "like",
       "options": [
         {
-          "id": "like-1",
+          "id": "like",
           "image_url": "",
           "label": "like"
         },
         {
-          "id": "do-not-like-2",
+          "id": "apples",
           "image_url": "",
-          "label": "do not like"
+          "label": "apples"
         }
       ],
-      "audio_text": "I ___ apples.",
+      "audio_text": "I like apples.",
       "answer_audio_text": "I like apples.",
       "prompt_image_url": "a1_scene_like_c4eb7d7.webp",
-      "spanish_translation": "[pausa] las manzanas.",
-      "pedagogy_note": "Completed audio: I like apples."
+      "spanish_translation": "Me gustan las manzanas.",
+      "pedagogy_note": "Completed audio: I like apples.",
+      "translation": "Me gustan las manzanas.",
+      "correct_option_ids": [
+        "like",
+        "apples"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "I [blank] fish.",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "do-not-like-2",
+      "correct_option_id": "like",
       "options": [
         {
-          "id": "like-1",
+          "id": "like",
           "image_url": "",
           "label": "like"
         },
         {
-          "id": "do-not-like-2",
+          "id": "rice",
           "image_url": "",
-          "label": "do not like"
+          "label": "rice"
         }
       ],
-      "audio_text": "I ___ fish.",
-      "answer_audio_text": "I do not like fish.",
+      "audio_text": "I like rice.",
+      "answer_audio_text": "I like rice.",
       "prompt_image_url": "a1_scene_do-not-like_e812405.webp",
-      "spanish_translation": "[pausa] el pescado.",
-      "pedagogy_note": "Completed audio includes full negative."
+      "spanish_translation": "Me gusta el arroz.",
+      "pedagogy_note": "Completed audio includes full negative.",
+      "translation": "Me gusta el arroz.",
+      "correct_option_ids": [
+        "like",
+        "rice"
+      ]
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "I do [blank] like milk.",
+      "interaction_type": "complete2",
+      "prompt": "I like ___ ___.",
       "stage": "Use",
-      "correct_option_id": "not-1",
+      "correct_option_id": "three",
       "options": [
         {
-          "id": "not-1",
-          "image_url": "",
-          "label": "not"
-        },
-        {
-          "id": "like-2",
-          "image_url": "",
-          "label": "like"
-        }
-      ],
-      "audio_text": "I do ___ like milk.",
-      "answer_audio_text": "I do not like milk.",
-      "prompt_image_url": "a1_scene_not_557f255.webp",
-      "spanish_translation": "[pausa] me gusta la leche.",
-      "pedagogy_note": "Links familiar not to do not chunk."
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "I like [blank].",
-      "stage": "Use",
-      "correct_option_id": "rice-1",
-      "options": [
-        {
-          "id": "rice-1",
-          "image_url": "",
-          "label": "rice"
-        },
-        {
-          "id": "fish-2",
-          "image_url": "",
-          "label": "fish"
-        }
-      ],
-      "audio_text": "I like ___.",
-      "answer_audio_text": "I like rice.",
-      "prompt_image_url": "a1_scene_rice_6939278.webp",
-      "spanish_translation": "Me gusta el [pausa].",
-      "pedagogy_note": "Food selection."
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "I do not like [blank].",
-      "stage": "Use",
-      "correct_option_id": "juice-2",
-      "options": [
-        {
-          "id": "milk-1",
-          "image_url": "",
-          "label": "milk"
-        },
-        {
-          "id": "juice-2",
-          "image_url": "",
-          "label": "juice"
-        }
-      ],
-      "audio_text": "I do not like ___.",
-      "answer_audio_text": "I do not like juice.",
-      "prompt_image_url": "a1_scene_juice_07ef879.webp",
-      "spanish_translation": "No me gusta el [pausa].",
-      "pedagogy_note": "Visual and noun decide."
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "choice",
-      "prompt": "Choose the sentence.",
-      "stage": "Use",
-      "correct_option_id": "i-like-three-oranges-1",
-      "options": [
-        {
-          "id": "i-like-three-oranges-1",
-          "image_url": "",
-          "label": "I like three oranges."
-        },
-        {
-          "id": "i-do-not-like-three-oranges-2",
-          "image_url": "",
-          "label": "I do not like three oranges."
-        }
-      ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "I like three oranges.",
-      "prompt_image_url": "a1_scene_i-like-three-oranges_78f7ed1.webp",
-      "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Review quantity plus preference."
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "I like two [blank] apples.",
-      "stage": "Use",
-      "correct_option_id": "green-2",
-      "options": [
-        {
-          "id": "red-1",
-          "image_url": "",
-          "label": "red"
-        },
-        {
-          "id": "green-2",
-          "image_url": "",
-          "label": "green"
-        },
-        {
-          "id": "yellow-3",
-          "image_url": "",
-          "label": "yellow"
-        }
-      ],
-      "audio_text": "I like two ___ apples.",
-      "answer_audio_text": "I like two green apples.",
-      "prompt_image_url": "a1_scene_green_bc74f4f.webp",
-      "spanish_translation": "Me gustan dos manzanas [pausa].",
-      "pedagogy_note": "Review color phrase."
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete",
-      "prompt": "I like [blank] strawberries.",
-      "stage": "Use",
-      "correct_option_id": "five-4",
-      "options": [
-        {
-          "id": "two-1",
-          "image_url": "",
-          "label": "two"
-        },
-        {
-          "id": "three-2",
+          "id": "three",
           "image_url": "",
           "label": "three"
         },
         {
-          "id": "five-4",
+          "id": "oranges",
           "image_url": "",
-          "label": "five"
+          "label": "oranges"
         }
       ],
-      "audio_text": "I like ___ strawberries.",
+      "audio_text": "I like three oranges.",
+      "answer_audio_text": "I like three oranges.",
+      "prompt_image_url": "a1_scene_not_557f255.webp",
+      "spanish_translation": "Me gustan tres naranjas.",
+      "pedagogy_note": "Links familiar not to do not chunk.",
+      "translation": "Me gustan tres naranjas.",
+      "correct_option_ids": [
+        "three",
+        "oranges"
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "I like ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "five",
+      "options": [
+        {
+          "id": "five",
+          "image_url": "",
+          "label": "five"
+        },
+        {
+          "id": "strawberries",
+          "image_url": "",
+          "label": "strawberries"
+        }
+      ],
+      "audio_text": "I like five strawberries.",
       "answer_audio_text": "I like five strawberries.",
+      "prompt_image_url": "a1_scene_rice_6939278.webp",
+      "spanish_translation": "Me gustan cinco fresas.",
+      "pedagogy_note": "Food selection.",
+      "translation": "Me gustan cinco fresas.",
+      "correct_option_ids": [
+        "five",
+        "strawberries"
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "two"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "green"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "apples"
+        }
+      ],
+      "audio_text": "I like two green apples.",
+      "answer_audio_text": "I like two green apples.",
+      "prompt_image_url": "a1_scene_juice_07ef879.webp",
+      "spanish_translation": "Me gustan dos manzanas verdes.",
+      "pedagogy_note": "Visual and noun decide.",
+      "translation": "Me gustan dos manzanas verdes.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "do"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "milk"
+        }
+      ],
+      "audio_text": "I do not like milk.",
+      "answer_audio_text": "I do not like milk.",
+      "prompt_image_url": "a1_scene_i-like-three-oranges_78f7ed1.webp",
+      "spanish_translation": "No me gusta la leche.",
+      "pedagogy_note": "Review quantity plus preference.",
+      "translation": "No me gusta la leche.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "do"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "juice"
+        }
+      ],
+      "audio_text": "I do not like juice.",
+      "answer_audio_text": "I do not like juice.",
+      "prompt_image_url": "a1_scene_green_bc74f4f.webp",
+      "spanish_translation": "No me gusta el jugo.",
+      "pedagogy_note": "Review color phrase.",
+      "translation": "No me gusta el jugo.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "do"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "fish"
+        }
+      ],
+      "audio_text": "I do not like fish.",
+      "answer_audio_text": "I do not like fish.",
       "prompt_image_url": "a1_scene_five_4db2c1d.webp",
-      "spanish_translation": "Me gustan [pausa] fresas.",
-      "pedagogy_note": "Purposeful review of number, fruit, and preference without introducing a new question form."
+      "spanish_translation": "No me gusta el pescado.",
+      "pedagogy_note": "Purposeful review of number, fruit, and preference without introducing a new question form.",
+      "translation": "No me gusta el pescado.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
     }
   ]
 }

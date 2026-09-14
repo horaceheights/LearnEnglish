@@ -657,197 +657,284 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "Do you [blank] to watch TV?",
+      "interaction_type": "complete2",
+      "prompt": "Do you want ___ ___?",
       "stage": "Use",
-      "correct_option_id": "want-2",
+      "correct_option_id": "to",
       "options": [
         {
-          "id": "wants-1",
-          "image_url": "",
-          "label": "wants"
-        },
-        {
-          "id": "want-2",
-          "image_url": "",
-          "label": "want"
-        }
-      ],
-      "audio_text": "Do you ___ to watch TV?",
-      "answer_audio_text": "Do you want to watch TV?",
-      "prompt_image_url": "a1_scene_want_b5f23bc.webp",
-      "spanish_translation": "¿[pausa] ver televisión?",
-      "pedagogy_note": "Both forms were taught; Do you requires base want, so only one choice is grammatical. Spanish support gap maps to quieres and yields the natural completed gloss ¿Quieres ver televisión?."
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Do you want [blank] listen to music?",
-      "stage": "Use",
-      "correct_option_id": "to-2",
-      "options": [
-        {
-          "id": "in-1",
-          "image_url": "",
-          "label": "in"
-        },
-        {
-          "id": "to-2",
+          "id": "to",
           "image_url": "",
           "label": "to"
-        }
-      ],
-      "audio_text": "Do you want ___ listen to music?",
-      "answer_audio_text": "Do you want to listen to music?",
-      "prompt_image_url": "a1_scene_to_4374aae.webp",
-      "spanish_translation": "¿Quieres [pausa] música?",
-      "pedagogy_note": "Known preposition distractor; Spanish uses a nonliteral support gap. Completed gloss ¿Quieres escuchar música? is support, not the English answer key."
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "response-choice",
-      "prompt": "Do you want to read?",
-      "stage": "Use",
-      "correct_option_id": "yes-thank-you-1",
-      "options": [
-        {
-          "id": "yes-thank-you-1",
-          "image_url": "",
-          "label": "Yes, thank you."
         },
         {
-          "id": "sorry-no-2",
+          "id": "read",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "read"
         }
       ],
       "audio_text": "Do you want to read?",
-      "answer_audio_text": "Yes, thank you.",
-      "prompt_image_url": "a1_scene_yes-thank-you_95534e3.webp",
-      "spanish_translation": "¿Quieres leer?",
-      "pedagogy_note": "Controlled acceptance."
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "response-choice",
-      "prompt": "Do you want to watch TV?",
-      "stage": "Use",
-      "correct_option_id": "sorry-no-2",
-      "options": [
-        {
-          "id": "yes-thank-you-1",
-          "image_url": "",
-          "label": "Yes, thank you."
-        },
-        {
-          "id": "sorry-no-2",
-          "image_url": "",
-          "label": "Sorry, no."
-        }
-      ],
-      "audio_text": "Do you want to watch TV?",
-      "answer_audio_text": "Sorry, no.",
-      "prompt_image_url": "a1_scene_sorry-no_0ecf515.webp",
-      "spanish_translation": "¿Quieres ver televisión?",
-      "pedagogy_note": "Controlled refusal.",
-      "answer_audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "Do you want to [blank]?",
-      "stage": "Use",
-      "correct_option_id": "read-1",
-      "options": [
-        {
-          "id": "read-1",
-          "image_url": "",
-          "label": "read"
-        },
-        {
-          "id": "play-2",
-          "image_url": "",
-          "label": "play"
-        }
-      ],
-      "audio_text": "Do you want to ___?",
       "answer_audio_text": "Do you want to read?",
-      "prompt_image_url": "a1_scene_read_a7afddb.webp",
-      "spanish_translation": "¿Quieres [pausa]?",
-      "pedagogy_note": "Activity choice."
+      "prompt_image_url": "a1_scene_want_b5f23bc.webp",
+      "spanish_translation": "¿Quieres leer?",
+      "pedagogy_note": "Both forms were taught; Do you requires base want, so only one choice is grammatical. Spanish support gap maps to quieres and yields the natural completed gloss ¿Quieres ver televisión?.",
+      "translation": "¿Quieres leer?",
+      "correct_option_ids": [
+        "to",
+        "read"
+      ]
     },
     {
-      "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "Do you want to [blank]?",
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "Do you want ___ ___?",
       "stage": "Use",
-      "correct_option_id": "play-2",
+      "correct_option_id": "to",
       "options": [
         {
-          "id": "read-1",
+          "id": "to",
           "image_url": "",
-          "label": "read"
+          "label": "to"
         },
         {
-          "id": "play-2",
+          "id": "play",
           "image_url": "",
           "label": "play"
-        }
-      ],
-      "audio_text": "Do you want to ___?",
-      "answer_audio_text": "Do you want to play?",
-      "prompt_image_url": "a1_scene_play_516626b.webp",
-      "spanish_translation": "¿Quieres [pausa]?",
-      "pedagogy_note": "Activity choice."
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "response-choice",
-      "prompt": "Do you want to play?",
-      "stage": "Use",
-      "correct_option_id": "yes-thank-you-1",
-      "options": [
-        {
-          "id": "yes-thank-you-1",
-          "image_url": "",
-          "label": "Yes, thank you."
-        },
-        {
-          "id": "sorry-no-2",
-          "image_url": "",
-          "label": "Sorry, no."
         }
       ],
       "audio_text": "Do you want to play?",
-      "answer_audio_text": "Yes, thank you.",
-      "prompt_image_url": "a1_scene_yes-thank-you_95534e3.webp",
+      "answer_audio_text": "Do you want to play?",
+      "prompt_image_url": "a1_scene_to_4374aae.webp",
       "spanish_translation": "¿Quieres jugar?",
-      "pedagogy_note": "Uses the taught base-form invitation chunk."
+      "pedagogy_note": "Known preposition distractor; Spanish uses a nonliteral support gap. Completed gloss ¿Quieres escuchar música? is support, not the English answer key.",
+      "translation": "¿Quieres jugar?",
+      "correct_option_ids": [
+        "to",
+        "play"
+      ]
     },
     {
-      "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "Do you want to listen to music?",
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "Do you want to ___ ___?",
       "stage": "Use",
-      "correct_option_id": "sorry-no-2",
+      "correct_option_id": "watch",
       "options": [
         {
-          "id": "yes-thank-you-1",
+          "id": "watch",
           "image_url": "",
-          "label": "Yes, thank you."
+          "label": "watch"
         },
         {
-          "id": "sorry-no-2",
+          "id": "tv",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "TV"
+        }
+      ],
+      "audio_text": "Do you want to watch TV?",
+      "answer_audio_text": "Do you want to watch TV?",
+      "prompt_image_url": "a1_scene_yes-thank-you_95534e3.webp",
+      "spanish_translation": "¿Quieres ver televisión?",
+      "pedagogy_note": "Controlled acceptance.",
+      "translation": "¿Quieres ver televisión?",
+      "correct_option_ids": [
+        "watch",
+        "tv"
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "Do you want to listen ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "to",
+      "options": [
+        {
+          "id": "to",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "music",
+          "image_url": "",
+          "label": "music"
         }
       ],
       "audio_text": "Do you want to listen to music?",
-      "answer_audio_text": "Sorry, no.",
+      "answer_audio_text": "Do you want to listen to music?",
       "prompt_image_url": "a1_scene_sorry-no_0ecf515.webp",
       "spanish_translation": "¿Quieres escuchar música?",
+      "pedagogy_note": "Controlled refusal.",
+      "answer_audio_speaker": "female-character",
+      "translation": "¿Quieres escuchar música?",
+      "correct_option_ids": [
+        "to",
+        "music"
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Sorry"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "no"
+        }
+      ],
+      "audio_text": "Sorry, no.",
+      "answer_audio_text": "Sorry, no.",
+      "prompt_image_url": "a1_scene_read_a7afddb.webp",
+      "spanish_translation": "Lo siento, no.",
+      "pedagogy_note": "Activity choice.",
+      "translation": "Lo siento, no.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Yes"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "thank"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "you"
+        }
+      ],
+      "audio_text": "Yes, thank you.",
+      "answer_audio_text": "Yes, thank you.",
+      "prompt_image_url": "a1_scene_play_516626b.webp",
+      "spanish_translation": "Sí, gracias.",
+      "pedagogy_note": "Activity choice.",
+      "translation": "Sí, gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Do"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "want"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "read"
+        }
+      ],
+      "audio_text": "Do you want to read?",
+      "answer_audio_text": "Do you want to read?",
+      "prompt_image_url": "a1_scene_yes-thank-you_95534e3.webp",
+      "spanish_translation": "¿Quieres leer?",
+      "pedagogy_note": "Uses the taught base-form invitation chunk.",
+      "translation": "¿Quieres leer?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Do"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "want"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "watch"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "TV"
+        }
+      ],
+      "audio_text": "Do you want to watch TV?",
+      "answer_audio_text": "Do you want to watch TV?",
+      "prompt_image_url": "a1_scene_sorry-no_0ecf515.webp",
+      "spanish_translation": "¿Quieres ver televisión?",
       "pedagogy_note": "Final controlled turn.",
-      "answer_audio_speaker": "female-character"
+      "translation": "¿Quieres ver televisión?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ]
     }
   ]
 }

@@ -1507,31 +1507,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "street-3",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "street"
+      ],
       "options": [
         {
-          "id": "bridge-1",
+          "id": "a",
           "image_url": "",
-          "label": "bridge"
+          "label": "a"
         },
         {
-          "id": "bus-2",
-          "image_url": "",
-          "label": "bus"
-        },
-        {
-          "id": "street-3",
+          "id": "street",
           "image_url": "",
           "label": "street"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a street.",
       "answer_audio_text": "It is a street.",
       "prompt_image_url": "/lesson-assets/place_street.webp?v=20260802-uniform-place-frames-v1",
-      "spanish_translation": "Es una ___.",
+      "spanish_translation": "Es una calle.",
       "pedagogy_note": "identity completion",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1539,11 +1538,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-2-streets-and-transportation-c029-prompt-0f4ce619b7c90b1bddc8",
+          "id": "lesson-2-2-streets-and-transportation-c029-prompt-8b5356d044ea26f3480d",
           "purpose": "prompt",
           "text": "It is a street.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/place_street.webp?v=20260802-uniform-place-frames-v1",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1566,31 +1565,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bridge-4",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "bridge"
+      ],
       "options": [
         {
-          "id": "street-1",
+          "id": "a",
           "image_url": "",
-          "label": "street"
+          "label": "a"
         },
         {
-          "id": "car-2",
-          "image_url": "",
-          "label": "car"
-        },
-        {
-          "id": "bridge-4",
+          "id": "bridge",
           "image_url": "",
           "label": "bridge"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a bridge.",
       "answer_audio_text": "It is a bridge.",
       "prompt_image_url": "/lesson-assets/place_bridge.webp?v=20260802-uniform-place-frames-v1",
-      "spanish_translation": "Es un ___.",
+      "spanish_translation": "Es un puente.",
       "pedagogy_note": "identity completion",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1598,11 +1596,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-2-streets-and-transportation-c030-prompt-67ae4b9bbbb1a336fdc7",
+          "id": "lesson-2-2-streets-and-transportation-c030-prompt-478270ce6e78529167e9",
           "purpose": "prompt",
           "text": "It is a bridge.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/place_bridge.webp?v=20260802-uniform-place-frames-v1",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1625,31 +1623,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bus-1",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "bus"
+      ],
       "options": [
         {
-          "id": "bus-1",
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "bus",
           "image_url": "",
           "label": "bus"
-        },
-        {
-          "id": "bike-2",
-          "image_url": "",
-          "label": "bike"
-        },
-        {
-          "id": "street-3",
-          "image_url": "",
-          "label": "street"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a bus.",
       "answer_audio_text": "It is a bus.",
       "prompt_image_url": "/lesson-assets/place_bus.webp?v=20260802-uniform-place-frames-v1",
-      "spanish_translation": "Es un ___.",
+      "spanish_translation": "Es un autob\u00fas.",
       "pedagogy_note": "vehicle identity",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1657,11 +1654,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-2-streets-and-transportation-c031-prompt-e7213a8a9722d834b717",
+          "id": "lesson-2-2-streets-and-transportation-c031-prompt-ba7b08bec015cbb62032",
           "purpose": "prompt",
           "text": "It is a bus.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/place_bus.webp?v=20260802-uniform-place-frames-v1",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1684,31 +1681,42 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "car-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "bridge-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "bridge"
+          "label": "It"
         },
         {
-          "id": "car-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "car"
-        },
-        {
-          "id": "bus-3",
-          "image_url": "",
-          "label": "bus"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a car.",
       "answer_audio_text": "It is a car.",
       "prompt_image_url": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
-      "spanish_translation": "Es un ___.",
+      "spanish_translation": "Es un auto.",
       "pedagogy_note": "vehicle identity",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1716,11 +1724,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-2-streets-and-transportation-c032-prompt-08c4486d7d09e317f4fb",
+          "id": "lesson-2-2-streets-and-transportation-c032-prompt-ae4c1505ed8d6e637e90",
           "purpose": "prompt",
           "text": "It is a car.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1743,31 +1751,42 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bike-4",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "car-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "car"
+          "label": "It"
         },
         {
-          "id": "street-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "street"
+          "label": "is"
         },
         {
-          "id": "bike-4",
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "bike"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a bike.",
       "answer_audio_text": "It is a bike.",
       "prompt_image_url": "/lesson-assets/object_bike.webp?v=20260801-objects-places-v2",
-      "spanish_translation": "Es una ___.",
+      "spanish_translation": "Es una bicicleta.",
       "pedagogy_note": "vehicle identity",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1775,11 +1794,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-2-streets-and-transportation-c033-prompt-1d361a610cdb4055c1a5",
+          "id": "lesson-2-2-streets-and-transportation-c033-prompt-4ecd53c5c084c63bbbe2",
           "purpose": "prompt",
           "text": "It is a bike.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/object_bike.webp?v=20260801-objects-places-v2",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1802,31 +1821,60 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete4",
-      "prompt": "It is a car, not a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___, ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bus-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
       "options": [
         {
-          "id": "bus-1",
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "car"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-7",
           "image_url": "",
           "label": "bus"
-        },
-        {
-          "id": "bike-2",
-          "image_url": "",
-          "label": "bike"
-        },
-        {
-          "id": "street-3",
-          "image_url": "",
-          "label": "street"
         }
       ],
-      "audio_text": "It is a car, not a ___.",
+      "audio_text": "It is a car, not a bus.",
       "answer_audio_text": "It is a car, not a bus.",
       "prompt_image_url": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
-      "spanish_translation": "Es un auto, no un ___.",
+      "spanish_translation": "Es un auto, no un autob\u00fas.",
       "pedagogy_note": "Repetition with growth: complete vehicle contrast with negation",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1834,11 +1882,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-2-streets-and-transportation-c034-prompt-bbc59eb3a268af4f4c56",
+          "id": "lesson-2-2-streets-and-transportation-c034-prompt-34c83c676078309c5eee",
           "purpose": "prompt",
           "text": "It is a car, not a bus.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/object_car.webp?v=20260801-objects-places-v2",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

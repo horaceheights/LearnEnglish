@@ -582,219 +582,295 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "What is your ___?",
+      "prompt": "___ ___ your name?",
       "stage": "Use",
-      "correct_option_id": "name-2",
+      "correct_option_id": "what",
       "options": [
         {
-          "id": "job-1",
+          "id": "what",
           "image_url": "",
-          "label": "job"
+          "label": "What"
         },
         {
-          "id": "name-2",
+          "id": "is",
           "image_url": "",
-          "label": "name"
+          "label": "is"
         }
       ],
-      "audio_text": "What is your ___?",
+      "audio_text": "What is your name?",
       "answer_audio_text": "What is your name?",
       "prompt_image_url": "a1_scene_ana_name.webp",
-      "spanish_translation": "¿Cuál es tu ___?",
-      "pedagogy_note": "question function"
+      "spanish_translation": "¿Cuál es tu nombre?",
+      "pedagogy_note": "question function",
+      "translation": "¿Cuál es tu nombre?",
+      "correct_option_ids": [
+        "what",
+        "is"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "I am ___ years old.",
+      "interaction_type": "complete2",
+      "prompt": "Where ___ ___ from?",
       "stage": "Use",
-      "correct_option_id": "eighteen-3",
+      "correct_option_id": "are",
       "options": [
         {
-          "id": "twenty-1",
+          "id": "are",
           "image_url": "",
-          "label": "twenty"
+          "label": "are"
         },
         {
-          "id": "fifteen-2",
+          "id": "you",
           "image_url": "",
-          "label": "fifteen"
-        },
-        {
-          "id": "eighteen-3",
-          "image_url": "",
-          "label": "eighteen"
+          "label": "you"
         }
       ],
-      "audio_text": "I am ___ years old.",
-      "answer_audio_text": "I am eighteen years old.",
+      "audio_text": "Where are you from?",
+      "answer_audio_text": "Where are you from?",
       "prompt_image_url": "a1_scene_luis_age_18.webp",
-      "spanish_translation": "Tengo ___ años.",
+      "spanish_translation": "¿De dónde eres?",
       "pedagogy_note": "age",
-      "audio_speaker": "luis"
+      "audio_speaker": "luis",
+      "translation": "¿De dónde eres?",
+      "correct_option_ids": [
+        "are",
+        "you"
+      ]
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "Where ___ you from?",
+      "prompt": "I have ___ ___.",
       "stage": "Use",
-      "correct_option_id": "are-2",
+      "correct_option_id": "a",
       "options": [
         {
-          "id": "is-1",
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "book",
+          "image_url": "",
+          "label": "book"
+        }
+      ],
+      "audio_text": "I have a book.",
+      "answer_audio_text": "I have a book.",
+      "prompt_image_url": "a1_scene_ana_mexico.webp",
+      "spanish_translation": "Tengo un libro.",
+      "pedagogy_note": "origin question",
+      "audio_speaker": "ana",
+      "translation": "Tengo un libro.",
+      "correct_option_ids": [
+        "a",
+        "book"
+      ],
+      "answer_audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "He has ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "a",
+      "options": [
+        {
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "car",
+          "image_url": "",
+          "label": "car"
+        }
+      ],
+      "audio_text": "He has a car.",
+      "answer_audio_text": "He has a car.",
+      "prompt_image_url": "a1_scene_luis_driver.webp",
+      "spanish_translation": "Él tiene un auto.",
+      "pedagogy_note": "job",
+      "translation": "Él tiene un auto.",
+      "correct_option_ids": [
+        "a",
+        "car"
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "What"
+        },
+        {
+          "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "are-2",
-          "image_url": "",
-          "label": "are"
-        }
-      ],
-      "audio_text": "Where ___ you from?",
-      "answer_audio_text": "Where are you from?",
-      "prompt_image_url": "a1_scene_ana_mexico.webp",
-      "spanish_translation": "¿De dónde ___?",
-      "pedagogy_note": "origin question",
-      "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete4",
-      "prompt": "I am a ___.",
-      "stage": "Use",
-      "correct_option_id": "driver-3",
-      "options": [
-        {
-          "id": "teacher-1",
-          "image_url": "",
-          "label": "teacher"
-        },
-        {
-          "id": "doctor-2",
-          "image_url": "",
-          "label": "doctor"
-        },
-        {
-          "id": "driver-3",
-          "image_url": "",
-          "label": "driver"
-        }
-      ],
-      "audio_text": "I am a ___.",
-      "answer_audio_text": "I am a driver.",
-      "prompt_image_url": "a1_scene_luis_driver.webp",
-      "spanish_translation": "Soy ___.",
-      "pedagogy_note": "job",
-      "audio_speaker": "luis"
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "I ___ a book.",
-      "stage": "Use",
-      "correct_option_id": "have-2",
-      "options": [
-        {
-          "id": "has-1",
-          "image_url": "",
-          "label": "has"
-        },
-        {
-          "id": "have-2",
-          "image_url": "",
-          "label": "have"
-        }
-      ],
-      "audio_text": "I ___ a book.",
-      "answer_audio_text": "I have a book.",
-      "prompt_image_url": "a1_scene_ana_teacher_book.webp",
-      "spanish_translation": "Yo ___ un libro.",
-      "pedagogy_note": "agreement",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete2",
-      "prompt": "He ___ a car.",
-      "stage": "Use",
-      "correct_option_id": "has-2",
-      "options": [
-        {
-          "id": "have-1",
-          "image_url": "",
-          "label": "have"
-        },
-        {
-          "id": "has-2",
-          "image_url": "",
-          "label": "has"
-        }
-      ],
-      "audio_text": "He ___ a car.",
-      "answer_audio_text": "He has a car.",
-      "prompt_image_url": "a1_scene_car-luis_d3399da.webp",
-      "spanish_translation": "Él ___ un automóvil.",
-      "pedagogy_note": "agreement"
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete4",
-      "prompt": "This is ___ book.",
-      "stage": "Use",
-      "correct_option_id": "my-4",
-      "options": [
-        {
-          "id": "your-1",
+          "id": "word-3",
           "image_url": "",
           "label": "your"
         },
         {
-          "id": "his-2",
+          "id": "word-4",
           "image_url": "",
-          "label": "his"
-        },
-        {
-          "id": "my-4",
-          "image_url": "",
-          "label": "my"
+          "label": "name"
         }
       ],
-      "audio_text": "This is ___ book.",
+      "audio_text": "What is your name?",
+      "answer_audio_text": "What is your name?",
+      "prompt_image_url": "a1_scene_ana_teacher_book.webp",
+      "spanish_translation": "¿Cuál es tu nombre?",
+      "pedagogy_note": "agreement",
+      "audio_speaker": "ana",
+      "translation": "¿Cuál es tu nombre?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "driver"
+        }
+      ],
+      "audio_text": "I am a driver.",
+      "answer_audio_text": "I am a driver.",
+      "prompt_image_url": "a1_scene_car-luis_d3399da.webp",
+      "spanish_translation": "Soy conductor.",
+      "pedagogy_note": "agreement",
+      "translation": "Soy conductor.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "This"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "my"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "book"
+        }
+      ],
+      "audio_text": "This is my book.",
       "answer_audio_text": "This is my book.",
       "prompt_image_url": "a1_scene_ana_teacher_book.webp",
-      "spanish_translation": "Este es ___ libro.",
+      "spanish_translation": "Este es mi libro.",
       "pedagogy_note": "possessive",
-      "audio_speaker": "ana"
+      "audio_speaker": "ana",
+      "translation": "Este es mi libro.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     },
     {
       "slide_id": "U8",
-      "interaction_type": "choose4",
-      "prompt": "Choose the number.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "seven-3",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "nine-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "nine"
+          "label": "I"
         },
         {
-          "id": "six-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "six"
+          "label": "am"
         },
         {
-          "id": "seven-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "seven"
+          "label": "eighteen"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "years"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "old"
         }
       ],
-      "audio_text": "Choose the number.",
-      "answer_audio_text": "seven",
+      "audio_text": "I am eighteen years old.",
+      "answer_audio_text": "I am eighteen years old.",
       "prompt_image_url": "a1_n7.webp",
-      "spanish_translation": "Elige el número.",
-      "pedagogy_note": "Unit 2 long-delay review"
+      "spanish_translation": "Tengo dieciocho años.",
+      "pedagogy_note": "Unit 2 long-delay review",
+      "translation": "Tengo dieciocho años.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
     }
   ]
 }

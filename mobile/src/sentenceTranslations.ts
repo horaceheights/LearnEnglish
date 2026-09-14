@@ -135,6 +135,9 @@ const PLACE_TRANSLATIONS: Record<string, { article: 'un' | 'una'; noun: string }
 };
 
 const EXACT_TRANSLATIONS: Record<string, string> = {
+  'a boy. he is a boy.': 'Un niño. Él es un niño.',
+  'a man. he is a man.': 'Un hombre. Él es un hombre.',
+  'a woman. she is a woman.': 'Una mujer. Ella es una mujer.',
   'actions': 'Acciones',
   'find the children.': 'Encuentra a los niños.',
   'find the grandparents.': 'Encuentra a los abuelos.',

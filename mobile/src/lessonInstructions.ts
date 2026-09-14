@@ -170,12 +170,12 @@ export function completionEquivalenceFocusWords(prompt: string, selectedAnswer: 
   if (!EQUIVALENT_SUBJECT_PRONOUNS.has(normalizedAnswer)) return [];
 
   const clauses = prompt.trim().match(
-    /^(.+?)\s+(is|are)\s+(.+?)(?:,\s*|\s+and\s+)(?:_{2,}|\[blank\])\s+(is|are)\s+(.+)$/i,
+    /^(.+?)\s+(is|are)\s+(.+?)(?:,\s*|\s+and\s+)(?:_{2,}|\[blank\])\s+(?:(is|are)|_{2,}|\[blank\])\s+(.+)$/i,
   );
   if (!clauses) return [];
 
   const antecedentBe = clauses[2].toLowerCase();
-  const pronounBe = clauses[4].toLowerCase();
+  const pronounBe = clauses[4]?.toLowerCase() || PRONOUN_BE_FORMS[normalizedAnswer];
   if (antecedentBe !== pronounBe || PRONOUN_BE_FORMS[normalizedAnswer] !== pronounBe) return [];
 
   return (clauses[1].toLowerCase().match(/[a-z']+/g) || [])

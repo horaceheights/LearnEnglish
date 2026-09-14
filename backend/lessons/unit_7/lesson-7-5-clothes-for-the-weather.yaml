@@ -678,152 +678,261 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "It is cold. I need a [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is cold. I need ___ ___.",
       "stage": "Use",
-      "correct_option_id": "jacket-2",
+      "correct_option_id": "a",
       "options": [
         {
-          "id": "shirt-1",
+          "id": "a",
           "image_url": "",
-          "label": "shirt"
+          "label": "a"
         },
         {
-          "id": "jacket-2",
+          "id": "jacket",
           "image_url": "",
           "label": "jacket"
         }
       ],
-      "audio_text": "It is cold. I need a ___.",
+      "audio_text": "It is cold. I need a jacket.",
       "answer_audio_text": "It is cold. I need a jacket.",
       "prompt_image_url": "a1_scene_jacket_1cdbba9.webp",
-      "spanish_translation": "Hace frío. Necesito una [pausa].",
-      "pedagogy_note": "Unique need."
+      "spanish_translation": "Hace frío. Necesito una chaqueta.",
+      "pedagogy_note": "Unique need.",
+      "translation": "Hace frío. Necesito una chaqueta.",
+      "correct_option_ids": [
+        "a",
+        "jacket"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "It is rainy. I need an [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is rainy. I need ___ ___.",
       "stage": "Use",
-      "correct_option_id": "umbrella-1",
+      "correct_option_id": "an",
       "options": [
         {
-          "id": "umbrella-1",
+          "id": "an",
           "image_url": "",
-          "label": "umbrella"
+          "label": "an"
         },
         {
-          "id": "hat-2",
+          "id": "umbrella",
           "image_url": "",
-          "label": "hat"
+          "label": "umbrella"
         }
       ],
-      "audio_text": "It is rainy. I need an ___.",
+      "audio_text": "It is rainy. I need an umbrella.",
       "answer_audio_text": "It is rainy. I need an umbrella.",
       "prompt_image_url": "a1_scene_umbrella_3ff95ac.webp",
-      "spanish_translation": "Está lluvioso. Necesito un [pausa].",
-      "pedagogy_note": "Article fixed."
+      "spanish_translation": "Está lluvioso. Necesito un paraguas.",
+      "pedagogy_note": "Article fixed.",
+      "translation": "Está lluvioso. Necesito un paraguas.",
+      "correct_option_ids": [
+        "an",
+        "umbrella"
+      ]
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "It is rainy. I need [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is hot. I need ___ ___.",
       "stage": "Use",
-      "correct_option_id": "boots-1",
+      "correct_option_id": "a",
       "options": [
         {
-          "id": "boots-1",
+          "id": "a",
           "image_url": "",
-          "label": "boots"
+          "label": "a"
         },
         {
-          "id": "shoes-2",
+          "id": "shirt",
           "image_url": "",
-          "label": "shoes"
+          "label": "shirt"
         }
       ],
-      "audio_text": "It is rainy. I need ___.",
-      "answer_audio_text": "It is rainy. I need boots.",
+      "audio_text": "It is hot. I need a shirt.",
+      "answer_audio_text": "It is hot. I need a shirt.",
       "prompt_image_url": "a1_scene_boots_bb6edd2.webp",
-      "spanish_translation": "Está lluvioso. Necesito [pausa].",
-      "pedagogy_note": "Unique missing protection."
+      "spanish_translation": "Hace calor. Necesito una camisa.",
+      "pedagogy_note": "Unique missing protection.",
+      "translation": "Hace calor. Necesito una camisa.",
+      "correct_option_ids": [
+        "a",
+        "shirt"
+      ]
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "It is sunny. I need a [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___. ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "hat-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "hat-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "hat"
+          "label": "It"
         },
         {
-          "id": "jacket-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "jacket"
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "rainy"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "need"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "boots"
         }
       ],
-      "audio_text": "It is sunny. I need a ___.",
-      "answer_audio_text": "It is sunny. I need a hat.",
+      "audio_text": "It is rainy. I need boots.",
+      "answer_audio_text": "It is rainy. I need boots.",
       "prompt_image_url": "a1_scene_hat_10e5866.webp",
-      "spanish_translation": "Está soleado. Necesito un [pausa].",
-      "pedagogy_note": "Clear pairing."
+      "spanish_translation": "Está lluvioso. Necesito botas.",
+      "pedagogy_note": "Clear pairing.",
+      "translation": "Está lluvioso. Necesito botas.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ]
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "It is hot. I [blank] a shirt.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___. ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "need-2",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "needs-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "needs"
+          "label": "It"
         },
         {
-          "id": "need-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "sunny"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-5",
           "image_url": "",
           "label": "need"
-        }
-      ],
-      "audio_text": "It is hot. I ___ a shirt.",
-      "answer_audio_text": "It is hot. I need a shirt.",
-      "prompt_image_url": "a1_scene_need_efe30e3.webp",
-      "spanish_translation": "Hace calor. [pausa] una camisa.",
-      "pedagogy_note": "Both forms were taught; subject agreement makes only need correct and avoids a preference-versus-necessity judgment."
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "It is windy. I need a [blank].",
-      "stage": "Use",
-      "correct_option_id": "jacket-2",
-      "options": [
-        {
-          "id": "dress-1",
-          "image_url": "",
-          "label": "dress"
         },
         {
-          "id": "jacket-2",
+          "id": "word-6",
           "image_url": "",
-          "label": "jacket"
+          "label": "a"
         },
         {
-          "id": "hat-3",
+          "id": "word-7",
           "image_url": "",
           "label": "hat"
         }
       ],
-      "audio_text": "It is windy. I need a ___.",
+      "audio_text": "It is sunny. I need a hat.",
+      "answer_audio_text": "It is sunny. I need a hat.",
+      "prompt_image_url": "a1_scene_need_efe30e3.webp",
+      "spanish_translation": "Está soleado. Necesito un sombrero.",
+      "pedagogy_note": "Both forms were taught; subject agreement makes only need correct and avoids a preference-versus-necessity judgment.",
+      "translation": "Está soleado. Necesito un sombrero.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___. ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "windy"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "need"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "jacket"
+        }
+      ],
+      "audio_text": "It is windy. I need a jacket.",
       "answer_audio_text": "It is windy. I need a jacket.",
       "prompt_image_url": "a1_scene_jacket_1cdbba9.webp",
-      "spanish_translation": "Hace viento. Necesito una [pausa].",
-      "pedagogy_note": "Cool thermometer and secured hat make one answer defensible."
+      "spanish_translation": "Hace viento. Necesito una chaqueta.",
+      "pedagogy_note": "Cool thermometer and secured hat make one answer defensible.",
+      "translation": "Hace viento. Necesito una chaqueta.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ]
     }
   ]
 }

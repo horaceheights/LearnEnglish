@@ -719,152 +719,219 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "It is [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bread-1",
+      "correct_option_id": "an",
       "options": [
         {
-          "id": "bread-1",
+          "id": "an",
           "image_url": "",
-          "label": "bread"
+          "label": "an"
         },
         {
-          "id": "rice-2",
+          "id": "egg",
           "image_url": "",
-          "label": "rice"
+          "label": "egg"
         }
       ],
-      "audio_text": "It is ___.",
-      "answer_audio_text": "It is bread.",
+      "audio_text": "It is an egg.",
+      "answer_audio_text": "It is an egg.",
       "prompt_image_url": "a1_scene_bread_6ff291d.webp",
-      "spanish_translation": "Es [pausa].",
-      "pedagogy_note": "Completed audio: It is bread."
+      "spanish_translation": "Es un huevo.",
+      "pedagogy_note": "Completed audio: It is bread.",
+      "translation": "Es un huevo.",
+      "correct_option_ids": [
+        "an",
+        "egg"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "It is an [blank].",
+      "interaction_type": "complete2",
+      "prompt": "He is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "egg-1",
+      "correct_option_id": "eating",
       "options": [
         {
-          "id": "egg-1",
+          "id": "eating",
           "image_url": "",
-          "label": "egg"
+          "label": "eating"
         },
         {
-          "id": "apple-2",
+          "id": "rice",
           "image_url": "",
-          "label": "apple"
+          "label": "rice"
         }
       ],
-      "audio_text": "It is an ___.",
-      "answer_audio_text": "It is an egg.",
+      "audio_text": "He is eating rice.",
+      "answer_audio_text": "He is eating rice.",
       "prompt_image_url": "a1_scene_egg_4fa6024.webp",
-      "spanish_translation": "Es un [pausa].",
-      "pedagogy_note": "Apple is review distractor; both fit article but only image decides."
+      "spanish_translation": "Él está comiendo arroz.",
+      "pedagogy_note": "Apple is review distractor; both fit article but only image decides.",
+      "translation": "Él está comiendo arroz.",
+      "correct_option_ids": [
+        "eating",
+        "rice"
+      ]
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "He is eating [blank].",
+      "interaction_type": "complete2",
+      "prompt": "She is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "rice-1",
+      "correct_option_id": "drinking",
       "options": [
         {
-          "id": "rice-1",
+          "id": "drinking",
           "image_url": "",
-          "label": "rice"
+          "label": "drinking"
         },
         {
-          "id": "bread-2",
-          "image_url": "",
-          "label": "bread"
-        }
-      ],
-      "audio_text": "He is eating ___.",
-      "answer_audio_text": "He is eating rice.",
-      "prompt_image_url": "a1_scene_rice_6939278.webp",
-      "spanish_translation": "Él está comiendo [pausa].",
-      "pedagogy_note": "Review he is eating."
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "She is drinking [blank].",
-      "stage": "Use",
-      "correct_option_id": "milk-2",
-      "options": [
-        {
-          "id": "water-1",
-          "image_url": "",
-          "label": "water"
-        },
-        {
-          "id": "milk-2",
+          "id": "milk",
           "image_url": "",
           "label": "milk"
         }
       ],
-      "audio_text": "She is drinking ___.",
+      "audio_text": "She is drinking milk.",
       "answer_audio_text": "She is drinking milk.",
+      "prompt_image_url": "a1_scene_rice_6939278.webp",
+      "spanish_translation": "Ella está tomando leche.",
+      "pedagogy_note": "Review he is eating.",
+      "translation": "Ella está tomando leche.",
+      "correct_option_ids": [
+        "drinking",
+        "milk"
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "bread"
+        }
+      ],
+      "audio_text": "It is bread.",
+      "answer_audio_text": "It is bread.",
       "prompt_image_url": "a1_scene_milk_cf5dbf0.webp",
-      "spanish_translation": "Ella está tomando [pausa].",
-      "pedagogy_note": "Same-vessel visual makes liquid clear."
+      "spanish_translation": "Es pan.",
+      "pedagogy_note": "Same-vessel visual makes liquid clear.",
+      "translation": "Es pan.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ]
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "The girl is eating [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "fish-2",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "chicken-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "chicken"
+          "label": "The"
         },
         {
-          "id": "fish-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "girl"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "eating"
+        },
+        {
+          "id": "word-5",
           "image_url": "",
           "label": "fish"
         }
       ],
-      "audio_text": "The girl is eating ___.",
+      "audio_text": "The girl is eating fish.",
       "answer_audio_text": "The girl is eating fish.",
       "prompt_image_url": "a1_scene_fish_64875fc.webp",
-      "spanish_translation": "La niña está comiendo [pausa].",
-      "pedagogy_note": "Review girl and action."
+      "spanish_translation": "La niña está comiendo pescado.",
+      "pedagogy_note": "Review girl and action.",
+      "translation": "La niña está comiendo pescado.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "The man is drinking [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "juice-3",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "milk-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "milk"
+          "label": "The"
         },
         {
-          "id": "water-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "water"
+          "label": "man"
         },
         {
-          "id": "juice-3",
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "drinking"
+        },
+        {
+          "id": "word-5",
           "image_url": "",
           "label": "juice"
         }
       ],
-      "audio_text": "The man is drinking ___.",
+      "audio_text": "The man is drinking juice.",
       "answer_audio_text": "The man is drinking juice.",
       "prompt_image_url": "a1_scene_juice_07ef879.webp",
-      "spanish_translation": "El hombre está tomando [pausa].",
-      "pedagogy_note": "Review man and action; rice is visibly not a drink."
+      "spanish_translation": "El hombre está tomando jugo.",
+      "pedagogy_note": "Review man and action; rice is visibly not a drink.",
+      "translation": "El hombre está tomando jugo.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
     }
   ]
 }

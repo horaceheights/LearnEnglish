@@ -290,13 +290,13 @@ class PersistentCardAudioTests(unittest.TestCase):
         jobs = render_jobs(arguments)
 
         self.assertEqual(
-            Counter({"male-character": 164, "luis": 84, "diego": 7}),
+            Counter({"male-character": 161, "luis": 88, "diego": 7}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
-        self.assertEqual(255, len(selected))
-        self.assertEqual(75, len(jobs))
-        self.assertEqual(80, sum(len(job.request_fragments()) for job in jobs))
-        self.assertEqual(1068, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(256, len(selected))
+        self.assertEqual(55, len(jobs))
+        self.assertEqual(55, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(870, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},
@@ -674,26 +674,31 @@ class PersistentCardAudioTests(unittest.TestCase):
                     resolve_approved_take(second_asset, broken, root)
 
     def test_fully_hidden_completions_share_physical_silence_not_logical_contracts(self):
-        def completion_job(asset_id: str) -> RenderJob:
-            for lesson in LESSONS.values():
-                for card in lesson.cards:
-                    for asset in card.audio_assets:
-                        if asset.id == asset_id:
-                            return RenderJob(
-                                kind="completion",
-                                assets=[asset],
-                                text=asset.text,
-                                visual_prompt=card.prompt,
-                                blank_text=blank_text_for(card, asset.text),
-                            )
-            raise AssertionError(f"Missing completion asset {asset_id}")
+        def synthetic_completion_job(answer_text: str) -> RenderJob:
+            card = LessonCard(
+                stage="Use",
+                interaction_type="complete2",
+                prompt="___.",
+                audio_text="___.",
+                answer_audio_text=answer_text,
+                correct_option_id="opt",
+                options=[ChoiceOption(id="opt", label=answer_text.rstrip("."))],
+            )
+            asset = next(
+                asset
+                for asset in assets_for_card("synthetic-test", 0, card)
+                if asset.variant == "completion-prompt"
+            )
+            return RenderJob(
+                kind="completion",
+                assets=[asset],
+                text=asset.text,
+                visual_prompt=card.prompt,
+                blank_text=blank_text_for(card, asset.text),
+            )
 
-        babies = completion_job(
-            "lesson-4-children-siblings-c037-prompt-8eee9c5c4cb9dfae5599"
-        )
-        pants = completion_job(
-            "lesson-7-3-clothing-c030-prompt-00948ba213857ae2fd82"
-        )
+        babies = synthetic_completion_job("Babies.")
+        pants = synthetic_completion_job("Pants.")
         approved_at = "2026-08-31T12:00:00-06:00"
         babies_payload, babies_provenance = deterministic_completion_silence(
             babies, approved_at
@@ -881,27 +886,28 @@ class PersistentCardAudioTests(unittest.TestCase):
         self.assertTrue(alternate_reuse_request["staged_reuse"])
 
     def test_fragment_budget_stops_before_buying_a_later_completion_fragment(self):
-        job = None
-        for lesson in LESSONS.values():
-            for card in lesson.cards:
-                for asset in card.audio_assets:
-                    if asset.variant != "completion-prompt":
-                        continue
-                    candidate = RenderJob(
-                        kind="completion",
-                        assets=[asset],
-                        text=asset.text,
-                        visual_prompt=card.prompt,
-                        blank_text=blank_text_for(card, asset.text),
-                    )
-                    if len(candidate.request_fragments()) == 2:
-                        job = candidate
-                        break
-                if job is not None:
-                    break
-            if job is not None:
-                break
-        self.assertIsNotNone(job)
+        card = LessonCard(
+            stage="Use",
+            interaction_type="complete2",
+            prompt="He ___ a car.",
+            audio_text="He ___ a car.",
+            answer_audio_text="He has a car.",
+            correct_option_id="has",
+            options=[ChoiceOption(id="has", label="has")],
+        )
+        asset = next(
+            asset
+            for asset in assets_for_card("synthetic-fragment-budget-test", 0, card)
+            if asset.variant == "completion-prompt"
+        )
+        job = RenderJob(
+            kind="completion",
+            assets=[asset],
+            text=asset.text,
+            visual_prompt=card.prompt,
+            blank_text=blank_text_for(card, asset.text),
+        )
+        self.assertEqual(2, len(job.request_fragments()))
         first_text, first_model = job.request_fragments()[0]
         second_text, second_model = job.request_fragments()[1]
         budget = len(first_text)

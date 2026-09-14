@@ -1435,26 +1435,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete2",
+      "prompt": "Can you ___ ___?",
       "stage": "Use",
-      "correct_option_id": "excuse-me-1",
+      "correct_option_id": "help",
+      "correct_option_ids": [
+        "help",
+        "me"
+      ],
       "options": [
         {
-          "id": "excuse-me-1",
+          "id": "help",
           "image_url": "",
-          "label": "Excuse me."
+          "label": "help"
         },
         {
-          "id": "here-you-are-2",
+          "id": "me",
           "image_url": "",
-          "label": "Here you are."
+          "label": "me"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Excuse me.",
+      "audio_text": "Can you help me?",
+      "answer_audio_text": "Can you help me?",
       "prompt_image_url": "/lesson-assets/a1_scene_excuse-me_91c6a04.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "\u00bfPuede ayudarme?",
       "pedagogy_note": "Guided sequence.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1462,21 +1466,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c027-prompt-9ac4a8c8f99590a96ef2",
+          "id": "lesson-6-7-simple-requests-c027-prompt-9d3290b65f9a95f93658",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "Can you help me?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_excuse-me_91c6a04.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c027-answer-f900f8086baa99476b2e",
+          "id": "lesson-6-7-simple-requests-c027-answer-657050b6071eff1b9a5f",
           "purpose": "answer",
-          "text": "Excuse me.",
+          "text": "Can you help me?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_excuse-me_91c6a04.webp",
@@ -1489,26 +1493,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Can you [blank] me?",
+      "interaction_type": "complete2",
+      "prompt": "Where is ___ ___?",
       "stage": "Use",
-      "correct_option_id": "help-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "station"
+      ],
       "options": [
         {
-          "id": "help-1",
+          "id": "the",
           "image_url": "",
-          "label": "help"
+          "label": "the"
         },
         {
-          "id": "turn-2",
+          "id": "station",
           "image_url": "",
-          "label": "turn"
+          "label": "station"
         }
       ],
-      "audio_text": "Can you ___ me?",
-      "answer_audio_text": "Can you help me?",
+      "audio_text": "Where is the station?",
+      "answer_audio_text": "Where is the station?",
       "prompt_image_url": "/lesson-assets/a1_scene_help_92005ec.webp",
-      "spanish_translation": "\u00bfPuede [pausa]?",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la estaci\u00f3n?",
       "pedagogy_note": "Fixed request.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1516,11 +1524,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c028-prompt-e268d91d2b71b89d5679",
+          "id": "lesson-6-7-simple-requests-c028-prompt-6feef4f138d652cc94d0",
           "purpose": "prompt",
-          "text": "Can you help me?",
+          "text": "Where is the station?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
           "semantic_role": "question",
           "speaker_role": "question",
@@ -1528,9 +1536,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c028-answer-03781b36d1f9bebba1f0",
+          "id": "lesson-6-7-simple-requests-c028-answer-16e778647ca91bdeec75",
           "purpose": "answer",
-          "text": "Can you help me?",
+          "text": "Where is the station?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
@@ -1543,36 +1551,40 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "response-choice",
-      "prompt": "Can you help me?",
+      "interaction_type": "complete2",
+      "prompt": "Where is ___ ___?",
       "stage": "Use",
-      "correct_option_id": "yes-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "hospital"
+      ],
       "options": [
         {
-          "id": "yes-1",
+          "id": "the",
           "image_url": "",
-          "label": "Yes."
+          "label": "the"
         },
         {
-          "id": "sorry-no-2",
+          "id": "hospital",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "hospital"
         }
       ],
-      "audio_text": "Can you help me?",
-      "answer_audio_text": "Yes.",
+      "audio_text": "Where is the hospital?",
+      "answer_audio_text": "Where is the hospital?",
       "prompt_image_url": "/lesson-assets/a1_scene_yes_62e7d96.webp",
-      "spanish_translation": "\u00bfPuede ayudarme?",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el hospital?",
       "pedagogy_note": "Response selection.",
       "audio_speaker": null,
-      "answer_audio_speaker": "male-character",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c029-prompt-1d27e15985270b27c098",
+          "id": "lesson-6-7-simple-requests-c029-prompt-5e35a336df99ecb0584c",
           "purpose": "prompt",
-          "text": "Can you help me?",
+          "text": "Where is the hospital?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_yes_62e7d96.webp",
@@ -1582,14 +1594,14 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c029-answer-5c553f3ab553b65cfcdf",
+          "id": "lesson-6-7-simple-requests-c029-answer-d080e4bb0c41965ec26f",
           "purpose": "answer",
-          "text": "Yes.",
+          "text": "Where is the hospital?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_yes_62e7d96.webp",
           "semantic_role": "answer",
-          "speaker_role": "male-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1597,26 +1609,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "response-choice",
-      "prompt": "Yes.",
+      "interaction_type": "complete2",
+      "prompt": "It is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "where-is-the-station-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "left"
+      ],
       "options": [
         {
-          "id": "where-is-the-station-1",
+          "id": "the",
           "image_url": "",
-          "label": "Where is the station?"
+          "label": "the"
         },
         {
-          "id": "how-much-is-it-2",
+          "id": "left",
           "image_url": "",
-          "label": "How much is it?"
+          "label": "left"
         }
       ],
-      "audio_text": "Yes.",
-      "answer_audio_text": "Where is the station?",
+      "audio_text": "It is on the left.",
+      "answer_audio_text": "It is on the left.",
       "prompt_image_url": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
-      "spanish_translation": "S\u00ed.",
+      "spanish_translation": "Est\u00e1 a la izquierda.",
       "pedagogy_note": "Appropriate next request.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1624,9 +1640,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c030-prompt-8b6486f3b151f6ee501e",
+          "id": "lesson-6-7-simple-requests-c030-prompt-ca7d6f847fcb89fd44e8",
           "purpose": "prompt",
-          "text": "Yes.",
+          "text": "It is on the left.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
@@ -1636,9 +1652,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c030-answer-a4ae4a7d5b942fb7c876",
+          "id": "lesson-6-7-simple-requests-c030-answer-820de22db5fb6ca34eb6",
           "purpose": "answer",
-          "text": "Where is the station?",
+          "text": "It is on the left.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
@@ -1651,26 +1667,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "It is on the [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "left-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "left-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "left"
+          "label": "Excuse"
         },
         {
-          "id": "right-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "right"
+          "label": "me"
         }
       ],
-      "audio_text": "It is on the ___.",
-      "answer_audio_text": "It is on the left.",
+      "audio_text": "Excuse me.",
+      "answer_audio_text": "Excuse me.",
       "prompt_image_url": "/lesson-assets/a1_scene_left_12c0f1f.webp",
-      "spanish_translation": "Est\u00e1 a la [pausa].",
+      "spanish_translation": "Disculpe.",
       "pedagogy_note": "Location answer.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1678,11 +1698,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c031-prompt-b44bbecf664524fa9772",
+          "id": "lesson-6-7-simple-requests-c031-prompt-f89175069d50c651b7d5",
           "purpose": "prompt",
-          "text": "It is on the left.",
+          "text": "Excuse me.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_left_12c0f1f.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1690,9 +1710,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c031-answer-015617666b78412ff209",
+          "id": "lesson-6-7-simple-requests-c031-answer-4bcccf45121c360d6b57",
           "purpose": "answer",
-          "text": "It is on the left.",
+          "text": "Excuse me.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_left_12c0f1f.webp",
@@ -1705,26 +1725,30 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "It is on the left.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "thank-you-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Thank you."
+          "label": "Sorry"
         },
         {
-          "id": "can-you-help-me-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Can you help me?"
+          "label": "no"
         }
       ],
-      "audio_text": "It is on the left.",
-      "answer_audio_text": "Thank you.",
+      "audio_text": "Sorry, no.",
+      "answer_audio_text": "Sorry, no.",
       "prompt_image_url": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Est\u00e1 a la izquierda.",
+      "spanish_translation": "Lo siento, no.",
       "pedagogy_note": "Closes exchange.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1732,9 +1756,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c032-prompt-ae2baa07c7441ca326e5",
+          "id": "lesson-6-7-simple-requests-c032-prompt-5e834ed38160c3617373",
           "purpose": "prompt",
-          "text": "It is on the left.",
+          "text": "Sorry, no.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
@@ -1744,9 +1768,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c032-answer-20ec9a5efca35ec86831",
+          "id": "lesson-6-7-simple-requests-c032-answer-835aba86c79f4cc0a24c",
           "purpose": "answer",
-          "text": "Thank you.",
+          "text": "Sorry, no.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
@@ -1759,26 +1783,30 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "response-choice",
-      "prompt": "Can you help me?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "sorry-no-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "yes-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Yes."
+          "label": "Thank"
         },
         {
-          "id": "sorry-no-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "you"
         }
       ],
-      "audio_text": "Can you help me?",
-      "answer_audio_text": "Sorry, no.",
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
       "prompt_image_url": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
-      "spanish_translation": "\u00bfPuede ayudarme?",
+      "spanish_translation": "Gracias.",
       "pedagogy_note": "Negative response path.",
       "audio_speaker": null,
       "answer_audio_speaker": "female-character",
@@ -1786,21 +1814,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c033-prompt-471b01934e5a1f0669f7",
+          "id": "lesson-6-7-simple-requests-c033-prompt-e1dd74f24fcbbcd19248",
           "purpose": "prompt",
-          "text": "Can you help me?",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c033-answer-f374f2f4b99421aafd50",
+          "id": "lesson-6-7-simple-requests-c033-answer-2c08a143c62eab82e45a",
           "purpose": "answer",
-          "text": "Sorry, no.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
@@ -1813,31 +1841,42 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete",
-      "prompt": "Where is the [blank]?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "hospital-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "store-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "store"
+          "label": "Can"
         },
         {
-          "id": "bank-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "bank"
+          "label": "you"
         },
         {
-          "id": "hospital-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "hospital"
+          "label": "help"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "me"
         }
       ],
-      "audio_text": "Where is the ___?",
-      "answer_audio_text": "Where is the hospital?",
-      "prompt_image_url": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el [pausa]?",
+      "audio_text": "Can you help me?",
+      "answer_audio_text": "Can you help me?",
+      "prompt_image_url": "/lesson-assets/a1_scene_help_92005ec.webp",
+      "spanish_translation": "\u00bfPuede ayudarme?",
       "pedagogy_note": "Transfers request to another known place.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1845,24 +1884,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c034-prompt-aec8caa70be89c09c609",
+          "id": "lesson-6-7-simple-requests-c034-prompt-cd24675ca9b5c02d101a",
           "purpose": "prompt",
-          "text": "Where is the hospital?",
+          "text": "Can you help me?",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
           "semantic_role": "question",
           "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c034-answer-7277150c522ee860fba5",
+          "id": "lesson-6-7-simple-requests-c034-answer-96dfbfa57d5e4fe499ed",
           "purpose": "answer",
-          "text": "Where is the hospital?",
+          "text": "Can you help me?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
+          "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",

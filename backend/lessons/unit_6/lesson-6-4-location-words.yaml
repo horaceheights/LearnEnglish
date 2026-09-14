@@ -670,200 +670,337 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "The store is [blank] the park.",
+      "interaction_type": "complete2",
+      "prompt": "The store is near ___ ___.",
       "stage": "Use",
-      "correct_option_id": "near-1",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "near-1",
+          "id": "the",
           "image_url": "",
-          "label": "near"
+          "label": "the"
         },
         {
-          "id": "far-from-2",
+          "id": "park",
           "image_url": "",
-          "label": "far from"
+          "label": "park"
         }
       ],
-      "audio_text": "The store is ___ the park.",
+      "audio_text": "The store is near the park.",
       "answer_audio_text": "The store is near the park.",
       "prompt_image_url": "a1_scene_near_d8c4668.webp",
-      "spanish_translation": "La tienda está [pausa] del parque.",
-      "pedagogy_note": "Fixed scale."
+      "spanish_translation": "La tienda está cerca del parque.",
+      "pedagogy_note": "Fixed scale.",
+      "translation": "La tienda está cerca del parque.",
+      "correct_option_ids": [
+        "the",
+        "park"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "The station is [blank] the park.",
+      "interaction_type": "complete2",
+      "prompt": "The bank is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "far-from-2",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "near-1",
+          "id": "the",
           "image_url": "",
-          "label": "near"
+          "label": "the"
         },
         {
-          "id": "far-from-2",
+          "id": "left",
           "image_url": "",
-          "label": "far from"
+          "label": "left"
         }
       ],
-      "audio_text": "The station is ___ the park.",
-      "answer_audio_text": "The station is far from the park.",
+      "audio_text": "The bank is on the left.",
+      "answer_audio_text": "The bank is on the left.",
       "prompt_image_url": "a1_scene_far-from_e6f6b5c.webp",
-      "spanish_translation": "La estación está [pausa] del parque.",
-      "pedagogy_note": "Exact contrast."
+      "spanish_translation": "El banco está a la izquierda.",
+      "pedagogy_note": "Exact contrast.",
+      "translation": "El banco está a la izquierda.",
+      "correct_option_ids": [
+        "the",
+        "left"
+      ]
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "The bank is on the [blank].",
+      "interaction_type": "complete2",
+      "prompt": "The hospital is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "left-1",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "left-1",
+          "id": "the",
           "image_url": "",
-          "label": "left"
+          "label": "the"
         },
         {
-          "id": "right-2",
+          "id": "right",
           "image_url": "",
           "label": "right"
         }
       ],
-      "audio_text": "The bank is on the ___.",
-      "answer_audio_text": "The bank is on the left.",
+      "audio_text": "The hospital is on the right.",
+      "answer_audio_text": "The hospital is on the right.",
       "prompt_image_url": "a1_scene_left_12c0f1f.webp",
-      "spanish_translation": "El banco está a la [pausa].",
-      "pedagogy_note": "Arrow legend visible."
+      "spanish_translation": "El hospital está a la derecha.",
+      "pedagogy_note": "Arrow legend visible.",
+      "translation": "El hospital está a la derecha.",
+      "correct_option_ids": [
+        "the",
+        "right"
+      ]
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "The hospital is on the [blank].",
+      "interaction_type": "complete2",
+      "prompt": "The library is near ___ ___.",
       "stage": "Use",
-      "correct_option_id": "right-2",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "left-1",
+          "id": "the",
           "image_url": "",
-          "label": "left"
+          "label": "the"
         },
         {
-          "id": "right-2",
+          "id": "bank",
           "image_url": "",
-          "label": "right"
+          "label": "bank"
         }
       ],
-      "audio_text": "The hospital is on the ___.",
-      "answer_audio_text": "The hospital is on the right.",
+      "audio_text": "The library is near the bank.",
+      "answer_audio_text": "The library is near the bank.",
       "prompt_image_url": "a1_scene_right_d27a1f1.webp",
-      "spanish_translation": "El hospital está a la [pausa].",
-      "pedagogy_note": "Arrow legend visible."
+      "spanish_translation": "La biblioteca está cerca del banco.",
+      "pedagogy_note": "Arrow legend visible.",
+      "translation": "La biblioteca está cerca del banco.",
+      "correct_option_ids": [
+        "the",
+        "bank"
+      ]
     },
     {
       "slide_id": "U5",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the pharmacy?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-on-the-right-2",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "it-is-on-the-left-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is on the left."
+          "label": "It"
         },
         {
-          "id": "it-is-on-the-right-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is on the right."
-        }
-      ],
-      "audio_text": "Where is the pharmacy?",
-      "answer_audio_text": "It is on the right.",
-      "prompt_image_url": "a1_scene_it-is-on-the-right_95dc6ee.webp",
-      "spanish_translation": "¿Dónde está la farmacia?",
-      "pedagogy_note": "Where response."
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "The library is [blank] the bank.",
-      "stage": "Use",
-      "correct_option_id": "near-2",
-      "options": [
-        {
-          "id": "next-to-1",
-          "image_url": "",
-          "label": "next to"
+          "label": "is"
         },
         {
-          "id": "near-2",
-          "image_url": "",
-          "label": "near"
-        }
-      ],
-      "audio_text": "The library is ___ the bank.",
-      "answer_audio_text": "The library is near the bank.",
-      "prompt_image_url": "a1_scene_near_d8c4668.webp",
-      "spanish_translation": "La biblioteca está [pausa] del banco.",
-      "pedagogy_note": "Purposeful near/next-to contrast."
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "The hospital is [blank] the store.",
-      "stage": "Use",
-      "correct_option_id": "next-to-2",
-      "options": [
-        {
-          "id": "on-1",
+          "id": "word-3",
           "image_url": "",
           "label": "on"
         },
         {
-          "id": "next-to-2",
+          "id": "word-4",
           "image_url": "",
-          "label": "next to"
+          "label": "the"
         },
         {
-          "id": "far-from-3",
+          "id": "word-5",
           "image_url": "",
-          "label": "far from"
+          "label": "right"
         }
       ],
-      "audio_text": "The hospital is ___ the store.",
-      "answer_audio_text": "The hospital is next to the store.",
+      "audio_text": "It is on the right.",
+      "answer_audio_text": "It is on the right.",
+      "prompt_image_url": "a1_scene_it-is-on-the-right_95dc6ee.webp",
+      "spanish_translation": "Está a la derecha.",
+      "pedagogy_note": "Where response.",
+      "translation": "Está a la derecha.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "far"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "from"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "park"
+        }
+      ],
+      "audio_text": "It is far from the park.",
+      "answer_audio_text": "It is far from the park.",
+      "prompt_image_url": "a1_scene_near_d8c4668.webp",
+      "spanish_translation": "Está lejos del parque.",
+      "pedagogy_note": "Purposeful near/next-to contrast.",
+      "translation": "Está lejos del parque.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "station"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "far"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "from"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "park"
+        }
+      ],
+      "audio_text": "The station is far from the park.",
+      "answer_audio_text": "The station is far from the park.",
       "prompt_image_url": "a1_scene_next-to_4b8fd87.webp",
-      "spanish_translation": "El hospital está [pausa] la tienda.",
-      "pedagogy_note": "Removes near because an adjacent building can also be near; only next to fits the controlled scene."
+      "spanish_translation": "La estación está lejos del parque.",
+      "pedagogy_note": "Removes near because an adjacent building can also be near; only next to fits the controlled scene.",
+      "translation": "La estación está lejos del parque.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ]
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the station?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-far-from-the-park-2",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "it-is-near-the-park-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is near the park."
+          "label": "The"
         },
         {
-          "id": "it-is-far-from-the-park-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is far from the park."
+          "label": "hospital"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "next"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "store"
         }
       ],
-      "audio_text": "Where is the station?",
-      "answer_audio_text": "It is far from the park.",
+      "audio_text": "The hospital is next to the store.",
+      "answer_audio_text": "The hospital is next to the store.",
       "prompt_image_url": "a1_scene_it-is-far-from-the-park_6ffa714.webp",
-      "spanish_translation": "¿Dónde está la estación?",
-      "pedagogy_note": "Final distance answer."
+      "spanish_translation": "El hospital está junto a la tienda.",
+      "pedagogy_note": "Final distance answer.",
+      "translation": "El hospital está junto a la tienda.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ]
     }
   ]
 }

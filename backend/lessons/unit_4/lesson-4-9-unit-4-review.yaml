@@ -578,218 +578,287 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "This is the ___.",
+      "interaction_type": "complete2",
+      "prompt": "This is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bedroom-3",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "bathroom-1",
+          "id": "the",
           "image_url": "",
-          "label": "bathroom"
+          "label": "the"
         },
         {
-          "id": "living-room-2",
-          "image_url": "",
-          "label": "living room"
-        },
-        {
-          "id": "bedroom-3",
+          "id": "bedroom",
           "image_url": "",
           "label": "bedroom"
         }
       ],
-      "audio_text": "This is the ___.",
+      "audio_text": "This is the bedroom.",
       "answer_audio_text": "This is the bedroom.",
       "prompt_image_url": "a1_scene_bedroom_009e058.webp",
-      "spanish_translation": "Este es el ___.",
-      "pedagogy_note": "room"
+      "spanish_translation": "Este es el dormitorio.",
+      "pedagogy_note": "room",
+      "translation": "Este es el dormitorio.",
+      "correct_option_ids": [
+        "the",
+        "bedroom"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "The book is ___ the table.",
+      "interaction_type": "complete2",
+      "prompt": "The book is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "on-3",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "under-1",
+          "id": "the",
           "image_url": "",
-          "label": "under"
+          "label": "the"
         },
         {
-          "id": "in-2",
+          "id": "table",
           "image_url": "",
-          "label": "in"
-        },
-        {
-          "id": "on-3",
-          "image_url": "",
-          "label": "on"
+          "label": "table"
         }
       ],
-      "audio_text": "The book is ___ the table.",
+      "audio_text": "The book is on the table.",
       "answer_audio_text": "The book is on the table.",
       "prompt_image_url": "a1_scene_book-on-table_af51f18.webp",
-      "spanish_translation": "El libro está ___ la mesa.",
-      "pedagogy_note": "location"
+      "spanish_translation": "El libro está sobre la mesa.",
+      "pedagogy_note": "location",
+      "translation": "El libro está sobre la mesa.",
+      "correct_option_ids": [
+        "the",
+        "table"
+      ]
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "There ___ two chairs in the dining room.",
+      "prompt": "There are two chairs in the ___ ___.",
       "stage": "Use",
-      "correct_option_id": "are-2",
+      "correct_option_id": "dining",
       "options": [
         {
-          "id": "is-1",
+          "id": "dining",
+          "image_url": "",
+          "label": "dining"
+        },
+        {
+          "id": "room",
+          "image_url": "",
+          "label": "room"
+        }
+      ],
+      "audio_text": "There are two chairs in the dining room.",
+      "answer_audio_text": "There are two chairs in the dining room.",
+      "prompt_image_url": "a1_scene_two-chairs-dining_d435986.webp",
+      "spanish_translation": "Hay dos sillas en el comedor.",
+      "pedagogy_note": "existence agreement",
+      "translation": "Hay dos sillas en el comedor.",
+      "correct_option_ids": [
+        "dining",
+        "room"
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "First, I ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "wake",
+      "options": [
+        {
+          "id": "wake",
+          "image_url": "",
+          "label": "wake"
+        },
+        {
+          "id": "up",
+          "image_url": "",
+          "label": "up"
+        }
+      ],
+      "audio_text": "First, I wake up.",
+      "answer_audio_text": "First, I wake up.",
+      "prompt_image_url": "a1_scene_ana-wake_d91086e.webp",
+      "spanish_translation": "Primero, me despierto.",
+      "pedagogy_note": "routine",
+      "audio_speaker": "ana",
+      "translation": "Primero, me despierto.",
+      "correct_option_ids": [
+        "wake",
+        "up"
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "wake"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "up"
+        }
+      ],
+      "audio_text": "I wake up.",
+      "answer_audio_text": "I wake up.",
+      "prompt_image_url": "a1_scene_first-wake_8cc33b0.webp",
+      "spanish_translation": "Yo me despierto.",
+      "pedagogy_note": "sequence",
+      "audio_speaker": "female-character",
+      "translation": "Yo me despierto.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Then"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "eat"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "breakfast"
+        }
+      ],
+      "audio_text": "Then, I eat breakfast.",
+      "answer_audio_text": "Then, I eat breakfast.",
+      "prompt_image_url": "a1_scene_then-breakfast_2939d89.webp",
+      "spanish_translation": "Luego, desayuno.",
+      "pedagogy_note": "sequence",
+      "audio_speaker": "male-character",
+      "translation": "Luego, desayuno.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "answer_audio_speaker": "male-character"
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "are-2",
-          "image_url": "",
-          "label": "are"
-        }
-      ],
-      "audio_text": "There ___ two chairs in the dining room.",
-      "answer_audio_text": "There are two chairs in the dining room.",
-      "prompt_image_url": "a1_scene_two-chairs-dining_d435986.webp",
-      "spanish_translation": "___ dos sillas en el comedor.",
-      "pedagogy_note": "existence agreement"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete4",
-      "prompt": "I ___.",
-      "stage": "Use",
-      "correct_option_id": "wake-up-3",
-      "options": [
-        {
-          "id": "study-english-1",
-          "image_url": "",
-          "label": "study English"
-        },
-        {
-          "id": "come-home-2",
-          "image_url": "",
-          "label": "come home"
-        },
-        {
-          "id": "wake-up-3",
-          "image_url": "",
-          "label": "wake up"
-        }
-      ],
-      "audio_text": "I ___.",
-      "answer_audio_text": "I wake up.",
-      "prompt_image_url": "a1_scene_ana-wake_d91086e.webp",
-      "spanish_translation": "Yo ___.",
-      "pedagogy_note": "routine",
-      "audio_speaker": "ana"
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "___, I wake up.",
-      "stage": "Use",
-      "correct_option_id": "first-2",
-      "options": [
-        {
-          "id": "then-1",
-          "image_url": "",
-          "label": "Then"
-        },
-        {
-          "id": "first-2",
-          "image_url": "",
-          "label": "First"
-        }
-      ],
-      "audio_text": "___, I wake up.",
-      "answer_audio_text": "First, I wake up.",
-      "prompt_image_url": "a1_scene_first-wake_8cc33b0.webp",
-      "spanish_translation": "___, me despierto.",
-      "pedagogy_note": "sequence",
-      "audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "complete2",
-      "prompt": "___, I eat breakfast.",
-      "stage": "Use",
-      "correct_option_id": "then-2",
-      "options": [
-        {
-          "id": "first-1",
-          "image_url": "",
-          "label": "First"
-        },
-        {
-          "id": "then-2",
-          "image_url": "",
-          "label": "Then"
-        }
-      ],
-      "audio_text": "___, I eat breakfast.",
-      "answer_audio_text": "Then, I eat breakfast.",
-      "prompt_image_url": "a1_scene_then-breakfast_2939d89.webp",
-      "spanish_translation": "___, desayuno.",
-      "pedagogy_note": "sequence",
-      "audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete4",
-      "prompt": "It is ___ o'clock.",
-      "stage": "Use",
-      "correct_option_id": "seven-3",
-      "options": [
-        {
-          "id": "five-1",
-          "image_url": "",
-          "label": "five"
-        },
-        {
-          "id": "nine-2",
-          "image_url": "",
-          "label": "nine"
-        },
-        {
-          "id": "seven-3",
+          "id": "word-3",
           "image_url": "",
           "label": "seven"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "o'clock"
         }
       ],
-      "audio_text": "It is ___ o'clock.",
+      "audio_text": "It is seven o'clock.",
       "answer_audio_text": "It is seven o'clock.",
       "prompt_image_url": "a1_scene_clock7_598dfdb.webp",
-      "spanish_translation": "Son las ___.",
-      "pedagogy_note": "time"
+      "spanish_translation": "Son las siete.",
+      "pedagogy_note": "time",
+      "translation": "Son las siete.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete2",
-      "prompt": "I study English ___ Monday.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "on-2",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "at-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "at"
+          "label": "I"
         },
         {
-          "id": "on-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "study"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "English"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "on"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "Monday"
         }
       ],
-      "audio_text": "I study English ___ Monday.",
+      "audio_text": "I study English on Monday.",
       "answer_audio_text": "I study English on Monday.",
       "prompt_image_url": "a1_scene_day-mon_2655a7f.webp",
-      "spanish_translation": "Estudio inglés ___ lunes.",
-      "pedagogy_note": "day preposition"
+      "spanish_translation": "Estudio inglés el lunes.",
+      "pedagogy_note": "day preposition",
+      "translation": "Estudio inglés el lunes.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
     }
   ]
 }

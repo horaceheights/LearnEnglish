@@ -479,44 +479,46 @@ cards:
   pedagogy_note: The final spoken turn mirrors the man pattern and completes the story.
 - slide_id: U1
   interaction_type: complete2
-  prompt: ___ is a boy.
+  prompt: ___ ___ a boy.
   stage: Use
   correct_option_id: he
+  correct_option_ids: [he, is]
   options:
-  - {id: she, image_url: '', label: She}
   - {id: he, image_url: '', label: He}
-  audio_text: ___ is a boy.
+  - {id: is, image_url: '', label: is}
+  audio_text: He is a boy.
   answer_audio_text: He is a boy.
   prompt_image_url: /lesson-assets/boy.webp
-  spanish_translation: ___ es un niño.
-  pedagogy_note: The learner supplies the pronoun for the first person in the story.
+  spanish_translation: Él es un niño.
+  pedagogy_note: 'Story beat 01: 1.1 story; the learner completes the subject and verb for the boy.'
 - slide_id: U2
-  interaction_type: complete4
-  prompt: He is a ___.
+  interaction_type: complete2
+  prompt: He is ___ ___.
   stage: Use
-  correct_option_id: boy
+  correct_option_id: a
+  correct_option_ids: [a, boy]
   options:
-  - {id: man, image_url: '', label: man}
-  - {id: woman, image_url: '', label: woman}
+  - {id: a, image_url: '', label: a}
   - {id: boy, image_url: '', label: boy}
-  audio_text: He is a ___.
+  audio_text: He is a boy.
   answer_audio_text: He is a boy.
   prompt_image_url: /lesson-assets/a1_l1_boy_transfer.webp
-  spanish_translation: Él es un ___.
-  pedagogy_note: The second boy card completes the same full sentence from its final noun.
+  spanish_translation: Él es un niño.
+  pedagogy_note: 'Story beat 01: 1.1 story; the learner completes the predicate noun phrase for the boy.'
 - slide_id: U3
   interaction_type: complete2
-  prompt: ___ is a girl.
+  prompt: ___ ___ a girl.
   stage: Use
   correct_option_id: she
+  correct_option_ids: [she, is]
   options:
   - {id: she, image_url: '', label: She}
-  - {id: he, image_url: '', label: He}
-  audio_text: ___ is a girl.
+  - {id: is, image_url: '', label: is}
+  audio_text: She is a girl.
   answer_audio_text: She is a girl.
   prompt_image_url: /lesson-assets/girl.webp
-  spanish_translation: ___ es una niña.
-  pedagogy_note: The matching girl completion follows with the answer position changed.
+  spanish_translation: Ella es una niña.
+  pedagogy_note: 'Story beat 02: 1.1 story; the learner completes the feminine subject and verb for the girl.'
 - slide_id: U4
   interaction_type: complete-sentence
   prompt: ___ ___ ___ ___.
@@ -532,7 +534,7 @@ cards:
   answer_audio_text: He is a man.
   prompt_image_url: /lesson-assets/a1_l1_man_alt.webp
   spanish_translation: Él es un hombre.
-  pedagogy_note: After three guided completions, construct every word of the familiar man sentence from its full spoken model.
+  pedagogy_note: 'Story beat 03: 1.1 story; transfer the four-word sentence structure to the adult male.'
 - slide_id: U5
   interaction_type: complete-sentence
   prompt: ___ ___. ___ ___ ___ ___.
@@ -550,7 +552,7 @@ cards:
   answer_audio_text: A man. He is a man.
   prompt_image_url: /lesson-assets/a1_l1_man_transfer.webp
   spanish_translation: Un hombre. Él es un hombre.
-  pedagogy_note: Build the complete two-part man phrase already practiced in Speak. Both man tiles are required and interchangeable.
+  pedagogy_note: 'Story beat 03: 1.1 story; build the complete two-part man phrase with repeated interchangeable words.'
 - slide_id: U6
   interaction_type: complete-sentence
   prompt: ___ ___ ___ ___.
@@ -566,7 +568,7 @@ cards:
   answer_audio_text: She is a woman.
   prompt_image_url: /lesson-assets/a1_l1_woman_alt.webp
   spanish_translation: Ella es una mujer.
-  pedagogy_note: Transfer the full-sentence construction to the familiar woman phrase, using only the needed words.
+  pedagogy_note: 'Story beat 04: 1.1 story; transfer the full-sentence construction to the adult female.'
 - slide_id: U7
   interaction_type: complete-sentence
   prompt: ___ ___. ___ ___ ___ ___.
@@ -584,4 +586,4 @@ cards:
   answer_audio_text: A woman. She is a woman.
   prompt_image_url: /lesson-assets/a1_l1_woman_transfer.webp
   spanish_translation: Una mujer. Ella es una mujer.
-  pedagogy_note: The final construction retrieves the complete two-part woman phrase from Speak. Both woman tiles are interchangeable; every word must be placed.
+  pedagogy_note: 'Story beat 04: 1.1 story; pinnacle two-part woman phrase with repeated interchangeable words.'

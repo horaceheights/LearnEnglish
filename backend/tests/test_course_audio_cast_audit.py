@@ -85,9 +85,10 @@ EXACT_ROLE_CHANGES = {
 }
 
 # Lesson 1.8 adds 25 visitor-question cards with prompt and answer speaker fields.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 416
+# Completa (Use) sentence standard adds explicit speaker assignments across Units 3, 4, 6, 7.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 439
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "2b9cc67c821abdf5c333f0046b0e2a712d89648a37448fe43baf678dbd5acd41"
+    "fc4c36c4cfa1984df9dd686c62efa86cd1c070fb4baa40bad3c7e6d9fccf144e"
 )
 
 

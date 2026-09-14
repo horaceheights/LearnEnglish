@@ -660,202 +660,248 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete2",
+      "prompt": "Can you ___ ___?",
       "stage": "Use",
-      "correct_option_id": "excuse-me-1",
+      "correct_option_id": "help",
       "options": [
         {
-          "id": "excuse-me-1",
-          "image_url": "",
-          "label": "Excuse me."
-        },
-        {
-          "id": "here-you-are-2",
-          "image_url": "",
-          "label": "Here you are."
-        }
-      ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Excuse me.",
-      "prompt_image_url": "a1_scene_excuse-me_91c6a04.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Guided sequence."
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Can you [blank] me?",
-      "stage": "Use",
-      "correct_option_id": "help-1",
-      "options": [
-        {
-          "id": "help-1",
+          "id": "help",
           "image_url": "",
           "label": "help"
         },
         {
-          "id": "turn-2",
+          "id": "me",
           "image_url": "",
-          "label": "turn"
+          "label": "me"
         }
       ],
-      "audio_text": "Can you ___ me?",
+      "audio_text": "Can you help me?",
       "answer_audio_text": "Can you help me?",
+      "prompt_image_url": "a1_scene_excuse-me_91c6a04.webp",
+      "spanish_translation": "¿Puede ayudarme?",
+      "pedagogy_note": "Guided sequence.",
+      "translation": "¿Puede ayudarme?",
+      "correct_option_ids": [
+        "help",
+        "me"
+      ]
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "Where is ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "the",
+      "options": [
+        {
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "station",
+          "image_url": "",
+          "label": "station"
+        }
+      ],
+      "audio_text": "Where is the station?",
+      "answer_audio_text": "Where is the station?",
       "prompt_image_url": "a1_scene_help_92005ec.webp",
-      "spanish_translation": "¿Puede [pausa]?",
-      "pedagogy_note": "Fixed request."
+      "spanish_translation": "¿Dónde está la estación?",
+      "pedagogy_note": "Fixed request.",
+      "translation": "¿Dónde está la estación?",
+      "correct_option_ids": [
+        "the",
+        "station"
+      ]
     },
     {
       "slide_id": "U3",
-      "interaction_type": "response-choice",
-      "prompt": "Can you help me?",
+      "interaction_type": "complete2",
+      "prompt": "Where is ___ ___?",
       "stage": "Use",
-      "correct_option_id": "yes-1",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "yes-1",
+          "id": "the",
           "image_url": "",
-          "label": "Yes."
+          "label": "the"
         },
         {
-          "id": "sorry-no-2",
-          "image_url": "",
-          "label": "Sorry, no."
-        }
-      ],
-      "audio_text": "Can you help me?",
-      "answer_audio_text": "Yes.",
-      "prompt_image_url": "a1_scene_yes_62e7d96.webp",
-      "spanish_translation": "¿Puede ayudarme?",
-      "pedagogy_note": "Response selection.",
-      "answer_audio_speaker": "male-character"
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "response-choice",
-      "prompt": "Yes.",
-      "stage": "Use",
-      "correct_option_id": "where-is-the-station-1",
-      "options": [
-        {
-          "id": "where-is-the-station-1",
-          "image_url": "",
-          "label": "Where is the station?"
-        },
-        {
-          "id": "how-much-is-it-2",
-          "image_url": "",
-          "label": "How much is it?"
-        }
-      ],
-      "audio_text": "Yes.",
-      "answer_audio_text": "Where is the station?",
-      "prompt_image_url": "a1_scene_where-is-the-station_6ceda2f.webp",
-      "spanish_translation": "Sí.",
-      "pedagogy_note": "Appropriate next request."
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "It is on the [blank].",
-      "stage": "Use",
-      "correct_option_id": "left-1",
-      "options": [
-        {
-          "id": "left-1",
-          "image_url": "",
-          "label": "left"
-        },
-        {
-          "id": "right-2",
-          "image_url": "",
-          "label": "right"
-        }
-      ],
-      "audio_text": "It is on the ___.",
-      "answer_audio_text": "It is on the left.",
-      "prompt_image_url": "a1_scene_left_12c0f1f.webp",
-      "spanish_translation": "Está a la [pausa].",
-      "pedagogy_note": "Location answer."
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "It is on the left.",
-      "stage": "Use",
-      "correct_option_id": "thank-you-1",
-      "options": [
-        {
-          "id": "thank-you-1",
-          "image_url": "",
-          "label": "Thank you."
-        },
-        {
-          "id": "can-you-help-me-2",
-          "image_url": "",
-          "label": "Can you help me?"
-        }
-      ],
-      "audio_text": "It is on the left.",
-      "answer_audio_text": "Thank you.",
-      "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Está a la izquierda.",
-      "pedagogy_note": "Closes exchange."
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "response-choice",
-      "prompt": "Can you help me?",
-      "stage": "Use",
-      "correct_option_id": "sorry-no-2",
-      "options": [
-        {
-          "id": "yes-1",
-          "image_url": "",
-          "label": "Yes."
-        },
-        {
-          "id": "sorry-no-2",
-          "image_url": "",
-          "label": "Sorry, no."
-        }
-      ],
-      "audio_text": "Can you help me?",
-      "answer_audio_text": "Sorry, no.",
-      "prompt_image_url": "a1_scene_sorry-no_0ecf515.webp",
-      "spanish_translation": "¿Puede ayudarme?",
-      "pedagogy_note": "Negative response path.",
-      "answer_audio_speaker": "female-character"
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "complete",
-      "prompt": "Where is the [blank]?",
-      "stage": "Use",
-      "correct_option_id": "hospital-3",
-      "options": [
-        {
-          "id": "store-1",
-          "image_url": "",
-          "label": "store"
-        },
-        {
-          "id": "bank-2",
-          "image_url": "",
-          "label": "bank"
-        },
-        {
-          "id": "hospital-3",
+          "id": "hospital",
           "image_url": "",
           "label": "hospital"
         }
       ],
-      "audio_text": "Where is the ___?",
+      "audio_text": "Where is the hospital?",
       "answer_audio_text": "Where is the hospital?",
-      "prompt_image_url": "a1_scene_hospital_2b2d005.webp",
-      "spanish_translation": "¿Dónde está el [pausa]?",
-      "pedagogy_note": "Transfers request to another known place."
+      "prompt_image_url": "a1_scene_yes_62e7d96.webp",
+      "spanish_translation": "¿Dónde está el hospital?",
+      "pedagogy_note": "Response selection.",
+      "translation": "¿Dónde está el hospital?",
+      "correct_option_ids": [
+        "the",
+        "hospital"
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "It is on ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "the",
+      "options": [
+        {
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "left",
+          "image_url": "",
+          "label": "left"
+        }
+      ],
+      "audio_text": "It is on the left.",
+      "answer_audio_text": "It is on the left.",
+      "prompt_image_url": "a1_scene_where-is-the-station_6ceda2f.webp",
+      "spanish_translation": "Está a la izquierda.",
+      "pedagogy_note": "Appropriate next request.",
+      "translation": "Está a la izquierda.",
+      "correct_option_ids": [
+        "the",
+        "left"
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Excuse"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "me"
+        }
+      ],
+      "audio_text": "Excuse me.",
+      "answer_audio_text": "Excuse me.",
+      "prompt_image_url": "a1_scene_left_12c0f1f.webp",
+      "spanish_translation": "Disculpe.",
+      "pedagogy_note": "Location answer.",
+      "translation": "Disculpe.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Sorry"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "no"
+        }
+      ],
+      "audio_text": "Sorry, no.",
+      "answer_audio_text": "Sorry, no.",
+      "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
+      "spanish_translation": "Lo siento, no.",
+      "pedagogy_note": "Closes exchange.",
+      "translation": "Lo siento, no.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Thank"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        }
+      ],
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
+      "prompt_image_url": "a1_scene_sorry-no_0ecf515.webp",
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Negative response path.",
+      "answer_audio_speaker": "female-character",
+      "translation": "Gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Can"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "help"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "me"
+        }
+      ],
+      "audio_text": "Can you help me?",
+      "answer_audio_text": "Can you help me?",
+      "prompt_image_url": "a1_scene_help_92005ec.webp",
+      "spanish_translation": "¿Puede ayudarme?",
+      "pedagogy_note": "Transfers request to another known place.",
+      "translation": "¿Puede ayudarme?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     }
   ]
 }

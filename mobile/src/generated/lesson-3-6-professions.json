@@ -1545,31 +1545,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "I am a ___.",
+      "interaction_type": "complete2",
+      "prompt": "I am ___ ___.",
       "stage": "Use",
-      "correct_option_id": "teacher-3",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "teacher"
+      ],
       "options": [
         {
-          "id": "doctor-1",
+          "id": "a",
           "image_url": "",
-          "label": "doctor"
+          "label": "a"
         },
         {
-          "id": "cook-2",
-          "image_url": "",
-          "label": "cook"
-        },
-        {
-          "id": "teacher-3",
+          "id": "teacher",
           "image_url": "",
           "label": "teacher"
         }
       ],
-      "audio_text": "I am a ___.",
+      "audio_text": "I am a teacher.",
       "answer_audio_text": "I am a teacher.",
       "prompt_image_url": "/lesson-assets/a1_scene_teacher-ana_0e983a0.webp",
-      "spanish_translation": "Soy ___.",
+      "spanish_translation": "Soy maestro.",
       "pedagogy_note": "profession slot",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1577,11 +1576,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-6-professions-c029-prompt-edb55918789c35546b40",
+          "id": "lesson-3-6-professions-c029-prompt-7fc009336323f7926c9e",
           "purpose": "prompt",
           "text": "I am a teacher.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_teacher-ana_0e983a0.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
@@ -1604,31 +1603,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "He is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "He is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "doctor-2",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "doctor"
+      ],
       "options": [
         {
-          "id": "driver-1",
+          "id": "a",
           "image_url": "",
-          "label": "driver"
+          "label": "a"
         },
         {
-          "id": "doctor-2",
+          "id": "doctor",
           "image_url": "",
           "label": "doctor"
-        },
-        {
-          "id": "farmer-3",
-          "image_url": "",
-          "label": "farmer"
         }
       ],
-      "audio_text": "He is a ___.",
+      "audio_text": "He is a doctor.",
       "answer_audio_text": "He is a doctor.",
       "prompt_image_url": "/lesson-assets/a1_scene_doctor-diego_1c7ef5a.webp",
-      "spanish_translation": "\u00c9l es ___.",
+      "spanish_translation": "\u00c9l es m\u00e9dico.",
       "pedagogy_note": "profession slot",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1636,11 +1634,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-6-professions-c030-prompt-95eede01efd38dcbda54",
+          "id": "lesson-3-6-professions-c030-prompt-c3c17d9a92572ac7cd48",
           "purpose": "prompt",
           "text": "He is a doctor.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_doctor-diego_1c7ef5a.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1663,31 +1661,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete4",
-      "prompt": "She is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "She is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "nurse-3",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "nurse"
+      ],
       "options": [
         {
-          "id": "cook-1",
+          "id": "a",
           "image_url": "",
-          "label": "cook"
+          "label": "a"
         },
         {
-          "id": "teacher-2",
-          "image_url": "",
-          "label": "teacher"
-        },
-        {
-          "id": "nurse-3",
+          "id": "nurse",
           "image_url": "",
           "label": "nurse"
         }
       ],
-      "audio_text": "She is a ___.",
+      "audio_text": "She is a nurse.",
       "answer_audio_text": "She is a nurse.",
       "prompt_image_url": "/lesson-assets/a1_scene_nurse-sofia_63f2a9c.webp",
-      "spanish_translation": "Ella es ___.",
+      "spanish_translation": "Ella es enfermera.",
       "pedagogy_note": "profession slot",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1695,11 +1692,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-6-professions-c031-prompt-e91ecf8b64b63efbfa41",
+          "id": "lesson-3-6-professions-c031-prompt-cc37989136050f36f1c2",
           "purpose": "prompt",
           "text": "She is a nurse.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_nurse-sofia_63f2a9c.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1723,25 +1720,29 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "What is your ___?",
+      "prompt": "___ ___ your job?",
       "stage": "Use",
-      "correct_option_id": "job-2",
+      "correct_option_id": "what",
+      "correct_option_ids": [
+        "what",
+        "is"
+      ],
       "options": [
         {
-          "id": "name-1",
+          "id": "what",
           "image_url": "",
-          "label": "name"
+          "label": "What"
         },
         {
-          "id": "job-2",
+          "id": "is",
           "image_url": "",
-          "label": "job"
+          "label": "is"
         }
       ],
-      "audio_text": "What is your ___?",
+      "audio_text": "What is your job?",
       "answer_audio_text": "What is your job?",
       "prompt_image_url": "/lesson-assets/a1_scene_job-dialogue-driver_acd1aee.webp",
-      "spanish_translation": "\u00bfCu\u00e1l es tu ___?",
+      "spanish_translation": "\u00bfCu\u00e1l es tu trabajo?",
       "pedagogy_note": "question chunk",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1749,11 +1750,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-6-professions-c032-prompt-92e0539d40b93e167917",
+          "id": "lesson-3-6-professions-c032-prompt-e1dcfa84220a17fa7a2b",
           "purpose": "prompt",
           "text": "What is your job?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_job-dialogue-driver_acd1aee.webp",
           "semantic_role": "question",
           "speaker_role": "ana",
@@ -1776,24 +1777,40 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "choose2",
-      "prompt": "What is your job?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "i-am-a-driver-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "i-am-a-driver-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "I am a driver."
+          "label": "What"
         },
         {
-          "id": "i-am-from-spain-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "I am from Spain."
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "your"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "job"
         }
       ],
       "audio_text": "What is your job?",
-      "answer_audio_text": "I am a driver.",
+      "answer_audio_text": "What is your job?",
       "prompt_image_url": "/lesson-assets/a1_scene_job-dialogue-driver_acd1aee.webp",
       "spanish_translation": "\u00bfCu\u00e1l es tu trabajo?",
       "pedagogy_note": "unambiguous function contrast",
@@ -1815,9 +1832,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-6-professions-c033-answer-27cd6178af054bc765bd",
+          "id": "lesson-3-6-professions-c033-answer-7376d80934a7ef8b1dd1",
           "purpose": "answer",
-          "text": "I am a driver.",
+          "text": "What is your job?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_job-dialogue-driver_acd1aee.webp",
@@ -1830,58 +1847,69 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete4",
-      "prompt": "I am from ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "mexico-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "spain-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Spain"
+          "label": "I"
         },
         {
-          "id": "canada-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Canada"
+          "label": "am"
         },
         {
-          "id": "mexico-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "Mexico"
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "driver"
         }
       ],
-      "audio_text": "I am from ___.",
-      "answer_audio_text": "I am from Mexico.",
+      "audio_text": "I am a driver.",
+      "answer_audio_text": "I am a driver.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana_mexico.webp",
-      "spanish_translation": "Soy de ___.",
+      "spanish_translation": "Soy conductor.",
       "pedagogy_note": "3.5 review",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-6-professions-c034-prompt-989e020e226403decfd1",
+          "id": "lesson-3-6-professions-c034-prompt-054e6a6949fc0cd5287e",
           "purpose": "prompt",
-          "text": "I am from Mexico.",
+          "text": "I am a driver.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana_mexico.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-6-professions-c034-answer-450c2f9f755a5813fa9f",
+          "id": "lesson-3-6-professions-c034-answer-26d1f0a447b8865508a8",
           "purpose": "answer",
-          "text": "I am from Mexico.",
+          "text": "I am a driver.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana_mexico.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1889,26 +1917,42 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete2",
-      "prompt": "She ___ a cook.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "are-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "are"
+          "label": "She"
         },
         {
-          "id": "is-2",
+          "id": "word-2",
           "image_url": "",
           "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "cook"
         }
       ],
-      "audio_text": "She ___ a cook.",
+      "audio_text": "She is a cook.",
       "answer_audio_text": "She is a cook.",
       "prompt_image_url": "/lesson-assets/a1_scene_cook-sofia_ecb7eca.webp",
-      "spanish_translation": "Ella ___ cocinera.",
+      "spanish_translation": "Ella es cocinera.",
       "pedagogy_note": "3.3 be review",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1916,11 +1960,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-6-professions-c035-prompt-43f4a8c41bad64a1671b",
+          "id": "lesson-3-6-professions-c035-prompt-79139cb534f087fb793f",
           "purpose": "prompt",
           "text": "She is a cook.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_cook-sofia_ecb7eca.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1943,31 +1987,42 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete4",
-      "prompt": "She is a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "farmer-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "doctor-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "doctor"
+          "label": "She"
         },
         {
-          "id": "farmer-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "farmer"
-        },
-        {
-          "id": "driver-3",
-          "image_url": "",
-          "label": "driver"
         }
       ],
-      "audio_text": "She is a ___.",
+      "audio_text": "She is a farmer.",
       "answer_audio_text": "She is a farmer.",
       "prompt_image_url": "/lesson-assets/a1_scene_farmer-ana_f823cb6.webp",
-      "spanish_translation": "Ella es ___.",
+      "spanish_translation": "Ella es agricultora.",
       "pedagogy_note": "profession application with matching pronoun",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1975,11 +2030,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-6-professions-c036-prompt-dd7549b6d6c2e49feaa8",
+          "id": "lesson-3-6-professions-c036-prompt-838cfeedd79d83eed83f",
           "purpose": "prompt",
           "text": "She is a farmer.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_farmer-ana_f823cb6.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

@@ -1282,25 +1282,29 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "What is your ___?",
+      "prompt": "___ ___ your name?",
       "stage": "Use",
-      "correct_option_id": "name-2",
+      "correct_option_id": "what",
+      "correct_option_ids": [
+        "what",
+        "is"
+      ],
       "options": [
         {
-          "id": "job-1",
+          "id": "what",
           "image_url": "",
-          "label": "job"
+          "label": "What"
         },
         {
-          "id": "name-2",
+          "id": "is",
           "image_url": "",
-          "label": "name"
+          "label": "is"
         }
       ],
-      "audio_text": "What is your ___?",
+      "audio_text": "What is your name?",
       "answer_audio_text": "What is your name?",
       "prompt_image_url": "/lesson-assets/a1_scene_ana_name.webp",
-      "spanish_translation": "\u00bfCu\u00e1l es tu ___?",
+      "spanish_translation": "\u00bfCu\u00e1l es tu nombre?",
       "pedagogy_note": "question function",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1308,11 +1312,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c025-prompt-b7b621e89ff359b989cd",
+          "id": "lesson-3-9-unit-3-review-c025-prompt-e77f183c75dac8df9ed0",
           "purpose": "prompt",
           "text": "What is your name?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana_name.webp",
           "semantic_role": "question",
           "speaker_role": "question",
@@ -1335,31 +1339,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "I am ___ years old.",
+      "interaction_type": "complete2",
+      "prompt": "Where ___ ___ from?",
       "stage": "Use",
-      "correct_option_id": "eighteen-3",
+      "correct_option_id": "are",
+      "correct_option_ids": [
+        "are",
+        "you"
+      ],
       "options": [
         {
-          "id": "twenty-1",
+          "id": "are",
           "image_url": "",
-          "label": "twenty"
+          "label": "are"
         },
         {
-          "id": "fifteen-2",
+          "id": "you",
           "image_url": "",
-          "label": "fifteen"
-        },
-        {
-          "id": "eighteen-3",
-          "image_url": "",
-          "label": "eighteen"
+          "label": "you"
         }
       ],
-      "audio_text": "I am ___ years old.",
-      "answer_audio_text": "I am eighteen years old.",
+      "audio_text": "Where are you from?",
+      "answer_audio_text": "Where are you from?",
       "prompt_image_url": "/lesson-assets/a1_scene_luis_age_18.webp",
-      "spanish_translation": "Tengo ___ a\u00f1os.",
+      "spanish_translation": "\u00bfDe d\u00f3nde eres?",
       "pedagogy_note": "age",
       "audio_speaker": "luis",
       "answer_audio_speaker": null,
@@ -1367,21 +1370,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c026-prompt-ffc517e9d0e2ddf13817",
+          "id": "lesson-3-9-unit-3-review-c026-prompt-dd549e1270387bdb87c1",
           "purpose": "prompt",
-          "text": "I am eighteen years old.",
+          "text": "Where are you from?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_luis_age_18.webp",
-          "semantic_role": "teacher",
+          "semantic_role": "question",
           "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c026-answer-9b6381f9462e2ae9e928",
+          "id": "lesson-3-9-unit-3-review-c026-answer-c70932b03083b6339628",
           "purpose": "answer",
-          "text": "I am eighteen years old.",
+          "text": "Where are you from?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_luis_age_18.webp",
@@ -1395,52 +1398,56 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "Where ___ you from?",
+      "prompt": "I have ___ ___.",
       "stage": "Use",
-      "correct_option_id": "are-2",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "book"
+      ],
       "options": [
         {
-          "id": "is-1",
+          "id": "a",
           "image_url": "",
-          "label": "is"
+          "label": "a"
         },
         {
-          "id": "are-2",
+          "id": "book",
           "image_url": "",
-          "label": "are"
+          "label": "book"
         }
       ],
-      "audio_text": "Where ___ you from?",
-      "answer_audio_text": "Where are you from?",
+      "audio_text": "I have a book.",
+      "answer_audio_text": "I have a book.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana_mexico.webp",
-      "spanish_translation": "\u00bfDe d\u00f3nde ___?",
+      "spanish_translation": "Tengo un libro.",
       "pedagogy_note": "origin question",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c027-prompt-aa8a701fb5b300ca1d88",
+          "id": "lesson-3-9-unit-3-review-c027-prompt-2906a1af20a421f69ce4",
           "purpose": "prompt",
-          "text": "Where are you from?",
+          "text": "I have a book.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana_mexico.webp",
-          "semantic_role": "question",
-          "speaker_role": "luis",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c027-answer-eec9f53c2ec2f645789c",
+          "id": "lesson-3-9-unit-3-review-c027-answer-abad2d479e6fb5beff01",
           "purpose": "answer",
-          "text": "Where are you from?",
+          "text": "I have a book.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana_mexico.webp",
           "semantic_role": "answer",
-          "speaker_role": "luis",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1448,58 +1455,57 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete4",
-      "prompt": "I am a ___.",
+      "interaction_type": "complete2",
+      "prompt": "He has ___ ___.",
       "stage": "Use",
-      "correct_option_id": "driver-3",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "car"
+      ],
       "options": [
         {
-          "id": "teacher-1",
+          "id": "a",
           "image_url": "",
-          "label": "teacher"
+          "label": "a"
         },
         {
-          "id": "doctor-2",
+          "id": "car",
           "image_url": "",
-          "label": "doctor"
-        },
-        {
-          "id": "driver-3",
-          "image_url": "",
-          "label": "driver"
+          "label": "car"
         }
       ],
-      "audio_text": "I am a ___.",
-      "answer_audio_text": "I am a driver.",
+      "audio_text": "He has a car.",
+      "answer_audio_text": "He has a car.",
       "prompt_image_url": "/lesson-assets/a1_scene_luis_driver.webp",
-      "spanish_translation": "Soy ___.",
+      "spanish_translation": "\u00c9l tiene un auto.",
       "pedagogy_note": "job",
-      "audio_speaker": "luis",
+      "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c028-prompt-53edcffd2f71a74012ec",
+          "id": "lesson-3-9-unit-3-review-c028-prompt-0bce8cb49f741b2924a4",
           "purpose": "prompt",
-          "text": "I am a driver.",
+          "text": "He has a car.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_luis_driver.webp",
           "semantic_role": "teacher",
-          "speaker_role": "luis",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c028-answer-48c28a721e088c00b0e6",
+          "id": "lesson-3-9-unit-3-review-c028-answer-58771013ed3860104469",
           "purpose": "answer",
-          "text": "I am a driver.",
+          "text": "He has a car.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_luis_driver.webp",
           "semantic_role": "answer",
-          "speaker_role": "luis",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1507,26 +1513,42 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "I ___ a book.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "have-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "has-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "has"
+          "label": "What"
         },
         {
-          "id": "have-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "have"
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "your"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "name"
         }
       ],
-      "audio_text": "I ___ a book.",
-      "answer_audio_text": "I have a book.",
+      "audio_text": "What is your name?",
+      "answer_audio_text": "What is your name?",
       "prompt_image_url": "/lesson-assets/a1_scene_ana_teacher_book.webp",
-      "spanish_translation": "Yo ___ un libro.",
+      "spanish_translation": "\u00bfCu\u00e1l es tu nombre?",
       "pedagogy_note": "agreement",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1534,21 +1556,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c029-prompt-d4bbf179150082392bce",
+          "id": "lesson-3-9-unit-3-review-c029-prompt-a469c4086ddc227d0a2a",
           "purpose": "prompt",
-          "text": "I have a book.",
+          "text": "What is your name?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana_teacher_book.webp",
-          "semantic_role": "teacher",
+          "semantic_role": "question",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c029-answer-cef7c977c6a15617534c",
+          "id": "lesson-3-9-unit-3-review-c029-answer-043f92024ee3a9ac3bd4",
           "purpose": "answer",
-          "text": "I have a book.",
+          "text": "What is your name?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana_teacher_book.webp",
@@ -1561,53 +1583,69 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete2",
-      "prompt": "He ___ a car.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "has-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "have-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "have"
+          "label": "I"
         },
         {
-          "id": "has-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "has"
+          "label": "am"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "driver"
         }
       ],
-      "audio_text": "He ___ a car.",
-      "answer_audio_text": "He has a car.",
+      "audio_text": "I am a driver.",
+      "answer_audio_text": "I am a driver.",
       "prompt_image_url": "/lesson-assets/a1_scene_car-luis_d3399da.webp",
-      "spanish_translation": "\u00c9l ___ un autom\u00f3vil.",
+      "spanish_translation": "Soy conductor.",
       "pedagogy_note": "agreement",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c030-prompt-d435cc2b39627cacb5d6",
+          "id": "lesson-3-9-unit-3-review-c030-prompt-adf800804a026f855350",
           "purpose": "prompt",
-          "text": "He has a car.",
+          "text": "I am a driver.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_car-luis_d3399da.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c030-answer-3cfd320a32ac0f5c7f83",
+          "id": "lesson-3-9-unit-3-review-c030-answer-0ca0fa4939bd9a745e7f",
           "purpose": "answer",
-          "text": "He has a car.",
+          "text": "I am a driver.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_car-luis_d3399da.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1615,31 +1653,42 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete4",
-      "prompt": "This is ___ book.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "my-4",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "your-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "your"
+          "label": "This"
         },
         {
-          "id": "his-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "his"
+          "label": "is"
         },
         {
-          "id": "my-4",
+          "id": "word-3",
           "image_url": "",
           "label": "my"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "book"
         }
       ],
-      "audio_text": "This is ___ book.",
+      "audio_text": "This is my book.",
       "answer_audio_text": "This is my book.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana_teacher_book.webp",
-      "spanish_translation": "Este es ___ libro.",
+      "spanish_translation": "Este es mi libro.",
       "pedagogy_note": "possessive",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1647,11 +1696,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c031-prompt-bd61d644d4e9bdb85d0a",
+          "id": "lesson-3-9-unit-3-review-c031-prompt-a6f7aa0321c53557f4d3",
           "purpose": "prompt",
           "text": "This is my book.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana_teacher_book.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
@@ -1674,31 +1723,48 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "choose4",
-      "prompt": "Choose the number.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "seven-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "nine-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "nine"
+          "label": "I"
         },
         {
-          "id": "six-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "six"
+          "label": "am"
         },
         {
-          "id": "seven-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "seven"
+          "label": "eighteen"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "years"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "old"
         }
       ],
-      "audio_text": "Choose the number.",
-      "answer_audio_text": "seven",
+      "audio_text": "I am eighteen years old.",
+      "answer_audio_text": "I am eighteen years old.",
       "prompt_image_url": "/lesson-assets/a1_n7.webp",
-      "spanish_translation": "Elige el n\u00famero.",
+      "spanish_translation": "Tengo dieciocho a\u00f1os.",
       "pedagogy_note": "Unit 2 long-delay review",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1706,9 +1772,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-9-unit-3-review-c032-prompt-56c3058f6e1b13a47b5a",
+          "id": "lesson-3-9-unit-3-review-c032-prompt-f21269f9b0c6fb5212d5",
           "purpose": "prompt",
-          "text": "Choose the number.",
+          "text": "I am eighteen years old.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_n7.webp",
@@ -1718,9 +1784,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-9-unit-3-review-c032-answer-47ed7982535b6077cfb5",
+          "id": "lesson-3-9-unit-3-review-c032-answer-5349ff07eac82b959dbe",
           "purpose": "answer",
-          "text": "seven",
+          "text": "I am eighteen years old.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_n7.webp",

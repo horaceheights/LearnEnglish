@@ -1416,26 +1416,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "[blank] is the store?",
+      "interaction_type": "complete2",
+      "prompt": "The phone is in ___ ___.",
       "stage": "Use",
-      "correct_option_id": "where-2",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "bag"
+      ],
       "options": [
         {
-          "id": "who-1",
+          "id": "the",
           "image_url": "",
-          "label": "Who"
+          "label": "the"
         },
         {
-          "id": "where-2",
+          "id": "bag",
           "image_url": "",
-          "label": "Where"
+          "label": "bag"
         }
       ],
-      "audio_text": "___ is the store?",
-      "answer_audio_text": "Where is the store?",
+      "audio_text": "The phone is in the bag.",
+      "answer_audio_text": "The phone is in the bag.",
       "prompt_image_url": "/lesson-assets/a1_scene_where_46148cc.webp",
-      "spanish_translation": "\u00bf[pausa] est\u00e1 la tienda?",
+      "spanish_translation": "El tel\u00e9fono est\u00e1 en la bolsa.",
       "pedagogy_note": "Only Where forms the taught location question; both choice words were previously taught.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1443,21 +1447,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-3-where-is-it-c027-prompt-381631367fcefffbf28d",
+          "id": "lesson-6-3-where-is-it-c027-prompt-a77cb1957b9e6d13e776",
           "purpose": "prompt",
-          "text": "Where is the store?",
+          "text": "The phone is in the bag.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_where_46148cc.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-3-where-is-it-c027-answer-2df89399d48a53bf6197",
+          "id": "lesson-6-3-where-is-it-c027-answer-62732e86bb9f4ee2540d",
           "purpose": "answer",
-          "text": "Where is the store?",
+          "text": "The phone is in the bag.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_where_46148cc.webp",
@@ -1470,26 +1474,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Where [blank] the station?",
+      "interaction_type": "complete2",
+      "prompt": "The book is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "table"
+      ],
       "options": [
         {
-          "id": "is-1",
+          "id": "the",
           "image_url": "",
-          "label": "is"
+          "label": "the"
         },
         {
-          "id": "are-2",
+          "id": "table",
           "image_url": "",
-          "label": "are"
+          "label": "table"
         }
       ],
-      "audio_text": "Where ___ the station?",
-      "answer_audio_text": "Where is the station?",
+      "audio_text": "The book is on the table.",
+      "answer_audio_text": "The book is on the table.",
       "prompt_image_url": "/lesson-assets/a1_scene_is_b47f363.webp",
-      "spanish_translation": "\u00bfD\u00f3nde [pausa] la estaci\u00f3n?",
+      "spanish_translation": "El libro est\u00e1 sobre la mesa.",
       "pedagogy_note": "Singular agreement.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1497,21 +1505,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-3-where-is-it-c028-prompt-0cbd9f8b62956ed8a017",
+          "id": "lesson-6-3-where-is-it-c028-prompt-99739b4d1acf6b04339d",
           "purpose": "prompt",
-          "text": "Where is the station?",
+          "text": "The book is on the table.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_is_b47f363.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-3-where-is-it-c028-answer-bff8884b7b22c875d9bb",
+          "id": "lesson-6-3-where-is-it-c028-answer-d99e09d5da91f9a8da64",
           "purpose": "answer",
-          "text": "Where is the station?",
+          "text": "The book is on the table.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_is_b47f363.webp",
@@ -1524,26 +1532,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "It is next to the [blank].",
+      "interaction_type": "complete2",
+      "prompt": "The apple is under ___ ___.",
       "stage": "Use",
-      "correct_option_id": "hospital-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "chair"
+      ],
       "options": [
         {
-          "id": "hospital-1",
+          "id": "the",
           "image_url": "",
-          "label": "hospital"
+          "label": "the"
         },
         {
-          "id": "bank-2",
+          "id": "chair",
           "image_url": "",
-          "label": "bank"
+          "label": "chair"
         }
       ],
-      "audio_text": "It is next to the ___.",
-      "answer_audio_text": "It is next to the hospital.",
+      "audio_text": "The apple is under the chair.",
+      "answer_audio_text": "The apple is under the chair.",
       "prompt_image_url": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
-      "spanish_translation": "Est\u00e1 junto al [pausa].",
+      "spanish_translation": "La manzana est\u00e1 debajo de la silla.",
       "pedagogy_note": "Reference landmark.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1551,11 +1563,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-3-where-is-it-c029-prompt-ededd28753db8a5b99ce",
+          "id": "lesson-6-3-where-is-it-c029-prompt-ece0dffc433fafb979ef",
           "purpose": "prompt",
-          "text": "It is next to the hospital.",
+          "text": "The apple is under the chair.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1563,9 +1575,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-3-where-is-it-c029-answer-abc1cea6093092252d0a",
+          "id": "lesson-6-3-where-is-it-c029-answer-b4d71a97975684a67444",
           "purpose": "answer",
-          "text": "It is next to the hospital.",
+          "text": "The apple is under the chair.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
@@ -1578,26 +1590,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the library?",
+      "interaction_type": "complete2",
+      "prompt": "It is next to ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-next-to-the-park-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "hospital"
+      ],
       "options": [
         {
-          "id": "it-is-next-to-the-park-1",
+          "id": "the",
           "image_url": "",
-          "label": "It is next to the park."
+          "label": "the"
         },
         {
-          "id": "it-is-next-to-the-store-2",
+          "id": "hospital",
           "image_url": "",
-          "label": "It is next to the store."
+          "label": "hospital"
         }
       ],
-      "audio_text": "Where is the library?",
-      "answer_audio_text": "It is next to the park.",
+      "audio_text": "It is next to the hospital.",
+      "answer_audio_text": "It is next to the hospital.",
       "prompt_image_url": "/lesson-assets/a1_scene_it-is-next-to-the-park_7c2e29b.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la biblioteca?",
+      "spanish_translation": "Est\u00e1 junto al hospital.",
       "pedagogy_note": "Controlled answer.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1605,21 +1621,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-3-where-is-it-c030-prompt-e29d15384643788d6e6f",
+          "id": "lesson-6-3-where-is-it-c030-prompt-4ddcbd9f6edceea8c4dd",
           "purpose": "prompt",
-          "text": "Where is the library?",
+          "text": "It is next to the hospital.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_it-is-next-to-the-park_7c2e29b.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-3-where-is-it-c030-answer-6a96f99c78b35ae87b0d",
+          "id": "lesson-6-3-where-is-it-c030-answer-39968d8153b1c2583ee4",
           "purpose": "answer",
-          "text": "It is next to the park.",
+          "text": "It is next to the hospital.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_it-is-next-to-the-park_7c2e29b.webp",
@@ -1632,26 +1648,42 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "The phone is [blank] the bag.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "in-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "on-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "on"
+          "label": "Where"
         },
         {
-          "id": "in-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "in"
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "store"
         }
       ],
-      "audio_text": "The phone is ___ the bag.",
-      "answer_audio_text": "The phone is in the bag.",
+      "audio_text": "Where is the store?",
+      "answer_audio_text": "Where is the store?",
       "prompt_image_url": "/lesson-assets/a1_scene_in_af10ef2.webp",
-      "spanish_translation": "El tel\u00e9fono est\u00e1 [pausa] la bolsa.",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la tienda?",
       "pedagogy_note": "Object/location review.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1659,21 +1691,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-3-where-is-it-c031-prompt-d433fad6b15fa2571be4",
+          "id": "lesson-6-3-where-is-it-c031-prompt-9b1ecff26c417289d0e8",
           "purpose": "prompt",
-          "text": "The phone is in the bag.",
+          "text": "Where is the store?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_in_af10ef2.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-3-where-is-it-c031-answer-79b0f0df8bc05633d0ba",
+          "id": "lesson-6-3-where-is-it-c031-answer-fe1eb7fe5f9e13038e68",
           "purpose": "answer",
-          "text": "The phone is in the bag.",
+          "text": "Where is the store?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_in_af10ef2.webp",
@@ -1686,26 +1718,42 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "The book is [blank] the table.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "on-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "under-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "under"
+          "label": "Where"
         },
         {
-          "id": "on-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "on"
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "station"
         }
       ],
-      "audio_text": "The book is ___ the table.",
-      "answer_audio_text": "The book is on the table.",
+      "audio_text": "Where is the station?",
+      "answer_audio_text": "Where is the station?",
       "prompt_image_url": "/lesson-assets/a1_scene_on_db3d405.webp",
-      "spanish_translation": "El libro est\u00e1 [pausa] la mesa.",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la estaci\u00f3n?",
       "pedagogy_note": "Preposition review.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1713,21 +1761,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-3-where-is-it-c032-prompt-b8e63d51e3c1d92c2052",
+          "id": "lesson-6-3-where-is-it-c032-prompt-7a02c2e75788fd84968a",
           "purpose": "prompt",
-          "text": "The book is on the table.",
+          "text": "Where is the station?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_on_db3d405.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-3-where-is-it-c032-answer-7a710ddc21c9ece65ed8",
+          "id": "lesson-6-3-where-is-it-c032-answer-c8e67bac148a7624574a",
           "purpose": "answer",
-          "text": "The book is on the table.",
+          "text": "Where is the station?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_on_db3d405.webp",
@@ -1740,31 +1788,54 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "The apple is [blank] the chair.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "under-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
       "options": [
         {
-          "id": "in-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "in"
+          "label": "It"
         },
         {
-          "id": "on-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "on"
+          "label": "is"
         },
         {
-          "id": "under-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "under"
+          "label": "next"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "park"
         }
       ],
-      "audio_text": "The apple is ___ the chair.",
-      "answer_audio_text": "The apple is under the chair.",
+      "audio_text": "It is next to the park.",
+      "answer_audio_text": "It is next to the park.",
       "prompt_image_url": "/lesson-assets/a1_scene_under_dad64cc.webp",
-      "spanish_translation": "La manzana est\u00e1 [pausa] la silla.",
+      "spanish_translation": "Est\u00e1 junto al parque.",
       "pedagogy_note": "Four known prepositions.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1772,11 +1843,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-3-where-is-it-c033-prompt-67a53d36d33cb1b63d19",
+          "id": "lesson-6-3-where-is-it-c033-prompt-ad4cf49c4c4dfb3008e6",
           "purpose": "prompt",
-          "text": "The apple is under the chair.",
+          "text": "It is next to the park.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_under_dad64cc.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1784,9 +1855,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-3-where-is-it-c033-answer-3670f93fd4474e2d91a6",
+          "id": "lesson-6-3-where-is-it-c033-answer-aa7fcaeb222d84298fc6",
           "purpose": "answer",
-          "text": "The apple is under the chair.",
+          "text": "It is next to the park.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_under_dad64cc.webp",
@@ -1799,26 +1870,54 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the bank?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-next-to-the-store-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
       "options": [
         {
-          "id": "it-is-next-to-the-store-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is next to the store."
+          "label": "It"
         },
         {
-          "id": "it-is-in-the-store-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is in the store."
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "next"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "store"
         }
       ],
-      "audio_text": "Where is the bank?",
+      "audio_text": "It is next to the store.",
       "answer_audio_text": "It is next to the store.",
       "prompt_image_url": "/lesson-assets/a1_scene_it-is-next-to-the-store_b207d1a.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el banco?",
+      "spanish_translation": "Est\u00e1 junto a la tienda.",
       "pedagogy_note": "Final controlled town answer.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1826,14 +1925,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-3-where-is-it-c034-prompt-2384b88677a1d43ecb05",
+          "id": "lesson-6-3-where-is-it-c034-prompt-58ce43f823636edb5bce",
           "purpose": "prompt",
-          "text": "Where is the bank?",
+          "text": "It is next to the store.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_it-is-next-to-the-store_b207d1a.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },

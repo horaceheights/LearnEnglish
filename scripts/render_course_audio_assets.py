@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import copy
 import json
 import os
 import sys
@@ -282,25 +283,15 @@ def matching_take_id(registry: dict[str, Any], job: RenderJob) -> str | None:
             continue
         if take.get("completion_contract") != contract:
             continue
-        if not set(asset.speaker_role for asset in job.assets).issubset(
-            set(take.get("compatible_speaker_roles") or [])
-        ):
-            continue
-        if not set(asset.mode for asset in job.assets).issubset(
-            set(take.get("compatible_modes") or [])
-        ):
-            continue
-        if not set(asset.variant for asset in job.assets).issubset(
-            set(take.get("compatible_variants") or [])
-        ):
-            continue
+        merged_take = copy.deepcopy(take)
+        merge_take_compatibility(merged_take, job)
         for asset in job.assets:
             existing = registry["bindings"].get(asset.id)
             if existing is not None and existing.get("take_id") != take_id:
                 break
             validation_registry = {
                 "schema_version": registry.get("schema_version"),
-                "takes": registry["takes"],
+                "takes": {**registry["takes"], take_id: merged_take},
                 "bindings": {
                     asset.id: {
                         "take_id": take_id,
@@ -313,8 +304,8 @@ def matching_take_id(registry: dict[str, Any], job: RenderJob) -> str | None:
             }
             try:
                 resolve_approved_take(asset, validation_registry)
-            except ApprovedTakeRegistryError as error:
-                raise ValueError(f"Matching approved take {take_id} is invalid: {error}") from error
+            except ApprovedTakeRegistryError:
+                break
         else:
             return take_id
     return None
@@ -1017,6 +1008,15 @@ def main() -> int:
             "promote": args.promote,
         }
         print(json.dumps(summary, indent=2), flush=True)
+        if args.promote and existing:
+            for job, take_id in existing:
+                bind_take(
+                    registry,
+                    take_id,
+                    job,
+                    "Reuse the exact reviewed take for the same pinned voice and spoken text.",
+                )
+            write_registry(registry)
         if not args.execute:
             return 0
         if not args.promote:
@@ -1032,15 +1032,6 @@ def main() -> int:
             raise ValueError("ELEVENLABS_API_KEY is required for --execute.")
         if api_key and legacy_base_url:
             raise ValueError("Choose direct ELEVENLABS_API_KEY or --legacy-backend-base-url, not both.")
-        if args.promote:
-            for job, take_id in existing:
-                bind_take(
-                    registry,
-                    take_id,
-                    job,
-                    "Reuse the exact reviewed take for the same pinned voice and spoken text.",
-                )
-            write_registry(registry)
 
         approved_at = datetime.now(timezone.utc).isoformat()
         reported_character_cost = 0

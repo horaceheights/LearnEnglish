@@ -2317,7 +2317,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       : currentCard.audio_text ?? currentCard.prompt
     : "";
   const cardPromptVoiceMode = cardPromptText.trim().toLowerCase() === "what is it?" ? "question" : "prompt";
-  const cardPromptHasVisualBlank = !isSentenceCard && (authoredCardPromptHasVisualBlank
+  const isUseStage = currentCard?.stage === "Use";
+  const cardPromptHasVisualBlank = !isSentenceCard && !isUseStage && (authoredCardPromptHasVisualBlank
     || hasVisualAudioPlaceholder(cardPromptText));
   const cardCorrectOption = currentCard?.options.find(
     (option) => option.id === currentCard.correct_option_id

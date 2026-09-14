@@ -1426,31 +1426,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "One ___ car",
+      "interaction_type": "complete2",
+      "prompt": "One ___ ___",
       "stage": "Use",
-      "correct_option_id": "red-3",
+      "correct_option_id": "red",
+      "correct_option_ids": [
+        "red",
+        "car"
+      ],
       "options": [
         {
-          "id": "blue-1",
-          "image_url": "",
-          "label": "blue"
-        },
-        {
-          "id": "black-2",
-          "image_url": "",
-          "label": "black"
-        },
-        {
-          "id": "red-3",
+          "id": "red",
           "image_url": "",
           "label": "red"
+        },
+        {
+          "id": "car",
+          "image_url": "",
+          "label": "car"
         }
       ],
-      "audio_text": "One ___ car",
+      "audio_text": "One red car",
       "answer_audio_text": "One red car",
       "prompt_image_url": "/lesson-assets/a1_one-red-car.webp",
-      "spanish_translation": "Un autom\u00f3vil ___",
+      "spanish_translation": "Un coche rojo",
       "pedagogy_note": "color slot",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1458,11 +1457,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-8-count-and-describe-c027-prompt-f97b30418e53a657dd1f",
+          "id": "lesson-2-8-count-and-describe-c027-prompt-4038562ee1bf7605f4c7",
           "purpose": "prompt",
           "text": "One red car",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_one-red-car.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1485,31 +1484,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "___ blue cars",
+      "interaction_type": "complete2",
+      "prompt": "Two ___ ___",
       "stage": "Use",
-      "correct_option_id": "two-2",
+      "correct_option_id": "blue",
+      "correct_option_ids": [
+        "blue",
+        "cars"
+      ],
       "options": [
         {
-          "id": "four-1",
+          "id": "blue",
           "image_url": "",
-          "label": "four"
+          "label": "blue"
         },
         {
-          "id": "two-2",
+          "id": "cars",
           "image_url": "",
-          "label": "two"
-        },
-        {
-          "id": "one-3",
-          "image_url": "",
-          "label": "one"
+          "label": "cars"
         }
       ],
-      "audio_text": "___ blue cars",
-      "answer_audio_text": "two blue cars",
+      "audio_text": "Two blue cars",
+      "answer_audio_text": "Two blue cars",
       "prompt_image_url": "/lesson-assets/a1_two-blue-cars.webp",
-      "spanish_translation": "___ autom\u00f3viles azules",
+      "spanish_translation": "Dos coches azules",
       "pedagogy_note": "number slot",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1517,11 +1515,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-8-count-and-describe-c028-prompt-8e315d4e190325d66188",
+          "id": "lesson-2-8-count-and-describe-c028-prompt-bedbab181ed32909033e",
           "purpose": "prompt",
-          "text": "two blue cars",
+          "text": "Two blue cars",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_two-blue-cars.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1529,9 +1527,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-8-count-and-describe-c028-answer-1240400d1cd6fc86c410",
+          "id": "lesson-2-8-count-and-describe-c028-answer-3c967acf14593ecbe8f6",
           "purpose": "answer",
-          "text": "two blue cars",
+          "text": "Two blue cars",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_two-blue-cars.webp",
@@ -1544,31 +1542,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete4",
-      "prompt": "Three green ___",
+      "interaction_type": "complete2",
+      "prompt": "Three ___ ___",
       "stage": "Use",
-      "correct_option_id": "books-2",
+      "correct_option_id": "green",
+      "correct_option_ids": [
+        "green",
+        "books"
+      ],
       "options": [
         {
-          "id": "pens-1",
+          "id": "green",
           "image_url": "",
-          "label": "pens"
+          "label": "green"
         },
         {
-          "id": "books-2",
+          "id": "books",
           "image_url": "",
           "label": "books"
-        },
-        {
-          "id": "phones-3",
-          "image_url": "",
-          "label": "phones"
         }
       ],
-      "audio_text": "Three green ___",
+      "audio_text": "Three green books",
       "answer_audio_text": "Three green books",
       "prompt_image_url": "/lesson-assets/a1_three-green-books.webp",
-      "spanish_translation": "Tres ___ verdes",
+      "spanish_translation": "Tres libros verdes",
       "pedagogy_note": "noun slot",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1576,11 +1573,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-8-count-and-describe-c029-prompt-aa0dba137212f0083a6c",
+          "id": "lesson-2-8-count-and-describe-c029-prompt-cfdceefb7d3110d548f5",
           "purpose": "prompt",
           "text": "Three green books",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_three-green-books.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1604,25 +1601,29 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "One red ___.",
+      "prompt": "Four ___ ___",
       "stage": "Use",
-      "correct_option_id": "car-2",
+      "correct_option_id": "yellow",
+      "correct_option_ids": [
+        "yellow",
+        "pens"
+      ],
       "options": [
         {
-          "id": "cars-1",
+          "id": "yellow",
           "image_url": "",
-          "label": "cars"
+          "label": "yellow"
         },
         {
-          "id": "car-2",
+          "id": "pens",
           "image_url": "",
-          "label": "car"
+          "label": "pens"
         }
       ],
-      "audio_text": "One red ___.",
-      "answer_audio_text": "One red car.",
+      "audio_text": "Four yellow pens",
+      "answer_audio_text": "Four yellow pens",
       "prompt_image_url": "/lesson-assets/a1_one-red-car.webp",
-      "spanish_translation": "Un ___ rojo.",
+      "spanish_translation": "Cuatro bol\u00edgrafos amarillos",
       "pedagogy_note": "singular after one",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1630,11 +1631,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-8-count-and-describe-c030-prompt-bbcca46cd5d1648a938f",
+          "id": "lesson-2-8-count-and-describe-c030-prompt-45b6ac0ac6d4dfe5e70f",
           "purpose": "prompt",
-          "text": "One red car.",
+          "text": "Four yellow pens",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_one-red-car.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1642,9 +1643,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-8-count-and-describe-c030-answer-0d5ddf7c87474958263b",
+          "id": "lesson-2-8-count-and-describe-c030-answer-4920545d029fd7c17ee4",
           "purpose": "answer",
-          "text": "One red car.",
+          "text": "Four yellow pens",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_one-red-car.webp",
@@ -1657,26 +1658,36 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "Two blue ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___",
       "stage": "Use",
-      "correct_option_id": "cars-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "car-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "car"
+          "label": "Five"
         },
         {
-          "id": "cars-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "cars"
+          "label": "black"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "phones"
         }
       ],
-      "audio_text": "Two blue ___.",
-      "answer_audio_text": "Two blue cars.",
+      "audio_text": "Five black phones",
+      "answer_audio_text": "Five black phones",
       "prompt_image_url": "/lesson-assets/a1_two-blue-cars.webp",
-      "spanish_translation": "Dos ___ azules.",
+      "spanish_translation": "Cinco tel\u00e9fonos negros",
       "pedagogy_note": "plural after two",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1684,11 +1695,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-8-count-and-describe-c031-prompt-aeac9ced80a20e24a3ce",
+          "id": "lesson-2-8-count-and-describe-c031-prompt-54b38b15c3e258979b24",
           "purpose": "prompt",
-          "text": "Two blue cars.",
+          "text": "Five black phones",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_two-blue-cars.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1696,9 +1707,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-8-count-and-describe-c031-answer-d9bd9e10496c0038d0b6",
+          "id": "lesson-2-8-count-and-describe-c031-answer-4c54498974d37461c829",
           "purpose": "answer",
-          "text": "Two blue cars.",
+          "text": "Five black phones",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_two-blue-cars.webp",
@@ -1711,31 +1722,42 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "choose4",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "five-black-phones-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "black-five-phones-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Black five phones"
+          "label": "This"
         },
         {
-          "id": "five-phones-black-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Five phones black"
+          "label": "is"
         },
         {
-          "id": "five-black-phones-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "Five black phones"
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "phone"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Five black phones",
+      "audio_text": "This is a phone.",
+      "answer_audio_text": "This is a phone.",
       "prompt_image_url": "/lesson-assets/a1_scene_five-black-phones_734dda6.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "Este es un tel\u00e9fono.",
       "pedagogy_note": "word-order recognition without drag/drop",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1743,9 +1765,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-8-count-and-describe-c032-prompt-94ed1d57f4c893e1b8d9",
+          "id": "lesson-2-8-count-and-describe-c032-prompt-a87259226c8e413ada52",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "This is a phone.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_five-black-phones_734dda6.webp",
@@ -1755,9 +1777,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-2-8-count-and-describe-c032-answer-5158ba9672c9d4497336",
+          "id": "lesson-2-8-count-and-describe-c032-answer-72cf0daaf9738cb04236",
           "purpose": "answer",
-          "text": "Five black phones",
+          "text": "This is a phone.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_five-black-phones_734dda6.webp",
@@ -1770,26 +1792,48 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete2",
-      "prompt": "___ is a red book.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "this-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "this-1",
+          "id": "word-1",
           "image_url": "",
           "label": "This"
         },
         {
-          "id": "that-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "That"
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "red"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "book"
         }
       ],
-      "audio_text": "___ is a red book.",
+      "audio_text": "This is a red book.",
       "answer_audio_text": "This is a red book.",
       "prompt_image_url": "/lesson-assets/unit2_near_red_book.webp?v=20260822-unit-2-v1",
-      "spanish_translation": "___ es un libro rojo.",
+      "spanish_translation": "Este es un libro rojo.",
       "pedagogy_note": "Repetition with growth: demonstrative near production with color and noun",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1797,11 +1841,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-8-count-and-describe-c033-prompt-9c5c3b85f94078f02743",
+          "id": "lesson-2-8-count-and-describe-c033-prompt-5475f2c029e63796006c",
           "purpose": "prompt",
           "text": "This is a red book.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/unit2_near_red_book.webp?v=20260822-unit-2-v1",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1824,26 +1868,48 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete2",
-      "prompt": "___ is a blue bag.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "that-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "this-1",
-          "image_url": "",
-          "label": "This"
-        },
-        {
-          "id": "that-2",
+          "id": "word-1",
           "image_url": "",
           "label": "That"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "blue"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "bag"
         }
       ],
-      "audio_text": "___ is a blue bag.",
+      "audio_text": "That is a blue bag.",
       "answer_audio_text": "That is a blue bag.",
       "prompt_image_url": "/lesson-assets/a1_scene_far-blue-bag_601f463.webp",
-      "spanish_translation": "___ es una bolsa azul.",
+      "spanish_translation": "Esa es una bolsa azul.",
       "pedagogy_note": "Repetition with growth: demonstrative far production with color and noun",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1851,11 +1917,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-8-count-and-describe-c034-prompt-8b3165ece9b5993ea8d4",
+          "id": "lesson-2-8-count-and-describe-c034-prompt-eb097432444847b59a19",
           "purpose": "prompt",
           "text": "That is a blue bag.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_far-blue-bag_601f463.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

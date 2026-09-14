@@ -1639,31 +1639,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "I am from ___.",
+      "interaction_type": "complete2",
+      "prompt": "I am ___ ___.",
       "stage": "Use",
-      "correct_option_id": "mexico-3",
+      "correct_option_id": "from",
+      "correct_option_ids": [
+        "from",
+        "mexico"
+      ],
       "options": [
         {
-          "id": "canada-1",
+          "id": "from",
           "image_url": "",
-          "label": "Canada"
+          "label": "from"
         },
         {
-          "id": "spain-2",
-          "image_url": "",
-          "label": "Spain"
-        },
-        {
-          "id": "mexico-3",
+          "id": "mexico",
           "image_url": "",
           "label": "Mexico"
         }
       ],
-      "audio_text": "I am from ___.",
+      "audio_text": "I am from Mexico.",
       "answer_audio_text": "I am from Mexico.",
       "prompt_image_url": "/lesson-assets/a1_scene_mexico-country_c17ee27.webp",
-      "spanish_translation": "Soy de ___.",
+      "spanish_translation": "Soy de M\u00e9xico.",
       "pedagogy_note": "country slot",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1671,11 +1670,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-5-countries-and-nationalities-c031-prompt-d917ed6914e1f671e1fb",
+          "id": "lesson-3-5-countries-and-nationalities-c031-prompt-5cc06237e522517bf23b",
           "purpose": "prompt",
           "text": "I am from Mexico.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_mexico-country_c17ee27.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1698,31 +1697,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "I am ___.",
+      "interaction_type": "complete2",
+      "prompt": "Where ___ ___ from?",
       "stage": "Use",
-      "correct_option_id": "mexican-4",
+      "correct_option_id": "are",
+      "correct_option_ids": [
+        "are",
+        "you"
+      ],
       "options": [
         {
-          "id": "canadian-1",
+          "id": "are",
           "image_url": "",
-          "label": "Canadian"
+          "label": "are"
         },
         {
-          "id": "american-2",
+          "id": "you",
           "image_url": "",
-          "label": "American"
-        },
-        {
-          "id": "mexican-4",
-          "image_url": "",
-          "label": "Mexican"
+          "label": "you"
         }
       ],
-      "audio_text": "I am ___.",
-      "answer_audio_text": "I am Mexican.",
+      "audio_text": "Where are you from?",
+      "answer_audio_text": "Where are you from?",
       "prompt_image_url": "/lesson-assets/a1_scene_ana-mexican_1fca9cc.webp",
-      "spanish_translation": "Soy ___.",
+      "spanish_translation": "\u00bfDe d\u00f3nde eres?",
       "pedagogy_note": "nationality slot",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1730,21 +1728,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-5-countries-and-nationalities-c032-prompt-d6aedd42e9ff726d0f88",
+          "id": "lesson-3-5-countries-and-nationalities-c032-prompt-b71a3507ae9b61bc7c77",
           "purpose": "prompt",
-          "text": "I am Mexican.",
+          "text": "Where are you from?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana-mexican_1fca9cc.webp",
-          "semantic_role": "teacher",
+          "semantic_role": "question",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-5-countries-and-nationalities-c032-answer-38036701721e3a72a66b",
+          "id": "lesson-3-5-countries-and-nationalities-c032-answer-eb639ad42632c70fa43a",
           "purpose": "answer",
-          "text": "I am Mexican.",
+          "text": "Where are you from?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana-mexican_1fca9cc.webp",
@@ -1758,25 +1756,29 @@
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "Where ___ you from?",
+      "prompt": "I am ___ ___.",
       "stage": "Use",
-      "correct_option_id": "are-2",
+      "correct_option_id": "from",
+      "correct_option_ids": [
+        "from",
+        "canada"
+      ],
       "options": [
         {
-          "id": "is-1",
+          "id": "from",
           "image_url": "",
-          "label": "is"
+          "label": "from"
         },
         {
-          "id": "are-2",
+          "id": "canada",
           "image_url": "",
-          "label": "are"
+          "label": "Canada"
         }
       ],
-      "audio_text": "Where ___ you from?",
-      "answer_audio_text": "Where are you from?",
+      "audio_text": "I am from Canada.",
+      "answer_audio_text": "I am from Canada.",
       "prompt_image_url": "/lesson-assets/a1_scene_origin-sofia_83856b9.webp",
-      "spanish_translation": "\u00bfDe d\u00f3nde ___?",
+      "spanish_translation": "Soy de Canad\u00e1.",
       "pedagogy_note": "question be form",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1784,21 +1786,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-5-countries-and-nationalities-c033-prompt-5f82c36f126938ba41f0",
+          "id": "lesson-3-5-countries-and-nationalities-c033-prompt-41c254671b1071580477",
           "purpose": "prompt",
-          "text": "Where are you from?",
+          "text": "I am from Canada.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_origin-sofia_83856b9.webp",
-          "semantic_role": "question",
+          "semantic_role": "teacher",
           "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-5-countries-and-nationalities-c033-answer-90b2ba5f022f868f3e82",
+          "id": "lesson-3-5-countries-and-nationalities-c033-answer-0f0174a83663dc73b08d",
           "purpose": "answer",
-          "text": "Where are you from?",
+          "text": "I am from Canada.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_origin-sofia_83856b9.webp",
@@ -1812,52 +1814,56 @@
     {
       "slide_id": "U4",
       "interaction_type": "complete2",
-      "prompt": "I am ___ Canada.",
+      "prompt": "___ ___ Mexican.",
       "stage": "Use",
-      "correct_option_id": "from-2",
+      "correct_option_id": "I",
+      "correct_option_ids": [
+        "I",
+        "am"
+      ],
       "options": [
         {
-          "id": "not-1",
+          "id": "I",
           "image_url": "",
-          "label": "not"
+          "label": "I"
         },
         {
-          "id": "from-2",
+          "id": "am",
           "image_url": "",
-          "label": "from"
+          "label": "am"
         }
       ],
-      "audio_text": "I am ___ Canada.",
-      "answer_audio_text": "I am from Canada.",
+      "audio_text": "I am Mexican.",
+      "answer_audio_text": "I am Mexican.",
       "prompt_image_url": "/lesson-assets/a1_scene_canada-country_3aa8b25.webp",
-      "spanish_translation": "Soy ___ Canad\u00e1.",
+      "spanish_translation": "Soy mexicano.",
       "pedagogy_note": "all choices previously introduced; from completes the origin frame",
-      "audio_speaker": null,
-      "answer_audio_speaker": null,
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-5-countries-and-nationalities-c034-prompt-04bef8bcddc61f63273e",
+          "id": "lesson-3-5-countries-and-nationalities-c034-prompt-62268477a5e87029a5e2",
           "purpose": "prompt",
-          "text": "I am from Canada.",
+          "text": "I am Mexican.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_canada-country_3aa8b25.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-3-5-countries-and-nationalities-c034-answer-17b4761125fb78c5bfa3",
+          "id": "lesson-3-5-countries-and-nationalities-c034-answer-3f22e6b4c9434d1a1eea",
           "purpose": "answer",
-          "text": "I am from Canada.",
+          "text": "I am Mexican.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_canada-country_3aa8b25.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1865,24 +1871,40 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "choose2",
-      "prompt": "Where are you from?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "i-am-from-canada-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "i-am-eighteen-years-old-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "I am eighteen years old."
+          "label": "Where"
         },
         {
-          "id": "i-am-from-canada-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "I am from Canada."
+          "label": "are"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "you"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "from"
         }
       ],
       "audio_text": "Where are you from?",
-      "answer_audio_text": "I am from Canada.",
+      "answer_audio_text": "Where are you from?",
       "prompt_image_url": "/lesson-assets/a1_scene_origin-sofia_83856b9.webp",
       "spanish_translation": "\u00bfDe d\u00f3nde eres?",
       "pedagogy_note": "unambiguous personal-question function contrast",
@@ -1904,9 +1926,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-5-countries-and-nationalities-c035-answer-6675d11b7393683ad9bb",
+          "id": "lesson-3-5-countries-and-nationalities-c035-answer-35cf5524a4436c044e34",
           "purpose": "answer",
-          "text": "I am from Canada.",
+          "text": "Where are you from?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_origin-sofia_83856b9.webp",
@@ -1919,43 +1941,48 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete4",
-      "prompt": "I am ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "spanish-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "american-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "American"
+          "label": "I"
         },
         {
-          "id": "spanish-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "am"
+        },
+        {
+          "id": "word-3",
           "image_url": "",
           "label": "Spanish"
-        },
-        {
-          "id": "mexican-3",
-          "image_url": "",
-          "label": "Mexican"
         }
       ],
-      "audio_text": "I am ___.",
+      "audio_text": "I am Spanish.",
       "answer_audio_text": "I am Spanish.",
       "prompt_image_url": "/lesson-assets/a1_scene_diego-spanish_5d1c02d.webp",
-      "spanish_translation": "Soy ___.",
+      "spanish_translation": "Soy espa\u00f1ol.",
       "pedagogy_note": "nationality",
       "audio_speaker": "diego",
-      "answer_audio_speaker": null,
+      "answer_audio_speaker": "diego",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-5-countries-and-nationalities-c036-prompt-e77c3f49bb9ef66c8d9a",
+          "id": "lesson-3-5-countries-and-nationalities-c036-prompt-c21a5f1f29a30be6bde7",
           "purpose": "prompt",
           "text": "I am Spanish.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_diego-spanish_5d1c02d.webp",
           "semantic_role": "teacher",
           "speaker_role": "diego",
@@ -1978,31 +2005,42 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete4",
-      "prompt": "I am from ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "the-united-states-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "mexico-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Mexico"
+          "label": "I"
         },
         {
-          "id": "the-united-states-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "the United States"
+          "label": "am"
         },
         {
-          "id": "canada-3",
+          "id": "word-3",
+          "image_url": "",
+          "label": "from"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "Canada"
         }
       ],
-      "audio_text": "I am from ___.",
-      "answer_audio_text": "I am from the United States.",
+      "audio_text": "I am from Canada.",
+      "answer_audio_text": "I am from Canada.",
       "prompt_image_url": "/lesson-assets/a1_scene_us-country_69518e5.webp",
-      "spanish_translation": "Soy de ___.",
+      "spanish_translation": "Soy de Canad\u00e1.",
       "pedagogy_note": "country",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -2010,11 +2048,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-5-countries-and-nationalities-c037-prompt-2d262183ce50193b8c89",
+          "id": "lesson-3-5-countries-and-nationalities-c037-prompt-cecd9e453c307db46740",
           "purpose": "prompt",
-          "text": "I am from the United States.",
+          "text": "I am from Canada.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_us-country_69518e5.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -2022,9 +2060,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-5-countries-and-nationalities-c037-answer-90caf2b827b4faf2b997",
+          "id": "lesson-3-5-countries-and-nationalities-c037-answer-5ad356d009184c4615ff",
           "purpose": "answer",
-          "text": "I am from the United States.",
+          "text": "I am from Canada.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_us-country_69518e5.webp",
@@ -2037,31 +2075,36 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete4",
-      "prompt": "I am ___ years old.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "eighteen-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "twelve-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "twelve"
+          "label": "I"
         },
         {
-          "id": "twenty-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "twenty"
+          "label": "am"
         },
         {
-          "id": "eighteen-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "eighteen"
+          "label": "Spanish"
         }
       ],
-      "audio_text": "I am ___ years old.",
-      "answer_audio_text": "I am eighteen years old.",
+      "audio_text": "I am Spanish.",
+      "answer_audio_text": "I am Spanish.",
       "prompt_image_url": "/lesson-assets/a1_scene_age-luis-18_7f71348.webp",
-      "spanish_translation": "Tengo ___ a\u00f1os.",
+      "spanish_translation": "Soy espa\u00f1ol.",
       "pedagogy_note": "3.4 review",
       "audio_speaker": "luis",
       "answer_audio_speaker": null,
@@ -2069,11 +2112,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-5-countries-and-nationalities-c038-prompt-751e583b1ab3dc9ff0aa",
+          "id": "lesson-3-5-countries-and-nationalities-c038-prompt-e81140bb74a5ea431276",
           "purpose": "prompt",
-          "text": "I am eighteen years old.",
+          "text": "I am Spanish.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_age-luis-18_7f71348.webp",
           "semantic_role": "teacher",
           "speaker_role": "luis",
@@ -2081,9 +2124,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-3-5-countries-and-nationalities-c038-answer-078342a3853a28c44ee2",
+          "id": "lesson-3-5-countries-and-nationalities-c038-answer-71fdc2a51f34d3fe75d4",
           "purpose": "answer",
-          "text": "I am eighteen years old.",
+          "text": "I am Spanish.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_age-luis-18_7f71348.webp",

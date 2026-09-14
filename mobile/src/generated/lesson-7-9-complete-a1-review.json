@@ -1301,26 +1301,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "They [blank] playing.",
+      "interaction_type": "complete2",
+      "prompt": "They ___ ___.",
       "stage": "Use",
-      "correct_option_id": "are-2",
+      "correct_option_id": "are",
+      "correct_option_ids": [
+        "are",
+        "playing"
+      ],
       "options": [
         {
-          "id": "is-1",
-          "image_url": "",
-          "label": "is"
-        },
-        {
-          "id": "are-2",
+          "id": "are",
           "image_url": "",
           "label": "are"
+        },
+        {
+          "id": "playing",
+          "image_url": "",
+          "label": "playing"
         }
       ],
-      "audio_text": "They ___ playing.",
+      "audio_text": "They are playing.",
       "answer_audio_text": "They are playing.",
       "prompt_image_url": "/lesson-assets/a1_scene_are_5f9e580.webp",
-      "spanish_translation": "Ellos [pausa] jugando.",
+      "spanish_translation": "Ellos est\u00e1n jugando.",
       "pedagogy_note": "Unit 1 agreement.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1328,11 +1332,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-9-complete-a1-review-c025-prompt-802e10892d01ca8d224d",
+          "id": "lesson-7-9-complete-a1-review-c025-prompt-aafd014e93a22e51cf14",
           "purpose": "prompt",
           "text": "They are playing.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_are_5f9e580.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1355,56 +1359,113 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "There are [blank] green pens.",
+      "interaction_type": "complete2",
+      "prompt": "My name ___ ___.",
       "stage": "Use",
-      "correct_option_id": "five-3",
+      "correct_option_id": "is",
+      "correct_option_ids": [
+        "is",
+        "ana"
+      ],
       "options": [
         {
-          "id": "three-1",
+          "id": "is",
           "image_url": "",
-          "label": "three"
+          "label": "is"
         },
         {
-          "id": "four-2",
+          "id": "ana",
           "image_url": "",
-          "label": "four"
-        },
-        {
-          "id": "five-3",
-          "image_url": "",
-          "label": "five"
+          "label": "Ana"
         }
       ],
-      "audio_text": "There are ___ green pens.",
-      "answer_audio_text": "There are five green pens.",
+      "audio_text": "My name is Ana.",
+      "answer_audio_text": "My name is Ana.",
       "prompt_image_url": "/lesson-assets/a1_scene_five_4db2c1d.webp",
-      "spanish_translation": "Hay [pausa] plumas verdes.",
+      "spanish_translation": "Mi nombre es Ana.",
       "pedagogy_note": "Unit 2 count/color.",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "audio_revision": 1,
+      "answer_audio_revision": 1,
+      "audio_assets": [
+        {
+          "id": "lesson-7-9-complete-a1-review-c026-prompt-febb7aa170663231232f",
+          "purpose": "prompt",
+          "text": "My name is Ana.",
+          "mode": "prompt",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_five_4db2c1d.webp",
+          "semantic_role": "teacher",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        },
+        {
+          "id": "lesson-7-9-complete-a1-review-c026-answer-c3e66f85bc1838d3247d",
+          "purpose": "answer",
+          "text": "My name is Ana.",
+          "mode": "prompt",
+          "variant": "answer",
+          "image_ref": "/lesson-assets/a1_scene_five_4db2c1d.webp",
+          "semantic_role": "answer",
+          "speaker_role": "ana",
+          "profile_id": "a1-elevenlabs-character-cast-v1",
+          "revision": 1
+        }
+      ]
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "There are five ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "green",
+      "correct_option_ids": [
+        "green",
+        "pens"
+      ],
+      "options": [
+        {
+          "id": "green",
+          "image_url": "",
+          "label": "green"
+        },
+        {
+          "id": "pens",
+          "image_url": "",
+          "label": "pens"
+        }
+      ],
+      "audio_text": "There are five green pens.",
+      "answer_audio_text": "There are five green pens.",
+      "prompt_image_url": "/lesson-assets/a1_scene_my_3ece147.webp",
+      "spanish_translation": "Hay cinco bol\u00edgrafos verdes.",
+      "pedagogy_note": "Unit 3 possessive perspective.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-9-complete-a1-review-c026-prompt-0ddac4b7b99fe27b8127",
+          "id": "lesson-7-9-complete-a1-review-c027-prompt-402820fbf17de346067f",
           "purpose": "prompt",
           "text": "There are five green pens.",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_five_4db2c1d.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_my_3ece147.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-9-complete-a1-review-c026-answer-99c5074625dd3d8ae4ff",
+          "id": "lesson-7-9-complete-a1-review-c027-answer-51cac1d1ead410997efa",
           "purpose": "answer",
           "text": "There are five green pens.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_five_4db2c1d.webp",
+          "image_ref": "/lesson-assets/a1_scene_my_3ece147.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1413,81 +1474,31 @@
       ]
     },
     {
-      "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "[blank] name is Ana.",
-      "stage": "Use",
-      "correct_option_id": "my-1",
-      "options": [
-        {
-          "id": "my-1",
-          "image_url": "",
-          "label": "My"
-        },
-        {
-          "id": "her-2",
-          "image_url": "",
-          "label": "Her"
-        }
-      ],
-      "audio_text": "___ name is Ana.",
-      "answer_audio_text": "My name is Ana.",
-      "prompt_image_url": "/lesson-assets/a1_scene_my_3ece147.webp",
-      "spanish_translation": "[pausa] nombre es Ana.",
-      "pedagogy_note": "Unit 3 possessive perspective.",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
-      "audio_revision": 1,
-      "answer_audio_revision": 1,
-      "audio_assets": [
-        {
-          "id": "lesson-7-9-complete-a1-review-c027-prompt-68c077e57271ea872439",
-          "purpose": "prompt",
-          "text": "My name is Ana.",
-          "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_my_3ece147.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
-        {
-          "id": "lesson-7-9-complete-a1-review-c027-answer-4180a7600ecd46a4d9fa",
-          "purpose": "answer",
-          "text": "My name is Ana.",
-          "mode": "prompt",
-          "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_my_3ece147.webp",
-          "semantic_role": "answer",
-          "speaker_role": "ana",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        }
-      ]
-    },
-    {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "The book is [blank] the table.",
+      "interaction_type": "complete2",
+      "prompt": "The book is under ___ ___.",
       "stage": "Use",
-      "correct_option_id": "under-2",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "table"
+      ],
       "options": [
         {
-          "id": "on-1",
+          "id": "the",
           "image_url": "",
-          "label": "on"
+          "label": "the"
         },
         {
-          "id": "under-2",
+          "id": "table",
           "image_url": "",
-          "label": "under"
+          "label": "table"
         }
       ],
-      "audio_text": "The book is ___ the table.",
+      "audio_text": "The book is under the table.",
       "answer_audio_text": "The book is under the table.",
       "prompt_image_url": "/lesson-assets/a1_scene_under_dad64cc.webp",
-      "spanish_translation": "El libro est\u00e1 [pausa] la mesa.",
+      "spanish_translation": "El libro est\u00e1 debajo de la mesa.",
       "pedagogy_note": "Unit 4.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1495,11 +1506,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-9-complete-a1-review-c028-prompt-787efa02642bd7cbf084",
+          "id": "lesson-7-9-complete-a1-review-c028-prompt-753c3e79c95d649b8ca4",
           "purpose": "prompt",
           "text": "The book is under the table.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_under_dad64cc.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1522,26 +1533,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "I do [blank] like fish.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "not-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "not-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "not"
+          "label": "Turn"
         },
         {
-          "id": "like-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "like"
+          "label": "right"
         }
       ],
-      "audio_text": "I do ___ like fish.",
-      "answer_audio_text": "I do not like fish.",
+      "audio_text": "Turn right.",
+      "answer_audio_text": "Turn right.",
       "prompt_image_url": "/lesson-assets/a1_scene_not_557f255.webp",
-      "spanish_translation": "[pausa] me gusta el pescado.",
+      "spanish_translation": "Gira a la derecha.",
       "pedagogy_note": "Unit 5.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1549,11 +1564,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-9-complete-a1-review-c029-prompt-b56c96a7d30824cc6fd6",
+          "id": "lesson-7-9-complete-a1-review-c029-prompt-01336c999e450d0059df",
           "purpose": "prompt",
-          "text": "I do not like fish.",
+          "text": "Turn right.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_not_557f255.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1561,9 +1576,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-9-complete-a1-review-c029-answer-8d914b5a64d4c61151fc",
+          "id": "lesson-7-9-complete-a1-review-c029-answer-b84aa5f04bff52f52145",
           "purpose": "answer",
-          "text": "I do not like fish.",
+          "text": "Turn right.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_not_557f255.webp",
@@ -1576,26 +1591,30 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "Turn [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "right-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "left-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "left"
+          "label": "Please"
         },
         {
-          "id": "right-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "right"
+          "label": "repeat"
         }
       ],
-      "audio_text": "Turn ___.",
-      "answer_audio_text": "Turn right.",
+      "audio_text": "Please repeat.",
+      "answer_audio_text": "Please repeat.",
       "prompt_image_url": "/lesson-assets/a1_scene_right_d27a1f1.webp",
-      "spanish_translation": "Gira a la [pausa].",
+      "spanish_translation": "Por favor repite.",
       "pedagogy_note": "Unit 6.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1603,11 +1622,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-9-complete-a1-review-c030-prompt-f5d90a3550681ee42c13",
+          "id": "lesson-7-9-complete-a1-review-c030-prompt-453d221a61a617c4a2b9",
           "purpose": "prompt",
-          "text": "Turn right.",
+          "text": "Please repeat.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_right_d27a1f1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1615,9 +1634,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-9-complete-a1-review-c030-answer-c3c877c901ad88f7fbca",
+          "id": "lesson-7-9-complete-a1-review-c030-answer-39281668900d3975ba95",
           "purpose": "answer",
-          "text": "Turn right.",
+          "text": "Please repeat.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_right_d27a1f1.webp",
@@ -1630,26 +1649,48 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "It is cold. I need a [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "jacket-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "shirt-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "shirt"
+          "label": "I"
         },
         {
-          "id": "jacket-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "jacket"
+          "label": "do"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "fish"
         }
       ],
-      "audio_text": "It is cold. I need a ___.",
-      "answer_audio_text": "It is cold. I need a jacket.",
+      "audio_text": "I do not like fish.",
+      "answer_audio_text": "I do not like fish.",
       "prompt_image_url": "/lesson-assets/a1_scene_jacket_1cdbba9.webp",
-      "spanish_translation": "Hace fr\u00edo. Necesito una [pausa].",
+      "spanish_translation": "No me gusta el pescado.",
       "pedagogy_note": "Unit 7.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1657,11 +1698,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-9-complete-a1-review-c031-prompt-45dccd37ee30d8fb3f20",
+          "id": "lesson-7-9-complete-a1-review-c031-prompt-366837ea62b11db9ade6",
           "purpose": "prompt",
-          "text": "It is cold. I need a jacket.",
+          "text": "I do not like fish.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_jacket_1cdbba9.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1669,9 +1710,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-9-complete-a1-review-c031-answer-17dab2f2152e2088656b",
+          "id": "lesson-7-9-complete-a1-review-c031-answer-04fe0b3c5f60643e057b",
           "purpose": "answer",
-          "text": "It is cold. I need a jacket.",
+          "text": "I do not like fish.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_jacket_1cdbba9.webp",
@@ -1684,26 +1725,60 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___. ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "please-repeat-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
       "options": [
         {
-          "id": "please-repeat-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Please repeat."
+          "label": "It"
         },
         {
-          "id": "thank-you-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Thank you."
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "cold"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "I"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "need"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "jacket"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Please repeat.",
+      "audio_text": "It is cold. I need a jacket.",
+      "answer_audio_text": "It is cold. I need a jacket.",
       "prompt_image_url": "/lesson-assets/a1_scene_please-repeat_50ab734.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "Hace fr\u00edo. Necesito una chaqueta.",
       "pedagogy_note": "Practical recovery with established instruction only.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1711,9 +1786,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-9-complete-a1-review-c032-prompt-ad441ec58e33ecb16368",
+          "id": "lesson-7-9-complete-a1-review-c032-prompt-69cf3ea156475bd15cbd",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "It is cold. I need a jacket.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_please-repeat_50ab734.webp",
@@ -1723,9 +1798,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-9-complete-a1-review-c032-answer-a61fc42d5f00ea908d1d",
+          "id": "lesson-7-9-complete-a1-review-c032-answer-acfc9ec3fce4ea3a56bb",
           "purpose": "answer",
-          "text": "Please repeat.",
+          "text": "It is cold. I need a jacket.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_please-repeat_50ab734.webp",

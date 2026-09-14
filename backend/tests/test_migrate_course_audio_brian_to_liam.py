@@ -11,6 +11,7 @@ from unittest.mock import patch
 from backend.app.card_audio_assets import asset_index
 from backend.app.course_audio_registry import load_approved_take_registry, resolve_approved_take
 from backend.app.data import LESSONS
+from backend.app.schemas import CourseAudioAsset
 from scripts import migrate_course_audio_brian_to_liam as migration
 from scripts.render_course_audio_assets import write_registry
 
@@ -25,7 +26,10 @@ class BrianToLiamRegistryMigrationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.current_index = asset_index(LESSONS)
-        cls.target_asset = cls.current_index[migration.PINNED_ASSET_ID]
+        cls.target_asset = cls.current_index.get(
+            migration.PINNED_ASSET_ID,
+            CourseAudioAsset(**migration.PINNED_ASSET_CONTRACT),
+        )
         cls.valid_ana_asset = cls.current_index[VALID_ANA_ASSET_ID]
         cls.real_registry_dir = migration.approved_audio_dir()
         cls.real_registry = load_approved_take_registry()

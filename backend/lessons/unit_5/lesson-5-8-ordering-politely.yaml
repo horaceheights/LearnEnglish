@@ -697,195 +697,235 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete2",
+      "prompt": "Here ___ ___.",
       "stage": "Use",
-      "correct_option_id": "hello-1",
+      "correct_option_id": "you",
       "options": [
         {
-          "id": "hello-1",
+          "id": "you",
           "image_url": "",
-          "label": "Hello."
+          "label": "you"
         },
         {
-          "id": "thank-you-2",
+          "id": "are",
           "image_url": "",
-          "label": "Thank you."
-        }
-      ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Hello.",
-      "prompt_image_url": "a1_scene_hello_19bd437.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Generic proven instruction; scene establishes the opening turn."
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Water, [blank].",
-      "stage": "Use",
-      "correct_option_id": "please-2",
-      "options": [
-        {
-          "id": "hello-1",
-          "image_url": "",
-          "label": "hello"
-        },
-        {
-          "id": "please-2",
-          "image_url": "",
-          "label": "please"
-        }
-      ],
-      "audio_text": "Water, ___.",
-      "answer_audio_text": "Water, please.",
-      "prompt_image_url": "a1_scene_please_cae355b.webp",
-      "spanish_translation": "Agua, [pausa].",
-      "pedagogy_note": "Only please forms the taught request; Water, thank you was removed because it can also be a valid polite request."
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "response-choice",
-      "prompt": "Water, please.",
-      "stage": "Use",
-      "correct_option_id": "here-you-are-1",
-      "options": [
-        {
-          "id": "here-you-are-1",
-          "image_url": "",
-          "label": "Here you are."
-        },
-        {
-          "id": "no-thank-you-2",
-          "image_url": "",
-          "label": "No, thank you."
-        }
-      ],
-      "audio_text": "Water, please.",
-      "answer_audio_text": "Here you are.",
-      "prompt_image_url": "a1_scene_here-you-are_4ab9749.webp",
-      "spanish_translation": "Agua, por favor.",
-      "pedagogy_note": "Role-appropriate response."
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "response-choice",
-      "prompt": "Here you are.",
-      "stage": "Use",
-      "correct_option_id": "thank-you-1",
-      "options": [
-        {
-          "id": "thank-you-1",
-          "image_url": "",
-          "label": "Thank you."
-        },
-        {
-          "id": "here-you-are-2",
-          "image_url": "",
-          "label": "Here you are."
+          "label": "are"
         }
       ],
       "audio_text": "Here you are.",
-      "answer_audio_text": "Thank you.",
-      "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Aquí tienes.",
-      "pedagogy_note": "Role contrast removes the plausible option of placing another order."
+      "answer_audio_text": "Here you are.",
+      "prompt_image_url": "a1_scene_hello_19bd437.webp",
+      "spanish_translation": "Aquí tiene.",
+      "pedagogy_note": "Generic proven instruction; scene establishes the opening turn.",
+      "translation": "Aquí tiene.",
+      "correct_option_ids": [
+        "you",
+        "are"
+      ]
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "No, ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "thank",
+      "options": [
+        {
+          "id": "thank",
+          "image_url": "",
+          "label": "thank"
+        },
+        {
+          "id": "you",
+          "image_url": "",
+          "label": "you"
+        }
+      ],
+      "audio_text": "No, thank you.",
+      "answer_audio_text": "No, thank you.",
+      "prompt_image_url": "a1_scene_please_cae355b.webp",
+      "spanish_translation": "No, gracias.",
+      "pedagogy_note": "Only please forms the taught request; Water, thank you was removed because it can also be a valid polite request.",
+      "translation": "No, gracias.",
+      "correct_option_ids": [
+        "thank",
+        "you"
+      ]
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "The juice is ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "four",
+      "options": [
+        {
+          "id": "four",
+          "image_url": "",
+          "label": "four"
+        },
+        {
+          "id": "dollars",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "The juice is four dollars.",
+      "answer_audio_text": "The juice is four dollars.",
+      "prompt_image_url": "a1_scene_four_9f8f7ee.webp",
+      "spanish_translation": "El jugo cuesta cuatro dólares.",
+      "pedagogy_note": "Role-appropriate response.",
+      "translation": "El jugo cuesta cuatro dólares.",
+      "correct_option_ids": [
+        "four",
+        "dollars"
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "Coffee, please. ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "thank",
+      "options": [
+        {
+          "id": "thank",
+          "image_url": "",
+          "label": "Thank"
+        },
+        {
+          "id": "you",
+          "image_url": "",
+          "label": "you"
+        }
+      ],
+      "audio_text": "Coffee, please. Thank you.",
+      "answer_audio_text": "Coffee, please. Thank you.",
+      "prompt_image_url": "a1_scene_coffee_44213f9.webp",
+      "spanish_translation": "Café, por favor. Gracias.",
+      "pedagogy_note": "Role contrast removes the plausible option of placing another order.",
+      "translation": "Café, por favor. Gracias.",
+      "correct_option_ids": [
+        "thank",
+        "you"
+      ]
     },
     {
       "slide_id": "U5",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "yes-please-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "yes-please-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Yes, please."
+          "label": "Water"
         },
         {
-          "id": "no-thank-you-2",
-          "image_url": "",
-          "label": "No, thank you."
-        }
-      ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Yes, please.",
-      "prompt_image_url": "a1_scene_yes-please_ae43854.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Visual turn context; no new offer wording."
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
-      "stage": "Use",
-      "correct_option_id": "no-thank-you-2",
-      "options": [
-        {
-          "id": "yes-please-1",
-          "image_url": "",
-          "label": "Yes, please."
-        },
-        {
-          "id": "no-thank-you-2",
-          "image_url": "",
-          "label": "No, thank you."
-        }
-      ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "No, thank you.",
-      "prompt_image_url": "a1_scene_no-thank-you_23aa575.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Polite refusal from visual context."
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "Juice, [blank].",
-      "stage": "Use",
-      "correct_option_id": "please-2",
-      "options": [
-        {
-          "id": "hello-1",
-          "image_url": "",
-          "label": "hello"
-        },
-        {
-          "id": "please-2",
+          "id": "word-2",
           "image_url": "",
           "label": "please"
         }
       ],
-      "audio_text": "Juice, ___.",
+      "audio_text": "Water, please.",
+      "answer_audio_text": "Water, please.",
+      "prompt_image_url": "a1_scene_yes-please_ae43854.webp",
+      "spanish_translation": "Agua, por favor.",
+      "pedagogy_note": "Visual turn context; no new offer wording.",
+      "translation": "Agua, por favor.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Yes"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "please"
+        }
+      ],
+      "audio_text": "Yes, please.",
+      "answer_audio_text": "Yes, please.",
+      "prompt_image_url": "a1_scene_no-thank-you_23aa575.webp",
+      "spanish_translation": "Sí, por favor.",
+      "pedagogy_note": "Polite refusal from visual context.",
+      "translation": "Sí, por favor.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Juice"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "please"
+        }
+      ],
+      "audio_text": "Juice, please.",
       "answer_audio_text": "Juice, please.",
       "prompt_image_url": "a1_scene_please_cae355b.webp",
-      "spanish_translation": "Jugo, [pausa].",
-      "pedagogy_note": "Two-choice request completion removes Thank you, which can also be valid after an elliptical item request."
+      "spanish_translation": "Jugo, por favor.",
+      "pedagogy_note": "Two-choice request completion removes Thank you, which can also be valid after an elliptical item request.",
+      "translation": "Jugo, por favor.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "The juice is four dollars.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "thank-you-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Thank you."
+          "label": "Thank"
         },
         {
-          "id": "no-thank-you-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "No, thank you."
+          "label": "you"
         }
       ],
-      "audio_text": "The juice is four dollars.",
+      "audio_text": "Thank you.",
       "answer_audio_text": "Thank you.",
       "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "El jugo cuesta cuatro dólares.",
-      "pedagogy_note": "Reviews price; scene explicitly shows completed purchase rather than refusal."
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Reviews price; scene explicitly shows completed purchase rather than refusal.",
+      "translation": "Gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
     }
   ]
 }

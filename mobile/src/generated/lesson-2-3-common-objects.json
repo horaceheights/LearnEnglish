@@ -1517,31 +1517,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "book-3",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "book"
+      ],
       "options": [
         {
-          "id": "bag-1",
+          "id": "a",
           "image_url": "",
-          "label": "bag"
+          "label": "a"
         },
         {
-          "id": "phone-2",
-          "image_url": "",
-          "label": "phone"
-        },
-        {
-          "id": "book-3",
+          "id": "book",
           "image_url": "",
           "label": "book"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a book.",
       "answer_audio_text": "It is a book.",
       "prompt_image_url": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
-      "spanish_translation": "Es un ___.",
+      "spanish_translation": "Es un libro.",
       "pedagogy_note": "object completion",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1549,11 +1548,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c029-prompt-28def8d00c14601aa31a",
+          "id": "lesson-2-3-common-objects-c029-prompt-b85ac3a3e710cedcd9e1",
           "purpose": "prompt",
           "text": "It is a book.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/object_book.webp?v=20260801-objects-places-v2",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1576,31 +1575,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "pen-1",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "pen"
+      ],
       "options": [
         {
-          "id": "pen-1",
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "pen",
           "image_url": "",
           "label": "pen"
-        },
-        {
-          "id": "book-2",
-          "image_url": "",
-          "label": "book"
-        },
-        {
-          "id": "phone-3",
-          "image_url": "",
-          "label": "phone"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a pen.",
       "answer_audio_text": "It is a pen.",
       "prompt_image_url": "/lesson-assets/a1_pen.webp",
-      "spanish_translation": "Es un ___.",
+      "spanish_translation": "Es un bol\u00edgrafo.",
       "pedagogy_note": "object completion",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1608,11 +1606,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c030-prompt-e48fa9a38462db1f0d96",
+          "id": "lesson-2-3-common-objects-c030-prompt-854e2ce2aa498c02bee4",
           "purpose": "prompt",
           "text": "It is a pen.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_pen.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1635,31 +1633,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "chair-2",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "chair"
+      ],
       "options": [
         {
-          "id": "table-1",
+          "id": "a",
           "image_url": "",
-          "label": "table"
+          "label": "a"
         },
         {
-          "id": "chair-2",
+          "id": "chair",
           "image_url": "",
           "label": "chair"
-        },
-        {
-          "id": "bag-3",
-          "image_url": "",
-          "label": "bag"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a chair.",
       "answer_audio_text": "It is a chair.",
       "prompt_image_url": "/lesson-assets/a1_chair.webp",
-      "spanish_translation": "Es una ___.",
+      "spanish_translation": "Es una silla.",
       "pedagogy_note": "object completion",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1667,11 +1664,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c031-prompt-5350ff9863c802cbec4a",
+          "id": "lesson-2-3-common-objects-c031-prompt-20a242da23085cecc8ee",
           "purpose": "prompt",
           "text": "It is a chair.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_chair.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1694,31 +1691,42 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "table-4",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "chair-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "chair"
+          "label": "It"
         },
         {
-          "id": "phone-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "phone"
+          "label": "is"
         },
         {
-          "id": "table-4",
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "table"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a table.",
       "answer_audio_text": "It is a table.",
       "prompt_image_url": "/lesson-assets/a1_table.webp",
-      "spanish_translation": "Es una ___.",
+      "spanish_translation": "Es una mesa.",
       "pedagogy_note": "object completion",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1726,11 +1734,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c032-prompt-97f70657b2ba2748743d",
+          "id": "lesson-2-3-common-objects-c032-prompt-279c1201dfa68c5b4c60",
           "purpose": "prompt",
           "text": "It is a table.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_table.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1753,31 +1761,60 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete4",
-      "prompt": "It is a table, not a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___, ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "chair-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
       "options": [
         {
-          "id": "chair-1",
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "table"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-7",
           "image_url": "",
           "label": "chair"
-        },
-        {
-          "id": "book-2",
-          "image_url": "",
-          "label": "book"
-        },
-        {
-          "id": "pen-3",
-          "image_url": "",
-          "label": "pen"
         }
       ],
-      "audio_text": "It is a table, not a ___.",
+      "audio_text": "It is a table, not a chair.",
       "answer_audio_text": "It is a table, not a chair.",
       "prompt_image_url": "/lesson-assets/a1_table.webp",
-      "spanish_translation": "Es una mesa, no una ___.",
+      "spanish_translation": "Es una mesa, no una silla.",
       "pedagogy_note": "Repetition with growth: complete object contrast with negation",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1785,11 +1822,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c033-prompt-6c1ac46b674890027601",
+          "id": "lesson-2-3-common-objects-c033-prompt-2eb2ba669166621038d2",
           "purpose": "prompt",
           "text": "It is a table, not a chair.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_table.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1812,31 +1849,60 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete4",
-      "prompt": "It is a bag, not a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___, ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "book-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
       "options": [
         {
-          "id": "book-1",
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "bag"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-7",
           "image_url": "",
           "label": "book"
-        },
-        {
-          "id": "chair-2",
-          "image_url": "",
-          "label": "chair"
-        },
-        {
-          "id": "table-3",
-          "image_url": "",
-          "label": "table"
         }
       ],
-      "audio_text": "It is a bag, not a ___.",
+      "audio_text": "It is a bag, not a book.",
       "answer_audio_text": "It is a bag, not a book.",
       "prompt_image_url": "/lesson-assets/object_backpack.webp?v=20260801-objects-places-v2",
-      "spanish_translation": "Es una bolsa, no un ___.",
+      "spanish_translation": "Es una bolsa, no un libro.",
       "pedagogy_note": "Repetition with growth: complete portable object contrast with negation",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1844,11 +1910,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-3-common-objects-c034-prompt-eba2df89f1334fcdf299",
+          "id": "lesson-2-3-common-objects-c034-prompt-6191a9d23ff4b033c8d8",
           "purpose": "prompt",
           "text": "It is a bag, not a book.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/object_backpack.webp?v=20260801-objects-places-v2",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

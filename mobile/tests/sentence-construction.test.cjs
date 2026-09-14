@@ -11,7 +11,7 @@ vm.runInNewContext(compiled, { exports: api });
 const lesson = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/lesson-1-people-actions.json')));
 const pilots = lesson.cards.filter(api.isSentenceConstruction);
 const rollout = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json')))
-  .filter(lesson => ['1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'].includes(lesson.sub_lesson_id))
+  .filter(lesson => lesson.sub_lesson_id !== '1.1' && lesson.lesson_kind !== 'mission')
   .flatMap(lesson => lesson.cards.filter(api.isSentenceConstruction));
 
 test('three ordinary completions lead to four constructions with only required words', () => {
@@ -25,12 +25,12 @@ test('three ordinary completions lead to four constructions with only required w
   }
   for (const card of lesson.cards.filter(c => ['U1', 'U2', 'U3'].includes(c.slide_id))) {
     assert.equal(api.isSentenceConstruction(card), false);
-    assert.equal(card.audio_assets[0].variant, 'completion-prompt');
+    assert.equal(card.audio_assets[0].variant, 'prompt');
   }
 });
 
 test('tap, arbitrary drop, outside drop, removal and repair share ordered validation', () => {
-  assert.equal(rollout.length, 28);
+  assert.equal(rollout.length, 226);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;
