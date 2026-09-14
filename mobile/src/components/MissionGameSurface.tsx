@@ -4,6 +4,7 @@ import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } fro
 
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { fitMissionHeadScene, type HeadMarker } from '../missionTargetInteraction';
+import { missionChallengeLabel } from '../missionPresentation';
 import type { LessonCard, MissionGame, MissionGameTarget } from '../types';
 import { OptionMediaImage } from './OptionMediaImage';
 
@@ -20,15 +21,6 @@ type Props = {
   onTargetFound: () => void;
   onSubmit: (optionIds: string[]) => void;
   result: Result;
-};
-
-const KIND_LABELS: Record<MissionGame['kind'], string> = {
-  'action-hunt': 'ENCUENTRA LA ACCIÓN',
-  'contrast-hunt': 'MIRA BIEN',
-  'crowd-search': 'ENCUENTRA A LA PERSONA',
-  'family-link': 'REÚNE A LA FAMILIA',
-  'guided-search': 'PRIMER RETO',
-  'voice-gate': 'RETO DE VOZ',
 };
 
 function TargetDot({
@@ -76,7 +68,7 @@ function TargetDot({
 
   return (
     <Pressable
-      accessibilityHint="Escucha la frase y toca si describe a esta persona o grupo."
+      accessibilityHint={target.subject_kind === 'object' ? 'Escucha la frase y toca si describe este objeto, lugar o grupo.' : 'Escucha la frase y toca si describe a esta persona o grupo.'}
       accessibilityLabel={target.label_es || 'Persona'}
       accessibilityRole="button"
       accessibilityState={{ disabled, selected: isSolved }}
@@ -117,7 +109,7 @@ function TargetDot({
       ]}>
         <Ionicons
           color="#fff"
-          name={isSolved ? 'checkmark' : collective ? 'people' : 'radio-button-on'}
+          name={isSolved ? 'checkmark' : collective ? target.subject_kind === 'object' ? 'layers' : 'people' : 'radio-button-on'}
           size={isSolved ? 22 : collective ? 18 : 16}
         />
       </View>
@@ -151,7 +143,9 @@ export function MissionGameSurface({
     || card.options.find((option) => option.image_url)?.image_url
     || '';
   const useLandscapeGameRail = viewportWidth > viewportHeight && viewportHeight < 600;
-  const landscapeInstruction = game.targets.every((target) => (target.head_anchors?.length ?? 1) > 1)
+  const landscapeInstruction = game.targets.every(target => target.subject_kind === 'object')
+    ? game.instruction_es
+    : game.targets.every((target) => (target.head_anchors?.length ?? 1) > 1)
     ? 'Escucha y toca al grupo.'
     : game.targets.some((target) => (target.head_anchors?.length ?? 1) > 1)
       ? 'Escucha y toca a la persona o al grupo.'
@@ -228,7 +222,7 @@ export function MissionGameSurface({
     ]}>
       <View style={[styles.instructionCopy, useLandscapeGameRail ? styles.instructionCopyLandscape : null]}>
         <View style={[styles.instructionMeta, useLandscapeGameRail ? styles.instructionMetaLandscape : null]}>
-          {!useLandscapeGameRail ? <Text style={styles.kindLabel}>{KIND_LABELS[game.kind]}</Text> : null}
+          {!useLandscapeGameRail ? <Text style={styles.kindLabel}>{missionChallengeLabel(game)}</Text> : null}
           <Text style={styles.cueProgress}>PISTA {cueProgress}</Text>
         </View>
         <Text accessibilityLiveRegion={useLandscapeGameRail ? 'polite' : 'none'} adjustsFontSizeToFit minimumFontScale={0.78} numberOfLines={useLandscapeGameRail ? 4 : 2} style={styles.instruction}>
@@ -334,9 +328,9 @@ export function MissionGameSurface({
           <View pointerEvents={disabled ? 'none' : 'box-none'} style={StyleSheet.absoluteFill}>
             {sceneFrame.markers.map((marker, index) => (
               <View key={marker.id} pointerEvents="box-none" style={StyleSheet.absoluteFill}>
-                {!marker.chest && marker.heads.map((head, headIndex) => {
-                  const fromX = marker.x + marker.width / 2;
-                  const fromY = marker.y + marker.height - 7;
+                {!marker.chest && (marker.leaderHeads || marker.heads).map((head, headIndex) => {
+                  const fromX = marker.leaderFrom?.x ?? marker.x + marker.width / 2;
+                  const fromY = marker.leaderFrom?.y ?? marker.y + marker.height - 7;
                   const dx = head.x - fromX;
                   const dy = head.y - 3 - fromY;
                   const length = Math.hypot(dx, dy);

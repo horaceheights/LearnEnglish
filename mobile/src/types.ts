@@ -38,6 +38,7 @@ export type MissionGameTarget = {
   accepted_option_ids: string[];
   head_anchors?: { x: number; y: number }[];
   group_chest_anchor?: { x: number; y: number } | null;
+  subject_kind?: 'object' | null;
 };
 
 export type MissionGameCue = {
@@ -96,6 +97,9 @@ export type MissionPresentation = {
   objectives: string[];
   completion_title: string;
   completion_message: string;
+  voice_heading?: string;
+  voice_instruction?: string;
+  voice_success_label?: string;
   chapters: MissionChapter[];
 };
 

@@ -9,6 +9,8 @@ from fastapi import HTTPException
 import yaml
 
 from backend.app import main
+from backend.app.card_audio_assets import asset_index as canonical_asset_index
+from backend.app.data import LESSONS
 from backend.app.course_audio_profile import NEUTRAL_SPEAKER_ROLES
 from backend.app.course_audio_registry import load_approved_take_registry
 from backend.app.persistent_audio_assets import (
@@ -21,21 +23,25 @@ from backend.app.persistent_audio_assets import (
     seed_static_assets,
     storage_status,
 )
+from scripts.export_persistent_audio_catalog import build_catalog
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PREVIEW_AUDIO_COMMIT = "52dbcbeb5fc82b47cc3b79538687cfe0edfd9da3"
 
 
 class PersistentAudioCompatibilityTests(unittest.TestCase):
     def test_catalog_is_the_complete_preview_candidate_contract(self):
         catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
 
-        self.assertEqual(PREVIEW_AUDIO_COMMIT, catalog["source_commit"])
+        # Bind the full catalog to its exact immutable source snapshot, not a
+        # previously released commit/count. Protected CI fetches full history.
+        self.assertRegex(catalog["source_commit"], r"^[0-9a-f]{40}$")
+        rebuilt = build_catalog(catalog["source_commit"])
+        rebuilt["source_ref"] = catalog["source_ref"]
+        self.assertEqual(rebuilt, catalog)
+        self.assertEqual(canonical_asset_index(LESSONS), asset_index())
         self.assertEqual(70, catalog["lesson_count"])
-        self.assertEqual(4655, catalog["asset_count"])
-        self.assertEqual(3735, catalog["registry_asset_count"])
-        self.assertEqual(920, catalog["legacy_manifest_asset_count"])
+        self.assertEqual(catalog["asset_count"], catalog["registry_asset_count"] + catalog["legacy_manifest_asset_count"])
         self.assertEqual(catalog["asset_count"], len(asset_index()))
 
         hello = asset_index()[

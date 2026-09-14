@@ -1,0 +1,199 @@
+{
+  "lesson_id": "lesson-2-9-unit-2-review",
+  "lesson_number": "2.9",
+  "revision": 1,
+  "output_namespace": "unit-2-review-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.25",
+    "estimated_usd": "0.76",
+    "estimated_mxn": "12.90",
+    "fx_mxn_per_usd": "16.9707",
+    "note": "16 new review-only stills, not a provider/style replacement of healthy Gemini media. Original files and teaching uses stay untouched. No automatic retries or assumed caching savings."
+  },
+  "shared_prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.",
+  "assets": [
+    {
+      "id": "park",
+      "runtime_filename": "a1_u2_review_v1_park.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "place_park.webp"
+        ]
+      },
+      "prompt": "An inviting public park photographed from a low eye-level diagonal angle along a curving gravel path toward a clearly visible public playground with swings and slide. Mature jacaranda trees, grass, dappled afternoon light, distant adults walking. The public recreation space is unmistakable, not a private yard or school. No institutional building, street traffic or signs. Natural broad scene."
+    },
+    {
+      "id": "school",
+      "runtime_filename": "a1_u2_review_v1_school.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_school.webp"
+        ]
+      },
+      "prompt": "Eye-level candid photograph outside the open entrance of a neighborhood primary school in morning light. Several school-age children with large clearly visible backpacks walk into a supervised courtyard with classroom doors and windows; an adult teacher welcomes them at the gate. Real Latin American school context without flags or words. Complete children and backpacks, natural anatomy, no slide/playground or park scene. The entrance and school routine establish the place without a SCHOOL sign."
+    },
+    {
+      "id": "bridge",
+      "runtime_filename": "a1_u2_review_v1_bridge.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "place_bridge.webp"
+        ]
+      },
+      "prompt": "A real short pedestrian bridge made of honey-colored timber, crossing a narrow flowing river in a leafy town. Three-quarter viewpoint from the riverbank makes the complete span, railings and water flowing underneath clearly visible. No buses, no road traffic, no signs. Warm early-morning light, detailed weathered wood and water. Different from a stone arch bridge."
+    },
+    {
+      "id": "bus",
+      "runtime_filename": "a1_u2_review_v1_bus.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "place_bus.webp"
+        ]
+      },
+      "prompt": "One full-size yellow city bus seen from a front three-quarter viewpoint at a quiet paved terminal. Tall windshield, repeated passenger windows and folding passenger doors are clear. All wheels and the full vehicle fit with generous margins. No second vehicle, people blocking its shape, writing, route numbers, logos or signs. Real slightly worn vehicle paint, soft overcast daylight, not a tiny model."
+    },
+    {
+      "id": "book",
+      "runtime_filename": "a1_u2_review_v1_book.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "object_book.webp"
+        ]
+      },
+      "prompt": "One open hardback book alone on a textured cream linen-covered side table, high three-quarter close-up. Its complete two facing pages, thick page block, spine and plain burgundy cover are clearly identifiable, no phone or pen. Soft window light rakes across real paper. Pages may have tiny unreadable natural lines of print, but no readable words, illustrations, labels or large letters. Complete book with margins, cozy realistic home background."
+    },
+    {
+      "id": "phone",
+      "runtime_filename": "a1_u2_review_v1_phone.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_phone.webp"
+        ]
+      },
+      "prompt": "One unmistakable modern smartphone with a light beige protective case and black reflective glass screen, lying diagonally on a pale stone cafe table. Close high-angle photograph with its entire shape, lens opening, side buttons and softly rounded corners visible. No other objects, no writing on screen, no book-like hinged cover. Natural daylight, slight fingerprints and real reflections. Phone large and centered."
+    },
+    {
+      "id": "near-bag",
+      "runtime_filename": "a1_u2_review_v1_near_bag.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_near-bag.webp"
+        ]
+      },
+      "prompt": "First-person view looking down and across a small bright entry room. Learner's LEFT hand holds the handle of a complete small rust-orange fabric handbag close to the camera; the bag is clearly visible in the lower middle. A SECOND identical rust-orange handbag rests on a low wooden shelf one meter beyond, upper middle, smaller but still at least one fifth the image width. Learner's RIGHT hand points with its index finger at the NEAR bag held by the left hand, clearly short of the bag and not hiding it. Two plausible attached forearms enter from bottom, five fingers per hand, complete bags and handles. No other bags. Cream walls and pale tile floor; honest near/far depth, both sharp. Near bag within central 60 percent. The gesture means THIS, not THAT."
+    },
+    {
+      "id": "far-bag",
+      "runtime_filename": "a1_u2_review_v1_far_bag.webp",
+      "reference": "near-bag",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Add the missing same-object far contrast so listening must distinguish this from that, not just bag from chair."
+      },
+      "prompt": "Use case: precise-object-edit. Image 1 is the exact room and two-bag continuity reference. Change ONLY the right pointing hand: now it points toward the FAR rust-orange handbag on the shelf, stopping visibly short of its silhouette and never touching it. Preserve the camera, lighting, two exact bags, depth, left hand continuously holding the NEAR bag, and all proportions. Both whole bags remain visible and sharp. Natural anatomically attached right forearm. The fingertip must indicate the far bag unambiguously. No extra hands, objects, labels or letters. This gesture means THAT."
+    },
+    {
+      "id": "far-chair-clear",
+      "runtime_filename": "a1_u2_review_v1_far_chair.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_far-chair.webp"
+        ]
+      },
+      "prompt": "First-person photograph looking steeply DOWN from standing eye height into a SMALL entry room. Exactly TWO matching blue wooden chairs on pale tiles, BOTH COMPLETELY inside the photograph, including every leg and seat; leave at least 8 percent visible floor below every chair foot. NEAR chair is lower-center-left, occupying at most 45 percent of photo height, NOT cropped by the bottom. FAR chair is only 80 centimeters beyond it at upper-center-right and occupies at least 25 percent of image WIDTH: it is large and sharp, NOT a tiny chair across a long room. Both whole chairs fit within the same compact patch of floor; background wall need not show. Learner's LEFT hand grips the NEAR backrest while the RIGHT index finger indicates the FAR chair from below, fingertip stopping clearly short of its silhouette. Two anatomically plausible forearms enter from lower corners, never cover seats or legs. Use a high downward camera to show both complete chairs and honest modest depth. Both chairs and pointing direction immediately legible at phone size. Real blue painted wood, daylight, no extra chairs, tables, text, labels or inset panels. The right finger clearly means THAT far chair; preserve nearby gripped chair as reference.",
+      "concept_id": "far-chair"
+    },
+    {
+      "id": "near-chair",
+      "runtime_filename": "a1_u2_review_v1_near_chair.webp",
+      "reference": "far-chair-clear",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Add a same-chair near contrast; old bag distractor allowed answering a distance task from the noun alone."
+      },
+      "prompt": "Use case: precise-object-edit. Image 1 establishes the exact room, camera, two blue chairs, distance, light and learner's two arms. Change ONLY the right hand so its index finger points at the NEAR chair gripped by the LEFT hand. Preserve both complete chairs and all legs; far chair remains clearly visible and smaller. Left hand keeps holding the near backrest. Right fingertip stops just short without covering any chair. No extra arms, objects, text or scene changes. The gesture now clearly indicates THIS nearby chair."
+    },
+    {
+      "id": "green-books",
+      "runtime_filename": "a1_u2_review_v1_green_books.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_three-green-books.webp",
+          "a1_three-green-books_four-card.webp"
+        ]
+      },
+      "prompt": "Exactly THREE separate closed GREEN hardback books on a real honey-colored wooden desk, photographed almost from above. Arrange in a compact vertical triangle, fully separated with clear wood between, NOT stacked or touching. Visible cream page blocks distinguish books from slabs. Every book and all its edges stay inside the central half of the image width and middle 75 percent height so a tall centered crop still shows all three. Whole full-bleed desk background with natural grain, no inset panels. No extra books, pens, labels or numerals. Rich true green covers; clear count three."
+    },
+    {
+      "id": "yellow-pens",
+      "runtime_filename": "a1_u2_review_v1_yellow_pens.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_four-yellow-pens.webp"
+        ]
+      },
+      "prompt": "Exactly FOUR bright YELLOW ballpoint pens, each complete with a tip and clip, on a lightly worn real gray desktop. Almost-overhead photograph. Arrange all four vertically parallel in a compact central row with clear gaps, all within the central half of image width and middle 75 percent height. No extra loose caps, notebook, book, pencils, writing or numerals. Pens share one clear yellow color and their complete tips stay visible even in a centered tall crop. Natural side-window light and rich surface detail."
+    },
+    {
+      "id": "black-phones",
+      "runtime_filename": "a1_u2_review_v1_black_phones.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_five-black-phones_734dda6.webp",
+          "a1_scene_five-black-phones_734dda6_four-card.webp"
+        ]
+      },
+      "prompt": "Exactly FIVE complete BLACK smartphones face-up on a lightly worn pale wooden tabletop, almost-overhead photograph. Two columns: three phones down the left and two down the right, each separated by large clear gaps. Every phone entirely inside the central HALF of image width and middle 80 percent height, preserving count in a centered tall crop. Distinct black glass faces, rounded corners, natural reflected window light. No extra phone, book, loose case, text, UI or numeral. Do not overlap or stack any phone. One real photograph, not a collage."
+    },
+    {
+      "id": "white-bags",
+      "runtime_filename": "a1_u2_review_v1_white_bags.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "unit2_six_white_bags.webp",
+          "a1_scene_six-white-bags_f412a8a_four-card.webp"
+        ]
+      },
+      "prompt": "Exactly SIX small WHITE canvas drawstring bags on a real pale-brown wooden packing table, photographed from almost directly above. Arrange in TWO columns of THREE with generous gaps: each complete bag has one clear gathered opening and its strings visible. No bag touches or overlaps another. All six bags fit entirely inside the CENTRAL HALF of the image width and middle 80 percent height for a centered tall crop. Natural cloth texture, warm afternoon light, enough contrast against wood. No extra bags, labels, writing, numbers or inset panels."
+    },
+    {
+      "id": "red-car",
+      "runtime_filename": "a1_u2_review_v1_red_car.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_one-red-car.webp"
+        ]
+      },
+      "prompt": "Exactly ONE red compact hatchback parked alone in a small gravel driveway beside a stucco wall. Natural front three-quarter photograph, full vehicle with all wheels visible, real red paint and realistic scale. No other vehicle, bike, person, logo, legible numberplate or text. Warm morning sunlight. Clear single-car subject with room around every edge, not a crop from a traffic scene."
+    },
+    {
+      "id": "blue-cars",
+      "runtime_filename": "a1_u2_review_v1_blue_cars.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Retrieve the taught plural cars, two and blue on the successful review path, absent from the old review."
+      },
+      "prompt": "Exactly TWO blue compact passenger cars in two adjacent parking spaces, photographed from an elevated front three-quarter angle so both entire cars and wheels are visible. No overlap; pavement space separates them. Both unambiguously blue with slight different blue shades, real clean outdoor parking lot in soft morning light. No extra car in the distance, no bus, people, words, numbers or logos. Complete pair large in frame, realistic material details, never toy cars or split panels."
+    }
+  ]
+}

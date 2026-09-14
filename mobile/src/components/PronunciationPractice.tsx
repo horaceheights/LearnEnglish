@@ -72,6 +72,7 @@ type Props = {
   videoName?: string | null;
   level: string;
   presentation?: 'standard' | 'mission-voice-gate';
+  missionSuccessLabel?: string;
   userId?: string;
   onAttempted?: () => void;
   headerReplayRequestId?: number;
@@ -252,6 +253,7 @@ export function PronunciationPractice({
   videoName,
   level,
   presentation = 'standard',
+  missionSuccessLabel,
   userId,
   onAttempted,
   headerReplayRequestId = 0,
@@ -1930,6 +1932,7 @@ export function PronunciationPractice({
 
   if (missionVoiceGate) {
     return <MissionVoicePresentation
+      successLabel={missionSuccessLabel}
       asking={phase === 'model'}
       imageUrl={phase === 'model' ? (audioTurns?.[0]?.turn.image_url || imageUrl || '') : imageUrl || ''}
       listening={phase === 'listening'}

@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const crypto = require('node:crypto');
 
 const mobileRoot = path.resolve(__dirname, '..');
 const repositoryRoot = path.resolve(mobileRoot, '..');
@@ -561,14 +562,14 @@ const requiredUnitTwoReplacementsByLesson = new Map([
   ],
   [
     '2.9',
-    ['unit2_six_white_bags.webp', 'a1_scene_six-white-bags_f412a8a_four-card.webp'],
+    ['a1_u2_review_v1_white_bags.webp'],
   ],
   [
     '2.10',
     [
-      'a1_u2_scene_01_park_path.webp',
-      'a1_u2_scene_02_bench.webp',
-      'a1_u2_scene_03_bus_stop.webp',
+      'a1_u2_meeting_v4_places.webp',
+      'a1_u2_meeting_v4_transport.webp',
+      'a1_u2_meeting_v4_arrival.webp',
     ],
   ],
 ]);
@@ -577,6 +578,19 @@ for (const [number, expectedFilenames] of requiredUnitTwoReplacementsByLesson) {
   const filenames = new Set(mediaFilenames(lesson(number)));
   for (const filename of expectedFilenames) {
     assert.ok(filenames.has(filename), `lesson ${number} must use corrected semantic asset ${filename}`);
+  }
+}
+
+// Intentional new packs must match the exact inspected runtime bytes, not
+// merely any new filename. Original teaching assets remain required below.
+const freshUnitTwoAssets = [];
+for (const recordFile of ['unit-2-review-media-v1.json', 'unit-2-mission-media-v4.json']) {
+  const proof = require(path.join(repositoryRoot, 'docs/qa', recordFile));
+  for (const asset of proof.assets) {
+    freshUnitTwoAssets.push(asset.runtime_filename);
+    const pixels = fs.readFileSync(path.join(mobileRoot, 'assets/lesson-assets', asset.runtime_filename));
+    assert.equal(crypto.createHash('sha256').update(pixels).digest('hex'), asset.runtime_sha256);
+    assert.equal(asset.agent_review.disposition, 'usable');
   }
 }
 
@@ -605,7 +619,7 @@ assert.ok(
   'the Unit 2 browser image must use the exact corrected two-blue-cars replacement',
 );
 
-const requiredAssets = [];
+const requiredAssets = [...freshUnitTwoAssets];
 
 const demonstrativeContracts = new Map(
   mediaManifest.assets
@@ -664,15 +678,21 @@ requiredAssets.push(
   'a1_scene_ana_age_20.webp',
   'a1_scene_ana_mexico.webp',
   'a1_scene_ana_teacher_book.webp',
-  'a1_u2_scene_01_park_path.webp',
-  'a1_u2_scene_02_bench.webp',
-  'a1_u2_scene_03_bus_stop.webp',
   'a1_u3_scene_01_kitchen.webp',
   'a1_u3_scene_02_dining.webp',
   'unit2_near_red_book.webp',
   'unit2_six_white_bags.webp',
   'unit2_mission_two_blue_cars.webp',
 );
+
+// Retired mission shots stay recoverable in every original asset location,
+// but unused files do not need to increase the learner's Metro bundle.
+for (const filename of ['a1_u2_scene_01_park_path.webp', 'a1_u2_scene_02_bench.webp', 'a1_u2_scene_03_bus_stop.webp']) {
+  const source = fs.readFileSync(path.join(repositoryRoot, 'Lessons/Lesson1/images', filename));
+  for (const folder of ['mobile/assets/lesson-assets', 'frontend/public/lesson-assets']) {
+    assert.deepEqual(fs.readFileSync(path.join(repositoryRoot, folder, filename)), source);
+  }
+}
 
 for (const filename of requiredAssets) {
   for (const root of [

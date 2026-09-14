@@ -1,7 +1,7 @@
 from typing import Any, Literal
 import re
 
-from pydantic import BaseModel, Field, field_validator, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator, model_serializer
 
 from .course_audio_profile import narrator_for_speaker
 
@@ -125,6 +125,15 @@ class MissionGameTarget(BaseModel):
     head_anchors: list[MissionHeadAnchor] = Field(default_factory=list, max_length=12)
     # Optional reviewed chest position for standing groups with individual member dots.
     group_chest_anchor: MissionHeadAnchor | None = None
+    # Explicit opt-in for object/venue scenes; never infer geometry from translated labels.
+    subject_kind: Literal["object"] | None = None
+
+    @model_serializer(mode="wrap")
+    def omit_unset_subject_kind(self, handler):
+        payload = handler(self)
+        if self.subject_kind is None:
+            payload.pop("subject_kind", None)
+        return payload
 
     @field_validator("id", "label_es")
     @classmethod
@@ -196,12 +205,12 @@ class MissionGame(BaseModel):
     def require_coherent_target_plan(self):
         individual_heads = {
             (t.head_anchors[0].x, t.head_anchors[0].y)
-            for t in self.targets if t.label_es == "Persona" and len(t.head_anchors) == 1
+            for t in self.targets
+            if t.label_es not in {"Grupo", "Pareja", "Familia"} and len(t.head_anchors) == 1
         }
         for target in self.targets:
             if target.group_chest_anchor is not None:
-                if (target.label_es not in {"Grupo", "Pareja", "Familia"}
-                        or len(target.head_anchors) < 2
+                if (len(target.head_anchors) < 2
                         or any((h.x, h.y) not in individual_heads for h in target.head_anchors)):
                     raise ValueError("Chest group markers require individual targets for every member.")
                 if target.group_chest_anchor.y <= max(h.y for h in target.head_anchors):
@@ -324,6 +333,9 @@ class MissionPresentation(BaseModel):
     objectives: list[str] = Field(min_length=1)
     completion_title: str = Field(min_length=1)
     completion_message: str = Field(min_length=1)
+    voice_heading: str = Field(default="ABRE LA CELEBRACIÓN", min_length=1)
+    voice_instruction: str = Field(default="Activa la entrada con tu voz", min_length=1)
+    voice_success_label: str = Field(default="ENTRADA ACTIVADA", min_length=1)
     chapters: list[MissionChapter] = Field(min_length=1)
 
     @field_validator(
@@ -333,6 +345,9 @@ class MissionPresentation(BaseModel):
         "kickoff_image_url",
         "completion_title",
         "completion_message",
+        "voice_heading",
+        "voice_instruction",
+        "voice_success_label",
     )
     @classmethod
     def require_exact_nonempty_value(cls, value: str) -> str:

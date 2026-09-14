@@ -32,7 +32,8 @@ const speakCards = course.flatMap((lesson) => (
 ));
 const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 
-assert.equal(speakCards.length, 401, 'The Speak instruction guardrail must inventory every current Speak card.');
+assert.equal(speakCards.length, 404, 'The Speak inventory includes four rebuilt Unit 2 mission gates instead of one.');
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
 assert.equal(affectedLessons.size, 70, 'The shared Speak instruction must cover every A1 lesson.');
 assert.ok(
   speakCards.every(({ card }) => card.prompt.trim()),

@@ -89,19 +89,18 @@ class CourseAudioProfileTests(unittest.TestCase):
                         continue
                     self.assertIsNone(COMPLETION_PLACEHOLDER_PATTERN.search(fragment))
                     self.assertNotEqual(card.answer_audio_text, fragment)
-                completion_cards.append((lesson.id, card.prompt))
+                completion_cards.append((lesson.id, card.slide_id))
 
-        expected_completion_cards = 459 + sum(
-            7 if l.id == "lesson-2-10-around-me-mission" and getattr(l, "experience_type", None) != "mission"
-            else 7 if l.id == "lesson-3-10-introduction-mission" and getattr(l, "experience_type", None) != "mission"
-            else 8 if l.id == "lesson-4-10-my-day-mission" and getattr(l, "experience_type", None) != "mission"
-            else 5 if l.id == "lesson-5-10-cafe-mission" and getattr(l, "experience_type", None) != "mission"
-            else 5 if l.id == "lesson-6-10-town-mission" and getattr(l, "experience_type", None) != "mission"
-            else 6 if l.id == "lesson-7-10-a1-final-mission" and getattr(l, "experience_type", None) != "mission"
-            else 0
-            for l in LESSONS.values()
-        )
-        self.assertEqual(expected_completion_cards, len(completion_cards))
+        # Independent authoring metadata catches a completion whose blanks
+        # accidentally disappear; no historical global count can hide it.
+        expected_completion_cards = {
+            (lesson.id, card.slide_id)
+            for lesson in LESSONS.values() for card in lesson.cards
+            if (card.interaction_type or "").startswith("complete")
+        }
+        self.assertTrue(expected_completion_cards)
+        self.assertEqual(expected_completion_cards, set(completion_cards))
+        self.assertEqual(len(expected_completion_cards), len(completion_cards))
 
     def test_completion_contract_is_exact_and_requires_one_placeholder(self):
         contract = completion_prompt_contract(

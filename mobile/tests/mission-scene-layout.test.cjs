@@ -79,6 +79,7 @@ test('person targets stay round while pairs and groups use a wider neutral capsu
   const babyGroup = mission.cards.find((card) => card.slide_id === 'M05')
     .mission_game.targets.find((target) => target.id === 'three-babies');
   assert.equal(babyGroup.label_es, 'Grupo');
-  assert.match(surface, /collective \? 'people' : 'radio-button-on'/);
+  // Object groups use layers, while the Unit 1/person fallback keeps people.
+  assert.match(surface, /collective \? target\.subject_kind === 'object' \? 'layers' : 'people' : 'radio-button-on'/);
   assert.match(webMission, /collective \? "● ●" : "●"/);
 });

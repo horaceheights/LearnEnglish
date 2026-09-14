@@ -60,7 +60,7 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
         </div>
       ) : (
         <div
-          aria-label="Los cinco actos de la misión están completos"
+          aria-label={`Los ${lesson.mission.chapters.length} actos de la misión están completos`}
           style={{
             alignItems: "center",
             background: "rgba(255,255,255,0.1)",
@@ -74,13 +74,13 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
             padding: 18,
           }}
         >
-          {["◉", "∿", "➤", "✕", "✦"].map((symbol, index) => (
+          {lesson.mission.chapters.map((chapter, index) => (
             <span
               aria-hidden="true"
-              key={`${symbol}-${index}`}
+              key={chapter.id}
               style={{
                 alignItems: "center",
-                background: ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"][index],
+                background: ["#ed7a4f", "#e3ae32", "#268b78", "#7566ad", "#d65c65"][index % 5],
                 border: "3px solid rgba(255,255,255,0.86)",
                 borderRadius: 999,
                 boxShadow: "0 8px 18px rgba(0,0,0,0.2)",
@@ -91,7 +91,7 @@ export default function MissionCompletion({ finalImageUrl, isMobile, lesson, onE
                 width: isMobile ? 50 : 66,
               }}
             >
-              {symbol}
+              {["◉", "∿", "➤", "✕", "✦"][index % 5]}
             </span>
           ))}
         </div>
