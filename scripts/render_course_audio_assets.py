@@ -368,6 +368,10 @@ def bind_take(registry: dict[str, Any], take_id: str, job: RenderJob, note: str)
         existing = registry["bindings"].get(asset.id)
         if existing and existing.get("take_id") != take_id:
             raise ValueError(f"Asset already has a different approved take: {asset.id}")
+        if existing:
+            # An asset already bound to this take keeps its own approval record;
+            # reuse must never rewrite how the original binding was approved.
+            continue
         registry["bindings"][asset.id] = {
             "take_id": take_id,
             "approved_at": approved_at,
@@ -386,7 +390,8 @@ def write_registry(registry: dict[str, Any]) -> None:
     )
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8") as temporary:
-            json.dump(registry, temporary, ensure_ascii=False, indent=2)
+            ordered = {**registry, "bindings": dict(sorted(registry["bindings"].items()))}
+            json.dump(ordered, temporary, ensure_ascii=False, indent=2)
             temporary.write("\n")
             temporary.flush()
             os.fsync(temporary.fileno())
