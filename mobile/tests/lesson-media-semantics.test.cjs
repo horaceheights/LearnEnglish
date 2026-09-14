@@ -355,13 +355,13 @@ assert.deepEqual(
 );
 
 const expectedLessonFiveCompletionLabels = new Map([
-  ['U3', ['father', 'mother']],
+  ['U3', ['the', 'father']],
 ]);
 for (const [slideId, expectedLabels] of expectedLessonFiveCompletionLabels) {
   assert.deepEqual(
     cardBySlide('1.5', 'Use', slideId).options.map((option) => option.label),
     expectedLabels,
-    `Lesson 1.5 ${slideId} must use visibly false family-role completion alternatives`,
+    `Lesson 1.5 ${slideId} must provide the required completion tiles`,
   );
 }
 
@@ -454,22 +454,22 @@ for (const slideId of ['R2', 'R4', 'R6', 'R8', 'R10']) {
 }
 
 const expectedLessonEightCompletionLabels = new Map([
-  ['U2', ['mother', 'father']],
-  ['U4', ['mother', 'father']],
-  ['U6', ['brothers', 'parents']],
+  ['U2', ['the', 'father']],
+  ['U4', ['the', 'mother']],
+  ['U6', ['the', 'parents']],
 ]);
 for (const [slideId, expectedLabels] of expectedLessonEightCompletionLabels) {
   assert.deepEqual(
     cardBySlide('1.8', 'Use', slideId).options.map((option) => option.label),
     expectedLabels,
-    `Lesson 1.8 ${slideId} must not offer an overlapping family role for the pictured answer`,
+    `Lesson 1.8 ${slideId} must provide the required completion tiles`,
   );
 }
 
 assert.deepEqual(
   cardBySlide('1.9', 'Use', 'U7').options.map((option) => option.label),
-  ['sisters', 'parents', 'talking'],
-  'Lesson 1.9 U7 must use a visibly false group alternative for the parents scene',
+  ['parents', 'talking'],
+  'Lesson 1.9 U7 must provide the required completion tiles',
 );
 
 

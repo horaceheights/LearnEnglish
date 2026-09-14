@@ -583,195 +583,271 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "I go by [blank].",
+      "interaction_type": "complete2",
+      "prompt": "I go ___ ___.",
       "stage": "Use",
-      "correct_option_id": "train-2",
+      "correct_option_id": "by",
       "options": [
         {
-          "id": "bus-1",
+          "id": "by",
           "image_url": "",
-          "label": "bus"
+          "label": "by"
         },
         {
-          "id": "train-2",
+          "id": "train",
           "image_url": "",
           "label": "train"
         }
       ],
-      "audio_text": "I go by ___.",
+      "audio_text": "I go by train.",
       "answer_audio_text": "I go by train.",
       "prompt_image_url": "a1_scene_train_94efdd6.webp",
-      "spanish_translation": "Voy en [pausa].",
-      "pedagogy_note": "Transport."
+      "spanish_translation": "Voy en tren.",
+      "pedagogy_note": "Transport.",
+      "translation": "Voy en tren.",
+      "correct_option_ids": [
+        "by",
+        "train"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "The bank is on the [blank].",
+      "interaction_type": "complete2",
+      "prompt": "The bank is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "right-2",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "left-1",
+          "id": "the",
           "image_url": "",
-          "label": "left"
+          "label": "the"
         },
         {
-          "id": "right-2",
+          "id": "right",
           "image_url": "",
           "label": "right"
         }
       ],
-      "audio_text": "The bank is on the ___.",
+      "audio_text": "The bank is on the right.",
       "answer_audio_text": "The bank is on the right.",
       "prompt_image_url": "a1_scene_right_d27a1f1.webp",
-      "spanish_translation": "El banco está a la [pausa].",
-      "pedagogy_note": "Location."
+      "spanish_translation": "El banco está a la derecha.",
+      "pedagogy_note": "Location.",
+      "translation": "El banco está a la derecha.",
+      "correct_option_ids": [
+        "the",
+        "right"
+      ]
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "Turn [blank].",
+      "interaction_type": "complete2",
+      "prompt": "You can cross ___ ___.",
       "stage": "Use",
-      "correct_option_id": "left-1",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "left-1",
+          "id": "the",
           "image_url": "",
-          "label": "left"
+          "label": "the"
         },
         {
-          "id": "right-2",
+          "id": "street",
           "image_url": "",
-          "label": "right"
+          "label": "street"
         }
       ],
-      "audio_text": "Turn ___.",
-      "answer_audio_text": "Turn left.",
+      "audio_text": "You can cross the street.",
+      "answer_audio_text": "You can cross the street.",
       "prompt_image_url": "a1_scene_left_12c0f1f.webp",
-      "spanish_translation": "Gira a la [pausa].",
-      "pedagogy_note": "Direction."
+      "spanish_translation": "Puedes cruzar la calle.",
+      "pedagogy_note": "Direction.",
+      "translation": "Puedes cruzar la calle.",
+      "correct_option_ids": [
+        "the",
+        "street"
+      ]
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "You [blank] cross the street.",
+      "interaction_type": "complete2",
+      "prompt": "Can you ___ ___?",
       "stage": "Use",
-      "correct_option_id": "can-1",
+      "correct_option_id": "help",
       "options": [
         {
-          "id": "can-1",
-          "image_url": "",
-          "label": "can"
-        },
-        {
-          "id": "cannot-2",
-          "image_url": "",
-          "label": "cannot"
-        }
-      ],
-      "audio_text": "You ___ cross the street.",
-      "answer_audio_text": "You can cross the street.",
-      "prompt_image_url": "a1_scene_can_7e9219a.webp",
-      "spanish_translation": "[pausa] cruzar la calle.",
-      "pedagogy_note": "Can."
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "Can you [blank] me?",
-      "stage": "Use",
-      "correct_option_id": "help-1",
-      "options": [
-        {
-          "id": "help-1",
+          "id": "help",
           "image_url": "",
           "label": "help"
         },
         {
-          "id": "stop-2",
+          "id": "me",
           "image_url": "",
-          "label": "stop"
+          "label": "me"
         }
       ],
-      "audio_text": "Can you ___ me?",
+      "audio_text": "Can you help me?",
       "answer_audio_text": "Can you help me?",
+      "prompt_image_url": "a1_scene_can_7e9219a.webp",
+      "spanish_translation": "¿Puede ayudarme?",
+      "pedagogy_note": "Can.",
+      "translation": "¿Puede ayudarme?",
+      "correct_option_ids": [
+        "help",
+        "me"
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Turn"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "left"
+        }
+      ],
+      "audio_text": "Turn left.",
+      "answer_audio_text": "Turn left.",
       "prompt_image_url": "a1_scene_help_92005ec.webp",
-      "spanish_translation": "¿Puede [pausa]?",
-      "pedagogy_note": "Request."
+      "spanish_translation": "Gira a la izquierda.",
+      "pedagogy_note": "Request.",
+      "translation": "Gira a la izquierda.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
     },
     {
       "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the hospital?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-near-the-bank-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "it-is-near-the-bank-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is near the bank."
+          "label": "Thank"
         },
         {
-          "id": "it-is-far-from-the-bank-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is far from the bank."
+          "label": "you"
         }
       ],
-      "audio_text": "Where is the hospital?",
-      "answer_audio_text": "It is near the bank.",
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
       "prompt_image_url": "a1_scene_it-is-near-the-bank_bbd8eb4.webp",
-      "spanish_translation": "¿Dónde está el hospital?",
-      "pedagogy_note": "Distance answer."
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Distance answer.",
+      "translation": "Gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "The bus [blank] at eight.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "leaves-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "leaves-1",
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "near"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "bank"
+        }
+      ],
+      "audio_text": "It is near the bank.",
+      "answer_audio_text": "It is near the bank.",
+      "prompt_image_url": "a1_scene_leaves_8411175.webp",
+      "spanish_translation": "Está cerca del banco.",
+      "pedagogy_note": "Schedule action.",
+      "translation": "Está cerca del banco.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "The"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "bus"
+        },
+        {
+          "id": "word-3",
           "image_url": "",
           "label": "leaves"
         },
         {
-          "id": "arrives-2",
+          "id": "word-4",
           "image_url": "",
-          "label": "arrives"
-        }
-      ],
-      "audio_text": "The bus ___ at eight.",
-      "answer_audio_text": "The bus leaves at eight.",
-      "prompt_image_url": "a1_scene_leaves_8411175.webp",
-      "spanish_translation": "El autobús [pausa] a las ocho.",
-      "pedagogy_note": "Schedule action."
-    },
-    {
-      "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "It is on the left.",
-      "stage": "Use",
-      "correct_option_id": "thank-you-1",
-      "options": [
-        {
-          "id": "thank-you-1",
-          "image_url": "",
-          "label": "Thank you."
+          "label": "at"
         },
         {
-          "id": "sorry-no-2",
+          "id": "word-5",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "eight"
         }
       ],
-      "audio_text": "It is on the left.",
-      "answer_audio_text": "Thank you.",
+      "audio_text": "The bus leaves at eight.",
+      "answer_audio_text": "The bus leaves at eight.",
       "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Está a la izquierda.",
-      "pedagogy_note": "Conversation close."
+      "spanish_translation": "El autobús sale a las ocho.",
+      "pedagogy_note": "Conversation close.",
+      "translation": "El autobús sale a las ocho.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ]
     }
   ]
 }

@@ -1511,31 +1511,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "I ___.",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "go-to-school-3",
+      "correct_option_id": "come",
+      "correct_option_ids": [
+        "come",
+        "home"
+      ],
       "options": [
         {
-          "id": "come-home-1",
+          "id": "come",
           "image_url": "",
-          "label": "come home"
+          "label": "come"
         },
         {
-          "id": "work-2",
+          "id": "home",
           "image_url": "",
-          "label": "work"
-        },
-        {
-          "id": "go-to-school-3",
-          "image_url": "",
-          "label": "go to school"
+          "label": "home"
         }
       ],
-      "audio_text": "I ___.",
-      "answer_audio_text": "I go to school.",
+      "audio_text": "I come home.",
+      "answer_audio_text": "I come home.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana-go-school_83ace0e.webp",
-      "spanish_translation": "Yo ___.",
+      "spanish_translation": "Yo regreso a casa.",
       "pedagogy_note": "verb chunk",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1543,11 +1542,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-6-everyday-verbs-c029-prompt-b14973f049e2538929e7",
+          "id": "lesson-4-6-everyday-verbs-c029-prompt-ac2fd73213dc149d3b5d",
           "purpose": "prompt",
-          "text": "I go to school.",
+          "text": "I come home.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana-go-school_83ace0e.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
@@ -1555,9 +1554,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-6-everyday-verbs-c029-answer-0808de46f76f1d1b6818",
+          "id": "lesson-4-6-everyday-verbs-c029-answer-daf0008da07c463c6ea9",
           "purpose": "answer",
-          "text": "I go to school.",
+          "text": "I come home.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana-go-school_83ace0e.webp",
@@ -1570,58 +1569,57 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "I ___.",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "go-to-work-1",
+      "correct_option_id": "study",
+      "correct_option_ids": [
+        "study",
+        "english"
+      ],
       "options": [
         {
-          "id": "go-to-work-1",
+          "id": "study",
           "image_url": "",
-          "label": "go to work"
+          "label": "study"
         },
         {
-          "id": "study-english-2",
+          "id": "english",
           "image_url": "",
-          "label": "study English"
-        },
-        {
-          "id": "come-home-3",
-          "image_url": "",
-          "label": "come home"
+          "label": "English"
         }
       ],
-      "audio_text": "I ___.",
-      "answer_audio_text": "I go to work.",
+      "audio_text": "I study English.",
+      "answer_audio_text": "I study English.",
       "prompt_image_url": "/lesson-assets/a1_scene_luis-go-work_f1ae7c5.webp",
-      "spanish_translation": "Yo ___.",
+      "spanish_translation": "Yo estudio ingl\u00e9s.",
       "pedagogy_note": "verb chunk",
-      "audio_speaker": "luis",
-      "answer_audio_speaker": null,
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-6-everyday-verbs-c030-prompt-f3142403a9f875cf9df5",
+          "id": "lesson-4-6-everyday-verbs-c030-prompt-35b1ff95cc8d6cc99541",
           "purpose": "prompt",
-          "text": "I go to work.",
+          "text": "I study English.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_luis-go-work_f1ae7c5.webp",
           "semantic_role": "teacher",
-          "speaker_role": "luis",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-6-everyday-verbs-c030-answer-e159b3fc7de4b924eb50",
+          "id": "lesson-4-6-everyday-verbs-c030-answer-6d375dcc6dee5ae1076a",
           "purpose": "answer",
-          "text": "I go to work.",
+          "text": "I study English.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_luis-go-work_f1ae7c5.webp",
           "semantic_role": "answer",
-          "speaker_role": "luis",
+          "speaker_role": "ana",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1629,58 +1627,57 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete4",
-      "prompt": "I ___.",
+      "interaction_type": "complete2",
+      "prompt": "I go ___ ___.",
       "stage": "Use",
-      "correct_option_id": "study-english-2",
+      "correct_option_id": "to",
+      "correct_option_ids": [
+        "to",
+        "work"
+      ],
       "options": [
         {
-          "id": "sleep-1",
+          "id": "to",
           "image_url": "",
-          "label": "sleep"
+          "label": "to"
         },
         {
-          "id": "study-english-2",
+          "id": "work",
           "image_url": "",
-          "label": "study English"
-        },
-        {
-          "id": "go-to-school-3",
-          "image_url": "",
-          "label": "go to school"
+          "label": "work"
         }
       ],
-      "audio_text": "I ___.",
-      "answer_audio_text": "I study English.",
+      "audio_text": "I go to work.",
+      "answer_audio_text": "I go to work.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana-study-english_a45ba91.webp",
-      "spanish_translation": "Yo ___.",
+      "spanish_translation": "Yo voy al trabajo.",
       "pedagogy_note": "verb chunk",
-      "audio_speaker": "ana",
-      "answer_audio_speaker": null,
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-6-everyday-verbs-c031-prompt-c4ce8f6bfe3e2748fcf6",
+          "id": "lesson-4-6-everyday-verbs-c031-prompt-98bfdadfa474b2da3579",
           "purpose": "prompt",
-          "text": "I study English.",
+          "text": "I go to work.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana-study-english_a45ba91.webp",
           "semantic_role": "teacher",
-          "speaker_role": "ana",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-4-6-everyday-verbs-c031-answer-1deb78fb63d4c14344cd",
+          "id": "lesson-4-6-everyday-verbs-c031-answer-b3347a6def0b937d84e8",
           "purpose": "answer",
-          "text": "I study English.",
+          "text": "I go to work.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana-study-english_a45ba91.webp",
           "semantic_role": "answer",
-          "speaker_role": "ana",
+          "speaker_role": "luis",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1688,31 +1685,42 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete4",
-      "prompt": "I ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "come-home-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "go-to-work-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "go to work"
+          "label": "I"
         },
         {
-          "id": "come-home-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "come home"
+          "label": "go"
         },
         {
-          "id": "study-english-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "study English"
+          "label": "to"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "school"
         }
       ],
-      "audio_text": "I ___.",
-      "answer_audio_text": "I come home.",
+      "audio_text": "I go to school.",
+      "answer_audio_text": "I go to school.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana-come-home_ad0dbb5.webp",
-      "spanish_translation": "Yo ___.",
+      "spanish_translation": "Yo voy a la escuela.",
       "pedagogy_note": "verb chunk",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1720,11 +1728,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-6-everyday-verbs-c032-prompt-b66370bac4808541243b",
+          "id": "lesson-4-6-everyday-verbs-c032-prompt-02b04935af8b890422a8",
           "purpose": "prompt",
-          "text": "I come home.",
+          "text": "I go to school.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana-come-home_ad0dbb5.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
@@ -1732,9 +1740,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-4-6-everyday-verbs-c032-answer-b3af354d4a1af1926da5",
+          "id": "lesson-4-6-everyday-verbs-c032-answer-49f5dcce6f2695a2ac24",
           "purpose": "answer",
-          "text": "I come home.",
+          "text": "I go to school.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_ana-come-home_ad0dbb5.webp",
@@ -1747,31 +1755,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete4",
-      "prompt": "I ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "sleep-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "wake-up-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "wake up"
+          "label": "I"
         },
         {
-          "id": "work-2",
-          "image_url": "",
-          "label": "work"
-        },
-        {
-          "id": "sleep-3",
+          "id": "word-2",
           "image_url": "",
           "label": "sleep"
         }
       ],
-      "audio_text": "I ___.",
+      "audio_text": "I sleep.",
       "answer_audio_text": "I sleep.",
       "prompt_image_url": "/lesson-assets/a1_scene_ana-sleep_7690f07.webp",
-      "spanish_translation": "Yo ___.",
+      "spanish_translation": "Yo duermo.",
       "pedagogy_note": "verb chunk",
       "audio_speaker": "ana",
       "answer_audio_speaker": null,
@@ -1779,11 +1786,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-6-everyday-verbs-c033-prompt-3986dc00e496bcf87db8",
+          "id": "lesson-4-6-everyday-verbs-c033-prompt-14f2cbea28edc1962cf7",
           "purpose": "prompt",
           "text": "I sleep.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_ana-sleep_7690f07.webp",
           "semantic_role": "teacher",
           "speaker_role": "ana",
@@ -1806,31 +1813,54 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete4",
-      "prompt": "The book is ___ the table.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "on-4",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
       "options": [
         {
-          "id": "under-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "under"
+          "label": "The"
         },
         {
-          "id": "in-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "in"
+          "label": "book"
         },
         {
-          "id": "on-4",
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "on"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "table"
         }
       ],
-      "audio_text": "The book is ___ the table.",
+      "audio_text": "The book is on the table.",
       "answer_audio_text": "The book is on the table.",
       "prompt_image_url": "/lesson-assets/a1_scene_book-on-table_af51f18.webp",
-      "spanish_translation": "El libro est\u00e1 ___ la mesa.",
+      "spanish_translation": "El libro est\u00e1 sobre la mesa.",
       "pedagogy_note": "4.3 spaced review",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1838,11 +1868,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-4-6-everyday-verbs-c034-prompt-9d54fb2dfa875973bdef",
+          "id": "lesson-4-6-everyday-verbs-c034-prompt-e8c76e3a34e4cf76f8b3",
           "purpose": "prompt",
           "text": "The book is on the table.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_book-on-table_af51f18.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

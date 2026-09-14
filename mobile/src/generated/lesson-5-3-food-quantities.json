@@ -1424,26 +1424,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "One [blank].",
+      "interaction_type": "complete2",
+      "prompt": "There is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "egg-1",
+      "correct_option_id": "one",
+      "correct_option_ids": [
+        "one",
+        "apple"
+      ],
       "options": [
         {
-          "id": "egg-1",
+          "id": "one",
           "image_url": "",
-          "label": "egg"
+          "label": "one"
         },
         {
-          "id": "eggs-2",
+          "id": "apple",
           "image_url": "",
-          "label": "eggs"
+          "label": "apple"
         }
       ],
-      "audio_text": "One ___.",
-      "answer_audio_text": "One egg.",
+      "audio_text": "There is one apple.",
+      "answer_audio_text": "There is one apple.",
       "prompt_image_url": "/lesson-assets/a1_scene_egg_4fa6024.webp",
-      "spanish_translation": "Un [pausa].",
+      "spanish_translation": "Hay una manzana.",
       "pedagogy_note": "Tests singular after one.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1451,11 +1455,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c027-prompt-761e51102e6844c29484",
+          "id": "lesson-5-3-food-quantities-c027-prompt-e6dfcf2d28ffeeaf7757",
           "purpose": "prompt",
-          "text": "One egg.",
+          "text": "There is one apple.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_egg_4fa6024.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1463,9 +1467,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c027-answer-04042dc8bae11f49fc6c",
+          "id": "lesson-5-3-food-quantities-c027-answer-bc579f5cb02feeae94ad",
           "purpose": "answer",
-          "text": "One egg.",
+          "text": "There is one apple.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_egg_4fa6024.webp",
@@ -1478,26 +1482,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Two [blank].",
+      "interaction_type": "complete2",
+      "prompt": "There are ___ ___.",
       "stage": "Use",
-      "correct_option_id": "eggs-2",
+      "correct_option_id": "three",
+      "correct_option_ids": [
+        "three",
+        "oranges"
+      ],
       "options": [
         {
-          "id": "egg-1",
+          "id": "three",
           "image_url": "",
-          "label": "egg"
+          "label": "three"
         },
         {
-          "id": "eggs-2",
+          "id": "oranges",
           "image_url": "",
-          "label": "eggs"
+          "label": "oranges"
         }
       ],
-      "audio_text": "Two ___.",
-      "answer_audio_text": "Two eggs.",
-      "prompt_image_url": "/lesson-assets/a1_scene_eggs_bd111dc.webp",
-      "spanish_translation": "Dos [pausa].",
+      "audio_text": "There are three oranges.",
+      "answer_audio_text": "There are three oranges.",
+      "prompt_image_url": "/lesson-assets/a1_scene_are_5f9e580.webp",
+      "spanish_translation": "Hay tres naranjas.",
       "pedagogy_note": "Tests plural after two.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1505,24 +1513,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c028-prompt-f5dcc63421f700ab26d6",
+          "id": "lesson-5-3-food-quantities-c028-prompt-0a7303f1104a6b750f3a",
           "purpose": "prompt",
-          "text": "Two eggs.",
+          "text": "There are three oranges.",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_eggs_bd111dc.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_are_5f9e580.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c028-answer-31e8e85df0f206889efa",
+          "id": "lesson-5-3-food-quantities-c028-answer-7f82dfb04dad9d016a38",
           "purpose": "answer",
-          "text": "Two eggs.",
+          "text": "There are three oranges.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_eggs_bd111dc.webp",
+          "image_ref": "/lesson-assets/a1_scene_are_5f9e580.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1532,26 +1540,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "Three [blank].",
+      "interaction_type": "complete2",
+      "prompt": "There are ___ ___.",
       "stage": "Use",
-      "correct_option_id": "apples-2",
+      "correct_option_id": "four",
+      "correct_option_ids": [
+        "four",
+        "oranges"
+      ],
       "options": [
         {
-          "id": "apple-1",
+          "id": "four",
           "image_url": "",
-          "label": "apple"
+          "label": "four"
         },
         {
-          "id": "apples-2",
+          "id": "oranges",
           "image_url": "",
-          "label": "apples"
+          "label": "oranges"
         }
       ],
-      "audio_text": "Three ___.",
-      "answer_audio_text": "Three apples.",
-      "prompt_image_url": "/lesson-assets/a1_scene_apples_76c2436.webp",
-      "spanish_translation": "Tres [pausa].",
+      "audio_text": "There are four oranges.",
+      "answer_audio_text": "There are four oranges.",
+      "prompt_image_url": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
+      "spanish_translation": "Hay cuatro naranjas.",
       "pedagogy_note": "Tests plural.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1559,24 +1571,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c029-prompt-62bccb19e7b69455a5ba",
+          "id": "lesson-5-3-food-quantities-c029-prompt-e9c383d34c619acf5c4f",
           "purpose": "prompt",
-          "text": "Three apples.",
+          "text": "There are four oranges.",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_apples_76c2436.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c029-answer-eba6e93b37adee33faf6",
+          "id": "lesson-5-3-food-quantities-c029-answer-d76eba3a7803db4b8c72",
           "purpose": "answer",
-          "text": "Three apples.",
+          "text": "There are four oranges.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_apples_76c2436.webp",
+          "image_ref": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1586,26 +1598,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "[blank] rice.",
+      "interaction_type": "complete2",
+      "prompt": "There are four ___ ___.",
       "stage": "Use",
-      "correct_option_id": "some-2",
+      "correct_option_id": "red",
+      "correct_option_ids": [
+        "red",
+        "apples"
+      ],
       "options": [
         {
-          "id": "an-1",
+          "id": "red",
           "image_url": "",
-          "label": "An"
+          "label": "red"
         },
         {
-          "id": "some-2",
+          "id": "apples",
           "image_url": "",
-          "label": "Some"
+          "label": "apples"
         }
       ],
-      "audio_text": "___ rice.",
-      "answer_audio_text": "Some rice.",
+      "audio_text": "There are four red apples.",
+      "answer_audio_text": "There are four red apples.",
       "prompt_image_url": "/lesson-assets/a1_scene_some_eb87581.webp",
-      "spanish_translation": "[pausa] de arroz.",
+      "spanish_translation": "Hay cuatro manzanas rojas.",
       "pedagogy_note": "Only Some forms the taught mass-noun phrase; avoids the valid restaurant reading one rice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1613,11 +1629,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c030-prompt-38f2ff18c577dbb1fe08",
+          "id": "lesson-5-3-food-quantities-c030-prompt-812cc8594f131aa7914d",
           "purpose": "prompt",
-          "text": "Some rice.",
+          "text": "There are four red apples.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_some_eb87581.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1625,9 +1641,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c030-answer-fe54f2d06eaf29343006",
+          "id": "lesson-5-3-food-quantities-c030-answer-e76a327b7fca6154fe98",
           "purpose": "answer",
-          "text": "Some rice.",
+          "text": "There are four red apples.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_some_eb87581.webp",
@@ -1640,26 +1656,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "Some [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "water-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "water-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "water"
+          "label": "Some"
         },
         {
-          "id": "eggs-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "eggs"
+          "label": "rice"
         }
       ],
-      "audio_text": "Some ___.",
-      "answer_audio_text": "Some water.",
+      "audio_text": "Some rice.",
+      "answer_audio_text": "Some rice.",
       "prompt_image_url": "/lesson-assets/a1_scene_water_6d5a459.webp",
-      "spanish_translation": "Un poco de [pausa].",
+      "spanish_translation": "Un poco de arroz.",
       "pedagogy_note": "Count/mass contrast.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1667,11 +1687,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c031-prompt-9950998bc7fdffcc391d",
+          "id": "lesson-5-3-food-quantities-c031-prompt-94ea231909d42cf30e73",
           "purpose": "prompt",
-          "text": "Some water.",
+          "text": "Some rice.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_water_6d5a459.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1679,9 +1699,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c031-answer-79c2248ce5191b4c8979",
+          "id": "lesson-5-3-food-quantities-c031-answer-d15c01e4c850d523134b",
           "purpose": "answer",
-          "text": "Some water.",
+          "text": "Some rice.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_water_6d5a459.webp",
@@ -1694,26 +1714,30 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "There [blank] three oranges.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "are-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "is-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "is"
+          "label": "Three"
         },
         {
-          "id": "are-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "are"
+          "label": "apples"
         }
       ],
-      "audio_text": "There ___ three oranges.",
-      "answer_audio_text": "There are three oranges.",
-      "prompt_image_url": "/lesson-assets/a1_scene_are_5f9e580.webp",
-      "spanish_translation": "[pausa] tres naranjas.",
+      "audio_text": "Three apples.",
+      "answer_audio_text": "Three apples.",
+      "prompt_image_url": "/lesson-assets/a1_scene_apples_76c2436.webp",
+      "spanish_translation": "Tres manzanas.",
       "pedagogy_note": "Review plural be.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1721,24 +1745,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c032-prompt-6bd41f65a55d12bf9e02",
+          "id": "lesson-5-3-food-quantities-c032-prompt-f55c8d231c3d575c3888",
           "purpose": "prompt",
-          "text": "There are three oranges.",
+          "text": "Three apples.",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_are_5f9e580.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_apples_76c2436.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-3-food-quantities-c032-answer-e735e47620d7c9c27b6d",
+          "id": "lesson-5-3-food-quantities-c032-answer-112e889468bf31c8252b",
           "purpose": "answer",
-          "text": "There are three oranges.",
+          "text": "Three apples.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_are_5f9e580.webp",
+          "image_ref": "/lesson-assets/a1_scene_apples_76c2436.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1748,26 +1772,42 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "There [blank] one apple.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "are-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "are"
+          "label": "There"
         },
         {
-          "id": "is-2",
+          "id": "word-2",
           "image_url": "",
           "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "one"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "apple"
         }
       ],
-      "audio_text": "There ___ one apple.",
+      "audio_text": "There is one apple.",
       "answer_audio_text": "There is one apple.",
       "prompt_image_url": "/lesson-assets/a1_scene_is_b47f363.webp",
-      "spanish_translation": "[pausa] una manzana.",
+      "spanish_translation": "Hay una manzana.",
       "pedagogy_note": "Review singular be.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1775,11 +1815,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c033-prompt-a5a73d418c43c849d4dc",
+          "id": "lesson-5-3-food-quantities-c033-prompt-89ccc75572b550be82b8",
           "purpose": "prompt",
           "text": "There is one apple.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_is_b47f363.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1802,31 +1842,48 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete",
-      "prompt": "There are [blank] red apples.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "four-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "two-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "two"
+          "label": "There"
         },
         {
-          "id": "three-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "three"
+          "label": "are"
         },
         {
-          "id": "four-3",
+          "id": "word-3",
           "image_url": "",
           "label": "four"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "red"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "apples"
         }
       ],
-      "audio_text": "There are ___ red apples.",
+      "audio_text": "There are four red apples.",
       "answer_audio_text": "There are four red apples.",
       "prompt_image_url": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
-      "spanish_translation": "Hay [pausa] manzanas rojas.",
+      "spanish_translation": "Hay cuatro manzanas rojas.",
       "pedagogy_note": "Review number+color+noun.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1834,11 +1891,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-3-food-quantities-c034-prompt-2d0c3e1483b63751c191",
+          "id": "lesson-5-3-food-quantities-c034-prompt-6b9388c3182dc7c6563a",
           "purpose": "prompt",
           "text": "There are four red apples.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

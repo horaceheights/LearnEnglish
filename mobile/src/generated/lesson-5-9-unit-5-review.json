@@ -1301,31 +1301,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "There are [blank] oranges.",
+      "interaction_type": "complete2",
+      "prompt": "There are ___ ___.",
       "stage": "Use",
-      "correct_option_id": "five-4",
+      "correct_option_id": "five",
+      "correct_option_ids": [
+        "five",
+        "oranges"
+      ],
       "options": [
         {
-          "id": "two-1",
-          "image_url": "",
-          "label": "two"
-        },
-        {
-          "id": "three-2",
-          "image_url": "",
-          "label": "three"
-        },
-        {
-          "id": "five-4",
+          "id": "five",
           "image_url": "",
           "label": "five"
+        },
+        {
+          "id": "oranges",
+          "image_url": "",
+          "label": "oranges"
         }
       ],
-      "audio_text": "There are ___ oranges.",
+      "audio_text": "There are five oranges.",
       "answer_audio_text": "There are five oranges.",
       "prompt_image_url": "/lesson-assets/a1_scene_five_4db2c1d.webp",
-      "spanish_translation": "Hay [pausa] naranjas.",
+      "spanish_translation": "Hay cinco naranjas.",
       "pedagogy_note": "Quantity review.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1333,11 +1332,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c025-prompt-955560324d552a6883a7",
+          "id": "lesson-5-9-unit-5-review-c025-prompt-6c1fec2e679d86b23d1e",
           "purpose": "prompt",
           "text": "There are five oranges.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_five_4db2c1d.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1360,26 +1359,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "I do [blank] like milk.",
+      "interaction_type": "complete2",
+      "prompt": "She ___ ___.",
       "stage": "Use",
-      "correct_option_id": "not-1",
+      "correct_option_id": "wants",
+      "correct_option_ids": [
+        "wants",
+        "juice"
+      ],
       "options": [
         {
-          "id": "not-1",
+          "id": "wants",
           "image_url": "",
-          "label": "not"
+          "label": "wants"
         },
         {
-          "id": "like-2",
+          "id": "juice",
           "image_url": "",
-          "label": "like"
+          "label": "juice"
         }
       ],
-      "audio_text": "I do ___ like milk.",
-      "answer_audio_text": "I do not like milk.",
+      "audio_text": "She wants juice.",
+      "answer_audio_text": "She wants juice.",
       "prompt_image_url": "/lesson-assets/a1_scene_not_557f255.webp",
-      "spanish_translation": "[pausa] me gusta la leche.",
+      "spanish_translation": "Ella quiere jugo.",
       "pedagogy_note": "Negative review.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1387,11 +1390,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c026-prompt-5e45eeae807334c9ea5e",
+          "id": "lesson-5-9-unit-5-review-c026-prompt-1865d0ff86f92d5e3d8a",
           "purpose": "prompt",
-          "text": "I do not like milk.",
+          "text": "She wants juice.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_not_557f255.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1399,9 +1402,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c026-answer-55069c58628b1f0e8bc4",
+          "id": "lesson-5-9-unit-5-review-c026-answer-9cddcb4f139f7244f620",
           "purpose": "answer",
-          "text": "I do not like milk.",
+          "text": "She wants juice.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_not_557f255.webp",
@@ -1414,26 +1417,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "She [blank] juice.",
+      "interaction_type": "complete2",
+      "prompt": "We eat rice ___ ___.",
       "stage": "Use",
-      "correct_option_id": "wants-2",
+      "correct_option_id": "for",
+      "correct_option_ids": [
+        "for",
+        "lunch"
+      ],
       "options": [
         {
-          "id": "want-1",
+          "id": "for",
           "image_url": "",
-          "label": "want"
+          "label": "for"
         },
         {
-          "id": "wants-2",
+          "id": "lunch",
           "image_url": "",
-          "label": "wants"
+          "label": "lunch"
         }
       ],
-      "audio_text": "She ___ juice.",
-      "answer_audio_text": "She wants juice.",
+      "audio_text": "We eat rice for lunch.",
+      "answer_audio_text": "We eat rice for lunch.",
       "prompt_image_url": "/lesson-assets/a1_scene_wants_5383092.webp",
-      "spanish_translation": "Ella [pausa] jugo.",
+      "spanish_translation": "Comemos arroz en el almuerzo.",
       "pedagogy_note": "Agreement review.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1441,11 +1448,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c027-prompt-d804a6c6eff4669db404",
+          "id": "lesson-5-9-unit-5-review-c027-prompt-8090a869788c5b74ef56",
           "purpose": "prompt",
-          "text": "She wants juice.",
+          "text": "We eat rice for lunch.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_wants_5383092.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1453,9 +1460,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c027-answer-af1378b5d6a7ce50cf9b",
+          "id": "lesson-5-9-unit-5-review-c027-answer-5257d4bc411d2dd1d4b6",
           "purpose": "answer",
-          "text": "She wants juice.",
+          "text": "We eat rice for lunch.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_wants_5383092.webp",
@@ -1468,26 +1475,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "We eat rice for [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "lunch-2",
+      "correct_option_id": "one",
+      "correct_option_ids": [
+        "one",
+        "dollar"
+      ],
       "options": [
         {
-          "id": "breakfast-1",
+          "id": "one",
           "image_url": "",
-          "label": "breakfast"
+          "label": "one"
         },
         {
-          "id": "lunch-2",
+          "id": "dollar",
           "image_url": "",
-          "label": "lunch"
+          "label": "dollar"
         }
       ],
-      "audio_text": "We eat rice for ___.",
-      "answer_audio_text": "We eat rice for lunch.",
+      "audio_text": "It is one dollar.",
+      "answer_audio_text": "It is one dollar.",
       "prompt_image_url": "/lesson-assets/a1_scene_lunch_0945305.webp",
-      "spanish_translation": "Comemos arroz en el [pausa].",
+      "spanish_translation": "Cuesta un d\u00f3lar.",
       "pedagogy_note": "Proven two-choice set replaces the unsupported three-choice version.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1495,11 +1506,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c028-prompt-9904ada9264abd4cccb6",
+          "id": "lesson-5-9-unit-5-review-c028-prompt-95156f71d88c2acd951e",
           "purpose": "prompt",
-          "text": "We eat rice for lunch.",
+          "text": "It is one dollar.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_lunch_0945305.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1507,9 +1518,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c028-answer-67df9efc34df44b420ed",
+          "id": "lesson-5-9-unit-5-review-c028-answer-4008bfd3201ab9fe623a",
           "purpose": "answer",
-          "text": "We eat rice for lunch.",
+          "text": "It is one dollar.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_lunch_0945305.webp",
@@ -1522,26 +1533,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "It is one [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "dollar-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "dollar-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "dollar"
+          "label": "Thank"
         },
         {
-          "id": "dollars-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "dollars"
+          "label": "you"
         }
       ],
-      "audio_text": "It is one ___.",
-      "answer_audio_text": "It is one dollar.",
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
       "prompt_image_url": "/lesson-assets/a1_scene_dollar_6c36ab3.webp",
-      "spanish_translation": "Cuesta un [pausa].",
+      "spanish_translation": "Gracias.",
       "pedagogy_note": "Price morphology.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1549,11 +1564,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c029-prompt-8182feeb798b7b4fd194",
+          "id": "lesson-5-9-unit-5-review-c029-prompt-b962b6c80b05e4326e50",
           "purpose": "prompt",
-          "text": "It is one dollar.",
+          "text": "Thank you.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_dollar_6c36ab3.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1561,9 +1576,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c029-answer-6741df8c4d8c9c2049f2",
+          "id": "lesson-5-9-unit-5-review-c029-answer-00674cea95bebdfdcf2d",
           "purpose": "answer",
-          "text": "It is one dollar.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_dollar_6c36ab3.webp",
@@ -1576,26 +1591,30 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "yes-please-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "yes-please-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Yes, please."
+          "label": "Yes"
         },
         {
-          "id": "no-thank-you-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "No, thank you."
+          "label": "please"
         }
       ],
-      "audio_text": "Choose the phrase.",
+      "audio_text": "Yes, please.",
       "answer_audio_text": "Yes, please.",
       "prompt_image_url": "/lesson-assets/a1_scene_yes-please_ae43854.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "S\u00ed, por favor.",
       "pedagogy_note": "Polite acceptance from visual context.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1603,9 +1622,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c030-prompt-8053dcc72a0484afb2ec",
+          "id": "lesson-5-9-unit-5-review-c030-prompt-2c9d5ea11adcaf07f897",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "Yes, please.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_yes-please_ae43854.webp",
@@ -1630,26 +1649,42 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "response-choice",
-      "prompt": "Here you are.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "thank-you-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Thank you."
+          "label": "It"
         },
         {
-          "id": "here-you-are-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Here you are."
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "seven"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "dollars"
         }
       ],
-      "audio_text": "Here you are.",
-      "answer_audio_text": "Thank you.",
+      "audio_text": "It is seven dollars.",
+      "answer_audio_text": "It is seven dollars.",
       "prompt_image_url": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Aqu\u00ed tienes.",
+      "spanish_translation": "Cuesta siete d\u00f3lares.",
       "pedagogy_note": "Speaker-role contrast removes a second plausible order.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1657,9 +1692,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c031-prompt-fc55ec95af9d190591ac",
+          "id": "lesson-5-9-unit-5-review-c031-prompt-842a35286d6713d41fb4",
           "purpose": "prompt",
-          "text": "Here you are.",
+          "text": "It is seven dollars.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
@@ -1669,9 +1704,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c031-answer-33ee9ceb2188bc101986",
+          "id": "lesson-5-9-unit-5-review-c031-answer-8a6d33ec899ac52614a5",
           "purpose": "answer",
-          "text": "Thank you.",
+          "text": "It is seven dollars.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
@@ -1684,26 +1719,48 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "How much is it?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-seven-dollars-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "it-is-five-dollars-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is five dollars."
+          "label": "I"
         },
         {
-          "id": "it-is-seven-dollars-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is seven dollars."
+          "label": "do"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "like"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "milk"
         }
       ],
-      "audio_text": "How much is it?",
-      "answer_audio_text": "It is seven dollars.",
+      "audio_text": "I do not like milk.",
+      "answer_audio_text": "I do not like milk.",
       "prompt_image_url": "/lesson-assets/a1_scene_it-is-seven-dollars_ec36472.webp",
-      "spanish_translation": "\u00bfCu\u00e1nto cuesta?",
+      "spanish_translation": "No me gusta la leche.",
       "pedagogy_note": "Uses the exact taught question-answer frame rather than first testing noun substitution.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1711,21 +1768,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-9-unit-5-review-c032-prompt-4f9f060b03317ffa5a4a",
+          "id": "lesson-5-9-unit-5-review-c032-prompt-5298a9fc758d8027a19a",
           "purpose": "prompt",
-          "text": "How much is it?",
+          "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_it-is-seven-dollars_ec36472.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-9-unit-5-review-c032-answer-fae678359b370d4348ad",
+          "id": "lesson-5-9-unit-5-review-c032-answer-7dd7f7f0309354a530a8",
           "purpose": "answer",
-          "text": "It is seven dollars.",
+          "text": "I do not like milk.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_it-is-seven-dollars_ec36472.webp",

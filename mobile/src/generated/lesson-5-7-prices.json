@@ -1412,26 +1412,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "How [blank] is it?",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "much-2",
+      "correct_option_id": "one",
+      "correct_option_ids": [
+        "one",
+        "dollar"
+      ],
       "options": [
         {
-          "id": "what-1",
+          "id": "one",
           "image_url": "",
-          "label": "what"
+          "label": "one"
         },
         {
-          "id": "much-2",
+          "id": "dollar",
           "image_url": "",
-          "label": "much"
+          "label": "dollar"
         }
       ],
-      "audio_text": "How ___ is it?",
-      "answer_audio_text": "How much is it?",
+      "audio_text": "It is one dollar.",
+      "answer_audio_text": "It is one dollar.",
       "prompt_image_url": "/lesson-assets/a1_scene_much_7d3f447.webp",
-      "spanish_translation": "\u00bf[pausa] cuesta?",
+      "spanish_translation": "Cuesta un d\u00f3lar.",
       "pedagogy_note": "Uses only the previously learned what distractor; Spanish hint explains this fixed price question after a miss.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1439,21 +1443,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-7-prices-c027-prompt-3632dd4e8ccb969d0938",
+          "id": "lesson-5-7-prices-c027-prompt-713428c970cc7a9d4ff9",
           "purpose": "prompt",
-          "text": "How much is it?",
+          "text": "It is one dollar.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_much_7d3f447.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-7-prices-c027-answer-e91b9027161de40398f3",
+          "id": "lesson-5-7-prices-c027-answer-0033f2558dc314b469d7",
           "purpose": "answer",
-          "text": "How much is it?",
+          "text": "It is one dollar.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_much_7d3f447.webp",
@@ -1466,26 +1470,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "It is one [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "dollar-1",
+      "correct_option_id": "three",
+      "correct_option_ids": [
+        "three",
+        "dollars"
+      ],
       "options": [
         {
-          "id": "dollar-1",
+          "id": "three",
           "image_url": "",
-          "label": "dollar"
+          "label": "three"
         },
         {
-          "id": "dollars-2",
+          "id": "dollars",
           "image_url": "",
           "label": "dollars"
         }
       ],
-      "audio_text": "It is one ___.",
-      "answer_audio_text": "It is one dollar.",
+      "audio_text": "It is three dollars.",
+      "answer_audio_text": "It is three dollars.",
       "prompt_image_url": "/lesson-assets/a1_scene_dollar_6c36ab3.webp",
-      "spanish_translation": "Cuesta un [pausa].",
+      "spanish_translation": "Cuesta tres d\u00f3lares.",
       "pedagogy_note": "Singular agreement.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1493,11 +1501,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-7-prices-c028-prompt-25c5c11647ec26b1277d",
+          "id": "lesson-5-7-prices-c028-prompt-12d2fb182e770ad86cd3",
           "purpose": "prompt",
-          "text": "It is one dollar.",
+          "text": "It is three dollars.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_dollar_6c36ab3.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1505,9 +1513,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-7-prices-c028-answer-be7286670af13ec02625",
+          "id": "lesson-5-7-prices-c028-answer-87570c1b7d672bb7e58a",
           "purpose": "answer",
-          "text": "It is one dollar.",
+          "text": "It is three dollars.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_dollar_6c36ab3.webp",
@@ -1520,26 +1528,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "It is three [blank].",
+      "interaction_type": "complete2",
+      "prompt": "The juice is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "dollars-2",
+      "correct_option_id": "four",
+      "correct_option_ids": [
+        "four",
+        "dollars"
+      ],
       "options": [
         {
-          "id": "dollar-1",
+          "id": "four",
           "image_url": "",
-          "label": "dollar"
+          "label": "four"
         },
         {
-          "id": "dollars-2",
+          "id": "dollars",
           "image_url": "",
           "label": "dollars"
         }
       ],
-      "audio_text": "It is three ___.",
-      "answer_audio_text": "It is three dollars.",
+      "audio_text": "The juice is four dollars.",
+      "answer_audio_text": "The juice is four dollars.",
       "prompt_image_url": "/lesson-assets/a1_scene_dollars_5c6ef4f.webp",
-      "spanish_translation": "Cuesta tres [pausa].",
+      "spanish_translation": "El jugo cuesta cuatro d\u00f3lares.",
       "pedagogy_note": "Plural agreement.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1547,11 +1559,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-7-prices-c029-prompt-1c59467d8d136a73acd4",
+          "id": "lesson-5-7-prices-c029-prompt-171ffbaf02855ca27b46",
           "purpose": "prompt",
-          "text": "It is three dollars.",
+          "text": "The juice is four dollars.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_dollars_5c6ef4f.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1559,9 +1571,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-7-prices-c029-answer-3e1d01f11c1fdac6dc45",
+          "id": "lesson-5-7-prices-c029-answer-a29285af69565a67ef56",
           "purpose": "answer",
-          "text": "It is three dollars.",
+          "text": "The juice is four dollars.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_dollars_5c6ef4f.webp",
@@ -1574,31 +1586,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "The juice is [blank] dollars.",
+      "interaction_type": "complete2",
+      "prompt": "The bag is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "four-3",
+      "correct_option_id": "seven",
+      "correct_option_ids": [
+        "seven",
+        "dollars"
+      ],
       "options": [
         {
-          "id": "two-1",
+          "id": "seven",
           "image_url": "",
-          "label": "two"
+          "label": "seven"
         },
         {
-          "id": "three-2",
+          "id": "dollars",
           "image_url": "",
-          "label": "three"
-        },
-        {
-          "id": "four-3",
-          "image_url": "",
-          "label": "four"
+          "label": "dollars"
         }
       ],
-      "audio_text": "The juice is ___ dollars.",
-      "answer_audio_text": "The juice is four dollars.",
+      "audio_text": "The bag is seven dollars.",
+      "answer_audio_text": "The bag is seven dollars.",
       "prompt_image_url": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
-      "spanish_translation": "El jugo cuesta [pausa] d\u00f3lares.",
+      "spanish_translation": "La bolsa cuesta siete d\u00f3lares.",
       "pedagogy_note": "Exact tag.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1606,11 +1617,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-7-prices-c030-prompt-2a5865b26465f8bd560d",
+          "id": "lesson-5-7-prices-c030-prompt-25737c65a923a63a7cf0",
           "purpose": "prompt",
-          "text": "The juice is four dollars.",
+          "text": "The bag is seven dollars.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1618,9 +1629,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-7-prices-c030-answer-18a6094ac958b4ef9729",
+          "id": "lesson-5-7-prices-c030-answer-96b358c02c0de4898fc6",
           "purpose": "answer",
-          "text": "The juice is four dollars.",
+          "text": "The bag is seven dollars.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
@@ -1633,24 +1644,40 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "response-choice",
-      "prompt": "How much is it?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "it-is-two-dollars-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "it-is-two-dollars-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is two dollars."
+          "label": "How"
         },
         {
-          "id": "it-is-five-dollars-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is five dollars."
+          "label": "much"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "it"
         }
       ],
       "audio_text": "How much is it?",
-      "answer_audio_text": "It is two dollars.",
+      "answer_audio_text": "How much is it?",
       "prompt_image_url": "/lesson-assets/a1_scene_it-is-two-dollars_90ec73e.webp",
       "spanish_translation": "\u00bfCu\u00e1nto cuesta?",
       "pedagogy_note": "Controlled price response.",
@@ -1672,9 +1699,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-7-prices-c031-answer-8b07d2a51226a82abba3",
+          "id": "lesson-5-7-prices-c031-answer-14965fb7bec65f4b64db",
           "purpose": "answer",
-          "text": "It is two dollars.",
+          "text": "How much is it?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_it-is-two-dollars_90ec73e.webp",
@@ -1687,26 +1714,42 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "How much is it?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-five-dollars-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "it-is-four-dollars-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is four dollars."
+          "label": "It"
         },
         {
-          "id": "it-is-five-dollars-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is five dollars."
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "two"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "dollars"
         }
       ],
-      "audio_text": "How much is it?",
-      "answer_audio_text": "It is five dollars.",
+      "audio_text": "It is two dollars.",
+      "answer_audio_text": "It is two dollars.",
       "prompt_image_url": "/lesson-assets/a1_scene_it-is-five-dollars_fb6615f.webp",
-      "spanish_translation": "\u00bfCu\u00e1nto cuesta?",
+      "spanish_translation": "Cuesta dos d\u00f3lares.",
       "pedagogy_note": "Controlled response.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1714,21 +1757,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-7-prices-c032-prompt-0e06d39a9becf6c89162",
+          "id": "lesson-5-7-prices-c032-prompt-6b85b1c649c150e060e3",
           "purpose": "prompt",
-          "text": "How much is it?",
+          "text": "It is two dollars.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_it-is-five-dollars_fb6615f.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-7-prices-c032-answer-8288c5f4f1abe7d89f2f",
+          "id": "lesson-5-7-prices-c032-answer-6669938022371c122e92",
           "purpose": "answer",
-          "text": "It is five dollars.",
+          "text": "It is two dollars.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_it-is-five-dollars_fb6615f.webp",
@@ -1741,31 +1784,42 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "The bag is [blank] dollars.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "seven-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "six-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "six"
+          "label": "It"
         },
         {
-          "id": "seven-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "seven"
+          "label": "is"
         },
         {
-          "id": "eight-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "eight"
+          "label": "five"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "dollars"
         }
       ],
-      "audio_text": "The bag is ___ dollars.",
-      "answer_audio_text": "The bag is seven dollars.",
+      "audio_text": "It is five dollars.",
+      "answer_audio_text": "It is five dollars.",
       "prompt_image_url": "/lesson-assets/a1_scene_seven_a00bbe5.webp",
-      "spanish_translation": "La bolsa cuesta [pausa] d\u00f3lares.",
+      "spanish_translation": "Cuesta cinco d\u00f3lares.",
       "pedagogy_note": "Review object and upper-range number.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1773,11 +1827,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-7-prices-c033-prompt-bf8790114e2d018f7755",
+          "id": "lesson-5-7-prices-c033-prompt-ee4ce4f4c2feb3e62186",
           "purpose": "prompt",
-          "text": "The bag is seven dollars.",
+          "text": "It is five dollars.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_seven_a00bbe5.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1785,9 +1839,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-7-prices-c033-answer-f6702fdff8dd571cd67d",
+          "id": "lesson-5-7-prices-c033-answer-82f308a6b99c5cca0828",
           "purpose": "answer",
-          "text": "The bag is seven dollars.",
+          "text": "It is five dollars.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_seven_a00bbe5.webp",
@@ -1800,26 +1854,42 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "How much is it?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-ten-dollars-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "it-is-nine-dollars-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is nine dollars."
+          "label": "It"
         },
         {
-          "id": "it-is-ten-dollars-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is ten dollars."
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "ten"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "dollars"
         }
       ],
-      "audio_text": "How much is it?",
+      "audio_text": "It is ten dollars.",
       "answer_audio_text": "It is ten dollars.",
       "prompt_image_url": "/lesson-assets/a1_scene_it-is-ten-dollars_717f891.webp",
-      "spanish_translation": "\u00bfCu\u00e1nto cuesta?",
+      "spanish_translation": "Cuesta diez d\u00f3lares.",
       "pedagogy_note": "Uses the exact taught question-answer frame rather than first testing a noun-substitution question here.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1827,14 +1897,14 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-7-prices-c034-prompt-725d237ec27a508aeca5",
+          "id": "lesson-5-7-prices-c034-prompt-9ca8c66e5ee2adf8a21e",
           "purpose": "prompt",
-          "text": "How much is it?",
+          "text": "It is ten dollars.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_it-is-ten-dollars_717f891.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },

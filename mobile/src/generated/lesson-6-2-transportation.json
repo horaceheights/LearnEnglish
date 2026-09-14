@@ -1506,26 +1506,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "I go [blank] bus.",
+      "interaction_type": "complete2",
+      "prompt": "I go ___ ___.",
       "stage": "Use",
-      "correct_option_id": "by-1",
+      "correct_option_id": "by",
+      "correct_option_ids": [
+        "by",
+        "bus"
+      ],
       "options": [
         {
-          "id": "by-1",
+          "id": "by",
           "image_url": "",
           "label": "by"
         },
         {
-          "id": "in-2",
+          "id": "bus",
           "image_url": "",
-          "label": "in"
+          "label": "bus"
         }
       ],
-      "audio_text": "I go ___ bus.",
+      "audio_text": "I go by bus.",
       "answer_audio_text": "I go by bus.",
       "prompt_image_url": "/lesson-assets/a1_scene_by_4081586.webp",
-      "spanish_translation": "Voy [pausa] autob\u00fas.",
+      "spanish_translation": "Voy en autob\u00fas.",
       "pedagogy_note": "In is known location distractor; completed audio only after choice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1533,11 +1537,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c029-prompt-b91c2a6f5ef8fe4f806e",
+          "id": "lesson-6-2-transportation-c029-prompt-90914484d86b6dc1e0af",
           "purpose": "prompt",
           "text": "I go by bus.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_by_4081586.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1560,26 +1564,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "I go by [blank].",
+      "interaction_type": "complete2",
+      "prompt": "I go ___ ___.",
       "stage": "Use",
-      "correct_option_id": "train-2",
+      "correct_option_id": "by",
+      "correct_option_ids": [
+        "by",
+        "train"
+      ],
       "options": [
         {
-          "id": "bus-1",
+          "id": "by",
           "image_url": "",
-          "label": "bus"
+          "label": "by"
         },
         {
-          "id": "train-2",
+          "id": "train",
           "image_url": "",
           "label": "train"
         }
       ],
-      "audio_text": "I go by ___.",
+      "audio_text": "I go by train.",
       "answer_audio_text": "I go by train.",
       "prompt_image_url": "/lesson-assets/a1_scene_train_94efdd6.webp",
-      "spanish_translation": "Voy en [pausa].",
+      "spanish_translation": "Voy en tren.",
       "pedagogy_note": "Vehicle selection.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1587,11 +1595,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c030-prompt-e8239bfd774550acef85",
+          "id": "lesson-6-2-transportation-c030-prompt-65a6fe091712483222af",
           "purpose": "prompt",
           "text": "I go by train.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_train_94efdd6.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1614,26 +1622,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "I go by [blank].",
+      "interaction_type": "complete2",
+      "prompt": "I go ___ ___.",
       "stage": "Use",
-      "correct_option_id": "taxi-2",
+      "correct_option_id": "by",
+      "correct_option_ids": [
+        "by",
+        "taxi"
+      ],
       "options": [
         {
-          "id": "car-1",
+          "id": "by",
           "image_url": "",
-          "label": "car"
+          "label": "by"
         },
         {
-          "id": "taxi-2",
+          "id": "taxi",
           "image_url": "",
           "label": "taxi"
         }
       ],
-      "audio_text": "I go by ___.",
+      "audio_text": "I go by taxi.",
       "answer_audio_text": "I go by taxi.",
       "prompt_image_url": "/lesson-assets/a1_scene_taxi_4d82205.webp",
-      "spanish_translation": "Voy en [pausa].",
+      "spanish_translation": "Voy en taxi.",
       "pedagogy_note": "Taxi cue decisive.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1641,11 +1653,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c031-prompt-5270c9c9acbecbc591bf",
+          "id": "lesson-6-2-transportation-c031-prompt-49ade06ce85f6608eef1",
           "purpose": "prompt",
           "text": "I go by taxi.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_taxi_4d82205.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1668,26 +1680,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "I [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "walk-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "walk-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "walk"
+          "label": "I"
         },
         {
-          "id": "go-by-bike-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "go by bike"
+          "label": "walk"
         }
       ],
-      "audio_text": "I ___.",
+      "audio_text": "I walk.",
       "answer_audio_text": "I walk.",
       "prompt_image_url": "/lesson-assets/a1_scene_walk_df06b14.webp",
-      "spanish_translation": "[pausa].",
+      "spanish_translation": "Camino.",
       "pedagogy_note": "Known chunks only.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1695,11 +1711,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c032-prompt-4005040654673b3fd8f7",
+          "id": "lesson-6-2-transportation-c032-prompt-90e13cc74b713640a842",
           "purpose": "prompt",
           "text": "I walk.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_walk_df06b14.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1722,26 +1738,42 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "They [blank] by bus.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "go-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "go-1",
+          "id": "word-1",
+          "image_url": "",
+          "label": "They"
+        },
+        {
+          "id": "word-2",
           "image_url": "",
           "label": "go"
         },
         {
-          "id": "goes-2",
+          "id": "word-3",
           "image_url": "",
-          "label": "goes"
+          "label": "by"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "bus"
         }
       ],
-      "audio_text": "They ___ by bus.",
+      "audio_text": "They go by bus.",
       "answer_audio_text": "They go by bus.",
       "prompt_image_url": "/lesson-assets/a1_scene_go_1ec558a.webp",
-      "spanish_translation": "Ellos [pausa] en autob\u00fas.",
+      "spanish_translation": "Ellos van en autob\u00fas.",
       "pedagogy_note": "Purposeful simple-present review.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1749,11 +1781,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c033-prompt-bb7bc4a6a9b7ac13b7d9",
+          "id": "lesson-6-2-transportation-c033-prompt-16d56bf1ee3b30264196",
           "purpose": "prompt",
           "text": "They go by bus.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_go_1ec558a.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1776,26 +1808,42 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "He [blank] by train.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "goes-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "go-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "go"
+          "label": "He"
         },
         {
-          "id": "goes-2",
+          "id": "word-2",
           "image_url": "",
           "label": "goes"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "by"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "train"
         }
       ],
-      "audio_text": "He ___ by train.",
+      "audio_text": "He goes by train.",
       "answer_audio_text": "He goes by train.",
       "prompt_image_url": "/lesson-assets/a1_scene_goes_dda18e1.webp",
-      "spanish_translation": "\u00c9l [pausa] en tren.",
+      "spanish_translation": "\u00c9l va en tren.",
       "pedagogy_note": "Third-person form previously established in Unit 4 core and 5.5 agreement.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1803,11 +1851,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-2-transportation-c034-prompt-8ab8894ecfc94ee78ff7",
+          "id": "lesson-6-2-transportation-c034-prompt-6c2deff877d2a5dce985",
           "purpose": "prompt",
           "text": "He goes by train.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_goes_dda18e1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

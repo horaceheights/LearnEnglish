@@ -1303,26 +1303,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "I go by [blank].",
+      "interaction_type": "complete2",
+      "prompt": "I go ___ ___.",
       "stage": "Use",
-      "correct_option_id": "train-2",
+      "correct_option_id": "by",
+      "correct_option_ids": [
+        "by",
+        "train"
+      ],
       "options": [
         {
-          "id": "bus-1",
+          "id": "by",
           "image_url": "",
-          "label": "bus"
+          "label": "by"
         },
         {
-          "id": "train-2",
+          "id": "train",
           "image_url": "",
           "label": "train"
         }
       ],
-      "audio_text": "I go by ___.",
+      "audio_text": "I go by train.",
       "answer_audio_text": "I go by train.",
       "prompt_image_url": "/lesson-assets/a1_scene_train_94efdd6.webp",
-      "spanish_translation": "Voy en [pausa].",
+      "spanish_translation": "Voy en tren.",
       "pedagogy_note": "Transport.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1330,11 +1334,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c025-prompt-07659e7e865c9df3bc1c",
+          "id": "lesson-6-9-unit-6-review-c025-prompt-e439025f4c346fb03a8a",
           "purpose": "prompt",
           "text": "I go by train.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_train_94efdd6.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1357,26 +1361,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "The bank is on the [blank].",
+      "interaction_type": "complete2",
+      "prompt": "The bank is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "right-2",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "right"
+      ],
       "options": [
         {
-          "id": "left-1",
+          "id": "the",
           "image_url": "",
-          "label": "left"
+          "label": "the"
         },
         {
-          "id": "right-2",
+          "id": "right",
           "image_url": "",
           "label": "right"
         }
       ],
-      "audio_text": "The bank is on the ___.",
+      "audio_text": "The bank is on the right.",
       "answer_audio_text": "The bank is on the right.",
       "prompt_image_url": "/lesson-assets/a1_scene_right_d27a1f1.webp",
-      "spanish_translation": "El banco est\u00e1 a la [pausa].",
+      "spanish_translation": "El banco est\u00e1 a la derecha.",
       "pedagogy_note": "Location.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1384,11 +1392,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c026-prompt-272e79c286c35c5f1e69",
+          "id": "lesson-6-9-unit-6-review-c026-prompt-7419fcd12ae03e578e3e",
           "purpose": "prompt",
           "text": "The bank is on the right.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_right_d27a1f1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1411,26 +1419,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "Turn [blank].",
+      "interaction_type": "complete2",
+      "prompt": "You can cross ___ ___.",
       "stage": "Use",
-      "correct_option_id": "left-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "street"
+      ],
       "options": [
         {
-          "id": "left-1",
+          "id": "the",
           "image_url": "",
-          "label": "left"
+          "label": "the"
         },
         {
-          "id": "right-2",
+          "id": "street",
           "image_url": "",
-          "label": "right"
+          "label": "street"
         }
       ],
-      "audio_text": "Turn ___.",
-      "answer_audio_text": "Turn left.",
+      "audio_text": "You can cross the street.",
+      "answer_audio_text": "You can cross the street.",
       "prompt_image_url": "/lesson-assets/a1_scene_left_12c0f1f.webp",
-      "spanish_translation": "Gira a la [pausa].",
+      "spanish_translation": "Puedes cruzar la calle.",
       "pedagogy_note": "Direction.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1438,11 +1450,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c027-prompt-723b0e92b047c038aa85",
+          "id": "lesson-6-9-unit-6-review-c027-prompt-55b0d6f6e92c6e931752",
           "purpose": "prompt",
-          "text": "Turn left.",
+          "text": "You can cross the street.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_left_12c0f1f.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1450,9 +1462,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c027-answer-ed0c046840a2d24fa435",
+          "id": "lesson-6-9-unit-6-review-c027-answer-1bb4d7016c59dd20d209",
           "purpose": "answer",
-          "text": "Turn left.",
+          "text": "You can cross the street.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_left_12c0f1f.webp",
@@ -1465,26 +1477,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "You [blank] cross the street.",
+      "interaction_type": "complete2",
+      "prompt": "Can you ___ ___?",
       "stage": "Use",
-      "correct_option_id": "can-1",
+      "correct_option_id": "help",
+      "correct_option_ids": [
+        "help",
+        "me"
+      ],
       "options": [
         {
-          "id": "can-1",
+          "id": "help",
           "image_url": "",
-          "label": "can"
+          "label": "help"
         },
         {
-          "id": "cannot-2",
+          "id": "me",
           "image_url": "",
-          "label": "cannot"
+          "label": "me"
         }
       ],
-      "audio_text": "You ___ cross the street.",
-      "answer_audio_text": "You can cross the street.",
+      "audio_text": "Can you help me?",
+      "answer_audio_text": "Can you help me?",
       "prompt_image_url": "/lesson-assets/a1_scene_can_7e9219a.webp",
-      "spanish_translation": "[pausa] cruzar la calle.",
+      "spanish_translation": "\u00bfPuede ayudarme?",
       "pedagogy_note": "Can.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1492,21 +1508,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c028-prompt-b504712e66a8a440059d",
+          "id": "lesson-6-9-unit-6-review-c028-prompt-99446331e5ed874440eb",
           "purpose": "prompt",
-          "text": "You can cross the street.",
+          "text": "Can you help me?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_can_7e9219a.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c028-answer-e7f76ade803b49b60b26",
+          "id": "lesson-6-9-unit-6-review-c028-answer-7c6984361edd5a9ca1de",
           "purpose": "answer",
-          "text": "You can cross the street.",
+          "text": "Can you help me?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_can_7e9219a.webp",
@@ -1519,26 +1535,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "Can you [blank] me?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "help-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "help-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "help"
+          "label": "Turn"
         },
         {
-          "id": "stop-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "stop"
+          "label": "left"
         }
       ],
-      "audio_text": "Can you ___ me?",
-      "answer_audio_text": "Can you help me?",
+      "audio_text": "Turn left.",
+      "answer_audio_text": "Turn left.",
       "prompt_image_url": "/lesson-assets/a1_scene_help_92005ec.webp",
-      "spanish_translation": "\u00bfPuede [pausa]?",
+      "spanish_translation": "Gira a la izquierda.",
       "pedagogy_note": "Request.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1546,21 +1566,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c029-prompt-63269239ed4d145b0ef6",
+          "id": "lesson-6-9-unit-6-review-c029-prompt-11eb7caca38b9f5ec8da",
           "purpose": "prompt",
-          "text": "Can you help me?",
+          "text": "Turn left.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c029-answer-eee3aafea085c8a0ad1c",
+          "id": "lesson-6-9-unit-6-review-c029-answer-fb1cd1071b78c1cca0c2",
           "purpose": "answer",
-          "text": "Can you help me?",
+          "text": "Turn left.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
@@ -1573,26 +1593,30 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the hospital?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-near-the-bank-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "it-is-near-the-bank-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is near the bank."
+          "label": "Thank"
         },
         {
-          "id": "it-is-far-from-the-bank-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is far from the bank."
+          "label": "you"
         }
       ],
-      "audio_text": "Where is the hospital?",
-      "answer_audio_text": "It is near the bank.",
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
       "prompt_image_url": "/lesson-assets/a1_scene_it-is-near-the-bank_bbd8eb4.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el hospital?",
+      "spanish_translation": "Gracias.",
       "pedagogy_note": "Distance answer.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1600,21 +1624,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c030-prompt-8a0a77bf154510e35872",
+          "id": "lesson-6-9-unit-6-review-c030-prompt-931b6aa6feccd06e9fc7",
           "purpose": "prompt",
-          "text": "Where is the hospital?",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_it-is-near-the-bank_bbd8eb4.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c030-answer-e46aaa9c220319fcc3a8",
+          "id": "lesson-6-9-unit-6-review-c030-answer-d900c7bbadd47e3ee239",
           "purpose": "answer",
-          "text": "It is near the bank.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_it-is-near-the-bank_bbd8eb4.webp",
@@ -1627,26 +1651,48 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "The bus [blank] at eight.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "leaves-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "leaves-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "leaves"
+          "label": "It"
         },
         {
-          "id": "arrives-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "arrives"
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "near"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "bank"
         }
       ],
-      "audio_text": "The bus ___ at eight.",
-      "answer_audio_text": "The bus leaves at eight.",
+      "audio_text": "It is near the bank.",
+      "answer_audio_text": "It is near the bank.",
       "prompt_image_url": "/lesson-assets/a1_scene_leaves_8411175.webp",
-      "spanish_translation": "El autob\u00fas [pausa] a las ocho.",
+      "spanish_translation": "Est\u00e1 cerca del banco.",
       "pedagogy_note": "Schedule action.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1654,11 +1700,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c031-prompt-54556acc8e4ad6f40cdc",
+          "id": "lesson-6-9-unit-6-review-c031-prompt-612a75a14e929a228fb1",
           "purpose": "prompt",
-          "text": "The bus leaves at eight.",
+          "text": "It is near the bank.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_leaves_8411175.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1666,9 +1712,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c031-answer-2a833001141271905cc3",
+          "id": "lesson-6-9-unit-6-review-c031-answer-24e79607a50450e5d875",
           "purpose": "answer",
-          "text": "The bus leaves at eight.",
+          "text": "It is near the bank.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_leaves_8411175.webp",
@@ -1681,26 +1727,48 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "It is on the left.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "thank-you-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Thank you."
+          "label": "The"
         },
         {
-          "id": "sorry-no-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "bus"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "leaves"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "at"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "eight"
         }
       ],
-      "audio_text": "It is on the left.",
-      "answer_audio_text": "Thank you.",
+      "audio_text": "The bus leaves at eight.",
+      "answer_audio_text": "The bus leaves at eight.",
       "prompt_image_url": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Est\u00e1 a la izquierda.",
+      "spanish_translation": "El autob\u00fas sale a las ocho.",
       "pedagogy_note": "Conversation close.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1708,9 +1776,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-9-unit-6-review-c032-prompt-f3515587522d700de247",
+          "id": "lesson-6-9-unit-6-review-c032-prompt-e37f50fadc06db45ae2d",
           "purpose": "prompt",
-          "text": "It is on the left.",
+          "text": "The bus leaves at eight.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
@@ -1720,9 +1788,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-9-unit-6-review-c032-answer-4a705f3b02939488b0dc",
+          "id": "lesson-6-9-unit-6-review-c032-answer-565ea6024b514b822917",
           "purpose": "answer",
-          "text": "Thank you.",
+          "text": "The bus leaves at eight.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",

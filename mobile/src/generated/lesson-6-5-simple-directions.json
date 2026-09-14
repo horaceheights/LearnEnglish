@@ -1527,26 +1527,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "Go [blank].",
+      "interaction_type": "complete2",
+      "prompt": "Stop at ___ ___.",
       "stage": "Use",
-      "correct_option_id": "straight-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "hospital"
+      ],
       "options": [
         {
-          "id": "straight-1",
+          "id": "the",
           "image_url": "",
-          "label": "straight"
+          "label": "the"
         },
         {
-          "id": "left-2",
+          "id": "hospital",
           "image_url": "",
-          "label": "left"
+          "label": "hospital"
         }
       ],
-      "audio_text": "Go ___.",
-      "answer_audio_text": "Go straight.",
+      "audio_text": "Stop at the hospital.",
+      "answer_audio_text": "Stop at the hospital.",
       "prompt_image_url": "/lesson-assets/a1_scene_straight_6ec09fe.webp",
-      "spanish_translation": "Sigue [pausa].",
+      "spanish_translation": "Detente en el hospital.",
       "pedagogy_note": "Fixed command.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1554,11 +1558,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-5-simple-directions-c029-prompt-8620d46d6d9bd80491b2",
+          "id": "lesson-6-5-simple-directions-c029-prompt-c7a05cc88e2974e68124",
           "purpose": "prompt",
-          "text": "Go straight.",
+          "text": "Stop at the hospital.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_straight_6ec09fe.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1566,9 +1570,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-5-simple-directions-c029-answer-2ac6c86e1b95d897d784",
+          "id": "lesson-6-5-simple-directions-c029-answer-aa6a21e81277e7c02ce7",
           "purpose": "answer",
-          "text": "Go straight.",
+          "text": "Stop at the hospital.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_straight_6ec09fe.webp",
@@ -1581,26 +1585,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Turn [blank].",
+      "interaction_type": "complete2",
+      "prompt": "Cross ___ ___.",
       "stage": "Use",
-      "correct_option_id": "left-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "street"
+      ],
       "options": [
         {
-          "id": "left-1",
+          "id": "the",
           "image_url": "",
-          "label": "left"
+          "label": "the"
         },
         {
-          "id": "right-2",
+          "id": "street",
           "image_url": "",
-          "label": "right"
+          "label": "street"
         }
       ],
-      "audio_text": "Turn ___.",
-      "answer_audio_text": "Turn left.",
-      "prompt_image_url": "/lesson-assets/a1_scene_left_12c0f1f.webp",
-      "spanish_translation": "Gira a la [pausa].",
+      "audio_text": "Cross the street.",
+      "answer_audio_text": "Cross the street.",
+      "prompt_image_url": "/lesson-assets/a1_scene_street_d3a9fb0.webp",
+      "spanish_translation": "Cruza la calle.",
       "pedagogy_note": "Direction cue.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1608,24 +1616,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-5-simple-directions-c030-prompt-472553e01f86381c76a3",
+          "id": "lesson-6-5-simple-directions-c030-prompt-157783896edc4c8f0739",
           "purpose": "prompt",
-          "text": "Turn left.",
+          "text": "Cross the street.",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_left_12c0f1f.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_street_d3a9fb0.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-5-simple-directions-c030-answer-debec2f46e4ca0f53e02",
+          "id": "lesson-6-5-simple-directions-c030-answer-2f1d6f3421fe675e9790",
           "purpose": "answer",
-          "text": "Turn left.",
+          "text": "Cross the street.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_left_12c0f1f.webp",
+          "image_ref": "/lesson-assets/a1_scene_street_d3a9fb0.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1635,26 +1643,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "Turn [blank].",
+      "interaction_type": "complete2",
+      "prompt": "Go straight. ___ ___.",
       "stage": "Use",
-      "correct_option_id": "right-2",
+      "correct_option_id": "turn",
+      "correct_option_ids": [
+        "turn",
+        "left"
+      ],
       "options": [
         {
-          "id": "left-1",
+          "id": "turn",
           "image_url": "",
-          "label": "left"
+          "label": "Turn"
         },
         {
-          "id": "right-2",
+          "id": "left",
           "image_url": "",
-          "label": "right"
+          "label": "left"
         }
       ],
-      "audio_text": "Turn ___.",
-      "answer_audio_text": "Turn right.",
-      "prompt_image_url": "/lesson-assets/a1_scene_right_d27a1f1.webp",
-      "spanish_translation": "Gira a la [pausa].",
+      "audio_text": "Go straight. Turn left.",
+      "answer_audio_text": "Go straight. Turn left.",
+      "prompt_image_url": "/lesson-assets/a1_scene_left_12c0f1f.webp",
+      "spanish_translation": "Sigue recto. Gira a la izquierda.",
       "pedagogy_note": "Direction cue.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1662,24 +1674,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-5-simple-directions-c031-prompt-5dabbbaca6248576ede9",
+          "id": "lesson-6-5-simple-directions-c031-prompt-7a3f7f96c0a1be87b520",
           "purpose": "prompt",
-          "text": "Turn right.",
+          "text": "Go straight. Turn left.",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_right_d27a1f1.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_left_12c0f1f.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-5-simple-directions-c031-answer-b0708a8b116a62e17ebb",
+          "id": "lesson-6-5-simple-directions-c031-answer-2bdc79e46787af7b22c4",
           "purpose": "answer",
-          "text": "Turn right.",
+          "text": "Go straight. Turn left.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_right_d27a1f1.webp",
+          "image_ref": "/lesson-assets/a1_scene_left_12c0f1f.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1689,26 +1701,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "Cross the [blank].",
+      "interaction_type": "complete2",
+      "prompt": "Go straight. ___ ___.",
       "stage": "Use",
-      "correct_option_id": "street-1",
+      "correct_option_id": "turn",
+      "correct_option_ids": [
+        "turn",
+        "right"
+      ],
       "options": [
         {
-          "id": "street-1",
+          "id": "turn",
           "image_url": "",
-          "label": "street"
+          "label": "Turn"
         },
         {
-          "id": "station-2",
+          "id": "right",
           "image_url": "",
-          "label": "station"
+          "label": "right"
         }
       ],
-      "audio_text": "Cross the ___.",
-      "answer_audio_text": "Cross the street.",
-      "prompt_image_url": "/lesson-assets/a1_scene_street_d3a9fb0.webp",
-      "spanish_translation": "Cruza la [pausa].",
+      "audio_text": "Go straight. Turn right.",
+      "answer_audio_text": "Go straight. Turn right.",
+      "prompt_image_url": "/lesson-assets/a1_scene_right_d27a1f1.webp",
+      "spanish_translation": "Sigue recto. Gira a la derecha.",
       "pedagogy_note": "Command chunk.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1716,24 +1732,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-5-simple-directions-c032-prompt-f82aa1c8de2721654720",
+          "id": "lesson-6-5-simple-directions-c032-prompt-b2690875e16f6af24aac",
           "purpose": "prompt",
-          "text": "Cross the street.",
+          "text": "Go straight. Turn right.",
           "mode": "prompt",
-          "variant": "completion-prompt",
-          "image_ref": "/lesson-assets/a1_scene_street_d3a9fb0.webp",
+          "variant": "prompt",
+          "image_ref": "/lesson-assets/a1_scene_right_d27a1f1.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-5-simple-directions-c032-answer-d7457a835f0a9dd5751b",
+          "id": "lesson-6-5-simple-directions-c032-answer-4961653891abceed4255",
           "purpose": "answer",
-          "text": "Cross the street.",
+          "text": "Go straight. Turn right.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_street_d3a9fb0.webp",
+          "image_ref": "/lesson-assets/a1_scene_right_d27a1f1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1743,26 +1759,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "choice",
-      "prompt": "Choose the sentence.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "stop-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "stop-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Stop."
+          "label": "Go"
         },
         {
-          "id": "go-straight-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Go straight."
+          "label": "straight"
         }
       ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "Stop.",
+      "audio_text": "Go straight.",
+      "answer_audio_text": "Go straight.",
       "prompt_image_url": "/lesson-assets/a1_scene_stop_81436d8.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
+      "spanish_translation": "Sigue recto.",
       "pedagogy_note": "Visual end marker.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1770,9 +1790,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-5-simple-directions-c033-prompt-7774ccc66ad7c9c6cad3",
+          "id": "lesson-6-5-simple-directions-c033-prompt-547edb893beca1590521",
           "purpose": "prompt",
-          "text": "Choose the sentence.",
+          "text": "Go straight.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_stop_81436d8.webp",
@@ -1782,9 +1802,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-5-simple-directions-c033-answer-9236d147ed32d44d10e7",
+          "id": "lesson-6-5-simple-directions-c033-answer-b82215503685cb0d4d3e",
           "purpose": "answer",
-          "text": "Stop.",
+          "text": "Go straight.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_stop_81436d8.webp",
@@ -1797,26 +1817,30 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "choice",
-      "prompt": "Choose the sentence.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "go-straight-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "go-straight-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Go straight."
+          "label": "Turn"
         },
         {
-          "id": "turn-right-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Turn right."
+          "label": "left"
         }
       ],
-      "audio_text": "Choose the sentence.",
-      "answer_audio_text": "Go straight.",
+      "audio_text": "Turn left.",
+      "answer_audio_text": "Turn left.",
       "prompt_image_url": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
+      "spanish_translation": "Gira a la izquierda.",
       "pedagogy_note": "Selects first, not orders tiles.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1824,9 +1848,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-5-simple-directions-c034-prompt-9be08f9edbc26cd13388",
+          "id": "lesson-6-5-simple-directions-c034-prompt-94d1516ee99110c1cec3",
           "purpose": "prompt",
-          "text": "Choose the sentence.",
+          "text": "Turn left.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
@@ -1836,9 +1860,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-6-5-simple-directions-c034-answer-944c1af3172416df65a2",
+          "id": "lesson-6-5-simple-directions-c034-answer-b2af523a95b84ad601d5",
           "purpose": "answer",
-          "text": "Go straight.",
+          "text": "Turn left.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_go-straight_5199aa5.webp",
@@ -1851,26 +1875,30 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "choice",
-      "prompt": "Choose the sentence.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "turn-right-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "turn-left-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Turn left."
+          "label": "Turn"
         },
         {
-          "id": "turn-right-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Turn right."
+          "label": "right"
         }
       ],
-      "audio_text": "Choose the sentence.",
+      "audio_text": "Turn right.",
       "answer_audio_text": "Turn right.",
       "prompt_image_url": "/lesson-assets/a1_scene_turn-right_e21c99d.webp",
-      "spanish_translation": "Elige la oraci\u00f3n.",
+      "spanish_translation": "Gira a la derecha.",
       "pedagogy_note": "Second controlled step; no drag/reorder.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1878,9 +1906,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-5-simple-directions-c035-prompt-ee8b2ce7d871ac384626",
+          "id": "lesson-6-5-simple-directions-c035-prompt-fc4f8791648e6b294800",
           "purpose": "prompt",
-          "text": "Choose the sentence.",
+          "text": "Turn right.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_turn-right_e21c99d.webp",
@@ -1905,31 +1933,42 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete",
-      "prompt": "Stop at the [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "hospital-3",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "bank-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "bank"
+          "label": "Stop"
         },
         {
-          "id": "store-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "store"
+          "label": "at"
         },
         {
-          "id": "hospital-3",
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "hospital"
         }
       ],
-      "audio_text": "Stop at the ___.",
+      "audio_text": "Stop at the hospital.",
       "answer_audio_text": "Stop at the hospital.",
       "prompt_image_url": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
-      "spanish_translation": "Detente en el [pausa].",
+      "spanish_translation": "Detente en el hospital.",
       "pedagogy_note": "Known landmarks only.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1937,11 +1976,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-5-simple-directions-c036-prompt-3be2f30488da4d942821",
+          "id": "lesson-6-5-simple-directions-c036-prompt-ee32c530b9daaed1edc2",
           "purpose": "prompt",
           "text": "Stop at the hospital.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

@@ -661,200 +661,253 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "I need [blank].",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "help-1",
+      "correct_option_id": "need",
       "options": [
         {
-          "id": "help-1",
+          "id": "need",
           "image_url": "",
-          "label": "help"
+          "label": "need"
         },
         {
-          "id": "water-2",
+          "id": "help",
           "image_url": "",
-          "label": "water"
+          "label": "help"
         }
       ],
-      "audio_text": "I need ___.",
+      "audio_text": "I need help.",
       "answer_audio_text": "I need help.",
       "prompt_image_url": "a1_scene_help_92005ec.webp",
-      "spanish_translation": "Necesito [pausa].",
-      "pedagogy_note": "Scene decides."
+      "spanish_translation": "Necesito ayuda.",
+      "pedagogy_note": "Scene decides.",
+      "translation": "Necesito ayuda.",
+      "correct_option_ids": [
+        "need",
+        "help"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "I do not [blank].",
+      "interaction_type": "complete2",
+      "prompt": "Please ___ ___.",
       "stage": "Use",
-      "correct_option_id": "understand-1",
+      "correct_option_id": "speak",
       "options": [
         {
-          "id": "understand-1",
+          "id": "speak",
           "image_url": "",
-          "label": "understand"
+          "label": "speak"
         },
         {
-          "id": "like-2",
+          "id": "slowly",
           "image_url": "",
-          "label": "like"
+          "label": "slowly"
         }
       ],
-      "audio_text": "I do not ___.",
-      "answer_audio_text": "I do not understand.",
+      "audio_text": "Please speak slowly.",
+      "answer_audio_text": "Please speak slowly.",
       "prompt_image_url": "a1_scene_understand_8e73840.webp",
-      "spanish_translation": "No [pausa].",
-      "pedagogy_note": "Known like distractor; function decides."
+      "spanish_translation": "Por favor habla despacio.",
+      "pedagogy_note": "Known like distractor; function decides.",
+      "translation": "Por favor habla despacio.",
+      "correct_option_ids": [
+        "speak",
+        "slowly"
+      ]
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "Please [blank].",
+      "interaction_type": "complete2",
+      "prompt": "I do ___ ___.",
       "stage": "Use",
-      "correct_option_id": "repeat-1",
+      "correct_option_id": "not",
       "options": [
         {
-          "id": "repeat-1",
+          "id": "not",
           "image_url": "",
-          "label": "repeat"
+          "label": "not"
         },
         {
-          "id": "help-2",
+          "id": "understand",
           "image_url": "",
-          "label": "help"
+          "label": "understand"
         }
       ],
-      "audio_text": "Please ___.",
-      "answer_audio_text": "Please repeat.",
+      "audio_text": "I do not understand.",
+      "answer_audio_text": "I do not understand.",
       "prompt_image_url": "a1_scene_repeat_c0ac484.webp",
-      "spanish_translation": "[pausa], por favor.",
-      "pedagogy_note": "Recovery action."
+      "spanish_translation": "No entiendo.",
+      "pedagogy_note": "Recovery action.",
+      "translation": "No entiendo.",
+      "correct_option_ids": [
+        "not",
+        "understand"
+      ]
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "Please speak [blank].",
+      "interaction_type": "complete2",
+      "prompt": "Where is ___ ___?",
       "stage": "Use",
-      "correct_option_id": "slowly-1",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "slowly-1",
+          "id": "the",
           "image_url": "",
-          "label": "slowly"
+          "label": "the"
         },
         {
-          "id": "please-2",
+          "id": "bathroom",
           "image_url": "",
-          "label": "please"
+          "label": "bathroom"
         }
       ],
-      "audio_text": "Please speak ___.",
-      "answer_audio_text": "Please speak slowly.",
+      "audio_text": "Where is the bathroom?",
+      "answer_audio_text": "Where is the bathroom?",
       "prompt_image_url": "a1_scene_slowly_b972c8e.webp",
-      "spanish_translation": "Hable [pausa], por favor.",
-      "pedagogy_note": "Both choice words are already taught; only slowly completes the established phrase."
+      "spanish_translation": "¿Dónde está el baño?",
+      "pedagogy_note": "Both choice words are already taught; only slowly completes the established phrase.",
+      "translation": "¿Dónde está el baño?",
+      "correct_option_ids": [
+        "the",
+        "bathroom"
+      ]
     },
     {
       "slide_id": "U5",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "please-repeat-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "please-repeat-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Please repeat."
+          "label": "Thank"
         },
         {
-          "id": "thank-you-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Thank you."
+          "label": "you"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Please repeat.",
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
       "prompt_image_url": "a1_scene_please-repeat_50ab734.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Situation and icon decide without introducing a second-person understand sentence."
+      "spanish_translation": "Gracias.",
+      "pedagogy_note": "Situation and icon decide without introducing a second-person understand sentence.",
+      "translation": "Gracias.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
     },
     {
       "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "please-speak-slowly-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "please-speak-slowly-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Please speak slowly."
+          "label": "Please"
         },
         {
-          "id": "where-is-the-bathroom-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Where is the bathroom?"
+          "label": "repeat"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Please speak slowly.",
+      "audio_text": "Please repeat.",
+      "answer_audio_text": "Please repeat.",
       "prompt_image_url": "a1_scene_please-speak-slowly_f0a8349.webp",
-      "spanish_translation": "Elige la frase.",
-      "pedagogy_note": "Visual speed cue establishes the recovery need without untaught instructional vocabulary."
+      "spanish_translation": "Por favor repite.",
+      "pedagogy_note": "Visual speed cue establishes the recovery need without untaught instructional vocabulary.",
+      "translation": "Por favor repite.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ]
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "Where is the [blank]?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bathroom-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "bathroom-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "bathroom"
+          "label": "Please"
         },
         {
-          "id": "station-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "station"
+          "label": "speak"
         },
         {
-          "id": "hospital-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "hospital"
+          "label": "slowly"
         }
       ],
-      "audio_text": "Where is the ___?",
-      "answer_audio_text": "Where is the bathroom?",
+      "audio_text": "Please speak slowly.",
+      "answer_audio_text": "Please speak slowly.",
       "prompt_image_url": "a1_scene_bathroom_72bfb05.webp",
-      "spanish_translation": "¿Dónde está el [pausa]?",
-      "pedagogy_note": "Practical location transfer."
+      "spanish_translation": "Por favor habla despacio.",
+      "pedagogy_note": "Practical location transfer.",
+      "translation": "Por favor habla despacio.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ]
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "It is on the right.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "thank-you-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Thank you."
+          "label": "I"
         },
         {
-          "id": "sorry-no-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "do"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "understand"
         }
       ],
-      "audio_text": "It is on the right.",
-      "answer_audio_text": "Thank you.",
+      "audio_text": "I do not understand.",
+      "answer_audio_text": "I do not understand.",
       "prompt_image_url": "a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Está a la derecha.",
-      "pedagogy_note": "Polite close."
+      "spanish_translation": "No entiendo.",
+      "pedagogy_note": "Polite close.",
+      "translation": "No entiendo.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     }
   ]
 }

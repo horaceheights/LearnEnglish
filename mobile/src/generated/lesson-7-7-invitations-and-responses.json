@@ -1434,26 +1434,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "Do you [blank] to watch TV?",
+      "interaction_type": "complete2",
+      "prompt": "Do you want ___ ___?",
       "stage": "Use",
-      "correct_option_id": "want-2",
+      "correct_option_id": "to",
+      "correct_option_ids": [
+        "to",
+        "read"
+      ],
       "options": [
         {
-          "id": "wants-1",
+          "id": "to",
           "image_url": "",
-          "label": "wants"
+          "label": "to"
         },
         {
-          "id": "want-2",
+          "id": "read",
           "image_url": "",
-          "label": "want"
+          "label": "read"
         }
       ],
-      "audio_text": "Do you ___ to watch TV?",
-      "answer_audio_text": "Do you want to watch TV?",
+      "audio_text": "Do you want to read?",
+      "answer_audio_text": "Do you want to read?",
       "prompt_image_url": "/lesson-assets/a1_scene_want_b5f23bc.webp",
-      "spanish_translation": "\u00bf[pausa] ver televisi\u00f3n?",
+      "spanish_translation": "\u00bfQuieres leer?",
       "pedagogy_note": "Both forms were taught; Do you requires base want, so only one choice is grammatical. Spanish support gap maps to quieres and yields the natural completed gloss \u00bfQuieres ver televisi\u00f3n?.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1461,11 +1465,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-7-invitations-and-responses-c027-prompt-064cd1d012a40e69edba",
+          "id": "lesson-7-7-invitations-and-responses-c027-prompt-3e2c8f375b8d6f76343c",
           "purpose": "prompt",
-          "text": "Do you want to watch TV?",
+          "text": "Do you want to read?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_want_b5f23bc.webp",
           "semantic_role": "question",
           "speaker_role": "question",
@@ -1473,9 +1477,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-7-invitations-and-responses-c027-answer-310d052c78b76816c436",
+          "id": "lesson-7-7-invitations-and-responses-c027-answer-9fbb1e017dab505cdf22",
           "purpose": "answer",
-          "text": "Do you want to watch TV?",
+          "text": "Do you want to read?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_want_b5f23bc.webp",
@@ -1488,26 +1492,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Do you want [blank] listen to music?",
+      "interaction_type": "complete2",
+      "prompt": "Do you want ___ ___?",
       "stage": "Use",
-      "correct_option_id": "to-2",
+      "correct_option_id": "to",
+      "correct_option_ids": [
+        "to",
+        "play"
+      ],
       "options": [
         {
-          "id": "in-1",
-          "image_url": "",
-          "label": "in"
-        },
-        {
-          "id": "to-2",
+          "id": "to",
           "image_url": "",
           "label": "to"
+        },
+        {
+          "id": "play",
+          "image_url": "",
+          "label": "play"
         }
       ],
-      "audio_text": "Do you want ___ listen to music?",
-      "answer_audio_text": "Do you want to listen to music?",
+      "audio_text": "Do you want to play?",
+      "answer_audio_text": "Do you want to play?",
       "prompt_image_url": "/lesson-assets/a1_scene_to_4374aae.webp",
-      "spanish_translation": "\u00bfQuieres [pausa] m\u00fasica?",
+      "spanish_translation": "\u00bfQuieres jugar?",
       "pedagogy_note": "Known preposition distractor; Spanish uses a nonliteral support gap. Completed gloss \u00bfQuieres escuchar m\u00fasica? is support, not the English answer key.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1515,11 +1523,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-7-invitations-and-responses-c028-prompt-ad3fc15311e9de1c0f2d",
+          "id": "lesson-7-7-invitations-and-responses-c028-prompt-733ef7a8e4101b4a36ad",
           "purpose": "prompt",
-          "text": "Do you want to listen to music?",
+          "text": "Do you want to play?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_to_4374aae.webp",
           "semantic_role": "question",
           "speaker_role": "question",
@@ -1527,9 +1535,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-7-invitations-and-responses-c028-answer-8a4af40a582cf7ac4c80",
+          "id": "lesson-7-7-invitations-and-responses-c028-answer-1cf378eb0924a7e0b66a",
           "purpose": "answer",
-          "text": "Do you want to listen to music?",
+          "text": "Do you want to play?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_to_4374aae.webp",
@@ -1542,26 +1550,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "response-choice",
-      "prompt": "Do you want to read?",
+      "interaction_type": "complete2",
+      "prompt": "Do you want to ___ ___?",
       "stage": "Use",
-      "correct_option_id": "yes-thank-you-1",
+      "correct_option_id": "watch",
+      "correct_option_ids": [
+        "watch",
+        "tv"
+      ],
       "options": [
         {
-          "id": "yes-thank-you-1",
+          "id": "watch",
           "image_url": "",
-          "label": "Yes, thank you."
+          "label": "watch"
         },
         {
-          "id": "sorry-no-2",
+          "id": "tv",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "TV"
         }
       ],
-      "audio_text": "Do you want to read?",
-      "answer_audio_text": "Yes, thank you.",
+      "audio_text": "Do you want to watch TV?",
+      "answer_audio_text": "Do you want to watch TV?",
       "prompt_image_url": "/lesson-assets/a1_scene_yes-thank-you_95534e3.webp",
-      "spanish_translation": "\u00bfQuieres leer?",
+      "spanish_translation": "\u00bfQuieres ver televisi\u00f3n?",
       "pedagogy_note": "Controlled acceptance.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1569,9 +1581,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-7-invitations-and-responses-c029-prompt-365dbf7ef8e3ed6608b7",
+          "id": "lesson-7-7-invitations-and-responses-c029-prompt-b99ce9ac502c39cf2679",
           "purpose": "prompt",
-          "text": "Do you want to read?",
+          "text": "Do you want to watch TV?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_yes-thank-you_95534e3.webp",
@@ -1581,9 +1593,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-7-invitations-and-responses-c029-answer-26b6accf5e8c22c037d5",
+          "id": "lesson-7-7-invitations-and-responses-c029-answer-db245e085ed8a97c65ba",
           "purpose": "answer",
-          "text": "Yes, thank you.",
+          "text": "Do you want to watch TV?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_yes-thank-you_95534e3.webp",
@@ -1596,26 +1608,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "response-choice",
-      "prompt": "Do you want to watch TV?",
+      "interaction_type": "complete2",
+      "prompt": "Do you want to listen ___ ___?",
       "stage": "Use",
-      "correct_option_id": "sorry-no-2",
+      "correct_option_id": "to",
+      "correct_option_ids": [
+        "to",
+        "music"
+      ],
       "options": [
         {
-          "id": "yes-thank-you-1",
+          "id": "to",
           "image_url": "",
-          "label": "Yes, thank you."
+          "label": "to"
         },
         {
-          "id": "sorry-no-2",
+          "id": "music",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "music"
         }
       ],
-      "audio_text": "Do you want to watch TV?",
-      "answer_audio_text": "Sorry, no.",
+      "audio_text": "Do you want to listen to music?",
+      "answer_audio_text": "Do you want to listen to music?",
       "prompt_image_url": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
-      "spanish_translation": "\u00bfQuieres ver televisi\u00f3n?",
+      "spanish_translation": "\u00bfQuieres escuchar m\u00fasica?",
       "pedagogy_note": "Controlled refusal.",
       "audio_speaker": null,
       "answer_audio_speaker": "female-character",
@@ -1623,9 +1639,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-7-invitations-and-responses-c030-prompt-7015fb2f5ce8b9301055",
+          "id": "lesson-7-7-invitations-and-responses-c030-prompt-f272b0fc2f549794f37d",
           "purpose": "prompt",
-          "text": "Do you want to watch TV?",
+          "text": "Do you want to listen to music?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
@@ -1635,9 +1651,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-7-invitations-and-responses-c030-answer-ea228897b74bf47d4cac",
+          "id": "lesson-7-7-invitations-and-responses-c030-answer-85b26b99dbeb48541243",
           "purpose": "answer",
-          "text": "Sorry, no.",
+          "text": "Do you want to listen to music?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
@@ -1650,26 +1666,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "Do you want to [blank]?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "read-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "read-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "read"
+          "label": "Sorry"
         },
         {
-          "id": "play-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "play"
+          "label": "no"
         }
       ],
-      "audio_text": "Do you want to ___?",
-      "answer_audio_text": "Do you want to read?",
+      "audio_text": "Sorry, no.",
+      "answer_audio_text": "Sorry, no.",
       "prompt_image_url": "/lesson-assets/a1_scene_read_a7afddb.webp",
-      "spanish_translation": "\u00bfQuieres [pausa]?",
+      "spanish_translation": "Lo siento, no.",
       "pedagogy_note": "Activity choice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1677,21 +1697,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-7-invitations-and-responses-c031-prompt-a653ad90877c98f38853",
+          "id": "lesson-7-7-invitations-and-responses-c031-prompt-bfd50f1db7a6b5ead93c",
           "purpose": "prompt",
-          "text": "Do you want to read?",
+          "text": "Sorry, no.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_read_a7afddb.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-7-invitations-and-responses-c031-answer-72446a20e4d59863207a",
+          "id": "lesson-7-7-invitations-and-responses-c031-answer-6885a5732b3520b980c0",
           "purpose": "answer",
-          "text": "Do you want to read?",
+          "text": "Sorry, no.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_read_a7afddb.webp",
@@ -1704,26 +1724,36 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "Do you want to [blank]?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___ ___.",
       "stage": "Use",
-      "correct_option_id": "play-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "read-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "read"
+          "label": "Yes"
         },
         {
-          "id": "play-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "play"
+          "label": "thank"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "you"
         }
       ],
-      "audio_text": "Do you want to ___?",
-      "answer_audio_text": "Do you want to play?",
+      "audio_text": "Yes, thank you.",
+      "answer_audio_text": "Yes, thank you.",
       "prompt_image_url": "/lesson-assets/a1_scene_play_516626b.webp",
-      "spanish_translation": "\u00bfQuieres [pausa]?",
+      "spanish_translation": "S\u00ed, gracias.",
       "pedagogy_note": "Activity choice.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1731,21 +1761,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-7-invitations-and-responses-c032-prompt-bebfd173de6f01b189a9",
+          "id": "lesson-7-7-invitations-and-responses-c032-prompt-1d8759b81f8625f14097",
           "purpose": "prompt",
-          "text": "Do you want to play?",
+          "text": "Yes, thank you.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_play_516626b.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-7-invitations-and-responses-c032-answer-f059e072284b878d52aa",
+          "id": "lesson-7-7-invitations-and-responses-c032-answer-01669a7476969e4349dc",
           "purpose": "answer",
-          "text": "Do you want to play?",
+          "text": "Yes, thank you.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_play_516626b.webp",
@@ -1758,26 +1788,48 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "response-choice",
-      "prompt": "Do you want to play?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "yes-thank-you-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "yes-thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Yes, thank you."
+          "label": "Do"
         },
         {
-          "id": "sorry-no-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "you"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "want"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "read"
         }
       ],
-      "audio_text": "Do you want to play?",
-      "answer_audio_text": "Yes, thank you.",
+      "audio_text": "Do you want to read?",
+      "answer_audio_text": "Do you want to read?",
       "prompt_image_url": "/lesson-assets/a1_scene_yes-thank-you_95534e3.webp",
-      "spanish_translation": "\u00bfQuieres jugar?",
+      "spanish_translation": "\u00bfQuieres leer?",
       "pedagogy_note": "Uses the taught base-form invitation chunk.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1785,9 +1837,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-7-invitations-and-responses-c033-prompt-c27c29d737b04c32b4cb",
+          "id": "lesson-7-7-invitations-and-responses-c033-prompt-c40db7b2344bc0d4927a",
           "purpose": "prompt",
-          "text": "Do you want to play?",
+          "text": "Do you want to read?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_yes-thank-you_95534e3.webp",
@@ -1797,9 +1849,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-7-invitations-and-responses-c033-answer-b6ec05e41dc3be0a08bf",
+          "id": "lesson-7-7-invitations-and-responses-c033-answer-1b01180c767e7931c5f9",
           "purpose": "answer",
-          "text": "Yes, thank you.",
+          "text": "Do you want to read?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_yes-thank-you_95534e3.webp",
@@ -1812,36 +1864,64 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "Do you want to listen to music?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "sorry-no-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ],
       "options": [
         {
-          "id": "yes-thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Yes, thank you."
+          "label": "Do"
         },
         {
-          "id": "sorry-no-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "you"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "want"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "watch"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "TV"
         }
       ],
-      "audio_text": "Do you want to listen to music?",
-      "answer_audio_text": "Sorry, no.",
+      "audio_text": "Do you want to watch TV?",
+      "answer_audio_text": "Do you want to watch TV?",
       "prompt_image_url": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
-      "spanish_translation": "\u00bfQuieres escuchar m\u00fasica?",
+      "spanish_translation": "\u00bfQuieres ver televisi\u00f3n?",
       "pedagogy_note": "Final controlled turn.",
       "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-7-invitations-and-responses-c034-prompt-f51d6acbc1cd4724d67d",
+          "id": "lesson-7-7-invitations-and-responses-c034-prompt-4778a4abe71a6ddfe687",
           "purpose": "prompt",
-          "text": "Do you want to listen to music?",
+          "text": "Do you want to watch TV?",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
@@ -1851,14 +1931,14 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-7-invitations-and-responses-c034-answer-da38b2486a6d32d1982c",
+          "id": "lesson-7-7-invitations-and-responses-c034-answer-9b20c0d0a5402584dac7",
           "purpose": "answer",
-          "text": "Sorry, no.",
+          "text": "Do you want to watch TV?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_sorry-no_0ecf515.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

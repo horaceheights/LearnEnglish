@@ -37,18 +37,19 @@ const nounToPronounCompletions = course.flatMap((lesson) => (
     const selectedAnswer = correctOption?.label?.trim().toLowerCase() || '';
     if (!subjectPronouns.has(selectedAnswer)) return [];
     const clauses = card.prompt.trim().match(
-      /^(.+?)\s+(is|are)\s+(.+?)(?:,\s*|\s+and\s+)(?:_{2,}|\[blank\])\s+(is|are)\s+(.+)$/i,
+      /^(.+?)\s+(is|are)\s+(.+?)(?:,\s*|\s+and\s+)(?:_{2,}|\[blank\])\s+(?:(is|are)|_{2,}|\[blank\])\s+(.+)$/i,
     );
     if (!clauses) return [];
     const expectedBe = selectedAnswer === 'they' ? 'are' : 'is';
-    if (clauses[2].toLowerCase() !== expectedBe || clauses[4].toLowerCase() !== expectedBe) return [];
+    const pronounBe = clauses[4]?.toLowerCase() || expectedBe;
+    if (clauses[2].toLowerCase() !== expectedBe || pronounBe !== expectedBe) return [];
     return [{ answer: selectedAnswer, cardIndex, lessonId: lesson.id, prompt: card.prompt }];
   })
 ));
 
 assert.ok(
   nounToPronounCompletions.some(({ answer, prompt }) => (
-    answer === 'he' && prompt === 'The boy is eating, ___ is eating.'
+    answer === 'he' && prompt === 'The boy is eating, ___ ___ eating.'
   )),
   'The guardrail must include the current repeated-predicate boy-to-he completion.',
 );
@@ -75,7 +76,7 @@ assert.doesNotMatch(
 );
 assert.match(
   screenSource,
-  /const equivalenceFocusWords = grammarCompleted && selectedLabels\.length === 1\s*\? completionEquivalenceFocusWords\(currentCard\.prompt, selectedLabels\[0\]\)\s*: \[\];/,
+  /const equivalenceFocusWords = grammarCompleted && \(selectedLabels\.length === 1 \|\| selectedLabels\.length === 2\)\s*\? completionEquivalenceFocusWords\(currentCard\.prompt, selectedLabels\[0\]\)\s*: \[\];/,
   'Antecedent emphasis must remain hidden until the completion is finished.',
 );
 assert.match(

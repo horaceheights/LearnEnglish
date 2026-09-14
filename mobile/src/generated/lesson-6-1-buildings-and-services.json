@@ -1513,26 +1513,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "It is a [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "store-1",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "store"
+      ],
       "options": [
         {
-          "id": "store-1",
+          "id": "a",
           "image_url": "",
-          "label": "store"
+          "label": "a"
         },
         {
-          "id": "bank-2",
+          "id": "store",
           "image_url": "",
-          "label": "bank"
+          "label": "store"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a store.",
       "answer_audio_text": "It is a store.",
       "prompt_image_url": "/lesson-assets/a1_scene_store_3a21295.webp",
-      "spanish_translation": "Es una [pausa].",
+      "spanish_translation": "Es una tienda.",
       "pedagogy_note": "Review it is.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1540,11 +1544,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c029-prompt-3abd6c6e8cbb782046d6",
+          "id": "lesson-6-1-buildings-and-services-c029-prompt-0041316d9ca01763ad36",
           "purpose": "prompt",
           "text": "It is a store.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_store_3a21295.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1567,26 +1571,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "This is the [blank].",
+      "interaction_type": "complete2",
+      "prompt": "This is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "hospital-2",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "hospital"
+      ],
       "options": [
         {
-          "id": "pharmacy-1",
+          "id": "the",
           "image_url": "",
-          "label": "pharmacy"
+          "label": "the"
         },
         {
-          "id": "hospital-2",
+          "id": "hospital",
           "image_url": "",
           "label": "hospital"
         }
       ],
-      "audio_text": "This is the ___.",
+      "audio_text": "This is the hospital.",
       "answer_audio_text": "This is the hospital.",
       "prompt_image_url": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
-      "spanish_translation": "Este es el [pausa].",
+      "spanish_translation": "Este es el hospital.",
       "pedagogy_note": "Near framing.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1594,11 +1602,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c030-prompt-244cbd72191b05e18228",
+          "id": "lesson-6-1-buildings-and-services-c030-prompt-22f9c5c1f760279dfe2f",
           "purpose": "prompt",
           "text": "This is the hospital.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1621,26 +1629,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "It is a [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "station-2",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "station"
+      ],
       "options": [
         {
-          "id": "library-1",
+          "id": "a",
           "image_url": "",
-          "label": "library"
+          "label": "a"
         },
         {
-          "id": "station-2",
+          "id": "station",
           "image_url": "",
           "label": "station"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a station.",
       "answer_audio_text": "It is a station.",
       "prompt_image_url": "/lesson-assets/a1_scene_station_2da36ff.webp",
-      "spanish_translation": "Es una [pausa].",
+      "spanish_translation": "Es una estaci\u00f3n.",
       "pedagogy_note": "Identity.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1648,11 +1660,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c031-prompt-fd79efcfb189d6b5c1ca",
+          "id": "lesson-6-1-buildings-and-services-c031-prompt-3fc5fb36de9458a7ab88",
           "purpose": "prompt",
           "text": "It is a station.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_station_2da36ff.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1675,26 +1687,42 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "This is the [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "pharmacy-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "bank-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "bank"
+          "label": "This"
         },
         {
-          "id": "pharmacy-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "pharmacy"
         }
       ],
-      "audio_text": "This is the ___.",
+      "audio_text": "This is the pharmacy.",
       "answer_audio_text": "This is the pharmacy.",
       "prompt_image_url": "/lesson-assets/a1_scene_pharmacy_adfa59c.webp",
-      "spanish_translation": "Esta es la [pausa].",
+      "spanish_translation": "Esta es la farmacia.",
       "pedagogy_note": "Identity.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1702,11 +1730,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c032-prompt-6b553854051a58679275",
+          "id": "lesson-6-1-buildings-and-services-c032-prompt-fca971965c03678d9be8",
           "purpose": "prompt",
           "text": "This is the pharmacy.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_pharmacy_adfa59c.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1729,26 +1757,60 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "The bank is [blank] the store.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "next-to-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
       "options": [
         {
-          "id": "in-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "in"
+          "label": "The"
         },
         {
-          "id": "next-to-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "next to"
+          "label": "bank"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "next"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "store"
         }
       ],
-      "audio_text": "The bank is ___ the store.",
+      "audio_text": "The bank is next to the store.",
       "answer_audio_text": "The bank is next to the store.",
       "prompt_image_url": "/lesson-assets/a1_scene_next-to_4b8fd87.webp",
-      "spanish_translation": "El banco est\u00e1 [pausa] la tienda.",
+      "spanish_translation": "El banco est\u00e1 junto a la tienda.",
       "pedagogy_note": "Purposeful location review.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1756,11 +1818,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c033-prompt-078fedf414672deafa5d",
+          "id": "lesson-6-1-buildings-and-services-c033-prompt-f48d70d6cb05ec3b8f59",
           "purpose": "prompt",
           "text": "The bank is next to the store.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_next-to_4b8fd87.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1783,31 +1845,60 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "The library is next to the [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "park-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
       "options": [
         {
-          "id": "school-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "school"
+          "label": "The"
         },
         {
-          "id": "park-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "library"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "next"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-7",
           "image_url": "",
           "label": "park"
-        },
-        {
-          "id": "hospital-3",
-          "image_url": "",
-          "label": "hospital"
         }
       ],
-      "audio_text": "The library is next to the ___.",
+      "audio_text": "The library is next to the park.",
       "answer_audio_text": "The library is next to the park.",
       "prompt_image_url": "/lesson-assets/a1_scene_park_ce4151f.webp",
-      "spanish_translation": "La biblioteca est\u00e1 junto al [pausa].",
+      "spanish_translation": "La biblioteca est\u00e1 junto al parque.",
       "pedagogy_note": "Purposeful place review; distances visually decisive.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1815,11 +1906,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-1-buildings-and-services-c034-prompt-982eacd250c394b3869f",
+          "id": "lesson-6-1-buildings-and-services-c034-prompt-d1f31d64c1990ae7402b",
           "purpose": "prompt",
           "text": "The library is next to the park.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_park_ce4151f.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

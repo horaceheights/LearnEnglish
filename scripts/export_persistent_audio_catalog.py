@@ -17,6 +17,10 @@ NEUTRAL_SPEAKER_ROLES = {"teacher", "question", "answer"}
 
 
 def git_text(ref: str, path: str) -> str:
+    if ref in {"HEAD", "working-tree"}:
+        local = ROOT / path
+        if local.is_file():
+            return local.read_text(encoding="utf-8")
     return subprocess.check_output(
         ["git", "show", f"{ref}:{path}"],
         cwd=ROOT,
@@ -26,6 +30,8 @@ def git_text(ref: str, path: str) -> str:
 
 
 def git_commit(ref: str) -> str:
+    if ref == "working-tree":
+        ref = "HEAD"
     return subprocess.check_output(
         ["git", "rev-parse", ref],
         cwd=ROOT,

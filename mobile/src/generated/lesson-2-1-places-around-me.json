@@ -1523,31 +1523,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "park-3",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "park"
+      ],
       "options": [
         {
-          "id": "school-1",
+          "id": "a",
           "image_url": "",
-          "label": "school"
+          "label": "a"
         },
         {
-          "id": "store-2",
-          "image_url": "",
-          "label": "store"
-        },
-        {
-          "id": "park-3",
+          "id": "park",
           "image_url": "",
           "label": "park"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a park.",
       "answer_audio_text": "It is a park.",
       "prompt_image_url": "/lesson-assets/place_park.webp?v=20260802-kids-playground-park-v1",
-      "spanish_translation": "Es un ___.",
+      "spanish_translation": "Es un parque.",
       "pedagogy_note": "complete audio plays full answer afterward",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1555,11 +1554,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-1-places-around-me-c029-prompt-ea132c678392d843c97d",
+          "id": "lesson-2-1-places-around-me-c029-prompt-4c11da7eb89113affb74",
           "purpose": "prompt",
           "text": "It is a park.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/place_park.webp?v=20260802-kids-playground-park-v1",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1582,31 +1581,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "restaurant-2",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "restaurant"
+      ],
       "options": [
         {
-          "id": "hospital-1",
+          "id": "a",
           "image_url": "",
-          "label": "hospital"
+          "label": "a"
         },
         {
-          "id": "restaurant-2",
+          "id": "restaurant",
           "image_url": "",
           "label": "restaurant"
-        },
-        {
-          "id": "house-3",
-          "image_url": "",
-          "label": "house"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a restaurant.",
       "answer_audio_text": "It is a restaurant.",
       "prompt_image_url": "/lesson-assets/a1_restaurant.webp",
-      "spanish_translation": "Es un ___.",
+      "spanish_translation": "Es un restaurante.",
       "pedagogy_note": "clear venue scene",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1614,11 +1612,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-1-places-around-me-c030-prompt-22fc580d3c26d3a9098f",
+          "id": "lesson-2-1-places-around-me-c030-prompt-39dea040eb93b10d70e7",
           "purpose": "prompt",
           "text": "It is a restaurant.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_restaurant.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1641,31 +1639,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "hospital-4",
+      "correct_option_id": "a",
+      "correct_option_ids": [
+        "a",
+        "hospital"
+      ],
       "options": [
         {
-          "id": "school-1",
+          "id": "a",
           "image_url": "",
-          "label": "school"
+          "label": "a"
         },
         {
-          "id": "house-2",
-          "image_url": "",
-          "label": "house"
-        },
-        {
-          "id": "hospital-4",
+          "id": "hospital",
           "image_url": "",
           "label": "hospital"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a hospital.",
       "answer_audio_text": "It is a hospital.",
       "prompt_image_url": "/lesson-assets/a1_hospital.webp",
-      "spanish_translation": "Es un ___.",
+      "spanish_translation": "Es un hospital.",
       "pedagogy_note": "clear medical marker",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1673,11 +1670,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-1-places-around-me-c031-prompt-17537cf024d0bf893730",
+          "id": "lesson-2-1-places-around-me-c031-prompt-07ed1044736591cd5c79",
           "purpose": "prompt",
           "text": "It is a hospital.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_hospital.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1700,26 +1697,42 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete2",
-      "prompt": "___ is a store.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "he-1",
-          "image_url": "",
-          "label": "He"
-        },
-        {
-          "id": "it-2",
+          "id": "word-1",
           "image_url": "",
           "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "store"
         }
       ],
-      "audio_text": "___ is a store.",
+      "audio_text": "It is a store.",
       "answer_audio_text": "It is a store.",
       "prompt_image_url": "/lesson-assets/a1_store.webp",
-      "spanish_translation": "___ es una tienda.",
+      "spanish_translation": "Es una tienda.",
       "pedagogy_note": "person vs non-person pronoun contrast",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1727,11 +1740,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-1-places-around-me-c032-prompt-584d84f35035acffc2b8",
+          "id": "lesson-2-1-places-around-me-c032-prompt-99947c6b4a254d10c060",
           "purpose": "prompt",
           "text": "It is a store.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_store.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1754,26 +1767,42 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete2",
-      "prompt": "___ is a house.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "she-1",
-          "image_url": "",
-          "label": "She"
-        },
-        {
-          "id": "it-2",
+          "id": "word-1",
           "image_url": "",
           "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "house"
         }
       ],
-      "audio_text": "___ is a house.",
+      "audio_text": "It is a house.",
       "answer_audio_text": "It is a house.",
       "prompt_image_url": "/lesson-assets/place_house.webp?v=20260802-uniform-place-frames-v1",
-      "spanish_translation": "___ es una casa.",
+      "spanish_translation": "Es una casa.",
       "pedagogy_note": "person vs non-person pronoun contrast",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1781,11 +1810,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-1-places-around-me-c033-prompt-9c4cabe6ef157145fe2e",
+          "id": "lesson-2-1-places-around-me-c033-prompt-d322641825725ca5919f",
           "purpose": "prompt",
           "text": "It is a house.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/place_house.webp?v=20260802-uniform-place-frames-v1",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1808,31 +1837,60 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete4",
-      "prompt": "The girl is ___ in the park.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "walking-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6",
+        "word-7"
+      ],
       "options": [
         {
-          "id": "running-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "running"
+          "label": "The"
         },
         {
-          "id": "walking-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "girl"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "walking"
         },
         {
-          "id": "sitting-3",
+          "id": "word-5",
           "image_url": "",
-          "label": "sitting"
+          "label": "in"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-7",
+          "image_url": "",
+          "label": "park"
         }
       ],
-      "audio_text": "The girl is ___ in the park.",
+      "audio_text": "The girl is walking in the park.",
       "answer_audio_text": "The girl is walking in the park.",
       "prompt_image_url": "/lesson-assets/girl_is_walking.webp",
-      "spanish_translation": "La ni\u00f1a est\u00e1 ___ en el parque.",
+      "spanish_translation": "La ni\u00f1a est\u00e1 caminando en el parque.",
       "pedagogy_note": "Repetition with growth: complete action in park",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1840,11 +1898,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-2-1-places-around-me-c034-prompt-385c9f4b3175e8177f13",
+          "id": "lesson-2-1-places-around-me-c034-prompt-c00ebdbdc9e0c5e4a105",
           "purpose": "prompt",
           "text": "The girl is walking in the park.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/girl_is_walking.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

@@ -632,205 +632,283 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "How [blank] is it?",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "much-2",
+      "correct_option_id": "one",
       "options": [
         {
-          "id": "what-1",
+          "id": "one",
           "image_url": "",
-          "label": "what"
+          "label": "one"
         },
         {
-          "id": "much-2",
+          "id": "dollar",
           "image_url": "",
-          "label": "much"
+          "label": "dollar"
         }
       ],
-      "audio_text": "How ___ is it?",
-      "answer_audio_text": "How much is it?",
+      "audio_text": "It is one dollar.",
+      "answer_audio_text": "It is one dollar.",
       "prompt_image_url": "a1_scene_much_7d3f447.webp",
-      "spanish_translation": "¿[pausa] cuesta?",
-      "pedagogy_note": "Uses only the previously learned what distractor; Spanish hint explains this fixed price question after a miss."
+      "spanish_translation": "Cuesta un dólar.",
+      "pedagogy_note": "Uses only the previously learned what distractor; Spanish hint explains this fixed price question after a miss.",
+      "translation": "Cuesta un dólar.",
+      "correct_option_ids": [
+        "one",
+        "dollar"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "It is one [blank].",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "dollar-1",
+      "correct_option_id": "three",
       "options": [
         {
-          "id": "dollar-1",
-          "image_url": "",
-          "label": "dollar"
-        },
-        {
-          "id": "dollars-2",
-          "image_url": "",
-          "label": "dollars"
-        }
-      ],
-      "audio_text": "It is one ___.",
-      "answer_audio_text": "It is one dollar.",
-      "prompt_image_url": "a1_scene_dollar_6c36ab3.webp",
-      "spanish_translation": "Cuesta un [pausa].",
-      "pedagogy_note": "Singular agreement."
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "It is three [blank].",
-      "stage": "Use",
-      "correct_option_id": "dollars-2",
-      "options": [
-        {
-          "id": "dollar-1",
-          "image_url": "",
-          "label": "dollar"
-        },
-        {
-          "id": "dollars-2",
-          "image_url": "",
-          "label": "dollars"
-        }
-      ],
-      "audio_text": "It is three ___.",
-      "answer_audio_text": "It is three dollars.",
-      "prompt_image_url": "a1_scene_dollars_5c6ef4f.webp",
-      "spanish_translation": "Cuesta tres [pausa].",
-      "pedagogy_note": "Plural agreement."
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "The juice is [blank] dollars.",
-      "stage": "Use",
-      "correct_option_id": "four-3",
-      "options": [
-        {
-          "id": "two-1",
-          "image_url": "",
-          "label": "two"
-        },
-        {
-          "id": "three-2",
+          "id": "three",
           "image_url": "",
           "label": "three"
         },
         {
-          "id": "four-3",
+          "id": "dollars",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "It is three dollars.",
+      "answer_audio_text": "It is three dollars.",
+      "prompt_image_url": "a1_scene_dollar_6c36ab3.webp",
+      "spanish_translation": "Cuesta tres dólares.",
+      "pedagogy_note": "Singular agreement.",
+      "translation": "Cuesta tres dólares.",
+      "correct_option_ids": [
+        "three",
+        "dollars"
+      ]
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "The juice is ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "four",
+      "options": [
+        {
+          "id": "four",
           "image_url": "",
           "label": "four"
+        },
+        {
+          "id": "dollars",
+          "image_url": "",
+          "label": "dollars"
         }
       ],
-      "audio_text": "The juice is ___ dollars.",
+      "audio_text": "The juice is four dollars.",
       "answer_audio_text": "The juice is four dollars.",
-      "prompt_image_url": "a1_scene_four_9f8f7ee.webp",
-      "spanish_translation": "El jugo cuesta [pausa] dólares.",
-      "pedagogy_note": "Exact tag."
+      "prompt_image_url": "a1_scene_dollars_5c6ef4f.webp",
+      "spanish_translation": "El jugo cuesta cuatro dólares.",
+      "pedagogy_note": "Plural agreement.",
+      "translation": "El jugo cuesta cuatro dólares.",
+      "correct_option_ids": [
+        "four",
+        "dollars"
+      ]
     },
     {
-      "slide_id": "U5",
-      "interaction_type": "response-choice",
-      "prompt": "How much is it?",
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "The bag is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-two-dollars-1",
+      "correct_option_id": "seven",
       "options": [
         {
-          "id": "it-is-two-dollars-1",
-          "image_url": "",
-          "label": "It is two dollars."
-        },
-        {
-          "id": "it-is-five-dollars-2",
-          "image_url": "",
-          "label": "It is five dollars."
-        }
-      ],
-      "audio_text": "How much is it?",
-      "answer_audio_text": "It is two dollars.",
-      "prompt_image_url": "a1_scene_it-is-two-dollars_90ec73e.webp",
-      "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "Controlled price response."
-    },
-    {
-      "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "How much is it?",
-      "stage": "Use",
-      "correct_option_id": "it-is-five-dollars-2",
-      "options": [
-        {
-          "id": "it-is-four-dollars-1",
-          "image_url": "",
-          "label": "It is four dollars."
-        },
-        {
-          "id": "it-is-five-dollars-2",
-          "image_url": "",
-          "label": "It is five dollars."
-        }
-      ],
-      "audio_text": "How much is it?",
-      "answer_audio_text": "It is five dollars.",
-      "prompt_image_url": "a1_scene_it-is-five-dollars_fb6615f.webp",
-      "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "Controlled response."
-    },
-    {
-      "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "The bag is [blank] dollars.",
-      "stage": "Use",
-      "correct_option_id": "seven-2",
-      "options": [
-        {
-          "id": "six-1",
-          "image_url": "",
-          "label": "six"
-        },
-        {
-          "id": "seven-2",
+          "id": "seven",
           "image_url": "",
           "label": "seven"
         },
         {
-          "id": "eight-3",
+          "id": "dollars",
           "image_url": "",
-          "label": "eight"
+          "label": "dollars"
         }
       ],
-      "audio_text": "The bag is ___ dollars.",
+      "audio_text": "The bag is seven dollars.",
       "answer_audio_text": "The bag is seven dollars.",
-      "prompt_image_url": "a1_scene_seven_a00bbe5.webp",
-      "spanish_translation": "La bolsa cuesta [pausa] dólares.",
-      "pedagogy_note": "Review object and upper-range number."
+      "prompt_image_url": "a1_scene_four_9f8f7ee.webp",
+      "spanish_translation": "La bolsa cuesta siete dólares.",
+      "pedagogy_note": "Exact tag.",
+      "translation": "La bolsa cuesta siete dólares.",
+      "correct_option_ids": [
+        "seven",
+        "dollars"
+      ]
     },
     {
-      "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "How much is it?",
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "it-is-ten-dollars-2",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "it-is-nine-dollars-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is nine dollars."
+          "label": "How"
         },
         {
-          "id": "it-is-ten-dollars-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is ten dollars."
+          "label": "much"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "it"
         }
       ],
       "audio_text": "How much is it?",
+      "answer_audio_text": "How much is it?",
+      "prompt_image_url": "a1_scene_it-is-two-dollars_90ec73e.webp",
+      "spanish_translation": "¿Cuánto cuesta?",
+      "pedagogy_note": "Controlled price response.",
+      "translation": "¿Cuánto cuesta?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
+    },
+    {
+      "slide_id": "U6",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "two"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "It is two dollars.",
+      "answer_audio_text": "It is two dollars.",
+      "prompt_image_url": "a1_scene_it-is-five-dollars_fb6615f.webp",
+      "spanish_translation": "Cuesta dos dólares.",
+      "pedagogy_note": "Controlled response.",
+      "translation": "Cuesta dos dólares.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
+    },
+    {
+      "slide_id": "U7",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "five"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "It is five dollars.",
+      "answer_audio_text": "It is five dollars.",
+      "prompt_image_url": "a1_scene_seven_a00bbe5.webp",
+      "spanish_translation": "Cuesta cinco dólares.",
+      "pedagogy_note": "Review object and upper-range number.",
+      "translation": "Cuesta cinco dólares.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
+    },
+    {
+      "slide_id": "U8",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "It"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "ten"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "dollars"
+        }
+      ],
+      "audio_text": "It is ten dollars.",
       "answer_audio_text": "It is ten dollars.",
       "prompt_image_url": "a1_scene_it-is-ten-dollars_717f891.webp",
-      "spanish_translation": "¿Cuánto cuesta?",
-      "pedagogy_note": "Uses the exact taught question-answer frame rather than first testing a noun-substitution question here."
+      "spanish_translation": "Cuesta diez dólares.",
+      "pedagogy_note": "Uses the exact taught question-answer frame rather than first testing a noun-substitution question here.",
+      "translation": "Cuesta diez dólares.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     }
   ]
 }

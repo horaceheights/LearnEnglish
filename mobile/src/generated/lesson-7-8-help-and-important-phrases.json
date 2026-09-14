@@ -1501,26 +1501,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "I need [blank].",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "help-1",
+      "correct_option_id": "need",
+      "correct_option_ids": [
+        "need",
+        "help"
+      ],
       "options": [
         {
-          "id": "help-1",
+          "id": "need",
           "image_url": "",
-          "label": "help"
+          "label": "need"
         },
         {
-          "id": "water-2",
+          "id": "help",
           "image_url": "",
-          "label": "water"
+          "label": "help"
         }
       ],
-      "audio_text": "I need ___.",
+      "audio_text": "I need help.",
       "answer_audio_text": "I need help.",
       "prompt_image_url": "/lesson-assets/a1_scene_help_92005ec.webp",
-      "spanish_translation": "Necesito [pausa].",
+      "spanish_translation": "Necesito ayuda.",
       "pedagogy_note": "Scene decides.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1528,11 +1532,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-8-help-and-important-phrases-c029-prompt-2fc85d1d7b1e67e5a59d",
+          "id": "lesson-7-8-help-and-important-phrases-c029-prompt-87f50bf4a74cf13e8cd8",
           "purpose": "prompt",
           "text": "I need help.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_help_92005ec.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1555,26 +1559,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "I do not [blank].",
+      "interaction_type": "complete2",
+      "prompt": "Please ___ ___.",
       "stage": "Use",
-      "correct_option_id": "understand-1",
+      "correct_option_id": "speak",
+      "correct_option_ids": [
+        "speak",
+        "slowly"
+      ],
       "options": [
         {
-          "id": "understand-1",
+          "id": "speak",
           "image_url": "",
-          "label": "understand"
+          "label": "speak"
         },
         {
-          "id": "like-2",
+          "id": "slowly",
           "image_url": "",
-          "label": "like"
+          "label": "slowly"
         }
       ],
-      "audio_text": "I do not ___.",
-      "answer_audio_text": "I do not understand.",
+      "audio_text": "Please speak slowly.",
+      "answer_audio_text": "Please speak slowly.",
       "prompt_image_url": "/lesson-assets/a1_scene_understand_8e73840.webp",
-      "spanish_translation": "No [pausa].",
+      "spanish_translation": "Por favor habla despacio.",
       "pedagogy_note": "Known like distractor; function decides.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1582,11 +1590,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-8-help-and-important-phrases-c030-prompt-1cfb2975c6cff06827a0",
+          "id": "lesson-7-8-help-and-important-phrases-c030-prompt-8afe693f8061d73ef893",
           "purpose": "prompt",
-          "text": "I do not understand.",
+          "text": "Please speak slowly.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_understand_8e73840.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1594,9 +1602,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-8-help-and-important-phrases-c030-answer-d052b4468b7159429246",
+          "id": "lesson-7-8-help-and-important-phrases-c030-answer-86077f84740f4125e847",
           "purpose": "answer",
-          "text": "I do not understand.",
+          "text": "Please speak slowly.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_understand_8e73840.webp",
@@ -1609,26 +1617,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "Please [blank].",
+      "interaction_type": "complete2",
+      "prompt": "I do ___ ___.",
       "stage": "Use",
-      "correct_option_id": "repeat-1",
+      "correct_option_id": "not",
+      "correct_option_ids": [
+        "not",
+        "understand"
+      ],
       "options": [
         {
-          "id": "repeat-1",
+          "id": "not",
           "image_url": "",
-          "label": "repeat"
+          "label": "not"
         },
         {
-          "id": "help-2",
+          "id": "understand",
           "image_url": "",
-          "label": "help"
+          "label": "understand"
         }
       ],
-      "audio_text": "Please ___.",
-      "answer_audio_text": "Please repeat.",
+      "audio_text": "I do not understand.",
+      "answer_audio_text": "I do not understand.",
       "prompt_image_url": "/lesson-assets/a1_scene_repeat_c0ac484.webp",
-      "spanish_translation": "[pausa], por favor.",
+      "spanish_translation": "No entiendo.",
       "pedagogy_note": "Recovery action.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1636,11 +1648,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-8-help-and-important-phrases-c031-prompt-8212275e7e9822e500b4",
+          "id": "lesson-7-8-help-and-important-phrases-c031-prompt-1fc2fa8996fa4a0d8c36",
           "purpose": "prompt",
-          "text": "Please repeat.",
+          "text": "I do not understand.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_repeat_c0ac484.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1648,9 +1660,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-8-help-and-important-phrases-c031-answer-92da8256748cb20f0d8d",
+          "id": "lesson-7-8-help-and-important-phrases-c031-answer-d215472382c06319829d",
           "purpose": "answer",
-          "text": "Please repeat.",
+          "text": "I do not understand.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_repeat_c0ac484.webp",
@@ -1663,26 +1675,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "Please speak [blank].",
+      "interaction_type": "complete2",
+      "prompt": "Where is ___ ___?",
       "stage": "Use",
-      "correct_option_id": "slowly-1",
+      "correct_option_id": "the",
+      "correct_option_ids": [
+        "the",
+        "bathroom"
+      ],
       "options": [
         {
-          "id": "slowly-1",
+          "id": "the",
           "image_url": "",
-          "label": "slowly"
+          "label": "the"
         },
         {
-          "id": "please-2",
+          "id": "bathroom",
           "image_url": "",
-          "label": "please"
+          "label": "bathroom"
         }
       ],
-      "audio_text": "Please speak ___.",
-      "answer_audio_text": "Please speak slowly.",
+      "audio_text": "Where is the bathroom?",
+      "answer_audio_text": "Where is the bathroom?",
       "prompt_image_url": "/lesson-assets/a1_scene_slowly_b972c8e.webp",
-      "spanish_translation": "Hable [pausa], por favor.",
+      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el ba\u00f1o?",
       "pedagogy_note": "Both choice words are already taught; only slowly completes the established phrase.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1690,21 +1706,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-8-help-and-important-phrases-c032-prompt-98c113001aeceaa4594e",
+          "id": "lesson-7-8-help-and-important-phrases-c032-prompt-dbd844c837a555b67c49",
           "purpose": "prompt",
-          "text": "Please speak slowly.",
+          "text": "Where is the bathroom?",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_slowly_b972c8e.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "semantic_role": "question",
+          "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-8-help-and-important-phrases-c032-answer-da9bb86d96e807c22de2",
+          "id": "lesson-7-8-help-and-important-phrases-c032-answer-d4382015bcf36ec22953",
           "purpose": "answer",
-          "text": "Please speak slowly.",
+          "text": "Where is the bathroom?",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_slowly_b972c8e.webp",
@@ -1717,26 +1733,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "please-repeat-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "please-repeat-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Please repeat."
+          "label": "Thank"
         },
         {
-          "id": "thank-you-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Thank you."
+          "label": "you"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Please repeat.",
+      "audio_text": "Thank you.",
+      "answer_audio_text": "Thank you.",
       "prompt_image_url": "/lesson-assets/a1_scene_please-repeat_50ab734.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "Gracias.",
       "pedagogy_note": "Situation and icon decide without introducing a second-person understand sentence.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1744,9 +1764,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-8-help-and-important-phrases-c033-prompt-8d45ddb6439ea83f124a",
+          "id": "lesson-7-8-help-and-important-phrases-c033-prompt-43f4a67295aab061c829",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_please-repeat_50ab734.webp",
@@ -1756,9 +1776,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-8-help-and-important-phrases-c033-answer-65b0eaf7f62083abe75f",
+          "id": "lesson-7-8-help-and-important-phrases-c033-answer-dce4f40a23432d6ba942",
           "purpose": "answer",
-          "text": "Please repeat.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_please-repeat_50ab734.webp",
@@ -1771,26 +1791,30 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "please-speak-slowly-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "please-speak-slowly-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Please speak slowly."
+          "label": "Please"
         },
         {
-          "id": "where-is-the-bathroom-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Where is the bathroom?"
+          "label": "repeat"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Please speak slowly.",
+      "audio_text": "Please repeat.",
+      "answer_audio_text": "Please repeat.",
       "prompt_image_url": "/lesson-assets/a1_scene_please-speak-slowly_f0a8349.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "Por favor repite.",
       "pedagogy_note": "Visual speed cue establishes the recovery need without untaught instructional vocabulary.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1798,9 +1822,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-8-help-and-important-phrases-c034-prompt-96559c879d1700eb3cef",
+          "id": "lesson-7-8-help-and-important-phrases-c034-prompt-234b053af23cfb681c8e",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "Please repeat.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_please-speak-slowly_f0a8349.webp",
@@ -1810,9 +1834,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-8-help-and-important-phrases-c034-answer-498a7d96838a917e7aeb",
+          "id": "lesson-7-8-help-and-important-phrases-c034-answer-2e6a7950036b8c68fa78",
           "purpose": "answer",
-          "text": "Please speak slowly.",
+          "text": "Please repeat.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_please-speak-slowly_f0a8349.webp",
@@ -1825,31 +1849,36 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "Where is the [blank]?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bathroom-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "bathroom-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "bathroom"
+          "label": "Please"
         },
         {
-          "id": "station-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "station"
+          "label": "speak"
         },
         {
-          "id": "hospital-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "hospital"
+          "label": "slowly"
         }
       ],
-      "audio_text": "Where is the ___?",
-      "answer_audio_text": "Where is the bathroom?",
+      "audio_text": "Please speak slowly.",
+      "answer_audio_text": "Please speak slowly.",
       "prompt_image_url": "/lesson-assets/a1_scene_bathroom_72bfb05.webp",
-      "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el [pausa]?",
+      "spanish_translation": "Por favor habla despacio.",
       "pedagogy_note": "Practical location transfer.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1857,21 +1886,21 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-8-help-and-important-phrases-c035-prompt-2f7d2cfc5e2259bf2eb8",
+          "id": "lesson-7-8-help-and-important-phrases-c035-prompt-8eb79d7a80a0428af4ef",
           "purpose": "prompt",
-          "text": "Where is the bathroom?",
+          "text": "Please speak slowly.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_bathroom_72bfb05.webp",
-          "semantic_role": "question",
-          "speaker_role": "question",
+          "semantic_role": "teacher",
+          "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-7-8-help-and-important-phrases-c035-answer-3282f54dac9fc0092f2e",
+          "id": "lesson-7-8-help-and-important-phrases-c035-answer-580abed6054334439edf",
           "purpose": "answer",
-          "text": "Where is the bathroom?",
+          "text": "Please speak slowly.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_bathroom_72bfb05.webp",
@@ -1884,26 +1913,42 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "It is on the right.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "thank-you-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Thank you."
+          "label": "I"
         },
         {
-          "id": "sorry-no-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "Sorry, no."
+          "label": "do"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "not"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "understand"
         }
       ],
-      "audio_text": "It is on the right.",
-      "answer_audio_text": "Thank you.",
+      "audio_text": "I do not understand.",
+      "answer_audio_text": "I do not understand.",
       "prompt_image_url": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Est\u00e1 a la derecha.",
+      "spanish_translation": "No entiendo.",
       "pedagogy_note": "Polite close.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1911,9 +1956,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-7-8-help-and-important-phrases-c036-prompt-7c358661953edc4d3bae",
+          "id": "lesson-7-8-help-and-important-phrases-c036-prompt-0a54baf8badedcf34de4",
           "purpose": "prompt",
-          "text": "It is on the right.",
+          "text": "I do not understand.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
@@ -1923,9 +1968,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-7-8-help-and-important-phrases-c036-answer-a5a955ece37af96bd6e4",
+          "id": "lesson-7-8-help-and-important-phrases-c036-answer-a4cb93894d9332789cc9",
           "purpose": "answer",
-          "text": "Thank you.",
+          "text": "I do not understand.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",

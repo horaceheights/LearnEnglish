@@ -623,209 +623,276 @@
     {
       "slide_id": "U1",
       "interaction_type": "complete2",
-      "prompt": "___ is it?",
+      "prompt": "___ ___ it?",
       "stage": "Use",
-      "correct_option_id": "what-2",
+      "correct_option_id": "what",
       "options": [
         {
-          "id": "who-1",
-          "image_url": "",
-          "label": "Who"
-        },
-        {
-          "id": "what-2",
+          "id": "what",
           "image_url": "",
           "label": "What"
-        }
-      ],
-      "audio_text": "___ is it?",
-      "answer_audio_text": "What is it?",
-      "prompt_image_url": "object_book.webp",
-      "spanish_translation": "¿___ es?",
-      "pedagogy_note": "contrast with reviewed Who"
-    },
-    {
-      "slide_id": "U2",
-      "interaction_type": "complete2",
-      "prompt": "What ___ it?",
-      "stage": "Use",
-      "correct_option_id": "is-2",
-      "options": [
-        {
-          "id": "are-1",
-          "image_url": "",
-          "label": "are"
         },
         {
-          "id": "is-2",
+          "id": "is",
           "image_url": "",
           "label": "is"
         }
       ],
-      "audio_text": "What ___ it?",
+      "audio_text": "What is it?",
       "answer_audio_text": "What is it?",
+      "prompt_image_url": "object_book.webp",
+      "spanish_translation": "¿Qué es?",
+      "pedagogy_note": "contrast with reviewed Who",
+      "translation": "¿Qué es?",
+      "correct_option_ids": [
+        "what",
+        "is"
+      ]
+    },
+    {
+      "slide_id": "U2",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "a",
+      "options": [
+        {
+          "id": "a",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "phone",
+          "image_url": "",
+          "label": "phone"
+        }
+      ],
+      "audio_text": "It is a phone.",
+      "answer_audio_text": "It is a phone.",
       "prompt_image_url": "a1_phone.webp",
-      "spanish_translation": "¿Qué ___?",
-      "pedagogy_note": "singular agreement"
+      "spanish_translation": "Es un teléfono.",
+      "pedagogy_note": "singular agreement",
+      "translation": "Es un teléfono.",
+      "correct_option_ids": [
+        "a",
+        "phone"
+      ]
     },
     {
       "slide_id": "U3",
       "interaction_type": "complete2",
-      "prompt": "What is ___?",
+      "prompt": "___ ___ it?",
       "stage": "Use",
-      "correct_option_id": "it-2",
+      "correct_option_id": "what",
       "options": [
         {
-          "id": "they-1",
+          "id": "what",
           "image_url": "",
-          "label": "they"
+          "label": "What"
         },
         {
-          "id": "it-2",
+          "id": "is",
           "image_url": "",
-          "label": "it"
+          "label": "is"
         }
       ],
-      "audio_text": "What is ___?",
+      "audio_text": "What is it?",
       "answer_audio_text": "What is it?",
       "prompt_image_url": "object_backpack.webp",
-      "spanish_translation": "¿Qué es ___?",
-      "pedagogy_note": "person/group pronoun contrast"
+      "spanish_translation": "¿Qué es?",
+      "pedagogy_note": "person/group pronoun contrast",
+      "translation": "¿Qué es?",
+      "correct_option_ids": [
+        "what",
+        "is"
+      ]
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete2",
+      "prompt": "It is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "book-2",
+      "correct_option_id": "a",
       "options": [
         {
-          "id": "phone-1",
+          "id": "a",
           "image_url": "",
-          "label": "phone"
+          "label": "a"
         },
         {
-          "id": "book-2",
+          "id": "book",
           "image_url": "",
           "label": "book"
-        },
-        {
-          "id": "bag-3",
-          "image_url": "",
-          "label": "bag"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a book.",
       "answer_audio_text": "It is a book.",
       "prompt_image_url": "object_book.webp",
-      "spanish_translation": "Es un ___.",
-      "pedagogy_note": "answer completion"
+      "spanish_translation": "Es un libro.",
+      "pedagogy_note": "answer completion",
+      "translation": "Es un libro.",
+      "correct_option_ids": [
+        "a",
+        "book"
+      ]
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "bus-4",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "bike-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "bike"
+          "label": "It"
         },
         {
-          "id": "car-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "car"
+          "label": "is"
         },
         {
-          "id": "bus-4",
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "bus"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a bus.",
       "answer_audio_text": "It is a bus.",
       "prompt_image_url": "place_bus.webp",
-      "spanish_translation": "Es un ___.",
-      "pedagogy_note": "answer completion"
+      "spanish_translation": "Es un autobús.",
+      "pedagogy_note": "answer completion",
+      "translation": "Es un autobús.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete4",
-      "prompt": "It is a ___.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "park-3",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "school-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "school"
+          "label": "It"
         },
         {
-          "id": "store-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "store"
+          "label": "is"
         },
         {
-          "id": "park-3",
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "park"
         }
       ],
-      "audio_text": "It is a ___.",
+      "audio_text": "It is a park.",
       "answer_audio_text": "It is a park.",
       "prompt_image_url": "place_park.webp",
-      "spanish_translation": "Es un ___.",
-      "pedagogy_note": "answer completion"
+      "spanish_translation": "Es un parque.",
+      "pedagogy_note": "answer completion",
+      "translation": "Es un parque.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     },
     {
       "slide_id": "U7",
-      "interaction_type": "choose2",
-      "prompt": "What is it?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-a-phone-2",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "it-is-a-bag-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is a bag."
+          "label": "It"
         },
         {
-          "id": "it-is-a-phone-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is a phone."
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "a"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "phone"
         }
       ],
-      "audio_text": "What is it?",
+      "audio_text": "It is a phone.",
       "answer_audio_text": "It is a phone.",
       "prompt_image_url": "a1_phone.webp",
-      "spanish_translation": "¿Qué es?",
-      "pedagogy_note": "short-answer selection"
+      "spanish_translation": "Es un teléfono.",
+      "pedagogy_note": "short-answer selection",
+      "translation": "Es un teléfono.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete2",
-      "prompt": "___ is he?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "who-1",
+      "correct_option_id": "who",
       "options": [
         {
-          "id": "who-1",
+          "id": "who",
           "image_url": "",
           "label": "Who"
         },
         {
-          "id": "what-2",
+          "id": "is",
           "image_url": "",
-          "label": "What"
+          "label": "is"
+        },
+        {
+          "id": "he",
+          "image_url": "",
+          "label": "he"
         }
       ],
-      "audio_text": "___ is he?",
+      "audio_text": "Who is he?",
       "answer_audio_text": "Who is he?",
       "prompt_image_url": "boy.webp",
-      "spanish_translation": "¿___ es él?",
-      "pedagogy_note": "Repetition with growth: contrast Who (people) with What (things)"
+      "spanish_translation": "¿Quién es él?",
+      "pedagogy_note": "Repetition with growth: contrast Who (people) with What (things)",
+      "translation": "¿Quién es él?",
+      "correct_option_ids": [
+        "who",
+        "is",
+        "he"
+      ]
     }
   ]
 }

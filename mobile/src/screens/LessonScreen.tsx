@@ -1178,7 +1178,8 @@ export function LessonScreen({
       ? contrastAnswerAudio
       : '';
   const visiblePromptAudio = correctContrastPrompt || promptAudio;
-  const promptHasVisualBlank = !isSentenceCard && (authoredPromptHasVisualBlank
+  const isUseStage = currentCard?.stage === 'Use';
+  const promptHasVisualBlank = !isSentenceCard && !isUseStage && (authoredPromptHasVisualBlank
     || hasVisualAudioPlaceholder(promptAudio));
   const completionPromptAsset = promptHasVisualBlank && currentCard
     ? findCourseAudioAsset(currentCard, 'prompt', 'prompt', 'completion-prompt')
@@ -1196,7 +1197,7 @@ export function LessonScreen({
     if (turn) setActiveTurnImageUrl(turn.turn.image_url);
   }, [activeAudioSequence, audioPlaylistStatus.currentIndex]);
   const sentenceTranslation = currentCard?.spanish_translation || spanishTranslationFor(
-    isGrammar ? currentCard?.prompt ?? '' : promptAudio,
+    isGrammar ? (isUseStage ? promptAudio : currentCard?.prompt ?? '') : promptAudio,
   );
   const visibleSentenceTranslation = isTheyTranslationCard
     ? 'Ellos / Ellas'
@@ -2769,7 +2770,7 @@ export function LessonScreen({
         : currentCard.prompt
     );
     const selectedFocusWords = selectedLabels.flatMap((label) => label.toLowerCase().match(/[a-z']+/g) || []);
-    const equivalenceFocusWords = grammarCompleted && selectedLabels.length === 1
+    const equivalenceFocusWords = grammarCompleted && (selectedLabels.length === 1 || selectedLabels.length === 2)
       ? completionEquivalenceFocusWords(currentCard.prompt, selectedLabels[0])
       : [];
     const focus = currentCard.stage === 'Grammar' || currentCard.stage === 'Use'

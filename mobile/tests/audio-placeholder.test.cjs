@@ -199,11 +199,12 @@ for (const filename of fs.readdirSync(generatedRoot)) {
     const placeholderMatches = [...visualPrompt.matchAll(placeholderPattern)];
     const placeholderMatch = placeholderMatches[0];
     assert.ok(placeholderMatch, `${filename} must keep the visual blank in card.prompt.`);
+    const lastPlaceholderMatch = placeholderMatches.at(-1);
     const blankStart = placeholderMatch.index;
-    const blankEnd = blankStart + placeholderMatch[0].length;
+    const lastBlankEnd = lastPlaceholderMatch.index + lastPlaceholderMatch[0].length;
     if (!visualPrompt.slice(0, blankStart).trim()) {
       completionBlankPositions.beginning += 1;
-    } else if (!visualPrompt.slice(blankEnd).replace(/[.,!?;:]/g, '').trim()) {
+    } else if (!visualPrompt.slice(lastBlankEnd).replace(/[.,!?;:]/g, '').trim()) {
       completionBlankPositions.ending += 1;
     } else {
       completionBlankPositions.middle += 1;
@@ -257,8 +258,8 @@ for (const filename of fs.readdirSync(generatedRoot)) {
 assert.ok(lessonThreeOne, 'The generated aggregate must contain Lesson 3.1.');
 const lessonThreeOneCards = new Map(lessonThreeOne.cards.map((card) => [card.slide_id, card]));
 const lessonThreeOnePromptSpeakers = {
-  ana: ['L1', 'L3', 'L6', 'R1', 'R3', 'N1', 'N2', 'S1', 'S2', 'S5', 'U4'],
-  luis: ['L2', 'L4', 'L5', 'R2', 'N3', 'N5', 'S3', 'S4', 'U3'],
+  ana: ['L1', 'L3', 'L6', 'R1', 'R3', 'N1', 'N2', 'S1', 'S2', 'S5', 'U1', 'U4', 'U5'],
+  luis: ['L2', 'L4', 'L5', 'R2', 'N3', 'N5', 'S3', 'S4', 'U2', 'U3', 'U6'],
 };
 for (const [speaker, slideIds] of Object.entries(lessonThreeOnePromptSpeakers)) {
   for (const slideId of slideIds) {
@@ -275,8 +276,8 @@ for (const [speaker, slideIds] of Object.entries(lessonThreeOnePromptSpeakers)) 
   }
 }
 const lessonThreeOneAnswerSpeakers = {
-  ana: ['R4', 'U1'],
-  luis: ['R5', 'U2', 'U5'],
+  ana: ['R4', 'U1', 'U4', 'U5'],
+  luis: ['R5', 'U2', 'U3', 'U6'],
 };
 for (const [speaker, slideIds] of Object.entries(lessonThreeOneAnswerSpeakers)) {
   for (const slideId of slideIds) {

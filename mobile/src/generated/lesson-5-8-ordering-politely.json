@@ -1561,26 +1561,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete2",
+      "prompt": "Here ___ ___.",
       "stage": "Use",
-      "correct_option_id": "hello-1",
+      "correct_option_id": "you",
+      "correct_option_ids": [
+        "you",
+        "are"
+      ],
       "options": [
         {
-          "id": "hello-1",
+          "id": "you",
           "image_url": "",
-          "label": "Hello."
+          "label": "you"
         },
         {
-          "id": "thank-you-2",
+          "id": "are",
           "image_url": "",
-          "label": "Thank you."
+          "label": "are"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Hello.",
+      "audio_text": "Here you are.",
+      "answer_audio_text": "Here you are.",
       "prompt_image_url": "/lesson-assets/a1_scene_hello_19bd437.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "Aqu\u00ed tiene.",
       "pedagogy_note": "Generic proven instruction; scene establishes the opening turn.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1588,9 +1592,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c029-prompt-21ef7eb83f0e9532bd48",
+          "id": "lesson-5-8-ordering-politely-c029-prompt-564ae5ccfa4681123381",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "Here you are.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_hello_19bd437.webp",
@@ -1600,9 +1604,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c029-answer-a7d01174cc29913aac5d",
+          "id": "lesson-5-8-ordering-politely-c029-answer-2c2c876bba43fea7867f",
           "purpose": "answer",
-          "text": "Hello.",
+          "text": "Here you are.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_hello_19bd437.webp",
@@ -1615,26 +1619,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Water, [blank].",
+      "interaction_type": "complete2",
+      "prompt": "No, ___ ___.",
       "stage": "Use",
-      "correct_option_id": "please-2",
+      "correct_option_id": "thank",
+      "correct_option_ids": [
+        "thank",
+        "you"
+      ],
       "options": [
         {
-          "id": "hello-1",
+          "id": "thank",
           "image_url": "",
-          "label": "hello"
+          "label": "thank"
         },
         {
-          "id": "please-2",
+          "id": "you",
           "image_url": "",
-          "label": "please"
+          "label": "you"
         }
       ],
-      "audio_text": "Water, ___.",
-      "answer_audio_text": "Water, please.",
+      "audio_text": "No, thank you.",
+      "answer_audio_text": "No, thank you.",
       "prompt_image_url": "/lesson-assets/a1_scene_please_cae355b.webp",
-      "spanish_translation": "Agua, [pausa].",
+      "spanish_translation": "No, gracias.",
       "pedagogy_note": "Only please forms the taught request; Water, thank you was removed because it can also be a valid polite request.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1642,11 +1650,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c030-prompt-36c134c5b02f4877028a",
+          "id": "lesson-5-8-ordering-politely-c030-prompt-a0e6e2a6858e5f08ba88",
           "purpose": "prompt",
-          "text": "Water, please.",
+          "text": "No, thank you.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_please_cae355b.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1654,9 +1662,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c030-answer-767cf00bdeea7f387b8e",
+          "id": "lesson-5-8-ordering-politely-c030-answer-6ab20f530af1ab4ea1f4",
           "purpose": "answer",
-          "text": "Water, please.",
+          "text": "No, thank you.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_please_cae355b.webp",
@@ -1669,26 +1677,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "response-choice",
-      "prompt": "Water, please.",
+      "interaction_type": "complete2",
+      "prompt": "The juice is ___ ___.",
       "stage": "Use",
-      "correct_option_id": "here-you-are-1",
+      "correct_option_id": "four",
+      "correct_option_ids": [
+        "four",
+        "dollars"
+      ],
       "options": [
         {
-          "id": "here-you-are-1",
+          "id": "four",
           "image_url": "",
-          "label": "Here you are."
+          "label": "four"
         },
         {
-          "id": "no-thank-you-2",
+          "id": "dollars",
           "image_url": "",
-          "label": "No, thank you."
+          "label": "dollars"
         }
       ],
-      "audio_text": "Water, please.",
-      "answer_audio_text": "Here you are.",
-      "prompt_image_url": "/lesson-assets/a1_scene_here-you-are_4ab9749.webp",
-      "spanish_translation": "Agua, por favor.",
+      "audio_text": "The juice is four dollars.",
+      "answer_audio_text": "The juice is four dollars.",
+      "prompt_image_url": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
+      "spanish_translation": "El jugo cuesta cuatro d\u00f3lares.",
       "pedagogy_note": "Role-appropriate response.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1696,24 +1708,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c031-prompt-75245e16ffa56c6b6668",
+          "id": "lesson-5-8-ordering-politely-c031-prompt-a1b03423b9e6b1393d53",
           "purpose": "prompt",
-          "text": "Water, please.",
+          "text": "The juice is four dollars.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_here-you-are_4ab9749.webp",
+          "image_ref": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c031-answer-99b5223621da7e1c0dbf",
+          "id": "lesson-5-8-ordering-politely-c031-answer-74fbde60d4a0da64999c",
           "purpose": "answer",
-          "text": "Here you are.",
+          "text": "The juice is four dollars.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_here-you-are_4ab9749.webp",
+          "image_ref": "/lesson-assets/a1_scene_four_9f8f7ee.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1723,26 +1735,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "response-choice",
-      "prompt": "Here you are.",
+      "interaction_type": "complete2",
+      "prompt": "Coffee, please. ___ ___.",
       "stage": "Use",
-      "correct_option_id": "thank-you-1",
+      "correct_option_id": "thank",
+      "correct_option_ids": [
+        "thank",
+        "you"
+      ],
       "options": [
         {
-          "id": "thank-you-1",
+          "id": "thank",
           "image_url": "",
-          "label": "Thank you."
+          "label": "Thank"
         },
         {
-          "id": "here-you-are-2",
+          "id": "you",
           "image_url": "",
-          "label": "Here you are."
+          "label": "you"
         }
       ],
-      "audio_text": "Here you are.",
-      "answer_audio_text": "Thank you.",
-      "prompt_image_url": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "Aqu\u00ed tienes.",
+      "audio_text": "Coffee, please. Thank you.",
+      "answer_audio_text": "Coffee, please. Thank you.",
+      "prompt_image_url": "/lesson-assets/a1_scene_coffee_44213f9.webp",
+      "spanish_translation": "Caf\u00e9, por favor. Gracias.",
       "pedagogy_note": "Role contrast removes the plausible option of placing another order.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1750,24 +1766,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c032-prompt-d602dfaf0757ba15ad6c",
+          "id": "lesson-5-8-ordering-politely-c032-prompt-10a4bd55acb0eb5f3ce3",
           "purpose": "prompt",
-          "text": "Here you are.",
+          "text": "Coffee, please. Thank you.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
+          "image_ref": "/lesson-assets/a1_scene_coffee_44213f9.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c032-answer-74f3c2f1126d0787af90",
+          "id": "lesson-5-8-ordering-politely-c032-answer-5d12bbc226da3701d045",
           "purpose": "answer",
-          "text": "Thank you.",
+          "text": "Coffee, please. Thank you.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
+          "image_ref": "/lesson-assets/a1_scene_coffee_44213f9.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1777,26 +1793,30 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "yes-please-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "yes-please-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Yes, please."
+          "label": "Water"
         },
         {
-          "id": "no-thank-you-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "No, thank you."
+          "label": "please"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "Yes, please.",
+      "audio_text": "Water, please.",
+      "answer_audio_text": "Water, please.",
       "prompt_image_url": "/lesson-assets/a1_scene_yes-please_ae43854.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "Agua, por favor.",
       "pedagogy_note": "Visual turn context; no new offer wording.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1804,9 +1824,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c033-prompt-2ad90e85ba3887067574",
+          "id": "lesson-5-8-ordering-politely-c033-prompt-037e6a8b5084748043f4",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "Water, please.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_yes-please_ae43854.webp",
@@ -1816,9 +1836,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c033-answer-9632823ca891b34487f5",
+          "id": "lesson-5-8-ordering-politely-c033-answer-c704dfc255d0a58da62b",
           "purpose": "answer",
-          "text": "Yes, please.",
+          "text": "Water, please.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_yes-please_ae43854.webp",
@@ -1831,26 +1851,30 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "response-choice",
-      "prompt": "Choose the phrase.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "no-thank-you-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "yes-please-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Yes, please."
+          "label": "Yes"
         },
         {
-          "id": "no-thank-you-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "No, thank you."
+          "label": "please"
         }
       ],
-      "audio_text": "Choose the phrase.",
-      "answer_audio_text": "No, thank you.",
+      "audio_text": "Yes, please.",
+      "answer_audio_text": "Yes, please.",
       "prompt_image_url": "/lesson-assets/a1_scene_no-thank-you_23aa575.webp",
-      "spanish_translation": "Elige la frase.",
+      "spanish_translation": "S\u00ed, por favor.",
       "pedagogy_note": "Polite refusal from visual context.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1858,9 +1882,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c034-prompt-aeeb859fb575deed2a9b",
+          "id": "lesson-5-8-ordering-politely-c034-prompt-d53aa48eaff9cbef4af5",
           "purpose": "prompt",
-          "text": "Choose the phrase.",
+          "text": "Yes, please.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_no-thank-you_23aa575.webp",
@@ -1870,9 +1894,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-8-ordering-politely-c034-answer-03ba37ced8c09efe176a",
+          "id": "lesson-5-8-ordering-politely-c034-answer-a1d772a3bac89fb64a1f",
           "purpose": "answer",
-          "text": "No, thank you.",
+          "text": "Yes, please.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_no-thank-you_23aa575.webp",
@@ -1885,26 +1909,30 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "Juice, [blank].",
+      "interaction_type": "complete-sentence",
+      "prompt": "___, ___.",
       "stage": "Use",
-      "correct_option_id": "please-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "hello-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "hello"
+          "label": "Juice"
         },
         {
-          "id": "please-2",
+          "id": "word-2",
           "image_url": "",
           "label": "please"
         }
       ],
-      "audio_text": "Juice, ___.",
+      "audio_text": "Juice, please.",
       "answer_audio_text": "Juice, please.",
       "prompt_image_url": "/lesson-assets/a1_scene_please_cae355b.webp",
-      "spanish_translation": "Jugo, [pausa].",
+      "spanish_translation": "Jugo, por favor.",
       "pedagogy_note": "Two-choice request completion removes Thank you, which can also be valid after an elliptical item request.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1912,11 +1940,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c035-prompt-56b5fcb4524db5c37844",
+          "id": "lesson-5-8-ordering-politely-c035-prompt-615e0603cece5e61a901",
           "purpose": "prompt",
           "text": "Juice, please.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_please_cae355b.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1939,26 +1967,30 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "The juice is four dollars.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___.",
       "stage": "Use",
-      "correct_option_id": "thank-you-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2"
+      ],
       "options": [
         {
-          "id": "thank-you-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "Thank you."
+          "label": "Thank"
         },
         {
-          "id": "no-thank-you-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "No, thank you."
+          "label": "you"
         }
       ],
-      "audio_text": "The juice is four dollars.",
+      "audio_text": "Thank you.",
       "answer_audio_text": "Thank you.",
       "prompt_image_url": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
-      "spanish_translation": "El jugo cuesta cuatro d\u00f3lares.",
+      "spanish_translation": "Gracias.",
       "pedagogy_note": "Reviews price; scene explicitly shows completed purchase rather than refusal.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1966,9 +1998,9 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-8-ordering-politely-c036-prompt-91483c076c5459594723",
+          "id": "lesson-5-8-ordering-politely-c036-prompt-8902a63614950d7a7cb1",
           "purpose": "prompt",
-          "text": "The juice is four dollars.",
+          "text": "Thank you.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",

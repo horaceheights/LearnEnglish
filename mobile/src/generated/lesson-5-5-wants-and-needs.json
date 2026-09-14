@@ -1412,26 +1412,30 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "I [blank] juice.",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "want-1",
+      "correct_option_id": "want",
+      "correct_option_ids": [
+        "want",
+        "juice"
+      ],
       "options": [
         {
-          "id": "want-1",
+          "id": "want",
           "image_url": "",
           "label": "want"
         },
         {
-          "id": "wants-2",
+          "id": "juice",
           "image_url": "",
-          "label": "wants"
+          "label": "juice"
         }
       ],
-      "audio_text": "I ___ juice.",
+      "audio_text": "I want juice.",
       "answer_audio_text": "I want juice.",
       "prompt_image_url": "/lesson-assets/a1_scene_want_b5f23bc.webp",
-      "spanish_translation": "[pausa] jugo.",
+      "spanish_translation": "Yo quiero jugo.",
       "pedagogy_note": "Subject agreement.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1439,11 +1443,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-5-wants-and-needs-c027-prompt-201f9549fbfee0fe7480",
+          "id": "lesson-5-5-wants-and-needs-c027-prompt-df5e89705b316bf4db56",
           "purpose": "prompt",
           "text": "I want juice.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_want_b5f23bc.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1466,26 +1470,30 @@
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "He [blank] an apple.",
+      "interaction_type": "complete2",
+      "prompt": "They ___ ___.",
       "stage": "Use",
-      "correct_option_id": "wants-2",
+      "correct_option_id": "want",
+      "correct_option_ids": [
+        "want",
+        "chicken"
+      ],
       "options": [
         {
-          "id": "want-1",
+          "id": "want",
           "image_url": "",
           "label": "want"
         },
         {
-          "id": "wants-2",
+          "id": "chicken",
           "image_url": "",
-          "label": "wants"
+          "label": "chicken"
         }
       ],
-      "audio_text": "He ___ an apple.",
-      "answer_audio_text": "He wants an apple.",
+      "audio_text": "They want chicken.",
+      "answer_audio_text": "They want chicken.",
       "prompt_image_url": "/lesson-assets/a1_scene_wants_5383092.webp",
-      "spanish_translation": "\u00c9l [pausa] una manzana.",
+      "spanish_translation": "Ellos quieren pollo.",
       "pedagogy_note": "Third-person agreement.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1493,11 +1501,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-5-wants-and-needs-c028-prompt-b753f6ca2ce57d71110d",
+          "id": "lesson-5-5-wants-and-needs-c028-prompt-8aa6208af6dcbf564246",
           "purpose": "prompt",
-          "text": "He wants an apple.",
+          "text": "They want chicken.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_wants_5383092.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1505,9 +1513,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-5-wants-and-needs-c028-answer-7dcfef8d125a74aff7fd",
+          "id": "lesson-5-5-wants-and-needs-c028-answer-dc4fb4f20ce2c9624c0e",
           "purpose": "answer",
-          "text": "He wants an apple.",
+          "text": "They want chicken.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_wants_5383092.webp",
@@ -1520,26 +1528,30 @@
     },
     {
       "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "They [blank] chicken.",
+      "interaction_type": "complete2",
+      "prompt": "I ___ ___.",
       "stage": "Use",
-      "correct_option_id": "want-1",
+      "correct_option_id": "need",
+      "correct_option_ids": [
+        "need",
+        "water"
+      ],
       "options": [
         {
-          "id": "want-1",
+          "id": "need",
           "image_url": "",
-          "label": "want"
+          "label": "need"
         },
         {
-          "id": "wants-2",
+          "id": "water",
           "image_url": "",
-          "label": "wants"
+          "label": "water"
         }
       ],
-      "audio_text": "They ___ chicken.",
-      "answer_audio_text": "They want chicken.",
+      "audio_text": "I need water.",
+      "answer_audio_text": "I need water.",
       "prompt_image_url": "/lesson-assets/a1_scene_want_b5f23bc.webp",
-      "spanish_translation": "Ellos [pausa] pollo.",
+      "spanish_translation": "Yo necesito agua.",
       "pedagogy_note": "Plural subject.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1547,11 +1559,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-5-wants-and-needs-c029-prompt-c113e5ead8f9ac00d484",
+          "id": "lesson-5-5-wants-and-needs-c029-prompt-7165952c9ca80f2287fa",
           "purpose": "prompt",
-          "text": "They want chicken.",
+          "text": "I need water.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_want_b5f23bc.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1559,9 +1571,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-5-wants-and-needs-c029-answer-585e17ea3afd351aa67c",
+          "id": "lesson-5-5-wants-and-needs-c029-answer-caa2f49306ad80cbaf3b",
           "purpose": "answer",
-          "text": "They want chicken.",
+          "text": "I need water.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_want_b5f23bc.webp",
@@ -1574,26 +1586,30 @@
     },
     {
       "slide_id": "U4",
-      "interaction_type": "complete",
-      "prompt": "I [blank] water.",
+      "interaction_type": "complete2",
+      "prompt": "She ___ ___.",
       "stage": "Use",
-      "correct_option_id": "need-1",
+      "correct_option_id": "needs",
+      "correct_option_ids": [
+        "needs",
+        "milk"
+      ],
       "options": [
         {
-          "id": "need-1",
-          "image_url": "",
-          "label": "need"
-        },
-        {
-          "id": "needs-2",
+          "id": "needs",
           "image_url": "",
           "label": "needs"
+        },
+        {
+          "id": "milk",
+          "image_url": "",
+          "label": "milk"
         }
       ],
-      "audio_text": "I ___ water.",
-      "answer_audio_text": "I need water.",
+      "audio_text": "She needs milk.",
+      "answer_audio_text": "She needs milk.",
       "prompt_image_url": "/lesson-assets/a1_scene_need_efe30e3.webp",
-      "spanish_translation": "[pausa] agua.",
+      "spanish_translation": "Ella necesita leche.",
       "pedagogy_note": "Need context is decisive.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1601,11 +1617,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-5-wants-and-needs-c030-prompt-b597668d6ff3060cb800",
+          "id": "lesson-5-5-wants-and-needs-c030-prompt-9295e84301fbc9699148",
           "purpose": "prompt",
-          "text": "I need water.",
+          "text": "She needs milk.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_need_efe30e3.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1613,9 +1629,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-5-wants-and-needs-c030-answer-3d3a3b6d50d765b1488a",
+          "id": "lesson-5-5-wants-and-needs-c030-answer-c2146063e7360d944a5c",
           "purpose": "answer",
-          "text": "I need water.",
+          "text": "She needs milk.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_need_efe30e3.webp",
@@ -1628,26 +1644,36 @@
     },
     {
       "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "She [blank] milk.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "needs-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3"
+      ],
       "options": [
         {
-          "id": "need-1",
+          "id": "word-1",
+          "image_url": "",
+          "label": "We"
+        },
+        {
+          "id": "word-2",
           "image_url": "",
           "label": "need"
         },
         {
-          "id": "needs-2",
+          "id": "word-3",
           "image_url": "",
-          "label": "needs"
+          "label": "food"
         }
       ],
-      "audio_text": "She ___ milk.",
-      "answer_audio_text": "She needs milk.",
+      "audio_text": "We need food.",
+      "answer_audio_text": "We need food.",
       "prompt_image_url": "/lesson-assets/a1_scene_needs_edb0489.webp",
-      "spanish_translation": "Ella [pausa] leche.",
+      "spanish_translation": "Nosotros necesitamos comida.",
       "pedagogy_note": "Third-person agreement.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1655,11 +1681,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-5-wants-and-needs-c031-prompt-8ad152f88804a3d437b4",
+          "id": "lesson-5-5-wants-and-needs-c031-prompt-f2afe9c1306848088816",
           "purpose": "prompt",
-          "text": "She needs milk.",
+          "text": "We need food.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_needs_edb0489.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1667,9 +1693,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-5-wants-and-needs-c031-answer-caf7d97260b19f2d7d1d",
+          "id": "lesson-5-5-wants-and-needs-c031-answer-5f352215d8f58434f368",
           "purpose": "answer",
-          "text": "She needs milk.",
+          "text": "We need food.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_needs_edb0489.webp",
@@ -1682,26 +1708,42 @@
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "We [blank] food.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "need-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "need-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "need"
+          "label": "He"
         },
         {
-          "id": "needs-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "needs"
+          "label": "wants"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "an"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "apple"
         }
       ],
-      "audio_text": "We ___ food.",
-      "answer_audio_text": "We need food.",
+      "audio_text": "He wants an apple.",
+      "answer_audio_text": "He wants an apple.",
       "prompt_image_url": "/lesson-assets/a1_scene_need_efe30e3.webp",
-      "spanish_translation": "Nosotros [pausa] comida.",
+      "spanish_translation": "\u00c9l quiere una manzana.",
       "pedagogy_note": "Plural subject.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1709,11 +1751,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-5-wants-and-needs-c032-prompt-9b36ba7dae0613f8d874",
+          "id": "lesson-5-5-wants-and-needs-c032-prompt-68e318b4d52d9e84c817",
           "purpose": "prompt",
-          "text": "We need food.",
+          "text": "He wants an apple.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_need_efe30e3.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1721,9 +1763,9 @@
           "revision": 1
         },
         {
-          "id": "lesson-5-5-wants-and-needs-c032-answer-b95a767fb1e4ac35b249",
+          "id": "lesson-5-5-wants-and-needs-c032-answer-c2b47ad2f323b238b2b4",
           "purpose": "answer",
-          "text": "We need food.",
+          "text": "He wants an apple.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_need_efe30e3.webp",
@@ -1736,31 +1778,42 @@
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "He wants [blank] eggs.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "three-2",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
       "options": [
         {
-          "id": "two-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "two"
+          "label": "He"
         },
         {
-          "id": "three-2",
+          "id": "word-2",
+          "image_url": "",
+          "label": "wants"
+        },
+        {
+          "id": "word-3",
           "image_url": "",
           "label": "three"
         },
         {
-          "id": "four-3",
+          "id": "word-4",
           "image_url": "",
-          "label": "four"
+          "label": "eggs"
         }
       ],
-      "audio_text": "He wants ___ eggs.",
+      "audio_text": "He wants three eggs.",
       "answer_audio_text": "He wants three eggs.",
       "prompt_image_url": "/lesson-assets/a1_scene_three_b802f38.webp",
-      "spanish_translation": "\u00c9l quiere [pausa] huevos.",
+      "spanish_translation": "\u00c9l quiere tres huevos.",
       "pedagogy_note": "Review quantity.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1768,11 +1821,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-5-wants-and-needs-c033-prompt-508fafe54a4df6ba2c62",
+          "id": "lesson-5-5-wants-and-needs-c033-prompt-969c76f4dd1fc88976e3",
           "purpose": "prompt",
           "text": "He wants three eggs.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_three_b802f38.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
@@ -1795,31 +1848,48 @@
     },
     {
       "slide_id": "U8",
-      "interaction_type": "complete",
-      "prompt": "She wants two [blank] apples.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "red-1",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5"
+      ],
       "options": [
         {
-          "id": "red-1",
+          "id": "word-1",
+          "image_url": "",
+          "label": "She"
+        },
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "wants"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "two"
+        },
+        {
+          "id": "word-4",
           "image_url": "",
           "label": "red"
         },
         {
-          "id": "green-2",
+          "id": "word-5",
           "image_url": "",
-          "label": "green"
-        },
-        {
-          "id": "yellow-3",
-          "image_url": "",
-          "label": "yellow"
+          "label": "apples"
         }
       ],
-      "audio_text": "She wants two ___ apples.",
+      "audio_text": "She wants two red apples.",
       "answer_audio_text": "She wants two red apples.",
       "prompt_image_url": "/lesson-assets/a1_scene_red_7898801.webp",
-      "spanish_translation": "Ella quiere dos manzanas [pausa].",
+      "spanish_translation": "Ella quiere dos manzanas rojas.",
       "pedagogy_note": "Review color and quantity.",
       "audio_speaker": null,
       "answer_audio_speaker": null,
@@ -1827,11 +1897,11 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-5-wants-and-needs-c034-prompt-756c15b6c7dbfb0cce4e",
+          "id": "lesson-5-5-wants-and-needs-c034-prompt-1385cd460e6b511067af",
           "purpose": "prompt",
           "text": "She wants two red apples.",
           "mode": "prompt",
-          "variant": "completion-prompt",
+          "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_red_7898801.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",

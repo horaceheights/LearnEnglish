@@ -636,200 +636,307 @@
     },
     {
       "slide_id": "U1",
-      "interaction_type": "complete",
-      "prompt": "[blank] is the store?",
+      "interaction_type": "complete2",
+      "prompt": "The phone is in ___ ___.",
       "stage": "Use",
-      "correct_option_id": "where-2",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "who-1",
+          "id": "the",
           "image_url": "",
-          "label": "Who"
+          "label": "the"
         },
         {
-          "id": "where-2",
+          "id": "bag",
           "image_url": "",
-          "label": "Where"
+          "label": "bag"
         }
       ],
-      "audio_text": "___ is the store?",
-      "answer_audio_text": "Where is the store?",
+      "audio_text": "The phone is in the bag.",
+      "answer_audio_text": "The phone is in the bag.",
       "prompt_image_url": "a1_scene_where_46148cc.webp",
-      "spanish_translation": "¿[pausa] está la tienda?",
-      "pedagogy_note": "Only Where forms the taught location question; both choice words were previously taught."
+      "spanish_translation": "El teléfono está en la bolsa.",
+      "pedagogy_note": "Only Where forms the taught location question; both choice words were previously taught.",
+      "translation": "El teléfono está en la bolsa.",
+      "correct_option_ids": [
+        "the",
+        "bag"
+      ]
     },
     {
       "slide_id": "U2",
-      "interaction_type": "complete",
-      "prompt": "Where [blank] the station?",
+      "interaction_type": "complete2",
+      "prompt": "The book is on ___ ___.",
       "stage": "Use",
-      "correct_option_id": "is-1",
+      "correct_option_id": "the",
       "options": [
         {
-          "id": "is-1",
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "table",
+          "image_url": "",
+          "label": "table"
+        }
+      ],
+      "audio_text": "The book is on the table.",
+      "answer_audio_text": "The book is on the table.",
+      "prompt_image_url": "a1_scene_is_b47f363.webp",
+      "spanish_translation": "El libro está sobre la mesa.",
+      "pedagogy_note": "Singular agreement.",
+      "translation": "El libro está sobre la mesa.",
+      "correct_option_ids": [
+        "the",
+        "table"
+      ]
+    },
+    {
+      "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "The apple is under ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "the",
+      "options": [
+        {
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "chair",
+          "image_url": "",
+          "label": "chair"
+        }
+      ],
+      "audio_text": "The apple is under the chair.",
+      "answer_audio_text": "The apple is under the chair.",
+      "prompt_image_url": "a1_scene_hospital_2b2d005.webp",
+      "spanish_translation": "La manzana está debajo de la silla.",
+      "pedagogy_note": "Reference landmark.",
+      "translation": "La manzana está debajo de la silla.",
+      "correct_option_ids": [
+        "the",
+        "chair"
+      ]
+    },
+    {
+      "slide_id": "U4",
+      "interaction_type": "complete2",
+      "prompt": "It is next to ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "the",
+      "options": [
+        {
+          "id": "the",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "hospital",
+          "image_url": "",
+          "label": "hospital"
+        }
+      ],
+      "audio_text": "It is next to the hospital.",
+      "answer_audio_text": "It is next to the hospital.",
+      "prompt_image_url": "a1_scene_it-is-next-to-the-park_7c2e29b.webp",
+      "spanish_translation": "Está junto al hospital.",
+      "pedagogy_note": "Controlled answer.",
+      "translation": "Está junto al hospital.",
+      "correct_option_ids": [
+        "the",
+        "hospital"
+      ]
+    },
+    {
+      "slide_id": "U5",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "options": [
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "Where"
+        },
+        {
+          "id": "word-2",
           "image_url": "",
           "label": "is"
         },
         {
-          "id": "are-2",
+          "id": "word-3",
           "image_url": "",
-          "label": "are"
-        }
-      ],
-      "audio_text": "Where ___ the station?",
-      "answer_audio_text": "Where is the station?",
-      "prompt_image_url": "a1_scene_is_b47f363.webp",
-      "spanish_translation": "¿Dónde [pausa] la estación?",
-      "pedagogy_note": "Singular agreement."
-    },
-    {
-      "slide_id": "U3",
-      "interaction_type": "complete",
-      "prompt": "It is next to the [blank].",
-      "stage": "Use",
-      "correct_option_id": "hospital-1",
-      "options": [
-        {
-          "id": "hospital-1",
-          "image_url": "",
-          "label": "hospital"
+          "label": "the"
         },
         {
-          "id": "bank-2",
+          "id": "word-4",
           "image_url": "",
-          "label": "bank"
+          "label": "store"
         }
       ],
-      "audio_text": "It is next to the ___.",
-      "answer_audio_text": "It is next to the hospital.",
-      "prompt_image_url": "a1_scene_hospital_2b2d005.webp",
-      "spanish_translation": "Está junto al [pausa].",
-      "pedagogy_note": "Reference landmark."
-    },
-    {
-      "slide_id": "U4",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the library?",
-      "stage": "Use",
-      "correct_option_id": "it-is-next-to-the-park-1",
-      "options": [
-        {
-          "id": "it-is-next-to-the-park-1",
-          "image_url": "",
-          "label": "It is next to the park."
-        },
-        {
-          "id": "it-is-next-to-the-store-2",
-          "image_url": "",
-          "label": "It is next to the store."
-        }
-      ],
-      "audio_text": "Where is the library?",
-      "answer_audio_text": "It is next to the park.",
-      "prompt_image_url": "a1_scene_it-is-next-to-the-park_7c2e29b.webp",
-      "spanish_translation": "¿Dónde está la biblioteca?",
-      "pedagogy_note": "Controlled answer."
-    },
-    {
-      "slide_id": "U5",
-      "interaction_type": "complete",
-      "prompt": "The phone is [blank] the bag.",
-      "stage": "Use",
-      "correct_option_id": "in-2",
-      "options": [
-        {
-          "id": "on-1",
-          "image_url": "",
-          "label": "on"
-        },
-        {
-          "id": "in-2",
-          "image_url": "",
-          "label": "in"
-        }
-      ],
-      "audio_text": "The phone is ___ the bag.",
-      "answer_audio_text": "The phone is in the bag.",
+      "audio_text": "Where is the store?",
+      "answer_audio_text": "Where is the store?",
       "prompt_image_url": "a1_scene_in_af10ef2.webp",
-      "spanish_translation": "El teléfono está [pausa] la bolsa.",
-      "pedagogy_note": "Object/location review."
+      "spanish_translation": "¿Dónde está la tienda?",
+      "pedagogy_note": "Object/location review.",
+      "translation": "¿Dónde está la tienda?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     },
     {
       "slide_id": "U6",
-      "interaction_type": "complete",
-      "prompt": "The book is [blank] the table.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
       "stage": "Use",
-      "correct_option_id": "on-2",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "under-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "under"
+          "label": "Where"
         },
         {
-          "id": "on-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "on"
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "station"
         }
       ],
-      "audio_text": "The book is ___ the table.",
-      "answer_audio_text": "The book is on the table.",
+      "audio_text": "Where is the station?",
+      "answer_audio_text": "Where is the station?",
       "prompt_image_url": "a1_scene_on_db3d405.webp",
-      "spanish_translation": "El libro está [pausa] la mesa.",
-      "pedagogy_note": "Preposition review."
+      "spanish_translation": "¿Dónde está la estación?",
+      "pedagogy_note": "Preposition review.",
+      "translation": "¿Dónde está la estación?",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ]
     },
     {
       "slide_id": "U7",
-      "interaction_type": "complete",
-      "prompt": "The apple is [blank] the chair.",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "under-3",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "in-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "in"
+          "label": "It"
         },
         {
-          "id": "on-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "on"
+          "label": "is"
         },
         {
-          "id": "under-3",
+          "id": "word-3",
           "image_url": "",
-          "label": "under"
+          "label": "next"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "park"
         }
       ],
-      "audio_text": "The apple is ___ the chair.",
-      "answer_audio_text": "The apple is under the chair.",
+      "audio_text": "It is next to the park.",
+      "answer_audio_text": "It is next to the park.",
       "prompt_image_url": "a1_scene_under_dad64cc.webp",
-      "spanish_translation": "La manzana está [pausa] la silla.",
-      "pedagogy_note": "Four known prepositions."
+      "spanish_translation": "Está junto al parque.",
+      "pedagogy_note": "Four known prepositions.",
+      "translation": "Está junto al parque.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ]
     },
     {
       "slide_id": "U8",
-      "interaction_type": "response-choice",
-      "prompt": "Where is the bank?",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___ ___ ___.",
       "stage": "Use",
-      "correct_option_id": "it-is-next-to-the-store-1",
+      "correct_option_id": "word-1",
       "options": [
         {
-          "id": "it-is-next-to-the-store-1",
+          "id": "word-1",
           "image_url": "",
-          "label": "It is next to the store."
+          "label": "It"
         },
         {
-          "id": "it-is-in-the-store-2",
+          "id": "word-2",
           "image_url": "",
-          "label": "It is in the store."
+          "label": "is"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "next"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "to"
+        },
+        {
+          "id": "word-5",
+          "image_url": "",
+          "label": "the"
+        },
+        {
+          "id": "word-6",
+          "image_url": "",
+          "label": "store"
         }
       ],
-      "audio_text": "Where is the bank?",
+      "audio_text": "It is next to the store.",
       "answer_audio_text": "It is next to the store.",
       "prompt_image_url": "a1_scene_it-is-next-to-the-store_b207d1a.webp",
-      "spanish_translation": "¿Dónde está el banco?",
-      "pedagogy_note": "Final controlled town answer."
+      "spanish_translation": "Está junto a la tienda.",
+      "pedagogy_note": "Final controlled town answer.",
+      "translation": "Está junto a la tienda.",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4",
+        "word-5",
+        "word-6"
+      ]
     }
   ]
 }
