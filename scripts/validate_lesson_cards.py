@@ -2016,6 +2016,173 @@ def webp_dimensions(path: Path) -> tuple[int, int] | None:
     return None
 
 
+# A Use sentence may only keep a prompt image whose own authored description
+# shows it. Runtime, course-browser, and derived-variant contracts restate the
+# card or thumbnail text they were bound to, so they cannot vouch for a picture.
+USE_IMAGE_DESCRIPTION_SOURCES = frozenset({"composite-or-generated", "existing", "reviewed-photoreal"})
+# Some rows under those sources were later rewritten from card or thumbnail
+# text; their wording gives them away.
+CARD_RESTATED_DESCRIPTION = re.compile(
+    r"learner-facing still for|course-browser .*thumbnail|client-rendered .*variant|four-card portrait-safe reframe",
+    re.IGNORECASE,
+)
+USE_SENTENCE_FUNCTION_WORDS = frozenset({
+    "a", "am", "an", "and", "are", "aren", "at", "be", "but", "by", "can", "cannot",
+    "do", "does", "doesn", "don", "first", "for", "from", "he", "her", "here", "his",
+    "how", "i", "in", "is", "isn", "it", "its", "me", "my", "no", "not", "o", "of",
+    "on", "or", "our", "please", "s", "she", "some", "t", "that", "the", "their",
+    "them", "then", "there", "these", "they", "this", "those", "to", "very", "we",
+    "what", "when", "where", "which", "who", "with", "yes", "you", "your",
+})
+USE_NUMBER_WORDS = {
+    "one": "1", "two": "2", "three": "3", "four": "4", "five": "5", "six": "6",
+    "seven": "7", "eight": "8", "nine": "9", "ten": "10", "eleven": "11",
+    "twelve": "12", "thirteen": "13", "fourteen": "14", "fifteen": "15",
+    "sixteen": "16", "seventeen": "17", "eighteen": "18", "nineteen": "19",
+    "twenty": "20",
+}
+# Plain words a still can show through a more specific depiction.
+USE_IMAGE_WORD_SUPPORT = {
+    "dollar": {"cost", "money", "price"},
+    "drink": {"coffee", "juice", "milk", "tea", "water"},
+    "food": {"bread", "chicken", "egg", "fish", "rice"},
+    "fruit": {"apple", "banana", "grape", "orange", "strawberry"},
+    "old": {"age"},
+    "people": {"boy", "family", "girl", "man", "person", "woman"},
+    "year": {"age"},
+}
+_SEMANTIC_TERM_BASES = {term: base for term, base, _ in SEMANTIC_CONCEPT_TERMS}
+_SEMANTIC_CONCEPTS_IMPLIED_BY = {
+    implied: {concept for concept, implications in SEMANTIC_CONCEPT_IMPLICATIONS.items() if implied in implications}
+    for implied in set().union(*SEMANTIC_CONCEPT_IMPLICATIONS.values())
+}
+
+
+def _use_image_tokens(text: str | None) -> set[str]:
+    return set(re.findall(r"[a-z]+|\d+", str(text or "").lower()))
+
+
+def _use_word_forms(word: str) -> set[str]:
+    forms = {word, _SEMANTIC_TERM_BASES.get(word, word)}
+    if word in USE_NUMBER_WORDS:
+        forms.add(USE_NUMBER_WORDS[word])
+    if word.endswith("ies"):
+        forms.add(word[:-3] + "y")
+    if word.endswith("es"):
+        forms.add(word[:-2])
+    if word.endswith("s") and not word.endswith("ss"):
+        forms.add(word[:-1])
+    if word.endswith("ing") and len(word) > 5:
+        stem = word[:-3]
+        forms.update({stem, stem + "e"})
+        if stem[-1] == stem[-2]:
+            forms.add(stem[:-1])
+    return forms
+
+
+def _use_word_support(word: str) -> set[str]:
+    support = set(_use_word_forms(word))
+    for form in list(support):
+        support |= USE_IMAGE_WORD_SUPPORT.get(form, set())
+        support |= _SEMANTIC_CONCEPTS_IMPLIED_BY.get(form, set())
+    return support
+
+
+def find_use_prompt_image_mismatches(
+    lessons=None,
+    manifest_payload: dict[str, object] | None = None,
+) -> tuple[list[str], list[str]]:
+    """Return Use cards whose prompt image does not show their sentence.
+
+    Use sentences were rewritten while cards kept the image of the sentence
+    they replaced, so a still can end up under a sentence it does not show
+    (``The apple is red.`` over grapes). The Use runtime contracts cannot catch
+    this because they are generated from the card sentence itself, so this
+    compares each sentence with the image's own authored description instead.
+
+    The check is deliberately conservative: a card is flagged only when none of
+    its non-number content words, or a plain synonym, appears in that
+    description. Partial contradictions such as wrong polarity still need human
+    semantic review. The second list names cards whose image has no authored
+    description at all, which this check therefore cannot vouch for.
+    """
+
+    lesson_catalog = LESSONS if lessons is None else lessons
+    if manifest_payload is None:
+        manifest_payload = json.loads(A1_MEDIA_MANIFEST.read_text(encoding="utf-8"))
+    descriptions: dict[str, list[str]] = {}
+    for asset in manifest_payload.get("assets", []):
+        if asset.get("source") not in USE_IMAGE_DESCRIPTION_SOURCES:
+            continue
+        contexts = asset.get("review_contexts") or []
+        if contexts and all(context.get("stage") == "Use" for context in contexts):
+            continue
+        if CARD_RESTATED_DESCRIPTION.search(str(asset.get("description") or "")):
+            continue
+        texts = [str(asset.get(field) or "").strip() for field in ("concept", "description")]
+        descriptions.setdefault(_asset_name(str(asset.get("filename") or "")), []).extend(
+            text for text in texts if text
+        )
+
+    mismatches: list[str] = []
+    unverifiable: list[str] = []
+    for lesson in lesson_catalog.values():
+        for card in lesson.cards:
+            image_url = str(getattr(card, "prompt_image_url", "") or "").strip()
+            if getattr(card, "stage", None) != "Use" or not image_url:
+                continue
+            sentence = str(
+                getattr(card, "answer_audio_text", None) or getattr(card, "audio_text", None) or ""
+            ).strip()
+            content = _use_image_tokens(sentence) - USE_SENTENCE_FUNCTION_WORDS
+            if not content:
+                continue
+            filename = _asset_name(image_url)
+            label = f"Lesson {lesson.sub_lesson_id} Use {getattr(card, 'slide_id', None)}"
+            evidence = descriptions.get(filename)
+            if not evidence:
+                unverifiable.append(f"{label} ({filename})")
+                continue
+            shown = set().union(*(_use_word_forms(token) for text in evidence for token in _use_image_tokens(text)))
+            deciding_words = {word for word in content if word not in USE_NUMBER_WORDS} or content
+            if not any(_use_word_support(word) & shown for word in deciding_words):
+                description = max(evidence, key=len)
+                if len(description) > 100:
+                    description = description[:97] + "..."
+                mismatches.append(
+                    f"{label} says {sentence!r}, but its prompt image {filename} is described as "
+                    f"{description!r}. Bind an image whose own contract shows this sentence."
+                )
+    return mismatches, unverifiable
+
+
+def validate_use_prompt_image_meaning(
+    review_policy: str = "production",
+    warnings: list[str] | None = None,
+    lessons=None,
+    manifest_payload: dict[str, object] | None = None,
+) -> list[str]:
+    """Block Use sentence/image mismatches in Production; advise in Preview."""
+
+    if review_policy not in {"preview", "production"}:
+        raise ValueError(f"Unsupported semantic review policy: {review_policy!r}.")
+
+    warning_sink = warnings if warnings is not None else []
+    mismatches, unverifiable = find_use_prompt_image_mismatches(lessons, manifest_payload)
+    if unverifiable:
+        preview = ", ".join(unverifiable[:12])
+        if len(unverifiable) > 12:
+            preview += f", and {len(unverifiable) - 12} more"
+        warning_sink.append(
+            f"{len(unverifiable)} Use prompt images have no authored image description, so the "
+            f"Use sentence/image check cannot vouch for them: {preview}."
+        )
+    if review_policy == "preview":
+        warning_sink.extend(f"Preview-only advisory: {mismatch}" for mismatch in mismatches)
+        return []
+    return mismatches
+
+
 def validate_a1_image_ratio() -> list[str]:
     errors: list[str] = []
     for path in LESSON_ASSET_DIR.glob("a1_*.webp"):
@@ -2561,6 +2728,10 @@ def main(argv: list[str] | None = None) -> int:
         *validate_media_references(),
         *validate_a1_image_ratio(),
         *validate_a1_media_semantic_approvals(
+            arguments.semantic_review_policy,
+            warnings,
+        ),
+        *validate_use_prompt_image_meaning(
             arguments.semantic_review_policy,
             warnings,
         ),
