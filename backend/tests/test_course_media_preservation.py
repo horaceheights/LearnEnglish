@@ -75,6 +75,35 @@ class MediaPreservationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "No earlier"):
                 validate_plan(plan, baseline, data, root)
 
+    def use_image_fixture(self, folder):
+        root, data, baseline, _ = self.fixture(folder)
+        data["foundation"]["cards"] = [{"slide_id": "U3", "stage": "Use", "answer_audio_text": "The apple is red.",
+                                        "prompt_image_url": "apple.webp"}]
+        (root / "backend/lessons/unit_2/foundation.yaml").write_text(json.dumps(data["foundation"]))
+        plan = {"lesson_id": "foundation", "slide_id": "U3", "old_filename": "gemini.webp", "new_filename": "apple.webp",
+                "old_sha256": baseline["assets"]["gemini.webp"]["copies"][IMAGE_ROOTS[0]],
+                "issue": "use-image-contradicts-sentence",
+                "issue_detail": "The Use sentence says the apple is red, but the bound image shows grapes."}
+        return root, baseline, plan, (lambda lesson, card, filename: filename == "gemini.webp")
+
+    def test_use_image_exception_rebinds_only_a_contradicting_use_card(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root, baseline, plan, contradicts = self.use_image_fixture(folder)
+            self.assertEqual(audit(root, baseline, [plan], contradicts), [])
+            self.assertIn("Unplanned", " ".join(audit(root, baseline, [], contradicts)))
+
+    def test_use_image_exception_requires_a_real_contradiction_and_a_real_fix(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root, baseline, plan, contradicts = self.use_image_fixture(folder)
+            current = lessons(root)
+            validate_plan(plan, baseline, current, root, contradicts)
+            for changes, predicate in (({"slide_id": "U9"}, contradicts),
+                                       ({"new_filename": "other.webp"}, contradicts),
+                                       ({}, lambda lesson, card, filename: False),
+                                       ({}, lambda lesson, card, filename: True)):
+                with self.subTest(changes=changes), self.assertRaises(ValueError):
+                    validate_plan({**plan, **changes}, baseline, current, root, predicate)
+
     def test_review_pack_uses_fresh_names_and_declares_all_exceptions(self):
         pack = load_pack(PACK)
         baseline = json.loads(BASELINE.read_text(encoding="utf-8"))
