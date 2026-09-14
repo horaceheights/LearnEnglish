@@ -1,7 +1,15 @@
 # Units 2–7 parity implementation — in progress
 
 User approved implementation across all six remaining units on 2026-09-13.
-Unit 1 is the completed reference. This branch is **not ready for Preview**.
+Unit 1 is the completed reference. The full Units 2–7 rollout remains unfinished. On 2026-09-13 the user explicitly approved publishing the saved **Unit 2 checkpoint to Preview**, subject to the normal protected release gates, so device review can happen before work continues in Units 3–7. This supersedes the earlier all-unit publication hold, not the unfinished rollout criteria or Production approval requirements.
+
+### Staged Unit 2 Preview release preparation — 2026-09-13
+
+- Candidate content is the saved `7c5ba94` review checkpoint plus the `f481aaf` immutable-catalog and verification alignment, including the shared mission foundations described below. No new media generation is needed for publication.
+- Deliberately updated only the aggregate catalog fingerprint to `8d8e542660611870934d407e5158b5f133695e12`; preserved the approved baseline, 70 lessons, seven units of ten, release-identity files and fail-closed integrity checker.
+- Unit 2 content inventory passes. Units 3–7 remain unfinished; the all-unit parity acceptance check must continue to report those gaps. Pending human image/crop reviews and physical-device audio/layout/recovery testing remain pending until performed in the actual Preview.
+- Release must follow fresh `origin/main` reconciliation, complete local/CI preflight, PR into protected `main`, exact-commit shared-backend readiness and protected CI Preview publication. No local EAS publisher or Production promotion is authorized.
+- Local release verification passed: all 309 backend tests, all 17 web regression tests, optimized web build, versioned release integrity and the complete `verify-preview.ps1` preflight including its Android production-bundle export. The runner now executes the new object-scene and cross-client mission-presentation suites; its pinned course-hash fixture matches this deliberate release fingerprint. Human-review warnings remain unchanged. GitHub required checks and deployed-backend/Expo verification still run after push and integration.
 
 ## Implemented foundation
 
@@ -59,7 +67,7 @@ Unit 1 is the completed reference. This branch is **not ready for Preview**.
 Task branch: `codex/units-2-7-unit1-parity`, based on `52dbcbeb5fc82b47cc3b79538687cfe0edfd9da3`.
 Primary checkout has extensive ongoing edits to all 63 non-mission lessons, shared UI and audio/media catalogs on `feat/lesson-1-1-completa-sentence-standard`. They were not imported, staged, reverted or overwritten. The task worktree is `.codex-task-worktrees/units-2-7-unit1-parity`.
 
-Do not publish this older base over that work. Regenerate catalogs/snapshots only after safely combining the final canonical changes. Do not remove this dirty/in-progress worktree or unmerged branch as cleanup.
+Never overwrite or discard that unrelated uncommitted work. The approved staged checkpoint is integrated only against freshly fetched `origin/main`; the 153 dirty primary-checkout paths remain outside this release. If concurrent work reaches main first, combine it safely and regenerate the final catalogs/snapshots before publication. Do not remove any dirty/in-progress worktree or unmerged branch as cleanup.
 
 ## Verification so far
 
