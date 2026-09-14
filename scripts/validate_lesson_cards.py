@@ -1,4 +1,5 @@
 import argparse
+import functools
 import json
 import re
 import struct
@@ -2088,28 +2089,10 @@ def _use_word_support(word: str) -> set[str]:
     return support
 
 
-def find_use_prompt_image_mismatches(
-    lessons=None,
-    manifest_payload: dict[str, object] | None = None,
-) -> tuple[list[str], list[str]]:
-    """Return Use cards whose prompt image does not show their sentence.
+INSTRUCTION_TEXT = re.compile(r"^\s*(?:choose the|listen and choose)\b", re.IGNORECASE)
 
-    Use sentences were rewritten while cards kept the image of the sentence
-    they replaced, so a still can end up under a sentence it does not show
-    (``The apple is red.`` over grapes). The Use runtime contracts cannot catch
-    this because they are generated from the card sentence itself, so this
-    compares each sentence with the image's own authored description instead.
 
-    The check is deliberately conservative: a card is flagged only when none of
-    its non-number content words, or a plain synonym, appears in that
-    description. Partial contradictions such as wrong polarity still need human
-    semantic review. The second list names cards whose image has no authored
-    description at all, which this check therefore cannot vouch for.
-    """
-
-    lesson_catalog = LESSONS if lessons is None else lessons
-    if manifest_payload is None:
-        manifest_payload = json.loads(A1_MEDIA_MANIFEST.read_text(encoding="utf-8"))
+def _use_image_descriptions(manifest_payload: dict[str, object]) -> dict[str, list[str]]:
     descriptions: dict[str, list[str]] = {}
     for asset in manifest_payload.get("assets", []):
         if asset.get("source") not in USE_IMAGE_DESCRIPTION_SOURCES:
@@ -2123,6 +2106,84 @@ def find_use_prompt_image_mismatches(
         descriptions.setdefault(_asset_name(str(asset.get("filename") or "")), []).extend(
             text for text in texts if text
         )
+    return descriptions
+
+
+def _use_image_teaching(lesson_catalog) -> dict[str, list[str]]:
+    """Return the sentences each image teaches on non-Use cards of standard lessons."""
+
+    taught: dict[str, list[str]] = {}
+    for lesson in lesson_catalog.values():
+        if getattr(lesson, "experience_type", None) == "mission":
+            continue
+        for card in lesson.cards:
+            if getattr(card, "stage", None) == "Use":
+                continue
+            correct_ids = {*(getattr(card, "correct_option_ids", None) or []), getattr(card, "correct_option_id", None)}
+            correct = [option for option in getattr(card, "options", None) or [] if getattr(option, "id", None) in correct_ids]
+            spoken = [
+                text
+                for text in (getattr(card, "audio_text", None), getattr(card, "answer_audio_text", None))
+                if text and not INSTRUCTION_TEXT.match(text)
+            ]
+            prompt_image = str(getattr(card, "prompt_image_url", "") or "")
+            if prompt_image:
+                labels = [option.label for option in correct if getattr(option, "label", None)]
+                taught.setdefault(_asset_name(prompt_image).replace("_four-card", ""), []).extend(spoken + labels)
+            prompt = str(getattr(card, "prompt", "") or "")
+            for option in correct:
+                if getattr(option, "image_url", None):
+                    texts = spoken + ([prompt] if prompt and not INSTRUCTION_TEXT.match(prompt) else [])
+                    taught.setdefault(_asset_name(option.image_url).replace("_four-card", ""), []).extend(texts)
+    return {name: texts for name, texts in taught.items() if texts}
+
+
+@functools.lru_cache(maxsize=1)
+def _course_use_image_evidence() -> tuple[dict[str, list[str]], dict[str, list[str]]]:
+    return (
+        _use_image_descriptions(json.loads(A1_MEDIA_MANIFEST.read_text(encoding="utf-8"))),
+        _use_image_teaching(LESSONS),
+    )
+
+
+def use_prompt_image_has_course_evidence(filename: str) -> bool:
+    """Return whether an authored description or a teaching card vouches for an image."""
+
+    descriptions, teaching = _course_use_image_evidence()
+    name = _asset_name(filename)
+    return name in descriptions or name in teaching
+
+
+def find_use_prompt_image_mismatches(
+    lessons=None,
+    manifest_payload: dict[str, object] | None = None,
+    teaching_lessons=None,
+) -> tuple[list[str], list[str]]:
+    """Return Use cards whose prompt image does not show their sentence.
+
+    Use sentences were rewritten while cards kept the image of the sentence
+    they replaced, so a still can end up under a sentence it does not show
+    (``The apple is red.`` over grapes). The Use runtime contracts cannot catch
+    this because they are generated from the card sentence itself, so this
+    compares each sentence with the image's own authored description instead.
+    An image without one is compared with the sentences the rest of the course
+    teaches with it (``Ten`` for a picture of ten pens).
+
+    The check is deliberately conservative: a card is flagged only when none of
+    its non-number content words, or a plain synonym, appears in that evidence.
+    Partial contradictions such as wrong polarity still need human semantic
+    review. The second list names cards whose image has neither kind of
+    evidence, which this check therefore cannot vouch for.
+    """
+
+    lesson_catalog = LESSONS if lessons is None else lessons
+    if manifest_payload is None and teaching_lessons is None:
+        descriptions, teaching = _course_use_image_evidence()
+    else:
+        if manifest_payload is None:
+            manifest_payload = json.loads(A1_MEDIA_MANIFEST.read_text(encoding="utf-8"))
+        descriptions = _use_image_descriptions(manifest_payload)
+        teaching = _use_image_teaching(LESSONS if teaching_lessons is None else teaching_lessons)
 
     mismatches: list[str] = []
     unverifiable: list[str] = []
@@ -2139,19 +2200,29 @@ def find_use_prompt_image_mismatches(
                 continue
             filename = _asset_name(image_url)
             label = f"Lesson {lesson.sub_lesson_id} Use {getattr(card, 'slide_id', None)}"
+            deciding_words = {word for word in content if word not in USE_NUMBER_WORDS} or content
             evidence = descriptions.get(filename)
-            if not evidence:
+            if evidence:
+                shown = set().union(*(_use_word_forms(token) for text in evidence for token in _use_image_tokens(text)))
+                if not any(_use_word_support(word) & shown for word in deciding_words):
+                    description = max(evidence, key=len)
+                    if len(description) > 100:
+                        description = description[:97] + "..."
+                    mismatches.append(
+                        f"{label} says {sentence!r}, but its prompt image {filename} is described as "
+                        f"{description!r}. Bind an image whose own contract shows this sentence."
+                    )
+                continue
+            taught = teaching.get(filename)
+            if not taught:
                 unverifiable.append(f"{label} ({filename})")
                 continue
-            shown = set().union(*(_use_word_forms(token) for text in evidence for token in _use_image_tokens(text)))
-            deciding_words = {word for word in content if word not in USE_NUMBER_WORDS} or content
+            shown = set().union(*(_use_word_forms(token) for text in taught for token in _use_image_tokens(text)))
             if not any(_use_word_support(word) & shown for word in deciding_words):
-                description = max(evidence, key=len)
-                if len(description) > 100:
-                    description = description[:97] + "..."
+                examples = " / ".join(sorted(set(taught))[:2])
                 mismatches.append(
-                    f"{label} says {sentence!r}, but its prompt image {filename} is described as "
-                    f"{description!r}. Bind an image whose own contract shows this sentence."
+                    f"{label} says {sentence!r}, but its prompt image {filename} is taught elsewhere only as "
+                    f"{examples!r}. Bind an image that shows this sentence."
                 )
     return mismatches, unverifiable
 

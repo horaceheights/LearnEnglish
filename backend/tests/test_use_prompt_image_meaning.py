@@ -122,6 +122,31 @@ class UsePromptImageMeaningTest(unittest.TestCase):
             ),
         )
 
+    def test_undescribed_image_is_judged_by_what_the_course_teaches_with_it(self):
+        teaching_card = SimpleNamespace(
+            stage="Learn",
+            slide_id="L10",
+            prompt_image_url="/lesson-assets/a1_n10.webp",
+            audio_text="Ten",
+            answer_audio_text=None,
+            prompt="Choose the number.",
+            options=[],
+            correct_option_id=None,
+            correct_option_ids=[],
+        )
+        teaching = {"lesson-2-6": SimpleNamespace(sub_lesson_id="2.6", cards=[teaching_card])}
+
+        mismatches, unverifiable = find_use_prompt_image_mismatches(
+            _lessons(_card("How old are you?", "a1_n10.webp")), MANIFEST, teaching
+        )
+        self.assertEqual([], unverifiable)
+        self.assertEqual(1, len(mismatches))
+        self.assertIn("taught elsewhere only as 'Ten'", mismatches[0])
+        self.assertEqual(
+            ([], []),
+            find_use_prompt_image_mismatches(_lessons(_card("It is ten.", "a1_n10.webp")), MANIFEST, teaching),
+        )
+
     def test_preview_advises_while_production_blocks(self):
         lessons = _lessons(_card("The apple is red.", "a1_scene_grapes.webp"))
         warnings = []

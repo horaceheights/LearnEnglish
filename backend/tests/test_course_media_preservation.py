@@ -96,13 +96,26 @@ class MediaPreservationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             root, baseline, plan, contradicts = self.use_image_fixture(folder)
             current = lessons(root)
-            validate_plan(plan, baseline, current, root, contradicts)
+            has_evidence = lambda filename: True
+            validate_plan(plan, baseline, current, root, contradicts, has_evidence)
             for changes, predicate in (({"slide_id": "U9"}, contradicts),
                                        ({"new_filename": "other.webp"}, contradicts),
                                        ({}, lambda lesson, card, filename: False),
                                        ({}, lambda lesson, card, filename: True)):
                 with self.subTest(changes=changes), self.assertRaises(ValueError):
-                    validate_plan({**plan, **changes}, baseline, current, root, predicate)
+                    validate_plan({**plan, **changes}, baseline, current, root, predicate, has_evidence)
+
+    def test_use_image_exception_retires_an_untaught_placeholder_only_with_a_recorded_review(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root, baseline, plan, _ = self.use_image_fixture(folder)
+            current = lessons(root)
+            nothing_contradicts = lambda lesson, card, filename: False
+            reviewed = {**plan, "original_shows": "a stick figure pointing at one apple"}
+            validate_plan(reviewed, baseline, current, root, nothing_contradicts, lambda filename: False)
+            for candidate, has_evidence in ((plan, lambda filename: False), (reviewed, lambda filename: True)):
+                with self.subTest(reviewed="original_shows" in candidate, evidence=has_evidence("")), \
+                        self.assertRaises(ValueError):
+                    validate_plan(candidate, baseline, current, root, nothing_contradicts, has_evidence)
 
     def test_review_pack_uses_fresh_names_and_declares_all_exceptions(self):
         pack = load_pack(PACK)
