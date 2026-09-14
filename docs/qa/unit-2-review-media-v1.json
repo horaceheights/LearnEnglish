@@ -1,0 +1,2137 @@
+{
+  "schema_version": 1,
+  "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+  "human_approval": "pending",
+  "assets": [
+    {
+      "asset_id": "park",
+      "runtime_filename": "a1_u2_review_v1_park.webp",
+      "runtime_sha256": "23cc50a9ea27fe1766bf33e032f9d40f62294baa5ce81a9891fd893c4dffa1a8",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/park.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "087cb995-8aa1-4dd2-9839-a9d786b47cfe",
+        "asset_id": "park",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:44:21.578582+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nAn inviting public park photographed from a low eye-level diagonal angle along a curving gravel path toward a clearly visible public playground with swings and slide. Mature jacaranda trees, grass, dappled afternoon light, distant adults walking. The public recreation space is unmistakable, not a private yard or school. No institutional building, street traffic or signs. Natural broad scene.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_e4ef0411b1e340cbaace532d6018210b",
+        "usage": {
+          "input_tokens": 213,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 213
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1585
+        },
+        "cost": {
+          "usd": "0.042225",
+          "mxn": "0.7165878075",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 213,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 35.03,
+        "output": "output/imagegen/unit-2-review-v1/park.png",
+        "sha256": "4841d2f974903bb8637672904dd314e4f7dabcedcdb4acde1080266de740f4b9",
+        "byte_count": 3893737
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4841d2f974903bb8637672904dd314e4f7dabcedcdb4acde1080266de740f4b9",
+        "notes": "Viewed source: obvious public recreation park with full playground, swings, grass and paths; no competing school scene or institutional labels.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "place_park.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "school",
+      "runtime_filename": "a1_u2_review_v1_school.webp",
+      "runtime_sha256": "3c0ebfaee1650d528f87cd55a809d0af3aefaec44231c3ca676ebb055227432d",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/school.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "ca57ec4a-5840-4525-a19b-e63a654e02d9",
+        "asset_id": "school",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:45:08.119884+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nEye-level candid photograph outside the open entrance of a neighborhood primary school in morning light. Several school-age children with large clearly visible backpacks walk into a supervised courtyard with classroom doors and windows; an adult teacher welcomes them at the gate. Real Latin American school context without flags or words. Complete children and backpacks, natural anatomy, no slide/playground or park scene. The entrance and school routine establish the place without a SCHOOL sign.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_c06bc161bc8d4f0ea25cf365de15bb59",
+        "usage": {
+          "input_tokens": 223,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 223
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1595
+        },
+        "cost": {
+          "usd": "0.042275",
+          "mxn": "0.7174363425",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 223,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.17,
+        "output": "output/imagegen/unit-2-review-v1/school.png",
+        "sha256": "a92f22f99748cb72e0ffc0e2c09e085ef5f5ec286b8d3818833a6503063edcd1",
+        "byte_count": 2537587
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "a92f22f99748cb72e0ffc0e2c09e085ef5f5ec286b8d3818833a6503063edcd1",
+        "notes": "Viewed source: recognizable supervised school entrance, teacher and pupils in uniform with prominent backpacks and complete foreground bodies. No answer word used to establish school.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_school.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "bridge",
+      "runtime_filename": "a1_u2_review_v1_bridge.webp",
+      "runtime_sha256": "3795292599ee7281f00cc723fcb1ec8a707f71bb75d05909fc4556442df93a81",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/bridge.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "13032108-e011-4930-9275-b5c2552bf816",
+        "asset_id": "bridge",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:45:54.465621+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nA real short pedestrian bridge made of honey-colored timber, crossing a narrow flowing river in a leafy town. Three-quarter viewpoint from the riverbank makes the complete span, railings and water flowing underneath clearly visible. No buses, no road traffic, no signs. Warm early-morning light, detailed weathered wood and water. Different from a stone arch bridge.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_fd468112e84740459c6000cc234a6909",
+        "usage": {
+          "input_tokens": 210,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 210
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1582
+        },
+        "cost": {
+          "usd": "0.04221",
+          "mxn": "0.716333247",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 210,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 37.35,
+        "output": "output/imagegen/unit-2-review-v1/bridge.png",
+        "sha256": "0b51f4bc13161a93de580eeed2d09b6580caa3026ef4c34735c2cbedf5b5eb95",
+        "byte_count": 3717999
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "0b51f4bc13161a93de580eeed2d09b6580caa3026ef4c34735c2cbedf5b5eb95",
+        "notes": "Viewed source: complete timber span and railings across visible moving water; unmistakable bridge rather than transport vehicle.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "place_bridge.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "bus",
+      "runtime_filename": "a1_u2_review_v1_bus.webp",
+      "runtime_sha256": "573fd0edbe3d18c8011fb529705c076fa48b97ac5c8f0c30cb09a59659ccf128",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/bus.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d8a924fb-d1b1-4ee1-b7ca-ac193e401ef5",
+        "asset_id": "bus",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:46:43.393140+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nOne full-size yellow city bus seen from a front three-quarter viewpoint at a quiet paved terminal. Tall windshield, repeated passenger windows and folding passenger doors are clear. All wheels and the full vehicle fit with generous margins. No second vehicle, people blocking its shape, writing, route numbers, logos or signs. Real slightly worn vehicle paint, soft overcast daylight, not a tiny model.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_5b1f7181ed3f479fb3f7d5c3f16663e5",
+        "usage": {
+          "input_tokens": 215,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 215
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1587
+        },
+        "cost": {
+          "usd": "0.042235",
+          "mxn": "0.7167575145",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 215,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.57,
+        "output": "output/imagegen/unit-2-review-v1/bus.png",
+        "sha256": "23722f8cb62830076429ada09499f656f315d194e9baa83ad89c0d8911d6f0a7",
+        "byte_count": 2303585
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "23722f8cb62830076429ada09499f656f315d194e9baa83ad89c0d8911d6f0a7",
+        "notes": "Viewed source: one complete yellow city bus, passenger windows/doors and wheels visible; no second vehicle or answer label.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "place_bus.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "book",
+      "runtime_filename": "a1_u2_review_v1_book.webp",
+      "runtime_sha256": "2a6802ab13042cbdaa475e2921205e1939e97d521f6c0e024eb32adab518d0f3",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/book.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "404eecf6-fe51-4dc3-8aa0-c28f15ab2dd6",
+        "asset_id": "book",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:47:21.158240+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nOne open hardback book alone on a textured cream linen-covered side table, high three-quarter close-up. Its complete two facing pages, thick page block, spine and plain burgundy cover are clearly identifiable, no phone or pen. Soft window light rakes across real paper. Pages may have tiny unreadable natural lines of print, but no readable words, illustrations, labels or large letters. Complete book with margins, cozy realistic home background.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1804d53ddc7c493195f4310ae51d3803",
+        "usage": {
+          "input_tokens": 226,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 226
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1598
+        },
+        "cost": {
+          "usd": "0.04229",
+          "mxn": "0.717690903",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 226,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 25.16,
+        "output": "output/imagegen/unit-2-review-v1/book.png",
+        "sha256": "ddd297ba2e3eb685fc5e2faf8875dbadfc5b7097c4e87f05af00712b9060a691",
+        "byte_count": 2583298
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "ddd297ba2e3eb685fc5e2faf8875dbadfc5b7097c4e87f05af00712b9060a691",
+        "notes": "Viewed source: one complete open burgundy hardback, page block and spine visible; readable book silhouette, no competing phone. Fine page print is not assessed.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "object_book.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "phone",
+      "runtime_filename": "a1_u2_review_v1_phone.webp",
+      "runtime_sha256": "9c5aac418adda9d50d05e6cb0fea83090a9ad8ecda0b88390a5ccd20bb09b4d1",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/phone.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "64a73eda-fe6f-4bb5-9233-c4bcabdddb2a",
+        "asset_id": "phone",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:47:58.057942+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nOne unmistakable modern smartphone with a light beige protective case and black reflective glass screen, lying diagonally on a pale stone cafe table. Close high-angle photograph with its entire shape, lens opening, side buttons and softly rounded corners visible. No other objects, no writing on screen, no book-like hinged cover. Natural daylight, slight fingerprints and real reflections. Phone large and centered.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_b7386d0da8414d91ba49b79480c11969",
+        "usage": {
+          "input_tokens": 214,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 214
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1586
+        },
+        "cost": {
+          "usd": "0.04223",
+          "mxn": "0.716672661",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 214,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.14,
+        "output": "output/imagegen/unit-2-review-v1/phone.png",
+        "sha256": "507134ab6b33b6ab9b4281733097b97c9b9fe3cc6465ac878ee6facee67f87f9",
+        "byte_count": 2201379
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "507134ab6b33b6ab9b4281733097b97c9b9fe3cc6465ac878ee6facee67f87f9",
+        "notes": "Viewed source: one complete beige-cased black-glass smartphone, clear buttons and screen; no book or competing object.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_phone.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "near-bag",
+      "runtime_filename": "a1_u2_review_v1_near_bag.webp",
+      "runtime_sha256": "a1b9828c0e917cdc2b05946d73bef9251073534f8eb123dfd142a073a8f24c9f",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/near-bag.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "37e8a383-a808-4f4b-a54e-9f7bdfcf0ec5",
+        "asset_id": "near-bag",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:48:39.758000+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nFirst-person view looking down and across a small bright entry room. Learner's LEFT hand holds the handle of a complete small rust-orange fabric handbag close to the camera; the bag is clearly visible in the lower middle. A SECOND identical rust-orange handbag rests on a low wooden shelf one meter beyond, upper middle, smaller but still at least one fifth the image width. Learner's RIGHT hand points with its index finger at the NEAR bag held by the left hand, clearly short of the bag and not hiding it. Two plausible attached forearms enter from bottom, five fingers per hand, complete bags and handles. No other bags. Cream walls and pale tile floor; honest near/far depth, both sharp. Near bag within central 60 percent. The gesture means THIS, not THAT.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_f10701ab200349a0a14ac3efc77860dc",
+        "usage": {
+          "input_tokens": 298,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 298
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1670
+        },
+        "cost": {
+          "usd": "0.04265",
+          "mxn": "0.723800355",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 298,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.38,
+        "output": "output/imagegen/unit-2-review-v1/near-bag.png",
+        "sha256": "e8d190fcd7ec81ea52d1ed4555825e137cfeb9008079dc4c19456eb078208a33",
+        "byte_count": 2244811
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e8d190fcd7ec81ea52d1ed4555825e137cfeb9008079dc4c19456eb078208a33",
+        "notes": "Viewed source: two matching rust-orange bags. Left hand holds near handle; right finger indicates near bag with air gap. Full bags visible; far bag ~14 percent width, recognizable at two-choice phone size, no conflicting pointing.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_near-bag.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "far-bag",
+      "runtime_filename": "a1_u2_review_v1_far_bag.webp",
+      "runtime_sha256": "85560bdf90bf59042b67be80981803f650aac354a52add97b37cdd8e901c311d",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/far-bag.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "5fc55252-7aae-494a-8c12-04bb293260ff",
+        "asset_id": "far-bag",
+        "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+        "started_at": "2026-09-13T21:55:07.015146+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nUse case: precise-object-edit. Image 1 is the exact room and two-bag continuity reference. Change ONLY the right pointing hand: now it points toward the FAR rust-orange handbag on the shelf, stopping visibly short of its silhouette and never touching it. Preserve the camera, lighting, two exact bags, depth, left hand continuously holding the NEAR bag, and all proportions. Both whole bags remain visible and sharp. Natural anatomically attached right forearm. The fingertip must indicate the far bag unambiguously. No extra hands, objects, labels or letters. This gesture means THAT.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "near-bag.png",
+            "sha256": "e8d190fcd7ec81ea52d1ed4555825e137cfeb9008079dc4c19456eb078208a33",
+            "byte_count": 2244811
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_b18c2b22632d4bc1aa2a6f1bb67eaf7f",
+        "usage": {
+          "input_tokens": 1804,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 268
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3176
+        },
+        "cost": {
+          "usd": "0.054788",
+          "mxn": "0.9297907116",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 268,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.61,
+        "output": "output/imagegen/unit-2-review-v1/far-bag.png",
+        "sha256": "272fa9e9e3f98a685d9060588c7c675973fb0081a4610bc5375c7c427238e682",
+        "byte_count": 2164909
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "272fa9e9e3f98a685d9060588c7c675973fb0081a4610bc5375c7c427238e682",
+        "notes": "Viewed against near-bag reference: same two rust-orange bags, left hand continues holding near bag, same room/camera/props. Only right-hand gesture changes to indicate far bag; fingertip stops short and no bag is covered. Both near and far remain identifiable.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Add the missing same-object far contrast so listening must distinguish this from that, not just bag from chair."
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "far-chair-clear",
+      "runtime_filename": "a1_u2_review_v1_far_chair.webp",
+      "runtime_sha256": "68d30540acf0c21d51b2d26acde44381451b9503385bf1f2f3a1dcc7eff0fab9",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/far-chair-clear.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "a677ae37-e97f-4002-bf99-f9b8bcd2b1d4",
+        "asset_id": "far-chair-clear",
+        "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+        "started_at": "2026-09-13T21:54:32.848035+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nFirst-person photograph looking steeply DOWN from standing eye height into a SMALL entry room. Exactly TWO matching blue wooden chairs on pale tiles, BOTH COMPLETELY inside the photograph, including every leg and seat; leave at least 8 percent visible floor below every chair foot. NEAR chair is lower-center-left, occupying at most 45 percent of photo height, NOT cropped by the bottom. FAR chair is only 80 centimeters beyond it at upper-center-right and occupies at least 25 percent of image WIDTH: it is large and sharp, NOT a tiny chair across a long room. Both whole chairs fit within the same compact patch of floor; background wall need not show. Learner's LEFT hand grips the NEAR backrest while the RIGHT index finger indicates the FAR chair from below, fingertip stopping clearly short of its silhouette. Two anatomically plausible forearms enter from lower corners, never cover seats or legs. Use a high downward camera to show both complete chairs and honest modest depth. Both chairs and pointing direction immediately legible at phone size. Real blue painted wood, daylight, no extra chairs, tables, text, labels or inset panels. The right finger clearly means THAT far chair; preserve nearby gripped chair as reference.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_e40526b3f3c2438a8d17915717ad3239",
+        "usage": {
+          "input_tokens": 386,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 386
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1758
+        },
+        "cost": {
+          "usd": "0.04309",
+          "mxn": "0.731267463",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 386,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.99,
+        "output": "output/imagegen/unit-2-review-v1/far-chair-clear.png",
+        "sha256": "6cc47654e0f3cae4ec17c80b61139b321ab62d0491c15a8938499ef9be2e6ece",
+        "byte_count": 2043844
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "6cc47654e0f3cae4ec17c80b61139b321ab62d0491c15a8938499ef9be2e6ece",
+        "notes": "Viewed corrected source: far blue chair now ~23 percent width and fully recognizable, right finger points to it, left hand grips near chair. High downward view preserves both seats/backrests and spatial relation. A near front foot meets the bottom edge; it is reference context, not the distant selected target, and no identity/distance evidence is lost. Do not claim perfect margin compliance; human framing review pending.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_far-chair.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "near-chair",
+      "runtime_filename": "a1_u2_review_v1_near_chair.webp",
+      "runtime_sha256": "f3d2313833c698177cf4284e448f3cbfbbb9a92df183d51afafd77fa9a97213f",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/near-chair.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "32226d63-1735-4d45-a58b-828cdfde0d23",
+        "asset_id": "near-chair",
+        "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+        "started_at": "2026-09-13T21:57:58.737928+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nUse case: precise-object-edit. Image 1 establishes the exact room, camera, two blue chairs, distance, light and learner's two arms. Change ONLY the right hand so its index finger points at the NEAR chair gripped by the LEFT hand. Preserve both complete chairs and all legs; far chair remains clearly visible and smaller. Left hand keeps holding the near backrest. Right fingertip stops just short without covering any chair. No extra arms, objects, text or scene changes. The gesture now clearly indicates THIS nearby chair.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "far-chair-clear.png",
+            "sha256": "6cc47654e0f3cae4ec17c80b61139b321ab62d0491c15a8938499ef9be2e6ece",
+            "byte_count": 2043844
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_ca77a5729b99472785e89a59f16d8951",
+        "usage": {
+          "input_tokens": 1792,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 256
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3164
+        },
+        "cost": {
+          "usd": "0.054728",
+          "mxn": "0.9287724696",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 256,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 25.79,
+        "output": "output/imagegen/unit-2-review-v1/near-chair.png",
+        "sha256": "1c9d40444733e0dcb02556d16a9d04bf219c2762248f0f477c8d9163dd540e3e",
+        "byte_count": 1949464
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "1c9d40444733e0dcb02556d16a9d04bf219c2762248f0f477c8d9163dd540e3e",
+        "notes": "Viewed source: same room, blue chairs and two learner arms as far-chair-clear. Right index now points at the near seat held by the left hand; far chair remains distinct. Near front foot meets the lower edge as in the reference, so this is usable for distance recognition, not a claim of perfect full-object margins. Human framing review pending.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Add a same-chair near contrast; old bag distractor allowed answering a distance task from the noun alone."
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "green-books",
+      "runtime_filename": "a1_u2_review_v1_green_books.webp",
+      "runtime_sha256": "f09ea88733375c0ce90b8228c8cd66e3f8d6c293cd0cb02b55cfaabf77970ada",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/green-books.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "1e150bda-8497-4650-858c-5f5151971c47",
+        "asset_id": "green-books",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:42:33.144652+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly THREE separate closed GREEN hardback books on a real honey-colored wooden desk, photographed almost from above. Arrange in a compact vertical triangle, fully separated with clear wood between, NOT stacked or touching. Visible cream page blocks distinguish books from slabs. Every book and all its edges stay inside the central half of the image width and middle 75 percent height so a tall centered crop still shows all three. Whole full-bleed desk background with natural grain, no inset panels. No extra books, pens, labels or numerals. Rich true green covers; clear count three.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_fd7923d594d242e0bda0e62cdd340774",
+        "usage": {
+          "input_tokens": 253,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 253
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1625
+        },
+        "cost": {
+          "usd": "0.042425",
+          "mxn": "0.7199819475",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 253,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.69,
+        "output": "output/imagegen/unit-2-review-v1/green-books.png",
+        "sha256": "1c751ce42e04d83fdc6e51555b8c1841f5f385fd9066bb832ab0334333b3b02d",
+        "byte_count": 2405883
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "1c751ce42e04d83fdc6e51555b8c1841f5f385fd9066bb832ab0334333b3b02d",
+        "notes": "Viewed full source: exactly three separated green hardbacks with visible page blocks. Left/right extents ~365/1155 inside center 4:5 window ~358..1178; final crop still requires visual check. No false fourth object.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_three-green-books.webp",
+          "a1_three-green-books_four-card.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "yellow-pens",
+      "runtime_filename": "a1_u2_review_v1_yellow_pens.webp",
+      "runtime_sha256": "b7df8a529f0fc313d3602171fb8470718943dc24d7ab543a678abd3c9003756a",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/yellow-pens.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d7762722-34b8-4cb0-94f8-455f1b32b9ea",
+        "asset_id": "yellow-pens",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:49:58.243530+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly FOUR bright YELLOW ballpoint pens, each complete with a tip and clip, on a lightly worn real gray desktop. Almost-overhead photograph. Arrange all four vertically parallel in a compact central row with clear gaps, all within the central half of image width and middle 75 percent height. No extra loose caps, notebook, book, pencils, writing or numerals. Pens share one clear yellow color and their complete tips stay visible even in a centered tall crop. Natural side-window light and rich surface detail.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7fb657ca8b7047fcb62225e73613827a",
+        "usage": {
+          "input_tokens": 241,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 241
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1613
+        },
+        "cost": {
+          "usd": "0.042365",
+          "mxn": "0.7189637055",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 241,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.32,
+        "output": "output/imagegen/unit-2-review-v1/yellow-pens.png",
+        "sha256": "61b97cadbfbbaf13178b5f7c1236f966a9b1e32c5d99e7c3fe49306b478ebee3",
+        "byte_count": 2928696
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "61b97cadbfbbaf13178b5f7c1236f966a9b1e32c5d99e7c3fe49306b478ebee3",
+        "notes": "Viewed source: exactly four yellow ballpoint pens, separate and complete with visible clips and tips. All within center 4:5 window; no other countable pen or loose cap.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_four-yellow-pens.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "black-phones",
+      "runtime_filename": "a1_u2_review_v1_black_phones.webp",
+      "runtime_sha256": "fb374ad5960c69e4090273d2bef767a583e27f6be3f8c5091d8ddb9d7be6d315",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/black-phones.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "0532bf3a-a6be-4ea4-815a-2ba6ec89e56a",
+        "asset_id": "black-phones",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:50:38.964958+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly FIVE complete BLACK smartphones face-up on a lightly worn pale wooden tabletop, almost-overhead photograph. Two columns: three phones down the left and two down the right, each separated by large clear gaps. Every phone entirely inside the central HALF of image width and middle 80 percent height, preserving count in a centered tall crop. Distinct black glass faces, rounded corners, natural reflected window light. No extra phone, book, loose case, text, UI or numeral. Do not overlap or stack any phone. One real photograph, not a collage.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_6b86ff7a23e74d64ae605fff25cad589",
+        "usage": {
+          "input_tokens": 249,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 249
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1621
+        },
+        "cost": {
+          "usd": "0.042405",
+          "mxn": "0.7196425335",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 249,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.95,
+        "output": "output/imagegen/unit-2-review-v1/black-phones.png",
+        "sha256": "3dd3fceec7986ef2d5fc07435a5ea5d5455dc340c542d860b4002a1be4711205",
+        "byte_count": 2450595
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "3dd3fceec7986ef2d5fc07435a5ea5d5455dc340c542d860b4002a1be4711205",
+        "notes": "Viewed source: exactly five separated black phones, three at left/two at right. At center 4:5 crop a small strip of the two right phone edges may be outside frame; all five still unmistakably distinct, count remains five. Check final portrait crop before installation.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_five-black-phones_734dda6.webp",
+          "a1_scene_five-black-phones_734dda6_four-card.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "white-bags",
+      "runtime_filename": "a1_u2_review_v1_white_bags.webp",
+      "runtime_sha256": "145ad8f52fc950fe2cd090c35346d087f50789133b1fa9bb27fb11f613bf5cb4",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/white-bags.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "71c43b6c-ebac-488c-b617-267f0e094425",
+        "asset_id": "white-bags",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:51:20.065645+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly SIX small WHITE canvas drawstring bags on a real pale-brown wooden packing table, photographed from almost directly above. Arrange in TWO columns of THREE with generous gaps: each complete bag has one clear gathered opening and its strings visible. No bag touches or overlaps another. All six bags fit entirely inside the CENTRAL HALF of the image width and middle 80 percent height for a centered tall crop. Natural cloth texture, warm afternoon light, enough contrast against wood. No extra bags, labels, writing, numbers or inset panels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_917936a215c94f7ba11d87afaf1132f0",
+        "usage": {
+          "input_tokens": 243,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 243
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1615
+        },
+        "cost": {
+          "usd": "0.042375",
+          "mxn": "0.7191334125",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 243,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.19,
+        "output": "output/imagegen/unit-2-review-v1/white-bags.png",
+        "sha256": "2f537a12276d09e50ee76a35479433b5dc12e6a99b0b3915d3315bfe11ce9e96",
+        "byte_count": 2525119
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "2f537a12276d09e50ee76a35479433b5dc12e6a99b0b3915d3315bfe11ce9e96",
+        "notes": "Viewed source: exactly six white drawstring bags in two columns of three, with six distinct gathered openings and full fabric bodies; whole group inside center 4:5 window.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "unit2_six_white_bags.webp",
+          "a1_scene_six-white-bags_f412a8a_four-card.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "red-car",
+      "runtime_filename": "a1_u2_review_v1_red_car.webp",
+      "runtime_sha256": "ef74352ec85f38e646322c710e740df278725a8d0e5df47b16f4e636a7f3126a",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/red-car.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "3235412e-89c7-45df-9436-f02c61aad30a",
+        "asset_id": "red-car",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:51:57.517908+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly ONE red compact hatchback parked alone in a small gravel driveway beside a stucco wall. Natural front three-quarter photograph, full vehicle with all wheels visible, real red paint and realistic scale. No other vehicle, bike, person, logo, legible numberplate or text. Warm morning sunlight. Clear single-car subject with room around every edge, not a crop from a traffic scene.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_ea91ef0261be4e9a8755a41d586fcc34",
+        "usage": {
+          "input_tokens": 216,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 216
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1588
+        },
+        "cost": {
+          "usd": "0.04224",
+          "mxn": "0.716842368",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 216,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.93,
+        "output": "output/imagegen/unit-2-review-v1/red-car.png",
+        "sha256": "17a7a8e0f0e254d6682fe5cdf82a257f6d13d29a7a64ecf6efaee434b38d4c01",
+        "byte_count": 3137042
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "17a7a8e0f0e254d6682fe5cdf82a257f6d13d29a7a64ecf6efaee434b38d4c01",
+        "notes": "Viewed source: one complete red hatchback on driveway, wheels and whole body visible; no second vehicle. Used in full 3:2 completion frame.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_one-red-car.webp"
+        ]
+      },
+      "human_approval": "pending"
+    },
+    {
+      "asset_id": "blue-cars",
+      "runtime_filename": "a1_u2_review_v1_blue_cars.webp",
+      "runtime_sha256": "f858c1d274baf236c7426c720addda9763bf6b75b278c3a34a3bbaa88da8edc4",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2/review-v1/blue-cars.png",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "8f3a3fad-795c-493d-8c5e-83ecaa47f297",
+        "asset_id": "blue-cars",
+        "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+        "started_at": "2026-09-13T21:52:32.052470+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly TWO blue compact passenger cars in two adjacent parking spaces, photographed from an elevated front three-quarter angle so both entire cars and wheels are visible. No overlap; pavement space separates them. Both unambiguously blue with slight different blue shades, real clean outdoor parking lot in soft morning light. No extra car in the distance, no bus, people, words, numbers or logos. Complete pair large in frame, realistic material details, never toy cars or split panels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_91a6abe872444432891b9cf86b55d2bf",
+        "usage": {
+          "input_tokens": 231,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 231
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1603
+        },
+        "cost": {
+          "usd": "0.042315",
+          "mxn": "0.7181151705",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 231,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 25.84,
+        "output": "output/imagegen/unit-2-review-v1/blue-cars.png",
+        "sha256": "e590c76995a44f2d1488f0147f84f482e07d56c5ed298c97daa0be1d4ae258e0",
+        "byte_count": 2977444
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e590c76995a44f2d1488f0147f84f482e07d56c5ed298c97daa0be1d4ae258e0",
+        "notes": "Viewed source: exactly two complete blue passenger cars in separate spaces; count and color unmistakable. Small manufacturer-like badge on left grille is incidental, not an answer label; human art review remains pending. Used in full 3:2 Learn frame.",
+        "human_approval": "pending"
+      },
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Retrieve the taught plural cars, two and blue on the successful review path, absent from the old review."
+      },
+      "human_approval": "pending"
+    }
+  ],
+  "paid_attempts": [
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "0532bf3a-a6be-4ea4-815a-2ba6ec89e56a",
+        "asset_id": "black-phones",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:50:38.964958+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly FIVE complete BLACK smartphones face-up on a lightly worn pale wooden tabletop, almost-overhead photograph. Two columns: three phones down the left and two down the right, each separated by large clear gaps. Every phone entirely inside the central HALF of image width and middle 80 percent height, preserving count in a centered tall crop. Distinct black glass faces, rounded corners, natural reflected window light. No extra phone, book, loose case, text, UI or numeral. Do not overlap or stack any phone. One real photograph, not a collage.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_6b86ff7a23e74d64ae605fff25cad589",
+        "usage": {
+          "input_tokens": 249,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 249
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1621
+        },
+        "cost": {
+          "usd": "0.042405",
+          "mxn": "0.7196425335",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 249,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.95,
+        "output": "output/imagegen/unit-2-review-v1/black-phones.png",
+        "sha256": "3dd3fceec7986ef2d5fc07435a5ea5d5455dc340c542d860b4002a1be4711205",
+        "byte_count": 2450595
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "3dd3fceec7986ef2d5fc07435a5ea5d5455dc340c542d860b4002a1be4711205",
+        "notes": "Viewed source: exactly five separated black phones, three at left/two at right. At center 4:5 crop a small strip of the two right phone edges may be outside frame; all five still unmistakably distinct, count remains five. Check final portrait crop before installation.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "8f3a3fad-795c-493d-8c5e-83ecaa47f297",
+        "asset_id": "blue-cars",
+        "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+        "started_at": "2026-09-13T21:52:32.052470+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly TWO blue compact passenger cars in two adjacent parking spaces, photographed from an elevated front three-quarter angle so both entire cars and wheels are visible. No overlap; pavement space separates them. Both unambiguously blue with slight different blue shades, real clean outdoor parking lot in soft morning light. No extra car in the distance, no bus, people, words, numbers or logos. Complete pair large in frame, realistic material details, never toy cars or split panels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_91a6abe872444432891b9cf86b55d2bf",
+        "usage": {
+          "input_tokens": 231,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 231
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1603
+        },
+        "cost": {
+          "usd": "0.042315",
+          "mxn": "0.7181151705",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 231,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 25.84,
+        "output": "output/imagegen/unit-2-review-v1/blue-cars.png",
+        "sha256": "e590c76995a44f2d1488f0147f84f482e07d56c5ed298c97daa0be1d4ae258e0",
+        "byte_count": 2977444
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e590c76995a44f2d1488f0147f84f482e07d56c5ed298c97daa0be1d4ae258e0",
+        "notes": "Viewed source: exactly two complete blue passenger cars in separate spaces; count and color unmistakable. Small manufacturer-like badge on left grille is incidental, not an answer label; human art review remains pending. Used in full 3:2 Learn frame.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "404eecf6-fe51-4dc3-8aa0-c28f15ab2dd6",
+        "asset_id": "book",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:47:21.158240+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nOne open hardback book alone on a textured cream linen-covered side table, high three-quarter close-up. Its complete two facing pages, thick page block, spine and plain burgundy cover are clearly identifiable, no phone or pen. Soft window light rakes across real paper. Pages may have tiny unreadable natural lines of print, but no readable words, illustrations, labels or large letters. Complete book with margins, cozy realistic home background.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1804d53ddc7c493195f4310ae51d3803",
+        "usage": {
+          "input_tokens": 226,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 226
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1598
+        },
+        "cost": {
+          "usd": "0.04229",
+          "mxn": "0.717690903",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 226,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 25.16,
+        "output": "output/imagegen/unit-2-review-v1/book.png",
+        "sha256": "ddd297ba2e3eb685fc5e2faf8875dbadfc5b7097c4e87f05af00712b9060a691",
+        "byte_count": 2583298
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "ddd297ba2e3eb685fc5e2faf8875dbadfc5b7097c4e87f05af00712b9060a691",
+        "notes": "Viewed source: one complete open burgundy hardback, page block and spine visible; readable book silhouette, no competing phone. Fine page print is not assessed.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "13032108-e011-4930-9275-b5c2552bf816",
+        "asset_id": "bridge",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:45:54.465621+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nA real short pedestrian bridge made of honey-colored timber, crossing a narrow flowing river in a leafy town. Three-quarter viewpoint from the riverbank makes the complete span, railings and water flowing underneath clearly visible. No buses, no road traffic, no signs. Warm early-morning light, detailed weathered wood and water. Different from a stone arch bridge.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_fd468112e84740459c6000cc234a6909",
+        "usage": {
+          "input_tokens": 210,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 210
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1582
+        },
+        "cost": {
+          "usd": "0.04221",
+          "mxn": "0.716333247",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 210,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 37.35,
+        "output": "output/imagegen/unit-2-review-v1/bridge.png",
+        "sha256": "0b51f4bc13161a93de580eeed2d09b6580caa3026ef4c34735c2cbedf5b5eb95",
+        "byte_count": 3717999
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "0b51f4bc13161a93de580eeed2d09b6580caa3026ef4c34735c2cbedf5b5eb95",
+        "notes": "Viewed source: complete timber span and railings across visible moving water; unmistakable bridge rather than transport vehicle.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d8a924fb-d1b1-4ee1-b7ca-ac193e401ef5",
+        "asset_id": "bus",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:46:43.393140+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nOne full-size yellow city bus seen from a front three-quarter viewpoint at a quiet paved terminal. Tall windshield, repeated passenger windows and folding passenger doors are clear. All wheels and the full vehicle fit with generous margins. No second vehicle, people blocking its shape, writing, route numbers, logos or signs. Real slightly worn vehicle paint, soft overcast daylight, not a tiny model.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_5b1f7181ed3f479fb3f7d5c3f16663e5",
+        "usage": {
+          "input_tokens": 215,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 215
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1587
+        },
+        "cost": {
+          "usd": "0.042235",
+          "mxn": "0.7167575145",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 215,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.57,
+        "output": "output/imagegen/unit-2-review-v1/bus.png",
+        "sha256": "23722f8cb62830076429ada09499f656f315d194e9baa83ad89c0d8911d6f0a7",
+        "byte_count": 2303585
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "23722f8cb62830076429ada09499f656f315d194e9baa83ad89c0d8911d6f0a7",
+        "notes": "Viewed source: one complete yellow city bus, passenger windows/doors and wheels visible; no second vehicle or answer label.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "5fc55252-7aae-494a-8c12-04bb293260ff",
+        "asset_id": "far-bag",
+        "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+        "started_at": "2026-09-13T21:55:07.015146+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nUse case: precise-object-edit. Image 1 is the exact room and two-bag continuity reference. Change ONLY the right pointing hand: now it points toward the FAR rust-orange handbag on the shelf, stopping visibly short of its silhouette and never touching it. Preserve the camera, lighting, two exact bags, depth, left hand continuously holding the NEAR bag, and all proportions. Both whole bags remain visible and sharp. Natural anatomically attached right forearm. The fingertip must indicate the far bag unambiguously. No extra hands, objects, labels or letters. This gesture means THAT.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "near-bag.png",
+            "sha256": "e8d190fcd7ec81ea52d1ed4555825e137cfeb9008079dc4c19456eb078208a33",
+            "byte_count": 2244811
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_b18c2b22632d4bc1aa2a6f1bb67eaf7f",
+        "usage": {
+          "input_tokens": 1804,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 268
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3176
+        },
+        "cost": {
+          "usd": "0.054788",
+          "mxn": "0.9297907116",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 268,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.61,
+        "output": "output/imagegen/unit-2-review-v1/far-bag.png",
+        "sha256": "272fa9e9e3f98a685d9060588c7c675973fb0081a4610bc5375c7c427238e682",
+        "byte_count": 2164909
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "272fa9e9e3f98a685d9060588c7c675973fb0081a4610bc5375c7c427238e682",
+        "notes": "Viewed against near-bag reference: same two rust-orange bags, left hand continues holding near bag, same room/camera/props. Only right-hand gesture changes to indicate far bag; fingertip stops short and no bag is covered. Both near and far remain identifiable.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "a677ae37-e97f-4002-bf99-f9b8bcd2b1d4",
+        "asset_id": "far-chair-clear",
+        "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+        "started_at": "2026-09-13T21:54:32.848035+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nFirst-person photograph looking steeply DOWN from standing eye height into a SMALL entry room. Exactly TWO matching blue wooden chairs on pale tiles, BOTH COMPLETELY inside the photograph, including every leg and seat; leave at least 8 percent visible floor below every chair foot. NEAR chair is lower-center-left, occupying at most 45 percent of photo height, NOT cropped by the bottom. FAR chair is only 80 centimeters beyond it at upper-center-right and occupies at least 25 percent of image WIDTH: it is large and sharp, NOT a tiny chair across a long room. Both whole chairs fit within the same compact patch of floor; background wall need not show. Learner's LEFT hand grips the NEAR backrest while the RIGHT index finger indicates the FAR chair from below, fingertip stopping clearly short of its silhouette. Two anatomically plausible forearms enter from lower corners, never cover seats or legs. Use a high downward camera to show both complete chairs and honest modest depth. Both chairs and pointing direction immediately legible at phone size. Real blue painted wood, daylight, no extra chairs, tables, text, labels or inset panels. The right finger clearly means THAT far chair; preserve nearby gripped chair as reference.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_e40526b3f3c2438a8d17915717ad3239",
+        "usage": {
+          "input_tokens": 386,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 386
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1758
+        },
+        "cost": {
+          "usd": "0.04309",
+          "mxn": "0.731267463",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 386,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.99,
+        "output": "output/imagegen/unit-2-review-v1/far-chair-clear.png",
+        "sha256": "6cc47654e0f3cae4ec17c80b61139b321ab62d0491c15a8938499ef9be2e6ece",
+        "byte_count": 2043844
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "6cc47654e0f3cae4ec17c80b61139b321ab62d0491c15a8938499ef9be2e6ece",
+        "notes": "Viewed corrected source: far blue chair now ~23 percent width and fully recognizable, right finger points to it, left hand grips near chair. High downward view preserves both seats/backrests and spatial relation. A near front foot meets the bottom edge; it is reference context, not the distant selected target, and no identity/distance evidence is lost. Do not claim perfect margin compliance; human framing review pending.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "3529467f-27fb-4f9d-8a1d-028709b1793b",
+        "asset_id": "far-chair",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:49:18.654444+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nFirst-person view in a small sunny cream-walled room, looking across two identical plain blue wooden chairs. A complete NEAR chair fills the lower middle and the learner's LEFT hand grips its backrest. The FAR matching chair is on the other side of the room, upper middle, visibly smaller but at least one fifth of the photo width. The learner's RIGHT index finger points from below toward the FAR chair and stops visibly short, with clear air between fingertip and chair, never implying touch. Both chairs complete with all legs, enough visible floor to show real depth, no table blocking them, no other furniture, no writing. Plausible two forearms enter from the bottom. The left hand keeps the near chair as reference while the right points to THAT far chair.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_14a2524db650480d9b0a50a5dce5bfef",
+        "usage": {
+          "input_tokens": 294,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 294
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1666
+        },
+        "cost": {
+          "usd": "0.04263",
+          "mxn": "0.723460941",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 294,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.04,
+        "output": "output/imagegen/unit-2-review-v1/far-chair.png",
+        "sha256": "69919c78b49c0919f313e5f7195eb43f1799b2101f2a4d0e90239e5569ebec9d",
+        "byte_count": 1928105
+      },
+      "installed": false,
+      "agent_review": {
+        "disposition": "rejected",
+        "sha256": "69919c78b49c0919f313e5f7195eb43f1799b2101f2a4d0e90239e5569ebec9d",
+        "notes": "Rejected after pixel inspection: foreground chair legs leave frame, far chair only ~11 percent width. Do not use as an edit reference or course asset.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "1e150bda-8497-4650-858c-5f5151971c47",
+        "asset_id": "green-books",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:42:33.144652+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly THREE separate closed GREEN hardback books on a real honey-colored wooden desk, photographed almost from above. Arrange in a compact vertical triangle, fully separated with clear wood between, NOT stacked or touching. Visible cream page blocks distinguish books from slabs. Every book and all its edges stay inside the central half of the image width and middle 75 percent height so a tall centered crop still shows all three. Whole full-bleed desk background with natural grain, no inset panels. No extra books, pens, labels or numerals. Rich true green covers; clear count three.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_fd7923d594d242e0bda0e62cdd340774",
+        "usage": {
+          "input_tokens": 253,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 253
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1625
+        },
+        "cost": {
+          "usd": "0.042425",
+          "mxn": "0.7199819475",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 253,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.69,
+        "output": "output/imagegen/unit-2-review-v1/green-books.png",
+        "sha256": "1c751ce42e04d83fdc6e51555b8c1841f5f385fd9066bb832ab0334333b3b02d",
+        "byte_count": 2405883
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "1c751ce42e04d83fdc6e51555b8c1841f5f385fd9066bb832ab0334333b3b02d",
+        "notes": "Viewed full source: exactly three separated green hardbacks with visible page blocks. Left/right extents ~365/1155 inside center 4:5 window ~358..1178; final crop still requires visual check. No false fourth object.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "37e8a383-a808-4f4b-a54e-9f7bdfcf0ec5",
+        "asset_id": "near-bag",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:48:39.758000+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nFirst-person view looking down and across a small bright entry room. Learner's LEFT hand holds the handle of a complete small rust-orange fabric handbag close to the camera; the bag is clearly visible in the lower middle. A SECOND identical rust-orange handbag rests on a low wooden shelf one meter beyond, upper middle, smaller but still at least one fifth the image width. Learner's RIGHT hand points with its index finger at the NEAR bag held by the left hand, clearly short of the bag and not hiding it. Two plausible attached forearms enter from bottom, five fingers per hand, complete bags and handles. No other bags. Cream walls and pale tile floor; honest near/far depth, both sharp. Near bag within central 60 percent. The gesture means THIS, not THAT.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_f10701ab200349a0a14ac3efc77860dc",
+        "usage": {
+          "input_tokens": 298,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 298
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1670
+        },
+        "cost": {
+          "usd": "0.04265",
+          "mxn": "0.723800355",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 298,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.38,
+        "output": "output/imagegen/unit-2-review-v1/near-bag.png",
+        "sha256": "e8d190fcd7ec81ea52d1ed4555825e137cfeb9008079dc4c19456eb078208a33",
+        "byte_count": 2244811
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e8d190fcd7ec81ea52d1ed4555825e137cfeb9008079dc4c19456eb078208a33",
+        "notes": "Viewed source: two matching rust-orange bags. Left hand holds near handle; right finger indicates near bag with air gap. Full bags visible; far bag ~14 percent width, recognizable at two-choice phone size, no conflicting pointing.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "32226d63-1735-4d45-a58b-828cdfde0d23",
+        "asset_id": "near-chair",
+        "pack_sha256": "bc6843559b1043ae2531bcfe8c6ca9bb18262daad92c1a0cf9e45f0084e22009",
+        "started_at": "2026-09-13T21:57:58.737928+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nUse case: precise-object-edit. Image 1 establishes the exact room, camera, two blue chairs, distance, light and learner's two arms. Change ONLY the right hand so its index finger points at the NEAR chair gripped by the LEFT hand. Preserve both complete chairs and all legs; far chair remains clearly visible and smaller. Left hand keeps holding the near backrest. Right fingertip stops just short without covering any chair. No extra arms, objects, text or scene changes. The gesture now clearly indicates THIS nearby chair.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "far-chair-clear.png",
+            "sha256": "6cc47654e0f3cae4ec17c80b61139b321ab62d0491c15a8938499ef9be2e6ece",
+            "byte_count": 2043844
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_ca77a5729b99472785e89a59f16d8951",
+        "usage": {
+          "input_tokens": 1792,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 256
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3164
+        },
+        "cost": {
+          "usd": "0.054728",
+          "mxn": "0.9287724696",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 256,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 25.79,
+        "output": "output/imagegen/unit-2-review-v1/near-chair.png",
+        "sha256": "1c9d40444733e0dcb02556d16a9d04bf219c2762248f0f477c8d9163dd540e3e",
+        "byte_count": 1949464
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "1c9d40444733e0dcb02556d16a9d04bf219c2762248f0f477c8d9163dd540e3e",
+        "notes": "Viewed source: same room, blue chairs and two learner arms as far-chair-clear. Right index now points at the near seat held by the left hand; far chair remains distinct. Near front foot meets the lower edge as in the reference, so this is usable for distance recognition, not a claim of perfect full-object margins. Human framing review pending.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "087cb995-8aa1-4dd2-9839-a9d786b47cfe",
+        "asset_id": "park",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:44:21.578582+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nAn inviting public park photographed from a low eye-level diagonal angle along a curving gravel path toward a clearly visible public playground with swings and slide. Mature jacaranda trees, grass, dappled afternoon light, distant adults walking. The public recreation space is unmistakable, not a private yard or school. No institutional building, street traffic or signs. Natural broad scene.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_e4ef0411b1e340cbaace532d6018210b",
+        "usage": {
+          "input_tokens": 213,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 213
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1585
+        },
+        "cost": {
+          "usd": "0.042225",
+          "mxn": "0.7165878075",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 213,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 35.03,
+        "output": "output/imagegen/unit-2-review-v1/park.png",
+        "sha256": "4841d2f974903bb8637672904dd314e4f7dabcedcdb4acde1080266de740f4b9",
+        "byte_count": 3893737
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4841d2f974903bb8637672904dd314e4f7dabcedcdb4acde1080266de740f4b9",
+        "notes": "Viewed source: obvious public recreation park with full playground, swings, grass and paths; no competing school scene or institutional labels.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "64a73eda-fe6f-4bb5-9233-c4bcabdddb2a",
+        "asset_id": "phone",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:47:58.057942+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nOne unmistakable modern smartphone with a light beige protective case and black reflective glass screen, lying diagonally on a pale stone cafe table. Close high-angle photograph with its entire shape, lens opening, side buttons and softly rounded corners visible. No other objects, no writing on screen, no book-like hinged cover. Natural daylight, slight fingerprints and real reflections. Phone large and centered.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_b7386d0da8414d91ba49b79480c11969",
+        "usage": {
+          "input_tokens": 214,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 214
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1586
+        },
+        "cost": {
+          "usd": "0.04223",
+          "mxn": "0.716672661",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 214,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.14,
+        "output": "output/imagegen/unit-2-review-v1/phone.png",
+        "sha256": "507134ab6b33b6ab9b4281733097b97c9b9fe3cc6465ac878ee6facee67f87f9",
+        "byte_count": 2201379
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "507134ab6b33b6ab9b4281733097b97c9b9fe3cc6465ac878ee6facee67f87f9",
+        "notes": "Viewed source: one complete beige-cased black-glass smartphone, clear buttons and screen; no book or competing object.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "3235412e-89c7-45df-9436-f02c61aad30a",
+        "asset_id": "red-car",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:51:57.517908+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly ONE red compact hatchback parked alone in a small gravel driveway beside a stucco wall. Natural front three-quarter photograph, full vehicle with all wheels visible, real red paint and realistic scale. No other vehicle, bike, person, logo, legible numberplate or text. Warm morning sunlight. Clear single-car subject with room around every edge, not a crop from a traffic scene.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_ea91ef0261be4e9a8755a41d586fcc34",
+        "usage": {
+          "input_tokens": 216,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 216
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1588
+        },
+        "cost": {
+          "usd": "0.04224",
+          "mxn": "0.716842368",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 216,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.93,
+        "output": "output/imagegen/unit-2-review-v1/red-car.png",
+        "sha256": "17a7a8e0f0e254d6682fe5cdf82a257f6d13d29a7a64ecf6efaee434b38d4c01",
+        "byte_count": 3137042
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "17a7a8e0f0e254d6682fe5cdf82a257f6d13d29a7a64ecf6efaee434b38d4c01",
+        "notes": "Viewed source: one complete red hatchback on driveway, wheels and whole body visible; no second vehicle. Used in full 3:2 completion frame.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "ca57ec4a-5840-4525-a19b-e63a654e02d9",
+        "asset_id": "school",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:45:08.119884+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nEye-level candid photograph outside the open entrance of a neighborhood primary school in morning light. Several school-age children with large clearly visible backpacks walk into a supervised courtyard with classroom doors and windows; an adult teacher welcomes them at the gate. Real Latin American school context without flags or words. Complete children and backpacks, natural anatomy, no slide/playground or park scene. The entrance and school routine establish the place without a SCHOOL sign.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_c06bc161bc8d4f0ea25cf365de15bb59",
+        "usage": {
+          "input_tokens": 223,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 223
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1595
+        },
+        "cost": {
+          "usd": "0.042275",
+          "mxn": "0.7174363425",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 223,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.17,
+        "output": "output/imagegen/unit-2-review-v1/school.png",
+        "sha256": "a92f22f99748cb72e0ffc0e2c09e085ef5f5ec286b8d3818833a6503063edcd1",
+        "byte_count": 2537587
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "a92f22f99748cb72e0ffc0e2c09e085ef5f5ec286b8d3818833a6503063edcd1",
+        "notes": "Viewed source: recognizable supervised school entrance, teacher and pupils in uniform with prominent backpacks and complete foreground bodies. No answer word used to establish school.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "71c43b6c-ebac-488c-b617-267f0e094425",
+        "asset_id": "white-bags",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:51:20.065645+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly SIX small WHITE canvas drawstring bags on a real pale-brown wooden packing table, photographed from almost directly above. Arrange in TWO columns of THREE with generous gaps: each complete bag has one clear gathered opening and its strings visible. No bag touches or overlaps another. All six bags fit entirely inside the CENTRAL HALF of the image width and middle 80 percent height for a centered tall crop. Natural cloth texture, warm afternoon light, enough contrast against wood. No extra bags, labels, writing, numbers or inset panels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_917936a215c94f7ba11d87afaf1132f0",
+        "usage": {
+          "input_tokens": 243,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 243
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1615
+        },
+        "cost": {
+          "usd": "0.042375",
+          "mxn": "0.7191334125",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 243,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.19,
+        "output": "output/imagegen/unit-2-review-v1/white-bags.png",
+        "sha256": "2f537a12276d09e50ee76a35479433b5dc12e6a99b0b3915d3315bfe11ce9e96",
+        "byte_count": 2525119
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "2f537a12276d09e50ee76a35479433b5dc12e6a99b0b3915d3315bfe11ce9e96",
+        "notes": "Viewed source: exactly six white drawstring bags in two columns of three, with six distinct gathered openings and full fabric bodies; whole group inside center 4:5 window.",
+        "human_approval": "pending"
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d7762722-34b8-4cb0-94f8-455f1b32b9ea",
+        "asset_id": "yellow-pens",
+        "pack_sha256": "eb2490cb33b8d66f64fd2f8806672974592d2d2395d9f6bb457b10cedd3fbf55",
+        "started_at": "2026-09-13T21:49:58.243530+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Asset type: one clear real-world photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, NOT an illustration, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, answer captions, letters or logos. Show exactly the requested subject and quantities, fully visible. A first-time learner must recognize the meaning at phone size. Fresh scenes for this review only; no imitation of previous course photos. Each scene is a separate review station, not one continuous cast or event.\n\nExactly FOUR bright YELLOW ballpoint pens, each complete with a tip and clip, on a lightly worn real gray desktop. Almost-overhead photograph. Arrange all four vertically parallel in a compact central row with clear gaps, all within the central half of image width and middle 75 percent height. No extra loose caps, notebook, book, pencils, writing or numerals. Pens share one clear yellow color and their complete tips stay visible even in a centered tall crop. Natural side-window light and rich surface detail.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7fb657ca8b7047fcb62225e73613827a",
+        "usage": {
+          "input_tokens": 241,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 241
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1613
+        },
+        "cost": {
+          "usd": "0.042365",
+          "mxn": "0.7189637055",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 241,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.32,
+        "output": "output/imagegen/unit-2-review-v1/yellow-pens.png",
+        "sha256": "61b97cadbfbbaf13178b5f7c1236f966a9b1e32c5d99e7c3fe49306b478ebee3",
+        "byte_count": 2928696
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "61b97cadbfbbaf13178b5f7c1236f966a9b1e32c5d99e7c3fe49306b478ebee3",
+        "notes": "Viewed source: exactly four yellow ballpoint pens, separate and complete with visible clips and tips. All within center 4:5 window; no other countable pen or loose cap.",
+        "human_approval": "pending"
+      }
+    }
+  ]
+}

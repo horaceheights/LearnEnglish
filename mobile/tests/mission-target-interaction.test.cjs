@@ -76,8 +76,8 @@ test('only reviewed standing groups move; images, individual dots and group-only
     }
   }
   assert.deepEqual(changed,['M04/children','M04/adults','M08/parents','M09/grandparents']);
-  assert.ok(surface.includes('!marker.chest && marker.heads.map'));
-  assert.ok(read('../../frontend/components/CelebrationMission.js').includes('marker.chest ? [] : marker.heads.map'));
+  assert.ok(surface.includes('!marker.chest && (marker.leaderHeads || marker.heads).map'));
+  assert.ok(read('../../frontend/components/CelebrationMission.js').includes('marker.chest ? [] : (marker.leaderHeads || marker.heads).map'));
 });
 
 test('shuffle keeps all targets and their exact audio indices, without changing authored content', () => {

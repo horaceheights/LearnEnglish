@@ -1,0 +1,3553 @@
+{
+  "schema_version": 1,
+  "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+  "human_approval": "pending",
+  "assets": [
+    {
+      "asset_id": "places",
+      "runtime_filename": "a1_u2_meeting_v4_places.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "123b6923-ff72-4aa0-859f-86e131d0db3e",
+        "asset_id": "places",
+        "pack_sha256": "716a9d2456824d17fb87619ee836f3e0b994ea68b785e435383a59336bfdbb4f",
+        "started_at": "2026-09-13T18:56:59.671106+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nElevated but close street-corner photograph showing FOUR distinct places around the same compact neighborhood junction. Left side: a small school entrance with two pupils wearing large backpacks walking into a classroom courtyard. Back center: a hospital entrance with one large H and a real ambulance. Right side: an open neighborhood general store with baskets of household goods and a shopper carrying groceries. Foreground center: the entrance to a leafy public park with a wide tree-lined pedestrian path, lawn and playground visible inside. Each place takes a generous separate region; entrances and their identifying evidence are fully visible. The park is a bounded entrance region rather than the entire backdrop. School has no text, hospital only H, store no signage. Avoid a restaurant, houses, extra schools/stores/hospitals. All four choices must be immediately identifiable without labels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_01b889bee6294de9b6c03c9f13b39869",
+        "usage": {
+          "input_tokens": 356,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 356
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1728
+        },
+        "cost": {
+          "usd": "0.04294",
+          "mxn": "0.728721858",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 356,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 37.06,
+        "output": "output/imagegen/unit-2-mission-v4/places.png",
+        "sha256": "6fc1fc0f213d441b3868e3ad1fec03d05279d5a38ef4b889635c0430fd92b8db",
+        "byte_count": 3485907
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "6fc1fc0f213d441b3868e3ad1fec03d05279d5a38ef4b889635c0430fd92b8db",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Four identifiable regions: foreground public park with playground/path; left school with backpacked pupils entering; right stocked shop; rear hospital H, ambulance and medical worker. Mark building entrances instead of pupils or ambulance. Phone-size fit still requires device QA.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.22,
+              "y": 0.56,
+              "width": 0.51,
+              "height": 0.38
+            },
+            "head_anchors": [
+              {
+                "x": 0.47,
+                "y": 0.57
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.01,
+              "y": 0.17,
+              "width": 0.31,
+              "height": 0.36
+            },
+            "head_anchors": [
+              {
+                "x": 0.13,
+                "y": 0.19
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.78,
+              "y": 0.15,
+              "width": 0.21,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.87,
+                "y": 0.17
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.47,
+              "y": 0.1,
+              "width": 0.27,
+              "height": 0.31
+            },
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.12
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "a79b67b2b272783832d25b16fd79e631c9bda4ac79cedbe3eaa8261cc4a1f981"
+    },
+    {
+      "asset_id": "transport",
+      "runtime_filename": "a1_u2_meeting_v4_transport.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "cef8fec9-1869-473c-9240-2994ed7d2565",
+        "asset_id": "transport",
+        "pack_sha256": "f73ef9c6497e625569bb20c3c136c46f37698056e8177f5207408555f9a5c7bf",
+        "started_at": "2026-09-13T19:05:49.481252+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nA real park arrival area beside a short stone pedestrian bridge crossing a visible narrow stream. FOUR separate selectable subjects: one large blue city bus parked on the left, one red passenger car parked center-right, one complete green adult bicycle leaning against a low wooden rail at the far right, and the complete stone bridge in the upper center with visible arch and water under it. Full bus, car and bicycle with all wheels inside the frame. No other vehicles or bikes, no vehicle illustrations, no advertising or readable route labels. Eye-level wide photograph with enough separation that every object can receive its own pointer. Warm park light, cream buildings beyond.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1eaf817c6a3a49e890c769f8cd687349",
+        "usage": {
+          "input_tokens": 319,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 319
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1691
+        },
+        "cost": {
+          "usd": "0.042755",
+          "mxn": "0.7255822785",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 319,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 34.28,
+        "output": "output/imagegen/unit-2-mission-v4/transport.png",
+        "sha256": "b8ae2b5910feb416c2a22024f8eae1efc72ce41c2a50fa62841fa40b0fd3c710",
+        "byte_count": 3646106
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b8ae2b5910feb416c2a22024f8eae1efc72ce41c2a50fa62841fa40b0fd3c710",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Full blue bus, red car, green bicycle and stone bridge. All vehicle wheels remain inside the photo; bridge arch/water visible. Four unambiguous targets. Anchor bridge on upper stone parapet, not car below.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.02,
+              "y": 0.245,
+              "width": 0.41,
+              "height": 0.38
+            },
+            "head_anchors": [
+              {
+                "x": 0.2,
+                "y": 0.25
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.41,
+              "y": 0.435,
+              "width": 0.35,
+              "height": 0.29
+            },
+            "head_anchors": [
+              {
+                "x": 0.55,
+                "y": 0.44
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.805,
+              "y": 0.5,
+              "width": 0.18,
+              "height": 0.29
+            },
+            "head_anchors": [
+              {
+                "x": 0.87,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.43,
+              "y": 0.26,
+              "width": 0.38,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.27
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "0a2825f14b2a5c49584054b37f0d449f770f22103e554f9ab5ada8e9ae8f0906"
+    },
+    {
+      "asset_id": "arrival",
+      "runtime_filename": "a1_u2_meeting_v4_arrival.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f3b75b51-84c8-4eda-afca-ccfab1d2f764",
+        "asset_id": "arrival",
+        "pack_sha256": "e6de0ccd8492e0d66e207b38f42377eb5ad67ddee493aac1cd295924631914bd",
+        "started_at": "2026-09-13T19:08:31.767849+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nAt the park edge, a real outdoor eating area in front of a small restaurant on the right, with a waiter carrying a tray to seated diners through its open entrance; a single separate private HOUSE with a front door, curtained windows and fenced domestic garden is on the left. In the foreground, one empty honey-colored wooden TABLE on the left and a single empty wooden CHAIR to its right are fully visible, including all legs, separated by open paving. Four target subjects are the house, restaurant, foreground table and foreground chair. The distant diners' furniture is partially occluded and visually secondary; the foreground furniture is large, isolated and unmistakable. No venue text, signs, logos or extra foreground furniture. One plausible real street/park edge, not a collage.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7af3e67312794f65bdcdbfbb660e367e",
+        "usage": {
+          "input_tokens": 347,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 347
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1719
+        },
+        "cost": {
+          "usd": "0.042895",
+          "mxn": "0.7279581765",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 347,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.11,
+        "output": "output/imagegen/unit-2-mission-v4/arrival.png",
+        "sha256": "ec02f61d03f101d75e64ec25ef3804fd4fd0831228215e18095aa2747c35eea1",
+        "byte_count": 3222517
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "ec02f61d03f101d75e64ec25ef3804fd4fd0831228215e18095aa2747c35eea1",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Left private house with fence/front door; right restaurant with waiter serving seated diners. Foreground empty table and chair are fully visible. Restaurant has background furniture, but no competing chair/table markers; the four selectable regions are distinct.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.04,
+              "y": 0.055,
+              "width": 0.325,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.2,
+                "y": 0.06
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.61,
+              "y": 0.035,
+              "width": 0.38,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.81,
+                "y": 0.07
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.1,
+              "y": 0.51,
+              "width": 0.38,
+              "height": 0.41
+            },
+            "head_anchors": [
+              {
+                "x": 0.28,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.51,
+              "y": 0.46,
+              "width": 0.23,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.68,
+                "y": 0.46
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "a15a56a10a9e044d3562dc6c69b9c2248dcb64b81144adbabbcec3a180d7444e"
+    },
+    {
+      "asset_id": "objects",
+      "runtime_filename": "a1_u2_meeting_v4_objects.webp",
+      "receipt": {
+        "status": "image_saved",
+        "output": "output/imagegen/unit-2-mission-v4/objects.png",
+        "sha256": "e8afb2b88a6e8bde80067f23211d03644dbef66448cf36f50d48a944e01e7e21",
+        "byte_count": 2553577,
+        "save_reconciliation": "CLI saved the PNG successfully; receipt finalization raised TypeError from calling stat.st_size. Inspected the saved PNG and reconciled its SHA-256 and length locally. No additional provider request.",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "b1e2d721-4afb-4efe-9c45-dad66074a17c",
+        "asset_id": "objects",
+        "pack_sha256": "716a9d2456824d17fb87619ee836f3e0b994ea68b785e435383a59336bfdbb4f",
+        "started_at": "2026-09-13T18:55:07.117355+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nClose elevated three-quarter photograph of one honey-colored picnic preparation table inside the park. Exactly FOUR separate unbranded objects spread across its surface: a closed red hardback BOOK with a clearly visible thick cream page block, a yellow ballpoint PEN with obvious tip and clip, a blue-cased smartphone with a black glass screen, and a black cloth shoulder BAG with handles. Objects are large, naturally proportioned and separated with clear tabletop space, staggered in depth. Entire table need not be visible but every object is complete with generous margins. No writing on the book, no extra objects, no notebooks that resemble phones, no hands covering the objects. Rich wood grain, natural soft sunlight, blurred leafy park far behind without artificial padding.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_cb3abedb33924e368e8c043f2ec4cb7a",
+        "usage": {
+          "input_tokens": 339,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 339
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1711
+        },
+        "cost": {
+          "usd": "0.042855",
+          "mxn": "0.7272793485",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 339,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.22
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e8afb2b88a6e8bde80067f23211d03644dbef66448cf36f50d48a944e01e7e21",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "All four objects complete and immediately distinct: red hardback book with visible pages, yellow tipped pen, blue-cased glass-screen phone, black cloth bag. No answer text, extra target objects or padding. Crown anchors below refer to object top edges, not imaginary heads. Pen must be checked at final mobile framing.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.025,
+              "y": 0.37,
+              "width": 0.39,
+              "height": 0.32
+            },
+            "head_anchors": [
+              {
+                "x": 0.22,
+                "y": 0.38
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.3,
+              "y": 0.57,
+              "width": 0.19,
+              "height": 0.19
+            },
+            "head_anchors": [
+              {
+                "x": 0.47,
+                "y": 0.58
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.58,
+              "y": 0.59,
+              "width": 0.26,
+              "height": 0.27
+            },
+            "head_anchors": [
+              {
+                "x": 0.67,
+                "y": 0.59
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.53,
+              "y": 0.09,
+              "width": 0.45,
+              "height": 0.51
+            },
+            "head_anchors": [
+              {
+                "x": 0.75,
+                "y": 0.1
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "896f8a9e59eecfaa8d060f6f215d139cfba4e317c5b2b4a5aecd0e072d0b68fc"
+    },
+    {
+      "asset_id": "near-far-tight",
+      "runtime_filename": "a1_u2_meeting_v4_near_far_tight.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "434717ee-ddf4-4f31-b7d0-423319d86734",
+        "asset_id": "near-far-tight",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:12:09.089381+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nFirst-person photograph looking steeply DOWN at a SMALL shallow picnic table. Exactly FOUR teaching objects, ALL large and sharp. LEFT foreground: learner holds a small red hardback book with visible page block. RIGHT foreground: learner holds a blue smartphone with its black screen visible. Just beyond the hands, on the rear half of this small table, are a second matching red book upper left and a second matching blue phone upper right. Each rear object occupies at least ONE FIFTH of the image width, almost as large as the handheld objects: they are only about 40 centimeters beyond the hands, NOT tiny objects at the end of a long table. The rear phone has its long axis horizontal across the frame and its whole black screen clear. Near/far is shown by holding the foreground objects versus leaving the other two on the table, with shallow honest depth, not extreme shrinking. No horizon or distant table end. Camera points downward; complete four objects, plausible two hands, no hidden fingers or objects, no extra books or phones, no split panels. Distinct open wood between the four targets. The entire frame is this compact tabletop and the two hands.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_653ebce08e164608ae4162a406e17c1a",
+        "usage": {
+          "input_tokens": 423,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 423
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1795
+        },
+        "cost": {
+          "usd": "0.043275",
+          "mxn": "0.7344070425",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 423,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.45,
+        "output": "output/imagegen/unit-2-mission-v4/near-far-tight.png",
+        "sha256": "e10a1c6a10560df4782b8799df099e9b15524a585de5bc2f96149c5dbb8dc623",
+        "byte_count": 2471619
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e10a1c6a10560df4782b8799df099e9b15524a585de5bc2f96149c5dbb8dc623",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Tighter first-person shot fixes distant target scale: tabletop phone now 22 percent width. Four complete recognizable objects, two naturally held in foreground and two left beyond hands. Clear this/that teaching contrast without labels. Near phone partially gripped at edges but entire screen visible.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.23,
+              "y": 0.355,
+              "width": 0.23,
+              "height": 0.465
+            },
+            "head_anchors": [
+              {
+                "x": 0.34,
+                "y": 0.36
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.185,
+              "y": 0.045,
+              "width": 0.21,
+              "height": 0.285
+            },
+            "head_anchors": [
+              {
+                "x": 0.29,
+                "y": 0.05
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.63,
+              "y": 0.365,
+              "width": 0.155,
+              "height": 0.425
+            },
+            "head_anchors": [
+              {
+                "x": 0.7,
+                "y": 0.37
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.565,
+              "y": 0.115,
+              "width": 0.225,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.68,
+                "y": 0.12
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "3da4d4b5670fa04ab800eda29bae5a9cd3c097b24c522820d6fea6190cf8d723"
+    },
+    {
+      "asset_id": "colors",
+      "runtime_filename": "a1_u2_meeting_v4_colors.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "1bd47273-26b2-438e-a2f0-8c5b42413f74",
+        "asset_id": "colors",
+        "pack_sha256": "e6de0ccd8492e0d66e207b38f42377eb5ad67ddee493aac1cd295924631914bd",
+        "started_at": "2026-09-13T19:10:49.684314+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nFour complete modern molded chairs set out for a park gathering, arranged in a gentle staggered arc, each clearly separate and unoccupied. Exactly ONE RED chair at left, ONE BLUE chair upper-center-left, ONE GREEN chair upper-center-right, ONE YELLOW chair at right/foreground. Each chair has a solid single-color molded body and matching legs, no multicolored upholstery or patterns. Full chair silhouettes and legs visible on terracotta paving with ample empty space above their backs. No other chairs, no table blocking them, no people. They are real full-size chairs photographed naturally, not miniature toys or product cutout collage. Colors must be unmistakable.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_33ae6588979340aab9308f0ccafd0525",
+        "usage": {
+          "input_tokens": 324,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 324
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1696
+        },
+        "cost": {
+          "usd": "0.04278",
+          "mxn": "0.726006546",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 324,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.88,
+        "output": "output/imagegen/unit-2-mission-v4/colors.png",
+        "sha256": "3702e3b89615b3fc0ca214b163aec6205f72fa85445f29ae2ec8d59776bc5b49",
+        "byte_count": 2635259
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "3702e3b89615b3fc0ca214b163aec6205f72fa85445f29ae2ec8d59776bc5b49",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Exactly four large complete chairs, red/blue/green/yellow. Distinct matching-color bodies/legs. Empty space above every chair back. No additional selectable subjects.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.03,
+              "y": 0.31,
+              "width": 0.28,
+              "height": 0.58
+            },
+            "head_anchors": [
+              {
+                "x": 0.13,
+                "y": 0.31
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.29,
+              "y": 0.29,
+              "width": 0.2,
+              "height": 0.41
+            },
+            "head_anchors": [
+              {
+                "x": 0.36,
+                "y": 0.29
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.51,
+              "y": 0.285,
+              "width": 0.19,
+              "height": 0.415
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.285
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.69,
+              "y": 0.31,
+              "width": 0.29,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.89,
+                "y": 0.31
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "1c8fef185f6e7910e03d2afed3b9d766e1d06ece4d5201518182a96df92cda03"
+    },
+    {
+      "asset_id": "quantities",
+      "runtime_filename": "a1_u2_meeting_v4_quantities.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "162f7165-9c55-4226-95b4-de4fb82f00ea",
+        "asset_id": "quantities",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:13:21.009222+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nA large real picnic supply table photographed from nearly overhead so every item is countable, in four widely separated clusters on natural honey-colored wood. Upper-left: EXACTLY THREE closed GREEN books laid individually side by side, with thick paper page blocks visible. Upper-right: EXACTLY FOUR YELLOW ballpoint pens aligned with gaps. Lower-left: EXACTLY FIVE BLACK smartphones, individually separated, face up. Lower-right: EXACTLY SIX WHITE compact cloth drawstring bags, individually separated in two rows of three, each with a visible drawstring opening. Each cluster is one selectable group. No overlap, stacking, hidden items, extra examples, text, grid lines, trays, baskets, illustrations, numbers or labels. Keep all 18 objects fully visible and large enough to count. This is one genuine photograph of one table, not four panels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1d671f57d985412895de4f67e1feb527",
+        "usage": {
+          "input_tokens": 360,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 360
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1732
+        },
+        "cost": {
+          "usd": "0.04296",
+          "mxn": "0.729061272",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 360,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.28,
+        "output": "output/imagegen/unit-2-mission-v4/quantities.png",
+        "sha256": "a2ed363b6208fa1902fce97837e1b17085b3124003338bb9d8260a673c3c253d",
+        "byte_count": 2594155
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "a2ed363b6208fa1902fce97837e1b17085b3124003338bb9d8260a673c3c253d",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Counted pixels individually: three green closed books upper left, four yellow pens upper right, five black phones lower left, six white drawstring bags in two rows of three lower right. No hidden/stacked items. Multi-endpoint capsules identify the complete groups; no single-item dots compete with group cues.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.105,
+              "width": 0.45,
+              "height": 0.285
+            },
+            "head_anchors": [
+              {
+                "x": 0.13,
+                "y": 0.12
+              },
+              {
+                "x": 0.28,
+                "y": 0.115
+              },
+              {
+                "x": 0.43,
+                "y": 0.11
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.63,
+              "y": 0.13,
+              "width": 0.22,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.64,
+                "y": 0.135
+              },
+              {
+                "x": 0.705,
+                "y": 0.135
+              },
+              {
+                "x": 0.77,
+                "y": 0.133
+              },
+              {
+                "x": 0.835,
+                "y": 0.133
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.035,
+              "y": 0.54,
+              "width": 0.445,
+              "height": 0.235
+            },
+            "head_anchors": [
+              {
+                "x": 0.085,
+                "y": 0.55
+              },
+              {
+                "x": 0.17,
+                "y": 0.55
+              },
+              {
+                "x": 0.255,
+                "y": 0.545
+              },
+              {
+                "x": 0.35,
+                "y": 0.545
+              },
+              {
+                "x": 0.44,
+                "y": 0.54
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.555,
+              "y": 0.43,
+              "width": 0.42,
+              "height": 0.415
+            },
+            "head_anchors": [
+              {
+                "x": 0.635,
+                "y": 0.44
+              },
+              {
+                "x": 0.76,
+                "y": 0.445
+              },
+              {
+                "x": 0.89,
+                "y": 0.45
+              },
+              {
+                "x": 0.63,
+                "y": 0.64
+              },
+              {
+                "x": 0.77,
+                "y": 0.65
+              },
+              {
+                "x": 0.9,
+                "y": 0.655
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "ce10703461e9232d3eca77f0b697eb740a35273488ea9a600ede0e7e5764acac"
+    },
+    {
+      "asset_id": "station-numbers",
+      "runtime_filename": "a1_u2_meeting_v4_station_numbers.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "118b7b93-0d16-4a6b-a4fc-afda49d82d10",
+        "asset_id": "station-numbers",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:13:49.056933+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nA close real park-organizing worktable with exactly FOUR freestanding wooden picnic-table number plaques, staggered in a natural arc so all faces point toward the camera. Each plaque is a large simple cream board on a small wooden stand. Print one enormous black numeral per plaque: leftmost 7, upper center-left 8, upper center-right 9, rightmost 10. The only text anywhere is the exact digits 7, 8, 9, 10, each once. These are realistic table-number signs waiting to be placed, not flashcards in an app. Full boards, large bold legible digits, generous separation and clear tabletop around them. Natural leaf background and daylight; no hands obscuring numbers, no equations, no extra numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_dc000d88cdbd43f0b02c5906095302aa",
+        "usage": {
+          "input_tokens": 347,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 347
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1719
+        },
+        "cost": {
+          "usd": "0.042895",
+          "mxn": "0.7279581765",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 347,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.59,
+        "output": "output/imagegen/unit-2-mission-v4/station-numbers.png",
+        "sha256": "4e01d5738750120d0465ae7e0bba382b160cebfbf27a543e15a328b10d7eae81",
+        "byte_count": 2664515
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4e01d5738750120d0465ae7e0bba382b160cebfbf27a543e15a328b10d7eae81",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Exactly four real tabletop plaques, each with one clear large numeral: 7, 8, 9 and 10. All digits fully visible and no competing numbers. Anchors sit above plaque edges, not on digits.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.34,
+              "width": 0.23,
+              "height": 0.425
+            },
+            "head_anchors": [
+              {
+                "x": 0.15,
+                "y": 0.345
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.31,
+              "y": 0.28,
+              "width": 0.165,
+              "height": 0.32
+            },
+            "head_anchors": [
+              {
+                "x": 0.39,
+                "y": 0.28
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.525,
+              "y": 0.285,
+              "width": 0.175,
+              "height": 0.325
+            },
+            "head_anchors": [
+              {
+                "x": 0.62,
+                "y": 0.285
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.74,
+              "y": 0.345,
+              "width": 0.24,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.885,
+                "y": 0.355
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "ecdbdabe087274c7ad8bb957f924dac3cdfe62f3c1f3ac4cbf1f6f4f8c6222ce"
+    },
+    {
+      "asset_id": "final-check",
+      "runtime_filename": "a1_u2_meeting_v4_final_check.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "dfa218c1-cd8c-47cb-9376-bbf67627928f",
+        "asset_id": "final-check",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:14:21.159659+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nClose high oblique photograph of the park helper's preparation table, from a different camera angle than the earlier supply scene. Exactly FOUR widely spaced selectable clusters: ONE RED hardback book at left upper; TWO BLUE smartphones individually separated at right upper; ONE BLACK cloth shoulder bag at lower left; TWO WHITE ballpoint pens side by side at lower right. Six objects total, all complete and directly countable, with unmistakable color and object shapes. No additional books, phones, bags, pens, hands, labels or numerals. A leafy park, a honey-colored table and terracotta path maintain the meeting setting. Natural real materials, uncluttered, no artificial panels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_906df58216e44797bc33a5bff932f6a4",
+        "usage": {
+          "input_tokens": 327,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 327
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1699
+        },
+        "cost": {
+          "usd": "0.042795",
+          "mxn": "0.7262611065",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 327,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.66,
+        "output": "output/imagegen/unit-2-mission-v4/final-check.png",
+        "sha256": "e6c9b14b21331e38e3207f185508f6d4fad84e7c28e1e860097517894cfd2323",
+        "byte_count": 2740556
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e6c9b14b21331e38e3207f185508f6d4fad84e7c28e1e860097517894cfd2323",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Verified six objects in four selectable regions: one red book, two blue phones, one black shoulder bag, two white pens. Phone backs show cameras clearly. Both paired groups receive two real endpoints; single book/bag retain round markers.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.19,
+              "y": 0.16,
+              "width": 0.21,
+              "height": 0.26
+            },
+            "head_anchors": [
+              {
+                "x": 0.33,
+                "y": 0.165
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.57,
+              "y": 0.215,
+              "width": 0.295,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.61,
+                "y": 0.22
+              },
+              {
+                "x": 0.77,
+                "y": 0.235
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.06,
+              "y": 0.45,
+              "width": 0.46,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.33,
+                "y": 0.45
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.66,
+              "y": 0.57,
+              "width": 0.16,
+              "height": 0.22
+            },
+            "head_anchors": [
+              {
+                "x": 0.67,
+                "y": 0.585
+              },
+              {
+                "x": 0.735,
+                "y": 0.575
+              }
+            ]
+          }
+        ]
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "67514fa51397eef0cb7bfb17fef46e0e4aafb117369ddd8a00cf979c288a98c3"
+    },
+    {
+      "asset_id": "voice-book-question",
+      "runtime_filename": "a1_u2_meeting_v4_voice_book_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "0c4faff9-40c1-4813-b920-1de5205cadde",
+        "asset_id": "voice-book-question",
+        "pack_sha256": "f73ef9c6497e625569bb20c3c136c46f37698056e8177f5207408555f9a5c7bf",
+        "started_at": "2026-09-13T19:04:44.655775+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nMedium shot at the park table: the established female helper with dark curly hair tied back, medium brown skin, teal short-sleeve cotton shirt and dark jeans looks directly into the camera with a natural questioning expression. With one relaxed index finger she indicates ONE red hardback book on the table beside her. Its cover and thick cream page block are clearly visible. Her pointing hand has a plausible attached arm; fingertip stops just short of the book, never covers it. No phone or competing book. Her face and the entire book remain inside the central 60 percent of the 3:2 photograph. No written question, answer, dialogue bubble or label. This is the question shot, asking the learner to identify the object.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_61c663e6ef62474bb1d766ffcbad064a",
+        "usage": {
+          "input_tokens": 338,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 338
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1710
+        },
+        "cost": {
+          "usd": "0.04285",
+          "mxn": "0.727194495",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 338,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.75,
+        "output": "output/imagegen/unit-2-mission-v4/voice-book-question.png",
+        "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+        "byte_count": 2589645
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Helper looks toward learner and points immediately above the single red book without occluding it. Clear cream page block, complete book and plausible hand. Use her actual pixels as the identity reference for all subsequent helper views; actual table is weathered gray wood, not the requested honey tone. No selectable dots in this speaking view."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "ea4d841d92e5d209237f675d7528d8117e49d055dd17ed63998a4d132dde85eb"
+    },
+    {
+      "asset_id": "kickoff",
+      "runtime_filename": "a1_u2_meeting_v4_kickoff.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "a0e79867-26ff-44b6-81c7-dc88f10eed17",
+        "asset_id": "kickoff",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:16:32.291031+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 establishes the helper's exact face, tied-back curls and teal shirt, and the real park setting. Create a new inviting medium-wide photograph at the entrance of this same park. The SAME helper now stands next to a picnic table, welcoming the camera with an open-hand gesture. Show her full body including dark jeans and shoes, unobstructed. Keep the mature trees, lake and actual weathered wood from the reference. One plain red book and a blue phone rest on the nearest table, a black fabric bag beside it. Natural, friendly and purposeful rather than a posed family portrait. This opening is not a selectable challenge. New camera position and welcoming pose, not a copy of the question shot. No written words, UI or labels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_5116ae3b36144e60b17b83384359b49f",
+        "usage": {
+          "input_tokens": 1896,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 360
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3268
+        },
+        "cost": {
+          "usd": "0.055248",
+          "mxn": "0.9375972336",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 360,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.04,
+        "output": "output/imagegen/unit-2-mission-v4/kickoff.png",
+        "sha256": "acdfb1e852ebee3390e733b19998ccab8efc393e6f010fca00a9ff8dae103749",
+        "byte_count": 3214227
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "acdfb1e852ebee3390e733b19998ccab8efc393e6f010fca00a9ff8dae103749",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Welcoming helper, full body, weathered picnic table, book/phone/bag and lake. No text or quiz markers. Same face, curls and teal shirt; minor non-assessed continuity variation: shoes are dark here but white in final outdoor questions. Keep this disclosed for human art review."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "e754867ab56ee95310f222cec0e74bbefe9385ba5f2b6157566abbf39638ae38"
+    },
+    {
+      "asset_id": "voice-book-response",
+      "runtime_filename": "a1_u2_meeting_v4_voice_book_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "4465d35b-495f-4b01-9958-926a2811b7ea",
+        "asset_id": "voice-book-response",
+        "pack_sha256": "f73ef9c6497e625569bb20c3c136c46f37698056e8177f5207408555f9a5c7bf",
+        "started_at": "2026-09-13T19:06:55.129304+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the reviewed question shot and continuity reference. Move the camera closer and lower to isolate the EXACT same red hardback book on the same honey-colored table, with its entire red cover, spine and cream paper page block visible. Keep its identity, color, thickness, orientation, sunlight and surrounding park identical. The helper is now outside the crop except possibly an unobtrusive teal torso at far background; no pointing hand covers the book. New closer viewpoint, not the same shot. No new objects or text. The book occupies the central 55 percent width with room around every edge. Natural full-bleed 3:2 real photograph.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_dba9bdc0133b402c86cb8cf2663ef933",
+        "usage": {
+          "input_tokens": 1877,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 341
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3249
+        },
+        "cost": {
+          "usd": "0.055153",
+          "mxn": "0.9359850171",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 341,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.23,
+        "output": "output/imagegen/unit-2-mission-v4/voice-book-response.png",
+        "sha256": "e2205ff525afc64ef19454486e8986e08f8bbe59a721fbdc4341e3a15e074a8e",
+        "byte_count": 2542598
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e2205ff525afc64ef19454486e8986e08f8bbe59a721fbdc4341e3a15e074a8e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Distinct closer shot of a complete red hardback, cream page block, weathered table and same lake/trees. No helper or obstructing hand. Book occupies large clear central region. Semantic identity preserved; perspective exaggerates thickness slightly."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "7fecfef4dc8ed0f622adb9d734cd8803468118fb01da49a5cb66c19b82cd4f29"
+    },
+    {
+      "asset_id": "voice-phone-question",
+      "runtime_filename": "a1_u2_meeting_v4_voice_phone_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "803f104e-6854-4c7d-9c19-ace86d3384de",
+        "asset_id": "voice-phone-question",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:14:52.491449+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 establishes the female helper's exact identity, teal shirt, tied-back curls, and park setting. Take a new natural medium side-angle photograph of this SAME helper at the same meeting. She faces the camera and indicates ONE blue smartphone lying flat on the table, visible black glass screen toward the learner. Remove the book for this new activity. Phone is the only target object; full phone and her natural pointing hand clearly visible, no touching or occlusion. Keep the helper's identity and clothes, but change the camera angle and pose intentionally. Entire target phone and her face in central 60 percent, no labels, questions or answer text.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_5ad4bb0d40d4422a9bf05b79f0456931",
+        "usage": {
+          "input_tokens": 1875,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 339
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3247
+        },
+        "cost": {
+          "usd": "0.055143",
+          "mxn": "0.9358153101",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 339,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.74,
+        "output": "output/imagegen/unit-2-mission-v4/voice-phone-question.png",
+        "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+        "byte_count": 2693853
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Same helper identity, teal shirt, curls, weathered table and lake. Fresh side pose, finger stops just above a single blue phone. Full phone visible; response shot must enlarge it. No book or conflicting target."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "0b32202cfabe41ef44cae20ce940f84a77df5db7799d196f3b3dcc15c8a5e85f"
+    },
+    {
+      "asset_id": "voice-phone-response",
+      "runtime_filename": "a1_u2_meeting_v4_voice_phone_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "764df961-fc0d-4e14-9b30-aa352ad4a9df",
+        "asset_id": "voice-phone-response",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:18:25.752408+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the exact question-view reference. Cut to a closer high three-quarter view of the SAME blue smartphone with black glass screen on the SAME honey-colored picnic table. Preserve its casing, dimensions, orientation, daylight and park context. Remove the helper's pointing hand from view; the phone is completely visible and fills the central 55 percent width without cropping. No book, no extra phone, no text, no labels. This is a distinct closer answer-view photograph, not a duplicate of the question shot.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-phone-question.png",
+            "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+            "byte_count": 2693853
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_2b0f55c0d6534b6ba46a88576dbd5431",
+        "usage": {
+          "input_tokens": 1848,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 312
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3220
+        },
+        "cost": {
+          "usd": "0.055008",
+          "mxn": "0.9335242656",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 312,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.8,
+        "output": "output/imagegen/unit-2-mission-v4/voice-phone-response.png",
+        "sha256": "44b7cc7f504e069ee8b85732a37b2fffcadbb91699c01a10e5e5b66aecaac854",
+        "byte_count": 2742592
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "44b7cc7f504e069ee8b85732a37b2fffcadbb91699c01a10e5e5b66aecaac854",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Distinct close-up of the same blue phone, dark reflective screen, weathered table and lake setting. Complete phone with ample margin, no helper or pointing hand."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "de511f384cc4a181a230030e743cebd91fcb61a9bbfe92ae1a9ef33d1f0b3187"
+    },
+    {
+      "asset_id": "voice-bus-question",
+      "runtime_filename": "a1_u2_meeting_v4_voice_bus_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d0bf86be-536c-4926-ac8c-baa9a5b01433",
+        "asset_id": "voice-bus-question",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:15:26.081357+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the helper identity reference only. Photograph this same teal-shirted curly-haired adult woman at the park's arrival area, looking directly toward the learner and gesturing with an open hand toward a large single BLUE city bus parked immediately behind and beside her. The bus is the only vehicle, full vehicle body and all wheels visible, no car or bike. Her head does not cover its identifying front/windscreen/doors. Keep her same identity, clothes and late-morning daylight. Clear realistic scale, no venue words, route labels, signs, logos, question or answer text.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_e9c7497e586d45d7a40096e484387d70",
+        "usage": {
+          "input_tokens": 1864,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 328
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3236
+        },
+        "cost": {
+          "usd": "0.055088",
+          "mxn": "0.9348819216",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 328,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.29,
+        "output": "output/imagegen/unit-2-mission-v4/voice-bus-question.png",
+        "sha256": "f50cbcd2d0d51b1eeda56f385f86d36b15274e27b036b396a2c7f668c89e15e1",
+        "byte_count": 2873526
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "f50cbcd2d0d51b1eeda56f385f86d36b15274e27b036b396a2c7f668c89e15e1",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Same helper, full body including shoes, gestures toward unmistakable blue bus. Full identifying front, entrance and visible wheels. No other vehicles. Slight overlap at far bus side does not hide identifying evidence."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "3d17ee2e78cba91a25787ea91bd5f1c3055245c1c2017188f608225983fde166"
+    },
+    {
+      "asset_id": "voice-bus-response",
+      "runtime_filename": "a1_u2_meeting_v4_voice_bus_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "112d70b0-56a7-487c-a661-cc5dff2fee20",
+        "asset_id": "voice-bus-response",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:18:58.266174+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the question-view reference. Move the camera sideways closer to the EXACT SAME blue city bus in the SAME park arrival area, removing the helper from view. Preserve exact bus design, color, windows, doors, daylight and stone/park setting. Keep the COMPLETE bus and all wheels inside the frame with generous margins, use a natural front three-quarter perspective so it is clearly a bus rather than a car. No other vehicles, no letters, no words or labels. A distinct response shot, full-bleed realistic 3:2 photo.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-bus-question.png",
+            "sha256": "f50cbcd2d0d51b1eeda56f385f86d36b15274e27b036b396a2c7f668c89e15e1",
+            "byte_count": 2873526
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7eaa86bdf6284ac5b3dbed508da7c8d9",
+        "usage": {
+          "input_tokens": 1857,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 321
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3229
+        },
+        "cost": {
+          "usd": "0.055053",
+          "mxn": "0.9342879471",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 321,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.42,
+        "output": "output/imagegen/unit-2-mission-v4/voice-bus-response.png",
+        "sha256": "98c41239ef05fe7566a689d1582afacaf316adacf88eea9974415bea2745e20e",
+        "byte_count": 3052543
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "98c41239ef05fe7566a689d1582afacaf316adacf88eea9974415bea2745e20e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Full blue bus from a distinct closer viewpoint, same window/door/headlamp arrangement and park setting. Helper removed. Visible wheels, roof and body remain inside frame."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "71087ea9b1b0df2a47a1b6d843fd079a5e51415fb6908674412c904859f4d71b"
+    },
+    {
+      "asset_id": "voice-park-question",
+      "runtime_filename": "a1_u2_meeting_v4_voice_park_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f8834c5a-88ec-415d-b6de-da3de6ded81c",
+        "asset_id": "voice-park-question",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:15:57.294349+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 establishes the exact female helper's face, teal shirt, jeans and hairstyle. Final question view at the neighborhood PARK entrance. She looks at the learner while gesturing into a clearly visible large park with grass, trees, a children's playground and the honey-colored picnic meeting tables along a terracotta path. Full helper body is visible at one side, leaving a broad unobstructed park view. No hospital, school, store, bus or commercial dining terrace. This unmistakably asks about a public park, not a house garden. Preserve helper identity and daylight, fresh camera angle. No text, logos, arrows or captions.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_a3171edea9984f5aa8fdb9063f719e23",
+        "usage": {
+          "input_tokens": 1871,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 335
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3243
+        },
+        "cost": {
+          "usd": "0.055123",
+          "mxn": "0.9354758961",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 335,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 34.25,
+        "output": "output/imagegen/unit-2-mission-v4/voice-park-question.png",
+        "sha256": "b47841ce3de7ab8964c867f027e25ba7b57a399d4c4b80e644a3e0841649f809",
+        "byte_count": 3283042
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b47841ce3de7ab8964c867f027e25ba7b57a399d4c4b80e644a3e0841649f809",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Same helper face/curls/teal shirt/jeans, full body. Open gesture toward public playground, picnic tables, lawn and pond. No competing place markers, visibly a park. Plenty of scene evidence beyond helper."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "c2f100a89f2dbd43a9438544fbaff1306270eaaa321ec0f70fb4745b89b71c28"
+    },
+    {
+      "asset_id": "voice-park-response",
+      "runtime_filename": "a1_u2_meeting_v4_voice_park_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "23f37824-b3e8-452a-8f1f-faff22e67987",
+        "asset_id": "voice-park-response",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:19:28.421446+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the final park question-view. Cut to a new closer forward view into the SAME public park from just inside its entrance: large tree-shaded lawn, public playground, terracotta walking path and the same honey-colored picnic meeting area. The helper is outside the frame so the place itself is the answer. Keep the exact spatial layout, daylight and background landmarks of the reference, not a different park. Warm real photography, readable public-park features at phone size, full-bleed 3:2, no text, logos, captions or signage.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-park-question.png",
+            "sha256": "b47841ce3de7ab8964c867f027e25ba7b57a399d4c4b80e644a3e0841649f809",
+            "byte_count": 3283042
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_1ff9857c744a4ba684c084c04834cae1",
+        "usage": {
+          "input_tokens": 1859,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 323
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3231
+        },
+        "cost": {
+          "usd": "0.055063",
+          "mxn": "0.9344576541",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 323,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.35,
+        "output": "output/imagegen/unit-2-mission-v4/voice-park-response.png",
+        "sha256": "14a1e8bde6cc8c025256810cbd717a192104297e151db68635d33f76a8d7319a",
+        "byte_count": 3771351
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "14a1e8bde6cc8c025256810cbd717a192104297e151db68635d33f76a8d7319a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "New forward viewpoint into the same park; pond/fountain left, same playground right, tree and picnic tables preserved. No helper. Place is visually unambiguous."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "4750c17de06722ed2ba75648b04ac660c08f22048cdeca4315d7d48bd94ee3ee"
+    }
+  ],
+  "paid_attempts": [
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f3b75b51-84c8-4eda-afca-ccfab1d2f764",
+        "asset_id": "arrival",
+        "pack_sha256": "e6de0ccd8492e0d66e207b38f42377eb5ad67ddee493aac1cd295924631914bd",
+        "started_at": "2026-09-13T19:08:31.767849+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nAt the park edge, a real outdoor eating area in front of a small restaurant on the right, with a waiter carrying a tray to seated diners through its open entrance; a single separate private HOUSE with a front door, curtained windows and fenced domestic garden is on the left. In the foreground, one empty honey-colored wooden TABLE on the left and a single empty wooden CHAIR to its right are fully visible, including all legs, separated by open paving. Four target subjects are the house, restaurant, foreground table and foreground chair. The distant diners' furniture is partially occluded and visually secondary; the foreground furniture is large, isolated and unmistakable. No venue text, signs, logos or extra foreground furniture. One plausible real street/park edge, not a collage.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7af3e67312794f65bdcdbfbb660e367e",
+        "usage": {
+          "input_tokens": 347,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 347
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1719
+        },
+        "cost": {
+          "usd": "0.042895",
+          "mxn": "0.7279581765",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 347,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.11,
+        "output": "output/imagegen/unit-2-mission-v4/arrival.png",
+        "sha256": "ec02f61d03f101d75e64ec25ef3804fd4fd0831228215e18095aa2747c35eea1",
+        "byte_count": 3222517
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "ec02f61d03f101d75e64ec25ef3804fd4fd0831228215e18095aa2747c35eea1",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Left private house with fence/front door; right restaurant with waiter serving seated diners. Foreground empty table and chair are fully visible. Restaurant has background furniture, but no competing chair/table markers; the four selectable regions are distinct.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.04,
+              "y": 0.055,
+              "width": 0.325,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.2,
+                "y": 0.06
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.61,
+              "y": 0.035,
+              "width": 0.38,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.81,
+                "y": 0.07
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.1,
+              "y": 0.51,
+              "width": 0.38,
+              "height": 0.41
+            },
+            "head_anchors": [
+              {
+                "x": 0.28,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.51,
+              "y": 0.46,
+              "width": 0.23,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.68,
+                "y": 0.46
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "1bd47273-26b2-438e-a2f0-8c5b42413f74",
+        "asset_id": "colors",
+        "pack_sha256": "e6de0ccd8492e0d66e207b38f42377eb5ad67ddee493aac1cd295924631914bd",
+        "started_at": "2026-09-13T19:10:49.684314+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nFour complete modern molded chairs set out for a park gathering, arranged in a gentle staggered arc, each clearly separate and unoccupied. Exactly ONE RED chair at left, ONE BLUE chair upper-center-left, ONE GREEN chair upper-center-right, ONE YELLOW chair at right/foreground. Each chair has a solid single-color molded body and matching legs, no multicolored upholstery or patterns. Full chair silhouettes and legs visible on terracotta paving with ample empty space above their backs. No other chairs, no table blocking them, no people. They are real full-size chairs photographed naturally, not miniature toys or product cutout collage. Colors must be unmistakable.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_33ae6588979340aab9308f0ccafd0525",
+        "usage": {
+          "input_tokens": 324,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 324
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1696
+        },
+        "cost": {
+          "usd": "0.04278",
+          "mxn": "0.726006546",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 324,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.88,
+        "output": "output/imagegen/unit-2-mission-v4/colors.png",
+        "sha256": "3702e3b89615b3fc0ca214b163aec6205f72fa85445f29ae2ec8d59776bc5b49",
+        "byte_count": 2635259
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "3702e3b89615b3fc0ca214b163aec6205f72fa85445f29ae2ec8d59776bc5b49",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Exactly four large complete chairs, red/blue/green/yellow. Distinct matching-color bodies/legs. Empty space above every chair back. No additional selectable subjects.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.03,
+              "y": 0.31,
+              "width": 0.28,
+              "height": 0.58
+            },
+            "head_anchors": [
+              {
+                "x": 0.13,
+                "y": 0.31
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.29,
+              "y": 0.29,
+              "width": 0.2,
+              "height": 0.41
+            },
+            "head_anchors": [
+              {
+                "x": 0.36,
+                "y": 0.29
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.51,
+              "y": 0.285,
+              "width": 0.19,
+              "height": 0.415
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.285
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.69,
+              "y": 0.31,
+              "width": 0.29,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.89,
+                "y": 0.31
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "dfa218c1-cd8c-47cb-9376-bbf67627928f",
+        "asset_id": "final-check",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:14:21.159659+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nClose high oblique photograph of the park helper's preparation table, from a different camera angle than the earlier supply scene. Exactly FOUR widely spaced selectable clusters: ONE RED hardback book at left upper; TWO BLUE smartphones individually separated at right upper; ONE BLACK cloth shoulder bag at lower left; TWO WHITE ballpoint pens side by side at lower right. Six objects total, all complete and directly countable, with unmistakable color and object shapes. No additional books, phones, bags, pens, hands, labels or numerals. A leafy park, a honey-colored table and terracotta path maintain the meeting setting. Natural real materials, uncluttered, no artificial panels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_906df58216e44797bc33a5bff932f6a4",
+        "usage": {
+          "input_tokens": 327,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 327
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1699
+        },
+        "cost": {
+          "usd": "0.042795",
+          "mxn": "0.7262611065",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 327,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.66,
+        "output": "output/imagegen/unit-2-mission-v4/final-check.png",
+        "sha256": "e6c9b14b21331e38e3207f185508f6d4fad84e7c28e1e860097517894cfd2323",
+        "byte_count": 2740556
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e6c9b14b21331e38e3207f185508f6d4fad84e7c28e1e860097517894cfd2323",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Verified six objects in four selectable regions: one red book, two blue phones, one black shoulder bag, two white pens. Phone backs show cameras clearly. Both paired groups receive two real endpoints; single book/bag retain round markers.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.19,
+              "y": 0.16,
+              "width": 0.21,
+              "height": 0.26
+            },
+            "head_anchors": [
+              {
+                "x": 0.33,
+                "y": 0.165
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.57,
+              "y": 0.215,
+              "width": 0.295,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.61,
+                "y": 0.22
+              },
+              {
+                "x": 0.77,
+                "y": 0.235
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.06,
+              "y": 0.45,
+              "width": 0.46,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.33,
+                "y": 0.45
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.66,
+              "y": 0.57,
+              "width": 0.16,
+              "height": 0.22
+            },
+            "head_anchors": [
+              {
+                "x": 0.67,
+                "y": 0.585
+              },
+              {
+                "x": 0.735,
+                "y": 0.575
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "a0e79867-26ff-44b6-81c7-dc88f10eed17",
+        "asset_id": "kickoff",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:16:32.291031+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 establishes the helper's exact face, tied-back curls and teal shirt, and the real park setting. Create a new inviting medium-wide photograph at the entrance of this same park. The SAME helper now stands next to a picnic table, welcoming the camera with an open-hand gesture. Show her full body including dark jeans and shoes, unobstructed. Keep the mature trees, lake and actual weathered wood from the reference. One plain red book and a blue phone rest on the nearest table, a black fabric bag beside it. Natural, friendly and purposeful rather than a posed family portrait. This opening is not a selectable challenge. New camera position and welcoming pose, not a copy of the question shot. No written words, UI or labels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_5116ae3b36144e60b17b83384359b49f",
+        "usage": {
+          "input_tokens": 1896,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 360
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3268
+        },
+        "cost": {
+          "usd": "0.055248",
+          "mxn": "0.9375972336",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 360,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.04,
+        "output": "output/imagegen/unit-2-mission-v4/kickoff.png",
+        "sha256": "acdfb1e852ebee3390e733b19998ccab8efc393e6f010fca00a9ff8dae103749",
+        "byte_count": 3214227
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "acdfb1e852ebee3390e733b19998ccab8efc393e6f010fca00a9ff8dae103749",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Welcoming helper, full body, weathered picnic table, book/phone/bag and lake. No text or quiz markers. Same face, curls and teal shirt; minor non-assessed continuity variation: shoes are dark here but white in final outdoor questions. Keep this disclosed for human art review."
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "434717ee-ddf4-4f31-b7d0-423319d86734",
+        "asset_id": "near-far-tight",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:12:09.089381+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nFirst-person photograph looking steeply DOWN at a SMALL shallow picnic table. Exactly FOUR teaching objects, ALL large and sharp. LEFT foreground: learner holds a small red hardback book with visible page block. RIGHT foreground: learner holds a blue smartphone with its black screen visible. Just beyond the hands, on the rear half of this small table, are a second matching red book upper left and a second matching blue phone upper right. Each rear object occupies at least ONE FIFTH of the image width, almost as large as the handheld objects: they are only about 40 centimeters beyond the hands, NOT tiny objects at the end of a long table. The rear phone has its long axis horizontal across the frame and its whole black screen clear. Near/far is shown by holding the foreground objects versus leaving the other two on the table, with shallow honest depth, not extreme shrinking. No horizon or distant table end. Camera points downward; complete four objects, plausible two hands, no hidden fingers or objects, no extra books or phones, no split panels. Distinct open wood between the four targets. The entire frame is this compact tabletop and the two hands.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_653ebce08e164608ae4162a406e17c1a",
+        "usage": {
+          "input_tokens": 423,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 423
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1795
+        },
+        "cost": {
+          "usd": "0.043275",
+          "mxn": "0.7344070425",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 423,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.45,
+        "output": "output/imagegen/unit-2-mission-v4/near-far-tight.png",
+        "sha256": "e10a1c6a10560df4782b8799df099e9b15524a585de5bc2f96149c5dbb8dc623",
+        "byte_count": 2471619
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e10a1c6a10560df4782b8799df099e9b15524a585de5bc2f96149c5dbb8dc623",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Tighter first-person shot fixes distant target scale: tabletop phone now 22 percent width. Four complete recognizable objects, two naturally held in foreground and two left beyond hands. Clear this/that teaching contrast without labels. Near phone partially gripped at edges but entire screen visible.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.23,
+              "y": 0.355,
+              "width": 0.23,
+              "height": 0.465
+            },
+            "head_anchors": [
+              {
+                "x": 0.34,
+                "y": 0.36
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.185,
+              "y": 0.045,
+              "width": 0.21,
+              "height": 0.285
+            },
+            "head_anchors": [
+              {
+                "x": 0.29,
+                "y": 0.05
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.63,
+              "y": 0.365,
+              "width": 0.155,
+              "height": 0.425
+            },
+            "head_anchors": [
+              {
+                "x": 0.7,
+                "y": 0.37
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.565,
+              "y": 0.115,
+              "width": 0.225,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.68,
+                "y": 0.12
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "ddad5d0d-0616-47f3-9345-7c36bf1f7613",
+        "asset_id": "near-far",
+        "pack_sha256": "e6de0ccd8492e0d66e207b38f42377eb5ad67ddee493aac1cd295924631914bd",
+        "started_at": "2026-09-13T19:09:49.599726+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nFirst-person photograph at a long picnic table. The learner's LEFT hand naturally holds a large plain RED BOOK close to the camera in the lower-left foreground, exposing its cover and page block. The learner's RIGHT hand holds a BLUE smartphone close to the camera in the lower-right foreground, screen completely visible. At the far end of this same long table, a matching red book rests at upper left and a matching blue phone rests at upper right, visibly smaller and clearly several feet away, yet identifiable. These are exactly the four target objects, two near and two far; hands belong plausibly to the camera-side learner with natural wrists. Neither hand points at a particular far object. The two distant targets stay large enough to identify at phone size. Strong honest depth perspective, no split screen, no duplicated hands, no extra books or phones. Clear uncluttered space between the near and far planes.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1c26f7fcd1f44f4280e3cdfba6382b26",
+        "usage": {
+          "input_tokens": 372,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 372
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1744
+        },
+        "cost": {
+          "usd": "0.04302",
+          "mxn": "0.730079514",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 372,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.14,
+        "output": "output/imagegen/unit-2-mission-v4/near-far.png",
+        "sha256": "4ac5f61372be17466784f6e07af1a3c7b39fb646e0e8cd17e220c105fbadb4e0",
+        "byte_count": 2752356
+      },
+      "agent_review": {
+        "disposition": "rejected",
+        "sha256": "4ac5f61372be17466784f6e07af1a3c7b39fb646e0e8cd17e220c105fbadb4e0",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Correct near/far semantic evidence but far phone only about 5 percent of image width. Not suitable for phone-size assessment. Replaced by explicitly authored tighter shot near-far-tight; original paid receipt retained, no automatic retry."
+      },
+      "installed": false
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "output": "output/imagegen/unit-2-mission-v4/objects.png",
+        "sha256": "e8afb2b88a6e8bde80067f23211d03644dbef66448cf36f50d48a944e01e7e21",
+        "byte_count": 2553577,
+        "save_reconciliation": "CLI saved the PNG successfully; receipt finalization raised TypeError from calling stat.st_size. Inspected the saved PNG and reconciled its SHA-256 and length locally. No additional provider request.",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "b1e2d721-4afb-4efe-9c45-dad66074a17c",
+        "asset_id": "objects",
+        "pack_sha256": "716a9d2456824d17fb87619ee836f3e0b994ea68b785e435383a59336bfdbb4f",
+        "started_at": "2026-09-13T18:55:07.117355+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nClose elevated three-quarter photograph of one honey-colored picnic preparation table inside the park. Exactly FOUR separate unbranded objects spread across its surface: a closed red hardback BOOK with a clearly visible thick cream page block, a yellow ballpoint PEN with obvious tip and clip, a blue-cased smartphone with a black glass screen, and a black cloth shoulder BAG with handles. Objects are large, naturally proportioned and separated with clear tabletop space, staggered in depth. Entire table need not be visible but every object is complete with generous margins. No writing on the book, no extra objects, no notebooks that resemble phones, no hands covering the objects. Rich wood grain, natural soft sunlight, blurred leafy park far behind without artificial padding.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_cb3abedb33924e368e8c043f2ec4cb7a",
+        "usage": {
+          "input_tokens": 339,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 339
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1711
+        },
+        "cost": {
+          "usd": "0.042855",
+          "mxn": "0.7272793485",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 339,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.22
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e8afb2b88a6e8bde80067f23211d03644dbef66448cf36f50d48a944e01e7e21",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "All four objects complete and immediately distinct: red hardback book with visible pages, yellow tipped pen, blue-cased glass-screen phone, black cloth bag. No answer text, extra target objects or padding. Crown anchors below refer to object top edges, not imaginary heads. Pen must be checked at final mobile framing.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.025,
+              "y": 0.37,
+              "width": 0.39,
+              "height": 0.32
+            },
+            "head_anchors": [
+              {
+                "x": 0.22,
+                "y": 0.38
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.3,
+              "y": 0.57,
+              "width": 0.19,
+              "height": 0.19
+            },
+            "head_anchors": [
+              {
+                "x": 0.47,
+                "y": 0.58
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.58,
+              "y": 0.59,
+              "width": 0.26,
+              "height": 0.27
+            },
+            "head_anchors": [
+              {
+                "x": 0.67,
+                "y": 0.59
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.53,
+              "y": 0.09,
+              "width": 0.45,
+              "height": 0.51
+            },
+            "head_anchors": [
+              {
+                "x": 0.75,
+                "y": 0.1
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "123b6923-ff72-4aa0-859f-86e131d0db3e",
+        "asset_id": "places",
+        "pack_sha256": "716a9d2456824d17fb87619ee836f3e0b994ea68b785e435383a59336bfdbb4f",
+        "started_at": "2026-09-13T18:56:59.671106+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nElevated but close street-corner photograph showing FOUR distinct places around the same compact neighborhood junction. Left side: a small school entrance with two pupils wearing large backpacks walking into a classroom courtyard. Back center: a hospital entrance with one large H and a real ambulance. Right side: an open neighborhood general store with baskets of household goods and a shopper carrying groceries. Foreground center: the entrance to a leafy public park with a wide tree-lined pedestrian path, lawn and playground visible inside. Each place takes a generous separate region; entrances and their identifying evidence are fully visible. The park is a bounded entrance region rather than the entire backdrop. School has no text, hospital only H, store no signage. Avoid a restaurant, houses, extra schools/stores/hospitals. All four choices must be immediately identifiable without labels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_01b889bee6294de9b6c03c9f13b39869",
+        "usage": {
+          "input_tokens": 356,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 356
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1728
+        },
+        "cost": {
+          "usd": "0.04294",
+          "mxn": "0.728721858",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 356,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 37.06,
+        "output": "output/imagegen/unit-2-mission-v4/places.png",
+        "sha256": "6fc1fc0f213d441b3868e3ad1fec03d05279d5a38ef4b889635c0430fd92b8db",
+        "byte_count": 3485907
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "6fc1fc0f213d441b3868e3ad1fec03d05279d5a38ef4b889635c0430fd92b8db",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Four identifiable regions: foreground public park with playground/path; left school with backpacked pupils entering; right stocked shop; rear hospital H, ambulance and medical worker. Mark building entrances instead of pupils or ambulance. Phone-size fit still requires device QA.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.22,
+              "y": 0.56,
+              "width": 0.51,
+              "height": 0.38
+            },
+            "head_anchors": [
+              {
+                "x": 0.47,
+                "y": 0.57
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.01,
+              "y": 0.17,
+              "width": 0.31,
+              "height": 0.36
+            },
+            "head_anchors": [
+              {
+                "x": 0.13,
+                "y": 0.19
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.78,
+              "y": 0.15,
+              "width": 0.21,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.87,
+                "y": 0.17
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.47,
+              "y": 0.1,
+              "width": 0.27,
+              "height": 0.31
+            },
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.12
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "162f7165-9c55-4226-95b4-de4fb82f00ea",
+        "asset_id": "quantities",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:13:21.009222+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nA large real picnic supply table photographed from nearly overhead so every item is countable, in four widely separated clusters on natural honey-colored wood. Upper-left: EXACTLY THREE closed GREEN books laid individually side by side, with thick paper page blocks visible. Upper-right: EXACTLY FOUR YELLOW ballpoint pens aligned with gaps. Lower-left: EXACTLY FIVE BLACK smartphones, individually separated, face up. Lower-right: EXACTLY SIX WHITE compact cloth drawstring bags, individually separated in two rows of three, each with a visible drawstring opening. Each cluster is one selectable group. No overlap, stacking, hidden items, extra examples, text, grid lines, trays, baskets, illustrations, numbers or labels. Keep all 18 objects fully visible and large enough to count. This is one genuine photograph of one table, not four panels.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1d671f57d985412895de4f67e1feb527",
+        "usage": {
+          "input_tokens": 360,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 360
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1732
+        },
+        "cost": {
+          "usd": "0.04296",
+          "mxn": "0.729061272",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 360,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.28,
+        "output": "output/imagegen/unit-2-mission-v4/quantities.png",
+        "sha256": "a2ed363b6208fa1902fce97837e1b17085b3124003338bb9d8260a673c3c253d",
+        "byte_count": 2594155
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "a2ed363b6208fa1902fce97837e1b17085b3124003338bb9d8260a673c3c253d",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Counted pixels individually: three green closed books upper left, four yellow pens upper right, five black phones lower left, six white drawstring bags in two rows of three lower right. No hidden/stacked items. Multi-endpoint capsules identify the complete groups; no single-item dots compete with group cues.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.105,
+              "width": 0.45,
+              "height": 0.285
+            },
+            "head_anchors": [
+              {
+                "x": 0.13,
+                "y": 0.12
+              },
+              {
+                "x": 0.28,
+                "y": 0.115
+              },
+              {
+                "x": 0.43,
+                "y": 0.11
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.63,
+              "y": 0.13,
+              "width": 0.22,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.64,
+                "y": 0.135
+              },
+              {
+                "x": 0.705,
+                "y": 0.135
+              },
+              {
+                "x": 0.77,
+                "y": 0.133
+              },
+              {
+                "x": 0.835,
+                "y": 0.133
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.035,
+              "y": 0.54,
+              "width": 0.445,
+              "height": 0.235
+            },
+            "head_anchors": [
+              {
+                "x": 0.085,
+                "y": 0.55
+              },
+              {
+                "x": 0.17,
+                "y": 0.55
+              },
+              {
+                "x": 0.255,
+                "y": 0.545
+              },
+              {
+                "x": 0.35,
+                "y": 0.545
+              },
+              {
+                "x": 0.44,
+                "y": 0.54
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.555,
+              "y": 0.43,
+              "width": 0.42,
+              "height": 0.415
+            },
+            "head_anchors": [
+              {
+                "x": 0.635,
+                "y": 0.44
+              },
+              {
+                "x": 0.76,
+                "y": 0.445
+              },
+              {
+                "x": 0.89,
+                "y": 0.45
+              },
+              {
+                "x": 0.63,
+                "y": 0.64
+              },
+              {
+                "x": 0.77,
+                "y": 0.65
+              },
+              {
+                "x": 0.9,
+                "y": 0.655
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "118b7b93-0d16-4a6b-a4fc-afda49d82d10",
+        "asset_id": "station-numbers",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:13:49.056933+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nA close real park-organizing worktable with exactly FOUR freestanding wooden picnic-table number plaques, staggered in a natural arc so all faces point toward the camera. Each plaque is a large simple cream board on a small wooden stand. Print one enormous black numeral per plaque: leftmost 7, upper center-left 8, upper center-right 9, rightmost 10. The only text anywhere is the exact digits 7, 8, 9, 10, each once. These are realistic table-number signs waiting to be placed, not flashcards in an app. Full boards, large bold legible digits, generous separation and clear tabletop around them. Natural leaf background and daylight; no hands obscuring numbers, no equations, no extra numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_dc000d88cdbd43f0b02c5906095302aa",
+        "usage": {
+          "input_tokens": 347,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 347
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1719
+        },
+        "cost": {
+          "usd": "0.042895",
+          "mxn": "0.7279581765",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 347,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.59,
+        "output": "output/imagegen/unit-2-mission-v4/station-numbers.png",
+        "sha256": "4e01d5738750120d0465ae7e0bba382b160cebfbf27a543e15a328b10d7eae81",
+        "byte_count": 2664515
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4e01d5738750120d0465ae7e0bba382b160cebfbf27a543e15a328b10d7eae81",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Exactly four real tabletop plaques, each with one clear large numeral: 7, 8, 9 and 10. All digits fully visible and no competing numbers. Anchors sit above plaque edges, not on digits.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.34,
+              "width": 0.23,
+              "height": 0.425
+            },
+            "head_anchors": [
+              {
+                "x": 0.15,
+                "y": 0.345
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.31,
+              "y": 0.28,
+              "width": 0.165,
+              "height": 0.32
+            },
+            "head_anchors": [
+              {
+                "x": 0.39,
+                "y": 0.28
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.525,
+              "y": 0.285,
+              "width": 0.175,
+              "height": 0.325
+            },
+            "head_anchors": [
+              {
+                "x": 0.62,
+                "y": 0.285
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.74,
+              "y": 0.345,
+              "width": 0.24,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.885,
+                "y": 0.355
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "cef8fec9-1869-473c-9240-2994ed7d2565",
+        "asset_id": "transport",
+        "pack_sha256": "f73ef9c6497e625569bb20c3c136c46f37698056e8177f5207408555f9a5c7bf",
+        "started_at": "2026-09-13T19:05:49.481252+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nA real park arrival area beside a short stone pedestrian bridge crossing a visible narrow stream. FOUR separate selectable subjects: one large blue city bus parked on the left, one red passenger car parked center-right, one complete green adult bicycle leaning against a low wooden rail at the far right, and the complete stone bridge in the upper center with visible arch and water under it. Full bus, car and bicycle with all wheels inside the frame. No other vehicles or bikes, no vehicle illustrations, no advertising or readable route labels. Eye-level wide photograph with enough separation that every object can receive its own pointer. Warm park light, cream buildings beyond.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1eaf817c6a3a49e890c769f8cd687349",
+        "usage": {
+          "input_tokens": 319,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 319
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1691
+        },
+        "cost": {
+          "usd": "0.042755",
+          "mxn": "0.7255822785",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 319,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 34.28,
+        "output": "output/imagegen/unit-2-mission-v4/transport.png",
+        "sha256": "b8ae2b5910feb416c2a22024f8eae1efc72ce41c2a50fa62841fa40b0fd3c710",
+        "byte_count": 3646106
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b8ae2b5910feb416c2a22024f8eae1efc72ce41c2a50fa62841fa40b0fd3c710",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Full blue bus, red car, green bicycle and stone bridge. All vehicle wheels remain inside the photo; bridge arch/water visible. Four unambiguous targets. Anchor bridge on upper stone parapet, not car below.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.02,
+              "y": 0.245,
+              "width": 0.41,
+              "height": 0.38
+            },
+            "head_anchors": [
+              {
+                "x": 0.2,
+                "y": 0.25
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.41,
+              "y": 0.435,
+              "width": 0.35,
+              "height": 0.29
+            },
+            "head_anchors": [
+              {
+                "x": 0.55,
+                "y": 0.44
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.805,
+              "y": 0.5,
+              "width": 0.18,
+              "height": 0.29
+            },
+            "head_anchors": [
+              {
+                "x": 0.87,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.43,
+              "y": 0.26,
+              "width": 0.38,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.27
+              }
+            ]
+          }
+        ]
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "0c4faff9-40c1-4813-b920-1de5205cadde",
+        "asset_id": "voice-book-question",
+        "pack_sha256": "f73ef9c6497e625569bb20c3c136c46f37698056e8177f5207408555f9a5c7bf",
+        "started_at": "2026-09-13T19:04:44.655775+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nMedium shot at the park table: the established female helper with dark curly hair tied back, medium brown skin, teal short-sleeve cotton shirt and dark jeans looks directly into the camera with a natural questioning expression. With one relaxed index finger she indicates ONE red hardback book on the table beside her. Its cover and thick cream page block are clearly visible. Her pointing hand has a plausible attached arm; fingertip stops just short of the book, never covers it. No phone or competing book. Her face and the entire book remain inside the central 60 percent of the 3:2 photograph. No written question, answer, dialogue bubble or label. This is the question shot, asking the learner to identify the object.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_61c663e6ef62474bb1d766ffcbad064a",
+        "usage": {
+          "input_tokens": 338,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 338
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1710
+        },
+        "cost": {
+          "usd": "0.04285",
+          "mxn": "0.727194495",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 338,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.75,
+        "output": "output/imagegen/unit-2-mission-v4/voice-book-question.png",
+        "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+        "byte_count": 2589645
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Helper looks toward learner and points immediately above the single red book without occluding it. Clear cream page block, complete book and plausible hand. Use her actual pixels as the identity reference for all subsequent helper views; actual table is weathered gray wood, not the requested honey tone. No selectable dots in this speaking view."
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "4465d35b-495f-4b01-9958-926a2811b7ea",
+        "asset_id": "voice-book-response",
+        "pack_sha256": "f73ef9c6497e625569bb20c3c136c46f37698056e8177f5207408555f9a5c7bf",
+        "started_at": "2026-09-13T19:06:55.129304+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the reviewed question shot and continuity reference. Move the camera closer and lower to isolate the EXACT same red hardback book on the same honey-colored table, with its entire red cover, spine and cream paper page block visible. Keep its identity, color, thickness, orientation, sunlight and surrounding park identical. The helper is now outside the crop except possibly an unobtrusive teal torso at far background; no pointing hand covers the book. New closer viewpoint, not the same shot. No new objects or text. The book occupies the central 55 percent width with room around every edge. Natural full-bleed 3:2 real photograph.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_dba9bdc0133b402c86cb8cf2663ef933",
+        "usage": {
+          "input_tokens": 1877,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 341
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3249
+        },
+        "cost": {
+          "usd": "0.055153",
+          "mxn": "0.9359850171",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 341,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.23,
+        "output": "output/imagegen/unit-2-mission-v4/voice-book-response.png",
+        "sha256": "e2205ff525afc64ef19454486e8986e08f8bbe59a721fbdc4341e3a15e074a8e",
+        "byte_count": 2542598
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e2205ff525afc64ef19454486e8986e08f8bbe59a721fbdc4341e3a15e074a8e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Distinct closer shot of a complete red hardback, cream page block, weathered table and same lake/trees. No helper or obstructing hand. Book occupies large clear central region. Semantic identity preserved; perspective exaggerates thickness slightly."
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d0bf86be-536c-4926-ac8c-baa9a5b01433",
+        "asset_id": "voice-bus-question",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:15:26.081357+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the helper identity reference only. Photograph this same teal-shirted curly-haired adult woman at the park's arrival area, looking directly toward the learner and gesturing with an open hand toward a large single BLUE city bus parked immediately behind and beside her. The bus is the only vehicle, full vehicle body and all wheels visible, no car or bike. Her head does not cover its identifying front/windscreen/doors. Keep her same identity, clothes and late-morning daylight. Clear realistic scale, no venue words, route labels, signs, logos, question or answer text.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_e9c7497e586d45d7a40096e484387d70",
+        "usage": {
+          "input_tokens": 1864,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 328
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3236
+        },
+        "cost": {
+          "usd": "0.055088",
+          "mxn": "0.9348819216",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 328,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.29,
+        "output": "output/imagegen/unit-2-mission-v4/voice-bus-question.png",
+        "sha256": "f50cbcd2d0d51b1eeda56f385f86d36b15274e27b036b396a2c7f668c89e15e1",
+        "byte_count": 2873526
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "f50cbcd2d0d51b1eeda56f385f86d36b15274e27b036b396a2c7f668c89e15e1",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Same helper, full body including shoes, gestures toward unmistakable blue bus. Full identifying front, entrance and visible wheels. No other vehicles. Slight overlap at far bus side does not hide identifying evidence."
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "112d70b0-56a7-487c-a661-cc5dff2fee20",
+        "asset_id": "voice-bus-response",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:18:58.266174+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the question-view reference. Move the camera sideways closer to the EXACT SAME blue city bus in the SAME park arrival area, removing the helper from view. Preserve exact bus design, color, windows, doors, daylight and stone/park setting. Keep the COMPLETE bus and all wheels inside the frame with generous margins, use a natural front three-quarter perspective so it is clearly a bus rather than a car. No other vehicles, no letters, no words or labels. A distinct response shot, full-bleed realistic 3:2 photo.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-bus-question.png",
+            "sha256": "f50cbcd2d0d51b1eeda56f385f86d36b15274e27b036b396a2c7f668c89e15e1",
+            "byte_count": 2873526
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7eaa86bdf6284ac5b3dbed508da7c8d9",
+        "usage": {
+          "input_tokens": 1857,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 321
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3229
+        },
+        "cost": {
+          "usd": "0.055053",
+          "mxn": "0.9342879471",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 321,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.42,
+        "output": "output/imagegen/unit-2-mission-v4/voice-bus-response.png",
+        "sha256": "98c41239ef05fe7566a689d1582afacaf316adacf88eea9974415bea2745e20e",
+        "byte_count": 3052543
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "98c41239ef05fe7566a689d1582afacaf316adacf88eea9974415bea2745e20e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Full blue bus from a distinct closer viewpoint, same window/door/headlamp arrangement and park setting. Helper removed. Visible wheels, roof and body remain inside frame."
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f8834c5a-88ec-415d-b6de-da3de6ded81c",
+        "asset_id": "voice-park-question",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:15:57.294349+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 establishes the exact female helper's face, teal shirt, jeans and hairstyle. Final question view at the neighborhood PARK entrance. She looks at the learner while gesturing into a clearly visible large park with grass, trees, a children's playground and the honey-colored picnic meeting tables along a terracotta path. Full helper body is visible at one side, leaving a broad unobstructed park view. No hospital, school, store, bus or commercial dining terrace. This unmistakably asks about a public park, not a house garden. Preserve helper identity and daylight, fresh camera angle. No text, logos, arrows or captions.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_a3171edea9984f5aa8fdb9063f719e23",
+        "usage": {
+          "input_tokens": 1871,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 335
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3243
+        },
+        "cost": {
+          "usd": "0.055123",
+          "mxn": "0.9354758961",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 335,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 34.25,
+        "output": "output/imagegen/unit-2-mission-v4/voice-park-question.png",
+        "sha256": "b47841ce3de7ab8964c867f027e25ba7b57a399d4c4b80e644a3e0841649f809",
+        "byte_count": 3283042
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b47841ce3de7ab8964c867f027e25ba7b57a399d4c4b80e644a3e0841649f809",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Same helper face/curls/teal shirt/jeans, full body. Open gesture toward public playground, picnic tables, lawn and pond. No competing place markers, visibly a park. Plenty of scene evidence beyond helper."
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "23f37824-b3e8-452a-8f1f-faff22e67987",
+        "asset_id": "voice-park-response",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:19:28.421446+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the final park question-view. Cut to a new closer forward view into the SAME public park from just inside its entrance: large tree-shaded lawn, public playground, terracotta walking path and the same honey-colored picnic meeting area. The helper is outside the frame so the place itself is the answer. Keep the exact spatial layout, daylight and background landmarks of the reference, not a different park. Warm real photography, readable public-park features at phone size, full-bleed 3:2, no text, logos, captions or signage.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-park-question.png",
+            "sha256": "b47841ce3de7ab8964c867f027e25ba7b57a399d4c4b80e644a3e0841649f809",
+            "byte_count": 3283042
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_1ff9857c744a4ba684c084c04834cae1",
+        "usage": {
+          "input_tokens": 1859,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 323
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3231
+        },
+        "cost": {
+          "usd": "0.055063",
+          "mxn": "0.9344576541",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 323,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.35,
+        "output": "output/imagegen/unit-2-mission-v4/voice-park-response.png",
+        "sha256": "14a1e8bde6cc8c025256810cbd717a192104297e151db68635d33f76a8d7319a",
+        "byte_count": 3771351
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "14a1e8bde6cc8c025256810cbd717a192104297e151db68635d33f76a8d7319a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "New forward viewpoint into the same park; pond/fountain left, same playground right, tree and picnic tables preserved. No helper. Place is visually unambiguous."
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "803f104e-6854-4c7d-9c19-ace86d3384de",
+        "asset_id": "voice-phone-question",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:14:52.491449+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 establishes the female helper's exact identity, teal shirt, tied-back curls, and park setting. Take a new natural medium side-angle photograph of this SAME helper at the same meeting. She faces the camera and indicates ONE blue smartphone lying flat on the table, visible black glass screen toward the learner. Remove the book for this new activity. Phone is the only target object; full phone and her natural pointing hand clearly visible, no touching or occlusion. Keep the helper's identity and clothes, but change the camera angle and pose intentionally. Entire target phone and her face in central 60 percent, no labels, questions or answer text.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-book-question.png",
+            "sha256": "136720ad77585b315db8e9a5f41be528fbc26d1adc716ea8de5f0e2d682447ad",
+            "byte_count": 2589645
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_5ad4bb0d40d4422a9bf05b79f0456931",
+        "usage": {
+          "input_tokens": 1875,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 339
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3247
+        },
+        "cost": {
+          "usd": "0.055143",
+          "mxn": "0.9358153101",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 339,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.74,
+        "output": "output/imagegen/unit-2-mission-v4/voice-phone-question.png",
+        "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+        "byte_count": 2693853
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Same helper identity, teal shirt, curls, weathered table and lake. Fresh side pose, finger stops just above a single blue phone. Full phone visible; response shot must enlarge it. No book or conflicting target."
+      },
+      "installed": true
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "764df961-fc0d-4e14-9b30-aa352ad4a9df",
+        "asset_id": "voice-phone-response",
+        "pack_sha256": "bf0a4c36f05544bbdf6e6426537d5d523a544e6c7437eb53c2a72623ee744240",
+        "started_at": "2026-09-13T19:18:25.752408+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, 3:2 landscape. Natural material textures, believable optics, physically coherent daylight, realistic skin and anatomy when people appear. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model, or app screenshot. The four target regions must be visually distinct at phone size with clear empty space above each for UI markers added later. Do not draw dots, arrows, labels, UI, borders, captions, or watermarks. Preserve all teaching-critical objects and full people including feet when visible; no cropped heads, hands, or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may be visible. Make the central teaching evidence large and sharp, with natural photographic detail, not a distant decorative establishing shot.\n\nUse case: identity-preserve. Image 1 is the exact question-view reference. Cut to a closer high three-quarter view of the SAME blue smartphone with black glass screen on the SAME honey-colored picnic table. Preserve its casing, dimensions, orientation, daylight and park context. Remove the helper's pointing hand from view; the phone is completely visible and fills the central 55 percent width without cropping. No book, no extra phone, no text, no labels. This is a distinct closer answer-view photograph, not a duplicate of the question shot.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "voice-phone-question.png",
+            "sha256": "2312ca457e8f3bdb664f7474cc09e9401d4b643d906ec550bfc9e43999308c55",
+            "byte_count": 2693853
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_2b0f55c0d6534b6ba46a88576dbd5431",
+        "usage": {
+          "input_tokens": 1848,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 312
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3220
+        },
+        "cost": {
+          "usd": "0.055008",
+          "mxn": "0.9335242656",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 312,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.8,
+        "output": "output/imagegen/unit-2-mission-v4/voice-phone-response.png",
+        "sha256": "44b7cc7f504e069ee8b85732a37b2fffcadbb91699c01a10e5e5b66aecaac854",
+        "byte_count": 2742592
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "44b7cc7f504e069ee8b85732a37b2fffcadbb91699c01a10e5e5b66aecaac854",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Distinct close-up of the same blue phone, dark reflective screen, weathered table and lake setting. Complete phone with ample margin, no helper or pointing hand."
+      },
+      "installed": true
+    }
+  ]
+}

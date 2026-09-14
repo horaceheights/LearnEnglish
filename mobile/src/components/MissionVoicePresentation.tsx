@@ -8,15 +8,17 @@ import { OptionMediaImage } from './OptionMediaImage';
 export function MissionVoicePresentation({
   imageUrl, asking, listening, checking, accepted, answer, message,
   replayDisabled, unavailable, offline, onReplay, onContinue,
+  successLabel = 'ENTRADA ACTIVADA',
 }: {
   imageUrl: string; asking: boolean; listening: boolean; checking: boolean;
   accepted: boolean; answer: string | null; message: string;
   replayDisabled: boolean; unavailable: boolean; offline: boolean;
   onReplay: () => void; onContinue: () => void;
+  successLabel?: string;
 }) {
   const [slot, setSlot] = useState({ width: 0, height: 0 });
   const imageWidth = Math.max(0, Math.min(slot.width - 4, (slot.height - 4) * 1.5));
-  const label = accepted ? 'ENTRADA ACTIVADA' : checking ? 'REVISANDO TU RESPUESTA'
+  const label = accepted ? successLabel : checking ? 'REVISANDO TU RESPUESTA'
     : listening ? 'TE ESCUCHAMOS' : asking ? 'ESCUCHA LA PREGUNTA' : 'RESPONDE EN VOZ ALTA';
   return (
     <View style={styles.surface}>
@@ -25,7 +27,7 @@ export function MissionVoicePresentation({
           ? current : { width: layout.width, height: layout.height })}>
         {imageWidth > 0 ? <View style={[styles.scene, accepted ? styles.sceneAccepted : null,
           { width: imageWidth + 4, height: imageWidth / 1.5 + 4 }]}>
-          <OptionMediaImage accessibilityLabel={asking ? 'Una visitante te hace una pregunta.' : 'Mira a los invitados y responde.'}
+          <OptionMediaImage accessibilityLabel={asking ? 'Escucha la pregunta.' : 'Mira la escena y responde.'}
             imageUrl={imageUrl} />
         </View> : null}
       </View>

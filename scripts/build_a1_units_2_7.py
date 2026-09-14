@@ -669,6 +669,46 @@ def build_lesson(catalog: AssetCatalog, unit: dict[str, Any], lesson: dict[str, 
     }
 
 
+def guard_existing_lessons(
+    generated: list[tuple[Path, dict[str, Any]]], lessons_root: Path,
+) -> None:
+    """A historical canvas must never silently replace newer canonical lessons.
+
+    Check the entire batch before creating a directory or writing any lesson.
+    Canonical edits (including missions and the newer Completa contract) belong
+    in the YAML and its matching authoring source, not behind a force flag here.
+    """
+    expected = {path: payload for path, payload in generated}
+    if len(expected) != len(generated):
+        raise ValueError("No files were written. Duplicate lesson destination in canvas.")
+    if any(not path.resolve().is_relative_to(lessons_root.resolve()) for path in expected):
+        raise ValueError("No files were written. Lesson destination is outside the canonical lesson directory.")
+    conflicts: list[str] = []
+    for path, payload in generated:
+        if not path.exists():
+            continue
+        # The Units 2–7 canvas exporter writes JSON in .yaml files. A hand-authored
+        # YAML successor is deliberately a conflict, not a reason to overwrite it.
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8-sig"))
+        except (ValueError, UnicodeError):
+            conflicts.append(f"{path.name}: canonical YAML is not this exporter's JSON")
+            continue
+        if existing != payload:
+            conflicts.append(f"{path.name}: canonical content differs from the canvas")
+    for directory in sorted({path.parent for path in expected}):
+        for path in sorted(directory.glob("*.yaml")):
+            if path not in expected:
+                conflicts.append(f"{path.name}: canvas would remove this canonical lesson")
+    if conflicts:
+        details = "\n".join(f"  - {item}" for item in conflicts)
+        raise ValueError(
+            "No files were written. The canvas export would overwrite or remove "
+            "newer canonical lessons. Reconcile the authoring sources first; use "
+            "the scoped runtime-manifest refresh for media-only changes.\n" + details
+        )
+
+
 def add_unit_one_runtime_contracts(catalog: AssetCatalog) -> None:
     """Add the established Unit 1 stills and their final 3:2 render variants.
 
@@ -843,24 +883,21 @@ def main() -> None:
 
     plan = json.loads(PLAN.read_text(encoding="utf-8"))
     catalog = AssetCatalog()
-    output_files: list[Path] = []
+    generated: list[tuple[Path, dict[str, Any]]] = []
     for unit in plan["units"]:
         unit_number = int(unit["unit"])
         output_dir = LESSONS_ROOT / f"unit_{unit_number}"
-        output_dir.mkdir(parents=True, exist_ok=True)
-        expected: set[Path] = set()
         for lesson in unit["lessons"]:
             payload = build_lesson(catalog, unit, lesson)
             destination = output_dir / f"{payload['id']}.yaml"
-            expected.add(destination)
-            destination.write_text(
-                json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-                encoding="utf-8",
-            )
-            output_files.append(destination)
-        for stale in output_dir.glob("*.yaml"):
-            if stale not in expected:
-                stale.unlink()
+            generated.append((destination, payload))
+    guard_existing_lessons(generated, LESSONS_ROOT)
+    for destination, payload in generated:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
 
     add_unit_one_runtime_contracts(catalog)
     add_course_browser_runtime_contracts(catalog)
@@ -883,7 +920,7 @@ def main() -> None:
         json.dumps(manifest_payload, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
-    print(f"Built {len(output_files)} lessons and {len(published_assets)} media contracts.")
+    print(f"Built {len(generated)} lessons and {len(published_assets)} media contracts.")
 
 
 if __name__ == "__main__":

@@ -12,6 +12,8 @@ const units = new Set();
 let textTileCards = 0;
 let missionConstructionBanks = 0;
 let missionTapCandidateSets = 0;
+const expectedMissionTapCards = new Set();
+const checkedMissionTapCards = new Set();
 const missionConstructionInteractions = new Set([
   'mission-word-parts',
   'mission-sentence',
@@ -21,6 +23,11 @@ const missionConstructionInteractions = new Set([
 for (const filename of lessonFiles) {
   const lesson = JSON.parse(fs.readFileSync(path.join(generatedRoot, filename), 'utf8'));
   units.add(lesson.unit_id);
+  for (const card of lesson.cards) {
+    if (lesson.experience_type === 'mission' && card.mission_game && card.mission_game.kind !== 'voice-gate') {
+      expectedMissionTapCards.add(`${lesson.id}:${card.slide_id}`);
+    }
+  }
 
   lesson.cards.forEach((card, index) => {
     if (!Array.isArray(card.options) || card.options.length === 0) return;
@@ -29,6 +36,7 @@ for (const filename of lessonFiles) {
     textTileCards += 1;
     if (lesson.experience_type === 'mission' && card.mission_game?.kind !== 'voice-gate') {
       missionTapCandidateSets += 1;
+      checkedMissionTapCards.add(`${lesson.id}:${card.slide_id}`);
       assert.ok(
         card.options.length >= 4 && card.mission_game.targets.length >= 4,
         `${lesson.id} card ${index + 1} must retain at least four credible tap candidates.`,
@@ -69,5 +77,8 @@ for (const filename of lessonFiles) {
 
 assert.equal(units.size, 7, 'Expected embedded lessons from all seven A1 units.');
 assert.ok(textTileCards > 500, 'Expected the full A1 text-tile catalog to be audited.');
-assert.equal(missionTapCandidateSets, 33, 'Expected all 33 listening mission challenges to bypass the ordinary visible-tile limit.');
+assert.equal([...expectedMissionTapCards].filter(id => id.startsWith('lesson-10-family-mission:')).length, 18,
+  'All 18 Unit 1 listening scenes must remain in scope.');
+assert.deepEqual(checkedMissionTapCards, expectedMissionTapCards, 'Every declared listening mission must retain audited hidden candidates.');
+assert.equal(missionTapCandidateSets, expectedMissionTapCards.size, 'Each listening mission must be checked exactly once.');
 console.log(`Text-tile option limit passed for ${textTileCards} cards across 70 lessons, including ${missionTapCandidateSets} hidden tap-candidate sets and ${missionConstructionBanks} bounded construction banks.`);

@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
+import { missionVoiceProgress } from "../lib/missionPresentation.cjs";
 
 const testDir = path.dirname(fileURLToPath(import.meta.url));
 const frontendRoot = path.resolve(testDir, "..");
@@ -65,7 +66,14 @@ test("four voice gates stay inside the adventure and use real pronunciation stat
   assert.match(mission, /game\.kind === "voice-gate"/);
   assert.match(mission, /<VoiceGateHeader/);
   assert.match(mission, /<VoiceGateConsole/);
-  assert.match(mission, /ABRE LA CELEBRACIÓN/);
+  assert.match(mission, /missionVoiceProgress\(lesson, cardIndex\)/);
+  assert.match(mission, /<small>\{heading\}<\/small><strong>\{instruction\}/);
+  const unitOne = JSON.parse(fs.readFileSync(path.join(frontendRoot, "../backend/lessons/unit_1/1.10_family_scene_mission.yaml"), "utf8"));
+  const progress = missionVoiceProgress(unitOne, 18);
+  assert.equal(progress.heading, "ABRE LA CELEBRACIÓN");
+  assert.equal(progress.instruction, "Activa la entrada con tu voz");
+  assert.equal(progress.step, 1);
+  assert.equal(progress.total, 4);
   assert.match(mission, /Array\.from\(\{ length: total \}/);
   assert.match(mission, /voice-scene-open/);
   assert.match(mission, /!speech\.asking && !speech\.error \? <strong>\{card\.prompt\}/);
@@ -91,5 +99,6 @@ test("pronunciation questions switch shots and never play the written answer upf
 test("completion keeps the celebration story and contains no rejected album framing", () => {
   const surface = [player, mission, completion].join("\n");
   assert.doesNotMatch(surface, /album|álbum|retrato restaurado|fotos restauradas|página restaurada/i);
-  assert.match(completion, /Los cinco actos de la misión están completos/);
+  assert.match(completion, /lesson\.mission\.chapters\.map/);
+  assert.match(completion, /Los \$\{lesson\.mission\.chapters\.length\} actos de la misión están completos/);
 });
