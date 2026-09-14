@@ -12,6 +12,8 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import sys
+from types import SimpleNamespace
 
 import yaml
 
@@ -72,7 +74,55 @@ def capture(root: Path) -> dict:
         "assets": records, "lesson_bindings": refs}
 
 
-def validate_plan(plan: dict, baseline: dict, current: dict, root: Path) -> None:
+USE_IMAGE_ISSUE = "use-image-contradicts-sentence"
+
+
+def use_prompt_image_contradicts(lesson: dict, card: dict, filename: str) -> bool:
+    """Ask the Use sentence/image check whether ``filename`` fails ``card``'s sentence."""
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from scripts.validate_lesson_cards import find_use_prompt_image_mismatches
+
+    sentence = card.get("answer_audio_text") or card.get("audio_text") or ""
+    probe = SimpleNamespace(stage="Use", slide_id=card.get("slide_id"), prompt_image_url=filename,
+                            answer_audio_text=sentence, audio_text=sentence)
+    scope = {lesson["id"]: SimpleNamespace(sub_lesson_id=lesson["sub_lesson_id"], cards=[probe])}
+    mismatches, _ = find_use_prompt_image_mismatches(scope)
+    return bool(mismatches)
+
+
+def use_prompt_image_has_course_evidence(filename: str) -> bool:
+    """Ask whether an authored description or a teaching card vouches for ``filename``."""
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from scripts.validate_lesson_cards import use_prompt_image_has_course_evidence as has_evidence
+
+    return has_evidence(filename)
+
+
+def validate_use_image_plan(plan: dict, lesson: dict, image_contradicts,
+                            image_has_evidence=use_prompt_image_has_course_evidence) -> None:
+    cards = [card for card in lesson.get("cards", [])
+             if card.get("stage") == "Use" and card.get("slide_id") == plan.get("slide_id")]
+    if len(cards) != 1:
+        raise ValueError("A Use-image exception must name exactly one Use card.")
+    if Path(str(cards[0].get("prompt_image_url") or "").split("?", 1)[0]).name != plan["new_filename"]:
+        raise ValueError("The named Use card must show the replacement image.")
+    if image_contradicts(lesson, cards[0], plan["new_filename"]):
+        raise ValueError("The replacement image also contradicts this Use sentence.")
+    if image_contradicts(lesson, cards[0], plan["old_filename"]):
+        return
+    # An untaught placeholder with no authored description gives the check
+    # nothing to contradict, so a recorded visual review must stand in for it.
+    if image_has_evidence(plan["old_filename"]):
+        raise ValueError("The original image does not contradict this Use sentence.")
+    if len(str(plan.get("original_shows") or "").strip()) < 12:
+        raise ValueError("Retiring an untaught placeholder needs a recorded review of what it shows.")
+
+
+def validate_plan(plan: dict, baseline: dict, current: dict, root: Path,
+                  image_contradicts=use_prompt_image_contradicts,
+                  image_has_evidence=use_prompt_image_has_course_evidence) -> None:
     lesson_id, old, new = plan.get("lesson_id"), plan.get("old_filename"), plan.get("new_filename")
     if lesson_id not in current or old not in baseline["lesson_bindings"].get(lesson_id, []):
         raise ValueError("Replacement is not bound to an existing lesson/image use.")
@@ -84,6 +134,9 @@ def validate_plan(plan: dict, baseline: dict, current: dict, root: Path) -> None
         raise ValueError("Replacement needs a distinct safe versioned runtime filename.")
     if len(plan.get("issue_detail", "").strip()) < 35:
         raise ValueError("A concrete issue description is required; style preference is not sufficient.")
+    if plan.get("issue") == USE_IMAGE_ISSUE:
+        validate_use_image_plan(plan, current[lesson_id], image_contradicts, image_has_evidence)
+        return
     if plan.get("issue") != "review-reuses-earlier-image":
         raise ValueError("Unreviewed exception type: record and implement its evidence check first.")
     number = tuple(map(int, current[lesson_id]["sub_lesson_id"].split(".")))
@@ -97,13 +150,15 @@ def validate_plan(plan: dict, baseline: dict, current: dict, root: Path) -> None
         raise ValueError("No earlier exact-image reuse supports this exception.")
 
 
-def audit(root: Path, baseline: dict, plans: list[dict]) -> list[str]:
+def audit(root: Path, baseline: dict, plans: list[dict],
+          image_contradicts=use_prompt_image_contradicts,
+          image_has_evidence=use_prompt_image_has_course_evidence) -> list[str]:
     errors = []
     current = lessons(root)
     allowed = set()
     for plan in plans:
         try:
-            validate_plan(plan, baseline, current, root)
+            validate_plan(plan, baseline, current, root, image_contradicts, image_has_evidence)
             key = (plan["lesson_id"], plan["old_filename"])
             if key in allowed:
                 raise ValueError("Duplicate replacement scope.")

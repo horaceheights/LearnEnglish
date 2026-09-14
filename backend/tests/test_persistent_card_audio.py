@@ -68,6 +68,7 @@ from scripts.render_course_audio_assets import (
     request_audio,
     render_jobs,
     selected_assets,
+    write_registry,
 )
 from scripts.validate_course_audio_cast import validate_assignments
 
@@ -480,6 +481,43 @@ class PersistentCardAudioTests(unittest.TestCase):
                 APPROVED_ONE_AUDIO_SHA256,
                 resolve_approved_take(asset, registry).take_id,
             )
+
+    def test_renderer_reuse_never_rewrites_an_existing_binding(self):
+        assets = [
+            asset
+            for lesson in LESSONS.values()
+            for card in lesson.cards
+            for asset in card.audio_assets
+            if asset.text == "One"
+        ]
+        job = RenderJob(kind="ordinary", assets=assets, text="One")
+        registry = copy.deepcopy(load_approved_take_registry())
+        take_id = matching_take_id(registry, job)
+        original = {
+            "take_id": take_id,
+            "approved_at": "2026-08-31T00:00:00+00:00",
+            "approval_note": "Generated offline with the approved character voice.",
+        }
+        registry["bindings"][assets[0].id] = dict(original)
+
+        bind_take(registry, take_id, job, "Reuse the exact reviewed take.")
+
+        self.assertEqual(original, registry["bindings"][assets[0].id])
+
+    def test_registry_writer_keeps_bindings_sorted(self):
+        registry = {
+            "schema_version": 1,
+            "takes": {},
+            "bindings": {"z-asset": {"take_id": "t"}, "a-asset": {"take_id": "t"}},
+        }
+        with TemporaryDirectory() as directory, patch(
+            "scripts.render_course_audio_assets.approved_audio_dir",
+            return_value=Path(directory),
+        ):
+            write_registry(registry)
+            written = json.loads((Path(directory) / "registry.json").read_text(encoding="utf-8"))
+
+        self.assertEqual(["a-asset", "z-asset"], list(written["bindings"]))
 
     def test_reviewed_fixture_is_a_real_decodable_mp3(self):
         media = probe_mp3(reviewed_hello_bytes())
