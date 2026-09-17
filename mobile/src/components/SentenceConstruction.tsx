@@ -13,6 +13,7 @@ import {
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
+import { COMPLETION_RETRY_HELP, lessonHelpText } from '../lessonHelp';
 
 type Bounds = { x: number; y: number; width: number; height: number };
 type Flight = { label: string; path: TileFlightPath; slot: number };
@@ -28,6 +29,7 @@ type Props = {
   showHelp?: boolean;
   onChange: (ids: string[]) => void;
   onReplay: () => void;
+  onRetry: () => void;
 };
 
 function WordTile({ option, disabled, width, height, textSize, onPlace, measureTargets, viewportKey, allowDrag, onWidth, registerMeasure } : {
@@ -95,11 +97,12 @@ function WordTile({ option, disabled, width, height, textSize, onPlace, measureT
   </Animated.View>;
 }
 
-export function SentenceConstruction({ card, selected, result, disabled, showHelp, onChange, onReplay }: Props) {
+export function SentenceConstruction({ card, selected, result, disabled, showHelp, onChange, onReplay, onRetry }: Props) {
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const [translated, setTranslated] = useState(false);
   const [wordWidths, setWordWidths] = useState<Record<string, number>>({});
+  const [feedbackHeight, setFeedbackHeight] = useState(24);
   const [size, setSize] = useState({ width: viewport.width - 12, height: viewport.height - 240 });
   const [flight, setFlight] = useState<Flight | null>(null);
   const flightValue = useRef(new Animated.Value(0)).current;
@@ -128,7 +131,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   }, [card.slide_id, viewport.width, viewport.height, viewport.fontScale]);
   const slots = sentenceSlots(card, selected);
   const landscape = viewport.width > viewport.height && viewport.height < 600;
-  const layout = sentenceLayout(landscape ? size.width * 0.48 : size.width - 40, size.height, viewport.fontScale, slots.length);
+  const layout = sentenceLayout(landscape ? size.width * 0.48 : size.width - 40, size.height, viewport.fontScale, slots.length, feedbackHeight);
   // Use measured glyph widths and leave room for punctuation. Move replay into
   // the instruction row when reserving a side rail would clip a complete word.
   const paneWidth = landscape ? size.width * 0.48 : size.width;
@@ -136,7 +139,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
     + layout.textSize * viewport.fontScale > paneWidth - 60;
   const measureWord = (id: string, width: number) => setWordWidths((previous) =>
     previous[id] === width ? previous : { ...previous, [id]: width });
-  const locked = disabled || result === 'correct';
+  const locked = disabled || result !== null;
   const punctuation = card.prompt.split('___').slice(1);
 
   const startFlight = (id: string, slot: number) => {
@@ -225,7 +228,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
       <LessonMediaFrame maxHeight={Math.max(112, layout.imageHeight)}>
         <OptionMediaImage imageUrl={card.prompt_image_url} accessibilityLabel="Persona de la frase" />
       </LessonMediaFrame>
-      <Text style={styles.hint}>{showHelp ? 'Escucha con el altavoz. Toca las fichas en orden; toca una palabra colocada para devolverla. Toca la instrucción para traducir.' : compact ? 'Toca cada palabra arriba.' : 'Toca o arrastra cada palabra arriba.'}</Text>
+      <Text style={styles.hint}>{result === 'wrong' ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, 'translation-on-tap') : compact ? 'Toca cada palabra arriba.' : 'Toca o arrastra cada palabra arriba.'}</Text>
       <View style={styles.bank}>
         {card.options.map((option) => <WordTile key={option.id} option={option}
           disabled={locked || slots.includes(option.id)} width={layout.tileWidth} height={layout.tileHeight}
@@ -233,17 +236,22 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
           onWidth={measureWord} registerMeasure={registerMeasure}
           viewportKey={`${viewport.width}:${viewport.height}:${viewport.fontScale}:${size.width}:${size.height}:${wideSlots}`} />)}
       </View>
-      <View style={styles.controls}>
+      {result !== 'wrong' ? <View style={styles.controls}>
         <Pressable style={styles.control} disabled={locked || !slots.some(Boolean)}
           accessibilityRole="button" accessibilityLabel="Deshacer última palabra"
           onPress={() => remove(slots.indexOf(history.current.filter((id) => slots.includes(id)).at(-1) || ''))}><Text style={styles.controlText}>Deshacer</Text></Pressable>
         <Pressable style={styles.control} disabled={locked || !slots.some(Boolean)}
           accessibilityRole="button" onPress={() => onChange(slots.map(() => ''))}>
           <Text style={styles.controlText}>Reiniciar</Text></Pressable>
-      </View>
-      <Text accessibilityLiveRegion="polite" style={styles.feedback}>
-        {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? sentenceHint(card, slots) : ' '}
+      </View> : null}
+      <Text accessibilityLiveRegion="polite" style={styles.feedback}
+        onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
+        {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? `¡Ánimo! Inténtalo de nuevo.\n${sentenceHint(card, slots)}` : ' '}
       </Text>
+      {result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
+        style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; setFlight(null); onRetry(); }}>
+        <Text style={[styles.controlText, styles.retryControlText]}>Reintentar</Text>
+      </Pressable> : null}
     </CardContainer>
     {flight ? <Animated.View accessibilityElementsHidden importantForAccessibility="no-hide-descendants"
       pointerEvents="none"
@@ -287,5 +295,7 @@ const styles = StyleSheet.create({
   controls: { flexDirection: 'row', justifyContent: 'center', gap: 12, flexShrink: 0 },
   control: { minHeight: 48, minWidth: 80, padding: 10, justifyContent: 'center' },
   controlText: { color: '#2f6f9f', fontSize: 16, fontWeight: '700', textAlign: 'center' },
+  retryControl: { alignSelf: 'center', backgroundColor: '#278c73', borderRadius: 14, paddingHorizontal: 24 },
+  retryControlText: { color: '#fff' },
   feedback: { flexShrink: 0, fontSize: 16, color: '#665134', textAlign: 'center', minHeight: 24 },
 });

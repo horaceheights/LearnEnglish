@@ -323,6 +323,8 @@ Late A1:
 
 ## Authoring Requirements
 
+Generated lessons must obey the [contextual help and mistake explanation standard](project-guardrails.md#contextual-help-and-mistake-explanations-approved-2026-09-17). Choose explanations from the current task and the submitted error. Required-word construction teaches why the misplaced words belong in their intended positions; it must not substitute an unrelated vocabulary or article-selection rule. New construction patterns need reviewed Spanish teaching support and passing whole-course hint checks before publication. Before-answer help explains the current mechanic; after-error feedback explains the actual missed relationship.
+
 Canonical standard lesson files use these fields:
 
 - lesson id, title, level, unit, goal

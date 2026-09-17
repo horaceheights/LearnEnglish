@@ -19,6 +19,7 @@
 .controls { display: flex; justify-content: center; gap: 16px; }
 .controls button { min-height: 48px; font-size: 16px; font-weight: 700; border: 0; background: transparent; color: #2f6f9f; cursor: pointer; }
 .controls button:disabled { opacity: .4; }
+.controls .retry { background: #278c73; color: #fff; border-radius: 14px; padding: 10px 24px; }
 .feedback { min-height: 24px; font-size: 16px; text-align: center; color: #665134; }
 .drag { position: fixed; transform: translate(-50%, -50%); pointer-events: none; z-index: 100; background: #f3effc; border: 2px solid #6947ad; border-radius: 12px; padding: 12px; font-size: 22px; font-weight: 800; box-shadow: 0 4px 14px #0003; }
 @media (max-height: 700px) { .imageFrame { width: min(100%, 240px); } }

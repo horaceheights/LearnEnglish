@@ -2,12 +2,13 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { placeSentenceWord, sentenceHint, sentenceSlots } from "../../mobile/src/sentenceConstruction";
+import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
 import styles from "./SentenceConstruction.module.css";
 
-export default function SentenceConstruction({ card, selected, result, onChange, onReplay, imageSrc, location, showHelp, surfaceRef }) {
+export default function SentenceConstruction({ card, selected, result, onChange, onReplay, onRetry, imageSrc, location, showHelp, surfaceRef }) {
   const slots = sentenceSlots(card, selected);
   const punctuation = card.prompt.split("___").slice(1);
-  const locked = result === "correct";
+  const locked = result !== null;
   const root = useRef(null);
   const setRoot = useCallback(node => { root.current = node; if (surfaceRef) surfaceRef.current = node; }, [surfaceRef]);
   const slotRefs = useRef([]);
@@ -82,7 +83,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
       <div className={styles.slots} aria-label="Frase en construcción">
         {slots.map((id, index) => <button key={index} type="button"
           ref={(element) => { slotRefs.current[index] = element; }}
-          className={`${styles.slot} ${locked ? styles.correct : ""}`}
+          className={`${styles.slot} ${result === "correct" ? styles.correct : ""}`}
           aria-label={`Espacio ${index + 1}: ${card.options.find((option) => option.id === id)?.label || "vacío"}`}
           aria-disabled={locked || !id} onClick={() => id && remove(index)}>
           {card.options.find((option) => option.id === id)?.label || "___"}{punctuation[index]?.trim()}
@@ -96,7 +97,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
     </div>
     <div className={styles.card}>
       <div className={styles.imageFrame}><img src={imageSrc} alt="Persona de la frase" /></div>
-      <p className={styles.instruction}>{showHelp ? "Escucha con el altavoz. Toca las fichas en orden; toca una palabra colocada para devolverla. Toca la instrucción para traducir." : "Toca o arrastra cada palabra arriba."}</p>
+      <p className={styles.instruction}>{result === "wrong" ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, "translation-on-tap") : "Toca o arrastra cada palabra arriba."}</p>
       <div className={styles.bank} aria-label="Palabras disponibles">
         {card.options.map((option, index) => <button key={option.id} type="button"
           ref={(element) => { wordRefs.current[index] = element; }}
@@ -108,15 +109,17 @@ export default function SentenceConstruction({ card, selected, result, onChange,
           {option.label}
         </button>)}
       </div>
-      <div className={styles.controls}>
+      {result !== "wrong" ? <div className={styles.controls}>
         <button type="button" disabled={locked || !slots.some(Boolean)}
           onClick={() => remove(slots.indexOf(history.current.filter((id) => slots.includes(id)).at(-1)))}>Deshacer</button>
         <button type="button" disabled={locked || !slots.some(Boolean)}
           onClick={() => onChange(slots.map(() => ""))}>Reiniciar</button>
-      </div>
+      </div> : null}
       <div className={styles.feedback} role="status">
-        {locked ? "¡Muy bien!" : result === "wrong" ? sentenceHint(card, slots) : ""}
+        {result === "correct" ? "¡Muy bien!" : result === "wrong" ? <><div>¡Ánimo! Inténtalo de nuevo.</div><div>{sentenceHint(card, slots)}</div></> : ""}
       </div>
+      {result === "wrong" ? <div className={styles.controls}><button className={styles.retry} type="button"
+        onClick={() => { history.current = []; onRetry(); }}>Reintentar</button></div> : null}
     </div>
     {moving ? <div aria-hidden="true" className={styles.drag}
       style={{ left: moving.x, top: moving.y }}>{moving.label}</div> : null}

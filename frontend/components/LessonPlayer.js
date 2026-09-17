@@ -17,6 +17,8 @@ import {
   scorePronunciationAudio,
   startLessonSession,
 } from "../lib/api";
+import { awaitingConstructionRetry } from "../../mobile/src/constructionTeaching";
+import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
@@ -4411,6 +4413,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
 
   const evaluateChoiceSelection = (nextSelectedOptionIds) => {
+    if (awaitingConstructionRetry(currentCard, lastResult)) return;
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
     const finalOptionId = nextSelectedOptionIds.at(-1) || null;
     setSelectedOptionId(finalOptionId);
@@ -4516,6 +4519,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
 
   const handleChoice = (optionId) => {
+    if (awaitingConstructionRetry(currentCard, lastResult)) return;
     if (lastResult === "correct") return;
 
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
@@ -5401,9 +5405,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
           {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard} surfaceRef={pageRef}
             selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={showHelp}
-            onChange={evaluateChoiceSelection} onReplay={playCurrentCardPrompt}
+            onChange={evaluateChoiceSelection} onReplay={playCurrentCardPrompt} onRetry={resetMissionSelection}
             imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)} /> : (
           <section ref={pageRef} data-lesson-page style={boardStyle}>
+            {showHelp && !isMissionExperience ? <p role="status" style={{ color: "#694b22", fontSize: 14, lineHeight: 1.4 }}>
+              {awaitingConstructionRetry(currentCard, lastResult) ? COMPLETION_RETRY_HELP : lessonHelpText(currentCard, "replay-on-tap")}
+            </p> : null}
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
                 style={{
@@ -5611,7 +5618,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                         }
                       : undefined}
                     {...(!isPronunciationCard
-                      ? { disabled: lastResult === "correct" || isPartialSequenceSelection }
+                      ? { disabled: lastResult === "correct" || isPartialSequenceSelection || awaitingConstructionRetry(currentCard, lastResult) }
                       : {})}
                   >
                     {isPronunciationCard ? (
@@ -5857,6 +5864,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   >
                     {getLessonMistakeHint(currentCard, selectedOptionIds.length ? selectedOptionIds : selectedOptionId)}
                   </div>
+                  {awaitingConstructionRetry(currentCard, lastResult) ? <button type="button"
+                    onClick={resetMissionSelection} style={{ ...styles.subtleButton, minHeight: 48, marginTop: 8 }}>Reintentar</button> : null}
                 </div>
               ) : null}
             </div>
