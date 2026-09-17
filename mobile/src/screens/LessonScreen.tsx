@@ -1,5 +1,6 @@
+import { awaitingConstructionRetry } from '../constructionTeaching';
 import { SentenceConstruction } from '../components/SentenceConstruction';
-import { isSentenceConstruction, sentenceIsCorrect } from '../sentenceConstruction';
+import { isSentenceConstruction, isWordConstruction, sentenceIsCorrect } from '../sentenceConstruction';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
@@ -1118,7 +1119,7 @@ export function LessonScreen({
   const isPronunciationAudioReady = !pronunciationAudioGateKey
     || (isOffline && offlinePronunciationAccepted)
     || pronunciationAudioReadyKey === pronunciationAudioGateKey;
-  const isSentenceCard = isSentenceConstruction(currentCard);
+  const isSentenceCard = isWordConstruction(currentCard);
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isMissionTileCard = currentCard?.interaction_type === 'mission-word-parts'
     || currentCard?.interaction_type === 'mission-sentence'
@@ -1789,9 +1790,9 @@ export function LessonScreen({
   }, [automaticCountdown, cardIndex, cardRunId]);
 
   useEffect(() => {
-    if (!isSentenceCard || constructionHelpStatus !== 'pending' || sectionBriefing || isPageTurning) return;
+    if (!isSentenceConstruction(currentCard) || constructionHelpStatus !== 'pending' || sectionBriefing || isPageTurning) return;
     setShowConstructionCoachmark(true);
-  }, [constructionHelpStatus, isPageTurning, isSentenceCard, sectionBriefing]);
+  }, [constructionHelpStatus, currentCard, isPageTurning, sectionBriefing]);
 
   const dismissConstructionCoachmark = useCallback(() => {
     setShowConstructionCoachmark(false);
@@ -2287,7 +2288,7 @@ export function LessonScreen({
   };
 
   const evaluateChoiceSelection = (nextSelectedIds: string[]) => {
-    if (!currentCard || !cardAudioReadyRef.current || result === 'correct' || correctChoiceHandledRef.current) return;
+    if (!currentCard || !cardAudioReadyRef.current || result === 'correct' || awaitingConstructionRetry(currentCard, result) || correctChoiceHandledRef.current) return;
     setShowSentenceCoachmark(false);
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
     const finalOptionId = nextSelectedIds[nextSelectedIds.length - 1] || null;
@@ -2375,6 +2376,7 @@ export function LessonScreen({
   };
 
   const choose = (optionId: string) => {
+    if (awaitingConstructionRetry(currentCard, result)) return;
     if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
     const isMultiBlankCompletion = correctOptionIds.length > 1;
@@ -3344,7 +3346,7 @@ export function LessonScreen({
           {isSentenceCard ? (
             <SentenceConstruction key={`${currentCard.slide_id}-${cardRunId}`} card={currentCard}
               selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={showHelp}
-              onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} />
+              onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} onRetry={resetMissionSelection} />
           ) : usesMissionGameSurface && currentCard.mission_game ? (
             <MissionGameSurface
               card={currentCard as typeof currentCard & { mission_game: NonNullable<typeof currentCard.mission_game> }}
@@ -3460,6 +3462,7 @@ export function LessonScreen({
         ]}>{lessonContent}</View>
       )}
       <SentenceHelpOverlay
+        card={currentCard}
         anchorBottom={sentenceAnchorBottom}
         onDismiss={dismissSentenceCoachmark}
         onSuppress={suppressSentenceCoachmark}

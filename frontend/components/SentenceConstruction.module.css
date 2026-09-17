@@ -13,13 +13,15 @@
 .imageFrame img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 14px; }
 .bank { padding: 4px; max-height: 240px; overflow-y: auto; }
 .tile { background: #f3effc; border: 2px solid #b9a8df; touch-action: none; }
-.tile:nth-child(3n+2) { background: #edf5fc; border-color: #a1c7e2; color: #2f6f9f; }
-.tile:nth-child(3n) { background: #fff6df; border-color: #e3c27d; color: #96651d; }
+.tone1 { background: #edf5fc; border-color: #a1c7e2; color: #2f6f9f; }
+.tone2 { background: #fff6df; border-color: #e3c27d; color: #96651d; }
 .tile:disabled { opacity: .3; cursor: default; }
 .controls { display: flex; justify-content: center; gap: 16px; }
 .controls button { min-height: 48px; font-size: 16px; font-weight: 700; border: 0; background: transparent; color: #2f6f9f; cursor: pointer; }
 .controls button:disabled { opacity: .4; }
+.controls .retry { background: #278c73; color: #fff; border-radius: 14px; padding: 10px 24px; }
 .feedback { min-height: 24px; font-size: 16px; text-align: center; color: #665134; }
+.wrongIcon { color: #c95e55; font-size: 22px; font-weight: 900; }
 .drag { position: fixed; transform: translate(-50%, -50%); pointer-events: none; z-index: 100; background: #f3effc; border: 2px solid #6947ad; border-radius: 12px; padding: 12px; font-size: 22px; font-weight: 800; box-shadow: 0 4px 14px #0003; }
 @media (max-height: 700px) { .imageFrame { width: min(100%, 240px); } }
 @media (orientation: landscape) and (max-height: 520px) { .imageFrame { width: 150px; } .card { padding: 6px; } }
@@ -29,3 +31,12 @@
 .wideSlots { padding-right: 10px; }
 .wideSlots .translation { padding-right: 40px; }
 .wideSlots .replay { top: 30px; }
+
+.slot { touch-action: none; }
+.slot:disabled { cursor: default; }
+.slots { align-items: center; }
+.bank { min-height: 56px; border: 1px dashed #cfc2ab; border-radius: 14px; align-items: center; }
+.scaffold { font-size: clamp(18px, 2.5vw, 26px); font-weight: 800; }
+.target { background: #e3f3ef; border-color: #278c73; }
+.drag { transform: none; box-sizing: border-box; display: grid; place-items: center; white-space: nowrap; padding: 8px; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

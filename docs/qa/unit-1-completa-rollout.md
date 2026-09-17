@@ -28,7 +28,7 @@ wrapping, long words with punctuation, target sizes and bounded scroll panes.
 
 For Preview review, enter each listed Completa card through Engine QA. Check
 model/replay audio, a partial answer, wrong-order repair, repeated-word swaps,
-Undo/Reset and final-card completion. Check 1.8's male visitor question voice and
+Undo after swaps/returns, absence of Reset, and final-card completion. Guided completion uses the same editor while preserving scaffold text and punctuation. Check 1.8's male visitor question voice and
 its separate answer card, and 1.7/1.9's negative targets against their scenes.
 Confirm retained guided cards still speak fragments around silent gaps.
 

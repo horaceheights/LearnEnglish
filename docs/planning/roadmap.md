@@ -33,6 +33,8 @@ Recent delivery: the approved Lesson 1.1 Completa progression extends to 28 elig
 
 ## Engine-first strategy
 
+Contextual-help correction (2026-09-17): partial and full Completa now explain the submitted word-order relationship through one shared web/mobile resolver. Wrong constructions wait for an explicit `Reintentar` button; listening help states the ear-training goal and the real replay control. A release-enforced generation guardrail covers every construction slot and reachable swaps across all 70 lessons, rejecting unsupported teaching patterns. Installed-device review of the hints, Retry button and listening popup remains pending. See `docs/qa/contextual-help-2026-09-17.md`.
+
 Current media correction: PR #155 rebinds 153 Use prompts to relevant sentence imagery, including four new GPT photorealistic replacements for inadequate composites. Existing Gemini images and original asset bytes remain preserved. The four new images have agent pixel review and receipt/hash tests; human and installed-device review remains pending. Known sentence/image contradictions now block Preview as well as Production. See `docs/qa/use-photoreal-repairs-2026-09-17.md` for scope, costs, and remaining review.
 
 The complete 70-lesson A1 curriculum is now authored and serves as the engine's

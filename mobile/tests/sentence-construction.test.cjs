@@ -7,7 +7,9 @@ const test = require('node:test');
 const source = fs.readFileSync(path.join(__dirname, '../src/sentenceConstruction.ts'), 'utf8');
 const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
 const api = {};
-vm.runInNewContext(compiled, { exports: api });
+const teaching = {};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(__dirname, '../src/constructionTeaching.ts'), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching });
+vm.runInNewContext(compiled, { exports: api, require: id => { assert.equal(id, './constructionTeaching'); return teaching; } });
 const lesson = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/lesson-1-people-actions.json')));
 const pilots = lesson.cards.filter(api.isSentenceConstruction);
 const rollout = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json')))
@@ -39,8 +41,12 @@ test('tap, arbitrary drop, outside drop, removal and repair share ordered valida
     assert.equal(selected[dropIndex], expected[dropIndex]);
     assert.equal(api.sentenceIsCorrect(card, selected), false);
     assert.deepEqual(api.placeSentenceWord(card, selected, expected[0], -1), selected);
-    assert.deepEqual(api.placeSentenceWord(card, selected, expected[0], dropIndex), selected);
-    assert.deepEqual(api.placeSentenceWord(card, selected, expected[dropIndex], 0), selected);
+    const replaced = api.placeSentenceWord(card, selected, expected[0], dropIndex);
+    assert.equal(replaced[dropIndex], expected[0]);
+    assert.ok(api.availableSentenceWords(card, replaced).some(word => word.id === expected[dropIndex]));
+    const moved = api.placeSentenceWord(card, selected, expected[dropIndex], 0);
+    assert.equal(moved[0], expected[dropIndex]);
+    assert.equal(moved[dropIndex], '');
     for (const id of expected) if (!selected.includes(id)) selected = api.placeSentenceWord(card, selected, id);
     assert.equal(api.sentenceIsCorrect(card, selected), true);
     [selected[0], selected[1]] = [selected[1], selected[0]];
@@ -61,6 +67,11 @@ test('identical woman occurrences are interchangeable but one tile cannot be reu
   assert.equal(api.sentenceIsCorrect(card, ids), true);
   ids[5] = ids[1];
   assert.equal(api.sentenceIsCorrect(card, ids), false);
+});
+
+test('long measured feedback enables scrolling before the Retry control can be clipped', () => {
+  assert.equal(api.sentenceLayout(304, 600, 1, 4, 240).scrollBank, true);
+  assert.ok(api.sentenceLayout(304, 600, 1, 4, 240).imageHeight < api.sentenceLayout(304, 600, 1, 4, 24).imageHeight);
 });
 
 test('phone, tablet, landscape and accessibility sizes retain target and label floors', () => {
@@ -110,7 +121,7 @@ test('the flight is decorative: placement commits first and reduced motion skips
   const component = fs.readFileSync(path.join(__dirname, '../src/components/SentenceConstruction.tsx'), 'utf8');
   assert.match(
     component,
-    /onChange\(next\);\s+if \(!reduceMotion\) startFlight\(id, target\);/,
+    /onChange\(next\); return true;[\s\S]*?if \(commit\(next\) && !reduceMotion\) startFlight\(id, target, from\);/,
     'The answer must be committed and validated before the decorative flight starts.',
   );
   assert.match(component, /useReducedMotion/);
@@ -121,4 +132,63 @@ test('the flight is decorative: placement commits first and reduced motion skips
     /flightAnimation\.current\?\.stop\(\)/,
     'A resize, rotation or new card must end the flight instead of replaying it.',
   );
+});
+
+test('both Completa formats support correction without duplicate or lost occurrences', () => {
+  const course = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json')));
+  const cards = course.flatMap(lesson => lesson.cards.filter(api.isWordConstruction));
+  assert.ok(cards.some(card => card.interaction_type === 'complete2'));
+  for (const card of cards) {
+    const expected = card.correct_option_ids;
+    assert.equal(api.sentenceParts(card).filter(part => 'slot' in part).length, expected.length);
+    const original = [...expected];
+    const swapped = api.placeSentenceWord(card, original, expected[0], 1);
+    assert.equal(swapped[0], expected[1]);
+    assert.equal(swapped[1], expected[0]);
+    assert.deepEqual(original, expected, 'A move does not mutate the prior state used by Undo.');
+    assert.equal(api.availableSentenceWords(card, swapped).length, card.options.length - expected.length);
+    const returned = api.returnSentenceWord(card, swapped, expected[0]);
+    assert.equal(returned[1], '');
+    assert.equal(returned[0], expected[1]);
+    assert.equal(api.sentenceIsCorrect(card, returned), false, 'A hole in a fixed-size array is incomplete.');
+    assert.ok(api.availableSentenceWords(card, returned).some(word => word.id === expected[0]));
+    const repaired = api.placeSentenceWord(card, api.placeSentenceWord(card, returned, expected[1], 1), expected[0], 0);
+    assert.equal(api.sentenceIsCorrect(card, repaired), true);
+    assert.deepEqual(api.placeSentenceWord(card, repaired, 'unknown', 0), repaired);
+    const ownership = [...returned.filter(Boolean), ...api.availableSentenceWords(card, returned).map(word => word.id)];
+    assert.equal(new Set(ownership).size, card.options.length);
+    assert.equal(ownership.length, card.options.length);
+  }
+});
+
+test('the reported She/is correction keeps the scaffold and returns the used word', () => {
+  const card = { stage: 'Use', interaction_type: 'complete2', prompt: '___ ___ a girl.',
+    options: [{ id: 'she', label: 'She' }, { id: 'is', label: 'is' }], correct_option_ids: ['she', 'is'] };
+  let slots = api.placeSentenceWord(card, [], 'is');
+  assert.deepEqual(Array.from(api.availableSentenceWords(card, slots), word => word.label), ['She']);
+  slots = api.returnSentenceWord(card, slots, 'is');
+  assert.equal(api.availableSentenceWords(card, slots).length, 2);
+  slots = api.placeSentenceWord(card, slots, 'she');
+  slots = api.placeSentenceWord(card, slots, 'is');
+  assert.equal(api.sentenceIsCorrect(card, slots), true);
+  assert.equal(api.availableSentenceWords(card, slots).length, 0);
+  assert.deepEqual(JSON.parse(JSON.stringify(api.sentenceParts(card))), [
+    { slot: 0, suffix: '' }, { slot: 1, suffix: '' }, { text: 'a' }, { text: 'girl.' },
+  ]);
+});
+
+test('both clients use the shared editor for partial and full construction and omit Reset', () => {
+  for (const file of ['../src/screens/LessonScreen.tsx', '../../frontend/components/LessonPlayer.js']) {
+    const source = fs.readFileSync(path.join(__dirname, file), 'utf8');
+    assert.match(source, /const isSentenceCard = isWordConstruction\(currentCard\)/);
+    assert.match(source, /isSentenceCard && nextSelected(?:Option)?Ids\.includes\(['"]['"]\)/);
+  }
+  for (const file of ['../src/components/SentenceConstruction.tsx', '../../frontend/components/SentenceConstruction.js']) {
+    const source = fs.readFileSync(path.join(__dirname, file), 'utf8');
+    assert.doesNotMatch(source, /Reiniciar|onReset|allowDrag=\{!compact\}/);
+    assert.match(source, /availableSentenceWords\(card, slots\)/);
+    assert.match(source, /history\.current\.push\(\[\.\.\.slots\]\)/);
+    assert.match(source, /returnSentenceWord/);
+    assert.match(source, /Palabras disponibles/);
+  }
 });

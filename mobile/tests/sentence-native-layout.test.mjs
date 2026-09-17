@@ -9,7 +9,9 @@ const ts = require('typescript');
 const scSource = fs.readFileSync(new URL('../src/sentenceConstruction.ts', import.meta.url), 'utf8');
 const scCompiled = ts.transpileModule(scSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
 const scApi = {};
-vm.runInNewContext(scCompiled, { exports: scApi });
+const teaching = {};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(new URL('../src/constructionTeaching.ts', import.meta.url), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching });
+vm.runInNewContext(scCompiled, { exports: scApi, require: id => { assert.equal(id, './constructionTeaching'); return teaching; } });
 const { sentenceLayout } = scApi;
 
 const source = fs.readFileSync(new URL('../src/components/SentenceConstruction.tsx', import.meta.url), 'utf8');
@@ -98,7 +100,7 @@ test('native Yoga bounds both construction panes while enlarged content remains 
 });
 
 test('long completed words and punctuation fit native slots when replay moves into the instruction row', () => {
-  assert.match(source, /onWidth\(option\.id, event\.nativeEvent\.layout\.width\)/);
+  assert.match(source, /onWidth\(id, event\.nativeEvent\.layout\.width\)/);
   assert.match(source, /wideSlots \? styles\.importanceWide/);
   assert.match(source, /wideSlots \? styles\.replayAbove/);
   for (const paneWidth of [308, 301, 378, 500]) {

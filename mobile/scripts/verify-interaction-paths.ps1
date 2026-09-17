@@ -74,6 +74,9 @@ try {
   & node tests/lesson-mistake-hints.test.cjs (Join-Path $outputDirectory 'lessonMistakeHints.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de pistas educativas.' }
 
+  & node --test tests/construction-teaching.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Generated constructions need contextual explanations for every mistaken order.' }
+
   & node tests/sentence-translations.test.cjs (Join-Path $outputDirectory 'sentenceTranslations.js') (Join-Path $mobileRoot 'src\generated')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de traducción de oraciones.' }
 

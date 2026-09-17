@@ -117,7 +117,8 @@ Run the complete matrix for every new construction, matching, collecting, drag, 
 
 - [ ] Test 360, 390, and 412 dp phone portrait widths; a small phone in landscape; tablet portrait and landscape; and narrow and wide web viewports
 - [ ] Repeat with safe areas/system bars visible, font scale 1.15, and the largest supported accessibility text setting
-- [ ] The complete tile bank, active construction area, visible drop targets, mission progress, feedback, replay, Undo, Reset, Check, Retry, and Continue are visible or immediately reachable
+- [ ] The complete tile bank, active construction area, visible drop targets, mission progress, feedback, replay, and the controls offered by the activity are visible or immediately reachable; Completa offers Undo and no Reset
+- [ ] Before grading, guided and full Completa support bank-to-slot replacement, slot swaps and return to an empty bank; used occurrence IDs disappear and Undo restores every affected word. After a wrong grade, words and hint remain locked until `Reintentar`.
 - [ ] No required source or destination is off-screen during a drag; tap-to-place, tap-to-remove, keyboard movement, and screen-reader reorder actions can complete the same task without dragging
 - [ ] Every interactive target measures at least 44 by 44 CSS pixels on web and 48 by 48 dp on mobile, without clipped, overlapping, truncated, or split-word labels
 - [ ] The largest authored tile bank and longest authored construction use available space efficiently, reflow without horizontal page overflow, and use a bounded bank scroll or paging instead of shrinking below the minimum target and text sizes
@@ -303,12 +304,22 @@ A tested Preview is eligible for Production only when:
 
 ## Card-specific teaching hints
 
+- On Lesson 1.1 U2 (`He is ___ ___.`), place `boy`, then `a`: explain that `a` precedes `boy` in `a boy`. Never show an `a/an` sound rule or an empty quoted word.
+- On both partial and full construction surfaces, swap the subject/verb, then the verb/object in the same sentence: the explanation must change to the relationship actually missed. Check later slots, questions, negatives, quantities/colors, time/location phrases, fixed expressions, multi-clause targets and two simultaneous swaps.
+- A correct repeated-word occurrence is interchangeable; a partial or correct attempt must not produce a grammar correction. Preserve correct prefixes and read the complete hint before retrying.
+- Before an attempt, open help on a two-word completion and a full construction. Each must describe its current mechanic, without a single-blank instruction or unavailable control.
+- After a wrong Completa grade, wait, replay, open/close help and try tapping/dragging a word: the submitted words and hint stay visible. Press `Reintentar`: only this attempt clears, and the next attempt still counts as a retry. Check the button after the hint, keyboard/screen-reader access, font scaling and both orientations.
+- On guided and full Completa, wrong grading shows a red X beside feedback and announces an incorrect answer accessibly. Retry clears the X; incomplete and correct attempts never show it.
+- Reproduce `She sleeping is.` in Lesson 1.3 U6: the explanation identifies `is` as auxiliary, `sleeping` as the main verb's -ing form, and teaches `is sleeping`. Swap the subject and auxiliary too. Check `am/is/are`, negatives with `not`, and adjective/identity/location controls; an action verb must never become a generic subject description.
+- Open the listening first-use popup and help on Lesson 1.2: both describe training the ear, listening, selecting the correct image and using the speaker to repeat. They must not show the old `solo visual` / `cuando esté disponible` copy. Text-choice listening must ask for a word/phrase instead of an image.
+- The generated-content gate is `mobile/tests/construction-teaching.test.cjs`: every construction needs a supported teaching pattern and explanations at every slot; all legal two-word swaps plus reversed/rotated attempts must yield contextual, bounded Spanish feedback. An unsupported future construction or a mismatch with its answer audio blocks release. Check representative rendered feedback in phone portrait/landscape and enlarged text on web and native Preview.
+
 - In normal lessons and Engine QA, choose `A` for `___ adult.` in Lesson 1.5: the hint must explain that `adult` begins with a vowel sound, so the answer is `an adult`, not `a adult`.
 - Compare action choices with the same subject and verb (reading versus writing): feedback must explain the action words, never an unrelated `is` rule.
 - Check `Where are you from?`, `There are two chairs`, `I do not like milk`, `on Monday`, and `in the morning`: each explanation must use that card's context.
 - On a two-blank card, get the first blank wrong and the second right, then reverse the mistake. The hint must follow the first incorrect position in the submitted attempt.
 - Check short phone portrait and enlarged font settings: the complete explanation and answer controls must remain visible or reachable; feedback space follows its measured height.
-- Automated gate: `mobile/tests/lesson-mistake-hints.test.cjs` exercises every distractor at each answer position across the 70 embedded lessons and verifies that web and mobile share the resolver. It rejects generic retries, untranslated or blank-marker feedback, and excessively long hints. This does not replace the on-device reading check.
+- Automated gate: `mobile/tests/lesson-mistake-hints.test.cjs` exercises every distractor at each choice position and reachable swaps in required-word banks across the 70 embedded lessons. It verifies the shared web/mobile resolver and rejects generic retries, untranslated or blank-marker feedback, empty quoted words and excessively long hints. This does not replace semantic review or the on-device reading check.
 
 ## Edge-to-edge lesson media
 

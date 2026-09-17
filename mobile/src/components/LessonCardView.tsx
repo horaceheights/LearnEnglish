@@ -7,8 +7,9 @@ import { lessonActionVideo, type LessonActionVideo as LessonActionVideoSource } 
 import { lessonVideoUrl, type CourseAudioProvider, type CourseAudioVoice } from '../config';
 import type { CourseAudioTurnPlayback } from '../courseAudioSources';
 import { useReducedMotion } from '../hooks/useReducedMotion';
-import { lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
+import { COMPLETION_RETRY_HELP, lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
+import { awaitingConstructionRetry } from '../constructionTeaching';
 import { promptChoiceRowHeight } from '../promptChoiceLayout';
 import type { ChoiceOption, LessonCard } from '../types';
 import {
@@ -181,6 +182,7 @@ export function LessonCardView({
   // non-video single card so the clip leaves visible margins below the header.
   const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape;
   const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedIds.length ? selectedIds : selectedId) : '';
+  const awaitingRetry = awaitingConstructionRetry(card, result);
   const [feedbackMeasurement, setFeedbackMeasurement] = useState({ key: '', height: 0 });
   const feedbackLayoutKey = `${viewportWidth}:${mistakeHint}`;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
@@ -500,7 +502,7 @@ export function LessonCardView({
         <View style={styles.help}>
           <Text accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
           <Text accessibilityLiveRegion="polite" style={styles.helpText}>
-            {lessonHelpText(card, promptInteractionMode)}
+            {awaitingRetry ? COMPLETION_RETRY_HELP : lessonHelpText(card, promptInteractionMode)}
           </Text>
         </View>
       ) : null}
@@ -623,6 +625,7 @@ export function LessonCardView({
               const revealWrong = selected && result === 'wrong';
               const revealPending = selected && result === null;
               const optionDisabled = !optionsInteractive
+                || awaitingRetry
                 || result === 'correct'
                 || (revealPending && effectiveSelectedIds.length < (card.correct_option_ids?.length || 1));
               const optionTextLineLimit = textOptionLineLimit(option.label);
@@ -746,9 +749,9 @@ export function LessonCardView({
           </View>}
           {result ? (
             <View
-              accessible
+              accessible={!awaitingRetry}
               accessibilityLiveRegion="polite"
-              accessibilityRole="text"
+              accessibilityRole={awaitingRetry ? undefined : 'text'}
               style={styles.feedback}
               onLayout={(event) => {
                 const height = Math.ceil(event.nativeEvent.layout.height);
@@ -775,6 +778,10 @@ export function LessonCardView({
                   {mistakeHint}
                 </Text>
               ) : null}
+              {awaitingRetry ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
+                onPress={onResetSelection} style={styles.retryButton}>
+                <Text style={styles.retryButtonText}>Reintentar</Text>
+              </Pressable> : null}
             </View>
           ) : null}
         </>
@@ -1225,6 +1232,8 @@ const styles = StyleSheet.create({
   flyingAnswerText: { backgroundColor: '#f9dc8e', borderColor: '#e0a93f', borderRadius: 10, borderWidth: 2, color: '#8a4f00', fontSize: 22, fontWeight: '900', overflow: 'hidden', paddingHorizontal: 14, paddingVertical: 6 },
   helpTitle: { color: '#8a4f00', fontSize: 12, fontWeight: '900', textTransform: 'uppercase' },
   helpText: { color: '#694b22', fontSize: 13, lineHeight: 18, marginTop: 3 },
+  retryButton: { alignSelf: 'center', alignItems: 'center', justifyContent: 'center', backgroundColor: '#278c73', borderRadius: 14, minHeight: 48, paddingHorizontal: 24, paddingVertical: 10, marginTop: 8 },
+  retryButtonText: { color: '#fff', fontSize: 16, fontWeight: '800' },
   promptImageFrame: { marginTop: 14 },
   promptImageFrameDensePortrait: { marginTop: 3 },
   options: {
