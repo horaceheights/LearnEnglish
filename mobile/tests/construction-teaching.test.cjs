@@ -29,6 +29,46 @@ function hint(target, a, b) {
   return constructionMistakeHint(card, swap(card, a, b));
 }
 
+// Reviewed grammar oracle, deliberately independent of the resolver's role tables.
+const progressiveVerbs = ['eating', 'drinking', 'reading', 'writing', 'running', 'walking', 'swimming', 'sitting', 'sleeping', 'playing', 'studying', 'working', 'cooking', 'talking', 'watching', 'listening'];
+
+test('She sleeping is teaches auxiliary + main verb, not a subject description', () => {
+  const result = hint('She is sleeping.', 1, 2);
+  assert.equal(result, 'Pusiste “sleeping” donde va “is”. “is” es el auxiliar y “sleeping” el verbo principal en -ing. Primero “is” y después “sleeping”: “is sleeping”.');
+  assert.match(hint('She is sleeping.', 0, 1), /el sujeto “She” va antes de “is”, el auxiliar del verbo “sleeping”/);
+  assert.doesNotMatch(hint('She is sleeping.', 0, 2), /descrip|describe/);
+  const partial = { ...construction('She is sleeping.'), interaction_type: 'complete2', prompt: 'She ___ ___.',
+    correct_option_ids: ['1', '2'], options: construction('She is sleeping.').options.slice(1) };
+  assert.equal(lessonMistakeHint(partial, ['2', '1']), result);
+});
+
+test('every reviewed progressive action keeps auxiliary, subject and negation roles distinct', () => {
+  for (const action of progressiveVerbs) for (const [subject, auxiliary] of [['I', 'am'], ['She', 'is'], ['They', 'are']]) {
+    const affirmative = `${subject} ${auxiliary} ${action}.`;
+    const verbHint = hint(affirmative, 1, 2);
+    assert.ok(verbHint.includes(`“${auxiliary}” es el auxiliar y “${action}” el verbo principal en -ing`), verbHint);
+    assert.doesNotMatch(verbHint, /descrip|describe|qué es el sujeto/);
+    const subjectHint = hint(affirmative, 0, 1);
+    assert.ok(subjectHint.includes(`el sujeto “${subject}” va antes de “${auxiliary}”, el auxiliar`), subjectHint);
+    const negative = `${subject} ${auxiliary} not ${action}.`;
+    for (const pair of [[1, 3], [2, 3], [1, 2]]) {
+      const result = hint(negative, ...pair);
+      assert.ok(result.includes(`“${auxiliary}” es el auxiliar y “${action}” el verbo principal en -ing`), result);
+      assert.ok(result.includes(`“Not” va entre ambos: “${auxiliary} not ${action}”`), result);
+      assert.doesNotMatch(result, /descrip|describe/);
+    }
+  }
+});
+
+test('copular descriptions and non-progressive -ing uses do not become auxiliaries', () => {
+  for (const [target, a, b] of [['She is tired.', 1, 2], ['She is a girl.', 1, 2],
+    ['The book is on the table.', 2, 3], ['It is a living room.', 1, 2], ['I like listening to music.', 1, 2]]) {
+    const result = hint(target, a, b);
+    assert.ok(result, target);
+    assert.doesNotMatch(result, /auxiliar|verbo en -ing/, `${target}: ${result}`);
+  }
+});
+
 test('the screenshot teaches article placement, with both words present', () => {
   const card = { ...construction('He is a boy.'), interaction_type: 'complete2', prompt: 'He is ___ ___.',
     correct_option_ids: ['2', '3'], options: construction('He is a boy.').options.slice(2) };
@@ -104,6 +144,8 @@ test('a wrong construction waits for explicit retry while listening and missions
     assert.match(source, /result !== ['"]wrong['"] \? <(?:View|div)/, 'Undo must not dismiss a graded mistake.');
     assert.match(source, /history\.current = \[\];[^\n]+onRetry\(\)/, 'Retry clears movement history before resetting the attempt.');
     assert.match(source, /Reintentar/);
+    assert.match(source, /styles\.wrongIcon[^<]*>×/, 'A wrong grade needs an explicit X, not color alone.');
+    assert.match(source, /Respuesta incorrecta/, 'The wrong state needs an accessible label.');
     assert.match(source, /result === ['"]correct['"] \? ['"]¡Muy bien!/, 'A locked wrong answer is not successful.');
   }
   assert.match(overlay, /const listening = listeningHelpText\(card\)/);
@@ -113,7 +155,7 @@ test('a wrong construction waits for explicit retry while listening and missions
 test('every generated construction has explanations for every slot and every legal two-word swap', () => {
   const directory = path.join(__dirname, '../src/generated');
   const files = fs.readdirSync(directory).filter(file => /^lesson-.*\.json$/.test(file));
-  let cards = 0, attempts = 0;
+  let cards = 0, attempts = 0, progressiveChecks = 0;
   for (const file of files) {
     const lesson = JSON.parse(fs.readFileSync(path.join(directory, file), 'utf8'));
     for (const card of lesson.cards.filter(c => c.stage === 'Use' && !c.mission_game)) {
@@ -123,6 +165,19 @@ test('every generated construction has explanations for every slot and every leg
       assert.ok(plan.supported, `Add a reviewed teaching pattern before publishing ${context}`);
       assert.equal(plan.explanations.length, card.correct_option_ids.length, context);
       assert.ok(plan.explanations.every(Boolean), context);
+      const tokens = plan.target.match(/[a-z]+(?:'[a-z]+)?/gi).map(word => word.toLowerCase());
+      tokens.forEach((word, tokenIndex) => {
+        if (!['am', 'is', 'are'].includes(word)) return;
+        const actionIndex = tokenIndex + (tokens[tokenIndex + 1] === 'not' ? 2 : 1);
+        if (!progressiveVerbs.includes(tokens[actionIndex])) return;
+        const auxiliarySlot = plan.tokenSlots.indexOf(tokenIndex);
+        const actionSlot = plan.tokenSlots.indexOf(actionIndex);
+        if (auxiliarySlot < 0 || actionSlot < 0) return;
+        const result = sentenceHint(card, swap(card, auxiliarySlot, actionSlot));
+        assert.match(result, /es el auxiliar y .+ el verbo principal en -ing/, `${context}: ${result}`);
+        assert.doesNotMatch(result, /descrip|describe|qué es el sujeto/, `${context}: ${result}`);
+        progressiveChecks++;
+      });
       assert.equal(lessonMistakeHint(card, card.correct_option_ids), '', context);
       cards++;
       const verify = attempt => {
@@ -144,5 +199,6 @@ test('every generated construction has explanations for every slot and every leg
   }
   assert.equal(files.length, 70);
   assert.ok(cards >= 459, 'Do not silently reduce the course audit.');
-  console.log(`Teaching guardrail checked ${cards} constructions and ${attempts} reachable wrong attempts across ${files.length} lessons.`);
+  assert.ok(progressiveChecks > 0, 'The course must exercise progressive grammar semantics.');
+  console.log(`Teaching guardrail checked ${cards} constructions, ${attempts} reachable wrong attempts and ${progressiveChecks} progressive verb pairs across ${files.length} lessons.`);
 });
