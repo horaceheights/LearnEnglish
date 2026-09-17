@@ -199,6 +199,10 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const compact = !landscape && layout.scrollBank;
   const CardContainer = compact ? ScrollView : View;
   const SlotsContainer = landscape ? View : ScrollView;
+  const replayControl = <Pressable onPress={onReplay} accessibilityRole="button" accessibilityLabel="Repetir frase en inglés"
+    style={[styles.replay, wideSlots ? styles.replayAbove : null, landscape ? styles.replayPhoneLandscape : null]}>
+    <Ionicons name="volume-high" color="#278c73" size={28} />
+  </Pressable>;
   return <View ref={root} style={[styles.root, landscape ? styles.landscape : null]} onLayout={event => setSize(event.nativeEvent.layout)}>
     <View style={[styles.importance, landscape ? styles.importancePhoneLandscape : null, wideSlots && !landscape ? styles.importanceWide : null]}>
       <View style={landscape ? styles.constructionToolbar : null}>
@@ -212,10 +216,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
         style={{ minHeight: 48, justifyContent: 'center', flex: landscape ? 1 : undefined, paddingRight: wideSlots && !landscape ? 48 : 0 }} onPress={() => setTranslated(!translated)}>
         <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={styles.instruction}>{translated ? card.spanish_translation : 'Escucha y forma la frase.'}</Text>
       </Pressable>
-      <Pressable onPress={onReplay} accessibilityRole="button" accessibilityLabel="Repetir frase en inglés"
-        style={[styles.replay, wideSlots ? styles.replayAbove : null, landscape ? styles.replayPhoneLandscape : null]}>
-        <Ionicons name="volume-high" color="#278c73" size={28} />
-      </Pressable>
+      {landscape ? replayControl : null}
       </View>
       <SlotsContainer ref={view => { slotPane.current = view; }}
         style={landscape ? styles.slots : styles.slotScroll} accessibilityLabel="Frase en construcción"
@@ -226,7 +227,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
             register={view => { slotsRef.current[part.slot] = view; }} active={hover === part.slot}
             hidden={moving?.id === slots[part.slot] || flight?.slot === part.slot} correct={result === 'correct'} />)}
       </SlotsContainer>
-
+      {!landscape ? replayControl : null}
     </View>
     <CardContainer ref={view => { cardPane.current = view; }} style={[styles.card, !compact ? styles.cardContent : null]}
       {...(compact ? { contentContainerStyle: styles.cardContent, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
