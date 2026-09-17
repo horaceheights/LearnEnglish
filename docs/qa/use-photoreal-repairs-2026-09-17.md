@@ -21,6 +21,7 @@ Three new single-attempt requests total **US$0.12714**, approximately **MX$2.16*
 
 ## Verification and remaining review
 
+- Local verification passed: all 326 backend tests, complete `mobile/scripts/verify-preview.ps1` (content, reviewed audio, TypeScript, interaction tests, and Android export), frontend production build, and release integrity (70 lessons / seven units). Required GitHub verification and protected Preview publication are separate release steps.
 - Regression tests pin the exact four cards, unchanged target sentences, original-image hashes, model settings, source receipts, reused benchmark request, dimensions, and runtime byte parity.
 - The media-preservation audit reports 981 protected assets, 84 previously scoped exceptions, and zero errors.
 - Audio inventory reports zero missing assets after reusing existing reviewed takes and static seeds; no new voice recording is necessary for an image-only change.
