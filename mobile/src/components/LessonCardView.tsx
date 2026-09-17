@@ -10,6 +10,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 import { COMPLETION_RETRY_HELP, lessonHelpText, type PromptInteractionMode } from '../lessonHelp';
 import { lessonMistakeHint } from '../lessonMistakeHints';
 import { awaitingConstructionRetry } from '../constructionTeaching';
+import { imageChoiceLayout, isPhoneLandscape } from '../lessonViewportLayout';
 import { promptChoiceRowHeight } from '../promptChoiceLayout';
 import type { ChoiceOption, LessonCard } from '../types';
 import {
@@ -129,6 +130,8 @@ export function LessonCardView({
     || card.interaction_type === 'mission-finale';
   const isLandscape = viewportWidth > viewportHeight;
   const isCompactLandscape = isLandscape && viewportHeight < 460;
+  const phoneLandscape = isPhoneLandscape(viewportWidth, viewportHeight);
+  const hasSidePrompt = phoneLandscape && !isPronunciation && Boolean(activeTurnImageUrl || card.prompt_image_url);
   // Android system bars can reduce a 600dp tablet viewport below 600dp.
   const isTabletViewport = Math.min(viewportWidth, viewportHeight) >= 540;
   const isTabletLandscape = isLandscape && isTabletViewport;
@@ -147,7 +150,7 @@ export function LessonCardView({
   const useHorizontalPhraseOptions = !isLandscape && hasTextOnlyOptions && !useCompactCompletionTiles;
   // A full sentence cannot stay readable in the narrow columns used by a
   // compact landscape row. Stack that bank at full width inside the scroll-safe page.
-  const useStackedCompactLandscapeText = isCompactLandscape && hasMultilineTextOption;
+  const useStackedCompactLandscapeText = phoneLandscape && hasTextOnlyOptions;
   // Image-to-text cards are a recurring lesson pattern. Keep the complete
   // prompt image and full-width phrase rows inside the usable portrait area.
   const useDensePortraitTextLayout =
@@ -180,14 +183,17 @@ export function LessonCardView({
   // Phone teaching clips retain their established full-width presentation.
   // Landscape tablets instead use the same height-aware 3:2 width cap as a
   // non-video single card so the clip leaves visible margins below the header.
-  const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape;
+  const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape && !phoneLandscape;
   const mistakeHint = result === 'wrong' ? lessonMistakeHint(card, selectedIds.length ? selectedIds : selectedId) : '';
   const awaitingRetry = awaitingConstructionRetry(card, result);
   const [feedbackMeasurement, setFeedbackMeasurement] = useState({ key: '', height: 0 });
-  const feedbackLayoutKey = `${viewportWidth}:${mistakeHint}`;
+  const feedbackLayoutKey = `${viewportWidth}:${fontScale}:${result}:${mistakeHint}`;
   const flyingAnswerAnimation = useRef(new Animated.Value(0)).current;
   const [flyingAnswer, setFlyingAnswer] = useState('');
   const [measuredCardHeight, setMeasuredCardHeight] = useState(0);
+  const [measuredCardWidth, setMeasuredCardWidth] = useState(0);
+  const innerCardWidth = Math.max(0, (measuredCardWidth || viewportWidth - 20) - (!isLandscape ? 28 : phoneLandscape ? 20 : isTabletLandscape ? 30 : 20));
+  const cardVerticalChrome = !isLandscape ? 23 : phoneLandscape ? 20 : isTabletLandscape ? 30 : 20;
   const optionWidth =
     useCompactCompletionTiles
       ? '31%'
@@ -223,7 +229,7 @@ export function LessonCardView({
   const textOptionMinimumFontSize = isTabletViewport ? 22 : 16;
   const textOptionMinimumFontScale = Math.min(
     1,
-    textOptionMinimumFontSize / textOptionFontSize,
+    textOptionMinimumFontSize / (textOptionFontSize * (phoneLandscape ? Math.min(fontScale, 1.15) : 1)),
   );
   const textOptionLineLimits = hasTextOnlyOptions
     ? card.options.map((option) => textOptionLineLimit(option.label))
@@ -289,7 +295,7 @@ export function LessonCardView({
   // two-line teaching hint beneath the Android navigation bar.
   const needsPortraitImageFeedbackSpace =
     !isLandscape && !hasTextOnlyOptions && optionsInteractive && card.options.length >= 2;
-  const feedbackReservedHeight = !isPronunciation && optionsInteractive
+  const feedbackReservedHeight = !isPronunciation && (optionsInteractive || Boolean(result))
     ? Math.max(
         feedbackMeasurement.key === feedbackLayoutKey ? feedbackMeasurement.height + 12 : 0,
         needsPortraitImageFeedbackSpace ? 76 : 58,
@@ -311,7 +317,9 @@ export function LessonCardView({
   const balancesPromptWithChoices = !isLandscape && !isPronunciation && !isMissionTile
     && !useCompactCompletionTiles && Boolean(activeTurnImageUrl || card.prompt_image_url)
     && hasTextOnlyOptions && !allowVerticalGrowth;
-  const effectiveTextOptionHeight = balancesPromptWithChoices
+  const effectiveTextOptionHeight = phoneLandscape && hasTextOnlyOptions
+    ? Math.max(48, (availableCardHeight - cardVerticalChrome - feedbackReservedHeight - 8 - (card.options.length - 1) * 8) / Math.max(1, card.options.length))
+    : balancesPromptWithChoices
     ? promptChoiceRowHeight({
         availableHeight: availableCardHeight,
         feedbackHeight: feedbackReservedHeight,
@@ -365,6 +373,11 @@ export function LessonCardView({
         ? Math.max(68, ((availableOptionsHeight - 20 - ((optionRows - 1) * 10)) / optionRows) - 14)
         : Math.max(68, (availableOptionsHeight - 26 - ((optionRows - 1) * 10)) / optionRows),
     );
+  const boundedImageChoices = !hasTextOnlyOptions && !isPronunciation && !isMissionTile
+    && (!isLandscape || phoneLandscape) && card.options.length > 0
+    ? imageChoiceLayout(innerCardWidth, Math.max(0, availableCardHeight - cardVerticalChrome - feedbackReservedHeight - 2),
+        card.options.length, !isLandscape)
+    : null;
   // A two-card portrait stack may scale uniformly when height is limited.
   // Never apply this width constraint to a four-card grid: it must stay 2x2.
   const portraitImageContentWidth = Math.max(0, viewportWidth - 44);
@@ -451,78 +464,61 @@ export function LessonCardView({
     effectiveSelectedIds,
   ]);
 
-  return (
-    <View style={[
-      styles.card,
-      isLandscape ? styles.cardLandscape : null,
-      !isLandscape ? styles.cardPortrait : null,
-      isCompactLandscape ? styles.cardCompactLandscape : null,
-      isTabletLandscape ? styles.cardTabletLandscape : null,
-      isPronunciation ? styles.pronunciationCard : null,
-      isPronunciation && !isLandscape ? styles.pronunciationCardPortrait : null,
-      isMissionVoiceGate ? styles.missionVoiceCard : null,
-      allowVerticalGrowth ? styles.cardVerticalGrowth : null,
-    ]}
-      onLayout={({ nativeEvent }) => {
-        const nextHeight = Math.round(nativeEvent.layout.height);
-        setMeasuredCardHeight((current) => Math.abs(current - nextHeight) < 2 ? current : nextHeight);
-      }}
-    >
-      {flyingAnswer ? (
-        <Animated.View
-          pointerEvents="none"
-          style={[
-            styles.flyingAnswer,
-            {
-              opacity: flyingAnswerAnimation.interpolate({
-                inputRange: [0, 0.82, 1],
-                outputRange: [1, 1, 0],
-              }),
-              transform: [
-                {
-                  translateY: flyingAnswerAnimation.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [210, 0],
-                  }),
-                },
-                {
-                  scale: flyingAnswerAnimation.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0.9, 1.15],
-                  }),
-                },
-              ],
-            },
-          ]}
-        >
-          <Text style={styles.flyingAnswerText}>{flyingAnswer}</Text>
-        </Animated.View>
-      ) : null}
-      {showHelp ? (
-        <View style={styles.help}>
-          <Text accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
-          <Text accessibilityLiveRegion="polite" style={styles.helpText}>
-            {awaitingRetry ? COMPLETION_RETRY_HELP : lessonHelpText(card, promptInteractionMode)}
-          </Text>
-        </View>
-      ) : null}
-      {activeTurnImageUrl || card.prompt_image_url ? (
+  const promptMedia = ((activeTurnImageUrl || card.prompt_image_url) ? (
         <LessonMediaFrame
           frameStyle={[
             styles.promptImageFrame,
+            hasSidePrompt ? styles.promptImageSide : null,
             useDensePortraitTextLayout ? styles.promptImageFrameDensePortrait : null,
           ]}
-          maxHeight={promptImageHeight}
+          maxHeight={hasSidePrompt ? availableCardHeight - cardVerticalChrome - feedbackReservedHeight : promptImageHeight}
         >
           <OptionMediaImage
             accessibilityLabel={card.answer_audio_text || card.prompt}
             imageUrl={activeTurnImageUrl || card.prompt_image_url}
           />
         </LessonMediaFrame>
-      ) : null}
-      {isPronunciation ? (
+      ) : null);
+  const answerFeedback = (result ? (
+            <View
+              accessible={!awaitingRetry}
+              accessibilityLiveRegion="polite"
+              accessibilityRole={awaitingRetry ? undefined : 'text'}
+              style={styles.feedback}
+              onLayout={(event) => {
+                const height = Math.ceil(event.nativeEvent.layout.height);
+                setFeedbackMeasurement((previous) => previous.key === feedbackLayoutKey && previous.height >= height
+                  ? previous : { key: feedbackLayoutKey, height });
+              }}
+            >
+              <Text maxFontSizeMultiplier={1.3} style={[
+                styles.feedbackText,
+                isTabletLandscape ? styles.feedbackTextTablet : null,
+                result === 'correct' ? styles.correctText : styles.wrongText,
+              ]}>
+                {result === 'correct'
+                  ? 'Correcto. Vamos a la siguiente tarjeta…'
+                  : gentleFeedback
+                    ? '¡Tú puedes! Inténtalo de nuevo.'
+                    : '¡Ánimo! Inténtalo de nuevo.'}
+              </Text>
+              {result === 'wrong' && mistakeHint ? (
+                <Text maxFontSizeMultiplier={1.3} style={[
+                  styles.educationHint,
+                  isTabletLandscape ? styles.educationHintTablet : null,
+                ]}>
+                  {mistakeHint}
+                </Text>
+              ) : null}
+              {awaitingRetry ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
+                onPress={onResetSelection} style={styles.retryButton}>
+                <Text style={styles.retryButtonText}>Reintentar</Text>
+              </Pressable> : null}
+            </View>
+          ) : null);
+  const activityContent = (isPronunciation ? (
         <View style={isMissionVoiceGate ? [styles.missionVoiceSurface,
-          missionLandscapeHeader ? styles.missionVoiceSurfaceLandscape : null] : null}>
+          missionLandscapeHeader ? styles.missionVoiceSurfaceLandscape : null] : phoneLandscape ? styles.phonePractice : null}>
           {missionVoiceGate ? (
             <View style={[styles.missionVoiceBriefing, missionLandscapeHeader ? styles.missionVoiceBriefingLandscape : null]}>
               {missionLandscapeHeader ? <View style={styles.missionVoiceNavigation}>{missionLandscapeHeader}</View> : null}
@@ -564,6 +560,7 @@ export function LessonCardView({
             </View>
           ) : null}
           <PronunciationPractice
+            compactLandscape={phoneLandscape && !isMissionVoiceGate}
             audioTurns={pronunciationAudioTurns}
             audioProvider={audioProvider}
             audioVoice={audioVoice}
@@ -612,6 +609,8 @@ export function LessonCardView({
             useCompactCompletionTiles ? styles.optionsCompactText : null,
             isTabletLandscape ? styles.optionsTabletLandscape : null,
             useExpandedSingleActionVideo ? styles.singleActionVideoOptions : null,
+            phoneLandscape && hasTextOnlyOptions ? styles.optionsPhoneText : null,
+            boundedImageChoices ? { alignSelf: 'center', width: boundedImageChoices.width, columnGap: boundedImageChoices.gap, rowGap: boundedImageChoices.gap, marginTop: 2 } : null,
             tabletImageGridWidth
               ? { alignSelf: 'center', width: tabletImageGridWidth }
               : null,
@@ -651,10 +650,10 @@ export function LessonCardView({
                     {
                       minHeight: hasTextOnlyOptions
                         ? effectiveTextOptionHeight
-                        : optionMinHeight,
+                        : boundedImageChoices ? 48 : optionMinHeight,
                       height: hasTextOnlyOptions ? effectiveTextOptionHeight : undefined,
                       padding: isTabletLandscape ? 8 : 5,
-                      width: constrainedPortraitImageOptionWidth
+                      width: boundedImageChoices?.optionWidth ?? constrainedPortraitImageOptionWidth
                         ?? constrainedLandscapeImageOptionWidth
                         ?? optionWidth,
                     },
@@ -665,11 +664,12 @@ export function LessonCardView({
                         }
                       : null,
                     option.image_url ? styles.imageOptionFrame : null,
-                    useFullWidthSingleActionVideo ? styles.singleActionVideoOption : null,
+                    useFullWidthSingleActionVideo && !boundedImageChoices ? styles.singleActionVideoOption : null,
                     hasTextOnlyOptions ? styles.textOption : null,
                     useDensePortraitTextLayout ? styles.textOptionDensePortrait : null,
                     useHorizontalPhraseOptions ? styles.textOptionHorizontal : null,
                     useCompactCompletionTiles ? styles.textOptionCompact : null,
+                    phoneLandscape && hasTextOnlyOptions ? styles.textOptionPhoneLandscape : null,
                     hasTextOnlyOptions && optionTextLineLimit > 1 ? styles.textOptionSentence : null,
                     hasTextOnlyOptions && optionTextLineLimit === TEXT_OPTION_MAX_LINES ? styles.textOptionLong : null,
                     revealPending ? styles.pendingOption : null,
@@ -702,7 +702,7 @@ export function LessonCardView({
                           useFourImagePortraitGrid
                             ? styles.optionImageFourByFiveFrame
                             : styles.optionImageThreeByTwoFrame,
-                          showHelp ? styles.optionImageThreeByTwoHelp : null,
+                          showHelp && !boundedImageChoices ? styles.optionImageThreeByTwoHelp : null,
                         ]}
                         >
                           <OptionMediaImage
@@ -741,51 +741,79 @@ export function LessonCardView({
                       </Text>
                     </>
                   ) : null}
-                  {revealCorrect ? <Text style={styles.feedbackIcon}>✓</Text> : null}
-                  {revealWrong ? <Text style={[styles.feedbackIcon, styles.wrongIcon]}>×</Text> : null}
+                  {revealCorrect ? <Text maxFontSizeMultiplier={1} style={styles.feedbackIcon}>✓</Text> : null}
+                  {revealWrong ? <Text maxFontSizeMultiplier={1} style={[styles.feedbackIcon, styles.wrongIcon]}>×</Text> : null}
                 </Pressable>
               );
             })}
           </View>}
-          {result ? (
-            <View
-              accessible={!awaitingRetry}
-              accessibilityLiveRegion="polite"
-              accessibilityRole={awaitingRetry ? undefined : 'text'}
-              style={styles.feedback}
-              onLayout={(event) => {
-                const height = Math.ceil(event.nativeEvent.layout.height);
-                setFeedbackMeasurement((previous) => previous.key === feedbackLayoutKey && previous.height === height
-                  ? previous : { key: feedbackLayoutKey, height });
-              }}
-            >
-              <Text style={[
-                styles.feedbackText,
-                isTabletLandscape ? styles.feedbackTextTablet : null,
-                result === 'correct' ? styles.correctText : styles.wrongText,
-              ]}>
-                {result === 'correct'
-                  ? 'Correcto. Vamos a la siguiente tarjeta…'
-                  : gentleFeedback
-                    ? '¡Tú puedes! Inténtalo de nuevo.'
-                    : '¡Ánimo! Inténtalo de nuevo.'}
-              </Text>
-              {result === 'wrong' && mistakeHint ? (
-                <Text style={[
-                  styles.educationHint,
-                  isTabletLandscape ? styles.educationHintTablet : null,
-                ]}>
-                  {mistakeHint}
-                </Text>
-              ) : null}
-              {awaitingRetry ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
-                onPress={onResetSelection} style={styles.retryButton}>
-                <Text style={styles.retryButtonText}>Reintentar</Text>
-              </Pressable> : null}
-            </View>
-          ) : null}
+          {!hasSidePrompt ? answerFeedback : null}
         </>
-      )}
+      ));
+
+  return (
+    <View style={[
+      styles.card,
+      isLandscape ? styles.cardLandscape : null,
+      !isLandscape ? styles.cardPortrait : null,
+      isCompactLandscape ? styles.cardCompactLandscape : null,
+      isTabletLandscape ? styles.cardTabletLandscape : null,
+      phoneLandscape ? styles.cardPhoneLandscape : null,
+      isPronunciation ? styles.pronunciationCard : null,
+      isPronunciation && !isLandscape ? styles.pronunciationCardPortrait : null,
+      isMissionVoiceGate ? styles.missionVoiceCard : null,
+      allowVerticalGrowth ? styles.cardVerticalGrowth : null,
+    ]}
+      onLayout={({ nativeEvent }) => {
+        const nextHeight = Math.round(nativeEvent.layout.height);
+        const nextWidth = Math.round(nativeEvent.layout.width);
+        setMeasuredCardWidth(current => Math.abs(current - nextWidth) < 1 ? current : nextWidth);
+        setMeasuredCardHeight((current) => Math.abs(current - nextHeight) < 2 ? current : nextHeight);
+      }}
+    >
+      {flyingAnswer ? (
+        <Animated.View
+          pointerEvents="none"
+          style={[
+            styles.flyingAnswer,
+            {
+              opacity: flyingAnswerAnimation.interpolate({
+                inputRange: [0, 0.82, 1],
+                outputRange: [1, 1, 0],
+              }),
+              transform: [
+                {
+                  translateY: flyingAnswerAnimation.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [210, 0],
+                  }),
+                },
+                {
+                  scale: flyingAnswerAnimation.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [0.9, 1.15],
+                  }),
+                },
+              ],
+            },
+          ]}
+        >
+          <Text style={styles.flyingAnswerText}>{flyingAnswer}</Text>
+        </Animated.View>
+      ) : null}
+      {showHelp ? (
+        <View style={styles.help}>
+          <Text maxFontSizeMultiplier={1.3} accessibilityRole="header" style={styles.helpTitle}>Ayuda</Text>
+          <Text maxFontSizeMultiplier={1.3} accessibilityLiveRegion="polite" style={styles.helpText}>
+            {awaitingRetry ? COMPLETION_RETRY_HELP : lessonHelpText(card, promptInteractionMode)}
+          </Text>
+        </View>
+      ) : null}
+      {hasSidePrompt ? <><View style={styles.phonePromptBody}>
+        <View style={styles.phonePromptMedia}>{promptMedia}</View>
+        <View style={styles.phonePromptAnswers}>{activityContent}</View>
+      </View>{answerFeedback}</> : <>{promptMedia}{activityContent}</>}
+
     </View>
   );
 }
@@ -1176,7 +1204,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
   },
-  cardCompactLandscape: { minHeight: 0, overflow: 'hidden', padding: 6 },
+  cardCompactLandscape: { minHeight: 0, padding: 6 },
+  cardPhoneLandscape: { padding: 8, borderWidth: 2, justifyContent: 'center' },
+  phonePractice: { flex: 1, minHeight: 0 },
+  phonePromptBody: { flex: 1, minHeight: 0, flexDirection: 'row', alignItems: 'center', gap: 10 },
+  phonePromptMedia: { width: '34%', justifyContent: 'center' },
+  phonePromptAnswers: { flex: 1, minWidth: 0, justifyContent: 'center' },
+  promptImageSide: { marginTop: 0 },
+  optionsPhoneText: { flexDirection: 'column', flexWrap: 'nowrap', gap: 8, marginTop: 2 },
+  textOptionPhoneLandscape: { width: '100%', paddingVertical: 1, paddingHorizontal: 12 },
   cardTabletLandscape: { padding: 14 },
   cardVerticalGrowth: { flexBasis: 'auto', flexGrow: 1, flexShrink: 0 },
   pronunciationCard: { justifyContent: 'flex-start', paddingBottom: 4, paddingTop: 3 },

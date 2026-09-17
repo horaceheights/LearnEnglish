@@ -49,6 +49,9 @@ import { MissionJourney } from '../components/MissionJourney';
 import { MissionKickoff } from '../components/MissionKickoff';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
+import { lessonHelpText } from '../lessonHelp';
+import { LessonLandscapeRail } from '../components/LessonLandscapeRail';
+import { isPhoneLandscape, landscapePromptIsWide } from '../lessonViewportLayout';
 import { StageJourney } from '../components/StageJourney';
 import {
   absoluteMediaUrl,
@@ -281,7 +284,8 @@ export function LessonScreen({
   const isOffline = useConnectivity();
   const reduceMotion = useReducedMotion();
   const isPortrait = viewportHeight >= viewportWidth;
-  const useCompactPhoneLayout = !isPortrait && viewportWidth < 760 && viewportHeight < 420;
+  const [lessonBodyWidth, setLessonBodyWidth] = useState(0);
+  const useCompactPhoneLayout = isPhoneLandscape(viewportWidth, viewportHeight);
   const portraitBrandWidth = Math.min(220, Math.max(150, viewportWidth - 150));
   const useCompactPortraitBrand = isPortrait && portraitBrandWidth < 190;
   // Every lesson uses the learner-tested 1.1 flow. QA may add diagnostics and
@@ -1130,7 +1134,8 @@ export function LessonScreen({
     currentCard?.mission_game
     && currentCard.mission_game.kind !== 'voice-gate',
   );
-  const usesMissionPhoneLandscape = isMissionGameCard && !isPortrait && viewportHeight < 600;
+  const usesMissionPhoneLandscape = isMissionGameCard && isPhoneLandscape(viewportWidth, viewportHeight);
+  const usesLessonPhoneLandscape = useCompactPhoneLayout && !isMissionGameCard;
   const missionVoiceGateProgress = missionVoiceProgress(lesson, cardIndex);
   // `Use` is a grammar-animation stage in standard lessons, but a dedicated
   // mission surface has no LessonCardView animation callback to wait for.
@@ -3005,14 +3010,16 @@ export function LessonScreen({
     && currentCard.options.every((option) => !option.image_url)
     ? currentCard.options.map((option) => option.label)
     : [];
-  const needsTextAnswerScrolling = textAnswerStackNeedsScroll(
+  const needsTextAnswerScrolling = !useCompactPhoneLayout && textAnswerStackNeedsScroll(
     viewportWidth,
     viewportHeight,
     textOnlyAnswerLabels,
   );
-  const needsAccessibleScrolling = fontScale > 1.3
+  const imageChoiceSurface = !isPronunciation && currentCard.options.length > 0 && currentCard.options.every(option => Boolean(option.image_url));
+  const usesLessonHelpSheet = usesLessonPhoneLandscape || (isPortrait && imageChoiceSurface);
+  const needsAccessibleScrolling = !useCompactPhoneLayout && !imageChoiceSurface && (fontScale > 1.3
     || viewportHeight < 300
-    || needsTextAnswerScrolling;
+    || needsTextAnswerScrolling);
   const qaToolbar = qaMode ? (
           <View style={styles.qaToolbar}>
             <View style={styles.qaIdentity}>
@@ -3069,8 +3076,127 @@ export function LessonScreen({
             </View>
           </View>
         ) : null;
-  const lessonContent = (
-    <>
+  const wideLandscapePrompt = usesLessonPhoneLandscape && !useCompactHeaderInstruction && !isSentenceCard
+    && landscapePromptIsWide(visiblePromptAudio, lessonBodyWidth || viewportWidth - 56);
+  const lessonPromptHeader = (
+!isMissionGameCard && !isSentenceCard ? <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
+          styles.contentHeader,
+          useCompactPhoneLayout ? styles.contentHeaderCompact : null,
+          isPortrait ? styles.contentHeaderPortrait : null,
+          useCompactHeaderInstruction ? styles.contentHeaderCompactInstruction : null,
+          styles.contentHeaderPhraseBox,
+          usesLessonPhoneLandscape ? styles.contentHeaderRail : null,
+          useCompactPhoneLayout ? styles.contentHeaderPhraseBoxCompact : null,
+          isCompletedSectionPicker ? styles.reviewContentInactive : null,
+        ]}>
+          <View style={[
+            styles.promptRow,
+            useCompactHeaderInstruction ? styles.promptRowCompactInstruction : null,
+            styles.promptRowPhraseBox,
+            usesLessonPhoneLandscape ? styles.promptRowRail : null,
+            useCompactPhoneLayout ? styles.promptRowPhraseBoxCompact : null,
+          ]}>
+            <Pressable
+              ref={promptTapTargetRef}
+              accessibilityLabel={useCompactRecognizeInstruction
+                  ? 'Instrucción: Elige la frase correcta'
+                  : useCompactListenInstruction
+                    ? `Instrucción: ${listeningChoiceInstruction(currentCard.options)}`
+                    : useCompactSpeakInstruction
+                      ? 'Instrucción: Escucha y repite'
+                  : promptHasVisualBlank
+                    ? `Frase para completar: ${visiblePromptAudio}`
+                    : `Mostrar traducción de ${visiblePromptAudio}`}
+              accessibilityActions={useCompactHeaderInstruction
+                ? []
+                : [{ label: 'Mostrar traducción', name: 'translate' }]}
+              accessibilityHint={useCompactHeaderInstruction
+                  ? undefined
+                  : promptHasVisualBlank
+                    ? 'Toca una vez para ver la traducción de la parte visible.'
+                    : 'Toca una vez para ver la traducción en español.'}
+              accessibilityRole={useCompactHeaderInstruction ? 'text' : 'button'}
+              disabled={useCompactHeaderInstruction || !visiblePromptAudio.trim()}
+              onAccessibilityAction={({ nativeEvent }) => {
+                if (nativeEvent.actionName === 'translate') {
+                  setSentenceHelpActivity((current) => current + 1);
+                  openSentenceTranslation();
+                }
+              }}
+              onLongPress={useCompactHeaderInstruction ? undefined : () => {
+                setSentenceHelpActivity((current) => current + 1);
+                openSentenceTranslation();
+              }}
+              onLayout={() => {
+                if (showSentenceCoachmark) updateSentenceAnchor();
+              }}
+              onPress={handlePromptPress}
+              style={[
+                styles.promptTapTarget,
+                styles.promptTapTargetPhraseBox,
+                usesLessonPhoneLandscape ? styles.promptTapTargetRail : null,
+              ]}
+            >
+              <Text
+                maxFontSizeMultiplier={usesLessonPhoneLandscape ? 1.3 : undefined}
+                adjustsFontSizeToFit={!useCompactHeaderInstruction}
+                minimumFontScale={useCompactHeaderInstruction ? undefined : usesLessonPhoneLandscape ? 16 / (24 * Math.min(fontScale, 1.3)) : 0.45}
+                numberOfLines={usesLessonPhoneLandscape ? 4 : 2}
+                style={[
+                  styles.prompt,
+                  useCompactHeaderInstruction ? styles.promptCompactInstruction : null,
+                  styles.promptPhraseBox,
+                  {
+                    height: usesLessonPhoneLandscape ? (useCompactHeaderInstruction ? 44 : 80) : undefined,
+                    fontSize: usesLessonPhoneLandscape ? (useCompactHeaderInstruction ? 14 : 24) : promptFontSize,
+                    lineHeight: usesLessonPhoneLandscape ? undefined : promptLineHeight,
+                  },
+                ]}
+              >
+                {isPronunciation
+                  ? currentCard.mission_game?.instruction_es || pronunciationInstruction()
+                  : renderPrompt()}
+              </Text>
+              {showSentenceTranslation ? (
+                <Animated.Text
+                  accessibilityLiveRegion="polite"
+                  numberOfLines={2}
+                  style={[styles.inlineTranslation, { opacity: translationOpacity }]}
+                >
+                  {visibleSentenceTranslation}
+                </Animated.Text>
+              ) : null}
+            </Pressable>
+            <Pressable
+              accessibilityHint={useCompactRecognizeInstruction && !phraseReplayAvailable
+                ? 'Disponible después de elegir la frase correcta.'
+                : 'Reproduce la frase en inglés otra vez.'}
+              accessibilityLabel={phraseReplayAvailable
+                ? `Repetir: ${phraseReplayText || pronunciationModelText}`
+                : 'Repetir frase en inglés'}
+              accessibilityRole="button"
+              accessibilityState={{ disabled: !phraseReplayAvailable }}
+              disabled={!phraseReplayAvailable}
+              hitSlop={6}
+              onPress={handleReplayButtonPress}
+              style={({ pressed }) => [
+                styles.phraseReplayButton,
+                usesLessonPhoneLandscape ? styles.phraseReplayRail : null,
+                pressed ? styles.replayButtonPressed : null,
+              ]}
+            >
+              <View style={[
+                styles.phraseReplayIcon,
+                courseAudioPlaybackStatus.playing ? styles.phraseReplayIconPlaying : null,
+                !phraseReplayAvailable ? styles.phraseReplayIconDisabled : null,
+              ]}>
+                <Ionicons color="#fff" name="volume-high" size={16} />
+              </View>
+            </Pressable>
+          </View>
+        </View> : null
+  );
+  const lessonChrome = (<View style={styles.lessonChrome}>
         {!usesMissionPhoneLandscape ? qaToolbar : null}
         {!usesMissionPhoneLandscape ? <View style={[
           styles.hero,
@@ -3145,7 +3271,7 @@ export function LessonScreen({
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
               accessibilityRole="button"
               accessibilityState={{ expanded: showHelp }}
-              onPress={() => setShowHelp((current) => !current)}
+              onPress={() => usesLessonHelpSheet ? setShowMissionLandscapeMenu(true) : setShowHelp((current) => !current)}
               style={[
                 styles.helpButton,
                 useCompactPhoneLayout ? styles.helpButtonCompact : null,
@@ -3218,117 +3344,22 @@ export function LessonScreen({
             </Text>
           </View>
         ) : null}
-        {!isMissionGameCard && !isSentenceCard ? <View pointerEvents={isCompletedSectionPicker ? 'none' : 'auto'} style={[
-          styles.contentHeader,
-          useCompactPhoneLayout ? styles.contentHeaderCompact : null,
-          isPortrait ? styles.contentHeaderPortrait : null,
-          useCompactHeaderInstruction ? styles.contentHeaderCompactInstruction : null,
-          styles.contentHeaderPhraseBox,
-          useCompactPhoneLayout ? styles.contentHeaderPhraseBoxCompact : null,
-          isCompletedSectionPicker ? styles.reviewContentInactive : null,
-        ]}>
-          <View style={[
-            styles.promptRow,
-            useCompactHeaderInstruction ? styles.promptRowCompactInstruction : null,
-            styles.promptRowPhraseBox,
-            useCompactPhoneLayout ? styles.promptRowPhraseBoxCompact : null,
-          ]}>
-            <Pressable
-              ref={promptTapTargetRef}
-              accessibilityLabel={useCompactRecognizeInstruction
-                  ? 'Instrucción: Elige la frase correcta'
-                  : useCompactListenInstruction
-                    ? `Instrucción: ${listeningChoiceInstruction(currentCard.options)}`
-                    : useCompactSpeakInstruction
-                      ? 'Instrucción: Escucha y repite'
-                  : promptHasVisualBlank
-                    ? `Frase para completar: ${visiblePromptAudio}`
-                    : `Mostrar traducción de ${visiblePromptAudio}`}
-              accessibilityActions={useCompactHeaderInstruction
-                ? []
-                : [{ label: 'Mostrar traducción', name: 'translate' }]}
-              accessibilityHint={useCompactHeaderInstruction
-                  ? undefined
-                  : promptHasVisualBlank
-                    ? 'Toca una vez para ver la traducción de la parte visible.'
-                    : 'Toca una vez para ver la traducción en español.'}
-              accessibilityRole={useCompactHeaderInstruction ? 'text' : 'button'}
-              disabled={useCompactHeaderInstruction || !visiblePromptAudio.trim()}
-              onAccessibilityAction={({ nativeEvent }) => {
-                if (nativeEvent.actionName === 'translate') {
-                  setSentenceHelpActivity((current) => current + 1);
-                  openSentenceTranslation();
-                }
-              }}
-              onLongPress={useCompactHeaderInstruction ? undefined : () => {
-                setSentenceHelpActivity((current) => current + 1);
-                openSentenceTranslation();
-              }}
-              onLayout={() => {
-                if (showSentenceCoachmark) updateSentenceAnchor();
-              }}
-              onPress={handlePromptPress}
-              style={[
-                styles.promptTapTarget,
-                styles.promptTapTargetPhraseBox,
-              ]}
-            >
-              <Text
-                adjustsFontSizeToFit={!useCompactHeaderInstruction}
-                minimumFontScale={useCompactHeaderInstruction ? undefined : 0.45}
-                numberOfLines={2}
-                style={[
-                  styles.prompt,
-                  useCompactHeaderInstruction ? styles.promptCompactInstruction : null,
-                  styles.promptPhraseBox,
-                  {
-                    fontSize: promptFontSize,
-                    lineHeight: promptLineHeight,
-                  },
-                ]}
-              >
-                {isPronunciation
-                  ? currentCard.mission_game?.instruction_es || pronunciationInstruction()
-                  : renderPrompt()}
-              </Text>
-              {showSentenceTranslation ? (
-                <Animated.Text
-                  accessibilityLiveRegion="polite"
-                  numberOfLines={2}
-                  style={[styles.inlineTranslation, { opacity: translationOpacity }]}
-                >
-                  {visibleSentenceTranslation}
-                </Animated.Text>
-              ) : null}
-            </Pressable>
-            <Pressable
-              accessibilityHint={useCompactRecognizeInstruction && !phraseReplayAvailable
-                ? 'Disponible después de elegir la frase correcta.'
-                : 'Reproduce la frase en inglés otra vez.'}
-              accessibilityLabel={phraseReplayAvailable
-                ? `Repetir: ${phraseReplayText || pronunciationModelText}`
-                : 'Repetir frase en inglés'}
-              accessibilityRole="button"
-              accessibilityState={{ disabled: !phraseReplayAvailable }}
-              disabled={!phraseReplayAvailable}
-              hitSlop={6}
-              onPress={handleReplayButtonPress}
-              style={({ pressed }) => [
-                styles.phraseReplayButton,
-                pressed ? styles.replayButtonPressed : null,
-              ]}
-            >
-              <View style={[
-                styles.phraseReplayIcon,
-                courseAudioPlaybackStatus.playing ? styles.phraseReplayIconPlaying : null,
-                !phraseReplayAvailable ? styles.phraseReplayIconDisabled : null,
-              ]}>
-                <Ionicons color="#fff" name="volume-high" size={16} />
-              </View>
-            </Pressable>
-          </View>
-        </View> : null}
+  </View>);
+  const lessonContent = (
+    <View onLayout={event => setLessonBodyWidth(event.nativeEvent.layout.width)} style={[styles.lessonBody, needsTextAnswerScrolling ? styles.lessonBodyGrowing : null,
+      usesLessonPhoneLandscape ? styles.lessonBodyLandscape : null]}>
+      {usesLessonPhoneLandscape ? <LessonLandscapeRail
+        location={lessonLocation} stage={lessonStageLabel(lesson.id, currentCard.stage)}
+        color={activeStageColor || '#279487'} progress={`${cardIndex + 1} / ${lesson.cards.length}`}
+        onBack={() => confirmLessonExit('previous')} onHome={() => confirmLessonExit('home')}
+        onMenu={() => setShowMissionLandscapeMenu(true)}
+        imageUrl={isSentenceCard ? currentCard.prompt_image_url : null}>
+        {!wideLandscapePrompt ? lessonPromptHeader : null}
+      </LessonLandscapeRail> : usesMissionPhoneLandscape ? null : <>{lessonChrome}{lessonPromptHeader}</>}
+      <View key="activity-column" style={[styles.activityColumn, needsTextAnswerScrolling ? styles.lessonBodyGrowing : null]}>
+        {wideLandscapePrompt ? lessonPromptHeader : null}
         <Animated.View
+          key="lesson-activity"
           ref={pageRef}
           collapsable={false}
           onLayout={onPageLayout}
@@ -3345,7 +3376,7 @@ export function LessonScreen({
         >
           {isSentenceCard ? (
             <SentenceConstruction key={`${currentCard.slide_id}-${cardRunId}`} card={currentCard}
-              selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={showHelp}
+              selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={showHelp && !usesLessonPhoneLandscape}
               onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} onRetry={resetMissionSelection} />
           ) : usesMissionGameSurface && currentCard.mission_game ? (
             <MissionGameSurface
@@ -3414,7 +3445,7 @@ export function LessonScreen({
             result={result}
             selectedId={selectedId}
             selectedIds={selectedIds}
-            showHelp={showHelp}
+            showHelp={showHelp && !usesLessonHelpSheet}
             promptInteractionMode={promptInteractionMode}
             pronunciationReplayRequestId={pronunciationReplayRequestId}
             userId={profile.userId}
@@ -3427,7 +3458,8 @@ export function LessonScreen({
             />
           ) : null}
         </Animated.View>
-    </>
+      </View>
+    </View>
   );
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -3484,10 +3516,14 @@ export function LessonScreen({
         <View style={styles.completedPromptBackdrop}>
           <ScrollView accessibilityViewIsModal style={styles.missionLandscapeMenuScroll} contentContainerStyle={styles.missionLandscapeMenu}>
             <Text accessibilityRole="header" style={styles.completedPromptTitle}>Ayuda y opciones</Text>
-            <Text style={styles.completedPromptText}>{currentCard.mission_game?.instruction_es}</Text>
+            <Text style={styles.completedPromptText}>{currentCard.mission_game?.instruction_es || lessonHelpText(currentCard, promptInteractionMode)}</Text>
+            {!missionExperience ? <StageJourney allComplete={showCompletedJourney} cards={lesson.cards}
+              currentIndex={cardIndex} lessonId={lesson.id}
+              maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
+              onStagePress={index => { setShowMissionLandscapeMenu(false); openStage(index); }} /> : null}
             {qaToolbar}
             <Pressable accessibilityRole="button" onPress={() => setShowMissionLandscapeMenu(false)} style={styles.completedPromptPrimary}>
-              <Text style={styles.completedPromptPrimaryText}>Volver al reto</Text>
+              <Text style={styles.completedPromptPrimaryText}>{missionExperience ? 'Volver al reto' : 'Volver a la lección'}</Text>
             </Pressable>
           </ScrollView>
         </View>
@@ -3567,7 +3603,16 @@ const styles = StyleSheet.create({
   pageScrollable: { gap: 6, padding: 6, paddingBottom: 16 },
   pageScrollableTextAnswers: { flexGrow: 1 },
   completionPage: { alignItems: 'center', flexGrow: 1, justifyContent: 'center', paddingHorizontal: 28, paddingVertical: 24 },
-  cardCarousel: { flex: 1 },
+  activityColumn: { flex: 1, minHeight: 0, minWidth: 0, gap: 6 },
+  lessonBody: { flex: 1, minHeight: 0, gap: 7 },
+  lessonBodyGrowing: { flex: 0, flexGrow: 1 },
+  lessonBodyLandscape: { flexDirection: 'row', alignItems: 'stretch', gap: 8 },
+  lessonChrome: { gap: 7 },
+  contentHeaderRail: { minHeight: 0, padding: 4, flexShrink: 0 },
+  promptRowRail: { minHeight: 0, alignItems: 'center' },
+  promptTapTargetRail: { paddingHorizontal: 0 },
+  phraseReplayRail: { position: 'relative', top: 0, right: 0, marginTop: 0, width: 48, height: 48 },
+  cardCarousel: { flex: 1, minWidth: 0, minHeight: 0 },
   missionLandscapeMenuScroll: { backgroundColor: '#fffdf8', borderRadius: 20, flexGrow: 0, maxHeight: '100%', maxWidth: 620, width: '100%' },
   missionLandscapeMenu: { gap: 8, padding: 16 },
   cardCarouselVerticalGrowth: { flexBasis: 'auto', flexGrow: 1, flexShrink: 0 },

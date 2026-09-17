@@ -135,6 +135,8 @@ LESSON_RENDER_FILES = (
     "mobile/src/components/LessonMediaFrame.tsx",
     "mobile/src/components/OptionMediaImage.tsx",
     "mobile/src/components/LessonCardView.tsx",
+    "mobile/src/components/LessonLandscapeRail.tsx",
+    "mobile/src/lessonViewportLayout.ts",
     "mobile/src/components/PronunciationPractice.tsx",
     "mobile/src/components/MissionVoicePresentation.tsx",
     "frontend/components/LessonPlayer.js",
