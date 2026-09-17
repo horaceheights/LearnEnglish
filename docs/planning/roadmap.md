@@ -1,6 +1,6 @@
 # SpanGlish Product Roadmap
 
-Last reviewed: 2026-09-09
+Last reviewed: 2026-09-17
 
 This is the persistent source of truth for product priorities. When work is
 completed, update this file in the same commit. When asked "what is next?",
@@ -32,6 +32,8 @@ Recent delivery: standard lessons now open with a section briefing and show anot
 Recent delivery: the approved Lesson 1.1 Completa progression extends to 28 eligible final-section cards in Lessons 1.2–1.9. Earlier guided completion and out-of-range targets remain intact; installed-device review of the new long-word banks remains part of Preview testing. See `docs/qa/unit-1-completa-rollout.md`.
 
 ## Engine-first strategy
+
+Current media correction: PR #155 rebinds 153 Use prompts to relevant sentence imagery, including four new GPT photorealistic replacements for inadequate composites. Existing Gemini images and original asset bytes remain preserved. The four new images have agent pixel review and receipt/hash tests; human and installed-device review remains pending. Known sentence/image contradictions now block Preview as well as Production. See `docs/qa/use-photoreal-repairs-2026-09-17.md` for scope, costs, and remaining review.
 
 The complete 70-lesson A1 curriculum is now authored and serves as the engine's
 verification catalog. Do not begin another mass content expansion until the
