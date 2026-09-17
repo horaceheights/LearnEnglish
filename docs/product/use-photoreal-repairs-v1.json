@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "description": "Replace four newly introduced PR155 composite scenes, not healthy Gemini media. Preserve the composites and all unrelated bindings.",
+  "image_settings": {"model": "gpt-image-2.5-sunburst-2026-09-08", "size": "1536x1024", "quality": "high", "output_format": "png", "n": 1},
+  "production": {"initial_batch_ceiling_usd": "0.50", "estimated_additional_usd": "0.13", "automatic_paid_retries": 0, "fx_mxn_per_usd_assumption": "16.9707"},
+  "assets": [
+    {
+      "id": "boy-wants-three-eggs",
+      "lesson_id": "lesson-5-5-wants-and-needs", "unit": 5, "slide_id": "U7", "sentence": "He wants three eggs.",
+      "old_filename": "a1_scene_boy-wants-three-eggs_28054f2.webp", "old_sha256": "b25f70a1056cd085bb6453469e6ce3f09b8a85add48a83496927deeb67ca8651",
+      "runtime_filename": "a1_use_boy_wants_three_eggs_photo_v1.webp",
+      "issue": "The composite depicts three egg icons and a male symbol, not an actual boy requesting eggs.",
+      "reuse_existing_benchmark": true,
+      "source_sha256": "1a186ef1d256618802b9d9fd5c2021f137764db3d93f1cde921a1ff0940c0777",
+      "observed_description": "A seated boy points at a white plate and opens his other hand toward it, looking expectantly at a woman holding it. Exactly three separate brown eggs are clearly visible on the plate. Both faces, hands and the complete plate are visible in one natural kitchen photograph."
+    },
+    {
+      "id": "dislikes-juice",
+      "lesson_id": "lesson-5-4-likes-and-dislikes", "unit": 5, "slide_id": "U7", "sentence": "I do not like juice.",
+      "old_filename": "a1_scene_does-not-like-juice_a960505.webp", "old_sha256": "c56742c3f663526fbca87ce29827b681e0a3ccffa02e0014e0d4f2c39c413987",
+      "runtime_filename": "a1_use_dislikes_juice_photo_v1.webp",
+      "issue": "A crossed-out drink communicates a prohibition, not a real person's dislike.",
+      "prompt": "Use case: photorealistic-natural. Create one candid realistic photograph for an English-learning app illustrating a person who does not like juice. In a simple home kitchen, one adult woman has just tasted orange juice. She has a clear but natural expression of distaste: slightly wrinkled nose, pressed lips and a small frown. With one hand she pushes a transparent glass of recognizable orange juice away across the wooden table; her other palm is raised in a gentle refusal. Her gaze is directed toward the juice. The glass is upright, intact and almost full; no spill. Both hands, her entire face and the complete glass must be unobstructed and large enough to read on a phone. One coherent scene, landscape 3:2, medium close view slightly above table height, realistic skin pores, natural anatomy, everyday cotton clothing, soft daylight and a modest softly blurred kitchen. Keep the important face, gesture and glass together inside the central area. No other people, no other drinks, no forbidden signs, no crosses, no symbols, no text or labels, no collage, no illustration, no watermark, no exaggerated acting, no plastic skin."
+    },
+    {
+      "id": "five-green-pens",
+      "lesson_id": "lesson-7-9-complete-a1-review", "unit": 7, "slide_id": "U3", "sentence": "There are five green pens.",
+      "old_filename": "a1_scene_five-green-pens_b7f7516.webp", "old_sha256": "dda6fbec629ab733d280a577e4d4ce73b46d89a64fa10c3ab64aa12cf545b13b",
+      "runtime_filename": "a1_use_five_green_pens_photo_v1.webp",
+      "issue": "The five drawn objects resemble pencils or arrows; the numeral also gives away the quantity.",
+      "prompt": "Use case: photorealistic-natural. Create one realistic close-up photograph for an English-learning app of exactly FIVE green ballpoint PENS on a light natural wooden desktop. These are unmistakably ink pens, NOT pencils: each has a long green plastic barrel, a small metal ballpoint writing tip, an integrated pocket clip and a click-button at the opposite end. Exactly five complete pens total, all the same clear green color. Arrange them side by side in a neat slightly staggered parallel row with visible empty gaps, so all five can be counted instantly. All five tips, complete barrels, clips and click-buttons must be visible. No loose caps or other objects. Landscape 3:2 image, near-overhead camera, all five pens grouped centrally with comfortable margin, large and clear on a phone. Realistic matte plastic texture and subtle reflections on the metal tips, natural soft window light, gentle contact shadows, realistic optical photography. No hands, no people, no lettering, no numbers, no logos, no symbols, no colored pencils, no crayons, no markers, no illustration, no border, no watermark."
+    },
+    {
+      "id": "train-arrives-ten-at-night",
+      "lesson_id": "lesson-6-8-schedules", "unit": 6, "slide_id": "U6", "sentence": "The train arrives at ten at night.",
+      "old_filename": "a1_scene_train-arrives-10-00-night_ca93f90.webp", "old_sha256": "13569f0826ae9e86e9eb761872ada0a24a80657d7cfd4530d4725fab7ad895b6",
+      "runtime_filename": "a1_use_train_arrives_ten_night_photo_v1.webp",
+      "issue": "The collage uses a daylight train photograph beside a moon and arrow; the actual scene contradicts night and is not an arrival at a platform.",
+      "prompt": "Use case: photorealistic-natural. Create one coherent realistic photograph for an English-learning app illustrating: The train arrives at ten at night. View from a railway platform at night as a modern passenger train pulls INTO the station toward the camera. Show the recognizable approaching front with bright white headlights, and several connected carriages trailing back along the track. A few adult passengers wait safely behind the platform safety line, facing the arriving train, nobody boarding yet. A real large illuminated digital station clock mounted over the same platform must read exactly 10:00 PM, with crisp readable digits and letters. This clock is a physically integrated station fixture, not a floating overlay. Dark night sky beyond the canopy, warm platform lighting and convincing dark nighttime surroundings; no daylight or sunset. The clock, complete train front and waiting people are clear and grouped near the center of a landscape 3:2 frame. Slightly elevated three-quarter viewpoint, natural perspective, realistic train materials, believable reflections and documentary photography. The train front and clock are sharp, with only subtle motion along the trailing carriages. No other trains, no extra clocks, no other text or venue signs, no arrows, no icons, no moon drawings, no collage, no illustration, no decorative border, no watermark."
+    }
+  ]
+}

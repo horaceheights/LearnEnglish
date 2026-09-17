@@ -2233,7 +2233,7 @@ def validate_use_prompt_image_meaning(
     lessons=None,
     manifest_payload: dict[str, object] | None = None,
 ) -> list[str]:
-    """Block Use sentence/image mismatches in Production; advise in Preview."""
+    """Block known Use sentence/image mismatches in both release channels."""
 
     if review_policy not in {"preview", "production"}:
         raise ValueError(f"Unsupported semantic review policy: {review_policy!r}.")
@@ -2248,9 +2248,6 @@ def validate_use_prompt_image_meaning(
             f"{len(unverifiable)} Use prompt images have no authored image description, so the "
             f"Use sentence/image check cannot vouch for them: {preview}."
         )
-    if review_policy == "preview":
-        warning_sink.extend(f"Preview-only advisory: {mismatch}" for mismatch in mismatches)
-        return []
     return mismatches
 
 

@@ -147,14 +147,20 @@ class UsePromptImageMeaningTest(unittest.TestCase):
             find_use_prompt_image_mismatches(_lessons(_card("It is ten.", "a1_n10.webp")), MANIFEST, teaching),
         )
 
-    def test_preview_advises_while_production_blocks(self):
+    def test_preview_and_production_both_block_known_mismatches(self):
         lessons = _lessons(_card("The apple is red.", "a1_scene_grapes.webp"))
         warnings = []
 
+        self.assertEqual(1, len(validate_use_prompt_image_meaning("preview", warnings, lessons, MANIFEST)))
+        self.assertEqual([], warnings)
+        self.assertEqual(1, len(validate_use_prompt_image_meaning("production", [], lessons, MANIFEST)))
+
+    def test_missing_independent_evidence_is_not_approval(self):
+        warnings = []
+        lessons = _lessons(_card("The apple is red.", "a1_unknown.webp"))
         self.assertEqual([], validate_use_prompt_image_meaning("preview", warnings, lessons, MANIFEST))
         self.assertEqual(1, len(warnings))
-        self.assertTrue(warnings[0].startswith("Preview-only advisory:"))
-        self.assertEqual(1, len(validate_use_prompt_image_meaning("production", [], lessons, MANIFEST)))
+        self.assertIn("cannot vouch", warnings[0])
 
 
 if __name__ == "__main__":
