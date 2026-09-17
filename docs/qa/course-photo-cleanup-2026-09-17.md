@@ -37,8 +37,10 @@ web, canonical and mobile WEBP copies are checked for equality.
 The ten cleanup batches contain 192 saved provider responses, including rejected
 drafts/corrections. Reported usage at the recorded rates totals **US$8.301610**,
 approximately **MX$140.88** at the recorded 16.9707 conversion. This is a pre-tax
-usage estimate, not an invoice. The separately approved 15 uploads cost about
-**US$0.82**, below their **US$1.50** ceiling. No automatic paid retries were used.
+usage estimate, not an invoice. The separately approved 15 uploads cost
+**US$0.819785**, below their **US$1.50** ceiling. No automatic paid retries were used.
+`course-photo-cleanup-costs-v1.json` preserves all 192 usage receipts, including
+rejected drafts, separately from which photographs were actually installed.
 
 ## Verification and limits
 
@@ -51,6 +53,16 @@ usage estimate, not an invoice. The separately approved 15 uploads cost about
 - The semantic registry remains truthful: 1,924 contracts await human review.
   Agent inspection is not human approval. Preview may surface these warnings;
   Production remains blocked until its stricter review requirements are met.
-- Final integrated backend, Preview preflight and protected publication results
-  must be recorded after the current `main` changes are incorporated. This file
-  does not claim publication or phone testing before those steps occur.
+- Integrated `origin/main` at `88929c2`, preserving its contextual help, explicit
+  retry and direct word-editing work. The exact content commit is `b6cb599`;
+  the persistent audio catalog names that complete commit as its source.
+- The integrated backend suite passes all 340 tests; the web suite passes all
+  17 tests. Content, 4,715 persistent audio assets, seven static sound effects,
+  TypeScript and the interaction suite pass. The latter includes the 45 edited
+  mission layouts and 5,903 construction-error cases across all 70 lessons.
+- The conservative Use-sentence checker still reports 52 cards without evidence
+  it can consume (it excludes Use-only descriptions). Photo inspection records
+  remain separate evidence; this advisory is not suppressed or called a pass.
+- The complete Preview preflight passes, including a production-mode Android
+  bundle export. Protected CI publication must still finish before release is
+  reported. No live Android-device or learner testing is claimed.
