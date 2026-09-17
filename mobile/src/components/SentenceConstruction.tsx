@@ -116,6 +116,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const wideSlots = Math.max(0, ...card.options.map(option => wordWidths[option.id] || 0))
     + layout.textSize * viewport.fontScale > paneWidth - 60;
   const locked = disabled || result !== null;
+  const mistakeHint = result === 'wrong' ? sentenceHint(card, slots) : '';
   const measureWord = (id: string, width: number) => {
     if (id) setWordWidths(previous => previous[id] === width ? previous : { ...previous, [id]: width });
   };
@@ -245,8 +246,9 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
       <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} accessibilityLiveRegion="polite"
         adjustsFontSizeToFit={landscape} minimumFontScale={landscape ? 1 / Math.min(viewport.fontScale, 1.3) : undefined}
         numberOfLines={landscape ? 12 : undefined} style={[styles.feedback, landscape ? styles.feedbackPhoneLandscape : null]}
+        accessibilityLabel={result === 'wrong' ? `Respuesta incorrecta. ¡Ánimo! Inténtalo de nuevo. ${mistakeHint}` : undefined}
         onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
-        {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? `¡Ánimo! Inténtalo de nuevo.\n${sentenceHint(card, slots)}` : ' '}
+        {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{`¡Ánimo! Inténtalo de nuevo.\n${mistakeHint}`}</> : ' '}
       </Text>
       {!landscape && result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
         style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; cancel(); stopFlight(); onRetry(); }}>
@@ -302,4 +304,5 @@ const styles = StyleSheet.create({
   retryControlText: { color: '#fff' },
   feedbackPhoneLandscape: { flex: 1, minHeight: 0, textAlignVertical: 'center' },
   feedback: { flexShrink: 0, fontSize: 16, color: '#665134', textAlign: 'center', minHeight: 24 },
+  wrongIcon: { color: '#c95e55', fontSize: 22, fontWeight: '900' },
 });

@@ -14,6 +14,7 @@ const STATES = set('red blue green yellow black white happy sad tired hungry thi
 const PRONOUNS = set('i you he she it we they this that there');
 const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk can cannot leaves arrives');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening');
+const BE = set('am is are');
 
 type Relation = { start: number; end: number; explanation: string };
 type ClausePlan = { explanations: string[]; relations: Relation[]; supported: boolean };
@@ -67,9 +68,15 @@ function teachClause(text: string): ClausePlan {
     const original = phrase(start, end);
     const anchorStart = start - words(anchor).length;
     if (anchorStart >= 0 && phrase(anchorStart, start).toLowerCase() === anchor.toLowerCase()) {
-      const describes = /^(am|is|are)$/i.test(anchor);
+      const progressive = /^(am|is|are)( not)?$/i.exec(anchor);
+      const isProgressive = progressive && ACTIONS.has(keys[start]);
+      const describes = BE.has(anchor.toLowerCase());
       const object = ({ like: 'lo que nos gusta', want: 'lo que queremos', wants: 'lo que quiere', need: 'lo que necesitamos', needs: 'lo que necesita', have: 'lo que tenemos', has: 'lo que tiene', eating: 'lo que come', drinking: 'lo que bebe', eat: 'lo que comemos', drink: 'lo que bebemos', study: 'lo que estudiamos', watching: 'lo que mira' } as Record<string, string>)[anchor.toLowerCase()];
-      relations.push({ start: anchorStart, end, explanation: describes
+      relations.push({ start: anchorStart, end: isProgressive ? start + 1 : end, explanation: isProgressive
+        ? `${quote(tokens[anchorStart])} es el auxiliar y ${quote(tokens[start])} el verbo principal en -ing. ${progressive[2]
+          ? `“Not” va entre ambos: ${quote(phrase(anchorStart, start + 1))}.`
+          : `Primero ${quote(tokens[anchorStart])} y después ${quote(tokens[start])}: ${quote(phrase(anchorStart, start + 1))}.`}`
+        : describes
         ? `Después de ${quote(anchor)} va ${quote(original)}, que describe al sujeto de esta afirmación.`
         : object ? `Después de ${quote(anchor)} va ${object}: ${quote(original)}.`
           : `Primero ${quote(anchor)} expresa la acción o relación; después ${quote(original)} la completa.` });
@@ -195,8 +202,14 @@ function teachClause(text: string): ClausePlan {
     return { explanations, relations, supported: supported && explanations.every(Boolean) };
   }
   const verb = keys[verbIndex];
-  teach(start, keys.length, `En esta afirmación, primero ${quote(phrase(start, verbIndex))}, luego ${quote(tokens[verbIndex])}${verbIndex + 1 < keys.length ? ` y después ${quote(phrase(verbIndex + 1, keys.length))}` : ''}: de quién hablamos va antes de lo que decimos de esa persona o cosa.`);
-  teach(start, verbIndex + 1, verb === 'is' || verb === 'are' || verb === 'am'
+  const actionIndex = verbIndex + (keys[verbIndex + 1] === 'not' ? 2 : 1);
+  const progressive = BE.has(verb) && ACTIONS.has(keys[actionIndex]);
+  teach(start, keys.length, progressive
+    ? `En esta afirmación, primero el sujeto ${quote(phrase(start, verbIndex))}, después el auxiliar ${quote(tokens[verbIndex])}${actionIndex > verbIndex + 1 ? ' y “not”' : ''}, y luego el verbo principal en -ing ${quote(tokens[actionIndex])}.`
+    : `En esta afirmación, primero ${quote(phrase(start, verbIndex))}, luego ${quote(tokens[verbIndex])}${verbIndex + 1 < keys.length ? ` y después ${quote(phrase(verbIndex + 1, keys.length))}` : ''}: de quién hablamos va antes de lo que decimos de esa persona o cosa.`);
+  teach(start, verbIndex + 1, progressive
+    ? `En esta afirmación, el sujeto ${quote(phrase(start, verbIndex))} va antes de ${quote(tokens[verbIndex])}, el auxiliar del verbo ${quote(tokens[actionIndex])}.`
+    : BE.has(verb)
     ? `En esta afirmación, primero ${quote(phrase(start, verbIndex))}, de quién hablamos, y después ${quote(tokens[verbIndex])}, que lo une con su descripción.`
     : `En esta afirmación, ${quote(phrase(start, verbIndex))} indica quién realiza la acción y va antes de ${quote(tokens[verbIndex])}.`);
   if (keys[start] === 'there') teach(start, verbIndex + 1, `Para decir que hay algo usamos ${quote(phrase(start, verbIndex + 1))}: “There” va primero, después ${quote(tokens[verbIndex])} y luego lo que hay.`);
