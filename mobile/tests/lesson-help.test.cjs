@@ -39,7 +39,7 @@ assert.match(
 
 assert.match(
   lessonHelpText(card({ stage: 'Listen' })),
-  /Escucha la frase completa.+toca la imagen.+botón de sonido/,
+  /Estamos entrenando tu oído.+Escucha la frase y elige la imagen correcta.+Toca la bocina para repetirla/,
   'Listen help must explain selection and replay.',
 );
 
@@ -118,3 +118,9 @@ assert.match(
 );
 
 console.log('Lesson help instruction checks passed.');
+
+assert.equal(lessonHelpText(card({ stage: 'Listen' }), 'visual-instruction'),
+  'Estamos entrenando tu oído. Escucha la frase y elige la imagen correcta. Toca la bocina para repetirla.');
+assert.match(lessonHelpText(card({ stage: 'Listen' }), 'replay-on-tap'), /Toca la frase para repetirla/);
+assert.match(lessonHelpText(card({ stage: 'Listen', options: [{ id: 'a', label: 'Reading', image_url: '' }, { id: 'b', label: 'Writing', image_url: '' }] })),
+  /elige la palabra o frase correcta/);

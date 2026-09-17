@@ -1,3 +1,4 @@
+import { awaitingConstructionRetry } from '../constructionTeaching';
 import { SentenceConstruction } from '../components/SentenceConstruction';
 import { isSentenceConstruction, isWordConstruction, sentenceIsCorrect } from '../sentenceConstruction';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -2287,7 +2288,7 @@ export function LessonScreen({
   };
 
   const evaluateChoiceSelection = (nextSelectedIds: string[]) => {
-    if (!currentCard || !cardAudioReadyRef.current || result === 'correct' || correctChoiceHandledRef.current) return;
+    if (!currentCard || !cardAudioReadyRef.current || result === 'correct' || awaitingConstructionRetry(currentCard, result) || correctChoiceHandledRef.current) return;
     setShowSentenceCoachmark(false);
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
     const finalOptionId = nextSelectedIds[nextSelectedIds.length - 1] || null;
@@ -2375,6 +2376,7 @@ export function LessonScreen({
   };
 
   const choose = (optionId: string) => {
+    if (awaitingConstructionRetry(currentCard, result)) return;
     if (!currentCard || result === 'correct' || correctChoiceHandledRef.current) return;
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
     const isMultiBlankCompletion = correctOptionIds.length > 1;
@@ -3344,7 +3346,7 @@ export function LessonScreen({
           {isSentenceCard ? (
             <SentenceConstruction key={`${currentCard.slide_id}-${cardRunId}`} card={currentCard}
               selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={showHelp}
-              onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} />
+              onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} onRetry={resetMissionSelection} />
           ) : usesMissionGameSurface && currentCard.mission_game ? (
             <MissionGameSurface
               card={currentCard as typeof currentCard & { mission_game: NonNullable<typeof currentCard.mission_game> }}
@@ -3460,6 +3462,7 @@ export function LessonScreen({
         ]}>{lessonContent}</View>
       )}
       <SentenceHelpOverlay
+        card={currentCard}
         anchorBottom={sentenceAnchorBottom}
         onDismiss={dismissSentenceCoachmark}
         onSuppress={suppressSentenceCoachmark}

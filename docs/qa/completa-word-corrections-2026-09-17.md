@@ -6,7 +6,7 @@ Acceptance checks:
 
 - Reproduce 1.1 U3: place `is` first, return it to the bank, then place `She` and `is` correctly.
 - Move a placed word to an empty slot or onto another word to swap. Drop a bank word onto an occupied slot and confirm the displaced word returns to the bank.
-- Fill a wrong answer: it remains editable with an empty but visible return area. Returning one word preserves every other placement and clears stale feedback. Undo restores the entire previous arrangement.
+- Before grading, returning one word preserves every other placement and Undo restores the entire previous arrangement. After a wrong grade, the later explicit `Reintentar` requirement supersedes immediate editing: preserve the attempt and explanation until the learner presses `Reintentar`.
 - Used words disappear, including after taps. One `woman` occurrence does not consume both identical tiles in 1.1 U7. No activity Reset/Reiniciar appears.
 - Outside drops, help, rotation and resize cancel movement without changing committed slots. Dragging cannot trigger a lesson page turn. Keyboard arrows/Delete and native screen-reader destination/return actions provide alternatives.
 - Check 1.5 U7's eight-word bank at 320/390 px phone portrait, 740x360 landscape, 800x1280 tablet portrait and 1280x800 landscape, with default and 2x text. Whole words, visible drop targets, bounded scrolling and minimum touch sizes remain required. Test bank-to-slot and slot-to-bank gestures with the bank and chosen destination visible.

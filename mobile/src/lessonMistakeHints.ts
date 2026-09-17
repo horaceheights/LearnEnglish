@@ -1,5 +1,6 @@
 import type { LessonCard } from './types';
 import { spanishTranslationFor } from './sentenceTranslations';
+import { constructionMistakeHint, isOrderedCompletion } from './constructionTeaching';
 
 const SUBJECT_LABELS: Record<string, string> = {
   'a baby': '“A baby” (un bebé)',
@@ -116,6 +117,7 @@ function contrast(correct: string, wrong: string) {
 export function lessonMistakeHint(card: LessonCard, selected?: string | string[] | null): string {
   const ids = card.correct_option_ids?.length ? card.correct_option_ids : [card.correct_option_id];
   const selectedIds = Array.isArray(selected) ? selected : selected ? [selected] : [];
+  if (isOrderedCompletion(card)) return constructionMistakeHint(card, selectedIds);
   const slot = Math.max(0, ids.findIndex((id, index) => selectedIds[index] !== id));
   const labels = ids.map((id) => card.options.find((option) => option.id === id)?.label || '');
   const correctOption = card.options.find((option) => option.id === ids[slot]);
@@ -145,7 +147,7 @@ export function lessonMistakeHint(card: LessonCard, selected?: string | string[]
   }
 
   if (/^(a|an)$/.test(focus)) {
-    const next = (isCompletion ? prompt.split(/_{2,}/)[slot + 1]?.trim().split(/\s+/)[0] : target.match(/\b(?:a|an)\s+(\w+)/i)?.[1])?.replace(/[?.!,]+$/, '');
+    const next = target.match(/\b(?:a|an)\s+(\w+)/i)?.[1] || '';
     return `La respuesta es “${focus} ${next}”: “${next}” empieza con sonido ${focus === 'an' ? 'de vocal' : 'de consonante'}, por eso usamos “${focus}” y no “${focus === 'an' ? 'a' : 'an'}”.`;
   }
   if (/^(am|is|are)$/.test(focus)) {

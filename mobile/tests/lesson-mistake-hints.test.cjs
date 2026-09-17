@@ -125,10 +125,16 @@ for (const file of files) {
     const correctIds = c.correct_option_ids?.length ? c.correct_option_ids : [c.correct_option_id];
     for (let slot = 0; slot < correctIds.length; slot++) for (const wrong of c.options) {
       if (wrong.id === correctIds[slot]) continue;
-      const attempt = [...correctIds]; attempt[slot] = wrong.id;
+      const attempt = [...correctIds];
+      if (['complete2', 'complete-sentence'].includes(c.interaction_type)) {
+        const other = correctIds.indexOf(wrong.id);
+        assert.ok(other >= 0, 'Construction banks must contain only required words.');
+        if (wrong.label === c.options.find(option => option.id === correctIds[slot]).label) continue;
+        [attempt[slot], attempt[other]] = [attempt[other], attempt[slot]];
+      } else attempt[slot] = wrong.id;
       const hint = lessonMistakeHint(c, attempt);
       const context = `${file}/${c.slide_id}/${slot}/${wrong.id}: ${hint}`;
-      assert.doesNotMatch(hint, /Mira de nuevo|Observa otra vez|Traducción no disponible|undefined|\[(?:blank|pausa)\]|_{2,}|: \.$/, context);
+      assert.doesNotMatch(hint, /Mira de nuevo|Observa otra vez|Traducción no disponible|undefined|“\s*”|\[(?:blank|pausa)\]|_{2,}|: \.$/, context);
       assert.match(hint, /significa|porque|usamos|reemplaza|indica|se refiere|primero|orden|va |van |antes|después|no está|muestra|La respuesta|corresponde|incluye|forma|con “|Con “|La edad|habla|pregunta/i, context);
       assert.ok(hint.length <= 230, context);
       checked++;

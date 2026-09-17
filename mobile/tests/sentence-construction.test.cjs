@@ -7,7 +7,9 @@ const test = require('node:test');
 const source = fs.readFileSync(path.join(__dirname, '../src/sentenceConstruction.ts'), 'utf8');
 const compiled = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText;
 const api = {};
-vm.runInNewContext(compiled, { exports: api });
+const teaching = {};
+vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(__dirname, '../src/constructionTeaching.ts'), 'utf8'), { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText, { exports: teaching });
+vm.runInNewContext(compiled, { exports: api, require: id => { assert.equal(id, './constructionTeaching'); return teaching; } });
 const lesson = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/lesson-1-people-actions.json')));
 const pilots = lesson.cards.filter(api.isSentenceConstruction);
 const rollout = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/generated/a1-course.json')))
@@ -65,6 +67,11 @@ test('identical woman occurrences are interchangeable but one tile cannot be reu
   assert.equal(api.sentenceIsCorrect(card, ids), true);
   ids[5] = ids[1];
   assert.equal(api.sentenceIsCorrect(card, ids), false);
+});
+
+test('long measured feedback enables scrolling before the Retry control can be clipped', () => {
+  assert.equal(api.sentenceLayout(304, 600, 1, 4, 240).scrollBank, true);
+  assert.ok(api.sentenceLayout(304, 600, 1, 4, 240).imageHeight < api.sentenceLayout(304, 600, 1, 4, 24).imageHeight);
 });
 
 test('phone, tablet, landscape and accessibility sizes retain target and label floors', () => {

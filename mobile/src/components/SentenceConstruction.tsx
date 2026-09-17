@@ -10,6 +10,7 @@ import {
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
+import { COMPLETION_RETRY_HELP, lessonHelpText } from '../lessonHelp';
 
 type Bounds = TileBounds;
 type Flight = { label: string; path: TileFlightPath; slot: number };
@@ -18,7 +19,7 @@ const FLIGHT_MS = 220;
 type Props = {
   card: LessonCard; selected: string[]; result: 'correct' | 'wrong' | null;
   disabled: boolean; showHelp?: boolean;
-  onChange: (ids: string[]) => void; onReplay: () => void;
+  onChange: (ids: string[]) => void; onReplay: () => void; onRetry: () => void;
 };
 
 type WordProps = {
@@ -58,8 +59,8 @@ function WordTile(props: WordProps) {
     <Pressable ref={(view) => { tile.current = view; props.register(view); }} disabled={disabled}
       accessibilityRole={id ? 'button' : 'text'}
       accessibilityLabel={slot === undefined ? `Ficha ${label}` : `Espacio ${slot + 1}: ${label || 'vacío'}`}
-      accessibilityHint={slot === undefined ? 'Toca para colocar, o arrastra a un espacio.' : 'Toca para devolver, o arrastra para mover esta palabra.'}
-      accessibilityActions={id ? [
+      accessibilityHint={disabled ? undefined : slot === undefined ? 'Toca para colocar, o arrastra a un espacio.' : 'Toca para devolver, o arrastra para mover esta palabra.'}
+      accessibilityActions={id && !disabled ? [
         ...Array.from({ length: props.count }, (_, index) => ({ name: `place-${index}`, label: `Mover al espacio ${index + 1}` })),
         ...(slot === undefined ? [] : [{ name: 'return', label: 'Devolver a las palabras disponibles' }]),
       ] : []}
@@ -80,11 +81,12 @@ function WordTile(props: WordProps) {
   </View>;
 }
 
-export function SentenceConstruction({ card, selected, result, disabled, showHelp, onChange, onReplay }: Props) {
+export function SentenceConstruction({ card, selected, result, disabled, showHelp, onChange, onReplay, onRetry }: Props) {
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const [translated, setTranslated] = useState(false);
   const [wordWidths, setWordWidths] = useState<Record<string, number>>({});
+  const [feedbackHeight, setFeedbackHeight] = useState(24);
   const [size, setSize] = useState({ width: viewport.width - 12, height: viewport.height - 240 });
   const [flight, setFlight] = useState<Flight | null>(null);
   const [moving, setMoving] = useState<{ id: string; label: string } | null>(null);
@@ -104,11 +106,11 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
   const landscape = viewport.width > viewport.height && viewport.height < 600;
-  const layout = sentenceLayout(landscape ? size.width * 0.48 : size.width - 40, size.height, viewport.fontScale, slots.length);
+  const layout = sentenceLayout(landscape ? size.width * 0.48 : size.width - 40, size.height, viewport.fontScale, slots.length, feedbackHeight);
   const paneWidth = landscape ? size.width * 0.48 : size.width;
   const wideSlots = Math.max(0, ...card.options.map(option => wordWidths[option.id] || 0))
     + layout.textSize * viewport.fontScale > paneWidth - 60;
-  const locked = disabled || result === 'correct';
+  const locked = disabled || result !== null;
   const measureWord = (id: string, width: number) => {
     if (id) setWordWidths(previous => previous[id] === width ? previous : { ...previous, [id]: width });
   };
@@ -116,7 +118,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const stopFlight = () => { flightRun.current++; flightAnimation.current?.stop(); flightAnimation.current = null; setFlight(null); };
   useEffect(() => () => { flightRun.current++; flightAnimation.current?.stop(); }, []);
   useEffect(() => { cancel(); stopFlight(); }, [card.slide_id, viewport.width, viewport.height, viewport.fontScale, showHelp, disabled]);
-  useEffect(() => { if (result === 'correct') cancel(); }, [result]);
+  useEffect(() => { if (result !== null) cancel(); }, [result]);
 
   const startFlight = (id: string, target: number, from?: Bounds) => {
     if (!from) return;
@@ -212,17 +214,24 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
       <LessonMediaFrame maxHeight={Math.max(112, layout.imageHeight)}>
         <OptionMediaImage imageUrl={card.prompt_image_url} accessibilityLabel="Imagen de la frase" />
       </LessonMediaFrame>
-      <Text style={styles.hint}>{showHelp ? 'Toca o arrastra una palabra para colocarla. Arrástrala a otro espacio para cambiarla, o devuélvela aquí. También puedes tocar una palabra colocada para devolverla.' : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text>
+      <Text style={styles.hint}>{result === 'wrong' ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, 'translation-on-tap') : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text>
       <View ref={bank} collapsable={false} style={[styles.bank, hover === 'bank' ? styles.target : null]} accessibilityLabel="Palabras disponibles">
         {words.map(option => <WordTile key={option.id} {...common} id={option.id} label={option.label || ''}
           register={() => {}} active={false} hidden={moving?.id === option.id} correct={false} />)}
-        {!words.length ? <Text style={styles.hint}>{result === 'correct' ? 'Frase completa.' : 'Devuelve aquí una palabra para corregir.'}</Text> : null}
+        {!words.length ? <Text style={styles.hint}>{result === 'correct' ? 'Frase completa.' : result === 'wrong' ? 'Lee la explicación de abajo.' : 'Devuelve aquí una palabra para corregir.'}</Text> : null}
       </View>
-      <View style={styles.controls}>
+      {result !== 'wrong' ? <View style={styles.controls}>
         <Pressable style={styles.control} disabled={locked || !history.current.length} accessibilityRole="button" accessibilityLabel="Deshacer último movimiento"
           onPress={() => { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } }}><Text style={styles.controlText}>Deshacer</Text></Pressable>
-      </View>
-      <Text accessibilityLiveRegion="polite" style={styles.feedback}>{result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? sentenceHint(card, slots) : ' '}</Text>
+      </View> : null}
+      <Text accessibilityLiveRegion="polite" style={styles.feedback}
+        onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
+        {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? `¡Ánimo! Inténtalo de nuevo.\n${sentenceHint(card, slots)}` : ' '}
+      </Text>
+      {result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
+        style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; cancel(); stopFlight(); onRetry(); }}>
+        <Text style={[styles.controlText, styles.retryControlText]}>Reintentar</Text>
+      </Pressable> : null}
     </CardContainer>
     {moving ? <Animated.View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" pointerEvents="none"
       style={[styles.lifted, { width: wordWidths[moving.id] || layout.tileWidth, minHeight: layout.tileHeight, transform: position.getTranslateTransform() }]}><Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }]}>{moving.label}</Text></Animated.View> : null}
@@ -265,5 +274,7 @@ const styles = StyleSheet.create({
   controls: { flexDirection: 'row', justifyContent: 'center', gap: 12, flexShrink: 0 },
   control: { minHeight: 48, minWidth: 80, padding: 10, justifyContent: 'center' },
   controlText: { color: '#2f6f9f', fontSize: 16, fontWeight: '700', textAlign: 'center' },
+  retryControl: { alignSelf: 'center', backgroundColor: '#278c73', borderRadius: 14, paddingHorizontal: 24 },
+  retryControlText: { color: '#fff' },
   feedback: { flexShrink: 0, fontSize: 16, color: '#665134', textAlign: 'center', minHeight: 24 },
 });

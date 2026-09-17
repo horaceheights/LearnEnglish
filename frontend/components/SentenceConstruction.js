@@ -2,13 +2,14 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { availableSentenceWords, placeSentenceWord, returnSentenceWord, sentenceHint, sentenceParts, sentenceSlots } from "../../mobile/src/sentenceConstruction";
+import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
 import styles from "./SentenceConstruction.module.css";
 
-export default function SentenceConstruction({ card, selected, result, onChange, onReplay, imageSrc, location, showHelp, surfaceRef }) {
+export default function SentenceConstruction({ card, selected, result, onChange, onReplay, onRetry, imageSrc, location, showHelp, surfaceRef }) {
   const slots = sentenceSlots(card, selected);
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
-  const locked = result === "correct";
+  const locked = result !== null;
   const root = useRef(null);
   const bank = useRef(null);
   const setRoot = useCallback(node => { root.current = node; if (surfaceRef) surfaceRef.current = node; }, [surfaceRef]);
@@ -29,6 +30,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
   useEffect(cancel, [cancel, card.slide_id, result, showHelp, wideSlots]);
   useEffect(() => {
     const measure = () => {
+      if (!root.current) return;
       // Keep measuring both bank and placed words after a tile changes ownership.
       // Parent page turns change visual bounds, not the space a word needs.
       const needed = Math.max(0, ...[...wordRefs.current.values(), ...slotRefs.current].filter(Boolean).map(word =>
@@ -123,7 +125,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
           const id = slots[part.slot];
           const label = card.options.find(option => option.id === id)?.label || "";
           return <button key={`slot-${part.slot}`} type="button" ref={element => { slotRefs.current[part.slot] = element; }}
-            className={`${styles.slot} ${locked ? styles.correct : ""} ${hover === part.slot ? styles.target : ""}`}
+            className={`${styles.slot} ${result === "correct" ? styles.correct : ""} ${hover === part.slot ? styles.target : ""}`}
             aria-label={`Espacio ${part.slot + 1}: ${label || "vacío"}`}
             aria-describedby="word-correction-help" disabled={locked || !id}
             {...handlers(id, label, part.slot)}><span style={{ visibility: moving?.id === id ? "hidden" : "visible" }}>{label || "___"}{part.suffix}</span></button>;
@@ -135,20 +137,22 @@ export default function SentenceConstruction({ card, selected, result, onChange,
     </div>
     <div className={styles.card}>
       <div className={styles.imageFrame}><img src={imageSrc} alt="Imagen de la frase" /></div>
-      <p className={styles.instruction}>{showHelp ? "Toca o arrastra una palabra para colocarla. Arrástrala a otro espacio para cambiarla, o devuélvela aquí. También puedes tocar una palabra colocada para devolverla." : "Toca o arrastra. Devuelve aquí las palabras para corregir."}</p>
-      <span id="word-correction-help" className={styles.srOnly}>Toca para devolver. Con el teclado, usa las flechas para mover y Suprimir para devolver.</span>
+      <p className={styles.instruction}>{result === "wrong" ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, "translation-on-tap") : "Toca o arrastra. Devuelve aquí las palabras para corregir."}</p>
+      <span id="word-correction-help" className={styles.srOnly}>{result === "wrong" ? COMPLETION_RETRY_HELP : locked ? "Frase completa." : "Toca para devolver. Con el teclado, usa las flechas para mover y Suprimir para devolver."}</span>
       <div ref={bank} className={`${styles.bank} ${hover === "bank" ? styles.target : ""}`} aria-label="Palabras disponibles">
         {words.map(option => <button key={option.id} type="button"
           ref={element => { if (element) wordRefs.current.set(option.id, element); else wordRefs.current.delete(option.id); }}
           className={`${styles.tile} ${styles[`tone${card.options.findIndex(word => word.id === option.id) % 3}`]}`} disabled={locked} aria-label={`Ficha ${option.label}`}
           {...handlers(option.id, option.label)}><span style={{ visibility: moving?.id === option.id ? "hidden" : "visible" }}>{option.label}</span></button>)}
-        {!words.length ? <p className={styles.instruction}>{locked ? "Frase completa." : "Devuelve aquí una palabra para corregir."}</p> : null}
+        {!words.length ? <p className={styles.instruction}>{result === "correct" ? "Frase completa." : result === "wrong" ? "Lee la explicación de abajo." : "Devuelve aquí una palabra para corregir."}</p> : null}
       </div>
-      <div className={styles.controls}>
+      {result !== "wrong" ? <div className={styles.controls}>
         <button type="button" disabled={locked || !history.current.length} aria-label="Deshacer último movimiento"
           onClick={() => { const previous = history.current.pop(); if (previous && !locked) onChange(previous); }}>Deshacer</button>
-      </div>
-      <div className={styles.feedback} role="status">{locked ? "¡Muy bien!" : result === "wrong" ? sentenceHint(card, slots) : ""}</div>
+      </div> : null}
+      <div className={styles.feedback} role="status">{result === "correct" ? "¡Muy bien!" : result === "wrong" ? <><div>¡Ánimo! Inténtalo de nuevo.</div><div>{sentenceHint(card, slots)}</div></> : ""}</div>
+      {result === "wrong" ? <div className={styles.controls}><button className={styles.retry} type="button"
+        onClick={() => { history.current = []; cancel(); onRetry(); }}>Reintentar</button></div> : null}
     </div>
     {moving ? <div aria-hidden="true" className={styles.drag} style={{ left: moving.x, top: moving.y, width: moving.width, minHeight: moving.height }}>{moving.label}</div> : null}
   </section>;

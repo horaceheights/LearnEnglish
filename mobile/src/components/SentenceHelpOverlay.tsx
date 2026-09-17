@@ -1,12 +1,14 @@
 import { Image, Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 
-import type { PromptInteractionMode } from '../lessonHelp';
+import { listeningHelpText, type PromptInteractionMode } from '../lessonHelp';
+import type { LessonCard } from '../types';
 
 const LISTENING_SQUIRREL = require('../../assets/mascots/serious/listening-frames-normalized/listening-06.png');
 
 export type SentenceHelpVariant = 'prompt' | 'construction';
 
 type Props = {
+  card?: LessonCard | null;
   anchorBottom?: number;
   onDismiss: () => void;
   onSuppress: () => void;
@@ -16,6 +18,7 @@ type Props = {
 };
 
 export function SentenceHelpOverlay({
+  card,
   anchorBottom,
   onDismiss,
   onSuppress,
@@ -26,6 +29,7 @@ export function SentenceHelpOverlay({
   const { height, width } = useWindowDimensions();
   const isLandscape = width > height;
   const isConstruction = variant === 'construction';
+  const listening = listeningHelpText(card);
   const estimatedHeight = isLandscape ? 150 : 216;
   const fallbackTop = height * (isLandscape ? 0.26 : 0.29);
   const desiredTop = anchorBottom === undefined
@@ -72,6 +76,8 @@ export function SentenceHelpOverlay({
                 <Text style={styles.message}>
                   {isConstruction ? (
                     <>Ahora <Text style={styles.emphasis}>todas</Text> las palabras están en blanco. El banco tiene exactamente las que necesitas.</>
+                  ) : listening ? (
+                    listening
                   ) : promptInteractionMode === 'visual-instruction' ? (
                     <>La instrucción en español es <Text style={styles.emphasis}>solo visual</Text>.</>
                   ) : promptInteractionMode === 'translation-on-tap' ? (
@@ -80,7 +86,7 @@ export function SentenceHelpOverlay({
                     <>Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.</>
                   )}
                 </Text>
-                <Text style={styles.message}>
+                {!listening || isConstruction ? <Text style={styles.message}>
                   {isConstruction ? (
                     <>Toca cada palabra <Text style={styles.emphasis}>en orden</Text>; toca una palabra colocada para devolverla.</>
                   ) : promptInteractionMode === 'visual-instruction' ? (
@@ -90,7 +96,7 @@ export function SentenceHelpOverlay({
                   ) : (
                     <>Toca <Text style={styles.emphasis}>dos veces</Text> la palabra para ver su traducción.</>
                   )}
-                </Text>
+                </Text> : null}
                 <View style={styles.buttonRow}>
                   <Pressable
                     accessibilityRole="button"
