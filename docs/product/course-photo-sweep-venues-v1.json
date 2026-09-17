@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v6",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "0.30",
+    "expected_cost_usd": "0.13",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "Exceptionally realistic full-bleed 3:2 landscape photography, real humans and settings. No cartoons, insets, collages, borders, captions or floating symbols. A centered 4:5 phone crop cuts the outer quarters: all meaningful subjects must fit within the central 45 percent width, with plenty of expendable background margins. Venue must be recognized from real-world objects and actions, never answer text.",
+  "assets": [
+    {
+      "id": "u6-review-hospital-word-free",
+      "runtime_filename": "a1_photo_u6_review_hospital_v2.webp",
+      "prompt": "A real hospital emergency entrance with a SINGLE large blue H above its central doors, no other letters or words anywhere. A clearly recognizable ambulance directly beside the doors and a clinician in scrubs wheeling a patient toward the entrance. Doors, ambulance and medical activity close together in center 45 percent width. Farther-back frontal view, whole scene visible. No HOSPITAL word, no branding, no readable license plates.",
+      "expected_description": "A real hospital emergency entrance with a SINGLE large blue H above its central doors, no other letters or words anywhere. A clearly recognizable ambulance directly beside the doors and a clinician in scrubs wheeling a patient toward the entrance. Doors, ambulance and medical activity close together in center 45 percent width. Farther-back frontal view, whole scene visible. No HOSPITAL word, no branding, no readable license plates.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 56,
+            "old_filename": "a1_scene_a-hospital_dfbc6e9.webp",
+            "old_sha256": "4e64be08c3c604e129a0abb9db2163185ffbbe901bd2f887fbebf836e411756e",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/4/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v4/u6-review-hospital.png",
+        "sha256": "54edf2e03a1ccbf7152376731e4ac704c12c4d40936d0812928b633c1613e426",
+        "reason": "The photograph shows a credible hospital entrance and ambulance, but the large HOSPITAL word reveals the answer. Existing venue-word guardrail permits only H; do not install."
+      }
+    },
+    {
+      "id": "u6-review-library-word-free",
+      "runtime_filename": "a1_photo_u6_review_library_v2.webp",
+      "prompt": "A natural photograph just inside a public lending library: tall bookshelves immediately behind a central librarian at a checkout desk, handing a stack of books to an adult customer. Both people and unmistakable shelves of books fill the middle 45 percent width compactly. No words, signs, letters, book titles, shop price tags or branding. Do not write LIBRARY anywhere. Farther-back view with expendable room margins.",
+      "expected_description": "A natural photograph just inside a public lending library: tall bookshelves immediately behind a central librarian at a checkout desk, handing a stack of books to an adult customer. Both people and unmistakable shelves of books fill the middle 45 percent width compactly. No words, signs, letters, book titles, shop price tags or branding. Do not write LIBRARY anywhere. Farther-back view with expendable room margins.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 467,
+            "old_filename": "a1_scene_library_00299a4.webp",
+            "old_sha256": "45612633d78b36bc9370fbadda9702b228ddadec29b4324cbf3c3375149a94c2",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/12/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v4/u6-review-library.png",
+        "sha256": "537900613498ec84be3586bf97b9080f487283e32c6b878b3d2682f011432b8f",
+        "reason": "The library photograph has bookshelves and a customer carrying books, but a large LIBRARY sign gives away the answer. Reject under the existing no-venue-answer-text rule."
+      }
+    },
+    {
+      "id": "u6-review-store-word-free",
+      "runtime_filename": "a1_photo_u6_review_store_v2.webp",
+      "prompt": "A natural photograph of a small grocery store doorway surrounded closely by fruit and vegetable crates and visible stocked shelves. One customer holds a paper bag of groceries at the threshold. Person, produce and entrance compactly centered in middle 45 percent width. Blank awning, absolutely no signs, words, letters, logos, price tags or branding. Do not write STORE or GROCERY anywhere.",
+      "expected_description": "A natural photograph of a small grocery store doorway surrounded closely by fruit and vegetable crates and visible stocked shelves. One customer holds a paper bag of groceries at the threshold. Person, produce and entrance compactly centered in middle 45 percent width. Blank awning, absolutely no signs, words, letters, logos, price tags or branding. Do not write STORE or GROCERY anywhere.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 658,
+            "old_filename": "a1_scene_store_3a21295.webp",
+            "old_sha256": "630c193a6d5f40a59ddc24984e54174c14266f0f2f7a10fd72cf934b9810d545",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/12/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v4/u6-review-store.png",
+        "sha256": "0652a3d77528e02f6e928bb01320efb42bdad0eaf30a6513d1606eea5e3c74ec",
+        "reason": "A customer carries groceries in front of produce displays, but a large STORE sign explicitly gives the answer. Do not install; use a word-free grocery scene."
+      }
+    }
+  ]
+}

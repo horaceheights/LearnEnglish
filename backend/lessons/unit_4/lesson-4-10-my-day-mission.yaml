@@ -90,7 +90,7 @@
       "interaction_type": "mission-game",
       "stage": "Listen",
       "prompt": "The mother is in the living room. The grandparents are on the sofa. There is a lamp. There is a window.",
-      "prompt_image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp",
+      "prompt_image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp",
       "options": [
         {
           "id": "mother-living-room",
@@ -125,22 +125,22 @@
         {
           "text": "The mother is in the living room.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp"
         },
         {
           "text": "The grandparents are on the sofa.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp"
         },
         {
           "text": "There is a lamp.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp"
         },
         {
           "text": "There is a window.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp"
         }
       ],
       "spanish_translation": "La madre está en la sala. Los abuelos están en el sofá. Hay una lámpara. Hay una ventana.",
@@ -154,53 +154,83 @@
             "id": "mother-living-room",
             "label_es": "Madre en la sala",
             "rect": {
-              "x": 0.1,
-              "y": 0.3,
-              "width": 0.22,
-              "height": 0.52
+              "x": 0.17,
+              "y": 0.27,
+              "width": 0.19,
+              "height": 0.61
             },
             "accepted_option_ids": [
               "mother-living-room"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.308,
+                "y": 0.27
+              }
             ]
           },
           {
             "id": "grandparents-sofa",
             "label_es": "Abuelos en el sofá",
             "rect": {
-              "x": 0.42,
-              "y": 0.38,
-              "width": 0.32,
-              "height": 0.45
+              "x": 0.48,
+              "y": 0.45,
+              "width": 0.18,
+              "height": 0.42
             },
             "accepted_option_ids": [
               "grandparents-sofa"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.533,
+                "y": 0.453
+              },
+              {
+                "x": 0.593,
+                "y": 0.453
+              }
             ]
           },
           {
             "id": "room-lamp",
             "label_es": "Lámpara",
             "rect": {
-              "x": 0.02,
-              "y": 0.45,
-              "width": 0.14,
-              "height": 0.35
+              "x": 0.005,
+              "y": 0.29,
+              "width": 0.125,
+              "height": 0.69
             },
             "accepted_option_ids": [
               "room-lamp"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.068,
+                "y": 0.293
+              }
+            ],
+            "subject_kind": "object"
           },
           {
             "id": "room-window",
             "label_es": "Ventana",
             "rect": {
-              "x": 0.78,
-              "y": 0.2,
-              "width": 0.2,
-              "height": 0.45
+              "x": 0.704,
+              "y": 0.115,
+              "width": 0.296,
+              "height": 0.49
             },
             "accepted_option_ids": [
               "room-window"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.862,
+                "y": 0.126
+              }
+            ],
+            "subject_kind": "object"
           }
         ],
         "cues": [
@@ -241,7 +271,7 @@
       "interaction_type": "mission-game",
       "stage": "Listen",
       "prompt": "The father is in the kitchen. The boy is in the kitchen. There is a table in the dining room. There are two chairs.",
-      "prompt_image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp",
+      "prompt_image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
       "options": [
         {
           "id": "father-kitchen",
@@ -276,22 +306,22 @@
         {
           "text": "The father is in the kitchen.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp"
         },
         {
           "text": "The boy is in the kitchen.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp"
         },
         {
           "text": "There is a table in the dining room.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp"
         },
         {
           "text": "There are two chairs.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp"
         }
       ],
       "spanish_translation": "El padre está en la cocina. El niño está en la cocina. Hay una mesa en el comedor. Hay dos sillas.",
@@ -305,53 +335,83 @@
             "id": "father-kitchen",
             "label_es": "Padre en la cocina",
             "rect": {
-              "x": 0.2,
-              "y": 0.22,
-              "width": 0.22,
-              "height": 0.65
+              "x": 0.247,
+              "y": 0.19,
+              "width": 0.176,
+              "height": 0.79
             },
             "accepted_option_ids": [
               "father-kitchen"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.322,
+                "y": 0.199
+              }
             ]
           },
           {
             "id": "boy-kitchen",
             "label_es": "Niño en la cocina",
             "rect": {
-              "x": 0.55,
+              "x": 0.542,
               "y": 0.3,
-              "width": 0.18,
-              "height": 0.52
+              "width": 0.12,
+              "height": 0.464
             },
             "accepted_option_ids": [
               "boy-kitchen"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.604,
+                "y": 0.304
+              }
             ]
           },
           {
             "id": "dining-table",
             "label_es": "Mesa del comedor",
             "rect": {
-              "x": 0.72,
-              "y": 0.5,
-              "width": 0.26,
-              "height": 0.35
+              "x": 0.715,
+              "y": 0.46,
+              "width": 0.285,
+              "height": 0.16
             },
             "accepted_option_ids": [
               "dining-table"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.845,
+                "y": 0.487
+              }
+            ],
+            "subject_kind": "object"
           },
           {
             "id": "two-chairs",
             "label_es": "Dos sillas",
             "rect": {
-              "x": 0.7,
-              "y": 0.55,
-              "width": 0.28,
-              "height": 0.38
+              "x": 0.69,
+              "y": 0.506,
+              "width": 0.285,
+              "height": 0.408
             },
             "accepted_option_ids": [
               "two-chairs"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.712,
+                "y": 0.51
+              },
+              {
+                "x": 0.913,
+                "y": 0.57
+              }
+            ],
+            "subject_kind": "object"
           }
         ],
         "cues": [
@@ -392,7 +452,7 @@
       "interaction_type": "mission-game",
       "stage": "Listen",
       "prompt": "The girl is in the bedroom. There is a bed. There is a computer. There is a door.",
-      "prompt_image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp",
+      "prompt_image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp",
       "options": [
         {
           "id": "girl-bedroom",
@@ -427,22 +487,22 @@
         {
           "text": "The girl is in the bedroom.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp"
         },
         {
           "text": "There is a bed.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp"
         },
         {
           "text": "There is a computer.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp"
         },
         {
           "text": "There is a door.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp"
         }
       ],
       "spanish_translation": "La niña está en la habitación. Hay una cama. Hay una computadora. Hay una puerta.",
@@ -456,53 +516,80 @@
             "id": "girl-bedroom",
             "label_es": "Niña en la habitación",
             "rect": {
-              "x": 0.12,
-              "y": 0.35,
-              "width": 0.22,
-              "height": 0.48
+              "x": 0.272,
+              "y": 0.322,
+              "width": 0.159,
+              "height": 0.47
             },
             "accepted_option_ids": [
               "girl-bedroom"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.334,
+                "y": 0.326
+              }
             ]
           },
           {
             "id": "bedroom-bed",
             "label_es": "Cama",
             "rect": {
-              "x": 0.58,
-              "y": 0.45,
-              "width": 0.35,
-              "height": 0.45
+              "x": 0.587,
+              "y": 0.411,
+              "width": 0.329,
+              "height": 0.389
             },
             "accepted_option_ids": [
               "bedroom-bed"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.871,
+                "y": 0.509
+              }
+            ],
+            "subject_kind": "object"
           },
           {
             "id": "bedroom-computer",
             "label_es": "Computadora",
             "rect": {
-              "x": 0.25,
-              "y": 0.4,
-              "width": 0.15,
-              "height": 0.2
+              "x": 0.1445,
+              "y": 0.4065,
+              "width": 0.12,
+              "height": 0.16
             },
             "accepted_option_ids": [
               "bedroom-computer"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.177,
+                "y": 0.433
+              }
+            ],
+            "subject_kind": "object"
           },
           {
             "id": "bedroom-door",
             "label_es": "Puerta",
             "rect": {
-              "x": 0.45,
-              "y": 0.15,
-              "width": 0.15,
-              "height": 0.45
+              "x": 0,
+              "y": 0.014,
+              "width": 0.12,
+              "height": 0.95
             },
             "accepted_option_ids": [
               "bedroom-door"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.049,
+                "y": 0.294
+              }
+            ],
+            "subject_kind": "object"
           }
         ],
         "cues": [
@@ -547,7 +634,7 @@
       "options": [
         {
           "id": "time-six",
-          "image_url": "/lesson-assets/a1_u4_scene_04_clock_check.webp",
+          "image_url": "/lesson-assets/a1_u4_mission_clock_six_v3.webp",
           "label": "It is six o'clock."
         }
       ],
@@ -557,7 +644,7 @@
         {
           "text": "What time is it?",
           "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u4_scene_04_clock_check.webp"
+          "image_url": "/lesson-assets/a1_u4_mission_clock_six_v3.webp"
         }
       ],
       "spanish_translation": "Son las seis en punto.",

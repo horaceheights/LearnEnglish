@@ -64,15 +64,31 @@ def load_pack(path: Path) -> dict:
         raise ValueError("Asset IDs must be unique safe filenames.")
     seen = set()
     for item in pack["assets"]:
+        if item.get('reference') and item.get('reference_file'):
+            raise ValueError('Use one unambiguous reference source.')
+        if item.get('reference_file'):
+            reviewed_reference_path(item['reference_file'])
         if item.get("reference") and item["reference"] not in seen:
             raise ValueError("Every reference must name an earlier asset in this pack.")
         seen.add(item["id"])
     return pack
 
 
+def reviewed_reference_path(record: dict, root: Path = ROOT) -> Path:
+    """Only an explicitly inspected, immutable course image may be uploaded."""
+    relative=Path(record.get('path',''))
+    path=(root/relative).resolve()
+    allowed=(root/'Lessons/Lesson1/images').resolve()
+    if relative.is_absolute() or not path.is_relative_to(allowed) or path.suffix.lower() not in {'.png','.webp','.jpg'}:
+        raise ValueError('Reference must be a course image inside the source asset directory.')
+    if not path.is_file() or record.get('sha256')!=digest(path) or len(record.get('observed_description',''))<35:
+        raise ValueError('Reference requires actual current pixel inspection evidence.')
+    return path
+
+
 def pack_output_directory(pack: dict) -> Path:
     name = pack.get("output_namespace") or f"unit-{pack['lesson_number'].split('.')[0]}-mission-v{pack['revision']}"
-    if not re.fullmatch(r"unit-[1-7]-(?:mission|review)-v[1-9][0-9]*", name):
+    if not re.fullmatch(r"(?:unit-[1-7]-(?:mission|review)|course-photo-sweep)-v[1-9][0-9]*", name):
         raise ValueError("Unsafe output namespace.")
     return ROOT / "output/imagegen" / name
 
@@ -86,6 +102,34 @@ def validate_change_control(pack: dict, asset: dict) -> None:
     if errors:
         raise ValueError("Media preservation failed: " + errors[0])
     control = asset.get("change_control", {})
+    if control.get('kind') == 'inspected-mission-photo-edit':
+        lesson = lessons(ROOT).get(control.get('lesson_id'))
+        card = next((c for c in (lesson or {}).get('cards', []) if c['slide_id'] == control.get('slide_id')), None)
+        reference = asset.get('reference_file', {})
+        old = control.get('old_filename', '')
+        if (not lesson or not lesson['sub_lesson_id'].endswith('.10') or card != control.get('original_card')
+                or not card.get('mission_game') or reference.get('sha256') != control.get('old_sha256')
+                or Path(reference.get('path', '')).name != old or len(control.get('old_observation', '')) < 35):
+            raise ValueError('Mission photo edit requires exact unchanged card and inspected reference evidence.')
+        new = asset.get('runtime_filename', '')
+        if Path(new).name != new or not new.endswith('.webp') or new == old:
+            raise ValueError('Mission edit requires a new versioned filename.')
+        from scripts.audit_course_media_preservation import IMAGE_ROOTS, images
+        if old not in images(card):
+            raise ValueError('Mission image is not bound to the specified card.')
+        for folder in IMAGE_ROOTS:
+            if digest(ROOT / folder / old) != control['old_sha256'] or (ROOT / folder / new).exists():
+                raise ValueError('Mission image changed or replacement already exists.')
+        return
+    if control.get('kind') == 'inspected-legacy-photo-group':
+        if not control.get('replacements'):
+            raise ValueError('No exact old-image records in the generation group.')
+        for replacement in control['replacements']:
+            validate_legacy_photo_scene(asset, replacement)
+        return
+    if control.get('kind') == 'inspected-legacy-photo-scene':
+        validate_legacy_photo_scene(asset, control)
+        return
     if control.get("kind") == "new-review-scene" and control.get("reason") and not control.get("replaces"):
         if not pack["lesson_number"].endswith(".9"):
             raise ValueError("New review scenes must belong to Lesson 9.")
@@ -99,6 +143,45 @@ def validate_change_control(pack: dict, asset: dict) -> None:
         if len(matching) != 1:
             raise ValueError("Missing exact lesson/image replacement exception.")
         validate_plan(matching[0], baseline, current, ROOT)
+
+
+def validate_legacy_photo_scene(asset: dict, control: dict) -> None:
+        from scripts.audit_course_media_preservation import lessons
+        # A paid scene is authorized by exact old pixels and bounded card fields,
+        # not by assuming its provider or trusting a filename's apparent meaning.
+        from scripts.install_course_photo_reuse import pointer_parent
+        if len(control.get('old_observation','')) < 35 or not control.get('scopes'):
+            raise ValueError('A concrete pixel issue and lesson fields are required.')
+        old = control.get('old_filename','')
+        new = asset.get('runtime_filename','')
+        if Path(old).name != old or Path(new).name != new or not new.endswith('.webp') or old == new:
+            raise ValueError('Unsafe replacement image name.')
+        for folder in ('Lessons/Lesson1/images','mobile/assets/lesson-assets','frontend/public/lesson-assets'):
+            if digest(ROOT / folder / old) != control.get('old_sha256'):
+                raise ValueError('Inspected source image changed before generation.')
+            if (ROOT / folder / new).exists():
+                raise ValueError('Replacement already exists; do not regenerate it.')
+        current = lessons(ROOT)
+        expected_binding=old
+        if control.get('replaces_staged_candidate'):
+            revision=control['replaces_staged_candidate']
+            from scripts.install_preference_photo_batch import digest_json
+            proof=json.loads((ROOT/'docs/qa/course-photo-reuse-v1.json').read_text(encoding='utf-8'))
+            matches=[r for r in proof['assets'] if r['old_filename']==old and r['candidate_filename']==revision.get('filename')]
+            if (len(matches)!=1 or digest_json(matches[0])!=revision.get('record_sha256')
+                    or matches[0]['scopes']!=control['scopes'] or len(revision.get('issue',''))<35):
+                raise ValueError('Staged candidate revision lacks exact unchanged inspection evidence.')
+            expected_binding=revision['filename']
+            for folder in ('Lessons/Lesson1/images','mobile/assets/lesson-assets','frontend/public/lesson-assets'):
+                if digest(ROOT/folder/expected_binding)!=matches[0]['new_sha256']:
+                    raise ValueError('Staged candidate pixels changed before correction.')
+        for scope in control['scopes']:
+            lesson = current[scope['lesson_id']]
+            if int(lesson['sub_lesson_id'].split('.')[1]) == 10:
+                raise ValueError('This still batch cannot change mission hotspot scenes.')
+            parent,key = pointer_parent(lesson,scope['pointer'])
+            if Path(parent[key].split('?',1)[0]).name != expected_binding:
+                raise ValueError('Card binding changed before generation.')
 
 
 def validate_budget(output_dir: Path, ceiling: Decimal, reserve: Decimal) -> Decimal:
@@ -241,6 +324,8 @@ def main() -> int:
     output = output_dir / (asset["id"] + ".png")
     receipt = output.with_suffix(".receipt.json")
     reference = output_dir / (asset["reference"] + ".png") if asset.get("reference") else None
+    if asset.get('reference_file'):
+        reference=reviewed_reference_path(asset['reference_file'])
     if output.exists() or receipt.exists():
         raise ValueError("Asset already attempted; do not overwrite or retry it.")
     prompt = pack["shared_prompt"] + "\n\n" + asset["prompt"]
@@ -251,7 +336,7 @@ def main() -> int:
         if ceiling is None or ceiling > declared:
             raise ValueError("Execution requires a positive ceiling no larger than the declared pack budget.")
         validate_budget(output_dir, ceiling, args.request_reserve_usd)
-        if reference:
+        if asset.get('reference'):
             review_path = output_dir / "agent-reviews.json"
             reviews = json.loads(review_path.read_text(encoding="utf-8")) if review_path.exists() else {}
             review = reviews.get(asset["reference"], {})

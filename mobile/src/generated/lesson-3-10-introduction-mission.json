@@ -512,7 +512,7 @@
       "options": [
         {
           "id": "mother-doctor",
-          "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother.webp",
+          "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother_fullframe_v2.webp",
           "label": "She is a doctor."
         }
       ],
@@ -527,31 +527,31 @@
         {
           "text": "Who is she?",
           "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother.webp"
+          "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother_fullframe_v2.webp"
         }
       ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-3-10-introduction-mission-c003-mission-cue-2dbf158fb5d06171b0df",
+          "id": "lesson-3-10-introduction-mission-c003-mission-cue-4ae7b4200efab5cb48bb",
           "purpose": "mission-cue",
           "text": "Who is she?",
           "mode": "prompt",
           "variant": "question",
-          "image_ref": "/lesson-assets/a1_u3_scene_03_photo_mother.webp",
+          "image_ref": "/lesson-assets/a1_u3_scene_03_photo_mother_fullframe_v2.webp",
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 2
         },
         {
-          "id": "lesson-3-10-introduction-mission-c003-prompt-turn-1-8ad77e9ed20b8e98ee46",
+          "id": "lesson-3-10-introduction-mission-c003-prompt-turn-1-3ab18ff29162f448acf0",
           "purpose": "prompt-turn-1",
           "text": "Who is she?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u3_scene_03_photo_mother.webp",
+          "image_ref": "/lesson-assets/a1_u3_scene_03_photo_mother_fullframe_v2.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -568,15 +568,20 @@
             "id": "mother-doctor",
             "label_es": "Doctora",
             "rect": {
-              "x": 0.35,
-              "y": 0.2,
-              "width": 0.3,
-              "height": 0.55
+              "x": 0.48,
+              "y": 0.25,
+              "width": 0.31,
+              "height": 0.74
             },
             "accepted_option_ids": [
               "mother-doctor"
             ],
-            "head_anchors": [],
+            "head_anchors": [
+              {
+                "x": 0.627,
+                "y": 0.253
+              }
+            ],
             "group_chest_anchor": null
           }
         ],

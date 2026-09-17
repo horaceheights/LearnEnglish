@@ -173,6 +173,32 @@ class LessonStructureTests(unittest.TestCase):
         )
         self.assertEqual(EXPECTED_TITLES, [lesson.sub_lesson_title for lesson in unit_1])
 
+    def test_photo_choices_preserve_food_color_quantity_and_crossing_polarity(self):
+        cases = [
+            ('The woman is drinking milk.', 'u5_woman_drinking_milk', 'u5_woman_drinking_water'),
+            ('The boy is eating rice.', 'u5_boy_eating_rice', 'u5_boy_eating_bread'),
+            ('She wants two red apples.', 'u5_woman_wants_two_red_apples', 'u5_woman_wants_two_green_apples'),
+            ('She wants two red apples.', 'u5_woman_wants_two_red_apples', 'u5_woman_wants_three_red_apples'),
+            ('The boy cannot cross the street.', 'u6_boy_waits_red', 'u6_boy_crosses_green'),
+        ]
+        for text, correct, wrong in cases:
+            with self.subTest(text=text, wrong=wrong):
+                card=self._semantic_card(prompt=text,audio_text=text,correct_option_id='yes',options=[
+                    self._semantic_option('yes',None,f'a1_photo_{correct}_v1.webp'),
+                    self._semantic_option('no',None,f'a1_photo_{wrong}_v1.webp')])
+                self.assertEqual([],self._semantic_findings(card))
+                card.options[1].image_url=card.options[0].image_url
+                self.assertTrue(self._semantic_findings(card), 'An actual duplicate meaning must still fail')
+                card.options[0].image_url=f'a1_photo_{wrong}_v1.webp'
+                self.assertTrue(any('not supported' in f for f in self._semantic_findings(card)))
+
+    def test_incorrect_third_person_want_is_not_a_truth_compatible_answer(self):
+        card=self._semantic_card(prompt='Choose the sentence.',prompt_image_url='a1_photo_u5_man_wants_bread_v1.webp',correct_option_id='yes',options=[
+            self._semantic_option('yes','He wants bread.'),self._semantic_option('no','He want bread.')])
+        self.assertEqual([],self._semantic_findings(card))
+        card.options[1].label='He wants bread.'
+        self.assertTrue(self._semantic_findings(card))
+
     def test_complete_a1_course_has_seven_units_and_ten_lessons_each(self):
         self.assertEqual(70, len(LESSONS))
         for unit in range(1, 8):
@@ -1428,7 +1454,7 @@ class LessonStructureTests(unittest.TestCase):
         action_words = {"running", "walking", "sitting", "standing"}
         self.assertFalse(action_words & set(lesson.vocabulary))
 
-    def test_lesson_1_varies_clothing_without_changing_the_people_contract(self):
+    def test_lesson_1_keeps_the_user_selected_opening_cast(self):
         lesson = LESSONS["lesson-1-people-actions"]
         referenced_images = {
             urlparse(image_url).path.rsplit("/", 1)[-1]
@@ -1442,8 +1468,8 @@ class LessonStructureTests(unittest.TestCase):
         for person in ("boy", "girl", "man", "woman"):
             with self.subTest(person=person):
                 self.assertIn(f"{person}.webp", referenced_images)
-                self.assertIn(f"a1_l1_{person}_alt.webp", referenced_images)
-                self.assertIn(f"a1_l1_{person}_transfer.webp", referenced_images)
+                self.assertNotIn(f"a1_l1_{person}_alt.webp", referenced_images)
+                self.assertNotIn(f"a1_l1_{person}_transfer.webp", referenced_images)
         course_source = (
             Path(__file__).resolve().parents[2]
             / "mobile"
@@ -1451,7 +1477,8 @@ class LessonStructureTests(unittest.TestCase):
             / "screens"
             / "CourseScreen.tsx"
         ).read_text(encoding="utf-8")
-        self.assertIn("image: 'a1_l1_people_together.webp'", course_source)
+        self.assertIn("image: 'man.webp'", course_source)
+        self.assertNotIn("image: 'a1_l1_people_together.webp'", course_source)
 
     def test_lesson_1_repeats_one_story_order_through_every_stage(self):
         lesson = LESSONS["lesson-1-people-actions"]
