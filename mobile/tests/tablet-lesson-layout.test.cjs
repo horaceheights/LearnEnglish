@@ -60,17 +60,17 @@ assert.match(
 );
 assert.match(
   cardView,
-  /width:\s*constrainedPortraitImageOptionWidth\s*\?\? constrainedLandscapeImageOptionWidth\s*\?\? optionWidth/,
+  /width:\s*boundedImageChoices\?\.optionWidth\s*\?\? constrainedPortraitImageOptionWidth\s*\?\? constrainedLandscapeImageOptionWidth\s*\?\? optionWidth/,
   'Height-aware landscape sizing must apply without replacing the existing portrait constraint or authored option widths.',
 );
 assert.match(
   cardView,
-  /const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape/,
+  /const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape && !phoneLandscape/,
   'Landscape tablet teaching videos must not override the shared height-aware single-card width cap.',
 );
 assert.match(
   cardView,
-  /useFullWidthSingleActionVideo \? styles\.singleActionVideoOption : null/,
+  /useFullWidthSingleActionVideo && !boundedImageChoices \? styles\.singleActionVideoOption : null/,
   'The full-width teaching-video style must remain scoped to phones.',
 );
 assert.match(

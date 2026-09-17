@@ -91,7 +91,7 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Every mobile A1 card in all seven units uses the same three-part lesson header[\s\S]*?never key it to a lesson, card index, phrase, answer, image, orientation, or device class/,
+  /Every mobile A1 card in all seven units uses the same three-part lesson header[\s\S]*?never key it to a lesson, card index, phrase, answer, or image[\s\S]*?approved phone-landscape rail/,
   'Durable product memory must define a generic course-wide layout rather than a slide exception.',
 );
 assert.match(

@@ -10,6 +10,7 @@ import {
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
+import { isPhoneLandscape } from '../lessonViewportLayout';
 import { COMPLETION_RETRY_HELP, lessonHelpText } from '../lessonHelp';
 
 type Bounds = TileBounds;
@@ -26,6 +27,7 @@ type WordProps = {
   id: string; label: string; slot?: number; suffix?: string; disabled: boolean;
   width: number; height: number; textSize: number; active: boolean; hidden: boolean; correct: boolean;
   count: number;
+  maxFontSizeMultiplier?: number;
   register: (view: View | null) => void;
   onWidth: (id: string, width: number) => void;
   onPress: (id: string, slot?: number, from?: Bounds) => void;
@@ -75,8 +77,8 @@ function WordTile(props: WordProps) {
         tile.current?.measureInWindow((x, y, w, h) => { sourceBounds.current = { x, y, width: w, height: h }; });
       }}
       onPress={() => { if (id && !dragged.current) props.onPress(id, slot, sourceBounds.current); }}
-      style={[slot === undefined ? styles.tile : styles.slot, { minHeight: height }, active ? styles.target : null, correct ? styles.correct : null]}>
-      <Text numberOfLines={1} style={[styles.word, { fontSize: textSize }, hidden ? styles.arriving : null]}>{label || '___'}{suffix}</Text>
+      style={[slot === undefined ? styles.tile : styles.slot, props.maxFontSizeMultiplier ? styles.tilePhoneLandscape : null, { minHeight: height }, active ? styles.target : null, correct ? styles.correct : null]}>
+      <Text numberOfLines={1} maxFontSizeMultiplier={props.maxFontSizeMultiplier} style={[styles.word, { fontSize: textSize }, hidden ? styles.arriving : null]}>{label || '___'}{suffix}</Text>
     </Pressable>
   </View>;
 }
@@ -98,16 +100,19 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const drag = useRef<Drag | null>(null);
   const root = useRef<View>(null);
   const bank = useRef<View>(null);
-  const slotPane = useRef<ScrollView>(null);
+  const slotPane = useRef<View | ScrollView | null>(null);
   const cardPane = useRef<View | ScrollView | null>(null);
   const slotsRef = useRef<Array<View | null>>([]);
   const history = useRef<string[][]>([]);
   const slots = sentenceSlots(card, selected);
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
-  const landscape = viewport.width > viewport.height && viewport.height < 600;
-  const layout = sentenceLayout(landscape ? size.width * 0.48 : size.width - 40, size.height, viewport.fontScale, slots.length, feedbackHeight);
-  const paneWidth = landscape ? size.width * 0.48 : size.width;
+  const landscape = isPhoneLandscape(viewport.width, viewport.height);
+  const layout = landscape
+    ? { ...sentenceLayout(size.width, size.height, Math.min(1.3, viewport.fontScale), slots.length, feedbackHeight),
+        textSize: 16, tileWidth: 48, tileHeight: 48, scrollBank: false, imageHeight: 0 }
+    : sentenceLayout(size.width - 40, size.height, viewport.fontScale, slots.length, feedbackHeight);
+  const paneWidth = size.width;
   const wideSlots = Math.max(0, ...card.options.map(option => wordWidths[option.id] || 0))
     + layout.textSize * viewport.fontScale > paneWidth - 60;
   const locked = disabled || result !== null;
@@ -174,7 +179,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
       d.area = { x: rx, y: ry, width, height }; move(x, y); setMoving({ id, label });
     });
     slotsRef.current.forEach((view, index) => view?.measureInWindow((sx, sy, width, height) => { d.targets[index] = { x: sx, y: sy, width, height }; }));
-    slotPane.current?.getNativeScrollRef()?.measureInWindow((sx, sy, width, height) => { d.slotArea = { x: sx, y: sy, width, height }; });
+    (slotPane.current && 'getNativeScrollRef' in slotPane.current ? slotPane.current.getNativeScrollRef() : slotPane.current)?.measureInWindow((sx, sy, width, height) => { d.slotArea = { x: sx, y: sy, width, height }; });
     const pane = cardPane.current;
     const nativePane = pane && 'getNativeScrollRef' in pane ? pane.getNativeScrollRef() : pane;
     nativePane?.measureInWindow((cx, cy, width, height) => { d.cardArea = { x: cx, y: cy, width, height }; });
@@ -189,48 +194,64 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
     }
     cancel();
   };
-  const common = { disabled: locked, width: layout.tileWidth, height: layout.tileHeight, textSize: layout.textSize, count: slots.length,
+  const common = { disabled: locked, width: layout.tileWidth, height: layout.tileHeight, textSize: layout.textSize, count: slots.length, maxFontSizeMultiplier: landscape ? 1.3 : undefined,
     onWidth: measureWord, onPress: press, onPlace: place, onStart: start, onMove: move, onDrop: drop, onCancel: cancel };
-  const compact = layout.scrollBank || landscape;
+  const compact = !landscape && layout.scrollBank;
   const CardContainer = compact ? ScrollView : View;
+  const SlotsContainer = landscape ? View : ScrollView;
+  const replayControl = <Pressable onPress={onReplay} accessibilityRole="button" accessibilityLabel="Repetir frase en inglés"
+    style={[styles.replay, wideSlots ? styles.replayAbove : null, landscape ? styles.replayPhoneLandscape : null]}>
+    <Ionicons name="volume-high" color="#278c73" size={28} />
+  </Pressable>;
   return <View ref={root} style={[styles.root, landscape ? styles.landscape : null]} onLayout={event => setSize(event.nativeEvent.layout)}>
-    <View style={[styles.importance, landscape ? styles.importanceLandscape : null, wideSlots ? styles.importanceWide : null]}>
+    <View style={[styles.importance, landscape ? styles.importancePhoneLandscape : null, wideSlots && !landscape ? styles.importanceWide : null]}>
+      <View style={landscape ? styles.constructionToolbar : null}>
+      {landscape ? <Pressable accessibilityRole="button" accessibilityLabel={result === 'wrong' ? 'Reintentar' : 'Deshacer último movimiento'}
+        disabled={result !== 'wrong' && (locked || !history.current.length)} style={styles.control}
+        onPress={() => { if (result === 'wrong') { history.current = []; cancel(); stopFlight(); onRetry(); }
+          else { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } } }}>
+        <Text maxFontSizeMultiplier={1.3} style={styles.controlText}>{result === 'wrong' ? 'Reintentar' : 'Deshacer'}</Text>
+      </Pressable> : null}
       <Pressable accessibilityRole="button" accessibilityLabel="Mostrar traducción"
-        style={{ minHeight: 48, justifyContent: 'center', paddingRight: wideSlots ? 48 : 0 }} onPress={() => setTranslated(!translated)}>
-        <Text style={styles.instruction}>{translated ? card.spanish_translation : 'Escucha y forma la frase.'}</Text>
+        style={{ minHeight: 48, justifyContent: 'center', flex: landscape ? 1 : undefined, paddingRight: wideSlots && !landscape ? 48 : 0 }} onPress={() => setTranslated(!translated)}>
+        <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={styles.instruction}>{translated ? card.spanish_translation : 'Escucha y forma la frase.'}</Text>
       </Pressable>
-      <ScrollView ref={slotPane} style={styles.slotScroll} contentContainerStyle={styles.slots} accessibilityLabel="Frase en construcción" persistentScrollbar scrollEnabled={!moving}>
-        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} style={[styles.scaffold, { fontSize: layout.textSize }]}>{part.text}</Text> :
+      {landscape ? replayControl : null}
+      </View>
+      <SlotsContainer ref={view => { slotPane.current = view; }}
+        style={landscape ? styles.slots : styles.slotScroll} accessibilityLabel="Frase en construcción"
+        {...(!landscape ? { contentContainerStyle: styles.slots, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
+        {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }]}>{part.text}</Text> :
           <WordTile key={`slot-${part.slot}`} {...common} slot={part.slot} suffix={part.suffix}
             id={slots[part.slot] || ''} label={card.options.find(option => option.id === slots[part.slot])?.label || ''}
             register={view => { slotsRef.current[part.slot] = view; }} active={hover === part.slot}
             hidden={moving?.id === slots[part.slot] || flight?.slot === part.slot} correct={result === 'correct'} />)}
-      </ScrollView>
-      <Pressable onPress={onReplay} accessibilityRole="button" accessibilityLabel="Repetir frase en inglés" style={[styles.replay, wideSlots ? styles.replayAbove : null]}>
-        <Ionicons name="volume-high" color="#278c73" size={28} />
-      </Pressable>
+      </SlotsContainer>
+      {!landscape ? replayControl : null}
     </View>
     <CardContainer ref={view => { cardPane.current = view; }} style={[styles.card, !compact ? styles.cardContent : null]}
       {...(compact ? { contentContainerStyle: styles.cardContent, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
-      <LessonMediaFrame maxHeight={Math.max(112, layout.imageHeight)}>
+      {!landscape ? <LessonMediaFrame maxHeight={Math.max(112, layout.imageHeight)}>
         <OptionMediaImage imageUrl={card.prompt_image_url} accessibilityLabel="Imagen de la frase" />
-      </LessonMediaFrame>
-      <Text style={styles.hint}>{result === 'wrong' ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, 'translation-on-tap') : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text>
-      <View ref={bank} collapsable={false} style={[styles.bank, hover === 'bank' ? styles.target : null]} accessibilityLabel="Palabras disponibles">
+      </LessonMediaFrame> : null}
+      {!landscape ? <Text style={styles.hint}>{result === 'wrong' ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, 'translation-on-tap') : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text> : null}
+      {(!landscape || words.length > 0 || !result) ? <View ref={bank} collapsable={false} style={[styles.bank, hover === 'bank' ? styles.target : null]} accessibilityLabel="Palabras disponibles">
         {words.map(option => <WordTile key={option.id} {...common} id={option.id} label={option.label || ''}
           register={() => {}} active={false} hidden={moving?.id === option.id} correct={false} />)}
         {!words.length ? <Text style={styles.hint}>{result === 'correct' ? 'Frase completa.' : result === 'wrong' ? 'Lee la explicación de abajo.' : 'Devuelve aquí una palabra para corregir.'}</Text> : null}
-      </View>
-      {result !== 'wrong' ? <View style={styles.controls}>
+      </View> : null}
+      {!landscape && result !== 'wrong' ? <View style={styles.controls}>
         <Pressable style={styles.control} disabled={locked || !history.current.length} accessibilityRole="button" accessibilityLabel="Deshacer último movimiento"
           onPress={() => { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } }}><Text style={styles.controlText}>Deshacer</Text></Pressable>
       </View> : null}
-      <Text accessibilityLiveRegion="polite" style={styles.feedback}
+      <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} accessibilityLiveRegion="polite"
+        adjustsFontSizeToFit={landscape} minimumFontScale={landscape ? 1 / Math.min(viewport.fontScale, 1.3) : undefined}
+        numberOfLines={landscape ? 12 : undefined} style={[styles.feedback, landscape ? styles.feedbackPhoneLandscape : null]}
         accessibilityLabel={result === 'wrong' ? `Respuesta incorrecta. ¡Ánimo! Inténtalo de nuevo. ${mistakeHint}` : undefined}
         onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
         {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{`¡Ánimo! Inténtalo de nuevo.\n${mistakeHint}`}</> : ' '}
       </Text>
-      {result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
+      {!landscape && result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
         style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; cancel(); stopFlight(); onRetry(); }}>
         <Text style={[styles.controlText, styles.retryControlText]}>Reintentar</Text>
       </Pressable> : null}
@@ -250,7 +271,10 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
 
 const styles = StyleSheet.create({
   root: { flex: 1, minHeight: 0, gap: 6, width: '100%' },
-  landscape: { flexDirection: 'row' },
+  landscape: { flexDirection: 'column' },
+  importancePhoneLandscape: { maxHeight: '100%', flexShrink: 0, padding: 6 },
+  constructionToolbar: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  replayPhoneLandscape: { position: 'relative', top: 0, right: 0 },
   importanceLandscape: { width: '48%', maxHeight: '100%', paddingRight: 40 },
   importanceWide: { paddingRight: 8 },
   slotScroll: { flexGrow: 0, flexShrink: 1 },
@@ -271,6 +295,7 @@ const styles = StyleSheet.create({
   hint: { color: '#67583f', fontSize: 14, textAlign: 'center' },
   bank: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: 6, padding: 4, minHeight: 56, borderWidth: 1, borderStyle: 'dashed', borderColor: '#cfc2ab', borderRadius: 14 },
   wordTile: { flexShrink: 0 },
+  tilePhoneLandscape: { paddingHorizontal: 4 },
   tile: { borderRadius: 15, borderWidth: 2, borderColor: '#b9a8df', backgroundColor: '#f3effc', padding: 8, alignItems: 'center', justifyContent: 'center' },
   word: { flexShrink: 0, fontWeight: '800', color: '#6947ad', textAlign: 'center' },
   controls: { flexDirection: 'row', justifyContent: 'center', gap: 12, flexShrink: 0 },
@@ -278,6 +303,7 @@ const styles = StyleSheet.create({
   controlText: { color: '#2f6f9f', fontSize: 16, fontWeight: '700', textAlign: 'center' },
   retryControl: { alignSelf: 'center', backgroundColor: '#278c73', borderRadius: 14, paddingHorizontal: 24 },
   retryControlText: { color: '#fff' },
+  feedbackPhoneLandscape: { flex: 1, minHeight: 0, textAlignVertical: 'center' },
   feedback: { flexShrink: 0, fontSize: 16, color: '#665134', textAlign: 'center', minHeight: 24 },
   wrongIcon: { color: '#c95e55', fontSize: 22, fontWeight: '900' },
 });

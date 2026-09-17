@@ -79,7 +79,7 @@ assert.equal(paddedPromptImages, 0, 'no Learn, Recognize, Listen, Speak, or Use 
 
 assert.match(
   cardViewSource,
-  /\{activeTurnImageUrl \|\| card\.prompt_image_url \? \(\s*<LessonMediaFrame[\s\S]*?maxHeight=\{promptImageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?imageUrl=\{activeTurnImageUrl \|\| card\.prompt_image_url\}/,
+  /const promptMedia = \(\(activeTurnImageUrl \|\| card\.prompt_image_url\) \? \(\s*<LessonMediaFrame[\s\S]*?maxHeight=\{hasSidePrompt \? availableCardHeight - cardVerticalChrome - feedbackReservedHeight : promptImageHeight\}[\s\S]*?<OptionMediaImage[\s\S]*?imageUrl=\{activeTurnImageUrl \|\| card\.prompt_image_url\}/,
   'Every prompt or active conversation-turn image must use the shared normalized full-bleed image layer.',
 );
 assert.doesNotMatch(cardViewSource, /lessonImageSource\(card\.prompt_image_url\)/, 'mobile prompt images must not bypass normalized media mapping');

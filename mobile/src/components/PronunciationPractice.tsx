@@ -63,6 +63,7 @@ type Props = {
   audioVoice: CourseAudioVoice;
   phrase: string;
   imageHeight: number;
+  compactLandscape?: boolean;
   imageLabel?: string;
   imageUrl?: string;
   isAppActive: boolean;
@@ -244,6 +245,7 @@ export function PronunciationPractice({
   audioVoice,
   phrase,
   imageHeight,
+  compactLandscape = false,
   imageLabel,
   imageUrl,
   isAppActive,
@@ -1959,14 +1961,15 @@ export function PronunciationPractice({
         : 'DI LA FRASE PARA ABRIR';
 
   return (
-    <View style={[styles.container, missionVoiceGate ? styles.containerMission : null]}>
+    <View style={[styles.container, missionVoiceGate ? styles.containerMission : null, compactLandscape ? styles.containerPhoneLandscape : null]}>
       {activeModelTurnImageUrl || imageUrl ? (
-        <View style={isLandscape ? styles.landscapeMediaRow : styles.portraitMediaRow}>
+        <View style={[isLandscape ? styles.landscapeMediaRow : styles.portraitMediaRow, compactLandscape ? styles.mediaPhoneLandscape : null]}>
           {/* Guardrail: equal side columns keep the centered image and mascot from ever overlapping. */}
-          {isLandscape ? <View style={styles.mascotColumn}>{activeMascot}</View> : null}
+          {isLandscape && !compactLandscape ? <View style={styles.mascotColumn}>{activeMascot}</View> : null}
           <LessonMediaFrame
             frameStyle={[
               isLandscape ? styles.practiceFrameLandscape : null,
+              compactLandscape ? { flex: 0, width: '100%' } : null,
               missionVoiceGate ? styles.practiceFrameMission : null,
               missionVoiceGate && passed ? styles.practiceFrameMissionPassed : null,
             ]}
@@ -1995,16 +1998,18 @@ export function PronunciationPractice({
               </View>
             ) : null}
           </LessonMediaFrame>
-          {isLandscape ? <View style={styles.mascotColumn} /> : null}
+          {isLandscape && !compactLandscape ? <View style={styles.mascotColumn} /> : null}
+          {compactLandscape ? activeMascot : null}
         </View>
       ) : null}
-      <Pressable
+      <View style={[styles.practiceControls, compactLandscape ? styles.practiceControlsPhoneLandscape : null]}>
+      {!(compactLandscape && result) ? (<Pressable
         accessibilityHint="Reproduce nuevamente el ejemplo en inglés"
         accessibilityLabel="Repetir audio"
         accessibilityRole="button"
         disabled={phase === 'checking' || phase === 'listening' || phase === 'ready' || reviewingRecording}
         onPress={() => phase === 'permission' ? void startListening() : playModel()}
-        style={missionVoiceGate ? styles.missionVoiceControl : null}
+        style={missionVoiceGate ? styles.missionVoiceControl : compactLandscape ? styles.replayPhoneLandscape : null}
       >
         {missionVoiceGate ? (
           <View style={[
@@ -2029,7 +2034,7 @@ export function PronunciationPractice({
         ) : null}
         {phase === 'listening' ? (
           <View style={styles.liveAssessment}>
-            <Text style={styles.phrase}>{phrase}</Text>
+            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.phrase}>{phrase}</Text>
             <View
               accessibilityLabel={expectedSyllables.map((syllable) => (
                 `${syllable.label}, ${recognizedSyllableKeySet.has(syllable.key) ? 'reconocida' : 'pendiente'}`
@@ -2041,6 +2046,7 @@ export function PronunciationPractice({
                 return (
                   <Text
                     key={syllable.key}
+                    maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined}
                     style={[
                       styles.syllableSlot,
                       recognized ? styles.syllableSlotRecognized : styles.syllableSlotMissing,
@@ -2052,8 +2058,8 @@ export function PronunciationPractice({
               })}
             </View>
           </View>
-        ) : <Text style={styles.phrase}>{phrase}</Text>}
-      </Pressable>
+        ) : <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.phrase}>{phrase}</Text>}
+      </Pressable>) : null}
       <View style={[styles.statusRow, missionVoiceGate ? styles.statusRowMission : null]}>
         {!isLandscape && !missionVoiceGate ? gradingMascot : null}
         <View style={styles.signalStack}>
@@ -2097,9 +2103,9 @@ export function PronunciationPractice({
           </View>
         </View>
         {!isLandscape && !missionVoiceGate ? listeningMascot : null}
-        <Text style={[styles.message, { color: statusColor }]}>{message}</Text>
+        <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={[styles.message, { color: statusColor }]}>{message}</Text>
       </View>
-      {attempt > 0 && phase !== 'success' ? <Text style={styles.attempt}>Intento {attempt + 1}</Text> : null}
+      {attempt > 0 && phase !== 'success' ? <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.attempt}>Intento {attempt + 1}</Text> : null}
       {serviceUnavailable ? (
         <View style={styles.offlineActions}>
           <Pressable
@@ -2109,20 +2115,21 @@ export function PronunciationPractice({
             onPress={() => void playModel()}
             style={({ pressed }) => [
               styles.retryNoSpeech,
+              compactLandscape ? styles.replayPhoneLandscape : null,
               isOffline ? styles.offlineRetryDisabled : null,
               pressed ? styles.retryNoSpeechPressed : null,
             ]}
           >
-            <Text style={styles.retryNoSpeechText}>{isOffline ? 'Esperando conexión' : 'Reintentar'}</Text>
+            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.retryNoSpeechText}>{isOffline ? 'Esperando conexión' : 'Reintentar'}</Text>
           </Pressable>
           <Pressable
             accessibilityHint="Continúa la lección sin sumar esta tarjeta al puntaje"
             accessibilityLabel="Continuar sin calificar pronunciación"
             accessibilityRole="button"
             onPress={onUnavailable}
-            style={({ pressed }) => [styles.offlineContinue, pressed ? styles.retryNoSpeechPressed : null]}
+            style={({ pressed }) => [styles.offlineContinue, compactLandscape ? styles.replayPhoneLandscape : null, pressed ? styles.retryNoSpeechPressed : null]}
           >
-            <Text style={styles.offlineContinueText}>Continuar sin calificar</Text>
+            <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.offlineContinueText}>Continuar sin calificar</Text>
           </Pressable>
         </View>
       ) : noSpeechFailure ? (
@@ -2133,9 +2140,9 @@ export function PronunciationPractice({
             noSpeechRound.current = 0;
             void playModel();
           }}
-          style={({ pressed }) => [styles.retryNoSpeech, pressed ? styles.retryNoSpeechPressed : null]}
+          style={({ pressed }) => [styles.retryNoSpeech, compactLandscape ? styles.replayPhoneLandscape : null, pressed ? styles.retryNoSpeechPressed : null]}
         >
-          <Text style={styles.retryNoSpeechText}>Reintentar</Text>
+          <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={styles.retryNoSpeechText}>Reintentar</Text>
         </Pressable>
       ) : null}
       {result ? (
@@ -2143,6 +2150,7 @@ export function PronunciationPractice({
           <View style={[styles.scorePanel, passed ? styles.passedPanel : styles.practicePanel]}>
             <View style={styles.scoreDetails}>
               <Animated.Text
+                maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined}
                 style={[
                   styles.scoreTitle,
                   passed ? { transform: [{ scale: successAnimation }] } : null,
@@ -2164,6 +2172,7 @@ export function PronunciationPractice({
               return (
                 <Text
                   key={`${token}-${index}`}
+                  maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined}
                   style={[styles.word, good ? styles.wordGood : styles.wordNeedsImprovement]}
                 >
                   {token}
@@ -2173,12 +2182,18 @@ export function PronunciationPractice({
           </View>
         </>
       ) : null}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: { gap: 6, marginTop: 4 },
+  practiceControls: { gap: 6 },
+  replayPhoneLandscape: { minHeight: 48, justifyContent: 'center' },
+  containerPhoneLandscape: { flex: 1, minHeight: 0, flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 0 },
+  mediaPhoneLandscape: { width: '34%', flexDirection: 'column', gap: 6, justifyContent: 'center' },
+  practiceControlsPhoneLandscape: { flex: 1, minWidth: 0, minHeight: 0, gap: 4 },
   containerMission: {
     backgroundColor: '#fff9ea',
     borderColor: '#edc976',
