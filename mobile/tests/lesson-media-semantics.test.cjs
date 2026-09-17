@@ -532,8 +532,16 @@ assert.equal(boyCannotCross.audio_text, 'The boy cannot cross the street.');
 assert.equal(boyCannotCross.correct_option_id, 'boy-waits-at-red-signal-3');
 assert.equal(
   boyCannotCross.options.find((option) => option.id === 'pair-waits-at-red-signal-4')?.image_url,
-  '/lesson-assets/a1_scene_pair-waits-at-red-signal_5078634_four-card.webp',
+  '/lesson-assets/a1_photo_u6_pair_waits_red_v1.webp',
   'the adult-pair distractor is valid only while the prompt explicitly requires the boy',
+);
+const redSignalPhoto = require(path.join(repositoryRoot, 'docs/qa/course-photo-reuse-v1.json')).assets
+  .find((asset) => asset.candidate_filename === 'a1_photo_u6_pair_waits_red_v1.webp');
+assert.ok(redSignalPhoto, 'the replacement adult pair needs its inspected pixel evidence');
+assert.equal(
+  crypto.createHash('sha256').update(fs.readFileSync(path.join(mobileRoot, 'assets/lesson-assets', redSignalPhoto.candidate_filename))).digest('hex'),
+  redSignalPhoto.new_sha256,
+  'the exclusive adult-pair contrast must retain the exact inspected photograph',
 );
 
 const pharmacyOnRight = cardBySlide('6.7', 'Listen', 'A5');
