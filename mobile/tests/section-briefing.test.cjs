@@ -223,7 +223,7 @@ test('the first full construction explains its new mechanic once', () => {
   assert.match(screen, /const CONSTRUCTION_HELP_STORAGE_PREFIX = 'spanglish-construction-help-v1';/);
   assert.match(
     screen,
-    /if \(!isSentenceCard \|\| constructionHelpStatus !== 'pending' \|\| sectionBriefing \|\| isPageTurning\) return;/,
+    /if \(!isSentenceConstruction\(currentCard\) \|\| constructionHelpStatus !== 'pending' \|\| sectionBriefing \|\| isPageTurning\) return;/,
     'The construction coach waits for a settled construction card.',
   );
 });

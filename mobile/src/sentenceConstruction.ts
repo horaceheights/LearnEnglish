@@ -3,6 +3,23 @@ import type { LessonCard } from './types';
 export const isSentenceConstruction = (card: LessonCard | null | undefined) =>
   card?.interaction_type === 'complete-sentence';
 
+export const isWordConstruction = (card: LessonCard | null | undefined) =>
+  isSentenceConstruction(card) || (card?.stage === 'Use' && card.interaction_type === 'complete2');
+
+export type SentencePart = { text: string } | { slot: number; suffix: string };
+
+// Keep authored scaffold words and punctuation, while making only blanks movable.
+export function sentenceParts(card: LessonCard): SentencePart[] {
+  const fragments = card.prompt.split(/_{2,}/);
+  const parts: SentencePart[] = [];
+  fragments.forEach((fragment, index) => {
+    const suffix = index ? fragment.match(/^[.,!?;:]+/)?.[0] || '' : '';
+    if (index) parts.push({ slot: index - 1, suffix });
+    for (const text of fragment.slice(suffix.length).trim().split(/\s+/).filter(Boolean)) parts.push({ text });
+  });
+  return parts;
+}
+
 export function sentenceSlots(card: LessonCard, selected: string[]) {
   return (card.correct_option_ids || []).map((_, index) => selected[index] || '');
 }
@@ -12,16 +29,28 @@ export function sentenceIsCorrect(card: LessonCard, selected: string[]) {
   const label = (id: string) => card.options.find((option) => option.id === id)?.label;
   return selected.length === expected.length
     && new Set(selected).size === selected.length
-    && selected.every((id, index) => Boolean(id) && label(id) === label(expected[index]));
+    && selected.every((id, index) => Boolean(label(id)) && label(id) === label(expected[index]));
 }
 
 export function placeSentenceWord(card: LessonCard, selected: string[], id: string, slot?: number) {
   const next = sentenceSlots(card, selected);
   const index = slot ?? next.indexOf('');
-  if (!card.options.some((option) => option.id === id) || next.includes(id)
-      || index < 0 || index >= next.length || next[index]) return next;
+  if (!card.options.some((option) => option.id === id)
+      || index < 0 || index >= next.length) return next;
+  const source = next.indexOf(id);
+  if (source === index) return next;
+  // A placed tile swaps; a bank tile replaces and returns the displaced tile.
+  if (source >= 0) next[source] = next[index];
   next[index] = id;
   return next;
+}
+
+export function returnSentenceWord(card: LessonCard, selected: string[], id: string) {
+  return sentenceSlots(card, selected).map(value => value === id ? '' : value);
+}
+
+export function availableSentenceWords(card: LessonCard, selected: string[]) {
+  return card.options.filter(option => !selected.includes(option.id));
 }
 
 export function sentenceHint(card: LessonCard, selected: string[]) {

@@ -98,7 +98,7 @@ test('native Yoga bounds both construction panes while enlarged content remains 
 });
 
 test('long completed words and punctuation fit native slots when replay moves into the instruction row', () => {
-  assert.match(source, /onWidth\(option\.id, event\.nativeEvent\.layout\.width\)/);
+  assert.match(source, /onWidth\(id, event\.nativeEvent\.layout\.width\)/);
   assert.match(source, /wideSlots \? styles\.importanceWide/);
   assert.match(source, /wideSlots \? styles\.replayAbove/);
   for (const paneWidth of [308, 301, 378, 500]) {

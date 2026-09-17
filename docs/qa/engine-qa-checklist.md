@@ -117,7 +117,8 @@ Run the complete matrix for every new construction, matching, collecting, drag, 
 
 - [ ] Test 360, 390, and 412 dp phone portrait widths; a small phone in landscape; tablet portrait and landscape; and narrow and wide web viewports
 - [ ] Repeat with safe areas/system bars visible, font scale 1.15, and the largest supported accessibility text setting
-- [ ] The complete tile bank, active construction area, visible drop targets, mission progress, feedback, replay, Undo, Reset, Check, Retry, and Continue are visible or immediately reachable
+- [ ] The complete tile bank, active construction area, visible drop targets, mission progress, feedback, replay, and the controls offered by the activity are visible or immediately reachable; Completa offers Undo and no Reset
+- [ ] Guided and full Completa support bank-to-slot replacement, slot swaps and return to an empty bank; used occurrence IDs disappear, wrong answers remain editable, and Undo restores every affected word
 - [ ] No required source or destination is off-screen during a drag; tap-to-place, tap-to-remove, keyboard movement, and screen-reader reorder actions can complete the same task without dragging
 - [ ] Every interactive target measures at least 44 by 44 CSS pixels on web and 48 by 48 dp on mobile, without clipped, overlapping, truncated, or split-word labels
 - [ ] The largest authored tile bank and longest authored construction use available space efficiently, reflow without horizontal page overflow, and use a bounded bank scroll or paging instead of shrinking below the minimum target and text sizes

@@ -27,7 +27,7 @@ import { missionCueOrder } from "../lib/missionTargetInteraction.cjs";
 import MissionCompletion from "./MissionCompletion";
 import MissionJourney from "./MissionJourney";
 import SentenceConstruction from "./SentenceConstruction";
-import { isSentenceConstruction, sentenceIsCorrect } from "../../mobile/src/sentenceConstruction";
+import { isWordConstruction, sentenceIsCorrect } from "../../mobile/src/sentenceConstruction";
 import { mediaUrl } from "../lib/mediaUrl";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
@@ -2299,7 +2299,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     || finalMissionCard?.options?.find((option) => option.id === finalMissionCard.correct_option_id)?.image_url
     || finalMissionCard?.options?.find((option) => option.image_url)?.image_url
     || "";
-  const isSentenceCard = isSentenceConstruction(currentCard);
+  const isSentenceCard = isWordConstruction(currentCard);
   const isMissionTileCard = [
     "mission-word-parts",
     "mission-sentence",
