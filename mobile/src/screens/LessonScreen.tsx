@@ -49,7 +49,7 @@ import { MissionJourney } from '../components/MissionJourney';
 import { MissionKickoff } from '../components/MissionKickoff';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
-import { lessonHelpText } from '../lessonHelp';
+import { COMPLETION_RETRY_HELP, lessonHelpText } from '../lessonHelp';
 import { LessonLandscapeRail } from '../components/LessonLandscapeRail';
 import { isPhoneLandscape, landscapePromptIsWide } from '../lessonViewportLayout';
 import { StageJourney } from '../components/StageJourney';
@@ -3516,7 +3516,8 @@ export function LessonScreen({
         <View style={styles.completedPromptBackdrop}>
           <ScrollView accessibilityViewIsModal style={styles.missionLandscapeMenuScroll} contentContainerStyle={styles.missionLandscapeMenu}>
             <Text accessibilityRole="header" style={styles.completedPromptTitle}>Ayuda y opciones</Text>
-            <Text style={styles.completedPromptText}>{currentCard.mission_game?.instruction_es || lessonHelpText(currentCard, promptInteractionMode)}</Text>
+            <Text style={styles.completedPromptText}>{currentCard.mission_game?.instruction_es
+              || (awaitingConstructionRetry(currentCard, result) ? COMPLETION_RETRY_HELP : lessonHelpText(currentCard, promptInteractionMode))}</Text>
             {!missionExperience ? <StageJourney allComplete={showCompletedJourney} cards={lesson.cards}
               currentIndex={cardIndex} lessonId={lesson.id}
               maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}
