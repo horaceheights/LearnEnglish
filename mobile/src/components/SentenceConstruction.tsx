@@ -111,6 +111,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const wideSlots = Math.max(0, ...card.options.map(option => wordWidths[option.id] || 0))
     + layout.textSize * viewport.fontScale > paneWidth - 60;
   const locked = disabled || result !== null;
+  const mistakeHint = result === 'wrong' ? sentenceHint(card, slots) : '';
   const measureWord = (id: string, width: number) => {
     if (id) setWordWidths(previous => previous[id] === width ? previous : { ...previous, [id]: width });
   };
@@ -225,8 +226,9 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
           onPress={() => { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } }}><Text style={styles.controlText}>Deshacer</Text></Pressable>
       </View> : null}
       <Text accessibilityLiveRegion="polite" style={styles.feedback}
+        accessibilityLabel={result === 'wrong' ? `Respuesta incorrecta. ¡Ánimo! Inténtalo de nuevo. ${mistakeHint}` : undefined}
         onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
-        {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? `¡Ánimo! Inténtalo de nuevo.\n${sentenceHint(card, slots)}` : ' '}
+        {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{`¡Ánimo! Inténtalo de nuevo.\n${mistakeHint}`}</> : ' '}
       </Text>
       {result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
         style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; cancel(); stopFlight(); onRetry(); }}>
@@ -277,4 +279,5 @@ const styles = StyleSheet.create({
   retryControl: { alignSelf: 'center', backgroundColor: '#278c73', borderRadius: 14, paddingHorizontal: 24 },
   retryControlText: { color: '#fff' },
   feedback: { flexShrink: 0, fontSize: 16, color: '#665134', textAlign: 'center', minHeight: 24 },
+  wrongIcon: { color: '#c95e55', fontSize: 22, fontWeight: '900' },
 });
