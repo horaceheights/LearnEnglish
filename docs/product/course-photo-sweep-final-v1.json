@@ -1,0 +1,669 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v5",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.50",
+    "expected_cost_usd": "0.85",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "One exceptionally realistic natural photograph, authentic textures and anatomy, full bleed 1536x1024 landscape. No cartoon, inset, collage, padding, captions, icons or artificial blur borders. The portrait phone crops away the OUTER QUARTER ON EACH SIDE: keep every answer-critical person, gesture and object within the middle 40 percent of width with large natural background margins. Do not fill the frame with subjects. Back the camera away sufficiently. No writing except a real calendar explicitly requested. All counted items complete, distinct and visible.",
+  "assets": [
+    {
+      "id": "u4-two-chairs-in-dining-room-reframed",
+      "runtime_filename": "a1_photo_u4_two_chairs_in_dining_room_v2.webp",
+      "prompt": "Exactly TWO complete wooden dining chairs in a small dining room, arranged one behind the other diagonally near a tiny round pedestal dining table. Photograph from far enough back that the complete chair backs, seats and legs and entire little table all occupy the central 40 percent of the landscape width. Large empty room margins. No additional chairs.",
+      "expected_description": "Exactly TWO complete wooden dining chairs in a small dining room, arranged one behind the other diagonally near a tiny round pedestal dining table. Photograph from far enough back that the complete chair backs, seats and legs and entire little table all occupy the central 40 percent of the landscape width. Large empty room margins. No additional chairs.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-chairs-dining_d435986.webp",
+            "old_sha256": "5e996c00a964198e8fa5f0c1cf0ecbed70f9d05c8fabe76e9c3dad6ed2935024",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/1/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/6/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/7/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/14/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/15/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/21/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/27/prompt_image_url"
+              }
+            ],
+            "inventory_index": 742
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v2/u4-two-chairs-in-dining-room.png",
+        "sha256": "c5ad49022700f8c3b226f14c3886b1920824bc8988c5b6313146c6f461e39d95",
+        "reason": "Full source has two dining chairs, but centered portrait loses both chair backs and most side outlines. Not a clear enough two-chair count for a beginner."
+      }
+    },
+    {
+      "id": "u4-review-two-chairs-in-dining-room-reframed",
+      "runtime_filename": "a1_photo_u4_review_two_chairs_in_dining_room_v2.webp",
+      "prompt": "Exactly TWO complete white wooden dining chairs in a different dining room with green wall, one behind the other diagonally near a tiny round white pedestal dining table. Far-back view; complete two chair backs, seats, legs and table within central 40 percent width. No additional chairs. Distinct fresh review scene.",
+      "expected_description": "Exactly TWO complete white wooden dining chairs in a different dining room with green wall, one behind the other diagonally near a tiny round white pedestal dining table. Far-back view; complete two chair backs, seats, legs and table within central 40 percent width. No additional chairs. Distinct fresh review scene.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-chairs-dining_d435986.webp",
+            "old_sha256": "5e996c00a964198e8fa5f0c1cf0ecbed70f9d05c8fabe76e9c3dad6ed2935024",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/7/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/20/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/26/prompt_image_url"
+              }
+            ],
+            "inventory_index": 742
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v2/u4-review-two-chairs-in-dining-room.png",
+        "sha256": "035e83320ed60a54dc765e0fa459865b523552cee515a172d33aab34739ea7eb",
+        "reason": "Two chairs appear beside dining table in full view, but portrait cuts off most of both backs. Needs more compact arrangement for count clarity."
+      }
+    },
+    {
+      "id": "u5-five-oranges-reframed",
+      "runtime_filename": "a1_photo_u5_five_oranges_v2.webp",
+      "prompt": "Exactly FIVE whole oranges laid out vertically in a compact 2-1-2 formation, like five dots on a die, on a long narrow wooden serving board. Top-down photograph. All five complete fruits and gaps between them occupy the middle 40 percent of the landscape width. Vast empty countertop left and right, no other fruit.",
+      "expected_description": "Exactly FIVE whole oranges laid out vertically in a compact 2-1-2 formation, like five dots on a die, on a long narrow wooden serving board. Top-down photograph. All five complete fruits and gaps between them occupy the middle 40 percent of the landscape width. Vast empty countertop left and right, no other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_five-oranges_c241081_four-card.webp",
+            "old_sha256": "de74caaaa811db261f0d0c95543c17934a40bdb0809ec763b2bd591191600633",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/15/options/3/image_url"
+              }
+            ],
+            "inventory_index": 286
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v2/u5-five-oranges.png",
+        "sha256": "d41e9c708b5f55c4e76d1c72ff7522f08aeb4ebcb8324767891d09f46bcdab22",
+        "reason": "Source shows five oranges in two rows. Portrait cuts both outer front oranges significantly; exact complete count needs a tighter arrangement."
+      }
+    },
+    {
+      "id": "u5-review-five-oranges-reframed",
+      "runtime_filename": "a1_photo_u5_review_five_oranges_v2.webp",
+      "prompt": "Exactly FIVE whole oranges arranged 1-2-2 down a narrow blue oval tray, seen directly from above on a different pale stone table. All five complete fruits separated by gaps inside middle 40 percent width. Vast empty table left and right. Fresh review photograph.",
+      "expected_description": "Exactly FIVE whole oranges arranged 1-2-2 down a narrow blue oval tray, seen directly from above on a different pale stone table. All five complete fruits separated by gaps inside middle 40 percent width. Vast empty table left and right. Fresh review photograph.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_five-oranges_c241081.webp",
+            "old_sha256": "bd4ac3ae93da26d6e0f74726da0b344abec5a00b213837de8fd10ca587986a1a",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/24/prompt_image_url"
+              }
+            ],
+            "inventory_index": 285
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v2/u5-review-five-oranges.png",
+        "sha256": "cb058541b9d7b466d40789e500b68de85e03c9dfda77a3053238b0906cf0d963",
+        "reason": "Five oranges in the full source, but both outer front oranges are substantially clipped in the phone crop; needs more compact count arrangement."
+      }
+    },
+    {
+      "id": "u7-review-four-blue-chairs-reframed",
+      "runtime_filename": "a1_photo_u7_review_four_blue_chairs_v2.webp",
+      "prompt": "Exactly FOUR whole blue chairs arranged in two rows of two, very close together in a classroom. Camera FAR BACK: the entire group is at most 40 percent of image width, no chair larger than 16 percent width. All four backs, seats and legs visible, no occlusions, no other chairs. Large empty room background all around.",
+      "expected_description": "Exactly FOUR whole blue chairs arranged in two rows of two, very close together in a classroom. Camera FAR BACK: the entire group is at most 40 percent of image width, no chair larger than 16 percent width. All four backs, seats and legs visible, no occlusions, no other chairs. Large empty room background all around.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_four-blue-chairs_f3183f0_four-card.webp",
+            "old_sha256": "4e5f442e53d68925a73c6c3f90fb208f95de7f37151c193a125977ad90937b04",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/13/options/2/image_url"
+              }
+            ],
+            "inventory_index": 292
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v2/u7-review-four-blue-chairs.png",
+        "sha256": "be76d07bd654a0b7d44380d8abe4fb05a5bc244dd643b700e36d325bba9c9c6a",
+        "reason": "The full scene has four blue chairs, but the narrow portrait crop cuts through the outer chairs and loses large portions of their seats. Recompose farther back for counting."
+      }
+    },
+    {
+      "id": "u7-review-four-red-chairs-reframed",
+      "runtime_filename": "a1_photo_u7_review_four_red_chairs_v2.webp",
+      "prompt": "Exactly FOUR whole red chairs arranged in two rows of two, very close together in a classroom. Camera FAR BACK: the entire group is at most 40 percent of image width, no chair larger than 16 percent width. All four backs, seats and legs visible, no occlusions, no other chairs. Large empty room background all around.",
+      "expected_description": "Exactly FOUR whole red chairs arranged in two rows of two, very close together in a classroom. Camera FAR BACK: the entire group is at most 40 percent of image width, no chair larger than 16 percent width. All four backs, seats and legs visible, no occlusions, no other chairs. Large empty room background all around.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_four-red-chairs_0275a9d_four-card.webp",
+            "old_sha256": "b6316dcbd76b62d6b36dd109af4d6debd5d70100f55d79482b8d203b31e0a6fd",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/13/options/1/image_url"
+              }
+            ],
+            "inventory_index": 295
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v2/u7-review-four-red-chairs.png",
+        "sha256": "cd4d93d951e996f4b84bd69eaa46b74cdb1ae0677b2134f666e9efbf0ccc8365",
+        "reason": "Four red chairs appear in the full scene, but the portrait crop removes substantial outer chair silhouettes. A counting task needs all four chairs wholly visible."
+      }
+    },
+    {
+      "id": "u7-review-three-blue-chairs-reframed",
+      "runtime_filename": "a1_photo_u7_review_three_blue_chairs_v2.webp",
+      "prompt": "Exactly THREE whole blue chairs arranged in a compact narrow triangular cluster, one back and two front, in a classroom. Camera FAR BACK: entire group no wider than 40 percent of landscape frame. All three backs, seats and legs visible and separated, no other chairs. Large empty room margins.",
+      "expected_description": "Exactly THREE whole blue chairs arranged in a compact narrow triangular cluster, one back and two front, in a classroom. Camera FAR BACK: entire group no wider than 40 percent of landscape frame. All three backs, seats and legs visible and separated, no other chairs. Large empty room margins.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-blue-chairs_2bf8067.webp",
+            "old_sha256": "288d528cf8c118a1eb973090176d615cee472d00a9a3b8a3e445b2909b877eac",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              }
+            ],
+            "inventory_index": 717
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v2/u7-review-three-blue-chairs.png",
+        "sha256": "fce09fee3dbf9f2dd79f20b9fe44c93cb1a0911744d399924415b244524a28ef",
+        "reason": "The three blue chairs are spread widely; portrait cropping removes most of the two foreground chair backs and seats. Reject this composition for counting."
+      }
+    },
+    {
+      "id": "u6-pair-cannot-board-bus-reframed",
+      "runtime_filename": "a1_photo_u6_pair_cannot_board_bus_v2.webp",
+      "prompt": "A man and woman stand shoulder-to-shoulder directly facing a locked closed bus door immediately behind them. A physical waist-high red-white maintenance barrier blocks that door, directly below their faces. Both frustrated adults, bus door and barrier occupy the central 40 percent of landscape width. Bus visible behind them, no third person, no writing, symbols or signs. Farther-back front view, never spread subjects across the frame.",
+      "expected_description": "A man and woman stand shoulder-to-shoulder directly facing a locked closed bus door immediately behind them. A physical waist-high red-white maintenance barrier blocks that door, directly below their faces. Both frustrated adults, bus door and barrier occupy the central 40 percent of landscape width. Bus visible behind them, no third person, no writing, symbols or signs. Farther-back front view, never spread subjects across the frame.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 574,
+            "old_filename": "a1_scene_pair-cannot-go-by-bus_547b3cc_four-card.webp",
+            "old_sha256": "2f4cb1f0c57aa975f7e433f382db412f5610cda8b0b7aee4cf5d17a8fe53672f",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/18/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v3/u6-pair-cannot-board-bus.png",
+        "sha256": "e84fd0c82569133f78923bf48c3d05fc56c4060bd69d8fa787fb58906ee1f2b5",
+        "reason": "Two adults face a closed bus blocked by an out-of-service barrier, but portrait cropping cuts away most of the woman. Recompose both adults and the blocked entrance centrally."
+      }
+    },
+    {
+      "id": "u7-dislikes-reading-reframed",
+      "runtime_filename": "a1_photo_u7_dislikes_reading_v2.webp",
+      "prompt": "One woman sits at a table, a large complete open book centered immediately below her face. She frowns at the book, pushes it away with one hand and raises the other palm to reject it. Full book, face and hands all stacked vertically in the center 40 percent width. No television or headphones. Wider view with abundant background margins.",
+      "expected_description": "One woman sits at a table, a large complete open book centered immediately below her face. She frowns at the book, pushes it away with one hand and raises the other palm to reject it. Full book, face and hands all stacked vertically in the center 40 percent width. No television or headphones. Wider view with abundant background margins.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 603,
+            "old_filename": "a1_scene_reading_227f38d.webp",
+            "old_sha256": "670eeb3f74193b90f9379d94a38d0e5e61fdf391e21ea8209e3cc83ea304b4de",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/31/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v3/u7-dislikes-reading.png",
+        "sha256": "acb10292d6887c381d1286811e3b458bc25a2a7d4dc021a8ccd0af76c4c38bca",
+        "reason": "A woman rejects a book on a side table, but portrait cropping leaves only a small cut-off corner of the book. The reading cue is too peripheral for a clear choice."
+      }
+    },
+    {
+      "id": "u7-likes-tv-reframed",
+      "runtime_filename": "a1_photo_u7_likes_tv_v2.webp",
+      "prompt": "One smiling woman enjoys watching a television showing a nature documentary. Compose the small television directly BEHIND AND JUST ABOVE her right shoulder, almost touching her head in the image, so her full face and the ENTIRE recognizable TV screen fit within central 40 percent width. She holds a remote immediately below her chin. Natural living room, camera far back, huge empty room margins. Her eyes look toward the television, not the camera.",
+      "expected_description": "One smiling woman enjoys watching a television showing a nature documentary. Compose the small television directly BEHIND AND JUST ABOVE her right shoulder, almost touching her head in the image, so her full face and the ENTIRE recognizable TV screen fit within central 40 percent width. She holds a remote immediately below her chin. Natural living room, camera far back, huge empty room margins. Her eyes look toward the television, not the camera.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 482,
+            "old_filename": "a1_scene_likes-watching-tv_48cd33f.webp",
+            "old_sha256": "64171956b6c339245b405c7353bcd21f4730e574cf658ac1714ccef45a169704",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 760,
+            "old_filename": "a1_scene_watching-tv_8e55769.webp",
+            "old_sha256": "acbf5aa7cd8663cc8d8a98f16458f34ba5783efe868063ac65edb6cc40ab7dcd",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v3/u7-likes-tv.png",
+        "sha256": "8707d28b89f36365f4997c7cb9b2bb87fee6668ad382dccd1e2d86a5ae03a630",
+        "reason": "A smiling woman watches television from a sofa, but the centered portrait crop excludes almost the entire television screen. Recompose the screen closer behind or beside her face."
+      }
+    },
+    {
+      "id": "u7-rejects-tv-reframed",
+      "runtime_filename": "a1_photo_u7_rejects_tv_v2.webp",
+      "prompt": "One frowning woman refuses to watch a television. The entire small TV screen is directly BEHIND AND JUST ABOVE her right shoulder, nearly touching her head in the image; she turns away from it and holds up a rejecting palm. Face, palm and COMPLETE TV screen all fit central 40 percent width. Natural living room, far-back view, no books, no headphones.",
+      "expected_description": "One frowning woman refuses to watch a television. The entire small TV screen is directly BEHIND AND JUST ABOVE her right shoulder, nearly touching her head in the image; she turns away from it and holds up a rejecting palm. Face, palm and COMPLETE TV screen all fit central 40 percent width. Natural living room, far-back view, no books, no headphones.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 606,
+            "old_filename": "a1_scene_rejects-tv_58b4949_four-card.webp",
+            "old_sha256": "4dddbd81ad72b1cb32f4cdee6e7532c3db370573c670b4f540ebb890e667e96f",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/18/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v3/u7-rejects-tv.png",
+        "sha256": "93ae10060527426efd7246d5ba71ab187f69dca199aaef4669bb31c58486d5c5",
+        "reason": "A woman rejects a television with a raised palm, but portrait cuts off nearly all of the television. The remaining dark edge could be any object, so recompose the screen centrally."
+      }
+    },
+    {
+      "id": "u4-book-next-to-phone",
+      "runtime_filename": "a1_photo_u4_book_next_to_phone_v1.webp",
+      "prompt": "A real blue book lies immediately beside a black smartphone on the same wooden table, not touching or overlapping. Both complete objects centered very close together, elevated oblique view. No extra books or phones.",
+      "expected_description": "A real blue book lies immediately beside a black smartphone on the same wooden table, not touching or overlapping. Both complete objects centered very close together, elevated oblique view. No extra books or phones.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 142,
+            "old_filename": "a1_scene_book-next-phone_d548267.webp",
+            "old_sha256": "0e9c047c98ed128c05bed9731bf47d0fbf8e811873f6ea5f33b46734ddbe1abb",
+            "old_observation": "Directly inspected legacy drawing, inset or unsafe narrow image; replacement preserves the literal question, subject and answer context.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/4/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/9/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/17/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/23/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-black-shoes",
+      "runtime_filename": "a1_photo_u7_black_shoes_v1.webp",
+      "prompt": "A pair of unmistakably BLACK real leather shoes with black laces on a pale wooden floor. Both complete shoes side by side, centered. Neutral daylight, not brown leather.",
+      "expected_description": "A pair of unmistakably BLACK real leather shoes with black laces on a pale wooden floor. Both complete shoes side by side, centered. Neutral daylight, not brown leather.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 700,
+            "old_filename": "a1_scene_the-shoes-are-black_69f56f0.webp",
+            "old_sha256": "3f1907032f901e599b72151dc56b0063e53b768743fa3dc18c1af2b9ce67bc2b",
+            "old_observation": "Directly inspected legacy drawing, inset or unsafe narrow image; replacement preserves the literal question, subject and answer context.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/15/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-likes-and-needs",
+      "runtime_filename": "a1_photo_u5_review_likes_and_needs_v1.webp",
+      "prompt": "A thirsty smiling woman at a cafe table reaches for a clear glass of water with one hand and gives a thumbs-up toward a red apple on a small plate with the other. Face, both gestures, whole apple and water glass stacked compactly at center. No other food, icons or writing.",
+      "expected_description": "A thirsty smiling woman at a cafe table reaches for a clear glass of water with one hand and gives a thumbs-up toward a red apple on a small plate with the other. Face, both gestures, whole apple and water glass stacked compactly at center. No other food, icons or writing.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 386,
+            "old_filename": "a1_scene_i-like-it-i-need-it_63360ea.webp",
+            "old_sha256": "094c82ef1f7d5cd8d5fdc4d1b2ce4941e0367098fe513c6611fd19e25ece4bf4",
+            "old_observation": "Directly inspected legacy drawing, inset or unsafe narrow image; replacement preserves the literal question, subject and answer context.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/1/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-review-station",
+      "runtime_filename": "a1_photo_u6_review_station_v1.webp",
+      "prompt": "A real railway station seen from the platform, with a complete passenger train locomotive centrally behind a small station canopy and railway tracks in foreground. Building, platform and train all recognizable in the middle of frame. No words, letters, signs or captions. Distinct fresh review scene.",
+      "expected_description": "A real railway station seen from the platform, with a complete passenger train locomotive centrally behind a small station canopy and railway tracks in foreground. Building, platform and train all recognizable in the middle of frame. No words, letters, signs or captions. Distinct fresh review scene.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 776,
+            "old_filename": "a1_scene_where-is-the-station_6ceda2f.webp",
+            "old_sha256": "334dd183ba6f1f90ff32b8bc535c44a20bedf6841cd1a0afb44418ce996fbab9",
+            "old_observation": "Directly inspected legacy drawing, inset or unsafe narrow image; replacement preserves the literal question, subject and answer context.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-station",
+      "runtime_filename": "a1_photo_u7_review_station_v1.webp",
+      "prompt": "A real railway station seen from the platform, with a complete passenger train locomotive centrally behind a small station canopy and railway tracks in foreground. Building, platform and train all recognizable in the middle of frame. No words, letters, signs or captions. Distinct fresh review scene.",
+      "expected_description": "A real railway station seen from the platform, with a complete passenger train locomotive centrally behind a small station canopy and railway tracks in foreground. Building, platform and train all recognizable in the middle of frame. No words, letters, signs or captions. Distinct fresh review scene.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 776,
+            "old_filename": "a1_scene_where-is-the-station_6ceda2f.webp",
+            "old_sha256": "334dd183ba6f1f90ff32b8bc535c44a20bedf6841cd1a0afb44418ce996fbab9",
+            "old_observation": "Directly inspected legacy drawing, inset or unsafe narrow image; replacement preserves the literal question, subject and answer context.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/22/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-store",
+      "runtime_filename": "a1_photo_u6_store_v1.webp",
+      "prompt": "A real small grocery store entrance with crates of fruit and shelves of packaged food clearly visible immediately around the doorway. No signage, words, letters, branding or price tags. Full storefront composition centered. No bank or ATM.",
+      "expected_description": "A real small grocery store entrance with crates of fruit and shelves of packaged food clearly visible immediately around the doorway. No signage, words, letters, branding or price tags. Full storefront composition centered. No bank or ATM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 777,
+            "old_filename": "a1_scene_where-is-the-store_ffc7e69.webp",
+            "old_sha256": "630c193a6d5f40a59ddc24984e54174c14266f0f2f7a10fd72cf934b9810d545",
+            "old_observation": "Directly inspected legacy drawing, inset or unsafe narrow image; replacement preserves the literal question, subject and answer context.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-study-monday",
+      "runtime_filename": "a1_photo_u4_study_monday_v1.webp",
+      "prompt": "Preserve the exact woman Ana, her olive overshirt, white top, face and hairstyle from the reference photograph. Show her actively studying an open English workbook and writing with a pencil at a desk. A physical desk calendar immediately below her face and above the workbook clearly reads MONDAY. Face, hands, workbook and calendar compactly centered, same natural classroom. No infographic or floating text.",
+      "expected_description": "Preserve the exact woman Ana, her olive overshirt, white top, face and hairstyle from the reference photograph. Show her actively studying an open English workbook and writing with a pencil at a desk. A physical desk calendar immediately below her face and above the workbook clearly reads MONDAY. Face, hands, workbook and calendar compactly centered, same natural classroom. No infographic or floating text.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 672,
+            "old_filename": "a1_scene_study-monday_b56f66a.webp",
+            "old_sha256": "3ca52eeeaa2457ed7755916116aa15dcc20869b19cdac840c9780ddf825c149c",
+            "old_observation": "Directly inspected legacy drawing, inset or unsafe narrow image; replacement preserves the literal question, subject and answer context.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-8-days-and-time",
+                "lesson": "4.8",
+                "path": "backend/lessons/unit_4/lesson-4-8-days-and-time.yaml",
+                "pointer": "/cards/11/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-8-days-and-time",
+                "lesson": "4.8",
+                "path": "backend/lessons/unit_4/lesson-4-8-days-and-time.yaml",
+                "pointer": "/cards/18/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-8-days-and-time",
+                "lesson": "4.8",
+                "path": "backend/lessons/unit_4/lesson-4-8-days-and-time.yaml",
+                "pointer": "/cards/35/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_ana-study-english_a45ba91.webp",
+        "sha256": "317205af117b7a2002a1c89a1a2c517bba59a86d3ed282d0a5cf533ee863c9f3",
+        "observed_description": "Inspected full photograph: Ana has long black hair and olive overshirt over white top; Luis in the phone scene has short curly black hair and navy shirt. Preserve the depicted person identities while improving scene composition."
+      }
+    },
+    {
+      "id": "u3-you-have-phone",
+      "runtime_filename": "a1_photo_u3_you_have_phone_v1.webp",
+      "prompt": "Preserve Ana and Luis exactly from the reference: same faces, hair, olive overshirt and navy shirt. Reframe them standing very close shoulder-to-shoulder in the same fair. Luis holds up his phone directly below his face; Ana gestures toward that phone. Both faces, gesture and complete phone inside center 40 percent width, surrounded by ample fair background. Remove name badges and unnecessary printed words.",
+      "expected_description": "Preserve Ana and Luis exactly from the reference: same faces, hair, olive overshirt and navy shirt. Reframe them standing very close shoulder-to-shoulder in the same fair. Luis holds up his phone directly below his face; Ana gestures toward that phone. Both faces, gesture and complete phone inside center 40 percent width, surrounded by ample fair background. Remove name badges and unnecessary printed words.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 805,
+            "old_filename": "a1_scene_you-have-phone_6017478_four-card.webp",
+            "old_sha256": "df7a5f3353f202a334e0d3a22d2b26628cbbb6cf5e8be6e7c57c90ca0d5a3b1b",
+            "old_observation": "Directly inspected legacy drawing, inset or unsafe narrow image; replacement preserves the literal question, subject and answer context.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-3-8-have-and-has",
+                "lesson": "3.8",
+                "path": "backend/lessons/unit_3/lesson-3-8-have-and-has.yaml",
+                "pointer": "/cards/10/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_you-have-phone_6017478.webp",
+        "sha256": "aec1cd1e7862ae74dfcf981d02552d64ec49a581a41b80ddfc87f65dfc19d3b2",
+        "observed_description": "Inspected full photograph: Ana has long black hair and olive overshirt over white top; Luis in the phone scene has short curly black hair and navy shirt. Preserve the depicted person identities while improving scene composition."
+      }
+    }
+  ]
+}

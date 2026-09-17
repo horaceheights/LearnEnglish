@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "agent-inspected-human-pending",
+  "assets": [
+    {
+      "lesson_id": "lesson-5-7-prices",
+      "slide_id": "U6",
+      "old_filename": "a1_scene_it-is-five-dollars_fb6615f.webp",
+      "candidate_filename": "a1_scene_milk-2_6c36e21.webp",
+      "old_sha256": "57d9c55efcb724842606411b81438987a352f44e61dfe493e37305bf2ba8e048",
+      "new_sha256": "34ffb1c50c55d0e68fb7838e86db5e8c4ea10844ab647767b3733d0a1c1a1240",
+      "answer_text": "It is two dollars.",
+      "relationship": "price",
+      "old_observation": "A cup of coffee is accompanied by a clearly printed $5 price, not the two dollars required by this sentence.",
+      "new_observation": "A milk container is accompanied by a clearly printed $2 price. This supplies the exact generic two-dollar statement without changing the sentence.",
+      "pointer": "/cards/31/prompt_image_url",
+      "crop_review": "inspected-full-use-prompt",
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-6-4-location-words",
+      "slide_id": "U6",
+      "old_filename": "a1_scene_near_d8c4668.webp",
+      "candidate_filename": "a1_scene_far-from_e6f6b5c.webp",
+      "old_sha256": "dbd1ca393b16b246cbe34088c13c4c6176823d9b985e31f01d7cdb0d74521f29",
+      "new_sha256": "d536e78d27f52d765f56e82aa0724805da68cfc69272c4b92150248fcff0c78e",
+      "answer_text": "It is far from the park.",
+      "relationship": "distance",
+      "old_observation": "A store and park are separated by a short horizontal distance bar, explicitly depicting near rather than far.",
+      "new_observation": "A station is far to the left of the park, separated by a long distance bar. The diagram makes the far-from-park spatial relationship explicit.",
+      "pointer": "/cards/33/prompt_image_url",
+      "crop_review": "inspected-full-use-prompt",
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-6-8-schedules",
+      "slide_id": "U7",
+      "old_filename": "a1_scene_the-bus-leaves-at-eight_d18bc2f.webp",
+      "candidate_filename": "a1_scene_the-bus-leaves-at-six-in-the-morning_376cbdd.webp",
+      "old_sha256": "25c07e423e95fd02def9c60329eabd66e141bec7078b7dc4e0b53ddcf30e4575",
+      "new_sha256": "2190525bc3ce2ea27530b7f3e0da2af8f7dcfb58958405521071c08d233b7db8",
+      "answer_text": "The bus leaves at six in the morning.",
+      "relationship": "schedule",
+      "old_observation": "A bus departure arrow and bus shelter are accompanied by an 8:00 clock display, contradicting the six-in-the-morning sentence.",
+      "new_observation": "A bus departure arrow and bus shelter are accompanied by an explicit 6:00 AM display and sun. All departure and morning-time cues appear together.",
+      "pointer": "/cards/34/prompt_image_url",
+      "crop_review": "inspected-full-use-prompt",
+      "human_approval": "pending"
+    }
+  ]
+}

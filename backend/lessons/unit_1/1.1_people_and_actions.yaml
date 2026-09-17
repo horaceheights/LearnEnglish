@@ -43,12 +43,12 @@ cards:
   stage: Learn
   correct_option_id: boy-alt
   options:
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He}
+  - {id: boy-alt, image_url: /lesson-assets/boy.webp, label: He}
   audio_text: He
   answer_audio_text: null
   prompt_image_url: ''
   spanish_translation: Él
-  pedagogy_note: The same boy appears in different clothes so he refers to the person, not the shirt.
+  pedagogy_note: The opening boy remains visible while the noun changes to the pronoun he.
 - slide_id: L3
   interaction_type: teach
   prompt: He is a boy.
@@ -79,12 +79,12 @@ cards:
   stage: Learn
   correct_option_id: girl-alt
   options:
-  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: She}
+  - {id: girl-alt, image_url: /lesson-assets/girl.webp, label: She}
   audio_text: She
   answer_audio_text: null
   prompt_image_url: ''
   spanish_translation: Ella
-  pedagogy_note: The same girl changes clothes before the learner links her to she.
+  pedagogy_note: The opening girl remains visible while the learner connects her to the pronoun she.
 - slide_id: L6
   interaction_type: teach
   prompt: She is a girl.
@@ -115,7 +115,7 @@ cards:
   stage: Learn
   correct_option_id: man-alt
   options:
-  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  - {id: man-alt, image_url: /lesson-assets/man.webp, label: He is a man.}
   audio_text: He is a man.
   answer_audio_text: null
   prompt_image_url: ''
@@ -139,7 +139,7 @@ cards:
   stage: Learn
   correct_option_id: woman-alt
   options:
-  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: She is a woman.}
+  - {id: woman-alt, image_url: /lesson-assets/woman.webp, label: She is a woman.}
   audio_text: She is a woman.
   answer_audio_text: null
   prompt_image_url: ''
@@ -151,8 +151,8 @@ cards:
   stage: Recognize
   correct_option_id: boy-alt
   options:
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: A boy}
-  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: A man}
+  - {id: boy-alt, image_url: /lesson-assets/boy.webp, label: A boy}
+  - {id: man-alt, image_url: /lesson-assets/man.webp, label: A man}
   audio_text: A boy
   answer_audio_text: null
   prompt_image_url: ''
@@ -169,7 +169,7 @@ cards:
   - {id: he-boy, image_url: '', label: He is a boy.}
   audio_text: ''
   answer_audio_text: He is a boy.
-  prompt_image_url: /lesson-assets/a1_l1_boy_transfer.webp
+  prompt_image_url: /lesson-assets/boy.webp
   spanish_translation: Elige la frase para el niño.
   pedagogy_note: The boy story immediately grows from the noun to the complete sentence in a new format.
 - slide_id: R3
@@ -178,8 +178,8 @@ cards:
   stage: Recognize
   correct_option_id: girl-alt
   options:
-  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: A woman}
-  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: A girl}
+  - {id: woman-alt, image_url: /lesson-assets/woman.webp, label: A woman}
+  - {id: girl-alt, image_url: /lesson-assets/girl.webp, label: A girl}
   audio_text: A girl
   answer_audio_text: null
   prompt_image_url: ''
@@ -196,7 +196,7 @@ cards:
   - {id: she-woman, image_url: '', label: She is a woman.}
   audio_text: ''
   answer_audio_text: She is a girl.
-  prompt_image_url: /lesson-assets/a1_l1_girl_transfer.webp
+  prompt_image_url: /lesson-assets/girl.webp
   spanish_translation: Elige la frase para la niña.
   pedagogy_note: The girl now receives the same noun-to-sentence treatment as the boy.
 - slide_id: R5
@@ -220,8 +220,8 @@ cards:
   stage: Recognize
   correct_option_id: man-alt
   options:
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
-  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  - {id: boy-alt, image_url: /lesson-assets/boy.webp, label: He is a boy.}
+  - {id: man-alt, image_url: /lesson-assets/man.webp, label: He is a man.}
   audio_text: He is a man.
   answer_audio_text: null
   prompt_image_url: ''
@@ -238,7 +238,7 @@ cards:
   - {id: he-man, image_url: '', label: He is a man.}
   audio_text: ''
   answer_audio_text: He is a man.
-  prompt_image_url: /lesson-assets/a1_l1_man_transfer.webp
+  prompt_image_url: /lesson-assets/man.webp
   spanish_translation: Elige la frase para el hombre.
   pedagogy_note: The man is retrieved from a fresh image before the story moves to the woman.
 - slide_id: R8
@@ -247,10 +247,10 @@ cards:
   stage: Recognize
   correct_option_id: woman-alt
   options:
-  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: A woman}
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: A boy}
-  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: A man}
-  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: A girl}
+  - {id: woman-alt, image_url: /lesson-assets/woman.webp, label: A woman}
+  - {id: boy-alt, image_url: /lesson-assets/boy.webp, label: A boy}
+  - {id: man-alt, image_url: /lesson-assets/man.webp, label: A man}
+  - {id: girl-alt, image_url: /lesson-assets/girl.webp, label: A girl}
   audio_text: A woman
   answer_audio_text: null
   prompt_image_url: ''
@@ -262,8 +262,8 @@ cards:
   stage: Recognize
   correct_option_id: woman-alt
   options:
-  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: She is a woman.}
-  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: She is a girl.}
+  - {id: woman-alt, image_url: /lesson-assets/woman.webp, label: She is a woman.}
+  - {id: girl-alt, image_url: /lesson-assets/girl.webp, label: She is a girl.}
   audio_text: She is a woman.
   answer_audio_text: null
   prompt_image_url: ''
@@ -280,7 +280,7 @@ cards:
   - {id: she-girl, image_url: '', label: She is a girl.}
   audio_text: ''
   answer_audio_text: She is a woman.
-  prompt_image_url: /lesson-assets/a1_l1_woman_transfer.webp
+  prompt_image_url: /lesson-assets/woman.webp
   spanish_translation: Elige la frase para la mujer.
   pedagogy_note: Recognition ends on the adult counterpart, ready for audio-only retrieval.
 - slide_id: N1
@@ -289,8 +289,8 @@ cards:
   stage: Listen
   correct_option_id: boy-alt
   options:
-  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: A man}
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: A boy}
+  - {id: man-alt, image_url: /lesson-assets/man.webp, label: A man}
+  - {id: boy-alt, image_url: /lesson-assets/boy.webp, label: A boy}
   audio_text: A boy
   answer_audio_text: null
   prompt_image_url: ''
@@ -302,10 +302,10 @@ cards:
   stage: Listen
   correct_option_id: boy-alt
   options:
-  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: She is a woman.}
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
-  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: She is a girl.}
-  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  - {id: woman-alt, image_url: /lesson-assets/woman.webp, label: She is a woman.}
+  - {id: boy-alt, image_url: /lesson-assets/boy.webp, label: He is a boy.}
+  - {id: girl-alt, image_url: /lesson-assets/girl.webp, label: She is a girl.}
+  - {id: man-alt, image_url: /lesson-assets/man.webp, label: He is a man.}
   audio_text: He is a boy.
   answer_audio_text: null
   prompt_image_url: ''
@@ -317,8 +317,8 @@ cards:
   stage: Listen
   correct_option_id: girl-alt
   options:
-  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: A girl}
-  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: A woman}
+  - {id: girl-alt, image_url: /lesson-assets/girl.webp, label: A girl}
+  - {id: woman-alt, image_url: /lesson-assets/woman.webp, label: A woman}
   audio_text: A girl
   answer_audio_text: null
   prompt_image_url: ''
@@ -411,7 +411,7 @@ cards:
   stage: Speak
   correct_option_id: boy-alt
   options:
-  - {id: boy-alt, image_url: /lesson-assets/a1_l1_boy_alt.webp, label: He is a boy.}
+  - {id: boy-alt, image_url: /lesson-assets/boy.webp, label: He is a boy.}
   audio_text: He is a boy.
   answer_audio_text: null
   prompt_image_url: ''
@@ -423,7 +423,7 @@ cards:
   stage: Speak
   correct_option_id: girl-alt
   options:
-  - {id: girl-alt, image_url: /lesson-assets/a1_l1_girl_alt.webp, label: She is a girl.}
+  - {id: girl-alt, image_url: /lesson-assets/girl.webp, label: She is a girl.}
   audio_text: She is a girl.
   answer_audio_text: null
   prompt_image_url: ''
@@ -435,7 +435,7 @@ cards:
   stage: Speak
   correct_option_id: man-alt
   options:
-  - {id: man-alt, image_url: /lesson-assets/a1_l1_man_alt.webp, label: He is a man.}
+  - {id: man-alt, image_url: /lesson-assets/man.webp, label: He is a man.}
   audio_text: He is a man.
   answer_audio_text: null
   prompt_image_url: ''
@@ -447,7 +447,7 @@ cards:
   stage: Speak
   correct_option_id: man-transfer
   options:
-  - {id: man-transfer, image_url: /lesson-assets/a1_l1_man_transfer.webp, label: A man. He is a man.}
+  - {id: man-transfer, image_url: /lesson-assets/man.webp, label: A man. He is a man.}
   audio_text: A man. He is a man.
   answer_audio_text: null
   prompt_image_url: ''
@@ -459,7 +459,7 @@ cards:
   stage: Speak
   correct_option_id: woman-alt
   options:
-  - {id: woman-alt, image_url: /lesson-assets/a1_l1_woman_alt.webp, label: She is a woman.}
+  - {id: woman-alt, image_url: /lesson-assets/woman.webp, label: She is a woman.}
   audio_text: She is a woman.
   answer_audio_text: null
   prompt_image_url: ''
@@ -471,7 +471,7 @@ cards:
   stage: Speak
   correct_option_id: woman-transfer
   options:
-  - {id: woman-transfer, image_url: /lesson-assets/a1_l1_woman_transfer.webp, label: A woman. She is a woman.}
+  - {id: woman-transfer, image_url: /lesson-assets/woman.webp, label: A woman. She is a woman.}
   audio_text: A woman. She is a woman.
   answer_audio_text: null
   prompt_image_url: ''
@@ -502,7 +502,7 @@ cards:
   - {id: boy, image_url: '', label: boy}
   audio_text: He is a boy.
   answer_audio_text: He is a boy.
-  prompt_image_url: /lesson-assets/a1_l1_boy_transfer.webp
+  prompt_image_url: /lesson-assets/boy.webp
   spanish_translation: Él es un niño.
   pedagogy_note: 'Story beat 01: 1.1 story; the learner completes the predicate noun phrase for the boy.'
 - slide_id: U3
@@ -532,7 +532,7 @@ cards:
   - {id: is, image_url: '', label: is}
   audio_text: He is a man.
   answer_audio_text: He is a man.
-  prompt_image_url: /lesson-assets/a1_l1_man_alt.webp
+  prompt_image_url: /lesson-assets/man.webp
   spanish_translation: Él es un hombre.
   pedagogy_note: 'Story beat 03: 1.1 story; transfer the four-word sentence structure to the adult male.'
 - slide_id: U5
@@ -550,7 +550,7 @@ cards:
   - {id: a-start, image_url: '', label: A}
   audio_text: A man. He is a man.
   answer_audio_text: A man. He is a man.
-  prompt_image_url: /lesson-assets/a1_l1_man_transfer.webp
+  prompt_image_url: /lesson-assets/man.webp
   spanish_translation: Un hombre. Él es un hombre.
   pedagogy_note: 'Story beat 03: 1.1 story; build the complete two-part man phrase with repeated interchangeable words.'
 - slide_id: U6
@@ -566,7 +566,7 @@ cards:
   - {id: a, image_url: '', label: a}
   audio_text: She is a woman.
   answer_audio_text: She is a woman.
-  prompt_image_url: /lesson-assets/a1_l1_woman_alt.webp
+  prompt_image_url: /lesson-assets/woman.webp
   spanish_translation: Ella es una mujer.
   pedagogy_note: 'Story beat 04: 1.1 story; transfer the full-sentence construction to the adult female.'
 - slide_id: U7
@@ -584,6 +584,6 @@ cards:
   - {id: a-start, image_url: '', label: A}
   audio_text: A woman. She is a woman.
   answer_audio_text: A woman. She is a woman.
-  prompt_image_url: /lesson-assets/a1_l1_woman_transfer.webp
+  prompt_image_url: /lesson-assets/woman.webp
   spanish_translation: Una mujer. Ella es una mujer.
   pedagogy_note: 'Story beat 04: 1.1 story; pinnacle two-part woman phrase with repeated interchangeable words.'

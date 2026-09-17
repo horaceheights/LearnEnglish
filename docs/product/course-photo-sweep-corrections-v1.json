@@ -1,0 +1,343 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v7",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "0.60",
+    "expected_cost_usd": "0.22",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "Exceptionally realistic full-bleed 1536x1024 natural photograph. All answer-critical details fit inside the middle 40 percent width because phones crop away both outer sides. Wide expendable natural background margins. No cartoons, collages, insets, border padding, answer captions or artificial symbols. No text unless an exact physical numeric time display is explicitly requested.",
+  "assets": [
+    {
+      "id": "u7-likes-tv-side-view",
+      "runtime_filename": "a1_photo_u7_likes_tv_v3.webp",
+      "prompt": "Photograph from the SIDE of a narrow living-room setup. A smiling woman sits in a chair facing a small television on a low stand DIRECTLY IN FRONT OF her knees, not behind her. Both in clear side profile: her eyes visibly look straight at the nature documentary screen. The camera sees her happy facial profile and the television image from a diagonal side angle. She holds a remote at her lap. Entire chair, woman and television form a compact group in central 40 percent of landscape width, camera far back, empty room margins. NO television behind or above the viewer. A physically usable real living-room layout.",
+      "expected_description": "Photograph from the SIDE of a narrow living-room setup. A smiling woman sits in a chair facing a small television on a low stand DIRECTLY IN FRONT OF her knees, not behind her. Both in clear side profile: her eyes visibly look straight at the nature documentary screen. The camera sees her happy facial profile and the television image from a diagonal side angle. She holds a remote at her lap. Entire chair, woman and television form a compact group in central 40 percent of landscape width, camera far back, empty room margins. NO television behind or above the viewer. A physically usable real living-room layout.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 482,
+            "old_filename": "a1_scene_likes-watching-tv_48cd33f.webp",
+            "old_sha256": "64171956b6c339245b405c7353bcd21f4730e574cf658ac1714ccef45a169704",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 760,
+            "old_filename": "a1_scene_watching-tv_8e55769.webp",
+            "old_sha256": "acbf5aa7cd8663cc8d8a98f16458f34ba5783efe868063ac65edb6cc40ab7dcd",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      },
+      "supersedes_rejected_output": {
+        "path": "output/imagegen/course-photo-sweep-v3/u7-likes-tv.png",
+        "sha256": "8707d28b89f36365f4997c7cb9b2bb87fee6668ad382dccd1e2d86a5ae03a630",
+        "reason": "A smiling woman watches television from a sofa, but the centered portrait crop excludes almost the entire television screen. Recompose the screen closer behind or beside her face."
+      }
+    },
+    {
+      "id": "u6-hospital-central",
+      "runtime_filename": "a1_photo_u6_hospital_central_v1.webp",
+      "prompt": "A real hospital entrance identified ONLY by a single blue H mounted immediately above central doors. A clinician in scrubs pushes a patient on a stretcher toward those doors, with a recognizable ambulance parked immediately alongside. Door, H, clinician, stretcher and ambulance front compactly centered. No other words, letters, place names or signage anywhere. Far-back symmetrical photograph, wide empty outer margins.",
+      "expected_description": "A real hospital entrance identified ONLY by a single blue H mounted immediately above central doors. A clinician in scrubs pushes a patient on a stretcher toward those doors, with a recognizable ambulance parked immediately alongside. Door, H, clinician, stretcher and ambulance front compactly centered. No other words, letters, place names or signage anywhere. Far-back symmetrical photograph, wide empty outer margins.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 56,
+            "old_filename": "a1_scene_a-hospital_dfbc6e9.webp",
+            "old_sha256": "4e64be08c3c604e129a0abb9db2163185ffbbe901bd2f887fbebf836e411756e",
+            "old_observation": "Legacy illustrated or inset/composite version observed in the full course contact-sheet inspection.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/1/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/23/options/0/image_url"
+              }
+            ],
+            "replaces_staged_candidate": {
+              "filename": "a1_hospital.webp",
+              "record_sha256": "ee25453de08b0a24194b4248aa210c7a6f00a5b96d8c141b83b834094690f87d",
+              "issue": "Directly viewed hospital candidate has large COMMUNITY HOSPITAL lettering, which supplies the target English answer in the image."
+            }
+          },
+          {
+            "inventory_index": 347,
+            "old_filename": "a1_scene_hospital_2b2d005.webp",
+            "old_sha256": "4e64be08c3c604e129a0abb9db2163185ffbbe901bd2f887fbebf836e411756e",
+            "old_observation": "Legacy illustrated or inset/composite version observed in the full course contact-sheet inspection.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/8/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/9/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/14/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/17/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/19/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-6-5-simple-directions",
+                "lesson": "6.5",
+                "path": "backend/lessons/unit_6/lesson-6-5-simple-directions.yaml",
+                "pointer": "/cards/35/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-6-7-simple-requests",
+                "lesson": "6.7",
+                "path": "backend/lessons/unit_6/lesson-6-7-simple-requests.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ],
+            "replaces_staged_candidate": {
+              "filename": "a1_hospital.webp",
+              "record_sha256": "b5d66f81d543b6100d10b67785f4b0a685e0073b7f13156e9be41081c27206cc",
+              "issue": "Directly viewed hospital candidate has large COMMUNITY HOSPITAL lettering, which supplies the target English answer in the image."
+            }
+          },
+          {
+            "inventory_index": 715,
+            "old_filename": "a1_scene_this-is-the-hospital_e3e17c2.webp",
+            "old_sha256": "4e64be08c3c604e129a0abb9db2163185ffbbe901bd2f887fbebf836e411756e",
+            "old_observation": "Legacy illustrated or inset/composite version observed in the full course contact-sheet inspection.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/6/options/0/image_url"
+              }
+            ],
+            "replaces_staged_candidate": {
+              "filename": "a1_hospital.webp",
+              "record_sha256": "0f3ca74afa0ed3a3f3833d3d6d65d591e430d92aeb89b445d6bab0458bd46487",
+              "issue": "Directly viewed hospital candidate has large COMMUNITY HOSPITAL lettering, which supplies the target English answer in the image."
+            }
+          },
+          {
+            "inventory_index": 114,
+            "old_filename": "a1_scene_asks-hospital_fd7a80d_four-card.webp",
+            "old_sha256": "1f8dc1d1b4ebb65baf246670064b95e855c7b942e99e2c68c3782fa3681493cd",
+            "old_observation": "Directly inspected flat cartoon people and schematic place icons remain in this location/help exercise.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-8-help-and-important-phrases",
+                "lesson": "7.8",
+                "path": "backend/lessons/unit_7/lesson-7-8-help-and-important-phrases.yaml",
+                "pointer": "/cards/21/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-bank-central",
+      "runtime_filename": "a1_photo_u6_bank_central_v1.webp",
+      "prompt": "A real bank entrance with a clearly recognizable cash ATM DIRECTLY BESIDE its central glass doorway. One adult uses the ATM with a bank card and visible keypad and banknotes. Both the ATM and whole user stand within central 35 percent width, not at the outer edge. Glass door immediately behind, no other venue, no words or signs or bank names. Far-back frontal view with large expendable facade margins.",
+      "expected_description": "A real bank entrance with a clearly recognizable cash ATM DIRECTLY BESIDE its central glass doorway. One adult uses the ATM with a bank card and visible keypad and banknotes. Both the ATM and whole user stand within central 35 percent width, not at the outer edge. Glass door immediately behind, no other venue, no words or signs or bank names. Far-back frontal view with large expendable facade margins.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 52,
+            "old_filename": "a1_scene_a-bank_decb678.webp",
+            "old_sha256": "2d95070ccb482938e73edca3ebde69896e05b6a22176dcad3e1d9e20500d6715",
+            "old_observation": "Legacy illustrated or inset/composite version observed in the full course contact-sheet inspection.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/3/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/25/options/0/image_url"
+              }
+            ],
+            "replaces_staged_candidate": {
+              "filename": "a1_bank.webp",
+              "record_sha256": "22be97443d723713681c7473545f5d746f289d8c129ecf4d7ac5941ad3565eb4",
+              "issue": "Directly viewed bank candidate places its only distinctive ATM at the extreme right, outside the centered four-choice portrait crop."
+            }
+          },
+          {
+            "inventory_index": 131,
+            "old_filename": "a1_scene_bank_bdd240c.webp",
+            "old_sha256": "2d95070ccb482938e73edca3ebde69896e05b6a22176dcad3e1d9e20500d6715",
+            "old_observation": "Legacy illustrated or inset/composite version observed in the full course contact-sheet inspection.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/10/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/16/options/0/image_url"
+              }
+            ],
+            "replaces_staged_candidate": {
+              "filename": "a1_bank.webp",
+              "record_sha256": "711cf8bad7c31975f273a343798c17a054c7a2311681fa0f5ea1c7e68bdfc287",
+              "issue": "Directly viewed bank candidate places its only distinctive ATM at the extreme right, outside the centered four-choice portrait crop."
+            }
+          },
+          {
+            "inventory_index": 132,
+            "old_filename": "a1_scene_bank_bdd240c_four-card.webp",
+            "old_sha256": "c4c1153d0fd96fe7f618e6a03f03f4475f62a7af655887bb586bddab6fbf89b8",
+            "old_observation": "Legacy illustrated or inset/composite version observed in the full course contact-sheet inspection.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/13/options/2/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-1-buildings-and-services",
+                "lesson": "6.1",
+                "path": "backend/lessons/unit_6/lesson-6-1-buildings-and-services.yaml",
+                "pointer": "/cards/19/options/3/image_url"
+              }
+            ],
+            "replaces_staged_candidate": {
+              "filename": "a1_bank.webp",
+              "record_sha256": "6b7fb564698fb37cb62a59f6fccb4e11b132a4f0293b0089469cf03739915f45",
+              "issue": "Directly viewed bank candidate places its only distinctive ATM at the extreme right, outside the centered four-choice portrait crop."
+            }
+          },
+          {
+            "inventory_index": 110,
+            "old_filename": "a1_scene_asks-bank_0295ac7_four-card.webp",
+            "old_sha256": "adba6a93b6b15613054e234e375ac110f45d9ae8ae6c0d0514fe29cb3612f6c2",
+            "old_observation": "Directly inspected flat cartoon people and schematic place icons remain in this location/help exercise.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-8-help-and-important-phrases",
+                "lesson": "7.8",
+                "path": "backend/lessons/unit_7/lesson-7-8-help-and-important-phrases.yaml",
+                "pointer": "/cards/21/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-station-central",
+      "runtime_filename": "a1_photo_u7_station_central_v1.webp",
+      "prompt": "A real train station platform. A passenger locomotive stops directly under a small station canopy, both front of train and recognizable platform with waiting passengers together in the middle 40 percent of width. Railway tracks lead toward them. Whole central canopy, train front and platform retained with wide empty outer margins. No words, letters, signage, logos or clocks.",
+      "expected_description": "A real train station platform. A passenger locomotive stops directly under a small station canopy, both front of train and recognizable platform with waiting passengers together in the middle 40 percent of width. Railway tracks lead toward them. Whole central canopy, train front and platform retained with wide empty outer margins. No words, letters, signage, logos or clocks.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 117,
+            "old_filename": "a1_scene_asks-station_745494e_four-card.webp",
+            "old_sha256": "6389c5238d171605c77bf5ca81f68417d1e6c34bd8073195e77ee726d395f018",
+            "old_observation": "Directly inspected flat cartoon people and schematic place icons remain in this location/help exercise.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-8-help-and-important-phrases",
+                "lesson": "7.8",
+                "path": "backend/lessons/unit_7/lesson-7-8-help-and-important-phrases.yaml",
+                "pointer": "/cards/21/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-review-help-bus-eight",
+      "runtime_filename": "a1_photo_u6_review_help_bus_eight_v1.webp",
+      "prompt": "A woman traveler holding a folded map politely asks a male station attendant for help beside a bus ready to depart. They stand close together; he points to a small physical bus-stop departure display directly between their heads, reading exactly 8:00. The central compact scene includes both faces, her map, his pointing gesture, the legible 8:00 display, and a bus immediately behind. Morning daylight, genuinely candid human exchange, no cartoon, no floating arrows or speech bubbles, no other text or times. Far-back side three-quarter view preserving all key details inside the middle 40 percent width.",
+      "expected_description": "A woman traveler holding a folded map politely asks a male station attendant for help beside a bus ready to depart. They stand close together; he points to a small physical bus-stop departure display directly between their heads, reading exactly 8:00. The central compact scene includes both faces, her map, his pointing gesture, the legible 8:00 display, and a bus immediately behind. Morning daylight, genuinely candid human exchange, no cartoon, no floating arrows or speech bubbles, no other text or times. Far-back side three-quarter view preserving all key details inside the middle 40 percent width.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 186,
+            "old_filename": "a1_scene_can-you-help-me-the-bus-leaves-at-eight_b2daa8d.webp",
+            "old_sha256": "77a1eab417c7cad9df4f006debb5767a3c6e6247a323e2bd949d8abeeb727622",
+            "old_observation": "Directly inspected flat cartoon people and schematic place icons remain in this location/help exercise.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/3/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

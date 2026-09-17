@@ -382,7 +382,7 @@
       "options": [
         {
           "id": "mother-doctor",
-          "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother.webp",
+          "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother_fullframe_v2.webp",
           "label": "She is a doctor."
         }
       ],
@@ -392,7 +392,7 @@
         {
           "text": "Who is she?",
           "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother.webp"
+          "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother_fullframe_v2.webp"
         }
       ],
       "spanish_translation": "Ella es doctora.",
@@ -406,13 +406,19 @@
             "id": "mother-doctor",
             "label_es": "Doctora",
             "rect": {
-              "x": 0.35,
-              "y": 0.2,
-              "width": 0.3,
-              "height": 0.55
+              "x": 0.48,
+              "y": 0.25,
+              "width": 0.31,
+              "height": 0.74
             },
             "accepted_option_ids": [
               "mother-doctor"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.627,
+                "y": 0.253
+              }
             ]
           }
         ],

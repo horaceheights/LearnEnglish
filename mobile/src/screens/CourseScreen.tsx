@@ -33,7 +33,7 @@ import {
 
 const VISUALS: Record<string, { image: string; description: string; color: string }> = {
   'lesson-1-people-actions': {
-    image: 'a1_l1_people_together.webp',
+    image: 'man.webp',
     description: 'Conoce a cuatro personas y forma frases con he, she e is.',
     color: '#ffe8c7',
   },
@@ -43,32 +43,32 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#dff4ef',
   },
   'lesson-3-two-people': {
-    image: 'a1_title_1_3_two_people.webp',
+    image: 'they_boy_girl.webp',
     description: 'They y are para hablar de dos personas.',
     color: '#e5eefb',
   },
   'lesson-4-children-siblings': {
-    image: 'a1_title_1_4_children_siblings.webp',
+    image: 'family_children_3x2.webp',
     description: 'Familia cercana: bebés, niños, hermanos y hermanas.',
     color: '#ffe7bd',
   },
   'lesson-5-parents-grandparents': {
-    image: 'a1_title_1_5_parents_grandparents.webp',
+    image: 'family_grandparents_3x2.webp',
     description: 'Familia: adultos, padres, madres y abuelos.',
     color: '#f1e4fa',
   },
   'lesson-6-family-actions': {
-    image: 'a1_title_1_6_family_actions.webp',
+    image: 'family_children_playing_3x2.webp',
     description: 'Acciones útiles dentro de la familia.',
     color: '#dff4ef',
   },
   'lesson-7-is-are-not': {
-    image: 'a1_title_1_7_is_are_not.webp',
+    image: 'family_parents_talking_3x2.webp',
     description: 'Contrasta lo que cada persona hace y no hace.',
     color: '#ffe8c7',
   },
   'lesson-8-who': {
-    image: 'a1_title_1_8_who.webp',
+    image: 'a1_who_answer_parents.webp',
     description: 'Preguntas y respuestas para identificar personas.',
     color: '#e5eefb',
   },
@@ -78,8 +78,8 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#f1e4fa',
   },
   'lesson-10-family-mission': {
-    image: 'a1_u1_album_01_locked.webp',
-    description: 'Completa una misión familiar con pistas, voz y fichas.',
+    image: 'a1_u1_reunion_01_people_path.webp',
+    description: 'Lleva a todos a la celebración con pistas y tu voz.',
     color: '#ffe1ad',
   },
   'lesson-2-1-places-around-me': {
@@ -88,7 +88,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#dff4ef',
   },
   'lesson-2-2-streets-and-transportation': {
-    image: 'a1_scene_street_d3a9fb0.webp',
+    image: 'place_street_3x2.webp',
     description: 'Calles, puentes y transporte cotidiano.',
     color: '#dff4ef',
   },
@@ -386,7 +386,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
 
 const DEFAULT_VISUAL = VISUALS['lesson-1-people-actions'];
 const UNIT_VISUALS: Record<string, { image: string; description: string; color: string }> = {
-  'unit-1': { image: 'a1_title_unit_1.webp', description: 'Personas, familia y acciones.', color: '#ffe1ad' },
+  'unit-1': { image: 'family_all_members_3x2.webp', description: 'Personas, familia y acciones.', color: '#ffe1ad' },
   'unit-2': { image: 'unit2_mission_two_blue_cars.webp', description: 'Lugares, objetos, números y colores.', color: '#dff4ef' },
   'unit-3': { image: 'a1_scene_job-dialogue-teacher_be7d927.webp', description: 'Presentaciones e información personal.', color: '#e5eefb' },
   'unit-4': { image: 'a1_home.webp', description: 'El hogar y la vida diaria.', color: '#f1e4fa' },
