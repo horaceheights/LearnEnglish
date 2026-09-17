@@ -6,6 +6,8 @@ Both clients now use the construction teaching resolver for both completion form
 
 Wrong constructions retain their submitted words and hint until the explicit `Reintentar` button resets this attempt. Word input is locked during feedback; retry preserves score and first-try history. Listening first-use help and the help button share the approved ear-training instruction and speaker replay copy.
 
+Integration with the concurrent direct-word-correction change preserves the shared partial/full renderer, disappearing used tiles, slot swaps, returns and arrangement Undo before grading. The newer explicit retry requirement supersedes immediate editing after a wrong grade. Browser verification was repeated after integration: partial tap-return and Undo worked, wrong partial/full attempts stayed locked through help/replay, Retry cleared movement history, and a corrected retry finished with 0/1 first-try credit.
+
 ## Automated and semantic review
 
 - The construction inventory contains 459 Use cards across the complete 70-lesson catalog. Every slot requires a supported explanation, and the reconstructed target must match the answer audio.

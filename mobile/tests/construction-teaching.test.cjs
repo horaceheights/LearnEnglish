@@ -98,6 +98,14 @@ test('a wrong construction waits for explicit retry while listening and missions
       'Retry clears the current construction, never its attempt history or lesson score.');
   }
   const overlay = fs.readFileSync(path.join(__dirname, '../src/components/SentenceHelpOverlay.tsx'), 'utf8');
+  for (const file of ['../src/components/SentenceConstruction.tsx', '../../frontend/components/SentenceConstruction.js']) {
+    const source = fs.readFileSync(path.join(__dirname, file), 'utf8');
+    assert.match(source, /const locked = (?:disabled \|\| )?result !== null/);
+    assert.match(source, /result !== ['"]wrong['"] \? <(?:View|div)/, 'Undo must not dismiss a graded mistake.');
+    assert.match(source, /history\.current = \[\];[^\n]+onRetry\(\)/, 'Retry clears movement history before resetting the attempt.');
+    assert.match(source, /Reintentar/);
+    assert.match(source, /result === ['"]correct['"] \? ['"]¡Muy bien!/, 'A locked wrong answer is not successful.');
+  }
   assert.match(overlay, /const listening = listeningHelpText\(card\)/);
   assert.match(mobile, /<SentenceHelpOverlay\s+card=\{currentCard\}/);
 });

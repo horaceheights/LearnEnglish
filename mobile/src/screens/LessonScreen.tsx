@@ -1,6 +1,6 @@
 import { awaitingConstructionRetry } from '../constructionTeaching';
 import { SentenceConstruction } from '../components/SentenceConstruction';
-import { isSentenceConstruction, sentenceIsCorrect } from '../sentenceConstruction';
+import { isSentenceConstruction, isWordConstruction, sentenceIsCorrect } from '../sentenceConstruction';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
@@ -1119,7 +1119,7 @@ export function LessonScreen({
   const isPronunciationAudioReady = !pronunciationAudioGateKey
     || (isOffline && offlinePronunciationAccepted)
     || pronunciationAudioReadyKey === pronunciationAudioGateKey;
-  const isSentenceCard = isSentenceConstruction(currentCard);
+  const isSentenceCard = isWordConstruction(currentCard);
   const isGrammar = currentCard?.stage === 'Grammar' || currentCard?.stage === 'New Grammar' || currentCard?.stage === 'Use';
   const isMissionTileCard = currentCard?.interaction_type === 'mission-word-parts'
     || currentCard?.interaction_type === 'mission-sentence'
@@ -1790,9 +1790,9 @@ export function LessonScreen({
   }, [automaticCountdown, cardIndex, cardRunId]);
 
   useEffect(() => {
-    if (!isSentenceCard || constructionHelpStatus !== 'pending' || sectionBriefing || isPageTurning) return;
+    if (!isSentenceConstruction(currentCard) || constructionHelpStatus !== 'pending' || sectionBriefing || isPageTurning) return;
     setShowConstructionCoachmark(true);
-  }, [constructionHelpStatus, isPageTurning, isSentenceCard, sectionBriefing]);
+  }, [constructionHelpStatus, currentCard, isPageTurning, sectionBriefing]);
 
   const dismissConstructionCoachmark = useCallback(() => {
     setShowConstructionCoachmark(false);

@@ -54,9 +54,10 @@ export function listeningHelpText(card?: LessonCard | null, replayOnPrompt = fal
  */
 function cardHelpInstruction(card: LessonCard) {
   if (card.stage === 'Use' && !card.mission_game && (card.correct_option_ids?.length || 0) > 1) {
-    return card.interaction_type === 'complete-sentence'
-      ? 'Escucha la frase completa y coloca las palabras en ese orden. Toca una palabra colocada para devolverla.'
+    const goal = card.interaction_type === 'complete-sentence'
+      ? 'Escucha la frase completa y coloca las palabras en ese orden.'
       : `Escucha la frase completa. Coloca las ${card.correct_option_ids!.length === 2 ? 'dos' : card.correct_option_ids!.length} palabras que faltan en el orden de la frase.`;
+    return `${goal} Toca o arrastra para colocar. Arrastra entre espacios para cambiar el orden; toca una palabra colocada para devolverla.`;
   }
   if (PRONUNCIATION_STAGES.has(card.stage)) {
     return 'Escucha el ejemplo. Después de la señal, repite la frase en voz alta; la app grabará y calificará tu pronunciación.';

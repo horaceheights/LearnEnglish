@@ -5,9 +5,9 @@ U1-U3 (cards 36-38) are ordinary completion. U4-U7 (cards 39-42) construct “He
 
 - In the last four cards, initially every word is a blank. Hear the complete English model and repeat it with the speaker.
 - Exactly four/six word tiles are available. The two “man” or “woman” tiles in each longer phrase are required occurrences and work in either matching slot.
-- Drag to any empty slot, drop outside to cancel, and tap tiles to fill the next empty slot. Compact mobile layouts use the tap path with a scrollable picture, bank, and controls.
-- Tap placed words to return them; Undo and Reset remain available.
-- A partial answer is never graded. A wrong full answer keeps the construction available for repair.
+- Drag into any slot, between placed words to swap, or back into the bank to return a word. Used occurrences disappear from the bank. Drop outside to cancel. Verify compact phones and landscape support the same gestures and retain accessible tap alternatives.
+- Tap placed words to return them; Undo restores the whole previous arrangement, including swaps and returns. No activity Reset is shown. An empty bank remains a return target.
+- A partial answer is never graded. A wrong full answer preserves the construction and hint until `Reintentar` begins a fresh attempt.
 - Correct completion plays feedback and advances; the last card enters the ordinary lesson completion flow. QA Auto OFF holds feedback for inspection.
 - Repeat after opening help, restarting, resizing and rotating during a drag. Preserve placed words and cancel the moving tile.
 - Inspect small phones, ordinary phones, landscape, both tablet orientations, narrow/wide web, safe areas, and enlarged text. Targets are at least 48dp mobile/44px web. Each word, including “woman” in both the bank and a filled slot with punctuation, stays on one line without clipping or ellipsis; tiles widen to their text and wrap as whole tiles. Recheck the reported Android phone configuration, since a desktop font did not reproduce the original split.
