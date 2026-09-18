@@ -152,6 +152,9 @@ function teachClause(text: string): ClausePlan {
     'sorry no': 'Para rechazar con cortesía, primero “Sorry” (lo siento) y después “no”: “Sorry, no”.',
     'no thank you': 'Para rechazar con cortesía, primero “No” y después agradecemos con “thank you”: “No, thank you”.',
     'yes thank you': 'Para aceptar con cortesía, primero “Yes” y después agradecemos con “thank you”: “Yes, thank you”.',
+    // Lesson 3.3 teaches this current-action question as a fixed chunk; it does
+    // not introduce generative do/does.
+    'what are you doing': 'Para preguntar qué está haciendo alguien ahora decimos “What are you doing?”: primero “What”, luego “are”, después “you” y al final “doing”. Es una pregunta fija.',
   };
   if (fixed[joined]) {
     teach(0, keys.length, fixed[joined]);

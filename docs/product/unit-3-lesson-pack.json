@@ -1,0 +1,73 @@
+{
+  "lesson_id": "lesson-3-3-am-is-and-are",
+  "lesson_number": "3.3",
+  "revision": 1,
+  "output_namespace": "unit-3-lesson-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "0.40",
+    "estimated_usd": "0.22",
+    "mxn_per_usd": "16.9707",
+    "fx_date": "2026-09-11",
+    "note": "Four new speaker-view stills for the approved current-action question. No existing lesson image is replaced; no automatic retries.",
+    "automatic_retries": 0,
+    "human_approval": "pending"
+  },
+  "shared_prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.",
+  "assets": [
+    {
+      "id": "reading-question",
+      "runtime_filename": "a1_u3_l33_v1_reading_question.webp",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_hello-ana-speaker_591cb45.webp",
+        "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+        "observed_description": "Inspected 3.1 course photo: Ana (Latina young adult, long dark wavy hair, sage-green overshirt, white top, jeans, cream tote bag) waves at a courtyard survey table while Luis (Latino young adult, short dark curly hair, navy T-shirt, khaki trousers, white sneakers) walks toward her. Both full bodies and faces are clear."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "introduces": "current-action-question",
+        "reason": "Approved 3.3 addition: What are you doing? needs new speaker-view scenes before 3.9 and 3.10 may assess it."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces, hair and clothing of Ana (long dark wavy hair, sage-green overshirt over a white top, jeans) and Luis (short dark curly hair, navy T-shirt, khaki trousers). Create a brand-new photograph in a different place: a bright community-center reading corner with a low grey sofa, wooden bookshelves and a large window, soft afternoon light. Ana sits on the sofa holding an open paperback book in both hands at chest height, eyes on the pages, clearly reading. Luis stands one step away on her right, body and face turned toward her, eyebrows raised with a curious friendly expression, mouth slightly open mid-question, one relaxed open palm extended toward Ana in a natural asking gesture. Luis is unmistakably the one asking; Ana has not looked up yet. The open book pages face Ana and show only blurred grey text lines, never readable words. Medium-wide camera at eye level, both people large in frame."
+    },
+    {
+      "id": "reading-answer",
+      "runtime_filename": "a1_u3_l33_v1_reading_answer.webp",
+      "reference": "reading-question",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "introduces": "current-action-question",
+        "reason": "Approved 3.3 addition: What are you doing? needs new speaker-view scenes before 3.9 and 3.10 may assess it."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 is the reviewed question shot of the same two people. Keep Ana's and Luis's exact faces, hair, clothing, the grey sofa, bookshelves and window light. New moment and closer camera position favoring Ana: she has looked up from her book toward Luis and is answering him, smiling, mouth open mid-sentence, one hand lightly on her own chest, the other hand still holding the open paperback so it is clearly the thing she is doing. Luis now stands listening with a small nod, hands relaxed at his sides, no asking gesture. Ana is unmistakably the speaker. No readable text on the book."
+    },
+    {
+      "id": "writing-question",
+      "runtime_filename": "a1_u3_l33_v1_writing_question.webp",
+      "reference": "reading-question",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "introduces": "current-action-question",
+        "reason": "Approved 3.3 addition: What are you doing? needs new speaker-view scenes before 3.9 and 3.10 may assess it."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces, hair and clothing of Ana and Luis and the community-center interior. Create a new photograph in another part of the same building: a wooden study table beside a tall window, a potted plant, a pen holder. Luis sits at the table writing in an open spiral notebook with a pen, head down, clearly writing. Ana stands beside the table facing him, curious friendly expression, mouth slightly open mid-question, one open palm extended toward Luis in a natural asking gesture, her cream tote on her shoulder. Ana is unmistakably the one asking. The notebook shows only faint handwritten lines, never readable words. Three-quarter camera angle, different from the sofa shot."
+    },
+    {
+      "id": "writing-answer",
+      "runtime_filename": "a1_u3_l33_v1_writing_answer.webp",
+      "reference": "writing-question",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "introduces": "current-action-question",
+        "reason": "Approved 3.3 addition: What are you doing? needs new speaker-view scenes before 3.9 and 3.10 may assess it."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 is the reviewed question shot of the same two people at the study table. Keep their exact faces, hair, clothing, the wooden table, window and notebook. New moment, camera moved closer and lower toward Luis: he has looked up from the notebook toward Ana and is answering her, friendly, mouth open mid-sentence, one hand lightly on his own chest while the other still holds the pen touching the open notebook, so the writing is obvious. Ana listens with a small smile, hands relaxed, no asking gesture. Luis is unmistakably the speaker. No readable words on the page."
+    }
+  ]
+}

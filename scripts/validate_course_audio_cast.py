@@ -34,8 +34,10 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "ana", "R6 R7 U7"),
     ],
     "lesson-3-3-am-is-and-are": [
-        ("audio_speaker", "ana", "L1-L3 R1-R2 N6 S1-S3 U1 U2 U6 U8"),
-        ("answer_audio_speaker", "ana", "U8"),
+        ("audio_speaker", "ana", "L1-L3 R1-R2 N6 S1-S3 U1 U2 U6 U8 U10"),
+        ("audio_speaker", "luis", "L7 U9"),
+        ("answer_audio_speaker", "ana", "R9 U8 U10"),
+        ("answer_audio_speaker", "luis", "U9"),
     ],
     "lesson-3-4-age": [
         ("audio_speaker", "luis", "L11 U4 U7"),
@@ -70,10 +72,15 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "ana", "R7"),
     ],
     "lesson-3-9-unit-3-review": [
-        ("audio_speaker", "ana", "L1-L4 R5 N3 S1-S5 U3 U5 U7"),
-        ("audio_speaker", "luis", "R3 N2 N4 U2 U6"),
-        ("answer_audio_speaker", "ana", "R1 R3 R7 R8 U3"),
-        ("answer_audio_speaker", "luis", "R2 R4 U6"),
+        ("audio_speaker", "male-character", "L1"),
+        ("audio_speaker", "ana", "L3 L5-L7 S2 U6"),
+        ("audio_speaker", "female-character", "L4 U7"),
+        ("audio_speaker", "luis", "L8 S3 U5 U8"),
+        ("audio_speaker", "sofia", "S4"),
+        ("answer_audio_speaker", "ana", "R1 R8 U6"),
+        ("answer_audio_speaker", "female-character", "R7 U7"),
+        ("answer_audio_speaker", "luis", "R2 U5 U8"),
+        ("answer_audio_speaker", "sofia", "R3"),
     ],
     "lesson-4-1-rooms-at-home": [
         ("audio_speaker", "ana", "U5"),

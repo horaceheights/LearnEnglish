@@ -24,11 +24,15 @@ class PhotoReuseTests(unittest.TestCase):
                 with self.subTest(field=field),self.assertRaises(ValueError):validate_dialogue_poster_plan(plan,changed,ROOT)
 
     def test_mission_edits_pin_every_marker_and_preserve_the_game_contract(self):
-        from scripts.mission_photo_edit_contract import EVIDENCE, validate_record
+        from scripts.mission_photo_edit_contract import EVIDENCE, superseding_row, validate_record
         records=json.loads((ROOT/EVIDENCE).read_text(encoding='utf-8'))['assets']
         self.assertEqual(13,len(records))
         current=lessons(ROOT)
         for record in records:
+            # A parity rebuild may retire an edited card only with its own
+            # retired-scene evidence; every other edit stays fully pinned.
+            if superseding_row(record,current,ROOT):
+                continue
             validate_record(record,current,ROOT)
             for mutation in ('audio','marker','pixels','reference','evidence'):
                 changed=deepcopy(current);altered=deepcopy(record)

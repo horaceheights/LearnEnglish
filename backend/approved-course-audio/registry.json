@@ -12684,11 +12684,13 @@
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "captured-legacy-render-backend",
@@ -21234,15 +21236,18 @@
       "bytes": 22221,
       "text": "How old are you?",
       "compatible_speaker_roles": [
-        "ana"
+        "ana",
+        "sofia"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "captured-legacy-render-backend",
@@ -22071,15 +22076,18 @@
       "bytes": 23085,
       "text": "Where are you from?",
       "compatible_speaker_roles": [
+        "diego",
         "luis"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
-        "prompt"
+        "prompt",
+        "pronunciation_slow"
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "split-ing"
       ],
       "provenance": {
         "source": "captured-legacy-render-backend",
@@ -23804,7 +23812,8 @@
       "text": "What is your job?",
       "compatible_speaker_roles": [
         "answer",
-        "question"
+        "question",
+        "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
@@ -23812,7 +23821,8 @@
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "question"
       ],
       "provenance": {
         "source": "captured-legacy-render-backend",
@@ -42420,7 +42430,8 @@
       "text": "What is your name?",
       "compatible_speaker_roles": [
         "answer",
-        "question"
+        "question",
+        "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
@@ -48202,7 +48213,8 @@
       "text": "How old are you?",
       "compatible_speaker_roles": [
         "answer",
-        "question"
+        "question",
+        "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
@@ -48210,7 +48222,8 @@
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "question"
       ],
       "provenance": {
         "source": "captured-legacy-render-backend",
@@ -68678,14 +68691,16 @@
       "bytes": 16461,
       "text": "Goodbye.",
       "compatible_speaker_roles": [
-        "answer"
+        "answer",
+        "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
         "prompt"
       ],
       "compatible_variants": [
-        "answer"
+        "answer",
+        "prompt"
       ],
       "provenance": {
         "source": "captured-legacy-render-backend",
@@ -93028,7 +93043,8 @@
       "bytes": 22509,
       "text": "We are talking.",
       "compatible_speaker_roles": [
-        "ana"
+        "ana",
+        "female-character"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
@@ -97664,7 +97680,8 @@
       "text": "Where are you from?",
       "compatible_speaker_roles": [
         "answer",
-        "question"
+        "question",
+        "teacher"
       ],
       "profile_id": "a1-elevenlabs-character-cast-v1",
       "compatible_modes": [
@@ -97672,7 +97689,8 @@
       ],
       "compatible_variants": [
         "answer",
-        "prompt"
+        "prompt",
+        "question"
       ],
       "provenance": {
         "source": "captured-legacy-render-backend",
@@ -101109,6 +101127,2415 @@
           "mo",
           "ther"
         ]
+      }
+    },
+    "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a": {
+      "file": "takes/54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a.mp3",
+      "audio_sha256": "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a",
+      "bytes": 19629,
+      "text": "Good morning.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:41:49.177084+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "ygMvRMdw4s1tgaWYSF5R",
+        "trace_id": "1d9ed2459b90bb82b2525b9e48e3ed9e",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "Good morning.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "ygMvRMdw4s1tgaWYSF5R",
+            "trace_id": "1d9ed2459b90bb82b2525b9e48e3ed9e"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "ccd3a82d3d0b1239ee88a9c6332ebea5a4f20114a98bbaf2825b360190fedcce": {
+      "file": "takes/ccd3a82d3d0b1239ee88a9c6332ebea5a4f20114a98bbaf2825b360190fedcce.mp3",
+      "audio_sha256": "ccd3a82d3d0b1239ee88a9c6332ebea5a4f20114a98bbaf2825b360190fedcce",
+      "bytes": 316269,
+      "text": "Hoy es la cena internacional del centro comunitario y Ana necesita tu ayuda. Escucha cada frase y descubre quién la dice o a quién describe: saludos, nombres, países, edades, trabajos y cosas de cada invitado. Al final, responde en voz alta en la mesa. Primero escucha la frase completa; después toca a la persona.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "mission-intro"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:41:56.230050+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "dw70Sg180WladBPHWQlX",
+        "trace_id": "246db34afe943ed1b2525b9e48e3ee3c",
+        "character_cost": 173,
+        "incremental_character_cost": 173,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "Hoy es la cena internacional del centro comunitario y Ana necesita tu ayuda. Escucha cada frase y descubre quién la dice o a quién describe: saludos, nombres, países, edades, trabajos y cosas de cada invitado. Al final, responde en voz alta en la mesa. Primero escucha la frase completa; después toca a la persona.",
+            "character_cost": 173,
+            "incremental_character_cost": 173,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "173",
+            "staged_reuse": false,
+            "request_id": "dw70Sg180WladBPHWQlX",
+            "trace_id": "246db34afe943ed1b2525b9e48e3ee3c"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "942534c3b63c1944adff82ba8bbb63555f4c41c38b2c3221d6dba88c2e269bd6": {
+      "file": "takes/942534c3b63c1944adff82ba8bbb63555f4c41c38b2c3221d6dba88c2e269bd6.mp3",
+      "audio_sha256": "942534c3b63c1944adff82ba8bbb63555f4c41c38b2c3221d6dba88c2e269bd6",
+      "bytes": 24237,
+      "text": "I am American.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:41:58.247863+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "y40wxKje4DxSxUDwpJfn",
+        "trace_id": "86400f6014107f0cb2525b9e48e3eacc",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am American.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "y40wxKje4DxSxUDwpJfn",
+            "trace_id": "86400f6014107f0cb2525b9e48e3eacc"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "0d7d709df3286d5f4dbdea38a259b4bdcb260923b5121cfc33aebecd165478dc": {
+      "file": "takes/0d7d709df3286d5f4dbdea38a259b4bdcb260923b5121cfc33aebecd165478dc.mp3",
+      "audio_sha256": "0d7d709df3286d5f4dbdea38a259b4bdcb260923b5121cfc33aebecd165478dc",
+      "bytes": 22509,
+      "text": "I am Mexican.",
+      "compatible_speaker_roles": [
+        "answer"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:41:59.647675+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "09DM3vtKDHVF21qx3zkD",
+        "trace_id": "ec4226bf5ec1dea58cba3080378a53b0",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am Mexican.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "09DM3vtKDHVF21qx3zkD",
+            "trace_id": "ec4226bf5ec1dea58cba3080378a53b0"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "f328afb7aab665f1870f7f06841c0795a30e339ad2f31bf1c584f6fe7ec1d9f6": {
+      "file": "takes/f328afb7aab665f1870f7f06841c0795a30e339ad2f31bf1c584f6fe7ec1d9f6.mp3",
+      "audio_sha256": "f328afb7aab665f1870f7f06841c0795a30e339ad2f31bf1c584f6fe7ec1d9f6",
+      "bytes": 23085,
+      "text": "I am Spanish.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:00.962184+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "rbFMzBcDI6y7zIPJbBNu",
+        "trace_id": "ca59e37a6e6644ff8cba3080378a5d88",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am Spanish.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "rbFMzBcDI6y7zIPJbBNu",
+            "trace_id": "ca59e37a6e6644ff8cba3080378a5d88"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "9fb44cba8a408430363ab9dfc1b74177872c5ca082075aa15aa51baf3cfb3dd4": {
+      "file": "takes/9fb44cba8a408430363ab9dfc1b74177872c5ca082075aa15aa51baf3cfb3dd4.mp3",
+      "audio_sha256": "9fb44cba8a408430363ab9dfc1b74177872c5ca082075aa15aa51baf3cfb3dd4",
+      "bytes": 23085,
+      "text": "I am a doctor.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:02.282995+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "jM1RJV69eRNafPTZ0aF2",
+        "trace_id": "1ce1e4ff2e8cf0c48cba3080378a541e",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am a doctor.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "jM1RJV69eRNafPTZ0aF2",
+            "trace_id": "1ce1e4ff2e8cf0c48cba3080378a541e"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "2f2a4f09c38c74a224e83bb0f930b188c99aa05e431095cbc0490390c1bc86a9": {
+      "file": "takes/2f2a4f09c38c74a224e83bb0f930b188c99aa05e431095cbc0490390c1bc86a9.mp3",
+      "audio_sha256": "2f2a4f09c38c74a224e83bb0f930b188c99aa05e431095cbc0490390c1bc86a9",
+      "bytes": 22797,
+      "text": "I am a driver.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:03.670804+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "JDL7vy1IgPB3k8J5vfCn",
+        "trace_id": "dc4eaa2703bb1f268cba3080378a517b",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am a driver.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "JDL7vy1IgPB3k8J5vfCn",
+            "trace_id": "dc4eaa2703bb1f268cba3080378a517b"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "e1e77f459cdd596d4ca69cec61850dd222f230b0fc30e7d5e09e1e4bac71302d": {
+      "file": "takes/e1e77f459cdd596d4ca69cec61850dd222f230b0fc30e7d5e09e1e4bac71302d.mp3",
+      "audio_sha256": "e1e77f459cdd596d4ca69cec61850dd222f230b0fc30e7d5e09e1e4bac71302d",
+      "bytes": 22509,
+      "text": "I am a farmer.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:05.035305+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "08HxfnwUrrmFW1AiJiNx",
+        "trace_id": "4ce5c450a08084698cba3080378a5d37",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am a farmer.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "08HxfnwUrrmFW1AiJiNx",
+            "trace_id": "4ce5c450a08084698cba3080378a5d37"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "a49174ccd925e1a01c518a2627c64148d6327a2aa6c7f3e0e678c02844a42b31": {
+      "file": "takes/a49174ccd925e1a01c518a2627c64148d6327a2aa6c7f3e0e678c02844a42b31.mp3",
+      "audio_sha256": "a49174ccd925e1a01c518a2627c64148d6327a2aa6c7f3e0e678c02844a42b31",
+      "bytes": 21933,
+      "text": "I am a nurse.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:06.787554+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "QWLS6PlP0nXoIjEdQDfc",
+        "trace_id": "6dd4424e48b45bf88cba3080378a58c1",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am a nurse.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "QWLS6PlP0nXoIjEdQDfc",
+            "trace_id": "6dd4424e48b45bf88cba3080378a58c1"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "1716356687d69f09f17125d227c7f1406e553e27093a1eb6e7fbed3c2e3e328e": {
+      "file": "takes/1716356687d69f09f17125d227c7f1406e553e27093a1eb6e7fbed3c2e3e328e.mp3",
+      "audio_sha256": "1716356687d69f09f17125d227c7f1406e553e27093a1eb6e7fbed3c2e3e328e",
+      "bytes": 21645,
+      "text": "I am cooking.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:08.367677+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "MlJ5XwF4saUgm4wdlEH0",
+        "trace_id": "a111dcbdbacda6378cba3080378a513b",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am cooking.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "MlJ5XwF4saUgm4wdlEH0",
+            "trace_id": "a111dcbdbacda6378cba3080378a513b"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "9211ec99820853eabb581cb82a8fef02ec8a3dad38036ee93f141d7bb6d348f8": {
+      "file": "takes/9211ec99820853eabb581cb82a8fef02ec8a3dad38036ee93f141d7bb6d348f8.mp3",
+      "audio_sha256": "9211ec99820853eabb581cb82a8fef02ec8a3dad38036ee93f141d7bb6d348f8",
+      "bytes": 28269,
+      "text": "I am eleven years old.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:09.956416+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "hf0b2RFf8qxvwQS8txnB",
+        "trace_id": "1b77099688c0cbad8cba3080378a5c0e",
+        "character_cost": 12,
+        "incremental_character_cost": 12,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am eleven years old.",
+            "character_cost": 12,
+            "incremental_character_cost": 12,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "12",
+            "staged_reuse": false,
+            "request_id": "hf0b2RFf8qxvwQS8txnB",
+            "trace_id": "1b77099688c0cbad8cba3080378a5c0e"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "3c58c4cc68131515fc501517775470a477e95852faaecaced14723151d290f46": {
+      "file": "takes/3c58c4cc68131515fc501517775470a477e95852faaecaced14723151d290f46.mp3",
+      "audio_sha256": "3c58c4cc68131515fc501517775470a477e95852faaecaced14723151d290f46",
+      "bytes": 29709,
+      "text": "I am fifteen years old.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:11.331080+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "meLGRTwTjfPESSe9Vx7Y",
+        "trace_id": "c1f433f5cadeb0004970344691ccda75",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am fifteen years old.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "meLGRTwTjfPESSe9Vx7Y",
+            "trace_id": "c1f433f5cadeb0004970344691ccda75"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "3d3d8dccf2e374735f5d9c534a8f0c01be50e4d622d7140a709eead3d08a0d8e": {
+      "file": "takes/3d3d8dccf2e374735f5d9c534a8f0c01be50e4d622d7140a709eead3d08a0d8e.mp3",
+      "audio_sha256": "3d3d8dccf2e374735f5d9c534a8f0c01be50e4d622d7140a709eead3d08a0d8e",
+      "bytes": 29997,
+      "text": "I am fourteen years old.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:12.901487+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "Tmphf4hyJrxmagwahGPn",
+        "trace_id": "758a700a2504229d4970344691ccd7d0",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am fourteen years old.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "Tmphf4hyJrxmagwahGPn",
+            "trace_id": "758a700a2504229d4970344691ccd7d0"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "e240e42f73c4e3823d86f1a33f9f2587e4c894c81fbe3361c240cb0be4bef151": {
+      "file": "takes/e240e42f73c4e3823d86f1a33f9f2587e4c894c81fbe3361c240cb0be4bef151.mp3",
+      "audio_sha256": "e240e42f73c4e3823d86f1a33f9f2587e4c894c81fbe3361c240cb0be4bef151",
+      "bytes": 24813,
+      "text": "I am from Spain.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:14.197735+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "PLCh6x0hmJ2KjLe1H3pY",
+        "trace_id": "89005f73c6428a5a4970344691ccd6e1",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am from Spain.",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "PLCh6x0hmJ2KjLe1H3pY",
+            "trace_id": "89005f73c6428a5a4970344691ccd6e1"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "6b5363a197048999579a3e459bb0a5e3aba62a22c4e1422f1fa82ec31c88eed1": {
+      "file": "takes/6b5363a197048999579a3e459bb0a5e3aba62a22c4e1422f1fa82ec31c88eed1.mp3",
+      "audio_sha256": "6b5363a197048999579a3e459bb0a5e3aba62a22c4e1422f1fa82ec31c88eed1",
+      "bytes": 29709,
+      "text": "I am nineteen years old.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:16.038246+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "XFIUxrZ2RF7gn2FofA8g",
+        "trace_id": "abe2ab4cbe350c3b4970344691ccd9c9",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am nineteen years old.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "XFIUxrZ2RF7gn2FofA8g",
+            "trace_id": "abe2ab4cbe350c3b4970344691ccd9c9"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "0e4e678ecd77b5ad82c174fc465c0a0db095b3c30fdd879a3ef6f68cb6264228": {
+      "file": "takes/0e4e678ecd77b5ad82c174fc465c0a0db095b3c30fdd879a3ef6f68cb6264228.mp3",
+      "audio_sha256": "0e4e678ecd77b5ad82c174fc465c0a0db095b3c30fdd879a3ef6f68cb6264228",
+      "bytes": 22797,
+      "text": "I am playing.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:17.540519+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "LAB7ziOMzVv0TtjfQBpU",
+        "trace_id": "617699d2ad66d8e54970344691ccd8c9",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am playing.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "LAB7ziOMzVv0TtjfQBpU",
+            "trace_id": "617699d2ad66d8e54970344691ccd8c9"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "1dee6178ff810c6dc3b39e0f6c36ac37b5f96e6c8efdcc360bfa520393e34f60": {
+      "file": "takes/1dee6178ff810c6dc3b39e0f6c36ac37b5f96e6c8efdcc360bfa520393e34f60.mp3",
+      "audio_sha256": "1dee6178ff810c6dc3b39e0f6c36ac37b5f96e6c8efdcc360bfa520393e34f60",
+      "bytes": 30573,
+      "text": "I am seventeen years old.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:19.646028+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "fm3hVExzcA5czqam4dr1",
+        "trace_id": "8a51e91129e2834d8c9efbe7ef7311f7",
+        "character_cost": 14,
+        "incremental_character_cost": 14,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am seventeen years old.",
+            "character_cost": 14,
+            "incremental_character_cost": 14,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "14",
+            "staged_reuse": false,
+            "request_id": "fm3hVExzcA5czqam4dr1",
+            "trace_id": "8a51e91129e2834d8c9efbe7ef7311f7"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "834e83c2fd6487d497558d0e1729003e02bc534e9bc234e0ec9af887d0b14ede": {
+      "file": "takes/834e83c2fd6487d497558d0e1729003e02bc534e9bc234e0ec9af887d0b14ede.mp3",
+      "audio_sha256": "834e83c2fd6487d497558d0e1729003e02bc534e9bc234e0ec9af887d0b14ede",
+      "bytes": 29421,
+      "text": "I am sixteen years old.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:21.272308+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "f9rtsngfF95E5JTyDEJt",
+        "trace_id": "87aaa55bf9decae08c9efbe7ef731d7c",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am sixteen years old.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "f9rtsngfF95E5JTyDEJt",
+            "trace_id": "87aaa55bf9decae08c9efbe7ef731d7c"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "e0d2c8729c4d07e2379bc81ca9f81be4e185b99dd04070ae50bbef054f7daa18": {
+      "file": "takes/e0d2c8729c4d07e2379bc81ca9f81be4e185b99dd04070ae50bbef054f7daa18.mp3",
+      "audio_sha256": "e0d2c8729c4d07e2379bc81ca9f81be4e185b99dd04070ae50bbef054f7daa18",
+      "bytes": 30285,
+      "text": "I am thirteen years old.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:22.794163+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "GfJReo5pxy4s2qyJEZ6i",
+        "trace_id": "da3e5b67bcaa853c8c9efbe7ef731c8d",
+        "character_cost": 13,
+        "incremental_character_cost": 13,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am thirteen years old.",
+            "character_cost": 13,
+            "incremental_character_cost": 13,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "13",
+            "staged_reuse": false,
+            "request_id": "GfJReo5pxy4s2qyJEZ6i",
+            "trace_id": "da3e5b67bcaa853c8c9efbe7ef731c8d"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "49d4488d3bd9ca1509253a09b3c298504f69211c4e282faf37b623b1eb1bde0b": {
+      "file": "takes/49d4488d3bd9ca1509253a09b3c298504f69211c4e282faf37b623b1eb1bde0b.mp3",
+      "audio_sha256": "49d4488d3bd9ca1509253a09b3c298504f69211c4e282faf37b623b1eb1bde0b",
+      "bytes": 27405,
+      "text": "I am twelve years old.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:24.446620+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "gXQjJmdaJltY2TFhCU36",
+        "trace_id": "553022da4ee7a1a98c9efbe7ef731ee2",
+        "character_cost": 12,
+        "incremental_character_cost": 12,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am twelve years old.",
+            "character_cost": 12,
+            "incremental_character_cost": 12,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "12",
+            "staged_reuse": false,
+            "request_id": "gXQjJmdaJltY2TFhCU36",
+            "trace_id": "553022da4ee7a1a98c9efbe7ef731ee2"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "d90a49de24f893858ab73a75567be7304ce6404515950e1615ce75b05d3d1456": {
+      "file": "takes/d90a49de24f893858ab73a75567be7304ce6404515950e1615ce75b05d3d1456.mp3",
+      "audio_sha256": "d90a49de24f893858ab73a75567be7304ce6404515950e1615ce75b05d3d1456",
+      "bytes": 21069,
+      "text": "I am writing.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:25.995100+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "Ya7HUN42IW90kFQhvMX4",
+        "trace_id": "87c08d75973b9fbe8c9efbe7ef731ac0",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am writing.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "Ya7HUN42IW90kFQhvMX4",
+            "trace_id": "87c08d75973b9fbe8c9efbe7ef731ac0"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "6edef4a0a735345244ea5931c0036e9773ed1ee7452a3bc294e69bcf6464005c": {
+      "file": "takes/6edef4a0a735345244ea5931c0036e9773ed1ee7452a3bc294e69bcf6464005c.mp3",
+      "audio_sha256": "6edef4a0a735345244ea5931c0036e9773ed1ee7452a3bc294e69bcf6464005c",
+      "bytes": 22509,
+      "text": "I have a bike.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:27.559620+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "zLMHwQAhrezqlEJ06JDk",
+        "trace_id": "115d320142dcc7fa3e20ea20b1d1dd32",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I have a bike.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "zLMHwQAhrezqlEJ06JDk",
+            "trace_id": "115d320142dcc7fa3e20ea20b1d1dd32"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "882b8651a8ebe62fd726cd9384278b557192bfa20a99d24b8bbe1193ecd360e2": {
+      "file": "takes/882b8651a8ebe62fd726cd9384278b557192bfa20a99d24b8bbe1193ecd360e2.mp3",
+      "audio_sha256": "882b8651a8ebe62fd726cd9384278b557192bfa20a99d24b8bbe1193ecd360e2",
+      "bytes": 26829,
+      "text": "My name is Diego.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:29.738443+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "PdQ5h7FFdpqvjvE5wcTn",
+        "trace_id": "870a9e48c5e779383e20ea20b1d1d0ab",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "My name is Diego.",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "PdQ5h7FFdpqvjvE5wcTn",
+            "trace_id": "870a9e48c5e779383e20ea20b1d1d0ab"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "3650131a34fa54c0adf677088b7145e2cd54961c09486339393c1c9002143ca0": {
+      "file": "takes/3650131a34fa54c0adf677088b7145e2cd54961c09486339393c1c9002143ca0.mp3",
+      "audio_sha256": "3650131a34fa54c0adf677088b7145e2cd54961c09486339393c1c9002143ca0",
+      "bytes": 25101,
+      "text": "That is her bag.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:31.170362+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "4XlM1vzLETyKtz4jwKfZ",
+        "trace_id": "6daf0b41915c896c3e20ea20b1d1d012",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "That is her bag.",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "4XlM1vzLETyKtz4jwKfZ",
+            "trace_id": "6daf0b41915c896c3e20ea20b1d1d012"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "fcec17fda3d9a6eafaa70112b253f03ff5545b12019ce719e242a2d37027add3": {
+      "file": "takes/fcec17fda3d9a6eafaa70112b253f03ff5545b12019ce719e242a2d37027add3.mp3",
+      "audio_sha256": "fcec17fda3d9a6eafaa70112b253f03ff5545b12019ce719e242a2d37027add3",
+      "bytes": 25677,
+      "text": "That is her phone.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:32.732386+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "xHFC2mUUDvzvEY5Gkdea",
+        "trace_id": "90ed9a227acc70df3e20ea20b1d1d27e",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "That is her phone.",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "xHFC2mUUDvzvEY5Gkdea",
+            "trace_id": "90ed9a227acc70df3e20ea20b1d1d27e"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "494d5adf716dde21974ee80c74c641a959bd11cef854687c68188332af186da1": {
+      "file": "takes/494d5adf716dde21974ee80c74c641a959bd11cef854687c68188332af186da1.mp3",
+      "audio_sha256": "494d5adf716dde21974ee80c74c641a959bd11cef854687c68188332af186da1",
+      "bytes": 25389,
+      "text": "That is his car.",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:34.183627+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "CcpwfWRzsII3dPoD1CUN",
+        "trace_id": "f04c0fa24d7afbde3e20ea20b1d1d447",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "That is his car.",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "CcpwfWRzsII3dPoD1CUN",
+            "trace_id": "f04c0fa24d7afbde3e20ea20b1d1d447"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "fab6c2c8e95a6b0fd1b6aa78116a671574a18484e39f085d25e59314ce90bf02": {
+      "file": "takes/fab6c2c8e95a6b0fd1b6aa78116a671574a18484e39f085d25e59314ce90bf02.mp3",
+      "audio_sha256": "fab6c2c8e95a6b0fd1b6aa78116a671574a18484e39f085d25e59314ce90bf02",
+      "bytes": 24813,
+      "text": "That is his phone.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:35.636333+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "1ndrWZwzihBvdboVFip4",
+        "trace_id": "90764d90b84d48f83e20ea20b1d1dde3",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "That is his phone.",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "1ndrWZwzihBvdboVFip4",
+            "trace_id": "90764d90b84d48f83e20ea20b1d1dde3"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "bcc87092d5a03d80e1db1b8e7ded9ba1bdb787de26e69f781bc3c770847fe9cd": {
+      "file": "takes/bcc87092d5a03d80e1db1b8e7ded9ba1bdb787de26e69f781bc3c770847fe9cd.mp3",
+      "audio_sha256": "bcc87092d5a03d80e1db1b8e7ded9ba1bdb787de26e69f781bc3c770847fe9cd",
+      "bytes": 24237,
+      "text": "This is my book.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:36.968348+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "e6Nqfrp4uHQNv4Yov03H",
+        "trace_id": "3d8fa277a6534c963e20ea20b1d1d102",
+        "character_cost": 9,
+        "incremental_character_cost": 9,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "This is my book.",
+            "character_cost": 9,
+            "incremental_character_cost": 9,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "9",
+            "staged_reuse": false,
+            "request_id": "e6Nqfrp4uHQNv4Yov03H",
+            "trace_id": "3d8fa277a6534c963e20ea20b1d1d102"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "bc730eb0e35c4c3197c77d1663a928685e198a65fc5ea4713db55ab45c5f0d39": {
+      "file": "takes/bc730eb0e35c4c3197c77d1663a928685e198a65fc5ea4713db55ab45c5f0d39.mp3",
+      "audio_sha256": "bc730eb0e35c4c3197c77d1663a928685e198a65fc5ea4713db55ab45c5f0d39",
+      "bytes": 23373,
+      "text": "This is your phone.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:38.440509+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "d4VkUIR9QeatQFUe3DZa",
+        "trace_id": "1b2f884261056d185cc68ae5e4bca159",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "This is your phone.",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "d4VkUIR9QeatQFUe3DZa",
+            "trace_id": "1b2f884261056d185cc68ae5e4bca159"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "2647c98dbe172444c54bfcb53cfa19b8b2d23ba05c1e98c37d6bcd669474c774": {
+      "file": "takes/2647c98dbe172444c54bfcb53cfa19b8b2d23ba05c1e98c37d6bcd669474c774.mp3",
+      "audio_sha256": "2647c98dbe172444c54bfcb53cfa19b8b2d23ba05c1e98c37d6bcd669474c774",
+      "bytes": 24525,
+      "text": "We are playing.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:39.957148+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "xIbTdFAyfXwTqpRQIQJN",
+        "trace_id": "0884e92776b1c9b25cc68ae5e4bcacde",
+        "character_cost": 8,
+        "incremental_character_cost": 8,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "We are playing.",
+            "character_cost": 8,
+            "incremental_character_cost": 8,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "8",
+            "staged_reuse": false,
+            "request_id": "xIbTdFAyfXwTqpRQIQJN",
+            "trace_id": "0884e92776b1c9b25cc68ae5e4bcacde"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "4e8eedb363ea66b8e42fcea09bf39c5a915651d3d0184e5e4ef4d902525bd0db": {
+      "file": "takes/4e8eedb363ea66b8e42fcea09bf39c5a915651d3d0184e5e4ef4d902525bd0db.mp3",
+      "audio_sha256": "4e8eedb363ea66b8e42fcea09bf39c5a915651d3d0184e5e4ef4d902525bd0db",
+      "bytes": 26829,
+      "text": "We have two books.",
+      "compatible_speaker_roles": [
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:41.510363+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "78dCwQM66gsM0sSjN2Te",
+        "trace_id": "74eb3b810f4c316d5cc68ae5e4bcabfb",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "We have two books.",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "78dCwQM66gsM0sSjN2Te",
+            "trace_id": "74eb3b810f4c316d5cc68ae5e4bcabfb"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73": {
+      "file": "takes/a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73.mp3",
+      "audio_sha256": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "bytes": 24525,
+      "text": "What are you doing?",
+      "compatible_speaker_roles": [
+        "answer",
+        "question",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "question"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:42.964232+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "HrALaD59ABmU03mP3is9",
+        "trace_id": "c8067e383ef285a25cc68ae5e4bca8dd",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "What are you doing?",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "HrALaD59ABmU03mP3is9",
+            "trace_id": "c8067e383ef285a25cc68ae5e4bca8dd"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "c75b7fad9ab0350a709bf0bc43cde99a0737616e1124def633d6522a43759581": {
+      "file": "takes/c75b7fad9ab0350a709bf0bc43cde99a0737616e1124def633d6522a43759581.mp3",
+      "audio_sha256": "c75b7fad9ab0350a709bf0bc43cde99a0737616e1124def633d6522a43759581",
+      "bytes": 21357,
+      "text": "I am working.",
+      "compatible_speaker_roles": [
+        "sofia"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:44.262495+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "7c8yXwJId8h2SxvEqAcW",
+        "trace_id": "794764ce6b63581c5cc68ae5e4bca978",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am working.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "7c8yXwJId8h2SxvEqAcW",
+            "trace_id": "794764ce6b63581c5cc68ae5e4bca978"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "2263c8411b97ed99bfc7e26ba84c5929e9210b2594dddd4b44279c4087709dfb": {
+      "file": "takes/2263c8411b97ed99bfc7e26ba84c5929e9210b2594dddd4b44279c4087709dfb.mp3",
+      "audio_sha256": "2263c8411b97ed99bfc7e26ba84c5929e9210b2594dddd4b44279c4087709dfb",
+      "bytes": 24237,
+      "text": "What are you doing?",
+      "compatible_speaker_roles": [
+        "ana",
+        "female-character"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-warm",
+        "voice_id": "EXAVITQu4vr4xnSDxMaL",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:45.490869+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "zi5MTLatym8f0RsHaiN6",
+        "trace_id": "c236700fff4e07f25cc68ae5e4bca875",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "What are you doing?",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "zi5MTLatym8f0RsHaiN6",
+            "trace_id": "c236700fff4e07f25cc68ae5e4bca875"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "6e0ff02ed6021bd358288d4130e45ad22b3796b8921ce1671786114177947a5c": {
+      "file": "takes/6e0ff02ed6021bd358288d4130e45ad22b3796b8921ce1671786114177947a5c.mp3",
+      "audio_sha256": "6e0ff02ed6021bd358288d4130e45ad22b3796b8921ce1671786114177947a5c",
+      "bytes": 21069,
+      "text": "I am writing.",
+      "compatible_speaker_roles": [
+        "luis"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "split-ing"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:46.859679+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "1acwfq3x2aGKDfCiIKaG",
+        "trace_id": "f6b3a66ec7a6c5e05cc68ae5e4bca1df",
+        "character_cost": 7,
+        "incremental_character_cost": 7,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "I am writing.",
+            "character_cost": 7,
+            "incremental_character_cost": 7,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "7",
+            "staged_reuse": false,
+            "request_id": "1acwfq3x2aGKDfCiIKaG",
+            "trace_id": "f6b3a66ec7a6c5e05cc68ae5e4bca1df"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
+      }
+    },
+    "e03f839ff7593e9028617ff8b775d95d050aa1985ec9d58c0a7d87f53ea2888d": {
+      "file": "takes/e03f839ff7593e9028617ff8b775d95d050aa1985ec9d58c0a7d87f53ea2888d.mp3",
+      "audio_sha256": "e03f839ff7593e9028617ff8b775d95d050aa1985ec9d58c0a7d87f53ea2888d",
+      "bytes": 23085,
+      "text": "What are you doing?",
+      "compatible_speaker_roles": [
+        "luis"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt"
+      ],
+      "provenance": {
+        "source": "elevenlabs-offline-render",
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "male-conversational",
+        "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 0.7
+        },
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 24000,
+          "channels": 1,
+          "bit_rate_bps": 96000
+        },
+        "processing": [
+          "ElevenLabs provider response normalized with course_audio.normalize_course_audio.",
+          "Stored as 24 kHz mono, 96 kbps MP3 with premium voice pitch and natural timing preserved."
+        ],
+        "generated_at": "2026-09-18T14:42:48.354750+00:00",
+        "approved_at": "2026-09-18T14:41:47.432368+00:00",
+        "request_id": "wVcmrKABgUz4hJYuL0lP",
+        "trace_id": "5d48ba1137da3ce65cc68ae5e4bca1bc",
+        "character_cost": 10,
+        "incremental_character_cost": 10,
+        "provider_requests": [
+          {
+            "model_id": "eleven_multilingual_v2",
+            "text": "What are you doing?",
+            "character_cost": 10,
+            "incremental_character_cost": 10,
+            "character_cost_source": "provider-header",
+            "character_cost_header": "10",
+            "staged_reuse": false,
+            "request_id": "wVcmrKABgUz4hJYuL0lP",
+            "trace_id": "5d48ba1137da3ce65cc68ae5e4bca1bc"
+          }
+        ],
+        "review": {
+          "status": "approved-profile-render",
+          "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
+        }
       }
     }
   },
@@ -105883,6 +108310,11 @@
       "approved_at": "2026-09-11T23:57:45.295628+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c001-mission-intro-8d1eb38f364ef13609e9": {
+      "take_id": "ccd3a82d3d0b1239ee88a9c6332ebea5a4f20114a98bbaf2825b360190fedcce",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-10-introduction-mission-c001-prompt-e6782ec42ac7a3f67a8a": {
       "take_id": "5834cbc29010c4deef91c552f0e795f9580553ace611ae5f3f1bb3f84308f3b2",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
@@ -105893,15 +108325,35 @@
       "approved_at": "2026-09-11T23:57:45.295628+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c001-prompt-turn-1-599c132a25b449fbf15c": {
+      "take_id": "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-10-introduction-mission-c001-prompt-turn-2-3800969233cfa6b73a86": {
       "take_id": "67b1cb2d573d9621413aecf7525d62ac4de5d47b0d1577a618ecada01fa50370",
       "approved_at": "2026-09-11T23:57:45.295628+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c001-prompt-turn-2-4ea56671d2c4ad612229": {
+      "take_id": "b044221e8e26f1529a2c936d9cb8da5cc385afcb7d4248fdc23a09583b5cbc0d",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c001-prompt-turn-3-4bac595b5fbcdf4501c6": {
+      "take_id": "a3af6d2825f21e2d824849cb5f5296a33bb518f04e4af3807e3c0973344239db",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-10-introduction-mission-c001-prompt-turn-3-7985d091154de5cf7449": {
       "take_id": "727d5020163411f1728e6579f1886034fe7a144ee0933bec3dc7109be15af41f",
       "approved_at": "2026-09-08T20:19:25.894711+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c001-prompt-turn-4-07390312f8fbcff1e6cd": {
+      "take_id": "0e4e678ecd77b5ad82c174fc465c0a0db095b3c30fdd879a3ef6f68cb6264228",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-10-introduction-mission-c001-prompt-turn-4-69111c2f1b835270be8e": {
       "take_id": "a1516b37040e4591fab4f01b21a7648699d24f80987ad515f23bdbf690df9844",
@@ -105928,9 +108380,19 @@
       "approved_at": "2026-09-11T23:57:45.295628+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c002-prompt-turn-1-5c681c345de4c85c4ca1": {
+      "take_id": "70e51b134bab8ccd2db7d79f678f6188138c108234feddda04a123a58d5ca37f",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-10-introduction-mission-c002-prompt-turn-2-623d391281414dbb30ac": {
       "take_id": "dde9ea72fb6766f965254e722c1dedf45362bcdb1a9552a664901760750d62b3",
       "approved_at": "2026-09-11T23:57:45.295628+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c002-prompt-turn-2-b341da5ca691f00da005": {
+      "take_id": "882b8651a8ebe62fd726cd9384278b557192bfa20a99d24b8bbe1193ecd360e2",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-10-introduction-mission-c002-prompt-turn-3-7fdc9a240423cc6db287": {
@@ -105938,10 +108400,20 @@
       "approved_at": "2026-09-11T23:57:45.295628+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c002-prompt-turn-3-9ba95c9ee00a256c4a9b": {
+      "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-10-introduction-mission-c002-prompt-turn-4-4b2966fa66d70ff1d87f": {
       "take_id": "343e0f746638ed88a2a07c2dd3fef7e45ed22d0dd9d68e0c859ad2ebc418abf5",
       "approved_at": "2026-09-11T23:57:45.295628+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c002-prompt-turn-4-c741557b71a230fd6cd5": {
+      "take_id": "c9ed4c0e4f74b36bd8ed6babd32e45a345c209b7f6c9410f6d91fa164c156fec",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-10-introduction-mission-c003-answer-e605a5941e41925c94d2": {
       "take_id": "1826f0d88d7ac4d63454facbf266b6b532748102272d3f8521e581e6c2516273",
@@ -105968,10 +108440,30 @@
       "approved_at": "2026-09-08T20:19:25.894711+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-3-10-introduction-mission-c003-prompt-turn-1-70ea469a324fb78212b2": {
+      "take_id": "51f2507b17bb462baae3d6250bc04e1c23eac47bed91a7893579f8e445ef1dad",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-10-introduction-mission-c003-prompt-turn-1-8ad77e9ed20b8e98ee46": {
       "take_id": "8da98abba04712e861ff572dd64960ea721c594222742f06a5c91c43ef55f038",
       "approved_at": "2026-09-08T20:19:25.894711+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c003-prompt-turn-2-7272aee0fde173d17c99": {
+      "take_id": "cb8c6d864f813a549bcf62d837db5604f95675adcc24fc0999ed342fb25f0755",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c003-prompt-turn-3-ef3e40bcb493719f5403": {
+      "take_id": "e240e42f73c4e3823d86f1a33f9f2587e4c894c81fbe3361c240cb0be4bef151",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c003-prompt-turn-4-6c6ccb69d694388c43e5": {
+      "take_id": "942534c3b63c1944adff82ba8bbb63555f4c41c38b2c3221d6dba88c2e269bd6",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-10-introduction-mission-c004-answer-39e42f731bda05034bd2": {
       "take_id": "4cfa768c3145433f184c596b4b74b35dfbe2032d3ab1d000a96e4daa2216529c",
@@ -105981,6 +108473,26 @@
     "lesson-3-10-introduction-mission-c004-prompt-45d0691f0f05eec52f1e": {
       "take_id": "4cfa768c3145433f184c596b4b74b35dfbe2032d3ab1d000a96e4daa2216529c",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c004-prompt-turn-1-ec4cdcf01bba9590885b": {
+      "take_id": "e0d2c8729c4d07e2379bc81ca9f81be4e185b99dd04070ae50bbef054f7daa18",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c004-prompt-turn-2-8a3f1d130c6ef4b049ef": {
+      "take_id": "1dee6178ff810c6dc3b39e0f6c36ac37b5f96e6c8efdcc360bfa520393e34f60",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c004-prompt-turn-3-d34a0a5114e372906af7": {
+      "take_id": "49d4488d3bd9ca1509253a09b3c298504f69211c4e282faf37b623b1eb1bde0b",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c004-prompt-turn-4-fb78016f161f6be642ed": {
+      "take_id": "3c58c4cc68131515fc501517775470a477e95852faaecaced14723151d290f46",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-10-introduction-mission-c005-answer-bcb3973d932e7253d970": {
@@ -105993,6 +108505,26 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c005-prompt-turn-1-9fe0ec89bd562443a701": {
+      "take_id": "1716356687d69f09f17125d227c7f1406e553e27093a1eb6e7fbed3c2e3e328e",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c005-prompt-turn-2-f4c1494a5163d43f67f8": {
+      "take_id": "07475a6d3e5a46d524e13c664a7d12bfa6e2530d40e7ebbd96b09964fc082247",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c005-prompt-turn-3-d817792c4a098388d209": {
+      "take_id": "d90a49de24f893858ab73a75567be7304ce6404515950e1615ce75b05d3d1456",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c005-prompt-turn-4-5d91b7eb70cd7d00c30a": {
+      "take_id": "2647c98dbe172444c54bfcb53cfa19b8b2d23ba05c1e98c37d6bcd669474c774",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-10-introduction-mission-c006-answer-e1c6e2378c616fbcef85": {
       "take_id": "f821bffd6c584f878e0a61ed9088481df7da93d3b4caf9ea7bf8f6c41c5b7fb4",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
@@ -106001,6 +108533,26 @@
     "lesson-3-10-introduction-mission-c006-prompt-dc1a3d1396b828bc80a2": {
       "take_id": "7e8892886e6c7a822353960cba6920bab5ee885822c5d90ab5b122a78229d022",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c006-prompt-turn-1-41335a3e4aeb8cbef24e": {
+      "take_id": "bcc87092d5a03d80e1db1b8e7ded9ba1bdb787de26e69f781bc3c770847fe9cd",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c006-prompt-turn-2-31bd37a49c789d18f1b8": {
+      "take_id": "bc730eb0e35c4c3197c77d1663a928685e198a65fc5ea4713db55ab45c5f0d39",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c006-prompt-turn-3-8dceb71141c29bb74f02": {
+      "take_id": "6edef4a0a735345244ea5931c0036e9773ed1ee7452a3bc294e69bcf6464005c",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c006-prompt-turn-4-274d4cf1adf552b75314": {
+      "take_id": "4e8eedb363ea66b8e42fcea09bf39c5a915651d3d0184e5e4ef4d902525bd0db",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-10-introduction-mission-c007-answer-4f3bf4ab760443774dd9": {
@@ -106013,6 +108565,26 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c007-prompt-turn-1-7cff8053b3a004fb3e93": {
+      "take_id": "9fb44cba8a408430363ab9dfc1b74177872c5ca082075aa15aa51baf3cfb3dd4",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c007-prompt-turn-2-939a7b6a3066d06405c6": {
+      "take_id": "a49174ccd925e1a01c518a2627c64148d6327a2aa6c7f3e0e678c02844a42b31",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c007-prompt-turn-3-7e26e36eb89699ac1fa3": {
+      "take_id": "e1e77f459cdd596d4ca69cec61850dd222f230b0fc30e7d5e09e1e4bac71302d",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c007-prompt-turn-4-77904039c8de1c9bb15f": {
+      "take_id": "2f2a4f09c38c74a224e83bb0f930b188c99aa05e431095cbc0490390c1bc86a9",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-10-introduction-mission-c008-answer-844c6236818b4e4d4316": {
       "take_id": "45b9d7adc1da92059fa474836d20aa88d1c06198cb12c8e9b37a4b839e9b3e9b",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
@@ -106022,6 +108594,21 @@
       "take_id": "401a85fe0bb627697a94b8b8342072e11d6d30619febef5866ff22986dbe3a2d",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c008-prompt-turn-1-e2dd959413e01592b5bd": {
+      "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c008-prompt-turn-2-99b5e5873eea58c521f0": {
+      "take_id": "da1e247b760593bf758e482d109bc04a4b70b72af2ad7bbcf0a6faf9a4955f15",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c008-prompt-turn-4-dea62be3a77ca6fe39d0": {
+      "take_id": "7f03e94aeda6618b76ecbaafb87b9912b554fd47c0ec09cb9e68814ec28d7feb",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-10-introduction-mission-c009-answer-9b3c2d4711336a530743": {
       "take_id": "9a5c128ce47b9c30f938c02a8a026475530b7c1eeceea15fe6beb3509018db6b",
@@ -106033,34 +108620,94 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c009-prompt-turn-1-e7146a02a82b788d0d19": {
+      "take_id": "3650131a34fa54c0adf677088b7145e2cd54961c09486339393c1c9002143ca0",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c009-prompt-turn-2-0634fe61b56f594f91e2": {
+      "take_id": "ef1493091e71dd9258c6fc39fbabfad9a9a8a2e753cb1bf3c07ea0ff5260be91",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c009-prompt-turn-3-af912be09c8f85da97db": {
+      "take_id": "fcec17fda3d9a6eafaa70112b253f03ff5545b12019ce719e242a2d37027add3",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c009-prompt-turn-4-37f1227fabc620c9191b": {
+      "take_id": "fab6c2c8e95a6b0fd1b6aa78116a671574a18484e39f085d25e59314ce90bf02",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-10-introduction-mission-c010-answer-f76c95c4dcb960e2f902": {
       "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c010-mission-cue-d97dcbea116653658485": {
+      "take_id": "401a85fe0bb627697a94b8b8342072e11d6d30619febef5866ff22986dbe3a2d",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-10-introduction-mission-c010-prompt-c95136b2132f6395560f": {
       "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c010-prompt-turn-1-b52abd2612921ce7f752": {
+      "take_id": "2445159127e87c1875be77fea15bf400717ef17bab8d4799e01dbf87080309d8",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-10-introduction-mission-c011-answer-c76e7263584aec55958c": {
       "take_id": "363c85b5f2d36b81828a394fa8b4be577a2ebd72c6b542f3b1f095dd5e50a073",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c011-mission-cue-933babfc7bda1e821fc2": {
+      "take_id": "f88fcbe2c745b38cb2a5d4e3698617af79bb0b22de6cf2f20034e6a7d8d3f1e5",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c011-prompt-turn-1-76ac153ccae9822066c1": {
+      "take_id": "3bb37b4f3a18cbc8625bd03fb8c503ad715ed4075ece9fb32f253ea08e76da4e",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-10-introduction-mission-c012-answer-ebad396cd63d7764c7e4": {
       "take_id": "57910b3d010aa9e66731bf441a832a71315afea56d6026f00a3a79565f26773b",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c012-mission-cue-3e9cb9d6dfb4c54f6c95": {
+      "take_id": "7e8892886e6c7a822353960cba6920bab5ee885822c5d90ab5b122a78229d022",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-10-introduction-mission-c012-prompt-turn-1-66715f7fcf1a09e00ffd": {
+      "take_id": "39bc3f5030a901520d8b3af1d171246c72a9c6e44b5fc05199c142f0e3f17f7f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-10-introduction-mission-c013-answer-0f4973cfad336b769e0a": {
       "take_id": "70e51b134bab8ccd2db7d79f678f6188138c108234feddda04a123a58d5ca37f",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-10-introduction-mission-c013-mission-cue-fd70c8ba10a362a3c4a7": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-10-introduction-mission-c013-prompt-55a7a251139e3dbf7025": {
       "take_id": "70e51b134bab8ccd2db7d79f678f6188138c108234feddda04a123a58d5ca37f",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-10-introduction-mission-c013-prompt-turn-1-55892986923a79d9e89a": {
+      "take_id": "2263c8411b97ed99bfc7e26ba84c5929e9210b2594dddd4b44279c4087709dfb",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-10-introduction-mission-c014-answer-d1c493ba14e8cf8c74e0": {
@@ -106723,15 +109370,30 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c007-answer-3b28bc692721eeb835d8": {
+      "take_id": "e03f839ff7593e9028617ff8b775d95d050aa1985ec9d58c0a7d87f53ea2888d",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-3-am-is-and-are-c007-answer-bd4532f3713abbc6bc91": {
       "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c007-prompt-473703df1e001192894f": {
+      "take_id": "e03f839ff7593e9028617ff8b775d95d050aa1985ec9d58c0a7d87f53ea2888d",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-3-am-is-and-are-c007-prompt-56e6a059b60dc73ec1a9": {
       "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c008-answer-40845ad89333dfa47d16": {
+      "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c008-answer-ff74b04aa73c4ce6c758": {
       "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
@@ -106743,12 +109405,37 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c008-prompt-4518275c4536b935ef0a": {
+      "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c009-answer-f0a9bcb680847c5cc35d": {
+      "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c009-prompt-01493bd9d6789e324722": {
+      "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c010-answer-3f0aeb441f73ca9e9f95": {
       "take_id": "a042418ea92c6c21270b3eeffcb35826e588dd12f8969d5631febd723ba8c213",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c011-answer-f92434f7ecb464a168b2": {
+      "take_id": "a042418ea92c6c21270b3eeffcb35826e588dd12f8969d5631febd723ba8c213",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c013-answer-08be1308d37769dc2511": {
+      "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c014-answer-4e03ca1511681a536d20": {
       "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
@@ -106757,6 +109444,11 @@
       "take_id": "be52978a278b67048046bb94f2b567782e963d79296ad38bab22d12173c4f841",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c015-answer-9540d89b5eb497e94c50": {
+      "take_id": "be52978a278b67048046bb94f2b567782e963d79296ad38bab22d12173c4f841",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c015-answer-bfd88193c3d8e1262841": {
       "take_id": "a3af6d2825f21e2d824849cb5f5296a33bb518f04e4af3807e3c0973344239db",
@@ -106768,9 +109460,19 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c016-answer-61e136ee0dde8783e375": {
+      "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c016-answer-6f5b7101ce5b9b2c8dec": {
       "take_id": "07475a6d3e5a46d524e13c664a7d12bfa6e2530d40e7ebbd96b09964fc082247",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c016-prompt-80c086bf8c1e7d1f0b17": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-3-am-is-and-are-c016-prompt-87b822525b48f1ff25f3": {
@@ -106778,15 +109480,40 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c017-answer-f2016242effd284182b7": {
+      "take_id": "a3af6d2825f21e2d824849cb5f5296a33bb518f04e4af3807e3c0973344239db",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c017-prompt-a7fe63a6869fe6de22a1": {
+      "take_id": "a3af6d2825f21e2d824849cb5f5296a33bb518f04e4af3807e3c0973344239db",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c018-answer-0501ed39dd64ea1fc899": {
       "take_id": "c9ed4c0e4f74b36bd8ed6babd32e45a345c209b7f6c9410f6d91fa164c156fec",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c018-answer-a24694072547f7adad41": {
+      "take_id": "07475a6d3e5a46d524e13c664a7d12bfa6e2530d40e7ebbd96b09964fc082247",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c018-prompt-91d38bab8a735b4818e3": {
       "take_id": "c9ed4c0e4f74b36bd8ed6babd32e45a345c209b7f6c9410f6d91fa164c156fec",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c018-prompt-de12ef01dc41df4a0895": {
+      "take_id": "07475a6d3e5a46d524e13c664a7d12bfa6e2530d40e7ebbd96b09964fc082247",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c020-answer-435cf43740b02e7c4923": {
+      "take_id": "c9ed4c0e4f74b36bd8ed6babd32e45a345c209b7f6c9410f6d91fa164c156fec",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c020-answer-76391579c92f1ceede83": {
       "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
@@ -106796,6 +109523,11 @@
     "lesson-3-3-am-is-and-are-c020-prompt-0a9fc29ce0d29a793785": {
       "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
       "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c020-prompt-76acd720ee92b54dc31b": {
+      "take_id": "c9ed4c0e4f74b36bd8ed6babd32e45a345c209b7f6c9410f6d91fa164c156fec",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c021-answer-ff8046c96d672c06a1dd": {
@@ -106813,9 +109545,24 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c022-answer-ec11f261271a33215e61": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c022-prompt-42573d04e96ecd93931d": {
       "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c022-prompt-969ef1c4ec11e77b90c5": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c023-answer-6ef5a832e4ef396ad0c2": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-3-am-is-and-are-c023-answer-d3d2d709010c4b57957f": {
@@ -106823,20 +109570,55 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c023-prompt-42b118a6ad2f60c8ec17": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-3-am-is-and-are-c023-prompt-56fcfc48948f4f2ad048": {
       "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c024-answer-507c0852aff091af38b3": {
+      "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c024-prompt-ddb37f0d3b765390f4b2": {
+      "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c025-answer-5e3eb83120e3451b5739": {
       "take_id": "a042418ea92c6c21270b3eeffcb35826e588dd12f8969d5631febd723ba8c213",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c025-answer-7e44f70c3af13580ed95": {
+      "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c025-prompt-21ef3cdfaee871ee4e47": {
+      "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c025-prompt-daf270daffd7db34b014": {
       "take_id": "a042418ea92c6c21270b3eeffcb35826e588dd12f8969d5631febd723ba8c213",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c026-answer-f95d86e4886eefbf28b0": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c026-prompt-9e4ec66cf2981c3a76d9": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c027-answer-b6ceae0579745ba1e777": {
       "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
@@ -106857,6 +109639,16 @@
       "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c028-answer-cac19838bcefb2d8791b": {
+      "take_id": "a042418ea92c6c21270b3eeffcb35826e588dd12f8969d5631febd723ba8c213",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c028-prompt-14c187114887889895dc": {
+      "take_id": "a042418ea92c6c21270b3eeffcb35826e588dd12f8969d5631febd723ba8c213",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c028-prompt-87a91412972a42db353a": {
       "take_id": "47a8bb06079025ef4c452d6cccb2043a146564ccccef13687c551ac627b7cb4a",
@@ -106883,15 +109675,40 @@
       "approved_at": "2026-08-31T21:29:44.142315+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c030-prompt-turn-1-3ce3be9b83100fbbc730": {
+      "take_id": "2263c8411b97ed99bfc7e26ba84c5929e9210b2594dddd4b44279c4087709dfb",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c030-prompt-turn-2-7e61c86b1431bdc20654": {
+      "take_id": "6e0ff02ed6021bd358288d4130e45ad22b3796b8921ce1671786114177947a5c",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c031-answer-d88f8687d2fd0fdbe201": {
+      "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c031-prompt-50e06c225d3b14359bea": {
       "take_id": "25dd384aa8cc000622d596baca176b1c961f17de4a404fbb4eafb89d0cedaf0e",
       "approved_at": "2026-08-31T21:22:57.371909+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c031-prompt-70e9c854015ce5ac6c6f": {
+      "take_id": "8e5ff1333d872f38e9b5eacc2337e352296775e22b8e3036edd37f6e9a46ad4f",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c032-answer-5d949eeccbb357ec31c5": {
       "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c032-answer-e68da23703b9ab0b67db": {
+      "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c032-prompt-090525bf3b748f9a8bd3": {
       "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
@@ -106903,6 +109720,11 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-3-am-is-and-are-c032-prompt-cacdf008b8882f127474": {
+      "take_id": "11a94720cecd283037abd816efcece75b78ed220bf2faf935978755c28483ba2",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-3-am-is-and-are-c033-prompt-561bf51fc6cfef2d161d": {
       "take_id": "eef6e3d9e94886a6d1e67e1ec23e96eb865be5aeaf7fa9ab0153fd315b972450",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -106911,6 +109733,11 @@
     "lesson-3-3-am-is-and-are-c034-answer-74668099d40672730b6b": {
       "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
       "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c034-answer-f07dcd6ca0400617163b": {
+      "take_id": "a042418ea92c6c21270b3eeffcb35826e588dd12f8969d5631febd723ba8c213",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-3-am-is-and-are-c034-prompt-5328da3116ad8f42ee83": {
@@ -106922,6 +109749,56 @@
       "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
       "approved_at": "2026-08-31T14:59:25-06:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c036-answer-d311962ffdd8ffc0e2d6": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c036-prompt-72809e3771eebd047d4e": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c038-answer-e2deb04bd674b35ae2e1": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c038-prompt-d3bcef94cd9a06c4d62a": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c039-answer-27ef2b2572259c3e931a": {
+      "take_id": "e03f839ff7593e9028617ff8b775d95d050aa1985ec9d58c0a7d87f53ea2888d",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c039-answer-e321ffe96df0dc9be15d": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c039-prompt-b5efc95130a52edbcf4c": {
+      "take_id": "e03f839ff7593e9028617ff8b775d95d050aa1985ec9d58c0a7d87f53ea2888d",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-3-am-is-and-are-c039-prompt-d28e85b8b79362248e9b": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c040-answer-f7ebd276fbced8c07783": {
+      "take_id": "2263c8411b97ed99bfc7e26ba84c5929e9210b2594dddd4b44279c4087709dfb",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-3-am-is-and-are-c040-prompt-045b47b034fade62556d": {
+      "take_id": "2263c8411b97ed99bfc7e26ba84c5929e9210b2594dddd4b44279c4087709dfb",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-4-age-c001-answer-b60b188f7a7ba9788c1b": {
       "take_id": "a10d3d2fbb27d07e9d62f9e5d3f049040010f8508e97a6c1a8a28019ff0096ab",
@@ -109098,9 +111975,29 @@
       "approved_at": "2026-08-31T21:29:44.142315+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c001-answer-58facacc83c4351eceee": {
+      "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c001-answer-d415619a3aa7018890fb": {
       "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
       "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c001-answer-fdfa48af8ada0f2e8ff4": {
+      "take_id": "fa67f1410eb80c8e9649a7ede060cf277fbbe3d311ec6353e78519d21397d183",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c001-prompt-8c758a003d523178400e": {
+      "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c001-prompt-8d7d0bf2f1d3ad9d7644": {
+      "take_id": "fa67f1410eb80c8e9649a7ede060cf277fbbe3d311ec6353e78519d21397d183",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c001-prompt-fc05955c9aee703ec558": {
@@ -109113,15 +112010,35 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c002-answer-d4b698d2113e029f73ca": {
+      "take_id": "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c002-prompt-54afaf61456fc90b0ca1": {
       "take_id": "f821bffd6c584f878e0a61ed9088481df7da93d3b4caf9ea7bf8f6c41c5b7fb4",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c002-prompt-b3d1e9bde37f1b243f0a": {
+      "take_id": "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-9-unit-3-review-c003-answer-211f1fd6bab31ea4a78d": {
       "take_id": "1826f0d88d7ac4d63454facbf266b6b532748102272d3f8521e581e6c2516273",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c003-answer-7f85a0159cb67703617e": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c003-prompt-010f2e761f5f8b22c139": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c003-prompt-0675aec8d4cb74157b1b": {
       "take_id": "1826f0d88d7ac4d63454facbf266b6b532748102272d3f8521e581e6c2516273",
@@ -109133,20 +112050,45 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c004-answer-af960d3d903b20530c57": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c004-prompt-1474f0ba63fccb8b7815": {
       "take_id": "4cfa768c3145433f184c596b4b74b35dfbe2032d3ab1d000a96e4daa2216529c",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c004-prompt-42fb579ad3076147bf86": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c005-answer-39da3cb39e9f15bcaba6": {
       "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
       "approved_at": "2026-08-31T14:59:25-06:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-3-9-unit-3-review-c005-answer-6cd36eb646e993cc73a8": {
+      "take_id": "f821bffd6c584f878e0a61ed9088481df7da93d3b4caf9ea7bf8f6c41c5b7fb4",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c005-prompt-5b5dee96eb2bee367df8": {
+      "take_id": "f821bffd6c584f878e0a61ed9088481df7da93d3b4caf9ea7bf8f6c41c5b7fb4",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c005-prompt-750544d4086164f91476": {
       "take_id": "70e51b134bab8ccd2db7d79f678f6188138c108234feddda04a123a58d5ca37f",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c006-answer-15867f76cefb34104333": {
+      "take_id": "1826f0d88d7ac4d63454facbf266b6b532748102272d3f8521e581e6c2516273",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c006-answer-1c4af4f9cb508b712ad3": {
       "take_id": "5a6815e6b708ce5423b11dcb5993450cb5eb2da301697139fe46294e0d8b0503",
@@ -109158,10 +112100,25 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c006-prompt-4788658f33254a23cca0": {
+      "take_id": "1826f0d88d7ac4d63454facbf266b6b532748102272d3f8521e581e6c2516273",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c007-answer-031a661629aea425dddc": {
       "take_id": "1148a085559a72ca8a912a9ecb0ef166d8823aeb5c6822bffd54e85b6632a044",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c007-answer-35a14dad00027a8e502d": {
+      "take_id": "4cfa768c3145433f184c596b4b74b35dfbe2032d3ab1d000a96e4daa2216529c",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c007-prompt-3cdca02bcdcb57e69090": {
+      "take_id": "4cfa768c3145433f184c596b4b74b35dfbe2032d3ab1d000a96e4daa2216529c",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c007-prompt-747cb3251d1b19a22ec1": {
       "take_id": "3bb37b4f3a18cbc8625bd03fb8c503ad715ed4075ece9fb32f253ea08e76da4e",
@@ -109173,10 +112130,25 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c008-answer-5995be14edba590dcd6e": {
+      "take_id": "80bdef2ed29bc011e077e061bdd1a7045c55106db59afbd58d07b14f7070c210",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c008-prompt-0a60caa04894c25ec53b": {
+      "take_id": "80bdef2ed29bc011e077e061bdd1a7045c55106db59afbd58d07b14f7070c210",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c008-prompt-149f1746f40ae69777cc": {
       "take_id": "401a85fe0bb627697a94b8b8342072e11d6d30619febef5866ff22986dbe3a2d",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c009-answer-25d71c6a1cff96c20313": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c009-answer-a94d70cbcf2c9bbd2f09": {
       "take_id": "9a5c128ce47b9c30f938c02a8a026475530b7c1eeceea15fe6beb3509018db6b",
@@ -109188,10 +112160,25 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c009-prompt-2995ed5e608ec82ef1dc": {
+      "take_id": "70e51b134bab8ccd2db7d79f678f6188138c108234feddda04a123a58d5ca37f",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c010-answer-3878c0f33640c16acb71": {
       "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c010-answer-7b821d5e7152f3fb5594": {
+      "take_id": "5a6815e6b708ce5423b11dcb5993450cb5eb2da301697139fe46294e0d8b0503",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c010-prompt-870005219c868a8662f6": {
+      "take_id": "7e8892886e6c7a822353960cba6920bab5ee885822c5d90ab5b122a78229d022",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c010-prompt-c51115602dfca255da56": {
       "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
@@ -109203,10 +112190,35 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c011-answer-e5a4eda1ffe03245169f": {
+      "take_id": "c75b7fad9ab0350a709bf0bc43cde99a0737616e1124def633d6522a43759581",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c011-prompt-261c992a9e5948fc4bc7": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c012-answer-00955f35d74823e30d60": {
       "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c012-answer-fba9cff231aaa3e3605a": {
+      "take_id": "b044221e8e26f1529a2c936d9cb8da5cc385afcb7d4248fdc23a09583b5cbc0d",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c012-prompt-530f88d84446c487246a": {
+      "take_id": "b044221e8e26f1529a2c936d9cb8da5cc385afcb7d4248fdc23a09583b5cbc0d",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c013-answer-45ffb1e21cd6f8bf90fc": {
+      "take_id": "7f03e94aeda6618b76ecbaafb87b9912b554fd47c0ec09cb9e68814ec28d7feb",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c013-answer-a0a5ab26899fdf193334": {
       "take_id": "70e51b134bab8ccd2db7d79f678f6188138c108234feddda04a123a58d5ca37f",
@@ -109218,10 +112230,25 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c013-prompt-b86aea1447d5354aa03e": {
+      "take_id": "7f03e94aeda6618b76ecbaafb87b9912b554fd47c0ec09cb9e68814ec28d7feb",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c014-answer-6024152db7b2ea4b8dff": {
+      "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c014-answer-c6cc2a77cfd0c0931b7c": {
       "take_id": "5a6815e6b708ce5423b11dcb5993450cb5eb2da301697139fe46294e0d8b0503",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c014-prompt-16a0676bb89468e98a4c": {
+      "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c014-prompt-be4f55d965c5bc4f4fa3": {
       "take_id": "5a6815e6b708ce5423b11dcb5993450cb5eb2da301697139fe46294e0d8b0503",
@@ -109233,6 +112260,16 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c015-answer-2515857d48d1c1de3652": {
+      "take_id": "c9ed4c0e4f74b36bd8ed6babd32e45a345c209b7f6c9410f6d91fa164c156fec",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c015-answer-876922e5b36adf6a8b6d": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c015-prompt-261464fee7aa72ed1bf3": {
       "take_id": "1148a085559a72ca8a912a9ecb0ef166d8823aeb5c6822bffd54e85b6632a044",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
@@ -109243,19 +112280,44 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c016-answer-511e5986365794662f01": {
+      "take_id": "eb0d21101f6fb9f962c4bb014dcef03422a9a4dcdc02e525dd5cb25ac88aed01",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c016-answer-813c316b74e8713ebf5c": {
+      "take_id": "0d7d709df3286d5f4dbdea38a259b4bdcb260923b5121cfc33aebecd165478dc",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c016-prompt-940abf0c5442bf18e48a": {
       "take_id": "80bdef2ed29bc011e077e061bdd1a7045c55106db59afbd58d07b14f7070c210",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c017-answer-90239b8521c8eb5f599f": {
+      "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c017-answer-b52cfbb1ab4f2ad8e9b5": {
       "take_id": "261f09ad03ffad0417e89a207bb3dbcab815420c09aa5ff52f1e137b1c666c11",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c017-prompt-07500a733c403b3fbcba": {
+      "take_id": "fe3ff47e95e8e6515d2196bdae2d19600f33c45f175468bf25b8751defd1a131",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c017-prompt-5a7b675571e15295e900": {
       "take_id": "261f09ad03ffad0417e89a207bb3dbcab815420c09aa5ff52f1e137b1c666c11",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c018-answer-a0fed5cfa11f2014dc37": {
+      "take_id": "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-9-unit-3-review-c018-answer-a3a7facbe69c31025fd1": {
@@ -109263,19 +112325,39 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c018-prompt-43cfb18f547051dd3615": {
+      "take_id": "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c018-prompt-5fe4a89d1acef20b7e40": {
       "take_id": "57910b3d010aa9e66731bf441a832a71315afea56d6026f00a3a79565f26773b",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c019-answer-ca1c04ab9ebe144e1aea": {
+      "take_id": "f88fcbe2c745b38cb2a5d4e3698617af79bb0b22de6cf2f20034e6a7d8d3f1e5",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c019-answer-f445ea8ef0cd3b17114b": {
       "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
       "approved_at": "2026-08-31T14:59:25-06:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-3-9-unit-3-review-c019-prompt-d9069e641fbe0898e4dd": {
+      "take_id": "f88fcbe2c745b38cb2a5d4e3698617af79bb0b22de6cf2f20034e6a7d8d3f1e5",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c019-prompt-f357b7bc89d1c6df6215": {
       "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
       "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c020-answer-84596b1978273eb857da": {
+      "take_id": "115cd90db90c73ff91aebec28137661a510512eca4bcda75eec0235ac0cbb126",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c020-answer-e575c2aa8023a4864c7f": {
@@ -109288,15 +112370,35 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c020-prompt-8631e939625f330d10c9": {
+      "take_id": "115cd90db90c73ff91aebec28137661a510512eca4bcda75eec0235ac0cbb126",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c021-answer-772a6698d6ee7afbf189": {
+      "take_id": "cb8c6d864f813a549bcf62d837db5604f95675adcc24fc0999ed342fb25f0755",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c021-answer-77f862dfadfeaa1eef87": {
       "take_id": "1148a085559a72ca8a912a9ecb0ef166d8823aeb5c6822bffd54e85b6632a044",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c021-prompt-5ca81c12e79bc7e4c7b4": {
+      "take_id": "cb8c6d864f813a549bcf62d837db5604f95675adcc24fc0999ed342fb25f0755",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c021-prompt-a33a1b9ece014403cc90": {
       "take_id": "1148a085559a72ca8a912a9ecb0ef166d8823aeb5c6822bffd54e85b6632a044",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c022-answer-064e05f0ea7c9b299442": {
+      "take_id": "f324063bccef6c40d52769e2379ae38d7d8f4b1eec61dce614a03eaac3c03830",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c022-answer-c9dd84bcac87cd83cbe5": {
       "take_id": "45b9d7adc1da92059fa474836d20aa88d1c06198cb12c8e9b37a4b839e9b3e9b",
@@ -109308,9 +112410,24 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c022-prompt-d6a541bbf902897bc822": {
+      "take_id": "f324063bccef6c40d52769e2379ae38d7d8f4b1eec61dce614a03eaac3c03830",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c023-answer-d3af749ca9b220c228af": {
+      "take_id": "942534c3b63c1944adff82ba8bbb63555f4c41c38b2c3221d6dba88c2e269bd6",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c023-answer-f89bc7aa8ee639f79b8b": {
       "take_id": "9a5c128ce47b9c30f938c02a8a026475530b7c1eeceea15fe6beb3509018db6b",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c023-prompt-2dd4263571627923e88d": {
+      "take_id": "942534c3b63c1944adff82ba8bbb63555f4c41c38b2c3221d6dba88c2e269bd6",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-9-unit-3-review-c023-prompt-754959f2edbb5923c257": {
@@ -109323,14 +112440,34 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c024-answer-99573cbc02afac773198": {
+      "take_id": "e240e42f73c4e3823d86f1a33f9f2587e4c894c81fbe3361c240cb0be4bef151",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c024-prompt-3febfa5138ef5facd6ee": {
+      "take_id": "e240e42f73c4e3823d86f1a33f9f2587e4c894c81fbe3361c240cb0be4bef151",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c024-prompt-488d7e4294e993f46c5d": {
       "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c025-answer-9f94ed1c3b588d79a1ef": {
+      "take_id": "f328afb7aab665f1870f7f06841c0795a30e339ad2f31bf1c584f6fe7ec1d9f6",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c025-answer-a6b1bf2b675abeb88b20": {
       "take_id": "70e51b134bab8ccd2db7d79f678f6188138c108234feddda04a123a58d5ca37f",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c025-prompt-b732f0dff05777790a91": {
+      "take_id": "f328afb7aab665f1870f7f06841c0795a30e339ad2f31bf1c584f6fe7ec1d9f6",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-9-unit-3-review-c025-prompt-b7b621e89ff359b989cd": {
@@ -109348,9 +112485,19 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c026-answer-9c0db77e9c5695584a69": {
+      "take_id": "401a85fe0bb627697a94b8b8342072e11d6d30619febef5866ff22986dbe3a2d",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c026-answer-c70932b03083b6339628": {
       "take_id": "3bb37b4f3a18cbc8625bd03fb8c503ad715ed4075ece9fb32f253ea08e76da4e",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c026-prompt-269a2ab25a5185143293": {
+      "take_id": "401a85fe0bb627697a94b8b8342072e11d6d30619febef5866ff22986dbe3a2d",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c026-prompt-dd549e1270387bdb87c1": {
@@ -109361,6 +112508,11 @@
     "lesson-3-9-unit-3-review-c026-prompt-ffc517e9d0e2ddf13817": {
       "take_id": "c1999ad449a89d3cc98b1ec3b24c2a80bc69c2b445d4b85217031b2dcf707c30",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c027-answer-95569b7fa434ae24d885": {
+      "take_id": "a49174ccd925e1a01c518a2627c64148d6327a2aa6c7f3e0e678c02844a42b31",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-9-unit-3-review-c027-answer-abad2d479e6fb5beff01": {
@@ -109388,6 +112540,11 @@
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c027-prompt-ca31415aa45b0e4d6726": {
+      "take_id": "a49174ccd925e1a01c518a2627c64148d6327a2aa6c7f3e0e678c02844a42b31",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c027-prompt-d0b1502724d8c5cf84fd": {
       "take_id": "9a5c128ce47b9c30f938c02a8a026475530b7c1eeceea15fe6beb3509018db6b",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
@@ -109395,6 +112552,11 @@
     },
     "lesson-3-9-unit-3-review-c028-answer-09dc70b7525c47f5c7be": {
       "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c028-answer-3a8836d5bd70fa6f7723": {
+      "take_id": "774e8678019bf5074a0a6f0866b21440dfa19ecdbd343b4108e048dba7e5c403",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
@@ -109423,6 +112585,11 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-3-9-unit-3-review-c028-prompt-ef7e9580537b8aaad969": {
+      "take_id": "774e8678019bf5074a0a6f0866b21440dfa19ecdbd343b4108e048dba7e5c403",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c029-answer-043f92024ee3a9ac3bd4": {
       "take_id": "05005089dfd3b6be036fc2854e525f81a75297bd7721bb44a18ac35071165886",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
@@ -109438,6 +112605,11 @@
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c029-answer-e43121c6f0941c80ac0f": {
+      "take_id": "ef1493091e71dd9258c6fc39fbabfad9a9a8a2e753cb1bf3c07ea0ff5260be91",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c029-prompt-192d82cb20206a33f565": {
       "take_id": "05005089dfd3b6be036fc2854e525f81a75297bd7721bb44a18ac35071165886",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
@@ -109446,6 +112618,11 @@
     "lesson-3-9-unit-3-review-c029-prompt-a469c4086ddc227d0a2a": {
       "take_id": "05005089dfd3b6be036fc2854e525f81a75297bd7721bb44a18ac35071165886",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c029-prompt-bef08d0d82fc8ed5835f": {
+      "take_id": "ef1493091e71dd9258c6fc39fbabfad9a9a8a2e753cb1bf3c07ea0ff5260be91",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c029-prompt-d4bbf179150082392bce": {
@@ -109463,9 +112640,19 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-3-9-unit-3-review-c030-answer-4cddefd6d001334faf1a": {
+      "take_id": "05208e406895b48efc4696909aba8b9f7502ac18de0ac318af0edffac2897a40",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
     "lesson-3-9-unit-3-review-c030-answer-80baf14f20cb68e2dd0d": {
       "take_id": "80bdef2ed29bc011e077e061bdd1a7045c55106db59afbd58d07b14f7070c210",
       "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c030-prompt-04c175b373932cf26b5e": {
+      "take_id": "05208e406895b48efc4696909aba8b9f7502ac18de0ac318af0edffac2897a40",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-9-unit-3-review-c030-prompt-0f690b4f3e6dca917385": {
@@ -109486,6 +112673,16 @@
     "lesson-3-9-unit-3-review-c031-answer-06ebc084e54e6f351b6d": {
       "take_id": "df7ba00b571d53238b3278bf54f82c75fe64f301aeb8fa48f766c36a77a4e042",
       "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c031-answer-188ef41770fc85ba2a69": {
+      "take_id": "9211ec99820853eabb581cb82a8fef02ec8a3dad38036ee93f141d7bb6d348f8",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c031-prompt-9eed3c816686bdb34315": {
+      "take_id": "9211ec99820853eabb581cb82a8fef02ec8a3dad38036ee93f141d7bb6d348f8",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
     "lesson-3-9-unit-3-review-c031-prompt-a6f7aa0321c53557f4d3": {
@@ -109513,14 +112710,194 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-3-9-unit-3-review-c032-answer-78f06346f4cc073fb362": {
+      "take_id": "3d3d8dccf2e374735f5d9c534a8f0c01be50e4d622d7140a709eead3d08a0d8e",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c032-prompt-518aea993d0c5373a2dd": {
       "take_id": "00db48275c18066abf8d6b5059d333f1a87e664b6cd1a683dbb60927326392bd",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-3-9-unit-3-review-c032-prompt-dfdfe895c17d71772020": {
+      "take_id": "3d3d8dccf2e374735f5d9c534a8f0c01be50e4d622d7140a709eead3d08a0d8e",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
     "lesson-3-9-unit-3-review-c032-prompt-f21269f9b0c6fb5212d5": {
       "take_id": "00db48275c18066abf8d6b5059d333f1a87e664b6cd1a683dbb60927326392bd",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c033-answer-85e82d1138d93e57e28a": {
+      "take_id": "834e83c2fd6487d497558d0e1729003e02bc534e9bc234e0ec9af887d0b14ede",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c033-prompt-7d13c8c72f5a602b7038": {
+      "take_id": "834e83c2fd6487d497558d0e1729003e02bc534e9bc234e0ec9af887d0b14ede",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c034-answer-d585e0ba2048cb833ee6": {
+      "take_id": "6b5363a197048999579a3e459bb0a5e3aba62a22c4e1422f1fa82ec31c88eed1",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c034-prompt-8dc4577a83f94db7c91a": {
+      "take_id": "6b5363a197048999579a3e459bb0a5e3aba62a22c4e1422f1fa82ec31c88eed1",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c035-answer-88c724b8f55653f9e649": {
+      "take_id": "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c035-prompt-55fca7667b4b51f57220": {
+      "take_id": "54c22b35a27de37b62c7bd86969262b1fc82fa604995e7dc606db83d994bfd6a",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c036-answer-889376d759f19c684ac5": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c036-prompt-3fc2abe6739ee4060418": {
+      "take_id": "059955d7fcb00ce5fe0d7e0d4765dbe2da29c85c1f3d5a29b0cbe54dcdd10165",
+      "approved_at": "2026-08-31T14:59:25-06:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c037-answer-fd5474fd1511f62a7c4c": {
+      "take_id": "5a6815e6b708ce5423b11dcb5993450cb5eb2da301697139fe46294e0d8b0503",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c037-prompt-d7e302bc9fdb970789b4": {
+      "take_id": "5a6815e6b708ce5423b11dcb5993450cb5eb2da301697139fe46294e0d8b0503",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c038-answer-3c109e58865afd795c98": {
+      "take_id": "c75b7fad9ab0350a709bf0bc43cde99a0737616e1124def633d6522a43759581",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c038-prompt-7b8bffe29676e5ee656d": {
+      "take_id": "c75b7fad9ab0350a709bf0bc43cde99a0737616e1124def633d6522a43759581",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c039-answer-4cb4187346e35ee9bfba": {
+      "take_id": "7f03e94aeda6618b76ecbaafb87b9912b554fd47c0ec09cb9e68814ec28d7feb",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c039-prompt-a15ccb2576f055f181c1": {
+      "take_id": "7f03e94aeda6618b76ecbaafb87b9912b554fd47c0ec09cb9e68814ec28d7feb",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c040-answer-115bbf0581e91ded018e": {
+      "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c040-prompt-c1cb378bf3196575d1ca": {
+      "take_id": "0cf53db7cb7f176ed9fce8ef678f931fbd09e103c8a63abfcb48290ca6d36158",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c041-answer-469aa52565d32f6912e7": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c041-prompt-9dd5a991b3701f99b7fd": {
+      "take_id": "a87b5d99602d1f05288044e8da6525eb10d48bd6bcd90c279f83f46391f70d73",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c042-answer-20395157ed3ce4fbdf11": {
+      "take_id": "f88fcbe2c745b38cb2a5d4e3698617af79bb0b22de6cf2f20034e6a7d8d3f1e5",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c042-prompt-c1609783300771451f79": {
+      "take_id": "f88fcbe2c745b38cb2a5d4e3698617af79bb0b22de6cf2f20034e6a7d8d3f1e5",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c043-answer-c820de57a51f54c8f21b": {
+      "take_id": "494d5adf716dde21974ee80c74c641a959bd11cef854687c68188332af186da1",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c043-prompt-0c22c92559cd448c3ecc": {
+      "take_id": "494d5adf716dde21974ee80c74c641a959bd11cef854687c68188332af186da1",
+      "approved_at": "2026-09-18T14:41:47.432368+00:00",
+      "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-3-9-unit-3-review-c044-answer-67bfb4ae4aebbef648de": {
+      "take_id": "c5a7f25b93af5d5d11d30eeee20f8f7d62fc3983e6dcb5c2a99133357d1cfd7a",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c044-prompt-d3e10364785c511f5f93": {
+      "take_id": "c5a7f25b93af5d5d11d30eeee20f8f7d62fc3983e6dcb5c2a99133357d1cfd7a",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c045-answer-02e1ce0b2abba62253ed": {
+      "take_id": "80bdef2ed29bc011e077e061bdd1a7045c55106db59afbd58d07b14f7070c210",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c045-prompt-92236c697586c1496d66": {
+      "take_id": "80bdef2ed29bc011e077e061bdd1a7045c55106db59afbd58d07b14f7070c210",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c046-answer-167e2917db13410e1d5e": {
+      "take_id": "9a5c128ce47b9c30f938c02a8a026475530b7c1eeceea15fe6beb3509018db6b",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c046-prompt-04cac3c817aa9c1ea949": {
+      "take_id": "9a5c128ce47b9c30f938c02a8a026475530b7c1eeceea15fe6beb3509018db6b",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c047-answer-329c62644643a4e16445": {
+      "take_id": "c9ed4c0e4f74b36bd8ed6babd32e45a345c209b7f6c9410f6d91fa164c156fec",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c047-answer-84a599e217f0d92e2d4f": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c047-prompt-22f2e9bc569967d54db7": {
+      "take_id": "ed816157cd922005e1e077fd96128660d4ed289ff46b8403d97086d484d669d9",
+      "approved_at": "2026-08-31T21:15:40.861890+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c047-prompt-8f3f791779d4798d58d4": {
+      "take_id": "c9ed4c0e4f74b36bd8ed6babd32e45a345c209b7f6c9410f6d91fa164c156fec",
+      "approved_at": "2026-08-31T21:34:04.507381+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c048-answer-faa094999186f2a87118": {
+      "take_id": "5a6815e6b708ce5423b11dcb5993450cb5eb2da301697139fe46294e0d8b0503",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
+      "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-3-9-unit-3-review-c048-prompt-f56e06c596d64b277492": {
+      "take_id": "5a6815e6b708ce5423b11dcb5993450cb5eb2da301697139fe46294e0d8b0503",
+      "approved_at": "2026-09-01T01:03:04.073224+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
     "lesson-3-two-people-c001-answer-21fccb18f961fa9cc533": {

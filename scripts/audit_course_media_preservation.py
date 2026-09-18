@@ -182,6 +182,40 @@ def validate_mission_still_plan(plan: dict, current: dict, root: Path) -> None:
                 raise ValueError('A mission still must not reuse another lesson image.')
 
 
+def validate_mission_rebuild_plan(plan: dict, current: dict, root: Path) -> None:
+    """Retire an inspected mission scene only when a rebuilt mission replaces it.
+
+    The old file stays byte-for-byte on disk. The evidence names the concrete
+    defect, and the replacement must be a mission-only still that this same
+    rebuild installed and actually binds.
+    """
+    import re
+    lesson = current[plan['lesson_id']]
+    if not lesson['sub_lesson_id'].endswith('.10') or lesson.get('experience_type') != 'mission':
+        raise ValueError('Mission rebuild exceptions apply only to Lesson 10 missions.')
+    evidence = str(plan.get('evidence_file', ''))
+    if not re.fullmatch(r'docs/qa/unit-[2-7]-mission-media-v[1-9][0-9]*\.json', evidence) or not (root / evidence).is_file():
+        raise ValueError('Mission rebuild needs its versioned installation evidence.')
+    proof = json.loads((root / evidence).read_text(encoding='utf-8'))
+    matches = [r for r in proof.get('retired_scenes', []) if (r.get('lesson_id'), r.get('old_filename'), r.get('old_sha256'))
+               == (plan['lesson_id'], plan['old_filename'], plan['old_sha256'])]
+    if len(matches) != 1 or len(matches[0].get('issue', '').strip()) < 35 or len(matches[0].get('observation', '').strip()) < 35:
+        raise ValueError('Retired mission scene needs an exact inspected pixel record.')
+    bound = images(lesson)
+    if plan['old_filename'] in bound:
+        raise ValueError('A retired mission scene must no longer be bound by the rebuilt mission.')
+    installed = [a for a in proof.get('assets', []) if a.get('runtime_filename') == plan['new_filename']]
+    if len(installed) != 1 or plan['new_filename'] not in bound:
+        raise ValueError('The replacement must be a still installed and bound by this mission rebuild.')
+    for folder in IMAGE_ROOTS:
+        path = root / folder / plan['new_filename']
+        if not path.is_file() or digest(path) != installed[0].get('runtime_sha256'):
+            raise ValueError('Rebuilt mission pixels differ from their installation record.')
+    for other in current.values():
+        if other['id'] != lesson['id'] and plan['new_filename'] in images(other):
+            raise ValueError('A mission still must stay mission-only.')
+
+
 def validate_photo_reuse_plan(plan: dict, current: dict, root: Path) -> None:
     """A bounded inspected-reference exception, never a blanket style override."""
     evidence = 'docs/qa/course-photo-reuse-v1.json'
@@ -309,6 +343,9 @@ def validate_plan(plan: dict, baseline: dict, current: dict, root: Path,
     if plan.get('issue') == 'reviewed-mission-photo-edit':
         from scripts.mission_photo_edit_contract import validate_plan as validate_mission_edit
         validate_mission_edit(plan,current,root)
+        return
+    if plan.get('issue') == 'mission-rebuild-retires-scene':
+        validate_mission_rebuild_plan(plan, current, root)
         return
     if plan.get("issue") != "review-reuses-earlier-image":
         raise ValueError("Unreviewed exception type: record and implement its evidence check first.")

@@ -9,8 +9,11 @@
   "lesson_title": "Unit 3: Me and Other People",
   "sub_lesson_id": "3.3",
   "sub_lesson_title": "Am, Is, and Are",
-  "goal": "Choose am, is, or are for familiar singular, plural, and speaker pronouns in known sentence patterns.",
-  "vocabulary": [],
+  "goal": "Choose am, is, or are for familiar singular, plural, and speaker pronouns, then ask and answer What are you doing? with a known action.",
+  "vocabulary": [
+    "doing",
+    "What are you doing?"
+  ],
   "review_vocabulary": [
     "I",
     "you",
@@ -30,9 +33,9 @@
     "playing",
     "book"
   ],
-  "grammar_function": "I am; he/she/it is; you/we/they are. Affirmative only in this lesson.",
+  "grammar_function": "I am; he/she/it is; you/we/they are. Affirmative only. Late in the lesson, the supported current-action exchange What are you doing? / I am + known -ing action, kept distinct from the 3.6 occupation question What is your job?",
   "prerequisite": "3.2 I/you/we frames plus Unit 1 he/she/they/is/are and Unit 2 it.",
-  "speaking_outcome": "Repeat six mixed-subject sentences with the correct audible form of be.",
+  "speaking_outcome": "Repeat six mixed-subject sentences with the correct audible form of be, then say the complete What are you doing? / I am writing. exchange.",
   "purposeful_review_slides": [
     "R7",
     "R8",
@@ -156,6 +159,26 @@
       "prompt_image_url": "",
       "spanish_translation": "Ellos están jugando.",
       "pedagogy_note": "plural are anchor"
+    },
+    {
+      "slide_id": "L7",
+      "interaction_type": "teach",
+      "prompt": "What are you doing?",
+      "stage": "Learn",
+      "correct_option_id": "what-are-you-doing-1",
+      "options": [
+        {
+          "id": "what-are-you-doing-1",
+          "image_url": "a1_u3_l33_v1_reading_question.webp",
+          "label": "What are you doing?"
+        }
+      ],
+      "audio_text": "What are you doing?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "¿Qué estás haciendo?",
+      "audio_speaker": "luis",
+      "pedagogy_note": "Current-action thread (late 3.3): introduces doing inside the supported question; answers reuse I am + known actions."
     },
     {
       "slide_id": "R1",
@@ -362,6 +385,31 @@
       "pedagogy_note": "Unit 2 delayed review"
     },
     {
+      "slide_id": "R9",
+      "interaction_type": "i2t2",
+      "prompt": "What are you doing?",
+      "stage": "Recognize",
+      "correct_option_id": "i-am-reading-2",
+      "options": [
+        {
+          "id": "i-am-writing-1",
+          "image_url": "",
+          "label": "I am writing."
+        },
+        {
+          "id": "i-am-reading-2",
+          "image_url": "",
+          "label": "I am reading."
+        }
+      ],
+      "audio_text": "What are you doing?",
+      "answer_audio_text": "I am reading.",
+      "answer_audio_speaker": "ana",
+      "prompt_image_url": "a1_u3_l33_v1_reading_answer.webp",
+      "spanish_translation": "¿Qué estás haciendo?",
+      "pedagogy_note": "Current-action thread (late 3.3): the answer view shows which action answers the question."
+    },
+    {
       "slide_id": "N1",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
@@ -507,6 +555,30 @@
       "audio_speaker": "ana"
     },
     {
+      "slide_id": "N7",
+      "interaction_type": "a2t2",
+      "prompt": "Listen and choose.",
+      "stage": "Listen",
+      "correct_option_id": "what-are-you-doing-2",
+      "options": [
+        {
+          "id": "what-is-your-name-1",
+          "image_url": "",
+          "label": "What is your name?"
+        },
+        {
+          "id": "what-are-you-doing-2",
+          "image_url": "",
+          "label": "What are you doing?"
+        }
+      ],
+      "audio_text": "What are you doing?",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Escucha y elige.",
+      "pedagogy_note": "Current-action thread (late 3.3): hear the new question apart from the known name question."
+    },
+    {
       "slide_id": "S1",
       "interaction_type": "repeat",
       "prompt": "I am reading.",
@@ -622,6 +694,37 @@
       "prompt_image_url": "",
       "spanish_translation": "Ellos están jugando.",
       "pedagogy_note": "are target"
+    },
+    {
+      "slide_id": "S7",
+      "interaction_type": "repeat",
+      "prompt": "What are you doing? I am writing.",
+      "stage": "Speak",
+      "correct_option_id": "what-are-you-doing-i-am-writing-1",
+      "options": [
+        {
+          "id": "what-are-you-doing-i-am-writing-1",
+          "image_url": "a1_u3_l33_v1_writing_question.webp",
+          "label": "What are you doing? I am writing."
+        }
+      ],
+      "audio_text": "What are you doing? I am writing.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "audio_turns": [
+        {
+          "text": "What are you doing?",
+          "speaker_role": "ana",
+          "image_url": "a1_u3_l33_v1_writing_question.webp"
+        },
+        {
+          "text": "I am writing.",
+          "speaker_role": "luis",
+          "image_url": "a1_u3_l33_v1_writing_answer.webp"
+        }
+      ],
+      "spanish_translation": "¿Qué estás haciendo? Estoy escribiendo.",
+      "pedagogy_note": "Current-action thread (late 3.3): complete exchange: Ana asks, Luis answers."
     },
     {
       "slide_id": "U1",
@@ -895,6 +998,81 @@
         "word-4"
       ],
       "audio_speaker": "ana"
+    },
+    {
+      "slide_id": "U9",
+      "interaction_type": "complete2",
+      "prompt": "What ___ you ___?",
+      "stage": "Use",
+      "correct_option_id": "are",
+      "correct_option_ids": [
+        "are",
+        "doing"
+      ],
+      "options": [
+        {
+          "id": "doing",
+          "image_url": "",
+          "label": "doing"
+        },
+        {
+          "id": "are",
+          "image_url": "",
+          "label": "are"
+        }
+      ],
+      "audio_text": "What are you doing?",
+      "answer_audio_text": "What are you doing?",
+      "prompt_image_url": "a1_u3_l33_v1_reading_question.webp",
+      "spanish_translation": "¿Qué estás haciendo?",
+      "translation": "¿Qué estás haciendo?",
+      "audio_speaker": "luis",
+      "answer_audio_speaker": "luis",
+      "pedagogy_note": "Current-action thread (late 3.3): guided completion of the question Luis asks."
+    },
+    {
+      "slide_id": "U10",
+      "interaction_type": "complete-sentence",
+      "prompt": "___ ___ ___ ___?",
+      "stage": "Use",
+      "correct_option_id": "word-1",
+      "correct_option_ids": [
+        "word-1",
+        "word-2",
+        "word-3",
+        "word-4"
+      ],
+      "options": [
+        {
+          "id": "word-2",
+          "image_url": "",
+          "label": "are"
+        },
+        {
+          "id": "word-4",
+          "image_url": "",
+          "label": "doing"
+        },
+        {
+          "id": "word-1",
+          "image_url": "",
+          "label": "What"
+        },
+        {
+          "id": "word-3",
+          "image_url": "",
+          "label": "you"
+        }
+      ],
+      "audio_text": "What are you doing?",
+      "answer_audio_text": "What are you doing?",
+      "prompt_image_url": "a1_u3_l33_v1_writing_question.webp",
+      "spanish_translation": "¿Qué estás haciendo?",
+      "translation": "¿Qué estás haciendo?",
+      "audio_speaker": "ana",
+      "answer_audio_speaker": "ana",
+      "pedagogy_note": "Current-action thread (late 3.3): full construction of the question Ana asks."
     }
-  ]
+  ],
+  "content_revision": 1
 }
