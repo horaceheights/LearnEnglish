@@ -216,9 +216,9 @@ class LessonStructureTests(unittest.TestCase):
                 continue
             with self.subTest(lesson=lesson.id):
                 self.assertGreaterEqual(len(lesson.cards), 32)
-                if lesson.sub_lesson_id == "2.9":
-                    # The reviewed rebuild follows the comprehensive-review
-                    # exception in course-design-a1.md; pin its intentional size.
+                if lesson.sub_lesson_id in ("2.9", "3.9"):
+                    # The reviewed rebuilds follow the comprehensive-review
+                    # exception in course-design-a1.md; pin their intentional size.
                     self.assertEqual(len(lesson.cards), 48)
                 else:
                     self.assertLessEqual(len(lesson.cards), 40)

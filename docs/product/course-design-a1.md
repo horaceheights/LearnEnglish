@@ -97,29 +97,35 @@ Lesson 2.9's reviewed restructuring contains 48 cards (`8 Learn / 8 Recognize / 
 
 ### Unit 3: Me and Other People
 
-Goal: Exchange basic personal information and describe oneself or another person with tightly supported A1 questions and answers.
+Goal: Exchange basic personal information, ask about a current action, and describe oneself or another person with tightly supported A1 questions and answers.
 
 Lessons:
 
 1. 3.1 Greetings and Names
 2. 3.2 I, You, and We
-3. 3.3 Am, Is, and Are
+3. 3.3 Am, Is, and Are: consolidate `I am`, `he/she/it is`, and `you/we/they are`, then introduce `doing` and the supported current-action exchange `What are you doing? / I am ...` with familiar Unit 1 actions
 4. 3.4 Age
 5. 3.5 Countries and Nationalities
 6. 3.6 Professions
 7. 3.7 My, Your, His, and Her
 8. 3.8 Have and Has
 9. 3.9 Unit 3 Review
-10. 3.10 Introduction Mission
+10. 3.10 Cenas cruzadas
 
 Core patterns:
 
 - `What is your name? My name is Ana.`
-- Approved Unit 3 addition: `What are you doing? I am reading.` Introduce this question explicitly in 3.3 with new speaker-view scenes before using it in 3.9 or 3.10; do not count its presence in a mission as teaching it. Its canonical cards and audio are part of the pending Units 2–7 parity rollout.
+- `What are you doing? I am reading.`
 - `How old are you? I am twenty.`
 - `Where are you from? I am from Mexico.`
-- `What do you do? I am a teacher.`
+- `What is your job? I am a teacher.`
 - `She has a phone.`
+
+`What are you doing?` enters late in Lesson 3.3, after Unit 2.4 has introduced `what` and Lesson 3.2 has established `I`, `you`, and `am`. Lesson 3.3 introduces `doing` through six added cards (40 in total: a Learn question, an answer-view Recognize, a Listen discrimination against the name question, a two-speaker Speak exchange and two Use constructions) on four new speaker-view stills, and reuses already learned Unit 1 actions in the answers. It stays distinct from the Lesson 3.6 occupation question `What is your job?`; `do/does` is not generalized. Lesson 3.9 retrieves the exchange with fresh material and Lesson 3.10 applies it.
+
+Lesson 3.9's parity restructuring contains 48 cards (`8 Learn / 8 Recognize / 18 Listen / 6 Speak / 8 Use`) in six stations: greetings and names, speaker perspective and current action, age, countries and nationalities, jobs, and possession. Its successful-path inventory retrieves 43 of the 47 vocabulary entries declared by 3.1–3.8. Fourteen fresh review stills replace the eight exact-byte teaching repeats and add greeting, job and current-action scenes; the originals and their teaching uses stay untouched. It uses the comprehensive-review length exception below.
+
+Lesson 3.10 `Cenas cruzadas` is a 13-beat community dinner mission in five chapters. Nine listening scenes (36 decisions) alternate a *who says it* mechanic—hear a line and tap its speaker—with *who is described* scenes, covering every Unit 3 function from greetings to `have/has`. Four dinner-table voice gates close it, each with a distinct question view and response view. Its 18 mission-only stills replace the stub's blurred-inset kitchen and dining scenes. Human media and device review remain pending.
 
 ### Unit 4: Home and Daily Life
 

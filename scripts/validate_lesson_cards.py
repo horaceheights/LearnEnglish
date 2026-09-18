@@ -212,6 +212,7 @@ UNIT_ONE_FOUNDATION_LESSON_IDS = (
 )
 MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
+    "lesson-3-10-introduction-mission": 13,
 }
 MISSION_REQUIRED_INTERACTIONS = {
     "lesson-10-family-mission": frozenset({
@@ -219,15 +220,28 @@ MISSION_REQUIRED_INTERACTIONS = {
         "mission-speak",
         "mission-finale",
     }),
+    "lesson-3-10-introduction-mission": frozenset({
+        "mission-game",
+        "mission-speak",
+        "mission-finale",
+    }),
 }
 MISSION_HERO_PREFIXES = {
     "lesson-10-family-mission": "a1_u1_reunion_",
+    "lesson-3-10-introduction-mission": "a1_u3_dinner_v1_",
 }
 MISSION_REQUIRED_KINDS = {
     "lesson-10-family-mission": frozenset({
         "guided-search",
         "crowd-search",
         "family-link",
+        "action-hunt",
+        "contrast-hunt",
+        "voice-gate",
+    }),
+    "lesson-3-10-introduction-mission": frozenset({
+        "guided-search",
+        "crowd-search",
         "action-hunt",
         "contrast-hunt",
         "voice-gate",
@@ -243,6 +257,11 @@ MISSION_KIND_SEQUENCE = {
         "contrast-hunt", "contrast-hunt", "contrast-hunt",
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
+    "lesson-3-10-introduction-mission": [
+        "guided-search", "crowd-search", "crowd-search", "crowd-search",
+        "action-hunt", "crowd-search", "crowd-search", "crowd-search", "contrast-hunt",
+        "voice-gate", "voice-gate", "voice-gate", "voice-gate",
+    ],
 }
 MISSION_CHAPTER_SEQUENCE = {
     "lesson-10-family-mission": (
@@ -251,6 +270,9 @@ MISSION_CHAPTER_SEQUENCE = {
         + ["follow-the-actions"] * 6
         + ["repair-the-clues"] * 3
         + ["welcome-everyone"] * 4
+    ),
+    "lesson-3-10-introduction-mission": (
+        ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["table-talk"] * 4
     ),
 }
 

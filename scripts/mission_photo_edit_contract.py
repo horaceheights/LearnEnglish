@@ -62,6 +62,38 @@ def validate_record(record, current, root):
             path=root/IMAGE_ROOTS[0]/name
             if path.is_file() and sha(path)==record['new_sha256']:raise ValueError('Mission scene reused in another lesson.')
 
+SUPERSEDED='docs/qa/course-mission-photo-edits-superseded-v1.json'
+
+def superseding_row(record, current, root):
+    """Return the parity-rebuild row that retires this edited card, or None.
+
+    A rebuilt Units 3-7 mission may retire an earlier edit only with its own
+    installation evidence naming the exact retired original. The edited file
+    stays byte-for-byte on disk; it merely stops being bound.
+    """
+    import re
+    path=root/SUPERSEDED
+    if not path.is_file():return None
+    rows=[r for r in json.loads(path.read_text(encoding='utf-8'))['superseded']
+          if (r['lesson_id'],r['slide_id'],r['candidate_filename'])==(record['lesson_id'],record['slide_id'],record['candidate_filename'])]
+    if not rows:return None
+    row=rows[0]
+    evidence=row.get('superseded_by','')
+    if len(rows)!=1 or not re.fullmatch(r'docs/qa/unit-[3-7]-mission-media-v[1-9][0-9]*\.json',evidence) or not (root/evidence).is_file():
+        raise ValueError('Superseded mission edit needs its exact rebuild evidence.')
+    proof=json.loads((root/evidence).read_text(encoding='utf-8'))
+    if not any((r['lesson_id'],r['old_filename'],r['old_sha256'])==(record['lesson_id'],record['old_filename'],record['old_sha256'])
+               for r in proof.get('retired_scenes',[])):
+        raise ValueError('Rebuild evidence does not retire this edited mission scene.')
+    from scripts.audit_course_media_preservation import IMAGE_ROOTS,images
+    lesson=current.get(record['lesson_id'],{})
+    if record['candidate_filename'] in images(lesson) or len(row.get('reason','').strip())<35:
+        raise ValueError('A superseded edit must be unbound and explained.')
+    for folder in IMAGE_ROOTS:
+        if sha(root/folder/record['candidate_filename'])!=record['new_sha256']:
+            raise ValueError('Superseded edit pixels must stay preserved.')
+    return row
+
 def validate_plan(plan,current,root):
     if plan.get('evidence_file')!=EVIDENCE:raise ValueError('Missing exact mission-edit evidence file.')
     rows=json.loads((root/EVIDENCE).read_text(encoding='utf-8'))['assets']

@@ -553,11 +553,13 @@ assert.equal(
   'the audio must name the place because three authored options are on the right',
 );
 
+// The Unit 3 parity review shows each of Ana's facts in a fresh scene rather
+// than replaying the teaching photographs from 3.1-3.6.
 const media39 = learnMedia('3.9');
-assert.equal(media39.get('I am twenty years old.'), 'a1_scene_ana_age_20.webp');
-assert.equal(media39.get('I am from Mexico. I am Mexican.'), 'a1_scene_ana_mexico.webp');
-assert.equal(media39.get('I am a teacher. I have a book.'), 'a1_scene_ana_teacher_book.webp');
-assert.equal(media39.get('My name is Ana.'), 'a1_scene_ana_name.webp');
+assert.equal(media39.get('I am twenty years old.'), 'a1_u3_review_v1_ana_age.webp');
+assert.equal(media39.get('I am from Mexico. I am Mexican.'), 'a1_u3_review_v1_ana_mexico.webp');
+assert.equal(media39.get('I am a teacher. I have a book.'), 'a1_u3_review_v1_ana_teacher.webp');
+assert.equal(media39.get('My name is Ana.'), 'a1_u3_review_v1_ana_name.webp');
 
 const requiredUnitTwoReplacementsByLesson = new Map([
   [
@@ -682,12 +684,14 @@ requiredAssets.push(
   'a1_u1_review_parents_talking.webp',
   'a1_u1_review_sisters_playing.webp',
   'a1_u1_review_woman_drinking.webp',
-  'a1_scene_ana_name.webp',
-  'a1_scene_ana_age_20.webp',
-  'a1_scene_ana_mexico.webp',
-  'a1_scene_ana_teacher_book.webp',
-  'a1_u3_scene_01_kitchen.webp',
-  'a1_u3_scene_02_dining.webp',
+  'a1_u3_review_v1_ana_name.webp',
+  'a1_u3_review_v1_ana_age.webp',
+  'a1_u3_review_v1_ana_mexico.webp',
+  'a1_u3_review_v1_ana_teacher.webp',
+  'a1_u3_dinner_v1_courtyard.webp',
+  'a1_u3_dinner_v1_registration.webp',
+  'a1_u3_l33_v1_reading_question.webp',
+  'a1_u3_l33_v1_writing_answer.webp',
   'unit2_near_red_book.webp',
   'unit2_six_white_bags.webp',
   'unit2_mission_two_blue_cars.webp',
@@ -695,7 +699,11 @@ requiredAssets.push(
 
 // Retired mission shots stay recoverable in every original asset location,
 // but unused files do not need to increase the learner's Metro bundle.
-for (const filename of ['a1_u2_scene_01_park_path.webp', 'a1_u2_scene_02_bench.webp', 'a1_u2_scene_03_bus_stop.webp']) {
+// The Unit 3 parity rebuild retires its old review repeats and blurred-inset
+// mission scenes the same way.
+for (const filename of ['a1_u2_scene_01_park_path.webp', 'a1_u2_scene_02_bench.webp', 'a1_u2_scene_03_bus_stop.webp',
+  'a1_scene_ana_name.webp', 'a1_scene_ana_age_20.webp', 'a1_scene_ana_mexico.webp', 'a1_scene_ana_teacher_book.webp',
+  'a1_u3_scene_01_kitchen.webp', 'a1_u3_scene_02_dining.webp']) {
   const source = fs.readFileSync(path.join(repositoryRoot, 'Lessons/Lesson1/images', filename));
   for (const folder of ['mobile/assets/lesson-assets', 'frontend/public/lesson-assets']) {
     assert.deepEqual(fs.readFileSync(path.join(repositoryRoot, folder, filename)), source);

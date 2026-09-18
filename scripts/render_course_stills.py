@@ -88,7 +88,7 @@ def reviewed_reference_path(record: dict, root: Path = ROOT) -> Path:
 
 def pack_output_directory(pack: dict) -> Path:
     name = pack.get("output_namespace") or f"unit-{pack['lesson_number'].split('.')[0]}-mission-v{pack['revision']}"
-    if not re.fullmatch(r"(?:unit-[1-7]-(?:mission|review)|course-photo-sweep)-v[1-9][0-9]*", name):
+    if not re.fullmatch(r"(?:unit-[1-7]-(?:mission|review|lesson)|course-photo-sweep)-v[1-9][0-9]*", name):
         raise ValueError("Unsafe output namespace.")
     return ROOT / "output/imagegen" / name
 
@@ -130,6 +130,9 @@ def validate_change_control(pack: dict, asset: dict) -> None:
     if control.get('kind') == 'inspected-legacy-photo-scene':
         validate_legacy_photo_scene(asset, control)
         return
+    if control.get("kind") == "approved-parity-scene":
+        validate_parity_scene(pack, control)
+        return
     if control.get("kind") == "new-review-scene" and control.get("reason") and not control.get("replaces"):
         if not pack["lesson_number"].endswith(".9"):
             raise ValueError("New review scenes must belong to Lesson 9.")
@@ -143,6 +146,28 @@ def validate_change_control(pack: dict, asset: dict) -> None:
         if len(matching) != 1:
             raise ValueError("Missing exact lesson/image replacement exception.")
         validate_plan(matching[0], baseline, current, ROOT)
+
+
+def validate_parity_scene(pack: dict, control: dict) -> None:
+    """A new scene the approved parity contract requires: never a replacement.
+
+    Missions of Units 2-7 may commission their own mission-only stills. A
+    foundation lesson may commission only the introduction the contract names
+    for exactly that lesson, so this cannot become a general repaint path.
+    """
+    if control.get("replaces") or len(control.get("reason", "").strip()) < 35:
+        raise ValueError("A parity scene needs a concrete reason and must not replace existing media.")
+    contracts = json.loads((ROOT / "docs/product/a1-unit-parity-contracts.json").read_text(encoding="utf-8"))
+    unit, lesson = pack["lesson_number"].split(".")
+    contract = contracts["units"].get(unit)
+    if contract is None:
+        raise ValueError("Only units with an approved parity contract may commission parity scenes.")
+    if lesson == "10":
+        return
+    function = next((item for item in contract["functions"] if item["id"] == control.get("introduces")), None)
+    if (function is None or not function.get("requires_introduction")
+            or function["taught_in"] != pack["lesson_number"]):
+        raise ValueError("A foundation scene must introduce a contract function assigned to this exact lesson.")
 
 
 def validate_legacy_photo_scene(asset: dict, control: dict) -> None:

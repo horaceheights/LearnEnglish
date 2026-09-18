@@ -8,10 +8,23 @@ const root=path.resolve(__dirname,'../..');
 const proof=JSON.parse(fs.readFileSync(path.join(root,'docs/qa/course-mission-photo-edits-v1.json'),'utf8'));
 const pack=JSON.parse(fs.readFileSync(path.join(root,'docs/product/course-photo-sweep-mission-edits-v1.json'),'utf8'));
 
+const supersededPath=path.join(root,'docs/qa/course-mission-photo-edits-superseded-v1.json');
+const superseded=fs.existsSync(supersededPath)?JSON.parse(fs.readFileSync(supersededPath,'utf8')).superseded:[];
+const isSuperseded=record=>superseded.some(row=>row.lesson_id===record.lesson_id&&row.slide_id===record.slide_id
+  &&row.candidate_filename===record.candidate_filename);
+
 test('all 13 mission photo edits preserve exact inspected image and marker bindings',()=>{
   assert.equal(proof.assets.length,13);
   let scenes=0;
   for(const record of proof.assets){
+    // A parity rebuild retires an edited card only with its own evidence (checked
+    // in the backend contract); the edited pixels must still be preserved.
+    if(isSuperseded(record)){
+      for(const folder of ['Lessons/Lesson1/images','mobile/assets/lesson-assets','frontend/public/lesson-assets']){
+        assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,folder,record.candidate_filename))).digest('hex'),record.new_sha256);
+      }
+      continue;
+    }
     const asset=pack.assets.find(a=>a.runtime_filename===record.candidate_filename);
     const lesson=JSON.parse(fs.readFileSync(path.join(root,asset.change_control.lesson_path),'utf8'));
     const card=lesson.cards.find(c=>c.slide_id===record.slide_id);

@@ -86,9 +86,11 @@ EXACT_ROLE_CHANGES = {
 
 # Lesson 1.8 adds 25 visitor-question cards with prompt and answer speaker fields.
 # Completa (Use) sentence standard adds explicit speaker assignments across Units 3, 4, 6, 7.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 439
+# The Unit 3 parity rollout adds the 3.3 current-action speakers (+6) and recasts the
+# rebuilt 3.9 review from its fresh scenes (-4 net), each speaker pictured on its card.
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 441
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "fc4c36c4cfa1984df9dd686c62efa86cd1c070fb4baa40bad3c7e6d9fccf144e"
+    "0324cd45fcf5dd80cdad68eab8b6976e35e734d9dcf12eae7218c08b06a7e591"
 )
 
 
