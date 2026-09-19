@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "lesson_id": "lesson-2-5-this-and-that",
+  "lesson_number": "2.5",
+  "revision": 1,
+  "output_namespace": "unit-2-lesson-v1",
+  "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte.",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.00",
+    "expected_cost_usd": "0.39",
+    "expected_mxn": "6.62",
+    "fx_mxn_per_usd": "16.9707",
+    "no_automatic_retries": true,
+    "note": "Four text-only THAT generations (~US$0.042 each) and four THIS edits that reuse each reviewed THAT output as the scene reference (~US$0.055 each). Estimates, not invoices."
+  },
+  "shared_prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.",
+  "assets": [
+    {
+      "id": "that-book",
+      "concept_id": "far-book",
+      "runtime_filename": "a1_photo_u2_that_book_v1.webp",
+      "prompt": "THAT state. The learner stands at the near end of a long, completely bare light-oak dining table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Two identical closed hardcover books with plain deep-green cloth covers and cream page edges; the covers are completely blank, with no title, text, pattern or picture.\nNEAR book: the LEFT hand holds it closed by its lower edge, thumb on the cover, about 20 centimeters above the lower-left part of the table. The whole cover and page edges are visible; it spans about one third of the photo width and stays in the lower-left quarter.\nFAR book: lies flat on the same tabletop only about 80 centimeters farther away, alone on empty wood in the upper center of the photo. It is clearly smaller, but at least 18 percent of the photo width, sharp and unmistakably the same green book; the near book looks about twice as big.\nRIGHT hand: the forearm enters from the lower-right corner and the hand stays in the lower half of the photo. The index finger is fully straight and aimed diagonally up and to the left, exactly at the FAR book; the other fingers are curled with the thumb resting on them. A straight line continued from the fingertip runs into the center of the far book. A wide gap of empty space separates the fingertip from the far book; no hand overlaps, touches or hides either book.\nNothing else on the table: no papers, phones, cups, plates or decorations; no bookshelves anywhere. The picture means: THAT green book over there, while my left hand holds THIS one.",
+      "expected_description": "same paired scene; left hand keeps holding the near book while right hand points from below at the identical far book without overlapping or touching it",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_far-book.webp",
+        "old_sha256": "c20f3ec772e697f21b63e1ea36b7cca0077aca243ffb0bdeff96332cf6fbdf48",
+        "old_observation": "Third-person photo of a woman pointing across a living room; the tiny, pasted-looking book on the far dining table lies off her finger line, so she points at empty space (user report 2026-09-19); no held near book.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/2/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/3/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/6/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/7/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/14/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/15/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/21/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/27/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "this-book",
+      "concept_id": "near-book",
+      "runtime_filename": "a1_photo_u2_this_book_v1.webp",
+      "prompt": "THIS state, precise edit of Image 1. Change ONLY the learner's RIGHT hand: its straight index finger now points to the left at the cover of the NEAR green book held by the LEFT hand, the fingertip stopping about two finger-widths short of it without touching or covering it; the other fingers stay curled. Keep everything else exactly as in Image 1: camera, light, room, surfaces, the left hand and the near green book it holds, and the FAR green book, complete, sharp and unmoved. No finger points at the far green book. No extra hands, objects, text or other changes. The picture now means: THIS green book, the one my left hand holds.",
+      "expected_description": "paired first-person demonstrative scene; left hand holds the near book while right hand points at it; identical far book remains visible",
+      "reference": "that-book",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_near-book.webp",
+        "old_sha256": "57090f24c81968b89ebed792fb82a8434308860b8fedb082d022e297d4924d07",
+        "old_observation": "Close-up of a hand resting on a green hardcover whose cover prints the answer 'THIS IS A BOOK.' and an author name; no pointing gesture and no matching far book, so it breaks the approved 2.5 paired this/that contract and shows answer text.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/0/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/1/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/6/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/7/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/14/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/15/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/20/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/26/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-4-1-rooms-at-home",
+            "lesson": "4.1",
+            "path": "backend/lessons/unit_4/lesson-4-1-rooms-at-home.yaml",
+            "pointer": "/cards/14/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "that-phone",
+      "concept_id": "far-phone",
+      "runtime_filename": "a1_photo_u2_that_phone_v1.webp",
+      "prompt": "THAT state. The learner stands at one end of a long, bare, pale-grey stone kitchen counter in a bright, plain kitchen with white cabinet doors; the camera looks steeply down and along the countertop. Two identical modern smartphones in bright orange protective cases, with black glass screens that are switched off, dark and matte, showing no reflections, clock, icons or text.\nNEAR phone: the LEFT hand holds it upright in portrait orientation, screen facing the camera, just above the lower-left part of the counter; the whole phone is visible and it spans about one fifth of the photo width.\nFAR phone: lies flat, screen up and sideways (its long side facing the learner), alone on empty stone only about 70 centimeters farther along the counter, in the upper center of the photo. It is clearly smaller, but at least 14 percent of the photo width, sharp and unmistakably the same orange phone; the near phone looks about twice as big.\nRIGHT hand: the forearm enters from the lower-right corner and the hand stays in the lower half of the photo. The index finger is fully straight and aimed diagonally up and to the left, exactly at the FAR phone; the other fingers are curled with the thumb resting on them. A straight line continued from the fingertip runs into the center of the far phone. A wide gap of empty space separates the fingertip from the far phone; no hand overlaps, touches or hides either phone.\nNothing else on the counter: no other phones, tablets, laptops, screens, remote controls, wallets, cups or appliances. The picture means: THAT orange phone over there, while my left hand holds THIS one.",
+      "expected_description": "same paired scene; left hand keeps holding the near phone while right hand points from below at the identical far phone without overlapping or touching it",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_far-phone.webp",
+        "old_sha256": "a125c34d23c24b417d2085fae382f245061716c532396cfc42f39226a15c931c",
+        "old_observation": "A woman in a kitchen points toward the middle of the room while the only phone sits on a charging stand at the left counter, off her finger line (user report 2026-09-19); no held near phone.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/5/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/8/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/9/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/16/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/17/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/23/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/29/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "this-phone",
+      "concept_id": "near-phone",
+      "runtime_filename": "a1_photo_u2_this_phone_v1.webp",
+      "prompt": "THIS state, precise edit of Image 1. Change ONLY the learner's RIGHT hand: its straight index finger now points to the left at the screen of the NEAR orange phone held by the LEFT hand, the fingertip stopping about two finger-widths short of it without touching or covering it; the other fingers stay curled. Keep everything else exactly as in Image 1: camera, light, room, surfaces, the left hand and the near orange phone it holds, and the FAR orange phone, complete, sharp and unmoved. No finger points at the far orange phone. No extra hands, objects, text or other changes. The picture now means: THIS orange phone, the one my left hand holds.",
+      "expected_description": "paired first-person demonstrative scene; left hand holds the near phone while right hand points at it; identical far phone remains visible",
+      "reference": "that-phone",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_near-phone.webp",
+        "old_sha256": "267eb8e46f862b0272a444360fe2f2f27b14147ed66ccc95bdd850ab3d91ddb0",
+        "old_observation": "Close-up of a hand touching a phone lying on a coffee table; no pointing gesture and no matching far phone, so it cannot form the approved same-scene this/that pair.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/4/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/8/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/9/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/12/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/16/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/17/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/22/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/28/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/32/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "that-bag",
+      "concept_id": "far-bag",
+      "runtime_filename": "a1_photo_u2_that_bag_v1.webp",
+      "prompt": "THAT state. The learner stands in a bright, sparsely furnished hallway with pale grey floorboards, plain white walls and a closed white door in the background; the camera looks steeply down and forward across the floor. Two identical bright red canvas backpacks with black straps and a short top carry loop, completely plain, with no logo, label, patch, text or keychain.\nNEAR backpack: the LEFT hand holds it up by its top carry loop so it hangs in the lower-left part of the photo; the whole backpack, including both shoulder straps, is visible; it spans about one third of the photo width.\nFAR backpack: stands upright on the bare floor only about one meter ahead, alone in the upper center of the photo. It is clearly smaller, but at least 20 percent of the photo width, sharp and unmistakably the same red backpack; the near one looks about twice as big.\nRIGHT hand: the forearm enters from the lower-right corner and the hand stays in the lower half of the photo. The index finger is fully straight and aimed diagonally up and to the left, exactly at the FAR backpack; the other fingers are curled with the thumb resting on them. A straight line continued from the fingertip runs into the center of the far backpack. A wide gap of empty space separates the fingertip from the far backpack; no hand overlaps, touches or hides either backpack.\nNo other bags, backpacks, purses, boxes, rugs or furniture anywhere. The picture means: THAT red backpack over there, while my left hand holds THIS one.",
+      "expected_description": "same paired scene; left hand keeps holding the near bag while right hand points from below at the readable identical far bag without overlapping or touching it",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_far-bag.webp",
+        "old_sha256": "575827331a8c23407f117f019b518033474247c123c7b05f6217f6d2d9ea0131",
+        "old_observation": "Third-person photo of a woman pointing toward a small backpack on a coat rack across a room; no held near bag and a different scene from its near pair, breaking the approved paired contract.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/18/options/0/image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "this-bag",
+      "concept_id": "near-bag",
+      "runtime_filename": "a1_photo_u2_this_bag_v1.webp",
+      "prompt": "THIS state, precise edit of Image 1. Change ONLY the learner's RIGHT hand: its straight index finger now points to the left at the middle of the NEAR red backpack held up by the LEFT hand, the fingertip stopping about two finger-widths short of it without touching or covering it; the other fingers stay curled. Keep everything else exactly as in Image 1: camera, light, room, surfaces, the left hand and the near red backpack it holds, and the FAR red backpack, complete, sharp and unmoved. No finger points at the far red backpack. No extra hands, objects, text or other changes. The picture now means: THIS red backpack, the one my left hand holds.",
+      "expected_description": "paired first-person demonstrative scene; left hand holds the near bag while right hand points at it; identical far bag remains clearly readable",
+      "reference": "that-bag",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_near-bag.webp",
+        "old_sha256": "4072c3eb2e68a021213ad9a27dbeece5b9e7278fcbb0e8af01a92ef7bde7c035",
+        "old_observation": "A green backpack on a chair beside a seated person's arm that neither holds nor points at it; no matching far bag, so it breaks the approved paired this/that contract.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/10/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/18/options/1/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/24/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/30/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "that-chair",
+      "concept_id": "far-chair",
+      "runtime_filename": "a1_photo_u2_that_chair_v1.webp",
+      "prompt": "THAT state. First-person photograph looking steeply DOWN from standing eye height into a small, bright, sparsely furnished room with pale oak floorboards and white walls. Two identical natural light-oak wooden chairs with a slatted backrest and a solid wooden seat, BOTH COMPLETELY inside the photo, including every leg, seat and backrest, with visible floor below every chair foot.\nNEAR chair: stands in the lower-center-left with its backrest toward the learner; the LEFT hand grips the top of its backrest. It occupies at most 45 percent of the photo height and is NOT cropped by the bottom edge.\nFAR chair: stands only about one meter beyond it in the upper-center-right, facing the learner, and occupies at least 25 percent of the photo WIDTH: large and sharp, NOT a tiny chair across a long room. The near chair still looks clearly bigger.\nRIGHT hand: the forearm enters from the lower-right corner and the hand stays in the lower half of the photo. The index finger is fully straight and aimed diagonally up and to the left, exactly at the FAR chair; the other fingers are curled with the thumb resting on them. A straight line continued from the fingertip runs into the center of the far chair's seat. A wide gap of empty space separates the fingertip from the far chair; no hand overlaps, touches or hides either chair.\nNo table, sofa, stool, bench, rug or any other furniture. The picture means: THAT chair over there, while my left hand grips THIS one.",
+      "expected_description": "same paired scene and strong size contrast; left hand keeps gripping the large near chair while right hand points from below at the smaller identical far chair without overlapping or touching it",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_far-chair.webp",
+        "old_sha256": "95ee446fa8f5902d13c929cfdba9f5bce086b5e5caa4314b2727ec8f33adda19",
+        "old_observation": "A woman seen from behind points at a window while the only chair stands off to the left, off her finger line (user report 2026-09-19); no held near chair.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/11/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/13/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/19/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/25/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/31/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/33/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "this-chair",
+      "concept_id": "near-chair",
+      "runtime_filename": "a1_photo_u2_this_chair_v1.webp",
+      "prompt": "THIS state, precise edit of Image 1. Change ONLY the learner's RIGHT hand: its straight index finger now points to the left at the seat of the NEAR chair gripped by the LEFT hand, the fingertip stopping about two finger-widths short of it without touching or covering it; the other fingers stay curled. Keep everything else exactly as in Image 1: camera, light, room, surfaces, the left hand and the near chair it grips, and the FAR chair, complete, sharp and unmoved. No finger points at the far chair. No extra hands, objects, text or other changes. The picture now means: THIS chair, the one my left hand grips.",
+      "expected_description": "paired first-person demonstrative scene; left hand grips the near chair while right hand points at it; near chair is substantially larger than the identical far chair",
+      "reference": "that-chair",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_near-chair.webp",
+        "old_sha256": "52658547285b1294a359b497eee45ebcc0078dd9ecf11cc461aa1d65565ba2ac",
+        "old_observation": "Extreme close-up of a wooden armrest and leg with no person, hand or pointing gesture; the chair is hard to recognize and there is no matching far chair, breaking the approved paired contract.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/19/options/1/image_url"
+          }
+        ]
+      }
+    }
+  ]
+}
