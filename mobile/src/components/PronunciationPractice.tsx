@@ -43,7 +43,8 @@ import {
 import type { PronunciationResult } from '../types';
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
-import { MissionVoicePresentation } from './MissionVoicePresentation';
+import { MissionVoicePresentation, type MissionVoiceStage } from './MissionVoicePresentation';
+import { missionAnswerSegments } from '../missionVoiceAnswer';
 import {
   addSpeechListener,
   nativeStreamingAvailable,
@@ -1932,21 +1933,101 @@ export function PronunciationPractice({
     </View>
   ) : null;
 
+  // The live microphone signal: a pulsing status dot and five level bars that
+  // follow the learner's voice. Lessons and mission voice gates share it.
+  const signal = (
+    <View style={styles.signalRow}>
+      <Animated.View
+        style={[
+          styles.statusDot,
+          {
+            backgroundColor: statusColor,
+            opacity: statusIsAnimated
+              ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.55, 1] })
+              : statusIsActive ? 0.9 : 1,
+            transform: [{
+              scale: statusIsAnimated
+                ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.35] })
+                : 1,
+            }],
+          },
+        ]}
+      />
+      <View style={styles.wave} accessibilityElementsHidden>
+        {[12, 22, 30, 22, 12].map((height, index) => (
+          <Animated.View
+            key={`${height}-${index}`}
+            style={[
+              styles.waveBar,
+              {
+                backgroundColor: statusColor,
+                height,
+                opacity: statusIsActive ? 1 : 0.35,
+                transform: [{
+                  scaleY: phase === 'listening' && streamingCapture.current
+                    ? Math.max(0.18, Math.min(1, liveLevel * (index % 2 ? 0.8 : 1.1)))
+                    : statusIsAnimated ? waveAnimations[index] : statusIsActive ? 0.7 : 0.27,
+                }],
+              },
+            ]}
+          />
+        ))}
+      </View>
+    </View>
+  );
+
   if (missionVoiceGate) {
+    const missionStage: MissionVoiceStage = phase === 'model' ? 'asking'
+      : phase === 'ready' ? 'ready'
+      : phase === 'listening' ? 'listening'
+      : phase === 'checking' ? 'checking'
+      : phase === 'success' ? (passed ? 'passed' : 'coached')
+      : phase === 'retry' ? 'retry'
+      : 'waiting';
+    const missionMascot = phase === 'listening' || phase === 'checking' ? (
+      <Image
+        accessibilityLabel={phase === 'listening' ? 'Escuchando' : 'La profesora ardilla está calificando'}
+        resizeMode="contain"
+        source={phase === 'listening' ? LISTENING_MASCOT_FRAMES[listeningFrame] : GRADING_MASCOT_FRAMES[gradingFrame]}
+        style={styles.missionMascot}
+      />
+    ) : null;
     return <MissionVoicePresentation
       successLabel={missionSuccessLabel}
-      asking={phase === 'model'}
+      stage={missionStage}
       imageUrl={phase === 'model' ? (audioTurns?.[0]?.turn.image_url || imageUrl || '') : imageUrl || ''}
-      listening={phase === 'listening'}
-      checking={phase === 'checking'}
-      accepted={Boolean(result && passed)}
-      answer={phase === 'model' ? null : phrase}
-      message={phase === 'model' ? 'Escucha la pregunta.' : phase === 'listening' || phase === 'ready'
-        ? 'Lee la frase en voz alta.' : message}
+      answer={phase === 'model' ? null : missionAnswerSegments(
+        phrase,
+        expectedSyllables,
+        recognizedSyllableKeys,
+        result ? finalWordFeedback : null,
+        phase === 'listening' || phase === 'checking',
+      )}
+      message={phase === 'model' ? 'Escucha la pregunta.'
+        : phase === 'ready' ? 'Prepárate…'
+        : phase === 'listening' ? 'Lee la frase en voz alta.'
+        : result && passed ? result.feedback?.messages.es ?? '¡Muy bien!'
+        : message}
+      attemptLabel={attempt > 0 && phase !== 'success' ? `Intento ${attempt + 1}` : null}
+      signal={signal}
+      mascot={missionMascot}
+      celebrate={Boolean(result && passed)}
+      successScale={successAnimation}
+      reduceMotion={reduceMotion}
       replayDisabled={phase === 'checking' || phase === 'listening' || phase === 'ready' || reviewingRecording}
+      permissionNeeded={phase === 'permission'}
       unavailable={serviceUnavailable}
       offline={isOffline}
-      onReplay={() => phase === 'permission' ? void startListening() : void playModel()}
+      onReplay={() => {
+        if (phase === 'permission') {
+          void startListening();
+          return;
+        }
+        // Like the lesson Retry: a learner-requested attempt restores the
+        // automatic no-speech rounds instead of failing again at once.
+        noSpeechRound.current = 0;
+        void playModel();
+      }}
       onContinue={onUnavailable}
     />;
   }
@@ -2063,44 +2144,7 @@ export function PronunciationPractice({
       <View style={[styles.statusRow, missionVoiceGate ? styles.statusRowMission : null]}>
         {!isLandscape && !missionVoiceGate ? gradingMascot : null}
         <View style={styles.signalStack}>
-          <View style={styles.signalRow}>
-            <Animated.View
-              style={[
-                styles.statusDot,
-                {
-                  backgroundColor: statusColor,
-                  opacity: statusIsAnimated
-                    ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.55, 1] })
-                    : statusIsActive ? 0.9 : 1,
-                  transform: [{
-                    scale: statusIsAnimated
-                      ? pulseAnimation.interpolate({ inputRange: [0, 1], outputRange: [0.85, 1.35] })
-                      : 1,
-                  }],
-                },
-              ]}
-            />
-            <View style={styles.wave} accessibilityElementsHidden>
-              {[12, 22, 30, 22, 12].map((height, index) => (
-                <Animated.View
-                  key={`${height}-${index}`}
-                  style={[
-                    styles.waveBar,
-                    {
-                      backgroundColor: statusColor,
-                      height,
-                      opacity: statusIsActive ? 1 : 0.35,
-                      transform: [{
-                        scaleY: phase === 'listening' && streamingCapture.current
-                          ? Math.max(0.18, Math.min(1, liveLevel * (index % 2 ? 0.8 : 1.1)))
-                          : statusIsAnimated ? waveAnimations[index] : statusIsActive ? 0.7 : 0.27,
-                      }],
-                    },
-                  ]}
-                />
-              ))}
-            </View>
-          </View>
+          {signal}
         </View>
         {!isLandscape && !missionVoiceGate ? listeningMascot : null}
         <Text maxFontSizeMultiplier={compactLandscape ? 1.3 : undefined} style={[styles.message, { color: statusColor }]}>{message}</Text>
@@ -2270,6 +2314,7 @@ const styles = StyleSheet.create({
   listeningMascot: { height: 94, width: 94 },
   gradingMascotWrap: { height: 104, position: 'relative', width: 94 },
   gradingMascot: { height: 104, width: 94 },
+  missionMascot: { height: 48, width: 48 },
   statusDot: { borderRadius: 6, height: 11, marginRight: 10, width: 11 },
   wave: { alignItems: 'center', flexDirection: 'row', gap: 3, height: 28, marginRight: 8 },
   waveBar: { borderRadius: 3, width: 4 },
