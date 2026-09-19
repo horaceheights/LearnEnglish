@@ -90,7 +90,8 @@ def compile_33(base: dict, pack: dict) -> dict:
         "options": [text_option("i-am-writing-1", "I am writing."), text_option("i-am-reading-2", "I am reading.")],
         "audio_text": question, "answer_audio_text": "I am reading.", "answer_audio_speaker": "ana",
         "prompt_image_url": image("reading-answer"), "spanish_translation": es_question,
-        "pedagogy_note": note + "the answer view shows which action answers the question."})
+        "pedagogy_note": note + "the answer view shows which action answers the question.",
+        "audio_speaker": "luis"})
     by_stage["Listen"].append({
         "slide_id": "N7", "interaction_type": "a2t2", "prompt": "Listen and choose.", "stage": "Listen",
         "correct_option_id": "what-are-you-doing-2",
@@ -159,7 +160,8 @@ def compile_39(base: dict, pack: dict) -> dict:
             card["audio_speaker"] = speaker
         cards.append(card)
 
-    def image_to_text(sid, prompt, answer, es, asset, choices, speaker=None, note="fresh scene, answer frame"):
+    def image_to_text(sid, prompt, answer, es, asset, choices, speaker=None, note="fresh scene, answer frame",
+                      asker=None):
         options = [text_option(f"{slug(c)}-{i + 1}", c) for i, c in enumerate(choices)]
         correct = next(o["id"] for o in options if o["label"] == answer)
         card = {"slide_id": sid, "interaction_type": f"i2t{len(options)}", "prompt": prompt, "stage": "Recognize",
@@ -167,28 +169,36 @@ def compile_39(base: dict, pack: dict) -> dict:
                 "prompt_image_url": image(asset), "spanish_translation": es, "pedagogy_note": note}
         if speaker:
             card["answer_audio_speaker"] = speaker
+        if asker:
+            card["audio_speaker"] = asker
         cards.append(card)
 
-    def text_to_image(sid, text, es, correct_asset, other_asset, correct_first):
+    def text_to_image(sid, text, es, correct_asset, other_asset, correct_first, speaker=None):
         pair = [(correct_asset, True), (other_asset, False)]
         if not correct_first:
             pair.reverse()
         options = [{"id": f"{a}-{i + 1}", "image_url": image(a), "label": None} for i, (a, _) in enumerate(pair)]
         correct = next(o["id"] for o, (_, ok) in zip(options, pair) if ok)
-        cards.append({"slide_id": sid, "interaction_type": "t2i2", "prompt": text, "stage": "Recognize",
-                      "correct_option_id": correct, "options": options, "audio_text": text, "answer_audio_text": None,
-                      "prompt_image_url": "", "spanish_translation": es,
-                      "pedagogy_note": "bidirectional recognition with a fresh contrast"})
+        card = {"slide_id": sid, "interaction_type": "t2i2", "prompt": text, "stage": "Recognize",
+                "correct_option_id": correct, "options": options, "audio_text": text, "answer_audio_text": None,
+                "prompt_image_url": "", "spanish_translation": es,
+                "pedagogy_note": "bidirectional recognition with a fresh contrast"}
+        if speaker:
+            card["audio_speaker"] = speaker
+        cards.append(card)
 
-    def listen_image(sid, text, es, correct_asset, other_asset, correct_first):
+    def listen_image(sid, text, es, correct_asset, other_asset, correct_first, speaker=None):
         pair = [(correct_asset, True), (other_asset, False)]
         if not correct_first:
             pair.reverse()
         options = [{"id": f"{a}-{i + 1}", "image_url": image(a), "label": None} for i, (a, _) in enumerate(pair)]
         correct = next(o["id"] for o, (_, ok) in zip(options, pair) if ok)
-        cards.append({"slide_id": sid, "interaction_type": "a2i2", "prompt": "Listen and choose.", "stage": "Listen",
-                      "correct_option_id": correct, "options": options, "audio_text": text, "answer_audio_text": None,
-                      "prompt_image_url": "", "spanish_translation": es, "pedagogy_note": "text hidden; fresh scenes"})
+        card = {"slide_id": sid, "interaction_type": "a2i2", "prompt": "Listen and choose.", "stage": "Listen",
+                "correct_option_id": correct, "options": options, "audio_text": text, "answer_audio_text": None,
+                "prompt_image_url": "", "spanish_translation": es, "pedagogy_note": "text hidden; fresh scenes"}
+        if speaker:
+            card["audio_speaker"] = speaker
+        cards.append(card)
 
     def listen_text(sid, text, es, choices, note):
         options = [text_option(f"{slug(c)}-{i + 1}", c) for i, c in enumerate(choices)]
@@ -236,7 +246,7 @@ def compile_39(base: dict, pack: dict) -> dict:
     # Station 1 greetings and names; 2 perspective and current action; 3 age;
     # 4 origin; 5 jobs; 6 possession. Each modality revisits them in order.
     teach("L1", "Hello.", "Hola.", "hello", "male-character")
-    teach("L2", "Good morning.", "Buenos días.", "good-morning")
+    teach("L2", "Good morning.", "Buenos días.", "good-morning", "male-character")
     teach("L3", "My name is Ana.", "Me llamo Ana.", "ana-name", "ana")
     teach("L4", "We are talking.", "Estamos hablando.", "we-talking", "female-character")
     teach("L5", "I am twenty years old.", "Tengo veinte años.", "ana-age", "ana")
@@ -245,12 +255,12 @@ def compile_39(base: dict, pack: dict) -> dict:
     teach("L8", "I am a driver.", "Soy conductor.", "luis-driver", "luis")
 
     image_to_text("R1", "What is your name?", "My name is Ana.", "¿Cómo te llamas?", "ana-name",
-                  ["My name is Luis.", "My name is Ana."], "ana")
+                  ["My name is Luis.", "My name is Ana."], "ana", asker="male-character")
     image_to_text("R2", "How old are you?", "I am eighteen years old.", "¿Cuántos años tienes?", "luis-age",
                   ["I am eighteen years old.", "I am twenty years old."], "luis")
     image_to_text("R3", "What are you doing?", "I am working.", "¿Qué estás haciendo?", "working",
-                  ["I am reading.", "I am working."], "sofia")
-    text_to_image("R4", "Goodbye.", "Adiós.", "goodbye", "hello", correct_first=False)
+                  ["I am reading.", "I am working."], "sofia", asker="male-character")
+    text_to_image("R4", "Goodbye.", "Adiós.", "goodbye", "hello", correct_first=False, speaker="male-character")
     text_to_image("R5", "He is a doctor.", "Él es doctor.", "doctor", "farmer", correct_first=True)
     text_to_image("R6", "He has a car.", "Él tiene un auto.", "luis-car", "ana-teacher", correct_first=False)
     for sid, asset, answer, other in (("R7", "we-talking", "We are talking.", "They are playing."),
@@ -263,8 +273,9 @@ def compile_39(base: dict, pack: dict) -> dict:
                       "answer_audio_speaker": {"R7": "female-character", "R8": "ana"}[sid],
                       "spanish_translation": "Elige la frase correcta.", "pedagogy_note": "empty-prompt recognition"})
 
-    listen_image("N1", "Hello.", "Hola.", "hello", "goodbye", correct_first=True)
-    listen_image("N2", "Good morning.", "Buenos días.", "good-morning", "goodbye", correct_first=False)
+    listen_image("N1", "Hello.", "Hola.", "hello", "goodbye", correct_first=True, speaker="male-character")
+    listen_image("N2", "Good morning.", "Buenos días.", "good-morning", "goodbye", correct_first=False,
+                 speaker="male-character")
     origin = "Audio-to-written-English origin station; every option already taught in 3.5."
     listen_text("N3", "Where are you from?", "¿De dónde eres?",
                 ["What is your job?", "Where are you from?", "How old are you?"], "question discrimination")
@@ -297,14 +308,15 @@ def compile_39(base: dict, pack: dict) -> dict:
     listen_text("N18", "I am nineteen years old.", "Tengo diecinueve años.",
                 ["I am nineteen years old.", "I am eighteen years old.", "I am twenty years old."], ages)
 
-    speak("S1", "Good morning.", "Buenos días.", image("good-morning"))
+    speak("S1", "Good morning.", "Buenos días.", image("good-morning"), "male-character")
     speak("S2", "My name is Ana.", "Me llamo Ana.", "a1_ana.webp", "ana")
     speak("S3", "I am eighteen years old.", "Tengo dieciocho años.", "a1_luis.webp", "luis")
     speak("S4", "I am working.", "Estoy trabajando.", image("working"), "sofia")
     speak("S5", "He is a doctor.", "Él es doctor.", image("doctor"))
     speak("S6", "He has a car.", "Él tiene un auto.", image("luis-car"))
 
-    guided("U1", "___ ___ you doing?", ["What", "are"], "What are you doing?", "¿Qué estás haciendo?", "working")
+    guided("U1", "___ ___ you doing?", ["What", "are"], "What are you doing?", "¿Qué estás haciendo?", "working",
+           "male-character")
     guided("U2", "Where ___ ___ from?", ["are", "you"], "Where are you from?", "¿De dónde eres?", "ana-mexico")
     guided("U3", "That is ___ ___.", ["his", "car"], "That is his car.", "Ese es el auto de él.", "luis-car")
     guided("U4", "She is ___ ___.", ["a", "farmer"], "She is a farmer.", "Ella es agricultora.", "farmer")
@@ -345,40 +357,40 @@ DESCRIBES = "Escucha la frase y toca a la persona que describe."
 BEATS = [
     ("M01", "arrivals", "courtyard", "guided-search", WHO_SAYS,
      "En la mañana llegan los voluntarios: descubre quién saluda, quién se va y qué hace cada persona.",
-     [("Good morning.", "Buenos días."), ("Goodbye.", "Adiós."),
-      ("I am reading.", "Estoy leyendo."), ("I am playing.", "Estoy jugando.")]),
+     [("Good morning.", "Buenos días.", "ana"), ("Goodbye.", "Adiós.", "male-character"),
+      ("I am reading.", "Estoy leyendo.", "luis"), ("I am playing.", "Estoy jugando.", "male-character")]),
     ("M02", "arrivals", "registration", "crowd-search", WHO_SAYS,
      "En el registro, descubre quién pregunta, quién se presenta y quién llega.",
-     [("What is your name?", "¿Cómo te llamas?"), ("My name is Diego.", "Me llamo Diego."),
-      ("Hello.", "Hola."), ("We are talking.", "Estamos hablando.")]),
+     [("What is your name?", "¿Cómo te llamas?", "ana"), ("My name is Diego.", "Me llamo Diego.", "diego"),
+      ("Hello.", "Hola.", "sofia"), ("We are talking.", "Estamos hablando.", "female-character")]),
     ("M03", "welcome", "flags", "crowd-search", WHO_SAYS,
      "En la bienvenida internacional, cada invitado dice de dónde es.",
-     [("I am from Mexico.", "Soy de México."), ("I am Canadian.", "Soy canadiense."),
-      ("I am from Spain.", "Soy de España."), ("I am American.", "Soy estadounidense.")]),
+     [("I am from Mexico.", "Soy de México.", "ana"), ("I am Canadian.", "Soy canadiense.", "sofia"),
+      ("I am from Spain.", "Soy de España.", "diego"), ("I am American.", "Soy estadounidense.", "luis")]),
     ("M04", "welcome", "ages", "crowd-search", WHO_SAYS,
      "En la mesa juvenil, cada participante dice su edad.",
-     [("I am thirteen years old.", "Tengo trece años."), ("I am seventeen years old.", "Tengo diecisiete años."),
-      ("I am twelve years old.", "Tengo doce años."), ("I am fifteen years old.", "Tengo quince años.")]),
+     [("I am thirteen years old.", "Tengo trece años.", "female-character"), ("I am seventeen years old.", "Tengo diecisiete años.", "male-character"),
+      ("I am twelve years old.", "Tengo doce años.", "female-character"), ("I am fifteen years old.", "Tengo quince años.", "male-character")]),
     ("M05", "prep", "kitchen", "action-hunt", WHO_SAYS,
      "En la cocina, distingue quién habla de sí mismo, quién le habla a otra persona y quiénes juegan juntos.",
-     [("I am cooking.", "Estoy cocinando."), ("You are writing.", "Estás escribiendo."),
-      ("I am writing.", "Estoy escribiendo."), ("We are playing.", "Estamos jugando.")]),
+     [("I am cooking.", "Estoy cocinando.", "sofia"), ("You are writing.", "Estás escribiendo.", "diego"),
+      ("I am writing.", "Estoy escribiendo.", "luis"), ("We are playing.", "Estamos jugando.", "female-character")]),
     ("M06", "prep", "handoffs", "crowd-search", WHO_SAYS,
      "Antes de la cena, descubre quién habla de lo suyo, quién entrega algo y quiénes tienen libros.",
-     [("This is my book.", "Este es mi libro."), ("This is your phone.", "Este es tu teléfono."),
-      ("I have a bike.", "Tengo una bicicleta."), ("We have two books.", "Tenemos dos libros.")]),
+     [("This is my book.", "Este es mi libro.", "ana"), ("This is your phone.", "Este es tu teléfono.", "luis"),
+      ("I have a bike.", "Tengo una bicicleta.", "sofia"), ("We have two books.", "Tenemos dos libros.", "male-character")]),
     ("M07", "guests", "jobs-v2", "crowd-search", WHO_SAYS,
      "Los invitados llegan del trabajo: descubre a qué se dedica cada uno.",
-     [("I am a doctor.", "Soy doctor."), ("I am a nurse.", "Soy enfermera."),
-      ("I am a farmer.", "Soy agricultor."), ("I am a driver.", "Soy conductor.")]),
+     [("I am a doctor.", "Soy doctor.", "diego"), ("I am a nurse.", "Soy enfermera.", "female-character"),
+      ("I am a farmer.", "Soy agricultor.", "male-character"), ("I am a driver.", "Soy conductor.", "luis")]),
     ("M08", "guests", "evening", "crowd-search", DESCRIBES,
      "Llegan los últimos invitados: escucha qué tiene o qué es cada persona.",
-     [("He has a car.", "Él tiene un auto."), ("She has a bike.", "Ella tiene una bicicleta."),
-      ("They are talking.", "Ellos están hablando."), ("He is a doctor.", "Él es doctor.")]),
+     [("He has a car.", "Él tiene un auto.", "teacher"), ("She has a bike.", "Ella tiene una bicicleta.", "teacher"),
+      ("They are talking.", "Ellos están hablando.", "teacher"), ("He is a doctor.", "Él es doctor.", "teacher")]),
     ("M09", "guests", "belongings", "contrast-hunt", "Escucha de quién es cada cosa y toca a esa persona.",
      "En la entrada, cada cosa tiene dueño: fíjate si es de él o de ella.",
-     [("That is her bag.", "Esa es la bolsa de ella."), ("That is his bag.", "Esa es la bolsa de él."),
-      ("That is her phone.", "Ese es el teléfono de ella."), ("That is his phone.", "Ese es el teléfono de él.")]),
+     [("That is her bag.", "Esa es la bolsa de ella.", "teacher"), ("That is his bag.", "Esa es la bolsa de él.", "teacher"),
+      ("That is her phone.", "Ese es el teléfono de ella.", "teacher"), ("That is his phone.", "Ese es el teléfono de él.", "teacher")]),
 ]
 GATES = [
     ("M10", "job", "What is your job?", "ana", "I am a doctor.", "diego", "Soy doctor.",
@@ -416,14 +428,14 @@ def compile_310(base: dict, pack: dict, reviews: dict | None) -> dict:
         if len(geometry) != len(lines):
             raise ValueError(f"{sid}: every cue needs one measured target, in cue order.")
         options, targets, cues = [], [], []
-        for index, ((text, es), measured) in enumerate(zip(lines, geometry, strict=True), 1):
+        for index, ((text, es, _speaker), measured) in enumerate(zip(lines, geometry, strict=True), 1):
             identifier = f"{asset}-{index}"
             options.append(text_option(identifier, text))
             targets.append({"id": identifier, "label_es": es, "accepted_option_ids": [identifier],
                             "rect": measured["rect"], "head_anchors": measured["head_anchors"]})
             cues.append({"id": "cue-" + identifier, "text": text, "answer_text": text,
                          "target_id": identifier, "option_id": identifier})
-        phrase = " ".join(text for text, _ in lines)
+        phrase = " ".join(text for text, _, _ in lines)
         game = {"kind": kind, "instruction_es": instruction, "validation": "ordered", "targets": targets, "cues": cues}
         if sid == "M01":
             game["tutorial_mode"] = "guided-no-fail"
@@ -431,9 +443,9 @@ def compile_310(base: dict, pack: dict, reviews: dict | None) -> dict:
                       "stage": "Listen", "prompt": phrase, "prompt_image_url": url(asset), "options": options,
                       "correct_option_id": options[0]["id"], "correct_option_ids": [o["id"] for o in options],
                       "audio_text": phrase, "answer_audio_text": None,
-                      "audio_turns": [{"text": text, "speaker_role": "teacher", "image_url": url(asset)}
-                                      for text, _ in lines],
-                      "spanish_translation": " ".join(es for _, es in lines), "pedagogy_note": purpose,
+                      "audio_turns": [{"text": text, "speaker_role": speaker, "image_url": url(asset)}
+                                      for text, _, speaker in lines],
+                      "spanish_translation": " ".join(es for _, es, _ in lines), "pedagogy_note": purpose,
                       "mission_game": game})
     # A voice gate plays only the asker's question; its answer is private grading
     # text with no model audio, so the answering guest carries no speaker role.

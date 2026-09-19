@@ -13,14 +13,17 @@ SPEAKER_FIELDS = ("audio_speaker", "answer_audio_speaker")
 
 # These fields were explicitly removed after the final image-by-image speaker
 # audit. Their absence is meaningful: the course-audio resolver must use the
-# neutral teacher rather than infer a speaker from a pictured person.
+# neutral teacher rather than infer a speaker from a pictured person. The
+# 2026-09-18 gender-matched voice review (the pictured person who says a line
+# is voiced by a man or a woman to match) recast 23 of the original 71 fields
+# after the photo sweep put a clearly speaking man or boy on those cards; the
+# rest remain neutral because a woman or an off-camera speaker says them.
 FORCED_NEUTRAL_GROUPS = {
-    "lesson-3-2-i-you-and-we": [("answer_audio_speaker", "R8")],
     "lesson-3-3-am-is-and-are": [("answer_audio_speaker", "R7")],
     "lesson-4-5-morning-routine": [("audio_speaker", "L1 L4 L5")],
     "lesson-4-6-everyday-verbs": [("audio_speaker", "L3")],
     "lesson-6-7-simple-requests": [
-        ("audio_speaker", "A1-A3 L1 L2 R1 R3 R4 R7 S1 S2 U2"),
+        ("audio_speaker", "A2 L1 L2 R3 R7 S1 S2 U2"),
         ("answer_audio_speaker", "R5 U1"),
     ],
     "lesson-6-9-unit-6-review": [
@@ -31,26 +34,18 @@ FORCED_NEUTRAL_GROUPS = {
         ("audio_speaker", "L3 S5 U6"),
         ("answer_audio_speaker", "R7"),
     ],
-    "lesson-7-2-feelings-and-needs": [
-        ("audio_speaker", "L6 S1"),
-        ("answer_audio_speaker", "R8"),
-    ],
-    "lesson-7-5-clothes-for-the-weather": [("audio_speaker", "R7")],
     "lesson-7-6-hobbies-and-free-time": [
         ("audio_speaker", "U6"),
         ("answer_audio_speaker", "U8"),
     ],
-    "lesson-7-7-invitations-and-responses": [
-        ("audio_speaker", "L2 R4 S2 S6 U6"),
-        ("answer_audio_speaker", "R6 U3 U7"),
-    ],
+    "lesson-7-7-invitations-and-responses": [("answer_audio_speaker", "U7")],
     "lesson-7-8-help-and-important-phrases": [
-        ("audio_speaker", "A2 A3 L1-L6 R2-R4 S1-S5 U1 U2 U4"),
-        ("answer_audio_speaker", "R5-R7 U5 U6"),
+        ("audio_speaker", "A3 L1 L2 L4-L6 R3 R4 S1 S3-S5 U1 U2 U4"),
+        ("answer_audio_speaker", "R5 R7 U6"),
     ],
     "lesson-7-9-complete-a1-review": [
         ("audio_speaker", "A4 S6"),
-        ("answer_audio_speaker", "R8 U8"),
+        ("answer_audio_speaker", "R8"),
     ],
     "lesson-7-10-a1-final-mission": [("answer_audio_speaker", "R8 U8")],
 }
@@ -82,15 +77,35 @@ EXACT_ROLE_CHANGES = {
         "female-character",
         "male-character",
     ),
+    # 2026-09-18 gender-matched voice review: the recorded picture shows Ana,
+    # a woman, or the asker rather than the voiced man. None means the field is
+    # removed and the answer inherits the card's prompt speaker.
+    ("lesson-3-6-professions", "U5", "answer_audio_speaker"): ("luis", None),
+    ("lesson-4-7-simple-present", "L6", "audio_speaker"): ("male-character", "ana"),
+    ("lesson-4-7-simple-present", "R6", "answer_audio_speaker"): ("male-character", "ana"),
+    ("lesson-4-7-simple-present", "S6", "audio_speaker"): ("male-character", "ana"),
+    ("lesson-4-7-simple-present", "U4", "audio_speaker"): ("luis", "ana"),
+    ("lesson-4-7-simple-present", "U4", "answer_audio_speaker"): ("luis", None),
+    ("lesson-4-9-unit-4-review", "U6", "audio_speaker"): ("male-character", "ana"),
+    ("lesson-4-9-unit-4-review", "U6", "answer_audio_speaker"): ("male-character", None),
+    ("lesson-6-7-simple-requests", "U7", "answer_audio_speaker"): ("female-character", None),
+    ("lesson-7-6-hobbies-and-free-time", "A3", "audio_speaker"): ("male-character", "female-character"),
+    ("lesson-7-6-hobbies-and-free-time", "L5", "audio_speaker"): ("male-character", "female-character"),
+    ("lesson-7-6-hobbies-and-free-time", "R6", "answer_audio_speaker"): ("male-character", "female-character"),
+    ("lesson-7-6-hobbies-and-free-time", "S5", "audio_speaker"): ("male-character", "female-character"),
+    ("lesson-7-6-hobbies-and-free-time", "U1", "audio_speaker"): ("male-character", "female-character"),
+    ("lesson-7-6-hobbies-and-free-time", "U5", "audio_speaker"): ("male-character", "female-character"),
 }
 
 # Lesson 1.8 adds 25 visitor-question cards with prompt and answer speaker fields.
 # Completa (Use) sentence standard adds explicit speaker assignments across Units 3, 4, 6, 7.
 # The Unit 3 parity rollout adds the 3.3 current-action speakers (+6) and recasts the
 # rebuilt 3.9 review from its fresh scenes (-4 net), each speaker pictured on its card.
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 441
+# The 2026-09-18 gender-matched voice review voices 89 more lines by the pictured man,
+# boy, woman or asker who says them (+89 net).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 530
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "0324cd45fcf5dd80cdad68eab8b6976e35e734d9dcf12eae7218c08b06a7e591"
+    "66b3b58ef52f255f4d8e5f29aa54588163cc48c81f8e5dcd974752a4964c4f18"
 )
 
 
@@ -185,8 +200,8 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         lessons = lesson_assignments()
         neutral = forced_neutral_targets()
 
-        self.assertEqual(71, len(neutral))
-        self.assertEqual(6, len(EXACT_ROLE_CHANGES))
+        self.assertEqual(48, len(neutral))
+        self.assertEqual(21, len(EXACT_ROLE_CHANGES))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(validator))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(lessons))
         self.assertEqual(validator, lessons)
@@ -203,12 +218,12 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         self.assertEqual(
             EXPECTED_FINAL_ASSIGNMENTS_SHA256,
             assignment_digest(validator),
-            "The reviewed 402-field validator assignment set changed.",
+            "The reviewed validator assignment set changed.",
         )
         self.assertEqual(
             EXPECTED_FINAL_ASSIGNMENTS_SHA256,
             assignment_digest(lessons),
-            "The reviewed 402-field lesson assignment set changed.",
+            "The reviewed lesson assignment set changed.",
         )
 
 

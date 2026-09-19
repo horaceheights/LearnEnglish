@@ -46,7 +46,8 @@ test('written voice answer fits before and after grading with replay and recover
   assert.equal(voice.sceneSlot.flex, 1);
   assert.equal(voice.sceneSlot.minHeight, 0);
   assert.equal(voice.console.flexShrink, 0);
-  assert.notEqual(voice.console.flexDirection, 'row', 'answer cannot share the icon/replay row');
+  assert.notEqual(voice.console.flexDirection, 'row', 'answer cannot share the status/replay row');
+  assert.equal(voice.statusRow.flexDirection, 'row', 'the mascot or badge sits beside the live status');
   assert.equal(voice.replay.minHeight, 48);
   for (const [width, height] of [[320,300],[360,400],[260,264],[520,350]]) {
     for (const scale of [1,1.3]) for (const actionRows of [0,1,2]) {
@@ -55,9 +56,12 @@ test('written voice answer fits before and after grading with replay and recover
       root.setGap(Yoga.GUTTER_ALL,voice.surface.gap);
       const scene=Yoga.Node.create(config);scene.setFlex(voice.sceneSlot.flex);scene.setMinHeight(0);root.insertChild(scene,0);
       const result=Yoga.Node.create(config);result.setFlexShrink(voice.console.flexShrink);
+      // Status row: the badge or mascot beside a one-line label and a two-line message.
+      const status = Math.max(voice.badge.height, (voice.label.lineHeight + voice.message.lineHeight * 2) * scale + voice.statusCopy.gap);
       // Two recovery actions mean the service is unavailable: no recording or answer panel.
-      result.setHeight(16 + 24 + 4 + (actionRows === 2 ? 0 : voice.answer.lineHeight*2*scale) + 4 + voice.message.lineHeight*2*scale
-        + actionRows * (voice.replay.minHeight + voice.console.gap));
+      result.setHeight(voice.console.padding * 2 + status
+        + (actionRows === 2 ? 0 : voice.console.gap + voice.answer.lineHeight * 2 * scale)
+        + actionRows * (voice.console.gap + voice.replay.minHeight));
       root.insertChild(result,1);root.calculateLayout(undefined,undefined,Yoga.DIRECTION_LTR);
       assert.ok(scene.getComputedHeight()>0);
       assert.ok(result.getComputedTop()+result.getComputedHeight()<=height+0.01);

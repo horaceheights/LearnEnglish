@@ -227,6 +227,9 @@ try {
   & node --test tests/celebration-mission-ui.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el contrato de interfaz de la misión de celebración.' }
 
+  & node --test tests/mission-voice-feedback.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la respuesta de voz de las misiones: sonido, micrófono y animación.' }
+
   & node --test tests/mission-chapter-break.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el cierre de acto de la misión.' }
 
