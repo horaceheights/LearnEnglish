@@ -41,7 +41,7 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "luis", "U9"),
     ],
     "lesson-3-4-age": [
-        ("audio_speaker", "luis", "L11 R7 U4 U7"),
+        ("audio_speaker", "luis", "L11 R7 U1 U3 U4 U7"),
         ("audio_speaker", "ana", "L12 N5 U2 U5 U6 U8"),
         ("answer_audio_speaker", "ana", "R7 U2"),
     ],

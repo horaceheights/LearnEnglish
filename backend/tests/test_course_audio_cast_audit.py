@@ -102,10 +102,11 @@ EXACT_ROLE_CHANGES = {
 # The Unit 3 parity rollout adds the 3.3 current-action speakers (+6) and recasts the
 # rebuilt 3.9 review from its fresh scenes (-4 net), each speaker pictured on its card.
 # The 2026-09-18 gender-matched voice review voices 89 more lines by the pictured man,
-# boy, woman or asker who says them (+89 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 530
+# boy, woman or asker who says them (+89 net). The speaking-voice review check found
+# Luis asking "How old are you?" over 3.4 U1 and U3 (+2).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 532
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "66b3b58ef52f255f4d8e5f29aa54588163cc48c81f8e5dcd974752a4964c4f18"
+    "3bdd816da761649d8933f38aed508d1c7aa06d953b603b477d14e18dfc4b4e3a"
 )
 
 
