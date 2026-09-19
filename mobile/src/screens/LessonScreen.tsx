@@ -1211,8 +1211,10 @@ export function LessonScreen({
   const correctRecognizeReplayText = useCompactRecognizeInstruction && result === 'correct'
     ? currentCard?.options.find((option) => option.id === currentCard.correct_option_id)?.label?.trim() ?? ''
     : '';
+  // A reply choice plays the line it answers ("Here you are."), so the speaker
+  // replays that line until the correct reply is chosen, then the reply itself.
   const phraseReplayText = useCompactRecognizeInstruction
-    ? correctRecognizeReplayText
+    ? correctRecognizeReplayText || promptAudio.trim()
     : visiblePromptAudio.trim();
   const phraseReplayAvailable = isPronunciation
     ? pronunciationReplayAvailable
@@ -1516,12 +1518,12 @@ export function LessonScreen({
       setPronunciationReplayRequestId((current) => current + 1);
       return;
     }
-    if (useCompactRecognizeInstruction) {
-      playAudio(phraseReplayText, 'prompt', 'answer');
+    if (useCompactRecognizeInstruction && correctRecognizeReplayText) {
+      playAudio(correctRecognizeReplayText, 'prompt', 'answer');
       return;
     }
     replayPrompt();
-  }, [isPronunciation, phraseReplayAvailable, phraseReplayText, playAudio, replayPrompt, useCompactRecognizeInstruction]);
+  }, [correctRecognizeReplayText, isPronunciation, phraseReplayAvailable, playAudio, replayPrompt, useCompactRecognizeInstruction]);
 
   const dismissSentenceCoachmark = useCallback(() => {
     setShowSentenceCoachmark(false);
@@ -2789,7 +2791,7 @@ export function LessonScreen({
         : new Set<string>();
     const localizedPrompt = useCompactListenInstruction
       ? listeningChoiceInstruction(currentCard.options)
-      : lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt);
+      : lessonHeaderPromptText(lesson.id, currentCard.stage, displayedPrompt, currentCard.options);
     return localizedPrompt.split(/(\b[A-Za-z']+\b)/g).map((part, index) => {
       const normalizedPart = part.toLowerCase();
       const isNotConceptFocus = lesson.id === 'lesson-7-is-are-not' && normalizedPart === 'not';
