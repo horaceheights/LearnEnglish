@@ -716,7 +716,9 @@ class LessonStructureTests(unittest.TestCase):
         )
 
         self.assertEqual("Recognize", card.stage)
-        self.assertEqual("Choose the words.", card.prompt)
+        # The app shows the Spanish instruction for an empty Recognize prompt;
+        # the English "Choose the words." prompt and its audio were retired.
+        self.assertEqual("", card.prompt)
         self.assertEqual(card.prompt, card.audio_text)
         self.assertEqual(
             ["One phone.", "One chair."],
