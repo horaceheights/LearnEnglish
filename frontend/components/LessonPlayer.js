@@ -58,7 +58,7 @@ const COURSE_MENU_VISUALS = {
     "unit-2": {
       title: "Places, Objects, Numbers, and Colors",
       description: "Conecta lugares con personas, acciones, objetos, numeros, colores y distancia.",
-      images: ["a1_school.webp", "a1_phone.webp", "a1_n3.webp"],
+      images: ["a1_school.webp", "a1_phone.webp", "a1_photo_number_card_03_v1.webp"],
       accent: "#dceef8",
     },
     "unit-3": {

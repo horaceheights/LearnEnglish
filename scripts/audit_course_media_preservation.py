@@ -233,7 +233,8 @@ def validate_photo_reuse_plan(plan: dict, current: dict, root: Path) -> None:
 
 def validate_photo_reuse_record(record: dict, plan: dict, current: dict, root: Path) -> None:
     new_filename=record['candidate_filename']
-    if record.get('kind') not in {'illustration-or-inset-retirement', 'user-selected-opening-cast'}:
+    if record.get('kind') not in {'illustration-or-inset-retirement', 'user-selected-opening-cast',
+                                  'contract-violating-photo-retirement'}:
         raise ValueError('Unreviewed photo replacement category.')
     if (record.get('crop_review') != 'inspected-3x2-and-centered-4x5'
             or len(record.get('old_observation', '')) < 35 or len(record.get('new_observation', '')) < 35):
