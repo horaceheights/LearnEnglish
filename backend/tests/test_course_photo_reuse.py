@@ -5,7 +5,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from scripts.audit_course_media_preservation import IMAGE_ROOTS, ROOT, lessons, read_lesson, validate_photo_reuse_plan, validate_mission_still_plan, validate_exact_diagram_plan, validate_dialogue_poster_plan
+from scripts.audit_course_media_preservation import IMAGE_ROOTS, ROOT, images, lessons, read_lesson, validate_photo_reuse_plan, validate_mission_still_plan, validate_exact_diagram_plan, validate_dialogue_poster_plan
 from scripts.install_course_photo_reuse import pointer_parent
 from scripts.render_course_stills import pack_output_directory, reviewed_reference_path
 
@@ -43,6 +43,29 @@ class PhotoReuseTests(unittest.TestCase):
                 if mutation=='reference':altered['uploaded_reference']['sha256']='0'*64
                 if mutation=='evidence':altered['target_observations']={}
                 with self.subTest(slide=record['slide_id'],mutation=mutation),self.assertRaises(ValueError):validate_record(altered,changed,ROOT)
+
+    def test_lesson_2_5_pairs_retire_every_contract_violating_photo(self):
+        current=lessons(ROOT);bound=images(current['lesson-2-5-this-and-that'])
+        proof=json.loads((ROOT/'docs/qa/course-photo-reuse-v1.json').read_text(encoding='utf-8'))['assets']
+        records={r['candidate_filename']:r for r in proof if r['kind']=='contract-violating-photo-retirement'}
+        for noun in ('book','phone','bag','chair'):
+            this,that=f'a1_photo_u2_this_{noun}_v1.webp',f'a1_photo_u2_that_{noun}_v1.webp'
+            with self.subTest(noun=noun):
+                self.assertFalse({f'a1_near-{noun}.webp',f'a1_far-{noun}.webp'} & bound)
+                self.assertLessEqual({this,that},bound)
+                near,far=records[this],records[that]
+                self.assertEqual((near['old_filename'],far['old_filename']),(f'a1_near-{noun}.webp',f'a1_far-{noun}.webp'))
+                # One state is generated and the other is an edit of exactly that output,
+                # so the pair shares room and objects and only the pointing hand differs.
+                generated,edited=sorted((near,far),key=lambda r:len(r['generation']['receipt']['references']))
+                self.assertEqual(generated['generation']['receipt']['references'],[])
+                self.assertEqual([r['sha256'] for r in edited['generation']['receipt']['references']],
+                                 [generated['generation']['receipt']['sha256']])
+                for record in (near,far):
+                    self.assertEqual(record['generation']['agent_review']['disposition'],'usable')
+                    self.assertEqual(record['human_approval'],'pending')
+        review=next(c for c in current['lesson-4-1-rooms-at-home']['cards'] if c['slide_id']=='R7')
+        self.assertEqual(review['prompt_image_url'],'a1_photo_u2_this_book_v1.webp')
 
     def test_opening_cast_is_consistent_through_lesson_one(self):
         lesson=lessons(ROOT)['lesson-1-people-actions']

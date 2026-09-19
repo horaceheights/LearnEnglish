@@ -23941,6 +23941,208 @@
         }
       },
       "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_near-chair.webp",
+      "old_sha256": "52658547285b1294a359b497eee45ebcc0078dd9ecf11cc461aa1d65565ba2ac",
+      "candidate_filename": "a1_photo_u2_this_chair_v1.webp",
+      "new_sha256": "53b0f0775887108749d62cfe3e0dbca7c2951908ad270f0a12b81f061799b1f1",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Extreme close-up of a wooden armrest and leg with no person, hand or pointing gesture; the chair is hard to recognize and there is no matching far chair, breaking the approved paired contract.",
+      "new_observation": "Viewed source and 360/250/180 px renders: steep first-person view of bare oak floorboards with two identical five-slat oak chairs. The left hand grips the near chair's backrest; that chair is complete with floor below every foot. The right hand stays low in the bottom third and its straight index finger points left at the gripped near chair, stopping short of its rear post. The identical far chair stands alone at upper center-right (about 14 percent width, feet in the upper half), un-pointed. No text, other furniture or extra hands.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/19/options/1/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v4/this-chair.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "9b53e5a6-4328-4b64-bd66-a6d3c22c263e",
+          "asset_id": "this-chair",
+          "pack_sha256": "7ea0550413c7e96aaa84ee7073fe33ea029c5b98c51551aa5a1ee3ee6ed2bbb0",
+          "started_at": "2026-09-19T19:28:09.413132+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHIS state. First-person photograph looking steeply DOWN from standing eye height at a compact patch of pale oak floorboards in a bright room; little or no wall shows. Two identical natural light-oak wooden chairs with five vertical backrest slats and a solid wooden seat, BOTH COMPLETELY inside the photo, including every leg and seat, with visible floor below every chair foot.\nNEAR chair: lower-center-left, backrest toward the learner, the LEFT hand gripping the top of its backrest. It occupies at most 45 percent of the photo height and is NOT cropped by the bottom edge.\nFAR chair: about one and a half meters beyond the near chair, in the upper-center-right, facing the learner, alone on bare floor. It is complete and sharp, at least 18 percent of the photo width, clearly smaller than the near chair, and all four of its feet stay in the upper half of the photo.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just to the right of the near chair. Its straight index finger points to the left at the NEAR chair that the left hand grips, the fingertip stopping about two finger-widths short of it; the other fingers are curled. Nothing points at the far chair.\nNo table, sofa, stool, bench, rug or any other furniture. The picture means: THIS chair, the one my left hand grips.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [],
+          "endpoint": "https://api.openai.com/v1/images/generations",
+          "human_approval": "pending",
+          "provider_request_id": "req_e153ab69209c440e8ecfa07eac3a8f9b",
+          "usage": {
+            "input_tokens": 549,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 549
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 1921
+          },
+          "cost": {
+            "usd": "0.043905",
+            "mxn": "0.7450985835",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 549,
+            "image_input_tokens": 0,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 25.85,
+          "output": "output/imagegen/unit-2-lesson-v4/this-chair.png",
+          "sha256": "6def663d2920e6285e4e07d93173535ed3e89199e915a489f3a6c66a238cb869",
+          "byte_count": 2109849
+        },
+        "agent_review": {
+          "sha256": "6def663d2920e6285e4e07d93173535ed3e89199e915a489f3a6c66a238cb869",
+          "disposition": "usable",
+          "observed_description": "Viewed source and 360/250/180 px renders: steep first-person view of bare oak floorboards with two identical five-slat oak chairs. The left hand grips the near chair's backrest; that chair is complete with floor below every foot. The right hand stays low in the bottom third and its straight index finger points left at the gripped near chair, stopping short of its rear post. The identical far chair stands alone at upper center-right (about 14 percent width, feet in the upper half), un-pointed. No text, other furniture or extra hands.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte. Revision 2 regenerates only the chair pair after the v1 THAT-chair draft was rejected; v1 and v2 together stay within the US$1.00 approval. Revision 2 sent one request, refused with HTTP 429 credit_balance_exhausted (provider request req_849e0bc4cd9a44e8bf3e74b3efb77ff1): no image and no charge. Revision 3 repeats its unchanged chair prompts after the account balance is restored. Revision 3 generated one THAT-chair draft (US$0.043995), rejected because the fingertip lay on the far chair. Revision 4 generates THIS first, with the hand low by construction, then edits only the finger direction; that-chair-alt is a pre-registered stricter fallback used only if the first edit is rejected."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_far-chair.webp",
+      "old_sha256": "95ee446fa8f5902d13c929cfdba9f5bce086b5e5caa4314b2727ec8f33adda19",
+      "candidate_filename": "a1_photo_u2_that_chair_v1.webp",
+      "new_sha256": "32285c972af50ccc767b4ed99082c2a9050760ddb61dd95221575ede3f3de177",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "A woman seen from behind points at a window while the only chair stands off to the left, off her finger line (user report 2026-09-19); no held near chair.",
+      "new_observation": "Viewed against the this-chair reference and at 360/250/180 px: identical floor, light, both five-slat oak chairs and the left hand gripping the near chair. Only the right index finger changed: the hand stays low in the bottom third and the finger now points up the bare floor; its extended line runs into the far chair's seat. About 18 percent of the photo height of empty floor separates the fingertip from the far chair's feet, so nothing overlaps or implies touch. No text or extra hands.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/11/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/13/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/19/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/25/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/31/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/33/prompt_image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v4/that-chair.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "e8990cb3-176d-4415-b7d3-3ea806049566",
+          "asset_id": "that-chair",
+          "pack_sha256": "7ea0550413c7e96aaa84ee7073fe33ea029c5b98c51551aa5a1ee3ee6ed2bbb0",
+          "started_at": "2026-09-19T19:29:19.679470+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHAT state, precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger. Keep the right hand, wrist and forearm exactly where they are, low in the photo beside the near chair, and keep everything else identical: camera, light, floor, both complete chairs and the left hand gripping the near chair. Now the straight index finger points up across the bare floor toward the seat of the FAR chair, which stays complete, sharp and unmoved. The fingertip stays low where the hand already is, with a wide band of bare floor between it and every part of the far chair; it never reaches, overlaps or touches the far chair. No extra hands, objects, text or other changes. The picture now means: THAT chair over there, while my left hand grips THIS one.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "this-chair.png",
+              "sha256": "6def663d2920e6285e4e07d93173535ed3e89199e915a489f3a6c66a238cb869",
+              "byte_count": 2109849
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_854d0a07e880460d9dc751139e96f996",
+          "usage": {
+            "input_tokens": 1961,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 425
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3333
+          },
+          "cost": {
+            "usd": "0.055573",
+            "mxn": "0.9431127111",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 425,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 26.84,
+          "output": "output/imagegen/unit-2-lesson-v4/that-chair.png",
+          "sha256": "d91a745c7e194b7c91dde4429589ff9a3af86c97cee1127993e7024d7944f03f",
+          "byte_count": 1962250
+        },
+        "agent_review": {
+          "sha256": "d91a745c7e194b7c91dde4429589ff9a3af86c97cee1127993e7024d7944f03f",
+          "disposition": "usable",
+          "observed_description": "Viewed against the this-chair reference and at 360/250/180 px: identical floor, light, both five-slat oak chairs and the left hand gripping the near chair. Only the right index finger changed: the hand stays low in the bottom third and the finger now points up the bare floor; its extended line runs into the far chair's seat. About 18 percent of the photo height of empty floor separates the fingertip from the far chair's feet, so nothing overlaps or implies touch. No text or extra hands.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte. Revision 2 regenerates only the chair pair after the v1 THAT-chair draft was rejected; v1 and v2 together stay within the US$1.00 approval. Revision 2 sent one request, refused with HTTP 429 credit_balance_exhausted (provider request req_849e0bc4cd9a44e8bf3e74b3efb77ff1): no image and no charge. Revision 3 repeats its unchanged chair prompts after the account balance is restored. Revision 3 generated one THAT-chair draft (US$0.043995), rejected because the fingertip lay on the far chair. Revision 4 generates THIS first, with the hand low by construction, then edits only the finger direction; that-chair-alt is a pre-registered stricter fallback used only if the first edit is rejected."
     }
   ]
 }
