@@ -236,7 +236,7 @@ Each A1 lesson should follow this shape:
 3. Pattern repetition: reuse the same sentence shape with swapped vocabulary.
 4. Contrast: add near distractors only after the learner has seen clear examples.
 5. Cumulative construction: combine useful earlier language with the lesson's new element to create a richer utterance or situation.
-6. Optional help: show the same contextual avatar popup when the learner asks or waits four seconds on a ready, unanswered slide. Respect the saved automatic-help opt-out; keep manual help available. See the unified help standard in the project guardrails.
+6. Optional help: show the same contextual avatar popup when the learner asks or waits four seconds on a ready, unanswered slide. Use one or two short, actionable sentences for that slide, with no universal reminder paragraph. Mention replay only where available and useful. Respect the saved automatic-help opt-out; keep manual help available. See the unified help standard in the project guardrails.
 
 Current restructuring target:
 
