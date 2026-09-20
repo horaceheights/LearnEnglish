@@ -1,0 +1,13 @@
+.popup { box-sizing: border-box; border: 2px solid #d9b873; border-radius: 24px; background: #fffaf1; color: #24333a; padding: 18px; width: min(620px, calc(100vw - 28px)); max-height: calc(100dvh - 28px); box-shadow: 0 6px 24px #1c2f3740; }
+.popup::backdrop { background: #1a1f2275; }
+.popup[open] { display: flex; flex-direction: column; }
+.body { display: flex; align-items: center; gap: 12px; overflow-y: auto; min-height: 0; }
+.mascot { width: 90px; height: 112px; object-fit: contain; flex-shrink: 0; }
+.copy { flex: 1; min-width: 0; }
+.copy h2 { font-size: 22px; margin: 0 0 6px; }
+.copy p { font-size: 15px; line-height: 1.4; margin: 0; color: #46545a; }
+.actions { display: flex; justify-content: flex-end; flex-wrap: wrap; flex-shrink: 0; gap: 8px; margin-top: 12px; }
+.actions button { min-height: 48px; min-width: 104px; background: #287f68; color: white; border: 2px solid #287f68; border-radius: 13px; padding: 8px 15px; font-size: 14px; font-weight: 800; cursor: pointer; }
+.actions .secondary { background: #fffaf1; color: #287f68; }
+.helpIcon { display: grid; place-items: center; width: 48px; height: 48px; margin-top: 10px; border: 2px solid #dab277; border-radius: 50%; background: white; font-size: 16px; font-weight: 900; }
+@media (max-width: 380px), (max-height: 450px) { .mascot { width: 58px; height: 88px; } }

@@ -28,7 +28,7 @@ export function lessonHarness(viewport, options = {}) {
   const react = { useState: state, useRef: value => state({ current: value })[0], useMemo: fn => fn(), useCallback: fn => fn, useEffectEvent: fn => fn,
     useEffect: () => {}, useLayoutEffect: () => {}, Fragment: 'Fragment' };
   class Value { setValue() {} interpolate() { return 0; } getTranslateTransform() { return []; } }
-  const rn = { View: 'View', Text: 'Text', Pressable: 'Pressable', ScrollView: 'ScrollView', Image: 'Image',
+  const rn = { Modal: props => props.visible ? element('Fragment', { children: props.children }) : null, View: 'View', Text: 'Text', Pressable: 'Pressable', ScrollView: 'ScrollView', Image: 'Image',
     useWindowDimensions: () => viewport, StyleSheet: { create: x => x, absoluteFill: { position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 } },
     Animated: { Value, ValueXY: Value, View: 'View', Text: 'Text' }, Easing: {}, PanResponder: { create: () => ({ panHandlers: {} }) } };
   function load(file) {
@@ -51,6 +51,7 @@ export function lessonHarness(viewport, options = {}) {
       if (id === 'react') return react;
       if (id === 'react/jsx-runtime') return { jsx: element, jsxs: element, Fragment: 'Fragment' };
       if (id === 'react-native') return rn;
+      if (id === 'react-native-safe-area-context') return { useSafeAreaInsets: () => options.insets || { top: 0, bottom: 0, left: 0, right: 0 } };
       if (id === '@expo/vector-icons') return { Ionicons: p => element('View', { style: { width: p.size, height: p.size } }) };
       if (/\.(wav|mp3|webp|png)$/.test(id)) return id;
       if (id === 'expo-file-system') return { File: class {} };
