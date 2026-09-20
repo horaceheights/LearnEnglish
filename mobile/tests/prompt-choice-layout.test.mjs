@@ -17,6 +17,11 @@ const styles = vm.runInNewContext(source.slice(source.lastIndexOf('const styles 
   StyleSheet: { create: x => x }, LESSON_MEDIA_FRAME_STYLE: {}, LESSON_MEDIA_VIEWPORT_STYLE: {},
 });
 const labels = ['He is a boy.', 'She is a girl.', 'He is a man.'];
+const familyActions = JSON.parse(fs.readFileSync(new URL('../src/generated/lesson-6-family-actions.json', import.meta.url), 'utf8'));
+const sentenceBanks = familyActions.cards
+  .filter(card => card.stage === 'Recognize' && card.options.length === 3
+    && card.options.every(option => !option.image_url && option.label.includes(' ')))
+  .map(card => card.options.map(option => option.label));
 const rowHeight = (height, width, scale, feedback = 58, choices = labels) => promptChoiceRowHeight({
   availableHeight: height, feedbackHeight: feedback, labels: choices, textWidth: width - 92,
   fontSize: 28, fontScale: Math.min(scale, 1.15), minimumFontSize: 16, preferredRowHeight: 94,
@@ -29,10 +34,12 @@ test('short sentences reserve one line without reducing their allowed wrapping',
   assert.match(source, /minimumFontScale=\{textOptionMinimumFontScale\}/);
 });
 
-test('native Yoga gives the screenshot pattern at least double its former 70dp frame', () => {
+test('native Yoga fits the screenshot pattern and authored family-action sentence banks', () => {
+  assert.equal(sentenceBanks.length, 4);
+  for (const choices of [labels, ...sentenceBanks])
   for (const width of [360, 393, 430]) for (const height of [400, 434, 500]) {
     for (const scale of [1, 1.15, 1.3]) for (const feedback of [58, 90]) {
-      const row = rowHeight(height, width, scale, feedback);
+      const row = rowHeight(height, width, scale, feedback, choices);
       const image = Math.min(230, height - row * 3 - 20 - feedback - 30);
       const minimumImage = height - feedback >= 334 ? 140 : 110;
       assert.ok(image >= minimumImage - 0.01, `${width}/${height}/${scale}/${feedback}: ${image}`);

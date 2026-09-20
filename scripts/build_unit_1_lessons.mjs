@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const outputDir = join(process.cwd(), 'backend', 'lessons', 'unit_1');
 const stageOrder = ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'];
@@ -79,6 +80,7 @@ function distinctEntries(entries, entry, count, { matchOptionFamily = false } = 
   const seen = new Set([entry.image]);
   const result = [];
   for (const candidate of entries) {
+    if (entry.choiceForm && candidate.choiceForm !== entry.choiceForm) continue;
     if (matchOptionFamily && entry.optionFamily && candidate.optionFamily !== entry.optionFamily) continue;
     if (seen.has(candidate.image)) continue;
     seen.add(candidate.image);
@@ -318,16 +320,19 @@ const lesson15 = buildLesson({
 
 const l16 = [
   { prompt: 'Playing', image: assets.childrenPlaying, translation: 'Jugando' },
-  { prompt: 'The children are playing.', image: assets.childrenPlaying, translation: 'Los niños están jugando.' },
+  { prompt: 'The children are playing.', image: assets.childrenPlaying, translation: 'Los niños están jugando.', textDistractors: ['The father is working.', 'The mother is cooking.'] },
   { prompt: 'Studying', image: assets.brotherStudying, translation: 'Estudiando' },
-  { prompt: 'A brother is studying.', image: assets.brotherStudying, translation: 'Un hermano está estudiando.' },
+  { prompt: 'A brother is studying.', image: assets.brotherStudying, translation: 'Un hermano está estudiando.', textDistractors: ['The children are playing.', 'The parents are talking.'] },
   { prompt: 'Working', image: assets.fatherWorking, translation: 'Trabajando' },
-  { prompt: 'The father is working.', image: assets.fatherWorking, translation: 'El padre está trabajando.' },
+  { prompt: 'The father is working.', image: assets.fatherWorking, translation: 'El padre está trabajando.', textDistractors: ['A brother is studying.', 'The mother is cooking.'] },
   { prompt: 'Cooking', image: assets.motherCooking, translation: 'Cocinando' },
-  { prompt: 'The mother is cooking.', image: assets.motherCooking, translation: 'La madre está cocinando.' },
+  { prompt: 'The mother is cooking.', image: assets.motherCooking, translation: 'La madre está cocinando.', textDistractors: ['The parents are talking.', 'The children are playing.'] },
   { prompt: 'Talking', image: assets.parentsTalking, translation: 'Hablando' },
   { prompt: 'The parents are talking.', image: assets.parentsTalking, translation: 'Los padres están hablando.' },
 ];
+// Word introductions and their sentence expansions share images. Filter by form
+// before deduplicating those images so sentence banks retain the full wording.
+for (const entry of l16) entry.choiceForm = entry.prompt.includes(' ') ? 'sentence' : 'word';
 const lesson16 = buildLesson({
   id: 'lesson-6-family-actions', number: '1.6', title: 'Family Actions',
   goal: 'Follow family members through playing, studying, working, cooking, and talking.',
@@ -1402,10 +1407,14 @@ function applyConstructionProgression(lesson) {
   lesson.content_revision = 2;
 }
 
-for (const [filename, lesson] of lessons) {
-  if (process.argv.includes('--standard-only') && lesson.experience_type === 'mission') continue;
-  applyConstructionProgression(lesson);
-  writeFileSync(join(outputDir, filename), `${JSON.stringify(lesson, null, 2)}\n`, 'utf8');
-  const counts = Object.fromEntries(stageOrder.map((stage) => [stage, lesson.cards.filter((card) => card.stage === stage).length]));
-  console.log(`${lesson.sub_lesson_id} ${lesson.sub_lesson_title}: ${lesson.cards.length} cards ${JSON.stringify(counts)}`);
+// Importing the authored lesson for parity checks must never regenerate files.
+export { lesson16 };
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  for (const [filename, lesson] of lessons) {
+    if (process.argv.includes('--standard-only') && lesson.experience_type === 'mission') continue;
+    applyConstructionProgression(lesson);
+    writeFileSync(join(outputDir, filename), `${JSON.stringify(lesson, null, 2)}\n`, 'utf8');
+    const counts = Object.fromEntries(stageOrder.map((stage) => [stage, lesson.cards.filter((card) => card.stage === stage).length]));
+    console.log(`${lesson.sub_lesson_id} ${lesson.sub_lesson_title}: ${lesson.cards.length} cards ${JSON.stringify(counts)}`);
+  }
 }

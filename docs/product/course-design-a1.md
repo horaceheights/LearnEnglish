@@ -52,6 +52,7 @@ Lessons:
 4. 1.4 Children and Siblings: `a family`, `baby/babies`, `child/children`, `brother/brothers`, `sister/sisters`
 5. 1.5 Parents and Grandparents: `an`, `adult/adults`, `father`, `mother`, `parents`, `grandfather`, `grandmother`, `grandparents`, `grandchildren`
 6. 1.6 Family Actions: `playing`, `studying`, `working`, `cooking`, `talking`
+   - Keep single-word action practice and full subject/action practice in separate answer banks. Sentence alternatives have comparable structure and reading load, with varied learned subjects and actions; never place a lone action word beside a complete sentence. See the choice-coherence guardrail.
 7. 1.7 What They Are Not Doing: use `not` to contrast each visible action with a true negative statement
 8. 1.8 Who Is He? Who Are They?: identity questions and short answers
 9. 1.9 Unit 1 Story Review: comprehensive retrieval with no new vocabulary and only newly authored scenes and combinations

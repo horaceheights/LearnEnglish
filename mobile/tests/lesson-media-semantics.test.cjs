@@ -16,7 +16,10 @@ const unitOneBuilderPath = path.join(repositoryRoot, 'scripts', 'build_unit_1_le
 const authoredUnitOne = [];
 const unitOneBuilderSource = fs.readFileSync(unitOneBuilderPath, 'utf8')
   .replace(/^import \{ readFileSync, writeFileSync \} from 'node:fs';\r?\n/m, '')
-  .replace(/^import \{ join \} from 'node:path';\r?\n/m, '');
+  .replace(/^import \{ join, resolve \} from 'node:path';\r?\n/m, '')
+  .replace(/^import \{ fileURLToPath \} from 'node:url';\r?\n/m, '')
+  .replace(/^export \{ lesson16 \};\r?\n/m, '')
+  .replace(/fileURLToPath\(import\.meta\.url\)/g, 'unitOneBuilderPath');
 // Exercise the real authoring source without generating or changing any files.
 vm.runInNewContext(unitOneBuilderSource, {
   readFileSync: (filename, encoding) => {
@@ -29,7 +32,9 @@ vm.runInNewContext(unitOneBuilderSource, {
     authoredUnitOne.push(JSON.parse(contents));
   },
   join: path.join,
-  process: { cwd: () => repositoryRoot, argv: [] },
+  resolve: path.resolve,
+  unitOneBuilderPath,
+  process: { cwd: () => repositoryRoot, argv: [process.execPath, unitOneBuilderPath] },
   console: { log: () => {} },
 }, { filename: unitOneBuilderPath, timeout: 2000 });
 assert.equal(authoredUnitOne.length, 9, 'source-level QA must capture lessons 1.2 through 1.10 without disk writes');

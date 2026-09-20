@@ -1782,6 +1782,41 @@ def validate_text_tile_option_limit() -> list[str]:
     return errors
 
 
+def validate_answer_choice_forms(lessons=None) -> list[str]:
+    """Reject content-word labels competing with sentences in one answer bank.
+
+    This is a structural floor, not a substitute for reviewing meaning, reading
+    load, or subject/action variety. Complete conversational utterances (Hello,
+    Goodbye) and imperatives (Stop) are not isolated vocabulary labels. Token
+    banks used to construct an answer and mission hotspots are not answer sets.
+    """
+    errors: list[str] = []
+    utterances = {"hello", "hi", "goodbye", "bye", "thanks", "yes", "no", "sorry", "please", "stop"}
+    sentence_frame = re.compile(
+        r"\b(?:am|is|are|was|were|can|cannot|could|would|should|must)\b"
+        r"|^(?:i|you|he|she|it|we|they)\s+\w+", re.IGNORECASE
+    )
+    for lesson in (LESSONS.values() if lessons is None else lessons):
+        for card in lesson.cards:
+            if (card.stage not in {"Recognize", "Listen", "Use"}
+                    or len(card.options) < 2
+                    or is_completion_interaction(card.interaction_type)
+                    or getattr(card, "mission_game", None) is not None):
+                continue
+            labels = [str(option.label or "").strip() for option in card.options]
+            tokens = [re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?", label) for label in labels]
+            words = [label for label, parts in zip(labels, tokens)
+                     if len(parts) == 1 and parts[0].lower() not in utterances]
+            sentences = [label for label, parts in zip(labels, tokens)
+                         if len(parts) > 1 and sentence_frame.search(label)]
+            if words and sentences:
+                errors.append(
+                    f"{lesson.id} {card.slide_id} mixes standalone word choices {words!r} "
+                    f"with sentence choices {sentences!r}; keep each answer bank in one form."
+                )
+    return errors
+
+
 def validate_family_adult_ambiguity(lessons=None) -> list[str]:
     """Require supported correct meanings and reject truth-compatible distractors.
 
@@ -2853,6 +2888,7 @@ def main(argv: list[str] | None = None) -> int:
     errors = [
         *validate_option_ids(),
         *validate_text_tile_option_limit(),
+        *validate_answer_choice_forms(),
         *validate_duplicate_option_images(),
         *validate_family_adult_ambiguity(),
         *validate_mission_cue_ambiguity(),
