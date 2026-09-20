@@ -11,4 +11,3 @@ Verified:
 - Backend: 365 tests passed. Frontend: 18 tests and production build passed. Mobile: complete Preview preflight passed, including course integrity, interaction suites, TypeScript and Android export.
 
 Device follow-up in the exact published Preview: repeat both triggers, opt out, acknowledge the reminder, navigate to another slide, and reopen help. Check portrait/landscape rotation and TalkBack/VoiceOver focus on an installed device. Browser and Yoga evidence do not replace installed Android/iOS validation.
-
