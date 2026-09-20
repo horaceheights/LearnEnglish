@@ -9,6 +9,11 @@ COURSE_AUDIO_MODEL_ID = "eleven_multilingual_v2"
 COURSE_AUDIO_OUTPUT_FORMAT = "mp3_44100_128"
 COURSE_AUDIO_SEED = 1101
 
+# One user-reviewed standalone correction, authorized only by the exact
+# checksum and card bindings in course_audio_receipts.py.
+PLAYING_CORRECTION_MODEL_ID = "eleven_flash_v2"
+PLAYING_CORRECTION_SPEED = 0.85
+
 NARRATOR_VOICE_IDS = {
     "female-teacher": "XfNU2rGpBa01ckF309OY",  # Nichalia
     "female-warm": "EXAVITQu4vr4xnSDxMaL",  # Sarah

@@ -351,6 +351,14 @@ const lesson16 = buildLesson({
   ],
 });
 
+// Keep the corrected standalone take through future Unit 1 authoring exports.
+for (const card of lesson16.cards) {
+  if (card.audio_text === 'Playing') {
+    card.audio_revision = 2;
+    card.answer_audio_revision = 2;
+  }
+}
+
 const l17 = [
   { prompt: 'The father is talking.', image: assets.fatherTalking, translation: 'El padre está hablando.' },
   { prompt: 'He is not cooking.', image: assets.fatherTalking, translation: 'Él no está cocinando.', recognizePrompt: 'He is not cooking.', recognizeAudio: 'He is not cooking.', choice: 'He is not cooking.', textDistractors: ['He is cooking.'], distractors: [{ prompt: 'She is cooking.', image: assets.motherCooking }], answer: 'He is not cooking. He is talking.' },
