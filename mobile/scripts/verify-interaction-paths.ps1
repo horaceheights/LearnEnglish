@@ -188,6 +188,8 @@ try {
 
   & node tests/correct-answer-audio.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la confirmación hablada después de una respuesta correcta.' }
+  & node --test tests/lesson-audio-player-lifecycle.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la reutilización del reproductor de audio durante la lección.' }
   & node tests/audio-placeholder.test.cjs (Join-Path $outputDirectory 'config.js')
   if ($LASTEXITCODE -ne 0) { throw 'Fallaron las pruebas de espacios en audio.' }
 
