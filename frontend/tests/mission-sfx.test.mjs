@@ -24,7 +24,7 @@ const staticPaths = [
   "/sfx/speaking-turn-v3.mp3",
   "/sfx/voice-confirm-v2.mp3",
   "/sfx/mission-finale-v2.mp3",
-  "/sfx/gentle-miss-v2.mp3",
+  "/sfx/try-again-v3.mp3",
 ];
 
 test("mission sound effects resolve only to versioned local assets", () => {

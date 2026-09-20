@@ -1,6 +1,6 @@
 import { awaitingConstructionRetry } from '../constructionTeaching';
 import { SentenceConstruction } from '../components/SentenceConstruction';
-import { isSentenceConstruction, isWordConstruction, sentenceIsCorrect } from '../sentenceConstruction';
+import { isWordConstruction, sentenceIsCorrect } from '../sentenceConstruction';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
@@ -49,6 +49,7 @@ import { MissionJourney } from '../components/MissionJourney';
 import { MissionKickoff } from '../components/MissionKickoff';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
+import { HELP_STORAGE_PREFIX, useContextualHelp } from '../hooks/useContextualHelp';
 import { COMPLETION_RETRY_HELP, lessonHelpText } from '../lessonHelp';
 import { LessonLandscapeRail } from '../components/LessonLandscapeRail';
 import { isPhoneLandscape, landscapePromptIsWide } from '../lessonViewportLayout';
@@ -116,16 +117,13 @@ import { spanishTranslationFor } from '../sentenceTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
-const TRY_AGAIN_CUE = require('../../assets/sfx/gentle-miss-v2.mp3');
+const TRY_AGAIN_CUE = require('../../assets/sfx/try-again-v3.mp3');
 const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
 const SUCCESS_CHIME_VOLUME = 0.4;
 const TRY_AGAIN_CUE_VOLUME = 0.35;
 void Promise.all([preload(SUCCESS_CHIME), preload(TRY_AGAIN_CUE)]).catch((preloadError) => {
   captureDiagnosticError(preloadError, 'feedback_audio_preload', {}, 'warning');
 });
-const SENTENCE_HELP_STORAGE_PREFIX = 'spanglish-sentence-help-v3';
-const CONSTRUCTION_HELP_STORAGE_PREFIX = 'spanglish-construction-help-v1';
-const HELP_DISPLAY_MS = 5000;
 const LESSON_RESUME_STORAGE_PREFIX = 'spanglish-lesson-resume-v1';
 const COURSE_AUDIO_FALLBACK_MS = 12000;
 const OFFLINE_ADVANCE_DELAY_MS = 900;
@@ -362,17 +360,10 @@ export function LessonScreen({
   const [missionCueUnavailable, setMissionCueUnavailable] = useState(false);
   const [missionChapterBreak, setMissionChapterBreak] = useState<MissionChapterBreakContent | null>(null);
   const missionChapterBreakFromRef = useRef<number | null>(null);
-  const [showHelp, setShowHelp] = useState(false);
   const [showMissionLandscapeMenu, setShowMissionLandscapeMenu] = useState(false);
   const [grammarCompleted, setGrammarCompleted] = useState(false);
   const [qaAutoAdvance, setQaAutoAdvance] = useState(true);
   const [cardRunId, setCardRunId] = useState(0);
-  const [sentenceHelpStatus, setSentenceHelpStatus] = useState<'loading' | 'pending' | 'seen'>('loading');
-  const [constructionHelpStatus, setConstructionHelpStatus] = useState<'loading' | 'pending' | 'seen'>('loading');
-  const [showConstructionCoachmark, setShowConstructionCoachmark] = useState(false);
-  const [sentenceAnchorBottom, setSentenceAnchorBottom] = useState<number | undefined>(undefined);
-  const [showSentenceCoachmark, setShowSentenceCoachmark] = useState(false);
-  const [sentenceHelpActivity, setSentenceHelpActivity] = useState(0);
   const [showSentenceTranslation, setShowSentenceTranslation] = useState(false);
   const [promptAutoplayFinished, setPromptAutoplayFinished] = useState(false);
   const [activeAudioSequence, setActiveAudioSequence] = useState<CourseAudioTurnPlayback[] | null>(null);
@@ -385,8 +376,6 @@ export function LessonScreen({
     previouslyCompleted && !qaMode ? 'prompt' : 'standard',
   );
   const [reviewStageBounds, setReviewStageBounds] = useState<{ end: number; start: number } | null>(null);
-  const sentenceHelpStorageKey = `${SENTENCE_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
-  const constructionHelpStorageKey = `${CONSTRUCTION_HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`;
   const lessonResumeStorageKey = `${LESSON_RESUME_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}:${lessonId}`;
   const lessonResumePersistence = useMemo(
     () => createLessonResumePersistence(AsyncStorage, lessonResumeStorageKey),
@@ -490,43 +479,6 @@ export function LessonScreen({
     offlinePronunciationPromptedRef.current = false;
     setOfflinePronunciationAccepted(false);
   }, [lessonId]);
-
-  useEffect(() => {
-    if (qaMode) {
-      setSentenceHelpStatus('pending');
-      return undefined;
-    }
-
-    let active = true;
-    setSentenceHelpStatus('loading');
-    AsyncStorage.getItem(sentenceHelpStorageKey)
-      .then((stored) => {
-        if (active) setSentenceHelpStatus(stored === 'seen' ? 'seen' : 'pending');
-      })
-      .catch(() => {
-        if (active) setSentenceHelpStatus('pending');
-      });
-    return () => { active = false; };
-  }, [qaMode, sentenceHelpStorageKey]);
-
-  // The Use section changes mechanic partway through: guided blanks become a
-  // full construction. The first one gets a short one-time explanation.
-  useEffect(() => {
-    if (qaMode) {
-      setConstructionHelpStatus('seen');
-      return undefined;
-    }
-    let active = true;
-    setConstructionHelpStatus('loading');
-    AsyncStorage.getItem(constructionHelpStorageKey)
-      .then((stored) => {
-        if (active) setConstructionHelpStatus(stored === 'seen' ? 'seen' : 'pending');
-      })
-      .catch(() => {
-        if (active) setConstructionHelpStatus('pending');
-      });
-    return () => { active = false; };
-  }, [constructionHelpStorageKey, qaMode]);
 
   const ensureAudioPreloaded = useCallback((source: AudioSource) => {
     if (isOffline && isRemoteAudioSource(source)) {
@@ -1467,19 +1419,22 @@ export function LessonScreen({
     if (closing) setMissionChapterBreak(closing);
   }, [cardIndex, lesson]);
 
-  const updateSentenceAnchor = useCallback((onMeasured?: () => void) => {
-    const target = promptTapTargetRef.current;
-    if (!target) {
-      setSentenceAnchorBottom(undefined);
-      onMeasured?.();
-      return;
-    }
-
-    target.measureInWindow((_x, y, _width, height) => {
-      setSentenceAnchorBottom(y + height);
-      onMeasured?.();
-    });
-  }, []);
+  const help = useContextualHelp({
+    cardKey: `${lessonId}:${cardIndex}:${cardRunId}`,
+    storageKey: `${HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`,
+    storage: AsyncStorage,
+    ready: Boolean(currentCard) && isAppActive && cardAudio.ready && !isPageTurning
+      && !sectionBriefing && !missionChapterBreak && !isCompletedSectionPicker && !isComplete
+      && !showMissionLandscapeMenu && !showSentenceTranslation && !isPronunciation && !isAutomaticSingleCard
+      && !courseAudioPlaybackStatus.playing && !missionCuePlayerStatus.playing
+      && currentCard!.options.length > 1 && result === null && !attemptedCards.has(cardIndex)
+      && (isMissionGameCard ? missionInteractionReady : !promptAudio.trim() || promptAutoplayFinished),
+  });
+  const showHelp = help.visible;
+  const helpVisibleRef = useRef(showHelp);
+  helpVisibleRef.current = showHelp;
+  const helpAdvancePendingRef = useRef<string | null>(null);
+  const helpCardKey = `${lessonId}:${cardIndex}:${cardRunId}`;
 
   const openSentenceTranslation = useCallback(() => {
     if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
@@ -1505,15 +1460,13 @@ export function LessonScreen({
 
   const handlePromptPress = useCallback(() => {
     if (useCompactHeaderInstruction || !visiblePromptAudio.trim()) return;
-    setSentenceHelpActivity((current) => current + 1);
-    setShowSentenceCoachmark(false);
+    help.interact();
     openSentenceTranslation();
-  }, [openSentenceTranslation, useCompactHeaderInstruction, visiblePromptAudio]);
+  }, [help.interact, openSentenceTranslation, useCompactHeaderInstruction, visiblePromptAudio]);
 
   const handleReplayButtonPress = useCallback(() => {
     if (!phraseReplayAvailable) return;
-    setSentenceHelpActivity((current) => current + 1);
-    setShowSentenceCoachmark(false);
+    help.interact();
     if (isPronunciation) {
       setPronunciationReplayRequestId((current) => current + 1);
       return;
@@ -1523,74 +1476,16 @@ export function LessonScreen({
       return;
     }
     replayPrompt();
-  }, [correctRecognizeReplayText, isPronunciation, phraseReplayAvailable, playAudio, replayPrompt, useCompactRecognizeInstruction]);
-
-  const dismissSentenceCoachmark = useCallback(() => {
-    setShowSentenceCoachmark(false);
-    setSentenceHelpStatus('seen');
-  }, []);
-
-  const suppressSentenceCoachmark = useCallback(() => {
-    setShowSentenceCoachmark(false);
-    setSentenceHelpStatus('seen');
-    if (!qaMode) {
-      void AsyncStorage.setItem(sentenceHelpStorageKey, 'seen').catch((storageError) => {
-        captureDiagnosticError(storageError, 'save_sentence_help_preference', {}, 'warning');
-      });
-    }
-  }, [qaMode, sentenceHelpStorageKey]);
-
-  useEffect(() => {
-    if (
-      sentenceHelpStatus !== 'pending' ||
-      !currentCard ||
-      currentCard.options.length < 2 ||
-      isPronunciation ||
-      promptHasVisualBlank ||
-      showHelp ||
-      !promptAudio.trim() ||
-      !promptAutoplayFinished ||
-      attemptedCards.has(cardIndex)
-    ) {
-      setShowSentenceCoachmark(false);
-      return undefined;
-    }
-
-    const timer = setTimeout(
-      () => updateSentenceAnchor(() => setShowSentenceCoachmark(true)),
-      4000,
-    );
-    return () => clearTimeout(timer);
-  }, [
-    currentCard,
-    cardIndex,
-    attemptedCards,
-    isPronunciation,
-    promptAudio,
-    promptHasVisualBlank,
-    promptAutoplayFinished,
-    sentenceHelpActivity,
-    sentenceHelpStatus,
-    showHelp,
-    updateSentenceAnchor,
-  ]);
+  }, [correctRecognizeReplayText, help.interact, isPronunciation, phraseReplayAvailable, playAudio, replayPrompt, useCompactRecognizeInstruction]);
 
   useEffect(() => {
     if (translationHideTimerRef.current) clearTimeout(translationHideTimerRef.current);
     translationHideTimerRef.current = null;
     translationOpacity.stopAnimation();
     translationOpacity.setValue(0);
-    setShowHelp(false);
-    setShowSentenceCoachmark(false);
     setShowSentenceTranslation(false);
     setPronunciationReplayAvailable(false);
   }, [cardIndex, translationOpacity]);
-
-  useEffect(() => {
-    if (!showHelp) return undefined;
-    const timer = setTimeout(() => setShowHelp(false), HELP_DISPLAY_MS);
-    return () => clearTimeout(timer);
-  }, [showHelp]);
 
   useEffect(() => {
     setFurthestCardIndex((current) => Math.max(current, cardIndex));
@@ -1796,20 +1691,6 @@ export function LessonScreen({
     automaticCountdown.setValue(0);
   }, [automaticCountdown, cardIndex, cardRunId]);
 
-  useEffect(() => {
-    if (!isSentenceConstruction(currentCard) || constructionHelpStatus !== 'pending' || sectionBriefing || isPageTurning) return;
-    setShowConstructionCoachmark(true);
-  }, [constructionHelpStatus, currentCard, isPageTurning, sectionBriefing]);
-
-  const dismissConstructionCoachmark = useCallback(() => {
-    setShowConstructionCoachmark(false);
-    setConstructionHelpStatus('seen');
-    if (qaMode) return;
-    void AsyncStorage.setItem(constructionHelpStorageKey, 'seen').catch((storageError) => {
-      captureDiagnosticError(storageError, 'construction_help_persist', {}, 'warning');
-    });
-  }, [constructionHelpStorageKey, qaMode]);
-
   const commitAdvance = useCallback(() => {
     startPageTurn(1, () => {
       setCardIndex((current) => current + 1);
@@ -1823,6 +1704,10 @@ export function LessonScreen({
 
   const advance = useCallback(() => {
     if (!lesson || !cardAudioReadyRef.current) return;
+    if (helpVisibleRef.current) {
+      helpAdvancePendingRef.current = helpCardKey;
+      return;
+    }
     if (pageTurnBusy.current) return;
     if (AppState.currentState !== 'active') {
       appWasInterruptedRef.current = true;
@@ -1913,10 +1798,18 @@ export function LessonScreen({
     completedLessonMode,
     lesson,
     missionExperience,
+    helpCardKey,
     pageTurnBusy,
     qaMode,
     reviewStageBounds,
   ]);
+
+  useEffect(() => {
+    if (showHelp || !helpAdvancePendingRef.current) return;
+    const pending = helpAdvancePendingRef.current;
+    helpAdvancePendingRef.current = null;
+    if (pending === helpCardKey) advance();
+  }, [advance, helpCardKey, showHelp]);
 
   const completeAutomaticSingleCard = useCallback((awardScore = true) => {
     if (!cardAudioReadyRef.current) return;
@@ -1992,7 +1885,7 @@ export function LessonScreen({
       setMissionInteractionReady(false);
       setActiveAudioSequence(null);
       setActiveTurnImageUrl(null);
-      setShowSentenceCoachmark(false);
+      help.interact();
       return;
     }
 
@@ -2296,7 +2189,7 @@ export function LessonScreen({
 
   const evaluateChoiceSelection = (nextSelectedIds: string[]) => {
     if (!currentCard || !cardAudioReadyRef.current || result === 'correct' || awaitingConstructionRetry(currentCard, result) || correctChoiceHandledRef.current) return;
-    setShowSentenceCoachmark(false);
+    help.interact();
     const correctOptionIds = orderedCorrectOptionIds(currentCard);
     const finalOptionId = nextSelectedIds[nextSelectedIds.length - 1] || null;
     setSelectedId(finalOptionId);
@@ -3018,7 +2911,6 @@ export function LessonScreen({
     textOnlyAnswerLabels,
   );
   const imageChoiceSurface = !isPronunciation && currentCard.options.length > 0 && currentCard.options.every(option => Boolean(option.image_url));
-  const usesLessonHelpSheet = usesLessonPhoneLandscape || (isPortrait && imageChoiceSurface);
   const needsAccessibleScrolling = !useCompactPhoneLayout && !imageChoiceSurface && (fontScale > 1.3
     || viewportHeight < 300
     || needsTextAnswerScrolling);
@@ -3121,16 +3013,13 @@ export function LessonScreen({
               disabled={useCompactHeaderInstruction || !visiblePromptAudio.trim()}
               onAccessibilityAction={({ nativeEvent }) => {
                 if (nativeEvent.actionName === 'translate') {
-                  setSentenceHelpActivity((current) => current + 1);
+                  help.interact();
                   openSentenceTranslation();
                 }
               }}
               onLongPress={useCompactHeaderInstruction ? undefined : () => {
-                setSentenceHelpActivity((current) => current + 1);
+                help.interact();
                 openSentenceTranslation();
-              }}
-              onLayout={() => {
-                if (showSentenceCoachmark) updateSentenceAnchor();
               }}
               onPress={handlePromptPress}
               style={[
@@ -3273,7 +3162,7 @@ export function LessonScreen({
               accessibilityLabel={showHelp ? 'Ocultar ayuda' : 'Mostrar ayuda'}
               accessibilityRole="button"
               accessibilityState={{ expanded: showHelp }}
-              onPress={() => usesLessonHelpSheet ? setShowMissionLandscapeMenu(true) : setShowHelp((current) => !current)}
+              onPress={help.open}
               style={[
                 styles.helpButton,
                 useCompactPhoneLayout ? styles.helpButtonCompact : null,
@@ -3378,7 +3267,7 @@ export function LessonScreen({
         >
           {isSentenceCard ? (
             <SentenceConstruction key={`${currentCard.slide_id}-${cardRunId}`} card={currentCard}
-              selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={showHelp && !usesLessonPhoneLandscape}
+              selected={selectedIds} result={result} disabled={!cardAudio.ready} showHelp={false} helpOpen={showHelp}
               onChange={evaluateChoiceSelection} onReplay={handleReplayButtonPress} onRetry={resetMissionSelection} />
           ) : usesMissionGameSurface && currentCard.mission_game ? (
             <MissionGameSurface
@@ -3447,7 +3336,7 @@ export function LessonScreen({
             result={result}
             selectedId={selectedId}
             selectedIds={selectedIds}
-            showHelp={showHelp && !usesLessonHelpSheet}
+            showHelp={false}
             promptInteractionMode={promptInteractionMode}
             pronunciationReplayRequestId={pronunciationReplayRequestId}
             userId={profile.userId}
@@ -3464,7 +3353,7 @@ export function LessonScreen({
     </View>
   );
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={styles.safeArea} onTouchStart={help.touchStart} onTouchEnd={help.touchEnd} onTouchCancel={help.touchEnd}>
       <AudioConnectionNotice
         visible={isAppActive && !isCompletedSectionPicker && !cardAudio.ready}
         waiting={cardAudio.waiting}
@@ -3496,18 +3385,11 @@ export function LessonScreen({
         ]}>{lessonContent}</View>
       )}
       <SentenceHelpOverlay
-        card={currentCard}
-        anchorBottom={sentenceAnchorBottom}
-        onDismiss={dismissSentenceCoachmark}
-        onSuppress={suppressSentenceCoachmark}
-        promptInteractionMode={promptInteractionMode}
-        visible={showSentenceCoachmark}
-      />
-      <SentenceHelpOverlay
-        onDismiss={dismissConstructionCoachmark}
-        onSuppress={dismissConstructionCoachmark}
-        variant="construction"
-        visible={showConstructionCoachmark}
+        message={currentCard.mission_game?.instruction_es
+          || (awaitingConstructionRetry(currentCard, result) ? COMPLETION_RETRY_HELP : lessonHelpText(currentCard, promptInteractionMode))}
+        mode={help.mode}
+        onDismiss={help.dismiss}
+        onSuppress={help.suppress}
       />
       <Modal
         animationType="fade"
@@ -3517,9 +3399,13 @@ export function LessonScreen({
       >
         <View style={styles.completedPromptBackdrop}>
           <ScrollView accessibilityViewIsModal style={styles.missionLandscapeMenuScroll} contentContainerStyle={styles.missionLandscapeMenu}>
-            <Text accessibilityRole="header" style={styles.completedPromptTitle}>Ayuda y opciones</Text>
-            <Text style={styles.completedPromptText}>{currentCard.mission_game?.instruction_es
-              || (awaitingConstructionRetry(currentCard, result) ? COMPLETION_RETRY_HELP : lessonHelpText(currentCard, promptInteractionMode))}</Text>
+            <Text accessibilityRole="header" style={styles.completedPromptTitle}>Opciones de la lección</Text>
+            <Pressable accessibilityRole="button" accessibilityLabel="Mostrar ayuda" onPress={() => {
+              setShowMissionLandscapeMenu(false);
+              help.open();
+            }} style={styles.completedPromptSecondary}>
+              <Text style={styles.completedPromptSecondaryText}>?  Ayuda</Text>
+            </Pressable>
             {!missionExperience ? <StageJourney allComplete={showCompletedJourney} cards={lesson.cards}
               currentIndex={cardIndex} lessonId={lesson.id}
               maxVisitedIndex={qaMode || showCompletedJourney ? lesson.cards.length - 1 : furthestCardIndex}

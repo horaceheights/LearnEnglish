@@ -21,7 +21,7 @@ const MISSION_SOUND_SOURCES: Record<MissionSoundEvent, AudioSource> = {
   'page-turn': require('../assets/sfx/chapter-arrival-v2.mp3'),
   'voice-stamp': require('../assets/sfx/voice-confirm-v2.mp3'),
   'mission-finale': require('../assets/sfx/mission-finale-v2.mp3'),
-  'try-again': require('../assets/sfx/gentle-miss-v2.mp3'),
+  'try-again': require('../assets/sfx/try-again-v3.mp3'),
 };
 
 const SAME_EVENT_DEBOUNCE_MS = 140;
