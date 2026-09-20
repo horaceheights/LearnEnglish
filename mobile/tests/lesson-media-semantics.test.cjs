@@ -371,7 +371,7 @@ for (const [number, slideId, target] of [
   ['1.5', 'U4', 'She is the mother.'],
   ['1.5', 'U5', 'They are the parents.'],
   ['1.5', 'U6', 'He is the grandfather.'],
-  ['1.5', 'U7', 'She is the grandmother. They are the grandparents.'],
+  ['1.5', 'U7', 'They are the grandparents.'],
   ['1.8', 'U8', 'They are the children.'],
   ['1.8', 'U10', 'They are the grandparents.'],
   ['1.9', 'U8', 'They are the grandparents. They are not sleeping.'],
