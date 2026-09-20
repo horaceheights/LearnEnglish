@@ -250,14 +250,13 @@ export function LessonScreen({
   previouslyCompleted = false,
   qaMode = false,
 }: Props) {
-  // This player is reused while lesson audio is preloaded asynchronously. Own
-  // its lifecycle explicitly so an already-scheduled callback can never receive
-  // the auto-released SharedObject created by useAudioPlayer on iOS.
-  const [audioPlayer, setAudioPlayer] = useState(() => createAudioPlayer(null, {
+  // Keep one observed player for every ordinary lesson clip. Creating a new
+  // native player per prompt/answer retains dozens of players by Completa and
+  // can exhaust playback resources before the lesson screen is closed.
+  const [audioPlayer] = useState(() => createAudioPlayer(null, {
     keepAudioSessionActive: true,
   }));
   const audioPlayerRef = useRef(audioPlayer);
-  const retiredAudioPlayersRef = useRef<ReturnType<typeof createAudioPlayer>[]>([]);
   const audioPlayerStatus = useAudioPlayerStatus(audioPlayer);
   const [audioPlaylist, setAudioPlaylist] = useState(() => createAudioPlaylist({
     loop: 'none',
@@ -724,25 +723,11 @@ export function LessonScreen({
           !audioPlayerActiveRef.current ||
           audioPlaybackRequestRef.current !== requestId
         ) return;
+        const player = audioPlayerRef.current;
+        player.pause();
+        player.replace(source);
         addDiagnosticBreadcrumb('audio_started', { mode, variant });
-        const nextPlayer = createAudioPlayer(source, { keepAudioSessionActive: true });
-        if (
-          !audioPlayerActiveRef.current ||
-          audioPlaybackRequestRef.current !== requestId
-        ) {
-          nextPlayer.release();
-          return;
-        }
-        const previousPlayer = audioPlayerRef.current;
-        try {
-          previousPlayer.pause();
-        } catch {
-          // A previous clip may already have ended while the next one is created.
-        }
-        retiredAudioPlayersRef.current.push(previousPlayer);
-        audioPlayerRef.current = nextPlayer;
-        setAudioPlayer(nextPlayer);
-        nextPlayer.play();
+        player.play();
       })
       .catch((playbackError) => {
         // A preload that finishes after a transition is an expected
@@ -852,14 +837,6 @@ export function LessonScreen({
       } catch {
         // Release is idempotent from the screen's point of view.
       }
-      retiredAudioPlayersRef.current.forEach((player) => {
-        try {
-          player.release();
-        } catch {
-          // Retired players may already be unavailable during app teardown.
-        }
-      });
-      retiredAudioPlayersRef.current = [];
       try {
         audioPlaylistRef.current.release();
       } catch {
