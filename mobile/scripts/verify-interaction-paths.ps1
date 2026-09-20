@@ -138,6 +138,9 @@ try {
   & node tests/recognize-instruction-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la instrucción compacta para elegir frases.' }
 
+  & node --test tests/spanish-lesson-headers.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el encabezado en español de todas las unidades.' }
+
   & node tests/speak-instruction-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la instrucción compacta de pronunciación.' }
 

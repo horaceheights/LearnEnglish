@@ -48,8 +48,8 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /useCompactRecognizeInstruction && result === 'correct'[\s\S]*?currentCard\.correct_option_id[\s\S]*?playAudio\(phraseReplayText, 'prompt', 'answer'\)/,
-  'Empty-prompt Recognize replay must remain locked until correct and then play the correct English choice.',
+  /useCompactRecognizeInstruction && result === 'correct'[\s\S]*?currentCard\.correct_option_id[\s\S]*?correctRecognizeReplayText \|\| promptAudio\.trim\(\)[\s\S]*?if \(useCompactRecognizeInstruction && correctRecognizeReplayText\) \{\s*playAudio\(correctRecognizeReplayText, 'prompt', 'answer'\)/,
+  'Empty-prompt Recognize replay stays locked until correct (a reply choice may replay the line it answers) and then plays the correct English choice.',
 );
 assert.match(
   screenSource,
