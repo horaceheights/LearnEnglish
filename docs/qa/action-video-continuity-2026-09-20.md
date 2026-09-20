@@ -22,10 +22,10 @@ Live web review also exposed 29 stale objects on the media server: twelve source
 
 ## Verification
 
-- All 353 backend tests passed after integration with September 20 main; the expanded continuity/runtime subset then passed all 21 tests, including two new published-receipt regression cases.
+- All 355 backend tests passed after integration with the latest main, including the Lesson 1.5 correction and two new published-receipt regression cases. The focused continuity/runtime subset passed all 21 tests.
 - Full Preview verification passed: course and semantic contracts, immutable audio, TypeScript, native interaction/layout checks and Android production export.
 - All 18 frontend tests passed; the production build compiled successfully.
-- An isolated browser harness rendered the real LessonPlayer with canonical running, sleeping, working and writing cards. Clicking each correct answer selected the new CDN video and decoded moving 768 by 512 frames without video errors. The unused studying clip also played on the existing scene-review page.
+- An isolated browser harness rendered the real LessonPlayer with canonical running, sleeping, working and writing cards. Clicking each correct answer selected the new CDN video and decoded moving 768 by 512 frames without video errors. The unused studying clip also played on the existing scene-review page. A final production-build browser check showed its CDN source photo and playing clip now match after cache invalidation.
 - Human semantic decisions remain pending. Installed Android review must be performed on the exact published Preview; browser and export checks do not substitute for that review.
 
 Final CI and Preview publication are recorded by the linked pull request and protected GitHub Actions runs.
