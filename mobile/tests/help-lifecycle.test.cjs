@@ -62,6 +62,26 @@ function harness(saved = null, delayedRead = null) {
   const paused = harness(); await paused.tick(3000); await paused.set({ ready: false }); await paused.tick(10000); assert.equal(paused.value.mode, null);
   await paused.set({ ready: true }); await paused.tick(3999); assert.equal(paused.value.mode, null); await paused.tick(1); assert.equal(paused.value.mode, 'help');
   await paused.set({ cardKey: 'next' }); assert.equal(paused.value.mode, null); paused.unmount();
+  const introduction = harness();
+  await introduction.set({ cardKey: 'second-learn', introKey: 'lesson-1', ready: false });
+  await introduction.tick(10000); assert.equal(introduction.value.mode, null, 'Do not interrupt prompt audio.');
+  await introduction.set({ ready: true }); assert.equal(introduction.value.mode, 'help', 'Introduce help immediately after audio.');
+  await introduction.act('dismiss');
+  await introduction.set({ cardKey: 'third-learn', introKey: undefined, ready: false });
+  await introduction.set({ cardKey: 'second-learn-again', introKey: 'lesson-1', ready: true });
+  assert.equal(introduction.value.mode, null, 'Show the introduction only once per lesson visit.');
+  introduction.unmount();
+  const optedOut = harness('seen');
+  await optedOut.set({ cardKey: 'second-learn', introKey: 'lesson-1' });
+  assert.equal(optedOut.value.mode, null, 'No mostrar suppresses the introduction.');
+  await optedOut.act('open'); assert.equal(optedOut.value.mode, 'help', 'Manual help remains available.');
+  optedOut.unmount();
+  const openedEarly = harness();
+  await openedEarly.set({ cardKey: 'second-learn', introKey: 'lesson-1', ready: false });
+  await openedEarly.act('open'); await openedEarly.act('dismiss');
+  await openedEarly.set({ ready: true });
+  assert.equal(openedEarly.value.mode, null, 'A manual explanation must not reopen automatically.');
+  openedEarly.unmount();
   let resolve; const loading = harness(null, new Promise(done => { resolve = done; }));
   await loading.act('open'); await loading.act('suppress'); resolve(null); await loading.flush(); await loading.act('dismiss');
   await loading.set({ cardKey: 'next' }); await loading.tick(10000); assert.equal(loading.value.mode, null, 'A late preference read cannot undo No mostrar.'); loading.unmount();
@@ -72,8 +92,21 @@ function harness(saved = null, delayedRead = null) {
 
   const screen = fs.readFileSync(path.resolve(__dirname, '../src/screens/LessonScreen.tsx'), 'utf8');
   const web = fs.readFileSync(path.resolve(__dirname, '../../frontend/components/LessonPlayer.js'), 'utf8');
+  const helpSource = fs.readFileSync(path.resolve(__dirname, '../src/lessonHelp.ts'), 'utf8');
+  const helpModule = {};
+  new Function('exports', ts.transpileModule(helpSource, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(helpModule);
+  const course = require('../src/generated/a1-course.json');
+  assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 1)).length, 63,
+    'All seven units introduce help in lessons 1–9.');
+  assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 0)).length, 0,
+    'The first automatic card finishes before introduction.');
+  assert.equal(course.filter(lesson => helpModule.isFirstSectionHelpIntroduction(lesson, 2)).length, 0,
+    'No later card triggers another introduction.');
+  assert.equal(course.filter(lesson => lesson.experience_type === 'mission' && helpModule.isFirstSectionHelpIntroduction(lesson, 1)).length, 0);
   for (const text of [screen, web]) {
     assert.match(text, /useContextualHelp\(\{/);
+    assert.match(text, /isFirstSectionHelpIntroduction\(/);
+    assert.match(text, /introKey: introduceHelp \?/);
     assert.match(text, /lessonHelpText\(currentCard,/);
     assert.match(text, /on(?:Press|Click)=\{help.open\}/);
     assert.doesNotMatch(text, /HELP_DISPLAY_MS|showSentenceCoachmark|showConstructionCoachmark/);
@@ -88,5 +121,5 @@ function harness(saved = null, delayedRead = null) {
     assert.match(popup, /Entiendo/); assert.match(popup, /No mostrar/); assert.match(popup, />\?<\//);
     assert.doesNotMatch(popup, /LA FRASE|Ayuda y opciones/);
   }
-  console.log('Contextual avatar help: idle timing, activity, suppression, persistence, manual access and both clients passed.');
+  console.log('Contextual avatar help: idle timing, introduction, audio readiness, suppression, persistence, manual access and both clients passed.');
 })().catch(error => { console.error(error); process.exitCode = 1; });

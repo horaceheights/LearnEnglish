@@ -20,7 +20,7 @@ import {
 import { awaitingConstructionRetry } from "../../mobile/src/constructionTeaching";
 import LessonHelpPopup from "./LessonHelpPopup";
 import { HELP_STORAGE_PREFIX, useContextualHelp } from "../../mobile/src/hooks/useContextualHelp";
-import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
+import { COMPLETION_RETRY_HELP, isFirstSectionHelpIntroduction, lessonHelpText } from "../../mobile/src/lessonHelp";
 import {
   lessonHeaderPromptText,
   lessonStageLabel,
@@ -2338,12 +2338,14 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const helpCardKey = `${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
   const hasPromptAutoplay = (isRecognitionLesson || cardPromptHasVisualBlank || currentCard?.audio_turns?.length)
     && Boolean(cardPromptText.trim());
+  const introduceHelp = !testMode && isFirstSectionHelpIntroduction(activeLesson, cardIndex);
   const help = useContextualHelp({
     cardKey: helpCardKey,
+    introKey: introduceHelp ? activeLesson.id : undefined,
     storageKey: `${HELP_STORAGE_PREFIX}:${profile?.userId || profile?.displayName?.trim().toLowerCase() || "guest"}`,
     storage: helpStorage,
     ready: started && !isComplete && !isPageTurning && helpDocumentVisible
-      && !isPronunciationCard && currentCard?.options.length > 1 && lastResult === null
+      && !isPronunciationCard && (introduceHelp || currentCard?.options.length > 1) && lastResult === null
       && (isMissionGameExperience ? missionIntroComplete && missionInstructionReady
         : !hasPromptAutoplay || helpAudioReadyKey === helpCardKey),
   });
