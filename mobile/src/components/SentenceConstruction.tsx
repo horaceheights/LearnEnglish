@@ -12,6 +12,7 @@ import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
 import { isPhoneLandscape } from '../lessonViewportLayout';
 import { COMPLETION_RETRY_HELP, lessonHelpText } from '../lessonHelp';
+import { ConstructionCelebration, useConstructionCelebration } from './ConstructionCelebration';
 
 type Bounds = TileBounds;
 type Flight = { label: string; path: TileFlightPath; slot: number };
@@ -36,6 +37,7 @@ type WordProps = {
   onMove: (x: number, y: number) => void;
   onDrop: (x: number, y: number) => void;
   onCancel: () => void;
+  onTranslate?: () => void;
 };
 
 function WordTile(props: WordProps) {
@@ -58,9 +60,9 @@ function WordTile(props: WordProps) {
   const { id, label, slot, suffix, disabled, width, height, textSize, active, hidden, correct } = props;
   return <View {...pan.panHandlers} onLayout={(event) => props.onWidth(id, event.nativeEvent.layout.width)}
     style={[styles.wordTile, { minWidth: width }]}>
-    <Pressable ref={(view) => { tile.current = view; props.register(view); }} disabled={disabled}
+    <Pressable ref={(view) => { tile.current = view; props.register(view); }} disabled={disabled && !props.onTranslate}
       accessibilityRole={id ? 'button' : 'text'}
-      accessibilityLabel={slot === undefined ? `Ficha ${label}` : `Espacio ${slot + 1}: ${label || 'vacío'}`}
+      accessibilityLabel={props.onTranslate ? `${label}. Mostrar traducción` : slot === undefined ? `Ficha ${label}` : `Espacio ${slot + 1}: ${label || 'vacío'}`}
       accessibilityHint={disabled ? undefined : slot === undefined ? 'Toca para colocar, o arrastra a un espacio.' : 'Toca para devolver, o arrastra para mover esta palabra.'}
       accessibilityActions={id && !disabled ? [
         ...Array.from({ length: props.count }, (_, index) => ({ name: `place-${index}`, label: `Mover al espacio ${index + 1}` })),
@@ -76,7 +78,7 @@ function WordTile(props: WordProps) {
         sourceBounds.current = undefined;
         tile.current?.measureInWindow((x, y, w, h) => { sourceBounds.current = { x, y, width: w, height: h }; });
       }}
-      onPress={() => { if (id && !dragged.current) props.onPress(id, slot, sourceBounds.current); }}
+      onPress={() => { if (props.onTranslate) props.onTranslate(); else if (id && !dragged.current) props.onPress(id, slot, sourceBounds.current); }}
       style={[slot === undefined ? styles.tile : styles.slot, props.maxFontSizeMultiplier ? styles.tilePhoneLandscape : null, { minHeight: height }, active ? styles.target : null, correct ? styles.correct : null]}>
       <Text numberOfLines={1} maxFontSizeMultiplier={props.maxFontSizeMultiplier} style={[styles.word, { fontSize: textSize }, hidden ? styles.arriving : null]}>{label || '___'}{suffix}</Text>
     </Pressable>
@@ -86,6 +88,7 @@ function WordTile(props: WordProps) {
 export function SentenceConstruction({ card, selected, result, disabled, showHelp, onChange, onReplay, onRetry }: Props) {
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
+  const celebrationLift = useConstructionCelebration(result === 'correct');
   const [translated, setTranslated] = useState(false);
   const [wordWidths, setWordWidths] = useState<Record<string, number>>({});
   const [feedbackHeight, setFeedbackHeight] = useState(24);
@@ -205,27 +208,29 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   </Pressable>;
   return <View ref={root} style={[styles.root, landscape ? styles.landscape : null]} onLayout={event => setSize(event.nativeEvent.layout)}>
     <View style={[styles.importance, landscape ? styles.importancePhoneLandscape : null, wideSlots && !landscape ? styles.importanceWide : null]}>
-      <View style={landscape ? styles.constructionToolbar : null}>
-      {landscape ? <Pressable accessibilityRole="button" accessibilityLabel={result === 'wrong' ? 'Reintentar' : 'Deshacer último movimiento'}
+      <View style={[landscape ? styles.constructionToolbar : null,
+        result === 'correct' && wideSlots && !landscape && !translated ? styles.successReplaySpace : null]}>
+      {landscape && result !== 'correct' ? <Pressable accessibilityRole="button" accessibilityLabel={result === 'wrong' ? 'Reintentar' : 'Deshacer último movimiento'}
         disabled={result !== 'wrong' && (locked || !history.current.length)} style={styles.control}
         onPress={() => { if (result === 'wrong') { history.current = []; cancel(); stopFlight(); onRetry(); }
           else { const previous = history.current.pop(); if (previous && !locked) { stopFlight(); onChange(previous); } } }}>
         <Text maxFontSizeMultiplier={1.3} style={styles.controlText}>{result === 'wrong' ? 'Reintentar' : 'Deshacer'}</Text>
       </Pressable> : null}
-      <Pressable accessibilityRole="button" accessibilityLabel="Mostrar traducción"
+      {result !== 'correct' || translated ? <Pressable accessibilityRole="button" accessibilityLabel="Mostrar traducción"
         style={{ minHeight: 48, justifyContent: 'center', flex: landscape ? 1 : undefined, paddingRight: wideSlots && !landscape ? 48 : 0 }} onPress={() => setTranslated(!translated)}>
         <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={styles.instruction}>{translated ? card.spanish_translation : 'Escucha y forma la frase.'}</Text>
-      </Pressable>
+      </Pressable> : null}
       {landscape ? replayControl : null}
       </View>
       <SlotsContainer ref={view => { slotPane.current = view; }}
-        style={landscape ? styles.slots : styles.slotScroll} accessibilityLabel="Frase en construcción"
+        style={landscape ? styles.slots : styles.slotScroll} accessibilityLabel={result === 'correct' ? 'Frase completada' : 'Frase en construcción'}
         {...(!landscape ? { contentContainerStyle: styles.slots, persistentScrollbar: true, scrollEnabled: !moving } : {})}>
         {parts.map((part, index) => 'text' in part ? <Text key={`text-${index}`} maxFontSizeMultiplier={landscape ? 1.3 : undefined} style={[styles.scaffold, { fontSize: layout.textSize }]}>{part.text}</Text> :
           <WordTile key={`slot-${part.slot}`} {...common} slot={part.slot} suffix={part.suffix}
             id={slots[part.slot] || ''} label={card.options.find(option => option.id === slots[part.slot])?.label || ''}
             register={view => { slotsRef.current[part.slot] = view; }} active={hover === part.slot}
-            hidden={moving?.id === slots[part.slot] || flight?.slot === part.slot} correct={result === 'correct'} />)}
+            hidden={moving?.id === slots[part.slot] || flight?.slot === part.slot} correct={result === 'correct'}
+            onTranslate={result === 'correct' ? () => setTranslated(value => !value) : undefined} />)}
       </SlotsContainer>
       {!landscape ? replayControl : null}
     </View>
@@ -234,11 +239,12 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
       {!landscape ? <LessonMediaFrame maxHeight={Math.max(112, layout.imageHeight)}>
         <OptionMediaImage imageUrl={card.prompt_image_url} accessibilityLabel="Imagen de la frase" />
       </LessonMediaFrame> : null}
+      {result === 'correct' ? <ConstructionCelebration lift={celebrationLift} compact={landscape} /> : <>
       {!landscape ? <Text style={styles.hint}>{result === 'wrong' ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, 'translation-on-tap') : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text> : null}
       {(!landscape || words.length > 0 || !result) ? <View ref={bank} collapsable={false} style={[styles.bank, hover === 'bank' ? styles.target : null]} accessibilityLabel="Palabras disponibles">
         {words.map(option => <WordTile key={option.id} {...common} id={option.id} label={option.label || ''}
           register={() => {}} active={false} hidden={moving?.id === option.id} correct={false} />)}
-        {!words.length ? <Text style={styles.hint}>{result === 'correct' ? 'Frase completa.' : result === 'wrong' ? 'Lee la explicación de abajo.' : 'Devuelve aquí una palabra para corregir.'}</Text> : null}
+        {!words.length ? <Text style={styles.hint}>{result === 'wrong' ? 'Lee la explicación de abajo.' : 'Devuelve aquí una palabra para corregir.'}</Text> : null}
       </View> : null}
       {!landscape && result !== 'wrong' ? <View style={styles.controls}>
         <Pressable style={styles.control} disabled={locked || !history.current.length} accessibilityRole="button" accessibilityLabel="Deshacer último movimiento"
@@ -249,12 +255,13 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
         numberOfLines={landscape ? 12 : undefined} style={[styles.feedback, landscape ? styles.feedbackPhoneLandscape : null]}
         accessibilityLabel={result === 'wrong' ? `Respuesta incorrecta. ¡Ánimo! Inténtalo de nuevo. ${mistakeHint}` : undefined}
         onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
-        {result === 'correct' ? '¡Muy bien!' : result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{`¡Ánimo! Inténtalo de nuevo.\n${mistakeHint}`}</> : ' '}
+        {result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{`¡Ánimo! Inténtalo de nuevo.\n${mistakeHint}`}</> : ' '}
       </Text>
       {!landscape && result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
         style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; cancel(); stopFlight(); onRetry(); }}>
         <Text style={[styles.controlText, styles.retryControlText]}>Reintentar</Text>
       </Pressable> : null}
+      </>}
     </CardContainer>
     {moving ? <Animated.View accessibilityElementsHidden importantForAccessibility="no-hide-descendants" pointerEvents="none"
       style={[styles.lifted, { width: wordWidths[moving.id] || layout.tileWidth, minHeight: layout.tileHeight, transform: position.getTranslateTransform() }]}><Text numberOfLines={1} style={[styles.word, { fontSize: layout.textSize }]}>{moving.label}</Text></Animated.View> : null}
@@ -273,7 +280,8 @@ const styles = StyleSheet.create({
   root: { flex: 1, minHeight: 0, gap: 6, width: '100%' },
   landscape: { flexDirection: 'column' },
   importancePhoneLandscape: { maxHeight: '100%', flexShrink: 0, padding: 6 },
-  constructionToolbar: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  constructionToolbar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', gap: 4 },
+  successReplaySpace: { height: 48 },
   replayPhoneLandscape: { position: 'relative', top: 0, right: 0 },
   importanceLandscape: { width: '48%', maxHeight: '100%', paddingRight: 40 },
   importanceWide: { paddingRight: 8 },

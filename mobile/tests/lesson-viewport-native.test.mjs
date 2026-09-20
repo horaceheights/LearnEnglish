@@ -115,6 +115,18 @@ test('ordinary speaking keeps model, microphone status, grading and recovery ins
   }
 });
 
+test('correct constructions fit the celebration and completed words inside the landscape safe area', () => {
+  const examples = cards.filter(c => !c.mission_game && c.stage === 'Use' && ['complete2', 'complete-sentence'].includes(c.interaction_type));
+  for (const [width, height] of [[740, 360], [915, 412]]) for (const fontScale of [1, 1.3, 2]) {
+    const viewport = { width, height, fontScale }, h = lessonHarness(viewport);
+    for (const card of examples) {
+      const records = h.render(lessonFactory(h, card, viewport, 'correct', card.correct_option_ids), width, height);
+      within(records, width, height - 24, `${width}/${height}/${fontScale}/${card.lessonId}/${card.slide_id}/correct`);
+      assert.equal(records.filter(r => r.props.testID === 'construction-celebration').length, 1);
+    }
+  }
+});
+
 test('the native screenshot regression actually rejects the former width-driven 4:5 grid', () => {
   const viewport = { width: 360, height: 740, fontScale: 1 };
   const card = cards.find(c => c.prompt === 'They are writing.' && c.stage === 'Recognize' && c.options.length === 4);
