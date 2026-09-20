@@ -19,6 +19,14 @@ import {
 } from "../lib/api";
 import { awaitingConstructionRetry } from "../../mobile/src/constructionTeaching";
 import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
+import {
+  lessonHeaderPromptText,
+  lessonStageLabel,
+  listeningChoiceInstruction,
+  pronunciationInstruction,
+  usesCompactListenInstruction,
+  usesCompactRecognizeInstruction,
+} from "../../mobile/src/lessonInstructions";
 import { lessonMistakeHint as getLessonMistakeHint } from "../../mobile/src/lessonMistakeHints";
 import { WavAudioRecorder } from "../lib/WavAudioRecorder";
 import { isMissionLesson } from "../lib/missionExperience.mjs";
@@ -5289,7 +5297,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       textOverflow: "ellipsis",
                     }}
                   >
-                    {currentCard.stage === "Speak" ? "Speak" : "Pronunciation"}
+                    {pronunciationInstruction()}
                   </h1>
                 </button>
               ) : null}
@@ -5365,7 +5373,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                 aria-label={
                   isPronunciationCard || cardPromptText.trim()
                     ? `Play pronunciation for ${isPronunciationCard ? activePronunciationPrompt : currentCard.prompt}`
-                    : `${currentCard.stage} stage`
+                    : lessonStageLabel(activeLesson.id, currentCard.stage)
                 }
               >
                 <div
@@ -5391,13 +5399,18 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                       fontWeight: 800,
                     }}
                   >
-                    {currentCard.stage}
+                    {lessonStageLabel(activeLesson.id, currentCard.stage)}
                   </div>
                 ) : null}
                 <h1 style={titleStyle}>
+                  {/* Section instructions are Spanish in every unit, shared with the app header. */}
                   {isPronunciationCard
-                    ? currentCard.stage === "Speak" ? "Speak" : "Pronunciation Practice"
-                    : renderHighlightedTitle(currentCard.prompt)}
+                    ? pronunciationInstruction()
+                    : usesCompactListenInstruction(currentCard.stage, currentCard.prompt || "")
+                      ? listeningChoiceInstruction(currentCard.options)
+                      : usesCompactRecognizeInstruction(currentCard.stage, currentCard.prompt || "")
+                        ? lessonHeaderPromptText(activeLesson.id, currentCard.stage, "", currentCard.options)
+                        : renderHighlightedTitle(currentCard.prompt)}
                 </h1>
               </button>
             ) : null}
