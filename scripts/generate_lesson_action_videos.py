@@ -23,27 +23,28 @@ MOBILE_VIDEOS = ROOT / "mobile" / "assets" / "lesson-videos"
 
 
 SCENES = {
+    "girl-writing": ("girl_is_writing", "girl-writing-scene-photo-v3.mp4", "writes naturally with the existing pencil on the open workbook"),
     "girl-walking": ("girl_is_walking", "girl-walking-scene-full-bleed-v1.mp4", "walks forward with several relaxed, natural steps; her feet alternate and her arms swing gently"),
     "girl-drinking": ("girl_is_drinking", "girl-drinking-scene-v2.mp4", "raises the existing glass, takes one clear sip, and lowers it naturally"),
-    "girl-sleeping": ("girl_is_sleeping", "girl-sleeping-scene-v2.mp4", "remains asleep while her chest and shoulders rise and fall subtly with calm breathing"),
+    "girl-sleeping": ("girl_is_sleeping", "girl-sleeping-scene-photo-v3.mp4", "remains asleep while her chest and shoulders rise and fall subtly with calm breathing"),
     "man-swimming": ("man_is_swimming", "man-swimming-scene-v2.mp4", "clearly swims using a natural stroke, with visible arm movement, a gentle kick, and realistic water ripples"),
     "man-drinking": ("man_is_drinking", "man-drinking-scene-v2.mp4", "raises the existing glass, takes one clear sip, and lowers it naturally"),
     "woman-eating": ("woman_is_eating", "woman-eating-scene-v2.mp4", "takes one clear bite of the existing food, chews naturally, and lowers the utensil"),
     "woman-reading": ("woman_is_reading", "woman-reading-scene-v2.mp4", "unmistakably reads the existing open book; her eyes track the lines and one hand gently begins turning a page"),
     "woman-writing": ("woman_is_writing", "woman-writing-scene-v2.mp4", "unmistakably writes several letters or words on the existing paper; the pencil stays against the page and makes clear strokes"),
-    "pair-boy-girl-running": ("they_boy_girl_are_running", "boy-girl-running-scene-v2.mp4", "both children clearly run, with airborne strides, bent elbows, and coordinated arm movement; they must not merely walk quickly"),
+    "pair-boy-girl-running": ("they_boy_girl_are_running", "boy-girl-running-scene-photo-v3.mp4", "both children clearly run, with airborne strides, bent elbows, and coordinated arm movement; they must not merely walk quickly"),
     "pair-man-woman-reading": ("they_man_woman_are_reading", "man-woman-reading-scene-v2.mp4", "both adults unmistakably read their existing books; their eyes track the pages and each makes a small natural page adjustment"),
     "pair-boy-man-eating": ("they_boy_man_are_eating", "boy-man-eating-scene-v2.mp4", "both people clearly take a bite of their existing food and chew naturally"),
     "pair-girl-woman-writing": ("they_girl_woman_are_writing", "girl-woman-writing-scene-v2.mp4", "both people unmistakably write on their existing pages with clear, continuous pencil or pen strokes"),
     "baby-sleeping": ("family_baby_sleeping", "baby-sleeping-scene-full-bleed-v1.mp4", "remains asleep while the chest rises and falls subtly with calm breathing"),
     "brother-studying": ("family_brother_studying", "brother-studying-scene-full-bleed-v1.mp4", "clearly studies by looking between the learning materials and writing short answers with focused, purposeful movement"),
     "children-playing": ("family_children_playing", "children-playing-scene-full-bleed-v1.mp4", "both children actively play with the existing toys using clear, purposeful hand and body movement"),
-    "father-working": ("family_father_working", "father-working-scene-full-bleed-v1.mp4", "unmistakably works at the construction site by extending the existing tape measure along the wooden board, checking it, and making one careful mark"),
+    "father-working": ("family_father_working", "father-working-scene-photo-v3.mp4", "works at the existing indoor workshop bench, checking the tape measure and making one careful pencil mark on the wooden board"),
     "mother-cooking": ("family_mother_cooking", "mother-cooking-scene-full-bleed-v1.mp4", "clearly cooks by stirring the existing food in the pan with natural hand movement"),
     "parents-talking": ("family_parents_talking", "parents-talking-scene-full-bleed-wide-v1.mp4", "take turns making small conversational hand gestures toward each other and nod gently while seated; keep both faces and hands visible"),
     "adults-playing": ("family_adults_playing", "adults-playing-scene-v2.mp4", "both adults actively play the activity already shown, with clear purposeful hand and body movement"),
     "grandparents-talking": ("family_grandparents_talking", "grandparents-talking-scene-v2.mp4", "take turns making small conversational hand gestures toward each other and nod gently while seated; keep both faces and hands visible"),
-    "children-studying": ("family_children_studying", "children-studying-scene-v2.mp4", "both children clearly study: they look between their learning materials and write short answers with focused, purposeful movement"),
+    "children-studying": ("family_children_studying", "children-studying-scene-photo-v3.mp4", "both children clearly study: they look between their learning materials and write short answers with focused, purposeful movement"),
     "boy-running": ("boy_is_running", "boy-running-scene-v2.mp4", "clearly runs forward along the path with natural running strides, bent elbows, and coordinated arm movement; he must not merely walk"),
     "boy-eating": ("boy_is_eating", "boy-eating-scene-v2.mp4", "takes one clear bite of the existing sandwich, chews naturally, and holds it with both hands"),
     "boy-swimming": ("boy_is_swimming", "boy-swimming-scene-v2.mp4", "swims forward in the pool with natural crawl arm strokes, kicking and creating gentle water ripples"),
@@ -51,6 +52,8 @@ SCENES = {
 }
 
 BUNDLED_SCENES = {
+    "girl-writing",
+    "children-studying",
     "baby-sleeping",
     "brother-studying",
     "children-playing",
@@ -70,7 +73,7 @@ BUNDLED_SCENES = {
 TWO_CARD_ACTION_VARIANTS = {
     "brother-studying": "brother-studying-scene-full-bleed-v1.mp4",
     "children-playing": "children-playing-scene-full-bleed-v1.mp4",
-    "father-working": "father-working-scene-full-bleed-v1.mp4",
+    "father-working": "father-working-scene-photo-v3.mp4",
 }
 
 
