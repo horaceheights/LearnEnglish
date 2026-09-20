@@ -16,7 +16,7 @@ export function absoluteMediaUrl(path: string): string {
   return path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
 }
 
-const LESSON_VIDEO_CACHE_VERSION = '20260903-full-bleed-v8';
+const LESSON_VIDEO_CACHE_VERSION = '20260920-action-continuity-v3';
 
 export function lessonVideoUrl(name: string): string {
   return `${VIDEO_BASE_URL}/lesson-assets/${encodeURIComponent(name)}?v=${LESSON_VIDEO_CACHE_VERSION}`;

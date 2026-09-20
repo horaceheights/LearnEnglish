@@ -35,6 +35,9 @@ try {
   Invoke-CheckedCommand -FailureMessage 'Los videos contienen bandas vacías o archivos distintos entre web y móvil.' -Command {
     & $pythonCommand $videoFillValidator
   }
+  Invoke-CheckedCommand -FailureMessage 'Una foto, video o póster cambió sin revisar su continuidad.' -Command {
+    & $pythonCommand (Join-Path $repositoryRoot 'scripts\audit_action_video_bindings.py')
+  }
   Invoke-CheckedCommand -FailureMessage 'La validación de contenido encontró errores.' -Command {
     & $pythonCommand $validator --semantic-review-policy $semanticReviewPolicy
   }
