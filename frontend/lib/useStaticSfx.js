@@ -15,7 +15,7 @@ const STATIC_SFX_PATHS = Object.freeze({
   pageTurn: "/sfx/chapter-arrival-v2.mp3",
   readyCue: "/sfx/speaking-turn-v3.mp3",
   tilePlace: "/sfx/person-found-v2.mp3",
-  tryAgain: "/sfx/gentle-miss-v2.mp3",
+  tryAgain: "/sfx/try-again-v3.mp3",
   voiceStamp: "/sfx/voice-confirm-v2.mp3",
 });
 

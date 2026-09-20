@@ -15,7 +15,7 @@ WEB_SFX_DIR = ROOT_DIR / "frontend" / "public" / "sfx"
 MANIFEST_PATH = ROOT_DIR / "docs" / "product" / "static-sfx-manifest.json"
 EXPECTED_SFX = (
     "chapter-arrival-v2.mp3",
-    "gentle-miss-v2.mp3",
+    "try-again-v3.mp3",
     "mission-finale-v2.mp3",
     "mission-start-v2.mp3",
     "person-found-v2.mp3",
