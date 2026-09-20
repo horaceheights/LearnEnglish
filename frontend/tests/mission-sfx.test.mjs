@@ -50,7 +50,9 @@ test("lesson and mission events receive semantic static cues without lesson-ID r
   assert.match(player, /playUiSfx\("tilePlace"/);
   assert.match(player, /playUiSfx\("pageTurn", \{ volume: 0\.45/);
   assert.match(player, /onFinish: stopUiSfx/);
-  assert.match(player, /"missionFinale"[\s\S]*?: "pageRestored"/);
+  const result = fs.readFileSync(new URL("../components/LessonResultScreen.js", import.meta.url), "utf8");
+  assert.match(result, /play\("lessonPassed"/);
+  assert.doesNotMatch(player, /playUiSfx\("missionFinale"/);
   assert.match(player, /playUiSfx\("voiceStamp"/);
   assert.match(player, /playUiSfx\("tryAgain"/);
   assert.doesNotMatch(player, /activeLesson\.id === "lesson-10-family-mission"/);

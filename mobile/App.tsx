@@ -1,6 +1,7 @@
 import { Component, type ErrorInfo, type ReactNode, useEffect, useState } from 'react';
 import {
   Alert,
+  AppState,
   Pressable,
   StyleSheet,
   Text,
@@ -22,6 +23,8 @@ import { clearLocalProfile, loadLocalProfile } from './src/profile';
 import { CourseScreen } from './src/screens/CourseScreen';
 import { EngineQAScreen } from './src/screens/EngineQAScreen';
 import { LessonScreen } from './src/screens/LessonScreen';
+import { useConnectivity } from './src/hooks/useConnectivity';
+import { syncLocalLessonResults } from './src/localLessonResults';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { ProfileScreen } from './src/screens/ProfileScreen';
 import type { LearnerProfile } from './src/types';
@@ -91,6 +94,16 @@ function AppContent() {
   const [profile, setProfile] = useState<LearnerProfile | null>(null);
   const [screen, setScreen] = useState<Screen>({ name: 'course' });
   const [isRestoring, setIsRestoring] = useState(true);
+  const isOffline = useConnectivity();
+
+  useEffect(() => {
+    if (!profile?.userId || isOffline) return;
+    const userId = profile.userId;
+    const sync = () => { void syncLocalLessonResults(userId).catch(() => undefined); };
+    sync();
+    const subscription = AppState.addEventListener('change', (state) => { if (state === 'active') sync(); });
+    return () => subscription.remove();
+  }, [isOffline, profile?.userId]);
 
   useEffect(() => {
     loadLocalProfile()
@@ -123,10 +136,12 @@ function AppContent() {
   if (screen.name === 'lesson') {
     return (
       <LessonScreen
+        key={screen.lessonId}
         initialCardIndex={screen.initialCardIndex}
         lessonId={screen.lessonId}
         onExit={() => setScreen(screen.qaMode ? { name: 'qa' } : { name: 'course' })}
         onHome={() => setScreen({ name: 'course' })}
+        onNext={(lessonId) => setScreen({ name: 'lesson', lessonId })}
         previouslyCompleted={screen.previouslyCompleted}
         profile={profile}
         qaMode={screen.qaMode}

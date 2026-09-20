@@ -112,7 +112,9 @@ test('mission semantics are metadata-driven and retain visible equivalents', () 
   assert.match(lessonScreen, /playMissionSound\('try-again'\)/);
   assert.match(lessonScreen, /playMissionSound\('page-turn'\)/);
   assert.match(lessonScreen, /playMissionSound\('mission-start'\)/);
-  assert.match(lessonScreen, /isComplete && missionExperience[\s\S]*?playMissionSound\('mission-finale'\)/);
+  const resultScreen = fs.readFileSync(path.join(__dirname, '../src/components/LessonResultScreen.tsx'), 'utf8');
+  assert.match(resultScreen, /playMissionSound\('lesson-passed'\)/);
+  assert.doesNotMatch(lessonScreen, /playMissionSound\('mission-finale'\)/);
   assert.match(soundEffects, /card\.stage === 'Speak'[\s\S]*?'voice-stamp'[\s\S]*?'page-restored'/);
   assert.doesNotMatch(soundEffects, /lesson-10-family-mission/);
   assert.match(cardView, /accessibilityLiveRegion="polite"/);

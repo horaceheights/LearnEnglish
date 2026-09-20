@@ -54,7 +54,7 @@ assert.match(
 );
 assert.match(
   pronunciationSource,
-  /phase !== 'success'[\s\S]*?pronunciation_success_advance_timeout[\s\S]*?onPassed\(passedOnFirstTry\)[\s\S]*?SUCCESS_ADVANCE_WATCHDOG_MS/,
+  /phase !== 'success'[\s\S]*?pronunciation_success_advance_timeout[\s\S]*?onPassed\(passedOnFirstTry, passed && !continueAfterCoaching\)[\s\S]*?SUCCESS_ADVANCE_WATCHDOG_MS/,
   'A successful grade must have an independent deadline when optional recording playback stalls.',
 );
 assert.match(

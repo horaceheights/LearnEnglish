@@ -88,13 +88,12 @@ assert.doesNotMatch(offlineReviewSource, /scorePronunciation|setResult\(nextResu
 const unavailableCallbackStart = lessonScreenSource.indexOf('const pronunciationUnavailable = useCallback');
 const unavailableCallbackEnd = lessonScreenSource.indexOf('const grammarAnimationComplete', unavailableCallbackStart);
 const unavailableCallbackSource = lessonScreenSource.slice(unavailableCallbackStart, unavailableCallbackEnd);
-assert.match(unavailableCallbackSource, /registerCardCompletion\(completedCardsRef\.current, cardIndex, false\)/);
+assert.match(unavailableCallbackSource, /completeScoredCard\(false, false\)/);
 assert.match(unavailableCallbackSource, /advance\(\);/);
 
-assert.match(
-  lessonScreenSource,
-  /'Sin conexión',[\s\S]*?'Terminaste la lección\. Tu progreso está guardado en este dispositivo\. Revisa tu conexión a internet para sincronizarlo\.'/,
-  'Offline lesson completion must confirm local saving and ask the learner to check internet.',
-);
+const resultScreenSource = fs.readFileSync(path.join(__dirname, '../src/components/LessonResultScreen.tsx'), 'utf8');
+assert.match(resultScreenSource, /offline && !saving && !error[\s\S]*?Tu progreso está guardado en este dispositivo/,
+  'Offline completion confirms saving only after persistence succeeded.');
+assert.match(lessonScreenSource, /offline=\{isOffline\}/);
 
 console.log('Offline lesson media and pronunciation fallback guardrails passed.');

@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import {
-  finishLessonSession,
   getApiBaseUrl,
   getCourseAudioUrl,
   getPronunciationStreamingToken,
@@ -37,6 +36,10 @@ import useLessonPageTurn from "../lib/useLessonPageTurn";
 import CelebrationMission from "./CelebrationMission";
 import { missionCueOrder } from "../lib/missionTargetInteraction.cjs";
 import MissionCompletion from "./MissionCompletion";
+import LessonResultScreen, { LessonGoodbye } from "./LessonResultScreen";
+import { newLessonRunId, nextCourseLesson, recoverLessonCard, remainingReviewCards, resultSummary } from "../../mobile/src/lessonResult";
+import { parseSavedLessonRun } from "../../mobile/src/lessonResume";
+import { lessonResults, syncLocalLessonResults } from "../lib/localLessonResults";
 import MissionJourney from "./MissionJourney";
 import SentenceConstruction from "./SentenceConstruction";
 import { isWordConstruction, sentenceIsCorrect } from "../../mobile/src/sentenceConstruction";
@@ -2222,6 +2225,17 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [onboardingStepIndex, setOnboardingStepIndex] = useState(-1);
   const [cardIndex, setCardIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const earnedCardsRef = useRef(new Set());
+  const completedCardsRef = useRef(new Set());
+  const pronunciationRejectedRef = useRef(new Set());
+  const lessonResultRef = useRef(null);
+  const [lessonResult, setLessonResult] = useState(null);
+  const [reviewQueue, setReviewQueue] = useState([]);
+  const [resultSaving, setResultSaving] = useState(false);
+  const [resultError, setResultError] = useState("");
+  const [showGoodbye, setShowGoodbye] = useState(false);
+  const [celebrateResult, setCelebrateResult] = useState(false);
+  const [missionCompletionAcknowledged, setMissionCompletionAcknowledged] = useState(false);
   const [wrongAttempts, setWrongAttempts] = useState({});
   const [selectedOptionId, setSelectedOptionId] = useState(null);
   const [selectedOptionIds, setSelectedOptionIds] = useState([]);
@@ -2484,8 +2498,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       ? ONBOARDING_STEPS[onboardingStepIndex]
       : null;
   const progressLabel = useMemo(
-    () => `${Math.min(cardIndex + 1, totalCards)} / ${totalCards}`,
-    [cardIndex, totalCards]
+    () => reviewQueue.length ? `${reviewQueue.indexOf(cardIndex) + 1} / ${reviewQueue.length}` : `${Math.min(cardIndex + 1, totalCards)} / ${totalCards}`,
+    [cardIndex, totalCards, reviewQueue]
   );
   const pronunciationSummary = useMemo(
     () => summarizePronunciationScore(pronunciationResult),
@@ -3272,11 +3286,77 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     };
   }, [profile, profileLoaded, testMode]);
 
+  const persistResult = useCallback(async (next) => {
+    lessonResultRef.current = next;
+    setLessonResult(next);
+    setResultSaving(true);
+    setResultError("");
+    try {
+      if (!testMode) await lessonResults.save(next);
+      if (!testMode && profile?.userId) void syncLocalLessonResults(profile.userId).catch(() => undefined);
+      return true;
+    } catch {
+      setResultError("No pudimos guardar tu progreso. Intenta guardarlo de nuevo.");
+      return false;
+    } finally { setResultSaving(false); }
+  }, [profile?.userId, testMode]);
+
+  const completeScoredCard = useCallback((awardInitialPoint, accepted = true) => {
+    if (completedCardsRef.current.has(cardIndex)) return;
+    completedCardsRef.current.add(cardIndex);
+    if (reviewQueue.length && lessonResultRef.current) {
+      if (accepted) void persistResult(recoverLessonCard(lessonResultRef.current, cardIndex));
+    } else if (awardInitialPoint && !earnedCardsRef.current.has(cardIndex)) {
+      earnedCardsRef.current.add(cardIndex);
+      setScore((current) => current + 1);
+    }
+  }, [cardIndex, persistResult, reviewQueue.length]);
+
+  useEffect(() => {
+    if (started && pronunciationResult && !pronunciationOutcome.accepted && !wrongAttempts[cardIndex]) {
+      setWrongAttempts((current) => ({ ...current, [cardIndex]: true }));
+    }
+  }, [cardIndex, pronunciationOutcome.accepted, pronunciationResult, started, wrongAttempts]);
+
+  const resumeKey = `spanglish-lesson-resume-v1:${profile?.userId || profile?.displayName}:${activeLesson.id}`;
+  useEffect(() => {
+    if (testMode || !started || !lessonSessionId) return;
+    try {
+      window.localStorage.setItem(resumeKey, JSON.stringify({
+        cardCount: activeLesson.cards.length, contentRevision: activeLesson.content_revision,
+        cardIndex, furthestCardIndex: cardIndex, score, sessionId: lessonSessionId,
+        completionPending: isComplete, completedCards: [...completedCardsRef.current],
+        earnedCards: [...earnedCardsRef.current], attemptedCards: [],
+        wrongCards: Object.keys(wrongAttempts).filter((key) => wrongAttempts[key]).map(Number),
+        ...(reviewQueue.length ? { reviewQueue, resultId: lessonResultRef.current?.id } : {}),
+      }));
+    } catch { setResultError("No pudimos guardar tu progreso en este navegador."); }
+  }, [activeLesson, cardIndex, isComplete, lessonSessionId, resumeKey, reviewQueue, score, started, testMode, wrongAttempts]);
+
+  useEffect(() => {
+    if (testMode || !profile?.userId) return;
+    const sync = () => { if (!document.hidden) void syncLocalLessonResults(profile.userId).catch(() => undefined); };
+    sync();
+    window.addEventListener("online", sync);
+    document.addEventListener("visibilitychange", sync);
+    return () => { window.removeEventListener("online", sync); document.removeEventListener("visibilitychange", sync); };
+  }, [profile?.userId, testMode]);
+
   const resetProgress = () => {
     stopPronunciationCapture();
     stopUiSfx();
     setCardIndex(0);
     setScore(0);
+    earnedCardsRef.current = new Set();
+    completedCardsRef.current = new Set();
+    pronunciationRejectedRef.current = new Set();
+    lessonResultRef.current = null;
+    setLessonResult(null);
+    setReviewQueue([]);
+    setShowGoodbye(false);
+    setCelebrateResult(false);
+    setMissionCompletionAcknowledged(false);
+    setResultError("");
     setWrongAttempts({});
     setSelectedOptionId(null);
     setSelectedOptionIds([]);
@@ -3413,11 +3493,13 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     const timeoutId = window.setTimeout(() => {
-      if (cardIndex >= totalCards - 1) {
+      const nextIndex = reviewQueue.length ? reviewQueue[reviewQueue.indexOf(cardIndex) + 1] : cardIndex + 1;
+      if (nextIndex === undefined || nextIndex >= totalCards) {
+        setCelebrateResult(true);
         setIsComplete(true);
       } else {
         startPageTurn(1, () => {
-          setCardIndex((current) => current + 1);
+          setCardIndex(nextIndex);
           setSelectedOptionId(null);
           setSelectedOptionIds([]);
           setLastResult(null);
@@ -3430,7 +3512,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }, autoAdvanceDelayMs);
 
     return () => window.clearTimeout(timeoutId);
-  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, started, startPageTurn, totalCards]);
+  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, started, startPageTurn, totalCards, reviewQueue]);
 
   useEffect(() => {
     resetPronunciationPractice();
@@ -3680,6 +3762,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     const timeoutId = window.setTimeout(() => {
+      if (!pronunciationOutcome.accepted) pronunciationRejectedRef.current.add(cardIndex);
       const completedId = activePronunciationOption.id;
       setCompletedPronunciationResults((current) => ({
         ...current,
@@ -3703,7 +3786,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       if (isMissionExperience) {
         playUiSfx("voiceStamp", { debounceMs: 400, volume: 0.58 });
       }
-      if (pronunciationOutcome.accepted) setScore((current) => current + 1);
+      if (!pronunciationOutcome.accepted) pronunciationRejectedRef.current.add(cardIndex);
+      completeScoredCard(pronunciationOutcome.accepted && !wrongAttempts[cardIndex],
+        pronunciationOutcome.accepted && !pronunciationRejectedRef.current.has(cardIndex));
       setLastResult("correct");
     }, 3000);
 
@@ -3723,6 +3808,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     pronunciationOutcome.accepted,
     pronunciationResult,
     pronunciationAttempt,
+    completeScoredCard,
+    wrongAttempts,
     started,
   ]);
 
@@ -4360,7 +4447,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
   };
 
-  const startLesson = async (lessonId = activeLesson.id) => {
+  const startLesson = async (lessonId = activeLesson.id, fresh = false) => {
     let lessonToStart = activeLesson;
     setLessonLoadError("");
 
@@ -4379,20 +4466,35 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     resetProgress();
-
-    if (profile?.userId) {
+    const userId = profile?.userId || profile?.displayName || "qa";
+    let saved = null;
+    let storedResult = null;
+    if (!testMode && !fresh) {
       try {
-        const session = await startLessonSession({
-          userId: profile.userId,
-          lessonId: lessonToStart.id,
-          totalCards: lessonToStart.cards.length,
-        });
-        setLessonSessionId(session.id);
-      } catch (error) {
-        console.error("Could not start lesson session", error);
-      }
+        saved = parseSavedLessonRun(window.localStorage.getItem(`spanglish-lesson-resume-v1:${userId}:${lessonToStart.id}`), lessonToStart.cards.length, lessonToStart.content_revision);
+        storedResult = await lessonResults.latest(userId, lessonToStart.id, lessonToStart.cards.length, lessonToStart.content_revision, saved?.sessionId || undefined);
+      } catch { setLessonLoadError("No pudimos leer tu progreso guardado. Inténtalo otra vez."); return; }
     }
-
+    const runId = storedResult?.id || saved?.sessionId || newLessonRunId();
+    setLessonSessionId(runId);
+    earnedCardsRef.current = new Set(saved?.earnedCards || []);
+    completedCardsRef.current = new Set(saved?.completedCards || []);
+    setScore(saved?.score || 0);
+    setCardIndex(saved?.cardIndex || 0);
+    setWrongAttempts(Object.fromEntries((saved?.wrongCards || []).map((index) => [index, true])));
+    const pendingReview = storedResult ? remainingReviewCards(storedResult) : [];
+    const restoringReview = Boolean(saved?.reviewQueue?.length && saved.resultId === storedResult?.id && !saved.completionPending && pendingReview.length);
+    setReviewQueue(restoringReview ? pendingReview : []);
+    if (restoringReview) setCardIndex(pendingReview.includes(saved.cardIndex) ? saved.cardIndex : pendingReview[0]);
+    lessonResultRef.current = storedResult;
+    setLessonResult(storedResult);
+    setIsComplete(restoringReview ? false : Boolean(storedResult || saved?.completionPending));
+    setMissionCompletionAcknowledged(Boolean(storedResult));
+    if (storedResult || saved?.cardIndex > 0) setMissionIntroComplete(true);
+    if (!testMode && profile?.userId) {
+      void startLessonSession({ id: runId, userId: profile.userId, lessonId: lessonToStart.id,
+        totalCards: lessonToStart.cards.length }).catch(() => undefined);
+    }
     setStarted(true);
   };
 
@@ -4480,16 +4582,12 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       setAutoAdvanceDelayMs(
         Math.max(currentCard.answer_audio_text ? 2600 : 1000, selectedActionVideo ? 2600 : 0)
       );
-      if (firstTry) {
-        setScore((current) => current + 1);
-      }
+      completeScoredCard(firstTry);
 
       const praise = PRAISE_PHRASES[Math.floor(Math.random() * PRAISE_PHRASES.length)];
       const praisePitch = [1.0, 1.1, 1.2, 1.28][Math.floor(Math.random() * 4)];
       if (!currentCard.mission_game || currentCard.mission_game.kind === "voice-gate") playUiSfx(
-        isMissionExperience && currentCard.interaction_type === "mission-finale"
-          ? "missionFinale"
-          : "pageRestored",
+        "pageRestored",
         {
           debounceMs: 240,
           volume: isMissionExperience && currentCard.interaction_type === "mission-finale" ? 0.68 : 0.5,
@@ -4658,16 +4756,40 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const hasDraftProfileName = Boolean(draftProfile.displayName?.trim());
 
   useEffect(() => {
-    if (!isComplete || !lessonSessionId) {
-      return;
-    }
+    if (!isComplete || lessonResultRef.current) return;
+    const earned = earnedCardsRef.current;
+    const next = { id: lessonSessionId || newLessonRunId(), userId: profile?.userId || profile?.displayName || "qa",
+      lessonId: activeLesson.id, contentRevision: activeLesson.content_revision, totalCards,
+      initialScore: score, reviewAvailable: earned.size === score,
+      missedCards: earned.size !== score ? [] : activeLesson.cards.map((_, index) => index).filter((index) => !earned.has(index)),
+      ungradedCards: [], recoveredCards: [], completedAt: new Date().toISOString() };
+    void persistResult(next);
+  }, [activeLesson, isComplete, lessonSessionId, persistResult, profile?.userId, profile?.displayName, score, totalCards]);
 
-    finishLessonSession({
-      sessionId: lessonSessionId,
-      score,
-      totalCards,
-    }).catch((error) => console.error("Could not finish lesson session", error));
-  }, [isComplete, lessonSessionId, score, totalCards]);
+  const leaveResult = async (destination) => {
+    if (!lessonResultRef.current || !await persistResult(lessonResultRef.current)) return;
+    stopPronunciationCapture();
+    stopSpeech();
+    stopUiSfx();
+    destination();
+  };
+  const startErrorReview = () => {
+    const queue = remainingReviewCards(lessonResultRef.current);
+    if (!queue.length) return;
+    setReviewQueue(queue);
+    completedCardsRef.current = new Set();
+    pronunciationRejectedRef.current = new Set();
+    setWrongAttempts({});
+    setCardIndex(queue[0]);
+    setSelectedOptionId(null);
+    setSelectedOptionIds([]);
+    setLastResult(null);
+    setIsComplete(false);
+    setMissionIntroComplete(true);
+    setMissionCompletionAcknowledged(true);
+    resetPronunciationPractice();
+  };
+  const nextLesson = nextCourseLesson(lessons, activeLesson.id);
 
   if (!profileLoaded) {
     return null;
@@ -5159,7 +5281,9 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     );
   }
 
-  if ((isComplete || !currentCard) && isMissionExperience) {
+  if (showGoodbye) return <LessonGoodbye onDone={goToLessons} />;
+
+  if ((isComplete || !currentCard) && isMissionExperience && !missionCompletionAcknowledged) {
     return (
       <div style={{ ...styles.page, padding: isMobile ? "10px" : styles.page.padding }}>
         <main style={{ margin: "0 auto", maxWidth: 920 }}>
@@ -5170,7 +5294,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             finalImageUrl={finalMissionImageUrl ? lessonOptionImageSrc(finalMissionImageUrl) : ""}
             isMobile={isMobile}
             lesson={activeLesson}
-            onExit={goToLessons}
+            onExit={() => setMissionCompletionAcknowledged(true)}
             showFinalImage={!isMissionGameExperience}
           />
         </main>
@@ -5179,46 +5303,15 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }
 
   if (isComplete || !currentCard) {
-    return (
-      <div style={styles.page}>
-        <div style={shellStyle}>
-          <main style={styles.main}>
-            {isMobile ? (
-              <section style={mobileSummaryStyle}>
-                <div style={{ fontSize: 12, letterSpacing: "0.08em", color: "var(--muted)", textTransform: "uppercase" }}>
-                  Leccion terminada
-                </div>
-                <strong style={{ fontSize: 20 }}>{activeLesson.title}</strong>
-                <span style={{ color: "var(--muted)" }}>
-                  Puntaje: {score} / {totalCards}
-                </span>
-              </section>
-            ) : null}
-            <section style={heroStyle}>
-              <div style={{ display: "flex", justifyContent: "flex-start", marginBottom: isMobile ? 4 : 8 }}>
-                <MiniSpanGlishLogo onClick={goToLessons} />
-              </div>
-              <div style={{ fontSize: 13, letterSpacing: "0.08em", textTransform: "uppercase", opacity: 0.9 }}>
-                Leccion terminada
-              </div>
-              <h1 style={titleStyle}>Buen trabajo</h1>
-              <p style={{ margin: 0, maxWidth: 620, opacity: 0.92 }}>
-                Obtuviste {score} de {totalCards} correctas al primer intento.
-              </p>
-            </section>
-            <section style={boardStyle}>
-              <button
-                type="button"
-                style={styles.primaryButton}
-                onClick={goToLessons}
-              >
-                Volver a las lecciones
-              </button>
-            </section>
-          </main>
-        </div>
-      </div>
-    );
+    return lessonResult ? <LessonResultScreen result={lessonResult}
+      lessonLabel={`UNIT ${activeLesson.unit_id?.match(/\d+/)?.[0] || "1"} | LESSON ${activeLesson.sub_lesson_id || activeLesson.title}`}
+      hasNext={Boolean(nextLesson)} celebrate={celebrateResult} saving={resultSaving} error={resultError}
+      onRetrySave={() => void persistResult(lessonResult)}
+      onNext={() => void leaveResult(() => nextLesson && void startLesson(nextLesson.id))}
+      onLessons={() => void leaveResult(goToLessons)}
+      onRestart={() => void leaveResult(() => void startLesson(activeLesson.id, true))}
+      onReview={() => void leaveResult(startErrorReview)}
+      onExit={() => void leaveResult(() => setShowGoodbye(true))} /> : <p role="status">Guardando tu resultado…</p>;
   }
 
   const helpPopup = <LessonHelpPopup mode={help.mode}
@@ -5967,7 +6060,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   <div style={{ fontSize: 11, letterSpacing: "0.06em", color: "var(--muted)", textTransform: "uppercase" }}>
                     Puntaje
                   </div>
-                  <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>{score}</div>
+                  <div style={{ fontSize: isMobile ? 18 : 22, fontWeight: 700 }}>{reviewQueue.length && lessonResult ? `${resultSummary(lessonResult).percentage}%` : score}</div>
                 </div>
                 {!isMobile ? (
                   <div style={{ color: "var(--muted)", fontSize: 12 }}>Voz de practica generada con IA.</div>

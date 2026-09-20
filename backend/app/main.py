@@ -50,6 +50,7 @@ from .conversation import (
 from .tracking import (
     CardAttemptCreate,
     LessonFeedbackCreate,
+    LessonResultSync,
     SessionCreate,
     SessionFinish,
     UserCreate,
@@ -60,6 +61,7 @@ from .tracking import (
     create_session,
     delete_user_and_activity,
     finish_session,
+    sync_lesson_result,
     get_lesson_progress,
     get_user_by_name,
     get_user,
@@ -527,7 +529,10 @@ def reset_user_progress(user_id: str):
 
 @app.post("/api/sessions")
 def start_session(payload: SessionCreate, request: Request):
-    session = create_session(payload)
+    try:
+        session = create_session(payload)
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
     report_client_release(payload.user_id, request)
     return session
 
@@ -547,6 +552,18 @@ def log_card_attempt(payload: CardAttemptCreate, request: Request):
         attempt = create_attempt(payload)
         report_client_release(payload.user_id, request)
         return attempt
+    except ValueError as error:
+        raise HTTPException(status_code=409, detail=str(error)) from error
+
+
+@app.put("/api/lesson-results/{session_id}")
+def save_lesson_result(session_id: str, payload: LessonResultSync, request: Request):
+    if session_id != payload.id:
+        raise HTTPException(status_code=409, detail="Result identity mismatch")
+    try:
+        result = sync_lesson_result(payload)
+        report_client_release(payload.userId, request)
+        return result
     except ValueError as error:
         raise HTTPException(status_code=409, detail=str(error)) from error
 

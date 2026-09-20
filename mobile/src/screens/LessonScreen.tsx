@@ -11,6 +11,7 @@ import {
   Image,
   Modal,
   PanResponder,
+  Platform,
   Pressable,
   ScrollView,
   StatusBar,
@@ -36,13 +37,15 @@ import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import {
-  finishLessonSession,
   getLesson,
   logCardAttempt,
   startLessonSession,
 } from '../api';
 import { LessonCardView, textAnswerStackNeedsScroll } from '../components/LessonCardView';
-import { LessonFeedbackSurvey } from '../components/LessonFeedbackSurvey';
+import { LessonResultScreen, LessonGoodbye } from '../components/LessonResultScreen';
+import { newLessonRunId, nextCourseLesson, recoverLessonCard, remainingReviewCards, type LessonResult } from '../lessonResult';
+import { lessonResults, syncLocalLessonResults } from '../localLessonResults';
+import canonicalCourse from '../generated/a1-course.json';
 import { MissionCompletion } from '../components/MissionCompletion';
 import { MissionGameSurface } from '../components/MissionGameSurface';
 import { MissionJourney } from '../components/MissionJourney';
@@ -187,12 +190,13 @@ type Props = {
   profile: LearnerProfile;
   onExit: () => void;
   onHome: () => void;
+  onNext?: (lessonId: string) => void;
   initialCardIndex?: number;
   previouslyCompleted?: boolean;
   qaMode?: boolean;
 };
 
-type CompletedLessonMode = 'standard' | 'prompt' | 'sections' | 'review' | 'review-complete';
+type CompletedLessonMode = 'standard' | 'prompt' | 'sections' | 'review' | 'review-complete' | 'errors';
 
 function BackArrowIcon() {
   return (
@@ -241,6 +245,7 @@ export function LessonScreen({
   profile,
   onExit,
   onHome,
+  onNext,
   initialCardIndex = 0,
   previouslyCompleted = false,
   qaMode = false,
@@ -325,6 +330,17 @@ export function LessonScreen({
   const appWasInterruptedRef = useRef(false);
   const attemptedCardsRef = useRef<Set<number>>(new Set());
   const completedCardsRef = useRef<Set<number>>(new Set());
+  const earnedCardsRef = useRef<Set<number>>(new Set());
+  const ungradedCardsRef = useRef<Set<number>>(new Set());
+  const lessonResultRef = useRef<LessonResult | null>(null);
+  const [lessonResult, setLessonResult] = useState<LessonResult | null>(null);
+  const [reviewQueue, setReviewQueue] = useState<number[]>([]);
+  const [resultSaving, setResultSaving] = useState(false);
+  const [resultError, setResultError] = useState('');
+  const [showGoodbye, setShowGoodbye] = useState(false);
+  const [celebrateResult, setCelebrateResult] = useState(false);
+  const nextLessonId = nextCourseLesson(canonicalCourse, lessonId)?.id ?? null;
+  const startedSessionRef = useRef('');
   const correctChoiceHandledRef = useRef(false);
   const cardTranslateX = useRef(new Animated.Value(0)).current;
   const newVocabularyEmphasis = useRef(new Animated.Value(0)).current;
@@ -424,7 +440,48 @@ export function LessonScreen({
   });
   const isCompletedSectionPicker = !missionExperience
     && (completedLessonMode === 'prompt' || completedLessonMode === 'sections');
-  const showCompletedJourney = previouslyCompleted && completedLessonMode !== 'standard';
+  const showCompletedJourney = previouslyCompleted && !['standard', 'errors'].includes(completedLessonMode);
+
+  const persistResult = useCallback(async (next: LessonResult) => {
+    lessonResultRef.current = next;
+    setLessonResult(next);
+    setResultSaving(true);
+    setResultError('');
+    try {
+      if (!qaMode) await lessonResults.save(next);
+      if (!qaMode && profile.userId) void syncLocalLessonResults(profile.userId).catch(() => undefined);
+      return true;
+    } catch (saveError) {
+      captureDiagnosticError(saveError, 'save_lesson_result');
+      setResultError('No pudimos guardar tu progreso. Intenta guardarlo de nuevo.');
+      return false;
+    } finally { setResultSaving(false); }
+  }, [profile.userId, qaMode]);
+
+  const completeScoredCard = useCallback((awardInitialPoint: boolean, evaluated = true, accepted = true) => {
+    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, awardInitialPoint);
+    if (!completion.newlyCompleted) return;
+    completedCardsRef.current = completion.completedCards;
+    if (completedLessonMode === 'errors' && lessonResultRef.current) {
+      if (evaluated && accepted) void persistResult(recoverLessonCard(lessonResultRef.current, cardIndex));
+    } else if (completedLessonMode === 'standard') {
+      if (!evaluated) ungradedCardsRef.current.add(cardIndex);
+      else if (completion.scoreDelta) {
+        earnedCardsRef.current.add(cardIndex);
+        setScore((current) => current + completion.scoreDelta);
+      }
+    }
+    setCompletedCards(completion.completedCards);
+  }, [cardIndex, completedLessonMode, persistResult]);
+
+  useEffect(() => {
+    if (!isComplete) return;
+    audioPlaybackRequestRef.current += 1;
+    audioPlayerRef.current.pause();
+    audioPlaylistRef.current.pause();
+    missionCuePlayer.pause();
+    stopMissionSound();
+  }, [isComplete, missionCuePlayer, stopMissionSound]);
 
   const confirmLessonExit = useCallback((destination: 'home' | 'previous') => {
     const returningHome = destination === 'home' || !qaMode;
@@ -834,14 +891,22 @@ export function LessonScreen({
     setReviewStageBounds(null);
     try {
       const nextLesson = await getLesson(lessonId);
-      const savedRun = qaMode || previouslyCompleted
+      const savedRun = qaMode
         ? null
         : parseSavedLessonRun(
           await AsyncStorage.getItem(lessonResumeStorageKey).catch(() => null),
           nextLesson.cards.length,
           nextLesson.content_revision,
         );
-      const nextCardIndex = savedRun?.cardIndex ?? Math.min(
+      const storedResult = qaMode ? null : await lessonResults.latest(profile.userId || profile.displayName, lessonId, nextLesson.cards.length, nextLesson.content_revision, savedRun?.sessionId || undefined);
+      const pendingReview = storedResult ? remainingReviewCards(storedResult) : [];
+      const restoringReview = Boolean(savedRun?.reviewQueue?.length && savedRun.resultId === storedResult?.id && !savedRun.completionPending && pendingReview.length);
+      lessonResultRef.current = storedResult;
+      setLessonResult(storedResult);
+      setCelebrateResult(false);
+      setReviewQueue(restoringReview ? pendingReview : []);
+      if (storedResult || savedRun) setCompletedLessonMode(restoringReview ? 'errors' : 'standard');
+      const nextCardIndex = restoringReview ? (pendingReview.includes(savedRun!.cardIndex) ? savedRun!.cardIndex : pendingReview[0]) : savedRun?.cardIndex ?? Math.min(
           Math.max(initialCardIndex, 0),
           Math.max(nextLesson.cards.length - 1, 0),
         );
@@ -861,13 +926,16 @@ export function LessonScreen({
         savedRun?.furthestCardIndex ?? (previouslyCompleted ? nextLesson.cards.length - 1 : nextCardIndex),
       );
       setScore(savedRun?.score ?? 0);
+      earnedCardsRef.current = new Set(savedRun?.earnedCards ?? []);
+      ungradedCardsRef.current = new Set(savedRun?.ungradedCards ?? []);
       attemptedCardsRef.current = new Set(savedRun?.attemptedCards ?? []);
       completedCardsRef.current = new Set(savedRun?.completedCards ?? []);
       setAttemptedCards(new Set(attemptedCardsRef.current));
       setWrongCards(new Set(savedRun?.wrongCards ?? []));
       setCompletedCards(new Set(completedCardsRef.current));
-      setSessionId(savedRun?.sessionId ?? '');
-      setIsComplete(savedRun?.completionPending ?? false);
+      setSessionId(storedResult?.id || savedRun?.sessionId || newLessonRunId());
+      setIsComplete(restoringReview ? false : Boolean(storedResult || savedRun?.completionPending));
+      setMissionCompletionAcknowledged(Boolean(storedResult));
       // A restored run resumes exactly where it stopped; only a genuine start of
       // the lesson opens with the briefing.
       openingBriefingShownRef.current = Boolean(savedRun) || nextCardIndex > 0 || Boolean(previouslyCompleted);
@@ -902,7 +970,7 @@ export function LessonScreen({
   }, [cardIndex, completedLessonMode, isComplete, isLoading, lesson, missionExperience, qaMode]);
 
   useEffect(() => {
-    if (qaMode || completedLessonMode !== 'standard' || !lesson || !resumeHydratedRef.current) return;
+    if (qaMode || !['standard', 'errors'].includes(completedLessonMode) || !lesson || !resumeHydratedRef.current) return;
     const savedRun: SavedLessonRun = {
       attemptedCards: [...attemptedCards],
       cardCount: lesson.cards.length,
@@ -913,6 +981,9 @@ export function LessonScreen({
       score,
       sessionId,
       wrongCards: [...wrongCards],
+      earnedCards: [...earnedCardsRef.current],
+      ungradedCards: [...ungradedCardsRef.current],
+      ...(completedLessonMode === 'errors' ? { reviewQueue, resultId: lessonResult?.id } : {}),
       ...(lesson.content_revision === undefined ? {} : { contentRevision: lesson.content_revision }),
     };
     void saveLessonResume(savedRun);
@@ -929,6 +1000,8 @@ export function LessonScreen({
     score,
     sessionId,
     wrongCards,
+    reviewQueue,
+    lessonResult,
   ]);
 
   useEffect(() => {
@@ -938,15 +1011,16 @@ export function LessonScreen({
       || !lesson
       || !profile.userId
       || !resumeHydratedRef.current
-      || sessionId
+      || !sessionId
+      || startedSessionRef.current === sessionId
       || isOffline
       || sessionStartInFlightRef.current
     ) return;
 
     sessionStartInFlightRef.current = true;
     setDiagnosticOperation('start_lesson_session');
-    void startLessonSession(profile.userId, lesson.id, lesson.cards.length)
-      .then((session) => setSessionId(session.id))
+    void startLessonSession(profile.userId, lesson.id, lesson.cards.length, sessionId)
+      .then((session) => { startedSessionRef.current = session.id; })
       .catch((sessionError) => captureDiagnosticError(
         sessionError,
         'start_lesson_session',
@@ -1772,7 +1846,25 @@ export function LessonScreen({
       setResult(null);
       return;
     }
+    if (completedLessonMode === 'errors') {
+      const nextIndex = reviewQueue[reviewQueue.indexOf(cardIndex) + 1];
+      if (nextIndex === undefined) {
+        setCelebrateResult(true);
+        setIsComplete(true);
+      } else {
+        startPageTurn(1, () => {
+          setCardIndex(nextIndex);
+          pronunciationPassHandledRef.current = false;
+          setGrammarCompleted(false);
+          setSelectedId(null);
+          setSelectedIds([]);
+          setResult(null);
+        });
+      }
+      return;
+    }
     if (cardIndex >= lesson.cards.length - 1) {
+      setCelebrateResult(true);
       setIsComplete(true);
       return;
     }
@@ -1807,6 +1899,8 @@ export function LessonScreen({
     pageTurnBusy,
     qaMode,
     reviewStageBounds,
+    reviewQueue,
+    startPageTurn,
   ]);
 
   useEffect(() => {
@@ -1830,19 +1924,14 @@ export function LessonScreen({
       clearTimeout(singleCardFallbackTimerRef.current);
       singleCardFallbackTimerRef.current = null;
     }
-    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, awardScore);
-    if (completion.newlyCompleted) {
-      completedCardsRef.current = completion.completedCards;
-      setCompletedCards(completion.completedCards);
-      if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
-    }
+    completeScoredCard(awardScore, awardScore);
     // The learner sees this same window drain in the `Automático` pill.
     startAutomaticCountdown();
     singleCardAdvanceTimerRef.current = setTimeout(() => {
       singleCardAdvanceTimerRef.current = null;
       advance();
     }, AUTOMATIC_CARD_DWELL_MS);
-  }, [advance, cardIndex, isAutomaticSingleCard, startAutomaticCountdown]);
+  }, [advance, completeScoredCard, isAutomaticSingleCard, startAutomaticCountdown]);
 
   useEffect(() => {
     if (!isAppActive) {
@@ -2118,54 +2207,24 @@ export function LessonScreen({
   ]);
 
   useEffect(() => {
-    if (
-      qaMode
-      || !isAppActive
-      || isOffline
-      || !isComplete
-      || !lesson
-      || !sessionId
-      || finishedSessionRef.current
-    ) return;
-    finishedSessionRef.current = true;
-    setDiagnosticOperation('finish_lesson_session');
-    void finishLessonSession(sessionId, score, lesson.cards.length)
-      .then(() => {
-        addDiagnosticBreadcrumb('lesson_completion_synced', {
-          score,
-          total_cards: lesson.cards.length,
-        });
-        return clearLessonResume();
-      })
-      .catch((finishError) => {
-        finishedSessionRef.current = false;
-        captureDiagnosticError(
-          finishError,
-          'finish_lesson_session',
-          { score, total_cards: lesson.cards.length },
-          'warning',
-        );
-      });
-  }, [clearLessonResume, isAppActive, isComplete, isOffline, lesson, qaMode, score, sessionId]);
+    if (!isComplete || !lesson || !sessionId || lessonResultRef.current) return;
+    const earned = earnedCardsRef.current;
+    const ungraded = ungradedCardsRef.current;
+    const next: LessonResult = {
+      id: sessionId, userId: profile.userId || profile.displayName, lessonId: lesson.id,
+      contentRevision: lesson.content_revision, totalCards: lesson.cards.length,
+      initialScore: score, reviewAvailable: earned.size === score, missedCards: earned.size !== score ? [] : lesson.cards.map((_, index) => index)
+        .filter((index) => !earned.has(index) && !ungraded.has(index)),
+      ungradedCards: [...ungraded], recoveredCards: [], completedAt: new Date().toISOString(),
+    };
+    void persistResult(next);
+  }, [isComplete, lesson, persistResult, profile.displayName, profile.userId, score, sessionId]);
 
   useEffect(() => {
-    if (
-      qaMode
-      || !isComplete
-      || !isOffline
-      || offlineCompletionNotifiedRef.current
-    ) return;
-    offlineCompletionNotifiedRef.current = true;
-    addDiagnosticBreadcrumb('lesson_completed_offline_notice_shown', {
-      lesson_id: lesson?.id,
-    });
-    Alert.alert(
-      'Sin conexión',
-      'Terminaste la lección. Tu progreso está guardado en este dispositivo. Revisa tu conexión a internet para sincronizarlo.',
-      [{ text: 'Entendido' }],
-      { cancelable: false },
-    );
-  }, [isComplete, isOffline, lesson?.id, qaMode]);
+    if (!qaMode && isAppActive && !isOffline && profile.userId) {
+      void syncLocalLessonResults(profile.userId).catch(() => undefined);
+    }
+  }, [isAppActive, isOffline, profile.userId, qaMode]);
 
   const recordAttempt = (
     optionId: string,
@@ -2238,12 +2297,7 @@ export function LessonScreen({
     if (correct) {
       correctChoiceHandledRef.current = true;
       setResult('correct');
-      const completion = registerCardCompletion(completedCardsRef.current, cardIndex, firstTry);
-      if (completion.newlyCompleted) {
-        completedCardsRef.current = completion.completedCards;
-        setCompletedCards(completion.completedCards);
-        if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
-      }
+      completeScoredCard(firstTry);
       if (missionExperience) {
         if (!usesMissionGameSurface) playMissionSound(missionSuccessSoundEvent(currentCard));
       } else void playSuccessChime();
@@ -2342,19 +2396,14 @@ export function LessonScreen({
     correctChoiceHandledRef.current = false;
   }, [result]);
 
-  const pronunciationPassed = useCallback((firstTry: boolean) => {
+  const pronunciationPassed = useCallback((firstTry: boolean, accepted: boolean) => {
     if (pronunciationPassHandledRef.current) return;
     pronunciationPassHandledRef.current = true;
     addDiagnosticBreadcrumb('pronunciation_passed', {
       card_number: cardIndex + 1,
       first_try: firstTry,
     });
-    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, firstTry);
-    if (completion.newlyCompleted) {
-      completedCardsRef.current = completion.completedCards;
-      setCompletedCards(completion.completedCards);
-      if (completion.scoreDelta) setScore((current) => current + completion.scoreDelta);
-    }
+    completeScoredCard(firstTry, true, accepted);
     if (missionExperience && currentCard) {
       playMissionSound(missionSuccessSoundEvent(currentCard));
     }
@@ -2363,11 +2412,7 @@ export function LessonScreen({
       return;
     }
     advance();
-  }, [advance, cardIndex, currentCard, missionExperience, playMissionSound, qaAutoAdvance, qaMode]);
-
-  useEffect(() => {
-    if (isComplete && missionExperience) playMissionSound('mission-finale');
-  }, [isComplete, missionExperience, playMissionSound]);
+  }, [advance, cardIndex, completeScoredCard, currentCard, missionExperience, playMissionSound, qaAutoAdvance, qaMode]);
 
   const pronunciationAttempted = useCallback(() => {
     const attempt = registerCardAttempt(attemptedCardsRef.current, cardIndex);
@@ -2381,15 +2426,13 @@ export function LessonScreen({
     addDiagnosticBreadcrumb('pronunciation_skipped_unavailable', {
       card_number: cardIndex + 1,
     });
-    const completion = registerCardCompletion(completedCardsRef.current, cardIndex, false);
-    completedCardsRef.current = completion.completedCards;
-    setCompletedCards(completion.completedCards);
+    completeScoredCard(false, false);
     if (qaMode && !qaAutoAdvance) {
       setResult('correct');
       return;
     }
     advance();
-  }, [advance, cardIndex, qaAutoAdvance, qaMode]);
+  }, [advance, cardIndex, completeScoredCard, qaAutoAdvance, qaMode]);
 
   const grammarAnimationComplete = useCallback(() => {
     if (
@@ -2503,12 +2546,66 @@ export function LessonScreen({
     setSectionBriefing(null);
     setCompletedLessonMode('standard');
     setMissionCompletionAcknowledged(false);
-    setSessionId('');
+    setSessionId(newLessonRunId());
+    startedSessionRef.current = '';
+    finishedSessionRef.current = false;
+    earnedCardsRef.current = new Set();
+    ungradedCardsRef.current = new Set();
+    lessonResultRef.current = null;
+    setLessonResult(null);
+    setReviewQueue([]);
+    setIsComplete(false);
+    setMissionKickoffComplete(false);
+    setCelebrateResult(false);
+    setResultError('');
     void clearLessonResume();
   }, [audioPlayer, clearLessonResume, lesson, resetCardState]);
 
+  const startErrorReview = useCallback(() => {
+    const saved = lessonResultRef.current;
+    if (!saved) return;
+    const queue = remainingReviewCards(saved);
+    if (!queue.length) return;
+    clearCardInteractionState();
+    attemptedCardsRef.current = new Set();
+    completedCardsRef.current = new Set();
+    setAttemptedCards(new Set());
+    setCompletedCards(new Set());
+    setWrongCards(new Set());
+    setReviewQueue(queue);
+    setCardIndex(queue[0]);
+    setCardRunId((current) => current + 1);
+    setIsComplete(false);
+    setSectionBriefing(null);
+    setMissionChapterBreak(null);
+    setMissionKickoffComplete(true);
+    setMissionCompletionAcknowledged(true);
+    setCompletedLessonMode('errors');
+  }, [clearCardInteractionState]);
+
+  const leaveResult = useCallback(async (destination: () => void) => {
+    const saved = lessonResultRef.current;
+    if (!saved || !await persistResult(saved)) return;
+    try { await lessonResumePersistence.flush(); }
+    catch {
+      setResultError('No pudimos guardar el punto de repaso. Intenta guardarlo de nuevo.');
+      return;
+    }
+    audioPlaybackRequestRef.current += 1;
+    audioPlayerRef.current.pause();
+    audioPlaylistRef.current.pause();
+    missionCuePlayer.pause();
+    stopMissionSound();
+    destination();
+  }, [lessonResumePersistence, missionCuePlayer, persistResult, stopMissionSound]);
+
+  const finishGoodbye = useCallback(() => {
+    onHome();
+    if (Platform.OS === 'android') BackHandler.exitApp();
+  }, [onHome]);
+
   const openStage = useCallback((startIndex: number) => {
-    if (!lesson || pageTurnBusy.current || (!qaMode && startIndex > furthestCardIndex)) return;
+    if (!lesson || completedLessonMode === 'errors' || pageTurnBusy.current || (!qaMode && startIndex > furthestCardIndex)) return;
     const navigate = () => {
       addDiagnosticBreadcrumb('lesson_stage_opened', {
         from_card: cardIndex + 1,
@@ -2570,6 +2667,7 @@ export function LessonScreen({
   }, [cardTranslateX, reduceMotion]);
 
   const navigateManualCard = useCallback((direction: -1 | 1) => {
+    if (completedLessonMode === 'errors') { if (direction === 1 && canSwipeForward) advance(); return; }
     if (!manualCardNavigation || !lesson || cardTransitioningRef.current || pageTurnBusy.current) return;
     if (direction > 0 && !canSwipeForward) {
       settleCard();
@@ -2610,6 +2708,7 @@ export function LessonScreen({
     canSwipeForward,
     clearCardInteractionState,
     completedLessonMode,
+    advance,
     lesson,
     manualCardNavigation,
     pageTurnBusy,
@@ -2830,54 +2929,33 @@ export function LessonScreen({
     );
   }
 
+  if (showGoodbye) {
+    return <SafeAreaView style={styles.safeArea}><StatusBar hidden />
+      <LessonGoodbye width={viewportWidth} height={viewportHeight} active={isAppActive}
+        onDone={finishGoodbye} />
+    </SafeAreaView>;
+  }
+
   if (isComplete) {
     if (missionExperience && !missionCompletionAcknowledged) {
       const finale = missionFinale(lesson);
-      return (
-        <SafeAreaView style={styles.safeArea}>
-          <StatusBar hidden />
-          <MissionCompletion
-            finalImageUrl={finale.imageUrl}
-            finalPhrase={finale.phrase}
-            onContinue={profile.userId && !qaMode
-              ? () => setMissionCompletionAcknowledged(true)
-              : onExit}
-            presentation={lesson.mission}
-          />
-        </SafeAreaView>
-      );
+      return <SafeAreaView style={styles.safeArea}><StatusBar hidden />
+        <MissionCompletion finalImageUrl={finale.imageUrl} finalPhrase={finale.phrase}
+          onContinue={() => setMissionCompletionAcknowledged(true)} presentation={lesson.mission} />
+      </SafeAreaView>;
     }
-    if (profile.userId && !qaMode) {
-      return (
-        <SafeAreaView style={styles.safeArea}>
-          <StatusBar hidden />
-          <LessonFeedbackSurvey
-            lessonId={lesson.id}
-            onDone={onExit}
-            score={score}
-            sessionId={sessionId || undefined}
-            totalCards={lesson.cards.length}
-            userId={profile.userId}
-            viewportHeight={viewportHeight}
-            viewportWidth={viewportWidth}
-          />
-        </SafeAreaView>
-      );
-    }
-    return (
-      <SafeAreaView style={styles.safeArea}>
-        <StatusBar barStyle="dark-content" backgroundColor="#fbf7ef" />
-        <View style={styles.center}>
-          <Text style={styles.completeMark}>✓</Text>
-          <Text style={styles.completeEyebrow}>LECCIÓN TERMINADA</Text>
-          <Text style={styles.completeTitle}>Buen trabajo</Text>
-          <Text style={styles.completeText}>
-            Obtuviste {score} de {lesson.cards.length} correctas al primer intento.
-          </Text>
-          <Pressable onPress={onExit} style={styles.primary}><Text style={styles.primaryText}>Volver a las lecciones</Text></Pressable>
-        </View>
-      </SafeAreaView>
-    );
+    return <SafeAreaView style={styles.safeArea}><StatusBar hidden />
+      {lessonResult ? <LessonResultScreen result={lessonResult} lessonLabel={lessonLocationLabel(lesson)}
+        hasNext={Boolean(nextLessonId && onNext)} width={viewportWidth} height={viewportHeight}
+        active={isAppActive} celebrate={celebrateResult} saving={resultSaving} error={resultError} offline={isOffline}
+        onNext={() => void leaveResult(() => nextLessonId && onNext?.(nextLessonId))}
+        onLessons={() => void leaveResult(onExit)}
+        onRestart={() => void leaveResult(startCompletedLessonFromBeginning)}
+        onReview={() => void leaveResult(startErrorReview)}
+        onRetrySave={() => void persistResult(lessonResult)}
+        onExit={() => void leaveResult(() => setShowGoodbye(true))} />
+        : <PlayfulLoading label="Guardando tu resultado…" />}
+    </SafeAreaView>;
   }
 
   if (completedLessonMode === 'review-complete') {

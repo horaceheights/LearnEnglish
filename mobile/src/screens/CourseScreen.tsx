@@ -20,6 +20,8 @@ import * as Updates from 'expo-updates';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getLessonProgress, getLessons } from '../api';
+import { localResultProgress, mergeCourseProgress } from '../lessonResult';
+import { lessonResults, syncLocalLessonResults } from '../localLessonResults';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { setDiagnosticContext } from '../diagnostics';
 import { lessonImageSource } from '../lessonImageSources';
@@ -468,15 +470,19 @@ export function CourseScreen({ profile, onHome, onOpenLesson, onViewProfile, onS
     setIsLoading(true);
     setError('');
     try {
-      const [nextLessons, progressResult] = await Promise.all([
-        getLessons(),
+      if (profile.userId) void syncLocalLessonResults(profile.userId).catch(() => undefined);
+      const [nextLessons, progressResult, localResults] = await Promise.all([
+        getLessons().catch((loadError) => {
+          const cached = mergePreviewLessonSummaries([]);
+          if (!cached.length) throw loadError;
+          return cached;
+        }),
         profile.userId ? getLessonProgress(profile.userId).catch(() => null) : Promise.resolve(null),
+        lessonResults.list(profile.userId || profile.displayName),
       ]);
       setLessons(mergePreviewLessonSummaries(nextLessons));
       setProgressByLesson(
-        progressResult
-          ? Object.fromEntries(progressResult.map((progress) => [progress.lesson_id, progress]))
-          : {},
+        mergeCourseProgress(progressResult || [], localResultProgress(localResults)),
       );
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : 'No pudimos cargar las lecciones. Inténtalo otra vez.');
