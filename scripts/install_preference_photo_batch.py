@@ -14,6 +14,8 @@ from scripts.install_course_photo_reuse import main as install_references,pointe
 
 PACK=ROOT/'docs/product/course-photo-sweep-preferences-v1.json'
 OUTPUT=ROOT/'output/imagegen/course-photo-sweep-v1'
+# Evidence records keep the exception category each paid scene was authorized under.
+RECORD_KINDS={'inspected-contract-violating-photo':'contract-violating-photo-retirement'}
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
@@ -81,12 +83,15 @@ def main():
         if archive.exists() and digest(archive)!=digest(source):raise ValueError('Original generated source changed.')
         copies[archive]=source.read_bytes()
         controls=asset['change_control'].get('replacements',[asset['change_control']])
+        kind=RECORD_KINDS.get(asset['change_control'].get('kind'),'illustration-or-inset-retirement')
         for control in controls:
             record={'index':control.get('inventory_index',asset.get('inventory_index')),'old_filename':control['old_filename'],'old_sha256':control['old_sha256'],
                 'candidate_filename':asset['runtime_filename'],'new_sha256':hashlib.sha256(pixels).hexdigest(),'exists':True,
-                'disposition':'agent-reviewed','kind':'illustration-or-inset-retirement','old_observation':control['old_observation'],
+                'disposition':'agent-reviewed','kind':kind,'old_observation':control['old_observation'],
                 'new_observation':review['observed_description'],'scopes':control['scopes'],'crop_review':review['crop_review'],
                 'human_approval':'pending','generation':{'source_path':archive.relative_to(ROOT).as_posix(),'receipt':receipt,'agent_review':review}}
+            if pack.get('authorization'):
+                record['authorization']=pack['authorization']
             if control.get('replaces_staged_candidate'):
                 revisions.append((record,control['replaces_staged_candidate']))
             new_records.append(record)

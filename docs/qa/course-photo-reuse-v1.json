@@ -23233,6 +23233,916 @@
           }
         }
       }
+    },
+    {
+      "index": null,
+      "old_filename": "a1_far-book.webp",
+      "old_sha256": "c20f3ec772e697f21b63e1ea36b7cca0077aca243ffb0bdeff96332cf6fbdf48",
+      "candidate_filename": "a1_photo_u2_that_book_v1.webp",
+      "new_sha256": "fdb1a5393469505b444203caaddcc8abc27f3b76e0e4beedf964dbf77d4f8e4d",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Third-person photo of a woman pointing across a living room; the tiny, pasted-looking book on the far dining table lies off her finger line, so she points at empty space (user report 2026-09-19); no held near book.",
+      "new_observation": "Viewed source and 360/250/180 px phone renders: first-person view along a bare oak dining table; left hand holds a plain blank green hardcover (about 28 percent width) at lower left while the right index finger aims up-left at the identical green book lying alone about 80 cm away (about 12 percent width, upper center). Fingertip stops visibly below and short of the far book; no text, other books or extra hands. Four upholstered chairs line the table edges, away from the finger line. Centered 4:5 crop trims the left hand and part of the near book; no 2.5 card uses that crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/2/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/3/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/6/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/7/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/14/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/15/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/21/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/27/prompt_image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v1/that-book.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "8ad3e0d7-39dd-4df9-a81f-410a9b212af5",
+          "asset_id": "that-book",
+          "pack_sha256": "fddbce77ee76deebbcf2ed3c0171e190b606597d188b5259c6e308a5ef717936",
+          "started_at": "2026-09-19T18:33:57.010796+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHAT state. The learner stands at the near end of a long, completely bare light-oak dining table in a bright, plain room with white walls; the camera looks steeply down and along the tabletop. Two identical closed hardcover books with plain deep-green cloth covers and cream page edges; the covers are completely blank, with no title, text, pattern or picture.\nNEAR book: the LEFT hand holds it closed by its lower edge, thumb on the cover, about 20 centimeters above the lower-left part of the table. The whole cover and page edges are visible; it spans about one third of the photo width and stays in the lower-left quarter.\nFAR book: lies flat on the same tabletop only about 80 centimeters farther away, alone on empty wood in the upper center of the photo. It is clearly smaller, but at least 18 percent of the photo width, sharp and unmistakably the same green book; the near book looks about twice as big.\nRIGHT hand: the forearm enters from the lower-right corner and the hand stays in the lower half of the photo. The index finger is fully straight and aimed diagonally up and to the left, exactly at the FAR book; the other fingers are curled with the thumb resting on them. A straight line continued from the fingertip runs into the center of the far book. A wide gap of empty space separates the fingertip from the far book; no hand overlaps, touches or hides either book.\nNothing else on the table: no papers, phones, cups, plates or decorations; no bookshelves anywhere. The picture means: THAT green book over there, while my left hand holds THIS one.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [],
+          "endpoint": "https://api.openai.com/v1/images/generations",
+          "human_approval": "pending",
+          "provider_request_id": "req_a7c84d4acbfb446aa86843bb917b67f7",
+          "usage": {
+            "input_tokens": 587,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 587
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 1959
+          },
+          "cost": {
+            "usd": "0.044095",
+            "mxn": "0.7483230165",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 587,
+            "image_input_tokens": 0,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 26.76,
+          "output": "output/imagegen/unit-2-lesson-v1/that-book.png",
+          "sha256": "cab53252c16f9f23e8dff4998a52b1310e9e7b7bc2857a91a2e02e144ba63309",
+          "byte_count": 2630354
+        },
+        "agent_review": {
+          "sha256": "cab53252c16f9f23e8dff4998a52b1310e9e7b7bc2857a91a2e02e144ba63309",
+          "disposition": "usable",
+          "observed_description": "Viewed source and 360/250/180 px phone renders: first-person view along a bare oak dining table; left hand holds a plain blank green hardcover (about 28 percent width) at lower left while the right index finger aims up-left at the identical green book lying alone about 80 cm away (about 12 percent width, upper center). Fingertip stops visibly below and short of the far book; no text, other books or extra hands. Four upholstered chairs line the table edges, away from the finger line. Centered 4:5 crop trims the left hand and part of the near book; no 2.5 card uses that crop.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_near-book.webp",
+      "old_sha256": "57090f24c81968b89ebed792fb82a8434308860b8fedb082d022e297d4924d07",
+      "candidate_filename": "a1_photo_u2_this_book_v1.webp",
+      "new_sha256": "3b5dfe615dd284be5d1b01404ef4c63804ac81ce42c2ad2bc4109a795da70a23",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Close-up of a hand resting on a green hardcover whose cover prints the answer 'THIS IS A BOOK.' and an author name; no pointing gesture and no matching far book, so it breaks the approved 2.5 paired this/that contract and shows answer text.",
+      "new_observation": "Viewed against the that-book reference and at 360/250/180 px: identical table, chairs, light and both plain green books; the left hand still holds the near book at lower left. Only the right hand changed: its straight index finger now points left at the held near book and stops short of its edge without touching it. The identical far book stays complete and un-pointed at upper center. No text or extra hands. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/0/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/1/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/6/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/7/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/14/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/15/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/20/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/26/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-4-1-rooms-at-home",
+          "lesson": "4.1",
+          "path": "backend/lessons/unit_4/lesson-4-1-rooms-at-home.yaml",
+          "pointer": "/cards/14/prompt_image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v1/this-book.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "41755d40-793e-4589-8167-d47c1ffea6a2",
+          "asset_id": "this-book",
+          "pack_sha256": "fddbce77ee76deebbcf2ed3c0171e190b606597d188b5259c6e308a5ef717936",
+          "started_at": "2026-09-19T18:35:52.151749+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHIS state, precise edit of Image 1. Change ONLY the learner's RIGHT hand: its straight index finger now points to the left at the cover of the NEAR green book held by the LEFT hand, the fingertip stopping about two finger-widths short of it without touching or covering it; the other fingers stay curled. Keep everything else exactly as in Image 1: camera, light, room, surfaces, the left hand and the near green book it holds, and the FAR green book, complete, sharp and unmoved. No finger points at the far green book. No extra hands, objects, text or other changes. The picture now means: THIS green book, the one my left hand holds.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "that-book.png",
+              "sha256": "cab53252c16f9f23e8dff4998a52b1310e9e7b7bc2857a91a2e02e144ba63309",
+              "byte_count": 2630354
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_872fcae536af4cf4a5e3f46f36e2b2ed",
+          "usage": {
+            "input_tokens": 1939,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 403
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3311
+          },
+          "cost": {
+            "usd": "0.055463",
+            "mxn": "0.9412459341",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 403,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 28.62,
+          "output": "output/imagegen/unit-2-lesson-v1/this-book.png",
+          "sha256": "90ae2e23804b2eb3d85aa893db77a4a54b62130f4ac45789af36dd346c6af353",
+          "byte_count": 2474119
+        },
+        "agent_review": {
+          "sha256": "90ae2e23804b2eb3d85aa893db77a4a54b62130f4ac45789af36dd346c6af353",
+          "disposition": "usable",
+          "observed_description": "Viewed against the that-book reference and at 360/250/180 px: identical table, chairs, light and both plain green books; the left hand still holds the near book at lower left. Only the right hand changed: its straight index finger now points left at the held near book and stops short of its edge without touching it. The identical far book stays complete and un-pointed at upper center. No text or extra hands. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_far-phone.webp",
+      "old_sha256": "a125c34d23c24b417d2085fae382f245061716c532396cfc42f39226a15c931c",
+      "candidate_filename": "a1_photo_u2_that_phone_v1.webp",
+      "new_sha256": "5627ada550bae79ea27ef4b661a3f6380c53ff2b210416349298b6d66931efe0",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "A woman in a kitchen points toward the middle of the room while the only phone sits on a charging stand at the left counter, off her finger line (user report 2026-09-19); no held near phone.",
+      "new_observation": "Viewed source and 360/250/180 px phone renders: first-person view along a bare grey stone kitchen counter; the left hand holds an orange-cased phone with a dark blank screen upright at lower left while the right index finger aims up at the identical orange phone lying sideways alone about 70 cm away (about 11 percent width, upper center). The finger line meets the far phone and the fingertip stops clearly below it. No text, other phones, screens or extra hands; white cabinets and a steel fridge stay at the edges. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/5/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/8/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/9/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/16/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/17/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/23/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/29/prompt_image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v1/that-phone.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "327e1b94-d95e-429c-b948-1773f27da25d",
+          "asset_id": "that-phone",
+          "pack_sha256": "fddbce77ee76deebbcf2ed3c0171e190b606597d188b5259c6e308a5ef717936",
+          "started_at": "2026-09-19T18:37:04.971373+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHAT state. The learner stands at one end of a long, bare, pale-grey stone kitchen counter in a bright, plain kitchen with white cabinet doors; the camera looks steeply down and along the countertop. Two identical modern smartphones in bright orange protective cases, with black glass screens that are switched off, dark and matte, showing no reflections, clock, icons or text.\nNEAR phone: the LEFT hand holds it upright in portrait orientation, screen facing the camera, just above the lower-left part of the counter; the whole phone is visible and it spans about one fifth of the photo width.\nFAR phone: lies flat, screen up and sideways (its long side facing the learner), alone on empty stone only about 70 centimeters farther along the counter, in the upper center of the photo. It is clearly smaller, but at least 14 percent of the photo width, sharp and unmistakably the same orange phone; the near phone looks about twice as big.\nRIGHT hand: the forearm enters from the lower-right corner and the hand stays in the lower half of the photo. The index finger is fully straight and aimed diagonally up and to the left, exactly at the FAR phone; the other fingers are curled with the thumb resting on them. A straight line continued from the fingertip runs into the center of the far phone. A wide gap of empty space separates the fingertip from the far phone; no hand overlaps, touches or hides either phone.\nNothing else on the counter: no other phones, tablets, laptops, screens, remote controls, wallets, cups or appliances. The picture means: THAT orange phone over there, while my left hand holds THIS one.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [],
+          "endpoint": "https://api.openai.com/v1/images/generations",
+          "human_approval": "pending",
+          "provider_request_id": "req_88ab104265254415ac6dc312124b8a6e",
+          "usage": {
+            "input_tokens": 588,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 588
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 1960
+          },
+          "cost": {
+            "usd": "0.0441",
+            "mxn": "0.74840787",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 588,
+            "image_input_tokens": 0,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 27.43,
+          "output": "output/imagegen/unit-2-lesson-v1/that-phone.png",
+          "sha256": "d968d1c62549166900f6669c22afce8dd16ae450414bb20da2c92a36db200f9b",
+          "byte_count": 2471145
+        },
+        "agent_review": {
+          "sha256": "d968d1c62549166900f6669c22afce8dd16ae450414bb20da2c92a36db200f9b",
+          "disposition": "usable",
+          "observed_description": "Viewed source and 360/250/180 px phone renders: first-person view along a bare grey stone kitchen counter; the left hand holds an orange-cased phone with a dark blank screen upright at lower left while the right index finger aims up at the identical orange phone lying sideways alone about 70 cm away (about 11 percent width, upper center). The finger line meets the far phone and the fingertip stops clearly below it. No text, other phones, screens or extra hands; white cabinets and a steel fridge stay at the edges. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_near-phone.webp",
+      "old_sha256": "267eb8e46f862b0272a444360fe2f2f27b14147ed66ccc95bdd850ab3d91ddb0",
+      "candidate_filename": "a1_photo_u2_this_phone_v1.webp",
+      "new_sha256": "87971ea8050e0f7549dd6033e1b20b69be7043d4e24d5e2f4e9f1a1eee14802b",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Close-up of a hand touching a phone lying on a coffee table; no pointing gesture and no matching far phone, so it cannot form the approved same-scene this/that pair.",
+      "new_observation": "Viewed against the that-phone reference and at 360/250/180 px: identical counter, kitchen, light and both orange phones; the left hand still holds the near phone upright at lower left. Only the right hand changed: its straight index finger now points left at the held phone's screen and stops a clear gap short of it. The identical far phone stays complete, sideways and un-pointed at upper center. No text or extra hands. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/4/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/8/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/9/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/12/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/16/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/17/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/22/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/28/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/32/prompt_image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v1/this-phone.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "45c35d4f-72b1-46e5-92b5-a8f50d358921",
+          "asset_id": "this-phone",
+          "pack_sha256": "fddbce77ee76deebbcf2ed3c0171e190b606597d188b5259c6e308a5ef717936",
+          "started_at": "2026-09-19T18:38:19.468781+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHIS state, precise edit of Image 1. Change ONLY the learner's RIGHT hand: its straight index finger now points to the left at the screen of the NEAR orange phone held by the LEFT hand, the fingertip stopping about two finger-widths short of it without touching or covering it; the other fingers stay curled. Keep everything else exactly as in Image 1: camera, light, room, surfaces, the left hand and the near orange phone it holds, and the FAR orange phone, complete, sharp and unmoved. No finger points at the far orange phone. No extra hands, objects, text or other changes. The picture now means: THIS orange phone, the one my left hand holds.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "that-phone.png",
+              "sha256": "d968d1c62549166900f6669c22afce8dd16ae450414bb20da2c92a36db200f9b",
+              "byte_count": 2471145
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_c669315c19cd426d8f9fff6b77b74e2e",
+          "usage": {
+            "input_tokens": 1939,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 403
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3311
+          },
+          "cost": {
+            "usd": "0.055463",
+            "mxn": "0.9412459341",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 403,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 28.19,
+          "output": "output/imagegen/unit-2-lesson-v1/this-phone.png",
+          "sha256": "8809963ac66966c81a58109c1fd9f30f660d73871745c0bfa9c82ad1e4a3c54b",
+          "byte_count": 2319560
+        },
+        "agent_review": {
+          "sha256": "8809963ac66966c81a58109c1fd9f30f660d73871745c0bfa9c82ad1e4a3c54b",
+          "disposition": "usable",
+          "observed_description": "Viewed against the that-phone reference and at 360/250/180 px: identical counter, kitchen, light and both orange phones; the left hand still holds the near phone upright at lower left. Only the right hand changed: its straight index finger now points left at the held phone's screen and stops a clear gap short of it. The identical far phone stays complete, sideways and un-pointed at upper center. No text or extra hands. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_far-bag.webp",
+      "old_sha256": "575827331a8c23407f117f019b518033474247c123c7b05f6217f6d2d9ea0131",
+      "candidate_filename": "a1_photo_u2_that_bag_v1.webp",
+      "new_sha256": "97c7cbc609f0d67dd189ade4779f22eef6a98b145b7fe0d08e0ed98a118d213c",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Third-person photo of a woman pointing toward a small backpack on a coat rack across a room; no held near bag and a different scene from its near pair, breaking the approved paired contract.",
+      "new_observation": "Viewed source, zoomed finger axis and 360/250/180 px renders: first-person view down a bare grey-floored hallway; the left hand holds a plain red backpack by its top loop (about one third width, complete with straps) while the right index finger aims up-left at the identical red backpack standing alone by the far door (about 10 percent width). The extended finger line enters the far backpack's upper-right side; the fingertip stops well short. No logos, other bags, furniture or extra hands. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/18/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v1/that-bag.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "80e21551-a07b-40a0-9503-c5a44f74f80b",
+          "asset_id": "that-bag",
+          "pack_sha256": "fddbce77ee76deebbcf2ed3c0171e190b606597d188b5259c6e308a5ef717936",
+          "started_at": "2026-09-19T18:39:29.643796+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHAT state. The learner stands in a bright, sparsely furnished hallway with pale grey floorboards, plain white walls and a closed white door in the background; the camera looks steeply down and forward across the floor. Two identical bright red canvas backpacks with black straps and a short top carry loop, completely plain, with no logo, label, patch, text or keychain.\nNEAR backpack: the LEFT hand holds it up by its top carry loop so it hangs in the lower-left part of the photo; the whole backpack, including both shoulder straps, is visible; it spans about one third of the photo width.\nFAR backpack: stands upright on the bare floor only about one meter ahead, alone in the upper center of the photo. It is clearly smaller, but at least 20 percent of the photo width, sharp and unmistakably the same red backpack; the near one looks about twice as big.\nRIGHT hand: the forearm enters from the lower-right corner and the hand stays in the lower half of the photo. The index finger is fully straight and aimed diagonally up and to the left, exactly at the FAR backpack; the other fingers are curled with the thumb resting on them. A straight line continued from the fingertip runs into the center of the far backpack. A wide gap of empty space separates the fingertip from the far backpack; no hand overlaps, touches or hides either backpack.\nNo other bags, backpacks, purses, boxes, rugs or furniture anywhere. The picture means: THAT red backpack over there, while my left hand holds THIS one.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [],
+          "endpoint": "https://api.openai.com/v1/images/generations",
+          "human_approval": "pending",
+          "provider_request_id": "req_b8b7b5976e8a4fc19c3fafca0ca8323e",
+          "usage": {
+            "input_tokens": 568,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 568
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 1940
+          },
+          "cost": {
+            "usd": "0.044",
+            "mxn": "0.7467108",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 568,
+            "image_input_tokens": 0,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 24.87,
+          "output": "output/imagegen/unit-2-lesson-v1/that-bag.png",
+          "sha256": "dd1d43d482246601b66fd814c182dc3b6f72d5d8249c0b9defca3792c83a8d67",
+          "byte_count": 2263648
+        },
+        "agent_review": {
+          "sha256": "dd1d43d482246601b66fd814c182dc3b6f72d5d8249c0b9defca3792c83a8d67",
+          "disposition": "usable",
+          "observed_description": "Viewed source, zoomed finger axis and 360/250/180 px renders: first-person view down a bare grey-floored hallway; the left hand holds a plain red backpack by its top loop (about one third width, complete with straps) while the right index finger aims up-left at the identical red backpack standing alone by the far door (about 10 percent width). The extended finger line enters the far backpack's upper-right side; the fingertip stops well short. No logos, other bags, furniture or extra hands. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_near-bag.webp",
+      "old_sha256": "4072c3eb2e68a021213ad9a27dbeece5b9e7278fcbb0e8af01a92ef7bde7c035",
+      "candidate_filename": "a1_photo_u2_this_bag_v1.webp",
+      "new_sha256": "25ddd00de0fa1173a6d9510cf174319bcc6e7be22c32b73e47188e539d0544e1",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "A green backpack on a chair beside a seated person's arm that neither holds nor points at it; no matching far bag, so it breaks the approved paired this/that contract.",
+      "new_observation": "Viewed against the that-bag reference, zoomed fingertip and 360/250/180 px renders: identical hallway, door, light and both plain red backpacks; the left hand still holds the near backpack by its top loop. Only the right hand changed: its straight index finger now points left at the held backpack, stopping a narrow but visible gap short of its black side strap without touching. The identical far backpack stays complete and un-pointed by the door. No logos or extra hands. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/10/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/18/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/24/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/30/prompt_image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v1/this-bag.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "cbd6262e-7407-4d22-9c6d-f773d36302f5",
+          "asset_id": "this-bag",
+          "pack_sha256": "fddbce77ee76deebbcf2ed3c0171e190b606597d188b5259c6e308a5ef717936",
+          "started_at": "2026-09-19T18:41:09.623745+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHIS state, precise edit of Image 1. Change ONLY the learner's RIGHT hand: its straight index finger now points to the left at the middle of the NEAR red backpack held up by the LEFT hand, the fingertip stopping about two finger-widths short of it without touching or covering it; the other fingers stay curled. Keep everything else exactly as in Image 1: camera, light, room, surfaces, the left hand and the near red backpack it holds, and the FAR red backpack, complete, sharp and unmoved. No finger points at the far red backpack. No extra hands, objects, text or other changes. The picture now means: THIS red backpack, the one my left hand holds.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "that-bag.png",
+              "sha256": "dd1d43d482246601b66fd814c182dc3b6f72d5d8249c0b9defca3792c83a8d67",
+              "byte_count": 2263648
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_66f8e7c0b290481ea9d027b3768d039b",
+          "usage": {
+            "input_tokens": 1940,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 404
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3312
+          },
+          "cost": {
+            "usd": "0.055468",
+            "mxn": "0.9413307876",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 404,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 26.74,
+          "output": "output/imagegen/unit-2-lesson-v1/this-bag.png",
+          "sha256": "4366619e68c666a2b8f59f083385021a6a0d002e0cadfa81882d1da2da7bf5e6",
+          "byte_count": 2114799
+        },
+        "agent_review": {
+          "sha256": "4366619e68c666a2b8f59f083385021a6a0d002e0cadfa81882d1da2da7bf5e6",
+          "disposition": "usable",
+          "observed_description": "Viewed against the that-bag reference, zoomed fingertip and 360/250/180 px renders: identical hallway, door, light and both plain red backpacks; the left hand still holds the near backpack by its top loop. Only the right hand changed: its straight index finger now points left at the held backpack, stopping a narrow but visible gap short of its black side strap without touching. The identical far backpack stays complete and un-pointed by the door. No logos or extra hands. Centered 4:5 crop trims the left hand; no 2.5 card uses that crop.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_near-chair.webp",
+      "old_sha256": "52658547285b1294a359b497eee45ebcc0078dd9ecf11cc461aa1d65565ba2ac",
+      "candidate_filename": "a1_photo_u2_this_chair_v1.webp",
+      "new_sha256": "53b0f0775887108749d62cfe3e0dbca7c2951908ad270f0a12b81f061799b1f1",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Extreme close-up of a wooden armrest and leg with no person, hand or pointing gesture; the chair is hard to recognize and there is no matching far chair, breaking the approved paired contract.",
+      "new_observation": "Viewed source and 360/250/180 px renders: steep first-person view of bare oak floorboards with two identical five-slat oak chairs. The left hand grips the near chair's backrest; that chair is complete with floor below every foot. The right hand stays low in the bottom third and its straight index finger points left at the gripped near chair, stopping short of its rear post. The identical far chair stands alone at upper center-right (about 14 percent width, feet in the upper half), un-pointed. No text, other furniture or extra hands.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/19/options/1/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v4/this-chair.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "9b53e5a6-4328-4b64-bd66-a6d3c22c263e",
+          "asset_id": "this-chair",
+          "pack_sha256": "7ea0550413c7e96aaa84ee7073fe33ea029c5b98c51551aa5a1ee3ee6ed2bbb0",
+          "started_at": "2026-09-19T19:28:09.413132+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHIS state. First-person photograph looking steeply DOWN from standing eye height at a compact patch of pale oak floorboards in a bright room; little or no wall shows. Two identical natural light-oak wooden chairs with five vertical backrest slats and a solid wooden seat, BOTH COMPLETELY inside the photo, including every leg and seat, with visible floor below every chair foot.\nNEAR chair: lower-center-left, backrest toward the learner, the LEFT hand gripping the top of its backrest. It occupies at most 45 percent of the photo height and is NOT cropped by the bottom edge.\nFAR chair: about one and a half meters beyond the near chair, in the upper-center-right, facing the learner, alone on bare floor. It is complete and sharp, at least 18 percent of the photo width, clearly smaller than the near chair, and all four of its feet stay in the upper half of the photo.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just to the right of the near chair. Its straight index finger points to the left at the NEAR chair that the left hand grips, the fingertip stopping about two finger-widths short of it; the other fingers are curled. Nothing points at the far chair.\nNo table, sofa, stool, bench, rug or any other furniture. The picture means: THIS chair, the one my left hand grips.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [],
+          "endpoint": "https://api.openai.com/v1/images/generations",
+          "human_approval": "pending",
+          "provider_request_id": "req_e153ab69209c440e8ecfa07eac3a8f9b",
+          "usage": {
+            "input_tokens": 549,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 549
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 1921
+          },
+          "cost": {
+            "usd": "0.043905",
+            "mxn": "0.7450985835",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 549,
+            "image_input_tokens": 0,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 25.85,
+          "output": "output/imagegen/unit-2-lesson-v4/this-chair.png",
+          "sha256": "6def663d2920e6285e4e07d93173535ed3e89199e915a489f3a6c66a238cb869",
+          "byte_count": 2109849
+        },
+        "agent_review": {
+          "sha256": "6def663d2920e6285e4e07d93173535ed3e89199e915a489f3a6c66a238cb869",
+          "disposition": "usable",
+          "observed_description": "Viewed source and 360/250/180 px renders: steep first-person view of bare oak floorboards with two identical five-slat oak chairs. The left hand grips the near chair's backrest; that chair is complete with floor below every foot. The right hand stays low in the bottom third and its straight index finger points left at the gripped near chair, stopping short of its rear post. The identical far chair stands alone at upper center-right (about 14 percent width, feet in the upper half), un-pointed. No text, other furniture or extra hands.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte. Revision 2 regenerates only the chair pair after the v1 THAT-chair draft was rejected; v1 and v2 together stay within the US$1.00 approval. Revision 2 sent one request, refused with HTTP 429 credit_balance_exhausted (provider request req_849e0bc4cd9a44e8bf3e74b3efb77ff1): no image and no charge. Revision 3 repeats its unchanged chair prompts after the account balance is restored. Revision 3 generated one THAT-chair draft (US$0.043995), rejected because the fingertip lay on the far chair. Revision 4 generates THIS first, with the hand low by construction, then edits only the finger direction; that-chair-alt is a pre-registered stricter fallback used only if the first edit is rejected."
+    },
+    {
+      "index": null,
+      "old_filename": "a1_far-chair.webp",
+      "old_sha256": "95ee446fa8f5902d13c929cfdba9f5bce086b5e5caa4314b2727ec8f33adda19",
+      "candidate_filename": "a1_photo_u2_that_chair_v1.webp",
+      "new_sha256": "32285c972af50ccc767b4ed99082c2a9050760ddb61dd95221575ede3f3de177",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "A woman seen from behind points at a window while the only chair stands off to the left, off her finger line (user report 2026-09-19); no held near chair.",
+      "new_observation": "Viewed against the this-chair reference and at 360/250/180 px: identical floor, light, both five-slat oak chairs and the left hand gripping the near chair. Only the right index finger changed: the hand stays low in the bottom third and the finger now points up the bare floor; its extended line runs into the far chair's seat. About 18 percent of the photo height of empty floor separates the fingertip from the far chair's feet, so nothing overlaps or implies touch. No text or extra hands.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/11/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/13/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/19/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/25/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/31/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-2-5-this-and-that",
+          "lesson": "2.5",
+          "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+          "pointer": "/cards/33/prompt_image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-2-lesson-v4/that-chair.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "e8990cb3-176d-4415-b7d3-3ea806049566",
+          "asset_id": "that-chair",
+          "pack_sha256": "7ea0550413c7e96aaa84ee7073fe33ea029c5b98c51551aa5a1ee3ee6ed2bbb0",
+          "started_at": "2026-09-19T19:29:19.679470+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.\n\nTHAT state, precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger. Keep the right hand, wrist and forearm exactly where they are, low in the photo beside the near chair, and keep everything else identical: camera, light, floor, both complete chairs and the left hand gripping the near chair. Now the straight index finger points up across the bare floor toward the seat of the FAR chair, which stays complete, sharp and unmoved. The fingertip stays low where the hand already is, with a wide band of bare floor between it and every part of the far chair; it never reaches, overlaps or touches the far chair. No extra hands, objects, text or other changes. The picture now means: THAT chair over there, while my left hand grips THIS one.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "this-chair.png",
+              "sha256": "6def663d2920e6285e4e07d93173535ed3e89199e915a489f3a6c66a238cb869",
+              "byte_count": 2109849
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_854d0a07e880460d9dc751139e96f996",
+          "usage": {
+            "input_tokens": 1961,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 425
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3333
+          },
+          "cost": {
+            "usd": "0.055573",
+            "mxn": "0.9431127111",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 425,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 26.84,
+          "output": "output/imagegen/unit-2-lesson-v4/that-chair.png",
+          "sha256": "d91a745c7e194b7c91dde4429589ff9a3af86c97cee1127993e7024d7944f03f",
+          "byte_count": 1962250
+        },
+        "agent_review": {
+          "sha256": "d91a745c7e194b7c91dde4429589ff9a3af86c97cee1127993e7024d7944f03f",
+          "disposition": "usable",
+          "observed_description": "Viewed against the this-chair reference and at 360/250/180 px: identical floor, light, both five-slat oak chairs and the left hand gripping the near chair. Only the right index finger changed: the hand stays low in the bottom third and the finger now points up the bare floor; its extended line runs into the far chair's seat. About 18 percent of the photo height of empty floor separates the fingertip from the far chair's feet, so nothing overlaps or implies touch. No text or extra hands.",
+          "crop_review": "inspected-3x2-and-centered-4x5",
+          "human_approval": "pending"
+        }
+      },
+      "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte. Revision 2 regenerates only the chair pair after the v1 THAT-chair draft was rejected; v1 and v2 together stay within the US$1.00 approval. Revision 2 sent one request, refused with HTTP 429 credit_balance_exhausted (provider request req_849e0bc4cd9a44e8bf3e74b3efb77ff1): no image and no charge. Revision 3 repeats its unchanged chair prompts after the account balance is restored. Revision 3 generated one THAT-chair draft (US$0.043995), rejected because the fingertip lay on the far chair. Revision 4 generates THIS first, with the hand low by construction, then edits only the finger direction; that-chair-alt is a pre-registered stricter fallback used only if the first edit is rejected."
     }
   ]
 }
