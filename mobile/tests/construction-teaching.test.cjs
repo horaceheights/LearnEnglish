@@ -146,7 +146,7 @@ test('a wrong construction waits for explicit retry while listening and missions
     assert.match(source, /Reintentar/);
     assert.match(source, /styles\.wrongIcon[^<]*>×/, 'A wrong grade needs an explicit X, not color alone.');
     assert.match(source, /Respuesta incorrecta/, 'The wrong state needs an accessible label.');
-    assert.match(source, /result === ['"]correct['"] \? ['"]¡Muy bien!/, 'A locked wrong answer is not successful.');
+    assert.match(source, /result === ['"]correct['"] \? <ConstructionCelebration/, 'Only a graded correct answer may celebrate.');
   }
   assert.match(overlay, /isReminder \? 'Si necesitas ayuda en el futuro, solo toca el botón' : message/);
   assert.match(mobile, /<SentenceHelpOverlay[\s\S]*lessonHelpText\(currentCard, promptInteractionMode\)/);

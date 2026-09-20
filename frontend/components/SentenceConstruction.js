@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { availableSentenceWords, placeSentenceWord, returnSentenceWord, sentenceHint, sentenceParts, sentenceSlots } from "../../mobile/src/sentenceConstruction";
 import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
 import styles from "./SentenceConstruction.module.css";
+import ConstructionCelebration from "./ConstructionCelebration";
 
 export default function SentenceConstruction({ card, selected, result, onChange, onReplay, onRetry, imageSrc, location, showHelp, helpOpen, surfaceRef }) {
   const slots = sentenceSlots(card, selected);
@@ -118,41 +119,44 @@ export default function SentenceConstruction({ card, selected, result, onChange,
   return <section ref={setRoot} data-lesson-page className={styles.activity} aria-label="Construye la frase">
     <div className={`${styles.importance} ${wideSlots ? styles.wideSlots : ""}`}>
       <div className={styles.location}>{location} · COMPLETA</div>
-      <button type="button" className={styles.translation} aria-label="Mostrar traducción" onClick={() => setTranslated(!translated)}>{translated ? card.spanish_translation : "Escucha y forma la frase."}</button>
-      <div className={styles.slots} aria-label="Frase en construcción">
+      {result === "correct" && wideSlots && !translated ? <div className={styles.successReplaySpace} aria-hidden="true" /> : null}
+      {result !== "correct" || translated ? <button type="button" className={styles.translation} aria-label="Mostrar traducción" onClick={() => setTranslated(!translated)}>{translated ? card.spanish_translation : "Escucha y forma la frase."}</button> : null}
+      <div className={styles.slots} aria-label={result === "correct" ? "Frase completada" : "Frase en construcción"}>
         {parts.map((part, index) => {
           if ("text" in part) return <span key={`text-${index}`} className={styles.scaffold}>{part.text}</span>;
           const id = slots[part.slot];
           const label = card.options.find(option => option.id === id)?.label || "";
           return <button key={`slot-${part.slot}`} type="button" ref={element => { slotRefs.current[part.slot] = element; }}
             className={`${styles.slot} ${result === "correct" ? styles.correct : ""} ${hover === part.slot ? styles.target : ""}`}
-            aria-label={`Espacio ${part.slot + 1}: ${label || "vacío"}`}
-            aria-describedby="word-correction-help" disabled={locked || !id}
-            {...handlers(id, label, part.slot)}><span style={{ visibility: moving?.id === id ? "hidden" : "visible" }}>{label || "___"}{part.suffix}</span></button>;
+            aria-label={result === "correct" ? `${label}. Mostrar traducción` : `Espacio ${part.slot + 1}: ${label || "vacío"}`}
+            aria-describedby={result === "correct" ? undefined : "word-correction-help"} disabled={result !== "correct" && (locked || !id)}
+            {...(result === "correct" ? { onClick: () => setTranslated(value => !value) } : handlers(id, label, part.slot))}><span style={{ visibility: moving?.id === id ? "hidden" : "visible" }}>{label || "___"}{part.suffix}</span></button>;
         })}
       </div>
       <button className={styles.replay} type="button" aria-label="Repetir frase en inglés" onClick={onReplay}>
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4zM15 8a6 6 0 0 1 0 8M18 4a11 11 0 0 1 0 16" /></svg>
       </button>
     </div>
-    <div className={styles.card}>
+    <div className={`${styles.card} ${result === "correct" ? styles.successCard : ""}`}>
       <div className={styles.imageFrame}><img src={imageSrc} alt="Imagen de la frase" /></div>
+      {result === "correct" ? <ConstructionCelebration /> : <>
       <p className={styles.instruction}>{result === "wrong" ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, "translation-on-tap") : "Toca o arrastra. Devuelve aquí las palabras para corregir."}</p>
-      <span id="word-correction-help" className={styles.srOnly}>{result === "wrong" ? COMPLETION_RETRY_HELP : locked ? "Frase completa." : "Toca para devolver. Con el teclado, usa las flechas para mover y Suprimir para devolver."}</span>
+      <span id="word-correction-help" className={styles.srOnly}>{result === "wrong" ? COMPLETION_RETRY_HELP : "Toca para devolver. Con el teclado, usa las flechas para mover y Suprimir para devolver."}</span>
       <div ref={bank} className={`${styles.bank} ${hover === "bank" ? styles.target : ""}`} aria-label="Palabras disponibles">
         {words.map(option => <button key={option.id} type="button"
           ref={element => { if (element) wordRefs.current.set(option.id, element); else wordRefs.current.delete(option.id); }}
           className={`${styles.tile} ${styles[`tone${card.options.findIndex(word => word.id === option.id) % 3}`]}`} disabled={locked} aria-label={`Ficha ${option.label}`}
           {...handlers(option.id, option.label)}><span style={{ visibility: moving?.id === option.id ? "hidden" : "visible" }}>{option.label}</span></button>)}
-        {!words.length ? <p className={styles.instruction}>{result === "correct" ? "Frase completa." : result === "wrong" ? "Lee la explicación de abajo." : "Devuelve aquí una palabra para corregir."}</p> : null}
+        {!words.length ? <p className={styles.instruction}>{result === "wrong" ? "Lee la explicación de abajo." : "Devuelve aquí una palabra para corregir."}</p> : null}
       </div>
       {result !== "wrong" ? <div className={styles.controls}>
         <button type="button" disabled={locked || !history.current.length} aria-label="Deshacer último movimiento"
           onClick={() => { const previous = history.current.pop(); if (previous && !locked) onChange(previous); }}>Deshacer</button>
       </div> : null}
-      <div className={styles.feedback} role="status">{result === "correct" ? "¡Muy bien!" : result === "wrong" ? <><div><span className={styles.wrongIcon} role="img" aria-label="Respuesta incorrecta">×</span> ¡Ánimo! Inténtalo de nuevo.</div><div>{sentenceHint(card, slots)}</div></> : ""}</div>
+      <div className={styles.feedback} role="status">{result === "wrong" ? <><div><span className={styles.wrongIcon} role="img" aria-label="Respuesta incorrecta">×</span> ¡Ánimo! Inténtalo de nuevo.</div><div>{sentenceHint(card, slots)}</div></> : ""}</div>
       {result === "wrong" ? <div className={styles.controls}><button className={styles.retry} type="button"
         onClick={() => { history.current = []; cancel(); onRetry(); }}>Reintentar</button></div> : null}
+      </>}
     </div>
     {moving ? <div aria-hidden="true" className={styles.drag} style={{ left: moving.x, top: moving.y, width: moving.width, minHeight: moving.height }}>{moving.label}</div> : null}
   </section>;
