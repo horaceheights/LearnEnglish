@@ -87,7 +87,8 @@ test('group capsules follow reviewed members rather than translated display labe
 test('remaining-unit group endpoints are pinned to visually inspected image bytes', () => {
   const registry = JSON.parse(fs.readFileSync(path.join(root, 'docs/qa/units-2-7-mission-target-reviews.json'), 'utf8'));
   for (const review of registry.reviews) {
-    const lesson = JSON.parse(fs.readFileSync(path.join(root, 'backend/lessons/unit_2', review.lesson_id + '.yaml'), 'utf8'));
+    const unit = review.lesson_id.match(/^lesson-([2-7])-/)[1];
+    const lesson = JSON.parse(fs.readFileSync(path.join(root, `backend/lessons/unit_${unit}`, review.lesson_id + '.yaml'), 'utf8'));
     const card = lesson.cards.find(card => card.slide_id === review.slide_id);
     assert.equal(path.basename(card.prompt_image_url), review.filename);
     for (const imageDir of ['Lessons/Lesson1/images', 'frontend/public/lesson-assets', 'mobile/assets/lesson-assets']) {

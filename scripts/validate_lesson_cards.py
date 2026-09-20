@@ -156,6 +156,7 @@ class SemanticClause:
     positive_actions: frozenset[str]
     negative_actions: frozenset[str]
     contradictory: bool = False
+    details: frozenset[str] = frozenset()
 
 
 @dataclass(frozen=True)
@@ -166,6 +167,7 @@ class VisualReferent:
     negative_concepts: frozenset[str]
     actions: frozenset[str]
     negative_actions: frozenset[str]
+    details: frozenset[str] = frozenset()
 
 
 @dataclass(frozen=True)
@@ -210,6 +212,7 @@ UNIT_ONE_FOUNDATION_LESSON_IDS = (
 )
 MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
+    "lesson-3-10-introduction-mission": 13,
 }
 MISSION_REQUIRED_INTERACTIONS = {
     "lesson-10-family-mission": frozenset({
@@ -217,15 +220,28 @@ MISSION_REQUIRED_INTERACTIONS = {
         "mission-speak",
         "mission-finale",
     }),
+    "lesson-3-10-introduction-mission": frozenset({
+        "mission-game",
+        "mission-speak",
+        "mission-finale",
+    }),
 }
 MISSION_HERO_PREFIXES = {
     "lesson-10-family-mission": "a1_u1_reunion_",
+    "lesson-3-10-introduction-mission": "a1_u3_dinner_v1_",
 }
 MISSION_REQUIRED_KINDS = {
     "lesson-10-family-mission": frozenset({
         "guided-search",
         "crowd-search",
         "family-link",
+        "action-hunt",
+        "contrast-hunt",
+        "voice-gate",
+    }),
+    "lesson-3-10-introduction-mission": frozenset({
+        "guided-search",
+        "crowd-search",
         "action-hunt",
         "contrast-hunt",
         "voice-gate",
@@ -241,6 +257,11 @@ MISSION_KIND_SEQUENCE = {
         "contrast-hunt", "contrast-hunt", "contrast-hunt",
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
+    "lesson-3-10-introduction-mission": [
+        "guided-search", "crowd-search", "crowd-search", "crowd-search",
+        "action-hunt", "crowd-search", "crowd-search", "crowd-search", "contrast-hunt",
+        "voice-gate", "voice-gate", "voice-gate", "voice-gate",
+    ],
 }
 MISSION_CHAPTER_SEQUENCE = {
     "lesson-10-family-mission": (
@@ -249,6 +270,9 @@ MISSION_CHAPTER_SEQUENCE = {
         + ["follow-the-actions"] * 6
         + ["repair-the-clues"] * 3
         + ["welcome-everyone"] * 4
+    ),
+    "lesson-3-10-introduction-mission": (
+        ["arrivals"] * 2 + ["welcome"] * 2 + ["prep"] * 2 + ["guests"] * 3 + ["table-talk"] * 4
     ),
 }
 
@@ -905,6 +929,7 @@ def _visual_referent(
     negative_concepts: set[str] | None = None,
     negative_actions: set[str] | None = None,
     expand_concepts: bool = True,
+    details: frozenset[str] = frozenset(),
 ) -> VisualReferent:
     return VisualReferent(
         count=count,
@@ -913,7 +938,41 @@ def _visual_referent(
         negative_concepts=frozenset(negative_concepts or set()),
         actions=frozenset(actions),
         negative_actions=frozenset(negative_actions or set()),
+        details=details,
     )
+
+
+def _semantic_details(text: str) -> frozenset[str]:
+    """Do not reduce a rich food/count/crossing predicate to just its person.
+
+    Like the existing Unit 1 ontology, these are conservative contract facts,
+    not pixel approval. Hash-bound visual review still establishes the image.
+    """
+    tokens = set(re.findall(r'[a-z]+', text.lower()))
+    details = set()
+    for word in ('apple', 'orange', 'strawberry', 'egg', 'banana'):
+        plural = 'strawberries' if word == 'strawberry' else word + 's'
+        if tokens & {word, plural}:
+            details.add('food:' + word)
+    for word in ('bread', 'rice', 'fish', 'chicken', 'milk', 'water', 'juice', 'tea', 'coffee'):
+        if word in tokens:
+            details.add('food:' + word)
+    if any(value.startswith('food:') for value in details):
+        for word in ('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'):
+            if word in tokens:
+                details.add('quantity:' + word)
+        for word in ('red', 'green', 'yellow', 'blue'):
+            if word in tokens:
+                details.add('color:' + word)
+    if tokens & {'want', 'wants'}:
+        details.add('predicate:want')
+    if tokens & {'need', 'needs'}:
+        details.add('predicate:need')
+    if {'cross', 'cannot'} <= tokens or {'waits', 'red'} <= tokens:
+        details.add('crossing:cannot')
+    elif {'cross', 'can'} <= tokens or {'crosses', 'green'} <= tokens:
+        details.add('crossing:can')
+    return frozenset(details)
 
 
 def _asset_name(media_url: str | None) -> str:
@@ -945,6 +1004,7 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
     if stem.startswith("a1_scene_"):
         return None
     tokens = set(re.split(r"[^a-z]+", stem))
+    details = _semantic_details(stem)
     actions = {action for action in SEMANTIC_ACTIONS if action in tokens}
     for marker, additional_actions in SEMANTIC_ASSET_ACTION_ADDITIONS.items():
         if marker in stem:
@@ -973,6 +1033,7 @@ def _visual_meaning(media_url: str | None) -> VisualMeaning | None:
             gender,
             negative_actions=negative_actions,
             expand_concepts=expand_concepts,
+            details=details,
         )
 
     # The Unit 1 final mission uses storyboard/contact-sheet heroes whose exact
@@ -1346,7 +1407,9 @@ def _semantic_clauses(text: str | None) -> tuple[SemanticClause, ...]:
         else:
             gender = None
 
-        contradictory = False
+        # A wrong subject/verb agreement is an intentionally false grammar
+        # choice, not another valid description of the pictured man/woman.
+        contradictory = bool(re.search(r'\b(?:he|she)\s+(?:want|need)\b', clause))
         copula_parts = re.split(r"\b(?:is|are)\b", clause, maxsplit=1)
         if len(copula_parts) == 2:
             subject_text, predicate_text = copula_parts
@@ -1366,7 +1429,7 @@ def _semantic_clauses(text: str | None) -> tuple[SemanticClause, ...]:
                 "child": {"adult", "father", "grandfather", "grandmother", "mother", "parent"},
                 "sister": {"adult", "father", "grandfather", "grandmother", "mother", "parent"},
             }
-            contradictory = any(
+            contradictory = contradictory or any(
                 subject_concepts & incompatible_subjects
                 for predicate_concept, incompatible_subjects in incompatible_category_claims.items()
                 if predicate_concept in predicate_concepts
@@ -1390,6 +1453,7 @@ def _semantic_clauses(text: str | None) -> tuple[SemanticClause, ...]:
                     positive_actions=frozenset(positive_actions),
                     negative_actions=frozenset(negative_actions),
                     contradictory=contradictory,
+                    details=_semantic_details(clause),
                 )
             )
     return tuple(clauses)
@@ -1421,6 +1485,8 @@ def _clause_matches_referent(clause: SemanticClause, referent: VisualReferent) -
     if not clause.positive_actions.issubset(referent.actions):
         return False
     if not clause.negative_actions.issubset(referent.negative_actions):
+        return False
+    if not clause.details.issubset(referent.details):
         return False
     return True
 

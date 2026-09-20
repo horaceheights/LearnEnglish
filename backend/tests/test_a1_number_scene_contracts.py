@@ -2,12 +2,14 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import re
 import unittest
 
 
 ROOT = Path(__file__).resolve().parents[2]
 CANVAS_PATH = ROOT / "docs" / "product" / "a1-course-canvas.json"
 UNIT_2_PATH = ROOT / "docs" / "product" / "unit-2-curriculum.json"
+COUNTED_OBJECT = re.compile(r"\b(?:stars?|dots?|apples?|bananas?|oranges?|mugs?|pens?|pencils?|blocks?)\b", re.IGNORECASE)
 
 
 def lesson(payload: dict[str, object], lesson_id: str) -> dict[str, object]:
@@ -32,7 +34,9 @@ class A1NumberSceneContractTests(unittest.TestCase):
         cls.canvas = json.loads(CANVAS_PATH.read_text(encoding="utf-8"))
         cls.unit_2 = json.loads(UNIT_2_PATH.read_text(encoding="utf-8"))
 
-    def test_number_one_to_ten_contracts_truthfully_describe_star_markers(self) -> None:
+    def test_number_one_to_ten_contracts_show_the_numeral_not_counted_objects(self) -> None:
+        # Numbers are introduced with the numeral itself (user decision, 2026-09-19);
+        # counting photos wait until the learner has been taught the counted noun.
         canvas_contracts = lesson(self.canvas, "2.6")["scene_contract"]
         unit_contracts = lesson(self.unit_2, "2.6")["scene_contract"]
 
@@ -41,10 +45,12 @@ class A1NumberSceneContractTests(unittest.TestCase):
             with self.subTest(number=number):
                 description = canvas_contracts[key]
                 self.assertEqual(unit_contracts[key], description)
-                self.assertIn(f"exactly {number} separate gold star", description)
-                self.assertNotIn("dot", description.split(";", 1)[0].lower())
+                self.assertIn("photoreal community-center registration", description)
+                self.assertIn("holds one physical card", description)
+                self.assertTrue(description.endswith(f"showing only the large numeral {number}"))
+                self.assertIsNone(COUNTED_OBJECT.search(description), description)
 
-    def test_reused_star_cards_keep_explicit_truthful_contracts(self) -> None:
+    def test_reused_number_cards_keep_explicit_truthful_contracts(self) -> None:
         repeated = {
             ("2.7", "n2"): 2,
             ("2.7", "n4"): 4,
@@ -54,9 +60,13 @@ class A1NumberSceneContractTests(unittest.TestCase):
             with self.subTest(lesson_id=lesson_id, key=key):
                 description = lesson(self.canvas, lesson_id)["scene_contract"][key]
                 self.assertIn("reuse the established", description)
-                self.assertIn(f"exactly {number} separate gold stars", description)
+                self.assertTrue(description.endswith(f"showing only the large numeral {number}"))
+                self.assertEqual(
+                    description.split(": ", 1)[1],
+                    lesson(self.canvas, "2.6")["scene_contract"][key],
+                )
                 self.assertNotIn("approved", description.lower())
-                self.assertNotIn("dot", description.split(";", 1)[0].lower())
+                self.assertIsNone(COUNTED_OBJECT.search(description), description)
 
     def test_unit3_number_cards_use_real_people_and_physical_numerals(self) -> None:
         person_cards = {

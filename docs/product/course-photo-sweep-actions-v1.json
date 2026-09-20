@@ -1,0 +1,1814 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v3",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "3.50",
+    "expected_cost_usd": "2.60",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "Use case: photorealistic-natural. A single exceptionally lifelike photograph for beginner English, authentic human skin texture, realistic anatomy and natural expressions, natural light, real environment. No cartoon, drawing, vector, CGI, icons, arrows, speech bubbles, collage, inset, borders, captions or watermarks. Full-bleed landscape 3:2. The app ALSO shows a centered narrow 4:5 crop: arrange ALL required people, faces, target objects and action cues compactly inside the CENTRAL 50 percent of the landscape width, using depth and a slightly elevated view if helpful, not a long horizontal line. Both side margins are expendable background. Use enough depth of field and a close enough view that the target is obvious on a phone. The exact number of people and objects, color, gesture and positive versus negative action are essential. No background duplicates of counted subjects.",
+  "assets": [
+    {
+      "id": "u5-boy-eating-bread",
+      "runtime_filename": "a1_photo_u5_boy_eating_bread_v1.webp",
+      "prompt": "A school-age boy at a kitchen table visibly biting a slice of bread held at his mouth. Only bread on his small plate. No rice.",
+      "expected_description": "A school-age boy at a kitchen table visibly biting a slice of bread held at his mouth. Only bread on his small plate. No rice.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 150,
+            "old_filename": "a1_scene_boy-eating-bread_0a18314.webp",
+            "old_sha256": "7e82975bdd90c2ba67cf83106687bf684d0d0e0953001aaada87431910c2d319",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/17/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-boy-eating-rice",
+      "runtime_filename": "a1_photo_u5_boy_eating_rice_v1.webp",
+      "prompt": "A school-age boy at a kitchen table visibly eating white rice with a spoon from a bowl. Rice grains clearly visible on spoon and in bowl, no bread.",
+      "expected_description": "A school-age boy at a kitchen table visibly eating white rice with a spoon from a bowl. Rice grains clearly visible on spoon and in bowl, no bread.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 151,
+            "old_filename": "a1_scene_boy-eating-rice_a4f75b0.webp",
+            "old_sha256": "942c37ce0a6d0db48ba20c0895b5189c0275c7c3526d46c5b564177d9f4cf138",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/17/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/31/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-boy-wants-apple",
+      "runtime_filename": "a1_photo_u5_boy_wants_apple_v1.webp",
+      "prompt": "A school-age boy at a produce counter eagerly pointing at one whole red apple on a small plate immediately in front of him. His empty free hand is open toward the apple. Not eating yet, no other food.",
+      "expected_description": "A school-age boy at a produce counter eagerly pointing at one whole red apple on a small plate immediately in front of him. His empty free hand is open toward the apple. Not eating yet, no other food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 153,
+            "old_filename": "a1_scene_boy-wants-apple_8797861.webp",
+            "old_sha256": "eb03cd249b28ba4dee0beededfa9555f384ab3256e15ea44165c941404b49364",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/8/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-boy-wants-chicken",
+      "runtime_filename": "a1_photo_u5_boy_wants_chicken_v1.webp",
+      "prompt": "One school-age boy seated at a restaurant counter eagerly pointing to a whole roast chicken on a platter immediately in front of him. No other people, fish or food.",
+      "expected_description": "One school-age boy seated at a restaurant counter eagerly pointing to a whole roast chicken on a platter immediately in front of him. No other people, fish or food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 154,
+            "old_filename": "a1_scene_boy-wants-chicken_33caa20_four-card.webp",
+            "old_sha256": "686ee94f560270b42a84347bf8e9c39eb77158dfb062ce441afd4074fd6fefae",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/18/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-girl-eating-fish",
+      "runtime_filename": "a1_photo_u5_girl_eating_fish_v1.webp",
+      "prompt": "A school-age girl at a kitchen table eating cooked fish with a fork. A small whole cooked fish with its head and tail is clearly visible on the plate, with one bite lifted on her fork. No chicken.",
+      "expected_description": "A school-age girl at a kitchen table eating cooked fish with a fork. A small whole cooked fish with its head and tail is clearly visible on the plate, with one bite lifted on her fork. No chicken.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 281,
+            "old_filename": "a1_scene_fish_64875fc.webp",
+            "old_sha256": "99fc3402941338a1060b301ebe4d932485dae835d1d79617d8f69658b9a1d477",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/34/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-girl-wants-apple",
+      "runtime_filename": "a1_photo_u5_girl_wants_apple_v1.webp",
+      "prompt": "A school-age girl at a produce counter eagerly pointing at one whole red apple on a small plate immediately in front of her. Not eating yet, no other food.",
+      "expected_description": "A school-age girl at a produce counter eagerly pointing at one whole red apple on a small plate immediately in front of her. Not eating yet, no other food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 301,
+            "old_filename": "a1_scene_girl-wants-apple_a5da230.webp",
+            "old_sha256": "3031f752a43d3f61d1801ddbe45ceee3f2d06e7adae3b1c39a1f1fd1a4804c03",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/8/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-man-drinking-juice",
+      "runtime_filename": "a1_photo_u5_man_drinking_juice_v1.webp",
+      "prompt": "An adult man visibly drinking orange juice from a clear glass held at his mouth. Bright orange liquid clearly visible in the glass; no milk or water.",
+      "expected_description": "An adult man visibly drinking orange juice from a clear glass held at his mouth. Bright orange liquid clearly visible in the glass; no milk or water.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 446,
+            "old_filename": "a1_scene_juice_07ef879.webp",
+            "old_sha256": "41371928b6e3e3d79b6e1080c36b3217d59c0d4c0b5921fd01dc497db5d18293",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/35/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-man-wants-bread",
+      "runtime_filename": "a1_photo_u5_man_wants_bread_v1.webp",
+      "prompt": "An adult man at a bakery counter eagerly pointing to a loaf of bread immediately in front of him and holding his empty hand open toward it. Not eating yet, no other food.",
+      "expected_description": "An adult man at a bakery counter eagerly pointing to a loaf of bread immediately in front of him and holding his empty hand open toward it. Not eating yet, no other food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 328,
+            "old_filename": "a1_scene_he-wants-bread_01bef4a.webp",
+            "old_sha256": "4eefef6246de556c49c8e298d918a46445db0d7398dc1c0a8dc00531f7e48265",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/12/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-man-wants-two-red-apples",
+      "runtime_filename": "a1_photo_u5_man_wants_two_red_apples_v1.webp",
+      "prompt": "An adult man at a produce counter pointing to exactly TWO whole RED apples on one small white plate in front of him. Both apples complete, separate with a gap. No other apples or people.",
+      "expected_description": "An adult man at a produce counter pointing to exactly TWO whole RED apples on one small white plate in front of him. Both apples complete, separate with a gap. No other apples or people.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 496,
+            "old_filename": "a1_scene_man-wants-two-red-apples_772ff8a_four-card.webp",
+            "old_sha256": "830db832083ac34126221c5cf2a9defc4fbd0a389a83689836c44da4cacc3f83",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/13/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-pair-needs-water",
+      "runtime_filename": "a1_photo_u5_pair_needs_water_v1.webp",
+      "prompt": "Exactly TWO thirsty adults after a hike, seated close together and both eagerly reaching toward one clear pitcher of water and two clear water glasses centered immediately below their faces. They look hot and thirsty. No food, no extra people.",
+      "expected_description": "Exactly TWO thirsty adults after a hike, seated close together and both eagerly reaching toward one clear pitcher of water and two clear water glasses centered immediately below their faces. They look hot and thirsty. No food, no extra people.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 575,
+            "old_filename": "a1_scene_pair-needs-water_0ff58e2_four-card.webp",
+            "old_sha256": "2a4bb5934716dcd590b0b9a607b868654fd755f340f4f9647443040d5d7a065d",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/18/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-pair-wants-chicken",
+      "runtime_filename": "a1_photo_u5_pair_wants_chicken_v1.webp",
+      "prompt": "Exactly TWO adult diners seated shoulder to shoulder at a small restaurant table, BOTH eagerly pointing to the same whole roast chicken on a single platter immediately below their faces. Both faces and chicken fully visible in a compact vertical arrangement. No fish or extra people.",
+      "expected_description": "Exactly TWO adult diners seated shoulder to shoulder at a small restaurant table, BOTH eagerly pointing to the same whole roast chicken on a single platter immediately below their faces. Both faces and chicken fully visible in a compact vertical arrangement. No fish or extra people.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 577,
+            "old_filename": "a1_scene_pair-wants-chicken_a4f08a9_four-card.webp",
+            "old_sha256": "f00140e3068ecec8239aac9f4c00b5e2dde1e9576312fdd3d34cf446a00b596e",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/18/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-pair-wants-fish",
+      "runtime_filename": "a1_photo_u5_pair_wants_fish_v1.webp",
+      "prompt": "Exactly TWO adult diners seated shoulder to shoulder at a small restaurant table, BOTH eagerly pointing to the same whole cooked fish on a single platter immediately below their faces. Fish head and tail visible, both faces visible. No chicken or extra people.",
+      "expected_description": "Exactly TWO adult diners seated shoulder to shoulder at a small restaurant table, BOTH eagerly pointing to the same whole cooked fish on a single platter immediately below their faces. Fish head and tail visible, both faces visible. No chicken or extra people.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 578,
+            "old_filename": "a1_scene_pair-wants-fish_dedf2c8_four-card.webp",
+            "old_sha256": "05ef49eb8a01bb1915f3c7944afb8b7a64e346d062a75ec99f18cc9bd49ddb4b",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-woman-drinking-juice",
+      "runtime_filename": "a1_photo_u5_woman_drinking_juice_v1.webp",
+      "prompt": "An adult woman visibly drinking orange juice from a clear glass held at her mouth. Bright orange liquid clearly visible; no milk or water.",
+      "expected_description": "An adult woman visibly drinking orange juice from a clear glass held at her mouth. Bright orange liquid clearly visible; no milk or water.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 781,
+            "old_filename": "a1_scene_woman-drinking-juice_493df2e.webp",
+            "old_sha256": "924e5b087610b4ac3004168f4026b1ce9f903c2092d6b7ea76a5bd9496f91e53",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/22/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-woman-drinking-milk",
+      "runtime_filename": "a1_photo_u5_woman_drinking_milk_v1.webp",
+      "prompt": "An adult woman visibly drinking white milk from a clear glass held at her lips. The opaque white milk is obvious; no orange juice or water.",
+      "expected_description": "An adult woman visibly drinking white milk from a clear glass held at her lips. The opaque white milk is obvious; no orange juice or water.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 782,
+            "old_filename": "a1_scene_woman-drinking-milk_bc873f8.webp",
+            "old_sha256": "5df1323ec0f0c7148bc3435983d3804c51eb126f5bad442b50a00f62faaa2e4a",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/16/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/32/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-woman-drinking-water",
+      "runtime_filename": "a1_photo_u5_woman_drinking_water_v1.webp",
+      "prompt": "An adult woman visibly drinking clear water from a clear glass held at her lips. Transparent colorless water; no milk or juice.",
+      "expected_description": "An adult woman visibly drinking clear water from a clear glass held at her lips. Transparent colorless water; no milk or juice.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 783,
+            "old_filename": "a1_scene_woman-drinking-water_cceb796.webp",
+            "old_sha256": "391da6f795e841f39a03a0f43027d074df518b6a45e7cb5528710eca079f4626",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/16/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-woman-eating-apple",
+      "runtime_filename": "a1_photo_u5_woman_eating_apple_v1.webp",
+      "prompt": "An adult woman holding one red apple at her mouth and visibly biting it. A real bite is missing from the apple. No drink.",
+      "expected_description": "An adult woman holding one red apple at her mouth and visibly biting it. A real bite is missing from the apple. No drink.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 784,
+            "old_filename": "a1_scene_woman-eating-apple_1fe120d.webp",
+            "old_sha256": "a8db5d185d31d0537ab5afac99127149bee551f7cfcf72039075ed32e06a175a",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/22/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-woman-wants-three-red-apples",
+      "runtime_filename": "a1_photo_u5_woman_wants_three_red_apples_v1.webp",
+      "prompt": "An adult woman at a produce counter pointing to exactly THREE whole RED apples in a compact triangle on one small white plate in front of her. Clear gaps, all three complete; no other fruit.",
+      "expected_description": "An adult woman at a produce counter pointing to exactly THREE whole RED apples in a compact triangle on one small white plate in front of her. Clear gaps, all three complete; no other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 791,
+            "old_filename": "a1_scene_woman-wants-three-red-apples_dfcb889_four-card.webp",
+            "old_sha256": "48b6de5ae0f489f32e6e01cb985abfaac2bb3dc4ed79b93101a82f19495103d0",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/13/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-woman-wants-two-green-apples",
+      "runtime_filename": "a1_photo_u5_woman_wants_two_green_apples_v1.webp",
+      "prompt": "An adult woman at a produce counter pointing to exactly TWO whole GREEN apples side by side on one small white plate in front of her. Clear gap, both complete; no red apples or other fruit.",
+      "expected_description": "An adult woman at a produce counter pointing to exactly TWO whole GREEN apples side by side on one small white plate in front of her. Clear gap, both complete; no red apples or other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 792,
+            "old_filename": "a1_scene_woman-wants-two-green-apples_2751439_four-card.webp",
+            "old_sha256": "02555f9351c347a42502acf77eef410975cab0444fd46169d16602ac0cf4581e",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-woman-wants-two-red-apples",
+      "runtime_filename": "a1_photo_u5_woman_wants_two_red_apples_v1.webp",
+      "prompt": "An adult woman at a produce counter pointing to exactly TWO whole RED apples side by side on one small white plate in front of her. Clear gap, both complete; no green apples or other fruit.",
+      "expected_description": "An adult woman at a produce counter pointing to exactly TWO whole RED apples side by side on one small white plate in front of her. Clear gap, both complete; no green apples or other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 793,
+            "old_filename": "a1_scene_woman-wants-two-red-apples_ba4c073.webp",
+            "old_sha256": "b20657a244f6d9703df5dd6b46d7af3685fa511bf7c62ec9c66e43557ed7557c",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 794,
+            "old_filename": "a1_scene_woman-wants-two-red-apples_ba4c073_four-card.webp",
+            "old_sha256": "384e7bd5330222af2e760f65b0c17d97e3d90f08bbe4371526e3c0a1527747d2",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-5-wants-and-needs",
+                "lesson": "5.5",
+                "path": "backend/lessons/unit_5/lesson-5-5-wants-and-needs.yaml",
+                "pointer": "/cards/13/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-boy-wants-two-eggs",
+      "runtime_filename": "a1_photo_u5_review_boy_wants_two_eggs_v1.webp",
+      "prompt": "Exactly ONE school-age boy at a kitchen counter pointing to exactly TWO whole white eggs on one small plate directly below his face. Two eggs complete and separate with a gap. No other people or food. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "Exactly ONE school-age boy at a kitchen counter pointing to exactly TWO whole white eggs on one small plate directly below his face. Two eggs complete and separate with a gap. No other people or food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 155,
+            "old_filename": "a1_scene_boy-wants-two-eggs_e6f44b3_four-card.webp",
+            "old_sha256": "5773d48bf77afd9b6469f4cb9cc6c3c034e0a517e9d8243c5bad09efd6a014c9",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/11/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-dislikes-bananas",
+      "runtime_filename": "a1_photo_u5_review_dislikes_bananas_v1.webp",
+      "prompt": "An adult woman looking displeased and wrinkling her nose while pushing away a plate with two clearly recognizable yellow bananas. Firm raised palm says no; the bananas and face remain clearly visible. No heart or cross icons. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "An adult woman looking displeased and wrinkling her nose while pushing away a plate with two clearly recognizable yellow bananas. Firm raised palm says no; the bananas and face remain clearly visible. No heart or cross icons.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 247,
+            "old_filename": "a1_scene_does-not-like-bananas_e122cf0.webp",
+            "old_sha256": "62496883bd5dfd9b1c6ff2ce01445d59a0089e7eb1d5cabee9f79cfb50d2d5a7",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/13/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-pair-wants-three-eggs",
+      "runtime_filename": "a1_photo_u5_review_pair_wants_three_eggs_v1.webp",
+      "prompt": "Exactly TWO adults close together at a kitchen counter BOTH pointing to exactly THREE whole white eggs on one small plate below their faces. Both faces and all three separate eggs fully visible. No other people or food. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "Exactly TWO adults close together at a kitchen counter BOTH pointing to exactly THREE whole white eggs on one small plate below their faces. Both faces and all three separate eggs fully visible. No other people or food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 579,
+            "old_filename": "a1_scene_pair-wants-three-eggs_00d5e99_four-card.webp",
+            "old_sha256": "f8fa8ad7a5503e6213b42f6ad706aa8925d56635eac0f77892152005bfe07f87",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/11/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-pair-wants-two-apples",
+      "runtime_filename": "a1_photo_u5_review_pair_wants_two_apples_v1.webp",
+      "prompt": "Exactly TWO adults close together at a kitchen counter BOTH pointing to exactly TWO whole red apples on one small plate below their faces. Both faces and both separate apples fully visible. No other people or food. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "Exactly TWO adults close together at a kitchen counter BOTH pointing to exactly TWO whole red apples on one small plate below their faces. Both faces and both separate apples fully visible. No other people or food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 580,
+            "old_filename": "a1_scene_pair-wants-two-apples_35e65ce_four-card.webp",
+            "old_sha256": "ea9e55aa839b361d44b2d8eb96607cf4ba693cf8aa17353bc3b0c877becd2d6f",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/11/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-pair-wants-two-eggs",
+      "runtime_filename": "a1_photo_u5_review_pair_wants_two_eggs_v1.webp",
+      "prompt": "Exactly TWO adults close together at a kitchen counter BOTH pointing to exactly TWO whole white eggs on one small plate below their faces. Both faces and both separate eggs fully visible. No other people or food. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "Exactly TWO adults close together at a kitchen counter BOTH pointing to exactly TWO whole white eggs on one small plate below their faces. Both faces and both separate eggs fully visible. No other people or food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 581,
+            "old_filename": "a1_scene_pair-wants-two-eggs_0cb7c59_four-card.webp",
+            "old_sha256": "8b503de0ea2bbcce0ab8eb83680b6c950f103e0324f6bd5b2dbc9ac6c6f57b3e",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/11/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-boy-crosses-green",
+      "runtime_filename": "a1_photo_u6_boy_crosses_green_v1.webp",
+      "prompt": "One school-age boy walking across a zebra crossing beside a clearly illuminated GREEN pedestrian walking-person signal. The signal is on a short pole directly above and beside his head, inside the central crop. Empty safe road, no vehicles, no other people. Show crossing stripes and walking legs. Green signal unmistakable.",
+      "expected_description": "One school-age boy walking across a zebra crossing beside a clearly illuminated GREEN pedestrian walking-person signal. The signal is on a short pole directly above and beside his head, inside the central crop. Empty safe road, no vehicles, no other people. Show crossing stripes and walking legs. Green signal unmistakable.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 149,
+            "old_filename": "a1_scene_boy-crosses-at-green_4befcaf_four-card.webp",
+            "old_sha256": "c05dd2a9fcaf4b3ac0648f46b1f6972818334da1ca8e22c82fb3b049aef4a7b3",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/13/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-boy-waits-red",
+      "runtime_filename": "a1_photo_u6_boy_waits_red_v1.webp",
+      "prompt": "One school-age boy standing still safely on the sidewalk at the curb BEFORE a zebra crossing. A clearly illuminated RED pedestrian standing-person signal on a short pole directly beside and above his head. No one crossing. Red signal, standing feet behind curb and crossing stripes clearly visible together.",
+      "expected_description": "One school-age boy standing still safely on the sidewalk at the curb BEFORE a zebra crossing. A clearly illuminated RED pedestrian standing-person signal on a short pole directly beside and above his head. No one crossing. Red signal, standing feet behind curb and crossing stripes clearly visible together.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 152,
+            "old_filename": "a1_scene_boy-waits-at-red-signal_bc0177a_four-card.webp",
+            "old_sha256": "36107597dd975a0869619f535eb4179a5aeb2bc7aa05c5e30ebf3e96c347d548",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/13/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-cross-street",
+      "runtime_filename": "a1_photo_u6_cross_street_v1.webp",
+      "prompt": "One adult woman walking across a real zebra crossing on an empty safe urban street. Full walking figure and painted crossing stripes clearly visible; no cars near her, no illustrated map.",
+      "expected_description": "One adult woman walking across a real zebra crossing on an empty safe urban street. Full walking figure and painted crossing stripes clearly visible; no cars near her, no illustrated map.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 671,
+            "old_filename": "a1_scene_street_d3a9fb0.webp",
+            "old_sha256": "18afbf437ab75a5eb6ba691f2b414c1fac41fc7671a06719f894d03f23521e11",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-5-simple-directions",
+                "lesson": "6.5",
+                "path": "backend/lessons/unit_6/lesson-6-5-simple-directions.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-girl-waits-red",
+      "runtime_filename": "a1_photo_u6_girl_waits_red_v1.webp",
+      "prompt": "One school-age girl standing still safely on the sidewalk at the curb BEFORE a zebra crossing. A clearly illuminated RED pedestrian standing-person signal directly beside and above her head. No one crossing. Red signal, standing feet behind curb and crossing stripes clearly visible together.",
+      "expected_description": "One school-age girl standing still safely on the sidewalk at the curb BEFORE a zebra crossing. A clearly illuminated RED pedestrian standing-person signal directly beside and above her head. No one crossing. Red signal, standing feet behind curb and crossing stripes clearly visible together.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 300,
+            "old_filename": "a1_scene_girl-waits-at-red-signal_c77147f_four-card.webp",
+            "old_sha256": "4a1f9c304624b70fa6deaa83d36c6b69446ac6af31f05010f45b38ca2341e445",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-man-boards-bus",
+      "runtime_filename": "a1_photo_u6_man_boards_bus_v1.webp",
+      "prompt": "One adult man boarding a recognizable full-size CITY BUS through its open passenger door. Show his face, body, the doorway, steps and large bus window; real city sidewalk, no train or taxi.",
+      "expected_description": "One adult man boarding a recognizable full-size CITY BUS through its open passenger door. Show his face, body, the doorway, steps and large bus window; real city sidewalk, no train or taxi.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 181,
+            "old_filename": "a1_scene_by_4081586.webp",
+            "old_sha256": "97568c268d58ab8f52fca4c6bf2223f5e13abaa48a61db0a1adbe2dbc1967db0",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-man-boards-taxi",
+      "runtime_filename": "a1_photo_u6_man_boards_taxi_v1.webp",
+      "prompt": "One adult man entering the rear passenger seat of a clearly recognizable yellow TAXI car. Open rear car door and physical TAXI roof sign centrally visible with the man. No bus or train.",
+      "expected_description": "One adult man entering the rear passenger seat of a clearly recognizable yellow TAXI car. Open rear car door and physical TAXI roof sign centrally visible with the man. No bus or train.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 678,
+            "old_filename": "a1_scene_taxi_4d82205.webp",
+            "old_sha256": "0897bc46810e5aa1c3e98686c5c9a8ce2b8d5d9794e5f0257b94a92a032fbc6d",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-man-boards-train",
+      "runtime_filename": "a1_photo_u6_man_boards_train_v1.webp",
+      "prompt": "One adult man boarding a recognizable passenger TRAIN from a station platform. Show his face, body, open train doorway, metal train carriage and rails beside platform. No bus.",
+      "expected_description": "One adult man boarding a recognizable passenger TRAIN from a station platform. Show his face, body, open train doorway, metal train carriage and rails beside platform. No bus.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 311,
+            "old_filename": "a1_scene_goes-by-train_cad5b4f.webp",
+            "old_sha256": "3455b52d059aac4d34975378e17f664df15c13dbc8c4fa965af7d46a7b78fd02",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/10/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/14/options/2/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 312,
+            "old_filename": "a1_scene_goes_dda18e1.webp",
+            "old_sha256": "2300a3adf47ca663ddaffff360b2a52379c5cf704d500c8c3fc2a9d62643da89",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 379,
+            "old_filename": "a1_scene_i-go-by-train_77fe42c.webp",
+            "old_sha256": "3455b52d059aac4d34975378e17f664df15c13dbc8c4fa965af7d46a7b78fd02",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/3/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/23/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 736,
+            "old_filename": "a1_scene_train_94efdd6.webp",
+            "old_sha256": "025babe964e984f5ac6ca7c142a2f11e39f2f78d093876158ff4f467038348b7",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-pair-boards-bus",
+      "runtime_filename": "a1_photo_u6_pair_boards_bus_v1.webp",
+      "prompt": "Exactly TWO adults boarding a recognizable full-size CITY BUS through its open passenger door, one on the first step and the other immediately behind. Show both complete people, open bus doorway, steps and large bus body/window. Working bus, welcoming driver visible only faintly in background, no taxi or train.",
+      "expected_description": "Exactly TWO adults boarding a recognizable full-size CITY BUS through its open passenger door, one on the first step and the other immediately behind. Show both complete people, open bus doorway, steps and large bus body/window. Working bus, welcoming driver visible only faintly in background, no taxi or train.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 306,
+            "old_filename": "a1_scene_go_1ec558a.webp",
+            "old_sha256": "6b873c881565636cc2e5e22ce7e890364873c044398a7a033acf19722e437e18",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/32/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 571,
+            "old_filename": "a1_scene_pair-can-go-by-bus_69469a0_four-card.webp",
+            "old_sha256": "1efa05868a64c1a3b656138ea4cd8c81ace8c23dd2ac1544bb0d5741a82c3598",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/18/options/3/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 709,
+            "old_filename": "a1_scene_they-go-by-bus_065c355.webp",
+            "old_sha256": "6b873c881565636cc2e5e22ce7e890364873c044398a7a033acf19722e437e18",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-2-transportation",
+                "lesson": "6.2",
+                "path": "backend/lessons/unit_6/lesson-6-2-transportation.yaml",
+                "pointer": "/cards/15/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-pair-boards-train",
+      "runtime_filename": "a1_photo_u6_pair_boards_train_v1.webp",
+      "prompt": "Exactly TWO adults boarding a recognizable passenger TRAIN through its open door from the station platform, one on the first step and the other immediately behind. Both full people, open train doorway, metal train carriage and visible rails beside platform. No bus.",
+      "expected_description": "Exactly TWO adults boarding a recognizable passenger TRAIN through its open door from the station platform, one on the first step and the other immediately behind. Both full people, open train doorway, metal train carriage and visible rails beside platform. No bus.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 570,
+            "old_filename": "a1_scene_pair-boards-train_b176ea8.webp",
+            "old_sha256": "3455b52d059aac4d34975378e17f664df15c13dbc8c4fa965af7d46a7b78fd02",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/9/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 572,
+            "old_filename": "a1_scene_pair-can-go-by-train_67f6004_four-card.webp",
+            "old_sha256": "12a2c1576aff9b06c850b58ad12dfa41ad03db67bcd916a94989dd8a01909434",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-pair-cannot-board-bus",
+      "runtime_filename": "a1_photo_u6_pair_cannot_board_bus_v1.webp",
+      "prompt": "Exactly TWO adults standing disappointed beside a full-size city bus whose passenger door is firmly CLOSED. A real portable barrier blocks the door; maintenance mechanic and raised rear service hatch in background show the bus cannot carry passengers. Both adults and blocked door central and clear, no one boarding.",
+      "expected_description": "Exactly TWO adults standing disappointed beside a full-size city bus whose passenger door is firmly CLOSED. A real portable barrier blocks the door; maintenance mechanic and raised rear service hatch in background show the bus cannot carry passengers. Both adults and blocked door central and clear, no one boarding.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 574,
+            "old_filename": "a1_scene_pair-cannot-go-by-bus_547b3cc_four-card.webp",
+            "old_sha256": "2f4cb1f0c57aa975f7e433f382db412f5610cda8b0b7aee4cf5d17a8fe53672f",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/18/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-pair-cannot-board-train",
+      "runtime_filename": "a1_photo_u6_pair_cannot_board_train_v1.webp",
+      "prompt": "Exactly TWO adults standing disappointed before a firmly CLOSED train-station boarding gate with a real locked barrier directly in front of them. A passenger train visible behind the locked gate. Physical barrier clearly blocks BOTH adults; no one boarding. Central compact composition, no text needed.",
+      "expected_description": "Exactly TWO adults standing disappointed before a firmly CLOSED train-station boarding gate with a real locked barrier directly in front of them. A passenger train visible behind the locked gate. Physical barrier clearly blocks BOTH adults; no one boarding. Central compact composition, no text needed.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 573,
+            "old_filename": "a1_scene_pair-cannot-enter-train-station_dfedc03.webp",
+            "old_sha256": "8a0a55c7259675ef3dd4244722939a2cd5a17067d9b7a843fab9f051b4d32c72",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/9/options/1/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 708,
+            "old_filename": "a1_scene_they-cannot-go-by-train_54c88ac.webp",
+            "old_sha256": "8a0a55c7259675ef3dd4244722939a2cd5a17067d9b7a843fab9f051b4d32c72",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/5/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/25/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-pair-waits-red",
+      "runtime_filename": "a1_photo_u6_pair_waits_red_v1.webp",
+      "prompt": "Exactly TWO adults standing still shoulder to shoulder safely behind the curb BEFORE a zebra crossing. A clearly illuminated RED pedestrian standing-person signal directly above them. No one crossing, no extra people. Both full figures, curb, stripes and red signal visible together.",
+      "expected_description": "Exactly TWO adults standing still shoulder to shoulder safely behind the curb BEFORE a zebra crossing. A clearly illuminated RED pedestrian standing-person signal directly above them. No one crossing, no extra people. Both full figures, curb, stripes and red signal visible together.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 576,
+            "old_filename": "a1_scene_pair-waits-at-red-signal_5078634_four-card.webp",
+            "old_sha256": "daab38339628d9481230cae073a3174c11e0be4d07ef6246e0c1de2316eb7592",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-6-can-and-cannot",
+                "lesson": "6.6",
+                "path": "backend/lessons/unit_6/lesson-6-6-can-and-cannot.yaml",
+                "pointer": "/cards/13/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-review-man-boards-train",
+      "runtime_filename": "a1_photo_u6_review_man_boards_train_v1.webp",
+      "prompt": "One adult man boarding a recognizable passenger TRAIN from a station platform. Show his face, body, open train doorway, metal train carriage and rails beside platform. No bus. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "One adult man boarding a recognizable passenger TRAIN from a station platform. Show his face, body, open train doorway, metal train carriage and rails beside platform. No bus.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 379,
+            "old_filename": "a1_scene_i-go-by-train_77fe42c.webp",
+            "old_sha256": "3455b52d059aac4d34975378e17f664df15c13dbc8c4fa965af7d46a7b78fd02",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/5/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 736,
+            "old_filename": "a1_scene_train_94efdd6.webp",
+            "old_sha256": "025babe964e984f5ac6ca7c142a2f11e39f2f78d093876158ff4f467038348b7",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/24/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-cold-jacket",
+      "runtime_filename": "a1_photo_u7_cold_jacket_v1.webp",
+      "prompt": "An adult woman shivering slightly outdoors in snowy cold weather, putting on a warm JACKET and grasping its front. Complete jacket, her face, white breath and snow visible. No umbrella.",
+      "expected_description": "An adult woman shivering slightly outdoors in snowy cold weather, putting on a warm JACKET and grasping its front. Complete jacket, her face, white breath and snow visible. No umbrella.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 437,
+            "old_filename": "a1_scene_jacket_1cdbba9.webp",
+            "old_sha256": "41301fbd7dc1e238095829402df923e4e15576cda0330ae534c766605444fcc8",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-cold-shirt",
+      "runtime_filename": "a1_photo_u7_cold_shirt_v1.webp",
+      "prompt": "An adult woman visibly shivering outdoors in snowy winter weather, wearing only a thin short-sleeved SHIRT and hugging herself for warmth. No jacket. This intentionally shows the inadequate clothing choice: shirt plus visibly cold weather. Full shirt, face and snow central.",
+      "expected_description": "An adult woman visibly shivering outdoors in snowy winter weather, wearing only a thin short-sleeved SHIRT and hugging herself for warmth. No jacket. This intentionally shows the inadequate clothing choice: shirt plus visibly cold weather. Full shirt, face and snow central.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 208,
+            "old_filename": "a1_scene_cold-chooses-shirt_2d8dfbc.webp",
+            "old_sha256": "50f9dd2be4771dfd04b7cee3c4d3eea2237f4003e9f90568d52808cadc5cbf54",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/10/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 210,
+            "old_filename": "a1_scene_cold-shirt_ebc9b10.webp",
+            "old_sha256": "01a1d3f16bbb1330f2ffb048f6d60c0c8a78ac91037f7420026f24e89b911220",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-cold-sunny",
+      "runtime_filename": "a1_photo_u7_cold_sunny_v1.webp",
+      "prompt": "A visibly shivering adult woman wearing a warm winter jacket outdoors in bright sunshine under a CLEAR BLUE SKY. Snow on ground and visible cold breath establish cold, sunny weather. Her face, jacket, snow and blue sky all within central portrait crop.",
+      "expected_description": "A visibly shivering adult woman wearing a warm winter jacket outdoors in bright sunshine under a CLEAR BLUE SKY. Snow on ground and visible cold breath establish cold, sunny weather. Her face, jacket, snow and blue sky all within central portrait crop.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 205,
+            "old_filename": "a1_scene_cold-and-sunny_e290276_four-card.webp",
+            "old_sha256": "a640c3e64238b55d8841ab60f47bd2c2458ef4b3900445d39aec6726a1526cac",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-4-weather",
+                "lesson": "7.4",
+                "path": "backend/lessons/unit_7/lesson-7-4-weather.yaml",
+                "pointer": "/cards/20/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-dislikes-music",
+      "runtime_filename": "a1_photo_u7_dislikes_music_v1.webp",
+      "prompt": "An adult woman removing over-ear headphones with a visibly displeased frown and one hand signaling no. Headphones held clearly beside her face, no television or book.",
+      "expected_description": "An adult woman removing over-ear headphones with a visibly displeased frown and one hand signaling no. Headphones held clearly beside her face, no television or book.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 251,
+            "old_filename": "a1_scene_does-not-like-music_d5c6ed9_four-card.webp",
+            "old_sha256": "678877d9dea77df7806bbb6970055329688864ddf8bf4c4e92042faba42b1e91",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/13/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-dislikes-reading",
+      "runtime_filename": "a1_photo_u7_dislikes_reading_v1.webp",
+      "prompt": "An adult woman seated in a real reading nook, frowning and pushing a closed book away with her raised other palm signaling no. Clearly dislikes reading; full book and face central, no television or headphones.",
+      "expected_description": "An adult woman seated in a real reading nook, frowning and pushing a closed book away with her raised other palm signaling no. Clearly dislikes reading; full book and face central, no television or headphones.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 603,
+            "old_filename": "a1_scene_reading_227f38d.webp",
+            "old_sha256": "670eeb3f74193b90f9379d94a38d0e5e61fdf391e21ea8209e3cc83ea304b4de",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/31/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-hot-cloudy",
+      "runtime_filename": "a1_photo_u7_hot_cloudy_v1.webp",
+      "prompt": "A sweating adult man in a light short-sleeved shirt outdoors wiping sweat from his forehead with one hand, fanning himself with the other. Clearly hot, no jacket. A HEAVILY OVERCAST GREY SKY fills background; no sun or rain. His face, sweaty shirt and grey sky central.",
+      "expected_description": "A sweating adult man in a light short-sleeved shirt outdoors wiping sweat from his forehead with one hand, fanning himself with the other. Clearly hot, no jacket. A HEAVILY OVERCAST GREY SKY fills background; no sun or rain. His face, sweaty shirt and grey sky central.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 348,
+            "old_filename": "a1_scene_hot-and-cloudy_801561e_four-card.webp",
+            "old_sha256": "4cf44ba8cf2721bd30aa3caea28424617faeba025b640467d26b5009deb7396c",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-4-weather",
+                "lesson": "7.4",
+                "path": "backend/lessons/unit_7/lesson-7-4-weather.yaml",
+                "pointer": "/cards/20/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-hot-jacket",
+      "runtime_filename": "a1_photo_u7_hot_jacket_v1.webp",
+      "prompt": "An adult man sweating heavily in bright hot summer sunshine while wearing a thick winter JACKET zipped up. He fans his face looking uncomfortably hot. This intentionally shows the inadequate clothing choice: heavy jacket in hot weather. Jacket and face central.",
+      "expected_description": "An adult man sweating heavily in bright hot summer sunshine while wearing a thick winter JACKET zipped up. He fans his face looking uncomfortably hot. This intentionally shows the inadequate clothing choice: heavy jacket in hot weather. Jacket and face central.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 351,
+            "old_filename": "a1_scene_hot-jacket_586235b_four-card.webp",
+            "old_sha256": "e2b477637a5aa00b07a29240414b6de60ac61129947c74e0226edf140a8655d5",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/14/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-hot-shirt",
+      "runtime_filename": "a1_photo_u7_hot_shirt_v1.webp",
+      "prompt": "An adult man in hot summer sunshine comfortably wearing a plain light short-sleeved SHIRT, with his hands lightly holding the shirt front to indicate the clothing choice. Bare forearms, warm sunlight, no jacket. Face and whole shirt central.",
+      "expected_description": "An adult man in hot summer sunshine comfortably wearing a plain light short-sleeved SHIRT, with his hands lightly holding the shirt front to indicate the clothing choice. Bare forearms, warm sunlight, no jacket. Face and whole shirt central.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 352,
+            "old_filename": "a1_scene_hot-shirt_78da229_four-card.webp",
+            "old_sha256": "c252799fb719915810511fdac00b09c31f6e0e5e4ceacf286b8cee8dc494c624",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/14/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-hot-sunny",
+      "runtime_filename": "a1_photo_u7_hot_sunny_v1.webp",
+      "prompt": "A sweating adult man in a light short-sleeved shirt outdoors wiping sweat from his forehead in bright direct sunshine. CLEAR BLUE SKY, hard sunlit shadows, no clouds, snow or rain. Face, shirt and sky central.",
+      "expected_description": "A sweating adult man in a light short-sleeved shirt outdoors wiping sweat from his forehead in bright direct sunshine. CLEAR BLUE SKY, hard sunlit shadows, no clouds, snow or rain. Face, shirt and sky central.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 350,
+            "old_filename": "a1_scene_hot-and-sunny_c88d51f_four-card.webp",
+            "old_sha256": "a17c2d829015b8dde929adc393aca15758ef426b5357546e0c5d2081acd8fe8b",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-4-weather",
+                "lesson": "7.4",
+                "path": "backend/lessons/unit_7/lesson-7-4-weather.yaml",
+                "pointer": "/cards/20/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-invites-music",
+      "runtime_filename": "a1_photo_u7_invites_music_v1.webp",
+      "prompt": "Two young adults close together in a living room. One smiles and offers a pair of over-ear headphones to the other with an inviting open-hand gesture; the other listens to the invitation. Both faces and headphones centered. No guitar, singing, television or book.",
+      "expected_description": "Two young adults close together in a living room. One smiles and offers a pair of over-ear headphones to the other with an inviting open-hand gesture; the other listens to the invitation. Both faces and headphones centered. No guitar, singing, television or book.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 400,
+            "old_filename": "a1_scene_invites-music_0c739d4_four-card.webp",
+            "old_sha256": "556a552c4d2b44920da04754555977288f127674c32bd9e6885ec3095e8c4b85",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-7-invitations-and-responses",
+                "lesson": "7.7",
+                "path": "backend/lessons/unit_7/lesson-7-7-invitations-and-responses.yaml",
+                "pointer": "/cards/13/options/3/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-7-invitations-and-responses",
+                "lesson": "7.7",
+                "path": "backend/lessons/unit_7/lesson-7-7-invitations-and-responses.yaml",
+                "pointer": "/cards/18/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-likes-reading",
+      "runtime_filename": "a1_photo_u7_likes_reading_v1.webp",
+      "prompt": "An adult woman smiling while reading an open book in a cozy real reading nook. Eyes directed at book, both face and open pages visible in center. No television or headphones.",
+      "expected_description": "An adult woman smiling while reading an open book in a cozy real reading nook. Eyes directed at book, both face and open pages visible in center. No television or headphones.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 603,
+            "old_filename": "a1_scene_reading_227f38d.webp",
+            "old_sha256": "670eeb3f74193b90f9379d94a38d0e5e61fdf391e21ea8209e3cc83ea304b4de",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/0/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/6/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/20/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/26/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 389,
+            "old_filename": "a1_scene_i-like-reading_f7e145f.webp",
+            "old_sha256": "302bb78331675971daabba89716d4537d51abdf8c93a93e33f1db1e960e3ffc3",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/4/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/11/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/24/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 476,
+            "old_filename": "a1_scene_likes-reading_080acf9.webp",
+            "old_sha256": "302bb78331675971daabba89716d4537d51abdf8c93a93e33f1db1e960e3ffc3",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/13/options/3/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/16/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/18/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-likes-tv",
+      "runtime_filename": "a1_photo_u7_likes_tv_v1.webp",
+      "prompt": "An adult woman smiling and relaxing while watching a small television in a real living room. Camera sees both her happy face and the visible TV screen immediately beside and below her, compact centered composition. No headphones or book.",
+      "expected_description": "An adult woman smiling and relaxing while watching a small television in a real living room. Camera sees both her happy face and the visible TV screen immediately beside and below her, compact centered composition. No headphones or book.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 482,
+            "old_filename": "a1_scene_likes-watching-tv_48cd33f.webp",
+            "old_sha256": "64171956b6c339245b405c7353bcd21f4730e574cf658ac1714ccef45a169704",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 760,
+            "old_filename": "a1_scene_watching-tv_8e55769.webp",
+            "old_sha256": "acbf5aa7cd8663cc8d8a98f16458f34ba5783efe868063ac65edb6cc40ab7dcd",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-rain-boots",
+      "runtime_filename": "a1_photo_u7_rain_boots_v1.webp",
+      "prompt": "An adult woman wearing waterproof BOOTS standing at a doorway with her boots in a rain puddle and visible falling rain just outside. Show face and both complete boots with natural rain context, no umbrella. Boots are the primary clothing focus.",
+      "expected_description": "An adult woman wearing waterproof BOOTS standing at a doorway with her boots in a rain puddle and visible falling rain just outside. Show face and both complete boots with natural rain context, no umbrella. Boots are the primary clothing focus.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 206,
+            "old_filename": "a1_scene_cold-boots_bae28ce.webp",
+            "old_sha256": "b00842d6a91adfe9d4b09c0a2e963ca4a81307567cdccd157915bc46da12c3e1",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/21/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-rain-hat",
+      "runtime_filename": "a1_photo_u7_rain_hat_v1.webp",
+      "prompt": "An adult woman standing outdoors in plainly visible rain while holding only a normal brimmed HAT above her head. Rain visibly falls past the ineffective hat, her shoulders wet, puddles below. No umbrella or hood. Hat, face, falling rain and wet shoulders central. This is an intentionally inadequate weather choice.",
+      "expected_description": "An adult woman standing outdoors in plainly visible rain while holding only a normal brimmed HAT above her head. Rain visibly falls past the ineffective hat, her shoulders wet, puddles below. No umbrella or hood. Hat, face, falling rain and wet shoulders central. This is an intentionally inadequate weather choice.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 597,
+            "old_filename": "a1_scene_rain-hat_6acb335.webp",
+            "old_sha256": "a52510a99a5273c84693286c7992c9b0bcb8e3d2b249b2cb9324500817b5cf17",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/19/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 600,
+            "old_filename": "a1_scene_rainy-chooses-hat_8a5b28d.webp",
+            "old_sha256": "462853fb18324c6d71cbbfddf3054871b2d42d3faedbd8418805b6e49dd62b24",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/11/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-rain-umbrella",
+      "runtime_filename": "a1_photo_u7_rain_umbrella_v1.webp",
+      "prompt": "An adult woman standing beneath an open UMBRELLA in clearly visible falling rain on a wet street. Whole umbrella canopy above her head, face, wet pavement and falling rain visible inside central crop. No hat.",
+      "expected_description": "An adult woman standing beneath an open UMBRELLA in clearly visible falling rain on a wet street. Whole umbrella canopy above her head, face, wet pavement and falling rain visible inside central crop. No hat.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 750,
+            "old_filename": "a1_scene_umbrella_3ff95ac.webp",
+            "old_sha256": "38193de8a1116baf4ab25af8322d68db83fb99cfda2ed7855ed78672d421bc43",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-rejects-tv",
+      "runtime_filename": "a1_photo_u7_rejects_tv_v1.webp",
+      "prompt": "An adult woman at home showing a clear displeased face and a firm raised no palm toward a small television directly below and beside her. The TV screen and her face both central and fully visible. No book, headphones, symbols or written captions.",
+      "expected_description": "An adult woman at home showing a clear displeased face and a firm raised no palm toward a small television directly below and beside her. The TV screen and her face both central and fully visible. No book, headphones, symbols or written captions.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 606,
+            "old_filename": "a1_scene_rejects-tv_58b4949_four-card.webp",
+            "old_sha256": "4dddbd81ad72b1cb32f4cdee6e7532c3db370573c670b4f540ebb890e667e96f",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-6-hobbies-and-free-time",
+                "lesson": "7.6",
+                "path": "backend/lessons/unit_7/lesson-7-6-hobbies-and-free-time.yaml",
+                "pointer": "/cards/18/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-sunny-shoes",
+      "runtime_filename": "a1_photo_u7_sunny_shoes_v1.webp",
+      "prompt": "An adult woman standing in ordinary low SHOES on a dry sunlit pavement, clear sunny weather, no boots or rain. Complete shoes and her face visible in compact full-body photograph.",
+      "expected_description": "An adult woman standing in ordinary low SHOES on a dry sunlit pavement, clear sunny weather, no boots or rain. Complete shoes and her face visible in compact full-body photograph.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 674,
+            "old_filename": "a1_scene_sunny-shoes_ce114ca.webp",
+            "old_sha256": "60e778f4f77ed78d9d6c9d06d42019b9ef9c559053ea1950cbbea76860119efe",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/21/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-windy-jacket",
+      "runtime_filename": "a1_photo_u7_windy_jacket_v1.webp",
+      "prompt": "An adult woman outdoors putting on a windproof JACKET during strong wind. Her hair and jacket hem visibly blown sideways, bending grass behind her. No snow or rain. Complete jacket and face central.",
+      "expected_description": "An adult woman outdoors putting on a windproof JACKET during strong wind. Her hair and jacket hem visibly blown sideways, bending grass behind her. No snow or rain. Complete jacket and face central.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 437,
+            "old_filename": "a1_scene_jacket_1cdbba9.webp",
+            "old_sha256": "41301fbd7dc1e238095829402df923e4e15576cda0330ae534c766605444fcc8",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-5-clothes-for-the-weather",
+                "lesson": "7.5",
+                "path": "backend/lessons/unit_7/lesson-7-5-clothes-for-the-weather.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-woman-thirsty",
+      "runtime_filename": "a1_photo_u7_woman_thirsty_v1.webp",
+      "prompt": "An adult woman after exercise, visibly hot and thirsty, eagerly reaching for a clear glass of water held immediately below her face. Sweaty forehead, slightly open dry lips, clear water glass centered and fully visible. No food or headphones.",
+      "expected_description": "An adult woman after exercise, visibly hot and thirsty, eagerly reaching for a clear glass of water held immediately below her face. Sweaty forehead, slightly open dry lips, clear water glass centered and fully visible. No food or headphones.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 714,
+            "old_filename": "a1_scene_thirsty_31a02cf.webp",
+            "old_sha256": "d9077834aa903241b2fc897ab836582feb50f61c57c636c1c5503150938b11db",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-2-feelings-and-needs",
+                "lesson": "7.2",
+                "path": "backend/lessons/unit_7/lesson-7-2-feelings-and-needs.yaml",
+                "pointer": "/cards/20/options/3/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-2-feelings-and-needs",
+                "lesson": "7.2",
+                "path": "backend/lessons/unit_7/lesson-7-2-feelings-and-needs.yaml",
+                "pointer": "/cards/32/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 789,
+            "old_filename": "a1_scene_woman-thirsty_caae35f.webp",
+            "old_sha256": "d9077834aa903241b2fc897ab836582feb50f61c57c636c1c5503150938b11db",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-2-feelings-and-needs",
+                "lesson": "7.2",
+                "path": "backend/lessons/unit_7/lesson-7-2-feelings-and-needs.yaml",
+                "pointer": "/cards/14/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-grandparents",
+      "runtime_filename": "a1_photo_u7_review_grandparents_v1.webp",
+      "prompt": "An elderly grandmother and grandfather standing close together behind their school-age grandchild in a real home, warmly resting hands on child shoulders. Both elderly adults clearly grey-haired with natural age lines. Their faces prominent above child; all three faces central. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "An elderly grandmother and grandfather standing close together behind their school-age grandchild in a real home, warmly resting hands on child shoulders. Both elderly adults clearly grey-haired with natural age lines. Their faces prominent above child; all three faces central.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 314,
+            "old_filename": "a1_scene_grandparents_1ddb2d1.webp",
+            "old_sha256": "55c6d0359374b29c9f31e4e65401b4a266ae3b12409cedf740d3aa26381822a2",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/4/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-parents",
+      "runtime_filename": "a1_photo_u7_review_parents_v1.webp",
+      "prompt": "An adult mother and father standing close together behind their school-age child in a real home, warmly resting their hands on the child shoulders. Mother and father in their thirties, visibly parents, not elderly. Both adult faces prominent above child; all three faces remain in central crop. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "An adult mother and father standing close together behind their school-age child in a real home, warmly resting their hands on the child shoulders. Mother and father in their thirties, visibly parents, not elderly. Both adult faces prominent above child; all three faces remain in central crop.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 583,
+            "old_filename": "a1_scene_parents_a664f10.webp",
+            "old_sha256": "af81840b0dcc22ef19b83f700091207fdb587971b17e7dd6742baa08dc4f4a27",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/4/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 778,
+            "old_filename": "a1_scene_who-are-they-they-are-the-parents_b4973e6.webp",
+            "old_sha256": "af81840b0dcc22ef19b83f700091207fdb587971b17e7dd6742baa08dc4f4a27",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-wakes-morning",
+      "runtime_filename": "a1_photo_u7_review_wakes_morning_v1.webp",
+      "prompt": "One adult woman waking up in bed in morning daylight, sitting up beneath a duvet, yawning and stretching her arms. Real bedroom, bright morning window directly behind her. Clearly just waking, not sleeping, studying or greeting anyone. Fresh review scene: different people, setting and an oblique camera angle, not a copy of any teaching image.",
+      "expected_description": "One adult woman waking up in bed in morning daylight, sitting up beneath a duvet, yawning and stretching her arms. Real bedroom, bright morning window directly behind her. Clearly just waking, not sleeping, studying or greeting anyone.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 753,
+            "old_filename": "a1_scene_wakes-in-morning_3e2ca34.webp",
+            "old_sha256": "8dbf9e19cbc81ea55a1594a98c6c5f9020d13d501d98c72c8e6804a5c3b89ad6",
+            "old_observation": "The old waking-in-morning image shows adults greeting beside a bus, not waking up.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/15/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

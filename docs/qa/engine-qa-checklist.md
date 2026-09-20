@@ -18,7 +18,7 @@ lesson player but does not create learner sessions or card-attempt records.
 
 - [ ] In normal lessons and Engine QA, inspect Unit 1 Completa answers before selection and during correct/wrong feedback, especially Lesson 1.8's `parents` / `children` bank.
 - [ ] Short answers stay large and centered in full-width rows and compact three-option banks; all tiles retain equal dimensions.
-- [ ] Check long phrases, portrait/landscape phone and tablet layouts, and enlarged system text. Labels must fit without microscopic text, clipping, or ellipses; overflowing banks remain scrollable.
+- [ ] Check long phrases, portrait/landscape phone and tablet layouts, and enlarged system text. Labels must fit without microscopic text, clipping, or ellipses; outside phone landscape, overflowing banks remain scrollable; phone landscape must reflow the complete active bank.
 - [ ] Check a Recognize and Listen text bank too: they share the same native label renderer.
 
 ## Test session record
@@ -98,6 +98,11 @@ Test at least one card from every standard stage or every mission chapter, then 
 - [ ] Ahora no exits without requiring answers; it remains disabled during recording, transcription, and saving
 
 ## Mobile viewport-fit guardrail
+
+- [ ] Across all seven units, portrait image banks show the full lower row and complete correct/wrong feedback above Android navigation. Include Lesson 1.3 “The boy and the girl” and “They are writing.” with QA visible.
+- [ ] Phone landscape uses the shared rail and keeps every active activity, choice, sentence slot/word, feedback and required control visible without scrolling. Test wide phones too; QA and the section picker remain available in the options sheet.
+- [ ] Run `mobile/tests/lesson-viewport-native.test.mjs` through the protected interaction verifier. It executes production activity TSX and native layout measurements; a source-only assertion is insufficient.
+- [ ] Verify on an installed Android Preview with system bars, QA on/off, enlarged text, correct/wrong feedback, pronunciation states, and rotation during a partly completed activity. Record the exact Preview commit. Automated layout results do not substitute for this review.
 
 Run these checks for every new card pattern before publishing Preview:
 

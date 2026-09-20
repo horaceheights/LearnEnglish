@@ -44,6 +44,7 @@ const SPANISH_STAGE_LABELS: Record<string, string> = {
 
 const LISTEN_AND_CHOOSE_PROMPT = 'Listen and choose.';
 const CHOOSE_CORRECT_PHRASE_INSTRUCTION = '¡Elige la frase correcta!';
+const CHOOSE_CORRECT_WORD_INSTRUCTION = '¡Elige la palabra correcta!';
 const LISTEN_AND_REPEAT_INSTRUCTION = '¡Escucha y repite!';
 const EQUIVALENT_SUBJECT_PRONOUNS = new Set(['he', 'she', 'they', 'it']);
 const PRONOUN_BE_FORMS: Record<string, string> = {
@@ -90,45 +91,17 @@ const SHORT_SPANISH_STAGE_LABELS: Record<string, string> = {
   'What Is It?': '¿Qué es?',
 };
 
-const SHORT_ENGLISH_STAGE_LABELS: Record<string, string> = {
-  'Learn': 'Learn',
-  'Recognize': 'Recognize',
-  'Speak': 'Speak',
-  'Use': 'Use',
-  'Action Introduction': 'Actions',
-  'Family Action Practice': 'Actions',
-  'Family Challenge': 'Challenge',
-  'Family Sentences': 'Sentences',
-  'Listen To Picture': 'Listen',
-  'Meaning Practice': 'Meaning',
-  'More People': 'People',
-  'Negation Practice': 'Negation',
-  'New Grammar': 'Grammar',
-  'New Vocab': 'Vocab',
-  'New Words': 'Words',
-  'Pattern Challenge': 'Challenge',
-  'People Challenge': 'Challenge',
-  'Picture To Text': 'Picture-text',
-  'Plural Challenge': 'Plural',
-  'Pronoun Pattern': 'Pronouns',
-  'Pronunciation Practice': 'Pronounce',
-  'What Is It?': 'What is it?',
-};
-
 export function usesSpanishInstructions(lessonId: string) {
   return SPANISH_FIRST_LESSONS.has(lessonId);
 }
 
-export function lessonStageLabel(lessonId: string, stage: string) {
-  if (!usesSpanishInstructions(lessonId)) return stage;
+// Stage names are Spanish in every unit, as they were first in Unit 1.
+export function lessonStageLabel(_lessonId: string, stage: string) {
   return SPANISH_STAGE_LABELS[stage] || stage;
 }
 
 export function lessonStageShortLabel(lessonId: string, stage: string) {
-  if (usesSpanishInstructions(lessonId)) {
-    return SHORT_SPANISH_STAGE_LABELS[stage] || lessonStageLabel(lessonId, stage);
-  }
-  return SHORT_ENGLISH_STAGE_LABELS[stage] || stage;
+  return SHORT_SPANISH_STAGE_LABELS[stage] || lessonStageLabel(lessonId, stage);
 }
 
 export function lessonPromptText(lessonId: string, prompt: string) {
@@ -160,8 +133,22 @@ export function usesCompactSpeakInstruction(stage: string) {
   return stage === 'Speak' || stage === 'Pronunciation Practice';
 }
 
-export function lessonHeaderPromptText(lessonId: string, stage: string, prompt: string) {
-  if (usesCompactRecognizeInstruction(stage, prompt)) return CHOOSE_CORRECT_PHRASE_INSTRUCTION;
+// Single-word choices (colors, numbers, "Hello." or "Goodbye.") ask for the word;
+// everything else asks for the phrase, as in Lesson 1.1.
+export function recognizeChoiceInstruction(options: readonly { label?: string | null }[]) {
+  const labels = options.map((option) => (option.label ?? '').trim().replace(/[.!?]+$/, ''));
+  return labels.length > 0 && labels.every((label) => label && !/\s/.test(label))
+    ? CHOOSE_CORRECT_WORD_INSTRUCTION
+    : CHOOSE_CORRECT_PHRASE_INSTRUCTION;
+}
+
+export function lessonHeaderPromptText(
+  lessonId: string,
+  stage: string,
+  prompt: string,
+  options: readonly { label?: string | null }[] = [],
+) {
+  if (usesCompactRecognizeInstruction(stage, prompt)) return recognizeChoiceInstruction(options);
   return lessonPromptText(lessonId, prompt);
 }
 

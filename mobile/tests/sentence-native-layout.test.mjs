@@ -20,7 +20,7 @@ const styles = vm.runInNewContext(source.slice(source.lastIndexOf('const styles 
 
 test('wide native glyphs grow word tiles and wrap whole tiles instead of splitting words', () => {
   assert.match(source, /styles\.wordTile, \{ minWidth: width/);
-  assert.match(source, /<Text numberOfLines=\{1\} style=\{\[styles\.word,/);
+  assert.match(source, /<Text numberOfLines=\{1\}[^>]*?style=\{\[styles\.word,/);
   for (const width of [280, 350, 680]) {
     for (const scale of [1, 1.3, 1.5, 2]) {
       const config = Yoga.Config.create(); config.setUseWebDefaults(false);
@@ -58,8 +58,8 @@ test('wide native glyphs grow word tiles and wrap whole tiles instead of splitti
   }
 });
 
-test('native Yoga bounds both construction panes while enlarged content remains scrollable', () => {
-  for (const [width, height] of [[320, 568], [390, 844], [740, 360], [800, 1280], [1280, 800]]) {
+test('native Yoga preserves the portrait/tablet scrolling exception for enlarged construction content', () => {
+  for (const [width, height] of [[320, 568], [390, 844], [800, 1280], [1280, 800]]) {
     for (const scale of [1, 1.3, 1.5, 2]) {
       const landscape = width > height && height < 600;
       const usableWidth = width - 12;
@@ -101,7 +101,7 @@ test('native Yoga bounds both construction panes while enlarged content remains 
 
 test('long completed words and punctuation fit native slots when replay moves into the instruction row', () => {
   assert.match(source, /onWidth\(id, event\.nativeEvent\.layout\.width\)/);
-  assert.match(source, /wideSlots \? styles\.importanceWide/);
+  assert.match(source, /wideSlots && !landscape \? styles\.importanceWide/);
   assert.match(source, /wideSlots \? styles\.replayAbove/);
   for (const paneWidth of [308, 301, 378, 500]) {
     for (const scale of [1, 1.3, 1.5, 2]) {

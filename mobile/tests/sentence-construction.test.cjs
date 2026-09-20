@@ -32,7 +32,7 @@ test('three ordinary completions lead to four constructions with only required w
 });
 
 test('tap, arbitrary drop, outside drop, removal and repair share ordered validation', () => {
-  assert.equal(rollout.length, 226);
+  assert.equal(rollout.length, 227);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

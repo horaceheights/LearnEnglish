@@ -1,0 +1,3582 @@
+{
+  "schema_version": 1,
+  "assets": [
+    {
+      "lesson_id": "lesson-3-10-introduction-mission",
+      "slide_id": "M03",
+      "old_filename": "a1_u3_scene_03_photo_mother.webp",
+      "candidate_filename": "a1_u3_scene_03_photo_mother_fullframe_v2.webp",
+      "old_sha256": "5c11245772a4193b88a147c6f6c43fbc9eb3836089bdaec15898021a97b3ce2d",
+      "new_sha256": "101ea06c88c9c8930ae30d1a058b7c55bbe8588f035c01d066a65bf1957fdebf",
+      "old_observation": "Real brown-haired woman in a cream sweater and blue lanyard at a family dinner, inside a square inset with blurred margins. Her badge does not visibly establish a doctor.",
+      "new_observation": "Same cream-sweater dinner guest now has a clear stethoscope and medical-cross badge. Original family and warm dining room preserved. Real room fills all edges; no blur padding.",
+      "original_card": {
+        "slide_id": "M03",
+        "mission_chapter_id": "ch3-dinner-introductions",
+        "interaction_type": "mission-finale",
+        "stage": "Speak",
+        "prompt": "She is a doctor.",
+        "prompt_image_url": "",
+        "options": [
+          {
+            "id": "mother-doctor",
+            "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother.webp",
+            "label": "She is a doctor."
+          }
+        ],
+        "correct_option_id": "mother-doctor",
+        "audio_text": "She is a doctor.",
+        "audio_turns": [
+          {
+            "text": "Who is she?",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u3_scene_03_photo_mother.webp"
+          }
+        ],
+        "spanish_translation": "Ella es doctora.",
+        "pedagogy_note": "Mission beat 03/03: the learner answers who the mother is aloud to present the family; the completed interaction finishes the Unit 3 dinner mission.",
+        "mission_game": {
+          "kind": "voice-gate",
+          "instruction_es": "Escucha y responde para presentar a la doctora.",
+          "validation": "single",
+          "targets": [
+            {
+              "id": "mother-doctor",
+              "label_es": "Doctora",
+              "rect": {
+                "x": 0.35,
+                "y": 0.2,
+                "width": 0.3,
+                "height": 0.55
+              },
+              "accepted_option_ids": [
+                "mother-doctor"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "mother-doctor",
+              "text": "Who is she?",
+              "answer_text": "She is a doctor.",
+              "target_id": "mother-doctor",
+              "option_id": "mother-doctor"
+            }
+          ],
+          "cue_audio_text": "Who is she?"
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "mother-doctor",
+          "label_es": "Doctora",
+          "rect": {
+            "x": 0.48,
+            "y": 0.25,
+            "width": 0.31,
+            "height": 0.74
+          },
+          "accepted_option_ids": [
+            "mother-doctor"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.627,
+              "y": 0.253
+            }
+          ]
+        }
+      ],
+      "target_observations": {
+        "mother-doctor": "The foreground woman wears a recognizable stethoscope and medical badge."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u3_scene_03_photo_mother.webp",
+        "sha256": "5c11245772a4193b88a147c6f6c43fbc9eb3836089bdaec15898021a97b3ce2d",
+        "byte_count": 160578
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u3-m03-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "041bd142-bb2a-493c-8b8b-0fe8e26ceeb2",
+          "asset_id": "u3-m03-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:47:20.123763+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve the smiling brown-haired woman, cream cable-knit sweater, blue lanyard, family dinner and warm lighting. Add a recognizable real stethoscope around her neck, hanging over the sweater; replace her badge with a small medical cross and her existing portrait, no words. Keep her the clear main subject. Expand the actual dining room naturally to all edges.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u3_scene_03_photo_mother.webp",
+              "sha256": "5c11245772a4193b88a147c6f6c43fbc9eb3836089bdaec15898021a97b3ce2d",
+              "byte_count": 160578
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_70e266fb62254bd9ba290780138d299e",
+          "usage": {
+            "input_tokens": 1779,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 243
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3151
+          },
+          "cost": {
+            "usd": "0.054663",
+            "mxn": "0.9276693741",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 243,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 30.51,
+          "output": "output/imagegen/course-photo-sweep-v9/u3-m03-full-frame.png",
+          "sha256": "55d41e627845a69d2a243e91754fe3ac820229310c705e1d89da040e8bb2fde4",
+          "byte_count": 2246631
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "slide_id": "M01",
+      "old_filename": "a1_u4_scene_01_living_room.webp",
+      "candidate_filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+      "old_sha256": "c88b540e500cc6a4bdd7c4fea66586556b2bdfc150ac69d3bb4cc7f5c7872fc6",
+      "new_sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+      "old_observation": "Inset living-room photo: mother cleaning shelves left, elderly couple on cream sofa middle-right, girl reading right, large right window. No lamp is visible for the lamp clue.",
+      "new_observation": "Same cleaning mother, elderly pair and reading girl in a continuous full-frame living room. New floor lamp at far left, large window right. All subjects complete; no inset.",
+      "original_card": {
+        "slide_id": "M01",
+        "mission_chapter_id": "ch1-living-room",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The mother is in the living room. The grandparents are on the sofa. There is a lamp. There is a window.",
+        "prompt_image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp",
+        "options": [
+          {
+            "id": "mother-living-room",
+            "image_url": "",
+            "label": "The mother is in the living room."
+          },
+          {
+            "id": "grandparents-sofa",
+            "image_url": "",
+            "label": "The grandparents are on the sofa."
+          },
+          {
+            "id": "room-lamp",
+            "image_url": "",
+            "label": "There is a lamp."
+          },
+          {
+            "id": "room-window",
+            "image_url": "",
+            "label": "There is a window."
+          }
+        ],
+        "correct_option_id": "mother-living-room",
+        "correct_option_ids": [
+          "mother-living-room",
+          "grandparents-sofa",
+          "room-lamp",
+          "room-window"
+        ],
+        "audio_text": "The mother is in the living room. The grandparents are on the sofa. There is a lamp. There is a window.",
+        "audio_turns": [
+          {
+            "text": "The mother is in the living room.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+          },
+          {
+            "text": "The grandparents are on the sofa.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+          },
+          {
+            "text": "There is a lamp.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+          },
+          {
+            "text": "There is a window.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_01_living_room.webp"
+          }
+        ],
+        "spanish_translation": "La madre está en la sala. Los abuelos están en el sofá. Hay una lámpara. Hay una ventana.",
+        "pedagogy_note": "Mission beat 01/04: the learner locates people and furniture in the living room from audio cues; the completed interaction advances the home mission.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "mother-living-room",
+              "label_es": "Madre en la sala",
+              "rect": {
+                "x": 0.1,
+                "y": 0.3,
+                "width": 0.22,
+                "height": 0.52
+              },
+              "accepted_option_ids": [
+                "mother-living-room"
+              ]
+            },
+            {
+              "id": "grandparents-sofa",
+              "label_es": "Abuelos en el sofá",
+              "rect": {
+                "x": 0.42,
+                "y": 0.38,
+                "width": 0.32,
+                "height": 0.45
+              },
+              "accepted_option_ids": [
+                "grandparents-sofa"
+              ]
+            },
+            {
+              "id": "room-lamp",
+              "label_es": "Lámpara",
+              "rect": {
+                "x": 0.02,
+                "y": 0.45,
+                "width": 0.14,
+                "height": 0.35
+              },
+              "accepted_option_ids": [
+                "room-lamp"
+              ]
+            },
+            {
+              "id": "room-window",
+              "label_es": "Ventana",
+              "rect": {
+                "x": 0.78,
+                "y": 0.2,
+                "width": 0.2,
+                "height": 0.45
+              },
+              "accepted_option_ids": [
+                "room-window"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-mother-living-room",
+              "text": "The mother is in the living room.",
+              "answer_text": "The mother is in the living room.",
+              "target_id": "mother-living-room",
+              "option_id": "mother-living-room"
+            },
+            {
+              "id": "cue-grandparents-sofa",
+              "text": "The grandparents are on the sofa.",
+              "answer_text": "The grandparents are on the sofa.",
+              "target_id": "grandparents-sofa",
+              "option_id": "grandparents-sofa"
+            },
+            {
+              "id": "cue-room-lamp",
+              "text": "There is a lamp.",
+              "answer_text": "There is a lamp.",
+              "target_id": "room-lamp",
+              "option_id": "room-lamp"
+            },
+            {
+              "id": "cue-room-window",
+              "text": "There is a window.",
+              "answer_text": "There is a window.",
+              "target_id": "room-window",
+              "option_id": "room-window"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "mother-living-room",
+          "label_es": "Madre en la sala",
+          "rect": {
+            "x": 0.17,
+            "y": 0.27,
+            "width": 0.19,
+            "height": 0.61
+          },
+          "accepted_option_ids": [
+            "mother-living-room"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.308,
+              "y": 0.27
+            }
+          ]
+        },
+        {
+          "id": "grandparents-sofa",
+          "label_es": "Abuelos en el sofá",
+          "rect": {
+            "x": 0.48,
+            "y": 0.45,
+            "width": 0.18,
+            "height": 0.42
+          },
+          "accepted_option_ids": [
+            "grandparents-sofa"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.533,
+              "y": 0.453
+            },
+            {
+              "x": 0.593,
+              "y": 0.453
+            }
+          ]
+        },
+        {
+          "id": "room-lamp",
+          "label_es": "Lámpara",
+          "rect": {
+            "x": 0.005,
+            "y": 0.29,
+            "width": 0.125,
+            "height": 0.69
+          },
+          "accepted_option_ids": [
+            "room-lamp"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.068,
+              "y": 0.293
+            }
+          ],
+          "subject_kind": "object"
+        },
+        {
+          "id": "room-window",
+          "label_es": "Ventana",
+          "rect": {
+            "x": 0.704,
+            "y": 0.115,
+            "width": 0.296,
+            "height": 0.49
+          },
+          "accepted_option_ids": [
+            "room-window"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.862,
+              "y": 0.126
+            }
+          ],
+          "subject_kind": "object"
+        }
+      ],
+      "target_observations": {
+        "mother-living-room": "Blue-shirted woman cleaning the shelves at left.",
+        "grandparents-sofa": "Both gray-haired adults seated together on the cream sofa.",
+        "room-lamp": "Complete cream-shade tripod floor lamp at the far left.",
+        "room-window": "Large white-framed window at right, above the sofa and plant."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u4_scene_01_living_room.webp",
+        "sha256": "c88b540e500cc6a4bdd7c4fea66586556b2bdfc150ac69d3bb4cc7f5c7872fc6",
+        "byte_count": 194254
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u4-m01-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "a119f90b-1847-4ad4-954a-e821e25418d6",
+          "asset_id": "u4-m01-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:48:33.597918+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve all four people, faces, clothes and actions. Extend this same room to fill the entire landscape. Add one clearly visible floor lamp in the newly revealed far-left floor area, separate from the cleaning mother. Retain elderly couple seated together, reading girl and large right window. Keep the lamp, mother, pair and window in distinct nonoverlapping selectable regions.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u4_scene_01_living_room.webp",
+              "sha256": "c88b540e500cc6a4bdd7c4fea66586556b2bdfc150ac69d3bb4cc7f5c7872fc6",
+              "byte_count": 194254
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_f4b23b59072244cd87a3d3a093bf9433",
+          "usage": {
+            "input_tokens": 1780,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 244
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3152
+          },
+          "cost": {
+            "usd": "0.054668",
+            "mxn": "0.9277542276",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 244,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 28.43,
+          "output": "output/imagegen/course-photo-sweep-v9/u4-m01-full-frame.png",
+          "sha256": "46bc7a01f00087f194d865a9df8723a39165414bccca9f70ed913a9e7601e2c9",
+          "byte_count": 2514483
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "slide_id": "M02",
+      "old_filename": "a1_u4_scene_02_kitchen_dining.webp",
+      "candidate_filename": "a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+      "old_sha256": "3ddaefc9250e152064a74caec4f7fc2421428d177f57726879513bdc680c85da",
+      "new_sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+      "old_observation": "Photographic kitchen inset with blurred margins: father cooking left, striped-shirt boy drinking center-right, dining table right. More than two dining-chair backs are visible despite the two-chair clue.",
+      "new_observation": "Continuous kitchen retains father cooking and striped-shirt boy drinking. Exactly two dining chairs, dark and white, now surround the right table; the boy uses a separate step stool. No border.",
+      "original_card": {
+        "slide_id": "M02",
+        "mission_chapter_id": "ch2-kitchen-dining",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The father is in the kitchen. The boy is in the kitchen. There is a table in the dining room. There are two chairs.",
+        "prompt_image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp",
+        "options": [
+          {
+            "id": "father-kitchen",
+            "image_url": "",
+            "label": "The father is in the kitchen."
+          },
+          {
+            "id": "boy-kitchen",
+            "image_url": "",
+            "label": "The boy is in the kitchen."
+          },
+          {
+            "id": "dining-table",
+            "image_url": "",
+            "label": "There is a table in the dining room."
+          },
+          {
+            "id": "two-chairs",
+            "image_url": "",
+            "label": "There are two chairs."
+          }
+        ],
+        "correct_option_id": "father-kitchen",
+        "correct_option_ids": [
+          "father-kitchen",
+          "boy-kitchen",
+          "dining-table",
+          "two-chairs"
+        ],
+        "audio_text": "The father is in the kitchen. The boy is in the kitchen. There is a table in the dining room. There are two chairs.",
+        "audio_turns": [
+          {
+            "text": "The father is in the kitchen.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+          },
+          {
+            "text": "The boy is in the kitchen.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+          },
+          {
+            "text": "There is a table in the dining room.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+          },
+          {
+            "text": "There are two chairs.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining.webp"
+          }
+        ],
+        "spanish_translation": "El padre está en la cocina. El niño está en la cocina. Hay una mesa en el comedor. Hay dos sillas.",
+        "pedagogy_note": "Mission beat 02/04: the learner locates people and furniture in the kitchen and dining area; the completed interaction advances the home mission.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "father-kitchen",
+              "label_es": "Padre en la cocina",
+              "rect": {
+                "x": 0.2,
+                "y": 0.22,
+                "width": 0.22,
+                "height": 0.65
+              },
+              "accepted_option_ids": [
+                "father-kitchen"
+              ]
+            },
+            {
+              "id": "boy-kitchen",
+              "label_es": "Niño en la cocina",
+              "rect": {
+                "x": 0.55,
+                "y": 0.3,
+                "width": 0.18,
+                "height": 0.52
+              },
+              "accepted_option_ids": [
+                "boy-kitchen"
+              ]
+            },
+            {
+              "id": "dining-table",
+              "label_es": "Mesa del comedor",
+              "rect": {
+                "x": 0.72,
+                "y": 0.5,
+                "width": 0.26,
+                "height": 0.35
+              },
+              "accepted_option_ids": [
+                "dining-table"
+              ]
+            },
+            {
+              "id": "two-chairs",
+              "label_es": "Dos sillas",
+              "rect": {
+                "x": 0.7,
+                "y": 0.55,
+                "width": 0.28,
+                "height": 0.38
+              },
+              "accepted_option_ids": [
+                "two-chairs"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-father-kitchen",
+              "text": "The father is in the kitchen.",
+              "answer_text": "The father is in the kitchen.",
+              "target_id": "father-kitchen",
+              "option_id": "father-kitchen"
+            },
+            {
+              "id": "cue-boy-kitchen",
+              "text": "The boy is in the kitchen.",
+              "answer_text": "The boy is in the kitchen.",
+              "target_id": "boy-kitchen",
+              "option_id": "boy-kitchen"
+            },
+            {
+              "id": "cue-dining-table",
+              "text": "There is a table in the dining room.",
+              "answer_text": "There is a table in the dining room.",
+              "target_id": "dining-table",
+              "option_id": "dining-table"
+            },
+            {
+              "id": "cue-two-chairs",
+              "text": "There are two chairs.",
+              "answer_text": "There are two chairs.",
+              "target_id": "two-chairs",
+              "option_id": "two-chairs"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "father-kitchen",
+          "label_es": "Padre en la cocina",
+          "rect": {
+            "x": 0.247,
+            "y": 0.19,
+            "width": 0.176,
+            "height": 0.79
+          },
+          "accepted_option_ids": [
+            "father-kitchen"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.322,
+              "y": 0.199
+            }
+          ]
+        },
+        {
+          "id": "boy-kitchen",
+          "label_es": "Niño en la cocina",
+          "rect": {
+            "x": 0.542,
+            "y": 0.3,
+            "width": 0.12,
+            "height": 0.464
+          },
+          "accepted_option_ids": [
+            "boy-kitchen"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.604,
+              "y": 0.304
+            }
+          ]
+        },
+        {
+          "id": "dining-table",
+          "label_es": "Mesa del comedor",
+          "rect": {
+            "x": 0.715,
+            "y": 0.46,
+            "width": 0.285,
+            "height": 0.16
+          },
+          "accepted_option_ids": [
+            "dining-table"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.845,
+              "y": 0.487
+            }
+          ],
+          "subject_kind": "object"
+        },
+        {
+          "id": "two-chairs",
+          "label_es": "Dos sillas",
+          "rect": {
+            "x": 0.69,
+            "y": 0.506,
+            "width": 0.285,
+            "height": 0.408
+          },
+          "accepted_option_ids": [
+            "two-chairs"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.712,
+              "y": 0.51
+            },
+            {
+              "x": 0.913,
+              "y": 0.57
+            }
+          ],
+          "subject_kind": "object"
+        }
+      ],
+      "target_observations": {
+        "father-kitchen": "Dark-haired man in plaid and apron cooking at the left stove.",
+        "boy-kitchen": "Striped-shirt boy holding water to his mouth on the step stool.",
+        "dining-table": "Wood dining tabletop at right with fruit bowl and water jug.",
+        "two-chairs": "One dark wooden chair left of table and one white chair in front, two only."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u4_scene_02_kitchen_dining.webp",
+        "sha256": "3ddaefc9250e152064a74caec4f7fc2421428d177f57726879513bdc680c85da",
+        "byte_count": 211198
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u4-m02-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "d153d13a-2117-42bb-996f-d6fc3a8c5f41",
+          "asset_id": "u4-m02-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:49:28.102249+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve father cooking and boy drinking, their faces, clothing, positions and kitchen. Extend real kitchen pixels to all edges. At the dining table on the right show EXACTLY TWO complete dining chairs, one dark wooden chair and one white chair, and remove any additional chair backs. Keep the boy step stool visibly distinct from the chairs. Tabletop and the two chairs must be readable and separately selectable.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u4_scene_02_kitchen_dining.webp",
+              "sha256": "3ddaefc9250e152064a74caec4f7fc2421428d177f57726879513bdc680c85da",
+              "byte_count": 211198
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_2c8c6410d8954568ae2cb796d93432ca",
+          "usage": {
+            "input_tokens": 1786,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 250
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3158
+          },
+          "cost": {
+            "usd": "0.054698",
+            "mxn": "0.9282633486",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 250,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 29.56,
+          "output": "output/imagegen/course-photo-sweep-v9/u4-m02-full-frame.png",
+          "sha256": "12e52a84d427779303c58f0ee6a520d489d02fac099503496ebbd813882da78c",
+          "byte_count": 2431873
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "slide_id": "M03",
+      "old_filename": "a1_u4_scene_03_bedroom.webp",
+      "candidate_filename": "a1_u4_scene_03_bedroom_fullframe_v2.webp",
+      "old_sha256": "cc37f301abf6bb1bbf46d3d282bf363082defcec35b8850edf01dc1ae2b503d3",
+      "new_sha256": "5e8b5505db277f82333adfb0335b2162cd5f70b70d46e0071d275a5feb59c770",
+      "old_observation": "Inset bedroom photo with girl writing at left desk and child reading on right bed. The computer clue has no computer; the authored central door target points toward a window.",
+      "new_observation": "Full bedroom preserves girl writing at desk and curly-haired child reading on bed. New laptop is clearly visible on left desk and open door at far left has complete handle. No blurred borders.",
+      "original_card": {
+        "slide_id": "M03",
+        "mission_chapter_id": "ch3-bedrooms-study",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The girl is in the bedroom. There is a bed. There is a computer. There is a door.",
+        "prompt_image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp",
+        "options": [
+          {
+            "id": "girl-bedroom",
+            "image_url": "",
+            "label": "The girl is in the bedroom."
+          },
+          {
+            "id": "bedroom-bed",
+            "image_url": "",
+            "label": "There is a bed."
+          },
+          {
+            "id": "bedroom-computer",
+            "image_url": "",
+            "label": "There is a computer."
+          },
+          {
+            "id": "bedroom-door",
+            "image_url": "",
+            "label": "There is a door."
+          }
+        ],
+        "correct_option_id": "girl-bedroom",
+        "correct_option_ids": [
+          "girl-bedroom",
+          "bedroom-bed",
+          "bedroom-computer",
+          "bedroom-door"
+        ],
+        "audio_text": "The girl is in the bedroom. There is a bed. There is a computer. There is a door.",
+        "audio_turns": [
+          {
+            "text": "The girl is in the bedroom.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+          },
+          {
+            "text": "There is a bed.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+          },
+          {
+            "text": "There is a computer.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+          },
+          {
+            "text": "There is a door.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u4_scene_03_bedroom.webp"
+          }
+        ],
+        "spanish_translation": "La niña está en la habitación. Hay una cama. Hay una computadora. Hay una puerta.",
+        "pedagogy_note": "Mission beat 03/04: the learner locates family members and furniture in the bedroom; the completed interaction advances the home mission.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "girl-bedroom",
+              "label_es": "Niña en la habitación",
+              "rect": {
+                "x": 0.12,
+                "y": 0.35,
+                "width": 0.22,
+                "height": 0.48
+              },
+              "accepted_option_ids": [
+                "girl-bedroom"
+              ]
+            },
+            {
+              "id": "bedroom-bed",
+              "label_es": "Cama",
+              "rect": {
+                "x": 0.58,
+                "y": 0.45,
+                "width": 0.35,
+                "height": 0.45
+              },
+              "accepted_option_ids": [
+                "bedroom-bed"
+              ]
+            },
+            {
+              "id": "bedroom-computer",
+              "label_es": "Computadora",
+              "rect": {
+                "x": 0.25,
+                "y": 0.4,
+                "width": 0.15,
+                "height": 0.2
+              },
+              "accepted_option_ids": [
+                "bedroom-computer"
+              ]
+            },
+            {
+              "id": "bedroom-door",
+              "label_es": "Puerta",
+              "rect": {
+                "x": 0.45,
+                "y": 0.15,
+                "width": 0.15,
+                "height": 0.45
+              },
+              "accepted_option_ids": [
+                "bedroom-door"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-girl-bedroom",
+              "text": "The girl is in the bedroom.",
+              "answer_text": "The girl is in the bedroom.",
+              "target_id": "girl-bedroom",
+              "option_id": "girl-bedroom"
+            },
+            {
+              "id": "cue-bedroom-bed",
+              "text": "There is a bed.",
+              "answer_text": "There is a bed.",
+              "target_id": "bedroom-bed",
+              "option_id": "bedroom-bed"
+            },
+            {
+              "id": "cue-bedroom-computer",
+              "text": "There is a computer.",
+              "answer_text": "There is a computer.",
+              "target_id": "bedroom-computer",
+              "option_id": "bedroom-computer"
+            },
+            {
+              "id": "cue-bedroom-door",
+              "text": "There is a door.",
+              "answer_text": "There is a door.",
+              "target_id": "bedroom-door",
+              "option_id": "bedroom-door"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "girl-bedroom",
+          "label_es": "Niña en la habitación",
+          "rect": {
+            "x": 0.272,
+            "y": 0.322,
+            "width": 0.159,
+            "height": 0.47
+          },
+          "accepted_option_ids": [
+            "girl-bedroom"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.334,
+              "y": 0.326
+            }
+          ]
+        },
+        {
+          "id": "bedroom-bed",
+          "label_es": "Cama",
+          "rect": {
+            "x": 0.587,
+            "y": 0.411,
+            "width": 0.329,
+            "height": 0.389
+          },
+          "accepted_option_ids": [
+            "bedroom-bed"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.871,
+              "y": 0.509
+            }
+          ],
+          "subject_kind": "object"
+        },
+        {
+          "id": "bedroom-computer",
+          "label_es": "Computadora",
+          "rect": {
+            "x": 0.1445,
+            "y": 0.4065,
+            "width": 0.12,
+            "height": 0.16
+          },
+          "accepted_option_ids": [
+            "bedroom-computer"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.177,
+              "y": 0.433
+            }
+          ],
+          "subject_kind": "object"
+        },
+        {
+          "id": "bedroom-door",
+          "label_es": "Puerta",
+          "rect": {
+            "x": 0,
+            "y": 0.014,
+            "width": 0.12,
+            "height": 0.95
+          },
+          "accepted_option_ids": [
+            "bedroom-door"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.049,
+              "y": 0.294
+            }
+          ],
+          "subject_kind": "object"
+        }
+      ],
+      "target_observations": {
+        "girl-bedroom": "Long-haired girl writing at the desk, left of the central window.",
+        "bedroom-bed": "Right bed mattress and quilt; endpoint lands on exposed bed, not the seated child.",
+        "bedroom-computer": "Open laptop with visible screen and keyboard on the far-left end of desk.",
+        "bedroom-door": "Open panelled door at far-left edge with a brass handle."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u4_scene_03_bedroom.webp",
+        "sha256": "cc37f301abf6bb1bbf46d3d282bf363082defcec35b8850edf01dc1ae2b503d3",
+        "byte_count": 132830
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u4-m03-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "5561e556-2dad-4817-92a9-84339c37faf5",
+          "asset_id": "u4-m03-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:50:27.788707+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve both children, faces and clothes, girl working at left desk, child reading on right bed and the same room. Extend room to full landscape. Place one open laptop visibly on the left desk without covering the girl. Reveal a distinct open bedroom door at the far-left edge, with its full handle and frame visible. Keep central window. Girl, laptop, bed and door must each be clearly visible and separately selectable.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u4_scene_03_bedroom.webp",
+              "sha256": "cc37f301abf6bb1bbf46d3d282bf363082defcec35b8850edf01dc1ae2b503d3",
+              "byte_count": 132830
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_948d8f0027e94936a5f479e5b9beea0e",
+          "usage": {
+            "input_tokens": 1791,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 255
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3163
+          },
+          "cost": {
+            "usd": "0.054723",
+            "mxn": "0.9286876161",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 255,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 29.69,
+          "output": "output/imagegen/course-photo-sweep-v9/u4-m03-full-frame.png",
+          "sha256": "93aaf1eb0a7da2f68c803a8918c416e6eadc98d084a0debc09b24ee9ea488e54",
+          "byte_count": 2130566
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-5-10-cafe-mission",
+      "slide_id": "M01",
+      "old_filename": "a1_u5_scene_01_market_stall.webp",
+      "candidate_filename": "a1_u5_scene_01_market_stall_fullframe_v2.webp",
+      "old_sha256": "bec88073829c239d133308538e3d9ba15c3cce15b93192598e3151bdf08d32f3",
+      "new_sha256": "634b1b83f51178e1f45481d139f108c635dde2ddd4a452a899edae2f7bc3511a",
+      "old_observation": "Inset market photograph: man holding bread left, girl reaching for apples right, oranges in front-left crates and bananas front-right. Baked-in blurred side and top/bottom margins.",
+      "new_observation": "Full market extends around the same man with bread and girl reaching for apples. Foreground orange crates and banana bunches are distinct and complete; natural market detail replaces the blurred margins.",
+      "original_card": {
+        "slide_id": "M01",
+        "mission_chapter_id": "ch1-fruit-stand",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The father wants bread. The girl wants apples. There are oranges. There are bananas.",
+        "prompt_image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp",
+        "options": [
+          {
+            "id": "father-bread",
+            "image_url": "",
+            "label": "The father wants bread."
+          },
+          {
+            "id": "daughter-apples",
+            "image_url": "",
+            "label": "The girl wants apples."
+          },
+          {
+            "id": "market-oranges",
+            "image_url": "",
+            "label": "There are oranges."
+          },
+          {
+            "id": "market-bananas",
+            "image_url": "",
+            "label": "There are bananas."
+          }
+        ],
+        "correct_option_id": "father-bread",
+        "correct_option_ids": [
+          "father-bread",
+          "daughter-apples",
+          "market-oranges",
+          "market-bananas"
+        ],
+        "audio_text": "The father wants bread. The girl wants apples. There are oranges. There are bananas.",
+        "audio_turns": [
+          {
+            "text": "The father wants bread.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          },
+          {
+            "text": "The girl wants apples.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          },
+          {
+            "text": "There are oranges.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          },
+          {
+            "text": "There are bananas.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          }
+        ],
+        "spanish_translation": "El padre quiere pan. La niña quiere manzanas. Hay naranjas. Hay bananas.",
+        "pedagogy_note": "Mission beat 01/03: the learner identifies shoppers and produce at the market stall from audio cues; the completed interaction advances the market mission.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "father-bread",
+              "label_es": "Padre con pan",
+              "rect": {
+                "x": 0.08,
+                "y": 0.25,
+                "width": 0.25,
+                "height": 0.55
+              },
+              "accepted_option_ids": [
+                "father-bread"
+              ]
+            },
+            {
+              "id": "daughter-apples",
+              "label_es": "Niña con manzanas",
+              "rect": {
+                "x": 0.65,
+                "y": 0.35,
+                "width": 0.22,
+                "height": 0.5
+              },
+              "accepted_option_ids": [
+                "daughter-apples"
+              ]
+            },
+            {
+              "id": "market-oranges",
+              "label_es": "Naranjas",
+              "rect": {
+                "x": 0.35,
+                "y": 0.5,
+                "width": 0.18,
+                "height": 0.3
+              },
+              "accepted_option_ids": [
+                "market-oranges"
+              ]
+            },
+            {
+              "id": "market-bananas",
+              "label_es": "Bananas",
+              "rect": {
+                "x": 0.52,
+                "y": 0.52,
+                "width": 0.18,
+                "height": 0.28
+              },
+              "accepted_option_ids": [
+                "market-bananas"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-father-bread",
+              "text": "The father wants bread.",
+              "answer_text": "The father wants bread.",
+              "target_id": "father-bread",
+              "option_id": "father-bread"
+            },
+            {
+              "id": "cue-daughter-apples",
+              "text": "The girl wants apples.",
+              "answer_text": "The girl wants apples.",
+              "target_id": "daughter-apples",
+              "option_id": "daughter-apples"
+            },
+            {
+              "id": "cue-market-oranges",
+              "text": "There are oranges.",
+              "answer_text": "There are oranges.",
+              "target_id": "market-oranges",
+              "option_id": "market-oranges"
+            },
+            {
+              "id": "cue-market-bananas",
+              "text": "There are bananas.",
+              "answer_text": "There are bananas.",
+              "target_id": "market-bananas",
+              "option_id": "market-bananas"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "father-bread",
+          "label_es": "Padre con pan",
+          "rect": {
+            "x": 0.138,
+            "y": 0.079,
+            "width": 0.289,
+            "height": 0.91
+          },
+          "accepted_option_ids": [
+            "father-bread"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.259,
+              "y": 0.084
+            }
+          ]
+        },
+        {
+          "id": "daughter-apples",
+          "label_es": "Niña con manzanas",
+          "rect": {
+            "x": 0.46,
+            "y": 0.366,
+            "width": 0.232,
+            "height": 0.45
+          },
+          "accepted_option_ids": [
+            "daughter-apples"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.632,
+              "y": 0.365
+            }
+          ]
+        },
+        {
+          "id": "market-oranges",
+          "label_es": "Naranjas",
+          "rect": {
+            "x": 0.218,
+            "y": 0.608,
+            "width": 0.295,
+            "height": 0.2
+          },
+          "accepted_option_ids": [
+            "market-oranges"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.255,
+              "y": 0.741
+            }
+          ],
+          "subject_kind": "object"
+        },
+        {
+          "id": "market-bananas",
+          "label_es": "Bananas",
+          "rect": {
+            "x": 0.497,
+            "y": 0.618,
+            "width": 0.165,
+            "height": 0.195
+          },
+          "accepted_option_ids": [
+            "market-bananas"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.623,
+              "y": 0.762
+            }
+          ],
+          "subject_kind": "object"
+        }
+      ],
+      "target_observations": {
+        "father-bread": "Plaid-shirted man at left holding the complete round bread loaf.",
+        "daughter-apples": "Girl at right reaches toward the red apples beside her.",
+        "market-oranges": "Front-left orange crate; pointer lands on one of its oranges. One collection marker leaves the girl reaching for apples unobscured.",
+        "market-bananas": "Front-right banana bunches; single collection marker points to the outer visible bunch without spanning the girl hand."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u5_scene_01_market_stall.webp",
+        "sha256": "bec88073829c239d133308538e3d9ba15c3cce15b93192598e3151bdf08d32f3",
+        "byte_count": 205230
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u5-m01-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "d670d948-357f-4c66-b4c6-b592d39b12ed",
+          "asset_id": "u5-m01-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:51:24.240563+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve exact man holding bread, girl reaching for apples, faces, clothing and market setting. Expand the real market naturally into all blurred margins. Preserve visibly distinct orange crates at front-left and banana bunches at front-right, the apples by the girl and complete loaf in the man hands. No new people in the foreground or repeated foreground fruit groups.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u5_scene_01_market_stall.webp",
+              "sha256": "bec88073829c239d133308538e3d9ba15c3cce15b93192598e3151bdf08d32f3",
+              "byte_count": 205230
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_8f9bbc22e1ad4b5cada4e8cf12e480cc",
+          "usage": {
+            "input_tokens": 1776,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 240
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3148
+          },
+          "cost": {
+            "usd": "0.054648",
+            "mxn": "0.9274148136",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 240,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 30.48,
+          "output": "output/imagegen/course-photo-sweep-v9/u5-m01-full-frame.png",
+          "sha256": "f93577e2f537145b223b2d41907c98e4fb413053a1a7e78617d3f8680ae29a7f",
+          "byte_count": 2683221
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-5-10-cafe-mission",
+      "slide_id": "M02",
+      "old_filename": "a1_u5_scene_02_register.webp",
+      "candidate_filename": "a1_u5_scene_02_register_fullframe_v2.webp",
+      "old_sha256": "fd1b8de5b84a978189744901c3ded8b4fa4d53497ef1385657b4174b733bf7d7",
+      "new_sha256": "4c8e0800d417a12ba8229d99caa4b4fecc2c8c61ab094d1917852ffcab115b9e",
+      "old_observation": "Inset checkout photo with brown-bob woman holding water, gray-haired man holding a tea tin, food basket and orange/purple juice bottles. Blurred margins and tiny unreadable product labels.",
+      "new_observation": "Same brown-bob woman with water bottle and gray-haired man with tea tin, now full-frame. Loose tea and two tea bags identify tea; basket of bread/vegetables and two juice bottles clearly separate.",
+      "original_card": {
+        "slide_id": "M02",
+        "mission_chapter_id": "ch2-checkout-register",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The mother needs water. The grandfather needs tea. There is some food. There is some juice.",
+        "prompt_image_url": "/lesson-assets/a1_u5_scene_02_register.webp",
+        "options": [
+          {
+            "id": "mother-water",
+            "image_url": "",
+            "label": "The mother needs water."
+          },
+          {
+            "id": "grandfather-tea",
+            "image_url": "",
+            "label": "The grandfather needs tea."
+          },
+          {
+            "id": "food-basket",
+            "image_url": "",
+            "label": "There is some food."
+          },
+          {
+            "id": "juice-bottles",
+            "image_url": "",
+            "label": "There is some juice."
+          }
+        ],
+        "correct_option_id": "mother-water",
+        "correct_option_ids": [
+          "mother-water",
+          "grandfather-tea",
+          "food-basket",
+          "juice-bottles"
+        ],
+        "audio_text": "The mother needs water. The grandfather needs tea. There is some food. There is some juice.",
+        "audio_turns": [
+          {
+            "text": "The mother needs water.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          },
+          {
+            "text": "The grandfather needs tea.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          },
+          {
+            "text": "There is some food.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          },
+          {
+            "text": "There is some juice.",
+            "speaker_role": "teacher",
+            "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          }
+        ],
+        "spanish_translation": "La madre necesita agua. El abuelo necesita té. Hay algo de comida. Hay algo de jugo.",
+        "pedagogy_note": "Mission beat 02/03: the learner identifies items and shoppers at the market checkout; the completed interaction advances the market mission.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "mother-water",
+              "label_es": "Madre con agua",
+              "rect": {
+                "x": 0.12,
+                "y": 0.25,
+                "width": 0.25,
+                "height": 0.55
+              },
+              "accepted_option_ids": [
+                "mother-water"
+              ]
+            },
+            {
+              "id": "grandfather-tea",
+              "label_es": "Abuelo con té",
+              "rect": {
+                "x": 0.65,
+                "y": 0.28,
+                "width": 0.25,
+                "height": 0.52
+              },
+              "accepted_option_ids": [
+                "grandfather-tea"
+              ]
+            },
+            {
+              "id": "food-basket",
+              "label_es": "Cesta de comida",
+              "rect": {
+                "x": 0.38,
+                "y": 0.48,
+                "width": 0.2,
+                "height": 0.35
+              },
+              "accepted_option_ids": [
+                "food-basket"
+              ]
+            },
+            {
+              "id": "juice-bottles",
+              "label_es": "Botellas de jugo",
+              "rect": {
+                "x": 0.55,
+                "y": 0.45,
+                "width": 0.15,
+                "height": 0.32
+              },
+              "accepted_option_ids": [
+                "juice-bottles"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-mother-water",
+              "text": "The mother needs water.",
+              "answer_text": "The mother needs water.",
+              "target_id": "mother-water",
+              "option_id": "mother-water"
+            },
+            {
+              "id": "cue-grandfather-tea",
+              "text": "The grandfather needs tea.",
+              "answer_text": "The grandfather needs tea.",
+              "target_id": "grandfather-tea",
+              "option_id": "grandfather-tea"
+            },
+            {
+              "id": "cue-food-basket",
+              "text": "There is some food.",
+              "answer_text": "There is some food.",
+              "target_id": "food-basket",
+              "option_id": "food-basket"
+            },
+            {
+              "id": "cue-juice-bottles",
+              "text": "There is some juice.",
+              "answer_text": "There is some juice.",
+              "target_id": "juice-bottles",
+              "option_id": "juice-bottles"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "mother-water",
+          "label_es": "Madre con agua",
+          "rect": {
+            "x": 0.232,
+            "y": 0.174,
+            "width": 0.276,
+            "height": 0.676
+          },
+          "accepted_option_ids": [
+            "mother-water"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.383,
+              "y": 0.176
+            }
+          ]
+        },
+        {
+          "id": "grandfather-tea",
+          "label_es": "Abuelo con té",
+          "rect": {
+            "x": 0.457,
+            "y": 0.158,
+            "width": 0.281,
+            "height": 0.615
+          },
+          "accepted_option_ids": [
+            "grandfather-tea"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.599,
+              "y": 0.159
+            }
+          ]
+        },
+        {
+          "id": "food-basket",
+          "label_es": "Cesta de comida",
+          "rect": {
+            "x": 0.562,
+            "y": 0.546,
+            "width": 0.377,
+            "height": 0.315
+          },
+          "accepted_option_ids": [
+            "food-basket"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.746,
+              "y": 0.548
+            }
+          ],
+          "subject_kind": "object"
+        },
+        {
+          "id": "juice-bottles",
+          "label_es": "Botellas de jugo",
+          "rect": {
+            "x": 0.786,
+            "y": 0.694,
+            "width": 0.123,
+            "height": 0.246
+          },
+          "accepted_option_ids": [
+            "juice-bottles"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.818,
+              "y": 0.696
+            },
+            {
+              "x": 0.879,
+              "y": 0.696
+            }
+          ],
+          "subject_kind": "object"
+        }
+      ],
+      "target_observations": {
+        "mother-water": "Woman in beige coat holding a clear bottle of water.",
+        "grandfather-tea": "Gray-haired man holding open tea tin above loose tea and tea bags.",
+        "food-basket": "Large woven basket contains bread and fresh vegetables.",
+        "juice-bottles": "Two glass bottles of orange and purple juice at front right."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u5_scene_02_register.webp",
+        "sha256": "fd1b8de5b84a978189744901c3ded8b4fa4d53497ef1385657b4174b733bf7d7",
+        "byte_count": 185940
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u5-m02-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "4c9c2f9f-5f5f-43c3-ac6a-b64f65b0ae04",
+          "asset_id": "u5-m02-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:52:21.146238+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve exact woman with clear water bottle, older man with tea tin, food basket and juice bottles, same faces and outfits and checkout. Extend real setting edge-to-edge. Make the tin plainly a tea container by showing real tea leaves and two tea bags next to it, not printed answer words. Keep food basket and juice bottles separate. Remove gibberish product labels; no answer captions.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u5_scene_02_register.webp",
+              "sha256": "fd1b8de5b84a978189744901c3ded8b4fa4d53497ef1385657b4174b733bf7d7",
+              "byte_count": 185940
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_a01af6398b4f4fedb3e728cfd51f9d74",
+          "usage": {
+            "input_tokens": 1785,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 249
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3157
+          },
+          "cost": {
+            "usd": "0.054693",
+            "mxn": "0.9281784951",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 249,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 30.79,
+          "output": "output/imagegen/course-photo-sweep-v9/u5-m02-full-frame.png",
+          "sha256": "db9db715d3ed3a3beb4f37ce76a0bf2cbf4bc70e2b5f33fcc969afe655caf710",
+          "byte_count": 2492850
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-5-10-cafe-mission",
+      "slide_id": "M03",
+      "old_filename": "a1_u5_scene_03_cafe_counter.webp",
+      "candidate_filename": "a1_u5_scene_03_cafe_counter_fullframe_v2.webp",
+      "old_sha256": "b395fcfe120079437406a4ce1703f7183d8c78bb0739616a98bc6d362ab25d5c",
+      "new_sha256": "a40266f793912421f72b7b3815f939ceab94d9cc874b90493ce5f04ebd46e639",
+      "old_observation": "Inset cafe photograph with smiling male barista, espresso equipment and gibberish chalk menu. No visible five-dollar price for the spoken price answer.",
+      "new_observation": "Same smiling barista and brick cafe, now edge-to-edge. A physical card clearly reads $5 beside one cup and saucer. Menu gibberish removed; Coffee/TEA headings remain but do not supply the assessed price.",
+      "original_card": {
+        "slide_id": "M03",
+        "mission_chapter_id": "ch3-cafe-order",
+        "interaction_type": "mission-finale",
+        "stage": "Speak",
+        "prompt": "It is five dollars.",
+        "prompt_image_url": "",
+        "options": [
+          {
+            "id": "five-dollars",
+            "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter.webp",
+            "label": "It is five dollars."
+          }
+        ],
+        "correct_option_id": "five-dollars",
+        "audio_text": "It is five dollars.",
+        "audio_turns": [
+          {
+            "text": "How much is it?",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter.webp"
+          }
+        ],
+        "spanish_translation": "Son cinco dólares.",
+        "pedagogy_note": "Mission beat 03/03: the learner answers the price aloud at the café counter; the completed interaction finishes the Unit 5 market mission.",
+        "mission_game": {
+          "kind": "voice-gate",
+          "instruction_es": "Escucha y responde para confirmar el precio.",
+          "validation": "single",
+          "targets": [
+            {
+              "id": "cafe-counter",
+              "label_es": "Mostrador del café",
+              "rect": {
+                "x": 0.35,
+                "y": 0.2,
+                "width": 0.3,
+                "height": 0.55
+              },
+              "accepted_option_ids": [
+                "five-dollars"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cafe-counter",
+              "text": "How much is it?",
+              "answer_text": "It is five dollars.",
+              "target_id": "cafe-counter",
+              "option_id": "five-dollars"
+            }
+          ],
+          "cue_audio_text": "How much is it?"
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "cafe-counter",
+          "label_es": "Mostrador del café",
+          "rect": {
+            "x": 0.475,
+            "y": 0.739,
+            "width": 0.174,
+            "height": 0.16
+          },
+          "accepted_option_ids": [
+            "five-dollars"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.609,
+              "y": 0.775
+            }
+          ],
+          "subject_kind": "object"
+        }
+      ],
+      "target_observations": {
+        "cafe-counter": "Single readable $5 price card next to the coffee cup at front-center counter."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u5_scene_03_cafe_counter.webp",
+        "sha256": "b395fcfe120079437406a4ce1703f7183d8c78bb0739616a98bc6d362ab25d5c",
+        "byte_count": 116238
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u5-m03-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "5972ce2d-b642-4bec-b736-cc9bf2d10ff5",
+          "asset_id": "u5-m03-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:53:37.720300+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve exact smiling barista, gray apron, face, brick cafe and counter. Extend real cafe to every edge. Remove gibberish menu writing. Place one complete white coffee cup and saucer at center foreground with a large simple physical price card immediately beside it reading exactly \"$5\". That is the only visible price; no answer sentence or other menu text. Cup and price card unobstructed and large enough for a phone.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u5_scene_03_cafe_counter.webp",
+              "sha256": "b395fcfe120079437406a4ce1703f7183d8c78bb0739616a98bc6d362ab25d5c",
+              "byte_count": 116238
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_2c19fa46cb1c4c60a28b5b6a0fe6a51b",
+          "usage": {
+            "input_tokens": 1793,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 257
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3165
+          },
+          "cost": {
+            "usd": "0.054733",
+            "mxn": "0.9288573231",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 257,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 31.73,
+          "output": "output/imagegen/course-photo-sweep-v9/u5-m03-full-frame.png",
+          "sha256": "6312586ade32e94c1cd47aab008a0d0f042cd82d611a555fbdee325aa2638700",
+          "byte_count": 2315984
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "slide_id": "M01",
+      "old_filename": "a1_u6_scene_01_plaza.webp",
+      "candidate_filename": "a1_u6_scene_01_plaza_fullframe_v2.webp",
+      "old_sha256": "c2347d345f131ae180f025b92f86c5de0a3b92f0b69e3f3800971fc5c2fa6e87",
+      "new_sha256": "b2ee5a3d7b78a35c8156d6e9cab18ca550da4214ffe750fa3dfc111fe6252f7f",
+      "old_observation": "Inset plaza: floral-dress woman left by shop, grandfather crossing on zebra stripes, checked-shirt man waiting by bench, curly-haired boy reading seated at right. Large blurred margins.",
+      "new_observation": "Same four people and plaza retained without inset. Produce identifies the left shop, grandfather stands on zebra crossing, father waits beside bench, boy sits on the tree-bordered park edge reading.",
+      "original_card": {
+        "slide_id": "M01",
+        "mission_chapter_id": "ch1-plaza-crossing",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The mother is walking to the store. The grandfather is crossing the street. The father is waiting at the bench. The boy is sitting in the park.",
+        "prompt_image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp",
+        "options": [
+          {
+            "id": "mother-walking",
+            "image_url": "",
+            "label": "The mother is walking to the store."
+          },
+          {
+            "id": "grandfather-crossing",
+            "image_url": "",
+            "label": "The grandfather is crossing the street."
+          },
+          {
+            "id": "father-waiting",
+            "image_url": "",
+            "label": "The father is waiting at the bench."
+          },
+          {
+            "id": "boy-sitting",
+            "image_url": "",
+            "label": "The boy is sitting in the park."
+          }
+        ],
+        "correct_option_id": "mother-walking",
+        "correct_option_ids": [
+          "mother-walking",
+          "grandfather-crossing",
+          "father-waiting",
+          "boy-sitting"
+        ],
+        "audio_text": "The mother is walking to the store. The grandfather is crossing the street. The father is waiting at the bench. The boy is sitting in the park.",
+        "audio_turns": [
+          {
+            "text": "The mother is walking to the store.",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp"
+          },
+          {
+            "text": "The grandfather is crossing the street.",
+            "speaker_role": "male-character",
+            "image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp"
+          },
+          {
+            "text": "The father is waiting at the bench.",
+            "speaker_role": "male-character",
+            "image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp"
+          },
+          {
+            "text": "The boy is sitting in the park.",
+            "speaker_role": "male-character",
+            "image_url": "/lesson-assets/a1_u6_scene_01_plaza.webp"
+          }
+        ],
+        "spanish_translation": "La madre camina a la tienda, el abuelo cruza la calle, el padre espera en la banca y el niño está sentado en el parque.",
+        "pedagogy_note": "Mission beat 01/03: the learner tracks four family members across the central plaza; every target pairs to a spoken audio cue.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "mother-walking",
+              "label_es": "Madre caminando",
+              "rect": {
+                "x": 0.05,
+                "y": 0.3,
+                "width": 0.18,
+                "height": 0.52
+              },
+              "accepted_option_ids": [
+                "mother-walking"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.14,
+                  "y": 0.22
+                }
+              ]
+            },
+            {
+              "id": "grandfather-crossing",
+              "label_es": "Abuelo cruzando",
+              "rect": {
+                "x": 0.29,
+                "y": 0.32,
+                "width": 0.18,
+                "height": 0.5
+              },
+              "accepted_option_ids": [
+                "grandfather-crossing"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.38,
+                  "y": 0.24
+                }
+              ]
+            },
+            {
+              "id": "father-waiting",
+              "label_es": "Padre esperando",
+              "rect": {
+                "x": 0.53,
+                "y": 0.3,
+                "width": 0.18,
+                "height": 0.52
+              },
+              "accepted_option_ids": [
+                "father-waiting"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.62,
+                  "y": 0.22
+                }
+              ]
+            },
+            {
+              "id": "boy-sitting",
+              "label_es": "Niño sentado",
+              "rect": {
+                "x": 0.76,
+                "y": 0.36,
+                "width": 0.16,
+                "height": 0.46
+              },
+              "accepted_option_ids": [
+                "boy-sitting"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.84,
+                  "y": 0.28
+                }
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-mother-walk",
+              "text": "The mother is walking to the store.",
+              "answer_text": "The mother is walking to the store.",
+              "target_id": "mother-walking",
+              "option_id": "mother-walking"
+            },
+            {
+              "id": "cue-grandfather-cross",
+              "text": "The grandfather is crossing the street.",
+              "answer_text": "The grandfather is crossing the street.",
+              "target_id": "grandfather-crossing",
+              "option_id": "grandfather-crossing"
+            },
+            {
+              "id": "cue-father-wait",
+              "text": "The father is waiting at the bench.",
+              "answer_text": "The father is waiting at the bench.",
+              "target_id": "father-waiting",
+              "option_id": "father-waiting"
+            },
+            {
+              "id": "cue-boy-sit",
+              "text": "The boy is sitting in the park.",
+              "answer_text": "The boy is sitting in the park.",
+              "target_id": "boy-sitting",
+              "option_id": "boy-sitting"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "mother-walking",
+          "label_es": "Madre caminando",
+          "rect": {
+            "x": 0.1945,
+            "y": 0.444,
+            "width": 0.12,
+            "height": 0.286
+          },
+          "accepted_option_ids": [
+            "mother-walking"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.255,
+              "y": 0.447
+            }
+          ]
+        },
+        {
+          "id": "grandfather-crossing",
+          "label_es": "Abuelo cruzando",
+          "rect": {
+            "x": 0.307,
+            "y": 0.456,
+            "width": 0.12,
+            "height": 0.26
+          },
+          "accepted_option_ids": [
+            "grandfather-crossing"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.362,
+              "y": 0.456
+            }
+          ]
+        },
+        {
+          "id": "father-waiting",
+          "label_es": "Padre esperando",
+          "rect": {
+            "x": 0.509,
+            "y": 0.435,
+            "width": 0.12,
+            "height": 0.236
+          },
+          "accepted_option_ids": [
+            "father-waiting"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.565,
+              "y": 0.439
+            }
+          ]
+        },
+        {
+          "id": "boy-sitting",
+          "label_es": "Niño sentado",
+          "rect": {
+            "x": 0.63,
+            "y": 0.539,
+            "width": 0.16,
+            "height": 0.4
+          },
+          "accepted_option_ids": [
+            "boy-sitting"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.725,
+              "y": 0.542
+            }
+          ]
+        }
+      ],
+      "target_observations": {
+        "mother-walking": "Floral-dress woman walking by the grocery doorway on the left.",
+        "grandfather-crossing": "Gray-haired man with walking stick on the zebra crossing.",
+        "father-waiting": "Checked-shirt man checking watch immediately beside the bench.",
+        "boy-sitting": "Curly-haired boy seated on the park wall with open book."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u6_scene_01_plaza.webp",
+        "sha256": "c2347d345f131ae180f025b92f86c5de0a3b92f0b69e3f3800971fc5c2fa6e87",
+        "byte_count": 310022
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u6-m01-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "afd632e4-948a-413e-bcb1-61ff52b60e2b",
+          "asset_id": "u6-m01-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:54:35.047322+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve exact four people, their faces, clothing, gestures and positions in this same plaza. Extend the actual plaza edge-to-edge. Make the left storefront visibly a grocery with produce in its doorway; the woman is walking toward it. Retain grandfather on zebra crossing, father waiting next to bench and boy seated by tree-planted park space. No new foreground people or text.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u6_scene_01_plaza.webp",
+              "sha256": "c2347d345f131ae180f025b92f86c5de0a3b92f0b69e3f3800971fc5c2fa6e87",
+              "byte_count": 310022
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_2c47c30043aa4f5aaa1530e328954d50",
+          "usage": {
+            "input_tokens": 1782,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 246
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3154
+          },
+          "cost": {
+            "usd": "0.054678",
+            "mxn": "0.9279239346",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 246,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 30.03,
+          "output": "output/imagegen/course-photo-sweep-v9/u6-m01-full-frame.png",
+          "sha256": "3a84c976207b91c7661936158fc179667705261e634b4c0d0f45a0a0786c9347",
+          "byte_count": 3621496
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "slide_id": "M02",
+      "old_filename": "a1_u6_scene_02_school.webp",
+      "candidate_filename": "a1_u6_scene_02_school_fullframe_v2.webp",
+      "old_sha256": "1ee6e07d5cdf15f4e51ec8823e2d25d6c919b2a2040cf5c23cab1863717e17c0",
+      "new_sha256": "8fbd5dbce83257a9c9d4d176eb8f395253be38566cff5a58c3709a721ae21fa3",
+      "old_observation": "Inset school street with schoolgirl left, walking parents middle, older woman beside flower display, bus right. No readable 8:00 arrival clue, and grandmother faces away from the store.",
+      "new_observation": "Same schoolgirl, parents, older woman and bus in a complete real street. School retains book emblem; grandmother looks toward flower storefront. Bus-stop display clearly shows bus pictogram and 8:00.",
+      "original_card": {
+        "slide_id": "M02",
+        "mission_chapter_id": "ch2-school-checkpoint",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The girl is standing next to the school. The parents are walking together. The grandmother is looking at the store. The bus arrives at eight.",
+        "prompt_image_url": "/lesson-assets/a1_u6_scene_02_school.webp",
+        "options": [
+          {
+            "id": "girl-school",
+            "image_url": "",
+            "label": "The girl is standing next to the school."
+          },
+          {
+            "id": "parents-walking",
+            "image_url": "",
+            "label": "The parents are walking together."
+          },
+          {
+            "id": "grandmother-looking",
+            "image_url": "",
+            "label": "The grandmother is looking at the store."
+          },
+          {
+            "id": "bus-arriving",
+            "image_url": "",
+            "label": "The bus arrives at eight."
+          }
+        ],
+        "correct_option_id": "girl-school",
+        "correct_option_ids": [
+          "girl-school",
+          "parents-walking",
+          "grandmother-looking",
+          "bus-arriving"
+        ],
+        "audio_text": "The girl is standing next to the school. The parents are walking together. The grandmother is looking at the store. The bus arrives at eight.",
+        "audio_turns": [
+          {
+            "text": "The girl is standing next to the school.",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u6_scene_02_school.webp"
+          },
+          {
+            "text": "The parents are walking together.",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u6_scene_02_school.webp"
+          },
+          {
+            "text": "The grandmother is looking at the store.",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u6_scene_02_school.webp"
+          },
+          {
+            "text": "The bus arrives at eight.",
+            "speaker_role": "male-character",
+            "image_url": "/lesson-assets/a1_u6_scene_02_school.webp"
+          }
+        ],
+        "spanish_translation": "La niña está junto a la escuela, los padres caminan juntos, la abuela mira la tienda y el autobús llega a las ocho.",
+        "pedagogy_note": "Mission beat 02/03: the learner identifies the school checkpoint, the walking parents, the grandmother, and the arriving bus.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "girl-school",
+              "label_es": "Niña junto a la escuela",
+              "rect": {
+                "x": 0.08,
+                "y": 0.32,
+                "width": 0.18,
+                "height": 0.5
+              },
+              "accepted_option_ids": [
+                "girl-school"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.17,
+                  "y": 0.24
+                }
+              ]
+            },
+            {
+              "id": "parents-walking",
+              "label_es": "Padres caminando",
+              "rect": {
+                "x": 0.3,
+                "y": 0.3,
+                "width": 0.22,
+                "height": 0.54
+              },
+              "accepted_option_ids": [
+                "parents-walking"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.38,
+                  "y": 0.22
+                },
+                {
+                  "x": 0.46,
+                  "y": 0.22
+                }
+              ]
+            },
+            {
+              "id": "grandmother-looking",
+              "label_es": "Abuela mirando la tienda",
+              "rect": {
+                "x": 0.58,
+                "y": 0.3,
+                "width": 0.16,
+                "height": 0.52
+              },
+              "accepted_option_ids": [
+                "grandmother-looking"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.66,
+                  "y": 0.22
+                }
+              ]
+            },
+            {
+              "id": "bus-arriving",
+              "label_es": "Autobús de las ocho",
+              "rect": {
+                "x": 0.76,
+                "y": 0.32,
+                "width": 0.2,
+                "height": 0.5
+              },
+              "accepted_option_ids": [
+                "bus-arriving"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.86,
+                  "y": 0.25
+                }
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-girl-school",
+              "text": "The girl is standing next to the school.",
+              "answer_text": "The girl is standing next to the school.",
+              "target_id": "girl-school",
+              "option_id": "girl-school"
+            },
+            {
+              "id": "cue-parents-walk",
+              "text": "The parents are walking together.",
+              "answer_text": "The parents are walking together.",
+              "target_id": "parents-walking",
+              "option_id": "parents-walking"
+            },
+            {
+              "id": "cue-grandmother-look",
+              "text": "The grandmother is looking at the store.",
+              "answer_text": "The grandmother is looking at the store.",
+              "target_id": "grandmother-looking",
+              "option_id": "grandmother-looking"
+            },
+            {
+              "id": "cue-bus-arrive",
+              "text": "The bus arrives at eight.",
+              "answer_text": "The bus arrives at eight.",
+              "target_id": "bus-arriving",
+              "option_id": "bus-arriving"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "girl-school",
+          "label_es": "Niña junto a la escuela",
+          "rect": {
+            "x": 0.194,
+            "y": 0.499,
+            "width": 0.12,
+            "height": 0.2
+          },
+          "accepted_option_ids": [
+            "girl-school"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.255,
+              "y": 0.499
+            }
+          ]
+        },
+        {
+          "id": "parents-walking",
+          "label_es": "Padres caminando",
+          "rect": {
+            "x": 0.357,
+            "y": 0.43,
+            "width": 0.12,
+            "height": 0.282
+          },
+          "accepted_option_ids": [
+            "parents-walking"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.389,
+              "y": 0.447
+            },
+            {
+              "x": 0.439,
+              "y": 0.432
+            }
+          ]
+        },
+        {
+          "id": "grandmother-looking",
+          "label_es": "Abuela mirando la tienda",
+          "rect": {
+            "x": 0.482,
+            "y": 0.464,
+            "width": 0.12,
+            "height": 0.24
+          },
+          "accepted_option_ids": [
+            "grandmother-looking"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.545,
+              "y": 0.465
+            }
+          ]
+        },
+        {
+          "id": "bus-arriving",
+          "label_es": "Autobús de las ocho",
+          "rect": {
+            "x": 0.718,
+            "y": 0.334,
+            "width": 0.258,
+            "height": 0.34
+          },
+          "accepted_option_ids": [
+            "bus-arriving"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.874,
+              "y": 0.391
+            }
+          ],
+          "subject_kind": "object"
+        }
+      ],
+      "target_observations": {
+        "girl-school": "Girl with red backpack stands immediately beside the school doors.",
+        "parents-walking": "Woman and man walk together holding hands at the center.",
+        "grandmother-looking": "Gray-haired woman faces the flower storefront to her right.",
+        "bus-arriving": "Actual bus front on the right, immediately beside the large 8:00 bus-stop display."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u6_scene_02_school.webp",
+        "sha256": "1ee6e07d5cdf15f4e51ec8823e2d25d6c919b2a2040cf5c23cab1863717e17c0",
+        "byte_count": 172576
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u6-m02-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "122d4af1-132f-40f5-b46c-8d424b5476ac",
+          "asset_id": "u6-m02-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:55:53.065145+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve exact girl with red backpack, walking parents, grandmother, school building, flower storefront and bus in the same scene. Expand to full landscape, complete bus visible. Turn grandmother gaze toward the flower storefront she stands next to. Add a real bus-stop display immediately beside the bus with a bus pictogram and large exact digits \"8:00\". No other digits or route text. Preserve open-book school emblem, remove gibberish building and street labels. Four targets remain separate.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u6_scene_02_school.webp",
+              "sha256": "1ee6e07d5cdf15f4e51ec8823e2d25d6c919b2a2040cf5c23cab1863717e17c0",
+              "byte_count": 172576
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_bdbc88832d1047fa8b1f47c4a7340a11",
+          "usage": {
+            "input_tokens": 1803,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 267
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3175
+          },
+          "cost": {
+            "usd": "0.054783",
+            "mxn": "0.9297058581",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 267,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 28.72,
+          "output": "output/imagegen/course-photo-sweep-v9/u6-m02-full-frame.png",
+          "sha256": "baa3ddaec4d703744e1682593c290a56ef35f041db458fe2451beaa0edbb312a",
+          "byte_count": 2786977
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "slide_id": "M03",
+      "old_filename": "a1_u6_scene_03_corner_checkpoint.webp",
+      "candidate_filename": "a1_u6_scene_03_corner_checkpoint_fullframe_v2.webp",
+      "old_sha256": "8e52dc63c5a5c34effc3dbb908d6396b0d4aed5df5a3d0dd44a1fc29facaa257",
+      "new_sha256": "614a19a6641580bc473b608ce4d1dd6cc910e3c8d4fb8548104d438e0cae1e21",
+      "old_observation": "Inset street photograph: brick bank with visible ATM directly adjacent to produce shop under green-striped awning; adult couple walking right. Blurred surrounding margins.",
+      "new_observation": "Continuous full-frame street preserves brick facade with recognizable ATM directly beside the green-awning food shop. Same walking couple remains right. No building inserted between bank and store.",
+      "original_card": {
+        "slide_id": "M03",
+        "mission_chapter_id": "ch3-walking-home",
+        "interaction_type": "mission-finale",
+        "stage": "Speak",
+        "prompt": "The bank is next to the store.",
+        "prompt_image_url": "/lesson-assets/a1_u6_scene_03_corner_checkpoint.webp",
+        "options": [
+          {
+            "id": "bank-next-store",
+            "image_url": "/lesson-assets/a1_u6_scene_03_corner_checkpoint.webp",
+            "label": "The bank is next to the store."
+          }
+        ],
+        "correct_option_id": "bank-next-store",
+        "audio_text": "The bank is next to the store.",
+        "audio_turns": [
+          {
+            "text": "Where is the bank?",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u6_scene_03_corner_checkpoint.webp"
+          }
+        ],
+        "spanish_translation": "El banco está al lado de la tienda.",
+        "pedagogy_note": "Mission beat 03/03: the learner confirms the bank checkpoint location aloud; the completed interaction finishes the Unit 6 neighborhood route mission.",
+        "mission_game": {
+          "kind": "voice-gate",
+          "instruction_es": "Escucha y responde confirmando la ubicación del banco.",
+          "validation": "single",
+          "targets": [
+            {
+              "id": "bank-checkpoint",
+              "label_es": "Fachada del banco",
+              "rect": {
+                "x": 0.25,
+                "y": 0.2,
+                "width": 0.5,
+                "height": 0.65
+              },
+              "accepted_option_ids": [
+                "bank-next-store"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "bank-checkpoint",
+              "text": "Where is the bank?",
+              "answer_text": "The bank is next to the store.",
+              "target_id": "bank-checkpoint",
+              "option_id": "bank-next-store"
+            }
+          ],
+          "cue_audio_text": "Where is the bank?"
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "bank-checkpoint",
+          "label_es": "Fachada del banco",
+          "rect": {
+            "x": 0.269,
+            "y": 0.426,
+            "width": 0.392,
+            "height": 0.329
+          },
+          "accepted_option_ids": [
+            "bank-next-store"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.388,
+              "y": 0.552
+            }
+          ],
+          "subject_kind": "object"
+        }
+      ],
+      "target_observations": {
+        "bank-checkpoint": "ATM on the bank facade at left; adjacent food shop shares its right boundary."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u6_scene_03_corner_checkpoint.webp",
+        "sha256": "8e52dc63c5a5c34effc3dbb908d6396b0d4aed5df5a3d0dd44a1fc29facaa257",
+        "byte_count": 246322
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u6-m03-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "618ee931-a9d4-4056-a48d-5d65b7d8180c",
+          "asset_id": "u6-m03-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:56:53.293451+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve exact adjacent bank facade and its ATM, produce shop and green striped awning, adult couple and daylight. Expand real street to all edges. Keep the bank and shop directly side by side and the ATM large and recognizable. No printed BANK or STORE answer labels, no new buildings between them.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u6_scene_03_corner_checkpoint.webp",
+              "sha256": "8e52dc63c5a5c34effc3dbb908d6396b0d4aed5df5a3d0dd44a1fc29facaa257",
+              "byte_count": 246322
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_e4a5c8621db8408185521ec657950fb0",
+          "usage": {
+            "input_tokens": 1766,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 230
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3138
+          },
+          "cost": {
+            "usd": "0.054598",
+            "mxn": "0.9265662786",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 230,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 30.22,
+          "output": "output/imagegen/course-photo-sweep-v9/u6-m03-full-frame.png",
+          "sha256": "20848e6bffe32f3f73c64e9991813b4adc399522f46247af5c21b6fb62e9a734",
+          "byte_count": 3249054
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-7-10-a1-final-mission",
+      "slide_id": "M01",
+      "old_filename": "a1_u7_scene_01_courtyard.webp",
+      "candidate_filename": "a1_u7_scene_01_courtyard_fullframe_v2.webp",
+      "old_sha256": "ccb2da7f78d16a2981b2060819c22337dd022b4601e60024ae76440794e37b7d",
+      "new_sha256": "3251216827fc3834d08c8c0f5042e0cb754c6c47c6f54b253d564a2c934b78ad",
+      "old_observation": "Inset garden celebration: two women conversing left, father helping little girl with hanging ribbon center, boy writing front center, grandmother reading right. Blurred margins hide scene width.",
+      "new_observation": "Same six people and garden celebration now fill landscape edge-to-edge. Two women talk left; father helps girl with ribbon; boy writes at table; grandmother reads. All hands and action props visible.",
+      "original_card": {
+        "slide_id": "M01",
+        "mission_chapter_id": "ch1-courtyard-setup",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The mother is talking to the teacher. The father is helping the girl. The boy is writing. The grandmother is reading a book.",
+        "prompt_image_url": "/lesson-assets/a1_u7_scene_01_courtyard.webp",
+        "options": [
+          {
+            "id": "mother-teacher",
+            "image_url": "",
+            "label": "The mother is talking to the teacher."
+          },
+          {
+            "id": "father-helping",
+            "image_url": "",
+            "label": "The father is helping the girl."
+          },
+          {
+            "id": "boy-writing",
+            "image_url": "",
+            "label": "The boy is writing."
+          },
+          {
+            "id": "grandmother-reading",
+            "image_url": "",
+            "label": "The grandmother is reading a book."
+          }
+        ],
+        "correct_option_id": "mother-teacher",
+        "correct_option_ids": [
+          "mother-teacher",
+          "father-helping",
+          "boy-writing",
+          "grandmother-reading"
+        ],
+        "audio_text": "The mother is talking to the teacher. The father is helping the girl. The boy is writing. The grandmother is reading a book.",
+        "audio_turns": [
+          {
+            "text": "The mother is talking to the teacher.",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u7_scene_01_courtyard.webp"
+          },
+          {
+            "text": "The father is helping the girl.",
+            "speaker_role": "male-character",
+            "image_url": "/lesson-assets/a1_u7_scene_01_courtyard.webp"
+          },
+          {
+            "text": "The boy is writing.",
+            "speaker_role": "male-character",
+            "image_url": "/lesson-assets/a1_u7_scene_01_courtyard.webp"
+          },
+          {
+            "text": "The grandmother is reading a book.",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u7_scene_01_courtyard.webp"
+          }
+        ],
+        "spanish_translation": "La madre habla con la maestra, el padre ayuda a la niña, el niño está escribiendo y la abuela lee un libro.",
+        "pedagogy_note": "Mission beat 01/03: the learner tracks four family members across the courtyard during event preparation.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "mother-teacher",
+              "label_es": "Madre y maestra",
+              "rect": {
+                "x": 0.05,
+                "y": 0.28,
+                "width": 0.22,
+                "height": 0.54
+              },
+              "accepted_option_ids": [
+                "mother-teacher"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.12,
+                  "y": 0.2
+                },
+                {
+                  "x": 0.2,
+                  "y": 0.22
+                }
+              ]
+            },
+            {
+              "id": "father-helping",
+              "label_es": "Padre ayudando",
+              "rect": {
+                "x": 0.3,
+                "y": 0.3,
+                "width": 0.2,
+                "height": 0.52
+              },
+              "accepted_option_ids": [
+                "father-helping"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.38,
+                  "y": 0.22
+                },
+                {
+                  "x": 0.44,
+                  "y": 0.28
+                }
+              ]
+            },
+            {
+              "id": "boy-writing",
+              "label_es": "Niño escribiendo",
+              "rect": {
+                "x": 0.54,
+                "y": 0.34,
+                "width": 0.18,
+                "height": 0.48
+              },
+              "accepted_option_ids": [
+                "boy-writing"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.63,
+                  "y": 0.26
+                }
+              ]
+            },
+            {
+              "id": "grandmother-reading",
+              "label_es": "Abuela leyendo",
+              "rect": {
+                "x": 0.76,
+                "y": 0.32,
+                "width": 0.18,
+                "height": 0.5
+              },
+              "accepted_option_ids": [
+                "grandmother-reading"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.85,
+                  "y": 0.24
+                }
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-mother-teacher",
+              "text": "The mother is talking to the teacher.",
+              "answer_text": "The mother is talking to the teacher.",
+              "target_id": "mother-teacher",
+              "option_id": "mother-teacher"
+            },
+            {
+              "id": "cue-father-helping",
+              "text": "The father is helping the girl.",
+              "answer_text": "The father is helping the girl.",
+              "target_id": "father-helping",
+              "option_id": "father-helping"
+            },
+            {
+              "id": "cue-boy-writing",
+              "text": "The boy is writing.",
+              "answer_text": "The boy is writing.",
+              "target_id": "boy-writing",
+              "option_id": "boy-writing"
+            },
+            {
+              "id": "cue-grandmother-reading",
+              "text": "The grandmother is reading a book.",
+              "answer_text": "The grandmother is reading a book.",
+              "target_id": "grandmother-reading",
+              "option_id": "grandmother-reading"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "mother-teacher",
+          "label_es": "Madre y maestra",
+          "rect": {
+            "x": 0.271,
+            "y": 0.327,
+            "width": 0.142,
+            "height": 0.386
+          },
+          "accepted_option_ids": [
+            "mother-teacher"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.306,
+              "y": 0.34
+            },
+            {
+              "x": 0.368,
+              "y": 0.328
+            }
+          ]
+        },
+        {
+          "id": "father-helping",
+          "label_es": "Padre ayudando",
+          "rect": {
+            "x": 0.418,
+            "y": 0.279,
+            "width": 0.12,
+            "height": 0.428
+          },
+          "accepted_option_ids": [
+            "father-helping"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.467,
+              "y": 0.279
+            },
+            {
+              "x": 0.512,
+              "y": 0.306
+            }
+          ]
+        },
+        {
+          "id": "boy-writing",
+          "label_es": "Niño escribiendo",
+          "rect": {
+            "x": 0.4625,
+            "y": 0.481,
+            "width": 0.12,
+            "height": 0.302
+          },
+          "accepted_option_ids": [
+            "boy-writing"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.535,
+              "y": 0.479
+            }
+          ]
+        },
+        {
+          "id": "grandmother-reading",
+          "label_es": "Abuela leyendo",
+          "rect": {
+            "x": 0.604,
+            "y": 0.448,
+            "width": 0.165,
+            "height": 0.434
+          },
+          "accepted_option_ids": [
+            "grandmother-reading"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.717,
+              "y": 0.45
+            }
+          ]
+        }
+      ],
+      "target_observations": {
+        "mother-teacher": "Two adult women facing one another and talking at left.",
+        "father-helping": "Father supports the little girl as she reaches to attach hanging ribbon.",
+        "boy-writing": "Curly-haired boy holds pencil to open notebook at front table.",
+        "grandmother-reading": "Gray-haired woman at right holds an open book on her lap."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u7_scene_01_courtyard.webp",
+        "sha256": "ccb2da7f78d16a2981b2060819c22337dd022b4601e60024ae76440794e37b7d",
+        "byte_count": 287780
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u7-m01-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "7d25013c-4de6-4633-a907-2b70e0f318c0",
+          "asset_id": "u7-m01-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:57:51.166721+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve all six people exactly: left two women talking, center father helping girl reach ribbon, boy writing at table, grandmother reading right. Preserve faces, clothes, books, pencil, flowers, garden celebration and their spatial order. Expand the actual courtyard to all edges, no added people. Keep the four activity groups visibly separated with space above heads for game markers added by the app, not drawn into photo.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u7_scene_01_courtyard.webp",
+              "sha256": "ccb2da7f78d16a2981b2060819c22337dd022b4601e60024ae76440794e37b7d",
+              "byte_count": 287780
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_7e483a07040c493cb3f68a35aa4a8052",
+          "usage": {
+            "input_tokens": 1788,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 252
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3160
+          },
+          "cost": {
+            "usd": "0.054708",
+            "mxn": "0.9284330556",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 252,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 33.7,
+          "output": "output/imagegen/course-photo-sweep-v9/u7-m01-full-frame.png",
+          "sha256": "b7c3fb47e822486a0caad616b9385510939d972ab9dc9911c27cda9ceb3410f5",
+          "byte_count": 3793302
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-7-10-a1-final-mission",
+      "slide_id": "M02",
+      "old_filename": "a1_u7_scene_02_entrance_hall.webp",
+      "candidate_filename": "a1_u7_scene_02_entrance_hall_fullframe_v2.webp",
+      "old_sha256": "99acace4bd89c2ed1055777c9f78a3df6c0f724d7c5eaef4e48fd15c3293089d",
+      "new_sha256": "513cac2e08b9a5888c967f4d9a702c67d49d2d7247b091b27eae506f4470c284",
+      "old_observation": "Inset festive hall with seated grandfather left, smiling parents center-left, girl with arms out center-right, boy biting apple right. Baked-in blurred margins.",
+      "new_observation": "Same five people in the bright party hall, no padding. Grandfather sits left, parents smile together, little girl plays with a colorful ball, boy bites a red apple at right. All subjects fit.",
+      "original_card": {
+        "slide_id": "M02",
+        "mission_chapter_id": "ch2-hall-celebration",
+        "interaction_type": "mission-game",
+        "stage": "Listen",
+        "prompt": "The grandfather is sitting on the chair. The parents are happy. The girl is playing. The boy is eating an apple.",
+        "prompt_image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall.webp",
+        "options": [
+          {
+            "id": "grandfather-chair",
+            "image_url": "",
+            "label": "The grandfather is sitting on the chair."
+          },
+          {
+            "id": "parents-happy",
+            "image_url": "",
+            "label": "The parents are happy."
+          },
+          {
+            "id": "girl-playing",
+            "image_url": "",
+            "label": "The girl is playing."
+          },
+          {
+            "id": "boy-eating",
+            "image_url": "",
+            "label": "The boy is eating an apple."
+          }
+        ],
+        "correct_option_id": "grandfather-chair",
+        "correct_option_ids": [
+          "grandfather-chair",
+          "parents-happy",
+          "girl-playing",
+          "boy-eating"
+        ],
+        "audio_text": "The grandfather is sitting on the chair. The parents are happy. The girl is playing. The boy is eating an apple.",
+        "audio_turns": [
+          {
+            "text": "The grandfather is sitting on the chair.",
+            "speaker_role": "male-character",
+            "image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall.webp"
+          },
+          {
+            "text": "The parents are happy.",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall.webp"
+          },
+          {
+            "text": "The girl is playing.",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall.webp"
+          },
+          {
+            "text": "The boy is eating an apple.",
+            "speaker_role": "male-character",
+            "image_url": "/lesson-assets/a1_u7_scene_02_entrance_hall.webp"
+          }
+        ],
+        "spanish_translation": "El abuelo está sentado en la silla, los padres están felices, la niña está jugando y el niño come una manzana.",
+        "pedagogy_note": "Mission beat 02/03: the learner identifies the celebration hall gathering: resting grandfather, happy parents, playing girl, and eating boy.",
+        "mission_game": {
+          "kind": "guided-search",
+          "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+          "validation": "ordered",
+          "targets": [
+            {
+              "id": "grandfather-chair",
+              "label_es": "Abuelo sentado",
+              "rect": {
+                "x": 0.06,
+                "y": 0.32,
+                "width": 0.18,
+                "height": 0.52
+              },
+              "accepted_option_ids": [
+                "grandfather-chair"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.15,
+                  "y": 0.24
+                }
+              ]
+            },
+            {
+              "id": "parents-happy",
+              "label_es": "Padres felices",
+              "rect": {
+                "x": 0.28,
+                "y": 0.28,
+                "width": 0.24,
+                "height": 0.56
+              },
+              "accepted_option_ids": [
+                "parents-happy"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.36,
+                  "y": 0.2
+                },
+                {
+                  "x": 0.44,
+                  "y": 0.22
+                }
+              ]
+            },
+            {
+              "id": "girl-playing",
+              "label_es": "Niña jugando",
+              "rect": {
+                "x": 0.54,
+                "y": 0.34,
+                "width": 0.18,
+                "height": 0.48
+              },
+              "accepted_option_ids": [
+                "girl-playing"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.63,
+                  "y": 0.26
+                }
+              ]
+            },
+            {
+              "id": "boy-eating",
+              "label_es": "Niño comiendo",
+              "rect": {
+                "x": 0.74,
+                "y": 0.3,
+                "width": 0.18,
+                "height": 0.54
+              },
+              "accepted_option_ids": [
+                "boy-eating"
+              ],
+              "head_anchors": [
+                {
+                  "x": 0.83,
+                  "y": 0.22
+                }
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "cue-grandfather-chair",
+              "text": "The grandfather is sitting on the chair.",
+              "answer_text": "The grandfather is sitting on the chair.",
+              "target_id": "grandfather-chair",
+              "option_id": "grandfather-chair"
+            },
+            {
+              "id": "cue-parents-happy",
+              "text": "The parents are happy.",
+              "answer_text": "The parents are happy.",
+              "target_id": "parents-happy",
+              "option_id": "parents-happy"
+            },
+            {
+              "id": "cue-girl-playing",
+              "text": "The girl is playing.",
+              "answer_text": "The girl is playing.",
+              "target_id": "girl-playing",
+              "option_id": "girl-playing"
+            },
+            {
+              "id": "cue-boy-eating",
+              "text": "The boy is eating an apple.",
+              "answer_text": "The boy is eating an apple.",
+              "target_id": "boy-eating",
+              "option_id": "boy-eating"
+            }
+          ]
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "grandfather-chair",
+          "label_es": "Abuelo sentado",
+          "rect": {
+            "x": 0.207,
+            "y": 0.47,
+            "width": 0.143,
+            "height": 0.426
+          },
+          "accepted_option_ids": [
+            "grandfather-chair"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.266,
+              "y": 0.469
+            }
+          ]
+        },
+        {
+          "id": "parents-happy",
+          "label_es": "Padres felices",
+          "rect": {
+            "x": 0.348,
+            "y": 0.34,
+            "width": 0.135,
+            "height": 0.455
+          },
+          "accepted_option_ids": [
+            "parents-happy"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.388,
+              "y": 0.372
+            },
+            {
+              "x": 0.43,
+              "y": 0.342
+            }
+          ]
+        },
+        {
+          "id": "girl-playing",
+          "label_es": "Niña jugando",
+          "rect": {
+            "x": 0.481,
+            "y": 0.546,
+            "width": 0.12,
+            "height": 0.274
+          },
+          "accepted_option_ids": [
+            "girl-playing"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.527,
+              "y": 0.547
+            }
+          ]
+        },
+        {
+          "id": "boy-eating",
+          "label_es": "Niño comiendo",
+          "rect": {
+            "x": 0.6675,
+            "y": 0.482,
+            "width": 0.12,
+            "height": 0.368
+          },
+          "accepted_option_ids": [
+            "boy-eating"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.731,
+              "y": 0.482
+            }
+          ]
+        }
+      ],
+      "target_observations": {
+        "grandfather-chair": "White-haired man sits on the wooden chair at left.",
+        "parents-happy": "Smiling mother and father stand together at center-left.",
+        "girl-playing": "Little girl holds and plays with the bright multicolored ball.",
+        "boy-eating": "Boy on the right brings a red apple to his open mouth."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u7_scene_02_entrance_hall.webp",
+        "sha256": "99acace4bd89c2ed1055777c9f78a3df6c0f724d7c5eaef4e48fd15c3293089d",
+        "byte_count": 107184
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u7-m02-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "82fa1dec-2bc4-4f63-ba80-c27f79553fa0",
+          "asset_id": "u7-m02-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T21:59:25.726057+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve all five people, exact faces, clothes, positions and festive hall. Expand the real hall to full landscape. Preserve grandfather on chair, smiling parents together and boy clearly biting his red apple. Make the little girl visibly playing by giving her one small colorful toy ball in her open hands; no extra person. Keep all four target regions separate and all heads and feet visible.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u7_scene_02_entrance_hall.webp",
+              "sha256": "99acace4bd89c2ed1055777c9f78a3df6c0f724d7c5eaef4e48fd15c3293089d",
+              "byte_count": 107184
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_6c885fc11dfd46bc963b4d67295d5a7d",
+          "usage": {
+            "input_tokens": 1782,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 246
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3154
+          },
+          "cost": {
+            "usd": "0.054678",
+            "mxn": "0.9279239346",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 246,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 30.9,
+          "output": "output/imagegen/course-photo-sweep-v9/u7-m02-full-frame.png",
+          "sha256": "ad7daa5dc73e6b8aed90a875f5464d1f000c921c39a1b446ea204e88beba776d",
+          "byte_count": 1990661
+        }
+      },
+      "human_approval": "pending"
+    },
+    {
+      "lesson_id": "lesson-7-10-a1-final-mission",
+      "slide_id": "M03",
+      "old_filename": "a1_u7_scene_03_stage_podium.webp",
+      "candidate_filename": "a1_u7_scene_03_stage_podium_fullframe_v2.webp",
+      "old_sha256": "07bafe3e543167b4aa01ff8e87ba729c9cd292b3a9ceaf0420a92c57d18668c5",
+      "new_sha256": "951bbd36c5576b5169456207ef390e148f209051df72717a1d89a1eb5e030b40",
+      "old_observation": "Inset celebration photo: smiling brown-haired woman in teal dress behind wooden podium with sunflowers, happy guests behind, drapery and lights. Large blurred margins.",
+      "new_observation": "Same smiling woman in teal behind wooden podium and sunflowers, now surrounded by continuous real room. Her welcoming hands and happy face remain clear; original guests, warm drapery and lights preserved.",
+      "original_card": {
+        "slide_id": "M03",
+        "mission_chapter_id": "ch3-grand-finale",
+        "interaction_type": "mission-finale",
+        "stage": "Speak",
+        "prompt": "I am happy.",
+        "prompt_image_url": "/lesson-assets/a1_u7_scene_03_stage_podium.webp",
+        "options": [
+          {
+            "id": "voice-happy-graduation",
+            "image_url": "/lesson-assets/a1_u7_scene_03_stage_podium.webp",
+            "label": "I am happy."
+          }
+        ],
+        "correct_option_id": "voice-happy-graduation",
+        "audio_text": "I am happy.",
+        "audio_turns": [
+          {
+            "text": "How are you?",
+            "speaker_role": "female-character",
+            "image_url": "/lesson-assets/a1_u7_scene_03_stage_podium.webp"
+          }
+        ],
+        "spanish_translation": "Estoy feliz.",
+        "pedagogy_note": "Mission beat 03/03: the learner completes the A1 course finale by answering the teacher aloud at the celebration podium.",
+        "mission_game": {
+          "kind": "voice-gate",
+          "instruction_es": "Escucha y responde en voz alta al llegar al podio.",
+          "validation": "single",
+          "targets": [
+            {
+              "id": "stage-podium",
+              "label_es": "Podio de graduación",
+              "rect": {
+                "x": 0.25,
+                "y": 0.2,
+                "width": 0.5,
+                "height": 0.65
+              },
+              "accepted_option_ids": [
+                "voice-happy-graduation"
+              ]
+            }
+          ],
+          "cues": [
+            {
+              "id": "stage-podium",
+              "text": "How are you?",
+              "answer_text": "I am happy.",
+              "target_id": "stage-podium",
+              "option_id": "voice-happy-graduation"
+            }
+          ],
+          "cue_audio_text": "How are you?"
+        }
+      },
+      "reviewed_targets": [
+        {
+          "id": "stage-podium",
+          "label_es": "Podio de graduación",
+          "rect": {
+            "x": 0.357,
+            "y": 0.311,
+            "width": 0.343,
+            "height": 0.689
+          },
+          "accepted_option_ids": [
+            "voice-happy-graduation"
+          ],
+          "head_anchors": [
+            {
+              "x": 0.438,
+              "y": 0.316
+            }
+          ]
+        }
+      ],
+      "target_observations": {
+        "stage-podium": "Smiling woman in teal welcomes the learner with open hands from the flowered podium."
+      },
+      "framing_review": "inspected-full-3x2-and-targets",
+      "uploaded_reference": {
+        "filename": "a1_u7_scene_03_stage_podium.webp",
+        "sha256": "07bafe3e543167b4aa01ff8e87ba729c9cd292b3a9ceaf0420a92c57d18668c5",
+        "byte_count": 137038
+      },
+      "generation": {
+        "source_path": "Lessons/Lesson1/images/course-photoreal-sources/course-photo-sweep-v9/u7-m03-full-frame.png",
+        "receipt": {
+          "status": "image_saved",
+          "generation_requests_sent": 1,
+          "automatic_retries": 0,
+          "client_request_id": "26e338b7-03bd-4a0c-9015-538538e8c461",
+          "asset_id": "u7-m03-full-frame",
+          "pack_sha256": "5c617206420e29193786fd8383b570d9eb05fd439a0eb35a2f2104cc63a18c88",
+          "started_at": "2026-09-17T22:01:54.285871+00:00",
+          "request": {
+            "model": "gpt-image-2.5-sunburst-2026-09-08",
+            "prompt": "Use case: identity-preserve. Image 1 is the exact existing course photo to edit, NOT a style suggestion. Produce one full-bleed photorealistic 1536x1024 landscape photo. Remove the entire artificial blurred border by naturally extending the depicted real environment. No inset, square within landscape, mirrored borders, blur fill or collage. Preserve existing faces, identities, ages, clothes, lighting, setting, object relationships and relative positions except the explicitly requested corrections. Do not zoom in or crop away any target. Full 3:2 canvas is visible in the game, so use its width. Clear natural photographic detail and anatomy. No UI markers, pointers, answer captions, watermarks, new story elements or text except explicitly requested physical clues.\n\nPreserve exact happy woman in teal dress, welcoming open-arm gesture, wooden podium, sunflowers, guests, drapery and lights. Extend actual room naturally to every image edge. Same face and joyful expression, no text, labels, invented guests or artificial border.",
+            "n": 1,
+            "size": "1536x1024",
+            "quality": "high",
+            "output_format": "png"
+          },
+          "references": [
+            {
+              "filename": "a1_u7_scene_03_stage_podium.webp",
+              "sha256": "07bafe3e543167b4aa01ff8e87ba729c9cd292b3a9ceaf0420a92c57d18668c5",
+              "byte_count": 137038
+            }
+          ],
+          "endpoint": "https://api.openai.com/v1/images/edits",
+          "human_approval": "pending",
+          "provider_request_id": "req_519d250c9306416f881f10c085701bfb",
+          "usage": {
+            "input_tokens": 1760,
+            "input_tokens_details": {
+              "image_tokens": 1536,
+              "text_tokens": 224
+            },
+            "output_tokens": 1372,
+            "output_tokens_details": {
+              "image_tokens": 1372,
+              "text_tokens": 0
+            },
+            "total_tokens": 3132
+          },
+          "cost": {
+            "usd": "0.054568",
+            "mxn": "0.9260571576",
+            "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+            "fx_mxn_per_usd": "16.9707",
+            "fx_date": "2026-09-11",
+            "rates_checked_on": "2026-09-13",
+            "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+            "text_input_tokens": 224,
+            "image_input_tokens": 1536,
+            "image_output_tokens": 1372
+          },
+          "elapsed_seconds": 28.72,
+          "output": "output/imagegen/course-photo-sweep-v9/u7-m03-full-frame.png",
+          "sha256": "d8aea109d5708c2d465fb86b42c9863cef65aa374da7b733a17015df7b7215dc",
+          "byte_count": 2156509
+        }
+      },
+      "human_approval": "pending"
+    }
+  ]
+}

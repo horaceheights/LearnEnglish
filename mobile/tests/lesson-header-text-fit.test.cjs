@@ -39,8 +39,8 @@ assert.ok(
 
 assert.match(
   screenSource,
-  /<Text\s+adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{useCompactHeaderInstruction \? undefined : 0\.45\}\s+numberOfLines=\{2\}/,
-  'Authored lesson phrases must use native largest-text-that-fits behavior within two lines.',
+  /<Text\s+maxFontSizeMultiplier=\{usesLessonPhoneLandscape \? 1\.3 : undefined\}\s+adjustsFontSizeToFit=\{!useCompactHeaderInstruction\}\s+minimumFontScale=\{useCompactHeaderInstruction \? undefined : usesLessonPhoneLandscape \? 16 \/ \(24 \* Math\.min\(fontScale, 1\.3\)\) : 0\.45\}\s+numberOfLines=\{usesLessonPhoneLandscape \? 4 : 2\}/,
+  'Authored phrases keep native fitting: two portrait lines or four rail lines with an absolute 16dp landscape floor.',
 );
 assert.match(
   screenSource,
@@ -68,4 +68,4 @@ assert.match(
   'Preview interaction verification must run the lesson-header text-fit guardrail.',
 );
 
-console.log(`Adaptive two-line fitting protects ${authoredHeaderPrompts.length} authored lesson headers across all 70 lessons.`);
+console.log(`Adaptive fitting protects ${authoredHeaderPrompts.length} authored lesson headers across all 70 lessons, with a 16dp landscape floor.`);

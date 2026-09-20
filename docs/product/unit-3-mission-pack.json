@@ -1,0 +1,207 @@
+{
+  "lesson_id": "lesson-3-10-introduction-mission",
+  "lesson_number": "3.10",
+  "revision": 3,
+  "output_namespace": "unit-3-mission-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.50",
+    "estimated_usd": "0.99",
+    "mxn_per_usd": "16.9707",
+    "fx_date": "2026-09-11",
+    "automatic_retries": 0,
+    "human_approval": "pending",
+    "note": "18 mission-only stills for the rebuilt Unit 3 mission (kickoff, 9 listening scenes, 4 question and 4 answer shots). No automatic retries."
+  },
+  "shared_prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each head for UI markers added later. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals or flags may appear.",
+  "assets": [
+    {
+      "id": "kickoff",
+      "runtime_filename": "a1_u3_dinner_v1_kickoff.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of Ana, Sofia and Luis. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Create a brand-new welcoming photograph: the bright courtyard entrance of a neighborhood community center in late afternoon, a long wooden dinner table being set under strings of unlit festoon bulbs, potted plants, terracotta floor. Ana stands in front holding a small stack of plates and smiles at the camera with an open welcoming gesture; Sofia, Luis and Diego stand a little behind her carrying a bowl, chairs and a tablecloth. Everyone full body, faces clear, friendly and purposeful. This opening is not a challenge. No readable words.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_her-name-sofia_de2d290.webp",
+        "sha256": "a5e4207d24ba630784a748820e555a7a24cf835a7bb266c6eae6f0091cf31843",
+        "observed_description": "Inspected 3.7 course photo at a community fair: Ana (long dark wavy hair, sage-green overshirt, white top, cream tote) on the left, Sofia (Black woman, voluminous dark curly hair, royal-blue blazer) behind in the middle, and Luis (short dark curly hair, navy T-shirt) on the right. All three faces are clear."
+      }
+    },
+    {
+      "id": "courtyard",
+      "runtime_filename": "a1_u3_dinner_v1_courtyard.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Early morning in the same community-center courtyard, low golden sunrise light and a round analog wall clock showing eight o'clock (short hand on 8, long hand on 12). FOUR clearly separated people, left to right: (1) Ana coming in through the courtyard gate with a coffee cup, waving hello-style with a big smile toward the camera side - she is arriving; (2) an older night security guard in a grey uniform jacket walking OUT through a side door toward the street, looking back and waving - he is leaving at the end of his shift; (3) Luis sitting alone on a wooden bench reading an open book, eyes on the page; (4) a boy about eight years old in a red T-shirt playing with a soccer ball in the corner, kicking it. Each person is large, fully visible including feet, well separated, with open sky or wall above each head. No readable words.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "registration",
+      "runtime_filename": "a1_u3_dinner_v1_registration.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Mid-morning at a registration table inside the community-center hall. FOUR clearly separated targets, left to right: (1) Ana seated behind a table with a clipboard, looking up at Diego with a curious expression and an open palm extended toward him - she is asking him a question; (2) Diego standing across the table answering her, one hand flat on his own chest, mouth open - he is introducing himself; (3) Sofia just arriving through the glass entrance door, holding a bike helmet, raising one hand in a hello wave toward the room; (4) two older women in cardigans sitting close together on a bench chatting with each other, both animated - one pair, one target. Everyone large and fully visible, clear empty wall above each head. No readable words or name badges.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "flags",
+      "runtime_filename": "a1_u3_dinner_v1_flags.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. An international welcome area in the community-center hall with FOUR small booths in a row, each with ONE large, correct flag on a stand behind it, left to right: Mexico (green, white, red vertical stripes with the eagle emblem), Canada (red, white, red with the red maple leaf), Spain (red, yellow, red horizontal bands with the coat of arms), the United States (stars and stripes). One person stands at each booth under their own flag and points to themself: Ana at Mexico, Sofia at Canada, Diego at Spain, Luis at the United States. Each flag is sharp and unmistakable, each person fully visible and clearly in front of their own flag, booths well separated. No other flags and no readable words.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "ages",
+      "runtime_filename": "a1_u3_dinner_v1_ages.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "A youth sports sign-up table in a bright community-center gym. FOUR teenagers stand in a row, well separated, each holding up ONE large white card at chest height with ONE big black numeral, left to right: a girl in a yellow hoodie holding 13, a boy in a green jersey holding 17, a girl in a purple jacket holding 12, a boy in a grey T-shirt holding 15. The ages look right: the 12-year-old is the smallest and the 17-year-old the tallest. Each card shows only its numeral, perfectly sharp and readable at phone size. Each teen smiles and points to themself with the free hand. Full bodies, open space above each head. No other text."
+    },
+    {
+      "id": "jobs-v2",
+      "runtime_filename": "a1_u3_dinner_v1_jobs_v2.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Early evening at the community-center entrance: FOUR guests arrive straight from work, well separated in a row, each dressed unmistakably for their job and pointing to themself as if introducing their job: (1) Diego in a white doctor's coat with a stethoscope around his neck; (2) a woman nurse in light-blue scrubs with a hospital lanyard - she is NOT Sofia: an East Asian woman in her forties with short straight black hair in a neat bob and glasses; (3) an older man farmer in a straw hat, checked shirt and work boots carrying a crate of fresh vegetables; (4) Luis in a dark-blue driver's jacket holding a van key, a white delivery van parked behind him. Sofia is not in this photo. Full bodies, clear empty space above each head. No readable words or logos.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "kitchen",
+      "runtime_filename": "a1_u3_dinner_v1_kitchen.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. The community-center kitchen preparing the dinner, bright and busy. FOUR well-separated targets, left to right: (1) Sofia at the stove stirring a big pot, looking toward the camera and speaking about what she is doing, hand on her chest; (2) Diego standing beside the table pointing with an open hand toward Luis and speaking to him, looking at him; (3) Luis seated at the table writing the dinner menu on a card with a pen, head down; (4) two children, a girl and a boy, playing a clapping game together on the floor near the pantry, laughing - one pair, one target. Everyone large and fully visible, open space above each head. The menu card has no readable words.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "belongings",
+      "runtime_filename": "a1_u3_dinner_v1_belongings.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "The coat-rack corner at a community-center entrance in the evening. FOUR guests stand in a row, well separated, each clearly holding up ONE item in front of their chest: (1) a woman in a red dress holding a black leather handbag; (2) a man in a grey suit holding a brown backpack-style bag; (3) a woman with a blond bob and a green sweater holding a smartphone; (4) a man with a beard and glasses in a navy hoodie holding a smartphone. Women and men alternate clearly. Every item is large and sharp; the owners are unmistakable. Full bodies, open space above each head. No readable words or logos."
+    },
+    {
+      "id": "handoffs",
+      "runtime_filename": "a1_u3_dinner_v1_handoffs.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Inside the community-center dining room before dinner. FOUR well-separated targets, left to right: (1) Ana hugging one closed book to her chest with both arms, smiling - clearly her own book; (2) Luis handing a smartphone to Diego, arm extended, looking at Diego; Diego reaching to take it (Luis is the target); (3) Sofia standing next to her teal bicycle just inside the open door, one hand on the handlebar, other hand on her chest; (4) two schoolchildren side by side, each holding up one open book - one pair, one target. Everyone large and fully visible, open space above each head. No readable words.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "evening",
+      "runtime_filename": "a1_u3_dinner_v1_evening.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Dusk on the quiet street in front of the community center as the last guests ARRIVE for the dinner, warm festoon lights glowing at the entrance and a streetlamp. FOUR well-separated targets, left to right: (1) Luis stepping out of his own small silver hatchback car parked at the curb, keys in hand; (2) Sofia locking her teal bicycle to a bike rack; (3) an older couple standing close together on the sidewalk talking with each other - one pair, one target; (4) Diego in his white doctor's coat with a stethoscope, carrying a black doctor's bag, walking toward the entrance. Everyone large and fully visible, open evening sky above each head. No readable words or license plates.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "job-question",
+      "runtime_filename": "a1_u3_dinner_v1_job_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Speaking-game question shot at the long dinner table under warm festoon lights, evening. The asker looks toward the camera side with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture. Asker large and sharp in the central safe area, background softly out of focus. No readable words. The asker is Ana, seated at the table.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "job-response",
+      "runtime_filename": "a1_u3_dinner_v1_job_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Speaking-game answer shot at the same dinner table under warm festoon lights. The answerer faces the camera with a warm smile, mouth open mid-answer, one hand on their own chest. Answerer large and sharp in the central safe area, background softly out of focus. New closer camera position, not a copy of the question shot. No readable words. The answerer is Diego, still wearing his white doctor's coat with a stethoscope around his neck, so his job is visible.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "origin-question",
+      "runtime_filename": "a1_u3_dinner_v1_origin_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Speaking-game question shot at the long dinner table under warm festoon lights, evening. The asker looks toward the camera side with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture. Asker large and sharp in the central safe area, background softly out of focus. No readable words. The asker is Diego in his navy blazer and burgundy shirt, seated at the table.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "origin-response",
+      "runtime_filename": "a1_u3_dinner_v1_origin_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Speaking-game answer shot at the same dinner table under warm festoon lights. The answerer faces the camera with a warm smile, mouth open mid-answer, one hand on their own chest. Answerer large and sharp in the central safe area, background softly out of focus. New closer camera position, not a copy of the question shot. No readable words. The answerer is Sofia in her royal-blue blazer; a small Canadian flag pin (red maple leaf) is on her lapel.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "age-question",
+      "runtime_filename": "a1_u3_dinner_v1_age_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Speaking-game question shot at the long dinner table under warm festoon lights, evening. The asker looks toward the camera side with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture. Asker large and sharp in the central safe area, background softly out of focus. No readable words. The asker is Sofia in her royal-blue blazer, seated at the table.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "age-response",
+      "runtime_filename": "a1_u3_dinner_v1_age_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Speaking-game answer shot at the same dinner table under warm festoon lights. The answerer faces the camera with a warm smile, mouth open mid-answer, one hand on their own chest. Answerer large and sharp in the central safe area, background softly out of focus. New closer camera position, not a copy of the question shot. No readable words. The answerer is Luis in his navy T-shirt, clearly a young man of about eighteen.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "doing-question-v2",
+      "runtime_filename": "a1_u3_dinner_v1_doing_question_v2.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Speaking-game question shot, evening, in the SAME outdoor courtyard as every other dinner shot: warm festoon lights overhead, olive trees and terracotta floor. A friendly older woman neighbor with white hair and a beige cardigan stands at the open courtyard gate at the edge of the long outdoor dinner table, looking at the diners with a curious face, mouth open mid-question, one open palm extended toward them. The neighbor is large and sharp; the four diners are seen softly from behind at the table with plates of food and glasses of water only - no bottles. No readable words.",
+      "reference": "kickoff"
+    },
+    {
+      "id": "doing-response",
+      "runtime_filename": "a1_u3_dinner_v1_doing_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 3 parity mission: a mission-only scene required by the approved Unit 3 function contract."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces of the recurring cast and the community center. Recurring cast, exact faces from the reference: Ana (Latina, early twenties, long dark wavy hair, sage-green overshirt over a white top, jeans); Luis (Latino, eighteen, clean-shaven, short dark curly hair, navy T-shirt, khaki trousers); Sofia (Black woman, late twenties, voluminous dark curly hair, royal-blue blazer over a cream blouse); Diego (Spanish man, mid-thirties, short dark curly hair with light stubble, navy blazer over a burgundy shirt). Luis and Diego must look clearly different: Luis young and clean-shaven, Diego older with stubble and a blazer. Answer shot, evening: Ana, Luis, Sofia and Diego sit together at the long dinner table under warm festoon lights, happily eating the dinner they prepared - forks in hand, plates of food, glasses of water - smiling toward the camera as they answer together. All four faces large and clear. New camera position. No readable words.",
+      "reference": "kickoff"
+    }
+  ]
+}

@@ -1,0 +1,574 @@
+{
+  "schema_version": 1,
+  "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+  "lesson_id": "lesson-3-3-am-is-and-are",
+  "human_approval": "pending",
+  "assets": [
+    {
+      "asset_id": "reading-question",
+      "runtime_filename": "a1_u3_l33_v1_reading_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "6383643f-696b-437d-93e0-0dd4e0f6cfb9",
+        "asset_id": "reading-question",
+        "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+        "started_at": "2026-09-18T03:36:47.605833+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.\n\nUse case: identity-preserve. Image 1 establishes the exact faces, hair and clothing of Ana (long dark wavy hair, sage-green overshirt over a white top, jeans) and Luis (short dark curly hair, navy T-shirt, khaki trousers). Create a brand-new photograph in a different place: a bright community-center reading corner with a low grey sofa, wooden bookshelves and a large window, soft afternoon light. Ana sits on the sofa holding an open paperback book in both hands at chest height, eyes on the pages, clearly reading. Luis stands one step away on her right, body and face turned toward her, eyebrows raised with a curious friendly expression, mouth slightly open mid-question, one relaxed open palm extended toward Ana in a natural asking gesture. Luis is unmistakably the one asking; Ana has not looked up yet. The open book pages face Ana and show only blurred grey text lines, never readable words. Medium-wide camera at eye level, both people large in frame.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_scene_hello-ana-speaker_591cb45.webp",
+            "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+            "byte_count": 307462
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_37ef7cf63950406faaf2d76092509bbc",
+        "usage": {
+          "input_tokens": 1898,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 362
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3270
+        },
+        "cost": {
+          "usd": "0.055258",
+          "mxn": "0.9377669406",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 362,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 35.19,
+        "output": "output/imagegen/unit-3-lesson-v1/reading-question.png",
+        "sha256": "78d8c8a068dd9a6a952b314a830c992d49cedccf0ec521f7645ae1b5539e33bc",
+        "byte_count": 2374683
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "78d8c8a068dd9a6a952b314a830c992d49cedccf0ec521f7645ae1b5539e33bc",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Ana (sage overshirt, white top, jeans, long wavy hair) sits on a grey sofa reading an open paperback, eyes on the page. Luis (navy tee, khaki trousers, curly hair) stands turned to her with an open palm, raised brows and open mouth: he is clearly asking. Book text is illegible grey lines; no readable words. Full-bleed 3:2, both people to the knees."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "introduces": "current-action-question",
+        "reason": "Approved 3.3 addition: What are you doing? needs new speaker-view scenes before 3.9 and 3.10 may assess it."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "c6107c7a63f2c64adc87d3cb7606f0263099dd3c4dd844796b5b12f034ac0918",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-3/lesson-3-3-v1/reading-question.png"
+    },
+    {
+      "asset_id": "reading-answer",
+      "runtime_filename": "a1_u3_l33_v1_reading_answer.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "32f759cb-9d4f-476c-916d-3fdd656324b1",
+        "asset_id": "reading-answer",
+        "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+        "started_at": "2026-09-18T03:38:17.804715+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.\n\nUse case: identity-preserve. Image 1 is the reviewed question shot of the same two people. Keep Ana's and Luis's exact faces, hair, clothing, the grey sofa, bookshelves and window light. New moment and closer camera position favoring Ana: she has looked up from her book toward Luis and is answering him, smiling, mouth open mid-sentence, one hand lightly on her own chest, the other hand still holding the open paperback so it is clearly the thing she is doing. Luis now stands listening with a small nod, hands relaxed at his sides, no asking gesture. Ana is unmistakably the speaker. No readable text on the book.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "reading-question.png",
+            "sha256": "78d8c8a068dd9a6a952b314a830c992d49cedccf0ec521f7645ae1b5539e33bc",
+            "byte_count": 2374683
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_1de243b94a96483d97962f661ea724ae",
+        "usage": {
+          "input_tokens": 1830,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 294
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3202
+        },
+        "cost": {
+          "usd": "0.054918",
+          "mxn": "0.9319969026",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 294,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.08,
+        "output": "output/imagegen/unit-3-lesson-v1/reading-answer.png",
+        "sha256": "b003b5040419ebcc134f89301868a766a7db527373624752e7fbaf62ab62a61b",
+        "byte_count": 2291762
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b003b5040419ebcc134f89301868a766a7db527373624752e7fbaf62ab62a61b",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Same reading corner and wardrobe. Ana has looked up at Luis and answers: hand on her own chest, mouth open, still holding the open paperback. Luis listens with relaxed hands, no asking gesture. Distinct answer view from the question shot; no readable text."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "introduces": "current-action-question",
+        "reason": "Approved 3.3 addition: What are you doing? needs new speaker-view scenes before 3.9 and 3.10 may assess it."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "44cbd8ba9965309f52a3b771fc349cd0f8cfaeb93577ba7e332b8d49d8f19123",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-3/lesson-3-3-v1/reading-answer.png"
+    },
+    {
+      "asset_id": "writing-question",
+      "runtime_filename": "a1_u3_l33_v1_writing_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "415eb67f-caa5-48bd-97a9-1a719debf35d",
+        "asset_id": "writing-question",
+        "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+        "started_at": "2026-09-18T03:39:39.175288+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.\n\nUse case: identity-preserve. Image 1 establishes the exact faces, hair and clothing of Ana and Luis and the community-center interior. Create a new photograph in another part of the same building: a wooden study table beside a tall window, a potted plant, a pen holder. Luis sits at the table writing in an open spiral notebook with a pen, head down, clearly writing. Ana stands beside the table facing him, curious friendly expression, mouth slightly open mid-question, one open palm extended toward Luis in a natural asking gesture, her cream tote on her shoulder. Ana is unmistakably the one asking. The notebook shows only faint handwritten lines, never readable words. Three-quarter camera angle, different from the sofa shot.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "reading-question.png",
+            "sha256": "78d8c8a068dd9a6a952b314a830c992d49cedccf0ec521f7645ae1b5539e33bc",
+            "byte_count": 2374683
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_73ea7145e14e476aba01b1a79c886586",
+        "usage": {
+          "input_tokens": 1842,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 306
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3214
+        },
+        "cost": {
+          "usd": "0.054978",
+          "mxn": "0.9330151446",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 306,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 35.14,
+        "output": "output/imagegen/unit-3-lesson-v1/writing-question.png",
+        "sha256": "a59ba78e9986482f2eaa9da5e93f7586279589f96e41b4c771977b779071b3f3",
+        "byte_count": 2155303
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "a59ba78e9986482f2eaa9da5e93f7586279589f96e41b4c771977b779071b3f3",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "New study-table angle in the same building. Luis sits writing in a spiral notebook with a pen, eyes on the page. Ana stands with her cream tote, open palm toward him and mouth open: she is clearly asking. Notebook page is blank of readable words. Full-bleed 3:2."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "introduces": "current-action-question",
+        "reason": "Approved 3.3 addition: What are you doing? needs new speaker-view scenes before 3.9 and 3.10 may assess it."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "df960737b3bcd87cff490e4d5a4f61f6613e6a65c2801cec987cd55761637f0b",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-3/lesson-3-3-v1/writing-question.png"
+    },
+    {
+      "asset_id": "writing-answer",
+      "runtime_filename": "a1_u3_l33_v1_writing_answer.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "bb54569f-c548-4209-ba41-777216c53c93",
+        "asset_id": "writing-answer",
+        "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+        "started_at": "2026-09-18T13:54:03.741385+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.\n\nUse case: identity-preserve. Image 1 is the reviewed question shot of the same two people at the study table. Keep their exact faces, hair, clothing, the wooden table, window and notebook. New moment, camera moved closer and lower toward Luis: he has looked up from the notebook toward Ana and is answering her, friendly, mouth open mid-sentence, one hand lightly on his own chest while the other still holds the pen touching the open notebook, so the writing is obvious. Ana listens with a small smile, hands relaxed, no asking gesture. Luis is unmistakably the speaker. No readable words on the page.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "writing-question.png",
+            "sha256": "a59ba78e9986482f2eaa9da5e93f7586279589f96e41b4c771977b779071b3f3",
+            "byte_count": 2155303
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_04cc502886a64ab081864ccbadd92b19",
+        "usage": {
+          "input_tokens": 1823,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 287
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3195
+        },
+        "cost": {
+          "usd": "0.054883",
+          "mxn": "0.9314029281",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 287,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.76,
+        "output": "output/imagegen/unit-3-lesson-v1/writing-answer.png",
+        "sha256": "461d3054cd69f23896396c3853d4c6efffdea129971700fa3f20edf97e8d493d",
+        "byte_count": 2167563
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "461d3054cd69f23896396c3853d4c6efffdea129971700fa3f20edf97e8d493d",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Luis looks up from the spiral notebook toward Ana and answers: hand on his own chest, mouth open, pen still on the page so the writing is obvious. Ana listens smiling with no asking gesture. Distinct answer view; no readable words on the notebook."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "introduces": "current-action-question",
+        "reason": "Approved 3.3 addition: What are you doing? needs new speaker-view scenes before 3.9 and 3.10 may assess it."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "37d81262a19e9bc4b0685c3c91e7e60901f84585ec6173a747af6c08c5295f5c",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-3/lesson-3-3-v1/writing-answer.png"
+    }
+  ],
+  "paid_attempts": [
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "32f759cb-9d4f-476c-916d-3fdd656324b1",
+        "asset_id": "reading-answer",
+        "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+        "started_at": "2026-09-18T03:38:17.804715+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.\n\nUse case: identity-preserve. Image 1 is the reviewed question shot of the same two people. Keep Ana's and Luis's exact faces, hair, clothing, the grey sofa, bookshelves and window light. New moment and closer camera position favoring Ana: she has looked up from her book toward Luis and is answering him, smiling, mouth open mid-sentence, one hand lightly on her own chest, the other hand still holding the open paperback so it is clearly the thing she is doing. Luis now stands listening with a small nod, hands relaxed at his sides, no asking gesture. Ana is unmistakably the speaker. No readable text on the book.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "reading-question.png",
+            "sha256": "78d8c8a068dd9a6a952b314a830c992d49cedccf0ec521f7645ae1b5539e33bc",
+            "byte_count": 2374683
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_1de243b94a96483d97962f661ea724ae",
+        "usage": {
+          "input_tokens": 1830,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 294
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3202
+        },
+        "cost": {
+          "usd": "0.054918",
+          "mxn": "0.9319969026",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 294,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.08,
+        "output": "output/imagegen/unit-3-lesson-v1/reading-answer.png",
+        "sha256": "b003b5040419ebcc134f89301868a766a7db527373624752e7fbaf62ab62a61b",
+        "byte_count": 2291762
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b003b5040419ebcc134f89301868a766a7db527373624752e7fbaf62ab62a61b",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Same reading corner and wardrobe. Ana has looked up at Luis and answers: hand on her own chest, mouth open, still holding the open paperback. Luis listens with relaxed hands, no asking gesture. Distinct answer view from the question shot; no readable text."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "6383643f-696b-437d-93e0-0dd4e0f6cfb9",
+        "asset_id": "reading-question",
+        "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+        "started_at": "2026-09-18T03:36:47.605833+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.\n\nUse case: identity-preserve. Image 1 establishes the exact faces, hair and clothing of Ana (long dark wavy hair, sage-green overshirt over a white top, jeans) and Luis (short dark curly hair, navy T-shirt, khaki trousers). Create a brand-new photograph in a different place: a bright community-center reading corner with a low grey sofa, wooden bookshelves and a large window, soft afternoon light. Ana sits on the sofa holding an open paperback book in both hands at chest height, eyes on the pages, clearly reading. Luis stands one step away on her right, body and face turned toward her, eyebrows raised with a curious friendly expression, mouth slightly open mid-question, one relaxed open palm extended toward Ana in a natural asking gesture. Luis is unmistakably the one asking; Ana has not looked up yet. The open book pages face Ana and show only blurred grey text lines, never readable words. Medium-wide camera at eye level, both people large in frame.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_scene_hello-ana-speaker_591cb45.webp",
+            "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+            "byte_count": 307462
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_37ef7cf63950406faaf2d76092509bbc",
+        "usage": {
+          "input_tokens": 1898,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 362
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3270
+        },
+        "cost": {
+          "usd": "0.055258",
+          "mxn": "0.9377669406",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 362,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 35.19,
+        "output": "output/imagegen/unit-3-lesson-v1/reading-question.png",
+        "sha256": "78d8c8a068dd9a6a952b314a830c992d49cedccf0ec521f7645ae1b5539e33bc",
+        "byte_count": 2374683
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "78d8c8a068dd9a6a952b314a830c992d49cedccf0ec521f7645ae1b5539e33bc",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Ana (sage overshirt, white top, jeans, long wavy hair) sits on a grey sofa reading an open paperback, eyes on the page. Luis (navy tee, khaki trousers, curly hair) stands turned to her with an open palm, raised brows and open mouth: he is clearly asking. Book text is illegible grey lines; no readable words. Full-bleed 3:2, both people to the knees."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "bb54569f-c548-4209-ba41-777216c53c93",
+        "asset_id": "writing-answer",
+        "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+        "started_at": "2026-09-18T13:54:03.741385+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.\n\nUse case: identity-preserve. Image 1 is the reviewed question shot of the same two people at the study table. Keep their exact faces, hair, clothing, the wooden table, window and notebook. New moment, camera moved closer and lower toward Luis: he has looked up from the notebook toward Ana and is answering her, friendly, mouth open mid-sentence, one hand lightly on his own chest while the other still holds the pen touching the open notebook, so the writing is obvious. Ana listens with a small smile, hands relaxed, no asking gesture. Luis is unmistakably the speaker. No readable words on the page.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "writing-question.png",
+            "sha256": "a59ba78e9986482f2eaa9da5e93f7586279589f96e41b4c771977b779071b3f3",
+            "byte_count": 2155303
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_04cc502886a64ab081864ccbadd92b19",
+        "usage": {
+          "input_tokens": 1823,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 287
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3195
+        },
+        "cost": {
+          "usd": "0.054883",
+          "mxn": "0.9314029281",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 287,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.76,
+        "output": "output/imagegen/unit-3-lesson-v1/writing-answer.png",
+        "sha256": "461d3054cd69f23896396c3853d4c6efffdea129971700fa3f20edf97e8d493d",
+        "byte_count": 2167563
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "461d3054cd69f23896396c3853d4c6efffdea129971700fa3f20edf97e8d493d",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Luis looks up from the spiral notebook toward Ana and answers: hand on his own chest, mouth open, pen still on the page so the writing is obvious. Ana listens smiling with no asking gesture. Distinct answer view; no readable words on the notebook."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "415eb67f-caa5-48bd-97a9-1a719debf35d",
+        "asset_id": "writing-question",
+        "pack_sha256": "f48f1d039f01ea3064a5099dd0869d9b45408f3b0ad9d5a780921135cb1ac232",
+        "started_at": "2026-09-18T03:39:39.175288+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner learning English, full-bleed 3:2 landscape. Natural material grain, believable optics and daylight, realistic anatomy and hands. NOT an illustration, collage, split panel, cutout or app screenshot. This is a two-person conversation: who is speaking must be obvious from gaze, open mouth, posture and hand gesture alone. No speech bubbles, arrows, halos, labels, captions, logos, watermarks or readable words anywhere, including on books and paper. Both people fully visible from head to at least the knees, faces and hands inside the central safe area, with calm background and no competing people.\n\nUse case: identity-preserve. Image 1 establishes the exact faces, hair and clothing of Ana and Luis and the community-center interior. Create a new photograph in another part of the same building: a wooden study table beside a tall window, a potted plant, a pen holder. Luis sits at the table writing in an open spiral notebook with a pen, head down, clearly writing. Ana stands beside the table facing him, curious friendly expression, mouth slightly open mid-question, one open palm extended toward Luis in a natural asking gesture, her cream tote on her shoulder. Ana is unmistakably the one asking. The notebook shows only faint handwritten lines, never readable words. Three-quarter camera angle, different from the sofa shot.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "reading-question.png",
+            "sha256": "78d8c8a068dd9a6a952b314a830c992d49cedccf0ec521f7645ae1b5539e33bc",
+            "byte_count": 2374683
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_73ea7145e14e476aba01b1a79c886586",
+        "usage": {
+          "input_tokens": 1842,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 306
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3214
+        },
+        "cost": {
+          "usd": "0.054978",
+          "mxn": "0.9330151446",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 306,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 35.14,
+        "output": "output/imagegen/unit-3-lesson-v1/writing-question.png",
+        "sha256": "a59ba78e9986482f2eaa9da5e93f7586279589f96e41b4c771977b779071b3f3",
+        "byte_count": 2155303
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "a59ba78e9986482f2eaa9da5e93f7586279589f96e41b4c771977b779071b3f3",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "New study-table angle in the same building. Luis sits writing in a spiral notebook with a pen, eyes on the page. Ana stands with her cream tote, open palm toward him and mouth open: she is clearly asking. Notebook page is blank of readable words. Full-bleed 3:2."
+      }
+    }
+  ]
+}

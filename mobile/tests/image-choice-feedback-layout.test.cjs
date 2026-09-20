@@ -15,31 +15,13 @@ assert.match(
   /needsPortraitImageFeedbackSpace\s*\?\s*76\s*:\s*58/,
   'Image choices must reserve enough room for encouragement plus a two-line teaching hint.',
 );
-assert.match(
-  source,
-  /const constrainedPortraitImageOptionWidth = usePortraitImageStack\s*\?\s*Math\.min\(portraitImageContentWidth, \(optionImageHeight \* \(3 \/ 2\)\) \+ 24\)/,
-  'Only the established two-card portrait stack may scale from available height.',
-);
-assert.match(
-  source,
-  /width:\s*constrainedPortraitImageOptionWidth\s*\?\? constrainedLandscapeImageOptionWidth\s*\?\? optionWidth/,
-  'Height-constrained portrait and landscape widths must fall back to the established layout width.',
-);
-assert.doesNotMatch(
-  source,
-  /constrainedPortraitImageOptionWidth = usePortraitImageStack \|\| usePortraitImageGrid/,
-  'Four-card portrait grids must never inherit the two-card stack width constraint.',
-);
-assert.match(
-  source,
-  /const usePortraitImageGrid = !isLandscape && !hasTextOnlyOptions && card\.options\.length >= 3[\s\S]*?const optionWidth =[\s\S]*?: '48%';/,
-  'Four image choices must retain the established two-column width in portrait.',
-);
-assert.match(
-  source,
-  /options:\s*\{[\s\S]*?flexDirection: 'row'[\s\S]*?flexWrap: 'wrap'[\s\S]*?justifyContent: 'center'/,
-  'Four image choices must retain the wrapping row container required for a 2x2 grid.',
-);
+// Fit is exercised against production TSX and native Yoga in
+// lesson-viewport-native.test.mjs. Do not pin column widths to 48%: doing so
+// previously let the 4:5 image height bypass the available-height budget.
+assert.match(source, /imageChoiceLayout\(innerCardWidth/);
+assert.match(source, /width: boundedImageChoices\?\.optionWidth/);
+assert.match(source, /width: boundedImageChoices\.width/);
+
 assert.match(
   source,
   /const useFourImagePortraitGrid = usePortraitImageGrid && card\.options\.length === 4/,

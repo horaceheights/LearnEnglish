@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v10",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "0.12",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "One exceptionally realistic natural photograph, authentic textures and anatomy, full bleed 1536x1024 landscape. No cartoon, inset, collage, padding, captions, icons or artificial blur borders. The portrait phone crops away the OUTER QUARTER ON EACH SIDE: keep every answer-critical person, gesture and object within the middle 40 percent of width with large natural background margins. Do not fill the frame with subjects. Back the camera away sufficiently. No writing except a real calendar explicitly requested. All counted items complete, distinct and visible.",
+  "assets": [
+    {
+      "id": "u7-review-children",
+      "runtime_filename": "a1_photo_u7_review_children_v1.webp",
+      "prompt": "Exactly TWO clearly young school-age children, one seven-year-old boy and one eight-year-old girl, sitting close together on a garden bench. Fresh candid review photograph, no adults or other people anywhere. Natural child proportions and youthful faces, ordinary casual clothes. Both children complete from head to knees and both faces inside middle 40 percent of landscape; wide leafy garden margins. They are unequivocally children, not parents or grandparents. Natural skin texture, no writing, no labels, no props needed.",
+      "expected_description": "Exactly TWO clearly young school-age children, one seven-year-old boy and one eight-year-old girl, sitting close together on a garden bench. Fresh candid review photograph, no adults or other people anywhere. Natural child proportions and youthful faces, ordinary casual clothes. Both children complete from head to knees and both faces inside middle 40 percent of landscape; wide leafy garden margins. They are unequivocally children, not parents or grandparents. Natural skin texture, no writing, no labels, no props needed.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 314,
+            "old_filename": "a1_scene_grandparents_1ddb2d1.webp",
+            "old_sha256": "55c6d0359374b29c9f31e4e65401b4a266ae3b12409cedf740d3aa26381822a2",
+            "old_observation": "Directly inspected legacy drawing, inset or mixed symbolic scene; the learner needs a literal full-frame human action with the required subjects visible.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/4/options/1/image_url"
+              }
+            ],
+            "replaces_staged_candidate": {
+              "filename": "a1_photo_u7_review_grandparents_v1.webp",
+              "record_sha256": "0f9b644267fd4ffdb9a2bdc7df9d7dffc46305a6f74dd2cf3b4bba6daadabf06",
+              "issue": "The staged elderly couple can also truthfully be parents. The exact Who are they / parents question requires a visibly exclusive children contrast, not an age-based assumption."
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -34,18 +34,41 @@ const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lesson
 
 assert.equal(
   emptyRecognizeCards.length,
-  39,
+  178,
   'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
   affectedLessons.size,
-  9,
-  'The shared rule must cover all nine standard lessons that currently contain this interaction.',
+  60,
+  'The shared rule must cover every standard lesson that contains this interaction.',
+);
+// Section instructions are Spanish in every unit (2026-09-19): no Recognize card may
+// show or speak an English instruction such as "Choose the sentence." any more.
+const englishInstructions = course.flatMap((lesson) => lesson.cards
+  .filter((card) => card.stage === 'Recognize'
+    && /^(choose|select|pick|find|tap|listen)/i.test(`${card.prompt} ${card.audio_text ?? ''}`.trim()))
+  .map((card) => `${lesson.id} ${card.slide_id}`));
+assert.deepEqual(englishInstructions, [], 'Recognize cards must not show or speak an English instruction.');
+assert.deepEqual(
+  emptyRecognizeCards.filter(({ card }) => card.audio_text?.trim()).map(({ card, lessonId }) => `${lessonId} ${card.slide_id}`),
+  [
+    'lesson-5-9-unit-5-review R7',
+    'lesson-6-7-simple-requests R7',
+    'lesson-6-7-simple-requests R8',
+    'lesson-7-7-invitations-and-responses R6',
+    'lesson-7-7-invitations-and-responses R7',
+  ],
+  'Only reply choices keep a heard English line, and the speaker can replay it before the choice.',
 );
 assert.deepEqual(
   emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-2-9-unit-2-review').map(({ card }) => card.slide_id),
   ['R4', 'R7', 'R8'],
   'The three revised review choices use the shared instruction instead of spoken meta-English.',
+);
+assert.deepEqual(
+  emptyRecognizeCards.filter(({ lessonId }) => lessonId === 'lesson-3-9-unit-3-review').map(({ card }) => card.slide_id),
+  ['R7', 'R8'],
+  'The Unit 3 parity review uses the shared instruction for its two scene-to-phrase choices.',
 );
 assert.ok(
   emptyRecognizeCards.every(({ card }) => (
@@ -62,12 +85,17 @@ assert.match(
 );
 assert.match(
   instructionSource,
+  /const CHOOSE_CORRECT_WORD_INSTRUCTION = '¡Elige la palabra correcta!';/,
+  'Single-word choices ask for the word, with complete Spanish punctuation.',
+);
+assert.match(
+  instructionSource,
   /export function usesCompactRecognizeInstruction\(stage: string, prompt: string\)\s*\{\s*return stage === 'Recognize' && !prompt\.trim\(\);/,
   'The rule must be selected by Recognize plus an empty authored prompt.',
 );
 assert.match(
   instructionSource,
-  /export function lessonHeaderPromptText\(lessonId: string, stage: string, prompt: string\)[\s\S]*usesCompactRecognizeInstruction\(stage, prompt\)[\s\S]*CHOOSE_CORRECT_PHRASE_INSTRUCTION/,
+  /export function recognizeChoiceInstruction[\s\S]*CHOOSE_CORRECT_WORD_INSTRUCTION[\s\S]*CHOOSE_CORRECT_PHRASE_INSTRUCTION[\s\S]*export function lessonHeaderPromptText\(\s*lessonId: string,\s*stage: string,\s*prompt: string,[\s\S]*usesCompactRecognizeInstruction\(stage, prompt\)\) return recognizeChoiceInstruction\(options\)/,
   'The shared header copy resolver must fill the otherwise empty third line.',
 );
 assert.match(
@@ -82,7 +110,7 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /lessonHeaderPromptText\(lesson\.id, currentCard\.stage, displayedPrompt\)/,
+  /lessonHeaderPromptText\(lesson\.id, currentCard\.stage, displayedPrompt, currentCard\.options\)/,
   'The rendered third line must use the shared header copy resolver.',
 );
 assert.match(

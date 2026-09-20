@@ -73,7 +73,7 @@
       ],
       "audio_text": "The father wants bread. The girl wants apples. There are oranges. There are bananas.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp",
       "spanish_translation": "El padre quiere pan. La ni\u00f1a quiere manzanas. Hay naranjas. Hay bananas.",
       "pedagogy_note": "Mission beat 01/03: the learner identifies shoppers and produce at the market stall from audio cues; the completed interaction advances the market mission.",
       "audio_speaker": null,
@@ -82,22 +82,22 @@
         {
           "text": "The father wants bread.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp"
         },
         {
           "text": "The girl wants apples.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp"
         },
         {
           "text": "There are oranges.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp"
         },
         {
           "text": "There are bananas.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp"
         }
       ],
       "audio_revision": 1,
@@ -116,60 +116,60 @@
           "revision": 2
         },
         {
-          "id": "lesson-5-10-cafe-mission-c001-prompt-turn-1-e0c6ff2dbd8163f6babb",
+          "id": "lesson-5-10-cafe-mission-c001-prompt-turn-1-80166b59f6d9a0f6ef67",
           "purpose": "prompt-turn-1",
           "text": "The father wants bread.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-10-cafe-mission-c001-prompt-turn-2-47f21f9116fbad17a6c5",
+          "id": "lesson-5-10-cafe-mission-c001-prompt-turn-2-5add95ea7302087226fd",
           "purpose": "prompt-turn-2",
           "text": "The girl wants apples.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-10-cafe-mission-c001-prompt-turn-3-fb6375b29bb04aece3db",
+          "id": "lesson-5-10-cafe-mission-c001-prompt-turn-3-76650fb18c7ad7c7f501",
           "purpose": "prompt-turn-3",
           "text": "There are oranges.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-10-cafe-mission-c001-prompt-turn-4-5450b6e0f1a67290776c",
+          "id": "lesson-5-10-cafe-mission-c001-prompt-turn-4-d3ad75892f4750076d8f",
           "purpose": "prompt-turn-4",
           "text": "There are bananas.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-10-cafe-mission-c001-answer-0ec8c6af7b9f88682169",
+          "id": "lesson-5-10-cafe-mission-c001-answer-e63f423778020b7e7d40",
           "purpose": "answer",
           "text": "The father wants bread.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -186,61 +186,83 @@
             "id": "father-bread",
             "label_es": "Padre con pan",
             "rect": {
-              "x": 0.08,
-              "y": 0.25,
-              "width": 0.25,
-              "height": 0.55
+              "x": 0.138,
+              "y": 0.079,
+              "width": 0.289,
+              "height": 0.91
             },
             "accepted_option_ids": [
               "father-bread"
             ],
-            "head_anchors": [],
+            "head_anchors": [
+              {
+                "x": 0.259,
+                "y": 0.084
+              }
+            ],
             "group_chest_anchor": null
           },
           {
             "id": "daughter-apples",
             "label_es": "Ni\u00f1a con manzanas",
             "rect": {
-              "x": 0.65,
-              "y": 0.35,
-              "width": 0.22,
-              "height": 0.5
+              "x": 0.46,
+              "y": 0.366,
+              "width": 0.232,
+              "height": 0.45
             },
             "accepted_option_ids": [
               "daughter-apples"
             ],
-            "head_anchors": [],
+            "head_anchors": [
+              {
+                "x": 0.632,
+                "y": 0.365
+              }
+            ],
             "group_chest_anchor": null
           },
           {
             "id": "market-oranges",
             "label_es": "Naranjas",
             "rect": {
-              "x": 0.35,
-              "y": 0.5,
-              "width": 0.18,
-              "height": 0.3
+              "x": 0.218,
+              "y": 0.608,
+              "width": 0.295,
+              "height": 0.2
             },
             "accepted_option_ids": [
               "market-oranges"
             ],
-            "head_anchors": [],
-            "group_chest_anchor": null
+            "head_anchors": [
+              {
+                "x": 0.255,
+                "y": 0.741
+              }
+            ],
+            "group_chest_anchor": null,
+            "subject_kind": "object"
           },
           {
             "id": "market-bananas",
             "label_es": "Bananas",
             "rect": {
-              "x": 0.52,
-              "y": 0.52,
-              "width": 0.18,
-              "height": 0.28
+              "x": 0.497,
+              "y": 0.618,
+              "width": 0.165,
+              "height": 0.195
             },
             "accepted_option_ids": [
               "market-bananas"
             ],
-            "head_anchors": [],
-            "group_chest_anchor": null
+            "head_anchors": [
+              {
+                "x": 0.623,
+                "y": 0.762
+              }
+            ],
+            "group_chest_anchor": null,
+            "subject_kind": "object"
           }
         ],
         "cues": [
@@ -313,7 +335,7 @@
       ],
       "audio_text": "The mother needs water. The grandfather needs tea. There is some food. There is some juice.",
       "answer_audio_text": null,
-      "prompt_image_url": "/lesson-assets/a1_u5_scene_02_register.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp",
       "spanish_translation": "La madre necesita agua. El abuelo necesita t\u00e9. Hay algo de comida. Hay algo de jugo.",
       "pedagogy_note": "Mission beat 02/03: the learner identifies items and shoppers at the market checkout; the completed interaction advances the market mission.",
       "audio_speaker": null,
@@ -322,82 +344,82 @@
         {
           "text": "The mother needs water.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp"
         },
         {
           "text": "The grandfather needs tea.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp"
         },
         {
           "text": "There is some food.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp"
         },
         {
           "text": "There is some juice.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp"
         }
       ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-10-cafe-mission-c002-prompt-turn-1-0ab6f0e18a6a31acd74a",
+          "id": "lesson-5-10-cafe-mission-c002-prompt-turn-1-ebe035dca50f2e212c55",
           "purpose": "prompt-turn-1",
           "text": "The mother needs water.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_scene_02_register.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-10-cafe-mission-c002-prompt-turn-2-72eada29741b31f5f0c6",
+          "id": "lesson-5-10-cafe-mission-c002-prompt-turn-2-da017783c0c8ad29dbbd",
           "purpose": "prompt-turn-2",
           "text": "The grandfather needs tea.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_scene_02_register.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-10-cafe-mission-c002-prompt-turn-3-d0e8f7288e7f113a8e25",
+          "id": "lesson-5-10-cafe-mission-c002-prompt-turn-3-5886eb357bcd1b638f7c",
           "purpose": "prompt-turn-3",
           "text": "There is some food.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_scene_02_register.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-10-cafe-mission-c002-prompt-turn-4-ee9640da66483d33c2da",
+          "id": "lesson-5-10-cafe-mission-c002-prompt-turn-4-10628607b482b3abc1b5",
           "purpose": "prompt-turn-4",
           "text": "There is some juice.",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_u5_scene_02_register.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp",
           "semantic_role": "teacher",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-5-10-cafe-mission-c002-answer-46a71b5a39d5a94abfcb",
+          "id": "lesson-5-10-cafe-mission-c002-answer-cff6c819250c87c10af1",
           "purpose": "answer",
           "text": "The mother needs water.",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_u5_scene_02_register.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -414,61 +436,87 @@
             "id": "mother-water",
             "label_es": "Madre con agua",
             "rect": {
-              "x": 0.12,
-              "y": 0.25,
-              "width": 0.25,
-              "height": 0.55
+              "x": 0.232,
+              "y": 0.174,
+              "width": 0.276,
+              "height": 0.676
             },
             "accepted_option_ids": [
               "mother-water"
             ],
-            "head_anchors": [],
+            "head_anchors": [
+              {
+                "x": 0.383,
+                "y": 0.176
+              }
+            ],
             "group_chest_anchor": null
           },
           {
             "id": "grandfather-tea",
             "label_es": "Abuelo con t\u00e9",
             "rect": {
-              "x": 0.65,
-              "y": 0.28,
-              "width": 0.25,
-              "height": 0.52
+              "x": 0.457,
+              "y": 0.158,
+              "width": 0.281,
+              "height": 0.615
             },
             "accepted_option_ids": [
               "grandfather-tea"
             ],
-            "head_anchors": [],
+            "head_anchors": [
+              {
+                "x": 0.599,
+                "y": 0.159
+              }
+            ],
             "group_chest_anchor": null
           },
           {
             "id": "food-basket",
             "label_es": "Cesta de comida",
             "rect": {
-              "x": 0.38,
-              "y": 0.48,
-              "width": 0.2,
-              "height": 0.35
+              "x": 0.562,
+              "y": 0.546,
+              "width": 0.377,
+              "height": 0.315
             },
             "accepted_option_ids": [
               "food-basket"
             ],
-            "head_anchors": [],
-            "group_chest_anchor": null
+            "head_anchors": [
+              {
+                "x": 0.746,
+                "y": 0.548
+              }
+            ],
+            "group_chest_anchor": null,
+            "subject_kind": "object"
           },
           {
             "id": "juice-bottles",
             "label_es": "Botellas de jugo",
             "rect": {
-              "x": 0.55,
-              "y": 0.45,
-              "width": 0.15,
-              "height": 0.32
+              "x": 0.786,
+              "y": 0.694,
+              "width": 0.123,
+              "height": 0.246
             },
             "accepted_option_ids": [
               "juice-bottles"
             ],
-            "head_anchors": [],
-            "group_chest_anchor": null
+            "head_anchors": [
+              {
+                "x": 0.818,
+                "y": 0.696
+              },
+              {
+                "x": 0.879,
+                "y": 0.696
+              }
+            ],
+            "group_chest_anchor": null,
+            "subject_kind": "object"
           }
         ],
         "cues": [
@@ -514,7 +562,7 @@
       "options": [
         {
           "id": "five-dollars",
-          "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter.webp",
+          "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter_fullframe_v2.webp",
           "label": "It is five dollars."
         }
       ],
@@ -529,31 +577,31 @@
         {
           "text": "How much is it?",
           "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter_fullframe_v2.webp"
         }
       ],
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-5-10-cafe-mission-c003-mission-cue-8af20a80ca2da2b9ebf7",
+          "id": "lesson-5-10-cafe-mission-c003-mission-cue-4ce13a4c083b15cf6019",
           "purpose": "mission-cue",
           "text": "How much is it?",
           "mode": "prompt",
           "variant": "question",
-          "image_ref": "/lesson-assets/a1_u5_scene_03_cafe_counter.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_03_cafe_counter_fullframe_v2.webp",
           "semantic_role": "question",
           "speaker_role": "teacher",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 2
         },
         {
-          "id": "lesson-5-10-cafe-mission-c003-prompt-turn-1-096269417e9f306f0aaf",
+          "id": "lesson-5-10-cafe-mission-c003-prompt-turn-1-7a8e136dc2cdf129fb98",
           "purpose": "prompt-turn-1",
           "text": "How much is it?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_u5_scene_03_cafe_counter.webp",
+          "image_ref": "/lesson-assets/a1_u5_scene_03_cafe_counter_fullframe_v2.webp",
           "semantic_role": "question",
           "speaker_role": "female-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -570,16 +618,22 @@
             "id": "cafe-counter",
             "label_es": "Mostrador del caf\u00e9",
             "rect": {
-              "x": 0.35,
-              "y": 0.2,
-              "width": 0.3,
-              "height": 0.55
+              "x": 0.475,
+              "y": 0.739,
+              "width": 0.174,
+              "height": 0.16
             },
             "accepted_option_ids": [
               "five-dollars"
             ],
-            "head_anchors": [],
-            "group_chest_anchor": null
+            "head_anchors": [
+              {
+                "x": 0.609,
+                "y": 0.775
+              }
+            ],
+            "group_chest_anchor": null,
+            "subject_kind": "object"
           }
         ],
         "cues": [
