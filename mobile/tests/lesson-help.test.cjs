@@ -43,7 +43,17 @@ assert.match(lessonHelpText(card({ stage: 'Listen', audio_text: null, audio_turn
 assert.match(lessonHelpText(card({ stage: 'Grammar', prompt: 'The boy __ eating.',
   prompt_image_url: '/boy-eating.png', options: textOptions('is', 'are') })), /Mira la imagen.+palabra que falta/);
 assert.match(lessonHelpText(card({ stage: 'Speak', options: [card().options[0]] })), /Escucha.+después de la señal.+repite en voz alta/);
-assert.match(lessonHelpText(card({ stage: 'Learn', options: [card().options[0]] })), /Mira y escucha.+avanza sola/);
+const automaticLearn = card({ stage: 'Learn', options: [card().options[0]] });
+assert.equal(lessonHelpText(automaticLearn, 'translation-on-tap'),
+  'Escucha y aprende. Toca la frase para ver la traducción.');
+assert.equal(lessonHelpText(automaticLearn, 'gestures'),
+  'Escucha y aprende. Toca dos veces la frase para ver la traducción.');
+for (const mode of ['replay-on-tap', 'visual-instruction']) {
+  assert.equal(lessonHelpText(automaticLearn, mode), 'Escucha y aprende.',
+    'Only mention translation when the surface offers that gesture.');
+}
+assert.doesNotMatch(lessonHelpText(card({ stage: 'Learn' }), 'translation-on-tap'), /traducción/,
+  'Learn choice cards still need their selection instruction.');
 assert.match(lessonHelpText(card({ stage: 'Action Introduction' })), /toca la imagen de esa acción/);
 assert.match(lessonHelpText(card({ stage: 'Plural Challenge' })), /Lee la frase.+imagen que corresponde/);
 assert.match(lessonHelpText(card({ stage: 'Future Image Stage' })), /Toca la imagen que corresponde/);
