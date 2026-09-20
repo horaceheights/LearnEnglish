@@ -28,7 +28,7 @@ const VOCABULARY_STAGES = new Set([
   'New Words',
 ]);
 
-export const COMPLETION_RETRY_HELP = 'Lee la explicación y toca Reintentar.';
+export const COMPLETION_RETRY_HELP = 'Lee la pista y toca Reintentar.';
 
 export type PromptInteractionMode = 'gestures' | 'translation-on-tap' | 'visual-instruction' | 'replay-on-tap';
 

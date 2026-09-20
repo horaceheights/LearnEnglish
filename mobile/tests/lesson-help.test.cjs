@@ -58,7 +58,7 @@ assert.match(lessonHelpText(card({ stage: 'Action Introduction' })), /toca la im
 assert.match(lessonHelpText(card({ stage: 'Plural Challenge' })), /Lee la frase.+imagen que corresponde/);
 assert.match(lessonHelpText(card({ stage: 'Future Image Stage' })), /Toca la imagen que corresponde/);
 assert.match(lessonHelpText(card({ stage: 'Future Text Stage', options: textOptions('one', 'two') })), /toca la respuesta correcta/);
-assert.equal(COMPLETION_RETRY_HELP, 'Lee la explicación y toca Reintentar.');
+assert.equal(COMPLETION_RETRY_HELP, 'Lee la pista y toca Reintentar.');
 
 // Guard the compact standard against future per-stage boilerplate. Exercise
 // the actual generated course, including the screenshot's image-to-text cards.

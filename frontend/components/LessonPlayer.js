@@ -1558,13 +1558,7 @@ const helpStorage = {
   async setItem(key, value) { window.localStorage.setItem(key, value); },
 };
 
-function getWrongFeedback(profile) {
-  if (profile?.confidence === "nervous") {
-    return "¡Tú puedes! Inténtalo de nuevo.";
-  }
-
-  return "¡Ánimo! Inténtalo de nuevo.";
-}
+const WRONG_FEEDBACK = "Cuando te equivocas, también aprendes.";
 
 function orderedCorrectOptionIds(card) {
   return card?.correct_option_ids?.length
@@ -5896,7 +5890,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
               ) : null}
               {lastResult === "wrong" ? (
                 <div style={{ ...styles.feedback, background: "var(--red-soft)", color: "var(--red)" }}>
-                  <div>{getWrongFeedback(profile)}</div>
+                  <div>{WRONG_FEEDBACK}</div>
                   <div
                     style={{
                       color: "#6f4b24",

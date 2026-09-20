@@ -3303,7 +3303,6 @@ export function LessonScreen({
             audioProvider={audioProvider}
             audioVoice={audioVoice}
             card={currentCard}
-            gentleFeedback={profile.confidence === 'nervous'}
             key={`lesson-card-${cardIndex}-${cardRunId}`}
             level={lesson.level}
             lessonId={lesson.id}
