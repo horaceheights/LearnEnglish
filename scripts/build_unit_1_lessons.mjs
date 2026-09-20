@@ -151,7 +151,7 @@ function buildLesson({ id, number, title, goal, vocabulary, reviewVocabulary, gr
     ...finalizeStage('Speak', speakIndexes.map((index) => say(entries[index])), `${number} story`),
     ...finalizeStage('Use', uses, `${number} story`),
   ];
-  const expected = review ? 54 : 42;
+  const expected = review ? 54 : number === '1.5' ? 43 : 42;
   if (cards.length !== expected) throw new Error(`${number} must contain ${expected} cards, found ${cards.length}`);
   if (JSON.stringify([...new Set(cards.map((card) => card.stage))]) !== JSON.stringify(stageOrder)) throw new Error(`${number} has invalid stage order`);
   return { id, title: `${number} ${title}`, level: 'Beginner A1', unit_id: 'unit-1',
@@ -311,6 +311,7 @@ const lesson15 = buildLesson({
     complete({ prompt: 'She is the ___.', image: assets.mother, answer: 'She is the mother.', correct: 'mother', choices: [['father', 'father'], ['mother', 'mother']], translation: 'Ella es la ___.' }),
     complete({ prompt: 'They are the ___.', image: assets.parents, answer: 'They are the parents.', correct: 'parents', choices: [['parents', 'parents'], ['sisters', 'sisters']], translation: 'Ellos son los ___.' }),
     complete({ prompt: 'He is the ___.', image: assets.grandfather, answer: 'He is the grandfather.', correct: 'grandfather', choices: [['grandmother', 'grandmother'], ['grandfather', 'grandfather']], translation: 'Él es el ___.' }),
+    complete({ prompt: 'She is the ___.', image: assets.grandmother, answer: 'She is the grandmother.', correct: 'grandmother', choices: [['grandmother', 'grandmother'], ['grandfather', 'grandfather']], translation: 'Ella es la ___.' }),
     complete({ prompt: 'They are the ___.', image: assets.grandparents, answer: 'They are the grandparents.', correct: 'grandparents', choices: [['grandparents', 'grandparents'], ['sisters', 'sisters']], translation: 'Ellos son los ___.' }),
   ],
 });
@@ -1349,14 +1350,14 @@ const lessons = [
   ['1.10_family_scene_mission.yaml', lesson110],
 ];
 
-// The final four Use cards progress to full construction only when their existing
+// The final four Use cards (five in Lesson 1.5) progress to full construction when their existing
 // target fits the reviewed 2–8 word bank. Keep single words and longer targets
 // as guided completion, and preserve the earlier scaffold and every story beat.
 const constructionTranslations = {
   '1.2': { U4: 'La niña está leyendo.', U5: 'Ella está leyendo.', U6: 'La mujer está escribiendo.', U7: 'La mujer está escribiendo. Ella está escribiendo.' },
   '1.3': { U4: 'El hombre está sentado.', U5: 'Él está nadando.', U6: 'Ella está durmiendo.' },
   '1.4': { U5: 'Un hermano.', U7: 'Ellos son una familia.' },
-  '1.5': { U4: 'Ella es la madre.', U5: 'Ellos son los padres.', U6: 'Él es el abuelo.', U7: 'Ellos son los abuelos.' },
+  '1.5': { U4: 'Ella es la madre.', U5: 'Ellos son los padres.', U6: 'Él es el abuelo.', U7: 'Ella es la abuela.', U8: 'Ellos son los abuelos.' },
   '1.6': { U4: 'La madre está cocinando.', U5: 'Los padres están hablando.', U6: 'Los padres están hablando.', U7: 'Los padres están hablando. Ellos están hablando.' },
   '1.7': { U4: 'Ella no está leyendo.', U5: 'Ellos están corriendo.', U6: 'Ellos no están sentados.', U7: 'Ellos no están durmiendo. Ellos están hablando.' },
   '1.8': { U7: '¿Quiénes son ellos?', U8: 'Ellos son los niños.', U9: '¿Quiénes son ellos?', U10: 'Ellos son los abuelos.' },
@@ -1366,7 +1367,7 @@ const constructionTranslations = {
 function applyConstructionProgression(lesson) {
   const translations = constructionTranslations[lesson.sub_lesson_id];
   if (!translations) return;
-  const finalCards = lesson.cards.filter((card) => card.stage === 'Use').slice(-4);
+  const finalCards = lesson.cards.filter((card) => card.stage === 'Use').slice(lesson.sub_lesson_id === '1.5' ? -5 : -4);
   const converted = [];
   for (const card of finalCards) {
     const target = card.answer_audio_text;
@@ -1388,7 +1389,7 @@ function applyConstructionProgression(lesson) {
     converted.push(card.slide_id);
   }
   if (JSON.stringify(converted) !== JSON.stringify(Object.keys(translations))) {
-    throw new Error(`${lesson.sub_lesson_id} construction scope changed; review the final-four progression`);
+    throw new Error(`${lesson.sub_lesson_id} construction scope changed; review the authored progression`);
   }
   lesson.content_revision = 2;
 }
