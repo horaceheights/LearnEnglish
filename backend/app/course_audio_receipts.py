@@ -10,13 +10,33 @@ from typing import Any
 
 import av
 
-from .course_audio_profile import NEUTRAL_SPEAKER_ROLES, render_profile_for
+from .course_audio_profile import (
+    NEUTRAL_SPEAKER_ROLES,
+    PLAYING_CORRECTION_MODEL_ID,
+    PLAYING_CORRECTION_SPEED,
+    render_profile_for,
+)
 from .schemas import CourseAudioAsset
 
 
 RECEIPT_VERSION = 1
 LEGACY_STATIC_SOURCE = "legacy-static-manifest"
 REVIEWED_EXACT_OVERRIDE_SOURCE = "reviewed-exact-audio-override"
+# This fresh take uses Flash v2's pronunciation control and speed 0.85.
+# Pin bytes and bindings: this is not a general model or speed override.
+NATURAL_PLAYING_AUDIO_SHA256 = (
+    "698ad5dee9464665b2b6bb627922b2e7a16b66a93a71e8a47f6e5c1ee4a17587"
+)
+NATURAL_PLAYING_ASSET_IDS = frozenset({
+    "lesson-6-family-actions-c001-prompt-d72cd4a2415d36362874",
+    "lesson-6-family-actions-c001-answer-0b039959a602912a7dad",
+    "lesson-6-family-actions-c011-prompt-693498fe1cba86f5ae5c",
+    "lesson-6-family-actions-c011-answer-332dbbc31321102a9d39",
+    "lesson-6-family-actions-c021-prompt-969ec0b542c2bb8630ff",
+    "lesson-6-family-actions-c021-answer-af898003d1febd1e6e8b",
+    "lesson-6-family-actions-c029-prompt-50fc0ef9e25386bc4ace",
+    "lesson-6-family-actions-c029-answer-8287e83941590a8a31cd",
+})
 APPROVED_ONE_AUDIO_SHA256 = (
     "802f1c7d7e2d8a3e868f89f7d99fdb106f0f3b7fd4876cfe088634e4b9e9f432"
 )
@@ -143,8 +163,13 @@ def receipt_path(audio_path: Path) -> Path:
     return audio_path.with_suffix(".json")
 
 
-def _profile_mismatch(asset: CourseAudioAsset, provenance: dict[str, Any]) -> str | None:
+def _profile_mismatch(
+    asset: CourseAudioAsset, provenance: dict[str, Any], audio_sha256: str | None = None,
+) -> str | None:
     expected = render_profile_for(asset.speaker_role, asset.mode).as_provenance_contract()
+    if audio_sha256 == NATURAL_PLAYING_AUDIO_SHA256 and asset.id in NATURAL_PLAYING_ASSET_IDS:
+        expected["model_id"] = PLAYING_CORRECTION_MODEL_ID
+        expected["settings"]["speed"] = PLAYING_CORRECTION_SPEED
     for key, value in expected.items():
         if provenance.get(key) != value:
             return key
@@ -246,7 +271,7 @@ def validate_provenance(
             raise ValueError("Completion prompts cannot use the ordinary legacy audio cache.")
         return
 
-    mismatch = _profile_mismatch(asset, provenance)
+    mismatch = _profile_mismatch(asset, provenance, audio_sha256)
     if mismatch:
         raise ValueError(f"Course audio provenance does not match profile field: {mismatch}.")
 
