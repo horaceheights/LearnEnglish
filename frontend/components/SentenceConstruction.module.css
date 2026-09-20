@@ -25,12 +25,17 @@
 .drag { position: fixed; transform: translate(-50%, -50%); pointer-events: none; z-index: 100; background: #f3effc; border: 2px solid #6947ad; border-radius: 12px; padding: 12px; font-size: 22px; font-weight: 800; box-shadow: 0 4px 14px #0003; }
 @media (max-height: 700px) { .imageFrame { width: min(100%, 240px); } }
 @media (orientation: landscape) and (max-height: 520px) { .imageFrame { width: 150px; } .card { padding: 6px; } }
+@media (orientation: landscape) and (max-height: 600px) {
+  .successCard { display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .successCard .imageFrame { margin: 0; flex-shrink: 0; }
+}
 @media (min-width: 700px) { .slot, .tile { font-size: 22px; } }
 
 .translation { display: block; width: 100%; min-height: 44px; border: 0; background: transparent; color: #67583f; font-size: 14px; font-weight: 700; cursor: pointer; }
 .wideSlots { padding-right: 10px; }
 .wideSlots .translation { padding-right: 40px; }
 .wideSlots .replay { top: 30px; }
+.successReplaySpace { height: 44px; }
 
 .slot { touch-action: none; }
 .slot:disabled { cursor: default; }

@@ -1,0 +1,23 @@
+.celebration { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 8px 0; color: #17623f; text-align: center; }
+.scene { position: relative; width: 152px; height: 124px; display: flex; align-items: flex-end; justify-content: center; flex-shrink: 0; }
+.mascot { display: block; object-fit: contain; animation: celebrationHop 600ms ease-out; }
+.leftStar, .rightStar { position: absolute; color: #d29b23; font-size: 22px; }
+.leftStar { left: 0; top: 20px; }
+.rightStar { right: 0; top: 8px; }
+.copy { min-width: 0; }
+.title { font-size: 28px; font-weight: 900; }
+.message { font-size: 22px; font-weight: 700; }
+@keyframes celebrationHop {
+  0%, 100% { transform: translateY(0) scale(1); }
+  30% { transform: translateY(-7px) scale(1.06); }
+  65% { transform: translateY(0) scale(1); }
+  80% { transform: translateY(-2px) scale(1.02); }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .celebration { flex-direction: row; gap: 12px; padding: 0; }
+  .scene { width: 96px; height: 80px; }
+  .mascot { width: 72px; height: 72px; }
+  .title { font-size: 24px; }
+  .message { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .mascot { animation: none; } }
