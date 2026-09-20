@@ -5,25 +5,33 @@ export type LessonActionVideo = {
 };
 
 const LOCAL_ACTION_VIDEOS: Record<string, number> = {
+  they_boy_girl_are_running: require('../assets/lesson-videos/boy-girl-running-scene-photo-v3.mp4'),
+  girl_is_sleeping: require('../assets/lesson-videos/girl-sleeping-scene-photo-v3.mp4'),
+  girl_is_writing: require('../assets/lesson-videos/girl-writing-scene-photo-v3.mp4'),
+  family_children_studying: require('../assets/lesson-videos/children-studying-scene-photo-v3.mp4'),
   boy_is_eating: require('../assets/lesson-videos/boy-eating-scene-v2.mp4'),
   boy_is_running: require('../assets/lesson-videos/boy-running-scene-v2.mp4'),
   boy_is_swimming: require('../assets/lesson-videos/boy-swimming-scene-v2.mp4'),
   family_baby_sleeping: require('../assets/lesson-videos/baby-sleeping-scene-full-bleed-v1.mp4'),
   family_brother_studying: require('../assets/lesson-videos/brother-studying-scene-full-bleed-v1.mp4'),
   family_children_playing: require('../assets/lesson-videos/children-playing-scene-full-bleed-v1.mp4'),
-  family_father_working: require('../assets/lesson-videos/father-working-scene-full-bleed-v1.mp4'),
+  family_father_working: require('../assets/lesson-videos/father-working-scene-photo-v3.mp4'),
   family_mother_cooking: require('../assets/lesson-videos/mother-cooking-scene-full-bleed-v1.mp4'),
   family_parents_talking: require('../assets/lesson-videos/parents-talking-scene-full-bleed-wide-v1.mp4'),
   girl_is_walking: require('../assets/lesson-videos/girl-walking-scene-full-bleed-v1.mp4'),
 };
 
 const LOCAL_TWO_CARD_ACTION_VIDEOS: Record<string, number> = {
+  they_boy_girl_are_running: require('../assets/lesson-videos/boy-girl-running-scene-photo-v3.mp4'),
+  girl_is_sleeping: require('../assets/lesson-videos/girl-sleeping-scene-photo-v3.mp4'),
+  girl_is_writing: require('../assets/lesson-videos/girl-writing-scene-photo-v3.mp4'),
+  family_children_studying: require('../assets/lesson-videos/children-studying-scene-photo-v3.mp4'),
   boy_is_eating: require('../assets/lesson-videos/boy-eating-scene-v2.mp4'),
   boy_is_running: require('../assets/lesson-videos/boy-running-scene-v2.mp4'),
   boy_is_swimming: require('../assets/lesson-videos/boy-swimming-scene-v2.mp4'),
   family_brother_studying: require('../assets/lesson-videos/brother-studying-scene-full-bleed-v1.mp4'),
   family_children_playing: require('../assets/lesson-videos/children-playing-scene-full-bleed-v1.mp4'),
-  family_father_working: require('../assets/lesson-videos/father-working-scene-full-bleed-v1.mp4'),
+  family_father_working: require('../assets/lesson-videos/father-working-scene-photo-v3.mp4'),
   family_mother_cooking: require('../assets/lesson-videos/mother-cooking-scene-full-bleed-v1.mp4'),
   family_parents_talking: require('../assets/lesson-videos/parents-talking-scene-full-bleed-wide-v1.mp4'),
   girl_is_walking: require('../assets/lesson-videos/girl-walking-scene-full-bleed-v1.mp4'),
@@ -35,13 +43,14 @@ const TWO_CARD_ACTION_VIDEOS: Record<string, string> = {
   boy_is_swimming: 'boy-swimming-scene-v2.mp4',
   family_brother_studying: 'brother-studying-scene-full-bleed-v1.mp4',
   family_children_playing: 'children-playing-scene-full-bleed-v1.mp4',
-  family_father_working: 'father-working-scene-full-bleed-v1.mp4',
+  family_father_working: 'father-working-scene-photo-v3.mp4',
   family_mother_cooking: 'mother-cooking-scene-full-bleed-v1.mp4',
   family_parents_talking: 'parents-talking-scene-full-bleed-wide-v1.mp4',
   girl_is_walking: 'girl-walking-scene-full-bleed-v1.mp4',
 };
 
 const TWO_CARD_ACTION_POSTERS: Record<string, number> = {
+  girl_is_writing: require('../assets/lesson-assets/girl_is_writing-two-card-poster-v3.webp'),
   boy_is_eating: require('../assets/lesson-assets/boy_is_eating-two-card-poster.webp'),
   boy_is_running: require('../assets/lesson-assets/boy_is_running-two-card-poster.webp'),
   boy_is_swimming: require('../assets/lesson-assets/boy_is_swimming-two-card-poster.webp'),
@@ -49,9 +58,9 @@ const TWO_CARD_ACTION_POSTERS: Record<string, number> = {
   family_children_playing: require('../assets/lesson-assets/family_children_playing-two-card-poster.webp'),
   family_mother_cooking: require('../assets/lesson-assets/family_mother_cooking-two-card-poster.webp'),
   family_parents_talking: require('../assets/lesson-assets/family_parents_talking-two-card-poster.webp'),
-  girl_is_sleeping: require('../assets/lesson-assets/girl_is_sleeping-two-card-poster.webp'),
+  girl_is_sleeping: require('../assets/lesson-assets/girl_is_sleeping-two-card-poster-v3.webp'),
   girl_is_walking: require('../assets/lesson-assets/girl_is_walking-two-card-poster.webp'),
-  they_boy_girl_are_running: require('../assets/lesson-assets/they_boy_girl_are_running-two-card-poster.webp'),
+  they_boy_girl_are_running: require('../assets/lesson-assets/they_boy_girl_are_running-two-card-poster-v3.webp'),
 };
 
 const LESSON_ACTION_VIDEOS: Record<string, string> = {
@@ -66,17 +75,17 @@ const LESSON_ACTION_VIDEOS: Record<string, string> = {
   family_baby_sleeping: 'baby-sleeping-scene-full-bleed-v1.mp4',
   family_adults_playing: 'adults-playing-scene-v2.mp4',
   family_children_playing: 'children-playing-scene-full-bleed-v1.mp4',
-  family_children_studying: 'children-studying-scene-v2.mp4',
-  family_father_working: 'father-working-scene-full-bleed-v1.mp4',
+  family_children_studying: 'children-studying-scene-photo-v3.mp4',
+  family_father_working: 'father-working-scene-photo-v3.mp4',
   family_mother_cooking: 'mother-cooking-scene-full-bleed-v1.mp4',
   family_parents_talking: 'parents-talking-scene-full-bleed-wide-v1.mp4',
   girl_is_drinking: 'girl-drinking-scene-v2.mp4',
-  girl_is_sleeping: 'girl-sleeping-scene-v2.mp4',
+  girl_is_sleeping: 'girl-sleeping-scene-photo-v3.mp4',
   girl_is_walking: 'girl-walking-scene-full-bleed-v1.mp4',
-  girl_is_writing: 'girl-writing-scene-v2.mp4',
+  girl_is_writing: 'girl-writing-scene-photo-v3.mp4',
   man_is_swimming: 'man-swimming-scene-v2.mp4',
   man_is_walking: 'man-walking-scene-v2.mp4',
-  they_boy_girl_are_running: 'boy-girl-running-scene-v2.mp4',
+  they_boy_girl_are_running: 'boy-girl-running-scene-photo-v3.mp4',
 };
 
 export function lessonActionVideo(imageUrl?: string, optionCount?: number): LessonActionVideo | null {

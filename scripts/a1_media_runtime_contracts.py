@@ -65,6 +65,7 @@ OPTION_MEDIA_VARIANTS = {
 # still semantic contract and must never inherit approval from the source image
 # or from the video itself.
 TWO_CARD_ACTION_POSTERS = {
+    "girl_is_writing": "girl_is_writing-two-card-poster-v3.webp",
     "boy_is_eating": "boy_is_eating-two-card-poster.webp",
     "boy_is_running": "boy_is_running-two-card-poster.webp",
     "boy_is_swimming": "boy_is_swimming-two-card-poster.webp",
@@ -72,9 +73,9 @@ TWO_CARD_ACTION_POSTERS = {
     "family_children_playing": "family_children_playing-two-card-poster.webp",
     "family_mother_cooking": "family_mother_cooking-two-card-poster.webp",
     "family_parents_talking": "family_parents_talking-two-card-poster.webp",
-    "girl_is_sleeping": "girl_is_sleeping-two-card-poster.webp",
+    "girl_is_sleeping": "girl_is_sleeping-two-card-poster-v3.webp",
     "girl_is_walking": "girl_is_walking-two-card-poster.webp",
-    "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster.webp",
+    "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster-v3.webp",
 }
 
 REVIEW_CONTEXT_FIELDS = (

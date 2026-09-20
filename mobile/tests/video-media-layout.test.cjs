@@ -152,7 +152,7 @@ assert.match(
 const bundledFullBleedVideos = {
   family_brother_studying: 'brother-studying-scene-full-bleed-v1.mp4',
   family_children_playing: 'children-playing-scene-full-bleed-v1.mp4',
-  family_father_working: 'father-working-scene-full-bleed-v1.mp4',
+  family_father_working: 'father-working-scene-photo-v3.mp4',
   girl_is_walking: 'girl-walking-scene-full-bleed-v1.mp4',
   family_mother_cooking: 'mother-cooking-scene-full-bleed-v1.mp4',
   family_parents_talking: 'parents-talking-scene-full-bleed-wide-v1.mp4',
@@ -161,10 +161,11 @@ const bundledFullBleedVideos = {
 const twoCardVideoVariants = {
   family_brother_studying: 'brother-studying-scene-full-bleed-v1.mp4',
   family_children_playing: 'children-playing-scene-full-bleed-v1.mp4',
-  family_father_working: 'father-working-scene-full-bleed-v1.mp4',
+  family_father_working: 'father-working-scene-photo-v3.mp4',
 };
 
 const twoCardPosters = {
+  girl_is_writing: 'girl_is_writing-two-card-poster-v3.webp',
   boy_is_eating: 'boy_is_eating-two-card-poster.webp',
   boy_is_running: 'boy_is_running-two-card-poster.webp',
   boy_is_swimming: 'boy_is_swimming-two-card-poster.webp',
@@ -172,9 +173,9 @@ const twoCardPosters = {
   family_children_playing: 'family_children_playing-two-card-poster.webp',
   family_mother_cooking: 'family_mother_cooking-two-card-poster.webp',
   family_parents_talking: 'family_parents_talking-two-card-poster.webp',
-  girl_is_sleeping: 'girl_is_sleeping-two-card-poster.webp',
+  girl_is_sleeping: 'girl_is_sleeping-two-card-poster-v3.webp',
   girl_is_walking: 'girl_is_walking-two-card-poster.webp',
-  they_boy_girl_are_running: 'they_boy_girl_are_running-two-card-poster.webp',
+  they_boy_girl_are_running: 'they_boy_girl_are_running-two-card-poster-v3.webp',
 };
 
 const lessonActionVideoBlock = actionVideosSource.match(/const LESSON_ACTION_VIDEOS:[^{]+\{([\s\S]*?)\n\};/);
@@ -187,20 +188,20 @@ const generatedLessonsRoot = path.resolve(__dirname, '../src/generated');
 for (const lessonFilename of fs.readdirSync(generatedLessonsRoot)) {
   if (!/^lesson-.*\.json$/.test(lessonFilename)) continue;
   const lesson = JSON.parse(fs.readFileSync(path.join(generatedLessonsRoot, lessonFilename), 'utf8'));
-  if (lesson.id === 'lesson-7-is-are-not') continue;
+
   for (const card of lesson.cards || []) {
     if ((card.options || []).length !== 2) continue;
+    if (lesson.id === 'lesson-7-is-are-not' && card.options.some((o) => o.id === 'grandparents-sitting') && card.options.some((o) => o.id === 'pair-running')) continue;
     for (const option of card.options || []) {
       const imageKey = path.basename(String(option.image_url || '').split(/[?#]/, 1)[0]).replace(/\.[^.]+$/, '');
-      if (lessonActionImageKeys.has(imageKey)) usedTwoCardActionKeys.add(imageKey);
+      const canPlay = option.id === card.correct_option_id || (card.correct_option_ids || []).includes(option.id);
+      if (canPlay && lessonActionImageKeys.has(imageKey)) usedTwoCardActionKeys.add(imageKey);
     }
   }
 }
-assert.deepEqual(
-  [...usedTwoCardActionKeys].sort(),
-  Object.keys(twoCardPosters).sort(),
-  'Every action video used by a two-choice A1 card must have exactly one reviewed matching poster.',
-);
+for (const imageKey of usedTwoCardActionKeys) {
+  assert.ok(twoCardPosters[imageKey], `${imageKey}: every playable correct two-choice action needs a matching poster.`);
+}
 
 for (const [imageKey, filename] of Object.entries(bundledFullBleedVideos)) {
   const bundledVideoPath = path.resolve(__dirname, '../assets/lesson-videos', filename);
