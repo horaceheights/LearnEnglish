@@ -41,8 +41,8 @@ import { isWordConstruction, sentenceIsCorrect } from "../../mobile/src/sentence
 import { mediaUrl } from "../lib/mediaUrl";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
-const LESSON_IMAGE_VERSION = "20260903-full-bleed-v8";
-const LESSON_VIDEO_VERSION = "20260903-full-bleed-v8";
+const LESSON_IMAGE_VERSION = "20260920-action-continuity-v3";
+const LESSON_VIDEO_VERSION = "20260920-action-continuity-v3";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 const MISSING_CARD_AUDIO_ASSET_ID = "missing-card-audio-asset";
@@ -1706,26 +1706,27 @@ const LESSON_ACTION_VIDEOS = {
   "family_baby_sleeping": "baby-sleeping-scene-full-bleed-v1.mp4",
   "family_adults_playing": "adults-playing-scene-v2.mp4",
   "family_children_playing": "children-playing-scene-full-bleed-v1.mp4",
-  "family_children_studying": "children-studying-scene-v2.mp4",
-  "family_father_working": "father-working-scene-full-bleed-v1.mp4",
+  "family_children_studying": "children-studying-scene-photo-v3.mp4",
+  "family_father_working": "father-working-scene-photo-v3.mp4",
   "family_mother_cooking": "mother-cooking-scene-full-bleed-v1.mp4",
   "family_parents_talking": "parents-talking-scene-full-bleed-wide-v1.mp4",
   "girl_is_drinking": "girl-drinking-scene-v2.mp4",
-  "girl_is_sleeping": "girl-sleeping-scene-v2.mp4",
+  "girl_is_sleeping": "girl-sleeping-scene-photo-v3.mp4",
   "girl_is_walking": "girl-walking-scene-full-bleed-v1.mp4",
-  "girl_is_writing": "girl-writing-scene-v2.mp4",
+  "girl_is_writing": "girl-writing-scene-photo-v3.mp4",
   "man_is_swimming": "man-swimming-scene-v2.mp4",
   "man_is_walking": "man-walking-scene-v2.mp4",
-  "they_boy_girl_are_running": "boy-girl-running-scene-v2.mp4",
+  "they_boy_girl_are_running": "boy-girl-running-scene-photo-v3.mp4",
 };
 
 const TWO_CARD_ACTION_VIDEOS = {
   "family_brother_studying": "brother-studying-scene-full-bleed-v1.mp4",
   "family_children_playing": "children-playing-scene-full-bleed-v1.mp4",
-  "family_father_working": "father-working-scene-full-bleed-v1.mp4",
+  "family_father_working": "father-working-scene-photo-v3.mp4",
 };
 
 const TWO_CARD_ACTION_POSTERS = {
+  "girl_is_writing": "girl_is_writing-two-card-poster-v3.webp",
   "boy_is_eating": "boy_is_eating-two-card-poster.webp",
   "boy_is_running": "boy_is_running-two-card-poster.webp",
   "boy_is_swimming": "boy_is_swimming-two-card-poster.webp",
@@ -1733,9 +1734,9 @@ const TWO_CARD_ACTION_POSTERS = {
   "family_children_playing": "family_children_playing-two-card-poster.webp",
   "family_mother_cooking": "family_mother_cooking-two-card-poster.webp",
   "family_parents_talking": "family_parents_talking-two-card-poster.webp",
-  "girl_is_sleeping": "girl_is_sleeping-two-card-poster.webp",
+  "girl_is_sleeping": "girl_is_sleeping-two-card-poster-v3.webp",
   "girl_is_walking": "girl_is_walking-two-card-poster.webp",
-  "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster.webp",
+  "they_boy_girl_are_running": "they_boy_girl_are_running-two-card-poster-v3.webp",
 };
 
 function lessonActionVideo(imageUrl, optionCount) {

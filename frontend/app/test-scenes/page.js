@@ -5,7 +5,27 @@ import { useRef, useState } from "react";
 import styles from "./scene-test.module.css";
 import { mediaUrl } from "../../lib/mediaUrl";
 
+const ACTION_MEDIA_VERSION = "20260920-action-continuity-v3";
+
 const SCENES = {
+  pairRunning: {
+    title: "They are running",
+    sentence: "They are running.",
+    still: "/lesson-assets/they_boy_girl_are_running_3x2.webp",
+    video: "/lesson-assets/boy-girl-running-scene-photo-v3.mp4",
+  },
+  fatherWorking: {
+    title: "Father working",
+    sentence: "The father is working.",
+    still: "/lesson-assets/family_father_working_3x2.webp",
+    video: "/lesson-assets/father-working-scene-photo-v3.mp4",
+  },
+  childrenStudying: {
+    title: "Children studying",
+    sentence: "The children are studying.",
+    still: "/lesson-assets/family_children_studying_3x2.webp",
+    video: "/lesson-assets/children-studying-scene-photo-v3.mp4",
+  },
   running: {
     title: "Running",
     sentence: "The boy is running.",
@@ -64,7 +84,7 @@ const SCENES = {
     title: "Writing",
     sentence: "The girl is writing.",
     still: "/lesson-assets/girl_is_writing.webp",
-    video: "/lesson-assets/girl-writing-scene-v2.mp4",
+    video: "/lesson-assets/girl-writing-scene-photo-v3.mp4",
   },
   girlWalking: {
     title: "Girl walking",
@@ -82,7 +102,7 @@ const SCENES = {
     title: "Girl sleeping",
     sentence: "The girl is sleeping.",
     still: "/lesson-assets/girl_is_sleeping.webp",
-    video: "/lesson-assets/girl-sleeping-scene-v2.mp4",
+    video: "/lesson-assets/girl-sleeping-scene-photo-v3.mp4",
   },
   manSwimming: {
     title: "Man swimming",
@@ -188,7 +208,7 @@ export default function SceneTestPage() {
         <article>
           <p>Current still</p>
           <div className={styles.imageFrame}>
-            <img src={mediaUrl(scene.still)} alt={scene.sentence} />
+            <img src={mediaUrl(scene.still, ACTION_MEDIA_VERSION)} alt={scene.sentence} />
           </div>
         </article>
         <article>
@@ -197,8 +217,8 @@ export default function SceneTestPage() {
             <video
               ref={videoRef}
               key={sceneId}
-              src={mediaUrl(scene.video)}
-              poster={mediaUrl(scene.still)}
+              src={mediaUrl(scene.video, ACTION_MEDIA_VERSION)}
+              poster={mediaUrl(scene.still, ACTION_MEDIA_VERSION)}
               muted
               autoPlay
               loop
