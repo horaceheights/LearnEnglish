@@ -116,7 +116,7 @@ import { spanishTranslationFor } from '../sentenceTranslations';
 import type { LearnerProfile, Lesson, LessonCard } from '../types';
 
 const SUCCESS_CHIME = require('../../assets/sfx/person-found-v2.mp3');
-const TRY_AGAIN_CUE = require('../../assets/sfx/gentle-miss-v2.mp3');
+const TRY_AGAIN_CUE = require('../../assets/sfx/try-again-v3.mp3');
 const HEADER_BRAND_LOGO = require('../../assets/spanglish-header-logo.png');
 const SUCCESS_CHIME_VOLUME = 0.4;
 const TRY_AGAIN_CUE_VOLUME = 0.35;
