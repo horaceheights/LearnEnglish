@@ -31,7 +31,7 @@ const VOCABULARY_STAGES = new Set([
 const PROMPT_GESTURE_REMINDER = 'Recuerda: toca la frase una vez para repetirla y dos veces para ver su traducción.';
 const DEDICATED_REPLAY_REMINDER = 'Recuerda: toca la frase para ver su traducción y el botón de sonido para escucharla otra vez.';
 const VISUAL_INSTRUCTION_REMINDER = 'Recuerda: la instrucción en español es solo visual. Usa el botón de sonido para escuchar la frase en inglés cuando esté disponible.';
-export const COMPLETION_RETRY_HELP = 'Lee la explicación y toca Reintentar para volver a formar la frase.';
+export const COMPLETION_RETRY_HELP = 'Lee la pista y toca Reintentar.';
 
 export type PromptInteractionMode = 'gestures' | 'translation-on-tap' | 'visual-instruction' | 'replay-on-tap';
 

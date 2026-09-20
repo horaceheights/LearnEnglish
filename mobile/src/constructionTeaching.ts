@@ -73,9 +73,9 @@ function teachClause(text: string): ClausePlan {
       const describes = BE.has(anchor.toLowerCase());
       const object = ({ like: 'lo que nos gusta', want: 'lo que queremos', wants: 'lo que quiere', need: 'lo que necesitamos', needs: 'lo que necesita', have: 'lo que tenemos', has: 'lo que tiene', eating: 'lo que come', drinking: 'lo que bebe', eat: 'lo que comemos', drink: 'lo que bebemos', study: 'lo que estudiamos', watching: 'lo que mira' } as Record<string, string>)[anchor.toLowerCase()];
       relations.push({ start: anchorStart, end: isProgressive ? start + 1 : end, explanation: isProgressive
-        ? `${quote(tokens[anchorStart])} es el auxiliar y ${quote(tokens[start])} el verbo principal en -ing. ${progressive[2]
-          ? `“Not” va entre ambos: ${quote(phrase(anchorStart, start + 1))}.`
-          : `Primero ${quote(tokens[anchorStart])} y después ${quote(tokens[start])}: ${quote(phrase(anchorStart, start + 1))}.`}`
+        ? progressive[2]
+          ? `${quote(tokens[anchorStart])} es el auxiliar; “not” va antes del verbo ${quote(tokens[start])}: ${quote(phrase(anchorStart, start + 1))}.`
+          : `${quote(tokens[anchorStart])} es el auxiliar y va antes del verbo ${quote(tokens[start])}: ${quote(phrase(anchorStart, start + 1))}.`
         : describes
         ? `Después de ${quote(anchor)} va ${quote(original)}, que describe al sujeto de esta afirmación.`
         : object ? `Después de ${quote(anchor)} va ${object}: ${quote(original)}.`

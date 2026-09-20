@@ -11,7 +11,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion';
 import { LessonMediaFrame } from './LessonMediaFrame';
 import { OptionMediaImage } from './OptionMediaImage';
 import { isPhoneLandscape } from '../lessonViewportLayout';
-import { COMPLETION_RETRY_HELP, lessonHelpText } from '../lessonHelp';
+import { lessonHelpText } from '../lessonHelp';
 import { ConstructionCelebration, useConstructionCelebration } from './ConstructionCelebration';
 
 type Bounds = TileBounds;
@@ -240,11 +240,11 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
         <OptionMediaImage imageUrl={card.prompt_image_url} accessibilityLabel="Imagen de la frase" />
       </LessonMediaFrame> : null}
       {result === 'correct' ? <ConstructionCelebration lift={celebrationLift} compact={landscape} /> : <>
-      {!landscape ? <Text style={styles.hint}>{result === 'wrong' ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, 'translation-on-tap') : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text> : null}
-      {(!landscape || words.length > 0 || !result) ? <View ref={bank} collapsable={false} style={[styles.bank, hover === 'bank' ? styles.target : null]} accessibilityLabel="Palabras disponibles">
+      {!landscape && result !== 'wrong' ? <Text style={styles.hint}>{showHelp ? lessonHelpText(card, 'translation-on-tap') : 'Toca o arrastra. Devuelve aquí las palabras para corregir.'}</Text> : null}
+      {(words.length > 0 || result !== 'wrong') ? <View ref={bank} collapsable={false} style={[styles.bank, hover === 'bank' ? styles.target : null]} accessibilityLabel="Palabras disponibles">
         {words.map(option => <WordTile key={option.id} {...common} id={option.id} label={option.label || ''}
           register={() => {}} active={false} hidden={moving?.id === option.id} correct={false} />)}
-        {!words.length ? <Text style={styles.hint}>{result === 'wrong' ? 'Lee la explicación de abajo.' : 'Devuelve aquí una palabra para corregir.'}</Text> : null}
+        {!words.length ? <Text style={styles.hint}>Devuelve aquí una palabra para corregir.</Text> : null}
       </View> : null}
       {!landscape && result !== 'wrong' ? <View style={styles.controls}>
         <Pressable style={styles.control} disabled={locked || !history.current.length} accessibilityRole="button" accessibilityLabel="Deshacer último movimiento"
@@ -253,9 +253,9 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
       <Text maxFontSizeMultiplier={landscape ? 1.3 : undefined} accessibilityLiveRegion="polite"
         adjustsFontSizeToFit={landscape} minimumFontScale={landscape ? 1 / Math.min(viewport.fontScale, 1.3) : undefined}
         numberOfLines={landscape ? 12 : undefined} style={[styles.feedback, landscape ? styles.feedbackPhoneLandscape : null]}
-        accessibilityLabel={result === 'wrong' ? `Respuesta incorrecta. ¡Ánimo! Inténtalo de nuevo. ${mistakeHint}` : undefined}
+        accessibilityLabel={result === 'wrong' ? `Respuesta incorrecta. ${mistakeHint}` : undefined}
         onLayout={event => setFeedbackHeight(Math.ceil(event.nativeEvent.layout.height))}>
-        {result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{`¡Ánimo! Inténtalo de nuevo.\n${mistakeHint}`}</> : ' '}
+        {result === 'wrong' ? <><Text style={styles.wrongIcon}>× </Text>{mistakeHint}</> : ' '}
       </Text>
       {!landscape && result === 'wrong' ? <Pressable accessibilityRole="button" accessibilityLabel="Reintentar"
         style={[styles.control, styles.retryControl]} onPress={() => { history.current = []; cancel(); stopFlight(); onRetry(); }}>

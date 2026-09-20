@@ -140,20 +140,20 @@ export default function SentenceConstruction({ card, selected, result, onChange,
     <div className={`${styles.card} ${result === "correct" ? styles.successCard : ""}`}>
       <div className={styles.imageFrame}><img src={imageSrc} alt="Imagen de la frase" /></div>
       {result === "correct" ? <ConstructionCelebration /> : <>
-      <p className={styles.instruction}>{result === "wrong" ? COMPLETION_RETRY_HELP : showHelp ? lessonHelpText(card, "translation-on-tap") : "Toca o arrastra. Devuelve aquí las palabras para corregir."}</p>
+      {result !== "wrong" ? <p className={styles.instruction}>{showHelp ? lessonHelpText(card, "translation-on-tap") : "Toca o arrastra. Devuelve aquí las palabras para corregir."}</p> : null}
       <span id="word-correction-help" className={styles.srOnly}>{result === "wrong" ? COMPLETION_RETRY_HELP : "Toca para devolver. Con el teclado, usa las flechas para mover y Suprimir para devolver."}</span>
-      <div ref={bank} className={`${styles.bank} ${hover === "bank" ? styles.target : ""}`} aria-label="Palabras disponibles">
+      {(words.length > 0 || result !== "wrong") ? <div ref={bank} className={`${styles.bank} ${hover === "bank" ? styles.target : ""}`} aria-label="Palabras disponibles">
         {words.map(option => <button key={option.id} type="button"
           ref={element => { if (element) wordRefs.current.set(option.id, element); else wordRefs.current.delete(option.id); }}
           className={`${styles.tile} ${styles[`tone${card.options.findIndex(word => word.id === option.id) % 3}`]}`} disabled={locked} aria-label={`Ficha ${option.label}`}
           {...handlers(option.id, option.label)}><span style={{ visibility: moving?.id === option.id ? "hidden" : "visible" }}>{option.label}</span></button>)}
-        {!words.length ? <p className={styles.instruction}>{result === "wrong" ? "Lee la explicación de abajo." : "Devuelve aquí una palabra para corregir."}</p> : null}
-      </div>
+        {!words.length ? <p className={styles.instruction}>Devuelve aquí una palabra para corregir.</p> : null}
+      </div> : null}
       {result !== "wrong" ? <div className={styles.controls}>
         <button type="button" disabled={locked || !history.current.length} aria-label="Deshacer último movimiento"
           onClick={() => { const previous = history.current.pop(); if (previous && !locked) onChange(previous); }}>Deshacer</button>
       </div> : null}
-      <div className={styles.feedback} role="status">{result === "wrong" ? <><div><span className={styles.wrongIcon} role="img" aria-label="Respuesta incorrecta">×</span> ¡Ánimo! Inténtalo de nuevo.</div><div>{sentenceHint(card, slots)}</div></> : ""}</div>
+      <div className={styles.feedback} role="status">{result === "wrong" ? <><span className={styles.wrongIcon} role="img" aria-label="Respuesta incorrecta">×</span> {sentenceHint(card, slots)}</> : ""}</div>
       {result === "wrong" ? <div className={styles.controls}><button className={styles.retry} type="button"
         onClick={() => { history.current = []; cancel(); onRetry(); }}>Reintentar</button></div> : null}
       </>}

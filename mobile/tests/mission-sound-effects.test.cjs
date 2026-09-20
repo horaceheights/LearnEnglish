@@ -116,5 +116,5 @@ test('mission semantics are metadata-driven and retain visible equivalents', () 
   assert.match(soundEffects, /card\.stage === 'Speak'[\s\S]*?'voice-stamp'[\s\S]*?'page-restored'/);
   assert.doesNotMatch(soundEffects, /lesson-10-family-mission/);
   assert.match(cardView, /accessibilityLiveRegion="polite"/);
-  assert.match(cardView, /result === 'correct'[\s\S]*?Inténtalo de nuevo/);
+  assert.match(cardView, /result === 'correct'[\s\S]*?Cuando te equivocas, también aprendes/);
 });

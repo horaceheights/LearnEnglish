@@ -34,7 +34,7 @@ const progressiveVerbs = ['eating', 'drinking', 'reading', 'writing', 'running',
 
 test('She sleeping is teaches auxiliary + main verb, not a subject description', () => {
   const result = hint('She is sleeping.', 1, 2);
-  assert.equal(result, 'Pusiste “sleeping” donde va “is”. “is” es el auxiliar y “sleeping” el verbo principal en -ing. Primero “is” y después “sleeping”: “is sleeping”.');
+  assert.equal(result, 'Pusiste “sleeping” donde va “is”. “is” es el auxiliar y va antes del verbo “sleeping”: “is sleeping”.');
   assert.match(hint('She is sleeping.', 0, 1), /el sujeto “She” va antes de “is”, el auxiliar del verbo “sleeping”/);
   assert.doesNotMatch(hint('She is sleeping.', 0, 2), /descrip|describe/);
   const partial = { ...construction('She is sleeping.'), interaction_type: 'complete2', prompt: 'She ___ ___.',
@@ -46,15 +46,14 @@ test('every reviewed progressive action keeps auxiliary, subject and negation ro
   for (const action of progressiveVerbs) for (const [subject, auxiliary] of [['I', 'am'], ['She', 'is'], ['They', 'are']]) {
     const affirmative = `${subject} ${auxiliary} ${action}.`;
     const verbHint = hint(affirmative, 1, 2);
-    assert.ok(verbHint.includes(`“${auxiliary}” es el auxiliar y “${action}” el verbo principal en -ing`), verbHint);
+    assert.ok(verbHint.includes(`“${auxiliary}” es el auxiliar y va antes del verbo “${action}”`), verbHint);
     assert.doesNotMatch(verbHint, /descrip|describe|qué es el sujeto/);
     const subjectHint = hint(affirmative, 0, 1);
     assert.ok(subjectHint.includes(`el sujeto “${subject}” va antes de “${auxiliary}”, el auxiliar`), subjectHint);
     const negative = `${subject} ${auxiliary} not ${action}.`;
     for (const pair of [[1, 3], [2, 3], [1, 2]]) {
       const result = hint(negative, ...pair);
-      assert.ok(result.includes(`“${auxiliary}” es el auxiliar y “${action}” el verbo principal en -ing`), result);
-      assert.ok(result.includes(`“Not” va entre ambos: “${auxiliary} not ${action}”`), result);
+      assert.ok(result.includes(`“${auxiliary}” es el auxiliar; “not” va antes del verbo “${action}”`), result);
       assert.doesNotMatch(result, /descrip|describe/);
     }
   }
@@ -146,6 +145,8 @@ test('a wrong construction waits for explicit retry while listening and missions
     assert.match(source, /Reintentar/);
     assert.match(source, /styles\.wrongIcon[^<]*>×/, 'A wrong grade needs an explicit X, not color alone.');
     assert.match(source, /Respuesta incorrecta/, 'The wrong state needs an accessible label.');
+    assert.match(source, /result !== ['"]wrong['"] \? <(?:Text|p)/, 'The wrong state must not repeat the instruction above the hint.');
+    assert.doesNotMatch(source, /Lee la explicación de abajo/, 'The empty word bank must not repeat the feedback.');
     assert.match(source, /result === ['"]correct['"] \? <ConstructionCelebration/, 'Only a graded correct answer may celebrate.');
   }
   assert.match(overlay, /isReminder \? 'Si necesitas ayuda en el futuro, solo toca el botón' : message/);
@@ -174,7 +175,7 @@ test('every generated construction has explanations for every slot and every leg
         const actionSlot = plan.tokenSlots.indexOf(actionIndex);
         if (auxiliarySlot < 0 || actionSlot < 0) return;
         const result = sentenceHint(card, swap(card, auxiliarySlot, actionSlot));
-        assert.match(result, /es el auxiliar y .+ el verbo principal en -ing/, `${context}: ${result}`);
+        assert.match(result, /es el auxiliar(?: y va antes del verbo|; “not” va antes del verbo)/, `${context}: ${result}`);
         assert.doesNotMatch(result, /descrip|describe|qué es el sujeto/, `${context}: ${result}`);
         progressiveChecks++;
       });

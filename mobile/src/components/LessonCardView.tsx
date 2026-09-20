@@ -72,7 +72,6 @@ type Props = {
   selectedId: string | null;
   selectedIds?: string[];
   result: 'correct' | 'wrong' | null;
-  gentleFeedback: boolean;
   showHelp: boolean;
   onSelect: (optionId: string) => void;
   onPronunciationAttempted?: () => void;
@@ -106,7 +105,6 @@ export function LessonCardView({
   selectedId,
   selectedIds = EMPTY_SELECTED_IDS,
   result,
-  gentleFeedback,
   showHelp,
   onSelect,
   onPronunciationAttempted,
@@ -498,9 +496,7 @@ export function LessonCardView({
               ]}>
                 {result === 'correct'
                   ? 'Correcto. Vamos a la siguiente tarjeta…'
-                  : gentleFeedback
-                    ? '¡Tú puedes! Inténtalo de nuevo.'
-                    : '¡Ánimo! Inténtalo de nuevo.'}
+                  : 'Cuando te equivocas, también aprendes.'}
               </Text>
               {result === 'wrong' && mistakeHint ? (
                 <Text maxFontSizeMultiplier={1.3} style={[
