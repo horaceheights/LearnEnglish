@@ -385,7 +385,8 @@ function imageChoiceContrast(card: LessonCard, correctId: string, wrongId: strin
   const wrong = imageOptionConcept(wrongId);
   if (!correct || !wrong || correct === wrong) return '';
   if (IMAGE_CHOICE_MEANINGS[correct] && IMAGE_CHOICE_MEANINGS[wrong]) {
-    return `Elegiste ${IMAGE_CHOICE_MEANINGS[wrong]}; aquí corresponde ${IMAGE_CHOICE_MEANINGS[correct]}.`;
+    const cue = /listen/i.test(card.stage) ? 'la frase escuchada' : 'la frase';
+    return `Elegiste “${IMAGE_CHOICE_MEANINGS[wrong]}”; ${cue} pide “${IMAGE_CHOICE_MEANINGS[correct]}”.`;
   }
   const expected = correct.split(' ');
   const selected = wrong.split(' ');
