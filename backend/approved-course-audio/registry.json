@@ -106376,6 +106376,73 @@
           "basis": "User approved the pinned character voices and unchanged ElevenLabs parameters on 2026-08-31."
         }
       }
+    },
+    "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84": {
+      "file": "takes/f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84.mp3",
+      "audio_sha256": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "bytes": 15090,
+      "text": "Playing",
+      "compatible_speaker_roles": [
+        "answer",
+        "teacher"
+      ],
+      "profile_id": "a1-elevenlabs-character-cast-v1",
+      "compatible_modes": [
+        "prompt",
+        "pronunciation_slow"
+      ],
+      "compatible_variants": [
+        "answer",
+        "prompt",
+        "split-ing"
+      ],
+      "provenance": {
+        "provider": "elevenlabs-premium",
+        "model_id": "eleven_multilingual_v2",
+        "narrator": "female-teacher",
+        "voice_id": "XfNU2rGpBa01ckF309OY",
+        "provider_output_format": "mp3_44100_128",
+        "seed": 1101,
+        "settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.8,
+          "style": 0.0,
+          "use_speaker_boost": true,
+          "speed": 1.0
+        },
+        "source": "elevenlabs-offline-render",
+        "stored_media": {
+          "container": "mp3",
+          "codec": "mp3float",
+          "sample_rate_hz": 44100,
+          "channels": 1,
+          "bit_rate_bps": 128000
+        },
+        "processing": [
+          "Stored the complete ElevenLabs MP3 response byte-for-byte; no trimming, retiming, normalization or transcoding."
+        ],
+        "generated_at": "2026-09-20T16:46:11.870013+00:00",
+        "approved_at": "2026-09-20T16:49:10.754379+00:00",
+        "request_id": "hIo55378Vh7quXwqc3Q8",
+        "trace_id": "ee624754dbb2a1247b747b3026c9cff1",
+        "character_cost": 4,
+        "incremental_character_cost": 4,
+        "character_cost_upper_bound": 8,
+        "provider_requests": [
+          {
+            "text": "Playing.",
+            "model_id": "eleven_multilingual_v2",
+            "request_id": "hIo55378Vh7quXwqc3Q8",
+            "trace_id": "ee624754dbb2a1247b747b3026c9cff1",
+            "character_cost": 4,
+            "character_cost_source": "provider-header"
+          }
+        ],
+        "review": {
+          "status": "fresh-provider-preview-candidate",
+          "basis": "Fresh original teacher take at natural speed requested by the user after rejecting hand-edited timing. Human listening feedback is pending; the agent cannot hear audio in this session."
+        }
+      }
     }
   },
   "bindings": {
@@ -134289,10 +134356,20 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
     },
+    "lesson-6-family-actions-c001-answer-0b039959a602912a7dad": {
+      "take_id": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "approved_at": "2026-09-20T16:49:10.754379+00:00",
+      "approval_note": "Fresh unedited natural-speed Playing recording for Lesson 1.6; scoped checksum/asset validation preserves the actual provider settings."
+    },
     "lesson-6-family-actions-c001-answer-b15c888fb683218bfd3f": {
       "take_id": "7c64fb9b9062ccffdbee57a0d0fa688f3d4a3f5a7d10135695c32906fab86684",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Generated offline with the approved character voice and unchanged pinned parameters."
+    },
+    "lesson-6-family-actions-c001-prompt-d72cd4a2415d36362874": {
+      "take_id": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "approved_at": "2026-09-20T16:49:10.754379+00:00",
+      "approval_note": "Fresh unedited natural-speed Playing recording for Lesson 1.6; scoped checksum/asset validation preserves the actual provider settings."
     },
     "lesson-6-family-actions-c002-answer-bd369d8099b39f9176bd": {
       "take_id": "32e998ec00c1a6b082f4ccf1f86d741a40e70b6782257b5a0fa5f8864ee410c3",
@@ -134339,6 +134416,16 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-6-family-actions-c011-answer-332dbbc31321102a9d39": {
+      "take_id": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "approved_at": "2026-09-20T16:49:10.754379+00:00",
+      "approval_note": "Fresh unedited natural-speed Playing recording for Lesson 1.6; scoped checksum/asset validation preserves the actual provider settings."
+    },
+    "lesson-6-family-actions-c011-prompt-693498fe1cba86f5ae5c": {
+      "take_id": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "approved_at": "2026-09-20T16:49:10.754379+00:00",
+      "approval_note": "Fresh unedited natural-speed Playing recording for Lesson 1.6; scoped checksum/asset validation preserves the actual provider settings."
+    },
     "lesson-6-family-actions-c013-answer-e5a1212074728efe07f9": {
       "take_id": "32e998ec00c1a6b082f4ccf1f86d741a40e70b6782257b5a0fa5f8864ee410c3",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -134364,6 +134451,16 @@
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
     },
+    "lesson-6-family-actions-c021-answer-af898003d1febd1e6e8b": {
+      "take_id": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "approved_at": "2026-09-20T16:49:10.754379+00:00",
+      "approval_note": "Fresh unedited natural-speed Playing recording for Lesson 1.6; scoped checksum/asset validation preserves the actual provider settings."
+    },
+    "lesson-6-family-actions-c021-prompt-969ec0b542c2bb8630ff": {
+      "take_id": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "approved_at": "2026-09-20T16:49:10.754379+00:00",
+      "approval_note": "Fresh unedited natural-speed Playing recording for Lesson 1.6; scoped checksum/asset validation preserves the actual provider settings."
+    },
     "lesson-6-family-actions-c023-answer-c0006d11e917df119664": {
       "take_id": "32e998ec00c1a6b082f4ccf1f86d741a40e70b6782257b5a0fa5f8864ee410c3",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
@@ -134388,6 +134485,16 @@
       "take_id": "7c64fb9b9062ccffdbee57a0d0fa688f3d4a3f5a7d10135695c32906fab86684",
       "approved_at": "2026-08-31T21:34:04.507381+00:00",
       "approval_note": "Reuse the exact reviewed take for the same pinned voice and spoken text."
+    },
+    "lesson-6-family-actions-c029-answer-8287e83941590a8a31cd": {
+      "take_id": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "approved_at": "2026-09-20T16:49:10.754379+00:00",
+      "approval_note": "Fresh unedited natural-speed Playing recording for Lesson 1.6; scoped checksum/asset validation preserves the actual provider settings."
+    },
+    "lesson-6-family-actions-c029-prompt-50fc0ef9e25386bc4ace": {
+      "take_id": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
+      "approved_at": "2026-09-20T16:49:10.754379+00:00",
+      "approval_note": "Fresh unedited natural-speed Playing recording for Lesson 1.6; scoped checksum/asset validation preserves the actual provider settings."
     },
     "lesson-6-family-actions-c031-prompt-20428df3bdf4b22408b3": {
       "take_id": "c8a2f7775035752a28a0b2c3e08db8c55cf85b33de9d6d1838049b0f32aad48c",
