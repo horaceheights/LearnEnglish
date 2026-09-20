@@ -38,7 +38,7 @@ const expectedFiles = [
   'chapter-arrival-v2.mp3',
   'voice-confirm-v2.mp3',
   'mission-finale-v2.mp3',
-  'gentle-miss-v2.mp3',
+  'try-again-v3.mp3',
 ];
 
 test('mission cues are versioned bundled assets with no runtime generation path', () => {
@@ -51,7 +51,7 @@ test('mission cues are versioned bundled assets with no runtime generation path'
 
 test('every global feedback and recording cue uses the reviewed static replacements', () => {
   assert.match(lessonScreen, /SUCCESS_CHIME = require\('\.\.\/\.\.\/assets\/sfx\/person-found-v2\.mp3'\)/);
-  assert.match(lessonScreen, /TRY_AGAIN_CUE = require\('\.\.\/\.\.\/assets\/sfx\/gentle-miss-v2\.mp3'\)/);
+  assert.match(lessonScreen, /TRY_AGAIN_CUE = require\('\.\.\/\.\.\/assets\/sfx\/try-again-v3\.mp3'\)/);
   assert.match(pronunciationPractice, /READY_CUE = require\('\.\.\/\.\.\/assets\/sfx\/speaking-turn-v3\.mp3'\)/);
   assert.match(pronunciationPractice, /SUCCESS_CHIME = require\('\.\.\/\.\.\/assets\/sfx\/voice-confirm-v2\.mp3'\)/);
   assert.match(feedbackSurvey, /READY_CUE = require\('\.\.\/\.\.\/assets\/sfx\/speaking-turn-v3\.mp3'\)/);
