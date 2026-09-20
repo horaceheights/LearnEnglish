@@ -7,8 +7,8 @@
     "S1"
   ],
   "text": "Playing",
-  "audio_sha256": "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84",
-  "bytes": 15090,
+  "audio_sha256": "698ad5dee9464665b2b6bb627922b2e7a16b66a93a71e8a47f6e5c1ee4a17587",
+  "bytes": 14254,
   "asset_ids": [
     "lesson-6-family-actions-c001-answer-0b039959a602912a7dad",
     "lesson-6-family-actions-c001-prompt-d72cd4a2415d36362874",
@@ -21,45 +21,46 @@
   ],
   "revision": 2,
   "request": {
-    "requested_at": "2026-09-20T16:46:09.643107+00:00",
+    "requested_at": "2026-09-20T16:52:44.909808+00:00",
     "voice_id": "XfNU2rGpBa01ckF309OY",
     "output_format": "mp3_44100_128",
     "request": {
-      "text": "Playing.",
-      "model_id": "eleven_multilingual_v2",
+      "text": "<phoneme alphabet=\"cmu-arpabet\" ph=\"P L EY1 IH0 NG\">Playing</phoneme>.",
+      "model_id": "eleven_flash_v2",
       "seed": 1101,
       "voice_settings": {
         "stability": 0.55,
         "similarity_boost": 0.8,
         "style": 0.0,
         "use_speaker_boost": true,
-        "speed": 1.0
-      }
+        "speed": 0.85
+      },
+      "language_code": "en"
     },
     "provider_request_limit": 1,
-    "max_character_cost": 8,
+    "max_character_cost": 80,
     "post_processing": "none",
-    "purpose": "Fresh natural standalone Playing requested by user after rejecting digital timing edit."
+    "purpose": "Fresh provider output with explicit primary stress on PLAY and unstressed ing; previous raw Multilingual v2 take rejected as unclear."
   },
   "response": {
     "status": 200,
-    "request_id": "hIo55378Vh7quXwqc3Q8",
-    "trace_id": "ee624754dbb2a1247b747b3026c9cff1",
-    "character_cost": "4",
-    "received_at": "2026-09-20T16:46:11.870013+00:00"
+    "request_id": "0Ta5Kuh0x8P5j9JVteuT",
+    "trace_id": "3ebbada3f0cad1e08162321c3970fea9",
+    "character_cost": "2",
+    "received_at": "2026-09-20T16:52:45.647414+00:00"
   },
   "post_processing": "none",
-  "human_listening_review": "rejected: unclear; do not release",
-  "rejected_approach": "The user rejected the digitally retimed sample. None of those edited bytes or bindings is shipped.",
-  "scope_note": "Only eight standalone Playing prompt/answer assets in Lesson 1.6. Other lessons, full sentences, source MP3s and historical IDs are preserved.",
-  "next_candidate": {
-    "sha256": "698ad5dee9464665b2b6bb627922b2e7a16b66a93a71e8a47f6e5c1ee4a17587",
-    "model_id": "eleven_flash_v2",
-    "pronunciation": "P L EY1 IH0 NG",
-    "request_id": "0Ta5Kuh0x8P5j9JVteuT",
-    "character_cost": 2,
-    "post_processing": "none",
-    "human_listening_review": "pending",
-    "local_path": "backend/approved-course-audio/.render-staging/playing-phoneme/playing-phoneme.mp3"
-  }
+  "human_listening_review": {
+    "status": "accepted",
+    "feedback": "yes much better, just dont hear the G at the end",
+    "explanation": "English playing ends with the single nasal phoneme /ŋ/, not a separate hard /g/.",
+    "approved_at": "2026-09-20T16:55:38.009419+00:00"
+  },
+  "rejected_approaches": [
+    "Digitally retimed candidate: rejected by user, never published.",
+    "Fresh Multilingual v2 take f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84: rejected as unclear; preserved unbound for audit."
+  ],
+  "total_generation_character_cost": 6,
+  "accepted_take_character_cost": 2,
+  "scope_note": "Only eight standalone Playing prompt/answer assets in Lesson 1.6. Other lessons, full sentences, source MP3s and historical IDs are preserved."
 }

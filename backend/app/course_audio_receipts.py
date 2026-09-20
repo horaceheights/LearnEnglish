@@ -10,17 +10,22 @@ from typing import Any
 
 import av
 
-from .course_audio_profile import NEUTRAL_SPEAKER_ROLES, render_profile_for
+from .course_audio_profile import (
+    NEUTRAL_SPEAKER_ROLES,
+    PLAYING_CORRECTION_MODEL_ID,
+    PLAYING_CORRECTION_SPEED,
+    render_profile_for,
+)
 from .schemas import CourseAudioAsset
 
 
 RECEIPT_VERSION = 1
 LEGACY_STATIC_SOURCE = "legacy-static-manifest"
 REVIEWED_EXACT_OVERRIDE_SOURCE = "reviewed-exact-audio-override"
-# This fresh provider take uses natural speed instead of the course's 0.70.
-# Pin both bytes and canonical bindings: this is not a general speed override.
+# This fresh take uses Flash v2's pronunciation control and speed 0.85.
+# Pin bytes and bindings: this is not a general model or speed override.
 NATURAL_PLAYING_AUDIO_SHA256 = (
-    "f98deab582827118451c95ba01622087d39b83c996579aa28d21e7f90afe9b84"
+    "698ad5dee9464665b2b6bb627922b2e7a16b66a93a71e8a47f6e5c1ee4a17587"
 )
 NATURAL_PLAYING_ASSET_IDS = frozenset({
     "lesson-6-family-actions-c001-prompt-d72cd4a2415d36362874",
@@ -163,7 +168,8 @@ def _profile_mismatch(
 ) -> str | None:
     expected = render_profile_for(asset.speaker_role, asset.mode).as_provenance_contract()
     if audio_sha256 == NATURAL_PLAYING_AUDIO_SHA256 and asset.id in NATURAL_PLAYING_ASSET_IDS:
-        expected["settings"]["speed"] = 1.0
+        expected["model_id"] = PLAYING_CORRECTION_MODEL_ID
+        expected["settings"]["speed"] = PLAYING_CORRECTION_SPEED
     for key, value in expected.items():
         if provenance.get(key) != value:
             return key
