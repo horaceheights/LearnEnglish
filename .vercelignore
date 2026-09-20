@@ -51,14 +51,30 @@ mobile/tests/
 # directory exclusion cannot be undone by a later negation.
 frontend/public/lesson-assets/*.webp
 frontend/public/lesson-assets/*.png
-# ...except the two-card posters, which lessonTwoCardActionPosterSrc requests
-# root-relative from this origin. Videos (*.mp4) are not excluded at all: both
-# lessonVideoSrc and the mobile app's VIDEO_BASE_URL point here.
-!frontend/public/lesson-assets/*-two-card-poster.webp
+# Videos (*.mp4) are not excluded: mobile's VIDEO_BASE_URL still points here.
+# The two-card posters used to be negated back in for lessonTwoCardActionPosterSrc;
+# that call site now resolves through mediaUrl, so they are excluded below with
+# the rest of the media this origin no longer serves.
 
 # Superseded copy. No code anywhere in the repository references this directory;
 # the posters actually used live in lesson-assets under the same names.
 frontend/public/lesson-video-posters/
+
+# Everything the web app requests now goes through frontend/lib/mediaUrl.js and
+# resolves to the object store, so this origin no longer serves media at all --
+# these were shipping in every build and being fetched from nowhere.
+#
+# *.mp4 is the exception and stays: mobile/src/config.ts hardcodes VIDEO_BASE_URL
+# to this origin, and installed apps keep asking for it until those versions age
+# out. spanglish-logo.* stays too, being the one asset still referenced
+# root-relative rather than through the resolver.
+#
+# The cost of removing these is the rollback: with NEXT_PUBLIC_MEDIA_BASE_URL
+# unset, mediaUrl falls back to root-relative paths that will now 404. Unsetting
+# it is no longer a complete undo -- restoring these three lines is part of it.
+frontend/public/audio-cache/
+frontend/public/sfx/
+frontend/public/lesson-assets/*-two-card-poster.webp
 
 # Local generated output. Neither is tracked, so a Git-integrated build never
 # sees them, but `vercel deploy` from a workstation uploads the working

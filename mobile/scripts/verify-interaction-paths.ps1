@@ -53,6 +53,8 @@ try {
   if ($LASTEXITCODE -ne 0) { throw 'Falló la verificación visual vinculada de los blancos de la misión.' }
   & node --test tests/mission-object-scenes.test.cjs tests/mission-presentation-parity.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Mission object scenes and cross-client presentation parity failed.' }
+  & node --test tests/mission-photo-edits.test.cjs
+  if ($LASTEXITCODE -ne 0) { throw 'Mission photo edit and reviewed marker bindings failed.' }
   & node tests/mission-phone-landscape.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Mission phone landscape checks failed.' }
   & node --test tests/mission-native-layout.test.mjs
@@ -115,6 +117,9 @@ try {
   & node tests/lesson-media-frame.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la comprobación global de marcos para imágenes de lecciones.' }
 
+  & node --test tests/lesson-viewport-native.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Native phone viewport fitting failed.' }
+
   & node tests/image-choice-feedback-layout.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de espacio para pistas bajo opciones visuales.' }
 
@@ -132,6 +137,9 @@ try {
 
   & node tests/recognize-instruction-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la instrucción compacta para elegir frases.' }
+
+  & node --test tests/spanish-lesson-headers.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló el encabezado en español de todas las unidades.' }
 
   & node tests/speak-instruction-header.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló la protección de la instrucción compacta de pronunciación.' }
@@ -221,6 +229,9 @@ try {
 
   & node --test tests/celebration-mission-ui.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el contrato de interfaz de la misión de celebración.' }
+
+  & node --test tests/mission-voice-feedback.test.mjs
+  if ($LASTEXITCODE -ne 0) { throw 'Falló la respuesta de voz de las misiones: sonido, micrófono y animación.' }
 
   & node --test tests/mission-chapter-break.test.cjs
   if ($LASTEXITCODE -ne 0) { throw 'Falló el cierre de acto de la misión.' }

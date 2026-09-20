@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v8",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "0.15",
+    "expected_cost_usd": "0.043",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "A highly photorealistic full-frame landscape photograph, 1536x1024. No drawing, icons, collage, inset, decorative border or floating captions. The explicitly requested price is printed on a real physical card.",
+  "assets": [
+    {
+      "id": "u5-milk-four-dollars",
+      "runtime_filename": "a1_photo_u5_milk_four_dollars_v1.webp",
+      "prompt": "One real clear drinking glass full of white milk on a pale stone counter. Immediately in front of the glass at its base is a small physical yellow price card displaying ONLY $4 in large crisp black type. Milk and whole $4 card are stacked vertically at the exact center, together occupying no more than 35 percent of landscape width. No other food or drinks, no bottles, logos or words. Natural light, eye-level close photograph with ample empty countertop margins. Both the complete glass and the full $4 must survive a centered portrait crop.",
+      "expected_description": "One real clear drinking glass full of white milk on a pale stone counter. Immediately in front of the glass at its base is a small physical yellow price card displaying ONLY $4 in large crisp black type. Milk and whole $4 card are stacked vertically at the exact center, together occupying no more than 35 percent of landscape width. No other food or drinks, no bottles, logos or words. Natural light, eye-level close photograph with ample empty countertop margins. Both the complete glass and the full $4 must survive a centered portrait crop.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "inventory_index": 499,
+        "old_filename": "a1_scene_milk-4_1e7e795.webp",
+        "old_sha256": "a159e7211e3803f2add6cd0c836fefc3cd11dc389c6453d847eba5f5c6fcf70c",
+        "old_observation": "Directly inspected remaining milk-price option shows an outlined cartoon bottle beside $4, whereas neighboring price options use real food photos.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-7-prices",
+            "lesson": "5.7",
+            "path": "backend/lessons/unit_5/lesson-5-7-prices.yaml",
+            "pointer": "/cards/8/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-5-7-prices",
+            "lesson": "5.7",
+            "path": "backend/lessons/unit_5/lesson-5-7-prices.yaml",
+            "pointer": "/cards/9/options/1/image_url"
+          }
+        ]
+      }
+    }
+  ]
+}

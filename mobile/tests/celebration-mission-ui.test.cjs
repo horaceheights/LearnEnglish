@@ -99,9 +99,11 @@ assert.equal(missionVoiceProgress(mission, 21).step, 4);
 assert.match(lessonCard, /Array\.from\(\{ length: missionVoiceGate\.total \}/);
 assert.match(lessonCard, /presentation=\{isMissionVoiceGate \? 'mission-voice-gate' : 'standard'\}/);
 assert.match(pronunciation, /presentation === 'mission-voice-gate'/);
-assert.match(pronunciation, /answer=\{phase === 'model' \? null : phrase\}/);
+// The written answer stays hidden while the question plays, then carries the live
+// syllable recognition and final word grade (see mission-voice-feedback.test.mjs).
+assert.match(pronunciation, /answer=\{phase === 'model' \? null : missionAnswerSegments\(/);
 assert.match(voicePresentation, /answer && !unavailable \? <Text/);
-assert.match(pronunciation, /phase === 'listening' \|\| phase === 'ready'[\s\S]*?'Lee la frase en voz alta\.'/);
+assert.match(pronunciation, /phase === 'ready' \? 'Prepárate…'\s*: phase === 'listening' \? 'Lee la frase en voz alta\.'/);
 assert.match(pronunciation, /Mission recall requires exactly one question turn/);
 assert.match(pronunciation, /phase === 'model' \? \(audioTurns\?\.\[0\]\?\.turn\.image_url/);
 assert.match(pronunciation, /mediaAspectRatio=\{missionVoiceGate && !isLandscape \? 1\.35 : 3 \/ 2\}/);

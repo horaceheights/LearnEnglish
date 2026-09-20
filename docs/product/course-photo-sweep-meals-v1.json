@@ -1,0 +1,1053 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v4",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "2.00",
+    "expected_cost_usd": "1.41",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "Use case: photorealistic-natural. One exceptionally lifelike photograph for a beginner English course. Real skin texture, natural anatomy, authentic food, natural lighting, real setting. No cartoon, illustration, vector, CGI, inset, collage, border, floating icons, arrows or caption. Landscape 3:2 full bleed. Very important: the phone also shows a centered narrow 4:5 crop. Arrange ALL required faces, hands, food items and any required real clock vertically and compactly in the middle HALF of the landscape width. Leave abundant expendable scene background on both left and right. Faces above food; clock immediately below or above food, never far off to a side. Use a slightly elevated viewpoint for food counts and a clear sufficiently large clock display where requested. All answer-critical elements must remain immediately recognizable on a phone. Never invent extra people or duplicate counted foods. Physical clock or storefront text is allowed only when explicitly requested; otherwise no text.",
+  "assets": [
+    {
+      "id": "u4-review-bedroom",
+      "runtime_filename": "a1_photo_u4_review_bedroom_v1.webp",
+      "prompt": "A real bright bedroom with one clearly visible single bed, pillow, bedside table and wardrobe. Fresh review room with blue wall, oblique view. Bed centered and unmistakable, no dining chairs or computer. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "A real bright bedroom with one clearly visible single bed, pillow, bedside table and wardrobe. Fresh review room with blue wall, oblique view. Bed centered and unmistakable, no dining chairs or computer.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 135,
+            "old_filename": "a1_scene_bedroom_009e058.webp",
+            "old_sha256": "ab24b18ef751a6f275cd542690c85817e4fa507d1f896f67c04cba1e63b40e41",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/0/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/4/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/12/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/13/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/24/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-review-computer",
+      "runtime_filename": "a1_photo_u4_review_computer_v1.webp",
+      "prompt": "One real open laptop on a compact desk against a blue wall, screen and keyboard centered and fully visible. Fresh review angle, no other screens. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "One real open laptop on a compact desk against a blue wall, screen and keyboard centered and fully visible. Fresh review angle, no other screens.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 212,
+            "old_filename": "a1_scene_computer_c60266a.webp",
+            "old_sha256": "ab809dee9922439d4390547122884f58c4339d51058694634254f3a37b2b7107",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/5/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-chicken-dinner",
+      "runtime_filename": "a1_photo_u5_chicken_dinner_v1.webp",
+      "prompt": "Exactly two adults sitting close together eating pieces from a whole roast CHICKEN on a shared platter beneath their faces. Clear roast chicken shape, no rice. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM.",
+      "expected_description": "Exactly two adults sitting close together eating pieces from a whole roast CHICKEN on a shared platter beneath their faces. Clear roast chicken shape, no rice. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 237,
+            "old_filename": "a1_scene_dinner_78cbc77.webp",
+            "old_sha256": "546039d404fd561a55ebf25ea5eaad41f257f705f2e04660a37580a3dcc5fb7e",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/2/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/12/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/24/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-chicken-lunch",
+      "runtime_filename": "a1_photo_u5_chicken_lunch_v1.webp",
+      "prompt": "Exactly two adults sitting close together eating pieces from a whole roast CHICKEN on a shared platter beneath their faces. Clear roast chicken shape, no rice. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "expected_description": "Exactly two adults sitting close together eating pieces from a whole roast CHICKEN on a shared platter beneath their faces. Clear roast chicken shape, no rice. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 192,
+            "old_filename": "a1_scene_chicken-for-lunch_122f1fb.webp",
+            "old_sha256": "017a849859c768af426f6efac61983355fd078babaef466326cd43281a8a8898",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/14/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-coffee-breakfast",
+      "runtime_filename": "a1_photo_u5_coffee_breakfast_v1.webp",
+      "prompt": "One adult drinking dark black COFFEE from a clear glass cup, with a small recognizable coffee pot immediately beside it. No tea bag. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "expected_description": "One adult drinking dark black COFFEE from a clear glass cup, with a small recognizable coffee pot immediately beside it. No tea bag. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 202,
+            "old_filename": "a1_scene_coffee-for-breakfast_54853c5_four-card.webp",
+            "old_sha256": "a37a666aa7956a687f5893b9954886dc18ae931495a03f519f2128c4f5926423",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/19/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 204,
+            "old_filename": "a1_scene_coffee_44213f9.webp",
+            "old_sha256": "4da9c071cf7be63afc536c31a1ad080e5f91787ebe4fdc114e4981346027ca21",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/32/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-drinks",
+      "runtime_filename": "a1_photo_u5_drinks_v1.webp",
+      "prompt": "A compact arrangement of real drinks on a cafe tray: clear glass of water, orange juice, white milk, clear mug of amber tea with tea bag, and dark coffee in a cup. Distinct transparent vessels, no people or food. Elevated view shows all drinks.",
+      "expected_description": "A compact arrangement of real drinks on a cafe tray: clear glass of water, orange juice, white milk, clear mug of amber tea with tea bag, and dark coffee in a cup. Distinct transparent vessels, no people or food. Elevated view shows all drinks.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 259,
+            "old_filename": "a1_scene_drinks_5a8f2d9.webp",
+            "old_sha256": "caadee6f493ede71995e0228cd38ca237b6eb14d620e843cc47afb9a0d27e94d",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/9/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-eggs-breakfast",
+      "runtime_filename": "a1_photo_u5_eggs_breakfast_v1.webp",
+      "prompt": "One adult eating exactly two fried eggs on a small plate with a fork. Both eggs and face visible. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "expected_description": "One adult eating exactly two fried eggs on a small plate with a fork. Both eggs and face visible. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 162,
+            "old_filename": "a1_scene_breakfast_9e3a822.webp",
+            "old_sha256": "a27503554dd039ad730721c2397a6b7875f3b743dbb008132c84a167dcf2a7a1",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/0/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/22/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 264,
+            "old_filename": "a1_scene_eggs-for-breakfast_8bc6e08.webp",
+            "old_sha256": "a27503554dd039ad730721c2397a6b7875f3b743dbb008132c84a167dcf2a7a1",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/13/options/1/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 374,
+            "old_filename": "a1_scene_i-eat-eggs-for-breakfast_60a758d.webp",
+            "old_sha256": "a27503554dd039ad730721c2397a6b7875f3b743dbb008132c84a167dcf2a7a1",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/5/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/25/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-eggs-dinner",
+      "runtime_filename": "a1_photo_u5_eggs_dinner_v1.webp",
+      "prompt": "One adult eating exactly two fried eggs on a small plate with a fork. Both eggs and face visible. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM.",
+      "expected_description": "One adult eating exactly two fried eggs on a small plate with a fork. Both eggs and face visible. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 265,
+            "old_filename": "a1_scene_eggs-for-dinner_bf86314.webp",
+            "old_sha256": "631f170d15c3c186b116e748779c64ad45f3a43afb44d755d3f1af9ecf3578eb",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-food",
+      "runtime_filename": "a1_photo_u5_food_v1.webp",
+      "prompt": "Real food arranged compactly on a kitchen counter: a small bread loaf, one bowl of white rice, a small roast chicken and a whole cooked fish on separate small dishes. Elevated view, all recognizable food close together, no people or drinks.",
+      "expected_description": "Real food arranged compactly on a kitchen counter: a small bread loaf, one bowl of white rice, a small roast chicken and a whole cooked fish on separate small dishes. Elevated view, all recognizable food close together, no people or drinks.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 291,
+            "old_filename": "a1_scene_food_39ccb32.webp",
+            "old_sha256": "dc05fa52a61b97313b087c7764b9005934ddbf6e6515da30d88ede8b2acdf0c2",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-2-food-and-drinks",
+                "lesson": "5.2",
+                "path": "backend/lessons/unit_5/lesson-5-2-food-and-drinks.yaml",
+                "pointer": "/cards/8/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-fruit",
+      "runtime_filename": "a1_photo_u5_fruit_v1.webp",
+      "prompt": "A real fruit bowl on a kitchen counter with recognizable red apple, green pear, yellow banana, orange, red strawberries and a small bunch of purple grapes. No people, packaged products or other food. Elevated view shows all kinds of fruit.",
+      "expected_description": "A real fruit bowl on a kitchen counter with recognizable red apple, green pear, yellow banana, orange, red strawberries and a small bunch of purple grapes. No people, packaged products or other food. Elevated view shows all kinds of fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 298,
+            "old_filename": "a1_scene_fruit_f053b8b.webp",
+            "old_sha256": "98249285fca12d519af58d0a3bd26acf8687bcf879cd7f679cc553c5ff034715",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/0/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-juice-dinner",
+      "runtime_filename": "a1_photo_u5_juice_dinner_v1.webp",
+      "prompt": "One adult drinking orange JUICE from a transparent glass, unmistakably bright orange juice, no milk or tea. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM.",
+      "expected_description": "One adult drinking orange JUICE from a transparent glass, unmistakably bright orange juice, no milk or tea. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 443,
+            "old_filename": "a1_scene_juice-for-dinner_d082ab8_four-card.webp",
+            "old_sha256": "299a6dcb20acd6883b510bcf5d57cf88680e250f86cb6861dd420e44f5e532b8",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/19/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-one-egg-breakfast",
+      "runtime_filename": "a1_photo_u5_one_egg_breakfast_v1.webp",
+      "prompt": "One adult eating exactly ONE fried egg on a small plate. Exactly one complete white and one yellow yolk, no other food. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "expected_description": "One adult eating exactly ONE fried egg on a small plate. Exactly one complete white and one yellow yolk, no other food. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 552,
+            "old_filename": "a1_scene_one-egg-for-breakfast_fad7e29_four-card.webp",
+            "old_sha256": "4ace3f5810081432a70b86a91b7b55d9a119df83c29b266893a24d113836dc76",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/21/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-request-coffee",
+      "runtime_filename": "a1_photo_u5_request_coffee_v1.webp",
+      "prompt": "A customer at a small cafe counter politely reaching toward a freshly served cup of dark black COFFEE. A friendly server hand offers the cup. Customer face, requesting open hand and coffee cup all close together in center. Small real coffee pot behind cup, no tea bag.",
+      "expected_description": "A customer at a small cafe counter politely reaching toward a freshly served cup of dark black COFFEE. A friendly server hand offers the cup. Customer face, requesting open hand and coffee cup all close together in center. Small real coffee pot behind cup, no tea bag.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 204,
+            "old_filename": "a1_scene_coffee_44213f9.webp",
+            "old_sha256": "4da9c071cf7be63afc536c31a1ad080e5f91787ebe4fdc114e4981346027ca21",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-8-ordering-politely",
+                "lesson": "5.8",
+                "path": "backend/lessons/unit_5/lesson-5-8-ordering-politely.yaml",
+                "pointer": "/cards/31/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 203,
+            "old_filename": "a1_scene_coffee-please_613ef29.webp",
+            "old_sha256": "9cc74c35244e6187457f818648900c310dc2cb89a54460717f2c3177ed561bd4",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-8-ordering-politely",
+                "lesson": "5.8",
+                "path": "backend/lessons/unit_5/lesson-5-8-ordering-politely.yaml",
+                "pointer": "/cards/12/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-request-tea",
+      "runtime_filename": "a1_photo_u5_request_tea_v1.webp",
+      "prompt": "A customer at a small cafe counter politely reaching toward a freshly served clear mug of amber TEA. A tea bag with string visible in the mug. Friendly server hand offers the mug. Customer face, open requesting hand and tea mug all close together in center.",
+      "expected_description": "A customer at a small cafe counter politely reaching toward a freshly served clear mug of amber TEA. A tea bag with string visible in the mug. Friendly server hand offers the mug. Customer face, open requesting hand and tea mug all close together in center.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 684,
+            "old_filename": "a1_scene_tea-please_6e61496.webp",
+            "old_sha256": "6b256805dd1b06a61ed22fb9a41897fd750d09712581272f4d22400b84565ab0",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-8-ordering-politely",
+                "lesson": "5.8",
+                "path": "backend/lessons/unit_5/lesson-5-8-ordering-politely.yaml",
+                "pointer": "/cards/15/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-request-water",
+      "runtime_filename": "a1_photo_u5_request_water_v1.webp",
+      "prompt": "A cafe customer smiles and politely reaches for a clear glass of WATER offered by a friendly server. Both adults faces and serving hands close together above the transparent water glass. A clear water pitcher next to glass, no juice, coffee or food.",
+      "expected_description": "A cafe customer smiles and politely reaches for a clear glass of WATER offered by a friendly server. Both adults faces and serving hands close together above the transparent water glass. A clear water pitcher next to glass, no juice, coffee or food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 335,
+            "old_filename": "a1_scene_hello-water-please-here-you-are-thank-you_8425a71.webp",
+            "old_sha256": "8d34dd28db99467a3dfb339ecce835ed39b562d8bb4a94a56ffcd6376b94344f",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-8-ordering-politely",
+                "lesson": "5.8",
+                "path": "backend/lessons/unit_5/lesson-5-8-ordering-politely.yaml",
+                "pointer": "/cards/7/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-rice-lunch",
+      "runtime_filename": "a1_photo_u5_rice_lunch_v1.webp",
+      "prompt": "Exactly two adults sitting close together eating white RICE with spoons from two small rice bowls beneath their faces. White rice grains visible, no chicken. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "expected_description": "Exactly two adults sitting close together eating white RICE with spoons from two small rice bowls beneath their faces. White rice grains visible, no chicken. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 494,
+            "old_filename": "a1_scene_lunch_0945305.webp",
+            "old_sha256": "82912e8eec6a932cb9a7999df4be25b20602bafed60647cff47d7821ccd023a0",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/1/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/23/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 609,
+            "old_filename": "a1_scene_rice-for-lunch_fd68702.webp",
+            "old_sha256": "82912e8eec6a932cb9a7999df4be25b20602bafed60647cff47d7821ccd023a0",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/14/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 610,
+            "old_filename": "a1_scene_rice_6939278.webp",
+            "old_sha256": "fa11d470eda691e161830c58efa01c995d318c9bb0b99ffa6d8594a623af1c46",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 766,
+            "old_filename": "a1_scene_we-eat-rice-for-lunch_d4bb18a.webp",
+            "old_sha256": "82912e8eec6a932cb9a7999df4be25b20602bafed60647cff47d7821ccd023a0",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/7/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/27/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-tea-breakfast",
+      "runtime_filename": "a1_photo_u5_tea_breakfast_v1.webp",
+      "prompt": "One adult drinking amber TEA from a clear glass mug, a tea bag and its string visibly steeping in the mug. Both face and tea cup large and central. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "expected_description": "One adult drinking amber TEA from a clear glass mug, a tea bag and its string visibly steeping in the mug. Both face and tea cup large and central. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 373,
+            "old_filename": "a1_scene_i-drink-tea-for-breakfast_9ca4189.webp",
+            "old_sha256": "d98690f45a68f61e9e0b5ffa0439d5b334f8a3e8478fcb894c322388a2a624ed",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/6/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/15/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/26/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/31/prompt_image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 681,
+            "old_filename": "a1_scene_tea-for-breakfast_98a3941_four-card.webp",
+            "old_sha256": "9075dbe8e57b68bea92b5fb5d92208e7d4dee7c275918b8fa8a36a1b343e2d26",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/19/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-tea-lunch",
+      "runtime_filename": "a1_photo_u5_tea_lunch_v1.webp",
+      "prompt": "One adult drinking amber TEA from a clear glass mug, a tea bag and its string visibly steeping in the mug. Both face and tea cup large and central. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "expected_description": "One adult drinking amber TEA from a clear glass mug, a tea bag and its string visibly steeping in the mug. Both face and tea cup large and central. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 683,
+            "old_filename": "a1_scene_tea-for-lunch_c98eac2_four-card.webp",
+            "old_sha256": "e7c3eb6fd0e427e077bb3ec2922f83bdc852fe0621a742b80952dfd4cbd863ac",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/19/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-three-eggs-breakfast",
+      "runtime_filename": "a1_photo_u5_three_eggs_breakfast_v1.webp",
+      "prompt": "One adult eating exactly THREE separate fried eggs on a small plate. Exactly three complete egg whites and three yolks with gaps, no other food. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "expected_description": "One adult eating exactly THREE separate fried eggs on a small plate. Exactly three complete egg whites and three yolks with gaps, no other food. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 719,
+            "old_filename": "a1_scene_three-eggs-for-breakfast_38c5f42_four-card.webp",
+            "old_sha256": "ba24eeb8f8f544db808a126d7e6dee4e7155a01be245f407868871b13a6fff2c",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/21/options/2/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-two-eggs-breakfast",
+      "runtime_filename": "a1_photo_u5_two_eggs_breakfast_v1.webp",
+      "prompt": "One adult eating exactly TWO separate fried eggs on a small plate. Exactly two complete egg whites and two yellow yolks separated by a gap, no other food. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "expected_description": "One adult eating exactly TWO separate fried eggs on a small plate. Exactly two complete egg whites and two yellow yolks separated by a gap, no other food. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 743,
+            "old_filename": "a1_scene_two-eggs-for-breakfast_a51ebe1_four-card.webp",
+            "old_sha256": "542512fb30ea16567f33143600e0545af8b9e323065ca33350d2e125b3873b6e",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/21/options/3/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-two-eggs-lunch",
+      "runtime_filename": "a1_photo_u5_two_eggs_lunch_v1.webp",
+      "prompt": "One adult eating exactly TWO separate fried eggs on a small plate. Exactly two complete whites and two yolks with a gap, no other food. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "expected_description": "One adult eating exactly TWO separate fried eggs on a small plate. Exactly two complete whites and two yolks with a gap, no other food. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 744,
+            "old_filename": "a1_scene_two-eggs-for-lunch_8e8ae04_four-card.webp",
+            "old_sha256": "d8302cf3eed068667557c9d9dc03f2e8d12c8d136a752c6173074b472a0f255a",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-6-meals",
+                "lesson": "5.6",
+                "path": "backend/lessons/unit_5/lesson-5-6-meals.yaml",
+                "pointer": "/cards/21/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-eggs-breakfast",
+      "runtime_filename": "a1_photo_u5_review_eggs_breakfast_v1.webp",
+      "prompt": "One adult eating exactly two fried eggs on a small plate with a fork. Both eggs and face visible. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "One adult eating exactly two fried eggs on a small plate with a fork. Both eggs and face visible. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 374,
+            "old_filename": "a1_scene_i-eat-eggs-for-breakfast_60a758d.webp",
+            "old_sha256": "a27503554dd039ad730721c2397a6b7875f3b743dbb008132c84a167dcf2a7a1",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/21/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-food-and-drinks",
+      "runtime_filename": "a1_photo_u5_review_food_and_drinks_v1.webp",
+      "prompt": "A compact cafe lunch tray containing a bread roll, small bowl of white rice, an apple, a glass of orange juice and clear water glass. Real edible food and real drinks, no people, labels or icons. Elevated view. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "A compact cafe lunch tray containing a bread roll, small bowl of white rice, an apple, a glass of orange juice and clear water glass. Real edible food and real drinks, no people, labels or icons. Elevated view.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 289,
+            "old_filename": "a1_scene_food-and-drinks_bdcf3f2.webp",
+            "old_sha256": "174b93e6c9b7f9386ec1ca2e2141805cb46e84c8b0f64c1524fc2c7d3b947d54",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/0/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-rice",
+      "runtime_filename": "a1_photo_u5_review_rice_v1.webp",
+      "prompt": "One small ceramic bowl of cooked white rice on a new dark wooden kitchen table. White grains clearly visible, no people or other food. Fresh review composition, elevated oblique angle. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "One small ceramic bowl of cooked white rice on a new dark wooden kitchen table. White grains clearly visible, no people or other food. Fresh review composition, elevated oblique angle.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 610,
+            "old_filename": "a1_scene_rice_6939278.webp",
+            "old_sha256": "fa11d470eda691e161830c58efa01c995d318c9bb0b99ffa6d8594a623af1c46",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/12/options/0/image_url"
+              }
+            ]
+          },
+          {
+            "inventory_index": 636,
+            "old_filename": "a1_scene_some-rice_02b9cb6.webp",
+            "old_sha256": "7f494a5704c5cb2cc70b53729170f4aa77af37cd188f68bed88e14b5a2a619f7",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/5/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-rice-dinner",
+      "runtime_filename": "a1_photo_u5_review_rice_dinner_v1.webp",
+      "prompt": "Exactly two adults sitting close together eating white RICE with spoons from two small rice bowls beneath their faces. White rice grains visible, no chicken. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "Exactly two adults sitting close together eating white RICE with spoons from two small rice bowls beneath their faces. White rice grains visible, no chicken. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 608,
+            "old_filename": "a1_scene_rice-for-dinner_1d6f82d.webp",
+            "old_sha256": "546039d404fd561a55ebf25ea5eaad41f257f705f2e04660a37580a3dcc5fb7e",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/15/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-rice-lunch",
+      "runtime_filename": "a1_photo_u5_review_rice_lunch_v1.webp",
+      "prompt": "Exactly two adults sitting close together eating white RICE with spoons from two small rice bowls beneath their faces. White rice grains visible, no chicken. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "Exactly two adults sitting close together eating white RICE with spoons from two small rice bowls beneath their faces. White rice grains visible, no chicken. Lunchtime table, bright midday daylight through window and a real digital kitchen clock immediately below the plate clearly reading 1:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 609,
+            "old_filename": "a1_scene_rice-for-lunch_fd68702.webp",
+            "old_sha256": "82912e8eec6a932cb9a7999df4be25b20602bafed60647cff47d7821ccd023a0",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/15/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/26/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-tea-breakfast",
+      "runtime_filename": "a1_photo_u5_review_tea_breakfast_v1.webp",
+      "prompt": "One adult drinking amber TEA from a clear glass mug, a tea bag and its string visibly steeping in the mug. Both face and tea cup large and central. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "One adult drinking amber TEA from a clear glass mug, a tea bag and its string visibly steeping in the mug. Both face and tea cup large and central. Morning breakfast table, soft early daylight through window and a real digital kitchen clock immediately below the plate clearly reading 7:00 AM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 680,
+            "old_filename": "a1_scene_tea-for-breakfast_98a3941.webp",
+            "old_sha256": "d98690f45a68f61e9e0b5ffa0439d5b334f8a3e8478fcb894c322388a2a624ed",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/8/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-tea-dinner",
+      "runtime_filename": "a1_photo_u5_review_tea_dinner_v1.webp",
+      "prompt": "One adult drinking amber TEA from a clear glass mug, a tea bag and its string visibly steeping in the mug. Both face and tea cup large and central. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "One adult drinking amber TEA from a clear glass mug, a tea bag and its string visibly steeping in the mug. Both face and tea cup large and central. Evening dinner table with dark night visible through window, warm indoor lighting and a real digital kitchen clock immediately below the plate clearly reading 7:00 PM.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 682,
+            "old_filename": "a1_scene_tea-for-dinner_14d22c2.webp",
+            "old_sha256": "9051429cc3cb1dce6295891e52032c7729db9f72723a1f504975bb0e2fea9ee6",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/8/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-water",
+      "runtime_filename": "a1_photo_u5_review_water_v1.webp",
+      "prompt": "One clear glass full of transparent water on a blue cafe table, no other food or drinks. Fresh review composition, oblique eye-level view, complete glass central. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "One clear glass full of transparent water on a blue cafe table, no other food or drinks. Fresh review composition, oblique eye-level view, complete glass central.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 763,
+            "old_filename": "a1_scene_water_6d5a459.webp",
+            "old_sha256": "2bb09871a3064324812e0177158d15d326f21d486e5aefdece19af93e1b88b12",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/12/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-review-hospital",
+      "runtime_filename": "a1_photo_u6_review_hospital_v1.webp",
+      "prompt": "A real small community hospital entrance with a large clear physical HOSPITAL sign and blue medical cross directly above the central doors, an ambulance beside entrance. Fresh review scene, distinct architecture and oblique street viewpoint. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "A real small community hospital entrance with a large clear physical HOSPITAL sign and blue medical cross directly above the central doors, an ambulance beside entrance. Fresh review scene, distinct architecture and oblique street viewpoint.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 56,
+            "old_filename": "a1_scene_a-hospital_dfbc6e9.webp",
+            "old_sha256": "4e64be08c3c604e129a0abb9db2163185ffbbe901bd2f887fbebf836e411756e",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/4/prompt_image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-review-library",
+      "runtime_filename": "a1_photo_u6_review_library_v1.webp",
+      "prompt": "A real neighborhood library entrance with a large physical LIBRARY sign directly above central open doors and clearly visible bookshelves inside. Fresh review scene, oblique street viewpoint. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "A real neighborhood library entrance with a large physical LIBRARY sign directly above central open doors and clearly visible bookshelves inside. Fresh review scene, oblique street viewpoint.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 467,
+            "old_filename": "a1_scene_library_00299a4.webp",
+            "old_sha256": "45612633d78b36bc9370fbadda9702b228ddadec29b4324cbf3c3375149a94c2",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/12/options/1/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-review-store",
+      "runtime_filename": "a1_photo_u6_review_store_v1.webp",
+      "prompt": "A real neighborhood grocery store entrance with produce and shelves visible, a large physical STORE sign directly above central doors. Fresh review scene, oblique street viewpoint. Not a library. This is fresh review: different people, furniture and camera angle from the teaching scene.",
+      "expected_description": "A real neighborhood grocery store entrance with produce and shelves visible, a large physical STORE sign directly above central doors. Fresh review scene, oblique street viewpoint. Not a library.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "inventory_index": 658,
+            "old_filename": "a1_scene_store_3a21295.webp",
+            "old_sha256": "630c193a6d5f40a59ddc24984e54174c14266f0f2f7a10fd72cf934b9810d545",
+            "old_observation": "Directly inspected legacy drawing or inset/composite with symbolic food, room or place; replace with an unmistakable real full-frame scene preserving the complete task meaning.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-9-unit-6-review",
+                "lesson": "6.9",
+                "path": "backend/lessons/unit_6/lesson-6-9-unit-6-review.yaml",
+                "pointer": "/cards/12/options/0/image_url"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

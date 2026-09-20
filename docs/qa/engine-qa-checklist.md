@@ -18,7 +18,7 @@ lesson player but does not create learner sessions or card-attempt records.
 
 - [ ] In normal lessons and Engine QA, inspect Unit 1 Completa answers before selection and during correct/wrong feedback, especially Lesson 1.8's `parents` / `children` bank.
 - [ ] Short answers stay large and centered in full-width rows and compact three-option banks; all tiles retain equal dimensions.
-- [ ] Check long phrases, portrait/landscape phone and tablet layouts, and enlarged system text. Labels must fit without microscopic text, clipping, or ellipses; overflowing banks remain scrollable.
+- [ ] Check long phrases, portrait/landscape phone and tablet layouts, and enlarged system text. Labels must fit without microscopic text, clipping, or ellipses; outside phone landscape, overflowing banks remain scrollable; phone landscape must reflow the complete active bank.
 - [ ] Check a Recognize and Listen text bank too: they share the same native label renderer.
 
 ## Test session record
@@ -98,6 +98,11 @@ Test at least one card from every standard stage or every mission chapter, then 
 - [ ] Ahora no exits without requiring answers; it remains disabled during recording, transcription, and saving
 
 ## Mobile viewport-fit guardrail
+
+- [ ] Across all seven units, portrait image banks show the full lower row and complete correct/wrong feedback above Android navigation. Include Lesson 1.3 “The boy and the girl” and “They are writing.” with QA visible.
+- [ ] Phone landscape uses the shared rail and keeps every active activity, choice, sentence slot/word, feedback and required control visible without scrolling. Test wide phones too; QA and the section picker remain available in the options sheet.
+- [ ] Run `mobile/tests/lesson-viewport-native.test.mjs` through the protected interaction verifier. It executes production activity TSX and native layout measurements; a source-only assertion is insufficient.
+- [ ] Verify on an installed Android Preview with system bars, QA on/off, enlarged text, correct/wrong feedback, pronunciation states, and rotation during a partly completed activity. Record the exact Preview commit. Automated layout results do not substitute for this review.
 
 Run these checks for every new card pattern before publishing Preview:
 
@@ -309,6 +314,8 @@ A tested Preview is eligible for Production only when:
 - A correct repeated-word occurrence is interchangeable; a partial or correct attempt must not produce a grammar correction. Preserve correct prefixes and read the complete hint before retrying.
 - Before an attempt, open help on a two-word completion and a full construction. Each must describe its current mechanic, without a single-blank instruction or unavailable control.
 - After a wrong Completa grade, wait, replay, open/close help and try tapping/dragging a word: the submitted words and hint stay visible. Press `Reintentar`: only this attempt clears, and the next attempt still counts as a retry. Check the button after the hint, keyboard/screen-reader access, font scaling and both orientations.
+- On guided and full Completa, wrong grading shows a red X beside feedback and announces an incorrect answer accessibly. Retry clears the X; incomplete and correct attempts never show it.
+- Reproduce `She sleeping is.` in Lesson 1.3 U6: the explanation identifies `is` as auxiliary, `sleeping` as the main verb's -ing form, and teaches `is sleeping`. Swap the subject and auxiliary too. Check `am/is/are`, negatives with `not`, and adjective/identity/location controls; an action verb must never become a generic subject description.
 - Open the listening first-use popup and help on Lesson 1.2: both describe training the ear, listening, selecting the correct image and using the speaker to repeat. They must not show the old `solo visual` / `cuando esté disponible` copy. Text-choice listening must ask for a word/phrase instead of an image.
 - The generated-content gate is `mobile/tests/construction-teaching.test.cjs`: every construction needs a supported teaching pattern and explanations at every slot; all legal two-word swaps plus reversed/rotated attempts must yield contextual, bounded Spanish feedback. An unsupported future construction or a mismatch with its answer audio blocks release. Check representative rendered feedback in phone portrait/landscape and enlarged text on web and native Preview.
 

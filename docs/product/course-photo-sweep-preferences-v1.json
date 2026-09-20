@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "0.80",
+    "expected_cost_usd": "0.44",
+    "fx_mxn_per_usd": "16.9707",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "Use case: photorealistic-natural. Create one exceptionally lifelike documentary photograph for a beginner English course, not an illustration. Real natural skin texture, plausible hands and anatomy, realistic food, soft natural window light, subtle everyday imperfections, clear instructional meaning. Landscape 3:2 photograph, full bleed, no borders, no collage, no icons, no hearts, no arrows, no text, no watermark. Important composition: the app also displays a centered 4:5 crop; every answer-critical face, hand and food item must remain comfortably inside the central 50 percent of the landscape width, with spare space at the sides. Place the face above the food in a compact vertical composition. Food must be large and unmistakable at phone size. Camera slightly elevated to show all food on the plate. This is a stand-alone everyday preference scene, not an identity test; use a natural adult in a new setting.",
+  "assets": [
+    {
+      "id": "likes-eggs",
+      "runtime_filename": "a1_photo_likes_eggs_v1.webp",
+      "prompt": "A smiling young adult woman at a small cafe table clearly delighted by a white plate of exactly TWO fried eggs, both bright yellow yolks completely visible. She gives a natural thumbs-up beside the plate with one hand and looks happily at the eggs. The eggs and her face are vertically aligned at the center. No other food.",
+      "expected_description": "A photographic adult showing clear pleasure at a plate of two eggs.",
+      "inventory_index": 385,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_i-like-eggs_fafa15e.webp",
+        "old_sha256": "59841cb18327ae772ee49281c8d23f8d9abc0192140e438369949191098e7360",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/12/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "likes-five-strawberries",
+      "runtime_filename": "a1_photo_likes_five_strawberries_v1.webp",
+      "prompt": "An adult woman seated at her kitchen table smiling approvingly at exactly FIVE separate ripe red strawberries on a small white plate. Arrange them as two at the back and three at the front with gaps so all five can be counted, no hidden strawberries. She gives a small natural thumbs-up with her hand beside the plate. Her face and the entire plate are in the center. No other fruit.",
+      "expected_description": "A smiling adult approving exactly five separately countable strawberries.",
+      "inventory_index": 288,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_five_4db2c1d.webp",
+        "old_sha256": "f9f20d1e183b48b2cf7531924daf5f8fbe93e34e5aa0832c61b9424f0f9f162b",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/29/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "likes-three-oranges",
+      "runtime_filename": "a1_photo_likes_three_oranges_v1.webp",
+      "prompt": "An adult man at his dining table smiling appreciatively at exactly THREE whole oranges on a small plain plate, arranged in a shallow triangle, each orange fully separate and visible. His relaxed approving thumb and face make enjoyment clear. Face and all three oranges in the central vertical area. No other food.",
+      "expected_description": "A pleased adult approving exactly three separately countable oranges.",
+      "inventory_index": 391,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_i-like-three-oranges_78f7ed1.webp",
+        "old_sha256": "7502b27b0eba63e295c106287caa93a34e98727419e6b8dd063357f5bfa93ddd",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/28/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "likes-apples",
+      "runtime_filename": "a1_photo_likes_apples_v1.webp",
+      "prompt": "A smiling adult woman in a bright kitchen at a table enjoying the sight of red apples in a small shallow bowl. Her free hand makes a relaxed thumbs-up beside the bowl and she looks warmly at the apples. Keep her face, approving gesture and apples together in the central vertical area. No other foods.",
+      "expected_description": "A smiling adult with apples and an unmistakable approving gesture.",
+      "inventory_index": 468,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_like_c4eb7d7.webp",
+        "old_sha256": "22ef8b9d85c530fe51e150ab60c4813463e2cf415ffdeb09ece5953cf64cce96",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/26/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "likes-three-red-apples",
+      "runtime_filename": "a1_photo_likes_three_red_apples_v1.webp",
+      "prompt": "An adult man seated at a light wooden table pleased with exactly THREE RED apples on one small white plate. Arrange the three complete apples in a shallow triangle with gaps; all three must be separately countable. His smiling face and one natural thumbs-up beside the plate show approval. No green apples, other food or additional apples. Keep face, gesture and all three apples inside the center half width.",
+      "expected_description": "A pleased adult approving exactly three red apples.",
+      "inventory_index": 478,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_likes-three-red-apples_f77b313.webp",
+        "old_sha256": "c7f8db3e67903057adf41224214907dea30aa011e005d39847094670daa109c8",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/18/options/1/image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "likes-two-green-apples",
+      "runtime_filename": "a1_photo_likes_two_green_apples_v1.webp",
+      "prompt": "An adult woman at a cafe table smiling warmly at exactly TWO GREEN apples, side by side with a visible gap on a small plain plate. Her natural thumbs-up beside the plate clearly indicates approval. No red apples or other food. Keep her face, gesture and both complete apples inside the center half width.",
+      "expected_description": "A pleased adult approving exactly two green apples.",
+      "inventory_index": 480,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_likes-two-green-apples_23ac289.webp",
+        "old_sha256": "a9bba243b90804dcb22a1f1d66212299142042022b9d7c4991fc7a3735225b54",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/18/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/30/prompt_image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "likes-two-red-apples",
+      "runtime_filename": "a1_photo_likes_two_red_apples_v1.webp",
+      "prompt": "An adult man at a cafe table smiling warmly at exactly TWO RED apples side by side with a clear gap on a small plain plate. His natural thumbs-up beside the plate indicates approval. No green apples or other food. Keep his face, gesture and both complete apples inside the center half width.",
+      "expected_description": "A pleased adult approving exactly two red apples.",
+      "inventory_index": 481,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_likes-two-red-apples_a962fd9.webp",
+        "old_sha256": "72c3e92262f832a9447019c3525ce24dfc01c334facf2c648327952e5c1654a4",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/18/options/3/image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dislikes-two-red-apples",
+      "runtime_filename": "a1_photo_dislikes_two_red_apples_v1.webp",
+      "prompt": "An adult woman at a cafe table clearly declining exactly TWO RED apples side by side with a visible gap on a small plain plate. She frowns mildly and holds an open palm toward the plate in a clear no-thank-you gesture, leaning back slightly. No green apples or other food. Keep face, rejecting hand and both complete apples inside the center half width.",
+      "expected_description": "An adult rejecting exactly two red apples with a clear negative expression and gesture.",
+      "inventory_index": 254,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_does-not-like-two-red-apples_d28d501_four-card.webp",
+        "old_sha256": "ad1c1011933ea270ff3e8dcef2de780ae88179e3130f50fb770026ad8d97aaf3",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/18/options/2/image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dislikes-fish-crop",
+      "runtime_filename": "a1_photo_dislikes_fish_crop_v1.webp",
+      "prompt": "An older adult woman at a dining table clearly declining a white plate containing one whole cooked fish, including its recognizable head and tail. She has a mild grimace and holds an open palm beside the plate, leaning back from it. No rice, meat, salad, extra plates or other food. Her face, rejecting hand and the entire fish plate must fit inside the center half width in a compact vertical arrangement.",
+      "expected_description": "An older woman clearly rejecting a recognizable cooked fish; fish and negative gesture remain in the phone crop.",
+      "inventory_index": 250,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_does-not-like-fish_6232056_four-card.webp",
+        "old_sha256": "fbd7e0c9e0f434a58e6fc3b4bd0a07f62c8b672c4319da59219c685b97a832b9",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/13/options/3/image_url"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dislikes-rice-crop",
+      "runtime_filename": "a1_photo_dislikes_rice_crop_v1.webp",
+      "prompt": "An older adult man at a dining table clearly declining a small white bowl containing only cooked white rice. He has a mild grimace and one open palm facing the bowl in a no-thank-you gesture. No fish, meat, fruit, salad, extra plates or other food. His face, rejecting hand and complete rice bowl must fit inside the center half width in a compact vertical arrangement.",
+      "expected_description": "An older man clearly rejecting a bowl of white rice; rice and negative gesture remain in the phone crop.",
+      "inventory_index": 253,
+      "change_control": {
+        "kind": "inspected-legacy-photo-scene",
+        "old_filename": "a1_scene_does-not-like-rice_90d5dff_four-card.webp",
+        "old_sha256": "4010f4834f98f2e797722ff1b59b4c49b524acf7b93b505d1973bee927f4dce6",
+        "old_observation": "The active scene depicts a flat drawn person and symbolic food or an illustrated four-choice reframe, not a real person expressing a preference.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-5-4-likes-and-dislikes",
+            "lesson": "5.4",
+            "path": "backend/lessons/unit_5/lesson-5-4-likes-and-dislikes.yaml",
+            "pointer": "/cards/13/options/1/image_url"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -19,6 +19,7 @@ The approved A1 cast is conservative:
 - Nichalia is the neutral teacher voice for teacher, question, and answer narration.
 - Ana always uses Sarah.
 - A pictured or otherwise explicitly known man who speaks the authored line uses Liam. Brian remains only in unbound audit history and is never an active A1 route.
+- A pictured woman who speaks the authored line uses the approved female character voice, or Ana's or Sofia's voice when it is them. Because the neutral narrator is a woman, a line said by a pictured man or boy is never left neutral (user direction, 2026-09-18). A question asked by the one other person in the picture is that person's line, and a mission *who says it* clue uses the voice of the person who says it.
 - Assign a character voice only when canonical media or authored dialogue establishes the speaker. A person merely shown or described in the third person is not automatically the speaker.
 - Object-only, third-person, true narration, and genuinely unknown-speaker cards remain neutral. Every identifiable conversation turn uses its gender-consistent character voice. A multi-speaker exchange is authored and stored as ordered per-speaker turn assets, each bound to the exact image shown for that turn. Web and mobile advance the image only when that turn begins and advance the lesson or open the microphone only after the final turn ends. Never stitch a conversation into one mixed audio file, force the exchange into one voice, or neutralize an identifiable speaker.
 

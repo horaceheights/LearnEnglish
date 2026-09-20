@@ -82,7 +82,7 @@ assert.match(
 );
 assert.match(
   cardViewSource,
-  /minHeight: hasTextOnlyOptions\s*\? effectiveTextOptionHeight\s*: optionMinHeight/,
+  /minHeight: hasTextOnlyOptions\s*\? effectiveTextOptionHeight\s*: boundedImageChoices \? 48 : optionMinHeight/,
   'Every text tile must use the same height, sized for the longest answer.',
 );
 assert.match(
@@ -138,7 +138,7 @@ assert.match(
 );
 assert.match(
   cardViewSource,
-  /const textOptionMinimumFontSize = isTabletViewport \? 22 : 16;[\s\S]*?textOptionMinimumFontSize \/ textOptionFontSize/,
+  /const textOptionMinimumFontSize = isTabletViewport \? 22 : 16;[\s\S]*?textOptionMinimumFontSize \/ \(textOptionFontSize \* \(phoneLandscape \? Math\.min\(fontScale, 1\.15\) : 1\)\)/,
   'Adaptive labels must stop at a readable 16dp phone or 22dp tablet floor.',
 );
 assert.doesNotMatch(
@@ -239,7 +239,7 @@ assert.equal(
 );
 assert.match(
   lessonScreenSource,
-  /const needsAccessibleScrolling = fontScale > 1\.3[\s\S]*?\|\| needsTextAnswerScrolling;/,
+  /const needsAccessibleScrolling = !useCompactPhoneLayout && !imageChoiceSurface && \(fontScale > 1\.3[\s\S]*?\|\| needsTextAnswerScrolling\);/,
   'Overflow-prone text answers must activate the lesson page ScrollView.',
 );
 assert.match(
@@ -290,7 +290,7 @@ const sizeOptions = Function('viewportWidth', 'viewportHeight', 'fontScale',
   'isTabletViewport', 'useHorizontalPhraseOptions', 'useDensePortraitTextLayout',
   'hasTextOnlyOptions', 'useCompactCompletionTiles', 'isLandscape',
   'isTabletLandscape', 'isCompactLandscape', 'card', 'textOptionLineLimit',
-  `${sizingSource}; return { textOptionFontSize, uniformTextOptionHeight };`);
+  `const phoneLandscape = isLandscape && viewportHeight < 600; ${sizingSource}; return { textOptionFontSize, uniformTextOptionHeight };`);
 const unitOneCompletionBanks = course.slice(0, 10).flatMap((lesson) => lesson.cards
   .filter((card) => card.stage === 'Use' && card.interaction_type.startsWith('complete')
     && card.options.every((option) => !option.image_url))

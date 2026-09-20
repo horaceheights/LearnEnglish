@@ -32,8 +32,10 @@ const speakCards = course.flatMap((lesson) => (
 ));
 const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 
-assert.equal(speakCards.length, 404, 'The Speak inventory includes four rebuilt Unit 2 mission gates instead of one.');
+assert.equal(speakCards.length, 408, 'The Speak inventory includes four rebuilt Unit 2 and Unit 3 mission gates each, plus the 3.3 current-action exchange.');
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 4);
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-3-am-is-and-are').length, 7);
 assert.equal(affectedLessons.size, 70, 'The shared Speak instruction must cover every A1 lesson.');
 assert.ok(
   speakCards.every(({ card }) => card.prompt.trim()),

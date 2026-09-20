@@ -245,7 +245,7 @@
       "options": [
         {
           "id": "where-is-the-station-1",
-          "image_url": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_url": "/lesson-assets/a1_station.webp",
           "label": "Where is the station?"
         }
       ],
@@ -260,24 +260,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c005-prompt-66ae52d93226dd476c40",
+          "id": "lesson-6-7-simple-requests-c005-prompt-d8e5996ad1ff72e98e80",
           "purpose": "prompt",
           "text": "Where is the station?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_ref": "/lesson-assets/a1_station.webp",
           "semantic_role": "question",
           "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c005-answer-0e884c07fdb92de8a2cf",
+          "id": "lesson-6-7-simple-requests-c005-answer-35ff043cf9e49e68b80b",
           "purpose": "answer",
           "text": "Where is the station?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_ref": "/lesson-assets/a1_station.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -294,7 +294,7 @@
       "options": [
         {
           "id": "it-is-on-the-left-thank-you-1",
-          "image_url": "/lesson-assets/a1_scene_it-is-on-the-left-thank-you_fc1f140.webp",
+          "image_url": "/lesson-assets/a1_scene_town-male-left-answer_a00c3ac.webp",
           "label": "It is on the left. Thank you."
         }
       ],
@@ -369,32 +369,32 @@
       "prompt_image_url": "",
       "spanish_translation": "Disculpe.",
       "pedagogy_note": "Social function clear.",
-      "audio_speaker": null,
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c007-prompt-9a00217544fa72188c3d",
+          "id": "lesson-6-7-simple-requests-c007-prompt-164ef4f275364468b818",
           "purpose": "prompt",
           "text": "Excuse me.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_gets-attention_4f7bd0d.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c007-answer-0538992ea5c3272d8a17",
+          "id": "lesson-6-7-simple-requests-c007-answer-450e8629980cfdd1d42a",
           "purpose": "answer",
           "text": "Excuse me.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_gets-attention_4f7bd0d.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -531,32 +531,32 @@
       "prompt_image_url": "",
       "spanish_translation": "Lo siento, no.",
       "pedagogy_note": "Exact contrast.",
-      "audio_speaker": null,
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c010-prompt-7ba1e6d07eb8039a35ac",
+          "id": "lesson-6-7-simple-requests-c010-prompt-e9772adc94ba688ea160",
           "purpose": "prompt",
           "text": "Sorry, no.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_sorry-no-response_6649851.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c010-answer-00a657e98c7d9573804c",
+          "id": "lesson-6-7-simple-requests-c010-answer-f1d999a5b7000f268638",
           "purpose": "answer",
           "text": "Sorry, no.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_sorry-no-response_6649851.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -565,7 +565,7 @@
     {
       "slide_id": "R5",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the phrase.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "can-you-help-me-1",
       "options": [
@@ -580,7 +580,7 @@
           "label": "Here you are."
         }
       ],
-      "audio_text": "Choose the phrase.",
+      "audio_text": "",
       "answer_audio_text": "Can you help me?",
       "prompt_image_url": "/lesson-assets/a1_scene_can-you-help-me_eb476e5.webp",
       "spanish_translation": "Elige la frase.",
@@ -590,18 +590,6 @@
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
-        {
-          "id": "lesson-6-7-simple-requests-c011-prompt-5a072ae6b8640f97b0e0",
-          "purpose": "prompt",
-          "text": "Choose the phrase.",
-          "mode": "prompt",
-          "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_can-you-help-me_eb476e5.webp",
-          "semantic_role": "teacher",
-          "speaker_role": "teacher",
-          "profile_id": "a1-elevenlabs-character-cast-v1",
-          "revision": 1
-        },
         {
           "id": "lesson-6-7-simple-requests-c011-answer-92a35b0a719d82047551",
           "purpose": "answer",
@@ -673,7 +661,7 @@
     {
       "slide_id": "R7",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the phrase.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "can-you-help-me-1",
       "options": [
@@ -732,7 +720,7 @@
     {
       "slide_id": "R8",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the phrase.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "yes-1",
       "options": [
@@ -806,32 +794,32 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Audio-only.",
-      "audio_speaker": null,
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c015-prompt-c6be065d5d0fa425e9f6",
+          "id": "lesson-6-7-simple-requests-c015-prompt-53e1fb1d79379193328a",
           "purpose": "prompt",
           "text": "Excuse me.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_gets-attention_4f7bd0d.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c015-answer-4a330c3d352da7298bef",
+          "id": "lesson-6-7-simple-requests-c015-answer-09ba17e3c8026f2f4c57",
           "purpose": "answer",
           "text": "Excuse me.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_gets-attention_4f7bd0d.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -914,32 +902,32 @@
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
       "pedagogy_note": "Audio-only polarity.",
-      "audio_speaker": null,
+      "audio_speaker": "male-character",
       "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c017-prompt-f0e8031e888c6890ea71",
+          "id": "lesson-6-7-simple-requests-c017-prompt-c7ad9d6c3ab57db7db01",
           "purpose": "prompt",
           "text": "Sorry, no.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_sorry-no-response_6649851.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c017-answer-7604acca4b7ae01f606f",
+          "id": "lesson-6-7-simple-requests-c017-answer-45b2db65284b0252066e",
           "purpose": "answer",
           "text": "Sorry, no.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_sorry-no-response_6649851.webp",
           "semantic_role": "answer",
-          "speaker_role": "answer",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }
@@ -1332,7 +1320,7 @@
       "options": [
         {
           "id": "where-is-the-station-1",
-          "image_url": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_url": "/lesson-assets/a1_station.webp",
           "label": "Where is the station?"
         }
       ],
@@ -1347,24 +1335,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c025-prompt-553aa4b89bf8dbda44ef",
+          "id": "lesson-6-7-simple-requests-c025-prompt-5436a911b12bdca32162",
           "purpose": "prompt",
           "text": "Where is the station?",
           "mode": "pronunciation_slow",
           "variant": "split-ing",
-          "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_ref": "/lesson-assets/a1_station.webp",
           "semantic_role": "question",
           "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c025-answer-4a30e2535aad8491c2da",
+          "id": "lesson-6-7-simple-requests-c025-answer-43f0c1db52be7ed60649",
           "purpose": "answer",
           "text": "Where is the station?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_ref": "/lesson-assets/a1_station.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1381,7 +1369,7 @@
       "options": [
         {
           "id": "it-is-on-the-left-thank-you-1",
-          "image_url": "/lesson-assets/a1_scene_it-is-on-the-left-thank-you_fc1f140.webp",
+          "image_url": "/lesson-assets/a1_scene_town-male-left-answer_a00c3ac.webp",
           "label": "It is on the left. Thank you."
         }
       ],
@@ -1515,7 +1503,7 @@
       ],
       "audio_text": "Where is the station?",
       "answer_audio_text": "Where is the station?",
-      "prompt_image_url": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+      "prompt_image_url": "/lesson-assets/a1_station.webp",
       "spanish_translation": "\u00bfD\u00f3nde est\u00e1 la estaci\u00f3n?",
       "pedagogy_note": "Fixed request.",
       "audio_speaker": null,
@@ -1524,24 +1512,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c028-prompt-f604353e808fdbf43efc",
+          "id": "lesson-6-7-simple-requests-c028-prompt-e189e8273b42ba703274",
           "purpose": "prompt",
           "text": "Where is the station?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_ref": "/lesson-assets/a1_station.webp",
           "semantic_role": "question",
           "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c028-answer-3caaffc6b315197518e1",
+          "id": "lesson-6-7-simple-requests-c028-answer-591742cb3dce853c0490",
           "purpose": "answer",
           "text": "Where is the station?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_ref": "/lesson-assets/a1_station.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1573,7 +1561,7 @@
       ],
       "audio_text": "Where is the hospital?",
       "answer_audio_text": "Where is the hospital?",
-      "prompt_image_url": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
+      "prompt_image_url": "/lesson-assets/a1_photo_u6_hospital_central_v1.webp",
       "spanish_translation": "\u00bfD\u00f3nde est\u00e1 el hospital?",
       "pedagogy_note": "Response selection.",
       "audio_speaker": null,
@@ -1582,24 +1570,24 @@
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c029-prompt-879e91cc1d66558757a2",
+          "id": "lesson-6-7-simple-requests-c029-prompt-dedb8c5eec6a35c11abc",
           "purpose": "prompt",
           "text": "Where is the hospital?",
           "mode": "prompt",
           "variant": "prompt",
-          "image_ref": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_hospital_central_v1.webp",
           "semantic_role": "question",
           "speaker_role": "question",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c029-answer-03dbdc471174b03db1a7",
+          "id": "lesson-6-7-simple-requests-c029-answer-ca54f84987a72c564d2f",
           "purpose": "answer",
           "text": "Where is the hospital?",
           "mode": "prompt",
           "variant": "answer",
-          "image_ref": "/lesson-assets/a1_scene_hospital_2b2d005.webp",
+          "image_ref": "/lesson-assets/a1_photo_u6_hospital_central_v1.webp",
           "semantic_role": "answer",
           "speaker_role": "answer",
           "profile_id": "a1-elevenlabs-character-cast-v1",
@@ -1808,32 +1796,32 @@
       "prompt_image_url": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
       "spanish_translation": "Gracias.",
       "pedagogy_note": "Negative response path.",
-      "audio_speaker": null,
-      "answer_audio_speaker": "female-character",
+      "audio_speaker": "male-character",
+      "answer_audio_speaker": null,
       "audio_revision": 1,
       "answer_audio_revision": 1,
       "audio_assets": [
         {
-          "id": "lesson-6-7-simple-requests-c033-prompt-101fbe32e033d845075b",
+          "id": "lesson-6-7-simple-requests-c033-prompt-6a3a0895832b1b2b3173",
           "purpose": "prompt",
           "text": "Thank you.",
           "mode": "prompt",
           "variant": "prompt",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
           "semantic_role": "teacher",
-          "speaker_role": "teacher",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         },
         {
-          "id": "lesson-6-7-simple-requests-c033-answer-df3b12f6ad9623100dc1",
+          "id": "lesson-6-7-simple-requests-c033-answer-10f4cc8e4c440d2f21d4",
           "purpose": "answer",
           "text": "Thank you.",
           "mode": "prompt",
           "variant": "answer",
           "image_ref": "/lesson-assets/a1_scene_thank-you_a6f59e1.webp",
           "semantic_role": "answer",
-          "speaker_role": "female-character",
+          "speaker_role": "male-character",
           "profile_id": "a1-elevenlabs-character-cast-v1",
           "revision": 1
         }

@@ -1,0 +1,1932 @@
+{
+  "schema_version": 1,
+  "output_namespace": "course-photo-sweep-v2",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "3.00",
+    "expected_cost_usd": "2.11",
+    "no_automatic_retries": true
+  },
+  "shared_prompt": "Use case: photorealistic-natural. One exceptionally lifelike photograph for beginner English learning. Real materials, natural light, authentic texture, sharp subject, no illustration, no cartoon, no vector art, no CGI, no icons, arrows, labels, numeral overlays or watermark. Full-bleed landscape 3:2, no border or inset. The app also displays a centered 4:5 crop: keep ALL answer-critical objects and their entire count/color/spatial relationship inside the central 50 percent of the landscape width, with spare room at both sides. Use a compact arrangement and enough depth of field for every target to be unmistakable on a phone. Exact count and physical relationship are mandatory. Do not add decorative copies, mirrors or background duplicates of a counted object.",
+  "assets": [
+    {
+      "id": "u4-book-in-bag",
+      "runtime_filename": "a1_photo_u4_book_in_bag_v1.webp",
+      "prompt": "One blue hardback book visibly INSIDE an open canvas school bag on a small table. The lower two thirds of the book is enclosed by the bag, the top of the book remains visible through the opening. The bag walls clearly surround the book. No other books.",
+      "expected_description": "One blue hardback book visibly INSIDE an open canvas school bag on a small table. The lower two thirds of the book is enclosed by the bag, the top of the book remains visible through the opening. The bag walls clearly surround the book. No other books.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-in-bag_4c4abfc.webp",
+            "old_sha256": "5974262683a8ac52752c266b1cc30a365f88bc23ba616b561224478c48357e01",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/1/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/6/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/9/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/14/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/17/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/20/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/26/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-5-morning-routine",
+                "lesson": "4.5",
+                "path": "backend/lessons/unit_4/lesson-4-5-morning-routine.yaml",
+                "pointer": "/cards/15/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-7-simple-present",
+                "lesson": "4.7",
+                "path": "backend/lessons/unit_4/lesson-4-7-simple-present.yaml",
+                "pointer": "/cards/13/prompt_image_url"
+              }
+            ],
+            "inventory_index": 140
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-book-on-table",
+      "runtime_filename": "a1_photo_u4_book_on_table_v1.webp",
+      "prompt": "One blue hardback book resting flat ON TOP of a small wooden side table. Clear tabletop support beneath the book, empty space under the table. Show the whole book, the tabletop and table legs. No other books.",
+      "expected_description": "One blue hardback book resting flat ON TOP of a small wooden side table. Clear tabletop support beneath the book, empty space under the table. Show the whole book, the tabletop and table legs. No other books.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-on-table_af51f18.webp",
+            "old_sha256": "014609575c139fb34fab7e69646781fae6961ec1ad1fca6d1155b03bb710e653",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/0/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/2/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/6/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/7/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/8/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/10/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/14/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/15/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/16/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/21/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/24/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/27/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/12/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-6-everyday-verbs",
+                "lesson": "4.6",
+                "path": "backend/lessons/unit_4/lesson-4-6-everyday-verbs.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-8-days-and-time",
+                "lesson": "4.8",
+                "path": "backend/lessons/unit_4/lesson-4-8-days-and-time.yaml",
+                "pointer": "/cards/39/prompt_image_url"
+              }
+            ],
+            "inventory_index": 145
+          },
+          {
+            "old_filename": "a1_scene_two-bags-table_85642e2.webp",
+            "old_sha256": "fdf109c62a4eab7f2410653cfa02b83b0e728d93cd7589abb4c3a4f3462adcaf",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ],
+            "inventory_index": 741
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-book-under-table",
+      "runtime_filename": "a1_photo_u4_book_under_table_v1.webp",
+      "prompt": "One blue hardback book lying on the floor directly UNDER a small wooden side table, centered between its visible legs. The tabletop above is empty. Show the full table and the book, with clear air between the book and tabletop.",
+      "expected_description": "One blue hardback book lying on the floor directly UNDER a small wooden side table, centered between its visible legs. The tabletop above is empty. Show the full table and the book, with clear air between the book and tabletop.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-under-table_2a8db9a.webp",
+            "old_sha256": "cbe3a89bfaa6c174d9af636613c777e58bfd9d8e62b29a43f5c5ec2564e3cad5",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/3/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/7/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/8/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/15/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/16/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/22/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ],
+            "inventory_index": 146
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-computer-in-living-room",
+      "runtime_filename": "a1_photo_u4_computer_in_living_room_v1.webp",
+      "prompt": "A single open laptop computer on the central coffee table of a real living room, with a sofa clearly visible behind it. Exactly one computer, no additional screens. The complete computer and living room context must remain clear in the centered crop.",
+      "expected_description": "A single open laptop computer on the central coffee table of a real living room, with a sofa clearly visible behind it. Exactly one computer, no additional screens. The complete computer and living room context must remain clear in the centered crop.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_one-computer-living_180de03.webp",
+            "old_sha256": "52ccbc8fa6f484fc1d70da25b81c40a61c11500ba326c1837ec3731a0b945f2d",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/5/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/9/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/11/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/17/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/25/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              }
+            ],
+            "inventory_index": 551
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-lamp-next-to-sofa",
+      "runtime_filename": "a1_photo_u4_lamp_next_to_sofa_v1.webp",
+      "prompt": "One floor lamp standing immediately NEXT TO a compact two-seat sofa in a real living room. Clearly one lamp and one sofa, neither overlaps or hides the other. Frame them as a compact pair in the center. No other lamps.",
+      "expected_description": "One floor lamp standing immediately NEXT TO a compact two-seat sofa in a real living room. Clearly one lamp and one sofa, neither overlaps or hides the other. Frame them as a compact pair in the center. No other lamps.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_lamp-next-sofa_aa59d6d.webp",
+            "old_sha256": "26dbe33baa989dc382122031fb5d007733f64e6e921b0651987fef456de56540",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/11/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              }
+            ],
+            "inventory_index": 448
+          },
+          {
+            "old_filename": "a1_scene_one-lamp-sofa_db6122f.webp",
+            "old_sha256": "fa3848801e48ce2c6d581cd89a3b6664193583396051a72be57b8a73d3ee62e1",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/3/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/9/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/17/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/23/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              }
+            ],
+            "inventory_index": 554
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-phone-on-bed",
+      "runtime_filename": "a1_photo_u4_phone_on_bed_v1.webp",
+      "prompt": "One smartphone lying ON a neatly made bed. Show the full phone prominently on the bedspread with a pillow and headboard visibly establishing the bed. No other phones or objects on the bed.",
+      "expected_description": "One smartphone lying ON a neatly made bed. Show the full phone prominently on the bedspread with a pillow and headboard visibly establishing the bed. No other phones or objects on the bed.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_phone-on-bed_acd3467.webp",
+            "old_sha256": "31150f206adeb13ef78959e8bcf7ad78137498f2ef524422d37d8baa7ad7caac",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/5/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/19/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/25/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-3-where-things-are",
+                "lesson": "4.3",
+                "path": "backend/lessons/unit_4/lesson-4-3-where-things-are.yaml",
+                "pointer": "/cards/31/prompt_image_url"
+              }
+            ],
+            "inventory_index": 590
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-three-books-on-table",
+      "runtime_filename": "a1_photo_u4_three_books_on_table_v1.webp",
+      "prompt": "Exactly THREE distinct books on top of one small table, each fully visible and separate, arranged compactly with gaps, not stacked. Floor under table is empty. No other books.",
+      "expected_description": "Exactly THREE distinct books on top of one small table, each fully visible and separate, arranged compactly with gaps, not stacked. Floor under table is empty. No other books.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-books-table_d6f1a77.webp",
+            "old_sha256": "d32367826cb87f2ba51e30683a9926bf2d2a20403d340f4973d0edf97fb6d5f6",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/2/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/8/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/16/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/22/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/31/prompt_image_url"
+              }
+            ],
+            "inventory_index": 718
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-two-bags-under-table",
+      "runtime_filename": "a1_photo_u4_two_bags_under_table_v1.webp",
+      "prompt": "Exactly TWO canvas school bags resting on the floor directly UNDER a small wooden table, between its visible legs. Two bags side by side with a clear gap. Empty tabletop. Both bags and their location under the table must remain visible in the central crop.",
+      "expected_description": "Exactly TWO canvas school bags resting on the floor directly UNDER a small wooden table, between its visible legs. Two bags side by side with a clear gap. Empty tabletop. Both bags and their location under the table must remain visible in the central crop.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-books-table_d6f1a77.webp",
+            "old_sha256": "d32367826cb87f2ba51e30683a9926bf2d2a20403d340f4973d0edf97fb6d5f6",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ],
+            "inventory_index": 718
+          },
+          {
+            "old_filename": "a1_scene_two-bags-table_85642e2.webp",
+            "old_sha256": "fdf109c62a4eab7f2410653cfa02b83b0e728d93cd7589abb4c3a4f3462adcaf",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/4/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/8/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/10/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/16/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/24/options/0/image_url"
+              }
+            ],
+            "inventory_index": 741
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-two-chairs-in-dining-room",
+      "runtime_filename": "a1_photo_u4_two_chairs_in_dining_room_v1.webp",
+      "prompt": "Exactly TWO complete dining chairs beside a small dining table in a real dining room. One chair either side, compact arrangement so both full chairs and table remain in the central portrait crop. No extra chairs, reflections or partly hidden seats.",
+      "expected_description": "Exactly TWO complete dining chairs beside a small dining table in a real dining room. One chair either side, compact arrangement so both full chairs and table remain in the central portrait crop. No extra chairs, reflections or partly hidden seats.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-chairs-dining_d435986.webp",
+            "old_sha256": "5e996c00a964198e8fa5f0c1cf0ecbed70f9d05c8fabe76e9c3dad6ed2935024",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/1/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/6/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/7/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/14/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/15/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/21/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-4-there-is-and-there-are",
+                "lesson": "4.4",
+                "path": "backend/lessons/unit_4/lesson-4-4-there-is-and-there-are.yaml",
+                "pointer": "/cards/27/prompt_image_url"
+              }
+            ],
+            "inventory_index": 742
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-review-book-on-table",
+      "runtime_filename": "a1_photo_u4_review_book_on_table_v1.webp",
+      "prompt": "One blue hardback book resting flat ON TOP of a small wooden side table. Clear tabletop support beneath the book, empty space under the table. Show the whole book, the tabletop and table legs. No other books. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "One blue hardback book resting flat ON TOP of a small wooden side table. Clear tabletop support beneath the book, empty space under the table. Show the whole book, the tabletop and table legs. No other books.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-on-table_af51f18.webp",
+            "old_sha256": "014609575c139fb34fab7e69646781fae6961ec1ad1fca6d1155b03bb710e653",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/1/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/6/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/12/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/19/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/25/prompt_image_url"
+              }
+            ],
+            "inventory_index": 145
+          }
+        ]
+      }
+    },
+    {
+      "id": "u4-review-two-chairs-in-dining-room",
+      "runtime_filename": "a1_photo_u4_review_two_chairs_in_dining_room_v1.webp",
+      "prompt": "Exactly TWO complete dining chairs beside a small dining table in a real dining room. One chair either side, compact arrangement so both full chairs and table remain in the central portrait crop. No extra chairs, reflections or partly hidden seats. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "Exactly TWO complete dining chairs beside a small dining table in a real dining room. One chair either side, compact arrangement so both full chairs and table remain in the central portrait crop. No extra chairs, reflections or partly hidden seats.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-chairs-dining_d435986.webp",
+            "old_sha256": "5e996c00a964198e8fa5f0c1cf0ecbed70f9d05c8fabe76e9c3dad6ed2935024",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/7/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/20/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-4-9-unit-4-review",
+                "lesson": "4.9",
+                "path": "backend/lessons/unit_4/lesson-4-9-unit-4-review.yaml",
+                "pointer": "/cards/26/prompt_image_url"
+              }
+            ],
+            "inventory_index": 742
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-five-oranges",
+      "runtime_filename": "a1_photo_u5_five_oranges_v1.webp",
+      "prompt": "Exactly FIVE whole oranges, arranged as two at the back and three at the front with clear gaps on a kitchen counter. No other fruit.",
+      "expected_description": "Exactly FIVE whole oranges, arranged as two at the back and three at the front with clear gaps on a kitchen counter. No other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_five-oranges_c241081_four-card.webp",
+            "old_sha256": "de74caaaa811db261f0d0c95543c17934a40bdb0809ec763b2bd591191600633",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/15/options/3/image_url"
+              }
+            ],
+            "inventory_index": 286
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-five-strawberries",
+      "runtime_filename": "a1_photo_u5_five_strawberries_v1.webp",
+      "prompt": "Exactly FIVE whole ripe red strawberries in two rows: two behind three, on a small white plate, all separate, no other berries.",
+      "expected_description": "Exactly FIVE whole ripe red strawberries in two rows: two behind three, on a small white plate, all separate, no other berries.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_five-strawberries_858ca75_four-card.webp",
+            "old_sha256": "f140279fb0d4c13da66aecf30541f4a35fadfcb4c920725ae76d61857a21cc09",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/12/options/3/image_url"
+              }
+            ],
+            "inventory_index": 287
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-four-oranges",
+      "runtime_filename": "a1_photo_u5_four_oranges_v1.webp",
+      "prompt": "Exactly FOUR whole oranges, arranged as two rows of two with clear gaps on a kitchen counter. No other fruit.",
+      "expected_description": "Exactly FOUR whole oranges, arranged as two rows of two with clear gaps on a kitchen counter. No other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_four-oranges_9e38f8c.webp",
+            "old_sha256": "689ca6c16bd262234b7e21e8122bf551b4d3e9fb3801160050538e838913369d",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/10/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/23/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ],
+            "inventory_index": 293
+          },
+          {
+            "old_filename": "a1_scene_four-oranges_9e38f8c_four-card.webp",
+            "old_sha256": "3fae75b03e240f5399a112e146729c79e40201c7016b8d401f704e29c1279ea3",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/15/options/2/image_url"
+              }
+            ],
+            "inventory_index": 294
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-four-red-apples",
+      "runtime_filename": "a1_photo_u5_four_red_apples_v1.webp",
+      "prompt": "Exactly FOUR red apples arranged in two clear rows of two on a small wooden board. All four complete and separate, no other fruit.",
+      "expected_description": "Exactly FOUR red apples arranged in two clear rows of two on a small wooden board. All four complete and separate, no other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_four_9f8f7ee.webp",
+            "old_sha256": "425b1de9bbf4da076533970bd97f2477f75694ce266b625a9bdf0c763328800c",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/29/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              }
+            ],
+            "inventory_index": 297
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-four-strawberries",
+      "runtime_filename": "a1_photo_u5_four_strawberries_v1.webp",
+      "prompt": "Exactly FOUR whole ripe red strawberries in two rows of two on a small white plate, all separate, no other berries.",
+      "expected_description": "Exactly FOUR whole ripe red strawberries in two rows of two on a small white plate, all separate, no other berries.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_four-strawberries_f01534e_four-card.webp",
+            "old_sha256": "cdc509893d82d4027fd9e3957f1beb46aa1cb0188ef8bda950a1fb7d5e663ac8",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/12/options/2/image_url"
+              }
+            ],
+            "inventory_index": 296
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-green-apple",
+      "runtime_filename": "a1_photo_u5_green_apple_v1.webp",
+      "prompt": "One single whole GREEN apple on a neutral tabletop, clearly green skin, no red or yellow fruit.",
+      "expected_description": "One single whole GREEN apple on a neutral tabletop, clearly green skin, no red or yellow fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_green-apple_58b779f.webp",
+            "old_sha256": "6e8ae50b804806b6bd23a5d363205e36ae4225e0ba0b2eb622cd9dd869fc25d7",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/14/options/1/image_url"
+              }
+            ],
+            "inventory_index": 316
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-three-apples",
+      "runtime_filename": "a1_photo_u5_three_apples_v1.webp",
+      "prompt": "Exactly THREE separate whole red apples on a clean kitchen counter, in a compact triangle with visible gaps. No other fruit.",
+      "expected_description": "Exactly THREE separate whole red apples on a clean kitchen counter, in a compact triangle with visible gaps. No other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_apples_76c2436.webp",
+            "old_sha256": "e7ac1accfbefca187736e7295ae236c49b8f20f9d5108e2c5188033786e9d087",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/31/prompt_image_url"
+              }
+            ],
+            "inventory_index": 107
+          },
+          {
+            "old_filename": "a1_scene_three-apples_1ec2f37.webp",
+            "old_sha256": "811d2456e08a55a44224976b16779fe6a3d229ec6e68ab6b08b491e4046c8de5",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/3/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/8/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/14/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/22/options/0/image_url"
+              }
+            ],
+            "inventory_index": 716
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-three-eggs",
+      "runtime_filename": "a1_photo_u5_three_eggs_v1.webp",
+      "prompt": "Exactly THREE whole unbroken white chicken eggs in a shallow triangle with visible gaps on a small plate. All fully visible, no carton or other food.",
+      "expected_description": "Exactly THREE whole unbroken white chicken eggs in a shallow triangle with visible gaps on a small plate. All fully visible, no carton or other food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-eggs_e579b07.webp",
+            "old_sha256": "733199a0faf28a7a23174abe613134805bc6412119e4c42fa71beb0790310f52",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/15/options/1/image_url"
+              }
+            ],
+            "inventory_index": 720
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-three-oranges",
+      "runtime_filename": "a1_photo_u5_three_oranges_v1.webp",
+      "prompt": "Exactly THREE whole oranges in a triangle with clear gaps on a kitchen counter. No other fruit.",
+      "expected_description": "Exactly THREE whole oranges in a triangle with clear gaps on a kitchen counter. No other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-oranges_0ad5066.webp",
+            "old_sha256": "e97eea947925c6902902c90f45bbedd0fcc83092fb31586e8f82798bd307eed6",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/15/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/27/prompt_image_url"
+              }
+            ],
+            "inventory_index": 721
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-three-red-apples",
+      "runtime_filename": "a1_photo_u5_three_red_apples_v1.webp",
+      "prompt": "Exactly THREE red apples in a shallow triangle on a small white plate. Clearly RED skins, gaps between each fruit, no other fruit.",
+      "expected_description": "Exactly THREE red apples in a shallow triangle on a small white plate. Clearly RED skins, gaps between each fruit, no other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-red-apples_643a965.webp",
+            "old_sha256": "bb01b2a2be000d4eed1d15f14a0b254f3a23d3549f16519b56c6111930e95572",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/19/options/1/image_url"
+              }
+            ],
+            "inventory_index": 722
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-three-strawberries",
+      "runtime_filename": "a1_photo_u5_three_strawberries_v1.webp",
+      "prompt": "Exactly THREE whole ripe red strawberries in a shallow triangle on a small white plate, separate complete fruit, no other berries.",
+      "expected_description": "Exactly THREE whole ripe red strawberries in a shallow triangle on a small white plate, separate complete fruit, no other berries.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-strawberries_9cec7e0.webp",
+            "old_sha256": "242fe28447f23da0a16a323c5b6b162752ad6dfa9270831d917464bb56a08b3d",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/12/options/1/image_url"
+              }
+            ],
+            "inventory_index": 724
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-two-apples",
+      "runtime_filename": "a1_photo_u5_two_apples_v1.webp",
+      "prompt": "Exactly TWO separate whole red apples side by side with a clear gap on a clean kitchen counter. No other fruit.",
+      "expected_description": "Exactly TWO separate whole red apples side by side with a clear gap on a clean kitchen counter. No other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-apples_599c851.webp",
+            "old_sha256": "0ffebaab9ea18fd2652270d061dc72a043a1aa147801e7bda2ef0e31483193fe",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/7/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/20/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/8/options/0/image_url"
+              }
+            ],
+            "inventory_index": 740
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-two-eggs",
+      "runtime_filename": "a1_photo_u5_two_eggs_v1.webp",
+      "prompt": "Exactly TWO whole unbroken white chicken eggs side by side with a clear gap on a small plate. Both eggs fully visible, no carton or other food.",
+      "expected_description": "Exactly TWO whole unbroken white chicken eggs side by side with a clear gap on a small plate. Both eggs fully visible, no carton or other food.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_eggs_bd111dc.webp",
+            "old_sha256": "ab5011283d9b46663020edeb16b82e7290ac2a79f74a2df430a1c05df66a4fdc",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/17/options/2/image_url"
+              }
+            ],
+            "inventory_index": 266
+          },
+          {
+            "old_filename": "a1_scene_two-eggs_91bc69a.webp",
+            "old_sha256": "f3a5379015e4460dffd27b5965ddf528434544c64c1c6b69c7f350126b07ba9b",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/1/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/6/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/7/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/15/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/21/options/0/image_url"
+              }
+            ],
+            "inventory_index": 745
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-two-green-apples",
+      "runtime_filename": "a1_photo_u5_two_green_apples_v1.webp",
+      "prompt": "Exactly TWO bright green apples side by side on a small plate. Clear gap between the complete apples, no red apples or other fruit.",
+      "expected_description": "Exactly TWO bright green apples side by side on a small plate. Clear gap between the complete apples, no red apples or other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-green-apples_68a1dd5.webp",
+            "old_sha256": "81be92cc9f51576109b48d0b4d8add56c631e997d91e7181f758f9f7112507b7",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/19/options/0/image_url"
+              }
+            ],
+            "inventory_index": 746
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-two-oranges",
+      "runtime_filename": "a1_photo_u5_two_oranges_v1.webp",
+      "prompt": "Exactly TWO whole oranges side by side with a gap on a kitchen counter. No other fruit.",
+      "expected_description": "Exactly TWO whole oranges side by side with a gap on a kitchen counter. No other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-oranges_cc4a8db.webp",
+            "old_sha256": "0b8d6b1cb0481ea98470a1259e0e3643eecc3f2014055df7cc089e7f1610dc2d",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-1-fruits",
+                "lesson": "5.1",
+                "path": "backend/lessons/unit_5/lesson-5-1-fruits.yaml",
+                "pointer": "/cards/15/options/0/image_url"
+              }
+            ],
+            "inventory_index": 747
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-two-red-apples",
+      "runtime_filename": "a1_photo_u5_two_red_apples_v1.webp",
+      "prompt": "Exactly TWO red apples side by side on a small wooden board. Clearly RED skins, a gap between them, no other fruit.",
+      "expected_description": "Exactly TWO red apples side by side on a small wooden board. Clearly RED skins, a gap between them, no other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-red-apples_52d3d43.webp",
+            "old_sha256": "00e5016b16b07ced1036f6b5cbd0308c056db604df602d35aa876b715c6f13e8",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/19/options/2/image_url"
+              }
+            ],
+            "inventory_index": 748
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-two-strawberries",
+      "runtime_filename": "a1_photo_u5_two_strawberries_v1.webp",
+      "prompt": "Exactly TWO whole ripe red strawberries side by side on a small white plate. Separate complete fruit, no other berries.",
+      "expected_description": "Exactly TWO whole ripe red strawberries side by side on a small white plate. Separate complete fruit, no other berries.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-strawberries_c16fa01.webp",
+            "old_sha256": "4519f0d0064076467fea45779bbc3cae05e5c828ca56172dffde0ab5615b4602",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-3-food-quantities",
+                "lesson": "5.3",
+                "path": "backend/lessons/unit_5/lesson-5-3-food-quantities.yaml",
+                "pointer": "/cards/12/options/0/image_url"
+              }
+            ],
+            "inventory_index": 749
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-five-oranges",
+      "runtime_filename": "a1_photo_u5_review_five_oranges_v1.webp",
+      "prompt": "Exactly FIVE whole oranges, arranged as two at the back and three at the front with clear gaps on a kitchen counter. No other fruit. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "Exactly FIVE whole oranges, arranged as two at the back and three at the front with clear gaps on a kitchen counter. No other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_five-oranges_c241081.webp",
+            "old_sha256": "bd4ac3ae93da26d6e0f74726da0b344abec5a00b213837de8fd10ca587986a1a",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/24/prompt_image_url"
+              }
+            ],
+            "inventory_index": 285
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-three-red-apples",
+      "runtime_filename": "a1_photo_u5_review_three_red_apples_v1.webp",
+      "prompt": "Exactly THREE red apples in a shallow triangle on a small white plate. Clearly RED skins, gaps between each fruit, no other fruit. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "Exactly THREE red apples in a shallow triangle on a small white plate. Clearly RED skins, gaps between each fruit, no other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-red-apples_643a965.webp",
+            "old_sha256": "bb01b2a2be000d4eed1d15f14a0b254f3a23d3549f16519b56c6111930e95572",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/4/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              }
+            ],
+            "inventory_index": 722
+          }
+        ]
+      }
+    },
+    {
+      "id": "u5-review-two-red-apples",
+      "runtime_filename": "a1_photo_u5_review_two_red_apples_v1.webp",
+      "prompt": "Exactly TWO red apples side by side on a small wooden board. Clearly RED skins, a gap between them, no other fruit. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "Exactly TWO red apples side by side on a small wooden board. Clearly RED skins, a gap between them, no other fruit.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_two-red-apples_52d3d43.webp",
+            "old_sha256": "00e5016b16b07ced1036f6b5cbd0308c056db604df602d35aa876b715c6f13e8",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-5-9-unit-5-review",
+                "lesson": "5.9",
+                "path": "backend/lessons/unit_5/lesson-5-9-unit-5-review.yaml",
+                "pointer": "/cards/4/options/0/image_url"
+              }
+            ],
+            "inventory_index": 748
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-apple-under-chair",
+      "runtime_filename": "a1_photo_u6_apple_under_chair_v1.webp",
+      "prompt": "One red apple lying on the floor directly UNDER a simple wooden chair, between its legs. The chair seat is empty. Show the complete apple and the chair seat and legs, with clear air above the apple.",
+      "expected_description": "One red apple lying on the floor directly UNDER a simple wooden chair, between its legs. The chair seat is empty. Show the complete apple and the chair seat and legs, with clear air above the apple.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_it-is-under-the-chair_e42532d.webp",
+            "old_sha256": "0c9c371b2dfbc99d3fc1ed204853d192d70035c6c9bfa4845b80b53a12a461bf",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/12/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ],
+            "inventory_index": 433
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-book-in-table-compartment",
+      "runtime_filename": "a1_photo_u6_book_in_table_compartment_v1.webp",
+      "prompt": "One blue book visibly INSIDE the open built-in drawer of a small wooden table. The drawer is pulled open enough to see the book enclosed by its bottom and sides. Tabletop above the book, no book on top or on the floor. Use a slightly elevated close viewpoint so being INSIDE is unmistakable.",
+      "expected_description": "One blue book visibly INSIDE the open built-in drawer of a small wooden table. The drawer is pulled open enough to see the book enclosed by its bottom and sides. Tabletop above the book, no book on top or on the floor. Use a slightly elevated close viewpoint so being INSIDE is unmistakable.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-in-table-compartment_5cc156e.webp",
+            "old_sha256": "7d24753a2a5245305ffe362ede2276241cc8b372ed03c3c043ec05f460965291",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/18/options/3/image_url"
+              }
+            ],
+            "inventory_index": 141
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-book-next-to-table",
+      "runtime_filename": "a1_photo_u6_book_next_to_table_v1.webp",
+      "prompt": "One blue book standing upright on the floor immediately BESIDE a small wooden side table, clearly outside its legs and not under the tabletop. Show all table legs and the complete book side by side in the center. No other books.",
+      "expected_description": "One blue book standing upright on the floor immediately BESIDE a small wooden side table, clearly outside its legs and not under the tabletop. Show all table legs and the complete book side by side in the center. No other books.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-next-to-table_11e545b_four-card.webp",
+            "old_sha256": "d2c494985f5a603c4ce088c657e835dce1bd5ee77968a96ecfe8bd534b36fe96",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/18/options/1/image_url"
+              }
+            ],
+            "inventory_index": 143
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-book-on-table",
+      "runtime_filename": "a1_photo_u6_book_on_table_v1.webp",
+      "prompt": "One blue hardback book resting flat ON TOP of a small wooden side table. Clear tabletop support beneath the book, empty space under the table. Show the whole book, the tabletop and table legs. No other books.",
+      "expected_description": "One blue hardback book resting flat ON TOP of a small wooden side table. Clear tabletop support beneath the book, empty space under the table. Show the whole book, the tabletop and table legs. No other books.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-on-table_493a24c_four-card.webp",
+            "old_sha256": "e318b52c6a951367ef45f7de6a57248cbde73250d29adb4c562793f35f899dc8",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/18/options/0/image_url"
+              }
+            ],
+            "inventory_index": 144
+          },
+          {
+            "old_filename": "a1_scene_on_db3d405.webp",
+            "old_sha256": "014609575c139fb34fab7e69646781fae6961ec1ad1fca6d1155b03bb710e653",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/27/prompt_image_url"
+              }
+            ],
+            "inventory_index": 548
+          },
+          {
+            "old_filename": "a1_scene_it-is-on-the-table_8362808.webp",
+            "old_sha256": "014609575c139fb34fab7e69646781fae6961ec1ad1fca6d1155b03bb710e653",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/11/prompt_image_url"
+              }
+            ],
+            "inventory_index": 423
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-book-under-table",
+      "runtime_filename": "a1_photo_u6_book_under_table_v1.webp",
+      "prompt": "One blue hardback book lying on the floor directly UNDER a small wooden side table, centered between its visible legs. The tabletop above is empty. Show the full table and the book, with clear air between the book and tabletop.",
+      "expected_description": "One blue hardback book lying on the floor directly UNDER a small wooden side table, centered between its visible legs. The tabletop above is empty. Show the full table and the book, with clear air between the book and tabletop.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-under-table_3882341_four-card.webp",
+            "old_sha256": "c6ec38e7c835f16f08e2743a0101a67d56f7b462a27753c0b8a46074c741119b",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/18/options/2/image_url"
+              }
+            ],
+            "inventory_index": 147
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-phone-in-bag",
+      "runtime_filename": "a1_photo_u6_phone_in_bag_v1.webp",
+      "prompt": "One smartphone visibly INSIDE an open canvas shoulder bag on a small table. Most of the phone is enclosed within the bag and its top and screen remain visible through the opening. The bag surrounds the phone. No other phones or bags.",
+      "expected_description": "One smartphone visibly INSIDE an open canvas shoulder bag on a small table. Most of the phone is enclosed within the bag and its top and screen remain visible through the opening. The bag surrounds the phone. No other phones or bags.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_phone-in-bag_02d34d5.webp",
+            "old_sha256": "78aec2c35d9a305663d74904107232ab1e7a44ea3c5a366ebac26506040a6741",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/17/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/26/prompt_image_url"
+              }
+            ],
+            "inventory_index": 588
+          },
+          {
+            "old_filename": "a1_scene_it-is-in-the-bag_d8697e6.webp",
+            "old_sha256": "5176a23a2340dc08960656d7854c61a1d8c697529c55c3a1a14ee00f55689ce0",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/10/prompt_image_url"
+              },
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/25/options/0/image_url"
+              }
+            ],
+            "inventory_index": 414
+          }
+        ]
+      }
+    },
+    {
+      "id": "u6-phone-on-bag",
+      "runtime_filename": "a1_photo_u6_phone_on_bag_v1.webp",
+      "prompt": "One smartphone resting ON TOP of a closed canvas shoulder bag on a small table. The complete phone lies flat on the bag exterior, not inside any opening. Show the closed bag clearly beneath it. No other phones.",
+      "expected_description": "One smartphone resting ON TOP of a closed canvas shoulder bag on a small table. The complete phone lies flat on the bag exterior, not inside any opening. Show the closed bag clearly beneath it. No other phones.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_phone-on-bag_4af0b00.webp",
+            "old_sha256": "47810c8cd5d90d089e60b511e920c932375e6e6db00928e9e92c0d26891ade5a",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-6-3-where-is-it",
+                "lesson": "6.3",
+                "path": "backend/lessons/unit_6/lesson-6-3-where-is-it.yaml",
+                "pointer": "/cards/17/options/0/image_url"
+              }
+            ],
+            "inventory_index": 589
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-black-jacket",
+      "runtime_filename": "a1_photo_u7_black_jacket_v1.webp",
+      "prompt": "One plain BLACK casual zip-up jacket hanging against a softly lit neutral wall. Complete collar, zipper and sleeves visible; realistic fabric, no person, no logo.",
+      "expected_description": "One plain BLACK casual zip-up jacket hanging against a softly lit neutral wall. Complete collar, zipper and sleeves visible; realistic fabric, no person, no logo.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_black-jacket_13d8bba.webp",
+            "old_sha256": "4e22de1748425ca2fd5d4f1012f634beacf6d896edb76a52654692050b0e077b",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/20/options/3/image_url"
+              }
+            ],
+            "inventory_index": 136
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-blue-jacket",
+      "runtime_filename": "a1_photo_u7_blue_jacket_v1.webp",
+      "prompt": "One plain vivid BLUE casual zip-up jacket hanging against a softly lit neutral wall. Complete collar, zipper and sleeves visible; realistic fabric, no person, no logo.",
+      "expected_description": "One plain vivid BLUE casual zip-up jacket hanging against a softly lit neutral wall. Complete collar, zipper and sleeves visible; realistic fabric, no person, no logo.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_blue-jacket_1da89b3.webp",
+            "old_sha256": "ac77c8d54db79e27b63a800aa9f887ff44866b55f5af60c3fcc368bbd084e37d",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/20/options/2/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/28/prompt_image_url"
+              }
+            ],
+            "inventory_index": 139
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-green-jacket",
+      "runtime_filename": "a1_photo_u7_green_jacket_v1.webp",
+      "prompt": "One plain GREEN casual zip-up jacket hanging against a softly lit neutral wall. Complete collar, zipper and sleeves visible; realistic fabric, no person, no logo.",
+      "expected_description": "One plain GREEN casual zip-up jacket hanging against a softly lit neutral wall. Complete collar, zipper and sleeves visible; realistic fabric, no person, no logo.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_green-jacket_6e94dbe.webp",
+            "old_sha256": "d0cfa54a179d8f34204151838743a6f7a320d010e87b8e7a72857ac60d06fc02",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/20/options/1/image_url"
+              }
+            ],
+            "inventory_index": 317
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-red-jacket",
+      "runtime_filename": "a1_photo_u7_red_jacket_v1.webp",
+      "prompt": "One plain RED casual zip-up jacket hanging against a softly lit neutral wall. Complete collar, zipper and sleeves visible; realistic fabric, no person, no logo.",
+      "expected_description": "One plain RED casual zip-up jacket hanging against a softly lit neutral wall. Complete collar, zipper and sleeves visible; realistic fabric, no person, no logo.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_red-jacket_d583df3.webp",
+            "old_sha256": "879d34939cc9c8ed74741ce7eba3e1dcd783f2d42ce4cabf5a76a02bf593e192",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/20/options/0/image_url"
+              }
+            ],
+            "inventory_index": 605
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-red-shirt",
+      "runtime_filename": "a1_photo_u7_red_shirt_v1.webp",
+      "prompt": "One plain RED short-sleeved shirt displayed on a wooden hanger against a neutral wall. Complete shirt with collar and both sleeves visible. Unmistakably red, not white, no jacket, logo or person.",
+      "expected_description": "One plain RED short-sleeved shirt displayed on a wooden hanger against a neutral wall. Complete shirt with collar and both sleeves visible. Unmistakably red, not white, no jacket, logo or person.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_shirt_faa5d68.webp",
+            "old_sha256": "e1e2c2fe1a7851c87d62b7026559c0c661b9317cfbdb120af4ba3ea7e45fd244",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/8/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/16/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/19/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/30/prompt_image_url"
+              }
+            ],
+            "inventory_index": 625
+          },
+          {
+            "old_filename": "a1_scene_the-shirt-is-red_98eb8da.webp",
+            "old_sha256": "e5be197e335f339055469b05e1a7d50e1103e4b32a9b108a23e5f7818419758b",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/14/prompt_image_url"
+              }
+            ],
+            "inventory_index": 699
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-white-socks",
+      "runtime_filename": "a1_photo_u7_white_socks_v1.webp",
+      "prompt": "One PAIR of clean WHITE cotton socks, laid side by side with a small gap on a neutral beige surface. Exactly two socks, both complete from toes to cuffs. White, not grey or black.",
+      "expected_description": "One PAIR of clean WHITE cotton socks, laid side by side with a small gap on a neutral beige surface. Exactly two socks, both complete from toes to cuffs. White, not grey or black.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_socks_c9da8a6.webp",
+            "old_sha256": "9b4ac69c0eca336bbe2a0ebce8157ae204cd862c3fcee80bf51b237de1d662f5",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/6/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/11/options/0/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/18/options/1/image_url"
+              },
+              {
+                "lesson_id": "lesson-7-3-clothing",
+                "lesson": "7.3",
+                "path": "backend/lessons/unit_7/lesson-7-3-clothing.yaml",
+                "pointer": "/cards/33/prompt_image_url"
+              }
+            ],
+            "inventory_index": 631
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-book-under-table",
+      "runtime_filename": "a1_photo_u7_review_book_under_table_v1.webp",
+      "prompt": "One blue hardback book lying on the floor directly UNDER a small wooden side table, centered between its visible legs. The tabletop above is empty. Show the full table and the book, with clear air between the book and tabletop. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "One blue hardback book lying on the floor directly UNDER a small wooden side table, centered between its visible legs. The tabletop above is empty. Show the full table and the book, with clear air between the book and tabletop.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_book-under-table_2a8db9a.webp",
+            "old_sha256": "cbe3a89bfaa6c174d9af636613c777e58bfd9d8e62b29a43f5c5ec2564e3cad5",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/27/prompt_image_url"
+              }
+            ],
+            "inventory_index": 146
+          },
+          {
+            "old_filename": "a1_scene_it-is-under-the-table_d49f4e9.webp",
+            "old_sha256": "ea17a08ef492e49b0006a2cd6224d6502286a11e75c347abf8f28e8b7b4429da",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/7/prompt_image_url"
+              }
+            ],
+            "inventory_index": 434
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-four-blue-chairs",
+      "runtime_filename": "a1_photo_u7_review_four_blue_chairs_v1.webp",
+      "prompt": "Exactly FOUR BLUE chairs standing separately on the floor of a community room in two staggered rows of two. All four backs and seats visible without occlusion. Clear gaps, no extra chairs. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "Exactly FOUR BLUE chairs standing separately on the floor of a community room in two staggered rows of two. All four backs and seats visible without occlusion. Clear gaps, no extra chairs.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_four-blue-chairs_f3183f0_four-card.webp",
+            "old_sha256": "4e5f442e53d68925a73c6c3f90fb208f95de7f37151c193a125977ad90937b04",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/13/options/2/image_url"
+              }
+            ],
+            "inventory_index": 292
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-four-red-chairs",
+      "runtime_filename": "a1_photo_u7_review_four_red_chairs_v1.webp",
+      "prompt": "Exactly FOUR RED chairs standing separately on the floor of a community room in two staggered rows of two. All four backs and seats visible without occlusion. Clear gaps, no extra chairs. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "Exactly FOUR RED chairs standing separately on the floor of a community room in two staggered rows of two. All four backs and seats visible without occlusion. Clear gaps, no extra chairs.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_four-red-chairs_0275a9d_four-card.webp",
+            "old_sha256": "b6316dcbd76b62d6b36dd109af4d6debd5d70100f55d79482b8d203b31e0a6fd",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/13/options/1/image_url"
+              }
+            ],
+            "inventory_index": 295
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-three-blue-chairs",
+      "runtime_filename": "a1_photo_u7_review_three_blue_chairs_v1.webp",
+      "prompt": "Exactly THREE BLUE chairs standing separately on the floor of a community room in a shallow triangle. All seats, backs and their separate outlines visible with gaps. No extra furniture that resembles a chair. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "Exactly THREE BLUE chairs standing separately on the floor of a community room in a shallow triangle. All seats, backs and their separate outlines visible with gaps. No extra furniture that resembles a chair.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-blue-chairs_2bf8067.webp",
+            "old_sha256": "288d528cf8c118a1eb973090176d615cee472d00a9a3b8a3e445b2909b877eac",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/13/options/0/image_url"
+              }
+            ],
+            "inventory_index": 717
+          }
+        ]
+      }
+    },
+    {
+      "id": "u7-review-three-red-books",
+      "runtime_filename": "a1_photo_u7_review_three_red_books_v1.webp",
+      "prompt": "Exactly THREE books with plain RED covers lying separately on a small light wooden table in a shallow triangle. All three books fully visible with gaps, not stacked, no other books and no readable text. This is a fresh review photograph: use a distinct setting and an elevated oblique camera angle, never copy another course image.",
+      "expected_description": "Exactly THREE books with plain RED covers lying separately on a small light wooden table in a shallow triangle. All three books fully visible with gaps, not stacked, no other books and no readable text.",
+      "change_control": {
+        "kind": "inspected-legacy-photo-group",
+        "replacements": [
+          {
+            "old_filename": "a1_scene_three-red-books_18ff0ff.webp",
+            "old_sha256": "fba48dd2eebb200bdf2c836db40808451fb2a1823a370f490b1efb9833f2be9b",
+            "old_observation": "Legacy drawn object/count/spatial scene or obsolete inset remains active; replace it with a literal photograph preserving every exact count, color and relation.",
+            "scopes": [
+              {
+                "lesson_id": "lesson-7-9-complete-a1-review",
+                "lesson": "7.9",
+                "path": "backend/lessons/unit_7/lesson-7-9-complete-a1-review.yaml",
+                "pointer": "/cards/5/prompt_image_url"
+              }
+            ],
+            "inventory_index": 723
+          }
+        ]
+      }
+    }
+  ]
+}

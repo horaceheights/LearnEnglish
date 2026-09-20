@@ -78,7 +78,7 @@
       "interaction_type": "mission-game",
       "stage": "Listen",
       "prompt": "The father wants bread. The girl wants apples. There are oranges. There are bananas.",
-      "prompt_image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp",
       "options": [
         {
           "id": "father-bread",
@@ -113,22 +113,22 @@
         {
           "text": "The father wants bread.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp"
         },
         {
           "text": "The girl wants apples.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp"
         },
         {
           "text": "There are oranges.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp"
         },
         {
           "text": "There are bananas.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_01_market_stall_fullframe_v2.webp"
         }
       ],
       "spanish_translation": "El padre quiere pan. La niña quiere manzanas. Hay naranjas. Hay bananas.",
@@ -142,53 +142,79 @@
             "id": "father-bread",
             "label_es": "Padre con pan",
             "rect": {
-              "x": 0.08,
-              "y": 0.25,
-              "width": 0.25,
-              "height": 0.55
+              "x": 0.138,
+              "y": 0.079,
+              "width": 0.289,
+              "height": 0.91
             },
             "accepted_option_ids": [
               "father-bread"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.259,
+                "y": 0.084
+              }
             ]
           },
           {
             "id": "daughter-apples",
             "label_es": "Niña con manzanas",
             "rect": {
-              "x": 0.65,
-              "y": 0.35,
-              "width": 0.22,
-              "height": 0.5
+              "x": 0.46,
+              "y": 0.366,
+              "width": 0.232,
+              "height": 0.45
             },
             "accepted_option_ids": [
               "daughter-apples"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.632,
+                "y": 0.365
+              }
             ]
           },
           {
             "id": "market-oranges",
             "label_es": "Naranjas",
             "rect": {
-              "x": 0.35,
-              "y": 0.5,
-              "width": 0.18,
-              "height": 0.3
+              "x": 0.218,
+              "y": 0.608,
+              "width": 0.295,
+              "height": 0.2
             },
             "accepted_option_ids": [
               "market-oranges"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.255,
+                "y": 0.741
+              }
+            ],
+            "subject_kind": "object"
           },
           {
             "id": "market-bananas",
             "label_es": "Bananas",
             "rect": {
-              "x": 0.52,
-              "y": 0.52,
-              "width": 0.18,
-              "height": 0.28
+              "x": 0.497,
+              "y": 0.618,
+              "width": 0.165,
+              "height": 0.195
             },
             "accepted_option_ids": [
               "market-bananas"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.623,
+                "y": 0.762
+              }
+            ],
+            "subject_kind": "object"
           }
         ],
         "cues": [
@@ -229,7 +255,7 @@
       "interaction_type": "mission-game",
       "stage": "Listen",
       "prompt": "The mother needs water. The grandfather needs tea. There is some food. There is some juice.",
-      "prompt_image_url": "/lesson-assets/a1_u5_scene_02_register.webp",
+      "prompt_image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp",
       "options": [
         {
           "id": "mother-water",
@@ -264,22 +290,22 @@
         {
           "text": "The mother needs water.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp"
         },
         {
           "text": "The grandfather needs tea.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp"
         },
         {
           "text": "There is some food.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp"
         },
         {
           "text": "There is some juice.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u5_scene_02_register.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_02_register_fullframe_v2.webp"
         }
       ],
       "spanish_translation": "La madre necesita agua. El abuelo necesita té. Hay algo de comida. Hay algo de jugo.",
@@ -293,53 +319,83 @@
             "id": "mother-water",
             "label_es": "Madre con agua",
             "rect": {
-              "x": 0.12,
-              "y": 0.25,
-              "width": 0.25,
-              "height": 0.55
+              "x": 0.232,
+              "y": 0.174,
+              "width": 0.276,
+              "height": 0.676
             },
             "accepted_option_ids": [
               "mother-water"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.383,
+                "y": 0.176
+              }
             ]
           },
           {
             "id": "grandfather-tea",
             "label_es": "Abuelo con té",
             "rect": {
-              "x": 0.65,
-              "y": 0.28,
-              "width": 0.25,
-              "height": 0.52
+              "x": 0.457,
+              "y": 0.158,
+              "width": 0.281,
+              "height": 0.615
             },
             "accepted_option_ids": [
               "grandfather-tea"
+            ],
+            "head_anchors": [
+              {
+                "x": 0.599,
+                "y": 0.159
+              }
             ]
           },
           {
             "id": "food-basket",
             "label_es": "Cesta de comida",
             "rect": {
-              "x": 0.38,
-              "y": 0.48,
-              "width": 0.2,
-              "height": 0.35
+              "x": 0.562,
+              "y": 0.546,
+              "width": 0.377,
+              "height": 0.315
             },
             "accepted_option_ids": [
               "food-basket"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.746,
+                "y": 0.548
+              }
+            ],
+            "subject_kind": "object"
           },
           {
             "id": "juice-bottles",
             "label_es": "Botellas de jugo",
             "rect": {
-              "x": 0.55,
-              "y": 0.45,
-              "width": 0.15,
-              "height": 0.32
+              "x": 0.786,
+              "y": 0.694,
+              "width": 0.123,
+              "height": 0.246
             },
             "accepted_option_ids": [
               "juice-bottles"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.818,
+                "y": 0.696
+              },
+              {
+                "x": 0.879,
+                "y": 0.696
+              }
+            ],
+            "subject_kind": "object"
           }
         ],
         "cues": [
@@ -384,7 +440,7 @@
       "options": [
         {
           "id": "five-dollars",
-          "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter.webp",
+          "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter_fullframe_v2.webp",
           "label": "It is five dollars."
         }
       ],
@@ -394,7 +450,7 @@
         {
           "text": "How much is it?",
           "speaker_role": "female-character",
-          "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter.webp"
+          "image_url": "/lesson-assets/a1_u5_scene_03_cafe_counter_fullframe_v2.webp"
         }
       ],
       "spanish_translation": "Son cinco dólares.",
@@ -408,14 +464,21 @@
             "id": "cafe-counter",
             "label_es": "Mostrador del café",
             "rect": {
-              "x": 0.35,
-              "y": 0.2,
-              "width": 0.3,
-              "height": 0.55
+              "x": 0.475,
+              "y": 0.739,
+              "width": 0.174,
+              "height": 0.16
             },
             "accepted_option_ids": [
               "five-dollars"
-            ]
+            ],
+            "head_anchors": [
+              {
+                "x": 0.609,
+                "y": 0.775
+              }
+            ],
+            "subject_kind": "object"
           }
         ],
         "cues": [

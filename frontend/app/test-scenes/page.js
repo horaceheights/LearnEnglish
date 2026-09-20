@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import styles from "./scene-test.module.css";
+import { mediaUrl } from "../../lib/mediaUrl";
 
 const SCENES = {
   pairRunning: {
@@ -205,7 +206,7 @@ export default function SceneTestPage() {
         <article>
           <p>Current still</p>
           <div className={styles.imageFrame}>
-            <img src={scene.still} alt={scene.sentence} />
+            <img src={mediaUrl(scene.still)} alt={scene.sentence} />
           </div>
         </article>
         <article>
@@ -214,8 +215,8 @@ export default function SceneTestPage() {
             <video
               ref={videoRef}
               key={sceneId}
-              src={scene.video}
-              poster={scene.still}
+              src={mediaUrl(scene.video)}
+              poster={mediaUrl(scene.still)}
               muted
               autoPlay
               loop

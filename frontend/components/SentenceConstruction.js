@@ -150,7 +150,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
         <button type="button" disabled={locked || !history.current.length} aria-label="Deshacer último movimiento"
           onClick={() => { const previous = history.current.pop(); if (previous && !locked) onChange(previous); }}>Deshacer</button>
       </div> : null}
-      <div className={styles.feedback} role="status">{result === "correct" ? "¡Muy bien!" : result === "wrong" ? <><div>¡Ánimo! Inténtalo de nuevo.</div><div>{sentenceHint(card, slots)}</div></> : ""}</div>
+      <div className={styles.feedback} role="status">{result === "correct" ? "¡Muy bien!" : result === "wrong" ? <><div><span className={styles.wrongIcon} role="img" aria-label="Respuesta incorrecta">×</span> ¡Ánimo! Inténtalo de nuevo.</div><div>{sentenceHint(card, slots)}</div></> : ""}</div>
       {result === "wrong" ? <div className={styles.controls}><button className={styles.retry} type="button"
         onClick={() => { history.current = []; cancel(); onRetry(); }}>Reintentar</button></div> : null}
     </div>

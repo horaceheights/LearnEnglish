@@ -94,7 +94,7 @@
       "options": [
         {
           "id": "can-you-help-me-the-bus-leaves-at-eight-1",
-          "image_url": "a1_scene_can-you-help-me-the-bus-leaves-at-eight_b2daa8d.webp",
+          "image_url": "a1_scene_bus-female-help-question_571febf.webp",
           "label": "Can you help me? The bus leaves at eight."
         }
       ],
@@ -119,7 +119,7 @@
     {
       "slide_id": "R1",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the phrase.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "a-hospital-1",
       "options": [
@@ -134,16 +134,16 @@
           "label": "A pharmacy"
         }
       ],
-      "audio_text": "Choose the phrase.",
+      "audio_text": "",
       "answer_audio_text": "A hospital",
-      "prompt_image_url": "a1_scene_a-hospital_dfbc6e9.webp",
+      "prompt_image_url": "a1_photo_u6_review_hospital_v2.webp",
       "spanish_translation": "Elige la frase.",
       "pedagogy_note": "Building contrast."
     },
     {
       "slide_id": "R2",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "i-go-by-train-2",
       "options": [
@@ -158,11 +158,12 @@
           "label": "I go by train."
         }
       ],
-      "audio_text": "Choose the sentence.",
+      "audio_text": "",
       "answer_audio_text": "I go by train.",
-      "prompt_image_url": "a1_scene_i-go-by-train_77fe42c.webp",
+      "prompt_image_url": "a1_photo_u6_review_man_boards_train_v1.webp",
       "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "Transport review."
+      "pedagogy_note": "Transport review.",
+      "answer_audio_speaker": "male-character"
     },
     {
       "slide_id": "R3",
@@ -215,7 +216,7 @@
     {
       "slide_id": "R5",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "turn-left-1",
       "options": [
@@ -230,7 +231,7 @@
           "label": "Turn right."
         }
       ],
-      "audio_text": "Choose the sentence.",
+      "audio_text": "",
       "answer_audio_text": "Turn left.",
       "prompt_image_url": "a1_scene_turn-left_c0779b7.webp",
       "spanish_translation": "Elige la oración.",
@@ -239,7 +240,7 @@
     {
       "slide_id": "R6",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "you-cannot-cross-the-street-2",
       "options": [
@@ -254,7 +255,7 @@
           "label": "You cannot cross the street."
         }
       ],
-      "audio_text": "Choose the sentence.",
+      "audio_text": "",
       "answer_audio_text": "You cannot cross the street.",
       "prompt_image_url": "a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
       "spanish_translation": "Elige la oración.",
@@ -263,7 +264,7 @@
     {
       "slide_id": "R7",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the phrase.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "can-you-help-me-1",
       "options": [
@@ -278,7 +279,7 @@
           "label": "Coffee, please."
         }
       ],
-      "audio_text": "Choose the phrase.",
+      "audio_text": "",
       "answer_audio_text": "Can you help me?",
       "prompt_image_url": "a1_scene_can-you-help-me_eb476e5.webp",
       "spanish_translation": "Elige la frase.",
@@ -287,7 +288,7 @@
     {
       "slide_id": "R8",
       "interaction_type": "recognize-text",
-      "prompt": "Choose the sentence.",
+      "prompt": "",
       "stage": "Recognize",
       "correct_option_id": "the-train-arrives-at-ten-2",
       "options": [
@@ -302,7 +303,7 @@
           "label": "The train arrives at ten."
         }
       ],
-      "audio_text": "Choose the sentence.",
+      "audio_text": "",
       "answer_audio_text": "The train arrives at ten.",
       "prompt_image_url": "a1_scene_the-train-arrives-at-ten_6fc48b2.webp",
       "spanish_translation": "Elige la oración.",
@@ -317,12 +318,12 @@
       "options": [
         {
           "id": "store-1",
-          "image_url": "a1_scene_store_3a21295.webp",
+          "image_url": "a1_photo_u6_review_store_v2.webp",
           "label": null
         },
         {
           "id": "library-2",
-          "image_url": "a1_scene_library_00299a4.webp",
+          "image_url": "a1_photo_u6_review_library_v2.webp",
           "label": null
         }
       ],
@@ -476,7 +477,7 @@
       "options": [
         {
           "id": "where-is-the-station-1",
-          "image_url": "a1_scene_where-is-the-station_6ceda2f.webp",
+          "image_url": "a1_photo_u6_review_station_v1.webp",
           "label": "Where is the station?"
         }
       ],
@@ -601,14 +602,15 @@
       ],
       "audio_text": "I go by train.",
       "answer_audio_text": "I go by train.",
-      "prompt_image_url": "a1_scene_train_94efdd6.webp",
+      "prompt_image_url": "a1_photo_u6_review_man_boards_train_v1.webp",
       "spanish_translation": "Voy en tren.",
       "pedagogy_note": "Transport.",
       "translation": "Voy en tren.",
       "correct_option_ids": [
         "by",
         "train"
-      ]
+      ],
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "U2",
@@ -753,7 +755,8 @@
       "correct_option_ids": [
         "word-1",
         "word-2"
-      ]
+      ],
+      "audio_speaker": "male-character"
     },
     {
       "slide_id": "U7",

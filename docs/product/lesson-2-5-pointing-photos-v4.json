@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "lesson_id": "lesson-2-5-this-and-that",
+  "lesson_number": "2.5",
+  "revision": 4,
+  "output_namespace": "unit-2-lesson-v4",
+  "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte. Revision 2 regenerates only the chair pair after the v1 THAT-chair draft was rejected; v1 and v2 together stay within the US$1.00 approval. Revision 2 sent one request, refused with HTTP 429 credit_balance_exhausted (provider request req_849e0bc4cd9a44e8bf3e74b3efb77ff1): no image and no charge. Revision 3 repeats its unchanged chair prompts after the account balance is restored. Revision 3 generated one THAT-chair draft (US$0.043995), rejected because the fingertip lay on the far chair. Revision 4 generates THIS first, with the hand low by construction, then edits only the finger direction; that-chair-alt is a pre-registered stricter fallback used only if the first edit is rejected.",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "0.20",
+    "expected_cost_usd": "0.10",
+    "expected_mxn": "1.68",
+    "fx_mxn_per_usd": "16.9707",
+    "no_automatic_retries": true,
+    "note": "THIS-chair generation (~US$0.044) plus one THAT edit (~US$0.055); the fallback edit adds ~US$0.055 only if needed. Revisions 1-3 spent US$0.386569, so the combined total stays below the approved US$1.00."
+  },
+  "shared_prompt": "Use case: photorealistic-natural. Asset type: one real photograph teaching a Spanish-speaking beginner the English words THIS (the object in my own hand) and THAT (the identical object a short distance away). Natural everyday photographic detail, real material grain, soft daylight and correct perspective; NOT an illustration, 3D render, collage, cutout or app UI. Full-bleed 3:2 landscape; no frames, padding, blur bands, vignette, watermark, captions, letters, numbers, logos or brand marks anywhere, including on objects, screens and clothing. Strict first-person view from the learner's own eyes: exactly two of the learner's own forearms enter from the bottom edge, naturally attached, each hand with five natural fingers, plain charcoal-grey knit sleeves, medium-brown skin, no rings, watches or bracelets. No other people, hands, faces, mirrors or reflections. Exactly TWO identical objects of the requested kind, same model, color and size, and no other object of that kind anywhere. Both objects complete, uncropped, sharp and in focus. A first-time learner must understand the scene instantly on a small phone screen. Do not imitate earlier course photos.",
+  "assets": [
+    {
+      "id": "this-chair",
+      "concept_id": "near-chair",
+      "runtime_filename": "a1_photo_u2_this_chair_v1.webp",
+      "expected_description": "paired first-person demonstrative scene; left hand grips the near chair while right hand points at it; near chair is substantially larger than the identical far chair",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_near-chair.webp",
+        "old_sha256": "52658547285b1294a359b497eee45ebcc0078dd9ecf11cc461aa1d65565ba2ac",
+        "old_observation": "Extreme close-up of a wooden armrest and leg with no person, hand or pointing gesture; the chair is hard to recognize and there is no matching far chair, breaking the approved paired contract.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/19/options/1/image_url"
+          }
+        ]
+      },
+      "prompt": "THIS state. First-person photograph looking steeply DOWN from standing eye height at a compact patch of pale oak floorboards in a bright room; little or no wall shows. Two identical natural light-oak wooden chairs with five vertical backrest slats and a solid wooden seat, BOTH COMPLETELY inside the photo, including every leg and seat, with visible floor below every chair foot.\nNEAR chair: lower-center-left, backrest toward the learner, the LEFT hand gripping the top of its backrest. It occupies at most 45 percent of the photo height and is NOT cropped by the bottom edge.\nFAR chair: about one and a half meters beyond the near chair, in the upper-center-right, facing the learner, alone on bare floor. It is complete and sharp, at least 18 percent of the photo width, clearly smaller than the near chair, and all four of its feet stay in the upper half of the photo.\nRIGHT hand: the forearm enters from the lower-right corner and the whole hand stays low, in the bottom third of the photo, just to the right of the near chair. Its straight index finger points to the left at the NEAR chair that the left hand grips, the fingertip stopping about two finger-widths short of it; the other fingers are curled. Nothing points at the far chair.\nNo table, sofa, stool, bench, rug or any other furniture. The picture means: THIS chair, the one my left hand grips."
+    },
+    {
+      "id": "that-chair",
+      "concept_id": "far-chair",
+      "runtime_filename": "a1_photo_u2_that_chair_v1.webp",
+      "expected_description": "same paired scene and strong size contrast; left hand keeps gripping the large near chair while right hand points from below at the smaller identical far chair without overlapping or touching it",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_far-chair.webp",
+        "old_sha256": "95ee446fa8f5902d13c929cfdba9f5bce086b5e5caa4314b2727ec8f33adda19",
+        "old_observation": "A woman seen from behind points at a window while the only chair stands off to the left, off her finger line (user report 2026-09-19); no held near chair.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/11/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/13/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/19/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/25/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/31/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/33/prompt_image_url"
+          }
+        ]
+      },
+      "reference": "this-chair",
+      "prompt": "THAT state, precise edit of Image 1. Change ONLY the direction of the learner's RIGHT index finger. Keep the right hand, wrist and forearm exactly where they are, low in the photo beside the near chair, and keep everything else identical: camera, light, floor, both complete chairs and the left hand gripping the near chair. Now the straight index finger points up across the bare floor toward the seat of the FAR chair, which stays complete, sharp and unmoved. The fingertip stays low where the hand already is, with a wide band of bare floor between it and every part of the far chair; it never reaches, overlaps or touches the far chair. No extra hands, objects, text or other changes. The picture now means: THAT chair over there, while my left hand grips THIS one.",
+      "supersedes_rejected_output": [
+        {
+          "path": "output/imagegen/unit-2-lesson-v1/that-chair.png",
+          "sha256": "7ab4a7da406d6f6251ea26eaaa943ffee01cdcb395bd2972b89d190a9e8b3671",
+          "reason": "The fingertip ended between the far chair's front legs, so at phone size it appeared to touch the far chair."
+        },
+        {
+          "path": "output/imagegen/unit-2-lesson-v3/that-chair.png",
+          "sha256": "3696c6adefdbf02faed861854ae2e87571e91509c26ebd7bd46bc1692f8c5c6b",
+          "reason": "Although asked to stay low, the hand rose and the fingertip lay on the far chair's seat front."
+        }
+      ]
+    },
+    {
+      "id": "that-chair-alt",
+      "concept_id": "far-chair",
+      "runtime_filename": "a1_photo_u2_that_chair_v1.webp",
+      "expected_description": "same paired scene and strong size contrast; left hand keeps gripping the large near chair while right hand points from below at the smaller identical far chair without overlapping or touching it",
+      "change_control": {
+        "kind": "inspected-contract-violating-photo",
+        "old_filename": "a1_far-chair.webp",
+        "old_sha256": "95ee446fa8f5902d13c929cfdba9f5bce086b5e5caa4314b2727ec8f33adda19",
+        "old_observation": "A woman seen from behind points at a window while the only chair stands off to the left, off her finger line (user report 2026-09-19); no held near chair.",
+        "scopes": [
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/11/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/13/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/19/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/25/options/0/image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/31/prompt_image_url"
+          },
+          {
+            "lesson_id": "lesson-2-5-this-and-that",
+            "lesson": "2.5",
+            "path": "backend/lessons/unit_2/lesson-2-5-this-and-that.yaml",
+            "pointer": "/cards/33/prompt_image_url"
+          }
+        ]
+      },
+      "reference": "this-chair",
+      "prompt": "THAT state, precise edit of Image 1. Change ONLY the learner's RIGHT index finger: rotate it at the knuckle so it points up toward the FAR chair's seat. The right hand, wrist and forearm do not move at all: the whole hand stays in the bottom third of the photo and the fingertip stays below the top edge of the near chair's backrest. At least a quarter of the photo height of bare floor separates the fingertip from the far chair's feet; the finger never reaches, overlaps or touches the far chair. Everything else stays identical: camera, light, floor, both complete chairs and the left hand gripping the near chair. No extra hands, objects, text or other changes. The picture now means: THAT chair over there, while my left hand grips THIS one.",
+      "supersedes_rejected_output": [
+        {
+          "path": "output/imagegen/unit-2-lesson-v1/that-chair.png",
+          "sha256": "7ab4a7da406d6f6251ea26eaaa943ffee01cdcb395bd2972b89d190a9e8b3671",
+          "reason": "The fingertip ended between the far chair's front legs, so at phone size it appeared to touch the far chair."
+        },
+        {
+          "path": "output/imagegen/unit-2-lesson-v3/that-chair.png",
+          "sha256": "3696c6adefdbf02faed861854ae2e87571e91509c26ebd7bd46bc1692f8c5c6b",
+          "reason": "Although asked to stay low, the hand rose and the fingertip lay on the far chair's seat front."
+        }
+      ],
+      "fallback_for": "that-chair"
+    }
+  ]
+}

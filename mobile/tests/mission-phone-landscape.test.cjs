@@ -10,7 +10,7 @@ const surface = read('../src/components/MissionGameSurface.tsx');
 const header = read('../src/components/MissionLandscapeHeader.tsx');
 
 test('phone mission landscape owns all chrome, including voice gates and wide phones, without changing portrait', () => {
-  assert.match(screen, /usesMissionPhoneLandscape = isMissionGameCard && !isPortrait && viewportHeight < 600/);
+  assert.match(screen, /usesMissionPhoneLandscape = isMissionGameCard && isPhoneLandscape\(viewportWidth, viewportHeight\)/);
   assert.match(screen, /!usesMissionPhoneLandscape \? qaToolbar : null/);
   assert.match(screen, /!usesMissionPhoneLandscape \? <View style=/);
   assert.match(screen, /landscapeHeader=\{usesMissionPhoneLandscape \?/);

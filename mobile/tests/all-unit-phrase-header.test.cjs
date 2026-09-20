@@ -48,8 +48,8 @@ assert.match(
 );
 assert.match(
   screenSource,
-  /useCompactRecognizeInstruction && result === 'correct'[\s\S]*?currentCard\.correct_option_id[\s\S]*?playAudio\(phraseReplayText, 'prompt', 'answer'\)/,
-  'Empty-prompt Recognize replay must remain locked until correct and then play the correct English choice.',
+  /useCompactRecognizeInstruction && result === 'correct'[\s\S]*?currentCard\.correct_option_id[\s\S]*?correctRecognizeReplayText \|\| promptAudio\.trim\(\)[\s\S]*?if \(useCompactRecognizeInstruction && correctRecognizeReplayText\) \{\s*playAudio\(correctRecognizeReplayText, 'prompt', 'answer'\)/,
+  'Empty-prompt Recognize replay stays locked until correct (a reply choice may replay the line it answers) and then plays the correct English choice.',
 );
 assert.match(
   screenSource,
@@ -91,7 +91,7 @@ assert.match(
 );
 assert.match(
   guardrails,
-  /Every mobile A1 card in all seven units uses the same three-part lesson header[\s\S]*?never key it to a lesson, card index, phrase, answer, image, orientation, or device class/,
+  /Every mobile A1 card in all seven units uses the same three-part lesson header[\s\S]*?never key it to a lesson, card index, phrase, answer, or image[\s\S]*?approved phone-landscape rail/,
   'Durable product memory must define a generic course-wide layout rather than a slide exception.',
 );
 assert.match(

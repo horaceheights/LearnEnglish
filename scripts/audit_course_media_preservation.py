@@ -37,9 +37,19 @@ def images(value) -> set[str]:
     return set()
 
 
+def read_lesson(path: Path) -> dict:
+    text = path.read_text(encoding="utf-8-sig")
+    # Most authored lessons use JSON syntax inside .yaml files. Parse those
+    # directly without changing their data or caching possibly edited files.
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        return yaml.load(text, Loader=getattr(yaml, 'CSafeLoader', yaml.SafeLoader))
+
+
 def lessons(root: Path) -> dict:
     return {data["id"]: data for path in (root / "backend/lessons").glob("unit_*/*.yaml")
-            if (data := yaml.safe_load(path.read_text(encoding="utf-8-sig")))}
+            if (data := read_lesson(path))}
 
 
 def gemini_associations(root: Path) -> dict:
@@ -75,6 +85,188 @@ def capture(root: Path) -> dict:
 
 
 USE_IMAGE_ISSUE = "use-image-contradicts-sentence"
+
+
+def validate_dialogue_poster_plan(plan: dict, current: dict, root: Path) -> None:
+    """A dialogue may start on its own existing first-turn photograph."""
+    evidence='docs/qa/course-dialogue-poster-reuse-v1.json'
+    if plan.get('evidence_file')!=evidence:raise ValueError('Dialogue poster requires exact inspection evidence.')
+    rows=json.loads((root/evidence).read_text(encoding='utf-8'))['assets']
+    matches=[r for r in rows if (r['lesson_id'],r['old_filename'],r['candidate_filename'],r['old_sha256'])==
+             (plan['lesson_id'],plan['old_filename'],plan['new_filename'],plan['old_sha256'])]
+    if len(matches)!=1:raise ValueError('Missing exact dialogue poster pair.')
+    row=matches[0];lesson=current[row['lesson_id']]
+    if int(lesson['sub_lesson_id'].split('.')[1])==10:raise ValueError('Not a mission-scene exception.')
+    if row.get('crop_review')!='inspected-complete-3x2-dialogue' or len(row.get('new_observation',''))<35:
+        raise ValueError('Dialogue framing has not been inspected.')
+    for entry in row['cards']:
+        card=next(c for c in lesson['cards'] if c['slide_id']==entry['slide_id'])
+        turns=card.get('audio_turns',[])
+        if card.get('stage') not in {'Learn','Speak'} or len(card.get('options',[]))!=1 or not turns:
+            raise ValueError('Only a single non-selectable model image may follow its dialogue.')
+        if card.get('audio_text')!=entry['audio_text'] or turns!=entry['audio_turns']:
+            raise ValueError('Dialogue changed since inspection.')
+        if Path(turns[0].get('image_url','')).name!=row['candidate_filename'] or Path(card['options'][0]['image_url']).name not in {row['old_filename'],row['candidate_filename']}:
+            raise ValueError('Poster must match this exact card first dialogue turn.')
+    for folder in IMAGE_ROOTS:
+        if digest(root/folder/row['candidate_filename'])!=row['new_sha256']:raise ValueError('Dialogue source pixels changed.')
+    if not row['cards']:raise ValueError('No exact dialogue cards.')
+    for other in current.values():
+        if tuple(map(int,other['sub_lesson_id'].split('.')))>=tuple(map(int,lesson['sub_lesson_id'].split('.'))):continue
+        if lesson['sub_lesson_id'].endswith('.9') and row['candidate_filename'] in images(other):
+            raise ValueError('Review poster must not import an earlier lesson image.')
+
+
+def validate_exact_diagram_plan(plan: dict, current: dict, root: Path) -> None:
+    """Pixel-reviewed numeric/spatial contradiction; no blanket photo exemption."""
+    evidence='docs/qa/course-exact-diagram-reuse-v1.json'
+    if plan.get('evidence_file')!=evidence:
+        raise ValueError('Exact diagram correction requires versioned pixel evidence.')
+    proof=json.loads((root/evidence).read_text(encoding='utf-8'))
+    matches=[r for r in proof['assets'] if (r['lesson_id'],r['old_filename'],r['candidate_filename'],r['old_sha256'])==
+             (plan['lesson_id'],plan['old_filename'],plan['new_filename'],plan['old_sha256'])]
+    if len(matches)!=1:raise ValueError('Missing exact diagram pair.')
+    row=matches[0];lesson=current[plan['lesson_id']]
+    if int(lesson['sub_lesson_id'].split('.')[1])>=9:
+        raise ValueError('Existing diagrams cannot replace fresh review or mission media.')
+    if row.get('relationship') not in {'price','distance','schedule'} or row.get('crop_review')!='inspected-full-use-prompt':
+        raise ValueError('Unsupported precision diagram or uninspected framing.')
+    if any(len(row.get(k,''))<35 for k in ('old_observation','new_observation')):
+        raise ValueError('Both diagram pixel observations are required.')
+    card=next((c for c in lesson['cards'] if c['slide_id']==row['slide_id']),None)
+    if not card or card.get('stage')!='Use' or (card.get('answer_audio_text') or card.get('audio_text'))!=row['answer_text']:
+        raise ValueError('Exact diagram correction is bound to a single unchanged Use sentence.')
+    expected=f"/cards/{lesson['cards'].index(card)}/prompt_image_url"
+    if row.get('pointer')!=expected or Path(card.get('prompt_image_url','')).name not in {plan['old_filename'],plan['new_filename']}:
+        raise ValueError('Exact diagram binding scope changed.')
+    if digest(root/IMAGE_ROOTS[0]/plan['old_filename'])!=row['old_sha256']:
+        raise ValueError('Old diagram pixels changed.')
+    for folder in IMAGE_ROOTS:
+        path=root/folder/plan['new_filename']
+        if not path.is_file() or digest(path)!=row['new_sha256']:
+            raise ValueError('Inspected replacement diagram pixels changed.')
+
+
+def validate_mission_still_plan(plan: dict, current: dict, root: Path) -> None:
+    """Exact non-selectable voice still only; never a hotspot-scene exception."""
+    if plan.get('evidence_file')!='docs/qa/course-mission-still-reuse-v1.json':
+        raise ValueError('Mission still needs its exact versioned inspection evidence.')
+    proof=json.loads((root/plan['evidence_file']).read_text(encoding='utf-8'))
+    matches=[r for r in proof['assets'] if (r['lesson_id'],r['old_filename'],r['candidate_filename'],r['old_sha256'])==
+             (plan['lesson_id'],plan['old_filename'],plan['new_filename'],plan['old_sha256'])]
+    if len(matches)!=1:raise ValueError('Missing exact mission still pixel pair.')
+    record=matches[0];lesson=current[plan['lesson_id']]
+    if not lesson['sub_lesson_id'].endswith('.10') or record.get('crop_review')!='inspected-complete-3x2-voice-scene':
+        raise ValueError('Mission voice still scope or framing is invalid.')
+    card=next((c for c in lesson['cards'] if c['slide_id']==record['slide_id']),None)
+    if not card or card.get('stage')!='Speak' or card.get('mission_game',{}).get('kind')!='voice-gate' or len(card.get('options',[]))!=1:
+        raise ValueError('This exception cannot replace selectable mission scene targets.')
+    if card.get('audio_text')!=record['answer_text'] or len(record.get('new_observation',''))<35:
+        raise ValueError('Voice still meaning changed since inspection.')
+    for folder in IMAGE_ROOTS:
+        path=root/folder/plan['new_filename']
+        if not path.is_file() or digest(path)!=record['new_sha256']:raise ValueError('Mission still pixels changed.')
+    from scripts.install_course_photo_reuse import pointer_parent
+    for scope in record['scopes']:
+        parts=scope['pointer'].strip('/').split('/')
+        if len(parts)!=5 or parts[0]!='cards' or parts[2] not in {'options','audio_turns'} or parts[4]!='image_url' or lesson['cards'][int(parts[1])] is not card:
+            raise ValueError('Mission still scope extends beyond its named voice card.')
+        parent,key=pointer_parent(lesson,scope['pointer'])
+        if Path(parent[key]).name not in {plan['old_filename'],plan['new_filename']}:raise ValueError('Mission still binding drift.')
+    if not record['scopes']:raise ValueError('Mission still has no inspected fields.')
+    for other in current.values():
+        if other['id']==lesson['id']:continue
+        for name in images(other):
+            path=root/IMAGE_ROOTS[0]/name
+            if path.is_file() and digest(path)==record['new_sha256']:
+                raise ValueError('A mission still must not reuse another lesson image.')
+
+
+def validate_mission_rebuild_plan(plan: dict, current: dict, root: Path) -> None:
+    """Retire an inspected mission scene only when a rebuilt mission replaces it.
+
+    The old file stays byte-for-byte on disk. The evidence names the concrete
+    defect, and the replacement must be a mission-only still that this same
+    rebuild installed and actually binds.
+    """
+    import re
+    lesson = current[plan['lesson_id']]
+    if not lesson['sub_lesson_id'].endswith('.10') or lesson.get('experience_type') != 'mission':
+        raise ValueError('Mission rebuild exceptions apply only to Lesson 10 missions.')
+    evidence = str(plan.get('evidence_file', ''))
+    if not re.fullmatch(r'docs/qa/unit-[2-7]-mission-media-v[1-9][0-9]*\.json', evidence) or not (root / evidence).is_file():
+        raise ValueError('Mission rebuild needs its versioned installation evidence.')
+    proof = json.loads((root / evidence).read_text(encoding='utf-8'))
+    matches = [r for r in proof.get('retired_scenes', []) if (r.get('lesson_id'), r.get('old_filename'), r.get('old_sha256'))
+               == (plan['lesson_id'], plan['old_filename'], plan['old_sha256'])]
+    if len(matches) != 1 or len(matches[0].get('issue', '').strip()) < 35 or len(matches[0].get('observation', '').strip()) < 35:
+        raise ValueError('Retired mission scene needs an exact inspected pixel record.')
+    bound = images(lesson)
+    if plan['old_filename'] in bound:
+        raise ValueError('A retired mission scene must no longer be bound by the rebuilt mission.')
+    installed = [a for a in proof.get('assets', []) if a.get('runtime_filename') == plan['new_filename']]
+    if len(installed) != 1 or plan['new_filename'] not in bound:
+        raise ValueError('The replacement must be a still installed and bound by this mission rebuild.')
+    for folder in IMAGE_ROOTS:
+        path = root / folder / plan['new_filename']
+        if not path.is_file() or digest(path) != installed[0].get('runtime_sha256'):
+            raise ValueError('Rebuilt mission pixels differ from their installation record.')
+    for other in current.values():
+        if other['id'] != lesson['id'] and plan['new_filename'] in images(other):
+            raise ValueError('A mission still must stay mission-only.')
+
+
+def validate_photo_reuse_plan(plan: dict, current: dict, root: Path) -> None:
+    """A bounded inspected-reference exception, never a blanket style override."""
+    evidence = 'docs/qa/course-photo-reuse-v1.json'
+    if plan.get('evidence_file') != evidence:
+        raise ValueError('Photo reuse needs the versioned inspection evidence.')
+    proof = json.loads((root / evidence).read_text(encoding='utf-8'))
+    expected_names={plan['new_filename'],*plan.get('alternative_filenames',[])}
+    matching = [r for r in proof['assets'] if r['old_filename'] == plan['old_filename']
+                and r['candidate_filename'] in expected_names and r['old_sha256'] == plan['old_sha256']]
+    if len(matching) != len(expected_names):
+        raise ValueError('Missing exact inspected old/new photo pair.')
+    for record in matching:
+        validate_photo_reuse_record(record,plan,current,root)
+
+
+def validate_photo_reuse_record(record: dict, plan: dict, current: dict, root: Path) -> None:
+    new_filename=record['candidate_filename']
+    if record.get('kind') not in {'illustration-or-inset-retirement', 'user-selected-opening-cast',
+                                  'contract-violating-photo-retirement'}:
+        raise ValueError('Unreviewed photo replacement category.')
+    if (record.get('crop_review') != 'inspected-3x2-and-centered-4x5'
+            or len(record.get('old_observation', '')) < 35 or len(record.get('new_observation', '')) < 35):
+        raise ValueError('Photo reuse requires actual pixel and crop inspection.')
+    lesson = current[plan['lesson_id']]
+    number=int(lesson['sub_lesson_id'].split('.')[1])
+    if number == 10 or (number == 9 and not record.get('generation')):
+        raise ValueError('Foundation photo reuse must not replace fresh review/mission scenes.')
+    if number == 9:
+        generation=record['generation']; source=root/generation['source_path'];receipt=generation['receipt']
+        if not source.is_file() or digest(source)!=receipt.get('sha256') or receipt.get('status')!='image_saved':
+            raise ValueError('Fresh review photo needs its immutable generation source and receipt.')
+        for other in current.values():
+            if other['id']==plan['lesson_id']:
+                continue
+            if tuple(map(int,other['sub_lesson_id'].split('.'))) <= tuple(map(int,lesson['sub_lesson_id'].split('.'))):
+                for name in images(other):
+                    path=root/IMAGE_ROOTS[0]/name
+                    if path.is_file() and digest(path)==record['new_sha256']:
+                        raise ValueError('A generated review image reuses earlier lesson pixels.')
+    scopes = [s for s in record['scopes'] if s['lesson_id'] == plan['lesson_id']]
+    if not scopes:
+        raise ValueError('Photo evidence does not cover this lesson.')
+    for folder in IMAGE_ROOTS:
+        path = root / folder / new_filename
+        if not path.is_file() or digest(path) != record['new_sha256']:
+            raise ValueError('Replacement pixels differ from the inspected photo.')
+    from scripts.install_course_photo_reuse import pointer_parent
+    for scope in scopes:
+        parent, key = pointer_parent(lesson, scope['pointer'])
+        if Path(str(parent[key]).split('?', 1)[0]).name not in {plan['old_filename'], new_filename}:
+            raise ValueError('Photo binding changed outside its inspected scope.')
 
 
 def use_prompt_image_contradicts(lesson: dict, card: dict, filename: str) -> bool:
@@ -137,6 +329,25 @@ def validate_plan(plan: dict, baseline: dict, current: dict, root: Path,
     if plan.get("issue") == USE_IMAGE_ISSUE:
         validate_use_image_plan(plan, current[lesson_id], image_contradicts, image_has_evidence)
         return
+    if plan.get('issue') == 'reviewed-legacy-photo-binding':
+        validate_photo_reuse_plan(plan, current, root)
+        return
+    if plan.get('issue') == 'reviewed-mission-still-binding':
+        validate_mission_still_plan(plan,current,root)
+        return
+    if plan.get('issue') == 'reviewed-exact-diagram-binding':
+        validate_exact_diagram_plan(plan,current,root)
+        return
+    if plan.get('issue') == 'reviewed-existing-dialogue-poster':
+        validate_dialogue_poster_plan(plan,current,root)
+        return
+    if plan.get('issue') == 'reviewed-mission-photo-edit':
+        from scripts.mission_photo_edit_contract import validate_plan as validate_mission_edit
+        validate_mission_edit(plan,current,root)
+        return
+    if plan.get('issue') == 'mission-rebuild-retires-scene':
+        validate_mission_rebuild_plan(plan, current, root)
+        return
     if plan.get("issue") != "review-reuses-earlier-image":
         raise ValueError("Unreviewed exception type: record and implement its evidence check first.")
     number = tuple(map(int, current[lesson_id]["sub_lesson_id"].split(".")))
@@ -163,7 +374,8 @@ def audit(root: Path, baseline: dict, plans: list[dict],
             if key in allowed:
                 raise ValueError("Duplicate replacement scope.")
             allowed.add(key)
-            if plan["old_filename"] not in images(current[plan["lesson_id"]]) and plan["new_filename"] not in images(current[plan["lesson_id"]]):
+            replacement_names={plan['new_filename'],*plan.get('alternative_filenames',[])}
+            if plan["old_filename"] not in images(current[plan["lesson_id"]]) and not replacement_names.intersection(images(current[plan["lesson_id"]])):
                 errors.append(f"Replacement missing from scoped lesson: {key}")
         except ValueError as exc:
             errors.append(str(exc))

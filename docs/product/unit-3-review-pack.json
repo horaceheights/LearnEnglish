@@ -1,0 +1,212 @@
+{
+  "lesson_id": "lesson-3-9-unit-3-review",
+  "lesson_number": "3.9",
+  "revision": 1,
+  "output_namespace": "unit-3-review-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.25",
+    "estimated_usd": "0.72",
+    "mxn_per_usd": "16.9707",
+    "fx_date": "2026-09-11",
+    "automatic_retries": 0,
+    "human_approval": "pending",
+    "note": "14 fresh review-only stills: 8 replace exact-byte repeats of earlier teaching images (originals and their teaching uses stay untouched) and 6 retrieve Unit 3 language the old review omitted. No automatic retries."
+  },
+  "shared_prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, realistic anatomy and hands. NOT an illustration, collage, cutout, split panel or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, captions, speech bubbles, logos or readable words except an explicitly requested numeral or flag. A first-time learner must recognize the meaning at phone size: the key person, action and object are large, sharp and inside the central safe area. Fresh scenes for this review only; never imitate a previous course photo.",
+  "assets": [
+    {
+      "id": "ana-name",
+      "runtime_filename": "a1_u3_review_v1_ana_name.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_ana_name.webp"
+        ]
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Ana (long dark wavy hair, sage-green overshirt, white top, jeans) stands behind the help desk of a bright public library, smiling at a visitor across the desk and introducing herself: one hand flat on her own chest, mouth open mid-sentence. The visitor, an older man with grey hair and a tweed jacket seen from a three-quarter back angle, listens. Shelves of books behind them. Ana is clearly the speaker telling her name. No name badge text, no readable words.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_hello-ana-speaker_591cb45.webp",
+        "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+        "observed_description": "Inspected 3.1 course photo: Ana (Latina young adult, long dark wavy hair, sage-green overshirt, white top, jeans, cream tote) waves at a courtyard survey table while Luis (Latino young adult, short dark curly hair, navy T-shirt, khaki trousers) walks toward her. Both faces clear."
+      }
+    },
+    {
+      "id": "ana-age",
+      "runtime_filename": "a1_u3_review_v1_ana_age.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_ana_age_20.webp"
+        ]
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Ana (long dark wavy hair, sage-green overshirt, white top) sits at a home kitchen table celebrating her birthday with two friends, leaning toward a round white frosted cake topped with two large numeral candles forming the number 20, flames lit. The numerals 2 and 0 are big, upright, sharp and centered, facing the camera. Ana smiles with her hands together. Warm evening light. The number 20 is the only visible text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_hello-ana-speaker_591cb45.webp",
+        "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+        "observed_description": "Inspected 3.1 course photo: Ana (Latina young adult, long dark wavy hair, sage-green overshirt, white top, jeans, cream tote) waves at a courtyard survey table while Luis (Latino young adult, short dark curly hair, navy T-shirt, khaki trousers) walks toward her. Both faces clear."
+      }
+    },
+    {
+      "id": "luis-age",
+      "runtime_filename": "a1_u3_review_v1_luis_age.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_luis_age_18.webp"
+        ]
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Luis (short dark curly hair, navy T-shirt) stands at a backyard picnic table at dusk with string lights, about to blow out two large numeral candles forming the number 18 on a chocolate cake. The numerals 1 and 8 are big, upright, sharp and centered, facing the camera. Two friends clap in soft focus behind him. The number 18 is the only visible text.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_hello-ana-speaker_591cb45.webp",
+        "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+        "observed_description": "Inspected 3.1 course photo: Ana (Latina young adult, long dark wavy hair, sage-green overshirt, white top, jeans, cream tote) waves at a courtyard survey table while Luis (Latino young adult, short dark curly hair, navy T-shirt, khaki trousers) walks toward her. Both faces clear."
+      }
+    },
+    {
+      "id": "ana-mexico",
+      "runtime_filename": "a1_u3_review_v1_ana_mexico.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_ana_mexico.webp"
+        ]
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Ana (long dark wavy hair, sage-green overshirt, white top) stands at an outdoor international food festival booth decorated with a large Mexican flag (green, white and red vertical stripes with the eagle emblem in the center) and a table of tamales and colorful paper banners. She smiles at the camera and points to herself with one hand. The Mexican flag is large, correct and unmistakable. No other flags and no readable words.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_hello-ana-speaker_591cb45.webp",
+        "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+        "observed_description": "Inspected 3.1 course photo: Ana (Latina young adult, long dark wavy hair, sage-green overshirt, white top, jeans, cream tote) waves at a courtyard survey table while Luis (Latino young adult, short dark curly hair, navy T-shirt, khaki trousers) walks toward her. Both faces clear."
+      }
+    },
+    {
+      "id": "ana-teacher",
+      "runtime_filename": "a1_u3_review_v1_ana_teacher.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_ana_teacher_book.webp"
+        ]
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Ana (long dark wavy hair, sage-green overshirt, white top) teaches an adult evening class: she stands at the front of a classroom beside a whiteboard with simple drawn shapes (no words), holding up one open textbook toward three seated adult students who listen. She is clearly the teacher and clearly holds her book. Camera from the back corner of the room, students seen from behind. No readable words.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_hello-ana-speaker_591cb45.webp",
+        "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+        "observed_description": "Inspected 3.1 course photo: Ana (Latina young adult, long dark wavy hair, sage-green overshirt, white top, jeans, cream tote) waves at a courtyard survey table while Luis (Latino young adult, short dark curly hair, navy T-shirt, khaki trousers) walks toward her. Both faces clear."
+      }
+    },
+    {
+      "id": "luis-car",
+      "runtime_filename": "a1_u3_review_v1_luis_car.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_car-luis_d3399da.webp"
+        ]
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Luis (short dark curly hair, navy T-shirt, khaki trousers) stands in a residential driveway beside his own small silver hatchback, smiling, one hand resting proudly on the car roof and the other holding up a car key. The whole car is visible and plainly his. Morning sun, houses behind. No license plate text, no logos.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_hello-ana-speaker_591cb45.webp",
+        "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+        "observed_description": "Inspected 3.1 course photo: Ana (Latina young adult, long dark wavy hair, sage-green overshirt, white top, jeans, cream tote) waves at a courtyard survey table while Luis (Latino young adult, short dark curly hair, navy T-shirt, khaki trousers) walks toward her. Both faces clear."
+      }
+    },
+    {
+      "id": "luis-driver",
+      "runtime_filename": "a1_u3_review_v1_luis_driver.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_luis_driver.webp"
+        ]
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Luis (short dark curly hair) wearing a dark-blue work jacket sits in the driver seat of a white city delivery van with the door open, both hands on the steering wheel, turned toward the camera with a friendly smile. The steering wheel, dashboard and driver seat make his job unmistakable. Street in the background. No logos or readable words.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_hello-ana-speaker_591cb45.webp",
+        "sha256": "591cb45ff788a5e864400d7af8876e1e238d7326b9635f98300cef1b48025f08",
+        "observed_description": "Inspected 3.1 course photo: Ana (Latina young adult, long dark wavy hair, sage-green overshirt, white top, jeans, cream tote) waves at a courtyard survey table while Luis (Latino young adult, short dark curly hair, navy T-shirt, khaki trousers) walks toward her. Both faces clear."
+      }
+    },
+    {
+      "id": "we-talking",
+      "runtime_filename": "a1_u3_review_v1_we_talking.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_we-talking_dcb733a.webp"
+        ]
+      },
+      "prompt": "Two women friends in their forties sit together at a sunny cafe table with coffee cups, turned toward each other in lively conversation. The woman on the left, with short silver hair and a mustard sweater, is speaking with an inclusive gesture: one hand toward her friend and the other toward herself, showing they are talking together. The friend, with long braids and a denim shirt, smiles and answers. Both mouths mid-conversation. No readable words."
+    },
+    {
+      "id": "hello",
+      "runtime_filename": "a1_u3_review_v1_hello.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "3.1 greeting retrieval with fresh people and setting; no earlier greeting scene repeated."
+      },
+      "prompt": "At the open gate of a small community garden, a young man with a backpack and green cap arrives and raises one open hand in a friendly hello wave toward a middle-aged woman gardener in a sun hat, who is kneeling by vegetable beds and looking up at him, smiling. His arrival direction toward her is obvious. Bright morning light. No readable words."
+    },
+    {
+      "id": "good-morning",
+      "runtime_filename": "a1_u3_review_v1_good_morning.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "3.1 good morning retrieval: explicit early-morning context in a new setting."
+      },
+      "prompt": "Early morning inside a neighborhood bakery just opening: warm low sunrise light through the window and a round analog wall clock clearly showing seven: the short hand on 7 and the long hand on 12. A baker in a white apron behind the counter greets an arriving customer in a raincoat; both smile and raise a hand in greeting. Fresh bread on shelves. The clock face has only numerals, no words."
+    },
+    {
+      "id": "goodbye",
+      "runtime_filename": "a1_u3_review_v1_goodbye.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "3.1 goodbye retrieval: departure made explicit by direction of travel in a new setting."
+      },
+      "prompt": "Evening at the front door of a small house: a man in a grey coat walks away down the front steps toward the street carrying a bag, looking back over his shoulder and waving goodbye. A woman in the lit doorway waves back to him. His direction of travel away from the house is obvious. Warm porch light, dusk sky. No readable words."
+    },
+    {
+      "id": "working",
+      "runtime_filename": "a1_u3_review_v1_working.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "3.3 current-action retrieval: What are you doing? answered with working, in a fresh place."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Sofia (voluminous dark curly hair, royal-blue blazer over cream blouse) sits at a home-office desk working on an open laptop with papers beside her; she has turned her head toward someone off-camera on the left and answers with a friendly look, one hand still on the keyboard so the work is obvious. Daylight from a window, bookshelf behind. The laptop screen shows only soft abstract color, no readable words.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_sofia-canadian_adf798e.webp",
+        "sha256": "2daf8237485192503d10d64046efea7958bdca60e4af4e949b89c5cd62a39099",
+        "observed_description": "Inspected 3.5 course photo: Sofia, a Black woman with voluminous dark curly hair, royal-blue blazer over a cream blouse, smiling and pointing to herself at an international community fair."
+      }
+    },
+    {
+      "id": "doctor",
+      "runtime_filename": "a1_u3_review_v1_doctor.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "3.6 profession retrieval: doctor in a new clinic scene, not the 3.6 examination photo."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and hair of the named person only; create a completely new place, camera angle and moment, never a copy of Image 1. Diego (short dark curly hair, light stubble) wearing a white doctor's coat with a stethoscope around his neck stands in a bright hospital corridor, holding a tablet computer and smiling as he talks with a nurse in blue scrubs. His coat and stethoscope make his job unmistakable. Clean modern hospital, no readable signs or words.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_scene_diego-spanish_5d1c02d.webp",
+        "sha256": "fc7d61b3ceb1b68b822491f6b453c8b17a3d9a9e372e5c7e2f2ba6af6f833fc4",
+        "observed_description": "Inspected 3.5 course photo: Diego, a Spanish man in his thirties with short dark curly hair and light stubble, navy blazer over a burgundy shirt, pointing to himself at a community fair."
+      }
+    },
+    {
+      "id": "farmer",
+      "runtime_filename": "a1_u3_review_v1_farmer.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "3.6 profession retrieval: farmer at work in a fresh outdoor scene."
+      },
+      "prompt": "A woman farmer in her fifties with a wide straw hat, checked shirt and work gloves stands in a green vegetable field at golden hour, holding a crate full of freshly picked lettuces and tomatoes, a small red tractor behind her. Her work is unmistakable. Full body visible, natural light, no readable words."
+    }
+  ]
+}

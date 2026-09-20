@@ -109,13 +109,13 @@ assert.match(
 
 assert.match(
   cardViewSource,
-  /const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape/,
+  /const useFullWidthSingleActionVideo = useExpandedSingleActionVideo && !isTabletLandscape && !phoneLandscape/,
   'Automatic action clips must keep full-width presentation on phones without overriding the tablet width cap.',
 );
 
 assert.match(
   cardViewSource,
-  /useFullWidthSingleActionVideo \? styles\.singleActionVideoOption : null/,
+  /useFullWidthSingleActionVideo && !boundedImageChoices \? styles\.singleActionVideoOption : null/,
   'Only non-tablet automatic action clips may apply the full-width option override.',
 );
 
