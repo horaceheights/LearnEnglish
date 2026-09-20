@@ -174,6 +174,7 @@ machine, not the ordinary lesson card shell with decorative game styling:
   - The first $\lfloor N / 2 \rfloor$ cards in Use provide multi-word partial sentence completion (`complete2`): the learner places exactly 2 words into a scaffolded frame (e.g., `It is ___ ___.`, `She is ___ ___.`, `There are ___ ___.`).
   - The remaining cards in Use provide full sentence construction (`complete-sentence`): all words are blanked (`___ ___ ___ ___`) and assembled from ordered word tiles (2 to 8 words per target sentence).
   - Cards strictly advance from fewest words / partial blanks to core full sentences to longest compound sentences.
+- Lesson 1.5 exception (2026-09-20): preserve its three guided Use cards and five full constructions, 43 cards total. The closing sequence is `He is the grandfather.`, `She is the grandmother.`, then `They are the grandparents.`, each on its own slide with the corresponding established portrait or pair photo. The grandmother construction follows the grandfather directly; never append it to the grandparents sentence. This requested extra slide overrides the 50/50 count only for this lesson.
 - Upfront spoken model and translation contract:
   - Every card in Completa auto-plays the complete target English sentence upfront on card mount and on replay.
   - Tapping the prompt in Completa displays the complete Spanish sentence without visual blanks (`___`).

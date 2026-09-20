@@ -64,7 +64,7 @@ EXPECTED_STAGE_COUNTS = {
     "lesson-2-pronouns": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-3-two-people": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-4-children-siblings": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
-    "lesson-5-parents-grandparents": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
+    "lesson-5-parents-grandparents": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 8},
     "lesson-6-family-actions": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-7-is-are-not": {"Learn": 10, "Recognize": 10, "Listen": 8, "Speak": 7, "Use": 7},
     "lesson-8-who": {"Learn": 10, "Recognize": 10, "Listen": 10, "Speak": 10, "Use": 10},
@@ -1551,7 +1551,7 @@ class LessonStructureTests(unittest.TestCase):
     def test_unit_1_construction_rollout_preserves_scaffold_and_bounded_banks(self):
         expected = {
             '1.2': ['U4', 'U5', 'U6', 'U7'], '1.3': ['U4', 'U5', 'U6'],
-            '1.4': ['U4', 'U5', 'U6', 'U7'], '1.5': ['U4', 'U5', 'U6', 'U7'],
+            '1.4': ['U4', 'U5', 'U6', 'U7'], '1.5': ['U4', 'U5', 'U6', 'U7', 'U8'],
             '1.6': ['U4', 'U5', 'U6', 'U7'], '1.7': ['U4', 'U5', 'U6', 'U7'],
             '1.8': ['U7', 'U8', 'U9', 'U10'], '1.9': ['U5', 'U6', 'U8'],
         }

@@ -99,7 +99,8 @@ function assertParallelUnitOneChoices(lessons, context) {
       assert.equal(new Set(frames).size, 1, `${context}: ${number} ${card.slide_id} mixes grammatical/semantic frames: ${card.options.map((option) => option.label).join(' | ')}`);
     }
     const expectedCounts = number === '1.9' ? [14, 14, 10, 8, 8]
-      : number === '1.8' ? [10, 10, 10, 10, 10] : [10, 10, 8, 7, 7];
+      : number === '1.8' ? [10, 10, 10, 10, 10]
+      : number === '1.5' ? [10, 10, 8, 7, 8] : [10, 10, 8, 7, 7];
     assert.deepEqual(
       ['Learn', 'Recognize', 'Listen', 'Speak', 'Use'].map((stage) => current.cards.filter((card) => card.stage === stage).length),
       expectedCounts,
@@ -376,7 +377,8 @@ for (const [number, slideId, target] of [
   ['1.5', 'U4', 'She is the mother.'],
   ['1.5', 'U5', 'They are the parents.'],
   ['1.5', 'U6', 'He is the grandfather.'],
-  ['1.5', 'U7', 'They are the grandparents.'],
+  ['1.5', 'U7', 'She is the grandmother.'],
+  ['1.5', 'U8', 'They are the grandparents.'],
   ['1.8', 'U8', 'They are the children.'],
   ['1.8', 'U10', 'They are the grandparents.'],
   ['1.9', 'U8', 'They are the grandparents. They are not sleeping.'],
@@ -391,6 +393,24 @@ for (const [number, slideId, target] of [
     assert.equal(current.options.length, new Set(current.correct_option_ids).size);
   }
 }
+
+// Lesson 1.5's added grandmother card preserves the existing guided section and
+// keeps each generation identity on its own matching photo, in lesson order.
+for (const lesson of [course.find(item => item.sub_lesson_id === '1.5'), authoredUnitOne.find(item => item.sub_lesson_id === '1.5')]) {
+  const cards = lesson.cards.filter(card => card.stage === 'Use');
+  assert.equal(cards.length, 8);
+  assert.ok(cards.slice(3).every(card => card.interaction_type === 'complete-sentence'));
+  assert.deepEqual(cards.slice(-3).map(card => [card.slide_id, card.audio_text, path.basename(card.prompt_image_url)]), [
+    ['U6', 'He is the grandfather.', 'family_grandfather.webp'],
+    ['U7', 'She is the grandmother.', 'family_grandmother.webp'],
+    ['U8', 'They are the grandparents.', 'family_grandparents.webp'],
+  ]);
+  assert.equal(cards[6].spanish_translation, 'Ella es la abuela.');
+}
+
+assert.ok(course.find(item => item.sub_lesson_id === '1.5').cards
+  .filter(card => card.stage === 'Use').slice(0, 3)
+  .every(card => card.interaction_type === 'complete2'));
 
 const expectedLessonEightQuestions = new Map([
   ['R1', 'Who is he?'],
