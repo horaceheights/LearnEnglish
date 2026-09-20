@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import mascot from "../../mobile/assets/mascots/serious/listening-frames-normalized/listening-06.png";
 import styles from "./LessonHelpPopup.module.css";
 
 export default function LessonHelpPopup({ mode, message, onDismiss, onSuppress }) {
@@ -16,7 +15,7 @@ export default function LessonHelpPopup({ mode, message, onDismiss, onSuppress }
   return <dialog ref={dialog} aria-labelledby="lesson-help-title" className={styles.popup}
     onCancel={event => { event.preventDefault(); onDismiss(); }}>
     <div className={styles.body} aria-live="polite">
-      <img src={mascot.src} alt="" className={styles.mascot} />
+      <img src="/lesson-help-avatar.png" alt="" className={styles.mascot} />
       <div className={styles.copy}>
         <h2 id="lesson-help-title">{reminder ? "La ayuda sigue aquí" : "¿Necesitas ayuda?"}</h2>
         <p>{reminder ? "Si necesitas ayuda en el futuro, solo toca el botón" : message}</p>

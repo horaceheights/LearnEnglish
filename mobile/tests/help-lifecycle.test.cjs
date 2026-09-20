@@ -66,6 +66,10 @@ function harness(saved = null, delayedRead = null) {
   await loading.act('open'); await loading.act('suppress'); resolve(null); await loading.flush(); await loading.act('dismiss');
   await loading.set({ cardKey: 'next' }); await loading.tick(10000); assert.equal(loading.value.mode, null, 'A late preference read cannot undo No mostrar.'); loading.unmount();
 
+  assert.deepEqual(fs.readFileSync(path.resolve(__dirname, '../assets/mascots/serious/listening-frames-normalized/listening-06.png')),
+    fs.readFileSync(path.resolve(__dirname, '../../frontend/public/lesson-help-avatar.png')),
+    'The web deployment packages the exact existing mobile avatar; mobile/assets is excluded by Vercel.');
+
   const screen = fs.readFileSync(path.resolve(__dirname, '../src/screens/LessonScreen.tsx'), 'utf8');
   const web = fs.readFileSync(path.resolve(__dirname, '../../frontend/components/LessonPlayer.js'), 'utf8');
   for (const text of [screen, web]) {
