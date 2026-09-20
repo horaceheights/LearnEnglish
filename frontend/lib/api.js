@@ -102,10 +102,16 @@ export async function getLearnerByName(displayName) {
   return apiRequest(`/api/users/by-name/${encodeURIComponent(displayName)}`, { cache: "no-store" });
 }
 
-export async function startLessonSession({ userId, lessonId, totalCards }) {
+export async function startLessonSession({ userId, lessonId, totalCards, id }) {
   return apiRequest("/api/sessions", {
     method: "POST",
-    body: JSON.stringify({ user_id: userId, lesson_id: lessonId, total_cards: totalCards }),
+    body: JSON.stringify({ user_id: userId, lesson_id: lessonId, total_cards: totalCards, id }),
+  });
+}
+
+export async function syncLessonResult(result) {
+  return apiRequest(`/api/lesson-results/${encodeURIComponent(result.id)}`, {
+    method: 'PUT', body: JSON.stringify(result),
   });
 }
 

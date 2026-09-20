@@ -79,7 +79,7 @@ type Props = {
   onAttempted?: () => void;
   headerReplayRequestId?: number;
   onHeaderReplayAvailabilityChange?: (available: boolean) => void;
-  onPassed: (firstTry: boolean) => void;
+  onPassed: (firstTry: boolean, accepted: boolean) => void;
   onUnavailable: () => void;
 };
 
@@ -870,7 +870,7 @@ export function PronunciationPractice({
     setReviewingRecording(false);
     if (shouldAdvance) {
       gradedAdvanceHandled.current = true;
-      onPassed(passedOnFirstTry);
+      onPassed(passedOnFirstTry, accepted);
     } else {
       await playModel(runId);
     }
@@ -1876,7 +1876,7 @@ export function PronunciationPractice({
         { attempt: attemptRef.current + 1, passed },
         'warning',
       );
-      onPassed(passedOnFirstTry);
+      onPassed(passedOnFirstTry, passed && !continueAfterCoaching);
     }, SUCCESS_ADVANCE_WATCHDOG_MS);
     return () => clearTimeout(timer);
   }, [continueAfterCoaching, onPassed, passed, phase]);
@@ -1891,7 +1891,7 @@ export function PronunciationPractice({
     // Give the learner time to read the final grade and advice before the
     // lesson advances to the next slide.
     const passedOnFirstTry = passed && attemptRef.current === 0 && !continueAfterCoaching;
-    const timer = setTimeout(() => onPassed(passedOnFirstTry), GRADING_REVIEW_MS);
+    const timer = setTimeout(() => onPassed(passedOnFirstTry, passed && !continueAfterCoaching), GRADING_REVIEW_MS);
     return () => clearTimeout(timer);
   }, [continueAfterCoaching, onPassed, passed, phase, reviewingRecording]);
 

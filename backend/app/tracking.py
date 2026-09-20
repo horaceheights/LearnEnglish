@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.engine import RowMapping
 
@@ -85,6 +85,9 @@ def init_db() -> None:
         session_columns = {column["name"] for column in inspect(db).get_columns("lesson_sessions")}
         if "finished_order" not in session_columns:
             db.execute(text("ALTER TABLE lesson_sessions ADD COLUMN finished_order BIGINT"))
+        for column, declaration in (("result_json", "TEXT"), ("review_score", "INTEGER"), ("pending_cards", "INTEGER DEFAULT 0")):
+            if column not in session_columns:
+                db.execute(text(f"ALTER TABLE lesson_sessions ADD COLUMN {column} {declaration}"))
         db.execute(
             text(
                 """
@@ -151,11 +154,42 @@ class SessionCreate(BaseModel):
     user_id: str
     lesson_id: str
     total_cards: int
+    id: str | None = Field(default=None, max_length=100)
 
 
 class SessionFinish(BaseModel):
     score: int
     total_cards: int
+
+
+class LessonResultSync(BaseModel):
+    id: str = Field(min_length=1, max_length=100)
+    userId: str = Field(min_length=1, max_length=100)
+    lessonId: str = Field(min_length=1, max_length=200)
+    contentRevision: int | None = None
+    totalCards: int = Field(gt=0, le=1000)
+    initialScore: int = Field(ge=0)
+    reviewAvailable: bool = True
+    missedCards: list[int]
+    ungradedCards: list[int]
+    recoveredCards: list[int]
+    completedAt: str
+
+    @model_validator(mode="after")
+    def validate_result(self):
+        for name in ("missedCards", "ungradedCards", "recoveredCards"):
+            indexes = getattr(self, name)
+            if any(index < 0 or index >= self.totalCards for index in indexes):
+                raise ValueError("Activity index outside the original lesson")
+            setattr(self, name, sorted(set(indexes)))
+        missed, ungraded = set(self.missedCards), set(self.ungradedCards)
+        if self.initialScore > self.totalCards or missed & ungraded or (self.reviewAvailable and self.initialScore + len(missed | ungraded) != self.totalCards):
+            raise ValueError("Initial score and activities must cover the original lesson exactly")
+        if not set(self.recoveredCards) <= missed | ungraded:
+            raise ValueError("Only originally missed or ungraded activities can recover points")
+        if datetime.fromisoformat(self.completedAt.replace("Z", "+00:00")).tzinfo is None:
+            raise ValueError("Completion time must include a timezone")
+        return self
 
 
 class CardAttemptCreate(BaseModel):
@@ -406,7 +440,7 @@ def reset_user_activity(user_id: str) -> bool:
 
 
 def create_session(payload: SessionCreate) -> dict[str, Any]:
-    session_id = str(uuid.uuid4())
+    session_id = payload.id or str(uuid.uuid4())
     timestamp = now_iso()
     with engine.begin() as db:
         db.execute(
@@ -414,6 +448,7 @@ def create_session(payload: SessionCreate) -> dict[str, Any]:
                 """
                 INSERT INTO lesson_sessions (id, user_id, lesson_id, started_at, total_cards)
                 VALUES (:id, :user_id, :lesson_id, :started_at, :total_cards)
+                ON CONFLICT (id) DO NOTHING
                 """
             ),
             {
@@ -424,6 +459,9 @@ def create_session(payload: SessionCreate) -> dict[str, Any]:
                 "total_cards": payload.total_cards,
             },
         )
+        existing = db.execute(text("SELECT user_id, lesson_id FROM lesson_sessions WHERE id = :id"), {"id": session_id}).mappings().one()
+        if existing["user_id"] != payload.user_id or existing["lesson_id"] != payload.lesson_id:
+            raise ValueError("Session belongs to another learner or lesson")
     return {
         "id": session_id,
         "user_id": payload.user_id,
@@ -436,6 +474,11 @@ def create_session(payload: SessionCreate) -> dict[str, Any]:
 def finish_session(session_id: str, payload: SessionFinish) -> dict[str, Any] | None:
     timestamp = now_iso()
     with engine.begin() as db:
+        db.execute(text("UPDATE lesson_sessions SET id = id WHERE id = :id"), {"id": session_id})
+        saved = db.execute(text("SELECT user_id, finished_at, score, total_cards, result_json FROM lesson_sessions WHERE id = :id"), {"id": session_id}).mappings().first()
+        if saved and saved["result_json"]:
+            # An older delayed client request must not overwrite an immutable result.
+            return {"id": session_id, **{key: saved[key] for key in ("user_id", "finished_at", "score", "total_cards")}}
         result = db.execute(
             text(
                 """
@@ -483,6 +526,49 @@ def finish_session(session_id: str, payload: SessionFinish) -> dict[str, Any] | 
     return {"id": session_id, "user_id": user_id, "finished_at": timestamp, "score": payload.score, "total_cards": payload.total_cards}
 
 
+def sync_lesson_result(payload: LessonResultSync) -> dict[str, Any]:
+    """Atomically union corrections; neither retries nor stale snapshots award twice."""
+    incoming = payload.model_dump(exclude_none=True)
+    with engine.begin() as db:
+        if not db.execute(text("SELECT id FROM users WHERE id = :id"), {"id": payload.userId}).first():
+            raise ValueError("Learner does not exist")
+        db.execute(text("""
+            INSERT INTO lesson_sessions (id, user_id, lesson_id, started_at, total_cards)
+            VALUES (:id, :user_id, :lesson_id, :started_at, :total_cards)
+            ON CONFLICT (id) DO NOTHING
+        """), {"id": payload.id, "user_id": payload.userId, "lesson_id": payload.lessonId,
+               "started_at": payload.completedAt, "total_cards": payload.totalCards})
+        # Acquires the row's write lock in Postgres and the write transaction in
+        # SQLite before reading the union. Both clients may reconnect together.
+        db.execute(text("UPDATE lesson_sessions SET id = id WHERE id = :id"), {"id": payload.id})
+        saved = db.execute(text("SELECT * FROM lesson_sessions WHERE id = :id"), {"id": payload.id}).mappings().one()
+        if saved["user_id"] != payload.userId or saved["lesson_id"] != payload.lessonId:
+            raise ValueError("Session belongs to another learner or lesson")
+        if saved["result_json"]:
+            previous = json.loads(saved["result_json"])
+            if {key: value for key, value in previous.items() if key != "recoveredCards"} != {
+                key: value for key, value in incoming.items() if key != "recoveredCards"
+            }:
+                raise ValueError("The initial lesson result cannot change")
+            incoming["recoveredCards"] = sorted(set(previous["recoveredCards"]) | set(payload.recoveredCards))
+        recovered = set(incoming["recoveredCards"])
+        pending = len(set(payload.ungradedCards) - recovered)
+        order = saved["finished_order"]
+        if order is None:
+            order = db.execute(text("""
+                INSERT INTO tracking_counters (name, value) VALUES ('lesson_session_finish', 1)
+                ON CONFLICT (name) DO UPDATE SET value = tracking_counters.value + 1 RETURNING value
+            """)).scalar_one()
+        db.execute(text("""
+            UPDATE lesson_sessions SET score = :initial, review_score = :score,
+                total_cards = :total, pending_cards = :pending, result_json = :result,
+                finished_at = :finished, finished_order = :finish_order WHERE id = :id
+        """), {"initial": payload.initialScore, "score": payload.initialScore + len(recovered),
+               "total": payload.totalCards, "pending": pending, "result": json.dumps(incoming),
+               "finished": payload.completedAt, "finish_order": order, "id": payload.id})
+    return incoming
+
+
 def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
     """Return the learner's most recent completed run for every completed lesson."""
     if get_user(user_id) is None:
@@ -495,13 +581,15 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
                 WITH ranked_sessions AS (
                     SELECT
                         lesson_id,
-                        score,
+                        COALESCE(review_score, score) AS score,
+                        score AS initial_score,
                         total_cards,
                         finished_at,
                         finished_order,
                         MAX(
                             CASE
-                                WHEN total_cards > 0 AND (score * 100.0) / total_cards >= 80 THEN 1
+                                WHEN total_cards > 0 AND COALESCE(pending_cards, 0) = 0
+                                    AND (COALESCE(review_score, score) * 100.0) / total_cards >= 80 THEN 1
                                 ELSE 0
                             END
                         ) OVER (PARTITION BY lesson_id) AS passed,
@@ -517,7 +605,7 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
                     WHERE user_id = :user_id
                       AND finished_at IS NOT NULL
                 )
-                SELECT lesson_id, score, total_cards, finished_at, passed
+                SELECT lesson_id, score, initial_score, total_cards, finished_at, passed
                 FROM ranked_sessions
                 WHERE session_rank = 1
                 ORDER BY lesson_id
@@ -532,8 +620,9 @@ def get_lesson_progress(user_id: str) -> list[dict[str, Any]] | None:
             "completed": True,
             "passed": bool(row["passed"]),
             "score": row["score"],
+            "initial_score": row["initial_score"],
             "total_cards": row["total_cards"],
-            "percentage": round((row["score"] * 100) / row["total_cards"])
+            "percentage": (row["score"] * 100) // row["total_cards"]
             if row["total_cards"] > 0
             else 0,
             "completed_at": row["finished_at"],

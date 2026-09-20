@@ -132,10 +132,16 @@ export function deleteLearnerProfile(userId: string): Promise<{ deleted: boolean
   return jsonRequest(`/api/users/${userId}`, { method: 'DELETE' });
 }
 
-export function startLessonSession(userId: string, lessonId: string, totalCards: number) {
+export function startLessonSession(userId: string, lessonId: string, totalCards: number, id?: string) {
   return jsonRequest<{ id: string }>('/api/sessions', {
     method: 'POST',
-    body: JSON.stringify({ user_id: userId, lesson_id: lessonId, total_cards: totalCards }),
+    body: JSON.stringify({ user_id: userId, lesson_id: lessonId, total_cards: totalCards, id }),
+  });
+}
+
+export function syncLessonResult(result: import('./lessonResult').LessonResult) {
+  return jsonRequest<import('./lessonResult').LessonResult>(`/api/lesson-results/${encodeURIComponent(result.id)}`, {
+    method: 'PUT', body: JSON.stringify(result),
   });
 }
 

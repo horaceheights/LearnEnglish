@@ -9,6 +9,10 @@ export type SavedLessonRun = {
   sessionId: string;
   wrongCards: number[];
   contentRevision?: number;
+  earnedCards?: number[];
+  ungradedCards?: number[];
+  reviewQueue?: number[];
+  resultId?: string;
 };
 
 type LessonResumeStorage = {
@@ -54,6 +58,10 @@ export function parseSavedLessonRun(
       sessionId: typeof saved.sessionId === 'string' ? saved.sessionId : '',
       wrongCards: validCardIndexes(saved.wrongCards, cardCount),
       ...(contentRevision === undefined ? {} : { contentRevision }),
+      ...(Array.isArray(saved.earnedCards) ? { earnedCards: validCardIndexes(saved.earnedCards, cardCount) } : {}),
+      ...(Array.isArray(saved.ungradedCards) ? { ungradedCards: validCardIndexes(saved.ungradedCards, cardCount) } : {}),
+      ...(Array.isArray(saved.reviewQueue) ? { reviewQueue: validCardIndexes(saved.reviewQueue, cardCount) } : {}),
+      ...(typeof saved.resultId === 'string' ? { resultId: saved.resultId } : {}),
     };
   } catch {
     return null;

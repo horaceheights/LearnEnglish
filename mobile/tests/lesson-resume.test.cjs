@@ -128,7 +128,7 @@ async function main() {
   );
   assert.match(
     lessonScreenSource,
-    /setIsComplete\(savedRun\?\.completionPending \?\? false\)/,
+    /setIsComplete\(restoringReview \? false : Boolean\(storedResult \|\| savedRun\?\.completionPending\)\)/,
     'A pending offline completion must restore the completion screen, not card one.',
   );
   assert.match(
@@ -138,8 +138,8 @@ async function main() {
   );
   assert.match(
     lessonScreenSource,
-    /finishLessonSession\([\s\S]*?\.then\(\(\) => \{[\s\S]*?return clearLessonResume\(\)/,
-    'The local completion checkpoint may clear only after server completion succeeds.',
+    /await lessonResults\.save\(next\)/,
+    'Completed results must enter the durable outbox before any navigation.',
   );
   assert.doesNotMatch(
     lessonScreenSource,

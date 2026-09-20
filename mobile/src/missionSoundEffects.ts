@@ -12,6 +12,7 @@ export type MissionSoundEvent =
   | 'page-turn'
   | 'voice-stamp'
   | 'mission-finale'
+  | 'lesson-passed'
   | 'try-again';
 
 const MISSION_SOUND_SOURCES: Record<MissionSoundEvent, AudioSource> = {
@@ -21,6 +22,7 @@ const MISSION_SOUND_SOURCES: Record<MissionSoundEvent, AudioSource> = {
   'page-turn': require('../assets/sfx/chapter-arrival-v2.mp3'),
   'voice-stamp': require('../assets/sfx/voice-confirm-v2.mp3'),
   'mission-finale': require('../assets/sfx/mission-finale-v2.mp3'),
+  'lesson-passed': require('../assets/sfx/mission-finale-v2.mp3'),
   'try-again': require('../assets/sfx/try-again-v3.mp3'),
 };
 
@@ -32,6 +34,7 @@ const MISSION_SOUND_VOLUMES: Record<MissionSoundEvent, number> = {
   'page-turn': 0.68,
   'voice-stamp': 0.64,
   'mission-finale': 0.58,
+  'lesson-passed': 0.58,
   'try-again': 0.5,
 };
 

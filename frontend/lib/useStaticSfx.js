@@ -10,6 +10,7 @@ const SFX_VERSION = "20260903-full-bleed-v8";
 
 const STATIC_SFX_PATHS = Object.freeze({
   missionFinale: "/sfx/mission-finale-v2.mp3",
+  lessonPassed: "/sfx/mission-finale-v2.mp3",
   missionStart: "/sfx/mission-start-v2.mp3",
   pageRestored: "/sfx/person-found-v2.mp3",
   pageTurn: "/sfx/chapter-arrival-v2.mp3",
@@ -57,6 +58,12 @@ export default function useStaticSfx({ enabled = true, muted = false } = {}) {
 
   useEffect(() => stop, [stop]);
 
+  useEffect(() => {
+    const pauseWhenHidden = () => { if (document.hidden) stop(); };
+    document.addEventListener("visibilitychange", pauseWhenHidden);
+    return () => document.removeEventListener("visibilitychange", pauseWhenHidden);
+  }, [stop]);
+
   const play = useCallback((cue, options = {}) => {
     if (
       !enabled
@@ -64,6 +71,7 @@ export default function useStaticSfx({ enabled = true, muted = false } = {}) {
       || reduceStimulationRef.current
       || typeof window === "undefined"
       || typeof window.Audio !== "function"
+      || document.hidden
     ) {
       return Promise.resolve(false);
     }
