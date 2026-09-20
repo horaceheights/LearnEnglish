@@ -62,6 +62,15 @@ def check_binding(root, key, binding, mapped_video, source_name, poster_name):
     return errors
 
 
+def published_binding_errors(objects, key, binding):
+    errors = []
+    for field in ('source', 'video', 'poster'):
+        name = binding.get(field)
+        if name and objects.get('lesson-assets/' + name, {}).get('sha256') != binding.get(field + '_sha256'):
+            errors.append(f'{key}: published {field} receipt is missing or stale; synchronize the reviewed bytes')
+    return errors
+
+
 def audit(root=ROOT):
     mobile_source = (root / 'mobile/src/actionVideos.ts').read_text(encoding='utf-8')
     web_source = (root / 'frontend/components/LessonPlayer.js').read_text(encoding='utf-8')
@@ -69,6 +78,7 @@ def audit(root=ROOT):
     web = video_map(web_source)
     payload = json.loads((root / 'docs/product/action-video-bindings.json').read_text(encoding='utf-8'))
     bindings = payload['bindings']
+    published = json.loads((root / 'docs/product/media-upload-manifest.json').read_text(encoding='utf-8'))['objects']
     required = set()
     for file in (root / 'backend/lessons').glob('unit_*/*.yaml'):
         required.update(set(image_keys(yaml.safe_load(file.read_text(encoding='utf-8')))) & native.keys())
@@ -82,6 +92,7 @@ def audit(root=ROOT):
         source = OPTION_MEDIA_VARIANTS.get(key + '.webp', key + '.webp')
         poster = TWO_CARD_ACTION_POSTERS.get(key)
         errors.extend(check_binding(root, key, binding, native[key], source, poster))
+        errors.extend(published_binding_errors(published, key, binding))
         for label, client_source in [('native', mobile_source), ('web', web_source)]:
             for variant_key, variant_name in video_map(client_source, 'TWO_CARD_ACTION_VIDEOS').items():
                 if variant_key == key and variant_name != binding['video']:

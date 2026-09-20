@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 import styles from "./scene-test.module.css";
 import { mediaUrl } from "../../lib/mediaUrl";
 
+const ACTION_MEDIA_VERSION = "20260920-action-continuity-v3";
+
 const SCENES = {
   pairRunning: {
     title: "They are running",
@@ -206,7 +208,7 @@ export default function SceneTestPage() {
         <article>
           <p>Current still</p>
           <div className={styles.imageFrame}>
-            <img src={mediaUrl(scene.still)} alt={scene.sentence} />
+            <img src={mediaUrl(scene.still, ACTION_MEDIA_VERSION)} alt={scene.sentence} />
           </div>
         </article>
         <article>
@@ -215,8 +217,8 @@ export default function SceneTestPage() {
             <video
               ref={videoRef}
               key={sceneId}
-              src={mediaUrl(scene.video)}
-              poster={mediaUrl(scene.still)}
+              src={mediaUrl(scene.video, ACTION_MEDIA_VERSION)}
+              poster={mediaUrl(scene.still, ACTION_MEDIA_VERSION)}
               muted
               autoPlay
               loop

@@ -41,8 +41,8 @@ import { isWordConstruction, sentenceIsCorrect } from "../../mobile/src/sentence
 import { mediaUrl } from "../lib/mediaUrl";
 
 const PROFILE_STORAGE_KEY = "learn-english-profile-v1";
-const LESSON_IMAGE_VERSION = "20260903-full-bleed-v8";
-const LESSON_VIDEO_VERSION = "20260903-full-bleed-v8";
+const LESSON_IMAGE_VERSION = "20260920-action-continuity-v3";
+const LESSON_VIDEO_VERSION = "20260920-action-continuity-v3";
 const SPANGLISH_LOGO_SRC = "/spanglish-logo.svg";
 const COURSE_AUDIO_PRELOAD_AHEAD = 8;
 const MISSING_CARD_AUDIO_ASSET_ID = "missing-card-audio-asset";

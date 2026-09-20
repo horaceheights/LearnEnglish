@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from scripts.audit_action_video_bindings import check_binding
+from scripts.audit_action_video_bindings import check_binding, published_binding_errors
 
 
 class ActionVideoBindingTests(unittest.TestCase):
@@ -50,6 +50,17 @@ class ActionVideoBindingTests(unittest.TestCase):
 
     def test_removed_poster_mapping_requires_review(self):
         self.assertTrue(any('poster mapping changed' in error for error in self.check(poster_name=None)))
+
+    def test_published_receipts_must_match_the_reviewed_pair(self):
+        objects = {'lesson-assets/' + self.binding[kind]: {'sha256': self.binding[kind + '_sha256']}
+                   for kind in ('source', 'video', 'poster')}
+        self.assertEqual(published_binding_errors(objects, 'scene', self.binding), [])
+        objects['lesson-assets/source.webp']['sha256'] = 'old-photo'
+        self.assertTrue(any('published source' in error for error in
+                            published_binding_errors(objects, 'scene', self.binding)))
+
+    def test_missing_published_receipts_are_rejected(self):
+        self.assertEqual(len(published_binding_errors({}, 'scene', self.binding)), 3)
 
 
 if __name__ == '__main__':
