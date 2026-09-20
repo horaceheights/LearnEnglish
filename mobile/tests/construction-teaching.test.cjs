@@ -115,8 +115,8 @@ test('unsupported generated patterns fail the authoring contract instead of inve
 test('before-answer help names partial versus full construction and the actual controls', () => {
   const full = construction('He is a boy.');
   const partial = { ...full, interaction_type: 'complete2', correct_option_ids: ['2', '3'], prompt: 'He is ___ ___.' };
-  assert.match(lessonHelpText(partial, 'translation-on-tap'), /dos palabras.+orden.+botón de sonido/);
-  assert.match(lessonHelpText(full, 'translation-on-tap'), /palabras en ese orden.+devolverla/);
+  assert.match(lessonHelpText(partial, 'translation-on-tap'), /dos palabras que faltan en orden.+tocando o arrastrando.+devolverla/);
+  assert.match(lessonHelpText(full, 'translation-on-tap'), /coloca las palabras en orden.+tocando o arrastrando.+devolverla/);
   assert.doesNotMatch(lessonHelpText(full), /Toca la palabra que completa/);
 });
 
