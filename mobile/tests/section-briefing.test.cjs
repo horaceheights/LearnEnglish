@@ -215,15 +215,8 @@ test('the automatic Learn card shows its countdown', () => {
   );
 });
 
-test('the first full construction explains its new mechanic once', () => {
-  const overlay = fs.readFileSync(path.join(sourceRoot, 'components/SentenceHelpOverlay.tsx'), 'utf8');
-  assert.match(overlay, /variant = 'prompt'/);
-  assert.match(overlay, /¡Ahora armas la frase!/);
-  assert.match(screen, /variant="construction"/);
-  assert.match(screen, /const CONSTRUCTION_HELP_STORAGE_PREFIX = 'spanglish-construction-help-v1';/);
-  assert.match(
-    screen,
-    /if \(!isSentenceConstruction\(currentCard\) \|\| constructionHelpStatus !== 'pending' \|\| sectionBriefing \|\| isPageTurning\) return;/,
-    'The construction coach waits for a settled construction card.',
-  );
+test('full construction shares contextual help after the section briefing', () => {
+  assert.doesNotMatch(screen, /constructionHelpStatus|showConstructionCoachmark/);
+  assert.match(screen, /useContextualHelp\(\{[\s\S]*!sectionBriefing[\s\S]*promptAutoplayFinished/);
+  assert.match(screen, /lessonHelpText\(currentCard, promptInteractionMode\)/);
 });

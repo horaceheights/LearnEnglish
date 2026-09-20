@@ -133,6 +133,7 @@ export default function CelebrationMission({
   onBegin,
   onComplete,
   onExit,
+  onHelp,
   onMisstep,
   onPrepareSpeech,
   onReplayEnglish,
@@ -229,6 +230,7 @@ export default function CelebrationMission({
         <div className="mission-topline">
           <button aria-label="Salir de la misión" onClick={onExit} style={{ ...buttonStyle(false), minHeight: isVoiceGate ? 48 : 40, minWidth: isVoiceGate ? 48 : undefined, padding: "6px 10px" }} type="button">{isVoiceGate ? "←" : "← Salir"}</button>
           <div><span>{lesson.mission.label}</span><strong>{lesson.mission.title}</strong></div>
+          <button aria-label="Mostrar ayuda" onClick={onHelp} style={buttonStyle(false)} type="button">?</button>
           <b>{cardIndex + 1}/{lesson.cards.length}</b>
         </div>
         <ol aria-label="Actos de la misión">

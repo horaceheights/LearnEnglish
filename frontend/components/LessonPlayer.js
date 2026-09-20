@@ -18,6 +18,8 @@ import {
   startLessonSession,
 } from "../lib/api";
 import { awaitingConstructionRetry } from "../../mobile/src/constructionTeaching";
+import LessonHelpPopup from "./LessonHelpPopup";
+import { HELP_STORAGE_PREFIX, useContextualHelp } from "../../mobile/src/hooks/useContextualHelp";
 import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHelp";
 import {
   lessonHeaderPromptText,
@@ -1551,13 +1553,10 @@ function getProfileBullets(profile) {
   return bullets;
 }
 
-function shouldShowHelp(profile) {
-  if (!profile) {
-    return false;
-  }
-
-  return profile.learningMode !== "natural_only" || profile.confidence === "nervous";
-}
+const helpStorage = {
+  async getItem(key) { return window.localStorage.getItem(key); },
+  async setItem(key, value) { window.localStorage.setItem(key, value); },
+};
 
 function getWrongFeedback(profile) {
   if (profile?.confidence === "nervous") {
@@ -2235,7 +2234,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   const [lastResult, setLastResult] = useState(null);
   const [isComplete, setIsComplete] = useState(false);
   const [autoAdvanceDelayMs, setAutoAdvanceDelayMs] = useState(700);
-  const [showHelp, setShowHelp] = useState(false);
+  const [helpAudioReadyKey, setHelpAudioReadyKey] = useState("");
+  const [helpDocumentVisible, setHelpDocumentVisible] = useState(true);
   const [missionIntroComplete, setMissionIntroComplete] = useState(false);
   const [missionIntroReady, setMissionIntroReady] = useState(false);
   const [missionInstructionReady, setMissionInstructionReady] = useState(false);
@@ -2341,6 +2341,26 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     ? cardCorrectOption?.label || ""
     : "";
   const isRecognitionLesson = activeLesson.unit_id === "unit-1";
+  const helpCardKey = `${activeLesson.id}:${cardIndex}:${currentCard?.slide_id}`;
+  const hasPromptAutoplay = (isRecognitionLesson || cardPromptHasVisualBlank || currentCard?.audio_turns?.length)
+    && Boolean(cardPromptText.trim());
+  const help = useContextualHelp({
+    cardKey: helpCardKey,
+    storageKey: `${HELP_STORAGE_PREFIX}:${profile?.userId || profile?.displayName?.trim().toLowerCase() || "guest"}`,
+    storage: helpStorage,
+    ready: started && !isComplete && !isPageTurning && helpDocumentVisible
+      && !isPronunciationCard && currentCard?.options.length > 1 && lastResult === null
+      && (isMissionGameExperience ? missionIntroComplete && missionInstructionReady
+        : !hasPromptAutoplay || helpAudioReadyKey === helpCardKey),
+  });
+  const showHelp = help.visible;
+  useEffect(() => {
+    const visibility = () => setHelpDocumentVisible(document.visibilityState === "visible");
+    visibility();
+    document.addEventListener("visibilitychange", visibility);
+    return () => document.removeEventListener("visibilitychange", visibility);
+  }, []);
+
 
   const playCourseTurnSequence = useCallback((sequence, options = {}) => {
     if (!sequence?.length) {
@@ -3267,7 +3287,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setLastResult(null);
     setIsComplete(false);
     setLessonSessionId(null);
-    setShowHelp(shouldShowHelp(profile || draftProfile));
     setAutoAdvanceDelayMs(700);
     setMissionIntroComplete(false);
     setMissionIntroReady(false);
@@ -3393,7 +3412,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
 
   useEffect(() => {
-    if (!started || lastResult !== "correct") {
+    if (!started || showHelp || lastResult !== "correct") {
       return undefined;
     }
 
@@ -3415,7 +3434,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }, autoAdvanceDelayMs);
 
     return () => window.clearTimeout(timeoutId);
-  }, [autoAdvanceDelayMs, cardIndex, lastResult, started, startPageTurn, totalCards]);
+  }, [autoAdvanceDelayMs, cardIndex, lastResult, showHelp, started, startPageTurn, totalCards]);
 
   useEffect(() => {
     resetPronunciationPractice();
@@ -3509,7 +3528,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
         const turns = cardAudioTurnSequence(currentCard, "prompt");
         if (currentCard.audio_turns?.length) {
           if (turns) {
-            playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode });
+            playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode, onEnd: () => setHelpAudioReadyKey(helpCardKey) });
           } else {
             console.info("Course audio turn contract rejected", currentCard.prompt);
           }
@@ -3519,6 +3538,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
             voiceMode: cardPromptVoiceMode,
             completionFullText: cardCompletionFullText,
             completionBlankText: cardCompletionBlankText,
+            onEnd: () => setHelpAudioReadyKey(helpCardKey),
           });
         }
       }
@@ -3526,6 +3546,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
 
     return () => window.clearTimeout(timeoutId);
   }, [
+    helpCardKey,
     activeLesson.id,
     cardIndex,
     cardPromptText,
@@ -4283,7 +4304,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     setLoginName(nextProfile.displayName || "");
     setIsCreatingProfile(false);
     setStarted(false);
-    setShowHelp(shouldShowHelp(nextProfile));
     setIsSavingProfile(false);
   };
 
@@ -4363,7 +4383,6 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     }
 
     resetProgress();
-    setShowHelp(shouldShowHelp(profile));
 
     if (profile?.userId) {
       try {
@@ -4594,6 +4613,8 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   };
 
   const playCurrentCardPrompt = () => {
+    help.interact();
+    setHelpAudioReadyKey("");
     if (isPronunciationCard) {
       playPronunciationModel(activePronunciationPrompt);
       return;
@@ -4601,7 +4622,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     if (!cardPromptText.trim()) return;
     const turns = cardAudioTurnSequence(currentCard, "prompt");
     if (currentCard.audio_turns?.length) {
-      if (turns) playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode });
+      if (turns) playCourseTurnSequence(turns, { voiceMode: cardPromptVoiceMode, onEnd: () => setHelpAudioReadyKey(helpCardKey) });
       else console.info("Course audio turn contract rejected", currentCard.prompt);
       return;
     }
@@ -4610,6 +4631,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
       voiceMode: cardPromptVoiceMode,
       completionFullText: cardCompletionFullText,
       completionBlankText: cardCompletionBlankText,
+      onEnd: () => setHelpAudioReadyKey(helpCardKey),
     });
   };
 
@@ -5203,9 +5225,16 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
     );
   }
 
+  const helpPopup = <LessonHelpPopup mode={help.mode}
+    message={currentCard.mission_game?.instruction_es || (awaitingConstructionRetry(currentCard, lastResult)
+      ? COMPLETION_RETRY_HELP : lessonHelpText(currentCard, isSentenceCard ? "translation-on-tap" : "replay-on-tap"))}
+    onDismiss={help.dismiss} onSuppress={help.suppress} />;
+
   if (isMissionGameExperience) {
     return (
-      <div ref={pageRef} data-lesson-page inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
+      <div onPointerDownCapture={help.touchStart} onPointerUpCapture={help.touchEnd}
+        onPointerCancelCapture={help.touchEnd} onKeyDownCapture={help.interact} ref={pageRef} data-lesson-page inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "8px" : "20px" }}>
+        {helpPopup}
         <CelebrationMission
           cueOrder={missionOrder}
           card={currentCard}
@@ -5223,6 +5252,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           }}
           onComplete={completeMissionGame}
           onExit={confirmLessonExit}
+          onHelp={help.open}
           onMisstep={recordMissionMisstep}
           onPrepareSpeech={prepareMissionSpeech}
           onReplayEnglish={(cueIndex) => playMissionDirections(cueIndex)}
@@ -5247,7 +5277,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
   }
 
   return (
-    <div inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
+    <div onPointerDownCapture={help.touchStart} onPointerUpCapture={help.touchEnd}
+      onPointerCancelCapture={help.touchEnd} onKeyDownCapture={help.interact}
+      inert={isPageTurning} style={{ ...styles.page, padding: isMobile ? "10px 10px 18px" : styles.page.padding }}>
+      {helpPopup}
       <div style={shellStyle}>
           <main style={{ ...styles.main, gap: isMobile ? "10px" : styles.main.gap }}>
           <section style={heroStyle}>
@@ -5320,7 +5353,7 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
                   placeItems: "center",
                   boxShadow: showHelp ? "0 8px 20px rgba(244, 201, 93, 0.28)" : "none",
                 }}
-                onClick={() => setShowHelp((current) => !current)}
+                onClick={help.open}
               >
                 ?
               </button>
@@ -5418,13 +5451,10 @@ export default function LessonPlayer({ lesson, lessons, testMode = false }) {
           </section>
 
           {isSentenceCard ? <SentenceConstruction key={cardIndex} card={currentCard} surfaceRef={pageRef}
-            selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={showHelp}
+            selected={selectedOptionIds} result={lastResult} location={lessonLocationLabel(activeLesson)} showHelp={false} helpOpen={showHelp}
             onChange={evaluateChoiceSelection} onReplay={playCurrentCardPrompt} onRetry={resetMissionSelection}
             imageSrc={lessonOptionImageSrc(currentCard.prompt_image_url)} /> : (
           <section ref={pageRef} data-lesson-page style={boardStyle}>
-            {showHelp && !isMissionExperience ? <p role="status" style={{ color: "#694b22", fontSize: 14, lineHeight: 1.4 }}>
-              {awaitingConstructionRetry(currentCard, lastResult) ? COMPLETION_RETRY_HELP : lessonHelpText(currentCard, "replay-on-tap")}
-            </p> : null}
             {activeTurnImageUrl || currentCard.prompt_image_url ? (
               <div
                 style={{
