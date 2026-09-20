@@ -50,7 +50,7 @@ import { MissionKickoff } from '../components/MissionKickoff';
 import { PlayfulLoading } from '../components/PlayfulLoading';
 import { SentenceHelpOverlay } from '../components/SentenceHelpOverlay';
 import { HELP_STORAGE_PREFIX, useContextualHelp } from '../hooks/useContextualHelp';
-import { COMPLETION_RETRY_HELP, lessonHelpText } from '../lessonHelp';
+import { COMPLETION_RETRY_HELP, isFirstSectionHelpIntroduction, lessonHelpText } from '../lessonHelp';
 import { LessonLandscapeRail } from '../components/LessonLandscapeRail';
 import { isPhoneLandscape, landscapePromptIsWide } from '../lessonViewportLayout';
 import { StageJourney } from '../components/StageJourney';
@@ -1419,15 +1419,20 @@ export function LessonScreen({
     if (closing) setMissionChapterBreak(closing);
   }, [cardIndex, lesson]);
 
+  const introduceHelp = completedLessonMode === 'standard' && !qaMode
+    && isFirstSectionHelpIntroduction(lesson, cardIndex);
   const help = useContextualHelp({
     cardKey: `${lessonId}:${cardIndex}:${cardRunId}`,
+    introKey: introduceHelp ? lessonId : undefined,
     storageKey: `${HELP_STORAGE_PREFIX}:${profile.userId || profile.displayName.trim().toLowerCase()}`,
     storage: AsyncStorage,
     ready: Boolean(currentCard) && isAppActive && cardAudio.ready && !isPageTurning
       && !sectionBriefing && !missionChapterBreak && !isCompletedSectionPicker && !isComplete
-      && !showMissionLandscapeMenu && !showSentenceTranslation && !isPronunciation && !isAutomaticSingleCard
+      && !showMissionLandscapeMenu && !showSentenceTranslation && !isPronunciation
+      && (introduceHelp || !isAutomaticSingleCard)
       && !courseAudioPlaybackStatus.playing && !missionCuePlayerStatus.playing
-      && currentCard!.options.length > 1 && result === null && !attemptedCards.has(cardIndex)
+      && (introduceHelp || currentCard!.options.length > 1)
+      && result === null && !attemptedCards.has(cardIndex)
       && (isMissionGameCard ? missionInteractionReady : !promptAudio.trim() || promptAutoplayFinished),
   });
   const showHelp = help.visible;

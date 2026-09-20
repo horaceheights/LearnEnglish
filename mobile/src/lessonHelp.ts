@@ -1,4 +1,15 @@
-import type { LessonCard } from './types';
+import type { Lesson, LessonCard } from './types';
+
+/** The first Aprende card models the task; introduce help on the next card. */
+export function isFirstSectionHelpIntroduction(lesson: Lesson | null | undefined, cardIndex: number): boolean {
+  return cardIndex === 1
+    && /^\d+\.[1-9]$/.test(lesson?.sub_lesson_id ?? '')
+    && lesson?.experience_type !== 'mission'
+    && lesson?.cards[0]?.stage === 'Learn'
+    && lesson.cards[0].options.length === 1
+    && lesson.cards[1]?.stage === 'Learn'
+    && lesson.cards[1].options.length === 1;
+}
 
 const PRONUNCIATION_STAGES = new Set([
   'Pronunciation',

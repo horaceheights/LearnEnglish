@@ -10,9 +10,10 @@ type Storage = {
 
 /** One help lifecycle for the app and web. Acknowledging help lasts for this
  * slide; only "No mostrar" saves the preference to stop automatic help. */
-export function useContextualHelp({ cardKey, ready, storageKey, storage }: {
+export function useContextualHelp({ cardKey, ready, introKey, storageKey, storage }: {
   cardKey: string;
   ready: boolean;
+  introKey?: string;
   storageKey: string;
   storage: Storage;
 }) {
@@ -20,6 +21,7 @@ export function useContextualHelp({ cardKey, ready, storageKey, storage }: {
   const [popup, setPopup] = useState<{ cardKey: string; mode: 'help' | 'reminder' } | null>(null);
   const [activity, setActivity] = useState(0);
   const handledCard = useRef<string | null>(null);
+  const shownIntro = useRef<string | null>(null);
   const touching = useRef(false);
 
   useEffect(() => {
@@ -27,6 +29,7 @@ export function useContextualHelp({ cardKey, ready, storageKey, storage }: {
     setPreference('loading');
     setPopup(null);
     handledCard.current = null;
+    shownIntro.current = null;
     void storage.getItem(storageKey).catch(() => null).then(value => {
       if (active) setPreference(current => current === 'suppressed' ? current : value === 'seen' ? 'suppressed' : 'enabled');
     });
@@ -59,6 +62,12 @@ export function useContextualHelp({ cardKey, ready, storageKey, storage }: {
   }, [cardKey, storage, storageKey]);
 
   const mode = popup?.cardKey === cardKey ? popup.mode : null;
+  useEffect(() => {
+    if (!introKey || !ready || preference !== 'enabled' || mode
+      || handledCard.current === cardKey || shownIntro.current === introKey) return;
+    shownIntro.current = introKey;
+    open();
+  }, [cardKey, introKey, mode, open, preference, ready]);
   useEffect(() => {
     if (!ready || preference !== 'enabled' || mode || touching.current || handledCard.current === cardKey) return;
     const timer = setTimeout(open, HELP_IDLE_MS);
