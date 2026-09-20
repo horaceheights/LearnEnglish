@@ -19,6 +19,7 @@ export function SentenceHelpOverlay({ message, mode, onDismiss, onSuppress }: Pr
     <Modal animationType="fade" onRequestClose={onDismiss} statusBarTranslucent transparent visible={mode !== null}>
       <View accessibilityViewIsModal style={[styles.overlay, {
         paddingTop: insets.top + 14, paddingBottom: insets.bottom + 14,
+        paddingLeft: insets.left + 14, paddingRight: insets.right + 14,
       }]}>
         {!isReminder ? <Pressable accessibilityLabel="Cerrar ayuda" accessibilityRole="button"
           onPress={onDismiss} style={StyleSheet.absoluteFill} /> : null}

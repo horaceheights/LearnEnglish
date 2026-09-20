@@ -153,7 +153,7 @@ test('rotation keeps the live pronunciation player and partially placed sentence
 test('avatar help keeps acknowledgement buttons inside native safe areas, including long construction copy', () => {
   for (const [width, height] of [[320, 568], [390, 844], [844, 390], [667, 320], [800, 1280], [1280, 800]]) {
     for (const fontScale of [1, 1.3, 2]) for (const mode of ['help', 'reminder']) {
-      const insets = { top: 24, bottom: 24, left: 0, right: 0 };
+      const insets = { top: 24, bottom: 24, left: width > height ? 44 : 0, right: width > height ? 24 : 0 };
       const h = lessonHarness({ width, height, fontScale }, { insets,
         // Model the ScrollView's native content container separately from its
         // bounded viewport. Overflowing help copy is intentionally scrollable.
@@ -171,7 +171,7 @@ test('avatar help keeps acknowledgement buttons inside native safe areas, includ
       assert.equal(buttons.length, mode === 'help' ? 2 : 1);
       for (const button of buttons) {
         assert.ok(button.box.width >= 48 && button.box.height >= 48);
-        assert.ok(button.box.left >= 0 && button.box.left + button.box.width <= width + 1);
+        assert.ok(button.box.left >= insets.left && button.box.left + button.box.width <= width - insets.right + 1);
         assert.ok(button.box.top >= insets.top && button.box.top + button.box.height <= height - insets.bottom,
           `${width}x${height}/${fontScale}/${mode}: ${JSON.stringify(button.box)}`);
       }
