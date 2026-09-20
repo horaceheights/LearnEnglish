@@ -24143,6 +24143,684 @@
         }
       },
       "authorization": "2026-09-19: the user reported that the Lesson 2.5 THAT photos point at nothing and approved up to US$1.00 to regenerate the four this/that pairs under the approved first-person paired-scene guardrail, asking for careful prompts to avoid paid redos. Original files stay byte-for-byte. Revision 2 regenerates only the chair pair after the v1 THAT-chair draft was rejected; v1 and v2 together stay within the US$1.00 approval. Revision 2 sent one request, refused with HTTP 429 credit_balance_exhausted (provider request req_849e0bc4cd9a44e8bf3e74b3efb77ff1): no image and no charge. Revision 3 repeats its unchanged chair prompts after the account balance is restored. Revision 3 generated one THAT-chair draft (US$0.043995), rejected because the fingertip lay on the far chair. Revision 4 generates THIS first, with the hand low by construction, then edits only the finger direction; that-chair-alt is a pre-registered stricter fallback used only if the first edit is rejected."
+    },
+    {
+      "old_filename": "a1_n1.webp",
+      "old_sha256": "9bbcd3fedf37d87e1adf00d5e3b0d966f60af822b373f5e8de342e5f295383b8",
+      "candidate_filename": "a1_photo_number_card_01_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "bd5b71d8e9bf2f7026c3735d0ed94b4f7e303aaffe5be2cb8ef1bd33f7c1900e",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: one red apple on a wooden table. PR #148 wrote it in place over the numeral-1 registration photo, so the number card shows objects the learner has not been taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n1.webp at e97535f8: an older man in a straw hat and dark jacket holds one white card showing only the large numeral 1. The whole numeral stays inside the centered 4:5 crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/0/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/10/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/11/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/24/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n1.webp",
+        "git_blob": "670deea74d90230e3f11fb717b0db98fb54daad4",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n2.webp",
+      "old_sha256": "b188e1cbf8630d77739d31bc607b2371bc7f75b04f8be64dbc693d4e3502f44a",
+      "candidate_filename": "a1_photo_number_card_02_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "5d30a167e566c5a830f08a243f332071eb940b4051211bdce41b6b8731ca9348",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: two yellow bananas joined at the stem on a wooden table. PR #148 wrote it in place over the numeral-2 registration photo, so the number card shows objects the learner has not been taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n2.webp at e97535f8: a woman in a dark jacket with her hair pulled back holds one white card showing only the large numeral 2. The whole numeral stays inside the centered 4:5 crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/1/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/10/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/11/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/25/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n2.webp",
+        "git_blob": "f203d2839a6a1f49dc6dff516137c8509f8d29d4",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n3.webp",
+      "old_sha256": "98b6b7b21da569615e50d134d73ce8bac03ca429e92f9f0da91dd4899fd5490d",
+      "candidate_filename": "a1_photo_number_card_03_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "9bed047ba5af4b2a3a03d1461cc6c727a8baea035d96d25b2b0eb1ad631cb2c3",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: three green apples in a row on a wooden table. PR #148 wrote it in place over the numeral-3 registration photo, so the number card shows objects the learner has not been taught; Lesson 3.3 R8's contract still describes a man holding a card with only the numeral 3.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n3.webp at e97535f8: a smiling East Asian man in a mustard shirt holds one white card showing only the large numeral 3. The whole numeral stays inside the centered 4:5 crop. Same scene as the approved Unit 3 source u3-number-03-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/2/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/12/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/26/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-3-3-am-is-and-are",
+          "lesson": "3.3",
+          "path": "backend/lessons/unit_3/lesson-3-3-am-is-and-are.yaml",
+          "pointer": "/cards/14/prompt_image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n3.webp",
+        "git_blob": "d7f16315bfa081350cbedf6e687d0e68f936bb70",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n3_four-card.webp",
+      "old_sha256": "98b6b7b21da569615e50d134d73ce8bac03ca429e92f9f0da91dd4899fd5490d",
+      "candidate_filename": "a1_photo_number_card_03_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "9bed047ba5af4b2a3a03d1461cc6c727a8baea035d96d25b2b0eb1ad631cb2c3",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Byte-identical copy of a1_n3.webp (three green apples in a row on a wooden table), not a four-card reframe: the centered 4:5 crop cuts into the two outer apples. It shows no numeral and teaches counting before the object is taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n3.webp at e97535f8: a smiling East Asian man in a mustard shirt holds one white card showing only the large numeral 3. The whole numeral stays inside the centered 4:5 crop. Same scene as the approved Unit 3 source u3-number-03-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/14/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n3.webp",
+        "git_blob": "d7f16315bfa081350cbedf6e687d0e68f936bb70",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n4.webp",
+      "old_sha256": "f80133e8cff4db23eaefcd79f07d6d604688752d88037b548730814a5e1f6e65",
+      "candidate_filename": "a1_photo_number_card_04_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "5dcc564eaa7611970f8cb7e05b9851129219c32360a3debd566817068bb94822",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: four blue notebooks side by side on a wooden table. PR #148 wrote it in place over the numeral-4 registration photo, so the number card shows objects the learner has not been taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n4.webp at e97535f8: a young man in a wheelchair wearing a teal sweater holds one white card showing only the large numeral 4. The whole numeral stays inside the centered 4:5 crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/3/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/12/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/13/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n4.webp",
+        "git_blob": "80986dd83a1349e20d29a8724f77d580b9a12e6f",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n4_four-card.webp",
+      "old_sha256": "f80133e8cff4db23eaefcd79f07d6d604688752d88037b548730814a5e1f6e65",
+      "candidate_filename": "a1_photo_number_card_04_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "5dcc564eaa7611970f8cb7e05b9851129219c32360a3debd566817068bb94822",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Byte-identical copy of a1_n4.webp (four blue notebooks side by side on a wooden table), not a four-card reframe: the centered 4:5 crop leaves two whole notebooks and two slivers. It shows no numeral and teaches counting before the object is taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n4.webp at e97535f8: a young man in a wheelchair wearing a teal sweater holds one white card showing only the large numeral 4. The whole numeral stays inside the centered 4:5 crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/14/options/3/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n4.webp",
+        "git_blob": "80986dd83a1349e20d29a8724f77d580b9a12e6f",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n5.webp",
+      "old_sha256": "d0bd48cf0cdd1490f7ab1943e07732c5ecde0dbfd075ea083a36a63826d29a01",
+      "candidate_filename": "a1_photo_number_card_05_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "40126b59edaee8157b4f4a7cfea54300e514a6c6f41fa0cc4b238079a7193b12",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: five oranges on a kitchen counter, two half hidden behind the front three. PR #148 wrote it in place over the numeral-5 registration photo, so the number card shows objects the learner has not been taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n5.webp at e97535f8: an older woman with gray hair in a dark purple jacket holds one white card showing only the large numeral 5. The whole numeral stays inside the centered 4:5 crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/4/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/13/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/27/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n5.webp",
+        "git_blob": "3bb09d74a93eaad7b5b0052234e735fc22b9a324",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n5_four-card.webp",
+      "old_sha256": "d0bd48cf0cdd1490f7ab1943e07732c5ecde0dbfd075ea083a36a63826d29a01",
+      "candidate_filename": "a1_photo_number_card_05_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "40126b59edaee8157b4f4a7cfea54300e514a6c6f41fa0cc4b238079a7193b12",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Byte-identical copy of a1_n5.webp (five oranges on a kitchen counter, two half hidden behind the front three), not a four-card reframe: the centered 4:5 crop also trims the left orange, so the count cannot be read. It shows no numeral and teaches counting before the object is taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n5.webp at e97535f8: an older woman with gray hair in a dark purple jacket holds one white card showing only the large numeral 5. The whole numeral stays inside the centered 4:5 crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/14/options/2/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n5.webp",
+        "git_blob": "3bb09d74a93eaad7b5b0052234e735fc22b9a324",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n6.webp",
+      "old_sha256": "198c51ef839de479ca9a2e31b5752ca0c9a7694719faeb07c7be5599773d682a",
+      "candidate_filename": "a1_photo_number_card_06_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "ecc2e541a0832b261c7ff2c2a12a3d7b043fa100ebc12a69646f096e5ee17e1c",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: six colored pencils laid side by side on a desk. PR #148 wrote it in place over the numeral-6 registration photo, so the number card shows objects the learner has not been taught; Lesson 3.4 N6's contract still describes a woman holding a card with only the numeral 6.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n6.webp at e97535f8: an older Black woman in a teal cardigan holds one white card showing only the large numeral 6. The whole numeral stays inside the centered 4:5 crop. Same scene as the approved Unit 3 source u3-number-06-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/5/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/18/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-3-4-age",
+          "lesson": "3.4",
+          "path": "backend/lessons/unit_3/lesson-3-4-age.yaml",
+          "pointer": "/cards/25/options/1/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n6.webp",
+        "git_blob": "b96a6742b604942c9f364fb8e9a93f7c141a30e4",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n6_four-card.webp",
+      "old_sha256": "198c51ef839de479ca9a2e31b5752ca0c9a7694719faeb07c7be5599773d682a",
+      "candidate_filename": "a1_photo_number_card_06_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "ecc2e541a0832b261c7ff2c2a12a3d7b043fa100ebc12a69646f096e5ee17e1c",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Byte-identical copy of a1_n6.webp (six colored pencils laid side by side on a desk), not a four-card reframe: all six pencils happen to stay inside the centered 4:5 crop. It shows no numeral and teaches counting before the object is taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n6.webp at e97535f8: an older Black woman in a teal cardigan holds one white card showing only the large numeral 6. The whole numeral stays inside the centered 4:5 crop. Same scene as the approved Unit 3 source u3-number-06-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/14/options/1/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n6.webp",
+        "git_blob": "b96a6742b604942c9f364fb8e9a93f7c141a30e4",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n7.webp",
+      "old_sha256": "408769deec2b0d38f54225e95d4356919ea3d459251e1fa2575ef73a8ee57351",
+      "candidate_filename": "a1_photo_number_card_07_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "203098ea994540222d35bbafb53f5bd3bf0e4a4aaa467817d8820e01cf5e8492",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: seven strawberries in a row on a cutting board. PR #148 wrote it in place over the numeral-7 registration photo, so the number card shows objects the learner has not been taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n7.webp at e97535f8: a Middle Eastern man in a light blue shirt holds one white card showing only the large numeral 7. The whole numeral stays inside the centered 4:5 crop. Same scene as the approved Unit 3 source u3-number-07-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/6/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/18/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/19/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/28/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n7.webp",
+        "git_blob": "e626efec14775881a12a62beda2af14ae3bd42a3",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n7_four-card.webp",
+      "old_sha256": "408769deec2b0d38f54225e95d4356919ea3d459251e1fa2575ef73a8ee57351",
+      "candidate_filename": "a1_photo_number_card_07_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "203098ea994540222d35bbafb53f5bd3bf0e4a4aaa467817d8820e01cf5e8492",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Byte-identical copy of a1_n7.webp (seven strawberries in a row on a cutting board), not a four-card reframe: the centered 4:5 crop shows five of the seven strawberries. It shows no numeral and teaches counting before the object is taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n7.webp at e97535f8: a Middle Eastern man in a light blue shirt holds one white card showing only the large numeral 7. The whole numeral stays inside the centered 4:5 crop. Same scene as the approved Unit 3 source u3-number-07-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/15/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n7.webp",
+        "git_blob": "e626efec14775881a12a62beda2af14ae3bd42a3",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n8.webp",
+      "old_sha256": "4fdfd32c0ca8291867f0aa6ca02562a828586d850c239362608226cd96431ea6",
+      "candidate_filename": "a1_photo_number_card_08_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "5fce5a9b535936b935e6e5c67b6b9aac55c6220d07b41b7fc429088c1377964d",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: eight white mugs stacked in four pairs. PR #148 wrote it in place over the numeral-8 registration photo, so the number card shows objects the learner has not been taught; Lesson 3.4 R8 and N6 contracts still describe a woman holding a card with only the numeral 8.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n8.webp at e97535f8: an older white woman in a coral jacket holds one white card showing only the large numeral 8. The whole numeral stays inside the centered 4:5 crop. Same scene as the approved Unit 3 source u3-number-08-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/7/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/19/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-3-4-age",
+          "lesson": "3.4",
+          "path": "backend/lessons/unit_3/lesson-3-4-age.yaml",
+          "pointer": "/cards/19/prompt_image_url"
+        },
+        {
+          "lesson_id": "lesson-3-4-age",
+          "lesson": "3.4",
+          "path": "backend/lessons/unit_3/lesson-3-4-age.yaml",
+          "pointer": "/cards/25/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n8.webp",
+        "git_blob": "357402a4405a6d6e4694a23eacde4bca089714e1",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n8_four-card.webp",
+      "old_sha256": "4fdfd32c0ca8291867f0aa6ca02562a828586d850c239362608226cd96431ea6",
+      "candidate_filename": "a1_photo_number_card_08_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "5fce5a9b535936b935e6e5c67b6b9aac55c6220d07b41b7fc429088c1377964d",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Byte-identical copy of a1_n8.webp (eight white mugs stacked in four pairs), not a four-card reframe: the centered 4:5 crop shows four whole mugs and two slivers. It shows no numeral and teaches counting before the object is taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n8.webp at e97535f8: an older white woman in a coral jacket holds one white card showing only the large numeral 8. The whole numeral stays inside the centered 4:5 crop. Same scene as the approved Unit 3 source u3-number-08-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/15/options/2/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n8.webp",
+        "git_blob": "357402a4405a6d6e4694a23eacde4bca089714e1",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n9.webp",
+      "old_sha256": "9bb36790db690fe99626d0cca8eb3b397b5d2e3b9d816e6b5ccad5b1209fbada",
+      "candidate_filename": "a1_photo_number_card_09_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "1f05111797c52089c4dc5ead2925d38ad6ff265fdde72b1c79b943b2dffb0363",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: nine wooden blocks stacked in a three-by-three square. PR #148 wrote it in place over the numeral-9 registration photo, so the number card shows objects the learner has not been taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n9.webp at e97535f8: a young man in a black hoodie holds one white card showing only the large numeral 9. The whole numeral stays inside the centered 4:5 crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/8/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/20/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/21/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n9.webp",
+        "git_blob": "d8d49bbd4565cb24a9b3c59ed5245a52a5065f39",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n9_four-card.webp",
+      "old_sha256": "9bb36790db690fe99626d0cca8eb3b397b5d2e3b9d816e6b5ccad5b1209fbada",
+      "candidate_filename": "a1_photo_number_card_09_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "1f05111797c52089c4dc5ead2925d38ad6ff265fdde72b1c79b943b2dffb0363",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Byte-identical copy of a1_n9.webp (nine wooden blocks stacked in a three-by-three square), not a four-card reframe: all nine blocks happen to stay inside the centered 4:5 crop. It shows no numeral and teaches counting before the object is taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n9.webp at e97535f8: a young man in a black hoodie holds one white card showing only the large numeral 9. The whole numeral stays inside the centered 4:5 crop.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/15/options/3/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n9.webp",
+        "git_blob": "d8d49bbd4565cb24a9b3c59ed5245a52a5065f39",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n10.webp",
+      "old_sha256": "9808ed230d3319b910bcecac363541a746ec52c4fa63dc90382fd824792a5ce2",
+      "candidate_filename": "a1_photo_number_card_10_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "80720288008cd44515ee0218b3962833956230ede1d6e8ecb99464ad0d084d72",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Counting photo with no numeral: ten colored pens in a row on a desk. PR #148 wrote it in place over the numeral-10 registration photo, so the number card shows objects the learner has not been taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n10.webp at e97535f8: a South Asian woman in a green blouse holds one white card showing only the large numeral 10. The whole numeral stays inside the centered 4:5 crop; the card's left border touches the crop edge while the numeral keeps over 100 px of margin. Same scene as the approved Unit 3 source u3-number-10-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/9/options/0/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/20/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/21/options/1/image_url"
+        },
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/29/options/0/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n10.webp",
+        "git_blob": "f6a93c971e789e3268c54c8736dcc19fb7e91642",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
+    },
+    {
+      "old_filename": "a1_n10_four-card.webp",
+      "old_sha256": "9808ed230d3319b910bcecac363541a746ec52c4fa63dc90382fd824792a5ce2",
+      "candidate_filename": "a1_photo_number_card_10_v1.webp",
+      "exists": true,
+      "disposition": "agent-reviewed",
+      "new_sha256": "80720288008cd44515ee0218b3962833956230ede1d6e8ecb99464ad0d084d72",
+      "kind": "contract-violating-photo-retirement",
+      "old_observation": "Byte-identical copy of a1_n10.webp (ten colored pens in a row on a desk), not a four-card reframe: the centered 4:5 crop shows about eight of the ten pens, the count of a different answer. It shows no numeral and teaches counting before the object is taught.",
+      "new_observation": "Restored pre-#148 registration photo, the exact bytes of a1_n10.webp at e97535f8: a South Asian woman in a green blouse holds one white card showing only the large numeral 10. The whole numeral stays inside the centered 4:5 crop; the card's left border touches the crop edge while the numeral keeps over 100 px of margin. Same scene as the approved Unit 3 source u3-number-10-registration-approved-v1.png.",
+      "scopes": [
+        {
+          "lesson_id": "lesson-2-6-numbers-1-10",
+          "lesson": "2.6",
+          "path": "backend/lessons/unit_2/lesson-2-6-numbers-1-10.yaml",
+          "pointer": "/cards/15/options/1/image_url"
+        }
+      ],
+      "crop_review": "inspected-3x2-and-centered-4x5",
+      "human_approval": "pending",
+      "authorization": "2026-09-19 user direction: introduce numbers with the numerals themselves, not counted objects, and reuse the counting photos only after the learner has been taught what the objects are.",
+      "restoration": {
+        "source_commit": "e97535f8ac056d9084150f64ad47a24a73b18aee",
+        "source_path": "Lessons/Lesson1/images/a1_n10.webp",
+        "git_blob": "f6a93c971e789e3268c54c8736dcc19fb7e91642",
+        "first_added_by": "98eca9af5fb819eca3b910f621a4c1919775fb32",
+        "overwritten_in_place_by": "6b3ef7969e0e284393ee1611d6a25bfb53e621c0"
+      }
     }
   ]
 }

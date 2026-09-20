@@ -108,7 +108,7 @@ const VISUALS: Record<string, { image: string; description: string; color: strin
     color: '#dff4ef',
   },
   'lesson-2-6-numbers-1-10': {
-    image: 'a1_n1.webp',
+    image: 'a1_photo_number_card_01_v1.webp',
     description: 'Números del uno al diez.',
     color: '#dff4ef',
   },
