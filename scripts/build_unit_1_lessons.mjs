@@ -482,9 +482,9 @@ const l19 = [
   { prompt: 'The man is reading. He is reading.', image: assets.reviewManReading, translation: 'El hombre está leyendo. Él está leyendo.' },
   { prompt: 'The woman is drinking. She is drinking.', image: assets.reviewWomanDrinking, translation: 'La mujer está bebiendo. Ella está bebiendo.' },
   { prompt: 'The boy and the girl are running. They are running.', image: assets.reviewChildrenRunning, translation: 'El niño y la niña están corriendo. Ellos están corriendo.' },
-  { prompt: 'The children are swimming.', image: assets.reviewChildrenSwimming, translation: 'Los niños están nadando.', textDistractors: ['The children are running.', 'The children are studying.'] },
+  { prompt: 'The children are swimming.', image: assets.reviewChildrenSwimming, translation: 'Los niños están nadando.', textDistractors: ['The brothers are studying.', 'The sisters are playing.'] },
   { prompt: 'The baby is sleeping.', image: assets.reviewBabySleeping, translation: 'El bebé está durmiendo.', distractors: [{ prompt: 'The boy is eating.', image: assets.reviewBoyEating }] },
-  { prompt: 'The brothers are studying.', image: assets.reviewBrothersStudying, translation: 'Los hermanos están estudiando.', textDistractors: ['The brothers are swimming.', 'The brothers are running.'], distractors: [{ prompt: 'The sisters are playing.', image: assets.reviewSistersPlaying }] },
+  { prompt: 'The brothers are studying.', image: assets.reviewBrothersStudying, translation: 'Los hermanos están estudiando.', textDistractors: ['The children are swimming.', 'The sisters are playing.'], distractors: [{ prompt: 'The sisters are playing.', image: assets.reviewSistersPlaying }] },
   { prompt: 'The sisters are playing.', image: assets.reviewSistersPlaying, translation: 'Las hermanas están jugando.', distractors: [
     { prompt: 'The brothers are studying.', image: assets.reviewBrothersStudying },
     { prompt: 'The children are swimming.', image: assets.reviewChildrenSwimming },
@@ -492,8 +492,8 @@ const l19 = [
   ] },
   { prompt: 'They are a family.', image: assets.reviewFamily, translation: 'Ellos son una familia.', textDistractors: ['They are not a family.', 'They are babies.'] },
   { prompt: 'Who is he? He is the father. The father is working.', image: assets.reviewFatherWorking, translation: '¿Quién es él? Es el padre. El padre está trabajando.', distractors: [{ prompt: 'Who is she? She is the mother. The mother is cooking.', image: assets.reviewMotherCooking }] },
-  { prompt: 'Who is she? She is the mother. The mother is cooking.', image: assets.reviewMotherCooking, translation: '¿Quién es ella? Es la madre. La madre está cocinando.', textDistractors: ['Who is she? She is the mother. The mother is reading.', 'Who is she? She is the mother. The mother is swimming.'] },
-  { prompt: 'Who are they? They are the parents. The parents are talking.', image: assets.reviewParentsTalking, translation: '¿Quiénes son ellos? Son los padres. Los padres están hablando.', textDistractors: ['Who are they? They are the parents. The parents are running.', 'Who are they? They are the parents. The parents are swimming.'], distractors: [
+  { prompt: 'Who is she? She is the mother. The mother is cooking.', image: assets.reviewMotherCooking, translation: '¿Quién es ella? Es la madre. La madre está cocinando.', textDistractors: ['Who is he? He is the father. The father is working.', 'Who are they? They are the sisters. The sisters are playing.'] },
+  { prompt: 'Who are they? They are the parents. The parents are talking.', image: assets.reviewParentsTalking, translation: '¿Quiénes son ellos? Son los padres. Los padres están hablando.', textDistractors: ['Who is he? He is the father. The father is working.', 'Who is she? She is the mother. The mother is cooking.'], distractors: [
     { prompt: 'Who are they? They are the brothers. The brothers are studying.', image: assets.reviewBrothersStudying },
     { prompt: 'Who are they? They are the sisters. The sisters are playing.', image: assets.reviewSistersPlaying },
     { prompt: 'Who are they? They are the children. The children are swimming.', image: assets.reviewChildrenSwimming },
@@ -1408,7 +1408,7 @@ function applyConstructionProgression(lesson) {
 }
 
 // Importing the authored lesson for parity checks must never regenerate files.
-export { lesson16 };
+export { lesson16, lesson19 };
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   for (const [filename, lesson] of lessons) {
     if (process.argv.includes('--standard-only') && lesson.experience_type === 'mission') continue;

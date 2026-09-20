@@ -330,6 +330,8 @@ Late A1:
 
 ## Authoring Requirements
 
+Every ordinary answer bank follows the [answer-choice review procedure](../qa/answer-choice-review.md). Keep words, natural lexical labels, sentences and complete conversational responses coherent within each bank; balance reading load and vary subjects/actions when those are the assessed dimensions. New or changed banks require exact versioned contracts and narrowly justified teaching exceptions. Structural format failures cannot be waived.
+
 Generated lessons must obey the [contextual help and mistake explanation standard](project-guardrails.md#contextual-help-and-mistake-explanations-approved-2026-09-17). Choose explanations from the current task and the submitted error. Required-word construction teaches why the misplaced words belong in their intended positions; it must not substitute an unrelated vocabulary or article-selection rule. New construction patterns need reviewed Spanish teaching support and passing whole-course hint checks before publication. Before-answer help explains the current mechanic; after-error feedback explains the actual missed relationship.
 
 Grammar explanations must distinguish subject, auxiliary and main verb. For the Unit 1 progressive patterns, teach `subject + am/is/are + verb-ing`, and put `not` between the auxiliary and -ing verb in negatives. `Sleeping` in `She is sleeping` is the main verb's -ing form, not a subject description. Copular identity/adjective/location patterns and non-progressive -ing uses need their own analysis. Generated-content checks must assert these meanings, not merely that a hint mentions word order.

@@ -18,7 +18,7 @@ const unitOneBuilderSource = fs.readFileSync(unitOneBuilderPath, 'utf8')
   .replace(/^import \{ readFileSync, writeFileSync \} from 'node:fs';\r?\n/m, '')
   .replace(/^import \{ join, resolve \} from 'node:path';\r?\n/m, '')
   .replace(/^import \{ fileURLToPath \} from 'node:url';\r?\n/m, '')
-  .replace(/^export \{ lesson16 \};\r?\n/m, '')
+  .replace(/^export \{ lesson16, lesson19 \};\r?\n/m, '')
   .replace(/fileURLToPath\(import\.meta\.url\)/g, 'unitOneBuilderPath');
 // Exercise the real authoring source without generating or changing any files.
 vm.runInNewContext(unitOneBuilderSource, {
@@ -58,14 +58,14 @@ const expectedParallelTextBanks = [
   ['1.5', 'R1', ['An adult', 'A boy', 'A girl']],
   ['1.5', 'R3', ['He is the father.', 'She is the mother.', 'They are the parents.']],
   ['1.5', 'A3', ['He is the father.', 'She is the mother.', 'They are the parents.']],
-  ['1.9', 'R6', ['The children are swimming.', 'The children are running.', 'The children are studying.']],
-  ['1.9', 'R8', ['The brothers are studying.', 'The brothers are swimming.', 'The brothers are running.']],
+  ['1.9', 'R6', ['The children are swimming.', 'The brothers are studying.', 'The sisters are playing.']],
+  ['1.9', 'R8', ['The brothers are studying.', 'The children are swimming.', 'The sisters are playing.']],
   ['1.9', 'R10', ['They are a family.', 'They are not a family.', 'They are babies.']],
-  ['1.9', 'R12', ['Who is she? She is the mother. The mother is cooking.', 'Who is she? She is the mother. The mother is reading.', 'Who is she? She is the mother. The mother is swimming.']],
+  ['1.9', 'R12', ['Who is she? She is the mother. The mother is cooking.', 'Who is he? He is the father. The father is working.', 'Who are they? They are the sisters. The sisters are playing.']],
   ['1.9', 'R14', ['Who are they? They are the grandparents. They are sitting and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are running and talking. They are not sleeping.', 'Who are they? They are the grandparents. They are sitting and sleeping. They are not talking.']],
-  ['1.9', 'A6', ['The children are swimming.', 'The children are running.', 'The children are studying.']],
+  ['1.9', 'A6', ['The children are swimming.', 'The brothers are studying.', 'The sisters are playing.']],
   ['1.9', 'A8', ['They are a family.', 'They are not a family.', 'They are babies.']],
-  ['1.9', 'A9', ['Who are they? They are the parents. The parents are talking.', 'Who are they? They are the parents. The parents are running.', 'Who are they? They are the parents. The parents are swimming.']],
+  ['1.9', 'A9', ['Who are they? They are the parents. The parents are talking.', 'Who is he? He is the father. The father is working.', 'Who is she? She is the mother. The mother is cooking.']],
 ];
 const unitOneActions = /\b(?:eating|drinking|reading|writing|running|sitting|swimming|sleeping|playing|studying|working|cooking|talking)\b/i;
 const choiceFrame = (label) => (label.match(/[^.!?]+[.!?]?/g) || []).map((part) => {
