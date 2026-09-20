@@ -130,6 +130,11 @@ def validate_change_control(pack: dict, asset: dict) -> None:
     if control.get('kind') == 'inspected-legacy-photo-scene':
         validate_legacy_photo_scene(asset, control)
         return
+    if control.get('kind') == 'inspected-contract-violating-photo':
+        # A protected photograph that visibly breaks its lesson's approved scene
+        # contract needs the same exact-pixel and bound-field evidence.
+        validate_legacy_photo_scene(asset, control)
+        return
     if control.get("kind") == "approved-parity-scene":
         validate_parity_scene(pack, control)
         return
