@@ -16,9 +16,9 @@ test('the screen routes every phone landscape and portrait image bank into the m
   assert.ok(isPhoneLandscape(740, 360));
   assert.ok(!isPhoneLandscape(390, 844));
   assert.match(source, /needsAccessibleScrolling = !useCompactPhoneLayout && !imageChoiceSurface/);
-  assert.match(source, /usesLessonHelpSheet = usesLessonPhoneLandscape \|\| \(isPortrait && imageChoiceSurface\)/);
-  assert.match(source, /usesLessonHelpSheet \? setShowMissionLandscapeMenu\(true\)/);
-  assert.match(source, /showHelp=\{showHelp && !usesLessonHelpSheet\}/);
+  assert.match(source, /<SentenceHelpOverlay/);
+  assert.match(source, /onPress=\{help.open\}/);
+  assert.match(source, /showHelp=\{false\}/);
   assert.match(source, /key="activity-column"/);
   assert.match(source, /key="lesson-activity"/);
 });
@@ -46,7 +46,7 @@ function lessonFactory(h, card, viewport, result = null, selected = [], showHelp
   const construction = card.interaction_type === 'complete-sentence' || card.stage === 'Use' && card.interaction_type === 'complete2';
   const body = construction ? e(SentenceConstruction, { card, selected, result, disabled: false, onChange: noop, onReplay: noop, onRetry: noop })
     : e(LessonCardView, { card, lessonId: card.lessonId, result, selectedId: selected[0] || null, selectedIds: selected,
-      level: 'A1', showHelp: showHelp && !helpSheet, userId: 'layout-test', onSelect: noop, onResetSelection: noop, optionsInteractive: card.options.length > 1,
+      level: 'A1', showHelp: false, userId: 'layout-test', onSelect: noop, onResetSelection: noop, optionsInteractive: card.options.length > 1,
       onPronunciationPassed: noop, onPronunciationUnavailable: noop, onGrammarAnimationComplete: noop });
   const instructional = ['Listen', 'Speak'].includes(card.stage) || !card.prompt;
   const displayPrompt = card.stage === 'Listen' ? '¡Escucha y elige la frase!' : card.stage === 'Speak' ? '¡Escucha y repite!' : card.prompt || '¡Elige la frase correcta!';
@@ -147,4 +147,40 @@ test('rotation keeps the live pronunciation player and partially placed sentence
   const records = h.render(lessonFactory(h, construction, viewport, null, selected), 740, 360, true);
   selected.forEach((id, index) => assert.ok(records.some(r => r.props.accessibilityLabel ===
     `Espacio ${index + 1}: ${construction.options.find(o => o.id === id).label}`)));
+});
+
+
+test('avatar help keeps acknowledgement buttons inside native safe areas, including long construction copy', () => {
+  for (const [width, height] of [[320, 568], [390, 844], [844, 390], [667, 320], [800, 1280], [1280, 800]]) {
+    for (const fontScale of [1, 1.3, 2]) for (const mode of ['help', 'reminder']) {
+      const insets = { top: 24, bottom: 24, left: width > height ? 44 : 0, right: width > height ? 24 : 0 };
+      const h = lessonHarness({ width, height, fontScale }, { insets,
+        // Model the ScrollView's native content container separately from its
+        // bounded viewport. Overflowing help copy is intentionally scrollable.
+        sourceTransform: (file, source) => file.endsWith('SentenceHelpOverlay.tsx')
+          ? source.replace('<ScrollView style={styles.scroll} contentContainerStyle={styles.calloutBody}>',
+              '<ScrollView style={styles.scroll}><View style={styles.calloutBody}>').replace('</ScrollView>', '</View></ScrollView>') : source,
+      });
+      const { SentenceHelpOverlay } = h.load('components/SentenceHelpOverlay.tsx');
+      const { lessonHelpText } = h.load('lessonHelp.ts');
+      const construction = cards.find(card => card.interaction_type === 'complete-sentence');
+      const records = h.render(() => e(SentenceHelpOverlay, {
+        mode, message: lessonHelpText(construction, 'translation-on-tap'), onDismiss: noop, onSuppress: noop,
+      }), width, height);
+      const buttons = records.filter(r => r.type === 'Pressable' && !r.props.accessibilityLabel);
+      assert.equal(buttons.length, mode === 'help' ? 2 : 1);
+      for (const button of buttons) {
+        assert.ok(button.box.width >= 48 && button.box.height >= 48);
+        assert.ok(button.box.left >= insets.left && button.box.left + button.box.width <= width - insets.right + 1);
+        assert.ok(button.box.top >= insets.top && button.box.top + button.box.height <= height - insets.bottom,
+          `${width}x${height}/${fontScale}/${mode}: ${JSON.stringify(button.box)}`);
+      }
+      const scroll = records.find(r => r.type === 'ScrollView');
+      assert.ok(scroll.box.height > 0);
+      assert.ok(scroll.box.top + scroll.box.height <= buttons[0].box.top + 1);
+      const text = records.filter(r => r.type === 'Text').map(r => r.text).join(' ');
+      assert.match(text, mode === 'help' ? /coloca las palabras/ : /Si necesitas ayuda en el futuro/);
+      if (mode === 'reminder') assert.match(text, /\?/);
+    }
+  }
 });
