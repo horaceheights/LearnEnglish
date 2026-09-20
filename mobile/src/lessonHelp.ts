@@ -59,7 +59,7 @@ export function listeningHelpText(card?: LessonCard | null, replayOnPrompt = fal
  * Gives the learner the exact action required by the current card without
  * revealing its answer. Card structure is used as a fallback for new stages.
  */
-function cardHelpInstruction(card: LessonCard) {
+function cardHelpInstruction(card: LessonCard, promptInteractionMode: PromptInteractionMode) {
   if (card.stage === 'Use' && !card.mission_game && (card.correct_option_ids?.length || 0) > 1) {
     const goal = card.interaction_type === 'complete-sentence'
       ? 'Escucha y coloca las palabras en orden, tocando o arrastrando.'
@@ -71,7 +71,13 @@ function cardHelpInstruction(card: LessonCard) {
   }
 
   if (card.options.length === 1) {
-    return 'Mira y escucha. La tarjeta avanza sola.';
+    if (promptInteractionMode === 'translation-on-tap') {
+      return 'Escucha y aprende. Toca la frase para ver la traducción.';
+    }
+    if (promptInteractionMode === 'gestures') {
+      return 'Escucha y aprende. Toca dos veces la frase para ver la traducción.';
+    }
+    return 'Escucha y aprende.';
   }
 
   if (GRAMMAR_STAGES.has(card.stage) || card.prompt.includes('__')) {
@@ -117,5 +123,5 @@ export function lessonHelpText(
   promptInteractionMode: PromptInteractionMode = 'gestures',
 ) {
   return listeningHelpText(card, promptInteractionMode === 'replay-on-tap' || promptInteractionMode === 'gestures')
-    || cardHelpInstruction(card);
+    || cardHelpInstruction(card, promptInteractionMode);
 }
