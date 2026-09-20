@@ -311,7 +311,7 @@ const lesson15 = buildLesson({
     complete({ prompt: 'She is the ___.', image: assets.mother, answer: 'She is the mother.', correct: 'mother', choices: [['father', 'father'], ['mother', 'mother']], translation: 'Ella es la ___.' }),
     complete({ prompt: 'They are the ___.', image: assets.parents, answer: 'They are the parents.', correct: 'parents', choices: [['parents', 'parents'], ['sisters', 'sisters']], translation: 'Ellos son los ___.' }),
     complete({ prompt: 'He is the ___.', image: assets.grandfather, answer: 'He is the grandfather.', correct: 'grandfather', choices: [['grandmother', 'grandmother'], ['grandfather', 'grandfather']], translation: 'Él es el ___.' }),
-    complete({ prompt: 'She is the ___. They are the ___.', image: assets.grandparents, answer: 'She is the grandmother. They are the grandparents.', correct: ['grandmother', 'grandparents'], choices: [['grandfather', 'grandfather'], ['grandmother', 'grandmother'], ['grandparents', 'grandparents']], translation: 'Ella es la ___. Ellos son los ___.' }),
+    complete({ prompt: 'They are the ___.', image: assets.grandparents, answer: 'They are the grandparents.', correct: 'grandparents', choices: [['grandparents', 'grandparents'], ['sisters', 'sisters']], translation: 'Ellos son los ___.' }),
   ],
 });
 
@@ -1356,7 +1356,7 @@ const constructionTranslations = {
   '1.2': { U4: 'La niña está leyendo.', U5: 'Ella está leyendo.', U6: 'La mujer está escribiendo.', U7: 'La mujer está escribiendo. Ella está escribiendo.' },
   '1.3': { U4: 'El hombre está sentado.', U5: 'Él está nadando.', U6: 'Ella está durmiendo.' },
   '1.4': { U5: 'Un hermano.', U7: 'Ellos son una familia.' },
-  '1.5': { U4: 'Ella es la madre.', U5: 'Ellos son los padres.', U6: 'Él es el abuelo.', U7: 'Ella es la abuela. Ellos son los abuelos.' },
+  '1.5': { U4: 'Ella es la madre.', U5: 'Ellos son los padres.', U6: 'Él es el abuelo.', U7: 'Ellos son los abuelos.' },
   '1.6': { U4: 'La madre está cocinando.', U5: 'Los padres están hablando.', U6: 'Los padres están hablando.', U7: 'Los padres están hablando. Ellos están hablando.' },
   '1.7': { U4: 'Ella no está leyendo.', U5: 'Ellos están corriendo.', U6: 'Ellos no están sentados.', U7: 'Ellos no están durmiendo. Ellos están hablando.' },
   '1.8': { U7: '¿Quiénes son ellos?', U8: 'Ellos son los niños.', U9: '¿Quiénes son ellos?', U10: 'Ellos son los abuelos.' },
