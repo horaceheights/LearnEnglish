@@ -20,7 +20,7 @@ type Drag = { id: string; label: string; area?: Bounds; slotArea?: Bounds; cardA
 const FLIGHT_MS = 220;
 type Props = {
   card: LessonCard; selected: string[]; result: 'correct' | 'wrong' | null;
-  disabled: boolean; showHelp?: boolean;
+  disabled: boolean; showHelp?: boolean; helpOpen?: boolean;
   onChange: (ids: string[]) => void; onReplay: () => void; onRetry: () => void;
 };
 
@@ -85,7 +85,7 @@ function WordTile(props: WordProps) {
   </View>;
 }
 
-export function SentenceConstruction({ card, selected, result, disabled, showHelp, onChange, onReplay, onRetry }: Props) {
+export function SentenceConstruction({ card, selected, result, disabled, showHelp, helpOpen, onChange, onReplay, onRetry }: Props) {
   const viewport = useWindowDimensions();
   const reduceMotion = useReducedMotion();
   const celebrationLift = useConstructionCelebration(result === 'correct');
@@ -126,7 +126,7 @@ export function SentenceConstruction({ card, selected, result, disabled, showHel
   const cancel = () => { drag.current = null; setMoving(null); setHover(null); };
   const stopFlight = () => { flightRun.current++; flightAnimation.current?.stop(); flightAnimation.current = null; setFlight(null); };
   useEffect(() => () => { flightRun.current++; flightAnimation.current?.stop(); }, []);
-  useEffect(() => { cancel(); stopFlight(); }, [card.slide_id, viewport.width, viewport.height, viewport.fontScale, showHelp, disabled]);
+  useEffect(() => { cancel(); stopFlight(); }, [card.slide_id, viewport.width, viewport.height, viewport.fontScale, showHelp, helpOpen, disabled]);
   useEffect(() => { if (result !== null) cancel(); }, [result]);
 
   const startFlight = (id: string, target: number, from?: Bounds) => {

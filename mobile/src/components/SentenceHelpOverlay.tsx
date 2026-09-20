@@ -1,126 +1,53 @@
-import { Image, Modal, Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
-
-import { listeningHelpText, type PromptInteractionMode } from '../lessonHelp';
-import type { LessonCard } from '../types';
+import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const LISTENING_SQUIRREL = require('../../assets/mascots/serious/listening-frames-normalized/listening-06.png');
 
-export type SentenceHelpVariant = 'prompt' | 'construction';
-
 type Props = {
-  card?: LessonCard | null;
-  anchorBottom?: number;
+  message: string;
+  mode: 'help' | 'reminder' | null;
   onDismiss: () => void;
   onSuppress: () => void;
-  promptInteractionMode?: PromptInteractionMode;
-  variant?: SentenceHelpVariant;
-  visible: boolean;
 };
 
-export function SentenceHelpOverlay({
-  card,
-  anchorBottom,
-  onDismiss,
-  onSuppress,
-  promptInteractionMode = 'gestures',
-  variant = 'prompt',
-  visible,
-}: Props) {
+export function SentenceHelpOverlay({ message, mode, onDismiss, onSuppress }: Props) {
   const { height, width } = useWindowDimensions();
-  const isLandscape = width > height;
-  const isConstruction = variant === 'construction';
-  const listening = listeningHelpText(card);
-  const estimatedHeight = isLandscape ? 150 : 216;
-  const fallbackTop = height * (isLandscape ? 0.26 : 0.29);
-  const desiredTop = anchorBottom === undefined
-    ? fallbackTop
-    : anchorBottom + 26;
-  const calloutTop = Math.max(12, Math.min(desiredTop, height - estimatedHeight - 14));
-
+  const insets = useSafeAreaInsets();
+  const isReminder = mode === 'reminder';
+  const compact = width < 380 || height < 450;
   return (
-    <Modal
-      animationType="fade"
-      onRequestClose={onDismiss}
-      statusBarTranslucent
-      transparent
-      visible={visible}
-    >
-      <View accessibilityViewIsModal style={styles.overlay}>
-        <Pressable
-          accessibilityLabel="Cerrar ayuda"
-          accessibilityRole="button"
-          onPress={onDismiss}
-          style={StyleSheet.absoluteFill}
-        />
-        <View pointerEvents="box-none" style={[styles.calloutPositioner, { paddingTop: calloutTop }]}>
-          <View style={[
-            styles.callout,
-            isLandscape ? styles.calloutLandscape : null,
-          ]}>
-            <View pointerEvents="none" style={styles.pointerWrap}>
-              <Text style={styles.pointerLabel}>LA FRASE</Text>
-              <Text style={styles.pointerArrow}>↑</Text>
+    <Modal animationType="fade" onRequestClose={onDismiss} statusBarTranslucent transparent visible={mode !== null}>
+      <View accessibilityViewIsModal style={[styles.overlay, {
+        paddingTop: insets.top + 14, paddingBottom: insets.bottom + 14,
+        paddingLeft: insets.left + 14, paddingRight: insets.right + 14,
+      }]}>
+        {!isReminder ? <Pressable accessibilityLabel="Cerrar ayuda" accessibilityRole="button"
+          onPress={onDismiss} style={StyleSheet.absoluteFill} /> : null}
+        <View style={[styles.callout, { maxHeight: height - insets.top - insets.bottom - 28 }]}>
+          <ScrollView style={styles.scroll} contentContainerStyle={styles.calloutBody}>
+            <Image accessibilityIgnoresInvertColors accessible={false} resizeMode="contain"
+              source={LISTENING_SQUIRREL} style={[styles.squirrel, compact ? styles.squirrelCompact : null]} />
+            <View style={styles.copy}>
+              <Text accessibilityRole="header" style={styles.title}>
+                {isReminder ? 'La ayuda sigue aquí' : '¿Necesitas ayuda?'}
+              </Text>
+              <Text accessibilityLiveRegion="polite" style={styles.message}>
+                {isReminder ? 'Si necesitas ayuda en el futuro, solo toca el botón' : message}
+              </Text>
+              {isReminder ? <View accessibilityLabel="Botón de ayuda, signo de interrogación" style={styles.helpIcon}>
+                <Text style={styles.helpIconText}>?</Text>
+              </View> : null}
             </View>
-            <View style={styles.calloutBody}>
-              <Image
-                accessibilityIgnoresInvertColors
-                accessible={false}
-                resizeMode="contain"
-                source={LISTENING_SQUIRREL}
-                style={styles.squirrel}
-              />
-              <View style={styles.copy}>
-                <Text accessibilityRole="header" style={styles.title}>
-                  {isConstruction ? '¡Ahora armas la frase!' : '¿Necesitas ayuda?'}
-                </Text>
-                <Text style={styles.message}>
-                  {isConstruction ? (
-                    <>Ahora <Text style={styles.emphasis}>todas</Text> las palabras están en blanco. El banco tiene exactamente las que necesitas.</>
-                  ) : listening ? (
-                    listening
-                  ) : promptInteractionMode === 'visual-instruction' ? (
-                    <>La instrucción en español es <Text style={styles.emphasis}>solo visual</Text>.</>
-                  ) : promptInteractionMode === 'translation-on-tap' ? (
-                    <>Toca la <Text style={styles.emphasis}>frase</Text> para ver su traducción.</>
-                  ) : (
-                    <>Toca <Text style={styles.emphasis}>una vez</Text> la frase para repetirla.</>
-                  )}
-                </Text>
-                {!listening || isConstruction ? <Text style={styles.message}>
-                  {isConstruction ? (
-                    <>Toca cada palabra <Text style={styles.emphasis}>en orden</Text>; toca una palabra colocada para devolverla.</>
-                  ) : promptInteractionMode === 'visual-instruction' ? (
-                    <>Usa el <Text style={styles.emphasis}>botón de sonido</Text> para escuchar la frase en inglés cuando esté disponible.</>
-                  ) : promptInteractionMode === 'translation-on-tap' ? (
-                    <>Toca el <Text style={styles.emphasis}>botón de sonido</Text> para escucharla otra vez.</>
-                  ) : (
-                    <>Toca <Text style={styles.emphasis}>dos veces</Text> la palabra para ver su traducción.</>
-                  )}
-                </Text> : null}
-                <View style={styles.buttonRow}>
-                  <Pressable
-                    accessibilityRole="button"
-                    onPress={onDismiss}
-                    style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]}
-                  >
-                    <Text style={styles.buttonText}>Entiendo</Text>
-                  </Pressable>
-                  {isConstruction ? null : (
-                    <Pressable
-                      accessibilityRole="button"
-                      onPress={onSuppress}
-                      style={({ pressed }) => [
-                        styles.button,
-                        styles.secondaryButton,
-                        pressed ? styles.buttonPressed : null,
-                      ]}
-                    >
-                      <Text style={styles.secondaryButtonText}>No mostrar</Text>
-                    </Pressable>
-                  )}
-                </View>
-              </View>
-            </View>
+          </ScrollView>
+          <View style={styles.buttonRow}>
+            <Pressable accessibilityRole="button" onPress={onDismiss}
+              style={({ pressed }) => [styles.button, pressed ? styles.buttonPressed : null]}>
+              <Text style={styles.buttonText}>Entiendo</Text>
+            </Pressable>
+            {!isReminder ? <Pressable accessibilityRole="button" onPress={onSuppress}
+              style={({ pressed }) => [styles.button, styles.secondaryButton, pressed ? styles.buttonPressed : null]}>
+              <Text style={styles.secondaryButtonText}>No mostrar</Text>
+            </Pressable> : null}
           </View>
         </View>
       </View>
@@ -129,84 +56,28 @@ export function SentenceHelpOverlay({
 }
 
 const styles = StyleSheet.create({
-  overlay: {
-    backgroundColor: 'rgba(26, 31, 34, 0.46)',
-    flex: 1,
-    paddingHorizontal: 14,
-  },
-  calloutPositioner: { alignItems: 'center', flex: 1, width: '100%' },
+  overlay: { backgroundColor: 'rgba(26, 31, 34, 0.46)', flex: 1, justifyContent: 'center', paddingHorizontal: 14 },
   callout: {
-    alignSelf: 'center',
-    backgroundColor: '#fffaf1',
-    borderColor: '#d9b873',
-    borderRadius: 24,
-    borderWidth: 2,
-    elevation: 12,
-    maxWidth: 620,
-    padding: 14,
-    shadowColor: '#1c2f37',
-    shadowOffset: { height: 6, width: 0 },
-    shadowOpacity: 0.25,
-    shadowRadius: 12,
-    width: '100%',
+    alignSelf: 'center', backgroundColor: '#fffaf1', borderColor: '#d9b873', borderRadius: 24,
+    borderWidth: 2, elevation: 12, maxWidth: 620, padding: 14, width: '100%',
+    shadowColor: '#1c2f37', shadowOffset: { height: 6, width: 0 }, shadowOpacity: 0.25, shadowRadius: 12,
   },
-  calloutLandscape: { maxWidth: 700, paddingVertical: 10 },
-  pointerWrap: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 3,
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: -23,
-  },
-  pointerArrow: {
-    color: '#f06d3f',
-    fontSize: 27,
-    fontWeight: '900',
-    lineHeight: 27,
-    textShadowColor: 'rgba(255,255,255,0.9)',
-    textShadowOffset: { height: 1, width: 0 },
-    textShadowRadius: 2,
-  },
-  pointerLabel: {
-    backgroundColor: '#fffaf1',
-    borderRadius: 8,
-    color: '#7c5427',
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 1,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-  },
+  scroll: { flexGrow: 0, flexShrink: 1 },
   calloutBody: { alignItems: 'center', flexDirection: 'row', gap: 10 },
-  squirrel: { flexShrink: 0, height: 112, width: 112 },
-  copy: { flex: 1 },
+  squirrel: { flexShrink: 0, height: 112, width: 90 },
+  squirrelCompact: { height: 88, width: 58 },
+  copy: { flex: 1, minWidth: 0 },
   title: { color: '#24333a', fontSize: 22, fontWeight: '900', marginBottom: 5 },
   message: { color: '#46545a', fontSize: 15, lineHeight: 21, marginTop: 2 },
-  emphasis: { color: '#d45732', fontWeight: '900' },
-  buttonRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-    marginTop: 10,
-  },
-  button: {
-    alignItems: 'center',
-    backgroundColor: '#287f68',
-    borderRadius: 13,
-    justifyContent: 'center',
-    minHeight: 42,
-    minWidth: 104,
-    paddingHorizontal: 15,
-  },
+  helpIcon: { alignItems: 'center', backgroundColor: '#fff', borderColor: '#dab277', borderRadius: 24,
+    borderWidth: 2, height: 48, justifyContent: 'center', marginTop: 10, width: 48 },
+  helpIconText: { color: '#24333a', fontSize: 16, fontWeight: '900' },
+  buttonRow: { alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row', flexWrap: 'wrap',
+    flexShrink: 0, gap: 8, marginTop: 12 },
+  button: { alignItems: 'center', backgroundColor: '#287f68', borderRadius: 13, justifyContent: 'center',
+    minHeight: 48, minWidth: 104, paddingHorizontal: 15, paddingVertical: 8 },
   buttonPressed: { opacity: 0.8, transform: [{ scale: 0.98 }] },
   buttonText: { color: '#fff', fontSize: 14, fontWeight: '900' },
-  secondaryButton: {
-    backgroundColor: '#fffaf1',
-    borderColor: '#287f68',
-    borderWidth: 2,
-  },
+  secondaryButton: { backgroundColor: '#fffaf1', borderColor: '#287f68', borderWidth: 2 },
   secondaryButtonText: { color: '#287f68', fontSize: 14, fontWeight: '900' },
 });

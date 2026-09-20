@@ -148,8 +148,8 @@ test('a wrong construction waits for explicit retry while listening and missions
     assert.match(source, /Respuesta incorrecta/, 'The wrong state needs an accessible label.');
     assert.match(source, /result === ['"]correct['"] \? <ConstructionCelebration/, 'Only a graded correct answer may celebrate.');
   }
-  assert.match(overlay, /const listening = listeningHelpText\(card\)/);
-  assert.match(mobile, /<SentenceHelpOverlay\s+card=\{currentCard\}/);
+  assert.match(overlay, /isReminder \? 'Si necesitas ayuda en el futuro, solo toca el botón' : message/);
+  assert.match(mobile, /<SentenceHelpOverlay[\s\S]*lessonHelpText\(currentCard, promptInteractionMode\)/);
 });
 
 test('every generated construction has explanations for every slot and every legal two-word swap', () => {

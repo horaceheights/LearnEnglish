@@ -6,7 +6,7 @@ import { COMPLETION_RETRY_HELP, lessonHelpText } from "../../mobile/src/lessonHe
 import styles from "./SentenceConstruction.module.css";
 import ConstructionCelebration from "./ConstructionCelebration";
 
-export default function SentenceConstruction({ card, selected, result, onChange, onReplay, onRetry, imageSrc, location, showHelp, surfaceRef }) {
+export default function SentenceConstruction({ card, selected, result, onChange, onReplay, onRetry, imageSrc, location, showHelp, helpOpen, surfaceRef }) {
   const slots = sentenceSlots(card, selected);
   const words = availableSentenceWords(card, slots);
   const parts = sentenceParts(card);
@@ -28,7 +28,7 @@ export default function SentenceConstruction({ card, selected, result, onChange,
     window.addEventListener("scroll", cancel, true);
     return () => { window.removeEventListener("resize", cancel); window.removeEventListener("scroll", cancel, true); };
   }, [cancel]);
-  useEffect(cancel, [cancel, card.slide_id, result, showHelp, wideSlots]);
+  useEffect(cancel, [cancel, card.slide_id, result, showHelp, helpOpen, wideSlots]);
   useEffect(() => {
     const measure = () => {
       if (!root.current) return;
