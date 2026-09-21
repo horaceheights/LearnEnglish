@@ -11,13 +11,13 @@
     "n": 1
   },
   "production": {
-    "initial_batch_ceiling_usd": "1.20",
-    "estimated_usd": "0.78",
+    "initial_batch_ceiling_usd": "1.40",
+    "estimated_usd": "0.99",
     "mxn_per_usd": "16.9707",
     "fx_date": "2026-09-11",
     "automatic_retries": 0,
     "human_approval": "pending",
-    "note": "14 mission-only stills for the rebuilt Unit 4 mission: a kickoff that replaces the blurred-inset opening, 6 listening scenes, and the question and response views of four voice gates. The three existing full-frame scenes and the six o'clock hallway photograph are reused unchanged with their measured target geometry. No automatic retries.",
+    "note": "14 mission-only stills for the rebuilt Unit 4 mission: a kickoff that replaces the blurred-inset opening, 6 listening scenes, and the question and response views of four voice gates. The three existing full-frame scenes and the six o'clock hallway photograph are reused unchanged with their measured target geometry. No automatic retries. The first four-clock attempt was generated and each dial measured against its own centre; three dials were true but the seven-o'clock hour hand sat twelve degrees past the 7, so it was rejected and replaced by one deliberately re-prompted attempt. Its receipt and rejection stay in the ledger. Three further scenes replace the stub mission's living room, kitchen/dining and bedroom: the rebuilt mission re-authors those beats, and the approved photo-edit record for the earlier scenes requires their cards to stay exactly as inspected, so the rebuild retires them and binds its own stills instead.",
     "cast": "Mission family established by the existing Unit 4 scenes: mother (dark ponytail, teal top, jeans), father (short dark hair, checked shirt), boy (about eight, striped shirt), girl (about twelve, long dark hair), grandmother and grandfather (white hair, seated on the cream sofa)."
   },
   "shared_prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.",
@@ -35,6 +35,36 @@
         "observed_description": "Inspected 4.10 mission scene: a bright living room where the mother (dark ponytail, teal top, jeans) dusts a shelf on the left, the grandparents (white hair, beige and light-blue knitwear) sit together on a cream sofa in the middle, the girl reads on the right arm of the sofa, a tall floor lamp stands at the far left and a large window fills the right."
       },
       "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of this family and their living room. Create a brand-new welcoming photograph in that same home, from a new camera position in the hallway looking into the living room in bright morning light: the mother, the father (short dark hair, checked shirt), the boy of about eight in a striped shirt, the girl of about twelve with long dark hair, and both grandparents stand together in a relaxed group facing the camera, smiling, ready to start the day. Everyone is full length with faces clear and none overlapping. This opening is not a challenge: no clock, no numerals, no readable words."
+    },
+    {
+      "id": "living-room",
+      "runtime_filename": "a1_u4_home_v1_living_room.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of their living room in afternoon daylight, taken straight on, with exactly four clearly separated things and nobody else in the room: (1) left of centre, the mother stands alone on the rug folding a blanket, her whole body visible and clear space above her head; (2) right of centre, the grandmother and the grandfather sit together on the sofa, side by side and not overlapping, each face visible; (3) at the far left, exactly one tall floor lamp stands on the floor, switched on, its whole shade inside the frame and nobody near it; (4) at the right, exactly one tall window with a clear view of the garden, its frame completely visible. No second lamp, no second window, no television, no other person, no readable words, no logos."
+    },
+    {
+      "id": "kitchen-dining",
+      "runtime_filename": "a1_u4_home_v1_kitchen_dining.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of their open kitchen and dining room in daylight, taken straight on, with exactly four clearly separated things and nobody else: (1) at the left, the father stands at the kitchen counter chopping vegetables, his whole body visible with clear space above his head; (2) left of centre, the boy of about eight stands at the kitchen sink filling a glass of water, well apart from the father and not overlapping him; (3) at the right, in the dining area, exactly one rectangular wooden dining table, empty on top and completely visible; (4) exactly two identical wooden chairs at that table, one at each side, both fully visible and not touching each other. Count is critical: only two chairs, not three and not four, and only one table. No sofa, no bed, no other person, no readable words, no logos."
+    },
+    {
+      "id": "bedroom",
+      "runtime_filename": "a1_u4_home_v1_bedroom.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of the girl's bedroom in daylight, taken straight on from the doorway, with exactly four clearly separated things and nobody else in the room: (1) left of centre, the girl of about twelve stands alone beside her desk holding a notebook, her whole body visible with clear space above her head; (2) at the right, exactly one single bed, made, with its whole headboard and mattress visible and nobody on it; (3) at the left, exactly one silver laptop computer, open, standing alone on the desk and not overlapping the girl; (4) at the far left edge, exactly one open wooden door leading out of the room, its full height visible. No second bed, no second computer, no screen content, no other person, no readable words, no logos."
     },
     {
       "id": "living-objects",
@@ -97,13 +127,13 @@
       "prompt": "A dining room photographed straight on in afternoon daylight, with no people at all. The room contains exactly one rectangular wooden dining table in the centre, exactly four identical white wooden chairs around it (two along the front edge and one at each end, each chair completely separate from the others and fully visible), exactly one pendant lamp hanging above the centre of the table, and exactly two tall windows side by side on the back wall with a clear wall gap between them. Count is critical: not three and not five chairs, not one and not three windows, only one lamp. The table and chairs fill at least 55% of the frame width. No sofa, no bed, no kitchen equipment, no plates, no readable words."
     },
     {
-      "id": "clocks",
+      "id": "clocks-v2",
       "runtime_filename": "a1_u4_home_v1_clocks.webp",
       "change_control": {
         "kind": "approved-parity-scene",
         "reason": "Unit 4 parity mission: a mission-only scene that retrieves four taught clock times in one image, which the single-gate stub never practised."
       },
-      "prompt": "Use case: text-exact. Four round analog wall clocks hanging in one row on a plain warm painted wall, photographed straight on and evenly spaced with clear wall between them, no people and nothing else on the wall. Each clock has a plain white face, printed numerals 1 to 12, black hour and minute hands and no second hand. From left to right they show exactly: seven o'clock (short hand on 7, long hand straight up on 12), nine o'clock (short hand on 9, long hand on 12), three o'clock (short hand on 3, long hand on 12), six o'clock (short hand straight down on 6, long hand straight up on 12). Every hand position must be exact and every face sharp; each clock is at least 15% of the frame width. No digital clock, no words, no brand names, no other numerals anywhere."
+      "prompt": "Use case: text-exact. Four round analog wall clocks hanging in one row on a plain warm painted wall, photographed straight on, evenly spaced with clear wall between them, no people and nothing else on the wall. Each clock has a plain white face, printed numerals 1 to 12, one short thick black hour hand, one long thin black minute hand and no second hand. On every clock the long minute hand lies exactly along the straight line from the centre of the dial to the numeral 12, pointing straight up. Each short hour hand lies exactly along the straight line from the centre of its dial to its own numeral, with the tip ending just short of that printed numeral and pointing at nothing else. From left to right the hour hands point exactly at 7, then 9, then 3, then 6; the first hour hand must not lie between 7 and 8 and must never point at 8. The angle between the two hands is therefore exactly 150 degrees on the first clock, 90 on the second, 90 on the third and 180 on the fourth. Every face is sharp and each clock is at least 15% of the frame width. No digital clock, no words, no brand names, no other numerals anywhere."
     },
     {
       "id": "time-question",

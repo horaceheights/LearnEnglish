@@ -20,9 +20,12 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from scripts.audit_course_media_preservation import BASELINE, IMAGE_ROOTS, PLANS  # noqa: E402
 from scripts.parity_pack import (  # noqa: E402
-    install_images, paid_attempts, prepare_review_exceptions, reviewed_assets, stage_images, write_json,
+    install_images, paid_attempts, prepare_review_exceptions, register_photoreal, reviewed_assets, stage_images,
+    write_json,
 )
+from scripts.render_course_stills import digest  # noqa: E402
 
 LESSONS = {
     "4.9": ROOT / "backend" / "lessons" / "unit_4" / "lesson-4-9-unit-4-review.yaml",
@@ -39,13 +42,43 @@ EXISTING_REVIEW = {
     "computer": "a1_photo_u4_review_computer_v1.webp",
     "two-chairs": "a1_photo_u4_review_two_chairs_in_dining_room_v2.webp",
 }
-# Mission-only scenes the stub already owned, reused with their measured geometry.
-KEPT_SCENES = {
-    "M01": "a1_u4_scene_01_living_room_fullframe_v2.webp",
-    "M02": "a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
-    "M03": "a1_u4_scene_03_bedroom_fullframe_v2.webp",
-}
 CLOCK_SIX = "a1_u4_mission_clock_six_v3.webp"
+ARCHIVE = ROOT / "Lessons" / "Lesson1" / "images" / "course-photoreal-sources" / "unit-4"
+REBUILD = ("The four-beat stub mission is rebuilt to the approved Unit 4 contract: nine listening scenes and "
+           "four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the "
+           "approved photo edit pinned to its stub card stop being bound.")
+# Stub mission scenes the rebuild stops binding. Their files, and the inspected full-frame edits
+# made from them, stay byte-for-byte on disk; only Lesson 4.10's bindings change. The kickoff hangs
+# on mission.kickoff_image_url, which the preservation baseline does not cover, so it is recorded as
+# evidence only and needs no change-plan exception.
+RETIRED = {
+    "a1_u4_scene_01_living_room.webp": ("living-room", REBUILD,
+        "Inspected: the stub mission's living-room hotspot scene, the mother folding laundry with the grandparents "
+        "on the sofa; kept byte-for-byte together with its inspected full-frame edit."),
+    "a1_u4_scene_02_kitchen_dining.webp": ("kitchen-dining", REBUILD,
+        "Inspected: the stub mission's kitchen and dining hotspot scene, the father at the stove and the boy on a "
+        "stool at the island; kept byte-for-byte together with its inspected full-frame edit."),
+    "a1_u4_scene_03_bedroom.webp": ("bedroom", REBUILD,
+        "Inspected: the stub mission's bedroom hotspot scene, the girl at her desk with a laptop and a younger "
+        "child reading on the bed; kept byte-for-byte together with its inspected full-frame edit."),
+    "a1_u4_scene_04_clock_check.webp": ("clocks-v2", REBUILD,
+        "Inspected: the stub mission's single clock-check scene used by its only voice gate; kept byte-for-byte "
+        "while the rebuilt mission reads four clocks and asks four questions instead."),
+}
+KICKOFF_RETIRED = {
+    "a1_u4_mission_kickoff.webp": ("kickoff", REBUILD,
+        "Inspected: the stub mission's kickoff shot of the family home; the original file stays byte-for-byte on "
+        "disk and in every archive copy, and only its Lesson 4.10 binding changes."),
+}
+# Exact-byte repeats of earlier teaching photographs that the old review still bound. The rebuilt
+# review drops each one; the originals and their teaching uses stay untouched.
+REVIEW_REPEATS = {
+    "a1_scene_bedroom_009e058.webp": "a1_photo_u4_review_bedroom_v1.webp",
+    "a1_scene_book-on-table_af51f18.webp": "a1_photo_u4_review_book_on_table_v1.webp",
+    "a1_scene_computer_c60266a.webp": "a1_photo_u4_review_computer_v1.webp",
+    "a1_scene_two-chairs-dining_d435986.webp": "a1_photo_u4_review_two_chairs_in_dining_room_v2.webp",
+    "a1_scene_night_1be2a44.webp": "a1_u4_review_v1_clock_seven.webp",
+}
 
 
 def packs() -> dict:
@@ -197,7 +230,7 @@ def compile_49(base: dict, pack: dict) -> dict:
     teach("L5", "I wake up in the morning.", "Me despierto en la mañana.", "wake-up", "female-character")
     teach("L6", "I brush my teeth.", "Me lavo los dientes.", "brush-teeth", "male-character")
     teach("L7", "I go to school every day.", "Voy a la escuela todos los días.", "go-to-school", "male-character")
-    teach("L8", "It is seven o'clock.", "Son las siete.", "clock-seven")
+    teach("L8", "It is seven o'clock.", "Son las siete.", "clock-seven-v2")
 
     empty_recognize("R1", "This is the bedroom.", "This is the bathroom.", "Elige la frase correcta.",
                     "bedroom", answer_first=False)
@@ -213,7 +246,7 @@ def compile_49(base: dict, pack: dict) -> dict:
                   speaker="female-character")
     empty_recognize("R7", "The lamp is next to the sofa.", "The lamp is under the sofa.", "Elige la frase correcta.",
                     "sofa-lamp", answer_first=True)
-    image_to_text("R8", "What time is it?", "It is seven o'clock.", "¿Qué hora es?", "clock-seven",
+    image_to_text("R8", "What time is it?", "It is seven o'clock.", "¿Qué hora es?", "clock-seven-v2",
                   ["It is nine o'clock.", "It is three o'clock.", "It is seven o'clock."])
 
     listen_image("N1", "This is the bathroom.", "Este es el baño.", "bathroom", "kitchen", correct_first=False)
@@ -271,7 +304,7 @@ def compile_49(base: dict, pack: dict) -> dict:
     speak("S4", "I wash my face.", "Me lavo la cara.", "wash-face", "female-character")
     speak("S5", "First, I wake up. Then, I eat breakfast.", "Primero, me despierto. Luego, desayuno.", "breakfast",
           "female-character")
-    speak("S6", "It is seven o'clock.", "Son las siete.", "clock-seven")
+    speak("S6", "It is seven o'clock.", "Son las siete.", "clock-seven-v2")
 
     guided("U1", "This is ___ ___.", ["the", "bathroom"], "This is the bathroom.", "Este es el baño.", "bathroom")
     guided("U2", "The bag is ___ ___ table.", ["under", "the"], "The bag is under the table.",
@@ -282,7 +315,7 @@ def compile_49(base: dict, pack: dict) -> dict:
            "female-character")
     construct("U5", "I brush my teeth.", "Me lavo los dientes.", "brush-teeth", "male-character")
     construct("U6", "I go to work.", "Voy al trabajo.", "go-to-work", "male-character")
-    construct("U7", "It is seven o'clock.", "Son las siete.", "clock-seven")
+    construct("U7", "It is seven o'clock.", "Son las siete.", "clock-seven-v2")
     construct("U8", "I study English on Monday.", "Estudio inglés el lunes.", "monday-calendar", "female-character")
 
     counts = [sum(card["stage"] == stage for card in cards) for stage in ("Learn", "Recognize", "Listen", "Speak", "Use")]
@@ -311,12 +344,30 @@ FIND_IT = "Escucha la pista y toca lo que describe."
 WHERE_IS = "Escucha dónde está cada cosa y tócala."
 # (slide, chapter, asset, kind, instruction, purpose, [(text, es, speaker)])
 NEW_BEATS = [
+    ("M01", "cuartos", "living-room", "guided-search", FIND_IT,
+     "En la sala, encuentra a la familia y los muebles.",
+     [("The mother is in the living room.", "Madre en la sala", "teacher"),
+      ("The grandparents are on the sofa.", "Abuelos en el sofá", "teacher"),
+      ("There is a lamp.", "Lámpara", "teacher"),
+      ("There is a window.", "Ventana", "teacher")]),
+    ("M02", "cuartos", "kitchen-dining", "crowd-search", FIND_IT,
+     "En la cocina y el comedor, encuentra a quién y qué describe cada pista.",
+     [("The father is in the kitchen.", "Padre en la cocina", "teacher"),
+      ("The boy is in the kitchen.", "Niño en la cocina", "teacher"),
+      ("There is a table in the dining room.", "Mesa del comedor", "teacher"),
+      ("There are two chairs.", "Dos sillas", "teacher")]),
+    ("M03", "cuartos", "bedroom", "crowd-search", FIND_IT,
+     "En el cuarto, encuentra a la niña y los muebles.",
+     [("The girl is in the bedroom.", "Niña en la habitación", "teacher"),
+      ("There is a bed.", "Cama", "teacher"),
+      ("There is a computer.", "Computadora", "teacher"),
+      ("There is a door.", "Puerta", "teacher")]),
     ("M04", "objetos", "living-objects", "contrast-hunt", WHERE_IS,
      "En la sala, cada cosa tiene su lugar: sobre, debajo, dentro y al lado.",
      [("The book is on the table.", "El libro está sobre la mesa.", "teacher"),
-      ("The bag is under the table.", "La bolsa está debajo de la mesa.", "teacher"),
       ("The phone is in the bag.", "El teléfono está dentro de la bolsa.", "teacher"),
-      ("The pen is next to the lamp.", "El bolígrafo está junto a la lámpara.", "teacher")]),
+      ("The pen is under the table.", "El bolígrafo está debajo de la mesa.", "teacher"),
+      ("The lamp is next to the sofa.", "La lámpara está junto al sofá.", "teacher")]),
     ("M05", "rutina", "night-home", "action-hunt", WHO_SAYS,
      "En la noche, cada quien cuenta lo que hace: escucha quién lo dice.",
      [("First, I come home.", "Primero, regreso a casa.", "male-character"),
@@ -341,7 +392,7 @@ NEW_BEATS = [
       ("There are four chairs.", "Hay cuatro sillas.", "teacher"),
       ("There is a lamp.", "Hay una lámpara.", "teacher"),
       ("There are two windows.", "Hay dos ventanas.", "teacher")]),
-    ("M09", "casa", "clocks", "crowd-search", FIND_IT,
+    ("M09", "casa", "clocks-v2", "crowd-search", FIND_IT,
      "En la pared hay cuatro relojes: escucha la hora y tócala.",
      [("It is seven o'clock.", "Son las siete.", "teacher"),
       ("It is nine o'clock.", "Son las nueve.", "teacher"),
@@ -371,25 +422,7 @@ CHAPTERS = [
 def compile_410(base: dict, pack: dict, reviews: dict | None) -> dict:
     lesson = copy.deepcopy(base)
     url = lambda name: "/lesson-assets/" + name  # noqa: E731
-    kept = {card["slide_id"]: card for card in base["cards"]}
     cards: list[dict] = []
-
-    for slide, scene in KEPT_SCENES.items():
-        card = copy.deepcopy(kept[slide])
-        card["mission_chapter_id"] = "cuartos"
-        card["mission_game"]["instruction_es"] = FIND_IT
-        card["mission_game"]["validation"] = "ordered"
-        if slide == "M01":
-            card["mission_game"]["tutorial_mode"] = "guided-no-fail"
-        card["mission_game"]["kind"] = "guided-search" if slide == "M01" else "crowd-search"
-        card["audio_turns"] = [{"text": cue["text"], "speaker_role": "teacher", "image_url": url(scene)}
-                               for cue in card["mission_game"]["cues"]]
-        card["pedagogy_note"] = {
-            "M01": "En la sala, encuentra a la familia y los muebles.",
-            "M02": "En la cocina y el comedor, encuentra a quién y qué describe cada pista.",
-            "M03": "En el cuarto, encuentra a la niña y los muebles.",
-        }[slide]
-        cards.append(card)
 
     for slide, chapter, asset, kind, instruction, purpose, lines in NEW_BEATS:
         scene = filename(pack, asset)
@@ -413,6 +446,8 @@ def compile_410(base: dict, pack: dict, reviews: dict | None) -> dict:
                       "spanish_translation": " ".join(es for _text, es, _speaker in lines), "pedagogy_note": purpose,
                       "mission_game": {"kind": kind, "instruction_es": instruction, "validation": "ordered",
                                        "targets": targets, "cues": cues}})
+        if slide == "M01":
+            cards[-1]["mission_game"]["tutorial_mode"] = "guided-no-fail"
 
     for index, (slide, key, question, asker, answer, es, purpose, response) in enumerate(GATES):
         response_name = response or filename(pack, f"{key}-response")
@@ -514,6 +549,77 @@ def compile_all(pack_map: dict, draft: bool, base_ref: str | None = None) -> dic
     return lessons
 
 
+def record_plans(pack_map: dict, baseline: dict) -> None:
+    """Restate every Unit 4 exception the rebuild changes; originals stay byte-for-byte."""
+    plans = json.loads(PLANS.read_text(encoding="utf-8"))
+    mission, review = pack_map["4.10"], pack_map["4.9"]
+    restated = ({(mission["lesson_id"], old) for old in RETIRED}
+                | {(review["lesson_id"], old) for old in REVIEW_REPEATS})
+    keep = [plan for plan in plans["changes"]
+            if (plan["lesson_id"], plan["old_filename"]) not in restated]
+    for old, (replacement, issue, _observation) in RETIRED.items():
+        keep.append({"lesson_id": mission["lesson_id"], "old_filename": old,
+                     "old_sha256": baseline["assets"][old]["copies"][IMAGE_ROOTS[0]],
+                     "new_filename": filename(mission, replacement), "issue": "mission-rebuild-retires-scene",
+                     "issue_detail": issue, "evidence_file": "docs/qa/unit-4-mission-media-v1.json",
+                     "source_provenance": baseline["assets"][old]["provenance"],
+                     "original_action": "preserve-byte-for-byte"})
+    for old, new_name in REVIEW_REPEATS.items():
+        keep.append({"lesson_id": review["lesson_id"], "old_filename": old,
+                     "old_sha256": baseline["assets"][old]["copies"][IMAGE_ROOTS[0]],
+                     "new_filename": new_name, "issue": "review-reuses-earlier-image",
+                     "issue_detail": "Lesson 4.9 bound the exact bytes an earlier Unit 4 teaching card already "
+                                     "uses; the rebuilt review retrieves the same language from a review-only "
+                                     "photograph instead. Every original file and earlier teaching use is kept.",
+                     "source_provenance": baseline["assets"][old]["provenance"],
+                     "original_action": "preserve-byte-for-byte"})
+    plans["changes"] = keep
+    write_json(PLANS, plans)
+
+
+def record_superseded_edits(mission: dict) -> None:
+    """Retire the approved full-frame edits of the stub mission's three room scenes."""
+    from scripts.mission_photo_edit_contract import EVIDENCE, SUPERSEDED
+
+    edits = json.loads((ROOT / EVIDENCE).read_text(encoding="utf-8"))["assets"]
+    path = ROOT / SUPERSEDED
+    data = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {"schema_version": 1, "superseded": []}
+    for record in edits:
+        if record["lesson_id"] != mission["lesson_id"] or record["old_filename"] not in RETIRED:
+            continue
+        row = {"lesson_id": record["lesson_id"], "slide_id": record["slide_id"],
+               "candidate_filename": record["candidate_filename"],
+               "superseded_by": "docs/qa/unit-4-mission-media-v1.json",
+               "reason": "The Unit 4 stub mission was rebuilt to the approved parity contract; its four beats "
+                         "became nine listening scenes and four voice gates, so this re-authored room beat binds "
+                         "its own mission-only still and the edited scene stops being bound."}
+        if row not in data["superseded"]:
+            data["superseded"].append(row)
+    write_json(path, data)
+
+
+def record_target_reviews(lesson: dict, records: list[dict]) -> None:
+    """Pin every measured group anchor set to the exact image bytes it was read from."""
+    path = ROOT / "docs" / "qa" / "units-2-7-mission-target-reviews.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    history = data.setdefault("superseded_reviews", [])
+    for row in data["reviews"]:
+        if row["lesson_id"] == lesson["id"] and row not in history:
+            history.append(row)
+    data["reviews"] = [row for row in data["reviews"] if row["lesson_id"] != lesson["id"]]
+    by_name = {record["runtime_filename"]: record for record in records}
+    for card in lesson["cards"]:
+        game = card.get("mission_game") or {}
+        groups = {target["id"]: target["head_anchors"] for target in game.get("targets", [])
+                  if len(target.get("head_anchors") or []) > 1}
+        name = Path(card.get("prompt_image_url", "")).name
+        if groups and name in by_name:
+            data["reviews"].append({"lesson_id": lesson["id"], "slide_id": card["slide_id"], "filename": name,
+                                    "sha256": by_name[name]["runtime_sha256"], "targets": groups,
+                                    "note": by_name[name]["agent_review"]["notes"]})
+    write_json(path, data)
+
+
 def install(pack_map: dict, lessons: dict) -> None:
     before = {number: path.read_bytes() for number, path in LESSONS.items()}
     staged = {}
@@ -524,14 +630,29 @@ def install(pack_map: dict, lessons: dict) -> None:
     for number, path in LESSONS.items():
         if path.read_bytes() != before[number]:
             raise ValueError(f"Concurrent canonical edit of {number}; stop.")
-    for number, (pack, reviews, records, attempts, rejected, exports) in staged.items():
+    for number, (pack, _reviews, records, _attempts, rejected, exports) in staged.items():
         kind = {"4.9": "review", "4.10": "mission"}[number]
-        archive = ROOT / "docs" / "qa" / f"unit-4-{kind}-media-v1.json"
-        install_images(pack, exports, records, rejected, archive)
-        write_json(archive, {"schema_version": 1, "pack_sha256": pack.get("pack_sha256"), "lesson_id": pack["lesson_id"],
-                             "human_approval": "pending", "assets": records, "paid_attempts": attempts})
+        install_images(pack, exports, records, rejected, ARCHIVE / f"{kind}-v1")
+        register_photoreal(exports)
     for number, path in LESSONS.items():
         path.write_text(json.dumps(lessons[number], ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+    for number, (pack, _reviews, records, attempts, _rejected, _exports) in staged.items():
+        kind = {"4.9": "review", "4.10": "mission"}[number]
+        proof = {"schema_version": 1, "pack_sha256": digest(PACKS[number]), "lesson_id": pack["lesson_id"],
+                 "human_approval": "pending", "assets": records, "paid_attempts": attempts}
+        if number == "4.10":
+            proof["retired_scenes"] = [
+                {"lesson_id": pack["lesson_id"], "old_filename": old,
+                 "binding": "mission.kickoff_image_url" if old in KICKOFF_RETIRED else "cards",
+                 "old_sha256": digest(ROOT / IMAGE_ROOTS[0] / old),
+                 "issue": issue, "observation": observation,
+                 "replacement_filename": filename(pack, replacement),
+                 "original_action": "preserve-byte-for-byte"}
+                for old, (replacement, issue, observation) in {**RETIRED, **KICKOFF_RETIRED}.items()]
+        write_json(ROOT / "docs" / "qa" / f"unit-4-{kind}-media-v1.json", proof)
+    record_plans(pack_map, json.loads(BASELINE.read_text(encoding="utf-8")))
+    record_superseded_edits(pack_map["4.10"])
+    record_target_reviews(lessons["4.10"], staged["4.10"][2])
 
 
 def main() -> int:

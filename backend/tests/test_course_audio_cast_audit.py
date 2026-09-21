@@ -86,8 +86,9 @@ EXACT_ROLE_CHANGES = {
     ("lesson-4-7-simple-present", "S6", "audio_speaker"): ("male-character", "ana"),
     ("lesson-4-7-simple-present", "U4", "audio_speaker"): ("luis", "ana"),
     ("lesson-4-7-simple-present", "U4", "answer_audio_speaker"): ("luis", None),
-    ("lesson-4-9-unit-4-review", "U6", "audio_speaker"): ("male-character", "ana"),
-    ("lesson-4-9-unit-4-review", "U6", "answer_audio_speaker"): ("male-character", None),
+    # The 2026-09-18 recast of 4.9 U6 to Ana is history: the 2026-09-21 parity rebuild
+    # re-authored that card over a fresh photograph of a man walking to work, so the line
+    # is spoken by the pictured man again and has no recast left to pin.
     ("lesson-6-7-simple-requests", "U7", "answer_audio_speaker"): ("female-character", None),
     ("lesson-7-6-hobbies-and-free-time", "A3", "audio_speaker"): ("male-character", "female-character"),
     ("lesson-7-6-hobbies-and-free-time", "L5", "audio_speaker"): ("male-character", "female-character"),
@@ -104,9 +105,11 @@ EXACT_ROLE_CHANGES = {
 # The 2026-09-18 gender-matched voice review voices 89 more lines by the pictured man,
 # boy, woman or asker who says them (+89 net). The speaking-voice review check found
 # Luis asking "How old are you?" over 3.4 U1 and U3 (+2).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 532
+# The 2026-09-21 Unit 4 parity rebuild re-authored 4.9: its eight old explicit speakers
+# became the 24 first-person lines whose pictured man or woman says them (+14 net).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 546
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "3bdd816da761649d8933f38aed508d1c7aa06d953b603b477d14e18dfc4b4e3a"
+    "8aae6f23266dd738fb5fb414326a7be5f81f504ba81a3807f69eacac69c874ee"
 )
 
 
@@ -202,7 +205,7 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         neutral = forced_neutral_targets()
 
         self.assertEqual(48, len(neutral))
-        self.assertEqual(21, len(EXACT_ROLE_CHANGES))
+        self.assertEqual(19, len(EXACT_ROLE_CHANGES))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(validator))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(lessons))
         self.assertEqual(validator, lessons)

@@ -1,683 +1,1971 @@
 {
   "id": "lesson-4-10-my-day-mission",
-  "title": "4.10 Casa en orden",
+  "title": "4.10 Un día en casa",
   "level": "Beginner A1",
   "unit_id": "unit-4",
   "unit_title": "Unit 4: Home and Daily Life",
-  "unit_outcome": "Follow audio clues to organize rooms, locate family members and furniture, and speak time checks.",
+  "unit_outcome": "Prepare a day at home: find the family in each room, locate belongings, follow the routine, and confirm the time and the day.",
   "lesson_id": "lesson-4",
   "lesson_title": "Unit 4: Home and Daily Life",
   "sub_lesson_id": "4.10",
-  "sub_lesson_title": "Casa en orden",
+  "sub_lesson_title": "Un día en casa",
   "experience_type": "mission",
-  "content_revision": 2,
+  "content_revision": 3,
   "mission": {
-    "voice_heading": "CONFIRMA QUE TODO ESTÉ LISTO",
-    "voice_instruction": "Responde en voz alta antes de la visita",
-    "voice_success_label": "PREPARACIÓN CONFIRMADA",
     "label": "MISIÓN FINAL · UNIDAD 4",
-    "title": "Casa en orden",
-    "briefing": "La familia prepara la casa para recibir una visita especial. Escucha cada pista, encuentra a cada persona en su habitación y confirma que todo esté listo a tiempo.",
-    "kickoff_image_url": "/lesson-assets/a1_u4_mission_kickoff.webp",
+    "title": "Un día en casa",
+    "briefing": "Hoy la familia prepara su día en casa. Escucha cada pista y toca a la persona, el mueble o el objeto que describe: los cuartos, dónde quedó cada cosa, la rutina de la mañana y la hora. Al final, responde cuatro preguntas en voz alta. Primero escucha la frase completa; después toca.",
+    "kickoff_image_url": "/lesson-assets/a1_u4_home_v1_kickoff.webp",
     "objectives": [
-      "Ubica a cada persona en su habitación",
-      "Verifica muebles y objetos en su lugar",
-      "Confirma la hora antes de que lleguen los invitados"
+      "Encuentra a cada quien en su cuarto",
+      "Di dónde está cada cosa",
+      "Confirma la hora y el día"
     ],
-    "completion_title": "¡Casa lista para la visita!",
-    "completion_message": "Ubicaste a cada persona en su habitación, verificaste los muebles y confirmaste la hora en voz alta.",
+    "completion_title": "¡La casa y el día están listos!",
+    "completion_message": "Encontraste a la familia en cada cuarto, ubicaste cada objeto, seguiste la rutina de la mañana y confirmaste la hora y el día en voz alta.",
     "chapters": [
       {
-        "id": "ch1-living-room",
-        "title": "En la sala",
-        "objective": "Identifica a las personas y los objetos en la sala."
+        "id": "cuartos",
+        "title": "Cada quien en su cuarto",
+        "objective": "Escucha la pista y toca a la persona o el mueble."
       },
       {
-        "id": "ch2-kitchen-dining",
-        "title": "Cocina y comedor",
-        "objective": "Ubica a las personas y los muebles en la cocina y el comedor."
+        "id": "objetos",
+        "title": "¿Dónde quedó cada cosa?",
+        "objective": "Escucha dónde está cada objeto y tócalo."
       },
       {
-        "id": "ch3-bedrooms-study",
-        "title": "En la habitación",
-        "objective": "Revisa quién está en el cuarto y qué muebles hay."
+        "id": "rutina",
+        "title": "La rutina de la mañana",
+        "objective": "Escucha quién dice cada parte de la rutina."
       },
       {
-        "id": "ch4-time-check",
-        "title": "Control de la hora",
-        "objective": "Responde la pregunta de la hora en voz alta."
+        "id": "casa",
+        "title": "La casa y la hora",
+        "objective": "Cuenta lo que hay y encuentra la hora."
+      },
+      {
+        "id": "confirma",
+        "title": "Confirma el día",
+        "objective": "Escucha la pregunta y responde en voz alta."
       }
-    ]
+    ],
+    "voice_heading": "CONFIRMA EL DÍA",
+    "voice_instruction": "Escucha la pregunta y responde en voz alta",
+    "voice_success_label": "RESPUESTA CONFIRMADA"
   },
-  "goal": "Identify people and furniture across house zones and answer questions aloud before visitors arrive.",
+  "goal": "Help the family get the house and the day ready: find who is in each room, say where each thing is, follow the morning routine, count what the dining room has, read the clocks, and answer four questions aloud.",
   "vocabulary": [],
   "review_vocabulary": [
+    "home",
     "kitchen",
-    "living room",
     "bedroom",
+    "bathroom",
+    "living room",
     "dining room",
-    "sofa",
-    "table",
-    "chairs",
     "bed",
+    "sofa",
     "lamp",
-    "window",
     "door",
+    "window",
     "computer",
-    "father",
-    "mother",
-    "boy",
-    "girl",
-    "grandparents",
+    "where",
+    "Where is...?",
+    "in",
+    "on",
+    "under",
+    "next to",
+    "there",
     "there is",
     "there are",
+    "chairs",
+    "wake up",
+    "wash my face",
+    "brush my teeth",
+    "eat breakfast",
+    "get dressed",
+    "in the morning",
+    "face",
+    "teeth",
+    "breakfast",
+    "dressed",
+    "go to school",
+    "go to work",
+    "study English",
+    "work",
+    "come home",
+    "sleep",
+    "English",
+    "come",
+    "every day",
+    "first",
+    "then",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "afternoon",
+    "night",
     "o'clock",
-    "six"
+    "at"
   ],
-  "grammar_function": "Integrate subject + be + in/on prepositional phrases and There is/There are.",
+  "grammar_function": "This/That is the + room; subject + be + in/on the + room; there is / there are; in, on, under, next to; I + daily action; first, then, every day; in the morning / afternoon, at night; on + day; It is ... o'clock.",
   "prerequisite": "Lessons 4.1-4.9 completed.",
-  "speaking_outcome": "Answer location and time questions aloud across final voice gates.",
+  "speaking_outcome": "Answer four questions aloud: the time, where a book is, a morning routine, and the day you study English.",
   "purposeful_review_slides": [
     "M01",
     "M02",
     "M03",
-    "M04"
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10",
+    "M11",
+    "M12",
+    "M13"
   ],
   "cards": [
     {
       "slide_id": "M01",
-      "mission_chapter_id": "ch1-living-room",
+      "mission_chapter_id": "cuartos",
       "interaction_type": "mission-game",
       "stage": "Listen",
       "prompt": "The mother is in the living room. The grandparents are on the sofa. There is a lamp. There is a window.",
-      "prompt_image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_living_room.webp",
       "options": [
         {
-          "id": "mother-living-room",
+          "id": "living-room-1",
           "image_url": "",
           "label": "The mother is in the living room."
         },
         {
-          "id": "grandparents-sofa",
+          "id": "living-room-2",
           "image_url": "",
           "label": "The grandparents are on the sofa."
         },
         {
-          "id": "room-lamp",
+          "id": "living-room-3",
           "image_url": "",
           "label": "There is a lamp."
         },
         {
-          "id": "room-window",
+          "id": "living-room-4",
           "image_url": "",
           "label": "There is a window."
         }
       ],
-      "correct_option_id": "mother-living-room",
+      "correct_option_id": "living-room-1",
       "correct_option_ids": [
-        "mother-living-room",
-        "grandparents-sofa",
-        "room-lamp",
-        "room-window"
+        "living-room-1",
+        "living-room-2",
+        "living-room-3",
+        "living-room-4"
       ],
       "audio_text": "The mother is in the living room. The grandparents are on the sofa. There is a lamp. There is a window.",
+      "answer_audio_text": null,
       "audio_turns": [
         {
           "text": "The mother is in the living room.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_living_room.webp"
         },
         {
           "text": "The grandparents are on the sofa.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_living_room.webp"
         },
         {
           "text": "There is a lamp.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_living_room.webp"
         },
         {
           "text": "There is a window.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_01_living_room_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_living_room.webp"
         }
       ],
-      "spanish_translation": "La madre está en la sala. Los abuelos están en el sofá. Hay una lámpara. Hay una ventana.",
-      "pedagogy_note": "Mission beat 01/04: the learner locates people and furniture in the living room from audio cues; the completed interaction advances the home mission.",
+      "spanish_translation": "Madre en la sala Abuelos en el sofá Lámpara Ventana",
+      "pedagogy_note": "Mission beat 01/13: En la sala, encuentra a la familia y los muebles.",
       "mission_game": {
         "kind": "guided-search",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "instruction_es": "Escucha la pista y toca lo que describe.",
         "validation": "ordered",
         "targets": [
           {
-            "id": "mother-living-room",
+            "id": "living-room-1",
             "label_es": "Madre en la sala",
+            "accepted_option_ids": [
+              "living-room-1"
+            ],
             "rect": {
-              "x": 0.17,
-              "y": 0.27,
+              "x": 0.25,
+              "y": 0.11,
               "width": 0.19,
-              "height": 0.61
-            },
-            "accepted_option_ids": [
-              "mother-living-room"
-            ],
-            "head_anchors": [
-              {
-                "x": 0.308,
-                "y": 0.27
-              }
-            ]
-          },
-          {
-            "id": "grandparents-sofa",
-            "label_es": "Abuelos en el sofá",
-            "rect": {
-              "x": 0.48,
-              "y": 0.45,
-              "width": 0.18,
-              "height": 0.42
-            },
-            "accepted_option_ids": [
-              "grandparents-sofa"
-            ],
-            "head_anchors": [
-              {
-                "x": 0.533,
-                "y": 0.453
-              },
-              {
-                "x": 0.593,
-                "y": 0.453
-              }
-            ]
-          },
-          {
-            "id": "room-lamp",
-            "label_es": "Lámpara",
-            "rect": {
-              "x": 0.005,
-              "y": 0.29,
-              "width": 0.125,
               "height": 0.69
             },
-            "accepted_option_ids": [
-              "room-lamp"
-            ],
             "head_anchors": [
               {
-                "x": 0.068,
-                "y": 0.293
+                "x": 0.325,
+                "y": 0.115
               }
-            ],
-            "subject_kind": "object"
+            ]
           },
           {
-            "id": "room-window",
-            "label_es": "Ventana",
-            "rect": {
-              "x": 0.704,
-              "y": 0.115,
-              "width": 0.296,
-              "height": 0.49
-            },
+            "id": "living-room-2",
+            "label_es": "Abuelos en el sofá",
             "accepted_option_ids": [
-              "room-window"
+              "living-room-2"
             ],
+            "rect": {
+              "x": 0.5,
+              "y": 0.27,
+              "width": 0.23,
+              "height": 0.44
+            },
             "head_anchors": [
               {
-                "x": 0.862,
-                "y": 0.126
+                "x": 0.555,
+                "y": 0.285
+              },
+              {
+                "x": 0.655,
+                "y": 0.275
               }
+            ]
+          },
+          {
+            "id": "living-room-3",
+            "label_es": "Lámpara",
+            "accepted_option_ids": [
+              "living-room-3"
             ],
-            "subject_kind": "object"
+            "rect": {
+              "x": 0.005,
+              "y": 0.14,
+              "width": 0.13,
+              "height": 0.56
+            },
+            "head_anchors": [
+              {
+                "x": 0.07,
+                "y": 0.15
+              }
+            ]
+          },
+          {
+            "id": "living-room-4",
+            "label_es": "Ventana",
+            "accepted_option_ids": [
+              "living-room-4"
+            ],
+            "rect": {
+              "x": 0.72,
+              "y": 0.02,
+              "width": 0.23,
+              "height": 0.51
+            },
+            "head_anchors": [
+              {
+                "x": 0.835,
+                "y": 0.03
+              }
+            ]
           }
         ],
         "cues": [
           {
-            "id": "cue-mother-living-room",
+            "id": "cue-living-room-1",
             "text": "The mother is in the living room.",
             "answer_text": "The mother is in the living room.",
-            "target_id": "mother-living-room",
-            "option_id": "mother-living-room"
+            "target_id": "living-room-1",
+            "option_id": "living-room-1"
           },
           {
-            "id": "cue-grandparents-sofa",
+            "id": "cue-living-room-2",
             "text": "The grandparents are on the sofa.",
             "answer_text": "The grandparents are on the sofa.",
-            "target_id": "grandparents-sofa",
-            "option_id": "grandparents-sofa"
+            "target_id": "living-room-2",
+            "option_id": "living-room-2"
           },
           {
-            "id": "cue-room-lamp",
+            "id": "cue-living-room-3",
             "text": "There is a lamp.",
             "answer_text": "There is a lamp.",
-            "target_id": "room-lamp",
-            "option_id": "room-lamp"
+            "target_id": "living-room-3",
+            "option_id": "living-room-3"
           },
           {
-            "id": "cue-room-window",
+            "id": "cue-living-room-4",
             "text": "There is a window.",
             "answer_text": "There is a window.",
-            "target_id": "room-window",
-            "option_id": "room-window"
+            "target_id": "living-room-4",
+            "option_id": "living-room-4"
           }
-        ]
+        ],
+        "tutorial_mode": "guided-no-fail"
       }
     },
     {
       "slide_id": "M02",
-      "mission_chapter_id": "ch2-kitchen-dining",
+      "mission_chapter_id": "cuartos",
       "interaction_type": "mission-game",
       "stage": "Listen",
       "prompt": "The father is in the kitchen. The boy is in the kitchen. There is a table in the dining room. There are two chairs.",
-      "prompt_image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_kitchen_dining.webp",
       "options": [
         {
-          "id": "father-kitchen",
+          "id": "kitchen-dining-1",
           "image_url": "",
           "label": "The father is in the kitchen."
         },
         {
-          "id": "boy-kitchen",
+          "id": "kitchen-dining-2",
           "image_url": "",
           "label": "The boy is in the kitchen."
         },
         {
-          "id": "dining-table",
+          "id": "kitchen-dining-3",
           "image_url": "",
           "label": "There is a table in the dining room."
         },
         {
-          "id": "two-chairs",
+          "id": "kitchen-dining-4",
           "image_url": "",
           "label": "There are two chairs."
         }
       ],
-      "correct_option_id": "father-kitchen",
+      "correct_option_id": "kitchen-dining-1",
       "correct_option_ids": [
-        "father-kitchen",
-        "boy-kitchen",
-        "dining-table",
-        "two-chairs"
+        "kitchen-dining-1",
+        "kitchen-dining-2",
+        "kitchen-dining-3",
+        "kitchen-dining-4"
       ],
       "audio_text": "The father is in the kitchen. The boy is in the kitchen. There is a table in the dining room. There are two chairs.",
+      "answer_audio_text": null,
       "audio_turns": [
         {
           "text": "The father is in the kitchen.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_kitchen_dining.webp"
         },
         {
           "text": "The boy is in the kitchen.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_kitchen_dining.webp"
         },
         {
           "text": "There is a table in the dining room.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_kitchen_dining.webp"
         },
         {
           "text": "There are two chairs.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_kitchen_dining.webp"
         }
       ],
-      "spanish_translation": "El padre está en la cocina. El niño está en la cocina. Hay una mesa en el comedor. Hay dos sillas.",
-      "pedagogy_note": "Mission beat 02/04: the learner locates people and furniture in the kitchen and dining area; the completed interaction advances the home mission.",
+      "spanish_translation": "Padre en la cocina Niño en la cocina Mesa del comedor Dos sillas",
+      "pedagogy_note": "Mission beat 02/13: En la cocina y el comedor, encuentra a quién y qué describe cada pista.",
       "mission_game": {
-        "kind": "guided-search",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista y toca lo que describe.",
         "validation": "ordered",
         "targets": [
           {
-            "id": "father-kitchen",
+            "id": "kitchen-dining-1",
             "label_es": "Padre en la cocina",
-            "rect": {
-              "x": 0.247,
-              "y": 0.19,
-              "width": 0.176,
-              "height": 0.79
-            },
             "accepted_option_ids": [
-              "father-kitchen"
+              "kitchen-dining-1"
             ],
-            "head_anchors": [
-              {
-                "x": 0.322,
-                "y": 0.199
-              }
-            ]
-          },
-          {
-            "id": "boy-kitchen",
-            "label_es": "Niño en la cocina",
             "rect": {
-              "x": 0.542,
-              "y": 0.3,
+              "x": 0.145,
+              "y": 0.12,
               "width": 0.12,
-              "height": 0.464
+              "height": 0.69
             },
-            "accepted_option_ids": [
-              "boy-kitchen"
-            ],
             "head_anchors": [
               {
-                "x": 0.604,
-                "y": 0.304
+                "x": 0.185,
+                "y": 0.125
               }
             ]
           },
           {
-            "id": "dining-table",
-            "label_es": "Mesa del comedor",
-            "rect": {
-              "x": 0.715,
-              "y": 0.46,
-              "width": 0.285,
-              "height": 0.16
-            },
+            "id": "kitchen-dining-2",
+            "label_es": "Niño en la cocina",
             "accepted_option_ids": [
-              "dining-table"
+              "kitchen-dining-2"
             ],
+            "rect": {
+              "x": 0.3275,
+              "y": 0.25,
+              "width": 0.12,
+              "height": 0.5
+            },
             "head_anchors": [
               {
-                "x": 0.845,
-                "y": 0.487
+                "x": 0.385,
+                "y": 0.255
               }
-            ],
-            "subject_kind": "object"
+            ]
           },
           {
-            "id": "two-chairs",
-            "label_es": "Dos sillas",
-            "rect": {
-              "x": 0.69,
-              "y": 0.506,
-              "width": 0.285,
-              "height": 0.408
-            },
+            "id": "kitchen-dining-3",
+            "label_es": "Mesa del comedor",
             "accepted_option_ids": [
-              "two-chairs"
+              "kitchen-dining-3"
             ],
+            "rect": {
+              "x": 0.6,
+              "y": 0.475,
+              "width": 0.345,
+              "height": 0.33
+            },
             "head_anchors": [
               {
-                "x": 0.712,
-                "y": 0.51
+                "x": 0.77,
+                "y": 0.485
+              }
+            ]
+          },
+          {
+            "id": "kitchen-dining-4",
+            "label_es": "Dos sillas",
+            "accepted_option_ids": [
+              "kitchen-dining-4"
+            ],
+            "rect": {
+              "x": 0.55,
+              "y": 0.435,
+              "width": 0.44,
+              "height": 0.37
+            },
+            "head_anchors": [
+              {
+                "x": 0.595,
+                "y": 0.445
               },
               {
-                "x": 0.913,
-                "y": 0.57
+                "x": 0.925,
+                "y": 0.45
               }
-            ],
-            "subject_kind": "object"
+            ]
           }
         ],
         "cues": [
           {
-            "id": "cue-father-kitchen",
+            "id": "cue-kitchen-dining-1",
             "text": "The father is in the kitchen.",
             "answer_text": "The father is in the kitchen.",
-            "target_id": "father-kitchen",
-            "option_id": "father-kitchen"
+            "target_id": "kitchen-dining-1",
+            "option_id": "kitchen-dining-1"
           },
           {
-            "id": "cue-boy-kitchen",
+            "id": "cue-kitchen-dining-2",
             "text": "The boy is in the kitchen.",
             "answer_text": "The boy is in the kitchen.",
-            "target_id": "boy-kitchen",
-            "option_id": "boy-kitchen"
+            "target_id": "kitchen-dining-2",
+            "option_id": "kitchen-dining-2"
           },
           {
-            "id": "cue-dining-table",
+            "id": "cue-kitchen-dining-3",
             "text": "There is a table in the dining room.",
             "answer_text": "There is a table in the dining room.",
-            "target_id": "dining-table",
-            "option_id": "dining-table"
+            "target_id": "kitchen-dining-3",
+            "option_id": "kitchen-dining-3"
           },
           {
-            "id": "cue-two-chairs",
+            "id": "cue-kitchen-dining-4",
             "text": "There are two chairs.",
             "answer_text": "There are two chairs.",
-            "target_id": "two-chairs",
-            "option_id": "two-chairs"
+            "target_id": "kitchen-dining-4",
+            "option_id": "kitchen-dining-4"
           }
         ]
       }
     },
     {
       "slide_id": "M03",
-      "mission_chapter_id": "ch3-bedrooms-study",
+      "mission_chapter_id": "cuartos",
       "interaction_type": "mission-game",
       "stage": "Listen",
       "prompt": "The girl is in the bedroom. There is a bed. There is a computer. There is a door.",
-      "prompt_image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_bedroom.webp",
       "options": [
         {
-          "id": "girl-bedroom",
+          "id": "bedroom-1",
           "image_url": "",
           "label": "The girl is in the bedroom."
         },
         {
-          "id": "bedroom-bed",
+          "id": "bedroom-2",
           "image_url": "",
           "label": "There is a bed."
         },
         {
-          "id": "bedroom-computer",
+          "id": "bedroom-3",
           "image_url": "",
           "label": "There is a computer."
         },
         {
-          "id": "bedroom-door",
+          "id": "bedroom-4",
           "image_url": "",
           "label": "There is a door."
         }
       ],
-      "correct_option_id": "girl-bedroom",
+      "correct_option_id": "bedroom-1",
       "correct_option_ids": [
-        "girl-bedroom",
-        "bedroom-bed",
-        "bedroom-computer",
-        "bedroom-door"
+        "bedroom-1",
+        "bedroom-2",
+        "bedroom-3",
+        "bedroom-4"
       ],
       "audio_text": "The girl is in the bedroom. There is a bed. There is a computer. There is a door.",
+      "answer_audio_text": null,
       "audio_turns": [
         {
           "text": "The girl is in the bedroom.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_bedroom.webp"
         },
         {
           "text": "There is a bed.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_bedroom.webp"
         },
         {
           "text": "There is a computer.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_bedroom.webp"
         },
         {
           "text": "There is a door.",
           "speaker_role": "teacher",
-          "image_url": "/lesson-assets/a1_u4_scene_03_bedroom_fullframe_v2.webp"
+          "image_url": "/lesson-assets/a1_u4_home_v1_bedroom.webp"
         }
       ],
-      "spanish_translation": "La niña está en la habitación. Hay una cama. Hay una computadora. Hay una puerta.",
-      "pedagogy_note": "Mission beat 03/04: the learner locates family members and furniture in the bedroom; the completed interaction advances the home mission.",
+      "spanish_translation": "Niña en la habitación Cama Computadora Puerta",
+      "pedagogy_note": "Mission beat 03/13: En el cuarto, encuentra a la niña y los muebles.",
       "mission_game": {
-        "kind": "guided-search",
-        "instruction_es": "Escucha la pista en inglés y toca la respuesta.",
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista y toca lo que describe.",
         "validation": "ordered",
         "targets": [
           {
-            "id": "girl-bedroom",
+            "id": "bedroom-1",
             "label_es": "Niña en la habitación",
-            "rect": {
-              "x": 0.272,
-              "y": 0.322,
-              "width": 0.159,
-              "height": 0.47
-            },
             "accepted_option_ids": [
-              "girl-bedroom"
+              "bedroom-1"
             ],
+            "rect": {
+              "x": 0.32,
+              "y": 0.11,
+              "width": 0.16,
+              "height": 0.8
+            },
             "head_anchors": [
               {
-                "x": 0.334,
-                "y": 0.326
+                "x": 0.395,
+                "y": 0.115
               }
             ]
           },
           {
-            "id": "bedroom-bed",
+            "id": "bedroom-2",
             "label_es": "Cama",
-            "rect": {
-              "x": 0.587,
-              "y": 0.411,
-              "width": 0.329,
-              "height": 0.389
-            },
             "accepted_option_ids": [
-              "bedroom-bed"
+              "bedroom-2"
             ],
+            "rect": {
+              "x": 0.69,
+              "y": 0.295,
+              "width": 0.3,
+              "height": 0.6
+            },
             "head_anchors": [
               {
-                "x": 0.871,
-                "y": 0.509
+                "x": 0.84,
+                "y": 0.305
               }
-            ],
-            "subject_kind": "object"
+            ]
           },
           {
-            "id": "bedroom-computer",
+            "id": "bedroom-3",
             "label_es": "Computadora",
+            "accepted_option_ids": [
+              "bedroom-3"
+            ],
             "rect": {
-              "x": 0.1445,
-              "y": 0.4065,
-              "width": 0.12,
+              "x": 0.14,
+              "y": 0.3575,
+              "width": 0.15,
               "height": 0.16
             },
-            "accepted_option_ids": [
-              "bedroom-computer"
-            ],
             "head_anchors": [
               {
-                "x": 0.177,
-                "y": 0.433
+                "x": 0.215,
+                "y": 0.375
               }
-            ],
-            "subject_kind": "object"
+            ]
           },
           {
-            "id": "bedroom-door",
+            "id": "bedroom-4",
             "label_es": "Puerta",
-            "rect": {
-              "x": 0,
-              "y": 0.014,
-              "width": 0.12,
-              "height": 0.95
-            },
             "accepted_option_ids": [
-              "bedroom-door"
+              "bedroom-4"
             ],
+            "rect": {
+              "x": 0.0,
+              "y": 0.01,
+              "width": 0.12,
+              "height": 0.96
+            },
             "head_anchors": [
               {
-                "x": 0.049,
-                "y": 0.294
+                "x": 0.06,
+                "y": 0.3
               }
-            ],
-            "subject_kind": "object"
+            ]
           }
         ],
         "cues": [
           {
-            "id": "cue-girl-bedroom",
+            "id": "cue-bedroom-1",
             "text": "The girl is in the bedroom.",
             "answer_text": "The girl is in the bedroom.",
-            "target_id": "girl-bedroom",
-            "option_id": "girl-bedroom"
+            "target_id": "bedroom-1",
+            "option_id": "bedroom-1"
           },
           {
-            "id": "cue-bedroom-bed",
+            "id": "cue-bedroom-2",
             "text": "There is a bed.",
             "answer_text": "There is a bed.",
-            "target_id": "bedroom-bed",
-            "option_id": "bedroom-bed"
+            "target_id": "bedroom-2",
+            "option_id": "bedroom-2"
           },
           {
-            "id": "cue-bedroom-computer",
+            "id": "cue-bedroom-3",
             "text": "There is a computer.",
             "answer_text": "There is a computer.",
-            "target_id": "bedroom-computer",
-            "option_id": "bedroom-computer"
+            "target_id": "bedroom-3",
+            "option_id": "bedroom-3"
           },
           {
-            "id": "cue-bedroom-door",
+            "id": "cue-bedroom-4",
             "text": "There is a door.",
             "answer_text": "There is a door.",
-            "target_id": "bedroom-door",
-            "option_id": "bedroom-door"
+            "target_id": "bedroom-4",
+            "option_id": "bedroom-4"
           }
         ]
       }
     },
     {
       "slide_id": "M04",
-      "mission_chapter_id": "ch4-time-check",
-      "interaction_type": "mission-finale",
-      "stage": "Speak",
-      "prompt": "It is six o'clock.",
-      "prompt_image_url": "",
+      "mission_chapter_id": "objetos",
+      "interaction_type": "mission-game",
+      "stage": "Listen",
+      "prompt": "The book is on the table. The phone is in the bag. The pen is under the table. The lamp is next to the sofa.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_living_objects.webp",
       "options": [
         {
-          "id": "time-six",
-          "image_url": "/lesson-assets/a1_u4_mission_clock_six_v3.webp",
-          "label": "It is six o'clock."
+          "id": "living-objects-1",
+          "image_url": "",
+          "label": "The book is on the table."
+        },
+        {
+          "id": "living-objects-2",
+          "image_url": "",
+          "label": "The phone is in the bag."
+        },
+        {
+          "id": "living-objects-3",
+          "image_url": "",
+          "label": "The pen is under the table."
+        },
+        {
+          "id": "living-objects-4",
+          "image_url": "",
+          "label": "The lamp is next to the sofa."
         }
       ],
-      "correct_option_id": "time-six",
-      "audio_text": "It is six o'clock.",
+      "correct_option_id": "living-objects-1",
+      "correct_option_ids": [
+        "living-objects-1",
+        "living-objects-2",
+        "living-objects-3",
+        "living-objects-4"
+      ],
+      "audio_text": "The book is on the table. The phone is in the bag. The pen is under the table. The lamp is next to the sofa.",
+      "answer_audio_text": null,
       "audio_turns": [
         {
-          "text": "What time is it?",
-          "speaker_role": "male-character",
-          "image_url": "/lesson-assets/a1_u4_mission_clock_six_v3.webp"
+          "text": "The book is on the table.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_living_objects.webp"
+        },
+        {
+          "text": "The phone is in the bag.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_living_objects.webp"
+        },
+        {
+          "text": "The pen is under the table.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_living_objects.webp"
+        },
+        {
+          "text": "The lamp is next to the sofa.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_living_objects.webp"
         }
       ],
-      "spanish_translation": "Son las seis en punto.",
-      "pedagogy_note": "Mission beat 04/04: the learner confirms the time aloud before guests arrive; the completed interaction finishes the Unit 4 home mission.",
+      "spanish_translation": "El libro está sobre la mesa. El teléfono está dentro de la bolsa. El bolígrafo está debajo de la mesa. La lámpara está junto al sofá.",
+      "pedagogy_note": "Mission beat 04/13: En la sala, cada cosa tiene su lugar: sobre, debajo, dentro y al lado.",
       "mission_game": {
-        "kind": "voice-gate",
-        "instruction_es": "Escucha y responde para confirmar la hora.",
-        "validation": "single",
+        "kind": "contrast-hunt",
+        "instruction_es": "Escucha dónde está cada cosa y tócala.",
+        "validation": "ordered",
         "targets": [
           {
-            "id": "clock",
-            "label_es": "Reloj",
-            "rect": {
-              "x": 0.35,
-              "y": 0.2,
-              "width": 0.3,
-              "height": 0.55
-            },
+            "id": "living-objects-1",
+            "label_es": "El libro está sobre la mesa.",
             "accepted_option_ids": [
-              "time-six"
+              "living-objects-1"
+            ],
+            "rect": {
+              "x": 0.49,
+              "y": 0.51,
+              "width": 0.15,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.55
+              }
+            ]
+          },
+          {
+            "id": "living-objects-2",
+            "label_es": "El teléfono está dentro de la bolsa.",
+            "accepted_option_ids": [
+              "living-objects-2"
+            ],
+            "rect": {
+              "x": 0.705,
+              "y": 0.27,
+              "width": 0.16,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.785,
+                "y": 0.275
+              }
+            ]
+          },
+          {
+            "id": "living-objects-3",
+            "label_es": "El bolígrafo está debajo de la mesa.",
+            "accepted_option_ids": [
+              "living-objects-3"
+            ],
+            "rect": {
+              "x": 0.4825,
+              "y": 0.755,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.515,
+                "y": 0.8
+              }
+            ]
+          },
+          {
+            "id": "living-objects-4",
+            "label_es": "La lámpara está junto al sofá.",
+            "accepted_option_ids": [
+              "living-objects-4"
+            ],
+            "rect": {
+              "x": 0.085,
+              "y": 0.012,
+              "width": 0.155,
+              "height": 0.645
+            },
+            "head_anchors": [
+              {
+                "x": 0.16,
+                "y": 0.03
+              }
             ]
           }
         ],
         "cues": [
           {
-            "id": "clock",
-            "text": "What time is it?",
-            "answer_text": "It is six o'clock.",
-            "target_id": "clock",
-            "option_id": "time-six"
+            "id": "cue-living-objects-1",
+            "text": "The book is on the table.",
+            "answer_text": "The book is on the table.",
+            "target_id": "living-objects-1",
+            "option_id": "living-objects-1"
+          },
+          {
+            "id": "cue-living-objects-2",
+            "text": "The phone is in the bag.",
+            "answer_text": "The phone is in the bag.",
+            "target_id": "living-objects-2",
+            "option_id": "living-objects-2"
+          },
+          {
+            "id": "cue-living-objects-3",
+            "text": "The pen is under the table.",
+            "answer_text": "The pen is under the table.",
+            "target_id": "living-objects-3",
+            "option_id": "living-objects-3"
+          },
+          {
+            "id": "cue-living-objects-4",
+            "text": "The lamp is next to the sofa.",
+            "answer_text": "The lamp is next to the sofa.",
+            "target_id": "living-objects-4",
+            "option_id": "living-objects-4"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M05",
+      "mission_chapter_id": "rutina",
+      "interaction_type": "mission-game",
+      "stage": "Listen",
+      "prompt": "First, I come home. Then, I wash my face in the bathroom. I sleep at night. I study English every day.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_night_home.webp",
+      "options": [
+        {
+          "id": "night-home-1",
+          "image_url": "",
+          "label": "First, I come home."
+        },
+        {
+          "id": "night-home-2",
+          "image_url": "",
+          "label": "Then, I wash my face in the bathroom."
+        },
+        {
+          "id": "night-home-3",
+          "image_url": "",
+          "label": "I sleep at night."
+        },
+        {
+          "id": "night-home-4",
+          "image_url": "",
+          "label": "I study English every day."
+        }
+      ],
+      "correct_option_id": "night-home-1",
+      "correct_option_ids": [
+        "night-home-1",
+        "night-home-2",
+        "night-home-3",
+        "night-home-4"
+      ],
+      "audio_text": "First, I come home. Then, I wash my face in the bathroom. I sleep at night. I study English every day.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "First, I come home.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_night_home.webp"
+        },
+        {
+          "text": "Then, I wash my face in the bathroom.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_night_home.webp"
+        },
+        {
+          "text": "I sleep at night.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_night_home.webp"
+        },
+        {
+          "text": "I study English every day.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_night_home.webp"
+        }
+      ],
+      "spanish_translation": "Primero, regreso a casa. Luego, me lavo la cara en el baño. Duermo en la noche. Estudio inglés todos los días.",
+      "pedagogy_note": "Mission beat 05/13: En la noche, cada quien cuenta lo que hace: escucha quién lo dice.",
+      "mission_game": {
+        "kind": "action-hunt",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "night-home-1",
+            "label_es": "Primero, regreso a casa.",
+            "accepted_option_ids": [
+              "night-home-1"
+            ],
+            "rect": {
+              "x": 0.07,
+              "y": 0.095,
+              "width": 0.15,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.1
+              }
+            ]
+          },
+          {
+            "id": "night-home-2",
+            "label_es": "Luego, me lavo la cara en el baño.",
+            "accepted_option_ids": [
+              "night-home-2"
+            ],
+            "rect": {
+              "x": 0.33,
+              "y": 0.21,
+              "width": 0.125,
+              "height": 0.46
+            },
+            "head_anchors": [
+              {
+                "x": 0.385,
+                "y": 0.215
+              }
+            ]
+          },
+          {
+            "id": "night-home-3",
+            "label_es": "Duermo en la noche.",
+            "accepted_option_ids": [
+              "night-home-3"
+            ],
+            "rect": {
+              "x": 0.88,
+              "y": 0.4,
+              "width": 0.12,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.945,
+                "y": 0.415
+              }
+            ]
+          },
+          {
+            "id": "night-home-4",
+            "label_es": "Estudio inglés todos los días.",
+            "accepted_option_ids": [
+              "night-home-4"
+            ],
+            "rect": {
+              "x": 0.525,
+              "y": 0.34,
+              "width": 0.14,
+              "height": 0.5
+            },
+            "head_anchors": [
+              {
+                "x": 0.595,
+                "y": 0.345
+              }
+            ]
           }
         ],
-        "cue_audio_text": "What time is it?"
+        "cues": [
+          {
+            "id": "cue-night-home-1",
+            "text": "First, I come home.",
+            "answer_text": "First, I come home.",
+            "target_id": "night-home-1",
+            "option_id": "night-home-1"
+          },
+          {
+            "id": "cue-night-home-2",
+            "text": "Then, I wash my face in the bathroom.",
+            "answer_text": "Then, I wash my face in the bathroom.",
+            "target_id": "night-home-2",
+            "option_id": "night-home-2"
+          },
+          {
+            "id": "cue-night-home-3",
+            "text": "I sleep at night.",
+            "answer_text": "I sleep at night.",
+            "target_id": "night-home-3",
+            "option_id": "night-home-3"
+          },
+          {
+            "id": "cue-night-home-4",
+            "text": "I study English every day.",
+            "answer_text": "I study English every day.",
+            "target_id": "night-home-4",
+            "option_id": "night-home-4"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M06",
+      "mission_chapter_id": "rutina",
+      "interaction_type": "mission-game",
+      "stage": "Listen",
+      "prompt": "I wake up in the morning. I wash my face. I brush my teeth. I get dressed.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_morning_routine.webp",
+      "options": [
+        {
+          "id": "morning-routine-1",
+          "image_url": "",
+          "label": "I wake up in the morning."
+        },
+        {
+          "id": "morning-routine-2",
+          "image_url": "",
+          "label": "I wash my face."
+        },
+        {
+          "id": "morning-routine-3",
+          "image_url": "",
+          "label": "I brush my teeth."
+        },
+        {
+          "id": "morning-routine-4",
+          "image_url": "",
+          "label": "I get dressed."
+        }
+      ],
+      "correct_option_id": "morning-routine-1",
+      "correct_option_ids": [
+        "morning-routine-1",
+        "morning-routine-2",
+        "morning-routine-3",
+        "morning-routine-4"
+      ],
+      "audio_text": "I wake up in the morning. I wash my face. I brush my teeth. I get dressed.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "I wake up in the morning.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_morning_routine.webp"
+        },
+        {
+          "text": "I wash my face.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_morning_routine.webp"
+        },
+        {
+          "text": "I brush my teeth.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_morning_routine.webp"
+        },
+        {
+          "text": "I get dressed.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_morning_routine.webp"
+        }
+      ],
+      "spanish_translation": "Me despierto en la mañana. Me lavo la cara. Me lavo los dientes. Me visto.",
+      "pedagogy_note": "Mission beat 06/13: La familia se prepara: escucha quién dice cada parte de la rutina.",
+      "mission_game": {
+        "kind": "action-hunt",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "morning-routine-1",
+            "label_es": "Me despierto en la mañana.",
+            "accepted_option_ids": [
+              "morning-routine-1"
+            ],
+            "rect": {
+              "x": 0.045,
+              "y": 0.085,
+              "width": 0.15,
+              "height": 0.36
+            },
+            "head_anchors": [
+              {
+                "x": 0.11,
+                "y": 0.17
+              }
+            ]
+          },
+          {
+            "id": "morning-routine-2",
+            "label_es": "Me lavo la cara.",
+            "accepted_option_ids": [
+              "morning-routine-2"
+            ],
+            "rect": {
+              "x": 0.25,
+              "y": 0.14,
+              "width": 0.175,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.145
+              }
+            ]
+          },
+          {
+            "id": "morning-routine-3",
+            "label_es": "Me lavo los dientes.",
+            "accepted_option_ids": [
+              "morning-routine-3"
+            ],
+            "rect": {
+              "x": 0.5975,
+              "y": 0.18,
+              "width": 0.12,
+              "height": 0.64
+            },
+            "head_anchors": [
+              {
+                "x": 0.665,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "id": "morning-routine-4",
+            "label_es": "Me visto.",
+            "accepted_option_ids": [
+              "morning-routine-4"
+            ],
+            "rect": {
+              "x": 0.845,
+              "y": 0.225,
+              "width": 0.12,
+              "height": 0.57
+            },
+            "head_anchors": [
+              {
+                "x": 0.9,
+                "y": 0.25
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-morning-routine-1",
+            "text": "I wake up in the morning.",
+            "answer_text": "I wake up in the morning.",
+            "target_id": "morning-routine-1",
+            "option_id": "morning-routine-1"
+          },
+          {
+            "id": "cue-morning-routine-2",
+            "text": "I wash my face.",
+            "answer_text": "I wash my face.",
+            "target_id": "morning-routine-2",
+            "option_id": "morning-routine-2"
+          },
+          {
+            "id": "cue-morning-routine-3",
+            "text": "I brush my teeth.",
+            "answer_text": "I brush my teeth.",
+            "target_id": "morning-routine-3",
+            "option_id": "morning-routine-3"
+          },
+          {
+            "id": "cue-morning-routine-4",
+            "text": "I get dressed.",
+            "answer_text": "I get dressed.",
+            "target_id": "morning-routine-4",
+            "option_id": "morning-routine-4"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M07",
+      "mission_chapter_id": "rutina",
+      "interaction_type": "mission-game",
+      "stage": "Listen",
+      "prompt": "I eat breakfast. I go to school. I go to work. I get dressed.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_kitchen_morning.webp",
+      "options": [
+        {
+          "id": "kitchen-morning-1",
+          "image_url": "",
+          "label": "I eat breakfast."
+        },
+        {
+          "id": "kitchen-morning-2",
+          "image_url": "",
+          "label": "I go to school."
+        },
+        {
+          "id": "kitchen-morning-3",
+          "image_url": "",
+          "label": "I go to work."
+        },
+        {
+          "id": "kitchen-morning-4",
+          "image_url": "",
+          "label": "I get dressed."
+        }
+      ],
+      "correct_option_id": "kitchen-morning-1",
+      "correct_option_ids": [
+        "kitchen-morning-1",
+        "kitchen-morning-2",
+        "kitchen-morning-3",
+        "kitchen-morning-4"
+      ],
+      "audio_text": "I eat breakfast. I go to school. I go to work. I get dressed.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "I eat breakfast.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_kitchen_morning.webp"
+        },
+        {
+          "text": "I go to school.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_kitchen_morning.webp"
+        },
+        {
+          "text": "I go to work.",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_kitchen_morning.webp"
+        },
+        {
+          "text": "I get dressed.",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_kitchen_morning.webp"
+        }
+      ],
+      "spanish_translation": "Desayuno. Voy a la escuela. Voy al trabajo. Me visto.",
+      "pedagogy_note": "Mission beat 07/13: En la cocina empieza el día: escucha quién dice cada frase.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la frase y toca a la persona que la dice.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "kitchen-morning-1",
+            "label_es": "Desayuno.",
+            "accepted_option_ids": [
+              "kitchen-morning-1"
+            ],
+            "rect": {
+              "x": 0.28,
+              "y": 0.34,
+              "width": 0.16,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.355,
+                "y": 0.345
+              }
+            ]
+          },
+          {
+            "id": "kitchen-morning-2",
+            "label_es": "Voy a la escuela.",
+            "accepted_option_ids": [
+              "kitchen-morning-2"
+            ],
+            "rect": {
+              "x": 0.65,
+              "y": 0.225,
+              "width": 0.13,
+              "height": 0.525
+            },
+            "head_anchors": [
+              {
+                "x": 0.72,
+                "y": 0.23
+              }
+            ]
+          },
+          {
+            "id": "kitchen-morning-3",
+            "label_es": "Voy al trabajo.",
+            "accepted_option_ids": [
+              "kitchen-morning-3"
+            ],
+            "rect": {
+              "x": 0.825,
+              "y": 0.155,
+              "width": 0.145,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.885,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "id": "kitchen-morning-4",
+            "label_es": "Me visto.",
+            "accepted_option_ids": [
+              "kitchen-morning-4"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.095,
+              "width": 0.12,
+              "height": 0.73
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.1
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-kitchen-morning-1",
+            "text": "I eat breakfast.",
+            "answer_text": "I eat breakfast.",
+            "target_id": "kitchen-morning-1",
+            "option_id": "kitchen-morning-1"
+          },
+          {
+            "id": "cue-kitchen-morning-2",
+            "text": "I go to school.",
+            "answer_text": "I go to school.",
+            "target_id": "kitchen-morning-2",
+            "option_id": "kitchen-morning-2"
+          },
+          {
+            "id": "cue-kitchen-morning-3",
+            "text": "I go to work.",
+            "answer_text": "I go to work.",
+            "target_id": "kitchen-morning-3",
+            "option_id": "kitchen-morning-3"
+          },
+          {
+            "id": "cue-kitchen-morning-4",
+            "text": "I get dressed.",
+            "answer_text": "I get dressed.",
+            "target_id": "kitchen-morning-4",
+            "option_id": "kitchen-morning-4"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M08",
+      "mission_chapter_id": "casa",
+      "interaction_type": "mission-game",
+      "stage": "Listen",
+      "prompt": "There is a table. There are four chairs. There is a lamp. There are two windows.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_count_dining.webp",
+      "options": [
+        {
+          "id": "count-dining-1",
+          "image_url": "",
+          "label": "There is a table."
+        },
+        {
+          "id": "count-dining-2",
+          "image_url": "",
+          "label": "There are four chairs."
+        },
+        {
+          "id": "count-dining-3",
+          "image_url": "",
+          "label": "There is a lamp."
+        },
+        {
+          "id": "count-dining-4",
+          "image_url": "",
+          "label": "There are two windows."
+        }
+      ],
+      "correct_option_id": "count-dining-1",
+      "correct_option_ids": [
+        "count-dining-1",
+        "count-dining-2",
+        "count-dining-3",
+        "count-dining-4"
+      ],
+      "audio_text": "There is a table. There are four chairs. There is a lamp. There are two windows.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "There is a table.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_count_dining.webp"
+        },
+        {
+          "text": "There are four chairs.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_count_dining.webp"
+        },
+        {
+          "text": "There is a lamp.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_count_dining.webp"
+        },
+        {
+          "text": "There are two windows.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_count_dining.webp"
+        }
+      ],
+      "spanish_translation": "Hay una mesa. Hay cuatro sillas. Hay una lámpara. Hay dos ventanas.",
+      "pedagogy_note": "Mission beat 08/13: Antes de la cena, cuenta lo que hay en el comedor.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista y toca lo que describe.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "count-dining-1",
+            "label_es": "Hay una mesa.",
+            "accepted_option_ids": [
+              "count-dining-1"
+            ],
+            "rect": {
+              "x": 0.175,
+              "y": 0.465,
+              "width": 0.64,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.35,
+                "y": 0.485
+              }
+            ]
+          },
+          {
+            "id": "count-dining-2",
+            "label_es": "Hay cuatro sillas.",
+            "accepted_option_ids": [
+              "count-dining-2"
+            ],
+            "rect": {
+              "x": 0.105,
+              "y": 0.43,
+              "width": 0.825,
+              "height": 0.47
+            },
+            "head_anchors": [
+              {
+                "x": 0.175,
+                "y": 0.445
+              },
+              {
+                "x": 0.375,
+                "y": 0.48
+              },
+              {
+                "x": 0.61,
+                "y": 0.48
+              },
+              {
+                "x": 0.885,
+                "y": 0.44
+              }
+            ]
+          },
+          {
+            "id": "count-dining-3",
+            "label_es": "Hay una lámpara.",
+            "accepted_option_ids": [
+              "count-dining-3"
+            ],
+            "rect": {
+              "x": 0.435,
+              "y": 0.02,
+              "width": 0.135,
+              "height": 0.185
+            },
+            "head_anchors": [
+              {
+                "x": 0.5,
+                "y": 0.03
+              }
+            ]
+          },
+          {
+            "id": "count-dining-4",
+            "label_es": "Hay dos ventanas.",
+            "accepted_option_ids": [
+              "count-dining-4"
+            ],
+            "rect": {
+              "x": 0.235,
+              "y": 0.015,
+              "width": 0.54,
+              "height": 0.455
+            },
+            "head_anchors": [
+              {
+                "x": 0.3,
+                "y": 0.02
+              },
+              {
+                "x": 0.7,
+                "y": 0.02
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-count-dining-1",
+            "text": "There is a table.",
+            "answer_text": "There is a table.",
+            "target_id": "count-dining-1",
+            "option_id": "count-dining-1"
+          },
+          {
+            "id": "cue-count-dining-2",
+            "text": "There are four chairs.",
+            "answer_text": "There are four chairs.",
+            "target_id": "count-dining-2",
+            "option_id": "count-dining-2"
+          },
+          {
+            "id": "cue-count-dining-3",
+            "text": "There is a lamp.",
+            "answer_text": "There is a lamp.",
+            "target_id": "count-dining-3",
+            "option_id": "count-dining-3"
+          },
+          {
+            "id": "cue-count-dining-4",
+            "text": "There are two windows.",
+            "answer_text": "There are two windows.",
+            "target_id": "count-dining-4",
+            "option_id": "count-dining-4"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M09",
+      "mission_chapter_id": "casa",
+      "interaction_type": "mission-game",
+      "stage": "Listen",
+      "prompt": "It is seven o'clock. It is nine o'clock. It is three o'clock. It is six o'clock.",
+      "prompt_image_url": "/lesson-assets/a1_u4_home_v1_clocks.webp",
+      "options": [
+        {
+          "id": "clocks-v2-1",
+          "image_url": "",
+          "label": "It is seven o'clock."
+        },
+        {
+          "id": "clocks-v2-2",
+          "image_url": "",
+          "label": "It is nine o'clock."
+        },
+        {
+          "id": "clocks-v2-3",
+          "image_url": "",
+          "label": "It is three o'clock."
+        },
+        {
+          "id": "clocks-v2-4",
+          "image_url": "",
+          "label": "It is six o'clock."
+        }
+      ],
+      "correct_option_id": "clocks-v2-1",
+      "correct_option_ids": [
+        "clocks-v2-1",
+        "clocks-v2-2",
+        "clocks-v2-3",
+        "clocks-v2-4"
+      ],
+      "audio_text": "It is seven o'clock. It is nine o'clock. It is three o'clock. It is six o'clock.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "It is seven o'clock.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_clocks.webp"
+        },
+        {
+          "text": "It is nine o'clock.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_clocks.webp"
+        },
+        {
+          "text": "It is three o'clock.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_clocks.webp"
+        },
+        {
+          "text": "It is six o'clock.",
+          "speaker_role": "teacher",
+          "image_url": "/lesson-assets/a1_u4_home_v1_clocks.webp"
+        }
+      ],
+      "spanish_translation": "Son las siete. Son las nueve. Son las tres. Son las seis.",
+      "pedagogy_note": "Mission beat 09/13: En la pared hay cuatro relojes: escucha la hora y tócala.",
+      "mission_game": {
+        "kind": "crowd-search",
+        "instruction_es": "Escucha la pista y toca lo que describe.",
+        "validation": "ordered",
+        "targets": [
+          {
+            "id": "clocks-v2-1",
+            "label_es": "Son las siete.",
+            "accepted_option_ids": [
+              "clocks-v2-1"
+            ],
+            "rect": {
+              "x": 0.027,
+              "y": 0.278,
+              "width": 0.189,
+              "height": 0.29
+            },
+            "head_anchors": [
+              {
+                "x": 0.121,
+                "y": 0.288
+              }
+            ]
+          },
+          {
+            "id": "clocks-v2-2",
+            "label_es": "Son las nueve.",
+            "accepted_option_ids": [
+              "clocks-v2-2"
+            ],
+            "rect": {
+              "x": 0.278,
+              "y": 0.274,
+              "width": 0.193,
+              "height": 0.298
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.284
+              }
+            ]
+          },
+          {
+            "id": "clocks-v2-3",
+            "label_es": "Son las tres.",
+            "accepted_option_ids": [
+              "clocks-v2-3"
+            ],
+            "rect": {
+              "x": 0.53,
+              "y": 0.274,
+              "width": 0.195,
+              "height": 0.298
+            },
+            "head_anchors": [
+              {
+                "x": 0.628,
+                "y": 0.284
+              }
+            ]
+          },
+          {
+            "id": "clocks-v2-4",
+            "label_es": "Son las seis.",
+            "accepted_option_ids": [
+              "clocks-v2-4"
+            ],
+            "rect": {
+              "x": 0.778,
+              "y": 0.276,
+              "width": 0.191,
+              "height": 0.296
+            },
+            "head_anchors": [
+              {
+                "x": 0.874,
+                "y": 0.286
+              }
+            ]
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-clocks-v2-1",
+            "text": "It is seven o'clock.",
+            "answer_text": "It is seven o'clock.",
+            "target_id": "clocks-v2-1",
+            "option_id": "clocks-v2-1"
+          },
+          {
+            "id": "cue-clocks-v2-2",
+            "text": "It is nine o'clock.",
+            "answer_text": "It is nine o'clock.",
+            "target_id": "clocks-v2-2",
+            "option_id": "clocks-v2-2"
+          },
+          {
+            "id": "cue-clocks-v2-3",
+            "text": "It is three o'clock.",
+            "answer_text": "It is three o'clock.",
+            "target_id": "clocks-v2-3",
+            "option_id": "clocks-v2-3"
+          },
+          {
+            "id": "cue-clocks-v2-4",
+            "text": "It is six o'clock.",
+            "answer_text": "It is six o'clock.",
+            "target_id": "clocks-v2-4",
+            "option_id": "clocks-v2-4"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M10",
+      "mission_chapter_id": "confirma",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "prompt": "It is six o'clock.",
+      "prompt_image_url": "",
+      "options": [
+        {
+          "id": "time-response",
+          "label": "It is six o'clock.",
+          "image_url": "/lesson-assets/a1_u4_mission_clock_six_v3.webp"
+        }
+      ],
+      "correct_option_id": "time-response",
+      "audio_text": "It is six o'clock.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "What time is it?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_time_question.webp"
+        }
+      ],
+      "spanish_translation": "Son las seis.",
+      "pedagogy_note": "Mission beat 10/13: La madre pregunta la hora antes de salir; responde por la familia.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "What time is it?",
+        "targets": [
+          {
+            "id": "time-response",
+            "label_es": "Son las seis.",
+            "accepted_option_ids": [
+              "time-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-time-response",
+            "text": "What time is it?",
+            "answer_text": "It is six o'clock.",
+            "target_id": "time-response",
+            "option_id": "time-response"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M11",
+      "mission_chapter_id": "confirma",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "prompt": "The book is on the table.",
+      "prompt_image_url": "",
+      "options": [
+        {
+          "id": "book-response",
+          "label": "The book is on the table.",
+          "image_url": "/lesson-assets/a1_u4_home_v1_book_response.webp"
+        }
+      ],
+      "correct_option_id": "book-response",
+      "audio_text": "The book is on the table.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "Where is the book?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_book_question.webp"
+        }
+      ],
+      "spanish_translation": "El libro está sobre la mesa.",
+      "pedagogy_note": "Mission beat 11/13: El padre busca el libro; dile dónde está.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "Where is the book?",
+        "targets": [
+          {
+            "id": "book-response",
+            "label_es": "El libro está sobre la mesa.",
+            "accepted_option_ids": [
+              "book-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-book-response",
+            "text": "Where is the book?",
+            "answer_text": "The book is on the table.",
+            "target_id": "book-response",
+            "option_id": "book-response"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M12",
+      "mission_chapter_id": "confirma",
+      "interaction_type": "mission-speak",
+      "stage": "Speak",
+      "prompt": "I wake up in the morning.",
+      "prompt_image_url": "",
+      "options": [
+        {
+          "id": "morning-response",
+          "label": "I wake up in the morning.",
+          "image_url": "/lesson-assets/a1_u4_home_v1_morning_response.webp"
+        }
+      ],
+      "correct_option_id": "morning-response",
+      "audio_text": "I wake up in the morning.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "What do you do in the morning?",
+          "speaker_role": "female-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_morning_question.webp"
+        }
+      ],
+      "spanish_translation": "Me despierto en la mañana.",
+      "pedagogy_note": "Mission beat 12/13: La abuela pregunta por tu mañana; responde por ti.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "What do you do in the morning?",
+        "targets": [
+          {
+            "id": "morning-response",
+            "label_es": "Me despierto en la mañana.",
+            "accepted_option_ids": [
+              "morning-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-morning-response",
+            "text": "What do you do in the morning?",
+            "answer_text": "I wake up in the morning.",
+            "target_id": "morning-response",
+            "option_id": "morning-response"
+          }
+        ]
+      }
+    },
+    {
+      "slide_id": "M13",
+      "mission_chapter_id": "confirma",
+      "interaction_type": "mission-finale",
+      "stage": "Speak",
+      "prompt": "I study English on Monday.",
+      "prompt_image_url": "",
+      "options": [
+        {
+          "id": "english-response",
+          "label": "I study English on Monday.",
+          "image_url": "/lesson-assets/a1_u4_home_v1_english_response.webp"
+        }
+      ],
+      "correct_option_id": "english-response",
+      "audio_text": "I study English on Monday.",
+      "answer_audio_text": null,
+      "audio_turns": [
+        {
+          "text": "When do you study English?",
+          "speaker_role": "male-character",
+          "image_url": "/lesson-assets/a1_u4_home_v1_english_question.webp"
+        }
+      ],
+      "spanish_translation": "Estudio inglés el lunes.",
+      "pedagogy_note": "Mission beat 13/13: El abuelo pregunta cuándo estudias inglés; responde y el día queda listo.",
+      "mission_game": {
+        "kind": "voice-gate",
+        "instruction_es": "Escucha la pregunta. Después lee la respuesta en voz alta.",
+        "validation": "single",
+        "cue_audio_text": "When do you study English?",
+        "targets": [
+          {
+            "id": "english-response",
+            "label_es": "Estudio inglés el lunes.",
+            "accepted_option_ids": [
+              "english-response"
+            ],
+            "rect": {
+              "x": 0.1,
+              "y": 0.1,
+              "width": 0.8,
+              "height": 0.8
+            }
+          }
+        ],
+        "cues": [
+          {
+            "id": "cue-english-response",
+            "text": "When do you study English?",
+            "answer_text": "I study English on Monday.",
+            "target_id": "english-response",
+            "option_id": "english-response"
+          }
+        ]
       }
     }
   ]

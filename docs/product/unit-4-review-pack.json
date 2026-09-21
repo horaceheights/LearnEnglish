@@ -12,12 +12,12 @@
   },
   "production": {
     "initial_batch_ceiling_usd": "1.10",
-    "estimated_usd": "0.73",
+    "estimated_usd": "0.77",
     "mxn_per_usd": "16.9707",
     "fx_date": "2026-09-11",
     "automatic_retries": 0,
     "human_approval": "pending",
-    "note": "13 fresh review-only stills for the rebuilt Unit 4 review: 5 replace the exact-byte repeats of earlier teaching images (originals and their teaching uses stay untouched) and 8 retrieve Unit 4 language the old 32-card review never showed. The four existing a1_photo_u4_review_* photographs are reused unchanged. No automatic retries."
+    "note": "13 fresh review-only stills for the rebuilt Unit 4 review: 5 replace the exact-byte repeats of earlier teaching images (originals and their teaching uses stay untouched) and 8 retrieve Unit 4 language the old 32-card review never showed. The four existing a1_photo_u4_review_* photographs are reused unchanged. No automatic retries. The first seven-o'clock attempt was generated, visually measured against the dial centre, rejected for an hour hand about a third of the way from 7 towards 8, and replaced by one deliberately re-prompted attempt; its receipt and rejection stay in the ledger."
   },
   "shared_prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, realistic anatomy and hands. NOT an illustration, collage, cutout, split panel or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, captions, speech bubbles, logos or readable words except an explicitly requested numeral. A first-time learner must recognize the meaning at phone size: the key person, action and object are large, sharp and inside the central safe area. Fresh scenes for this review only; never imitate a previous course photo. Ordinary anonymous people, never the recurring course cast (no Ana, Luis, Sofia or Diego).",
   "assets": [
@@ -130,7 +130,7 @@
       "prompt": "A woman in her twenties studying English alone at a home desk in the evening, photographed from the front across the desk. She is writing in an open notebook with a pen in her right hand and looking down at an open textbook beside it; a small desk lamp lights the page. Her face, both hands and the open books fill at least 45% of the frame width and are sharp. The book pages show only soft unreadable printed lines: no readable words anywhere. No laptop screen content, no classroom, no other person, no readable words, no logos."
     },
     {
-      "id": "clock-seven",
+      "id": "clock-seven-v2",
       "runtime_filename": "a1_u4_review_v1_clock_seven.webp",
       "change_control": {
         "kind": "scoped-replacement",
@@ -138,7 +138,7 @@
           "a1_scene_clock7_598dfdb.webp"
         ]
       },
-      "prompt": "One round analog wall clock with a plain white face and black hands hanging on a warm painted living-room wall, photographed straight on and centred. The clock shows exactly seven o'clock: the short hour hand points precisely at 7 and the long minute hand points precisely straight up at 12, with no second hand ambiguity. The clock face fills at least 45% of the frame height, is perfectly sharp and the numerals 1 to 12 are printed clearly. Nothing overlaps the clock face. No other clock, no people, no furniture in front of it, no readable words other than the clock numerals."
+      "prompt": "One round analog wall clock with a plain white face and two black hands, hanging on a warm painted living-room wall, photographed straight on and centred. The time is exactly seven o'clock. The long minute hand lies exactly along the straight line from the centre of the dial to the numeral 12, pointing straight up. The short hour hand lies exactly along the straight line from the centre of the dial to the numeral 7, so its tip ends just short of the printed 7 and points at nothing else: it must not lie between 7 and 8, must not point at 8, and must not sit anywhere below or past the 7. The angle between the two hands is exactly 150 degrees. The hour hand is clearly shorter and thicker than the minute hand and there is no second hand. The clock face fills at least 45% of the frame height, is perfectly sharp and the numerals 1 to 12 are printed clearly around it. Nothing overlaps the face. No other clock, no people, no furniture in front of it, no readable words other than the clock numerals."
     },
     {
       "id": "monday-calendar",
