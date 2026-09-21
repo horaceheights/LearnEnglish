@@ -53,6 +53,45 @@ Unit 1 is the completed reference. The full Units 2–7 rollout remains unfinish
 - Follow-up verification: **all 309 backend tests pass**. Mobile fixture updates retain the original Unit 1 targets while accepting explicit object-group icons, pin the three revised review instruction cards and four Unit 2 mission voice gates, compare all new Unit 2 runtime image bytes with their inspection records, and preserve old asset files without requiring unused retired shots in Metro. The interaction runner now reaches the unchanged release-integrity gate and fails there because the aggregate course fingerprint remains the previous candidate (`5417263413ef9ff1a26057e5e39a01f86e9389d3` versus current `8d8e542660611870934d407e5158b5f133695e12`). Update that fingerprint deliberately with the finished canonical release candidate; do not weaken the gate or describe this preflight as passed.
 - A separate local Android export succeeded (2,289 modules, 5.3 MB Hermes bundle); all sixteen new review WebP payloads were verified present in its content-addressed asset output. This is a build check only, not an installed-device test, protected release preflight, or publication. No Preview/Production channel was changed. The web optimized build and 17 web regression tests also pass.
 
+### Unit 4 parity checkpoint — 2026-09-21
+
+Branch `claude/unit-4-parity`, based on `origin/main` at `d6d49df`. Unit 4 now passes
+`python scripts/audit_a1_unit_parity.py` (`ready: true`) alongside Units 2 and 3; Units 5–7 still correctly fail it.
+
+- **4.9** is rebuilt from 32 to 48 cards (8 Learn, 8 Recognize, 18 Listen, 6 Speak, 8 Use). Exact-byte reuse of
+  earlier teaching pictures is zero, down from nine files, and the successful path retrieves 46 of the unit's 54
+  declared words, up from 20. Thirteen fresh review-only stills add the kitchen and bathroom, a lamp next to a sofa,
+  a bag under a table, washing a face, brushing teeth, going to school and going to work.
+- **4.10** is rebuilt from four stub beats to the contract's thirteen: nine listening scenes with 36 decisions and
+  four question-and-answer voice gates with distinct question and response views, across guided-search,
+  crowd-search, contrast-hunt, action-hunt and voice-gate. Every contract function is practised on the successful
+  path, including the bathroom, breakfast, sleeping, the sequence words and both the afternoon and the night.
+- The three stub room beats are re-authored, so the approved full-frame photo edits pinned to their old cards are
+  recorded as superseded in `docs/qa/course-mission-photo-edits-superseded-v1.json` and each rebuilt beat binds its
+  own mission-only still. Every retired original stays byte-for-byte on disk; only Lesson 4.9 and 4.10 bindings
+  change, through nine `review-reuses-earlier-image` and four `mission-rebuild-retires-scene` exceptions.
+- Media: 32 paid attempts, 30 usable. Two were rejected after measurement and deliberately re-prompted — a
+  seven-o'clock face whose hour hand sat twelve degrees past the 7, and a four-clock wall with the same fault on its
+  first dial; the replacements measure 204.6° and 211.4° against an ideal 210°. Reported usage totals
+  **US$1.518101 / MX$25.7632** at uncached list rates before tax or discounts (16.9707 MXN/USD, dated 2026-09-11),
+  against pack ceilings of US$1.10 and US$1.40. The `0ed6e6f6` commit message states an earlier US$1.36 estimate
+  made before the receipts were totalled; this figure is the receipts total and supersedes it. No automatic
+  retries and no fallback model.
+- Targets are measured on the real bytes and hash-bound in the pack's agent reviews; all 63 scene-slot layouts place
+  every marker inside the frame at 48px with no overlap. Disclosed for human review: the dining-room counting beat's
+  four leader lines cross over the table in the portrait slot, and the man arriving home at night reads greyer than
+  the father in the kickoff portrait.
+- Audio: 26 new takes, 40 reused, 478 billable characters against a declared 1,000-character ceiling. The
+  missing-asset dry run is zero and the pinned-cast validator passes. Every new spoken line over a picture has a
+  reviewed, gender-matched voice. The persistent catalog is exported from `0ed6e6f6` (4,718 immutable assets) and the
+  aggregate course fingerprint is re-pinned in both files that gate it.
+- Verification: parity audit (2, 3, 4 ready), lesson validator under the Preview policy, media preservation audit
+  with zero errors, answer-choice guardrail over 964 banks, pinned-cast validator, backend suite 387/387, web
+  regression 18/18, and the complete mobile interaction suite under the Preview policy. Mobile TypeScript and the
+  Android export could **not** run locally: `@expo/vector-icons` is absent from both checkouts' installations, which
+  produces all 15 reported errors and no others. CI covers them. Human image review, semantic approval and
+  physical-device QA remain pending.
+
 ### Unit 3 parity checkpoint — 2026-09-18
 
 Branch `claude/units-3-7-parity`, based on `origin/main` at `c2f5f96`. Unit 3 now passes `python scripts/audit_a1_unit_parity.py` (`ready: true`); Units 4–7 still correctly fail it.
