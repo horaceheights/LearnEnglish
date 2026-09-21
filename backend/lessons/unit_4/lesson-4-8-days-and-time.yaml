@@ -9,7 +9,7 @@
   "lesson_title": "Unit 4: Home and Daily Life",
   "sub_lesson_id": "4.8",
   "sub_lesson_title": "Days and Time",
-  "goal": "Recognize the seven days, morning/afternoon/night anchors, and whole-hour times from one to ten in supported routine statements.",
+  "goal": "Recognize the seven days, today, morning/afternoon/night anchors, and whole-hour times from one to ten in supported routine statements.",
   "vocabulary": [
     "Monday",
     "Tuesday",
@@ -18,6 +18,7 @@
     "Friday",
     "Saturday",
     "Sunday",
+    "today",
     "afternoon",
     "night",
     "o'clock",
@@ -41,13 +42,10 @@
     "sleep",
     "every day"
   ],
-  "grammar_function": "on + day; in the morning/afternoon; at night; It is number o'clock. Temporal uses of on/in and new at-night chunk are taught as fixed phrases.",
+  "grammar_function": "Today is + day; on + day; in the morning/afternoon; at night; It is number o'clock. Temporal uses of on/in and new at-night chunk are taught as fixed phrases.",
   "prerequisite": "2.6 numbers 1-10, 4.5 morning anchor, and 4.7 routine simple present.",
-  "speaking_outcome": "Repeat two day names, three part-of-day phrases, and one whole-hour time sentence; remaining days recycle in review/mission.",
+  "speaking_outcome": "Repeat day names, Today is sentences for the week, three part-of-day phrases, and one whole-hour time sentence.",
   "purposeful_review_slides": [
-    "R8",
-    "N6",
-    "U7",
     "U8"
   ],
   "cards": [
@@ -60,7 +58,7 @@
       "options": [
         {
           "id": "monday-1",
-          "image_url": "a1_scene_day-mon_2655a7f.webp",
+          "image_url": "a1_photo_u4_today_monday_v1.webp",
           "label": "Monday"
         }
       ],
@@ -79,7 +77,7 @@
       "options": [
         {
           "id": "tuesday-1",
-          "image_url": "a1_scene_day-tue_66402b4.webp",
+          "image_url": "a1_photo_u4_today_tuesday_v1.webp",
           "label": "Tuesday"
         }
       ],
@@ -98,7 +96,7 @@
       "options": [
         {
           "id": "wednesday-1",
-          "image_url": "a1_scene_day-wed_5111fd3.webp",
+          "image_url": "a1_photo_u4_today_wednesday_v1.webp",
           "label": "Wednesday"
         }
       ],
@@ -117,7 +115,7 @@
       "options": [
         {
           "id": "thursday-1",
-          "image_url": "a1_scene_day-thu_3742c6b.webp",
+          "image_url": "a1_photo_u4_today_thursday_v1.webp",
           "label": "Thursday"
         }
       ],
@@ -136,7 +134,7 @@
       "options": [
         {
           "id": "friday-1",
-          "image_url": "a1_scene_day-fri_4bed320.webp",
+          "image_url": "a1_photo_u4_today_friday_v1.webp",
           "label": "Friday"
         }
       ],
@@ -155,7 +153,7 @@
       "options": [
         {
           "id": "saturday-1",
-          "image_url": "a1_scene_day-sat_88fab45.webp",
+          "image_url": "a1_photo_u4_today_saturday_v1.webp",
           "label": "Saturday"
         }
       ],
@@ -174,7 +172,7 @@
       "options": [
         {
           "id": "sunday-1",
-          "image_url": "a1_scene_day-sun_8b65588.webp",
+          "image_url": "a1_photo_u4_today_sunday_v1.webp",
           "label": "Sunday"
         }
       ],
@@ -187,24 +185,43 @@
     {
       "slide_id": "L8",
       "interaction_type": "teach",
-      "prompt": "In the morning",
+      "prompt": "Today",
       "stage": "Learn",
-      "correct_option_id": "in-the-morning-1",
+      "correct_option_id": "today-1",
       "options": [
         {
-          "id": "in-the-morning-1",
-          "image_url": "a1_scene_morning_45a21e4.webp",
-          "label": "In the morning"
+          "id": "today-1",
+          "image_url": "a1_photo_u4_today_v1.webp",
+          "label": "Today"
         }
       ],
-      "audio_text": "In the morning",
+      "audio_text": "Today",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "En la mañana",
-      "pedagogy_note": "reviews morning and introduces temporal reuse of in as chunk"
+      "spanish_translation": "Hoy",
+      "pedagogy_note": "introduces today"
     },
     {
       "slide_id": "L9",
+      "interaction_type": "teach",
+      "prompt": "Today is Tuesday.",
+      "stage": "Learn",
+      "correct_option_id": "today-is-tuesday-1",
+      "options": [
+        {
+          "id": "today-is-tuesday-1",
+          "image_url": "a1_photo_u4_today_tuesday_v1.webp",
+          "label": "Today is Tuesday."
+        }
+      ],
+      "audio_text": "Today is Tuesday.",
+      "answer_audio_text": null,
+      "prompt_image_url": "",
+      "spanish_translation": "Hoy es martes.",
+      "pedagogy_note": "introduces Today is Tuesday"
+    },
+    {
+      "slide_id": "L10",
       "interaction_type": "teach",
       "prompt": "In the afternoon",
       "stage": "Learn",
@@ -223,7 +240,7 @@
       "pedagogy_note": "introduces afternoon"
     },
     {
-      "slide_id": "L10",
+      "slide_id": "L11",
       "interaction_type": "teach",
       "prompt": "I sleep at night.",
       "stage": "Learn",
@@ -243,7 +260,7 @@
       "audio_speaker": "ana"
     },
     {
-      "slide_id": "L11",
+      "slide_id": "L12",
       "interaction_type": "teach",
       "prompt": "It is seven o'clock.",
       "stage": "Learn",
@@ -260,26 +277,6 @@
       "prompt_image_url": "",
       "spanish_translation": "Son las siete.",
       "pedagogy_note": "introduces whole-hour frame"
-    },
-    {
-      "slide_id": "L12",
-      "interaction_type": "teach",
-      "prompt": "I study English on Monday.",
-      "stage": "Learn",
-      "correct_option_id": "i-study-english-on-monday-1",
-      "options": [
-        {
-          "id": "i-study-english-on-monday-1",
-          "image_url": "a1_photo_u4_study_monday_v1.webp",
-          "label": "I study English on Monday."
-        }
-      ],
-      "audio_text": "I study English on Monday.",
-      "answer_audio_text": null,
-      "prompt_image_url": "",
-      "spanish_translation": "Estudio inglés el lunes.",
-      "pedagogy_note": "introduces temporal on; exceptional load is explicitly flagged",
-      "audio_speaker": "ana"
     },
     {
       "slide_id": "R1",
@@ -442,58 +439,51 @@
     },
     {
       "slide_id": "R7",
-      "interaction_type": "i2t4",
+      "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-study-english-on-monday-3",
+      "correct_option_id": "today-is-tuesday-1",
       "options": [
         {
-          "id": "i-study-english-on-tuesday-1",
+          "id": "today-is-monday-2",
           "image_url": "",
-          "label": "I study English on Tuesday."
+          "label": "Today is Monday."
         },
         {
-          "id": "i-work-on-monday-2",
+          "id": "today-is-tuesday-1",
           "image_url": "",
-          "label": "I work on Monday."
-        },
-        {
-          "id": "i-study-english-on-monday-3",
-          "image_url": "",
-          "label": "I study English on Monday."
+          "label": "Today is Tuesday."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I study English on Monday.",
-      "prompt_image_url": "a1_photo_u4_study_monday_v1.webp",
+      "answer_audio_text": "Today is Tuesday.",
+      "prompt_image_url": "a1_photo_u4_today_tuesday_v1.webp",
       "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "one mismatch per distractor; incorrect in-Monday never modeled",
-      "answer_audio_speaker": "ana"
+      "pedagogy_note": "recognizes Today is Tuesday from calendar scene"
     },
     {
       "slide_id": "R8",
       "interaction_type": "i2t2",
       "prompt": "",
       "stage": "Recognize",
-      "correct_option_id": "i-wake-up-every-day-1",
+      "correct_option_id": "today-is-friday-1",
       "options": [
         {
-          "id": "i-wake-up-every-day-1",
+          "id": "today-is-thursday-2",
           "image_url": "",
-          "label": "I wake up every day."
+          "label": "Today is Thursday."
         },
         {
-          "id": "i-study-english-on-monday-2",
+          "id": "today-is-friday-1",
           "image_url": "",
-          "label": "I study English on Monday."
+          "label": "Today is Friday."
         }
       ],
       "audio_text": "",
-      "answer_audio_text": "I wake up every day.",
-      "prompt_image_url": "a1_scene_i-wake-daily_acdb17a.webp",
+      "answer_audio_text": "Today is Friday.",
+      "prompt_image_url": "a1_photo_u4_today_friday_v1.webp",
       "spanish_translation": "Elige la oración.",
-      "pedagogy_note": "4.7 review; distractor changes the visible action instead of asserting a true subset day",
-      "answer_audio_speaker": "ana"
+      "pedagogy_note": "recognizes Today is Friday from calendar scene"
     },
     {
       "slide_id": "N1",
@@ -593,51 +583,51 @@
     },
     {
       "slide_id": "N5",
-      "interaction_type": "a2i2",
+      "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "night-2",
+      "correct_option_id": "today-is-tuesday-1",
       "options": [
         {
-          "id": "afternoon-1",
-          "image_url": "a1_scene_afternoon_7a10f39.webp",
-          "label": null
+          "id": "today-is-monday-2",
+          "image_url": "",
+          "label": "Today is Monday."
         },
         {
-          "id": "night-2",
-          "image_url": "a1_scene_night_1be2a44.webp",
-          "label": null
+          "id": "today-is-tuesday-1",
+          "image_url": "",
+          "label": "Today is Tuesday."
         }
       ],
-      "audio_text": "At night",
+      "audio_text": "Today is Tuesday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "text hidden"
+      "pedagogy_note": "audio discrimination for Today is Tuesday"
     },
     {
       "slide_id": "N6",
       "interaction_type": "a2t2",
       "prompt": "Listen and choose.",
       "stage": "Listen",
-      "correct_option_id": "they-work-every-day-1",
+      "correct_option_id": "today-is-friday-1",
       "options": [
         {
-          "id": "they-work-every-day-1",
+          "id": "today-is-wednesday-2",
           "image_url": "",
-          "label": "They work every day."
+          "label": "Today is Wednesday."
         },
         {
-          "id": "they-are-working-2",
+          "id": "today-is-friday-1",
           "image_url": "",
-          "label": "They are working."
+          "label": "Today is Friday."
         }
       ],
-      "audio_text": "They work every day.",
+      "audio_text": "Today is Friday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
       "spanish_translation": "Escucha y elige.",
-      "pedagogy_note": "4.7 review; progressive sentence known from Unit 1"
+      "pedagogy_note": "audio discrimination for Today is Friday"
     },
     {
       "slide_id": "S1",
@@ -648,7 +638,7 @@
       "options": [
         {
           "id": "monday-1",
-          "image_url": "a1_scene_day-mon_2655a7f.webp",
+          "image_url": "a1_photo_u4_today_monday_v1.webp",
           "label": "Monday"
         }
       ],
@@ -667,7 +657,7 @@
       "options": [
         {
           "id": "friday-1",
-          "image_url": "a1_scene_day-fri_4bed320.webp",
+          "image_url": "a1_photo_u4_today_friday_v1.webp",
           "label": "Friday"
         }
       ],
@@ -738,21 +728,21 @@
     {
       "slide_id": "S6",
       "interaction_type": "repeat",
-      "prompt": "It is seven o'clock.",
+      "prompt": "Today is Tuesday.",
       "stage": "Speak",
-      "correct_option_id": "it-is-seven-o-clock-1",
+      "correct_option_id": "today-is-tuesday-1",
       "options": [
         {
-          "id": "it-is-seven-o-clock-1",
-          "image_url": "a1_scene_clock7_598dfdb.webp",
-          "label": "It is seven o'clock."
+          "id": "today-is-tuesday-1",
+          "image_url": "a1_photo_u4_today_tuesday_v1.webp",
+          "label": "Today is Tuesday."
         }
       ],
-      "audio_text": "It is seven o'clock.",
+      "audio_text": "Today is Tuesday.",
       "answer_audio_text": null,
       "prompt_image_url": "",
-      "spanish_translation": "Son las siete.",
-      "pedagogy_note": "time sentence"
+      "spanish_translation": "Hoy es martes.",
+      "pedagogy_note": "pronunciation practice for Today is Tuesday"
     },
     {
       "slide_id": "U1",
@@ -786,34 +776,63 @@
     {
       "slide_id": "U2",
       "interaction_type": "complete2",
-      "prompt": "It is ___ ___.",
+      "prompt": "Today ___ ___.",
       "stage": "Use",
-      "correct_option_id": "nine",
+      "correct_option_id": "is",
       "options": [
         {
-          "id": "nine",
+          "id": "is",
           "image_url": "",
-          "label": "nine"
+          "label": "is"
         },
         {
-          "id": "o'clock",
+          "id": "tuesday",
           "image_url": "",
-          "label": "o'clock"
+          "label": "Tuesday"
         }
       ],
-      "audio_text": "It is nine o'clock.",
-      "answer_audio_text": "It is nine o'clock.",
-      "prompt_image_url": "a1_scene_clock9_fdd3b54.webp",
-      "spanish_translation": "Son las nueve.",
-      "pedagogy_note": "written day recognition",
-      "translation": "Son las nueve.",
+      "audio_text": "Today is Tuesday.",
+      "answer_audio_text": "Today is Tuesday.",
+      "prompt_image_url": "a1_photo_u4_today_tuesday_v1.webp",
+      "spanish_translation": "Hoy es martes.",
+      "pedagogy_note": "guided completion of Today is Tuesday",
+      "translation": "Hoy es martes.",
       "correct_option_ids": [
-        "nine",
-        "o'clock"
+        "is",
+        "tuesday"
       ]
     },
     {
       "slide_id": "U3",
+      "interaction_type": "complete2",
+      "prompt": "Today ___ ___.",
+      "stage": "Use",
+      "correct_option_id": "is",
+      "options": [
+        {
+          "id": "is",
+          "image_url": "",
+          "label": "is"
+        },
+        {
+          "id": "friday",
+          "image_url": "",
+          "label": "Friday"
+        }
+      ],
+      "audio_text": "Today is Friday.",
+      "answer_audio_text": "Today is Friday.",
+      "prompt_image_url": "a1_photo_u4_today_friday_v1.webp",
+      "spanish_translation": "Hoy es viernes.",
+      "pedagogy_note": "guided completion of Today is Friday",
+      "translation": "Hoy es viernes.",
+      "correct_option_ids": [
+        "is",
+        "friday"
+      ]
+    },
+    {
+      "slide_id": "U4",
       "interaction_type": "complete2",
       "prompt": "I sleep ___ ___.",
       "stage": "Use",
@@ -844,7 +863,7 @@
       "answer_audio_speaker": "ana"
     },
     {
-      "slide_id": "U4",
+      "slide_id": "U5",
       "interaction_type": "complete2",
       "prompt": "I study English ___ ___.",
       "stage": "Use",
@@ -873,7 +892,7 @@
       ]
     },
     {
-      "slide_id": "U5",
+      "slide_id": "U6",
       "interaction_type": "complete-sentence",
       "prompt": "___ ___ ___ ___.",
       "stage": "Use",
@@ -914,104 +933,38 @@
       ]
     },
     {
-      "slide_id": "U6",
-      "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___ ___.",
-      "stage": "Use",
-      "correct_option_id": "word-1",
-      "options": [
-        {
-          "id": "word-1",
-          "image_url": "",
-          "label": "I"
-        },
-        {
-          "id": "word-2",
-          "image_url": "",
-          "label": "wake"
-        },
-        {
-          "id": "word-3",
-          "image_url": "",
-          "label": "up"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "in"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "the"
-        },
-        {
-          "id": "word-6",
-          "image_url": "",
-          "label": "morning"
-        }
-      ],
-      "audio_text": "I wake up in the morning.",
-      "answer_audio_text": "I wake up in the morning.",
-      "prompt_image_url": "a1_scene_morning_45a21e4.webp",
-      "spanish_translation": "Me despierto en la mañana.",
-      "pedagogy_note": "temporal preposition",
-      "audio_speaker": "ana",
-      "translation": "Me despierto en la mañana.",
-      "correct_option_ids": [
-        "word-1",
-        "word-2",
-        "word-3",
-        "word-4",
-        "word-5",
-        "word-6"
-      ]
-    },
-    {
       "slide_id": "U7",
       "interaction_type": "complete-sentence",
-      "prompt": "___ ___ ___ ___ ___.",
+      "prompt": "___ ___ ___.",
       "stage": "Use",
       "correct_option_id": "word-1",
       "options": [
         {
           "id": "word-1",
           "image_url": "",
-          "label": "I"
+          "label": "Today"
         },
         {
           "id": "word-2",
           "image_url": "",
-          "label": "study"
+          "label": "is"
         },
         {
           "id": "word-3",
           "image_url": "",
-          "label": "English"
-        },
-        {
-          "id": "word-4",
-          "image_url": "",
-          "label": "on"
-        },
-        {
-          "id": "word-5",
-          "image_url": "",
-          "label": "Monday"
+          "label": "Tuesday"
         }
       ],
-      "audio_text": "I study English on Monday.",
-      "answer_audio_text": "I study English on Monday.",
-      "prompt_image_url": "a1_scene_day-mon_2655a7f.webp",
-      "spanish_translation": "Estudio inglés el lunes.",
-      "pedagogy_note": "4.5 time-anchor review",
-      "translation": "Estudio inglés el lunes.",
+      "audio_text": "Today is Tuesday.",
+      "answer_audio_text": "Today is Tuesday.",
+      "prompt_image_url": "a1_photo_u4_today_tuesday_v1.webp",
+      "spanish_translation": "Hoy es martes.",
+      "pedagogy_note": "full construction of Today is Tuesday",
+      "translation": "Hoy es martes.",
       "correct_option_ids": [
         "word-1",
         "word-2",
-        "word-3",
-        "word-4",
-        "word-5"
+        "word-3"
       ]
     },
     {
