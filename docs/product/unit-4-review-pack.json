@@ -1,0 +1,155 @@
+{
+  "lesson_id": "lesson-4-9-unit-4-review",
+  "lesson_number": "4.9",
+  "revision": 1,
+  "output_namespace": "unit-4-review-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.10",
+    "estimated_usd": "0.73",
+    "mxn_per_usd": "16.9707",
+    "fx_date": "2026-09-11",
+    "automatic_retries": 0,
+    "human_approval": "pending",
+    "note": "13 fresh review-only stills for the rebuilt Unit 4 review: 5 replace the exact-byte repeats of earlier teaching images (originals and their teaching uses stay untouched) and 8 retrieve Unit 4 language the old 32-card review never showed. The four existing a1_photo_u4_review_* photographs are reused unchanged. No automatic retries."
+  },
+  "shared_prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, realistic anatomy and hands. NOT an illustration, collage, cutout, split panel or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, captions, speech bubbles, logos or readable words except an explicitly requested numeral. A first-time learner must recognize the meaning at phone size: the key person, action and object are large, sharp and inside the central safe area. Fresh scenes for this review only; never imitate a previous course photo. Ordinary anonymous people, never the recurring course cast (no Ana, Luis, Sofia or Diego).",
+  "assets": [
+    {
+      "id": "kitchen",
+      "runtime_filename": "a1_u4_review_v1_kitchen.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "The 32-card review never showed the kitchen, one of the five rooms Lesson 4.1 teaches."
+      },
+      "prompt": "A real home kitchen photographed from the doorway in bright late-morning daylight, empty of people. The unmistakable kitchen equipment fills the middle of the frame: a cooker with a metal range hood above it, a sink with a tap, a kettle and a wooden chopping board on the counter, and a tall fridge at the right edge. The cooker and hood together occupy at least 30% of the frame width. Warm wooden cabinets, a window over the sink. No dining table, no bed, no sofa, no bathroom fixture, no people, no readable words, no brand marks."
+    },
+    {
+      "id": "bathroom",
+      "runtime_filename": "a1_u4_review_v1_bathroom.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "The 32-card review never showed the bathroom, one of the five rooms Lesson 4.1 teaches."
+      },
+      "prompt": "A real home bathroom photographed from the doorway in clean daylight, empty of people. A white washbasin with a chrome tap and a large mirror above it fill the left half of the frame, a white bathtub with a shower head runs along the right, and a folded towel hangs on a rail between them. The basin and mirror together occupy at least 30% of the frame width. Tiled wall, small plant on the windowsill. No kitchen equipment, no bed, no sofa, no people, no readable words, no brand marks."
+    },
+    {
+      "id": "sofa-lamp",
+      "runtime_filename": "a1_u4_review_v1_sofa_lamp.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 4.3 teaches next to, and the old review tested it only in text; this is the review's only next-to photograph."
+      },
+      "prompt": "A living room photographed straight on in warm afternoon light, empty of people. Exactly one grey fabric sofa stands in the middle of the frame and exactly one tall floor lamp stands immediately beside its right arm, with a clear gap of a few centimetres between the lamp base and the sofa: they are next to each other and never overlapping or touching. The lamp is switched on and its shade is fully inside the frame. Sofa and lamp together fill at least 55% of the frame width. Nothing is placed on or under the sofa. No second lamp, no table lamp, no television, no people, no readable words."
+    },
+    {
+      "id": "bag-under-table",
+      "runtime_filename": "a1_u4_review_v1_bag_under_table.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 4.3 teaches under, and the old review showed only on the table; this is the review's only under photograph."
+      },
+      "prompt": "A low wooden coffee table photographed straight on from seat height in a bright living room, empty of people. Exactly one brown leather shoulder bag sits on the floor completely underneath the tabletop, clearly in the shadow under the table and visible between the four table legs; the bag touches the floor and never the tabletop. The tabletop is completely empty: nothing rests on it. The table and the bag together fill at least 60% of the frame width and the bag is at least 18% of the frame width. No book, no phone, no second bag, no people, no readable words."
+    },
+    {
+      "id": "wake-up",
+      "runtime_filename": "a1_u4_review_v1_wake_up.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_ana-wake_d91086e.webp",
+          "a1_scene_i-wake-daily_acdb17a.webp",
+          "a1_scene_first-wake_8cc33b0.webp"
+        ]
+      },
+      "prompt": "A woman in her thirties waking up in her own bed in soft early-morning light through the window behind her. She is sitting up against the pillows, both arms stretched upward in a wide waking stretch, eyes just opening, hair tousled, wearing a plain pyjama top. Her face and both stretched arms are large, sharp and fully inside the frame, filling at least 40% of the frame width. The duvet is still over her legs. This is the moment of waking up, not sleeping and not getting out of bed. No breakfast tray, no phone, no clock, no other person, no readable words."
+    },
+    {
+      "id": "wash-face",
+      "runtime_filename": "a1_u4_review_v1_wash_face.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 4.5 teaches wash my face and the old review never showed it; the review needs it as its own answer image."
+      },
+      "prompt": "A woman in her thirties washing her face at a bathroom washbasin, photographed from the front across the basin. She is bent slightly forward with both cupped hands full of water lifted to her face, water visibly running from her hands, eyes closed. Her hands and face fill at least 35% of the frame width and are sharp. The tap is running and a mirror is behind her. She is clearly washing her face, not brushing her teeth: no toothbrush and no toothpaste anywhere in the frame. No towel over her face, no other person, no readable words."
+    },
+    {
+      "id": "brush-teeth",
+      "runtime_filename": "a1_u4_review_v1_brush_teeth.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 4.5 teaches brush my teeth and the old review never showed it; the review needs it as its own answer image."
+      },
+      "prompt": "A man in his thirties brushing his teeth in front of a bathroom mirror, photographed from the front. He holds a toothbrush with white toothpaste against his upper teeth, lips slightly open so the brush head is clearly visible, and the toothpaste tube stands on the basin beside him. His face and the hand with the toothbrush fill at least 35% of the frame width and are sharp. He is clearly brushing his teeth, not washing his face: no running water over his hands. No other person, no readable words, no brand marks on the tube."
+    },
+    {
+      "id": "breakfast",
+      "runtime_filename": "a1_u4_review_v1_breakfast.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_then-breakfast_2939d89.webp"
+        ]
+      },
+      "prompt": "A woman in her thirties eating breakfast at her kitchen table in morning daylight, photographed from across the table. She is lifting a spoonful of cereal towards her open mouth; in front of her are a bowl, a glass of orange juice and a plate with bread. Her face, the spoon and the bowl are large and sharp, together filling at least 40% of the frame width. She is clearly eating, not only sitting or drinking coffee. No bed, no tray in bed, no laptop, no other person, no readable words, no brand marks."
+    },
+    {
+      "id": "go-to-school",
+      "runtime_filename": "a1_u4_review_v1_go_to_school.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 4.6 teaches go to school and the old review never showed it; the review needs it as its own answer image."
+      },
+      "prompt": "A boy about twelve years old walking in through the open gate of a school in the morning, photographed from the front as he arrives. He wears a backpack on both shoulders and walks towards the camera; behind him the low school building with wide entrance doors and other pupils arriving in the background, clearly out of focus. The boy fills at least 30% of the frame height, both feet visible, face clear and friendly. It must read as arriving at school, not leaving home. No school name, no sign text, no readable words, no logos."
+    },
+    {
+      "id": "go-to-work",
+      "runtime_filename": "a1_u4_review_v1_go_to_work.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 4.6 teaches go to work and the old review never showed it; the review needs it as its own answer image."
+      },
+      "prompt": "A man in his forties walking to work along a city pavement in morning light, photographed from the front. He wears a plain jacket and carries a work shoulder bag; he walks towards the camera past an office building entrance with people going in behind him, clearly out of focus. The man fills at least 30% of the frame height, both feet visible, face calm and clear. It must read as going to work, not to school and not coming home: no backpack on both shoulders, no shopping bags, no children. No company name, no readable words, no logos."
+    },
+    {
+      "id": "study-english",
+      "runtime_filename": "a1_u4_review_v1_study_english.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_ana-study-english_a45ba91.webp",
+          "a1_scene_we-study-daily_167b084.webp"
+        ]
+      },
+      "prompt": "A woman in her twenties studying English alone at a home desk in the evening, photographed from the front across the desk. She is writing in an open notebook with a pen in her right hand and looking down at an open textbook beside it; a small desk lamp lights the page. Her face, both hands and the open books fill at least 45% of the frame width and are sharp. The book pages show only soft unreadable printed lines: no readable words anywhere. No laptop screen content, no classroom, no other person, no readable words, no logos."
+    },
+    {
+      "id": "clock-seven",
+      "runtime_filename": "a1_u4_review_v1_clock_seven.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_clock7_598dfdb.webp"
+        ]
+      },
+      "prompt": "One round analog wall clock with a plain white face and black hands hanging on a warm painted living-room wall, photographed straight on and centred. The clock shows exactly seven o'clock: the short hour hand points precisely at 7 and the long minute hand points precisely straight up at 12, with no second hand ambiguity. The clock face fills at least 45% of the frame height, is perfectly sharp and the numerals 1 to 12 are printed clearly. Nothing overlaps the clock face. No other clock, no people, no furniture in front of it, no readable words other than the clock numerals."
+    },
+    {
+      "id": "monday-calendar",
+      "runtime_filename": "a1_u4_review_v1_monday_calendar.webp",
+      "change_control": {
+        "kind": "scoped-replacement",
+        "replaces": [
+          "a1_scene_day-mon_2655a7f.webp"
+        ]
+      },
+      "prompt": "Use case: text-exact. A woman in her twenties standing at a kitchen wall calendar and pointing with her index finger at one day column, photographed from her side so both her face and the calendar are clear. The calendar is a simple weekly planner whose seven day columns are headed in English with clean printed capitals: MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY, spelled exactly like that and perfectly legible. Her fingertip touches the MONDAY column, which is circled in red marker. The calendar fills at least 45% of the frame width. Only those seven day names appear as text: no month name, no numbers, no notes, no other writing anywhere."
+    }
+  ]
+}
