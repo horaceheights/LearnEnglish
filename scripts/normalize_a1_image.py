@@ -23,25 +23,18 @@ def normalize(source: Path, destination: Path) -> None:
     if abs(source_ratio - target_ratio) < 0.001:
         final = image.resize((WIDTH, HEIGHT), resampling())
     else:
-        background = image.copy()
+        # Full-bleed 3:2 center crop without blurred side fill or thumbnail inset
         if source_ratio > target_ratio:
-            background_height = HEIGHT
-            background_width = round(background_height * source_ratio)
+            # Source is wider than 3:2: crop left/right
+            crop_width = round(image.height * target_ratio)
+            left = (image.width - crop_width) // 2
+            cropped = image.crop((left, 0, left + crop_width, image.height))
         else:
-            background_width = WIDTH
-            background_height = round(background_width / source_ratio)
-        background = background.resize((background_width, background_height), resampling())
-        left = (background.width - WIDTH) // 2
-        top = (background.height - HEIGHT) // 2
-        background = background.crop((left, top, left + WIDTH, top + HEIGHT))
-        background = background.filter(ImageFilter.GaussianBlur(radius=32))
-
-        foreground = image.copy()
-        foreground.thumbnail((round(WIDTH * 0.9), round(HEIGHT * 0.9)), resampling())
-        x = (WIDTH - foreground.width) // 2
-        y = (HEIGHT - foreground.height) // 2
-        background.paste(foreground, (x, y))
-        final = background
+            # Source is taller than 3:2: crop top/bottom
+            crop_height = round(image.width / target_ratio)
+            top = (image.height - crop_height) // 2
+            cropped = image.crop((0, top, image.width, top + crop_height))
+        final = cropped.resize((WIDTH, HEIGHT), resampling())
 
     destination.parent.mkdir(parents=True, exist_ok=True)
     final.save(destination, format="WEBP", quality=90, method=6)
