@@ -214,6 +214,7 @@ MISSION_CARD_COUNTS = {
     "lesson-10-family-mission": 22,
     "lesson-3-10-introduction-mission": 13,
     "lesson-4-10-my-day-mission": 13,
+    "lesson-5-10-cafe-mission": 13,
 }
 MISSION_REQUIRED_INTERACTIONS = {
     "lesson-10-family-mission": frozenset({
@@ -231,6 +232,11 @@ MISSION_REQUIRED_INTERACTIONS = {
         "mission-speak",
         "mission-finale",
     }),
+    "lesson-5-10-cafe-mission": frozenset({
+        "mission-game",
+        "mission-speak",
+        "mission-finale",
+    }),
 }
 MISSION_HERO_PREFIXES = {
     "lesson-10-family-mission": "a1_u1_reunion_",
@@ -238,6 +244,7 @@ MISSION_HERO_PREFIXES = {
     # Every rebuilt beat uses the a1_u4_home_v1_ namespace; the six-o'clock answer view is the
     # mission-only still this gate already owned.
     "lesson-4-10-my-day-mission": ("a1_u4_home_v1_", "a1_u4_mission_clock_six_v3.webp"),
+    "lesson-5-10-cafe-mission": "a1_u5_market_v1_",
 }
 MISSION_REQUIRED_KINDS = {
     "lesson-10-family-mission": frozenset({
@@ -256,6 +263,13 @@ MISSION_REQUIRED_KINDS = {
         "voice-gate",
     }),
     "lesson-4-10-my-day-mission": frozenset({
+        "guided-search",
+        "crowd-search",
+        "action-hunt",
+        "contrast-hunt",
+        "voice-gate",
+    }),
+    "lesson-5-10-cafe-mission": frozenset({
         "guided-search",
         "crowd-search",
         "action-hunt",
@@ -284,6 +298,12 @@ MISSION_KIND_SEQUENCE = {
         "crowd-search", "crowd-search", "crowd-search",
         "voice-gate", "voice-gate", "voice-gate", "voice-gate",
     ],
+    "lesson-5-10-cafe-mission": [
+        "guided-search", "crowd-search", "crowd-search",
+        "contrast-hunt", "action-hunt", "crowd-search",
+        "crowd-search", "crowd-search", "crowd-search",
+        "voice-gate", "voice-gate", "voice-gate", "voice-gate",
+    ],
 }
 MISSION_CHAPTER_SEQUENCE = {
     "lesson-10-family-mission": (
@@ -298,6 +318,9 @@ MISSION_CHAPTER_SEQUENCE = {
     ),
     "lesson-4-10-my-day-mission": (
         ["cuartos"] * 3 + ["objetos"] + ["rutina"] * 3 + ["casa"] * 2 + ["confirma"] * 4
+    ),
+    "lesson-5-10-cafe-mission": (
+        ["mercado"] * 3 + ["gustos"] + ["pide"] * 2 + ["comidas"] * 2 + ["cafe"] * 5
     ),
 }
 

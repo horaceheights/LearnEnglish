@@ -359,6 +359,7 @@ COURSE_SYLLABLES.update({
     "oranges": 3,
     "pants": 1,
     "pear": 1,
+    "pears": 1,
     "pen": 1,
     "pens": 1,
     "pharmacy": 3,

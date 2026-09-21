@@ -32,10 +32,11 @@ const speakCards = course.flatMap((lesson) => (
 ));
 const affectedLessons = new Set(speakCards.map(({ lessonId }) => lessonId));
 
-assert.equal(speakCards.length, 411, 'The Speak inventory includes four rebuilt Unit 2, Unit 3 and Unit 4 mission gates each, plus the 3.3 current-action exchange.');
+assert.equal(speakCards.length, 414, 'The Speak inventory includes four rebuilt Unit 2, Unit 3, Unit 4 and Unit 5 mission gates each, plus the 3.3 current-action exchange.');
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-2-10-around-me-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-10-introduction-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-4-10-my-day-mission').length, 4);
+assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-5-10-cafe-mission').length, 4);
 assert.equal(speakCards.filter(({ lessonId }) => lessonId === 'lesson-3-3-am-is-and-are').length, 7);
 assert.equal(affectedLessons.size, 70, 'The shared Speak instruction must cover every A1 lesson.');
 assert.ok(

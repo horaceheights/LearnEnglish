@@ -1,0 +1,3598 @@
+{
+  "schema_version": 1,
+  "pack_sha256": "8e3a504350e79c28c2e09d3c9528a9a568a893c930a0992f057f4015520b9017",
+  "lesson_id": "lesson-5-10-cafe-mission",
+  "human_approval": "pending",
+  "assets": [
+    {
+      "asset_id": "kickoff",
+      "runtime_filename": "a1_u5_market_v1_kickoff.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "7939766b-b6b2-47ad-989f-33fb8d0f1849",
+        "asset_id": "kickoff",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:03:14.585987+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA small neighbourhood market and café on one bright street corner, photographed straight on from across the pavement. Five ordinary people stand together in front of the open market stall, side by side and clearly separated, all facing the camera with friendly relaxed expressions: a woman in her thirties with dark hair in a bun and a mustard cardigan; a man in his forties with short grey-flecked hair, a blue shirt and a green apron, the market seller; a young woman in her twenties with long brown hair and a denim jacket; a man in his twenties with short black hair, glasses and a grey sweater; and a boy of about ten in a red t-shirt. Behind them the stall's crates of fruit and vegetables and, to the right, the café's window with its counter inside. Every face is sharp and every person is complete from head to feet. No readable words, no price tags, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_39e219f0c2164ddc92488df6d5738175",
+        "usage": {
+          "input_tokens": 373,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 373
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1745
+        },
+        "cost": {
+          "usd": "0.043025",
+          "mxn": "0.7301643675",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 373,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 38.46,
+        "output": "output/imagegen/unit-5-mission-v1/kickoff.png",
+        "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+        "byte_count": 2836076
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: five people stand side by side in front of the market stall with the café at the right: the woman in the mustard cardigan, the seller in the blue shirt and green apron, the young woman in the denim jacket, the man in glasses and a grey sweater, and the boy in the red t-shirt. Every face is sharp, every body complete, and no text appears; this shot fixes the identities the later scenes reuse."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the kickoff shot that states the mission and fixes the faces and clothes every later scene reuses."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "55b4de52d21ea17148f3ae343287cd9d7ab838c2e059f0a7d820c0d466d5d629",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/kickoff.png"
+    },
+    {
+      "asset_id": "market-stall",
+      "runtime_filename": "a1_u5_market_v1_market_stall.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f7384c8a-757b-4a8f-a3d8-8f63103b64f8",
+        "asset_id": "market-stall",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:04:14.865939+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA market stall photographed straight on in bright daylight, with no people at all. Exactly four separate goods, well apart along the counter and never touching: (1) at the left, a crate of red apples, many of them, clearly apples; (2) left of centre, a bunch of yellow bananas hanging from the stall frame; (3) right of centre, a basket holding two crusty loaves of bread; (4) at the right, an open paper sack of white rice with a scoop resting in it. Each group is sharp and at least 15% of the frame width, with clear empty space above it. No oranges, no grapes, no eggs, no drinks, no people, no price tags, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_8c8b972dff9e43b9bb9d2f04e13dc5e7",
+        "usage": {
+          "input_tokens": 340,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 340
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1712
+        },
+        "cost": {
+          "usd": "0.04286",
+          "mxn": "0.727364202",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 340,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.35,
+        "output": "output/imagegen/unit-5-mission-v1/market-stall.png",
+        "sha256": "92781d101da96a1899ac7bd61006e729a4d085621f4063d89c5ddaef53eba0e6",
+        "byte_count": 2779049
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "92781d101da96a1899ac7bd61006e729a4d085621f4063d89c5ddaef53eba0e6",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: a market stall with no people and four separated goods — a crate of red apples at the left, one bunch of yellow bananas hanging in the middle, a basket holding two crusty loaves, and an open sack of white rice with a scoop at the right. Nothing touches anything else and no oranges, grapes, eggs or drinks appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.005,
+              "y": 0.435,
+              "width": 0.32,
+              "height": 0.28
+            },
+            "head_anchors": [
+              {
+                "x": 0.165,
+                "y": 0.44
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.31,
+              "y": 0.13,
+              "width": 0.17,
+              "height": 0.31
+            },
+            "head_anchors": [
+              {
+                "x": 0.395,
+                "y": 0.14
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.455,
+              "y": 0.45,
+              "width": 0.27,
+              "height": 0.33
+            },
+            "head_anchors": [
+              {
+                "x": 0.59,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.74,
+              "y": 0.4,
+              "width": 0.23,
+              "height": 0.39
+            },
+            "head_anchors": [
+              {
+                "x": 0.855,
+                "y": 0.41
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the opening listening scene, where the learner finds the food the clue names."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "4f5bcd8ef12a9dfcd3a5b18b20d6060f78b8034cede0b0c743ebad960a88db7c",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/market-stall.png"
+    },
+    {
+      "asset_id": "fruit-counter",
+      "runtime_filename": "a1_u5_market_v1_fruit_counter.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "84ecaef4-64d0-41aa-93de-bc5d0ae5c56b",
+        "asset_id": "fruit-counter",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:05:10.754261+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA market fruit counter photographed straight on in bright daylight, with no people at all. Exactly four separate groups sit in a row along the counter, well apart and never touching, each on its own small wooden tray: (1) exactly five oranges; (2) exactly two green pears; (3) one bunch of purple grapes; (4) exactly one red strawberry alone on its tray. Count is critical: five oranges and not four or six, two pears and not three, and only one strawberry. Each group is sharp, countable at phone size and at least 15% of the frame width, with clear empty space above it. No apples, no bananas, no price tags, no people, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_a8df21265489430296c3446159479e23",
+        "usage": {
+          "input_tokens": 335,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 335
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1707
+        },
+        "cost": {
+          "usd": "0.042835",
+          "mxn": "0.7269399345",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 335,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 39.61,
+        "output": "output/imagegen/unit-5-mission-v1/fruit-counter.png",
+        "sha256": "852f6eb77aef05117e46b39cb7fbd610e4099f49a2f60082430dfbe9baff3e65",
+        "byte_count": 2552209
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "852f6eb77aef05117e46b39cb7fbd610e4099f49a2f60082430dfbe9baff3e65",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: four trays on a market counter with no people — exactly five oranges (three in front, two behind), exactly two green pears, one bunch of purple grapes and exactly one red strawberry. Each tray is separate and countable at phone size; the single strawberry is the smallest target, so its rectangle takes in its whole tray.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.01,
+              "y": 0.445,
+              "width": 0.285,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.15,
+                "y": 0.45
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.3,
+              "y": 0.505,
+              "width": 0.21,
+              "height": 0.19
+            },
+            "head_anchors": [
+              {
+                "x": 0.405,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.53,
+              "y": 0.505,
+              "width": 0.23,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.645,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.775,
+              "y": 0.555,
+              "width": 0.22,
+              "height": 0.165
+            },
+            "head_anchors": [
+              {
+                "x": 0.872,
+                "y": 0.585
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the counting scene, where exact quantities of fruit are the evidence."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "5a6288d5b3c14584b3ce0ec2ac559c16da9f072ccbe140ddca3b264586a99785",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/fruit-counter.png"
+    },
+    {
+      "asset_id": "drinks-fridge",
+      "runtime_filename": "a1_u5_market_v1_drinks_fridge.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "41af8f98-a622-4a4c-b143-7641d1631fd5",
+        "asset_id": "drinks-fridge",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:06:12.972311+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nAn open market drinks shelf photographed straight on in daylight, with no people at all. Exactly four separate drinks stand in a row, well apart and never touching: (1) a clear glass bottle of water; (2) a clear glass bottle of white milk; (3) a clear glass bottle of orange juice; (4) a glass jug of black coffee beside one white cup. Each drink is unmistakably itself by colour and container, is sharp, and is at least 15% of the frame width with clear empty space above it. No tea, no soft drinks, no cans, no labels, no price tags, no people, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_0d1bf919f0d34ac19d1d4ddad7a9afec",
+        "usage": {
+          "input_tokens": 322,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 322
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1694
+        },
+        "cost": {
+          "usd": "0.04277",
+          "mxn": "0.725836839",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 322,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.17,
+        "output": "output/imagegen/unit-5-mission-v1/drinks-fridge.png",
+        "sha256": "cbf524f92efcfa7369c667812f9c972e39a713d6dcbdae65344aca1bcecf1f51",
+        "byte_count": 2186359
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "cbf524f92efcfa7369c667812f9c972e39a713d6dcbdae65344aca1bcecf1f51",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four separated drinks on a market shelf with no people — a clear bottle of water, a bottle of white milk, a bottle of orange juice and a glass jug of black coffee beside one white cup. Each is unmistakable by colour and container, and no labels or readable words appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.04,
+              "y": 0.22,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.108,
+                "y": 0.23
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.255,
+              "y": 0.23,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.322,
+                "y": 0.24
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.46,
+              "y": 0.23,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.527,
+                "y": 0.24
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.62,
+              "y": 0.37,
+              "width": 0.345,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.73,
+                "y": 0.38
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the drinks scene, where each taught drink must be told apart by sight."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "77efb14fabada8039e7fb965aad8e458d41d62d0709e2ab9d142b75ae3dd38a0",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/drinks-fridge.png"
+    },
+    {
+      "asset_id": "likes-table",
+      "runtime_filename": "a1_u5_market_v1_likes_table.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "efbb53cd-2353-41d1-8435-e07e1f2fa01b",
+        "asset_id": "likes-table",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:07:06.825615+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them sitting along one side of a long café table in daylight, evenly spaced, clearly separated and never overlapping, each with one plate or glass in front of them and each showing an unmistakable reaction: (1) at the far left the young woman in the denim jacket smiles warmly at a plate of cooked fish and lifts a forkful towards her mouth; (2) left of centre the man in the grey sweater and glasses leans back from his own plate of cooked fish with one open palm raised and his face turned away, clearly refusing it; (3) right of centre the market seller in the blue shirt smiles at a plate of roast chicken and reaches for it happily; (4) at the far right the woman in the mustard cardigan pushes a tall glass of white milk away with a flat hand and a closed-mouth grimace. Every face and its plate or glass are sharp, and each person has clear empty space above the head. No other food, no fifth person, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_9d587dee1f4d4b74a5844f22a395673c",
+        "usage": {
+          "input_tokens": 1963,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 427
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3335
+        },
+        "cost": {
+          "usd": "0.055583",
+          "mxn": "0.9432824181",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 427,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 39.38,
+        "output": "output/imagegen/unit-5-mission-v1/likes-table.png",
+        "sha256": "7dc228f4ef5a6640f618543fd75a12909861b0d78bccfc33274e8448873a9fa9",
+        "byte_count": 2798359
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "7dc228f4ef5a6640f618543fd75a12909861b0d78bccfc33274e8448873a9fa9",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four people from the kickoff photograph along one café table, each with a different reaction. The young woman in the denim jacket smiles and lifts a forkful of fish; the man in the grey sweater and glasses raises an open palm and turns from his own fish; the seller in the blue shirt smiles and cuts into roast chicken; the woman in the mustard cardigan pushes a glass of milk away with a grimace. Each face and its plate or glass are sharp and nobody overlaps.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.06,
+              "y": 0.15,
+              "width": 0.19,
+              "height": 0.8
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.155
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.29,
+              "y": 0.15,
+              "width": 0.165,
+              "height": 0.8
+            },
+            "head_anchors": [
+              {
+                "x": 0.355,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.545,
+              "y": 0.13,
+              "width": 0.19,
+              "height": 0.81
+            },
+            "head_anchors": [
+              {
+                "x": 0.625,
+                "y": 0.14
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.81,
+              "y": 0.16,
+              "width": 0.17,
+              "height": 0.79
+            },
+            "head_anchors": [
+              {
+                "x": 0.885,
+                "y": 0.17
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the preferences scene, where each person's face shows whether they like what is in front of them."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "5e1711104d76a1159cbe27440cf48f67fc01e302f2bbe3fbf79398a5cd8f9673",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/likes-table.png"
+    },
+    {
+      "asset_id": "wants-counter",
+      "runtime_filename": "a1_u5_market_v1_wants_counter.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "c748d9d8-4204-4ba5-8872-3ae0d17d5117",
+        "asset_id": "wants-counter",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:08:05.203527+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them standing along a market counter in daylight, evenly spaced, clearly separated and never overlapping, each pointing at what they are asking for: (1) at the far left the woman in the mustard cardigan points at a small tray holding exactly two white eggs; (2) left of centre the man in the grey sweater and glasses points at an open sack of white rice; (3) right of centre the young woman in the denim jacket points at a tray holding exactly three red apples; (4) at the far right the boy in the red t-shirt points at a clear glass bottle of water. Counts are critical: exactly two eggs and exactly three apples. Every face, pointing hand and the item pointed at are sharp, and each person has clear empty space above the head. No fifth person, no price tags, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_561cb6dd8423430ba5a2dce9fccd305c",
+        "usage": {
+          "input_tokens": 1930,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 394
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3302
+        },
+        "cost": {
+          "usd": "0.055418",
+          "mxn": "0.9404822526",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 394,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.14,
+        "output": "output/imagegen/unit-5-mission-v1/wants-counter.png",
+        "sha256": "7affd6c3bcbb734d678d4812b47d60a2d3f19a189b1d3cf3be1407a4a37425ca",
+        "byte_count": 3031190
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "7affd6c3bcbb734d678d4812b47d60a2d3f19a189b1d3cf3be1407a4a37425ca",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: four people from the kickoff photograph at a market counter, each pointing at one thing — the woman in the mustard cardigan at a tray of exactly two white eggs, the man in glasses at an open sack of white rice, the young woman in the denim jacket at exactly three red apples, and the boy in the red t-shirt at a clear bottle of water. The counts are exact and nobody overlaps.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.115,
+              "width": 0.165,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.12
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.295,
+              "y": 0.05,
+              "width": 0.165,
+              "height": 0.87
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.055
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.085,
+              "width": 0.165,
+              "height": 0.85
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.09
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.815,
+              "y": 0.225,
+              "width": 0.145,
+              "height": 0.68
+            },
+            "head_anchors": [
+              {
+                "x": 0.875,
+                "y": 0.23
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the wanting scene, where each customer points at the exact quantity they ask for."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "bbea781c55e3b2090fd294c30f089848af18eb0950d0a4a40e07c8ae5068fe43",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/wants-counter.png"
+    },
+    {
+      "asset_id": "needs-list",
+      "runtime_filename": "a1_u5_market_v1_needs_list.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "6814e80f-feeb-4842-b41d-59bb3df6018b",
+        "asset_id": "needs-list",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:08:57.741859+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them standing in a market aisle in daylight, evenly spaced, clearly separated and never overlapping, each holding up exactly one thing towards the camera with both hands: (1) at the far left the man in the grey sweater and glasses holds a clear glass bottle of white milk; (2) left of centre the woman in the mustard cardigan holds one crusty loaf of bread; (3) right of centre the boy in the red t-shirt holds a small carton of white eggs, open so the eggs are visible; (4) at the far right the young woman in the denim jacket holds a clear glass bottle of orange juice. Each held item is unmistakable, sharp and clear of the person's face, and each person has clear empty space above the head. No fifth person, no other goods in their hands, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_c122ac7f884a4ddfafab96e65d617f16",
+        "usage": {
+          "input_tokens": 1929,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 393
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3301
+        },
+        "cost": {
+          "usd": "0.055413",
+          "mxn": "0.9403973991",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 393,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 41.16,
+        "output": "output/imagegen/unit-5-mission-v1/needs-list.png",
+        "sha256": "319584808af1fe2b8cee24bca0ed06a23afdbc5fe380857e1ddf84cc98621e09",
+        "byte_count": 2723284
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "319584808af1fe2b8cee24bca0ed06a23afdbc5fe380857e1ddf84cc98621e09",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four people from the kickoff photograph in a market aisle, each holding up one thing with both hands — the man in glasses a bottle of white milk, the woman in the mustard cardigan a crusty loaf, the boy in the red t-shirt an open carton of white eggs, and the young woman in the denim jacket a bottle of orange juice. Each held item is clear of its holder's face and nobody overlaps.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.11,
+              "y": 0.05,
+              "width": 0.18,
+              "height": 0.9
+            },
+            "head_anchors": [
+              {
+                "x": 0.195,
+                "y": 0.055
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.32,
+              "y": 0.055,
+              "width": 0.165,
+              "height": 0.89
+            },
+            "head_anchors": [
+              {
+                "x": 0.4,
+                "y": 0.06
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.18,
+              "width": 0.125,
+              "height": 0.76
+            },
+            "head_anchors": [
+              {
+                "x": 0.61,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.72,
+              "y": 0.07,
+              "width": 0.175,
+              "height": 0.88
+            },
+            "head_anchors": [
+              {
+                "x": 0.805,
+                "y": 0.075
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the needing scene, where each shopper holds the one thing they still need."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "8626082b0d47a3c5614c29d79a840e0482ceadf8de89621b9264fe3881c5dcaf",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/needs-list.png"
+    },
+    {
+      "asset_id": "meals-table",
+      "runtime_filename": "a1_u5_market_v1_meals_table.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "e79d1ebf-a0ce-4ea0-b45b-a6380826b56d",
+        "asset_id": "meals-table",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:10:02.774053+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them seated around one large table in daylight, evenly spaced, clearly separated and never overlapping, each eating or drinking exactly one thing: (1) at the far left the young woman in the denim jacket lifts a forkful of scrambled egg from a plate of eggs; (2) left of centre the man in the grey sweater and glasses lifts a spoonful of white rice from a bowl of rice; (3) right of centre the woman in the mustard cardigan cuts into a piece of roast chicken on her plate; (4) at the far right the market seller in the blue shirt raises a white cup of tea to his mouth with a small teapot beside him. Every face and the food or drink in front of it are sharp, and each person has clear empty space above the head. No fifth person, no other plates, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_67e771117e7f4bd28d646558a4c2231e",
+        "usage": {
+          "input_tokens": 1933,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 397
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3305
+        },
+        "cost": {
+          "usd": "0.055433",
+          "mxn": "0.9407368131",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 397,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.53,
+        "output": "output/imagegen/unit-5-mission-v1/meals-table.png",
+        "sha256": "47b0fafd5d0e877aee0eab85bc517452a10354561141234472e05f8c45efb09e",
+        "byte_count": 2748123
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "47b0fafd5d0e877aee0eab85bc517452a10354561141234472e05f8c45efb09e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four people from the kickoff photograph around one table, each eating or drinking one thing — the young woman in the denim jacket lifts a forkful of scrambled egg, the man in glasses a spoonful of white rice, the woman in the mustard cardigan cuts roast chicken, and the seller raises a white cup of tea with a teapot beside him. Each face and its food are sharp and nobody overlaps.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.055,
+              "y": 0.18,
+              "width": 0.2,
+              "height": 0.78
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.285,
+              "y": 0.13,
+              "width": 0.195,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.135
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.54,
+              "y": 0.14,
+              "width": 0.19,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.625,
+                "y": 0.145
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.785,
+              "y": 0.14,
+              "width": 0.19,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.875,
+                "y": 0.15
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the meals scene, where each person eats or drinks the meal the clue names."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "1b9268860b7e56617f427c9acf8acf847d7a2ae0f72347a03a3988cb8fd02af2",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/meals-table.png"
+    },
+    {
+      "asset_id": "price-board",
+      "runtime_filename": "a1_u5_market_v1_price_board.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "64050153-c0a2-40c3-8673-0c12ef20ac61",
+        "asset_id": "price-board",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:10:58.332045+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. Four market price tags standing in a row along a wooden stall counter, photographed straight on in daylight, evenly spaced with clear counter between them and no people at all. Each tag is a plain white card in a small metal holder and carries exactly one price in clean black handwriting. From left to right they read exactly: $1, $2, $3, $5. No decimals, no cents, no words, no other numerals anywhere in the frame, and no repeated price. Each tag is perfectly sharp, fully legible and at least 15% of the frame width, with clear empty space above it. Small goods may sit behind the tags but must stay secondary. No people, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_c4c19b59536e43398fc0561f42e66ce2",
+        "usage": {
+          "input_tokens": 338,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 338
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1710
+        },
+        "cost": {
+          "usd": "0.04285",
+          "mxn": "0.727194495",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 338,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 34.54,
+        "output": "output/imagegen/unit-5-mission-v1/price-board.png",
+        "sha256": "145ae6eb6eca48ed8366935aa167b2166534b5eaa8f43ad73843f48a1502db90",
+        "byte_count": 2380940
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "145ae6eb6eca48ed8366935aa167b2166534b5eaa8f43ad73843f48a1502db90",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and read on a 0.05 grid: four price cards in metal holders along a market counter reading exactly $1, $2, $3 and $5 from left to right, each fully legible with no decimals, words or other numerals anywhere, evenly spaced with clear counter between them and no people in the frame.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.015,
+              "y": 0.45,
+              "width": 0.2,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.115,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.27,
+              "y": 0.45,
+              "width": 0.2,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.45,
+              "width": 0.19,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.645,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.795,
+              "y": 0.45,
+              "width": 0.195,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.89,
+                "y": 0.455
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the price scene, where the learner reads four exact prices."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "561b38bdeb85f30decaf16190f4b31ce69f18ca3995a5b761affbb9f65406bef",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/price-board.png"
+    },
+    {
+      "asset_id": "cafe-counter-v2",
+      "runtime_filename": "a1_u5_market_v1_cafe_counter.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "ac7f28a9-129e-4463-9d12-1b22fa3bf63a",
+        "asset_id": "cafe-counter-v2",
+        "pack_sha256": "8e3a504350e79c28c2e09d3c9528a9a568a893c930a0992f057f4015520b9017",
+        "started_at": "2026-09-21T08:33:37.129778+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph inside the café in warm daylight with exactly four of them, evenly spaced along the counter, clearly separated and never overlapping, each showing one unmistakable reaction: (1) at the far left the woman in the mustard cardigan stands at the counter pointing at a clear glass of water, clearly asking for it; (2) left of centre the man in the grey sweater and glasses nods with a warm smile and one upturned open palm towards a small plate of pastry a server offers him, clearly accepting; (3) right of centre the young woman in the denim jacket turns her face away from an offered plate with one raised flat palm, clearly declining; (4) at the far right the boy in the red t-shirt stands at the counter pointing with one finger at a white teapot with a teacup beside it, clearly asking for tea and holding nothing in his hands. Every face and gesture is sharp, and each person has clear empty space above the head. No fifth customer, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7af13dd4e8bf4173889dca734883b027",
+        "usage": {
+          "input_tokens": 1965,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 429
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3337
+        },
+        "cost": {
+          "usd": "0.055593",
+          "mxn": "0.9434521251",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 429,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 36.7,
+        "output": "output/imagegen/unit-5-mission-v1/cafe-counter-v2.png",
+        "sha256": "0a73b9c4670a055d1869008944bf44e278fa8ed1d41aabe29b8e6c6c1d5b1ec3",
+        "byte_count": 2631910
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "0a73b9c4670a055d1869008944bf44e278fa8ed1d41aabe29b8e6c6c1d5b1ec3",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four customers from the kickoff photograph along the café counter, each with a distinct action — the woman in the mustard cardigan points at a glass of water, the man in glasses turns an open palm up towards an offered pastry, the young woman in the denim jacket raises a flat palm and turns away from an offered plate, and the boy in the red t-shirt points at a teapot with empty hands. Two servers work behind the counter and are not targets.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.095,
+              "width": 0.17,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.125,
+                "y": 0.1
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.35,
+              "y": 0.09,
+              "width": 0.17,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.42,
+                "y": 0.095
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.58,
+              "y": 0.105,
+              "width": 0.16,
+              "height": 0.81
+            },
+            "head_anchors": [
+              {
+                "x": 0.655,
+                "y": 0.11
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.75,
+              "y": 0.17,
+              "width": 0.15,
+              "height": 0.75
+            },
+            "head_anchors": [
+              {
+                "x": 0.815,
+                "y": 0.175
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the café scene, where four polite phrases belong to four clearly different reactions."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "d8dc47828d7e66c95582df5ed6bd4a05568072ee6226a154de28a8674f6ef192",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/cafe-counter-v2.png"
+    },
+    {
+      "asset_id": "price-question",
+      "runtime_filename": "a1_u5_market_v1_price_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "44cbba26-d94a-47b1-9922-5453b83d5e64",
+        "asset_id": "price-question",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:12:53.497743+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the woman in the mustard cardigan. Create the question shot of a speaking game: she stands at the market counter turned towards the camera with a warm curious face, mouth open mid-question, one open palm extended towards a basket of goods in a natural asking gesture. She is large and sharp in the central safe area; the stall behind her is softly out of focus. No other person in the shot, no price tag, no numerals, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_f92c08879d1b4496adeb13d0b910bafd",
+        "usage": {
+          "input_tokens": 1843,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 307
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3215
+        },
+        "cost": {
+          "usd": "0.054983",
+          "mxn": "0.9330999981",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 307,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 35.59,
+        "output": "output/imagegen/unit-5-mission-v1/price-question.png",
+        "sha256": "1577bca357641166ce2031c13ffc586e52184de461b450f1fdade2af77ce4a7c",
+        "byte_count": 2671596
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "1577bca357641166ce2031c13ffc586e52184de461b450f1fdade2af77ce4a7c",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the woman in the mustard cardigan stands at the market with a warm curious face, mouth open mid-question, one open palm extended towards the vegetable baskets; she is large and sharp in the centre, the stall behind her is soft, and no price tag or numeral appears."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the question view of the price voice gate."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "27fab0f580ca364caca64776bd7694d3284d7f1f6fcac8a581a92f3deefb50ba",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/price-question.png"
+    },
+    {
+      "asset_id": "price-response",
+      "runtime_filename": "a1_u5_market_v1_price_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "4059d895-55c7-4ac7-a0a8-d3b1168a22c6",
+        "asset_id": "price-response",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:13:50.550513+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. One market price tag standing alone in front of a basket of apples on a wooden counter, photographed straight on and close in daylight. The tag is a plain white card in a small metal holder and shows exactly the characters $4 in clean black handwriting, nothing else: no decimals, no cents, no words and no other numerals anywhere in the frame. The tag fills at least 35% of the frame width and is perfectly sharp and fully legible. No second tag, no people, no hands, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7d3cdb8210ad47d5b3ec2f68cc0469dc",
+        "usage": {
+          "input_tokens": 300,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 300
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1672
+        },
+        "cost": {
+          "usd": "0.04266",
+          "mxn": "0.723970062",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 300,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.84,
+        "output": "output/imagegen/unit-5-mission-v1/price-response.png",
+        "sha256": "dd841e7840ac0ce4a2e87e3c43feebfbe2f7253b7ccfb333936beb57bc629711",
+        "byte_count": 2560318
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "dd841e7840ac0ce4a2e87e3c43feebfbe2f7253b7ccfb333936beb57bc629711",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: one white price card in a metal holder reads exactly $4 in clean black handwriting in front of a basket of red apples; no decimals, words or other numerals appear and there are no people or hands."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the answer view of the price voice gate, showing the exact price the learner says."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "455a9f76105ce6900919526379480fa71e5328af26bfc88da977180c1579a4e7",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/price-response.png"
+    },
+    {
+      "asset_id": "serve-question",
+      "runtime_filename": "a1_u5_market_v1_serve_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "078db8bc-388f-4ce9-bc0b-021d3b70d20e",
+        "asset_id": "serve-question",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:14:40.929676+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the man in the grey sweater and glasses. Create the question shot of a speaking game: he stands at the café counter turned towards the camera, mouth open mid-request, pointing with one relaxed hand towards the drinks behind the counter as he orders. He is large and sharp in the central safe area; the café counter behind him is softly out of focus. No other person in the shot, no glass already in his hand, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_36f73003e3a048818b714bdbdefa063b",
+        "usage": {
+          "input_tokens": 1840,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 304
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3212
+        },
+        "cost": {
+          "usd": "0.054968",
+          "mxn": "0.9328454376",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 304,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.35,
+        "output": "output/imagegen/unit-5-mission-v1/serve-question.png",
+        "sha256": "be83008371c776010aa0b599265403702ef5d2781021216054dbbb4b957b7e67",
+        "byte_count": 2257397
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "be83008371c776010aa0b599265403702ef5d2781021216054dbbb4b957b7e67",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the man in glasses and the grey sweater stands at the café counter mid-request, pointing towards the drinks; he is large and sharp and holds no glass yet. Disclosed: a menu board hangs far behind him whose small text is illegible at phone size."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the question view of the serving voice gate."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "3e4839c53c27f70c1f647f3c6dd2d1fed4e649a280970d65a7f95c7de7e74ab2",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/serve-question.png"
+    },
+    {
+      "asset_id": "serve-response",
+      "runtime_filename": "a1_u5_market_v1_serve_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "db52a27d-1b86-4afa-abaa-6703b3173446",
+        "asset_id": "serve-response",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:15:39.593127+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the market seller in the blue shirt. Create the answer shot of a speaking game: behind the café counter he holds out one tall glass of orange juice towards the camera with both hands, arms extended in a clear here-you-are offer, smiling. The glass of juice is in the centre of the frame, unmistakably orange juice, and together with his face fills at least 45% of the frame width. Only one glass. No customer in the shot, no money, no tray of other drinks, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_efdf6e5314ac43639163e44719fcf062",
+        "usage": {
+          "input_tokens": 1857,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 321
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3229
+        },
+        "cost": {
+          "usd": "0.055053",
+          "mxn": "0.9342879471",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 321,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 39.27,
+        "output": "output/imagegen/unit-5-mission-v1/serve-response.png",
+        "sha256": "c61721d0f7144e62414c107a64ba0993fba5d9f08eb1330a049248ab4742932b",
+        "byte_count": 2350806
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "c61721d0f7144e62414c107a64ba0993fba5d9f08eb1330a049248ab4742932b",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the seller in the blue shirt and green apron holds out one tall glass of orange juice towards the camera with both hands and smiles; only one glass is in play and no customer, money or tray appears."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the answer view of the serving voice gate, showing the drink being handed over."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "91c02d5a181f9729025644f5fa95ff748f26294a597a0c9d30484701a9053a9d",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/serve-response.png"
+    },
+    {
+      "asset_id": "thanks-question",
+      "runtime_filename": "a1_u5_market_v1_thanks_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "6ffdde1f-42c0-42cc-926c-35602d82f990",
+        "asset_id": "thanks-question",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:16:43.990320+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the young woman in the denim jacket. Create the question shot of a speaking game: behind the café counter, wearing an apron over her denim jacket, she holds out one white cup of coffee on a saucer towards the camera with both hands in a clear here-you-are offer, smiling and speaking. Her face and the offered cup are large and sharp in the central safe area. Only one cup. No customer in the shot, no money, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_602e22a1c69e4c3c8b3ccd75268c3c6d",
+        "usage": {
+          "input_tokens": 1845,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 309
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3217
+        },
+        "cost": {
+          "usd": "0.054993",
+          "mxn": "0.9332697051",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 309,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 36.31,
+        "output": "output/imagegen/unit-5-mission-v1/thanks-question.png",
+        "sha256": "e30ad6789426d63fc78708eee07fa47b2a80e7d9252f6566f8c418b786d57d39",
+        "byte_count": 2270587
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e30ad6789426d63fc78708eee07fa47b2a80e7d9252f6566f8c418b786d57d39",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the young woman in the denim jacket, in an apron behind the café counter, holds out one white cup on a saucer with both hands and smiles as she speaks; only one cup is in play and no money appears."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the question view of the thanking voice gate."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "ca98e9bb672c42d2e0bca7c4000016d7a4cc6b6fc396fefb9d27ecfbe6e50022",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/thanks-question.png"
+    },
+    {
+      "asset_id": "thanks-response",
+      "runtime_filename": "a1_u5_market_v1_thanks_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "73bac2d6-f2ba-43aa-a748-fcb574fc1376",
+        "asset_id": "thanks-response",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:17:39.352238+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the boy of about ten in the red t-shirt. Create the answer shot of a speaking game: seated at a café table, he holds one white cup on its saucer with both hands close to his chest and smiles warmly at the camera in clear thanks. His face and the cup are large and sharp in the central safe area and together fill at least 45% of the frame width. He is not drinking yet. No other person in the shot, no plate of food, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_d6d618e784ef47d9a3fc729e37382ba9",
+        "usage": {
+          "input_tokens": 1852,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 316
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3224
+        },
+        "cost": {
+          "usd": "0.055028",
+          "mxn": "0.9338636796",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 316,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.86,
+        "output": "output/imagegen/unit-5-mission-v1/thanks-response.png",
+        "sha256": "9ba50ff68560a72304c261e998371cc600599c9e02fe7a8b60a371f40b092d4c",
+        "byte_count": 2195253
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "9ba50ff68560a72304c261e998371cc600599c9e02fe7a8b60a371f40b092d4c",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the boy in the red t-shirt sits at a café table holding one white cup on its saucer with both hands and smiles warmly at the camera; he is not drinking and no other person or plate appears."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the answer view of the thanking voice gate, showing the drink received."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "14e14958fe22efffdd8214e20d23d2615b174117ed7191b1994c46a9aed9b871",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/thanks-response.png"
+    },
+    {
+      "asset_id": "order-question",
+      "runtime_filename": "a1_u5_market_v1_order_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "6b64092e-ae31-4ff3-b763-eebe81039451",
+        "asset_id": "order-question",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:18:32.272728+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the market seller in the blue shirt. Create the question shot of a speaking game: behind the café counter, wearing an apron over his blue shirt, he greets the camera with a wide welcoming smile, one hand raised in a friendly open-palm hello and the other resting on the counter. He is large and sharp in the central safe area; the espresso machine behind him is softly out of focus. No cup in his hands, no other person, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_ddccc1853398483d9c9a13e7f3e21d6b",
+        "usage": {
+          "input_tokens": 1846,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 310
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3218
+        },
+        "cost": {
+          "usd": "0.054998",
+          "mxn": "0.9333545586",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 310,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.05,
+        "output": "output/imagegen/unit-5-mission-v1/order-question.png",
+        "sha256": "3550dd53bbaa22801fef7d0ca7b246036cb3e821f7bd6c769f22938c74ea604a",
+        "byte_count": 2236097
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "3550dd53bbaa22801fef7d0ca7b246036cb3e821f7bd6c769f22938c74ea604a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the seller in the blue shirt and green apron greets the camera from behind the café counter with a wide smile and one raised open-palm hello; his hands are empty and no other person appears."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the question view of the closing voice gate, where the server greets the learner."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "6916de293827fc2fd125bfe339042f8914a71aa04fdc0e03e8b92631041d53b6",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/order-question.png"
+    },
+    {
+      "asset_id": "order-response",
+      "runtime_filename": "a1_u5_market_v1_order_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f6ed47b3-c616-415a-8367-e3d9a840d0b1",
+        "asset_id": "order-response",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:19:25.798327+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nOne white cup of black coffee on a saucer standing alone on a café counter, photographed close and straight on in warm daylight, with a small jug of milk beside it and the espresso machine softly out of focus behind. The cup is unmistakably coffee, is perfectly sharp and fills at least 40% of the frame width. No tea, no juice, no water, no pastry, no people, no hands, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_cf9f3341618a4825918f353832eab123",
+        "usage": {
+          "input_tokens": 279,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 279
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1651
+        },
+        "cost": {
+          "usd": "0.042555",
+          "mxn": "0.7221881385",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 279,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.5,
+        "output": "output/imagegen/unit-5-mission-v1/order-response.png",
+        "sha256": "fa356657a262b914646ace30351e1df170ff5ba2a28ca1bde3e6f03978b3f47e",
+        "byte_count": 2043886
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "fa356657a262b914646ace30351e1df170ff5ba2a28ca1bde3e6f03978b3f47e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: one white cup of black coffee on a saucer with a small milk jug beside it on a café counter, espresso machine soft behind; unmistakably coffee, with no tea, juice, water, pastry or people."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the answer view of the closing voice gate, showing the coffee the learner orders."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "8cf6d2594b0627ff4d3b8490acfc43bedbdfa087b92352557cbd125c59519d8a",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-5/mission-v1/order-response.png"
+    }
+  ],
+  "paid_attempts": [
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "ac7f28a9-129e-4463-9d12-1b22fa3bf63a",
+        "asset_id": "cafe-counter-v2",
+        "pack_sha256": "8e3a504350e79c28c2e09d3c9528a9a568a893c930a0992f057f4015520b9017",
+        "started_at": "2026-09-21T08:33:37.129778+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph inside the café in warm daylight with exactly four of them, evenly spaced along the counter, clearly separated and never overlapping, each showing one unmistakable reaction: (1) at the far left the woman in the mustard cardigan stands at the counter pointing at a clear glass of water, clearly asking for it; (2) left of centre the man in the grey sweater and glasses nods with a warm smile and one upturned open palm towards a small plate of pastry a server offers him, clearly accepting; (3) right of centre the young woman in the denim jacket turns her face away from an offered plate with one raised flat palm, clearly declining; (4) at the far right the boy in the red t-shirt stands at the counter pointing with one finger at a white teapot with a teacup beside it, clearly asking for tea and holding nothing in his hands. Every face and gesture is sharp, and each person has clear empty space above the head. No fifth customer, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7af13dd4e8bf4173889dca734883b027",
+        "usage": {
+          "input_tokens": 1965,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 429
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3337
+        },
+        "cost": {
+          "usd": "0.055593",
+          "mxn": "0.9434521251",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 429,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 36.7,
+        "output": "output/imagegen/unit-5-mission-v1/cafe-counter-v2.png",
+        "sha256": "0a73b9c4670a055d1869008944bf44e278fa8ed1d41aabe29b8e6c6c1d5b1ec3",
+        "byte_count": 2631910
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "0a73b9c4670a055d1869008944bf44e278fa8ed1d41aabe29b8e6c6c1d5b1ec3",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four customers from the kickoff photograph along the café counter, each with a distinct action — the woman in the mustard cardigan points at a glass of water, the man in glasses turns an open palm up towards an offered pastry, the young woman in the denim jacket raises a flat palm and turns away from an offered plate, and the boy in the red t-shirt points at a teapot with empty hands. Two servers work behind the counter and are not targets.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.095,
+              "width": 0.17,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.125,
+                "y": 0.1
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.35,
+              "y": 0.09,
+              "width": 0.17,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.42,
+                "y": 0.095
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.58,
+              "y": 0.105,
+              "width": 0.16,
+              "height": 0.81
+            },
+            "head_anchors": [
+              {
+                "x": 0.655,
+                "y": 0.11
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.75,
+              "y": 0.17,
+              "width": 0.15,
+              "height": 0.75
+            },
+            "head_anchors": [
+              {
+                "x": 0.815,
+                "y": 0.175
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "ea179281-eb52-440b-8f4c-c5339e517146",
+        "asset_id": "cafe-counter",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:11:54.731360+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph inside the café in warm daylight with exactly four of them, evenly spaced along the counter, clearly separated and never overlapping, each showing one unmistakable reaction: (1) at the far left the woman in the mustard cardigan stands at the counter pointing at a clear glass of water, clearly asking for it; (2) left of centre the man in the grey sweater and glasses nods with a warm smile and one upturned open palm towards a small plate of pastry a server offers him, clearly accepting; (3) right of centre the young woman in the denim jacket turns her face away from an offered plate with one raised flat palm, clearly declining; (4) at the far right the boy in the red t-shirt holds a white cup with both hands and smiles gratefully at it. Every face and gesture is sharp, and each person has clear empty space above the head. No fifth customer, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7558b3c781814dde9cedf7f5ad7eb586",
+        "usage": {
+          "input_tokens": 1947,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 411
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3319
+        },
+        "cost": {
+          "usd": "0.055503",
+          "mxn": "0.9419247621",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 411,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 36.3,
+        "output": "output/imagegen/unit-5-mission-v1/cafe-counter.png",
+        "sha256": "ea435b504cb01d58d0e16922fee3157ee74624701bdb4d65a55aca22389ae512",
+        "byte_count": 2450188
+      },
+      "installed": false,
+      "agent_review": {
+        "disposition": "rejected",
+        "sha256": "ea435b504cb01d58d0e16922fee3157ee74624701bdb4d65a55aca22389ae512",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Rejected after the cue check: the fourth customer holds a cup, so his only natural taught line is 'Thank you.', which contains 'No, thank you.' from the same board and cannot be told apart from it. The replacement has him ordering tea instead."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "41af8f98-a622-4a4c-b143-7641d1631fd5",
+        "asset_id": "drinks-fridge",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:06:12.972311+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nAn open market drinks shelf photographed straight on in daylight, with no people at all. Exactly four separate drinks stand in a row, well apart and never touching: (1) a clear glass bottle of water; (2) a clear glass bottle of white milk; (3) a clear glass bottle of orange juice; (4) a glass jug of black coffee beside one white cup. Each drink is unmistakably itself by colour and container, is sharp, and is at least 15% of the frame width with clear empty space above it. No tea, no soft drinks, no cans, no labels, no price tags, no people, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_0d1bf919f0d34ac19d1d4ddad7a9afec",
+        "usage": {
+          "input_tokens": 322,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 322
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1694
+        },
+        "cost": {
+          "usd": "0.04277",
+          "mxn": "0.725836839",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 322,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.17,
+        "output": "output/imagegen/unit-5-mission-v1/drinks-fridge.png",
+        "sha256": "cbf524f92efcfa7369c667812f9c972e39a713d6dcbdae65344aca1bcecf1f51",
+        "byte_count": 2186359
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "cbf524f92efcfa7369c667812f9c972e39a713d6dcbdae65344aca1bcecf1f51",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four separated drinks on a market shelf with no people — a clear bottle of water, a bottle of white milk, a bottle of orange juice and a glass jug of black coffee beside one white cup. Each is unmistakable by colour and container, and no labels or readable words appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.04,
+              "y": 0.22,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.108,
+                "y": 0.23
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.255,
+              "y": 0.23,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.322,
+                "y": 0.24
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.46,
+              "y": 0.23,
+              "width": 0.135,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.527,
+                "y": 0.24
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.62,
+              "y": 0.37,
+              "width": 0.345,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.73,
+                "y": 0.38
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "84ecaef4-64d0-41aa-93de-bc5d0ae5c56b",
+        "asset_id": "fruit-counter",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:05:10.754261+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA market fruit counter photographed straight on in bright daylight, with no people at all. Exactly four separate groups sit in a row along the counter, well apart and never touching, each on its own small wooden tray: (1) exactly five oranges; (2) exactly two green pears; (3) one bunch of purple grapes; (4) exactly one red strawberry alone on its tray. Count is critical: five oranges and not four or six, two pears and not three, and only one strawberry. Each group is sharp, countable at phone size and at least 15% of the frame width, with clear empty space above it. No apples, no bananas, no price tags, no people, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_a8df21265489430296c3446159479e23",
+        "usage": {
+          "input_tokens": 335,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 335
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1707
+        },
+        "cost": {
+          "usd": "0.042835",
+          "mxn": "0.7269399345",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 335,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 39.61,
+        "output": "output/imagegen/unit-5-mission-v1/fruit-counter.png",
+        "sha256": "852f6eb77aef05117e46b39cb7fbd610e4099f49a2f60082430dfbe9baff3e65",
+        "byte_count": 2552209
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "852f6eb77aef05117e46b39cb7fbd610e4099f49a2f60082430dfbe9baff3e65",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: four trays on a market counter with no people — exactly five oranges (three in front, two behind), exactly two green pears, one bunch of purple grapes and exactly one red strawberry. Each tray is separate and countable at phone size; the single strawberry is the smallest target, so its rectangle takes in its whole tray.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.01,
+              "y": 0.445,
+              "width": 0.285,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.15,
+                "y": 0.45
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.3,
+              "y": 0.505,
+              "width": 0.21,
+              "height": 0.19
+            },
+            "head_anchors": [
+              {
+                "x": 0.405,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.53,
+              "y": 0.505,
+              "width": 0.23,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.645,
+                "y": 0.51
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.775,
+              "y": 0.555,
+              "width": 0.22,
+              "height": 0.165
+            },
+            "head_anchors": [
+              {
+                "x": 0.872,
+                "y": 0.585
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "7939766b-b6b2-47ad-989f-33fb8d0f1849",
+        "asset_id": "kickoff",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:03:14.585987+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA small neighbourhood market and café on one bright street corner, photographed straight on from across the pavement. Five ordinary people stand together in front of the open market stall, side by side and clearly separated, all facing the camera with friendly relaxed expressions: a woman in her thirties with dark hair in a bun and a mustard cardigan; a man in his forties with short grey-flecked hair, a blue shirt and a green apron, the market seller; a young woman in her twenties with long brown hair and a denim jacket; a man in his twenties with short black hair, glasses and a grey sweater; and a boy of about ten in a red t-shirt. Behind them the stall's crates of fruit and vegetables and, to the right, the café's window with its counter inside. Every face is sharp and every person is complete from head to feet. No readable words, no price tags, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_39e219f0c2164ddc92488df6d5738175",
+        "usage": {
+          "input_tokens": 373,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 373
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1745
+        },
+        "cost": {
+          "usd": "0.043025",
+          "mxn": "0.7301643675",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 373,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 38.46,
+        "output": "output/imagegen/unit-5-mission-v1/kickoff.png",
+        "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+        "byte_count": 2836076
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: five people stand side by side in front of the market stall with the café at the right: the woman in the mustard cardigan, the seller in the blue shirt and green apron, the young woman in the denim jacket, the man in glasses and a grey sweater, and the boy in the red t-shirt. Every face is sharp, every body complete, and no text appears; this shot fixes the identities the later scenes reuse."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "efbb53cd-2353-41d1-8435-e07e1f2fa01b",
+        "asset_id": "likes-table",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:07:06.825615+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them sitting along one side of a long café table in daylight, evenly spaced, clearly separated and never overlapping, each with one plate or glass in front of them and each showing an unmistakable reaction: (1) at the far left the young woman in the denim jacket smiles warmly at a plate of cooked fish and lifts a forkful towards her mouth; (2) left of centre the man in the grey sweater and glasses leans back from his own plate of cooked fish with one open palm raised and his face turned away, clearly refusing it; (3) right of centre the market seller in the blue shirt smiles at a plate of roast chicken and reaches for it happily; (4) at the far right the woman in the mustard cardigan pushes a tall glass of white milk away with a flat hand and a closed-mouth grimace. Every face and its plate or glass are sharp, and each person has clear empty space above the head. No other food, no fifth person, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_9d587dee1f4d4b74a5844f22a395673c",
+        "usage": {
+          "input_tokens": 1963,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 427
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3335
+        },
+        "cost": {
+          "usd": "0.055583",
+          "mxn": "0.9432824181",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 427,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 39.38,
+        "output": "output/imagegen/unit-5-mission-v1/likes-table.png",
+        "sha256": "7dc228f4ef5a6640f618543fd75a12909861b0d78bccfc33274e8448873a9fa9",
+        "byte_count": 2798359
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "7dc228f4ef5a6640f618543fd75a12909861b0d78bccfc33274e8448873a9fa9",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four people from the kickoff photograph along one café table, each with a different reaction. The young woman in the denim jacket smiles and lifts a forkful of fish; the man in the grey sweater and glasses raises an open palm and turns from his own fish; the seller in the blue shirt smiles and cuts into roast chicken; the woman in the mustard cardigan pushes a glass of milk away with a grimace. Each face and its plate or glass are sharp and nobody overlaps.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.06,
+              "y": 0.15,
+              "width": 0.19,
+              "height": 0.8
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.155
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.29,
+              "y": 0.15,
+              "width": 0.165,
+              "height": 0.8
+            },
+            "head_anchors": [
+              {
+                "x": 0.355,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.545,
+              "y": 0.13,
+              "width": 0.19,
+              "height": 0.81
+            },
+            "head_anchors": [
+              {
+                "x": 0.625,
+                "y": 0.14
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.81,
+              "y": 0.16,
+              "width": 0.17,
+              "height": 0.79
+            },
+            "head_anchors": [
+              {
+                "x": 0.885,
+                "y": 0.17
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f7384c8a-757b-4a8f-a3d8-8f63103b64f8",
+        "asset_id": "market-stall",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:04:14.865939+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA market stall photographed straight on in bright daylight, with no people at all. Exactly four separate goods, well apart along the counter and never touching: (1) at the left, a crate of red apples, many of them, clearly apples; (2) left of centre, a bunch of yellow bananas hanging from the stall frame; (3) right of centre, a basket holding two crusty loaves of bread; (4) at the right, an open paper sack of white rice with a scoop resting in it. Each group is sharp and at least 15% of the frame width, with clear empty space above it. No oranges, no grapes, no eggs, no drinks, no people, no price tags, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_8c8b972dff9e43b9bb9d2f04e13dc5e7",
+        "usage": {
+          "input_tokens": 340,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 340
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1712
+        },
+        "cost": {
+          "usd": "0.04286",
+          "mxn": "0.727364202",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 340,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.35,
+        "output": "output/imagegen/unit-5-mission-v1/market-stall.png",
+        "sha256": "92781d101da96a1899ac7bd61006e729a4d085621f4063d89c5ddaef53eba0e6",
+        "byte_count": 2779049
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "92781d101da96a1899ac7bd61006e729a4d085621f4063d89c5ddaef53eba0e6",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: a market stall with no people and four separated goods — a crate of red apples at the left, one bunch of yellow bananas hanging in the middle, a basket holding two crusty loaves, and an open sack of white rice with a scoop at the right. Nothing touches anything else and no oranges, grapes, eggs or drinks appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.005,
+              "y": 0.435,
+              "width": 0.32,
+              "height": 0.28
+            },
+            "head_anchors": [
+              {
+                "x": 0.165,
+                "y": 0.44
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.31,
+              "y": 0.13,
+              "width": 0.17,
+              "height": 0.31
+            },
+            "head_anchors": [
+              {
+                "x": 0.395,
+                "y": 0.14
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.455,
+              "y": 0.45,
+              "width": 0.27,
+              "height": 0.33
+            },
+            "head_anchors": [
+              {
+                "x": 0.59,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.74,
+              "y": 0.4,
+              "width": 0.23,
+              "height": 0.39
+            },
+            "head_anchors": [
+              {
+                "x": 0.855,
+                "y": 0.41
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "e79d1ebf-a0ce-4ea0-b45b-a6380826b56d",
+        "asset_id": "meals-table",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:10:02.774053+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them seated around one large table in daylight, evenly spaced, clearly separated and never overlapping, each eating or drinking exactly one thing: (1) at the far left the young woman in the denim jacket lifts a forkful of scrambled egg from a plate of eggs; (2) left of centre the man in the grey sweater and glasses lifts a spoonful of white rice from a bowl of rice; (3) right of centre the woman in the mustard cardigan cuts into a piece of roast chicken on her plate; (4) at the far right the market seller in the blue shirt raises a white cup of tea to his mouth with a small teapot beside him. Every face and the food or drink in front of it are sharp, and each person has clear empty space above the head. No fifth person, no other plates, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_67e771117e7f4bd28d646558a4c2231e",
+        "usage": {
+          "input_tokens": 1933,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 397
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3305
+        },
+        "cost": {
+          "usd": "0.055433",
+          "mxn": "0.9407368131",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 397,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.53,
+        "output": "output/imagegen/unit-5-mission-v1/meals-table.png",
+        "sha256": "47b0fafd5d0e877aee0eab85bc517452a10354561141234472e05f8c45efb09e",
+        "byte_count": 2748123
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "47b0fafd5d0e877aee0eab85bc517452a10354561141234472e05f8c45efb09e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four people from the kickoff photograph around one table, each eating or drinking one thing — the young woman in the denim jacket lifts a forkful of scrambled egg, the man in glasses a spoonful of white rice, the woman in the mustard cardigan cuts roast chicken, and the seller raises a white cup of tea with a teapot beside him. Each face and its food are sharp and nobody overlaps.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.055,
+              "y": 0.18,
+              "width": 0.2,
+              "height": 0.78
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.285,
+              "y": 0.13,
+              "width": 0.195,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.135
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.54,
+              "y": 0.14,
+              "width": 0.19,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.625,
+                "y": 0.145
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.785,
+              "y": 0.14,
+              "width": 0.19,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.875,
+                "y": 0.15
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "6814e80f-feeb-4842-b41d-59bb3df6018b",
+        "asset_id": "needs-list",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:08:57.741859+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them standing in a market aisle in daylight, evenly spaced, clearly separated and never overlapping, each holding up exactly one thing towards the camera with both hands: (1) at the far left the man in the grey sweater and glasses holds a clear glass bottle of white milk; (2) left of centre the woman in the mustard cardigan holds one crusty loaf of bread; (3) right of centre the boy in the red t-shirt holds a small carton of white eggs, open so the eggs are visible; (4) at the far right the young woman in the denim jacket holds a clear glass bottle of orange juice. Each held item is unmistakable, sharp and clear of the person's face, and each person has clear empty space above the head. No fifth person, no other goods in their hands, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_c122ac7f884a4ddfafab96e65d617f16",
+        "usage": {
+          "input_tokens": 1929,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 393
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3301
+        },
+        "cost": {
+          "usd": "0.055413",
+          "mxn": "0.9403973991",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 393,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 41.16,
+        "output": "output/imagegen/unit-5-mission-v1/needs-list.png",
+        "sha256": "319584808af1fe2b8cee24bca0ed06a23afdbc5fe380857e1ddf84cc98621e09",
+        "byte_count": 2723284
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "319584808af1fe2b8cee24bca0ed06a23afdbc5fe380857e1ddf84cc98621e09",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four people from the kickoff photograph in a market aisle, each holding up one thing with both hands — the man in glasses a bottle of white milk, the woman in the mustard cardigan a crusty loaf, the boy in the red t-shirt an open carton of white eggs, and the young woman in the denim jacket a bottle of orange juice. Each held item is clear of its holder's face and nobody overlaps.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.11,
+              "y": 0.05,
+              "width": 0.18,
+              "height": 0.9
+            },
+            "head_anchors": [
+              {
+                "x": 0.195,
+                "y": 0.055
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.32,
+              "y": 0.055,
+              "width": 0.165,
+              "height": 0.89
+            },
+            "head_anchors": [
+              {
+                "x": 0.4,
+                "y": 0.06
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.18,
+              "width": 0.125,
+              "height": 0.76
+            },
+            "head_anchors": [
+              {
+                "x": 0.61,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.72,
+              "y": 0.07,
+              "width": 0.175,
+              "height": 0.88
+            },
+            "head_anchors": [
+              {
+                "x": 0.805,
+                "y": 0.075
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "6b64092e-ae31-4ff3-b763-eebe81039451",
+        "asset_id": "order-question",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:18:32.272728+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the market seller in the blue shirt. Create the question shot of a speaking game: behind the café counter, wearing an apron over his blue shirt, he greets the camera with a wide welcoming smile, one hand raised in a friendly open-palm hello and the other resting on the counter. He is large and sharp in the central safe area; the espresso machine behind him is softly out of focus. No cup in his hands, no other person, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_ddccc1853398483d9c9a13e7f3e21d6b",
+        "usage": {
+          "input_tokens": 1846,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 310
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3218
+        },
+        "cost": {
+          "usd": "0.054998",
+          "mxn": "0.9333545586",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 310,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.05,
+        "output": "output/imagegen/unit-5-mission-v1/order-question.png",
+        "sha256": "3550dd53bbaa22801fef7d0ca7b246036cb3e821f7bd6c769f22938c74ea604a",
+        "byte_count": 2236097
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "3550dd53bbaa22801fef7d0ca7b246036cb3e821f7bd6c769f22938c74ea604a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the seller in the blue shirt and green apron greets the camera from behind the café counter with a wide smile and one raised open-palm hello; his hands are empty and no other person appears."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f6ed47b3-c616-415a-8367-e3d9a840d0b1",
+        "asset_id": "order-response",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:19:25.798327+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nOne white cup of black coffee on a saucer standing alone on a café counter, photographed close and straight on in warm daylight, with a small jug of milk beside it and the espresso machine softly out of focus behind. The cup is unmistakably coffee, is perfectly sharp and fills at least 40% of the frame width. No tea, no juice, no water, no pastry, no people, no hands, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_cf9f3341618a4825918f353832eab123",
+        "usage": {
+          "input_tokens": 279,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 279
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1651
+        },
+        "cost": {
+          "usd": "0.042555",
+          "mxn": "0.7221881385",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 279,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.5,
+        "output": "output/imagegen/unit-5-mission-v1/order-response.png",
+        "sha256": "fa356657a262b914646ace30351e1df170ff5ba2a28ca1bde3e6f03978b3f47e",
+        "byte_count": 2043886
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "fa356657a262b914646ace30351e1df170ff5ba2a28ca1bde3e6f03978b3f47e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: one white cup of black coffee on a saucer with a small milk jug beside it on a café counter, espresso machine soft behind; unmistakably coffee, with no tea, juice, water, pastry or people."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "64050153-c0a2-40c3-8673-0c12ef20ac61",
+        "asset_id": "price-board",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:10:58.332045+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. Four market price tags standing in a row along a wooden stall counter, photographed straight on in daylight, evenly spaced with clear counter between them and no people at all. Each tag is a plain white card in a small metal holder and carries exactly one price in clean black handwriting. From left to right they read exactly: $1, $2, $3, $5. No decimals, no cents, no words, no other numerals anywhere in the frame, and no repeated price. Each tag is perfectly sharp, fully legible and at least 15% of the frame width, with clear empty space above it. Small goods may sit behind the tags but must stay secondary. No people, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_c4c19b59536e43398fc0561f42e66ce2",
+        "usage": {
+          "input_tokens": 338,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 338
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1710
+        },
+        "cost": {
+          "usd": "0.04285",
+          "mxn": "0.727194495",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 338,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 34.54,
+        "output": "output/imagegen/unit-5-mission-v1/price-board.png",
+        "sha256": "145ae6eb6eca48ed8366935aa167b2166534b5eaa8f43ad73843f48a1502db90",
+        "byte_count": 2380940
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "145ae6eb6eca48ed8366935aa167b2166534b5eaa8f43ad73843f48a1502db90",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and read on a 0.05 grid: four price cards in metal holders along a market counter reading exactly $1, $2, $3 and $5 from left to right, each fully legible with no decimals, words or other numerals anywhere, evenly spaced with clear counter between them and no people in the frame.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.015,
+              "y": 0.45,
+              "width": 0.2,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.115,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.27,
+              "y": 0.45,
+              "width": 0.2,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.45,
+              "width": 0.19,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.645,
+                "y": 0.455
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.795,
+              "y": 0.45,
+              "width": 0.195,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.89,
+                "y": 0.455
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "44cbba26-d94a-47b1-9922-5453b83d5e64",
+        "asset_id": "price-question",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:12:53.497743+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the woman in the mustard cardigan. Create the question shot of a speaking game: she stands at the market counter turned towards the camera with a warm curious face, mouth open mid-question, one open palm extended towards a basket of goods in a natural asking gesture. She is large and sharp in the central safe area; the stall behind her is softly out of focus. No other person in the shot, no price tag, no numerals, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_f92c08879d1b4496adeb13d0b910bafd",
+        "usage": {
+          "input_tokens": 1843,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 307
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3215
+        },
+        "cost": {
+          "usd": "0.054983",
+          "mxn": "0.9330999981",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 307,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 35.59,
+        "output": "output/imagegen/unit-5-mission-v1/price-question.png",
+        "sha256": "1577bca357641166ce2031c13ffc586e52184de461b450f1fdade2af77ce4a7c",
+        "byte_count": 2671596
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "1577bca357641166ce2031c13ffc586e52184de461b450f1fdade2af77ce4a7c",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the woman in the mustard cardigan stands at the market with a warm curious face, mouth open mid-question, one open palm extended towards the vegetable baskets; she is large and sharp in the centre, the stall behind her is soft, and no price tag or numeral appears."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "4059d895-55c7-4ac7-a0a8-d3b1168a22c6",
+        "asset_id": "price-response",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:13:50.550513+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. One market price tag standing alone in front of a basket of apples on a wooden counter, photographed straight on and close in daylight. The tag is a plain white card in a small metal holder and shows exactly the characters $4 in clean black handwriting, nothing else: no decimals, no cents, no words and no other numerals anywhere in the frame. The tag fills at least 35% of the frame width and is perfectly sharp and fully legible. No second tag, no people, no hands, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7d3cdb8210ad47d5b3ec2f68cc0469dc",
+        "usage": {
+          "input_tokens": 300,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 300
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1672
+        },
+        "cost": {
+          "usd": "0.04266",
+          "mxn": "0.723970062",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 300,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.84,
+        "output": "output/imagegen/unit-5-mission-v1/price-response.png",
+        "sha256": "dd841e7840ac0ce4a2e87e3c43feebfbe2f7253b7ccfb333936beb57bc629711",
+        "byte_count": 2560318
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "dd841e7840ac0ce4a2e87e3c43feebfbe2f7253b7ccfb333936beb57bc629711",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: one white price card in a metal holder reads exactly $4 in clean black handwriting in front of a basket of red apples; no decimals, words or other numerals appear and there are no people or hands."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "078db8bc-388f-4ce9-bc0b-021d3b70d20e",
+        "asset_id": "serve-question",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:14:40.929676+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the man in the grey sweater and glasses. Create the question shot of a speaking game: he stands at the café counter turned towards the camera, mouth open mid-request, pointing with one relaxed hand towards the drinks behind the counter as he orders. He is large and sharp in the central safe area; the café counter behind him is softly out of focus. No other person in the shot, no glass already in his hand, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_36f73003e3a048818b714bdbdefa063b",
+        "usage": {
+          "input_tokens": 1840,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 304
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3212
+        },
+        "cost": {
+          "usd": "0.054968",
+          "mxn": "0.9328454376",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 304,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.35,
+        "output": "output/imagegen/unit-5-mission-v1/serve-question.png",
+        "sha256": "be83008371c776010aa0b599265403702ef5d2781021216054dbbb4b957b7e67",
+        "byte_count": 2257397
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "be83008371c776010aa0b599265403702ef5d2781021216054dbbb4b957b7e67",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the man in glasses and the grey sweater stands at the café counter mid-request, pointing towards the drinks; he is large and sharp and holds no glass yet. Disclosed: a menu board hangs far behind him whose small text is illegible at phone size."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "db52a27d-1b86-4afa-abaa-6703b3173446",
+        "asset_id": "serve-response",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:15:39.593127+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the market seller in the blue shirt. Create the answer shot of a speaking game: behind the café counter he holds out one tall glass of orange juice towards the camera with both hands, arms extended in a clear here-you-are offer, smiling. The glass of juice is in the centre of the frame, unmistakably orange juice, and together with his face fills at least 45% of the frame width. Only one glass. No customer in the shot, no money, no tray of other drinks, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_efdf6e5314ac43639163e44719fcf062",
+        "usage": {
+          "input_tokens": 1857,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 321
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3229
+        },
+        "cost": {
+          "usd": "0.055053",
+          "mxn": "0.9342879471",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 321,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 39.27,
+        "output": "output/imagegen/unit-5-mission-v1/serve-response.png",
+        "sha256": "c61721d0f7144e62414c107a64ba0993fba5d9f08eb1330a049248ab4742932b",
+        "byte_count": 2350806
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "c61721d0f7144e62414c107a64ba0993fba5d9f08eb1330a049248ab4742932b",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the seller in the blue shirt and green apron holds out one tall glass of orange juice towards the camera with both hands and smiles; only one glass is in play and no customer, money or tray appears."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "6ffdde1f-42c0-42cc-926c-35602d82f990",
+        "asset_id": "thanks-question",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:16:43.990320+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the young woman in the denim jacket. Create the question shot of a speaking game: behind the café counter, wearing an apron over her denim jacket, she holds out one white cup of coffee on a saucer towards the camera with both hands in a clear here-you-are offer, smiling and speaking. Her face and the offered cup are large and sharp in the central safe area. Only one cup. No customer in the shot, no money, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_602e22a1c69e4c3c8b3ccd75268c3c6d",
+        "usage": {
+          "input_tokens": 1845,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 309
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3217
+        },
+        "cost": {
+          "usd": "0.054993",
+          "mxn": "0.9332697051",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 309,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 36.31,
+        "output": "output/imagegen/unit-5-mission-v1/thanks-question.png",
+        "sha256": "e30ad6789426d63fc78708eee07fa47b2a80e7d9252f6566f8c418b786d57d39",
+        "byte_count": 2270587
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e30ad6789426d63fc78708eee07fa47b2a80e7d9252f6566f8c418b786d57d39",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the young woman in the denim jacket, in an apron behind the café counter, holds out one white cup on a saucer with both hands and smiles as she speaks; only one cup is in play and no money appears."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "73bac2d6-f2ba-43aa-a748-fcb574fc1376",
+        "asset_id": "thanks-response",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:17:39.352238+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the boy of about ten in the red t-shirt. Create the answer shot of a speaking game: seated at a café table, he holds one white cup on its saucer with both hands close to his chest and smiles warmly at the camera in clear thanks. His face and the cup are large and sharp in the central safe area and together fill at least 45% of the frame width. He is not drinking yet. No other person in the shot, no plate of food, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_d6d618e784ef47d9a3fc729e37382ba9",
+        "usage": {
+          "input_tokens": 1852,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 316
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3224
+        },
+        "cost": {
+          "usd": "0.055028",
+          "mxn": "0.9338636796",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 316,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.86,
+        "output": "output/imagegen/unit-5-mission-v1/thanks-response.png",
+        "sha256": "9ba50ff68560a72304c261e998371cc600599c9e02fe7a8b60a371f40b092d4c",
+        "byte_count": 2195253
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "9ba50ff68560a72304c261e998371cc600599c9e02fe7a8b60a371f40b092d4c",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the boy in the red t-shirt sits at a café table holding one white cup on its saucer with both hands and smiles warmly at the camera; he is not drinking and no other person or plate appears."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "c748d9d8-4204-4ba5-8872-3ae0d17d5117",
+        "asset_id": "wants-counter",
+        "pack_sha256": "38bc509ab8e39dcdb6045ae30b142e5fdde2950e6fd362487ce37c5284adf734",
+        "started_at": "2026-09-21T08:08:05.203527+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them standing along a market counter in daylight, evenly spaced, clearly separated and never overlapping, each pointing at what they are asking for: (1) at the far left the woman in the mustard cardigan points at a small tray holding exactly two white eggs; (2) left of centre the man in the grey sweater and glasses points at an open sack of white rice; (3) right of centre the young woman in the denim jacket points at a tray holding exactly three red apples; (4) at the far right the boy in the red t-shirt points at a clear glass bottle of water. Counts are critical: exactly two eggs and exactly three apples. Every face, pointing hand and the item pointed at are sharp, and each person has clear empty space above the head. No fifth person, no price tags, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "e4c19ec77dc25ef5a325058731c71e9929d0b5fc8121eac048c1ad1319a70fee",
+            "byte_count": 2836076
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_561cb6dd8423430ba5a2dce9fccd305c",
+        "usage": {
+          "input_tokens": 1930,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 394
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3302
+        },
+        "cost": {
+          "usd": "0.055418",
+          "mxn": "0.9404822526",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 394,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.14,
+        "output": "output/imagegen/unit-5-mission-v1/wants-counter.png",
+        "sha256": "7affd6c3bcbb734d678d4812b47d60a2d3f19a189b1d3cf3be1407a4a37425ca",
+        "byte_count": 3031190
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "7affd6c3bcbb734d678d4812b47d60a2d3f19a189b1d3cf3be1407a4a37425ca",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: four people from the kickoff photograph at a market counter, each pointing at one thing — the woman in the mustard cardigan at a tray of exactly two white eggs, the man in glasses at an open sack of white rice, the young woman in the denim jacket at exactly three red apples, and the boy in the red t-shirt at a clear bottle of water. The counts are exact and nobody overlaps.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.115,
+              "width": 0.165,
+              "height": 0.83
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.12
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.295,
+              "y": 0.05,
+              "width": 0.165,
+              "height": 0.87
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.055
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.085,
+              "width": 0.165,
+              "height": 0.85
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.09
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.815,
+              "y": 0.225,
+              "width": 0.145,
+              "height": 0.68
+            },
+            "head_anchors": [
+              {
+                "x": 0.875,
+                "y": 0.23
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "retired_scenes": [
+    {
+      "lesson_id": "lesson-5-10-cafe-mission",
+      "old_filename": "a1_u5_scene_01_market_stall.webp",
+      "binding": "cards",
+      "old_sha256": "bec88073829c239d133308538e3d9ba15c3cce15b93192598e3151bdf08d32f3",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 5 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's market-stall hotspot scene with fruit crates and a seller; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u5_market_v1_market_stall.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-5-10-cafe-mission",
+      "old_filename": "a1_u5_scene_02_register.webp",
+      "binding": "cards",
+      "old_sha256": "fd1b8de5b84a978189744901c3ded8b4fa4d53497ef1385657b4174b733bf7d7",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 5 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's register hotspot scene with the price display and the cashier; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u5_market_v1_price_board.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-5-10-cafe-mission",
+      "old_filename": "a1_u5_scene_03_cafe_counter.webp",
+      "binding": "cards",
+      "old_sha256": "b395fcfe120079437406a4ce1703f7183d8c78bb0739616a98bc6d362ab25d5c",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 5 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's café-counter hotspot scene used by its only voice gate; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u5_market_v1_cafe_counter.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-5-10-cafe-mission",
+      "old_filename": "a1_u5_mission_kickoff.webp",
+      "binding": "mission.kickoff_image_url",
+      "old_sha256": "52a5ca8c3e5e88fd7a342687416426c29b3539c83753a6508c3dff1c54e3956a",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 5 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's kickoff shot of the market and café; the original file stays byte-for-byte on disk and in every archive copy, and only its Lesson 5.10 binding changes.",
+      "replacement_filename": "a1_u5_market_v1_kickoff.webp",
+      "original_action": "preserve-byte-for-byte"
+    }
+  ]
+}

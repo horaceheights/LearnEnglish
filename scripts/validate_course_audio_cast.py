@@ -129,8 +129,12 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "male-character", "R6"),
     ],
     "lesson-5-9-unit-5-review": [
-        ("audio_speaker", "male-character", "S3 S6 U5 U8"),
-        ("answer_audio_speaker", "male-character", "R7"),
+        # Rebuilt review: every spoken first-person or café line matches the person in its
+        # picture, and the picture-free listening banks alternate two ordinary voices.
+        ("audio_speaker", "female-character", "L5 R5 N3 N6 N9 N11 N15 N18 S3 S4 S6 U5"),
+        ("audio_speaker", "male-character", "L6 N5 N14 N17 S2 S5 U6 U8"),
+        ("answer_audio_speaker", "female-character", "U5"),
+        ("answer_audio_speaker", "male-character", "R4 U8"),
     ],
     "lesson-6-2-transportation": [
         ("audio_speaker", "female-character", "L8 S6"),
