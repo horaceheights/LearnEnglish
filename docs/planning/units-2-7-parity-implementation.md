@@ -53,6 +53,43 @@ Unit 1 is the completed reference. The full Units 2–7 rollout remains unfinish
 - Follow-up verification: **all 309 backend tests pass**. Mobile fixture updates retain the original Unit 1 targets while accepting explicit object-group icons, pin the three revised review instruction cards and four Unit 2 mission voice gates, compare all new Unit 2 runtime image bytes with their inspection records, and preserve old asset files without requiring unused retired shots in Metro. The interaction runner now reaches the unchanged release-integrity gate and fails there because the aggregate course fingerprint remains the previous candidate (`5417263413ef9ff1a26057e5e39a01f86e9389d3` versus current `8d8e542660611870934d407e5158b5f133695e12`). Update that fingerprint deliberately with the finished canonical release candidate; do not weaken the gate or describe this preflight as passed.
 - A separate local Android export succeeded (2,289 modules, 5.3 MB Hermes bundle); all sixteen new review WebP payloads were verified present in its content-addressed asset output. This is a build check only, not an installed-device test, protected release preflight, or publication. No Preview/Production channel was changed. The web optimized build and 17 web regression tests also pass.
 
+### Unit 5 parity checkpoint — 2026-09-21
+
+Branch `claude/unit-5-parity`, stacked on `claude/unit-4-parity` (PR #182). Unit 5 now passes
+`python scripts/audit_a1_unit_parity.py` (`ready: true`) alongside Units 2–4; Units 6 and 7 still correctly fail it.
+
+- **5.9** is rebuilt from 32 to 48 cards (8 Learn, 8 Recognize, 18 Listen, 6 Speak, 8 Use). Exact-byte reuse of
+  earlier teaching pictures is zero, down from seventeen files, and the successful path retrieves 35 of the unit's
+  40 declared words. Twelve fresh review-only stills carry bread, chicken, a fruit plate, liking and refusing fish,
+  refusing milk, wanting juice, two exact prices, the café, an order handed over and an accepted offer; the
+  twenty-one review-only photographs the unit already owned stay bound, so no baseline binding is dropped without
+  an exception. The two dedicated four-card coffee reframes stay inside a four-option price bank, as the course
+  rule requires.
+- **5.10** is rebuilt from three stub beats to the contract's thirteen: nine listening scenes with 36 decisions
+  (market stall, fruit counter, drinks shelf, likes, wants, needs, meals, price board, café counter) and four
+  question-and-answer voice gates that ask a price, serve a drink, thank the server and place the closing order.
+  Every contract function is practised on the successful path, including yes please and no thank you.
+- The stub mission's market, register and café scenes cannot be kept: the approved photo edit of each pins its stub
+  card exactly as inspected, so those edits are recorded as superseded and every rebuilt beat binds its own
+  mission-only still generated from the kickoff cast. Each retired original stays byte-for-byte on disk.
+- Media: 31 paid attempts, 30 usable. One café-counter scene was rejected after the cue check: its fourth
+  customer held a cup, so his only natural line was "Thank you.", which the learner cannot tell apart from
+  "No, thank you." on the same board; the replacement has him ordering tea. Reported usage totals
+  **US$1.473226 / MX$25.0017** at uncached list rates before tax or discounts (16.9707 MXN/USD, dated 2026-09-11),
+  against pack ceilings of US$0.75 and US$1.20. No automatic retries and no fallback model.
+- Targets are measured on the real bytes and hash-bound; all 63 scene-slot layouts place every marker inside the
+  frame at 48px with no overlap. Disclosed for human review: a small illegible menu board hangs far behind the
+  serving-gate asker, and two servers work behind the café counter without being targets.
+- Audio: 41 new takes, 28 reused, 499 billable characters against a declared 1,100-character ceiling. The
+  missing-asset dry run is zero, the pinned-cast validator passes and every new spoken line over a picture has a
+  reviewed, gender-matched voice. The persistent catalog is exported from `a35dd79a` (4,782 immutable assets) and
+  the aggregate course fingerprint is re-pinned in both files that gate it.
+- Verification: parity audit (2–5 ready), lesson validator under the Preview policy, media preservation audit with
+  zero errors, answer-choice guardrail over 976 banks, pinned-cast validator, backend suite 387/387, web
+  regression 18/18, and the complete mobile interaction suite under the Preview policy. Mobile TypeScript and the
+  Android export still cannot run locally for the reason recorded under Unit 4; CI covers them. Human image
+  review, semantic approval and physical-device QA remain pending.
+
 ### Unit 4 parity checkpoint — 2026-09-21
 
 Branch `claude/unit-4-parity`, based on `origin/main` at `d6d49df`. Unit 4 now passes
