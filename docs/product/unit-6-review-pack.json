@@ -1,0 +1,125 @@
+{
+  "lesson_id": "lesson-6-9-unit-6-review",
+  "lesson_number": "6.9",
+  "revision": 1,
+  "output_namespace": "unit-6-review-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "0.70",
+    "estimated_usd": "0.48",
+    "mxn_per_usd": "16.9707",
+    "fx_date": "2026-09-11",
+    "automatic_retries": 0,
+    "human_approval": "pending",
+    "note": "11 fresh review-only stills for the rebuilt Unit 6 review. They replace the exact-byte repeats of earlier teaching images (originals and their teaching uses stay untouched) and show the pharmacy, a left-and-right street, the far station, crossing or not, the help exchange, thanking, two schedules and the taxi the old review could only show by repeating a teaching card. The fifteen review-only stills the unit already owns are reused unchanged. No automatic retries.",
+    "concept_coverage": "pharmacy, next to, on the left and on the right, far from, can and cannot cross, asking for help, thanking, the train at nine and at ten, going by taxi."
+  },
+  "shared_prompt": "Use case: photorealistic-natural. One clear real-world documentary photograph for a Spanish-speaking beginner's English review. Natural everyday photographic detail, real material grain and plausible lighting, realistic anatomy and hands. NOT an illustration, collage, cutout, split panel or app UI. Full-bleed 3:2 landscape; no frames, internal padding, fake blur bands, watermarks, captions, speech bubbles, logos or readable words except an explicitly requested numeral. A first-time learner must recognize the meaning at phone size: the key person, action and object are large, sharp and inside the central safe area. Fresh scenes for this review only; never imitate a previous course photo. Ordinary anonymous people, never the recurring course cast (no Ana, Luis, Sofia or Diego).",
+  "assets": [
+    {
+      "id": "pharmacy",
+      "runtime_filename": "a1_u6_review_v1_pharmacy.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.1 teaches pharmacy and the old review never showed one."
+      },
+      "prompt": "The street front of a small pharmacy photographed straight on in daylight, with no people. Above the door hangs one large illuminated green cross sign, the universal pharmacy symbol, and the shop window shows shelves of white medicine boxes and bottles. The green cross is perfectly sharp and the shopfront fills at least 60% of the frame width. No letters or words anywhere on the sign, window or door, no red cross, no other shops, no vehicles, no logos."
+    },
+    {
+      "id": "bank-next-to-store",
+      "runtime_filename": "a1_u6_review_v1_bank_next_to_store.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.3 teaches next to with buildings, and the old review never showed two buildings side by side."
+      },
+      "prompt": "Two neighbouring shopfronts photographed straight on from across the street in daylight, with no people. On the left a small bank: a stone facade with two columns, a cash machine set into the wall and a dark glass door. Immediately to its right, sharing the wall, a grocery store with crates of fruit and vegetables displayed outside its open door. The two fronts are clearly separate buildings that touch along one wall, and together fill at least 75% of the frame width. No readable words or numerals on either building, no vehicles, no logos."
+    },
+    {
+      "id": "left-right-street",
+      "runtime_filename": "a1_u6_review_v1_left_right_street.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.4 teaches on the left and on the right, and the old review could only show them by repeating teaching cards."
+      },
+      "prompt": "A quiet street photographed from its centre line looking straight ahead in daylight, with no people. On the left side of the street stands one bank: a stone facade with columns and a cash machine in the wall. On the right side, directly opposite, stands one small hospital: a white building with a red cross symbol above its entrance and an ambulance parked in front. Both buildings are large, sharp and fully visible, one clearly on the left and one clearly on the right of the road. No other buildings compete with them, no readable words or numerals anywhere, no logos."
+    },
+    {
+      "id": "far-station",
+      "runtime_filename": "a1_u6_review_v1_far_station.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.4 teaches far from, and the old review could only show it by repeating the teaching photograph."
+      },
+      "prompt": "A photograph taken from inside a green park in daylight, with no people. In the foreground a park bench and flower beds are large and sharp; far away, across open fields at the bottom of the view, a small railway station is visible: a platform canopy with a train standing at it, clearly distant and small. The station must read as far away, not next to the park. No other buildings near the park, no readable words, no logos."
+    },
+    {
+      "id": "can-cross",
+      "runtime_filename": "a1_u6_review_v1_can_cross.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.6 teaches you can cross the street, and the review needs its own picture of the green signal."
+      },
+      "prompt": "A woman in her thirties stepping off the kerb onto a zebra crossing in daylight, photographed from the pavement beside her. The pedestrian signal on the post next to her shows a bright green walking figure, large and sharp in the frame; no vehicles are near the crossing. She is mid-step, relaxed, clearly allowed to cross. Her whole body and the green signal are both inside the central safe area and together fill at least 50% of the frame width. No red signal anywhere, no other person, no readable words."
+    },
+    {
+      "id": "cannot-cross",
+      "runtime_filename": "a1_u6_review_v1_cannot_cross.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.6 teaches you cannot cross the street, and the review needs its own picture of the red signal."
+      },
+      "prompt": "A man in his thirties standing still at the kerb of a zebra crossing in daylight, photographed from the pavement beside him. The pedestrian signal on the post next to him shows a bright red standing figure, large and sharp in the frame, and a car is passing on the road in front of him. He waits with both feet on the pavement, hands at his sides, clearly not allowed to cross. His whole body and the red signal are both inside the central safe area and together fill at least 50% of the frame width. No green signal anywhere, no other person, no readable words."
+    },
+    {
+      "id": "help-question",
+      "runtime_filename": "a1_u6_review_v1_help_question.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.7 teaches Excuse me. Can you help me? and the old review could only show it by repeating teaching cards."
+      },
+      "prompt": "A woman in her twenties holding an unfolded paper map asks a passing older man for help on a town pavement in daylight, photographed from the side so both faces are clear and the two people do not overlap. She has turned towards him with her mouth open mid-question and one hand raised in a polite asking gesture; he has stopped and turned towards her, listening. The map shows only coloured shapes and no readable words. Both people are sharp and together fill at least 60% of the frame width. No third person, no readable words, no logos."
+    },
+    {
+      "id": "thank-you",
+      "runtime_filename": "a1_u6_review_v1_thank_you.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.7 teaches Thank you after directions, and the old review could only show it by repeating a teaching card."
+      },
+      "prompt": "A man in his twenties thanking an older woman who has just pointed the way, on a town pavement in daylight, photographed from the side so both faces are clear and the two people do not overlap. She points along the street with one arm; he faces her with a warm grateful smile, one hand raised to his chest in thanks, clearly saying thank you. Both people are sharp and together fill at least 60% of the frame width. No third person, no map, no readable words, no logos."
+    },
+    {
+      "id": "train-nine",
+      "runtime_filename": "a1_u6_review_v1_train_nine.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.8 teaches leaves at with a train, and the old review could only show it by repeating a teaching card."
+      },
+      "prompt": "Use case: text-exact. A railway platform in daylight, with no people, where a modern passenger train is pulling away from the platform, its rear carriage still close and sharp. On the platform pillar in the foreground hangs one round analog station clock with a plain white face and black hands showing exactly nine o'clock: the short hour hand points precisely at the numeral 9 and the long minute hand points precisely straight up at 12, no second hand. The clock face fills at least 25% of the frame height and its numerals 1 to 12 are clearly printed. No other clock, no departure board, no readable words except the clock numerals, no logos."
+    },
+    {
+      "id": "train-ten",
+      "runtime_filename": "a1_u6_review_v1_train_ten.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.8 teaches arrives at with a train, and the old review could only show it by repeating a teaching card."
+      },
+      "prompt": "Use case: text-exact. A railway platform in daylight, with no people, where a modern passenger train is arriving, its front carriage close and sharp as it slows at the platform. On the platform pillar in the foreground hangs one round analog station clock with a plain white face and black hands showing exactly ten o'clock: the short hour hand points precisely at the numeral 10 and the long minute hand points precisely straight up at 12, no second hand. The clock face fills at least 25% of the frame height and its numerals 1 to 12 are clearly printed. No other clock, no departure board, no readable words except the clock numerals, no logos."
+    },
+    {
+      "id": "by-taxi",
+      "runtime_filename": "a1_u6_review_v1_by_taxi.webp",
+      "change_control": {
+        "kind": "new-review-scene",
+        "reason": "Lesson 6.2 teaches by taxi, and the old review could only show it by repeating teaching cards."
+      },
+      "prompt": "A woman in her thirties getting into the back seat of a yellow taxi at a city kerb in daylight, photographed from the pavement. The taxi is unmistakable: a yellow car with a roof light, its rear door open; she has one foot inside and one hand on the door frame. Her whole body and the taxi are sharp and together fill at least 65% of the frame width. No bus, no train, no bicycle, no other passenger, no readable words or numerals on the car, no logos."
+    }
+  ]
+}
