@@ -41,7 +41,7 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "luis", "U9"),
     ],
     "lesson-3-4-age": [
-        ("audio_speaker", "luis", "L11 R7 U4 U7"),
+        ("audio_speaker", "luis", "L11 R7 U1 U3 U4 U7"),
         ("audio_speaker", "ana", "L12 N5 U2 U5 U6 U8"),
         ("answer_audio_speaker", "ana", "R7 U2"),
     ],
@@ -107,8 +107,12 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "ana", "R7 R8 U3"),
     ],
     "lesson-4-9-unit-4-review": [
-        ("audio_speaker", "ana", "R5 R6 N3 N4 S4 U4 U6"),
-        ("audio_speaker", "female-character", "L3 S5 U5"),
+        # Rebuilt review: every spoken first-person line matches the person in its picture,
+        # and the picture-free listening banks alternate two ordinary voices.
+        ("audio_speaker", "female-character", "L5 R5 R6 N9 N11 N13 N15 N16 N17 N18 S4 S5 U4 U8"),
+        ("audio_speaker", "male-character", "L6 L7 N10 N12 N14 U5 U6"),
+        ("answer_audio_speaker", "female-character", "U8"),
+        ("answer_audio_speaker", "male-character", "U5 U6"),
     ],
     "lesson-5-4-likes-and-dislikes": [
         ("audio_speaker", "male-character", "L6 A5 S6 U3 U6"),

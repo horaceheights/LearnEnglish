@@ -1,0 +1,227 @@
+{
+  "lesson_id": "lesson-4-10-my-day-mission",
+  "lesson_number": "4.10",
+  "revision": 1,
+  "output_namespace": "unit-4-mission-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.40",
+    "estimated_usd": "0.99",
+    "mxn_per_usd": "16.9707",
+    "fx_date": "2026-09-11",
+    "automatic_retries": 0,
+    "human_approval": "pending",
+    "note": "14 mission-only stills for the rebuilt Unit 4 mission: a kickoff that replaces the blurred-inset opening, 6 listening scenes, and the question and response views of four voice gates. The three existing full-frame scenes and the six o'clock hallway photograph are reused unchanged with their measured target geometry. No automatic retries. The first four-clock attempt was generated and each dial measured against its own centre; three dials were true but the seven-o'clock hour hand sat twelve degrees past the 7, so it was rejected and replaced by one deliberately re-prompted attempt. Its receipt and rejection stay in the ledger. Three further scenes replace the stub mission's living room, kitchen/dining and bedroom: the rebuilt mission re-authors those beats, and the approved photo-edit record for the earlier scenes requires their cards to stay exactly as inspected, so the rebuild retires them and binds its own stills instead.",
+    "cast": "Mission family established by the existing Unit 4 scenes: mother (dark ponytail, teal top, jeans), father (short dark hair, checked shirt), boy (about eight, striped shirt), girl (about twelve, long dark hair), grandmother and grandfather (white hair, seated on the cream sofa)."
+  },
+  "shared_prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.",
+  "assets": [
+    {
+      "id": "kickoff",
+      "runtime_filename": "a1_u4_home_v1_kickoff.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission needs its own full-bleed opening scene; the stub opening is a small photograph inside a wide blurred border, which breaks the full-bleed image rule."
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_scene_01_living_room_fullframe_v2.webp",
+        "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+        "observed_description": "Inspected 4.10 mission scene: a bright living room where the mother (dark ponytail, teal top, jeans) dusts a shelf on the left, the grandparents (white hair, beige and light-blue knitwear) sit together on a cream sofa in the middle, the girl reads on the right arm of the sofa, a tall floor lamp stands at the far left and a large window fills the right."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of this family and their living room. Create a brand-new welcoming photograph in that same home, from a new camera position in the hallway looking into the living room in bright morning light: the mother, the father (short dark hair, checked shirt), the boy of about eight in a striped shirt, the girl of about twelve with long dark hair, and both grandparents stand together in a relaxed group facing the camera, smiling, ready to start the day. Everyone is full length with faces clear and none overlapping. This opening is not a challenge: no clock, no numerals, no readable words."
+    },
+    {
+      "id": "living-room",
+      "runtime_filename": "a1_u4_home_v1_living_room.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of their living room in afternoon daylight, taken straight on, with exactly four clearly separated things and nobody else in the room: (1) left of centre, the mother stands alone on the rug folding a blanket, her whole body visible and clear space above her head; (2) right of centre, the grandmother and the grandfather sit together on the sofa, side by side and not overlapping, each face visible; (3) at the far left, exactly one tall floor lamp stands on the floor, switched on, its whole shade inside the frame and nobody near it; (4) at the right, exactly one tall window with a clear view of the garden, its frame completely visible. No second lamp, no second window, no television, no other person, no readable words, no logos."
+    },
+    {
+      "id": "kitchen-dining",
+      "runtime_filename": "a1_u4_home_v1_kitchen_dining.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of their open kitchen and dining room in daylight, taken straight on, with exactly four clearly separated things and nobody else: (1) at the left, the father stands at the kitchen counter chopping vegetables, his whole body visible with clear space above his head; (2) left of centre, the boy of about eight stands at the kitchen sink filling a glass of water, well apart from the father and not overlapping him; (3) at the right, in the dining area, exactly one rectangular wooden dining table, empty on top and completely visible; (4) exactly two identical wooden chairs at that table, one at each side, both fully visible and not touching each other. Count is critical: only two chairs, not three and not four, and only one table. No sofa, no bed, no other person, no readable words, no logos."
+    },
+    {
+      "id": "bedroom",
+      "runtime_filename": "a1_u4_home_v1_bedroom.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of the girl's bedroom in daylight, taken straight on from the doorway, with exactly four clearly separated things and nobody else in the room: (1) left of centre, the girl of about twelve stands alone beside her desk holding a notebook, her whole body visible with clear space above her head; (2) at the right, exactly one single bed, made, with its whole headboard and mattress visible and nobody on it; (3) at the left, exactly one silver laptop computer, open, standing alone on the desk and not overlapping the girl; (4) at the far left edge, exactly one open wooden door leading out of the room, its full height visible. No second bed, no second computer, no screen content, no other person, no readable words, no logos."
+    },
+    {
+      "id": "living-objects",
+      "runtime_filename": "a1_u4_home_v1_living_objects.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only scene that practises on, in, under and next to in one living room, which the four-beat stub never covered."
+      },
+      "prompt": "A living room photographed straight on in daylight, with no people at all. Exactly four separate targets, well apart, none touching another: (1) one closed blue book lying flat on top of a low wooden coffee table in the centre; (2) one black smartphone lying inside an open beige tote bag that stands upright on the sofa seat at the right, the phone clearly visible inside the bag; (3) one yellow pen lying alone on the floor directly underneath the coffee table, fully visible between the table legs; (4) one tall floor lamp standing beside the left arm of the sofa with a clear gap between lamp and sofa. Each object is sharp and at least 9% of the frame width. The tabletop holds only the book, and no other bag, book, phone or pen appears anywhere. No readable words, no logos."
+    },
+    {
+      "id": "night-home",
+      "runtime_filename": "a1_u4_home_v1_night_home.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only night scene where four family members each speak one taught daily-routine line, so the mission practises the sequence words and the night half of the day."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of the mother and the girl. Create a brand-new photograph of the same family's home at night, seen from the hall in warm lamplight with two open doors, with exactly four people well separated left to right and none overlapping: (1) at the far left, the father (short dark hair, checked shirt) steps in through the open front door with his jacket still on and his keys in his hand, clearly arriving home; (2) left of centre, through an open bathroom door, the mother stands at the washbasin with both cupped hands of water lifted to her face, eyes closed, clearly washing her face and holding no toothbrush; (3) right of centre, the girl sits at the hall table under a lit lamp writing in an open notebook beside an open textbook, clearly studying; (4) at the far right, through an open bedroom door, the boy of about eight in striped pyjamas lies in bed under the duvet with his head on the pillow and his eyes closed, clearly asleep. It is night: the hall window behind them is dark and the only light is from the lamps. Each person is large, sharp and fully visible with clear empty space above the head. No readable words on the books or walls, no screen content, no logos.",
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_scene_01_living_room_fullframe_v2.webp",
+        "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+        "observed_description": "Inspected 4.10 mission scene: a bright living room where the mother (dark ponytail, teal top, jeans) dusts a shelf on the left, the grandparents sit on a cream sofa in the middle and the girl of about twelve reads on the right arm of the sofa."
+      }
+    },
+    {
+      "id": "morning-routine",
+      "runtime_filename": "a1_u4_home_v1_morning_routine.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only scene where four family members each perform one taught morning-routine action, so the learner hears the first-person line and taps its speaker."
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+        "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+        "observed_description": "Inspected 4.10 mission scene: a family kitchen where the father (short dark hair, checked shirt under an olive apron) cooks at the stove on the left and the boy of about eight in a striped shirt stands on a wooden stool at the island, with the dining table and white chairs at the right."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of the father and the boy. Create a brand-new photograph of the same family's bathroom and landing in early-morning light, with exactly four people well separated left to right and none overlapping: (1) at the far left, through an open bedroom door, the mother (dark ponytail, pyjama top) sits up in bed with both arms stretched upward, just waking up; (2) left of centre, the father stands at the left basin of a double washbasin with both cupped hands of water lifted to his face, eyes closed, clearly washing his face and holding no toothbrush; (3) right of centre, the girl of about twelve stands at the right basin brushing her teeth, the toothbrush clearly against her teeth; (4) at the far right, on the landing, the boy pulls a jumper down over his head with both arms raised, clearly getting dressed. Each person is large, sharp and fully visible with clear empty space above the head. No towels over faces, no readable words, no brand marks."
+    },
+    {
+      "id": "kitchen-morning",
+      "runtime_filename": "a1_u4_home_v1_kitchen_morning.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only morning scene where four family members each speak one taught morning or daily-action line, so the learner hears the first-person line and taps its speaker."
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+        "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+        "observed_description": "Inspected 4.10 mission scene: a family kitchen where the father (short dark hair, checked shirt under an olive apron) cooks at the stove on the left and the boy of about eight in a striped shirt stands on a wooden stool at the island, with the dining table and white chairs at the right."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of the father and the boy. Create a brand-new photograph of the same family's kitchen early in the morning, with exactly four people well separated left to right and none overlapping: (1) left of centre, the boy sits at the kitchen table lifting a spoonful of cereal towards his open mouth, with a bowl and a glass of juice in front of him, clearly eating breakfast; (2) at the far left, in the kitchen doorway in front of a small mirror, the father knots his tie with both hands at his collar, wearing no jacket and carrying no bag, clearly getting dressed; (3) right of centre, the girl of about twelve stands with a backpack on both shoulders, one hand on the open door to the street, clearly leaving for school; (4) at the far right, the mother (dark ponytail) in a coat with a work shoulder bag and keys in her hand walks towards the same door, carrying no backpack, clearly leaving for work. Morning daylight through the kitchen window. Each person is large, sharp and fully visible with clear empty space above the head. No readable words on the bags or packets, no brand marks, no logos."
+    },
+    {
+      "id": "count-dining",
+      "runtime_filename": "a1_u4_home_v1_count_dining.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only scene that contrasts there is and there are with exact counts, which the four-beat stub never practised."
+      },
+      "prompt": "A dining room photographed straight on in afternoon daylight, with no people at all. The room contains exactly one rectangular wooden dining table in the centre, exactly four identical white wooden chairs around it (two along the front edge and one at each end, each chair completely separate from the others and fully visible), exactly one pendant lamp hanging above the centre of the table, and exactly two tall windows side by side on the back wall with a clear wall gap between them. Count is critical: not three and not five chairs, not one and not three windows, only one lamp. The table and chairs fill at least 55% of the frame width. No sofa, no bed, no kitchen equipment, no plates, no readable words."
+    },
+    {
+      "id": "clocks-v2",
+      "runtime_filename": "a1_u4_home_v1_clocks.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only scene that retrieves four taught clock times in one image, which the single-gate stub never practised."
+      },
+      "prompt": "Use case: text-exact. Four round analog wall clocks hanging in one row on a plain warm painted wall, photographed straight on, evenly spaced with clear wall between them, no people and nothing else on the wall. Each clock has a plain white face, printed numerals 1 to 12, one short thick black hour hand, one long thin black minute hand and no second hand. On every clock the long minute hand lies exactly along the straight line from the centre of the dial to the numeral 12, pointing straight up. Each short hour hand lies exactly along the straight line from the centre of its dial to its own numeral, with the tip ending just short of that printed numeral and pointing at nothing else. From left to right the hour hands point exactly at 7, then 9, then 3, then 6; the first hour hand must not lie between 7 and 8 and must never point at 8. The angle between the two hands is therefore exactly 150 degrees on the first clock, 90 on the second, 90 on the third and 180 on the fourth. Every face is sharp and each clock is at least 15% of the frame width. No digital clock, no words, no brand names, no other numerals anywhere."
+    },
+    {
+      "id": "time-question",
+      "runtime_filename": "a1_u4_home_v1_time_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the question view of the time voice gate, in the same hallway as its answer photograph so the exchange never jumps location."
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_mission_clock_six_v3.webp",
+        "sha256": "e21bcd2aca704aa8545d99418e83161879e124f26e14dc06e54b28fc1ed66e2f",
+        "observed_description": "Inspected 4.10 gate photo: a cream hallway with a large round analog wall clock showing six o'clock on the left wall, a man in a blue shirt checking his wristwatch on the right, a plant and a console table behind him, warm daylight."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact hallway, its wall colour, its large round wall clock and the daylight. Create the question shot of a speaking game in that same hallway from a new, closer camera position: the mother (dark ponytail, teal top, jeans) stands in the hallway looking towards the camera with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture. She is large and sharp in the central safe area; the hallway behind her is softly out of focus and no clock face is legible in this shot. No readable words, no numerals."
+    },
+    {
+      "id": "book-question",
+      "runtime_filename": "a1_u4_home_v1_book_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the question view of the where-is-the-book voice gate, in the same living room as its answer photograph."
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+        "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+        "observed_description": "Inspected 4.10 mission scene: the father (short dark hair, checked shirt under an olive apron) cooks at the stove of a bright family kitchen while the boy in a striped shirt stands on a stool at the island."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and clothes of the father. Create the question shot of a speaking game in the family living room in warm daylight, from a close camera position: the father, without the apron, stands beside a grey sofa looking towards the camera with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture, as if asking where something is. He is large and sharp in the central safe area; the living room behind him is softly out of focus. No book is visible in this shot. No readable words, no numerals."
+    },
+    {
+      "id": "book-response",
+      "runtime_filename": "a1_u4_home_v1_book_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the answer view of the where-is-the-book voice gate, showing the exact location the learner says aloud."
+      },
+      "prompt": "A low wooden coffee table in a warm living room, photographed from a close seat-height angle in the same daylight, with no people. Exactly one closed blue hardback book lies flat on top of the table, centred, filling at least 25% of the frame width and perfectly sharp; the table surface is otherwise completely empty and nothing lies under the table. A grey sofa is softly out of focus behind. The photograph must read at a glance as the book on the table. No bag, no phone, no second book, no readable words on the cover, no logos."
+    },
+    {
+      "id": "morning-question",
+      "runtime_filename": "a1_u4_home_v1_morning_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the question view of the morning-routine voice gate, in the same home as its answer photograph."
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_scene_01_living_room_fullframe_v2.webp",
+        "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+        "observed_description": "Inspected 4.10 mission scene: the grandmother and grandfather (white hair, beige and light-blue knitwear) sit together on a cream sofa in a bright living room, with the mother dusting a shelf at the left and a tall floor lamp at the far left."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of the grandmother and grandfather. Create the question shot of a speaking game in that same living room in morning light, from a closer camera position: the grandmother sits on the cream sofa holding a cup of tea, turned towards the camera with a warm, curious face, mouth open mid-question, her free open palm extended in a natural asking gesture. She is large and sharp in the central safe area; the sofa and the window behind her are softly out of focus. The grandfather is not in this shot. No readable words, no numerals."
+    },
+    {
+      "id": "morning-response",
+      "runtime_filename": "a1_u4_home_v1_morning_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the answer view of the morning-routine voice gate, showing the routine moment the learner says aloud."
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_scene_03_bedroom_fullframe_v2.webp",
+        "sha256": "5e8b5505db277f82333adfb0335b2162cd5f70b70d46e0071d275a5feb59c770",
+        "observed_description": "Inspected 4.10 mission scene: a child's bedroom with a desk and laptop at the left where the girl of about twelve works, a window seat in the middle, a bed at the right with a younger child reading, a wardrobe and wooden floor."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact bedroom, its window and its daylight. Create the answer shot of a speaking game in that same bedroom from a closer camera position: the mother (dark ponytail, plain pyjama top) sits up in the bed with both arms stretched upward in a wide waking stretch, eyes just opening, early-morning light coming through the window behind her. Her face and both arms are large and sharp in the central safe area, filling at least 40% of the frame width, and the duvet is still over her legs. This is the moment of waking up. No clock, no phone, no breakfast tray, no other person, no readable words."
+    },
+    {
+      "id": "english-question",
+      "runtime_filename": "a1_u4_home_v1_english_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the question view of the closing day-of-the-week voice gate, in the same living room as the family's evening."
+      },
+      "reference_file": {
+        "path": "Lessons/Lesson1/images/a1_u4_scene_01_living_room_fullframe_v2.webp",
+        "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+        "observed_description": "Inspected 4.10 mission scene: the grandfather (white hair, light-blue knitwear) sits beside the grandmother on a cream sofa in a bright living room, with a large window at the right."
+      },
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and clothes of the grandfather. Create the question shot of a speaking game in that same living room in late-afternoon light, from a closer camera position: the grandfather sits on the cream sofa turned towards the camera with a friendly, curious face, mouth open mid-question, one open palm extended in a natural asking gesture. He is large and sharp in the central safe area; the sofa and window behind him are softly out of focus. The grandmother is not in this shot. No calendar, no readable words, no numerals."
+    },
+    {
+      "id": "english-response",
+      "runtime_filename": "a1_u4_home_v1_english_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the answer view of the closing voice gate, showing the study day the learner says aloud."
+      },
+      "prompt": "Use case: text-exact. A kitchen table photographed straight on in warm afternoon light, with no people. A simple weekly wall planner hangs on the wall behind the table; its seven day columns are headed in clean printed English capitals, spelled exactly MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY and perfectly legible, and the MONDAY column is circled in red marker. On the table below, one open notebook and one open English textbook lie side by side with a pen; their pages show only soft unreadable printed lines. The planner fills at least 45% of the frame width. Only the seven day names appear as text: no month name, no dates, no other writing, no logos."
+    }
+  ]
+}

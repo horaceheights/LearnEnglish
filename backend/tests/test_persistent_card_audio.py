@@ -292,15 +292,18 @@ class PersistentCardAudioTests(unittest.TestCase):
 
         # 2026-09-18: the gender-matched voice review moved the lines that a
         # pictured man, boy or male asker says, and the Unit 3 mission's
-        # who-says-it clues, from the neutral teacher to the male cast.
+        # who-says-it clues, from the neutral teacher to the male cast. The
+        # speaking-voice review check then moved 3.4 U1/U3 to Luis (a reused take).
+        # 2026-09-21: the Unit 4 parity rebuild added the male lines of its review
+        # and of its nine mission scenes and four gates (+21).
         self.assertEqual(
-            Counter({"male-character": 319, "luis": 98, "diego": 12}),
+            Counter({"male-character": 340, "luis": 102, "diego": 12}),
             Counter(asset.speaker_role for asset, _card in selected),
         )
-        self.assertEqual(429, len(selected))
-        self.assertEqual(87, len(jobs))
-        self.assertEqual(87, sum(len(job.request_fragments()) for job in jobs))
-        self.assertEqual(1415, sum(job.estimated_character_cost() for job in jobs))
+        self.assertEqual(454, len(selected))
+        self.assertEqual(95, len(jobs))
+        self.assertEqual(95, sum(len(job.request_fragments()) for job in jobs))
+        self.assertEqual(1566, sum(job.estimated_character_cost() for job in jobs))
         self.assertEqual(
             {"male-conversational"},
             {job.profile.narrator for job in jobs},
