@@ -108,9 +108,11 @@ EXACT_ROLE_CHANGES = {
 # The 2026-09-21 Unit 4 parity rebuild re-authored 4.9: its eight old explicit speakers
 # became the 24 first-person lines whose pictured man or woman says them (+14 net).
 # Lesson 4.8 introduces Today: 4.8 U6 retired (-1 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 545
+# The Unit 5 rebuild replaced 5.9's five explicit speakers with the 23 lines its pictured
+# people and café customers say (+18 net).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 563
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "efbf99ee077bb42ec3a2bbb860faa172536f8b3d5275b83d2a3714e3ab12beee"
+    "f3d001f6cef516e765256ce1ab529bcc57546a72fdfe94829d3cac794d7a73d6"
 )
 
 
