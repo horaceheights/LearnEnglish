@@ -334,6 +334,7 @@ const BUNDLED_LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   'a1_scene_car-luis_d3399da.webp': require('../assets/lesson-assets/a1_scene_car-luis_d3399da.webp'),
   'a1_scene_clock3_3cd344f.webp': require('../assets/lesson-assets/a1_scene_clock3_3cd344f.webp'),
   'a1_scene_clock7_598dfdb.webp': require('../assets/lesson-assets/a1_scene_clock7_598dfdb.webp'),
+  'a1_scene_clock9_fdd3b54.webp': require('../assets/lesson-assets/a1_scene_clock9_fdd3b54.webp'),
   'a1_scene_coffee-5_c9b98e0_four-card.webp': require('../assets/lesson-assets/a1_scene_coffee-5_c9b98e0_four-card.webp'),
   'a1_scene_coffee-6_1ea48e3_four-card.webp': require('../assets/lesson-assets/a1_scene_coffee-6_1ea48e3_four-card.webp'),
   'a1_scene_coffee-7_6481821_four-card.webp': require('../assets/lesson-assets/a1_scene_coffee-7_6481821_four-card.webp'),

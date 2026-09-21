@@ -107,9 +107,10 @@ EXACT_ROLE_CHANGES = {
 # Luis asking "How old are you?" over 3.4 U1 and U3 (+2).
 # The 2026-09-21 Unit 4 parity rebuild re-authored 4.9: its eight old explicit speakers
 # became the 24 first-person lines whose pictured man or woman says them (+14 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 546
+# Lesson 4.8 introduces Today: 4.8 U6 retired (-1 net).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 545
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "8aae6f23266dd738fb5fb414326a7be5f81f504ba81a3807f69eacac69c874ee"
+    "efbf99ee077bb42ec3a2bbb860faa172536f8b3d5275b83d2a3714e3ab12beee"
 )
 
 
