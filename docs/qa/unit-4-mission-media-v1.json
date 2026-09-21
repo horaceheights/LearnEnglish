@@ -1,0 +1,3534 @@
+{
+  "schema_version": 1,
+  "pack_sha256": "dd377bf709b3d08a5aea638872cd65226d0e71449a0c8b64a57eaa3c76fc6945",
+  "lesson_id": "lesson-4-10-my-day-mission",
+  "human_approval": "pending",
+  "assets": [
+    {
+      "asset_id": "kickoff",
+      "runtime_filename": "a1_u4_home_v1_kickoff.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "fea4e2fb-1aec-4e40-9213-bca915c5b445",
+        "asset_id": "kickoff",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:01:30.899249+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family and their living room. Create a brand-new welcoming photograph in that same home, from a new camera position in the hallway looking into the living room in bright morning light: the mother, the father (short dark hair, checked shirt), the boy of about eight in a striped shirt, the girl of about twelve with long dark hair, and both grandparents stand together in a relaxed group facing the camera, smiling, ready to start the day. Everyone is full length with faces clear and none overlapping. This opening is not a challenge: no clock, no numerals, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+            "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+            "byte_count": 319632
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_1ff1e91f9285496799e0c74cbadb36d1",
+        "usage": {
+          "input_tokens": 1870,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 334
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3242
+        },
+        "cost": {
+          "usd": "0.055118",
+          "mxn": "0.9353910426",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 334,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.2,
+        "output": "output/imagegen/unit-4-mission-v1/kickoff.png",
+        "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+        "byte_count": 2353536
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the family stands together in their living room seen from the doorway, six people in one row with full bodies and clear faces, sofa, floor lamp, window and coffee table behind them; no text anywhere and no marker space needed because this shot states the mission."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission needs its own full-bleed opening scene; the stub opening is a small photograph inside a wide blurred border, which breaks the full-bleed image rule."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "11c88e98880fab52478c46524031305e25c2cf6d09d11fce93d10febb2aaf0d0",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/kickoff.png"
+    },
+    {
+      "asset_id": "living-room",
+      "runtime_filename": "a1_u4_home_v1_living_room.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d81be3d9-7f29-4aec-b844-5cb1ff5e9c64",
+        "asset_id": "living-room",
+        "pack_sha256": "dd377bf709b3d08a5aea638872cd65226d0e71449a0c8b64a57eaa3c76fc6945",
+        "started_at": "2026-09-21T03:27:03.434404+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of their living room in afternoon daylight, taken straight on, with exactly four clearly separated things and nobody else in the room: (1) left of centre, the mother stands alone on the rug folding a blanket, her whole body visible and clear space above her head; (2) right of centre, the grandmother and the grandfather sit together on the sofa, side by side and not overlapping, each face visible; (3) at the far left, exactly one tall floor lamp stands on the floor, switched on, its whole shade inside the frame and nobody near it; (4) at the right, exactly one tall window with a clear view of the garden, its frame completely visible. No second lamp, no second window, no television, no other person, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+            "byte_count": 2353536
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_ad174e5cae3947bbac5b34e2de6dd27b",
+        "usage": {
+          "input_tokens": 1920,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 384
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3292
+        },
+        "cost": {
+          "usd": "0.055368",
+          "mxn": "0.9396337176",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 384,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.21,
+        "output": "output/imagegen/unit-4-mission-v1/living-room.png",
+        "sha256": "8a53515958f968920b958b4c956e9bd1c50b7d8661b57a446f059b10921b176e",
+        "byte_count": 2670400
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "8a53515958f968920b958b4c956e9bd1c50b7d8661b57a446f059b10921b176e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the family's living room with four separated referents measured on a 0.05 grid. The mother in her blue top stands alone on the rug folding a blanket, the grandmother and grandfather sit side by side on the sofa without overlapping, exactly one lit floor lamp stands at the far left with its whole shade in frame, and exactly one tall garden window fills the right. Their faces and clothes match the kickoff photograph used as the identity reference.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.25,
+              "y": 0.11,
+              "width": 0.19,
+              "height": 0.69
+            },
+            "head_anchors": [
+              {
+                "x": 0.325,
+                "y": 0.115
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.5,
+              "y": 0.27,
+              "width": 0.23,
+              "height": 0.44
+            },
+            "head_anchors": [
+              {
+                "x": 0.555,
+                "y": 0.285
+              },
+              {
+                "x": 0.655,
+                "y": 0.275
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.005,
+              "y": 0.14,
+              "width": 0.13,
+              "height": 0.56
+            },
+            "head_anchors": [
+              {
+                "x": 0.07,
+                "y": 0.15
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.72,
+              "y": 0.02,
+              "width": 0.23,
+              "height": 0.51
+            },
+            "head_anchors": [
+              {
+                "x": 0.835,
+                "y": 0.03
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "abe294962d676715f744791e3b35161dd68caf7ffad40f8a3049ad05805a65a6",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/living-room.png"
+    },
+    {
+      "asset_id": "kitchen-dining",
+      "runtime_filename": "a1_u4_home_v1_kitchen_dining.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "925016b4-c281-46d2-99c4-f5575f1a3f4e",
+        "asset_id": "kitchen-dining",
+        "pack_sha256": "dd377bf709b3d08a5aea638872cd65226d0e71449a0c8b64a57eaa3c76fc6945",
+        "started_at": "2026-09-21T03:27:57.298335+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of their open kitchen and dining room in daylight, taken straight on, with exactly four clearly separated things and nobody else: (1) at the left, the father stands at the kitchen counter chopping vegetables, his whole body visible with clear space above his head; (2) left of centre, the boy of about eight stands at the kitchen sink filling a glass of water, well apart from the father and not overlapping him; (3) at the right, in the dining area, exactly one rectangular wooden dining table, empty on top and completely visible; (4) exactly two identical wooden chairs at that table, one at each side, both fully visible and not touching each other. Count is critical: only two chairs, not three and not four, and only one table. No sofa, no bed, no other person, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+            "byte_count": 2353536
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_78bf0eed20c346e0b8fbc4735ebf2597",
+        "usage": {
+          "input_tokens": 1932,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 396
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3304
+        },
+        "cost": {
+          "usd": "0.055428",
+          "mxn": "0.9406519596",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 396,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.62,
+        "output": "output/imagegen/unit-4-mission-v1/kitchen-dining.png",
+        "sha256": "b6d81db6e5164723c0da3a2f681bfd2b87d8b32caef0c7def9629d37a83090fb",
+        "byte_count": 2491962
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b6d81db6e5164723c0da3a2f681bfd2b87d8b32caef0c7def9629d37a83090fb",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: the father in his checked shirt chops vegetables at the kitchen counter, the boy fills a glass at the sink well apart from him, exactly one rectangular dining table stands empty at the right, and exactly two wooden chairs sit at that table, one on each side and not touching. There is no third chair anywhere. The table and chair rectangles necessarily overlap because the chairs stand at the table.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.145,
+              "y": 0.12,
+              "width": 0.12,
+              "height": 0.69
+            },
+            "head_anchors": [
+              {
+                "x": 0.185,
+                "y": 0.125
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.3275,
+              "y": 0.25,
+              "width": 0.12,
+              "height": 0.5
+            },
+            "head_anchors": [
+              {
+                "x": 0.385,
+                "y": 0.255
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.6,
+              "y": 0.475,
+              "width": 0.345,
+              "height": 0.33
+            },
+            "head_anchors": [
+              {
+                "x": 0.77,
+                "y": 0.485
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.435,
+              "width": 0.44,
+              "height": 0.37
+            },
+            "head_anchors": [
+              {
+                "x": 0.595,
+                "y": 0.445
+              },
+              {
+                "x": 0.925,
+                "y": 0.45
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "13c8b5f09ad0b2d41dfe786486a0edf1beff6fab297ad08bfdb9667ca7c28e05",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/kitchen-dining.png"
+    },
+    {
+      "asset_id": "bedroom",
+      "runtime_filename": "a1_u4_home_v1_bedroom.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "e077bebe-0661-4286-bed4-11f17afb846b",
+        "asset_id": "bedroom",
+        "pack_sha256": "dd377bf709b3d08a5aea638872cd65226d0e71449a0c8b64a57eaa3c76fc6945",
+        "started_at": "2026-09-21T03:28:51.943302+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of the girl's bedroom in daylight, taken straight on from the doorway, with exactly four clearly separated things and nobody else in the room: (1) left of centre, the girl of about twelve stands alone beside her desk holding a notebook, her whole body visible with clear space above her head; (2) at the right, exactly one single bed, made, with its whole headboard and mattress visible and nobody on it; (3) at the left, exactly one silver laptop computer, open, standing alone on the desk and not overlapping the girl; (4) at the far left edge, exactly one open wooden door leading out of the room, its full height visible. No second bed, no second computer, no screen content, no other person, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+            "byte_count": 2353536
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_c6b3e30217164b2db46234061fd1f927",
+        "usage": {
+          "input_tokens": 1919,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 383
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3291
+        },
+        "cost": {
+          "usd": "0.055363",
+          "mxn": "0.9395488641",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 383,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.41,
+        "output": "output/imagegen/unit-4-mission-v1/bedroom.png",
+        "sha256": "d52e473d54ec6e25602c13b3988e31c3a22d95441793b7ea539fa11f21189317",
+        "byte_count": 2292596
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "d52e473d54ec6e25602c13b3988e31c3a22d95441793b7ea539fa11f21189317",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the girl's bedroom with four separated referents measured on a 0.05 grid. The girl stands alone beside her desk holding a notebook, exactly one made single bed fills the right, exactly one open silver laptop stands alone on the desk at the left, and exactly one open wooden door runs the full height of the far left edge. The door anchor sits at mid-height because the door reaches both frame edges.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.32,
+              "y": 0.11,
+              "width": 0.16,
+              "height": 0.8
+            },
+            "head_anchors": [
+              {
+                "x": 0.395,
+                "y": 0.115
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.69,
+              "y": 0.295,
+              "width": 0.3,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.84,
+                "y": 0.305
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.14,
+              "y": 0.3575,
+              "width": 0.15,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.215,
+                "y": 0.375
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.0,
+              "y": 0.01,
+              "width": 0.12,
+              "height": 0.96
+            },
+            "head_anchors": [
+              {
+                "x": 0.06,
+                "y": 0.3
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the rebuilt mission re-authors its three room beats, so each one needs its own mission-only scene instead of a scene whose approved photo-edit record pins the old stub card."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "1b6da4a7abe72d814dfda3038bb22ce5b9c31677cf175ce9644235b2121f53e9",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/bedroom.png"
+    },
+    {
+      "asset_id": "living-objects",
+      "runtime_filename": "a1_u4_home_v1_living_objects.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "096af82f-0b29-4d88-8775-f12be0e1629c",
+        "asset_id": "living-objects",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:02:27.829565+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA living room photographed straight on in daylight, with no people at all. Exactly four separate targets, well apart, none touching another: (1) one closed blue book lying flat on top of a low wooden coffee table in the centre; (2) one black smartphone lying inside an open beige tote bag that stands upright on the sofa seat at the right, the phone clearly visible inside the bag; (3) one yellow pen lying alone on the floor directly underneath the coffee table, fully visible between the table legs; (4) one tall floor lamp standing beside the left arm of the sofa with a clear gap between lamp and sofa. Each object is sharp and at least 9% of the frame width. The tabletop holds only the book, and no other bag, book, phone or pen appears anywhere. No readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_27bdc47e805e464c8662e99b405f9d9a",
+        "usage": {
+          "input_tokens": 358,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 358
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1730
+        },
+        "cost": {
+          "usd": "0.04295",
+          "mxn": "0.728891565",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 358,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.31,
+        "output": "output/imagegen/unit-4-mission-v1/living-objects.png",
+        "sha256": "b3cd7576519a0489f1da17536445c6287800ac6b2f79780804316f8cc8bf1556",
+        "byte_count": 2862481
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b3cd7576519a0489f1da17536445c6287800ac6b2f79780804316f8cc8bf1556",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: an empty living room with four separated objects measured on a 0.05 grid. One closed blue book lies alone on the empty coffee table, one black phone sits inside the upright beige tote bag on the sofa at the right, one yellow pen lies on the rug directly under the tabletop between the legs, and one lit floor lamp stands beside the left sofa arm with a clear gap. The pen is the smallest target at about 7% of the frame width, and the lamp shade reaches the top edge, so its anchor sits inside the shade. The book and pen anchors are offset left and right of each other so their leader lines do not run parallel in the portrait slot.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.49,
+              "y": 0.51,
+              "width": 0.15,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.55
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.705,
+              "y": 0.27,
+              "width": 0.16,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.785,
+                "y": 0.275
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.4825,
+              "y": 0.755,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.515,
+                "y": 0.8
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.085,
+              "y": 0.012,
+              "width": 0.155,
+              "height": 0.645
+            },
+            "head_anchors": [
+              {
+                "x": 0.16,
+                "y": 0.03
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only scene that practises on, in, under and next to in one living room, which the four-beat stub never covered."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "06cd9a11c93f8b67c751108ee025197e9afd330ed99fcb5e01f068b7f7a61bf6",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/living-objects.png"
+    },
+    {
+      "asset_id": "night-home",
+      "runtime_filename": "a1_u4_home_v1_night_home.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "e798c072-ada2-4cf9-8c82-ddd7a1a0d2b8",
+        "asset_id": "night-home",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:03:19.538969+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of the mother and the girl. Create a brand-new photograph of the same family's home at night, seen from the hall in warm lamplight with two open doors, with exactly four people well separated left to right and none overlapping: (1) at the far left, the father (short dark hair, checked shirt) steps in through the open front door with his jacket still on and his keys in his hand, clearly arriving home; (2) left of centre, through an open bathroom door, the mother stands at the washbasin with both cupped hands of water lifted to her face, eyes closed, clearly washing her face and holding no toothbrush; (3) right of centre, the girl sits at the hall table under a lit lamp writing in an open notebook beside an open textbook, clearly studying; (4) at the far right, through an open bedroom door, the boy of about eight in striped pyjamas lies in bed under the duvet with his head on the pillow and his eyes closed, clearly asleep. It is night: the hall window behind them is dark and the only light is from the lamps. Each person is large, sharp and fully visible with clear empty space above the head. No readable words on the books or walls, no screen content, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+            "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+            "byte_count": 319632
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_2bdd386891694ff2aec9cc4433da660c",
+        "usage": {
+          "input_tokens": 2011,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 475
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3383
+        },
+        "cost": {
+          "usd": "0.055823",
+          "mxn": "0.9473553861",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 475,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.42,
+        "output": "output/imagegen/unit-4-mission-v1/night-home.png",
+        "sha256": "4ce9abe20502dcbd783ba4bd32caf3c074c66abb291a78ba66591449ca247cf5",
+        "byte_count": 2105348
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4ce9abe20502dcbd783ba4bd32caf3c074c66abb291a78ba66591449ca247cf5",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: a house at night with four separated people measured on a 0.05 grid. At the left the father steps in through the open front door with his keys, through the bathroom door the mother lifts cupped water to her closed eyes, the girl writes in a notebook at the lit hall table, and through the bedroom door at the right the boy sleeps in bed. The sleeping boy is the smallest target and sits against the right edge, so his rectangle includes the pillow and bed he lies on.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.07,
+              "y": 0.095,
+              "width": 0.15,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.1
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.33,
+              "y": 0.21,
+              "width": 0.125,
+              "height": 0.46
+            },
+            "head_anchors": [
+              {
+                "x": 0.385,
+                "y": 0.215
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.88,
+              "y": 0.4,
+              "width": 0.12,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.945,
+                "y": 0.415
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.525,
+              "y": 0.34,
+              "width": 0.14,
+              "height": 0.5
+            },
+            "head_anchors": [
+              {
+                "x": 0.595,
+                "y": 0.345
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only night scene where four family members each speak one taught daily-routine line, so the mission practises the sequence words and the night half of the day."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "dd91d6906009ade6b93faa92eb58769ab69c4fe3a26e9b8874d3c25fdc4a7be9",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/night-home.png"
+    },
+    {
+      "asset_id": "morning-routine",
+      "runtime_filename": "a1_u4_home_v1_morning_routine.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "2b67644d-5906-4751-808d-05928a60f435",
+        "asset_id": "morning-routine",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:04:16.320300+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of the father and the boy. Create a brand-new photograph of the same family's bathroom and landing in early-morning light, with exactly four people well separated left to right and none overlapping: (1) at the far left, through an open bedroom door, the mother (dark ponytail, pyjama top) sits up in bed with both arms stretched upward, just waking up; (2) left of centre, the father stands at the left basin of a double washbasin with both cupped hands of water lifted to his face, eyes closed, clearly washing his face and holding no toothbrush; (3) right of centre, the girl of about twelve stands at the right basin brushing her teeth, the toothbrush clearly against her teeth; (4) at the far right, on the landing, the boy pulls a jumper down over his head with both arms raised, clearly getting dressed. Each person is large, sharp and fully visible with clear empty space above the head. No towels over faces, no readable words, no brand marks.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+            "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+            "byte_count": 327606
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7224ece002a34264949a831c6c28963e",
+        "usage": {
+          "input_tokens": 1959,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 423
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3331
+        },
+        "cost": {
+          "usd": "0.055563",
+          "mxn": "0.9429430041",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 423,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.53,
+        "output": "output/imagegen/unit-4-mission-v1/morning-routine.png",
+        "sha256": "a78c1d477cb2ae85496113c851f79592f61d11a4dabc78b296231c9ee5aa66de",
+        "byte_count": 2532943
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "a78c1d477cb2ae85496113c851f79592f61d11a4dabc78b296231c9ee5aa66de",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: a bathroom and landing in morning light with four separated people measured on a 0.05 grid. Through the bedroom door at the left the mother sits up in bed with both arms stretched upward, the father washes his face at the left basin holding no toothbrush, the girl brushes her teeth at the right basin with the brush against her teeth, and at the right the boy pulls a jumper over his head. The mother's and the boy's rectangles include their raised arms, and each anchor sits on the head itself.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.045,
+              "y": 0.085,
+              "width": 0.15,
+              "height": 0.36
+            },
+            "head_anchors": [
+              {
+                "x": 0.11,
+                "y": 0.17
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.25,
+              "y": 0.14,
+              "width": 0.175,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.145
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.5975,
+              "y": 0.18,
+              "width": 0.12,
+              "height": 0.64
+            },
+            "head_anchors": [
+              {
+                "x": 0.665,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.845,
+              "y": 0.225,
+              "width": 0.12,
+              "height": 0.57
+            },
+            "head_anchors": [
+              {
+                "x": 0.9,
+                "y": 0.25
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only scene where four family members each perform one taught morning-routine action, so the learner hears the first-person line and taps its speaker."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "05e40a6bef4bd03f16795ec82b670fb4ca1025468c2a7e31426fee85cdfee646",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/morning-routine.png"
+    },
+    {
+      "asset_id": "kitchen-morning",
+      "runtime_filename": "a1_u4_home_v1_kitchen_morning.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "53a87b86-97c8-4269-ac92-4739f838df30",
+        "asset_id": "kitchen-morning",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:05:22.119678+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of the father and the boy. Create a brand-new photograph of the same family's kitchen early in the morning, with exactly four people well separated left to right and none overlapping: (1) left of centre, the boy sits at the kitchen table lifting a spoonful of cereal towards his open mouth, with a bowl and a glass of juice in front of him, clearly eating breakfast; (2) at the far left, in the kitchen doorway in front of a small mirror, the father knots his tie with both hands at his collar, wearing no jacket and carrying no bag, clearly getting dressed; (3) right of centre, the girl of about twelve stands with a backpack on both shoulders, one hand on the open door to the street, clearly leaving for school; (4) at the far right, the mother (dark ponytail) in a coat with a work shoulder bag and keys in her hand walks towards the same door, carrying no backpack, clearly leaving for work. Morning daylight through the kitchen window. Each person is large, sharp and fully visible with clear empty space above the head. No readable words on the bags or packets, no brand marks, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+            "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+            "byte_count": 327606
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_68565e748f424a409400b51f2ab78db9",
+        "usage": {
+          "input_tokens": 1988,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 452
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3360
+        },
+        "cost": {
+          "usd": "0.055708",
+          "mxn": "0.9454037556",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 452,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.22,
+        "output": "output/imagegen/unit-4-mission-v1/kitchen-morning.png",
+        "sha256": "45a9abfbac016da0ccab5d353b7db79c76318eca97bb0c47b0af9a426eb77bb9",
+        "byte_count": 2419216
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "45a9abfbac016da0ccab5d353b7db79c76318eca97bb0c47b0af9a426eb77bb9",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: a kitchen early in the morning with four separated people measured on a 0.05 grid. The boy lifts a spoonful of cereal to his mouth at the table, the girl with a backpack holds the open door to the street, the mother in a coat with a shoulder bag and keys walks towards that door with her back to the camera, and at the left the father knots his tie at a mirror carrying nothing. The mother's face is not visible, so her anchor sits on the crown of her head.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.28,
+              "y": 0.34,
+              "width": 0.16,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.355,
+                "y": 0.345
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.65,
+              "y": 0.225,
+              "width": 0.13,
+              "height": 0.525
+            },
+            "head_anchors": [
+              {
+                "x": 0.72,
+                "y": 0.23
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.825,
+              "y": 0.155,
+              "width": 0.145,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.885,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.1,
+              "y": 0.095,
+              "width": 0.12,
+              "height": 0.73
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.1
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only morning scene where four family members each speak one taught morning or daily-action line, so the learner hears the first-person line and taps its speaker."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "5323cc32f5929e9c0580904ae6b8648715f2d87ca2c5ffd52a9d236c11a38d07",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/kitchen-morning.png"
+    },
+    {
+      "asset_id": "count-dining",
+      "runtime_filename": "a1_u4_home_v1_count_dining.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "05181283-dc2c-4c1a-8ee2-9715b2fd0721",
+        "asset_id": "count-dining",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:06:24.525109+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA dining room photographed straight on in afternoon daylight, with no people at all. The room contains exactly one rectangular wooden dining table in the centre, exactly four identical white wooden chairs around it (two along the front edge and one at each end, each chair completely separate from the others and fully visible), exactly one pendant lamp hanging above the centre of the table, and exactly two tall windows side by side on the back wall with a clear wall gap between them. Count is critical: not three and not five chairs, not one and not three windows, only one lamp. The table and chairs fill at least 55% of the frame width. No sofa, no bed, no kitchen equipment, no plates, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_4e0abf354b914baf8f8722605c1af1f3",
+        "usage": {
+          "input_tokens": 334,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 334
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1706
+        },
+        "cost": {
+          "usd": "0.04283",
+          "mxn": "0.726855081",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 334,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 24.72,
+        "output": "output/imagegen/unit-4-mission-v1/count-dining.png",
+        "sha256": "b0d52d1c75ffcee22dbb60d21969a16e352bdb9c4093a0a8263c1c65133f999a",
+        "byte_count": 2500546
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b0d52d1c75ffcee22dbb60d21969a16e352bdb9c4093a0a8263c1c65133f999a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: exactly one rectangular wooden table, exactly four identical white chairs (one at each end and two along the front edge, each fully visible and separate), exactly one pendant lamp over the table centre and exactly two tall windows on the back wall with wall between them. No people. The chair group carries one anchor per chair and the window group one per window; the chair and table rectangles necessarily overlap because the chairs stand at the table.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.175,
+              "y": 0.465,
+              "width": 0.64,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.35,
+                "y": 0.485
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.105,
+              "y": 0.43,
+              "width": 0.825,
+              "height": 0.47
+            },
+            "head_anchors": [
+              {
+                "x": 0.175,
+                "y": 0.445
+              },
+              {
+                "x": 0.375,
+                "y": 0.48
+              },
+              {
+                "x": 0.61,
+                "y": 0.48
+              },
+              {
+                "x": 0.885,
+                "y": 0.44
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.435,
+              "y": 0.02,
+              "width": 0.135,
+              "height": 0.185
+            },
+            "head_anchors": [
+              {
+                "x": 0.5,
+                "y": 0.03
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.235,
+              "y": 0.015,
+              "width": 0.54,
+              "height": 0.455
+            },
+            "head_anchors": [
+              {
+                "x": 0.3,
+                "y": 0.02
+              },
+              {
+                "x": 0.7,
+                "y": 0.02
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only scene that contrasts there is and there are with exact counts, which the four-beat stub never practised."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "e576f8f0a0bca0dcd87de03fcddc33483fbbe487961bf4a2fe2fb2e1e0a40921",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/count-dining.png"
+    },
+    {
+      "asset_id": "clocks-v2",
+      "runtime_filename": "a1_u4_home_v1_clocks.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "4434087f-65a1-4788-8694-be920d7560eb",
+        "asset_id": "clocks-v2",
+        "pack_sha256": "d0e79c103e49149f8a7b56b8712756010625ac268f8ed7e311c74342dedb16ce",
+        "started_at": "2026-09-21T03:15:28.874484+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. Four round analog wall clocks hanging in one row on a plain warm painted wall, photographed straight on, evenly spaced with clear wall between them, no people and nothing else on the wall. Each clock has a plain white face, printed numerals 1 to 12, one short thick black hour hand, one long thin black minute hand and no second hand. On every clock the long minute hand lies exactly along the straight line from the centre of the dial to the numeral 12, pointing straight up. Each short hour hand lies exactly along the straight line from the centre of its dial to its own numeral, with the tip ending just short of that printed numeral and pointing at nothing else. From left to right the hour hands point exactly at 7, then 9, then 3, then 6; the first hour hand must not lie between 7 and 8 and must never point at 8. The angle between the two hands is therefore exactly 150 degrees on the first clock, 90 on the second, 90 on the third and 180 on the fourth. Every face is sharp and each clock is at least 15% of the frame width. No digital clock, no words, no brand names, no other numerals anywhere.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_abb14fb9767c457e9797cb7dc3f392f0",
+        "usage": {
+          "input_tokens": 449,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 449
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1821
+        },
+        "cost": {
+          "usd": "0.043405",
+          "mxn": "0.7366132335",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 449,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 23.66,
+        "output": "output/imagegen/unit-4-mission-v1/clocks-v2.png",
+        "sha256": "91e8d2167358b031044845cf5d9f977e70efc3797b22df31817958d8c9c151a9",
+        "byte_count": 1818061
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "91e8d2167358b031044845cf5d9f977e70efc3797b22df31817958d8c9c151a9",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and measured against each dial centre: four evenly spaced clocks read seven, nine, three and six o'clock from left to right, with hour hands at 211.4, 279.0, 87.9 and 170.3 degrees against ideals of 210, 270, 90 and 180 and every minute hand within six degrees of 12. Each face is at least 16% of the frame width, has clear numerals and no second hand, and the four rectangles never touch.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.027,
+              "y": 0.278,
+              "width": 0.189,
+              "height": 0.29
+            },
+            "head_anchors": [
+              {
+                "x": 0.121,
+                "y": 0.288
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.278,
+              "y": 0.274,
+              "width": 0.193,
+              "height": 0.298
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.284
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.53,
+              "y": 0.274,
+              "width": 0.195,
+              "height": 0.298
+            },
+            "head_anchors": [
+              {
+                "x": 0.628,
+                "y": 0.284
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.778,
+              "y": 0.276,
+              "width": 0.191,
+              "height": 0.296
+            },
+            "head_anchors": [
+              {
+                "x": 0.874,
+                "y": 0.286
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: a mission-only scene that retrieves four taught clock times in one image, which the single-gate stub never practised."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "c68abdc9a68ec4474ac6f9b8eccee39e10667de81cb67ed92ff394e21dfd2fc8",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/clocks-v2.png"
+    },
+    {
+      "asset_id": "time-question",
+      "runtime_filename": "a1_u4_home_v1_time_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "4722c4bd-067f-4754-8c30-7087e398e9cb",
+        "asset_id": "time-question",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:08:02.885559+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact hallway, its wall colour, its large round wall clock and the daylight. Create the question shot of a speaking game in that same hallway from a new, closer camera position: the mother (dark ponytail, teal top, jeans) stands in the hallway looking towards the camera with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture. She is large and sharp in the central safe area; the hallway behind her is softly out of focus and no clock face is legible in this shot. No readable words, no numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_mission_clock_six_v3.webp",
+            "sha256": "e21bcd2aca704aa8545d99418e83161879e124f26e14dc06e54b28fc1ed66e2f",
+            "byte_count": 296910
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7f8187a2f7d04ba5b57761dc966cd1c2",
+        "usage": {
+          "input_tokens": 1863,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 327
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3235
+        },
+        "cost": {
+          "usd": "0.055083",
+          "mxn": "0.9347970681",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 327,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.15,
+        "output": "output/imagegen/unit-4-mission-v1/time-question.png",
+        "sha256": "4f1bc6cebb1703eeec4cb384aa7bd3e324d42a7eead9bdae2bceeadb753438ae",
+        "byte_count": 1946436
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4f1bc6cebb1703eeec4cb384aa7bd3e324d42a7eead9bdae2bceeadb753438ae",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the mother in a teal top stands in the hall mid-question with one open palm extended, large and sharp in the centre; the wall clock behind her is soft and out of focus and no numerals can be read from it, and there is no text in the frame."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the question view of the time voice gate, in the same hallway as its answer photograph so the exchange never jumps location."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "d705bb36a6cc3f4b519da01b579d40ab7e31a53f8cc38e9cbdbf934c72ade0e7",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/time-question.png"
+    },
+    {
+      "asset_id": "book-question",
+      "runtime_filename": "a1_u4_home_v1_book_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "ef697653-2a82-4eb9-bc1d-ac8888fbf2fb",
+        "asset_id": "book-question",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:08:58.678633+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the father. Create the question shot of a speaking game in the family living room in warm daylight, from a close camera position: the father, without the apron, stands beside a grey sofa looking towards the camera with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture, as if asking where something is. He is large and sharp in the central safe area; the living room behind him is softly out of focus. No book is visible in this shot. No readable words, no numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+            "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+            "byte_count": 327606
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_01694c46262a40b89a790e7b963b9aca",
+        "usage": {
+          "input_tokens": 1860,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 324
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3232
+        },
+        "cost": {
+          "usd": "0.055068",
+          "mxn": "0.9345425076",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 324,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.94,
+        "output": "output/imagegen/unit-4-mission-v1/book-question.png",
+        "sha256": "ba6aef831640b2f9d1860a2b30b1b4e63cd06c63ff16ecff8f8160e11c7aed80",
+        "byte_count": 2396654
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "ba6aef831640b2f9d1860a2b30b1b4e63cd06c63ff16ecff8f8160e11c7aed80",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the father in his checked shirt stands in the living room mid-question with one open palm extended, large and sharp in the centre, with the grey sofa and fireplace softly behind him and no readable words anywhere."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the question view of the where-is-the-book voice gate, in the same living room as its answer photograph."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "2fbb40adb39e1be982bba28c5e2ceac5c051528b2ed72fecedfb44efe9b84b24",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/book-question.png"
+    },
+    {
+      "asset_id": "book-response",
+      "runtime_filename": "a1_u4_home_v1_book_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "305699d2-a735-481b-8e1e-1e980695e4b2",
+        "asset_id": "book-response",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:10:00.034109+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA low wooden coffee table in a warm living room, photographed from a close seat-height angle in the same daylight, with no people. Exactly one closed blue hardback book lies flat on top of the table, centred, filling at least 25% of the frame width and perfectly sharp; the table surface is otherwise completely empty and nothing lies under the table. A grey sofa is softly out of focus behind. The photograph must read at a glance as the book on the table. No bag, no phone, no second book, no readable words on the cover, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7e8d233ef6284d398f8101209dd97bbb",
+        "usage": {
+          "input_tokens": 304,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 304
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1676
+        },
+        "cost": {
+          "usd": "0.04268",
+          "mxn": "0.724309476",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 304,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 23.81,
+        "output": "output/imagegen/unit-4-mission-v1/book-response.png",
+        "sha256": "f03d4d21b26166e0c7f80d37cf9b45a27d74418006d4e3f70d1e3dca04afe8db",
+        "byte_count": 2338242
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "f03d4d21b26166e0c7f80d37cf9b45a27d74418006d4e3f70d1e3dca04afe8db",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: exactly one closed blue book lies alone on the empty wooden coffee table with the grey sofa behind it; nothing else rests on the tabletop and nothing sits under the table, so the answer sentence has one possible reading."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the answer view of the where-is-the-book voice gate, showing the exact location the learner says aloud."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "3bed7de690315521c7bc13e3f8ed001db39afe5438dc3bc2a9dd8cfdb063fac1",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/book-response.png"
+    },
+    {
+      "asset_id": "morning-question",
+      "runtime_filename": "a1_u4_home_v1_morning_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "bb43e31c-c744-499b-9c5d-ffa86e40fe14",
+        "asset_id": "morning-question",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:10:53.314937+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of the grandmother and grandfather. Create the question shot of a speaking game in that same living room in morning light, from a closer camera position: the grandmother sits on the cream sofa holding a cup of tea, turned towards the camera with a warm, curious face, mouth open mid-question, her free open palm extended in a natural asking gesture. She is large and sharp in the central safe area; the sofa and the window behind her are softly out of focus. The grandfather is not in this shot. No readable words, no numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+            "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+            "byte_count": 319632
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_bdb14c7c4736444db6aa3204771c7b18",
+        "usage": {
+          "input_tokens": 1859,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 323
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3231
+        },
+        "cost": {
+          "usd": "0.055063",
+          "mxn": "0.9344576541",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 323,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.93,
+        "output": "output/imagegen/unit-4-mission-v1/morning-question.png",
+        "sha256": "81da33e8e8b501ed6abded398be1e4620e253c13e58ed7357b05ec1e6180cf2a",
+        "byte_count": 2135943
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "81da33e8e8b501ed6abded398be1e4620e253c13e58ed7357b05ec1e6180cf2a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the grandmother with white hair and a floral blouse sits on the cream sofa holding a cup of tea, turned to the camera mid-question with her free palm open; the grandfather is not in this shot and no text appears."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the question view of the morning-routine voice gate, in the same home as its answer photograph."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "19f1f15a506b1e2b8382b4dbd7a0b936680a0fea2c8fde14287b968bf67414cd",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/morning-question.png"
+    },
+    {
+      "asset_id": "morning-response",
+      "runtime_filename": "a1_u4_home_v1_morning_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d4993054-697b-4c8d-a4dd-e59f2777aa84",
+        "asset_id": "morning-response",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:11:47.696974+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact bedroom, its window and its daylight. Create the answer shot of a speaking game in that same bedroom from a closer camera position: the mother (dark ponytail, plain pyjama top) sits up in the bed with both arms stretched upward in a wide waking stretch, eyes just opening, early-morning light coming through the window behind her. Her face and both arms are large and sharp in the central safe area, filling at least 40% of the frame width, and the duvet is still over her legs. This is the moment of waking up. No clock, no phone, no breakfast tray, no other person, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_03_bedroom_fullframe_v2.webp",
+            "sha256": "5e8b5505db277f82333adfb0335b2162cd5f70b70d46e0071d275a5feb59c770",
+            "byte_count": 196266
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_6edaae10c86f4da7b127963e4886a706",
+        "usage": {
+          "input_tokens": 1877,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 341
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3249
+        },
+        "cost": {
+          "usd": "0.055153",
+          "mxn": "0.9359850171",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 341,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.08,
+        "output": "output/imagegen/unit-4-mission-v1/morning-response.png",
+        "sha256": "091ccbc6745969bcd72059702f19459966af513f9490998914d65d1705278332",
+        "byte_count": 2126889
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "091ccbc6745969bcd72059702f19459966af513f9490998914d65d1705278332",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the mother sits up in the bed with both arms stretched upward and her eyes just opening, early light through the window behind her and the duvet still over her legs; no clock, phone or tray and no other person."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the answer view of the morning-routine voice gate, showing the routine moment the learner says aloud."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "dbde6c123f5a0198898cb921593c3ffd2a3e52388c057acf70616c3bd2ff1649",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/morning-response.png"
+    },
+    {
+      "asset_id": "english-question",
+      "runtime_filename": "a1_u4_home_v1_english_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "8277c0b0-e685-4047-86b5-633012f1db8d",
+        "asset_id": "english-question",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:12:47.022290+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the grandfather. Create the question shot of a speaking game in that same living room in late-afternoon light, from a closer camera position: the grandfather sits on the cream sofa turned towards the camera with a friendly, curious face, mouth open mid-question, one open palm extended in a natural asking gesture. He is large and sharp in the central safe area; the sofa and window behind him are softly out of focus. The grandmother is not in this shot. No calendar, no readable words, no numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+            "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+            "byte_count": 319632
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_018da3cc1075416b9ab41cef3c7e909e",
+        "usage": {
+          "input_tokens": 1854,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 318
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3226
+        },
+        "cost": {
+          "usd": "0.055038",
+          "mxn": "0.9340333866",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 318,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.23,
+        "output": "output/imagegen/unit-4-mission-v1/english-question.png",
+        "sha256": "f1b5ccc98c9a1b84646d1a1fec8c9eaec56733c0d2258501d376d1370c20e799",
+        "byte_count": 2343753
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "f1b5ccc98c9a1b84646d1a1fec8c9eaec56733c0d2258501d376d1370c20e799",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the grandfather with white hair and a cream sweater sits on the cream sofa mid-question with one open palm extended, large and sharp in the centre; the grandmother is not in this shot and no text appears."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the question view of the closing day-of-the-week voice gate, in the same living room as the family's evening."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "7076fb5afb01977638de7fed46e75b03f4a845561c16a02fef62345e922b5044",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/english-question.png"
+    },
+    {
+      "asset_id": "english-response",
+      "runtime_filename": "a1_u4_home_v1_english_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "cc22e7a8-9be0-456d-a9d9-7c1e89810597",
+        "asset_id": "english-response",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:14:11.547333+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. A kitchen table photographed straight on in warm afternoon light, with no people. A simple weekly wall planner hangs on the wall behind the table; its seven day columns are headed in clean printed English capitals, spelled exactly MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY and perfectly legible, and the MONDAY column is circled in red marker. On the table below, one open notebook and one open English textbook lie side by side with a pen; their pages show only soft unreadable printed lines. The planner fills at least 45% of the frame width. Only the seven day names appear as text: no month name, no dates, no other writing, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1a54c9a574694b269c00809deaa61de2",
+        "usage": {
+          "input_tokens": 340,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 340
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1712
+        },
+        "cost": {
+          "usd": "0.04286",
+          "mxn": "0.727364202",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 340,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.61,
+        "output": "output/imagegen/unit-4-mission-v1/english-response.png",
+        "sha256": "4555fe9832dc4b1b4e4ab4f99bd5746263ffe25e13f599fb43ae6a0377b8bdfb",
+        "byte_count": 1935253
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4555fe9832dc4b1b4e4ab4f99bd5746263ffe25e13f599fb43ae6a0377b8bdfb",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: an open notebook with a pen and an open English textbook lie on the kitchen table under a weekly wall calendar whose columns read MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY, correctly spelled, with MONDAY circled in red and no other writing."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 4 parity mission: the answer view of the closing voice gate, showing the study day the learner says aloud."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "644afbac07d5de013964161c639a606c570aee135476077c0e21807392019a1e",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-4/mission-v1/english-response.png"
+    }
+  ],
+  "paid_attempts": [
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "e077bebe-0661-4286-bed4-11f17afb846b",
+        "asset_id": "bedroom",
+        "pack_sha256": "dd377bf709b3d08a5aea638872cd65226d0e71449a0c8b64a57eaa3c76fc6945",
+        "started_at": "2026-09-21T03:28:51.943302+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of the girl's bedroom in daylight, taken straight on from the doorway, with exactly four clearly separated things and nobody else in the room: (1) left of centre, the girl of about twelve stands alone beside her desk holding a notebook, her whole body visible with clear space above her head; (2) at the right, exactly one single bed, made, with its whole headboard and mattress visible and nobody on it; (3) at the left, exactly one silver laptop computer, open, standing alone on the desk and not overlapping the girl; (4) at the far left edge, exactly one open wooden door leading out of the room, its full height visible. No second bed, no second computer, no screen content, no other person, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+            "byte_count": 2353536
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_c6b3e30217164b2db46234061fd1f927",
+        "usage": {
+          "input_tokens": 1919,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 383
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3291
+        },
+        "cost": {
+          "usd": "0.055363",
+          "mxn": "0.9395488641",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 383,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.41,
+        "output": "output/imagegen/unit-4-mission-v1/bedroom.png",
+        "sha256": "d52e473d54ec6e25602c13b3988e31c3a22d95441793b7ea539fa11f21189317",
+        "byte_count": 2292596
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "d52e473d54ec6e25602c13b3988e31c3a22d95441793b7ea539fa11f21189317",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the girl's bedroom with four separated referents measured on a 0.05 grid. The girl stands alone beside her desk holding a notebook, exactly one made single bed fills the right, exactly one open silver laptop stands alone on the desk at the left, and exactly one open wooden door runs the full height of the far left edge. The door anchor sits at mid-height because the door reaches both frame edges.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.32,
+              "y": 0.11,
+              "width": 0.16,
+              "height": 0.8
+            },
+            "head_anchors": [
+              {
+                "x": 0.395,
+                "y": 0.115
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.69,
+              "y": 0.295,
+              "width": 0.3,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.84,
+                "y": 0.305
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.14,
+              "y": 0.3575,
+              "width": 0.15,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.215,
+                "y": 0.375
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.0,
+              "y": 0.01,
+              "width": 0.12,
+              "height": 0.96
+            },
+            "head_anchors": [
+              {
+                "x": 0.06,
+                "y": 0.3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "ef697653-2a82-4eb9-bc1d-ac8888fbf2fb",
+        "asset_id": "book-question",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:08:58.678633+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the father. Create the question shot of a speaking game in the family living room in warm daylight, from a close camera position: the father, without the apron, stands beside a grey sofa looking towards the camera with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture, as if asking where something is. He is large and sharp in the central safe area; the living room behind him is softly out of focus. No book is visible in this shot. No readable words, no numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+            "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+            "byte_count": 327606
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_01694c46262a40b89a790e7b963b9aca",
+        "usage": {
+          "input_tokens": 1860,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 324
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3232
+        },
+        "cost": {
+          "usd": "0.055068",
+          "mxn": "0.9345425076",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 324,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.94,
+        "output": "output/imagegen/unit-4-mission-v1/book-question.png",
+        "sha256": "ba6aef831640b2f9d1860a2b30b1b4e63cd06c63ff16ecff8f8160e11c7aed80",
+        "byte_count": 2396654
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "ba6aef831640b2f9d1860a2b30b1b4e63cd06c63ff16ecff8f8160e11c7aed80",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the father in his checked shirt stands in the living room mid-question with one open palm extended, large and sharp in the centre, with the grey sofa and fireplace softly behind him and no readable words anywhere."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "305699d2-a735-481b-8e1e-1e980695e4b2",
+        "asset_id": "book-response",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:10:00.034109+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA low wooden coffee table in a warm living room, photographed from a close seat-height angle in the same daylight, with no people. Exactly one closed blue hardback book lies flat on top of the table, centred, filling at least 25% of the frame width and perfectly sharp; the table surface is otherwise completely empty and nothing lies under the table. A grey sofa is softly out of focus behind. The photograph must read at a glance as the book on the table. No bag, no phone, no second book, no readable words on the cover, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7e8d233ef6284d398f8101209dd97bbb",
+        "usage": {
+          "input_tokens": 304,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 304
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1676
+        },
+        "cost": {
+          "usd": "0.04268",
+          "mxn": "0.724309476",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 304,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 23.81,
+        "output": "output/imagegen/unit-4-mission-v1/book-response.png",
+        "sha256": "f03d4d21b26166e0c7f80d37cf9b45a27d74418006d4e3f70d1e3dca04afe8db",
+        "byte_count": 2338242
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "f03d4d21b26166e0c7f80d37cf9b45a27d74418006d4e3f70d1e3dca04afe8db",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: exactly one closed blue book lies alone on the empty wooden coffee table with the grey sofa behind it; nothing else rests on the tabletop and nothing sits under the table, so the answer sentence has one possible reading."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "4434087f-65a1-4788-8694-be920d7560eb",
+        "asset_id": "clocks-v2",
+        "pack_sha256": "d0e79c103e49149f8a7b56b8712756010625ac268f8ed7e311c74342dedb16ce",
+        "started_at": "2026-09-21T03:15:28.874484+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. Four round analog wall clocks hanging in one row on a plain warm painted wall, photographed straight on, evenly spaced with clear wall between them, no people and nothing else on the wall. Each clock has a plain white face, printed numerals 1 to 12, one short thick black hour hand, one long thin black minute hand and no second hand. On every clock the long minute hand lies exactly along the straight line from the centre of the dial to the numeral 12, pointing straight up. Each short hour hand lies exactly along the straight line from the centre of its dial to its own numeral, with the tip ending just short of that printed numeral and pointing at nothing else. From left to right the hour hands point exactly at 7, then 9, then 3, then 6; the first hour hand must not lie between 7 and 8 and must never point at 8. The angle between the two hands is therefore exactly 150 degrees on the first clock, 90 on the second, 90 on the third and 180 on the fourth. Every face is sharp and each clock is at least 15% of the frame width. No digital clock, no words, no brand names, no other numerals anywhere.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_abb14fb9767c457e9797cb7dc3f392f0",
+        "usage": {
+          "input_tokens": 449,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 449
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1821
+        },
+        "cost": {
+          "usd": "0.043405",
+          "mxn": "0.7366132335",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 449,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 23.66,
+        "output": "output/imagegen/unit-4-mission-v1/clocks-v2.png",
+        "sha256": "91e8d2167358b031044845cf5d9f977e70efc3797b22df31817958d8c9c151a9",
+        "byte_count": 1818061
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "91e8d2167358b031044845cf5d9f977e70efc3797b22df31817958d8c9c151a9",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and measured against each dial centre: four evenly spaced clocks read seven, nine, three and six o'clock from left to right, with hour hands at 211.4, 279.0, 87.9 and 170.3 degrees against ideals of 210, 270, 90 and 180 and every minute hand within six degrees of 12. Each face is at least 16% of the frame width, has clear numerals and no second hand, and the four rectangles never touch.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.027,
+              "y": 0.278,
+              "width": 0.189,
+              "height": 0.29
+            },
+            "head_anchors": [
+              {
+                "x": 0.121,
+                "y": 0.288
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.278,
+              "y": 0.274,
+              "width": 0.193,
+              "height": 0.298
+            },
+            "head_anchors": [
+              {
+                "x": 0.375,
+                "y": 0.284
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.53,
+              "y": 0.274,
+              "width": 0.195,
+              "height": 0.298
+            },
+            "head_anchors": [
+              {
+                "x": 0.628,
+                "y": 0.284
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.778,
+              "y": 0.276,
+              "width": 0.191,
+              "height": 0.296
+            },
+            "head_anchors": [
+              {
+                "x": 0.874,
+                "y": 0.286
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "3b09e934-f7f5-48e3-93cf-da6a8f980a63",
+        "asset_id": "clocks",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:07:14.063174+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. Four round analog wall clocks hanging in one row on a plain warm painted wall, photographed straight on and evenly spaced with clear wall between them, no people and nothing else on the wall. Each clock has a plain white face, printed numerals 1 to 12, black hour and minute hands and no second hand. From left to right they show exactly: seven o'clock (short hand on 7, long hand straight up on 12), nine o'clock (short hand on 9, long hand on 12), three o'clock (short hand on 3, long hand on 12), six o'clock (short hand straight down on 6, long hand straight up on 12). Every hand position must be exact and every face sharp; each clock is at least 15% of the frame width. No digital clock, no words, no brand names, no other numerals anywhere.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_9f079f6a3da0475ba838c61c779660de",
+        "usage": {
+          "input_tokens": 378,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 378
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1750
+        },
+        "cost": {
+          "usd": "0.04305",
+          "mxn": "0.730588635",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 378,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 23.17,
+        "output": "output/imagegen/unit-4-mission-v1/clocks.png",
+        "sha256": "04aaa85b7cc0eb3fccf4c7c6e588f32ebf0622e718fa93b016139393ad7a396e",
+        "byte_count": 2088649
+      },
+      "installed": false,
+      "agent_review": {
+        "disposition": "rejected",
+        "sha256": "04aaa85b7cc0eb3fccf4c7c6e588f32ebf0622e718fa93b016139393ad7a396e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Rejected: measured against each dial centre the 9, 3 and 6 clocks are true within eight degrees, but the first clock's hour hand sits at 222 degrees, twelve degrees past the 7 and forty per cent of the way to the 8, so its face does not state seven o'clock exactly."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "05181283-dc2c-4c1a-8ee2-9715b2fd0721",
+        "asset_id": "count-dining",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:06:24.525109+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA dining room photographed straight on in afternoon daylight, with no people at all. The room contains exactly one rectangular wooden dining table in the centre, exactly four identical white wooden chairs around it (two along the front edge and one at each end, each chair completely separate from the others and fully visible), exactly one pendant lamp hanging above the centre of the table, and exactly two tall windows side by side on the back wall with a clear wall gap between them. Count is critical: not three and not five chairs, not one and not three windows, only one lamp. The table and chairs fill at least 55% of the frame width. No sofa, no bed, no kitchen equipment, no plates, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_4e0abf354b914baf8f8722605c1af1f3",
+        "usage": {
+          "input_tokens": 334,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 334
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1706
+        },
+        "cost": {
+          "usd": "0.04283",
+          "mxn": "0.726855081",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 334,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 24.72,
+        "output": "output/imagegen/unit-4-mission-v1/count-dining.png",
+        "sha256": "b0d52d1c75ffcee22dbb60d21969a16e352bdb9c4093a0a8263c1c65133f999a",
+        "byte_count": 2500546
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b0d52d1c75ffcee22dbb60d21969a16e352bdb9c4093a0a8263c1c65133f999a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: exactly one rectangular wooden table, exactly four identical white chairs (one at each end and two along the front edge, each fully visible and separate), exactly one pendant lamp over the table centre and exactly two tall windows on the back wall with wall between them. No people. The chair group carries one anchor per chair and the window group one per window; the chair and table rectangles necessarily overlap because the chairs stand at the table.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.175,
+              "y": 0.465,
+              "width": 0.64,
+              "height": 0.4
+            },
+            "head_anchors": [
+              {
+                "x": 0.35,
+                "y": 0.485
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.105,
+              "y": 0.43,
+              "width": 0.825,
+              "height": 0.47
+            },
+            "head_anchors": [
+              {
+                "x": 0.175,
+                "y": 0.445
+              },
+              {
+                "x": 0.375,
+                "y": 0.48
+              },
+              {
+                "x": 0.61,
+                "y": 0.48
+              },
+              {
+                "x": 0.885,
+                "y": 0.44
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.435,
+              "y": 0.02,
+              "width": 0.135,
+              "height": 0.185
+            },
+            "head_anchors": [
+              {
+                "x": 0.5,
+                "y": 0.03
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.235,
+              "y": 0.015,
+              "width": 0.54,
+              "height": 0.455
+            },
+            "head_anchors": [
+              {
+                "x": 0.3,
+                "y": 0.02
+              },
+              {
+                "x": 0.7,
+                "y": 0.02
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "8277c0b0-e685-4047-86b5-633012f1db8d",
+        "asset_id": "english-question",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:12:47.022290+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the grandfather. Create the question shot of a speaking game in that same living room in late-afternoon light, from a closer camera position: the grandfather sits on the cream sofa turned towards the camera with a friendly, curious face, mouth open mid-question, one open palm extended in a natural asking gesture. He is large and sharp in the central safe area; the sofa and window behind him are softly out of focus. The grandmother is not in this shot. No calendar, no readable words, no numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+            "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+            "byte_count": 319632
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_018da3cc1075416b9ab41cef3c7e909e",
+        "usage": {
+          "input_tokens": 1854,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 318
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3226
+        },
+        "cost": {
+          "usd": "0.055038",
+          "mxn": "0.9340333866",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 318,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 28.23,
+        "output": "output/imagegen/unit-4-mission-v1/english-question.png",
+        "sha256": "f1b5ccc98c9a1b84646d1a1fec8c9eaec56733c0d2258501d376d1370c20e799",
+        "byte_count": 2343753
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "f1b5ccc98c9a1b84646d1a1fec8c9eaec56733c0d2258501d376d1370c20e799",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the grandfather with white hair and a cream sweater sits on the cream sofa mid-question with one open palm extended, large and sharp in the centre; the grandmother is not in this shot and no text appears."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "cc22e7a8-9be0-456d-a9d9-7c1e89810597",
+        "asset_id": "english-response",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:14:11.547333+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. A kitchen table photographed straight on in warm afternoon light, with no people. A simple weekly wall planner hangs on the wall behind the table; its seven day columns are headed in clean printed English capitals, spelled exactly MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY and perfectly legible, and the MONDAY column is circled in red marker. On the table below, one open notebook and one open English textbook lie side by side with a pen; their pages show only soft unreadable printed lines. The planner fills at least 45% of the frame width. Only the seven day names appear as text: no month name, no dates, no other writing, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1a54c9a574694b269c00809deaa61de2",
+        "usage": {
+          "input_tokens": 340,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 340
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1712
+        },
+        "cost": {
+          "usd": "0.04286",
+          "mxn": "0.727364202",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 340,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.61,
+        "output": "output/imagegen/unit-4-mission-v1/english-response.png",
+        "sha256": "4555fe9832dc4b1b4e4ab4f99bd5746263ffe25e13f599fb43ae6a0377b8bdfb",
+        "byte_count": 1935253
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4555fe9832dc4b1b4e4ab4f99bd5746263ffe25e13f599fb43ae6a0377b8bdfb",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: an open notebook with a pen and an open English textbook lie on the kitchen table under a weekly wall calendar whose columns read MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY, correctly spelled, with MONDAY circled in red and no other writing."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "fea4e2fb-1aec-4e40-9213-bca915c5b445",
+        "asset_id": "kickoff",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:01:30.899249+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family and their living room. Create a brand-new welcoming photograph in that same home, from a new camera position in the hallway looking into the living room in bright morning light: the mother, the father (short dark hair, checked shirt), the boy of about eight in a striped shirt, the girl of about twelve with long dark hair, and both grandparents stand together in a relaxed group facing the camera, smiling, ready to start the day. Everyone is full length with faces clear and none overlapping. This opening is not a challenge: no clock, no numerals, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+            "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+            "byte_count": 319632
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_1ff1e91f9285496799e0c74cbadb36d1",
+        "usage": {
+          "input_tokens": 1870,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 334
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3242
+        },
+        "cost": {
+          "usd": "0.055118",
+          "mxn": "0.9353910426",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 334,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.2,
+        "output": "output/imagegen/unit-4-mission-v1/kickoff.png",
+        "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+        "byte_count": 2353536
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the family stands together in their living room seen from the doorway, six people in one row with full bodies and clear faces, sofa, floor lamp, window and coffee table behind them; no text anywhere and no marker space needed because this shot states the mission."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "925016b4-c281-46d2-99c4-f5575f1a3f4e",
+        "asset_id": "kitchen-dining",
+        "pack_sha256": "dd377bf709b3d08a5aea638872cd65226d0e71449a0c8b64a57eaa3c76fc6945",
+        "started_at": "2026-09-21T03:27:57.298335+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of their open kitchen and dining room in daylight, taken straight on, with exactly four clearly separated things and nobody else: (1) at the left, the father stands at the kitchen counter chopping vegetables, his whole body visible with clear space above his head; (2) left of centre, the boy of about eight stands at the kitchen sink filling a glass of water, well apart from the father and not overlapping him; (3) at the right, in the dining area, exactly one rectangular wooden dining table, empty on top and completely visible; (4) exactly two identical wooden chairs at that table, one at each side, both fully visible and not touching each other. Count is critical: only two chairs, not three and not four, and only one table. No sofa, no bed, no other person, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+            "byte_count": 2353536
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_78bf0eed20c346e0b8fbc4735ebf2597",
+        "usage": {
+          "input_tokens": 1932,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 396
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3304
+        },
+        "cost": {
+          "usd": "0.055428",
+          "mxn": "0.9406519596",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 396,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.62,
+        "output": "output/imagegen/unit-4-mission-v1/kitchen-dining.png",
+        "sha256": "b6d81db6e5164723c0da3a2f681bfd2b87d8b32caef0c7def9629d37a83090fb",
+        "byte_count": 2491962
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b6d81db6e5164723c0da3a2f681bfd2b87d8b32caef0c7def9629d37a83090fb",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected and counted on a 0.05 grid: the father in his checked shirt chops vegetables at the kitchen counter, the boy fills a glass at the sink well apart from him, exactly one rectangular dining table stands empty at the right, and exactly two wooden chairs sit at that table, one on each side and not touching. There is no third chair anywhere. The table and chair rectangles necessarily overlap because the chairs stand at the table.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.145,
+              "y": 0.12,
+              "width": 0.12,
+              "height": 0.69
+            },
+            "head_anchors": [
+              {
+                "x": 0.185,
+                "y": 0.125
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.3275,
+              "y": 0.25,
+              "width": 0.12,
+              "height": 0.5
+            },
+            "head_anchors": [
+              {
+                "x": 0.385,
+                "y": 0.255
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.6,
+              "y": 0.475,
+              "width": 0.345,
+              "height": 0.33
+            },
+            "head_anchors": [
+              {
+                "x": 0.77,
+                "y": 0.485
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.435,
+              "width": 0.44,
+              "height": 0.37
+            },
+            "head_anchors": [
+              {
+                "x": 0.595,
+                "y": 0.445
+              },
+              {
+                "x": 0.925,
+                "y": 0.45
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "53a87b86-97c8-4269-ac92-4739f838df30",
+        "asset_id": "kitchen-morning",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:05:22.119678+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of the father and the boy. Create a brand-new photograph of the same family's kitchen early in the morning, with exactly four people well separated left to right and none overlapping: (1) left of centre, the boy sits at the kitchen table lifting a spoonful of cereal towards his open mouth, with a bowl and a glass of juice in front of him, clearly eating breakfast; (2) at the far left, in the kitchen doorway in front of a small mirror, the father knots his tie with both hands at his collar, wearing no jacket and carrying no bag, clearly getting dressed; (3) right of centre, the girl of about twelve stands with a backpack on both shoulders, one hand on the open door to the street, clearly leaving for school; (4) at the far right, the mother (dark ponytail) in a coat with a work shoulder bag and keys in her hand walks towards the same door, carrying no backpack, clearly leaving for work. Morning daylight through the kitchen window. Each person is large, sharp and fully visible with clear empty space above the head. No readable words on the bags or packets, no brand marks, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+            "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+            "byte_count": 327606
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_68565e748f424a409400b51f2ab78db9",
+        "usage": {
+          "input_tokens": 1988,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 452
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3360
+        },
+        "cost": {
+          "usd": "0.055708",
+          "mxn": "0.9454037556",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 452,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 33.22,
+        "output": "output/imagegen/unit-4-mission-v1/kitchen-morning.png",
+        "sha256": "45a9abfbac016da0ccab5d353b7db79c76318eca97bb0c47b0af9a426eb77bb9",
+        "byte_count": 2419216
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "45a9abfbac016da0ccab5d353b7db79c76318eca97bb0c47b0af9a426eb77bb9",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: a kitchen early in the morning with four separated people measured on a 0.05 grid. The boy lifts a spoonful of cereal to his mouth at the table, the girl with a backpack holds the open door to the street, the mother in a coat with a shoulder bag and keys walks towards that door with her back to the camera, and at the left the father knots his tie at a mirror carrying nothing. The mother's face is not visible, so her anchor sits on the crown of her head.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.28,
+              "y": 0.34,
+              "width": 0.16,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.355,
+                "y": 0.345
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.65,
+              "y": 0.225,
+              "width": 0.13,
+              "height": 0.525
+            },
+            "head_anchors": [
+              {
+                "x": 0.72,
+                "y": 0.23
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.825,
+              "y": 0.155,
+              "width": 0.145,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.885,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.1,
+              "y": 0.095,
+              "width": 0.12,
+              "height": 0.73
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.1
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "096af82f-0b29-4d88-8775-f12be0e1629c",
+        "asset_id": "living-objects",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:02:27.829565+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA living room photographed straight on in daylight, with no people at all. Exactly four separate targets, well apart, none touching another: (1) one closed blue book lying flat on top of a low wooden coffee table in the centre; (2) one black smartphone lying inside an open beige tote bag that stands upright on the sofa seat at the right, the phone clearly visible inside the bag; (3) one yellow pen lying alone on the floor directly underneath the coffee table, fully visible between the table legs; (4) one tall floor lamp standing beside the left arm of the sofa with a clear gap between lamp and sofa. Each object is sharp and at least 9% of the frame width. The tabletop holds only the book, and no other bag, book, phone or pen appears anywhere. No readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_27bdc47e805e464c8662e99b405f9d9a",
+        "usage": {
+          "input_tokens": 358,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 358
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1730
+        },
+        "cost": {
+          "usd": "0.04295",
+          "mxn": "0.728891565",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 358,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.31,
+        "output": "output/imagegen/unit-4-mission-v1/living-objects.png",
+        "sha256": "b3cd7576519a0489f1da17536445c6287800ac6b2f79780804316f8cc8bf1556",
+        "byte_count": 2862481
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b3cd7576519a0489f1da17536445c6287800ac6b2f79780804316f8cc8bf1556",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: an empty living room with four separated objects measured on a 0.05 grid. One closed blue book lies alone on the empty coffee table, one black phone sits inside the upright beige tote bag on the sofa at the right, one yellow pen lies on the rug directly under the tabletop between the legs, and one lit floor lamp stands beside the left sofa arm with a clear gap. The pen is the smallest target at about 7% of the frame width, and the lamp shade reaches the top edge, so its anchor sits inside the shade. The book and pen anchors are offset left and right of each other so their leader lines do not run parallel in the portrait slot.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.49,
+              "y": 0.51,
+              "width": 0.15,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.6,
+                "y": 0.55
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.705,
+              "y": 0.27,
+              "width": 0.16,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.785,
+                "y": 0.275
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.4825,
+              "y": 0.755,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.515,
+                "y": 0.8
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.085,
+              "y": 0.012,
+              "width": 0.155,
+              "height": 0.645
+            },
+            "head_anchors": [
+              {
+                "x": 0.16,
+                "y": 0.03
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d81be3d9-7f29-4aec-b844-5cb1ff5e9c64",
+        "asset_id": "living-room",
+        "pack_sha256": "dd377bf709b3d08a5aea638872cd65226d0e71449a0c8b64a57eaa3c76fc6945",
+        "started_at": "2026-09-21T03:27:03.434404+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of their living room in afternoon daylight, taken straight on, with exactly four clearly separated things and nobody else in the room: (1) left of centre, the mother stands alone on the rug folding a blanket, her whole body visible and clear space above her head; (2) right of centre, the grandmother and the grandfather sit together on the sofa, side by side and not overlapping, each face visible; (3) at the far left, exactly one tall floor lamp stands on the floor, switched on, its whole shade inside the frame and nobody near it; (4) at the right, exactly one tall window with a clear view of the garden, its frame completely visible. No second lamp, no second window, no television, no other person, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "2210aebc43ec0f5bcf612f09984459d331ae49562e359fd1cee24bd91923d8eb",
+            "byte_count": 2353536
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_ad174e5cae3947bbac5b34e2de6dd27b",
+        "usage": {
+          "input_tokens": 1920,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 384
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3292
+        },
+        "cost": {
+          "usd": "0.055368",
+          "mxn": "0.9396337176",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 384,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.21,
+        "output": "output/imagegen/unit-4-mission-v1/living-room.png",
+        "sha256": "8a53515958f968920b958b4c956e9bd1c50b7d8661b57a446f059b10921b176e",
+        "byte_count": 2670400
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "8a53515958f968920b958b4c956e9bd1c50b7d8661b57a446f059b10921b176e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the family's living room with four separated referents measured on a 0.05 grid. The mother in her blue top stands alone on the rug folding a blanket, the grandmother and grandfather sit side by side on the sofa without overlapping, exactly one lit floor lamp stands at the far left with its whole shade in frame, and exactly one tall garden window fills the right. Their faces and clothes match the kickoff photograph used as the identity reference.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.25,
+              "y": 0.11,
+              "width": 0.19,
+              "height": 0.69
+            },
+            "head_anchors": [
+              {
+                "x": 0.325,
+                "y": 0.115
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.5,
+              "y": 0.27,
+              "width": 0.23,
+              "height": 0.44
+            },
+            "head_anchors": [
+              {
+                "x": 0.555,
+                "y": 0.285
+              },
+              {
+                "x": 0.655,
+                "y": 0.275
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.005,
+              "y": 0.14,
+              "width": 0.13,
+              "height": 0.56
+            },
+            "head_anchors": [
+              {
+                "x": 0.07,
+                "y": 0.15
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.72,
+              "y": 0.02,
+              "width": 0.23,
+              "height": 0.51
+            },
+            "head_anchors": [
+              {
+                "x": 0.835,
+                "y": 0.03
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "bb43e31c-c744-499b-9c5d-ffa86e40fe14",
+        "asset_id": "morning-question",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:10:53.314937+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of the grandmother and grandfather. Create the question shot of a speaking game in that same living room in morning light, from a closer camera position: the grandmother sits on the cream sofa holding a cup of tea, turned towards the camera with a warm, curious face, mouth open mid-question, her free open palm extended in a natural asking gesture. She is large and sharp in the central safe area; the sofa and the window behind her are softly out of focus. The grandfather is not in this shot. No readable words, no numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+            "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+            "byte_count": 319632
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_bdb14c7c4736444db6aa3204771c7b18",
+        "usage": {
+          "input_tokens": 1859,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 323
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3231
+        },
+        "cost": {
+          "usd": "0.055063",
+          "mxn": "0.9344576541",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 323,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.93,
+        "output": "output/imagegen/unit-4-mission-v1/morning-question.png",
+        "sha256": "81da33e8e8b501ed6abded398be1e4620e253c13e58ed7357b05ec1e6180cf2a",
+        "byte_count": 2135943
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "81da33e8e8b501ed6abded398be1e4620e253c13e58ed7357b05ec1e6180cf2a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the grandmother with white hair and a floral blouse sits on the cream sofa holding a cup of tea, turned to the camera mid-question with her free palm open; the grandfather is not in this shot and no text appears."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "d4993054-697b-4c8d-a4dd-e59f2777aa84",
+        "asset_id": "morning-response",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:11:47.696974+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact bedroom, its window and its daylight. Create the answer shot of a speaking game in that same bedroom from a closer camera position: the mother (dark ponytail, plain pyjama top) sits up in the bed with both arms stretched upward in a wide waking stretch, eyes just opening, early-morning light coming through the window behind her. Her face and both arms are large and sharp in the central safe area, filling at least 40% of the frame width, and the duvet is still over her legs. This is the moment of waking up. No clock, no phone, no breakfast tray, no other person, no readable words.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_03_bedroom_fullframe_v2.webp",
+            "sha256": "5e8b5505db277f82333adfb0335b2162cd5f70b70d46e0071d275a5feb59c770",
+            "byte_count": 196266
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_6edaae10c86f4da7b127963e4886a706",
+        "usage": {
+          "input_tokens": 1877,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 341
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3249
+        },
+        "cost": {
+          "usd": "0.055153",
+          "mxn": "0.9359850171",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 341,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.08,
+        "output": "output/imagegen/unit-4-mission-v1/morning-response.png",
+        "sha256": "091ccbc6745969bcd72059702f19459966af513f9490998914d65d1705278332",
+        "byte_count": 2126889
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "091ccbc6745969bcd72059702f19459966af513f9490998914d65d1705278332",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the mother sits up in the bed with both arms stretched upward and her eyes just opening, early light through the window behind her and the duvet still over her legs; no clock, phone or tray and no other person."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "2b67644d-5906-4751-808d-05928a60f435",
+        "asset_id": "morning-routine",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:04:16.320300+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of the father and the boy. Create a brand-new photograph of the same family's bathroom and landing in early-morning light, with exactly four people well separated left to right and none overlapping: (1) at the far left, through an open bedroom door, the mother (dark ponytail, pyjama top) sits up in bed with both arms stretched upward, just waking up; (2) left of centre, the father stands at the left basin of a double washbasin with both cupped hands of water lifted to his face, eyes closed, clearly washing his face and holding no toothbrush; (3) right of centre, the girl of about twelve stands at the right basin brushing her teeth, the toothbrush clearly against her teeth; (4) at the far right, on the landing, the boy pulls a jumper down over his head with both arms raised, clearly getting dressed. Each person is large, sharp and fully visible with clear empty space above the head. No towels over faces, no readable words, no brand marks.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_02_kitchen_dining_fullframe_v2.webp",
+            "sha256": "1fec5bdd8d78dea4142358cee977c92576c4aa71375c17fecd4af07d3d0cf9b7",
+            "byte_count": 327606
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7224ece002a34264949a831c6c28963e",
+        "usage": {
+          "input_tokens": 1959,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 423
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3331
+        },
+        "cost": {
+          "usd": "0.055563",
+          "mxn": "0.9429430041",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 423,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 32.53,
+        "output": "output/imagegen/unit-4-mission-v1/morning-routine.png",
+        "sha256": "a78c1d477cb2ae85496113c851f79592f61d11a4dabc78b296231c9ee5aa66de",
+        "byte_count": 2532943
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "a78c1d477cb2ae85496113c851f79592f61d11a4dabc78b296231c9ee5aa66de",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: a bathroom and landing in morning light with four separated people measured on a 0.05 grid. Through the bedroom door at the left the mother sits up in bed with both arms stretched upward, the father washes his face at the left basin holding no toothbrush, the girl brushes her teeth at the right basin with the brush against her teeth, and at the right the boy pulls a jumper over his head. The mother's and the boy's rectangles include their raised arms, and each anchor sits on the head itself.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.045,
+              "y": 0.085,
+              "width": 0.15,
+              "height": 0.36
+            },
+            "head_anchors": [
+              {
+                "x": 0.11,
+                "y": 0.17
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.25,
+              "y": 0.14,
+              "width": 0.175,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.37,
+                "y": 0.145
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.5975,
+              "y": 0.18,
+              "width": 0.12,
+              "height": 0.64
+            },
+            "head_anchors": [
+              {
+                "x": 0.665,
+                "y": 0.185
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.845,
+              "y": 0.225,
+              "width": 0.12,
+              "height": 0.57
+            },
+            "head_anchors": [
+              {
+                "x": 0.9,
+                "y": 0.25
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "e798c072-ada2-4cf9-8c82-ddd7a1a0d2b8",
+        "asset_id": "night-home",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:03:19.538969+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of the mother and the girl. Create a brand-new photograph of the same family's home at night, seen from the hall in warm lamplight with two open doors, with exactly four people well separated left to right and none overlapping: (1) at the far left, the father (short dark hair, checked shirt) steps in through the open front door with his jacket still on and his keys in his hand, clearly arriving home; (2) left of centre, through an open bathroom door, the mother stands at the washbasin with both cupped hands of water lifted to her face, eyes closed, clearly washing her face and holding no toothbrush; (3) right of centre, the girl sits at the hall table under a lit lamp writing in an open notebook beside an open textbook, clearly studying; (4) at the far right, through an open bedroom door, the boy of about eight in striped pyjamas lies in bed under the duvet with his head on the pillow and his eyes closed, clearly asleep. It is night: the hall window behind them is dark and the only light is from the lamps. Each person is large, sharp and fully visible with clear empty space above the head. No readable words on the books or walls, no screen content, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_scene_01_living_room_fullframe_v2.webp",
+            "sha256": "bc0b9cd0017ea24af4b61201358485446b845debb30858b846c89dfed4d368d1",
+            "byte_count": 319632
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_2bdd386891694ff2aec9cc4433da660c",
+        "usage": {
+          "input_tokens": 2011,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 475
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3383
+        },
+        "cost": {
+          "usd": "0.055823",
+          "mxn": "0.9473553861",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 475,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.42,
+        "output": "output/imagegen/unit-4-mission-v1/night-home.png",
+        "sha256": "4ce9abe20502dcbd783ba4bd32caf3c074c66abb291a78ba66591449ca247cf5",
+        "byte_count": 2105348
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4ce9abe20502dcbd783ba4bd32caf3c074c66abb291a78ba66591449ca247cf5",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: a house at night with four separated people measured on a 0.05 grid. At the left the father steps in through the open front door with his keys, through the bathroom door the mother lifts cupped water to her closed eyes, the girl writes in a notebook at the lit hall table, and through the bedroom door at the right the boy sleeps in bed. The sleeping boy is the smallest target and sits against the right edge, so his rectangle includes the pillow and bed he lies on.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.07,
+              "y": 0.095,
+              "width": 0.15,
+              "height": 0.7
+            },
+            "head_anchors": [
+              {
+                "x": 0.135,
+                "y": 0.1
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.33,
+              "y": 0.21,
+              "width": 0.125,
+              "height": 0.46
+            },
+            "head_anchors": [
+              {
+                "x": 0.385,
+                "y": 0.215
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.88,
+              "y": 0.4,
+              "width": 0.12,
+              "height": 0.2
+            },
+            "head_anchors": [
+              {
+                "x": 0.945,
+                "y": 0.415
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.525,
+              "y": 0.34,
+              "width": 0.14,
+              "height": 0.5
+            },
+            "head_anchors": [
+              {
+                "x": 0.595,
+                "y": 0.345
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "4722c4bd-067f-4754-8c30-7087e398e9cb",
+        "asset_id": "time-question",
+        "pack_sha256": "9df9ba50dec83d3f10bc698d46b605ea3fa065e69621c0264d651da87b2dc2d3",
+        "started_at": "2026-09-21T03:08:02.885559+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact hallway, its wall colour, its large round wall clock and the daylight. Create the question shot of a speaking game in that same hallway from a new, closer camera position: the mother (dark ponytail, teal top, jeans) stands in the hallway looking towards the camera with a curious, friendly face, mouth open mid-question, one open palm extended in a natural asking gesture. She is large and sharp in the central safe area; the hallway behind her is softly out of focus and no clock face is legible in this shot. No readable words, no numerals.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "a1_u4_mission_clock_six_v3.webp",
+            "sha256": "e21bcd2aca704aa8545d99418e83161879e124f26e14dc06e54b28fc1ed66e2f",
+            "byte_count": 296910
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_7f8187a2f7d04ba5b57761dc966cd1c2",
+        "usage": {
+          "input_tokens": 1863,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 327
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3235
+        },
+        "cost": {
+          "usd": "0.055083",
+          "mxn": "0.9347970681",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 327,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.15,
+        "output": "output/imagegen/unit-4-mission-v1/time-question.png",
+        "sha256": "4f1bc6cebb1703eeec4cb384aa7bd3e324d42a7eead9bdae2bceeadb753438ae",
+        "byte_count": 1946436
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4f1bc6cebb1703eeec4cb384aa7bd3e324d42a7eead9bdae2bceeadb753438ae",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the mother in a teal top stands in the hall mid-question with one open palm extended, large and sharp in the centre; the wall clock behind her is soft and out of focus and no numerals can be read from it, and there is no text in the frame."
+      }
+    }
+  ],
+  "retired_scenes": [
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "old_filename": "a1_u4_scene_01_living_room.webp",
+      "binding": "cards",
+      "old_sha256": "c88b540e500cc6a4bdd7c4fea66586556b2bdfc150ac69d3bb4cc7f5c7872fc6",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 4 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's living-room hotspot scene, the mother folding laundry with the grandparents on the sofa; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u4_home_v1_living_room.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "old_filename": "a1_u4_scene_02_kitchen_dining.webp",
+      "binding": "cards",
+      "old_sha256": "3ddaefc9250e152064a74caec4f7fc2421428d177f57726879513bdc680c85da",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 4 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's kitchen and dining hotspot scene, the father at the stove and the boy on a stool at the island; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u4_home_v1_kitchen_dining.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "old_filename": "a1_u4_scene_03_bedroom.webp",
+      "binding": "cards",
+      "old_sha256": "cc37f301abf6bb1bbf46d3d282bf363082defcec35b8850edf01dc1ae2b503d3",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 4 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's bedroom hotspot scene, the girl at her desk with a laptop and a younger child reading on the bed; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u4_home_v1_bedroom.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "old_filename": "a1_u4_scene_04_clock_check.webp",
+      "binding": "cards",
+      "old_sha256": "b7338d1152f97b9d5af80dc691d51f39a04d1de4c48fe56595c1fb7b2c71e0de",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 4 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's single clock-check scene used by its only voice gate; kept byte-for-byte while the rebuilt mission reads four clocks and asks four questions instead.",
+      "replacement_filename": "a1_u4_home_v1_clocks.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-4-10-my-day-mission",
+      "old_filename": "a1_u4_mission_kickoff.webp",
+      "binding": "mission.kickoff_image_url",
+      "old_sha256": "ec7cdfa2140153639e6c88402bec83fd312583d09a0aac7406a9c0b27aa31592",
+      "issue": "The four-beat stub mission is rebuilt to the approved Unit 4 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's kickoff shot of the family home; the original file stays byte-for-byte on disk and in every archive copy, and only its Lesson 4.10 binding changes.",
+      "replacement_filename": "a1_u4_home_v1_kickoff.webp",
+      "original_action": "preserve-byte-for-byte"
+    }
+  ]
+}

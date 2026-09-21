@@ -1,0 +1,2150 @@
+{
+ "schema_version": 1,
+ "rule": "Every line a pictured person says plays in a voice that matches that person: male for a man or boy, female for a woman or girl. The neutral narrator is a woman, so off-camera askers and narration are recorded as female. docs/product/project-guardrails.md (Audio) holds the rule; scripts/review_speaking_voices.py and backend/tests/test_speaking_voice_review.py enforce it.",
+ "how_to_review": "When a new card or a replaced picture puts a spoken line over a picture nobody has reviewed, run `python scripts/review_speaking_voices.py --sheets <dir>`, look at each picture, fix the card's speaker role if the voice is wrong, then record who says the line with --record.",
+ "provenance": "Seeded 2026-09-19 from the 2026-09-18 image-by-image review of every picture behind a spoken line (contact sheets inspected; every mismatch was recast in PR #162). Adding this check found one more: Luis asks \"How old are you?\" over a1_scene_age-question-ana, so 3.4 U1 and U3 now use his voice.",
+ "reviewed": [
+  {
+   "image": "a1_ana.webp",
+   "text": "My name is Ana.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_happy.webp",
+   "text": "I am happy.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_hungry.webp",
+   "text": "I am hungry.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_listening_music.webp",
+   "text": "I like listening to music.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_luis.webp",
+   "text": "I am eighteen years old.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_likes_apples_v1.webp",
+   "text": "I like apples.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_likes_eggs_v1.webp",
+   "text": "I like eggs.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_likes_five_strawberries_v1.webp",
+   "text": "I like five strawberries.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_likes_three_oranges_v1.webp",
+   "text": "I like three oranges.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_likes_two_green_apples_v1.webp",
+   "text": "I like two green apples.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_likes_two_red_apples_v1.webp",
+   "text": "I like two red apples.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u4_study_monday_v1.webp",
+   "text": "I study English on Monday.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_coffee_breakfast_v1.webp",
+   "text": "I drink coffee for breakfast.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_eggs_breakfast_v1.webp",
+   "text": "I eat eggs for breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_request_coffee_v1.webp",
+   "text": "Coffee, please.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_request_coffee_v1.webp",
+   "text": "Coffee, please. Thank you.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_request_tea_v1.webp",
+   "text": "Tea, please.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_review_eggs_breakfast_v1.webp",
+   "text": "I eat eggs for breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_review_likes_and_needs_v1.webp",
+   "text": "I like it. I need it.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_review_rice_lunch_v1.webp",
+   "text": "We eat rice for lunch.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_review_tea_breakfast_v1.webp",
+   "text": "I drink tea for breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_rice_lunch_v1.webp",
+   "text": "We eat rice for lunch.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_tea_breakfast_v1.webp",
+   "text": "I drink tea for breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u5_two_eggs_breakfast_v1.webp",
+   "text": "I eat two eggs for breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u6_man_boards_bus_v1.webp",
+   "text": "I go by bus.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u6_man_boards_taxi_v1.webp",
+   "text": "I go by taxi.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u6_man_boards_train_v1.webp",
+   "text": "I go by train.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u6_pair_boards_bus_v1.webp",
+   "text": "We can go by bus.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u6_review_man_boards_train_v1.webp",
+   "text": "I go by train.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_cold_jacket_v1.webp",
+   "text": "It is cold. I need a jacket.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_dislikes_reading_v2.webp",
+   "text": "I do not like reading.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_hot_shirt_v1.webp",
+   "text": "It is hot. I need a shirt.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_invites_music_v1.webp",
+   "text": "Do you want to listen to music?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_likes_reading_v1.webp",
+   "text": "I like reading.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_likes_tv_v3.webp",
+   "text": "I like watching TV.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_rain_umbrella_v1.webp",
+   "text": "It is rainy. I need an umbrella.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_review_wakes_morning_v1.webp",
+   "text": "I wake up in the morning.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_windy_jacket_v1.webp",
+   "text": "It is windy. I need a jacket.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_photo_u7_woman_thirsty_v1.webp",
+   "text": "I am thirsty.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_sad.webp",
+   "text": "I am sad.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_accepts-tea_91500af.webp",
+   "text": "Yes, please.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_accepts_3a1306b.webp",
+   "text": "Yes, thank you.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-ana-20_7acc289.webp",
+   "text": "How old are you?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-ana-20_7acc289.webp",
+   "text": "I am twenty years old.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-ana-answers-20_a9aeaf1.webp",
+   "text": "I am twenty years old.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-ana-asks-luis_4f56eef.webp",
+   "text": "How old are you?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-luis-18_7f71348.webp",
+   "text": "How old are you?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-luis-18_7f71348.webp",
+   "text": "I am eighteen years old.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-luis-answers-18_27d08d5.webp",
+   "text": "I am eighteen years old.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-luis-asks-ana_132f348.webp",
+   "text": "How old are you?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-question-ana_8cb0ea5.webp",
+   "text": "How old are you?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-question-ana_8cb0ea5.webp",
+   "text": "I am eighteen years old.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_age-question-luis_c9558de.webp",
+   "text": "How old are you?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-badge_785def3.webp",
+   "text": "My name is Ana.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-badge_785def3.webp",
+   "text": "What is your name?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-breakfast_e7fbea5.webp",
+   "text": "I eat breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+   "text": "Brush my teeth",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-brush-teeth_d6ccad2.webp",
+   "text": "I brush my teeth.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-come-home_ad0dbb5.webp",
+   "text": "I come home.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-dressed_5135d82.webp",
+   "text": "I get dressed.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-go-school_83ace0e.webp",
+   "text": "I go to school.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-mexican_1fca9cc.webp",
+   "text": "I am Mexican.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-mexican_1fca9cc.webp",
+   "text": "I am from Mexico.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-mexican_1fca9cc.webp",
+   "text": "Where are you from?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-sleep_7690f07.webp",
+   "text": "I sleep.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-study-english_a45ba91.webp",
+   "text": "I study English.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-study-english_a45ba91.webp",
+   "text": "Then, I study English.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-wake_d91086e.webp",
+   "text": "I wake up.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-wash-face_4ea6c79.webp",
+   "text": "I wash my face.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana-wash-face_4ea6c79.webp",
+   "text": "Wash my face",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana_mexico.webp",
+   "text": "I am from Mexico.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana_mexico.webp",
+   "text": "Where are you from?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ana_name.webp",
+   "text": "My name is Ana.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_arms-highlighted_d408105.webp",
+   "text": "My arms",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_asks-for-help_bdae1c7.webp",
+   "text": "Can you help me?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_asks-for-town-help_3f8f57a.webp",
+   "text": "Can you help me?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_asks-repeat_6abbdbc.webp",
+   "text": "Please repeat.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_asks-to-repeat_c77cbe4.webp",
+   "text": "Please repeat.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_asks-to-slow-down_dafb5f0.webp",
+   "text": "Please speak slowly.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_blocked-route_9f7c4b8.webp",
+   "text": "I cannot walk there.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_blocked-walking-route_51d4d7a.webp",
+   "text": "I cannot walk there.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_breakfast-morning_e501f0d.webp",
+   "text": "I eat breakfast in the morning.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_bus-female-help-question_571febf.webp",
+   "text": "Can you help me?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_cafe-female-here-you-are_a140cca.webp",
+   "text": "Here you are.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_cafe-male-hello_8ddd7f3.webp",
+   "text": "Hello.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_cafe-male-thank-you_9ad5106.webp",
+   "text": "Thank you.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_cafe-male-water-please_9194971.webp",
+   "text": "Water, please.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_can-you-help-me_eb476e5.webp",
+   "text": "Can you help me?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_can-you-help-me_eb476e5.webp",
+   "text": "Excuse me.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_cannot_6ef8007.webp",
+   "text": "I cannot walk there.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_cold-chooses-jacket_33da5e7.webp",
+   "text": "It is cold. I need a jacket.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_cold-jacket_a13ddf3.webp",
+   "text": "It is cold. I need a jacket.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_crossing-allowed_363778b.webp",
+   "text": "You can cross the street.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_day-mon_2655a7f.webp",
+   "text": "I study English on Monday.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_declines-tea_f17ccc5.webp",
+   "text": "No, thank you.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_declines_39c6dcc.webp",
+   "text": "No, thank you.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_declines_39c6dcc.webp",
+   "text": "Sorry, no.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_diego-spanish_5d1c02d.webp",
+   "text": "I am Spanish.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_diego-spanish_5d1c02d.webp",
+   "text": "I am from Spain.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_do-you-want-to-listen-to-music_e280002.webp",
+   "text": "Do you want to listen to music?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_do-you-want-to-play_416ec92.webp",
+   "text": "Do you want to play?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_do-you-want-to-read_2214c2e.webp",
+   "text": "Do you want to read?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_do-you-want-to-watch-tv_b863d46.webp",
+   "text": "Do you want to watch TV?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_does-not-like-apples_385a047.webp",
+   "text": "I do not like apples.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_does-not-like-fish_6232056.webp",
+   "text": "I do not like fish.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_does-not-understand_6ad015b.webp",
+   "text": "I do not understand.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_driver-luis_111aa43.webp",
+   "text": "I am a driver.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_ears-highlighted_e558e3d.webp",
+   "text": "My ears",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_excuse-me-can-you-help-me_dab207f.webp",
+   "text": "Excuse me. Can you help me?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_excuse-me-i-need-help_02700a5.webp",
+   "text": "Excuse me. I need help.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_excuse-me_91c6a04.webp",
+   "text": "Excuse me.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_eyes-highlighted_2cec3df.webp",
+   "text": "My eyes",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_eyes_577edc6.webp",
+   "text": "My eyes.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_feet-highlighted_fed314f.webp",
+   "text": "My feet",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_feet_67c0fcc.webp",
+   "text": "My feet.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_first-wake_8cc33b0.webp",
+   "text": "First, I wake up.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_gets-attention_4f7bd0d.webp",
+   "text": "Excuse me.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_goes-by-bike_8f7cced.webp",
+   "text": "I go by bike.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_goes-by-bus_a09526f.webp",
+   "text": "I go by bus.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_goes-by-taxi_19b09d5.webp",
+   "text": "I go by taxi.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_goodbye-luis-speaker_b18c04c.webp",
+   "text": "Goodbye.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_handoff_2f45a9f.webp",
+   "text": "Here you are.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_hands-highlighted_a64bda9.webp",
+   "text": "My hands",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_hands_75fbb38.webp",
+   "text": "My hands.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_head-highlighted_0ead08f.webp",
+   "text": "My head",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_head_1a95462.webp",
+   "text": "My head.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_hello-ana-speaker_591cb45.webp",
+   "text": "Hello.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_hello-luis-speaker_3e5e175.webp",
+   "text": "Hello.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_hello_19bd437.webp",
+   "text": "Hello.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_hello_19bd437.webp",
+   "text": "Here you are.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_help_92005ec.webp",
+   "text": "Can you help me?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_help_92005ec.webp",
+   "text": "I need help.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_here-you-are_4ab9749.webp",
+   "text": "Here you are.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_how-are-you_be4c34b.webp",
+   "text": "How are you?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-am-tired-i-need-help_788b204.webp",
+   "text": "I am tired. I need help.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-ana_8c940c9.webp",
+   "text": "I",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-can-go-by-bus_a4c83d2.webp",
+   "text": "I can go by bus.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-can-walk-there_716a3c1.webp",
+   "text": "I can walk there.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-cannot-walk-there_4e028b8.webp",
+   "text": "I cannot walk there.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-do-not-like-apples_a88c2d3.webp",
+   "text": "I do not like apples.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-do-not-like-fish_25804e6.webp",
+   "text": "I do not like fish.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-do-not-like-milk_f3786e9.webp",
+   "text": "I do not like milk.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-do-not-like-playing_692c6ab.webp",
+   "text": "I do not like playing.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-do-not-like-watching-tv_d06b3e7.webp",
+   "text": "I do not like watching TV.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-do-not-understand_d56b045.webp",
+   "text": "I do not understand.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-go-by-bike_fb5d9bc.webp",
+   "text": "I go by bike.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-go-by-bus_a31fe3d.webp",
+   "text": "I go by bus.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-go-by-car_6e60b4d.webp",
+   "text": "I go by car.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-go-by-taxi_7e2b0b3.webp",
+   "text": "I go by taxi.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-have-book_25eacad.webp",
+   "text": "I have a book.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-like-apples-water-please_0c2bcf0.webp",
+   "text": "I like apples. Water, please.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-like-apples_8f1a9bc.webp",
+   "text": "I like apples.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-like-bananas_12d977b.webp",
+   "text": "I like bananas.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-like-juice_b1740dd.webp",
+   "text": "I like juice.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-like-rice_e0bdb51.webp",
+   "text": "I like rice.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-need-help_93277f0.webp",
+   "text": "I need help.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-need-water_3031cd6.webp",
+   "text": "I need water.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-reading_941304e.webp",
+   "text": "I am reading.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-wake-daily_acdb17a.webp",
+   "text": "I wake up every day.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-wake-up-in-the-morning_8586957.webp",
+   "text": "I wake up in the morning.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-walk_b4cf763.webp",
+   "text": "I walk.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_i-want-juice_9e02e22.webp",
+   "text": "I want juice.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_invites-music_0c739d4.webp",
+   "text": "Do you want to listen to music?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_invites-playing_6417df5.webp",
+   "text": "Do you want to play?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_invites-reading_89bcb16.webp",
+   "text": "Do you want to read?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_invites-tv_556a092.webp",
+   "text": "Do you want to watch TV?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_it-is-cold-i-need-a-jacket_181fae6.webp",
+   "text": "It is cold. I need a jacket.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_it-is-hot-i-need-a-shirt_f601ba1.webp",
+   "text": "It is hot. I need a shirt.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_it-is-rainy-i-need-an-umbrella_1a4fd85.webp",
+   "text": "It is rainy. I need an umbrella.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_it-is-rainy-i-need-boots_612b75c.webp",
+   "text": "It is rainy. I need boots.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_it-is-sunny-i-need-a-hat_a3d7c30.webp",
+   "text": "It is sunny. I need a hat.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_it-is-windy-i-need-a-jacket_058774a.webp",
+   "text": "It is windy. I need a jacket.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_job-dialogue-driver_acd1aee.webp",
+   "text": "What is your job?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_job-dialogue-teacher_be7d927.webp",
+   "text": "What is your job?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_juice-please_ee4b773.webp",
+   "text": "Juice, please.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_legs-highlighted_f159b85.webp",
+   "text": "My legs",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_legs_4ef3d80.webp",
+   "text": "My legs.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_likes-apples_743e7d5.webp",
+   "text": "I like apples.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_likes-bananas_df91561.webp",
+   "text": "I like bananas.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_likes-juice_b9fcf70.webp",
+   "text": "I like juice.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_likes-rice_1dce2b8.webp",
+   "text": "I like rice.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_likes-tv_c1bcc31.webp",
+   "text": "I like watching TV.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_luis-american_5a29f49.webp",
+   "text": "I am American.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_luis-american_5a29f49.webp",
+   "text": "I am from the United States.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_luis-badge_80bb288.webp",
+   "text": "My name is Luis.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_luis-badge_80bb288.webp",
+   "text": "What is your name?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_luis-go-work_f1ae7c5.webp",
+   "text": "I go to work.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_luis-work_b6f1588.webp",
+   "text": "I work.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_mexico-country_c17ee27.webp",
+   "text": "I am from Mexico.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_morning-ana-speaker_716da9f.webp",
+   "text": "Good morning.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_morning_45a21e4.webp",
+   "text": "I wake up in the morning.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_mouth_87d1782.webp",
+   "text": "My mouth.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-arms_e841195.webp",
+   "text": "My arms",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-book-ana_7f764c0.webp",
+   "text": "This is my book.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-ears_157209e.webp",
+   "text": "My ears",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-eyes_09d9b13.webp",
+   "text": "My eyes",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-feet_6eae67d.webp",
+   "text": "My feet",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-hands_d673211.webp",
+   "text": "My hands",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-head_bc334a5.webp",
+   "text": "My head",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-legs_7e8e4da.webp",
+   "text": "My legs",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-mouth_319e1e1.webp",
+   "text": "My mouth",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-name-ana_bbf315f.webp",
+   "text": "My name is Ana.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-name-is-ana-i-am-from-mexico_0ddbe00.webp",
+   "text": "My name is Ana. I am from Mexico.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_my-name-my-day_d5d5c59.webp",
+   "text": "My name. My day.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_name-dialogue-ana_04d12f0.webp",
+   "text": "My name is Ana.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_name-dialogue-ana_04d12f0.webp",
+   "text": "What is your name?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_name-dialogue-luis_8ac00a9.webp",
+   "text": "My name is Luis.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_name-dialogue-luis_8ac00a9.webp",
+   "text": "What is your name?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_needs-help_bd54960.webp",
+   "text": "I need help.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_needs-water_60aec53.webp",
+   "text": "I need water.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_no-thank-you_23aa575.webp",
+   "text": "No, thank you.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_no-thank-you_23aa575.webp",
+   "text": "Yes, please.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_nurse-sofia_63f2a9c.webp",
+   "text": "I am a nurse.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_nurse-sofia_63f2a9c.webp",
+   "text": "What is your job?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_open-route_20952ae.webp",
+   "text": "I can walk there.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_open-walking-route_4673a99.webp",
+   "text": "I can walk there.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_orders-coffee_3164cd2.webp",
+   "text": "Coffee, please.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_orders-juice_e20f7f7.webp",
+   "text": "Juice, please.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_orders-water_37bb622.webp",
+   "text": "Water, please.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_origin-ana-asks-diego_ac9e717.webp",
+   "text": "Where are you from?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_origin-ana-asks-sofia_1c3c0bc.webp",
+   "text": "Where are you from?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_origin-sofia_83856b9.webp",
+   "text": "I am from Canada.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_origin-sofia_83856b9.webp",
+   "text": "My name is Ana.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_origin-sofia_83856b9.webp",
+   "text": "Where are you from?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_play-female-yes-thank-you_5ab9ee4.webp",
+   "text": "Yes, thank you.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_please-repeat_50ab734.webp",
+   "text": "Please repeat.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_please-speak-slowly_f0a8349.webp",
+   "text": "Please speak slowly.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_rain-boots_c3ee514.webp",
+   "text": "It is rainy. I need boots.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_rain-umbrella_60133ed.webp",
+   "text": "It is rainy. I need an umbrella.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_rainy-chooses-umbrella_fd31bb6.webp",
+   "text": "It is rainy. I need an umbrella.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_server-hands-drink_9f32830.webp",
+   "text": "Here you are.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_sleep-night_192fa33.webp",
+   "text": "I sleep at night.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_sofia-canadian_adf798e.webp",
+   "text": "I am Canadian.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_sofia-canadian_adf798e.webp",
+   "text": "I am from Canada.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_sorry-no-response_6649851.webp",
+   "text": "Sorry, no.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_sorry-no_0ecf515.webp",
+   "text": "Do you want to watch TV?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_sorry-no_0ecf515.webp",
+   "text": "Sorry, no.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_teacher-ana_0e983a0.webp",
+   "text": "I am a teacher.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_teacher-ana_0e983a0.webp",
+   "text": "What is your job?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_thank-you_a6f59e1.webp",
+   "text": "Here you are.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_thank-you_a6f59e1.webp",
+   "text": "Thank you.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_then-breakfast_2939d89.webp",
+   "text": "Then, I eat breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_town-female-thank-you_0a597e3.webp",
+   "text": "Thank you.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_us-country_69518e5.webp",
+   "text": "I am from the United States.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_walk_df06b14.webp",
+   "text": "I walk.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_walks_125feda.webp",
+   "text": "I walk.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_want_b5f23bc.webp",
+   "text": "I want juice.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_wants-juice_0276b44.webp",
+   "text": "I want juice.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_water-please-thank-you_fda0ffb.webp",
+   "text": "Water, please. Thank you.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_water-please_416a23c.webp",
+   "text": "Water, please.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_we-ana-luis_d8d7dd2.webp",
+   "text": "We",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_we-can-go-by-bus_07c410b.webp",
+   "text": "We can go by bus.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_we-have-books_190a845.webp",
+   "text": "We have two books.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_we-need-food_8c40b5b.webp",
+   "text": "We need food.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_we-study-daily_167b084.webp",
+   "text": "We study English every day.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_we-talking_dcb733a.webp",
+   "text": "We are talking.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_yes-please_ae43854.webp",
+   "text": "Water, please.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_yes-please_ae43854.webp",
+   "text": "Yes, please.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_yes-response_d4eb35a.webp",
+   "text": "Yes.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_yes-thank-you_95534e3.webp",
+   "text": "Do you want to play?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_yes-thank-you_95534e3.webp",
+   "text": "Do you want to watch TV?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_yes-thank-you_95534e3.webp",
+   "text": "Yes, thank you.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_yes_62e7d96.webp",
+   "text": "Can you help me?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_yes_62e7d96.webp",
+   "text": "Yes.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_you-can-cross-the-street_15d25f7.webp",
+   "text": "You can cross the street.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_you-cannot-cross-the-street_1d21ab6.webp",
+   "text": "You cannot cross the street.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_you-go-school-daily_bf718d6.webp",
+   "text": "First, I go to school.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_you-go-school-daily_bf718d6.webp",
+   "text": "You go to school every day.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_you-have-phone_6017478.webp",
+   "text": "You have a phone.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_you-luis_016338a.webp",
+   "text": "You",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_you-writing_36b614d.webp",
+   "text": "My name is Ana.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_you-writing_36b614d.webp",
+   "text": "You are writing.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_your-name-luis_c10ecc5.webp",
+   "text": "Your name is Luis.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_scene_your-phone-luis_e8f060b.webp",
+   "text": "This is your phone.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_thirsty.webp",
+   "text": "I am thirsty.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_tired.webp",
+   "text": "I am tired.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_age_question.webp",
+   "text": "How old are you?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_ages.webp",
+   "text": "I am fifteen years old.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_ages.webp",
+   "text": "I am seventeen years old.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_ages.webp",
+   "text": "I am thirteen years old.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_ages.webp",
+   "text": "I am twelve years old.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_courtyard.webp",
+   "text": "Good morning.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_courtyard.webp",
+   "text": "Goodbye.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_courtyard.webp",
+   "text": "I am playing.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_courtyard.webp",
+   "text": "I am reading.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_doing_question_v2.webp",
+   "text": "What are you doing?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_flags.webp",
+   "text": "I am American.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_flags.webp",
+   "text": "I am Canadian.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_flags.webp",
+   "text": "I am from Mexico.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_flags.webp",
+   "text": "I am from Spain.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_handoffs.webp",
+   "text": "I have a bike.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_handoffs.webp",
+   "text": "This is my book.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_handoffs.webp",
+   "text": "This is your phone.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_handoffs.webp",
+   "text": "We have two books.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_job_question.webp",
+   "text": "What is your job?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_jobs_v2.webp",
+   "text": "I am a doctor.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_jobs_v2.webp",
+   "text": "I am a driver.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_jobs_v2.webp",
+   "text": "I am a farmer.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_jobs_v2.webp",
+   "text": "I am a nurse.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_kitchen.webp",
+   "text": "I am cooking.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_kitchen.webp",
+   "text": "I am writing.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_kitchen.webp",
+   "text": "We are playing.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_kitchen.webp",
+   "text": "You are writing.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_origin_question.webp",
+   "text": "Where are you from?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_registration.webp",
+   "text": "Hello.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_registration.webp",
+   "text": "My name is Diego.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_registration.webp",
+   "text": "We are talking.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_dinner_v1_registration.webp",
+   "text": "What is your name?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_l33_v1_reading_answer.webp",
+   "text": "I am reading.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_l33_v1_reading_answer.webp",
+   "text": "What are you doing?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_l33_v1_reading_question.webp",
+   "text": "What are you doing?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_l33_v1_writing_answer.webp",
+   "text": "I am writing.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_l33_v1_writing_question.webp",
+   "text": "What are you doing?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_ana_age.webp",
+   "text": "I am twenty years old.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_ana_mexico.webp",
+   "text": "I am Mexican.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_ana_mexico.webp",
+   "text": "I am from Mexico. I am Mexican.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_ana_mexico.webp",
+   "text": "Where are you from?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_ana_name.webp",
+   "text": "My name is Ana.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_ana_name.webp",
+   "text": "What is your name?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_ana_teacher.webp",
+   "text": "I am a teacher. I have a book.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_ana_teacher.webp",
+   "text": "I have a book.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_good_morning.webp",
+   "text": "Good morning.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_goodbye.webp",
+   "text": "Goodbye.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_hello.webp",
+   "text": "Hello.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_luis_age.webp",
+   "text": "How old are you?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_luis_age.webp",
+   "text": "I am eighteen years old.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_luis_driver.webp",
+   "text": "I am a driver.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_we_talking.webp",
+   "text": "We are talking.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_working.webp",
+   "text": "I am working.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u3_review_v1_working.webp",
+   "text": "What are you doing?",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_u4_home_v1_english_question.webp",
+   "text": "When do you study English?",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_kitchen_morning.webp",
+   "text": "I eat breakfast.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_kitchen_morning.webp",
+   "text": "I get dressed.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_kitchen_morning.webp",
+   "text": "I go to school.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_kitchen_morning.webp",
+   "text": "I go to work.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_morning_question.webp",
+   "text": "What do you do in the morning?",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_morning_routine.webp",
+   "text": "I brush my teeth.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_morning_routine.webp",
+   "text": "I get dressed.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_morning_routine.webp",
+   "text": "I wake up in the morning.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_morning_routine.webp",
+   "text": "I wash my face.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_night_home.webp",
+   "text": "First, I come home.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_night_home.webp",
+   "text": "I sleep at night.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_night_home.webp",
+   "text": "I study English every day.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_home_v1_night_home.webp",
+   "text": "Then, I wash my face in the bathroom.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_breakfast.webp",
+   "text": "First, I wake up. Then, I eat breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_breakfast.webp",
+   "text": "I eat breakfast.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_brush_teeth.webp",
+   "text": "I brush my teeth.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_go_to_school.webp",
+   "text": "I go to school every day.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_go_to_work.webp",
+   "text": "I go to work.",
+   "voice": "male",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_monday_calendar.webp",
+   "text": "I study English on Monday.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_study_english.webp",
+   "text": "I study English.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_wake_up.webp",
+   "text": "First, I wake up.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_wake_up.webp",
+   "text": "I wake up in the morning.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u4_review_v1_wash_face.webp",
+   "text": "I wash my face.",
+   "voice": "female",
+   "reviewed_on": "2026-09-20"
+  },
+  {
+   "image": "a1_u7_scene_03_stage_podium_fullframe_v2.webp",
+   "text": "How are you?",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "a1_use_dislikes_juice_photo_v1.webp",
+   "text": "I do not like juice.",
+   "voice": "female",
+   "reviewed_on": "2026-09-18"
+  },
+  {
+   "image": "boy_is_swimming.webp",
+   "text": "I like swimming.",
+   "voice": "male",
+   "reviewed_on": "2026-09-18"
+  }
+ ]
+}
