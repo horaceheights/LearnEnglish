@@ -32,9 +32,11 @@ const emptyRecognizeCards = course.flatMap((lesson) => (
 ));
 const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lessonId));
 
+// 177 since the Unit 5 rebuild: its bread card became a text-to-picture contrast so the
+// rice photograph keeps a second reviewed card field.
 assert.equal(
   emptyRecognizeCards.length,
-  178,
+  177,
   'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(
@@ -52,7 +54,7 @@ assert.deepEqual(englishInstructions, [], 'Recognize cards must not show or spea
 assert.deepEqual(
   emptyRecognizeCards.filter(({ card }) => card.audio_text?.trim()).map(({ card, lessonId }) => `${lessonId} ${card.slide_id}`),
   [
-    'lesson-5-9-unit-5-review R7',
+    // 5.9 R7 left this list with the Unit 5 rebuild; its reply choice became a text bank.
     'lesson-6-7-simple-requests R7',
     'lesson-6-7-simple-requests R8',
     'lesson-7-7-invitations-and-responses R6',

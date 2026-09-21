@@ -172,6 +172,25 @@ const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
   'invites playing': 'una invitación a jugar',
   'invites swimming': 'una invitación a nadar',
   'does not understand': 'alguien que no entiende',
+  // Unit 5 review contrasts: each caption-free pair names what its picture shows.
+  'likes fish': 'gusto por el pescado', 'dislikes fish': 'rechazo al pescado',
+  'dislikes bananas': 'rechazo a los plátanos', 'dislikes milk': 'rechazo a la leche',
+  'likes and needs': 'algo que gusta y se necesita', 'wants juice': 'querer jugo',
+  'eggs breakfast': 'huevos en el desayuno', 'tea breakfast': 'té en el desayuno',
+  'tea dinner': 'té en la cena', 'rice lunch': 'arroz en el almuerzo',
+  'rice dinner': 'arroz en la cena', 'meals': 'el desayuno, el almuerzo y la cena',
+  'three red apples': 'tres manzanas rojas', 'two red apples': 'dos manzanas rojas',
+  'five oranges': 'cinco naranjas', 'fruit plate': 'un plato de fruta',
+  'pair wants two eggs': 'dos personas que quieren dos huevos',
+  'pair wants three eggs': 'dos personas que quieren tres huevos',
+  'pair wants two apples': 'dos personas que quieren dos manzanas',
+  'boy wants two eggs': 'un niño que quiere dos huevos',
+  'price two dollars': 'un precio de dos dólares',
+  'price four dollars': 'un precio de cuatro dólares',
+  'seven dollars': 'un precio de siete dólares',
+  'coffee five': 'un café de cinco dólares', 'coffee seven': 'un café de siete dólares',
+  'cafe order': 'la entrega de un café', 'yes please': 'aceptar lo que ofrecen',
+  'food and drinks': 'comida y bebidas', cafe: 'un café',
   understands: 'alguien que sí entiende',
 };
 
@@ -257,6 +276,7 @@ const CHOICE_CONCEPTS: Record<string, string> = {
   'where is the store': 'dónde está la tienda',
   'who is he': 'quién es él', 'who is she': 'quién es ella',
   'yes please': 'aceptar con cortesía', 'yes thank you': 'aceptar y agradecer',
+  'thank you': 'agradecer',
 };
 
 function choiceConcept(text: string) {
@@ -350,7 +370,7 @@ const PHRASE_MEANINGS: Record<string, string> = {
   'wake up': 'despertarme', 'wash my face': 'lavarme la cara', 'brush my teeth': 'lavarme los dientes',
   'get dressed': 'vestirme', 'eat breakfast': 'desayunar', 'go to school': 'ir a la escuela',
   'go to work': 'ir al trabajo', 'come home': 'regresar a casa', 'study english': 'estudiar inglés',
-  sleep: 'dormir',
+  sleep: 'dormir', 'a pear': 'una pera', grapes: 'uvas', 'a strawberry': 'una fresa',
 };
 
 function phraseMeaning(text: string) {

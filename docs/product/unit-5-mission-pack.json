@@ -1,0 +1,199 @@
+{
+  "lesson_id": "lesson-5-10-cafe-mission",
+  "lesson_number": "5.10",
+  "revision": 1,
+  "output_namespace": "unit-5-mission-v1",
+  "image_settings": {
+    "model": "gpt-image-2.5-sunburst-2026-09-08",
+    "size": "1536x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "production": {
+    "initial_batch_ceiling_usd": "1.20",
+    "estimated_usd": "1.00",
+    "mxn_per_usd": "16.9707",
+    "fx_date": "2026-09-11",
+    "automatic_retries": 0,
+    "human_approval": "pending",
+    "note": "18 mission-only stills for the rebuilt Unit 5 mission: a kickoff, nine listening scenes and the question and response views of four voice gates. The stub mission's market, register and café scenes cannot be kept, because the approved photo-edit record for each one pins its stub card exactly as inspected, so the rebuilt beats bind their own stills and the stub scenes are retired with evidence. The kickoff fixes the market and café cast, and every later scene with people is generated from it. No automatic retries. The first café-counter attempt was rejected after the cue check: its fourth customer held a cup, so the only natural line for him was \"Thank you.\", which the learner cannot tell apart from \"No, thank you.\" on the same board. The replacement has him ordering tea instead; the rejected attempt stays in the ledger.",
+    "identity_reference": "kickoff"
+  },
+  "shared_prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.",
+  "assets": [
+    {
+      "id": "kickoff",
+      "runtime_filename": "a1_u5_market_v1_kickoff.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the kickoff shot that states the mission and fixes the faces and clothes every later scene reuses."
+      },
+      "prompt": "A small neighbourhood market and café on one bright street corner, photographed straight on from across the pavement. Five ordinary people stand together in front of the open market stall, side by side and clearly separated, all facing the camera with friendly relaxed expressions: a woman in her thirties with dark hair in a bun and a mustard cardigan; a man in his forties with short grey-flecked hair, a blue shirt and a green apron, the market seller; a young woman in her twenties with long brown hair and a denim jacket; a man in his twenties with short black hair, glasses and a grey sweater; and a boy of about ten in a red t-shirt. Behind them the stall's crates of fruit and vegetables and, to the right, the café's window with its counter inside. Every face is sharp and every person is complete from head to feet. No readable words, no price tags, no logos."
+    },
+    {
+      "id": "market-stall",
+      "runtime_filename": "a1_u5_market_v1_market_stall.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the opening listening scene, where the learner finds the food the clue names."
+      },
+      "prompt": "A market stall photographed straight on in bright daylight, with no people at all. Exactly four separate goods, well apart along the counter and never touching: (1) at the left, a crate of red apples, many of them, clearly apples; (2) left of centre, a bunch of yellow bananas hanging from the stall frame; (3) right of centre, a basket holding two crusty loaves of bread; (4) at the right, an open paper sack of white rice with a scoop resting in it. Each group is sharp and at least 15% of the frame width, with clear empty space above it. No oranges, no grapes, no eggs, no drinks, no people, no price tags, no readable words."
+    },
+    {
+      "id": "fruit-counter",
+      "runtime_filename": "a1_u5_market_v1_fruit_counter.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the counting scene, where exact quantities of fruit are the evidence."
+      },
+      "prompt": "A market fruit counter photographed straight on in bright daylight, with no people at all. Exactly four separate groups sit in a row along the counter, well apart and never touching, each on its own small wooden tray: (1) exactly five oranges; (2) exactly two green pears; (3) one bunch of purple grapes; (4) exactly one red strawberry alone on its tray. Count is critical: five oranges and not four or six, two pears and not three, and only one strawberry. Each group is sharp, countable at phone size and at least 15% of the frame width, with clear empty space above it. No apples, no bananas, no price tags, no people, no readable words."
+    },
+    {
+      "id": "drinks-fridge",
+      "runtime_filename": "a1_u5_market_v1_drinks_fridge.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the drinks scene, where each taught drink must be told apart by sight."
+      },
+      "prompt": "An open market drinks shelf photographed straight on in daylight, with no people at all. Exactly four separate drinks stand in a row, well apart and never touching: (1) a clear glass bottle of water; (2) a clear glass bottle of white milk; (3) a clear glass bottle of orange juice; (4) a glass jug of black coffee beside one white cup. Each drink is unmistakably itself by colour and container, is sharp, and is at least 15% of the frame width with clear empty space above it. No tea, no soft drinks, no cans, no labels, no price tags, no people, no readable words."
+    },
+    {
+      "id": "likes-table",
+      "runtime_filename": "a1_u5_market_v1_likes_table.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the preferences scene, where each person's face shows whether they like what is in front of them."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them sitting along one side of a long café table in daylight, evenly spaced, clearly separated and never overlapping, each with one plate or glass in front of them and each showing an unmistakable reaction: (1) at the far left the young woman in the denim jacket smiles warmly at a plate of cooked fish and lifts a forkful towards her mouth; (2) left of centre the man in the grey sweater and glasses leans back from his own plate of cooked fish with one open palm raised and his face turned away, clearly refusing it; (3) right of centre the market seller in the blue shirt smiles at a plate of roast chicken and reaches for it happily; (4) at the far right the woman in the mustard cardigan pushes a tall glass of white milk away with a flat hand and a closed-mouth grimace. Every face and its plate or glass are sharp, and each person has clear empty space above the head. No other food, no fifth person, no readable words."
+    },
+    {
+      "id": "wants-counter",
+      "runtime_filename": "a1_u5_market_v1_wants_counter.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the wanting scene, where each customer points at the exact quantity they ask for."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them standing along a market counter in daylight, evenly spaced, clearly separated and never overlapping, each pointing at what they are asking for: (1) at the far left the woman in the mustard cardigan points at a small tray holding exactly two white eggs; (2) left of centre the man in the grey sweater and glasses points at an open sack of white rice; (3) right of centre the young woman in the denim jacket points at a tray holding exactly three red apples; (4) at the far right the boy in the red t-shirt points at a clear glass bottle of water. Counts are critical: exactly two eggs and exactly three apples. Every face, pointing hand and the item pointed at are sharp, and each person has clear empty space above the head. No fifth person, no price tags, no readable words."
+    },
+    {
+      "id": "needs-list",
+      "runtime_filename": "a1_u5_market_v1_needs_list.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the needing scene, where each shopper holds the one thing they still need."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them standing in a market aisle in daylight, evenly spaced, clearly separated and never overlapping, each holding up exactly one thing towards the camera with both hands: (1) at the far left the man in the grey sweater and glasses holds a clear glass bottle of white milk; (2) left of centre the woman in the mustard cardigan holds one crusty loaf of bread; (3) right of centre the boy in the red t-shirt holds a small carton of white eggs, open so the eggs are visible; (4) at the far right the young woman in the denim jacket holds a clear glass bottle of orange juice. Each held item is unmistakable, sharp and clear of the person's face, and each person has clear empty space above the head. No fifth person, no other goods in their hands, no readable words."
+    },
+    {
+      "id": "meals-table",
+      "runtime_filename": "a1_u5_market_v1_meals_table.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the meals scene, where each person eats or drinks the meal the clue names."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph of four of them seated around one large table in daylight, evenly spaced, clearly separated and never overlapping, each eating or drinking exactly one thing: (1) at the far left the young woman in the denim jacket lifts a forkful of scrambled egg from a plate of eggs; (2) left of centre the man in the grey sweater and glasses lifts a spoonful of white rice from a bowl of rice; (3) right of centre the woman in the mustard cardigan cuts into a piece of roast chicken on her plate; (4) at the far right the market seller in the blue shirt raises a white cup of tea to his mouth with a small teapot beside him. Every face and the food or drink in front of it are sharp, and each person has clear empty space above the head. No fifth person, no other plates, no readable words."
+    },
+    {
+      "id": "price-board",
+      "runtime_filename": "a1_u5_market_v1_price_board.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the price scene, where the learner reads four exact prices."
+      },
+      "prompt": "Use case: text-exact. Four market price tags standing in a row along a wooden stall counter, photographed straight on in daylight, evenly spaced with clear counter between them and no people at all. Each tag is a plain white card in a small metal holder and carries exactly one price in clean black handwriting. From left to right they read exactly: $1, $2, $3, $5. No decimals, no cents, no words, no other numerals anywhere in the frame, and no repeated price. Each tag is perfectly sharp, fully legible and at least 15% of the frame width, with clear empty space above it. Small goods may sit behind the tags but must stay secondary. No people, no logos."
+    },
+    {
+      "id": "cafe-counter-v2",
+      "runtime_filename": "a1_u5_market_v1_cafe_counter.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the café scene, where four polite phrases belong to four clearly different reactions."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact faces and clothes of these people. Create a brand-new photograph inside the café in warm daylight with exactly four of them, evenly spaced along the counter, clearly separated and never overlapping, each showing one unmistakable reaction: (1) at the far left the woman in the mustard cardigan stands at the counter pointing at a clear glass of water, clearly asking for it; (2) left of centre the man in the grey sweater and glasses nods with a warm smile and one upturned open palm towards a small plate of pastry a server offers him, clearly accepting; (3) right of centre the young woman in the denim jacket turns her face away from an offered plate with one raised flat palm, clearly declining; (4) at the far right the boy in the red t-shirt stands at the counter pointing with one finger at a white teapot with a teacup beside it, clearly asking for tea and holding nothing in his hands. Every face and gesture is sharp, and each person has clear empty space above the head. No fifth customer, no readable words, no logos."
+    },
+    {
+      "id": "price-question",
+      "runtime_filename": "a1_u5_market_v1_price_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the question view of the price voice gate."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and clothes of the woman in the mustard cardigan. Create the question shot of a speaking game: she stands at the market counter turned towards the camera with a warm curious face, mouth open mid-question, one open palm extended towards a basket of goods in a natural asking gesture. She is large and sharp in the central safe area; the stall behind her is softly out of focus. No other person in the shot, no price tag, no numerals, no readable words."
+    },
+    {
+      "id": "price-response",
+      "runtime_filename": "a1_u5_market_v1_price_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the answer view of the price voice gate, showing the exact price the learner says."
+      },
+      "prompt": "Use case: text-exact. One market price tag standing alone in front of a basket of apples on a wooden counter, photographed straight on and close in daylight. The tag is a plain white card in a small metal holder and shows exactly the characters $4 in clean black handwriting, nothing else: no decimals, no cents, no words and no other numerals anywhere in the frame. The tag fills at least 35% of the frame width and is perfectly sharp and fully legible. No second tag, no people, no hands, no logos."
+    },
+    {
+      "id": "serve-question",
+      "runtime_filename": "a1_u5_market_v1_serve_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the question view of the serving voice gate."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and clothes of the man in the grey sweater and glasses. Create the question shot of a speaking game: he stands at the café counter turned towards the camera, mouth open mid-request, pointing with one relaxed hand towards the drinks behind the counter as he orders. He is large and sharp in the central safe area; the café counter behind him is softly out of focus. No other person in the shot, no glass already in his hand, no readable words."
+    },
+    {
+      "id": "serve-response",
+      "runtime_filename": "a1_u5_market_v1_serve_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the answer view of the serving voice gate, showing the drink being handed over."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and clothes of the market seller in the blue shirt. Create the answer shot of a speaking game: behind the café counter he holds out one tall glass of orange juice towards the camera with both hands, arms extended in a clear here-you-are offer, smiling. The glass of juice is in the centre of the frame, unmistakably orange juice, and together with his face fills at least 45% of the frame width. Only one glass. No customer in the shot, no money, no tray of other drinks, no readable words."
+    },
+    {
+      "id": "thanks-question",
+      "runtime_filename": "a1_u5_market_v1_thanks_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the question view of the thanking voice gate."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and clothes of the young woman in the denim jacket. Create the question shot of a speaking game: behind the café counter, wearing an apron over her denim jacket, she holds out one white cup of coffee on a saucer towards the camera with both hands in a clear here-you-are offer, smiling and speaking. Her face and the offered cup are large and sharp in the central safe area. Only one cup. No customer in the shot, no money, no readable words."
+    },
+    {
+      "id": "thanks-response",
+      "runtime_filename": "a1_u5_market_v1_thanks_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the answer view of the thanking voice gate, showing the drink received."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and clothes of the boy of about ten in the red t-shirt. Create the answer shot of a speaking game: seated at a café table, he holds one white cup on its saucer with both hands close to his chest and smiles warmly at the camera in clear thanks. His face and the cup are large and sharp in the central safe area and together fill at least 45% of the frame width. He is not drinking yet. No other person in the shot, no plate of food, no readable words."
+    },
+    {
+      "id": "order-question",
+      "runtime_filename": "a1_u5_market_v1_order_question.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the question view of the closing voice gate, where the server greets the learner."
+      },
+      "reference": "kickoff",
+      "prompt": "Use case: identity-preserve. Image 1 establishes the exact face and clothes of the market seller in the blue shirt. Create the question shot of a speaking game: behind the café counter, wearing an apron over his blue shirt, he greets the camera with a wide welcoming smile, one hand raised in a friendly open-palm hello and the other resting on the counter. He is large and sharp in the central safe area; the espresso machine behind him is softly out of focus. No cup in his hands, no other person, no readable words."
+    },
+    {
+      "id": "order-response",
+      "runtime_filename": "a1_u5_market_v1_order_response.webp",
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 5 parity mission: the answer view of the closing voice gate, showing the coffee the learner orders."
+      },
+      "prompt": "One white cup of black coffee on a saucer standing alone on a café counter, photographed close and straight on in warm daylight, with a small jug of milk beside it and the espresso machine softly out of focus behind. The cup is unmistakably coffee, is perfectly sharp and fills at least 40% of the frame width. No tea, no juice, no water, no pastry, no people, no hands, no readable words, no logos."
+    }
+  ]
+}
