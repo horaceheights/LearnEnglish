@@ -344,6 +344,19 @@ function pronounChoiceHint(correct: string, wrong: string, card: LessonCard): st
   return `“${wrong}” habla ${selected.scope}. Aquí hablamos ${expected.scope}, por eso usamos “${correct}” (“${expected.meaning}”).`;
 }
 
+/** Taught multi-word phrases whose alternatives have a different word count. */
+const PHRASE_MEANINGS: Record<string, string> = {
+  'in the morning': 'en la mañana', 'in the afternoon': 'en la tarde', 'at night': 'en la noche',
+  'wake up': 'despertarme', 'wash my face': 'lavarme la cara', 'brush my teeth': 'lavarme los dientes',
+  'get dressed': 'vestirme', 'eat breakfast': 'desayunar', 'go to school': 'ir a la escuela',
+  'go to work': 'ir al trabajo', 'come home': 'regresar a casa', 'study english': 'estudiar inglés',
+  sleep: 'dormir',
+};
+
+function phraseMeaning(text: string) {
+  return PHRASE_MEANINGS[normalized(text)] || meaning(text);
+}
+
 function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boolean): string {
   if (!correct || !wrong || normalized(correct) === normalized(wrong)) return '';
   const correctWords = normalized(correct).replace(/[?.!,]/g, '').split(/\s+/);
@@ -354,7 +367,17 @@ function wordChoiceContrast(correct: string, wrong: string, isAudioChoice: boole
   while (correctWords.length && wrongWords.length && correctWords[correctWords.length - 1] === wrongWords[wrongWords.length - 1]) {
     correctWords.pop(); wrongWords.pop();
   }
-  if (correctWords.length !== wrongWords.length || !correctWords.length) return '';
+  if (!correctWords.length || !wrongWords.length) return '';
+  if (correctWords.length !== wrongWords.length) {
+    // The alternatives differ by a whole phrase, such as "in the morning" against "at night".
+    const expectedPhrase = correctWords.join(' ');
+    const selectedPhrase = wrongWords.join(' ');
+    const expectedPhraseMeaning = phraseMeaning(expectedPhrase);
+    const selectedPhraseMeaning = phraseMeaning(selectedPhrase);
+    if (!expectedPhraseMeaning || !selectedPhraseMeaning || expectedPhraseMeaning === selectedPhraseMeaning) return '';
+    const source = isAudioChoice ? 'la frase escuchada' : 'la imagen';
+    return `“${selectedPhrase}” significa ${selectedPhraseMeaning}; ${source} corresponde a “${expectedPhrase}” (${expectedPhraseMeaning}).`;
+  }
   const changes = correctWords.flatMap((word, index) => word === wrongWords[index] ? [] : [[word, wrongWords[index]]]);
   if (!changes.length) return '';
   const grammatical = new Set(['am', 'is', 'are', 'a', 'an', 'the', 'he', 'she', 'they', 'it', 'i', 'you', 'we', 'not']);
