@@ -141,7 +141,7 @@ Lessons:
 5. 4.5 Morning Routine
 6. 4.6 Everyday Verbs
 7. 4.7 Simple Present
-8. 4.8 Days and Time
+8. 4.8 Days and Time: `Monday` through `Sunday`, `today`, `afternoon`, `night`, `o'clock`, `on`, `at`; teaches the days of the week alongside `Today is [Day].` calendar sentences with photorealistic daylight desk-planner stills.
 9. 4.9 Unit 4 Review
 10. 4.10 My Day Mission
 
@@ -151,6 +151,7 @@ Core patterns:
 - `There are two chairs in the kitchen.`
 - `I wake up in the morning.`
 - `We study every day.`
+- `Today is Tuesday.`
 - `It is seven o'clock.`
 
 ### Unit 5: Food, Drinks, and Shopping

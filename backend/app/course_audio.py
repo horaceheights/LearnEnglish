@@ -422,6 +422,7 @@ COURSE_SYLLABLES.update({
     "time": 1,
     "tired": 2,
     "to": 1,
+    "today": 2,
     "together": 3,
     "train": 1,
     "tuesday": 2,
