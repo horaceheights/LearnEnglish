@@ -32,7 +32,9 @@ test('three ordinary completions lead to four constructions with only required w
 });
 
 test('tap, arbitrary drop, outside drop, removal and repair share ordered validation', () => {
-  assert.equal(rollout.length, 228);
+  // 227 since the Unit 5 rebuild: its "Yes, please." card keeps the comma in the prompt and
+  // offers two whole words, so it is an ordinary completion rather than a construction.
+  assert.equal(rollout.length, 227);
   for (const card of [...pilots, ...rollout]) {
     let selected = api.sentenceSlots(card, []);
     const expected = card.correct_option_ids;

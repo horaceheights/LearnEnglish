@@ -206,6 +206,20 @@ def compile_59(base: dict, pack: dict) -> dict:
             card["audio_speaker"] = speaker
         cards.append(card)
 
+    def listen_images(sid, text, es, correct_asset, others, note, speaker=None):
+        """Four caption-free pictures; dedicated four-card reframes belong only here."""
+        assets = [correct_asset, *others]
+        options = [{"id": f"{asset}-{index + 1}", "image_url": image(asset), "label": None}
+                   for index, asset in enumerate(assets)]
+        options = [options[index] for index in interleave(assets)]
+        card = {"slide_id": sid, "interaction_type": "listen-image", "prompt": "Listen and choose.",
+                "stage": "Listen", "correct_option_id": f"{correct_asset}-1", "options": options,
+                "audio_text": text, "answer_audio_text": None, "prompt_image_url": "",
+                "spanish_translation": es, "pedagogy_note": note}
+        if speaker:
+            card["audio_speaker"] = speaker
+        cards.append(card)
+
     def listen_text(sid, text, es, choices, note, speaker=None):
         options = [text_option(f"{slug(choice)}-{index + 1}", choice) for index, choice in enumerate(choices)]
         card = {"slide_id": sid, "interaction_type": f"a2t{len(options)}", "prompt": "Listen and choose.",
@@ -305,8 +319,9 @@ def compile_59(base: dict, pack: dict) -> dict:
                 ["Here you are.", "How much is it?", "Thank you."], place, "male-character")
     listen_text("N15", "No, thank you.", "No, gracias.",
                 ["Yes, please.", "No, thank you.", "Here you are."], place, "female-character")
-    listen_image("N16", "The coffee is seven dollars.", "El café cuesta siete dólares.", "coffee-seven",
-                 "coffee-five", False)
+    listen_images("N16", "The coffee is seven dollars.", "El café cuesta siete dólares.", "coffee-seven",
+                  ["coffee-five", "price-two-dollars", "price-four-dollars"],
+                  "four prices to listen for; the two coffee reframes stay in a four-card set")
     listen_text("N17", "Coffee, please.", "Un café, por favor.",
                 ["Water, please.", "Coffee, please.", "Tea, please."], place, "male-character")
     listen_text("N18", "I eat an orange.", "Como una naranja.",
