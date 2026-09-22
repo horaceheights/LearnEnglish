@@ -32,10 +32,10 @@ const emptyRecognizeCards = course.flatMap((lesson) => (
 ));
 const affectedLessons = new Set(emptyRecognizeCards.map(({ lessonId }) => lessonId));
 
-// 176 since the Unit 6 rebuild: its review cards use 5 empty-prompt interactions.
+// 174 since the Unit 7 rebuild: its review cards use 4 empty-prompt interactions.
 assert.equal(
   emptyRecognizeCards.length,
-  176,
+  174,
   'The standard-lesson Recognize guardrail must inventory every current empty-prompt interaction.',
 );
 assert.equal(

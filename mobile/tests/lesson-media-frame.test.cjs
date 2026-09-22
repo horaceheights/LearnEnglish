@@ -63,7 +63,7 @@ assert.equal(lessonFiles.length, 70, 'the frame audit must inspect all 70 A1 les
 assert.equal(units.size, 7, 'prompt-image framing must cover all seven units');
 assert.ok(promptImageCards.length >= 713, 'the frame audit must cover the complete prompt-image catalog');
 assert.ok((stageCounts.get('Use') || 0) >= 459, 'Completa/Use prompt images must remain in the global frame audit');
-assert.ok((stageCounts.get('Recognize') || 0) >= 219, 'Recognize prompt images must remain in the global frame audit');
+assert.ok((stageCounts.get('Recognize') || 0) >= 218, 'Recognize prompt images must remain in the global frame audit');
 
 let paddedPromptImages = 0;
 for (const name of [...promptImages].sort()) {

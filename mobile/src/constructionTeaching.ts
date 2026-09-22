@@ -8,11 +8,11 @@ const set = (value: string) => new Set(value.split(' '));
 const DETERMINERS = set('a an the my your his her');
 const NUMBERS = set('one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty');
 const COLORS = set('red blue green yellow black white');
-const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth hands legs feet jacket shoes shirt dress socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
+const NOUNS = set('boy girl man woman baby babies child children adult adults brother brothers sister sisters father mother parents grandfather grandmother grandparents grandchildren family park restaurant hospital store house street bridge bus car cars bike book books pen pens chair chairs table phone phones bag bags kitchen bedroom room bed lamp door computer sofa apple apples banana grapes strawberry strawberries orange oranges egg eggs rice milk bread fish juice water chicken food breakfast lunch dinner tea coffee dollar dollars station pharmacy bank library train taxi head eyes mouth arms hands legs feet jacket shoes shirt dress skirt pants socks boots umbrella hat name job face teeth help bathroom music school work night morning afternoon evening day mexico canada ana luis sofia english tv monday tuesday wednesday thursday friday saturday sunday today');
 for (const noun of words('teacher doctor nurse driver cook farmer left right')) NOUNS.add(noun);
-const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy mexican spanish');
+const STATES = set('red blue green yellow black white happy sad tired hungry thirsty sunny rainy cold hot windy cloudy mexican spanish');
 const PRONOUNS = set('i you he she it we they this that there');
-const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk can cannot leaves arrives');
+const VERBS = set('am is are have has like want wants need needs do work works study wake get eat wash brush come go goes sleep drink walk play watch can cannot leaves arrives');
 const ACTIONS = set('eating drinking reading writing running walking swimming sitting sleeping playing studying working cooking talking watching listening');
 const BE = set('am is are');
 
@@ -58,6 +58,10 @@ function teachClause(text: string): ClausePlan {
     if (and > start && and < end) {
       if (!nominal(start, and) || !nominal(and + 1, end)) return false;
       teach(and, and + 1, `En ${quote(phrase(start, end))}, “and” une las dos personas o cosas y va entre ellas.`);
+      relations.push({ start, end, explanation: `En ${quote(phrase(start, end))}, “and” une las dos partes y va entre ellas.` });
+      for (let i = start; i < end; i++) {
+        if (!explanations[i]) explanations[i] = `En ${quote(phrase(start, end))}, “and” une las dos partes y va entre ellas.`;
+      }
       return true;
     }
     return nominal(start, end);
@@ -122,6 +126,13 @@ function teachClause(text: string): ClausePlan {
     }
     if (end - start === 3 && STATES.has(keys[start]) && keys[start + 1] === 'and' && STATES.has(keys[start + 2])) {
       teach(start, end, `En ${quote(original)}, “and” va entre las dos características para unirlas.`);
+      return true;
+    }
+    if (end - start === 2 && keys[start] === 'very' && STATES.has(keys[start + 1])) {
+      teach(start, end, `En ${quote(original)}, “very” intensifica la cualidad y va antes de ${quote(tokens[start + 1])}.`);
+      teach(start, start + 1, `“Very” intensifica la cualidad y va antes de ${quote(tokens[start + 1])}.`);
+      teach(start + 1, end, `${quote(tokens[start + 1])} describe cómo está el sujeto; “very” va delante para intensificarlo.`);
+      relations.push({ start, end, explanation: `En ${quote(original)}, “very” va antes de ${quote(tokens[start + 1])} para intensificar la cualidad.` });
       return true;
     }
     if (ACTIONS.has(keys[start])) {

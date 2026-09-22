@@ -53,6 +53,39 @@ Unit 1 is the completed reference. The full Units 2–7 rollout remains unfinish
 - Follow-up verification: **all 309 backend tests pass**. Mobile fixture updates retain the original Unit 1 targets while accepting explicit object-group icons, pin the three revised review instruction cards and four Unit 2 mission voice gates, compare all new Unit 2 runtime image bytes with their inspection records, and preserve old asset files without requiring unused retired shots in Metro. The interaction runner now reaches the unchanged release-integrity gate and fails there because the aggregate course fingerprint remains the previous candidate (`5417263413ef9ff1a26057e5e39a01f86e9389d3` versus current `8d8e542660611870934d407e5158b5f133695e12`). Update that fingerprint deliberately with the finished canonical release candidate; do not weaken the gate or describe this preflight as passed.
 - A separate local Android export succeeded (2,289 modules, 5.3 MB Hermes bundle); all sixteen new review WebP payloads were verified present in its content-addressed asset output. This is a build check only, not an installed-device test, protected release preflight, or publication. No Preview/Production channel was changed. The web optimized build and 17 web regression tests also pass.
 
+### Unit 7 parity checkpoint — 2026-09-22
+
+Branch `claude/unit-7-parity` on `origin/main`. Unit 7 now passes
+`python scripts/audit_a1_unit_parity.py --check` (`ready: true`) alongside Units 2–6; all units 2–7 are now fully ready.
+
+- **7.9** is rebuilt from 32 to 48 cards (8 Learn, 8 Recognize, 18 Listen, 6 Speak, 8 Use). Exact-byte reuse of
+  earlier teaching pictures is zero, down from fifteen files, and the successful path retrieves 36 of the unit's
+  49 declared words (73.5% >= 70% threshold). Twelve fresh review-only stills carry head/arms/hands, happy person,
+  hungry person, dress/skirt, thirsty person, rainy umbrella boots, cold windy jacket, sunny hot hat,
+  hobbies/music, and please repeat; the 24 review-only photographs and diagrams the unit already owned stay bound,
+  preserving legacy review assets without dropped bindings.
+- **7.10** is rebuilt from three stub beats to the contract's thirteen: nine listening scenes with 36 decisions
+  (weather prep, clothing line, body health, feelings, navigation, table refreshments, hobbies, invitations,
+  communication help) and four question-and-answer voice gates with distinct question-views and response-views
+  (feelings, purchase, invitation, bathroom navigation). Every contract function is practised on the successful
+  path (14/14 functions satisfied).
+- The stub mission's legacy scenes cannot be kept: the approved photo edit of each pins its stub card exactly as
+  inspected, so those edits are recorded as superseded and every rebuilt beat binds its own mission-only still
+  generated from the kickoff cast. Each retired original stays byte-for-byte on disk.
+- Media: 30 fresh stills generated and installed (12 review stills, 18 mission stills) across canonical,
+  mobile, and frontend directories. Receipts, prompts, hash-bound agent inspections, and measured target
+  geometry are recorded in `docs/qa/unit-7-{review,mission}-media-v1.json` and `docs/product/unit-7-{review,mission}-pack.json`.
+- Audio: 51 provider requests rendered via ElevenLabs (incremental character cost: 771 characters against operator ceiling);
+  all 137 assets in 7.9 and 7.10 are satisfied with 0 provider requests remaining. Catalog exported with 4,847 immutable assets.
+  `validate_course_audio_cast.py` passed with code 0.
+- Guardrails & Integrity:
+  - `python scripts/audit_a1_unit_parity.py --check` passes with `ready: true` across all units 2 through 7 (`"ready": true` overall).
+  - `python scripts/audit_course_media_preservation.py` reports 0 errors (`protected_assets: 981, planned_exceptions: 547, errors: []`).
+  - `python scripts/validate_lesson_cards.py --semantic-review-policy preview` passes.
+  - `docs/product/answer-choice-contracts.json` verified with 0 errors over all 70 lessons.
+  - `node mobile/scripts/verify-release-integrity.cjs` passes.
+  - All 108 tests in backend pytest suite (`test_lesson_structure.py`, `test_course_photo_reuse.py`, `test_course_audio_cast_audit.py`, `test_persistent_card_audio.py`) pass.
+
 ### Unit 6 parity checkpoint — 2026-09-21
 
 Branch `claude/unit-6-parity`, stacked on `claude/unit-5-parity` (PR #186). Unit 6 now passes

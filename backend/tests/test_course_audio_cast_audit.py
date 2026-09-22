@@ -104,9 +104,10 @@ EXACT_ROLE_CHANGES = {
 # people and café customers say (+18 net).
 # The Unit 6 rebuild replaces 6.9's three explicit speakers with the fifteen lines its pictured
 # people and transport riders say (+12 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 575
+# The Unit 7 rebuild updates 7.9 explicit speakers (-2 net).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 573
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "75d09b4e20bcc529368bc9d82d13f7184ff5ca2cbd534bf5870764cd3f6fb522"
+    "454542034acd04b7f5967ae6759fccfc440362e593bbca76b4e8ea09436e52f0"
 )
 
 

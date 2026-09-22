@@ -172,6 +172,8 @@ const IMAGE_CHOICE_MEANINGS: Record<string, string> = {
   'invites playing': 'una invitación a jugar',
   'invites swimming': 'una invitación a nadar',
   'does not understand': 'alguien que no entiende',
+  'hobbies music': 'gusto por escuchar música',
+  'wakes morning': 'despertarse por la mañana',
   // Unit 5 review contrasts: each caption-free pair names what its picture shows.
   'likes fish': 'gusto por el pescado', 'dislikes fish': 'rechazo al pescado',
   'dislikes bananas': 'rechazo a los plátanos', 'dislikes milk': 'rechazo a la leche',
@@ -210,6 +212,7 @@ const CHOICE_CONCEPTS: Record<string, string> = {
   'do you want to watch tv': 'una invitación a ver televisión',
   'i do not understand': 'que no entiendo',
   'i do not like music': 'que no me gusta la música',
+  'i like listening to music': 'que me gusta escuchar música',
   'can you help me': 'una petición de ayuda', 'coffee please': 'un pedido de café',
   'coffee please no thank you': 'café y un rechazo', 'coffee please thank you': 'café y agradecimiento',
   'cross the street': 'cruzar la calle', 'cross the street stop': 'cruzar la calle y detenerse',
@@ -222,6 +225,7 @@ const CHOICE_CONCEPTS: Record<string, string> = {
   'excuse me': 'pedir atención con cortesía',
   'excuse me can you help me': 'pedir ayuda con cortesía',
   'excuse me i need help': 'decir que necesito ayuda',
+  'i need help': 'que necesito ayuda',
   'goodbye my name is ana': 'despedirse y presentarse',
   'he is a brother': 'un hermano', 'he is not cooking': 'él no está cocinando',
   'he is studying': 'él está estudiando', 'he is the boy': 'el niño',
@@ -378,6 +382,7 @@ const PHRASE_MEANINGS: Record<string, string> = {
   'on the left': 'a la izquierda', 'on the right': 'a la derecha',
   'far from the park': 'lejos del parque', 'next to the store': 'al lado de la tienda',
   sleep: 'dormir', 'a pear': 'una pera', grapes: 'uvas', 'a strawberry': 'una fresa',
+  'watch tv': 'ver televisión',
 };
 
 function phraseMeaning(text: string) {

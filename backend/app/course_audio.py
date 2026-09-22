@@ -205,6 +205,7 @@ COURSE_SYLLABLES = {
 # label so pacing remains deterministic for every canonical lesson prompt.
 COURSE_SYLLABLES.update({
     "afternoon": 3,
+    "alex": 2,
     "am": 1,
     "american": 4,
     "ana": 2,
@@ -437,10 +438,12 @@ COURSE_SYLLABLES.update({
     "understand": 3,
     "united": 3,
     "up": 1,
+    "very": 2,
     "wake": 1,
     "walk": 1,
     "want": 1,
     "wants": 1,
+    "warm": 1,
     "wash": 1,
     "watch": 1,
     "watching": 2,
