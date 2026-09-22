@@ -55,7 +55,7 @@ test('all 13 mission photo edits preserve exact inspected image and marker bindi
       }
     }
   }
-  // Four edits still bind their card; the Unit 4 and Unit 5 parity rebuilds superseded their
-  // three room and three market scenes, whose pixels are checked in the branch above instead.
-  assert.equal(scenes,4);
+  // Two edits still bind their card; the Unit 4, Unit 5 and Unit 6 parity rebuilds superseded their
+  // room, market and town scenes, whose pixels are checked in the branch above instead.
+  assert.equal(scenes,2);
 });
