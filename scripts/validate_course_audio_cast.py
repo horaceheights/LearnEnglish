@@ -150,8 +150,11 @@ ASSIGNMENT_GROUPS: dict[str, list[tuple[str, str, str]]] = {
         ("answer_audio_speaker", "male-character", "R8"),
     ],
     "lesson-6-9-unit-6-review": [
-        ("audio_speaker", "male-character", "U1 U6"),
-        ("answer_audio_speaker", "male-character", "R2"),
+        # Rebuilt review: every spoken first-person or exchange line matches the person in its
+        # picture, and the picture-free listening banks alternate two ordinary voices.
+        ("audio_speaker", "female-character", "N2 N6 N10 N13 S5 U1 U4"),
+        ("audio_speaker", "male-character", "N9 N14 S1 S4 U6"),
+        ("answer_audio_speaker", "male-character", "R2 R7 U6"),
     ],
     "lesson-7-1-the-body": [
         ("audio_speaker", "male-character", "L1-L8 R1-R4 A1-A5 S1-S6 U1-U6"),

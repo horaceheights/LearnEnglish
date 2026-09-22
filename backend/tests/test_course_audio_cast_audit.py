@@ -26,14 +26,6 @@ FORCED_NEUTRAL_GROUPS = {
         ("audio_speaker", "A2 L1 L2 R3 R7 S1 S2 U2"),
         ("answer_audio_speaker", "R5 U1"),
     ],
-    "lesson-6-9-unit-6-review": [
-        ("audio_speaker", "S5 U5"),
-        ("answer_audio_speaker", "R7"),
-    ],
-    "lesson-6-10-town-mission": [
-        ("audio_speaker", "L3 S5 U6"),
-        ("answer_audio_speaker", "R7"),
-    ],
     "lesson-7-6-hobbies-and-free-time": [
         ("audio_speaker", "U6"),
         ("answer_audio_speaker", "U8"),
@@ -110,9 +102,11 @@ EXACT_ROLE_CHANGES = {
 # Lesson 4.8 introduces Today: 4.8 U6 retired (-1 net).
 # The Unit 5 rebuild replaced 5.9's five explicit speakers with the 23 lines its pictured
 # people and café customers say (+18 net).
-EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 563
+# The Unit 6 rebuild replaces 6.9's three explicit speakers with the fifteen lines its pictured
+# people and transport riders say (+12 net).
+EXPECTED_EXPLICIT_ASSIGNMENT_COUNT = 575
 EXPECTED_FINAL_ASSIGNMENTS_SHA256 = (
-    "f3d001f6cef516e765256ce1ab529bcc57546a72fdfe94829d3cac794d7a73d6"
+    "75d09b4e20bcc529368bc9d82d13f7184ff5ca2cbd534bf5870764cd3f6fb522"
 )
 
 
@@ -207,7 +201,7 @@ class CourseAudioCastAuditTests(unittest.TestCase):
         lessons = lesson_assignments()
         neutral = forced_neutral_targets()
 
-        self.assertEqual(48, len(neutral))
+        self.assertEqual(41, len(neutral))
         self.assertEqual(19, len(EXACT_ROLE_CHANGES))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(validator))
         self.assertEqual(EXPECTED_EXPLICIT_ASSIGNMENT_COUNT, len(lessons))
