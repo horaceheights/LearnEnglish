@@ -81,6 +81,9 @@ KICKOFF_RETIRED = {
 # Exact-byte repeats of earlier teaching photographs that the old review still bound, and the
 # bound review still that now carries the same language.
 REVIEW_REPEATS = {
+    # The old U7 built "It is near the bank." over this 6.8 bus-leaves-at-eight still; its Use-image
+    # exception dies with that card, and the rebuilt review retrieves "leaves at" from its own still.
+    "a1_scene_leaves_8411175.webp": "a1_u6_review_v1_train_nine.webp",
     "a1_scene_bus-arrives-8-night_aa53495_four-card.webp": "a1_u6_review_v1_train_ten.webp",
     "a1_scene_bus-leaves-8-morning_ca11581_four-card.webp": "a1_u6_review_v1_train_nine.webp",
     "a1_scene_bus-leaves-8-night_094ebc0_four-card.webp": "a1_scene_bus-male-eight-answer_522fa5f.webp",
@@ -139,13 +142,17 @@ def compile_69(base: dict, pack: dict) -> dict:
     def image(asset_id: str) -> str:
         return EXISTING_REVIEW.get(asset_id) or filename(pack, asset_id)
 
-    def teach(sid, text, es, asset, speaker=None, note="fresh review station"):
+    def teach(sid, text, es, asset, speaker=None, note="fresh review station", turns=None):
+        """Learn card; `turns` keeps a reviewed two-frame dialogue exactly as its poster evidence pins it."""
         card = {"slide_id": sid, "interaction_type": "teach", "prompt": text, "stage": "Learn",
                 "correct_option_id": slug(text) + "-1",
                 "options": [{"id": slug(text) + "-1", "image_url": image(asset), "label": text}],
                 "audio_text": text, "answer_audio_text": None, "prompt_image_url": "",
                 "spanish_translation": es, "pedagogy_note": note}
-        if speaker:
+        if turns:
+            card["audio_turns"] = [{"text": line, "speaker_role": role, "image_url": image(frame)}
+                                   for line, role, frame in turns]
+        elif speaker:
             card["audio_speaker"] = speaker
         cards.append(card)
 
@@ -266,7 +273,9 @@ def compile_69(base: dict, pack: dict) -> dict:
     teach("L2", "This is the pharmacy.", "Esta es la farmacia.", "pharmacy")
     teach("L3", "The bank is next to the store.", "El banco está junto a la tienda.", "bank-next-to-store")
     teach("L4", "Can you help me? The bus leaves at eight.", "¿Me puedes ayudar? El autobús sale a las ocho.",
-          "bus-help-question", "female-character")
+          "bus-help-question", note="reviewed dialogue poster kept frame for frame",
+          turns=[("Can you help me?", "female-character", "bus-help-question"),
+                 ("The bus leaves at eight.", "male-character", "bus-eight-answer")])
     teach("L5", "Turn left.", "Gira a la izquierda.", "left-turn")
     teach("L6", "You cannot cross the street.", "No puedes cruzar la calle.", "cannot-cross")
     teach("L7", "The station is far from the park.", "La estación está lejos del parque.", "far-station")
@@ -572,8 +581,17 @@ def dropped_review_bindings() -> set[str]:
     baseline = json.loads(BASELINE.read_text(encoding="utf-8"))
     plans = json.loads(PLANS.read_text(encoding="utf-8"))["changes"]
     bound = images(current_lessons(ROOT)["lesson-6-9-unit-6-review"])
+    cards = current_lessons(ROOT)["lesson-6-9-unit-6-review"]["cards"]
+
+    def still_valid(plan):
+        """A Use-image exception only covers its named Use card while that card shows the replacement."""
+        if plan["issue"] != "use-image-contradicts-sentence":
+            return True
+        named = [card for card in cards if card.get("slide_id") == plan.get("slide_id") and card.get("stage") == "Use"]
+        return bool(named) and Path(str(named[0].get("prompt_image_url") or "")).name == plan["new_filename"]
+
     covered = {plan["old_filename"] for plan in plans
-               if plan["lesson_id"] == "lesson-6-9-unit-6-review"
+               if plan["lesson_id"] == "lesson-6-9-unit-6-review" and still_valid(plan)
                and {plan["new_filename"], *plan.get("alternative_filenames", [])} & bound}
     return (set(baseline["lesson_bindings"].get("lesson-6-9-unit-6-review", [])) - bound) - covered
 

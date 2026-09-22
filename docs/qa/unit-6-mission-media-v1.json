@@ -1,0 +1,3496 @@
+{
+  "schema_version": 1,
+  "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+  "lesson_id": "lesson-6-10-town-mission",
+  "human_approval": "pending",
+  "assets": [
+    {
+      "asset_id": "kickoff",
+      "runtime_filename": "a1_u6_town_v1_kickoff.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "59b130b4-5164-4267-9afc-4ea99afc92e9",
+        "asset_id": "kickoff",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:26:53.363316+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA family of five standing together on the pavement of a small town square in bright daylight, photographed straight on from across the street, side by side and clearly separated, all facing the camera with friendly relaxed expressions: a mother in her thirties with a dark bob and a red coat; a father in his forties with a short beard and a navy jacket; a grandfather with white hair under a grey flat cap and a beige coat; a girl of about twelve with a long braid and a yellow raincoat; and a boy of about eight in a green hoodie. Behind them a row of small-town shopfronts and a bus stop. Every face is sharp and every person is complete from head to feet. No readable words, no shop signs with letters, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_422de690670f41648a2961cf10c186e8",
+        "usage": {
+          "input_tokens": 343,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 343
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1715
+        },
+        "cost": {
+          "usd": "0.042875",
+          "mxn": "0.7276187625",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 343,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.89,
+        "output": "output/imagegen/unit-6-mission-v1/kickoff.png",
+        "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+        "byte_count": 2735523
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the family of five stands side by side on a town-square pavement facing the camera — the mother with a dark bob in a red coat, the bearded father in a navy jacket, the white-haired grandfather in a grey flat cap and beige coat, the girl with a long braid in a yellow raincoat and the boy in a green hoodie — with a bus stop and shopfronts behind; every face is sharp, every body complete, no readable words. This shot fixes the identities the later scenes reuse."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the kickoff shot that states the mission and fixes the faces and clothes every later scene reuses."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "24379f5393fe7cc1ee5bc1bec142840f86eff87f6e35a3c10ac0ed6bd405372f",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/kickoff.png"
+    },
+    {
+      "asset_id": "town-square",
+      "runtime_filename": "a1_u6_town_v1_town_square.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "a6bfbd4e-8236-46fb-9bf6-33a5cf6bc881",
+        "asset_id": "town-square",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:27:45.995948+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nOne side of a small town square photographed straight on in daylight, with no people. Exactly four separate buildings stand in a row, each with clear wall between it and the next, identified only by symbols and what is inside: (1) at the left a bank with a stone facade, two columns and a cash machine set into the wall; (2) left of centre a pharmacy with one large green cross sign above its door and medicine boxes in the window; (3) right of centre a library whose tall windows show rows of bookshelves inside; (4) at the right a small railway station with a platform canopy and the front of a train standing under it. Each building is sharp and at least 18% of the frame width, with clear sky above it. No letters, words or numerals on any building, no vehicles on the road, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_8a2991985d294810a3e06e6bd2026354",
+        "usage": {
+          "input_tokens": 364,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 364
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1736
+        },
+        "cost": {
+          "usd": "0.04298",
+          "mxn": "0.729400686",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 364,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.17,
+        "output": "output/imagegen/unit-6-mission-v1/town-square.png",
+        "sha256": "c2ad505dcb73dfd773be8bb9ab38c9de9dcf46b9d4995f7c9edb9a273adb19ee",
+        "byte_count": 2970830
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "c2ad505dcb73dfd773be8bb9ab38c9de9dcf46b9d4995f7c9edb9a273adb19ee",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: one side of a town square with no people and four separate buildings — a stone bank with columns and a cash machine at the left, a white pharmacy with one green cross sign, a brick library whose tall windows show bookshelves, and a station canopy with the front of a train under it at the right. Every building is identified by a symbol or what is inside; no letters or numerals appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.02,
+              "y": 0.24,
+              "width": 0.26,
+              "height": 0.42
+            },
+            "head_anchors": [
+              {
+                "x": 0.145,
+                "y": 0.25
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.285,
+              "y": 0.2,
+              "width": 0.22,
+              "height": 0.46
+            },
+            "head_anchors": [
+              {
+                "x": 0.395,
+                "y": 0.21
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.505,
+              "y": 0.17,
+              "width": 0.245,
+              "height": 0.47
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.18
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.8,
+              "y": 0.345,
+              "width": 0.195,
+              "height": 0.32
+            },
+            "head_anchors": [
+              {
+                "x": 0.9,
+                "y": 0.355
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the opening listening scene, where the learner finds the building the clue names."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "05e62413bf418518551a145f8118b429b7509a32577c9934952038983374f7df",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/town-square.png"
+    },
+    {
+      "asset_id": "transport-stop",
+      "runtime_filename": "a1_u6_town_v1_transport_stop.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "a6aaadf3-7ea5-4b41-b50b-36ff17fec3fd",
+        "asset_id": "transport-stop",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:29:53.172582+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of a street beside a small station in daylight with exactly four of them, well separated left to right and never overlapping, each with a different way to travel: (1) at the far left the mother in the red coat steps up into the open front door of a city bus; (2) left of centre the father in the navy jacket stands on the station platform beside a stopped train, one hand on its open door; (3) right of centre the grandfather in the flat cap gets into the rear seat of a yellow taxi with a roof light; (4) at the far right the girl in the yellow raincoat walks along the pavement on foot with a small backpack, away from every vehicle. Each person and their vehicle are sharp, and each person has clear empty space above the head. No fifth family member, no readable words or numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_c3e12d4b298c4b25b3efc9a7cc764094",
+        "usage": {
+          "input_tokens": 1935,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 399
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3307
+        },
+        "cost": {
+          "usd": "0.055443",
+          "mxn": "0.9409065201",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 399,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.04,
+        "output": "output/imagegen/unit-6-mission-v1/transport-stop.png",
+        "sha256": "d8346675bb2d8531bbf6817f90bb5eb53d22d9fb7e9f4606624f4172c83c45ce",
+        "byte_count": 2617936
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "d8346675bb2d8531bbf6817f90bb5eb53d22d9fb7e9f4606624f4172c83c45ce",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four family members from the kickoff photograph beside a small station, well apart — the mother in the red coat steps into the open door of a bus with yellow handrails, the father in the navy jacket stands at an open train door on the platform, the grandfather in the flat cap gets into a yellow taxi with a roof light, and the girl in the yellow raincoat walks along the pavement with a backpack away from every vehicle. Nobody overlaps and no readable words appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.035,
+              "y": 0.195,
+              "width": 0.165,
+              "height": 0.68
+            },
+            "head_anchors": [
+              {
+                "x": 0.115,
+                "y": 0.2
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.25,
+              "y": 0.21,
+              "width": 0.17,
+              "height": 0.61
+            },
+            "head_anchors": [
+              {
+                "x": 0.365,
+                "y": 0.215
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.56,
+              "y": 0.285,
+              "width": 0.125,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.64,
+                "y": 0.29
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.82,
+              "y": 0.33,
+              "width": 0.125,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.875,
+                "y": 0.335
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the transport scene, where each family member uses a different way to travel."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "388b3563ebaa899e2abb4911676d6dbb18fb7dc01314cd110fce483a6064e8b9",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/transport-stop.png"
+    },
+    {
+      "asset_id": "left-right-street",
+      "runtime_filename": "a1_u6_town_v1_left_right_street.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "2936218d-2917-4f4b-99a5-f714b2f50e19",
+        "asset_id": "left-right-street",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:31:01.232370+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA quiet town street photographed from its centre line looking straight ahead in daylight, with no people or vehicles. Exactly four buildings, each clearly separate: on the LEFT side of the street, nearest the camera, a bank with a stone facade, columns and a cash machine, and immediately beyond it, sharing its wall, a grocery store with crates of fruit outside; on the RIGHT side, nearest the camera, a small hospital with a red cross symbol over the entrance and an ambulance parked in front, and immediately beyond it, sharing its wall, a pharmacy with a green cross sign. All four fronts are sharp, at least 18% of the frame width each, with clear sky above them. No letters, words or numerals anywhere, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_0a77975242ae485fa3063a4292bad5db",
+        "usage": {
+          "input_tokens": 339,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 339
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1711
+        },
+        "cost": {
+          "usd": "0.042855",
+          "mxn": "0.7272793485",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 339,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 24.52,
+        "output": "output/imagegen/unit-6-mission-v1/left-right-street.png",
+        "sha256": "ca4654a4db47d5a45e896b349297946cb3feb5028051088b4c8f8c77c2aa3c4a",
+        "byte_count": 2862308
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "ca4654a4db47d5a45e896b349297946cb3feb5028051088b4c8f8c77c2aa3c4a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid from the street's centre line, no people: a stone bank with columns and a cash machine nearest the camera on the left with a green-awning grocery store sharing its wall beyond it, and on the right a green-cross pharmacy nearest the camera with a red-cross hospital and its parked ambulance sharing its wall beyond it. The bank and store touch, the hospital and pharmacy touch, and no letters or numerals appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.0,
+              "y": 0.02,
+              "width": 0.24,
+              "height": 0.66
+            },
+            "head_anchors": [
+              {
+                "x": 0.12,
+                "y": 0.03
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.64,
+              "y": 0.215,
+              "width": 0.215,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.75,
+                "y": 0.225
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.235,
+              "y": 0.215,
+              "width": 0.14,
+              "height": 0.45
+            },
+            "head_anchors": [
+              {
+                "x": 0.3,
+                "y": 0.225
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.855,
+              "y": 0.165,
+              "width": 0.145,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.93,
+                "y": 0.175
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the left-and-right scene, where four buildings sit on two sides of one street."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "195d985a49ac625254375acda4546b2293c6ea59cf1fadab37abeded9de2fbe3",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/left-right-street.png"
+    },
+    {
+      "asset_id": "near-far-park",
+      "runtime_filename": "a1_u6_town_v1_near_far_park.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "5f2fb5b7-d023-46ff-822c-3db12918f815",
+        "asset_id": "near-far-park",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:31:53.429380+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA photograph taken from inside a green town park in daylight, with no people, looking out over its low hedge. Exactly four buildings are visible and clearly separate: NEAR the park, just beyond the hedge and large in the frame, a library on the left with tall windows full of bookshelves and a bank on the right with columns and a cash machine; FAR away on a distant hillside, small but sharp, a railway station on the left with a train under its canopy and a hospital on the right with a red cross symbol. The two near buildings are at least 25% of the frame width each; the two far buildings are small, at least 8% of the frame width each, with clear sky above all four. No other buildings, no letters, words or numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1c4022f96d804846acdcddc0e0723792",
+        "usage": {
+          "input_tokens": 351,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 351
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1723
+        },
+        "cost": {
+          "usd": "0.042915",
+          "mxn": "0.7282975905",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 351,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.05,
+        "output": "output/imagegen/unit-6-mission-v1/near-far-park.png",
+        "sha256": "2737021e4489a3876a3552fec680474c7afb6bba5e8521620d7ee81fe981bf6e",
+        "byte_count": 3143433
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "2737021e4489a3876a3552fec680474c7afb6bba5e8521620d7ee81fe981bf6e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid from inside the park, no people: just beyond the hedge a glass-fronted library full of bookshelves at the left and a columned bank with a cash machine at the right, both large; far away on the hillside a small station canopy with a train at the upper left and a small white hospital block with a red cross at the upper right. The two far rectangles are padded to the hit-area minimum.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.0,
+              "y": 0.3,
+              "width": 0.47,
+              "height": 0.41
+            },
+            "head_anchors": [
+              {
+                "x": 0.25,
+                "y": 0.31
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.6,
+              "y": 0.24,
+              "width": 0.4,
+              "height": 0.48
+            },
+            "head_anchors": [
+              {
+                "x": 0.81,
+                "y": 0.25
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.2,
+              "y": 0.16,
+              "width": 0.29,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.35,
+                "y": 0.205
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.655,
+              "y": 0.13,
+              "width": 0.2,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.775,
+                "y": 0.175
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the near-and-far scene, where distance from the park is the evidence."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "48c1a5169a4566a0e3246586e10e0c54894a4bfae0195373119ce583e76b55d9",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/near-far-park.png"
+    },
+    {
+      "asset_id": "direction-signs",
+      "runtime_filename": "a1_u6_town_v1_direction_signs.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f3102ca6-28e9-4024-baa5-cc2ddf543ce9",
+        "asset_id": "direction-signs",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:32:48.869706+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nFour road signs standing on separate posts in a row along a town pavement, photographed straight on in daylight, evenly spaced with clear space between them and no people or vehicles. Each sign is a plain blue circle with one white pictogram and nothing else: (1) at the left a straight-up arrow; (2) left of centre an arrow pointing to the left; (3) right of centre an arrow pointing to the right; (4) at the right the pedestrian-crossing pictogram of a walking figure on black and white stripes. Each sign is sharp, at least 15% of the frame width, and has clear sky above it. No letters, words or numerals anywhere, no other signs, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_b734d521584a4c68abfacebe2d685c1f",
+        "usage": {
+          "input_tokens": 335,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 335
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1707
+        },
+        "cost": {
+          "usd": "0.042835",
+          "mxn": "0.7269399345",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 335,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 22.11,
+        "output": "output/imagegen/unit-6-mission-v1/direction-signs.png",
+        "sha256": "c1658cbfde48f7017720a1b34e0ddca41f36825dc25441ad88864476481a9fe3",
+        "byte_count": 2742857
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "c1658cbfde48f7017720a1b34e0ddca41f36825dc25441ad88864476481a9fe3",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four blue circular road signs on separate posts in a row, no people — a white straight-up arrow, an arrow pointing left, an arrow pointing right, and the pedestrian-crossing figure on stripes. Each sign is sharp with clear sky above it and no letters or numerals anywhere.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.2,
+              "width": 0.145,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.12,
+                "y": 0.205
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.305,
+              "y": 0.2,
+              "width": 0.145,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.377,
+                "y": 0.205
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.2,
+              "width": 0.14,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.62,
+                "y": 0.205
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.795,
+              "y": 0.2,
+              "width": 0.15,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.87,
+                "y": 0.205
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the directions scene, where each taught instruction is one road sign."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "22efe9b499d635f1a9afa9650c48f93362b877962fe4ea753758d37c368795e3",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/direction-signs.png"
+    },
+    {
+      "asset_id": "crossing-corner",
+      "runtime_filename": "a1_u6_town_v1_crossing_corner.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "9412e0a9-1058-4731-9b50-93043f13ad04",
+        "asset_id": "crossing-corner",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:33:39.043595+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of a street corner in daylight with exactly four of them, well separated left to right and never overlapping: (1) at the far left the boy in the green hoodie steps onto a zebra crossing under a pedestrian signal that shows a bright green walking figure; (2) left of centre the girl in the yellow raincoat stands still at the kerb of a second crossing under a signal that shows a bright red standing figure, with a car passing in front of her; (3) right of centre the mother in the red coat has stopped in front of a bank entrance with columns and a cash machine, standing still and facing its door; (4) at the far right the grandfather in the flat cap turns to his right at the corner beside a blue circular sign with a white arrow pointing right. Each person, signal and sign is sharp, and each person has clear empty space above the head. No fifth family member, no letters, words or numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_46276cb9c1bc41ecb37c490a082097d7",
+        "usage": {
+          "input_tokens": 1955,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 419
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3327
+        },
+        "cost": {
+          "usd": "0.055543",
+          "mxn": "0.9426035901",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 419,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.24,
+        "output": "output/imagegen/unit-6-mission-v1/crossing-corner.png",
+        "sha256": "22640ca2199933087742b4bc77df6bdbb4f98b5d224fedcfc566cfef0bf7bc26",
+        "byte_count": 2739873
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "22640ca2199933087742b4bc77df6bdbb4f98b5d224fedcfc566cfef0bf7bc26",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four family members from the kickoff photograph at a corner, well apart — the boy in the green hoodie steps onto the zebra under a green walking figure, the girl in the yellow raincoat waits at the kerb under a red standing figure, the mother in the red coat stands still facing the bank entrance with its columns and cash machine, and the grandfather in the flat cap walks to his right beside a blue sign with a white right-pointing arrow. Nobody overlaps and no letters or numerals appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.045,
+              "y": 0.34,
+              "width": 0.125,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.105,
+                "y": 0.345
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.3,
+              "y": 0.31,
+              "width": 0.12,
+              "height": 0.42
+            },
+            "head_anchors": [
+              {
+                "x": 0.35,
+                "y": 0.315
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.565,
+              "y": 0.265,
+              "width": 0.12,
+              "height": 0.44
+            },
+            "head_anchors": [
+              {
+                "x": 0.62,
+                "y": 0.27
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.81,
+              "y": 0.235,
+              "width": 0.14,
+              "height": 0.56
+            },
+            "head_anchors": [
+              {
+                "x": 0.88,
+                "y": 0.24
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the permission scene, where the signals show who can cross and who cannot."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "c0ace53ad9da36054580cad5e5efd8bd89dd8f7eb29ab7435bc064f6f441ccba",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/crossing-corner.png"
+    },
+    {
+      "asset_id": "help-exchange",
+      "runtime_filename": "a1_u6_town_v1_help_exchange.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "64e8bbdc-caea-4b9c-ae40-65c4daaae801",
+        "asset_id": "help-exchange",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:34:39.560481+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of a town pavement in daylight with exactly four of them, well separated left to right and never overlapping, each with one unmistakable gesture: (1) at the far left the girl in the yellow raincoat raises one open hand to shoulder height to get attention, mouth open, clearly saying excuse me; (2) left of centre the father in the navy jacket holds an unfolded paper map with only coloured shapes on it and looks up with a questioning face, clearly asking for help; (3) right of centre the mother in the red coat nods with a warm smile and points along the street, clearly saying yes; (4) at the far right the grandfather in the flat cap shrugs with both palms open and a sorry expression, clearly saying no. Every face and gesture is sharp, and each person has clear empty space above the head. No fifth person, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_2512b2829a0b46c09f61c96a519c50a7",
+        "usage": {
+          "input_tokens": 1941,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 405
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3313
+        },
+        "cost": {
+          "usd": "0.055473",
+          "mxn": "0.9414156411",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 405,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.32,
+        "output": "output/imagegen/unit-6-mission-v1/help-exchange.png",
+        "sha256": "cf9f9e13650e7953bb820534876d1b200725f8117203acae65a8a41902b1dccd",
+        "byte_count": 2579452
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "cf9f9e13650e7953bb820534876d1b200725f8117203acae65a8a41902b1dccd",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four family members from the kickoff photograph on a town pavement, well apart left to right — the girl in the yellow raincoat at the far left with one open hand raised to shoulder height and her mouth open, the father in the navy jacket left of centre looking up from an unfolded map of coloured shapes with a questioning face, the mother in the red coat right of centre nodding with a smile and pointing along the street, and the grandfather in the flat cap at the far right shrugging with both palms open. Nobody overlaps, every head has clear space above it and no readable words appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.045,
+              "y": 0.205,
+              "width": 0.175,
+              "height": 0.72
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.21
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.265,
+              "y": 0.095,
+              "width": 0.2,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.36,
+                "y": 0.1
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.49,
+              "y": 0.165,
+              "width": 0.26,
+              "height": 0.75
+            },
+            "head_anchors": [
+              {
+                "x": 0.565,
+                "y": 0.17
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.71,
+              "y": 0.15,
+              "width": 0.285,
+              "height": 0.78
+            },
+            "head_anchors": [
+              {
+                "x": 0.86,
+                "y": 0.155
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the help scene, where four people ask for, give or refuse help with different gestures."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "7fc5ccbde634b7c2a0e759e8dfda43c2287edbef6048afcb3ca7573e1ec08b94",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/help-exchange.png"
+    },
+    {
+      "asset_id": "station-clocks",
+      "runtime_filename": "a1_u6_town_v1_station_clocks.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "cedcce5b-cf58-433c-b4c8-0c8097a06ec1",
+        "asset_id": "station-clocks",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:35:38.286662+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. Four round analog station clocks hanging in one row on a plain station wall above an empty platform, photographed straight on in daylight, evenly spaced with clear wall between them and no people. Each clock has a plain white face, printed numerals 1 to 12, one short thick black hour hand, one long thin black minute hand and no second hand. On every clock the long minute hand lies exactly along the line from the centre to the numeral 12, pointing straight up. Each short hour hand lies exactly along the line from the centre of its dial to its own numeral, with the tip ending just short of that printed numeral: from left to right the hour hands point exactly at 7, then 8, then 9, then 10, and never between two numerals. Every face is sharp and each clock is at least 15% of the frame width. No departure board, no words, no brand names, no other numerals anywhere.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7b0e70bcfe494f989093a6f7f6e3ea81",
+        "usage": {
+          "input_tokens": 389,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 389
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1761
+        },
+        "cost": {
+          "usd": "0.043105",
+          "mxn": "0.7315220235",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 389,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 23.1,
+        "output": "output/imagegen/unit-6-mission-v1/station-clocks.png",
+        "sha256": "e98336c914a59bfa51f0c98c5806a833396238002b5ddfca3eaa75bc5886e578",
+        "byte_count": 2529140
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e98336c914a59bfa51f0c98c5806a833396238002b5ddfca3eaa75bc5886e578",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid and measured numerically: four identical white station clocks in one row above an empty platform, no people, no words. Every minute hand is straight up (measured 359.3-0.3 deg). The hour hands measured from each dial centre read 217.9, 238.3, 270.8 and 306.6 deg against their printed numerals at 209.2 (7), 239.5 (8), 271.2 (9) and 301.5 (10) deg: eight and nine are exact, the seven hand sits 8.7 deg towards eight and the ten hand 5 deg towards eleven, each still nearest its own numeral with no other dial competing for it. Disclosed for human review; dials read 7, 8, 9, 10 left to right.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.06,
+              "y": 0.155,
+              "width": 0.165,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.141,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.298,
+              "y": 0.155,
+              "width": 0.165,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.379,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.536,
+              "y": 0.155,
+              "width": 0.165,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.6175,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.772,
+              "y": 0.155,
+              "width": 0.165,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.854,
+                "y": 0.16
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the schedule scene, where the learner reads four exact station clocks."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "c6548b4e3256169bc159b7967bc3e24d85727496ed217fd169598d3d5cfeeadf",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/station-clocks.png"
+    },
+    {
+      "asset_id": "cafe-table",
+      "runtime_filename": "a1_u6_town_v1_cafe_table.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "e5e92074-b2a1-45e7-9233-0590b2d317a5",
+        "asset_id": "cafe-table",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:36:31.563798+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA café table on a pavement photographed straight on from seat height in daylight, with no people. Exactly four separate targets, well apart and never touching another: (1) one open canvas bag standing on the left end of the tabletop with a black smartphone clearly visible inside it; (2) one closed blue book lying flat on the right end of the tabletop; (3) one red apple lying on the ground completely underneath a wooden chair at the right of the table, visible between the chair legs; (4) that same wooden chair standing immediately beside the table with a clear gap between them, the chair being the target. Each object is sharp and at least 9% of the frame width. No other bag, book, phone or apple anywhere, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_3bc4af81036c4b369ab643fb048a19eb",
+        "usage": {
+          "input_tokens": 346,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 346
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1718
+        },
+        "cost": {
+          "usd": "0.04289",
+          "mxn": "0.727873323",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 346,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.5,
+        "output": "output/imagegen/unit-6-mission-v1/cafe-table.png",
+        "sha256": "07448700d8220fd731d90ed3b8ba05c89ff121d19af7ed671f22cc065d3d9afc",
+        "byte_count": 2775384
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "07448700d8220fd731d90ed3b8ba05c89ff121d19af7ed671f22cc065d3d9afc",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: a pavement cafe table seen from seat height, no people — an open canvas bag on the left end of the tabletop with a black smartphone visible inside it, a closed blue book flat on the right end, a single red apple on the ground between the legs of the wooden chair, and that chair standing beside the table with a clear gap. A coffee cup and a flower pot also sit on the table but are not cue objects and are not bag, book, phone or apple. The apple and book rectangles are padded to the hit-area minimum; the chair rectangle necessarily contains the apple but the markers sit apart. No readable words.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.06,
+              "y": 0.1,
+              "width": 0.19,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.105
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.48,
+              "y": 0.24,
+              "width": 0.165,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.56,
+                "y": 0.28
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.695,
+              "y": 0.6775,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.752,
+                "y": 0.725
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.61,
+              "y": 0.15,
+              "width": 0.36,
+              "height": 0.78
+            },
+            "head_anchors": [
+              {
+                "x": 0.84,
+                "y": 0.155
+              }
+            ]
+          }
+        ]
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the where-is-it scene, where each object sits in, on, under or next to something."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "9bc7ec949a0f529d561db36e25cd7a6e66cb619bc4ecd93f85284dd2ee3b9c58",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/cafe-table.png"
+    },
+    {
+      "asset_id": "bank-question",
+      "runtime_filename": "a1_u6_town_v1_bank_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "c1d60185-b88b-44ac-8c51-f8ff62656e3f",
+        "asset_id": "bank-question",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:37:26.967399+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the mother in the red coat. Create the question shot of a speaking game: she stands on a town pavement turned towards the camera with a curious face, mouth open mid-question, one open palm extended towards the street in a natural asking gesture. She is large and sharp in the central safe area; the shopfronts behind her are softly out of focus. No other person in the shot, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_1e9cc81497bd4c8189aee81af440623e",
+        "usage": {
+          "input_tokens": 1837,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 301
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3209
+        },
+        "cost": {
+          "usd": "0.054953",
+          "mxn": "0.9325908771",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 301,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.76,
+        "output": "output/imagegen/unit-6-mission-v1/bank-question.png",
+        "sha256": "da7db2c9c5ee624022bd1d69a3a5ddb02e57217327bcfa5c631820dc4cb98a80",
+        "byte_count": 2283031
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "da7db2c9c5ee624022bd1d69a3a5ddb02e57217327bcfa5c631820dc4cb98a80",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Question view: the mother in the red coat from the kickoff photograph alone on a town pavement, turned to the camera with a curious face, mouth open and one open palm extended in an asking gesture; shopfronts softly out of focus behind her; no readable words."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the question view of the where-is-the-bank voice gate."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "f62e9fe705f7c1071945e3ca671925da17b97e8f82831406c81c39b3bf216363",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/bank-question.png"
+    },
+    {
+      "asset_id": "bank-response",
+      "runtime_filename": "a1_u6_town_v1_bank_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "b681c155-02f2-47d6-b941-da78e74de162",
+        "asset_id": "bank-response",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:38:25.381019+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nTwo neighbouring shopfronts photographed straight on from across the street in daylight, with no people. On the left a bank with a stone facade, two columns and a cash machine set into the wall; immediately to its right, sharing the wall, a grocery store with crates of fruit and vegetables outside its open door. The two fronts are clearly separate buildings side by side and together fill at least 75% of the frame width. No readable words or numerals on either building, no vehicles, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_f2955940e3ee441e8ccb6544cc285c98",
+        "usage": {
+          "input_tokens": 290,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 290
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1662
+        },
+        "cost": {
+          "usd": "0.04261",
+          "mxn": "0.723121527",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 290,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.82,
+        "output": "output/imagegen/unit-6-mission-v1/bank-response.png",
+        "sha256": "52dc80623b7ee2ee9c68ff021ec1d395bc9a3867d07ecfb9ff4b008ab8dc0970",
+        "byte_count": 2987194
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "52dc80623b7ee2ee9c68ff021ec1d395bc9a3867d07ecfb9ff4b008ab8dc0970",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Answer view: a stone bank with two columns and a cash machine on the left and, sharing its wall, a grocery store with crates of fruit and vegetables outside its open door on the right; no people, no readable words or numerals, no vehicles."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the answer view of the where-is-the-bank voice gate, showing the bank next to the store."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "97cd9992b8d5faf06947f36b91a79fa9b6fc8f9b05ebbae001ee2fe78c2eb8fb",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/bank-response.png"
+    },
+    {
+      "asset_id": "station-question",
+      "runtime_filename": "a1_u6_town_v1_station_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "bf4a0df2-6242-4f9b-acc8-2906e528110a",
+        "asset_id": "station-question",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:39:18.743474+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the father in the navy jacket. Create the question shot of a speaking game: he stands at a town street corner holding a folded paper map with only coloured shapes on it, turned towards the camera with a questioning face, mouth open mid-question, his free hand open in a natural asking gesture. He is large and sharp in the central safe area; the street behind him is softly out of focus. No other person in the shot, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_119067de8b8c4a3ab228abd32dd4102b",
+        "usage": {
+          "input_tokens": 1845,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 309
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3217
+        },
+        "cost": {
+          "usd": "0.054993",
+          "mxn": "0.9332697051",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 309,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.29,
+        "output": "output/imagegen/unit-6-mission-v1/station-question.png",
+        "sha256": "0a56b816cd553e2578481807baccc0066c9f2d27f8fc0b2e424aba111d8dd1fc",
+        "byte_count": 2173835
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "0a56b816cd553e2578481807baccc0066c9f2d27f8fc0b2e424aba111d8dd1fc",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Question view: the father in the navy jacket from the kickoff photograph alone at a street corner holding a paper map of coloured shapes, questioning face, mouth open, free hand open in an asking gesture; a blank fingerpost and the street softly out of focus behind him; no readable words."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the question view of the directions voice gate."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "0aa3f89d7f4c888bc6b95f03092b0730ee6c75c51cf1f0bd2b312b7788096f75",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/station-question.png"
+    },
+    {
+      "asset_id": "station-response",
+      "runtime_filename": "a1_u6_town_v1_station_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "bc32da61-a4a4-4293-ba3a-3d700db17e70",
+        "asset_id": "station-response",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:40:15.994948+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA town street photographed from its centre line looking straight ahead in daylight, with no people or vehicles, that runs straight to a corner where it turns to the right. Two plain blue circular road signs stand on posts: one with a white straight-up arrow in the foreground on the right pavement, and one with a white arrow pointing right at the corner ahead. Both signs are sharp; the far one shows the small railway station canopy just visible around the corner. No letters, words or numerals, no other signs, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_48490d91450448ac861decb03f96ac0a",
+        "usage": {
+          "input_tokens": 294,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 294
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1666
+        },
+        "cost": {
+          "usd": "0.04263",
+          "mxn": "0.723460941",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 294,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.98,
+        "output": "output/imagegen/unit-6-mission-v1/station-response.png",
+        "sha256": "9556014a4b672d74516f1a1cc018617c9f88dd2cca66c0ec9f54d7373769a99d",
+        "byte_count": 3320384
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "9556014a4b672d74516f1a1cc018617c9f88dd2cca66c0ec9f54d7373769a99d",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Answer view: an empty town street seen from its centre line running straight to a corner that turns right; a blue circular sign with a white straight-up arrow stands on the right pavement in the foreground and a second blue sign with a right-pointing arrow stands at the corner, with the station canopy visible beyond it; no people, vehicles, letters or numerals."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the answer view of the directions voice gate, showing straight ahead and then a right turn."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "f3295b31959d39b30ecd193a432b4a71083a891aa9860bb7bfba52efdb7ee132",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/station-response.png"
+    },
+    {
+      "asset_id": "thanks-question",
+      "runtime_filename": "a1_u6_town_v1_thanks_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "8dcc6d82-fdc1-4ee0-b2f5-70c283543e1a",
+        "asset_id": "thanks-question",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:41:07.250664+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the girl in the yellow raincoat. Create the question shot of a speaking game: she stands on a town pavement turned towards the camera, smiling and speaking, one arm extended pointing to her left along the street in a clear giving-directions gesture. She is large and sharp in the central safe area; the shopfronts behind her are softly out of focus. No other person in the shot, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_ce5b06a9039d4b3b81f218579bfe2791",
+        "usage": {
+          "input_tokens": 1838,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 302
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3210
+        },
+        "cost": {
+          "usd": "0.054958",
+          "mxn": "0.9326757306",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 302,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.52,
+        "output": "output/imagegen/unit-6-mission-v1/thanks-question.png",
+        "sha256": "b79927edcfb9097d23e34cd9b5c9b42cdcae5724fad34d82db6a9673b7f18731",
+        "byte_count": 2073105
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b79927edcfb9097d23e34cd9b5c9b42cdcae5724fad34d82db6a9673b7f18731",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Question view: the girl in the yellow raincoat from the kickoff photograph alone on a town pavement, smiling and speaking, one arm extended pointing along the street towards the left edge of the frame in a giving-directions gesture; shopfronts softly out of focus behind her; no readable words."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the question view of the thanking voice gate, where the girl points the way."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "55868ebef8ff42c580aec4fb645b07955d4fd4d8bb48157ecfbfb6356ff64412",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/thanks-question.png"
+    },
+    {
+      "asset_id": "thanks-response",
+      "runtime_filename": "a1_u6_town_v1_thanks_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "45e91cbf-1a53-4e01-91ea-ac38077eb022",
+        "asset_id": "thanks-response",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:41:57.927461+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the boy in the green hoodie. Create the answer shot of a speaking game: he stands on a town pavement facing the camera with a warm grateful smile, one hand raised to his chest in a clear thank-you gesture. He is large and sharp in the central safe area; the street behind him is softly out of focus. No other person in the shot, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_0c85a3fe6e1e4c238506cd9918a384f8",
+        "usage": {
+          "input_tokens": 1830,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 294
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3202
+        },
+        "cost": {
+          "usd": "0.054918",
+          "mxn": "0.9319969026",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 294,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.66,
+        "output": "output/imagegen/unit-6-mission-v1/thanks-response.png",
+        "sha256": "4772bc16e55b8f0b0c77e89db93bac57cc30f885227563cf8032d6b19b397617",
+        "byte_count": 2143911
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4772bc16e55b8f0b0c77e89db93bac57cc30f885227563cf8032d6b19b397617",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Answer view: the boy in the green hoodie from the kickoff photograph alone on a town pavement facing the camera with a warm grateful smile and one hand raised flat to his chest in a thank-you gesture; street softly out of focus behind him; no readable words."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the answer view of the thanking voice gate."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "a9103f0a9eae88b59320d178e74e26ed70b20596a6159aa6b41401f237eaeb44",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/thanks-response.png"
+    },
+    {
+      "asset_id": "help-question",
+      "runtime_filename": "a1_u6_town_v1_help_question.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "0e45075b-a3a2-4bfb-9bf6-ab74820b1596",
+        "asset_id": "help-question",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:42:48.944290+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the grandfather in the grey flat cap. Create the question shot of a speaking game: he stands at a bus stop on a town pavement turned towards the camera with a polite questioning face, mouth open mid-question, one hand raised in a gentle asking gesture. He is large and sharp in the central safe area; the bus-stop post and a parked bus behind him are softly out of focus. No other person in the shot, no readable words or numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_a51b452958544f8fb7544d140c33ca1c",
+        "usage": {
+          "input_tokens": 1846,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 310
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3218
+        },
+        "cost": {
+          "usd": "0.054998",
+          "mxn": "0.9333545586",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 310,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.9,
+        "output": "output/imagegen/unit-6-mission-v1/help-question.png",
+        "sha256": "60582a9ae146e146d6d2c82d4f3ae721295f6b301d18e1576d1ae776d6154e1c",
+        "byte_count": 2104186
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "60582a9ae146e146d6d2c82d4f3ae721295f6b301d18e1576d1ae776d6154e1c",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Question view: the grandfather in the grey flat cap from the kickoff photograph alone at a bus stop, polite questioning face, mouth open, one hand raised in a gentle asking gesture; the shelter and a parked blue bus behind him are out of focus and its front display is an illegible blur, disclosed for human review; no readable words or numerals."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the question view of the closing voice gate, where the grandfather asks for help."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "85aef31af6a8d55e2f4a5f4efea485eeb25d6bcdc59cca83f364878f2a0065e6",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/help-question.png"
+    },
+    {
+      "asset_id": "help-response",
+      "runtime_filename": "a1_u6_town_v1_help_response.webp",
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "078fc0a8-3c27-44bd-8733-8ed5e87009c0",
+        "asset_id": "help-response",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:43:36.531333+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. A city bus standing at a bus stop in daylight with its front door open, photographed from the pavement, with no people. On the bus-stop post beside the door hangs one round analog clock with a plain white face and black hands showing exactly eight o'clock: the short hour hand points precisely at the numeral 8 and the long minute hand points precisely straight up at 12, no second hand. The clock face fills at least 25% of the frame height and its numerals 1 to 12 are clearly printed; the bus is sharp and secondary. No route numbers, no destination text, no readable words except the clock numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_d18b146faf4c408fb45fda9a515f3d7d",
+        "usage": {
+          "input_tokens": 328,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 328
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1700
+        },
+        "cost": {
+          "usd": "0.0428",
+          "mxn": "0.72634596",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 328,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.87,
+        "output": "output/imagegen/unit-6-mission-v1/help-response.png",
+        "sha256": "be9181de1b39cb32572f3385c4bc72764229ad7f4a7b45318b9a215e2488d441",
+        "byte_count": 2429040
+      },
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "be9181de1b39cb32572f3385c4bc72764229ad7f4a7b45318b9a215e2488d441",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Answer view, measured numerically: a blue city bus at a shelter with its front door open, no people, and one round white clock on the shelter post whose minute hand is straight up (0.1 deg) and whose hour hand lies at 243.4 deg from the dial centre against the ideal 240 deg for eight o'clock; numerals 1 to 12 printed, no second hand. The bus front carries no route number or destination text; no readable words except the clock numerals."
+      },
+      "change_control": {
+        "kind": "approved-parity-scene",
+        "reason": "Unit 6 parity mission: the answer view of the closing voice gate, showing the bus that leaves at eight."
+      },
+      "human_approval": "pending",
+      "runtime_sha256": "53ff7b22dd23dae2fb01ab6445aaf2676f66b1b8f5fc8ead4aa6e87a57f71d18",
+      "source_path": "Lessons/Lesson1/images/course-photoreal-sources/unit-6/mission-v1/help-response.png"
+    }
+  ],
+  "paid_attempts": [
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "c1d60185-b88b-44ac-8c51-f8ff62656e3f",
+        "asset_id": "bank-question",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:37:26.967399+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the mother in the red coat. Create the question shot of a speaking game: she stands on a town pavement turned towards the camera with a curious face, mouth open mid-question, one open palm extended towards the street in a natural asking gesture. She is large and sharp in the central safe area; the shopfronts behind her are softly out of focus. No other person in the shot, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_1e9cc81497bd4c8189aee81af440623e",
+        "usage": {
+          "input_tokens": 1837,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 301
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3209
+        },
+        "cost": {
+          "usd": "0.054953",
+          "mxn": "0.9325908771",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 301,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.76,
+        "output": "output/imagegen/unit-6-mission-v1/bank-question.png",
+        "sha256": "da7db2c9c5ee624022bd1d69a3a5ddb02e57217327bcfa5c631820dc4cb98a80",
+        "byte_count": 2283031
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "da7db2c9c5ee624022bd1d69a3a5ddb02e57217327bcfa5c631820dc4cb98a80",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Question view: the mother in the red coat from the kickoff photograph alone on a town pavement, turned to the camera with a curious face, mouth open and one open palm extended in an asking gesture; shopfronts softly out of focus behind her; no readable words."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "b681c155-02f2-47d6-b941-da78e74de162",
+        "asset_id": "bank-response",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:38:25.381019+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nTwo neighbouring shopfronts photographed straight on from across the street in daylight, with no people. On the left a bank with a stone facade, two columns and a cash machine set into the wall; immediately to its right, sharing the wall, a grocery store with crates of fruit and vegetables outside its open door. The two fronts are clearly separate buildings side by side and together fill at least 75% of the frame width. No readable words or numerals on either building, no vehicles, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_f2955940e3ee441e8ccb6544cc285c98",
+        "usage": {
+          "input_tokens": 290,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 290
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1662
+        },
+        "cost": {
+          "usd": "0.04261",
+          "mxn": "0.723121527",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 290,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.82,
+        "output": "output/imagegen/unit-6-mission-v1/bank-response.png",
+        "sha256": "52dc80623b7ee2ee9c68ff021ec1d395bc9a3867d07ecfb9ff4b008ab8dc0970",
+        "byte_count": 2987194
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "52dc80623b7ee2ee9c68ff021ec1d395bc9a3867d07ecfb9ff4b008ab8dc0970",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Answer view: a stone bank with two columns and a cash machine on the left and, sharing its wall, a grocery store with crates of fruit and vegetables outside its open door on the right; no people, no readable words or numerals, no vehicles."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "e5e92074-b2a1-45e7-9233-0590b2d317a5",
+        "asset_id": "cafe-table",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:36:31.563798+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA café table on a pavement photographed straight on from seat height in daylight, with no people. Exactly four separate targets, well apart and never touching another: (1) one open canvas bag standing on the left end of the tabletop with a black smartphone clearly visible inside it; (2) one closed blue book lying flat on the right end of the tabletop; (3) one red apple lying on the ground completely underneath a wooden chair at the right of the table, visible between the chair legs; (4) that same wooden chair standing immediately beside the table with a clear gap between them, the chair being the target. Each object is sharp and at least 9% of the frame width. No other bag, book, phone or apple anywhere, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_3bc4af81036c4b369ab643fb048a19eb",
+        "usage": {
+          "input_tokens": 346,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 346
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1718
+        },
+        "cost": {
+          "usd": "0.04289",
+          "mxn": "0.727873323",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 346,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.5,
+        "output": "output/imagegen/unit-6-mission-v1/cafe-table.png",
+        "sha256": "07448700d8220fd731d90ed3b8ba05c89ff121d19af7ed671f22cc065d3d9afc",
+        "byte_count": 2775384
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "07448700d8220fd731d90ed3b8ba05c89ff121d19af7ed671f22cc065d3d9afc",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: a pavement cafe table seen from seat height, no people — an open canvas bag on the left end of the tabletop with a black smartphone visible inside it, a closed blue book flat on the right end, a single red apple on the ground between the legs of the wooden chair, and that chair standing beside the table with a clear gap. A coffee cup and a flower pot also sit on the table but are not cue objects and are not bag, book, phone or apple. The apple and book rectangles are padded to the hit-area minimum; the chair rectangle necessarily contains the apple but the markers sit apart. No readable words.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.06,
+              "y": 0.1,
+              "width": 0.19,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.105
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.48,
+              "y": 0.24,
+              "width": 0.165,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.56,
+                "y": 0.28
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.695,
+              "y": 0.6775,
+              "width": 0.12,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.752,
+                "y": 0.725
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.61,
+              "y": 0.15,
+              "width": 0.36,
+              "height": 0.78
+            },
+            "head_anchors": [
+              {
+                "x": 0.84,
+                "y": 0.155
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "9412e0a9-1058-4731-9b50-93043f13ad04",
+        "asset_id": "crossing-corner",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:33:39.043595+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of a street corner in daylight with exactly four of them, well separated left to right and never overlapping: (1) at the far left the boy in the green hoodie steps onto a zebra crossing under a pedestrian signal that shows a bright green walking figure; (2) left of centre the girl in the yellow raincoat stands still at the kerb of a second crossing under a signal that shows a bright red standing figure, with a car passing in front of her; (3) right of centre the mother in the red coat has stopped in front of a bank entrance with columns and a cash machine, standing still and facing its door; (4) at the far right the grandfather in the flat cap turns to his right at the corner beside a blue circular sign with a white arrow pointing right. Each person, signal and sign is sharp, and each person has clear empty space above the head. No fifth family member, no letters, words or numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_46276cb9c1bc41ecb37c490a082097d7",
+        "usage": {
+          "input_tokens": 1955,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 419
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3327
+        },
+        "cost": {
+          "usd": "0.055543",
+          "mxn": "0.9426035901",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 419,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.24,
+        "output": "output/imagegen/unit-6-mission-v1/crossing-corner.png",
+        "sha256": "22640ca2199933087742b4bc77df6bdbb4f98b5d224fedcfc566cfef0bf7bc26",
+        "byte_count": 2739873
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "22640ca2199933087742b4bc77df6bdbb4f98b5d224fedcfc566cfef0bf7bc26",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four family members from the kickoff photograph at a corner, well apart — the boy in the green hoodie steps onto the zebra under a green walking figure, the girl in the yellow raincoat waits at the kerb under a red standing figure, the mother in the red coat stands still facing the bank entrance with its columns and cash machine, and the grandfather in the flat cap walks to his right beside a blue sign with a white right-pointing arrow. Nobody overlaps and no letters or numerals appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.045,
+              "y": 0.34,
+              "width": 0.125,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.105,
+                "y": 0.345
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.3,
+              "y": 0.31,
+              "width": 0.12,
+              "height": 0.42
+            },
+            "head_anchors": [
+              {
+                "x": 0.35,
+                "y": 0.315
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.565,
+              "y": 0.265,
+              "width": 0.12,
+              "height": 0.44
+            },
+            "head_anchors": [
+              {
+                "x": 0.62,
+                "y": 0.27
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.81,
+              "y": 0.235,
+              "width": 0.14,
+              "height": 0.56
+            },
+            "head_anchors": [
+              {
+                "x": 0.88,
+                "y": 0.24
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "f3102ca6-28e9-4024-baa5-cc2ddf543ce9",
+        "asset_id": "direction-signs",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:32:48.869706+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nFour road signs standing on separate posts in a row along a town pavement, photographed straight on in daylight, evenly spaced with clear space between them and no people or vehicles. Each sign is a plain blue circle with one white pictogram and nothing else: (1) at the left a straight-up arrow; (2) left of centre an arrow pointing to the left; (3) right of centre an arrow pointing to the right; (4) at the right the pedestrian-crossing pictogram of a walking figure on black and white stripes. Each sign is sharp, at least 15% of the frame width, and has clear sky above it. No letters, words or numerals anywhere, no other signs, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_b734d521584a4c68abfacebe2d685c1f",
+        "usage": {
+          "input_tokens": 335,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 335
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1707
+        },
+        "cost": {
+          "usd": "0.042835",
+          "mxn": "0.7269399345",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 335,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 22.11,
+        "output": "output/imagegen/unit-6-mission-v1/direction-signs.png",
+        "sha256": "c1658cbfde48f7017720a1b34e0ddca41f36825dc25441ad88864476481a9fe3",
+        "byte_count": 2742857
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "c1658cbfde48f7017720a1b34e0ddca41f36825dc25441ad88864476481a9fe3",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four blue circular road signs on separate posts in a row, no people — a white straight-up arrow, an arrow pointing left, an arrow pointing right, and the pedestrian-crossing figure on stripes. Each sign is sharp with clear sky above it and no letters or numerals anywhere.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.05,
+              "y": 0.2,
+              "width": 0.145,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.12,
+                "y": 0.205
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.305,
+              "y": 0.2,
+              "width": 0.145,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.377,
+                "y": 0.205
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.55,
+              "y": 0.2,
+              "width": 0.14,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.62,
+                "y": 0.205
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.795,
+              "y": 0.2,
+              "width": 0.15,
+              "height": 0.21
+            },
+            "head_anchors": [
+              {
+                "x": 0.87,
+                "y": 0.205
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "64e8bbdc-caea-4b9c-ae40-65c4daaae801",
+        "asset_id": "help-exchange",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:34:39.560481+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of a town pavement in daylight with exactly four of them, well separated left to right and never overlapping, each with one unmistakable gesture: (1) at the far left the girl in the yellow raincoat raises one open hand to shoulder height to get attention, mouth open, clearly saying excuse me; (2) left of centre the father in the navy jacket holds an unfolded paper map with only coloured shapes on it and looks up with a questioning face, clearly asking for help; (3) right of centre the mother in the red coat nods with a warm smile and points along the street, clearly saying yes; (4) at the far right the grandfather in the flat cap shrugs with both palms open and a sorry expression, clearly saying no. Every face and gesture is sharp, and each person has clear empty space above the head. No fifth person, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_2512b2829a0b46c09f61c96a519c50a7",
+        "usage": {
+          "input_tokens": 1941,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 405
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3313
+        },
+        "cost": {
+          "usd": "0.055473",
+          "mxn": "0.9414156411",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 405,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.32,
+        "output": "output/imagegen/unit-6-mission-v1/help-exchange.png",
+        "sha256": "cf9f9e13650e7953bb820534876d1b200725f8117203acae65a8a41902b1dccd",
+        "byte_count": 2579452
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "cf9f9e13650e7953bb820534876d1b200725f8117203acae65a8a41902b1dccd",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four family members from the kickoff photograph on a town pavement, well apart left to right — the girl in the yellow raincoat at the far left with one open hand raised to shoulder height and her mouth open, the father in the navy jacket left of centre looking up from an unfolded map of coloured shapes with a questioning face, the mother in the red coat right of centre nodding with a smile and pointing along the street, and the grandfather in the flat cap at the far right shrugging with both palms open. Nobody overlaps, every head has clear space above it and no readable words appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.045,
+              "y": 0.205,
+              "width": 0.175,
+              "height": 0.72
+            },
+            "head_anchors": [
+              {
+                "x": 0.155,
+                "y": 0.21
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.265,
+              "y": 0.095,
+              "width": 0.2,
+              "height": 0.82
+            },
+            "head_anchors": [
+              {
+                "x": 0.36,
+                "y": 0.1
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.49,
+              "y": 0.165,
+              "width": 0.26,
+              "height": 0.75
+            },
+            "head_anchors": [
+              {
+                "x": 0.565,
+                "y": 0.17
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.71,
+              "y": 0.15,
+              "width": 0.285,
+              "height": 0.78
+            },
+            "head_anchors": [
+              {
+                "x": 0.86,
+                "y": 0.155
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "0e45075b-a3a2-4bfb-9bf6-ab74820b1596",
+        "asset_id": "help-question",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:42:48.944290+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the grandfather in the grey flat cap. Create the question shot of a speaking game: he stands at a bus stop on a town pavement turned towards the camera with a polite questioning face, mouth open mid-question, one hand raised in a gentle asking gesture. He is large and sharp in the central safe area; the bus-stop post and a parked bus behind him are softly out of focus. No other person in the shot, no readable words or numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_a51b452958544f8fb7544d140c33ca1c",
+        "usage": {
+          "input_tokens": 1846,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 310
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3218
+        },
+        "cost": {
+          "usd": "0.054998",
+          "mxn": "0.9333545586",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 310,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.9,
+        "output": "output/imagegen/unit-6-mission-v1/help-question.png",
+        "sha256": "60582a9ae146e146d6d2c82d4f3ae721295f6b301d18e1576d1ae776d6154e1c",
+        "byte_count": 2104186
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "60582a9ae146e146d6d2c82d4f3ae721295f6b301d18e1576d1ae776d6154e1c",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Question view: the grandfather in the grey flat cap from the kickoff photograph alone at a bus stop, polite questioning face, mouth open, one hand raised in a gentle asking gesture; the shelter and a parked blue bus behind him are out of focus and its front display is an illegible blur, disclosed for human review; no readable words or numerals."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "078fc0a8-3c27-44bd-8733-8ed5e87009c0",
+        "asset_id": "help-response",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:43:36.531333+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. A city bus standing at a bus stop in daylight with its front door open, photographed from the pavement, with no people. On the bus-stop post beside the door hangs one round analog clock with a plain white face and black hands showing exactly eight o'clock: the short hour hand points precisely at the numeral 8 and the long minute hand points precisely straight up at 12, no second hand. The clock face fills at least 25% of the frame height and its numerals 1 to 12 are clearly printed; the bus is sharp and secondary. No route numbers, no destination text, no readable words except the clock numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_d18b146faf4c408fb45fda9a515f3d7d",
+        "usage": {
+          "input_tokens": 328,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 328
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1700
+        },
+        "cost": {
+          "usd": "0.0428",
+          "mxn": "0.72634596",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 328,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.87,
+        "output": "output/imagegen/unit-6-mission-v1/help-response.png",
+        "sha256": "be9181de1b39cb32572f3385c4bc72764229ad7f4a7b45318b9a215e2488d441",
+        "byte_count": 2429040
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "be9181de1b39cb32572f3385c4bc72764229ad7f4a7b45318b9a215e2488d441",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Answer view, measured numerically: a blue city bus at a shelter with its front door open, no people, and one round white clock on the shelter post whose minute hand is straight up (0.1 deg) and whose hour hand lies at 243.4 deg from the dial centre against the ideal 240 deg for eight o'clock; numerals 1 to 12 printed, no second hand. The bus front carries no route number or destination text; no readable words except the clock numerals."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "59b130b4-5164-4267-9afc-4ea99afc92e9",
+        "asset_id": "kickoff",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:26:53.363316+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA family of five standing together on the pavement of a small town square in bright daylight, photographed straight on from across the street, side by side and clearly separated, all facing the camera with friendly relaxed expressions: a mother in her thirties with a dark bob and a red coat; a father in his forties with a short beard and a navy jacket; a grandfather with white hair under a grey flat cap and a beige coat; a girl of about twelve with a long braid and a yellow raincoat; and a boy of about eight in a green hoodie. Behind them a row of small-town shopfronts and a bus stop. Every face is sharp and every person is complete from head to feet. No readable words, no shop signs with letters, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_422de690670f41648a2961cf10c186e8",
+        "usage": {
+          "input_tokens": 343,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 343
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1715
+        },
+        "cost": {
+          "usd": "0.042875",
+          "mxn": "0.7276187625",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 343,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.89,
+        "output": "output/imagegen/unit-6-mission-v1/kickoff.png",
+        "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+        "byte_count": 2735523
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected: the family of five stands side by side on a town-square pavement facing the camera — the mother with a dark bob in a red coat, the bearded father in a navy jacket, the white-haired grandfather in a grey flat cap and beige coat, the girl with a long braid in a yellow raincoat and the boy in a green hoodie — with a bus stop and shopfronts behind; every face is sharp, every body complete, no readable words. This shot fixes the identities the later scenes reuse."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "2936218d-2917-4f4b-99a5-f714b2f50e19",
+        "asset_id": "left-right-street",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:31:01.232370+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA quiet town street photographed from its centre line looking straight ahead in daylight, with no people or vehicles. Exactly four buildings, each clearly separate: on the LEFT side of the street, nearest the camera, a bank with a stone facade, columns and a cash machine, and immediately beyond it, sharing its wall, a grocery store with crates of fruit outside; on the RIGHT side, nearest the camera, a small hospital with a red cross symbol over the entrance and an ambulance parked in front, and immediately beyond it, sharing its wall, a pharmacy with a green cross sign. All four fronts are sharp, at least 18% of the frame width each, with clear sky above them. No letters, words or numerals anywhere, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_0a77975242ae485fa3063a4292bad5db",
+        "usage": {
+          "input_tokens": 339,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 339
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1711
+        },
+        "cost": {
+          "usd": "0.042855",
+          "mxn": "0.7272793485",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 339,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 24.52,
+        "output": "output/imagegen/unit-6-mission-v1/left-right-street.png",
+        "sha256": "ca4654a4db47d5a45e896b349297946cb3feb5028051088b4c8f8c77c2aa3c4a",
+        "byte_count": 2862308
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "ca4654a4db47d5a45e896b349297946cb3feb5028051088b4c8f8c77c2aa3c4a",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid from the street's centre line, no people: a stone bank with columns and a cash machine nearest the camera on the left with a green-awning grocery store sharing its wall beyond it, and on the right a green-cross pharmacy nearest the camera with a red-cross hospital and its parked ambulance sharing its wall beyond it. The bank and store touch, the hospital and pharmacy touch, and no letters or numerals appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.0,
+              "y": 0.02,
+              "width": 0.24,
+              "height": 0.66
+            },
+            "head_anchors": [
+              {
+                "x": 0.12,
+                "y": 0.03
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.64,
+              "y": 0.215,
+              "width": 0.215,
+              "height": 0.43
+            },
+            "head_anchors": [
+              {
+                "x": 0.75,
+                "y": 0.225
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.235,
+              "y": 0.215,
+              "width": 0.14,
+              "height": 0.45
+            },
+            "head_anchors": [
+              {
+                "x": 0.3,
+                "y": 0.225
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.855,
+              "y": 0.165,
+              "width": 0.145,
+              "height": 0.49
+            },
+            "head_anchors": [
+              {
+                "x": 0.93,
+                "y": 0.175
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "5f2fb5b7-d023-46ff-822c-3db12918f815",
+        "asset_id": "near-far-park",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:31:53.429380+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA photograph taken from inside a green town park in daylight, with no people, looking out over its low hedge. Exactly four buildings are visible and clearly separate: NEAR the park, just beyond the hedge and large in the frame, a library on the left with tall windows full of bookshelves and a bank on the right with columns and a cash machine; FAR away on a distant hillside, small but sharp, a railway station on the left with a train under its canopy and a hospital on the right with a red cross symbol. The two near buildings are at least 25% of the frame width each; the two far buildings are small, at least 8% of the frame width each, with clear sky above all four. No other buildings, no letters, words or numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_1c4022f96d804846acdcddc0e0723792",
+        "usage": {
+          "input_tokens": 351,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 351
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1723
+        },
+        "cost": {
+          "usd": "0.042915",
+          "mxn": "0.7282975905",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 351,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.05,
+        "output": "output/imagegen/unit-6-mission-v1/near-far-park.png",
+        "sha256": "2737021e4489a3876a3552fec680474c7afb6bba5e8521620d7ee81fe981bf6e",
+        "byte_count": 3143433
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "2737021e4489a3876a3552fec680474c7afb6bba5e8521620d7ee81fe981bf6e",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid from inside the park, no people: just beyond the hedge a glass-fronted library full of bookshelves at the left and a columned bank with a cash machine at the right, both large; far away on the hillside a small station canopy with a train at the upper left and a small white hospital block with a red cross at the upper right. The two far rectangles are padded to the hit-area minimum.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.0,
+              "y": 0.3,
+              "width": 0.47,
+              "height": 0.41
+            },
+            "head_anchors": [
+              {
+                "x": 0.25,
+                "y": 0.31
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.6,
+              "y": 0.24,
+              "width": 0.4,
+              "height": 0.48
+            },
+            "head_anchors": [
+              {
+                "x": 0.81,
+                "y": 0.25
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.2,
+              "y": 0.16,
+              "width": 0.29,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.35,
+                "y": 0.205
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.655,
+              "y": 0.13,
+              "width": 0.2,
+              "height": 0.16
+            },
+            "head_anchors": [
+              {
+                "x": 0.775,
+                "y": 0.175
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "cedcce5b-cf58-433c-b4c8-0c8097a06ec1",
+        "asset_id": "station-clocks",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:35:38.286662+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: text-exact. Four round analog station clocks hanging in one row on a plain station wall above an empty platform, photographed straight on in daylight, evenly spaced with clear wall between them and no people. Each clock has a plain white face, printed numerals 1 to 12, one short thick black hour hand, one long thin black minute hand and no second hand. On every clock the long minute hand lies exactly along the line from the centre to the numeral 12, pointing straight up. Each short hour hand lies exactly along the line from the centre of its dial to its own numeral, with the tip ending just short of that printed numeral: from left to right the hour hands point exactly at 7, then 8, then 9, then 10, and never between two numerals. Every face is sharp and each clock is at least 15% of the frame width. No departure board, no words, no brand names, no other numerals anywhere.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_7b0e70bcfe494f989093a6f7f6e3ea81",
+        "usage": {
+          "input_tokens": 389,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 389
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1761
+        },
+        "cost": {
+          "usd": "0.043105",
+          "mxn": "0.7315220235",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 389,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 23.1,
+        "output": "output/imagegen/unit-6-mission-v1/station-clocks.png",
+        "sha256": "e98336c914a59bfa51f0c98c5806a833396238002b5ddfca3eaa75bc5886e578",
+        "byte_count": 2529140
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "e98336c914a59bfa51f0c98c5806a833396238002b5ddfca3eaa75bc5886e578",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid and measured numerically: four identical white station clocks in one row above an empty platform, no people, no words. Every minute hand is straight up (measured 359.3-0.3 deg). The hour hands measured from each dial centre read 217.9, 238.3, 270.8 and 306.6 deg against their printed numerals at 209.2 (7), 239.5 (8), 271.2 (9) and 301.5 (10) deg: eight and nine are exact, the seven hand sits 8.7 deg towards eight and the ten hand 5 deg towards eleven, each still nearest its own numeral with no other dial competing for it. Disclosed for human review; dials read 7, 8, 9, 10 left to right.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.06,
+              "y": 0.155,
+              "width": 0.165,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.141,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.298,
+              "y": 0.155,
+              "width": 0.165,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.379,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.536,
+              "y": 0.155,
+              "width": 0.165,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.6175,
+                "y": 0.16
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.772,
+              "y": 0.155,
+              "width": 0.165,
+              "height": 0.25
+            },
+            "head_anchors": [
+              {
+                "x": 0.854,
+                "y": 0.16
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "bf4a0df2-6242-4f9b-acc8-2906e528110a",
+        "asset_id": "station-question",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:39:18.743474+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the father in the navy jacket. Create the question shot of a speaking game: he stands at a town street corner holding a folded paper map with only coloured shapes on it, turned towards the camera with a questioning face, mouth open mid-question, his free hand open in a natural asking gesture. He is large and sharp in the central safe area; the street behind him is softly out of focus. No other person in the shot, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_119067de8b8c4a3ab228abd32dd4102b",
+        "usage": {
+          "input_tokens": 1845,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 309
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3217
+        },
+        "cost": {
+          "usd": "0.054993",
+          "mxn": "0.9332697051",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 309,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.29,
+        "output": "output/imagegen/unit-6-mission-v1/station-question.png",
+        "sha256": "0a56b816cd553e2578481807baccc0066c9f2d27f8fc0b2e424aba111d8dd1fc",
+        "byte_count": 2173835
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "0a56b816cd553e2578481807baccc0066c9f2d27f8fc0b2e424aba111d8dd1fc",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Question view: the father in the navy jacket from the kickoff photograph alone at a street corner holding a paper map of coloured shapes, questioning face, mouth open, free hand open in an asking gesture; a blank fingerpost and the street softly out of focus behind him; no readable words."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "bc32da61-a4a4-4293-ba3a-3d700db17e70",
+        "asset_id": "station-response",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:40:15.994948+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nA town street photographed from its centre line looking straight ahead in daylight, with no people or vehicles, that runs straight to a corner where it turns to the right. Two plain blue circular road signs stand on posts: one with a white straight-up arrow in the foreground on the right pavement, and one with a white arrow pointing right at the corner ahead. Both signs are sharp; the far one shows the small railway station canopy just visible around the corner. No letters, words or numerals, no other signs, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_48490d91450448ac861decb03f96ac0a",
+        "usage": {
+          "input_tokens": 294,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 294
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1666
+        },
+        "cost": {
+          "usd": "0.04263",
+          "mxn": "0.723460941",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 294,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 26.98,
+        "output": "output/imagegen/unit-6-mission-v1/station-response.png",
+        "sha256": "9556014a4b672d74516f1a1cc018617c9f88dd2cca66c0ec9f54d7373769a99d",
+        "byte_count": 3320384
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "9556014a4b672d74516f1a1cc018617c9f88dd2cca66c0ec9f54d7373769a99d",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Answer view: an empty town street seen from its centre line running straight to a corner that turns right; a blue circular sign with a white straight-up arrow stands on the right pavement in the foreground and a second blue sign with a right-pointing arrow stands at the corner, with the station canopy visible beyond it; no people, vehicles, letters or numerals."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "8dcc6d82-fdc1-4ee0-b2f5-70c283543e1a",
+        "asset_id": "thanks-question",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:41:07.250664+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the girl in the yellow raincoat. Create the question shot of a speaking game: she stands on a town pavement turned towards the camera, smiling and speaking, one arm extended pointing to her left along the street in a clear giving-directions gesture. She is large and sharp in the central safe area; the shopfronts behind her are softly out of focus. No other person in the shot, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_ce5b06a9039d4b3b81f218579bfe2791",
+        "usage": {
+          "input_tokens": 1838,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 302
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3210
+        },
+        "cost": {
+          "usd": "0.054958",
+          "mxn": "0.9326757306",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 302,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 29.52,
+        "output": "output/imagegen/unit-6-mission-v1/thanks-question.png",
+        "sha256": "b79927edcfb9097d23e34cd9b5c9b42cdcae5724fad34d82db6a9673b7f18731",
+        "byte_count": 2073105
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "b79927edcfb9097d23e34cd9b5c9b42cdcae5724fad34d82db6a9673b7f18731",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Question view: the girl in the yellow raincoat from the kickoff photograph alone on a town pavement, smiling and speaking, one arm extended pointing along the street towards the left edge of the frame in a giving-directions gesture; shopfronts softly out of focus behind her; no readable words."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "45e91cbf-1a53-4e01-91ea-ac38077eb022",
+        "asset_id": "thanks-response",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:41:57.927461+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact face and clothes of the boy in the green hoodie. Create the answer shot of a speaking game: he stands on a town pavement facing the camera with a warm grateful smile, one hand raised to his chest in a clear thank-you gesture. He is large and sharp in the central safe area; the street behind him is softly out of focus. No other person in the shot, no readable words, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_0c85a3fe6e1e4c238506cd9918a384f8",
+        "usage": {
+          "input_tokens": 1830,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 294
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3202
+        },
+        "cost": {
+          "usd": "0.054918",
+          "mxn": "0.9319969026",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 294,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 31.66,
+        "output": "output/imagegen/unit-6-mission-v1/thanks-response.png",
+        "sha256": "4772bc16e55b8f0b0c77e89db93bac57cc30f885227563cf8032d6b19b397617",
+        "byte_count": 2143911
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "4772bc16e55b8f0b0c77e89db93bac57cc30f885227563cf8032d6b19b397617",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Answer view: the boy in the green hoodie from the kickoff photograph alone on a town pavement facing the camera with a warm grateful smile and one hand raised flat to his chest in a thank-you gesture; street softly out of focus behind him; no readable words."
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "a6bfbd4e-8236-46fb-9bf6-33a5cf6bc881",
+        "asset_id": "town-square",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:27:45.995948+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nOne side of a small town square photographed straight on in daylight, with no people. Exactly four separate buildings stand in a row, each with clear wall between it and the next, identified only by symbols and what is inside: (1) at the left a bank with a stone facade, two columns and a cash machine set into the wall; (2) left of centre a pharmacy with one large green cross sign above its door and medicine boxes in the window; (3) right of centre a library whose tall windows show rows of bookshelves inside; (4) at the right a small railway station with a platform canopy and the front of a train standing under it. Each building is sharp and at least 18% of the frame width, with clear sky above it. No letters, words or numerals on any building, no vehicles on the road, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [],
+        "endpoint": "https://api.openai.com/v1/images/generations",
+        "human_approval": "pending",
+        "provider_request_id": "req_8a2991985d294810a3e06e6bd2026354",
+        "usage": {
+          "input_tokens": 364,
+          "input_tokens_details": {
+            "image_tokens": 0,
+            "text_tokens": 364
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 1736
+        },
+        "cost": {
+          "usd": "0.04298",
+          "mxn": "0.729400686",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 364,
+          "image_input_tokens": 0,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 27.17,
+        "output": "output/imagegen/unit-6-mission-v1/town-square.png",
+        "sha256": "c2ad505dcb73dfd773be8bb9ab38c9de9dcf46b9d4995f7c9edb9a273adb19ee",
+        "byte_count": 2970830
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "c2ad505dcb73dfd773be8bb9ab38c9de9dcf46b9d4995f7c9edb9a273adb19ee",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: one side of a town square with no people and four separate buildings — a stone bank with columns and a cash machine at the left, a white pharmacy with one green cross sign, a brick library whose tall windows show bookshelves, and a station canopy with the front of a train under it at the right. Every building is identified by a symbol or what is inside; no letters or numerals appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.02,
+              "y": 0.24,
+              "width": 0.26,
+              "height": 0.42
+            },
+            "head_anchors": [
+              {
+                "x": 0.145,
+                "y": 0.25
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.285,
+              "y": 0.2,
+              "width": 0.22,
+              "height": 0.46
+            },
+            "head_anchors": [
+              {
+                "x": 0.395,
+                "y": 0.21
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.505,
+              "y": 0.17,
+              "width": 0.245,
+              "height": 0.47
+            },
+            "head_anchors": [
+              {
+                "x": 0.63,
+                "y": 0.18
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.8,
+              "y": 0.345,
+              "width": 0.195,
+              "height": 0.32
+            },
+            "head_anchors": [
+              {
+                "x": 0.9,
+                "y": 0.355
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "receipt": {
+        "status": "image_saved",
+        "generation_requests_sent": 1,
+        "automatic_retries": 0,
+        "client_request_id": "a6aaadf3-7ea5-4b41-b50b-36ff17fec3fd",
+        "asset_id": "transport-stop",
+        "pack_sha256": "475f97507112546c67fd9eb58a8d88b09e3e21aba13935543e2db8715c69e175",
+        "started_at": "2026-09-21T23:29:53.172582+00:00",
+        "request": {
+          "model": "gpt-image-2.5-sunburst-2026-09-08",
+          "prompt": "Use case: photorealistic-natural. Create a brand-new high-detail real photograph for a beginner English learning game, full-bleed 3:2 landscape. Natural material textures, believable optics, physically coherent light, realistic skin, anatomy and hands. This is one continuous real scene, not a collage, infographic, illustration, split-screen, panels, toy model or app screenshot. When several targets are requested they must be visually distinct at phone size, well separated left to right, with clear empty space above each target for UI markers added later, and they must never touch or overlap each other. Do not draw dots, arrows, labels, UI, speech bubbles, borders, captions or watermarks. Preserve full people including feet when visible; no cropped heads, hands or action. No padded or blurred side strips. No venue names, logos or answer words; only explicitly requested numerals may appear.\n\nUse case: identity-preserve. Image 1 establishes the exact faces and clothes of this family. Create a brand-new photograph of a street beside a small station in daylight with exactly four of them, well separated left to right and never overlapping, each with a different way to travel: (1) at the far left the mother in the red coat steps up into the open front door of a city bus; (2) left of centre the father in the navy jacket stands on the station platform beside a stopped train, one hand on its open door; (3) right of centre the grandfather in the flat cap gets into the rear seat of a yellow taxi with a roof light; (4) at the far right the girl in the yellow raincoat walks along the pavement on foot with a small backpack, away from every vehicle. Each person and their vehicle are sharp, and each person has clear empty space above the head. No fifth family member, no readable words or numerals, no logos.",
+          "n": 1,
+          "size": "1536x1024",
+          "quality": "high",
+          "output_format": "png"
+        },
+        "references": [
+          {
+            "filename": "kickoff.png",
+            "sha256": "81c6625447c46e03f5504d18f1698513986d235e50a4b3d76eb5e9825d5756bf",
+            "byte_count": 2735523
+          }
+        ],
+        "endpoint": "https://api.openai.com/v1/images/edits",
+        "human_approval": "pending",
+        "provider_request_id": "req_c3e12d4b298c4b25b3efc9a7cc764094",
+        "usage": {
+          "input_tokens": 1935,
+          "input_tokens_details": {
+            "image_tokens": 1536,
+            "text_tokens": 399
+          },
+          "output_tokens": 1372,
+          "output_tokens_details": {
+            "image_tokens": 1372,
+            "text_tokens": 0
+          },
+          "total_tokens": 3307
+        },
+        "cost": {
+          "usd": "0.055443",
+          "mxn": "0.9409065201",
+          "basis": "Reported usage at uncached list rates; before tax or discounts, not an invoice.",
+          "fx_mxn_per_usd": "16.9707",
+          "fx_date": "2026-09-11",
+          "rates_checked_on": "2026-09-13",
+          "price_source": "https://developers.openai.com/api/docs/models/gpt-image-2.5-sunburst",
+          "text_input_tokens": 399,
+          "image_input_tokens": 1536,
+          "image_output_tokens": 1372
+        },
+        "elapsed_seconds": 30.04,
+        "output": "output/imagegen/unit-6-mission-v1/transport-stop.png",
+        "sha256": "d8346675bb2d8531bbf6817f90bb5eb53d22d9fb7e9f4606624f4172c83c45ce",
+        "byte_count": 2617936
+      },
+      "installed": true,
+      "agent_review": {
+        "disposition": "usable",
+        "sha256": "d8346675bb2d8531bbf6817f90bb5eb53d22d9fb7e9f4606624f4172c83c45ce",
+        "reviewer_type": "agent_visual_inspection",
+        "human_approval": "pending",
+        "notes": "Inspected on a 0.05 grid: four family members from the kickoff photograph beside a small station, well apart — the mother in the red coat steps into the open door of a bus with yellow handrails, the father in the navy jacket stands at an open train door on the platform, the grandfather in the flat cap gets into a yellow taxi with a roof light, and the girl in the yellow raincoat walks along the pavement with a backpack away from every vehicle. Nobody overlaps and no readable words appear.",
+        "targets": [
+          {
+            "rect": {
+              "x": 0.035,
+              "y": 0.195,
+              "width": 0.165,
+              "height": 0.68
+            },
+            "head_anchors": [
+              {
+                "x": 0.115,
+                "y": 0.2
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.25,
+              "y": 0.21,
+              "width": 0.17,
+              "height": 0.61
+            },
+            "head_anchors": [
+              {
+                "x": 0.365,
+                "y": 0.215
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.56,
+              "y": 0.285,
+              "width": 0.125,
+              "height": 0.53
+            },
+            "head_anchors": [
+              {
+                "x": 0.64,
+                "y": 0.29
+              }
+            ]
+          },
+          {
+            "rect": {
+              "x": 0.82,
+              "y": 0.33,
+              "width": 0.125,
+              "height": 0.6
+            },
+            "head_anchors": [
+              {
+                "x": 0.875,
+                "y": 0.335
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "retired_scenes": [
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "old_filename": "a1_u6_scene_01_plaza.webp",
+      "binding": "cards",
+      "old_sha256": "c2347d345f131ae180f025b92f86c5de0a3b92f0b69e3f3800971fc5c2fa6e87",
+      "issue": "The three-beat stub mission is rebuilt to the approved Unit 6 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's plaza hotspot scene with the family walking, crossing, waiting and sitting; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u6_town_v1_town_square.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "old_filename": "a1_u6_scene_02_school.webp",
+      "binding": "cards",
+      "old_sha256": "1ee6e07d5cdf15f4e51ec8823e2d25d6c919b2a2040cf5c23cab1863717e17c0",
+      "issue": "The three-beat stub mission is rebuilt to the approved Unit 6 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's school-street hotspot scene with the girl, the parents, the grandmother and an arriving bus; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u6_town_v1_transport_stop.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "old_filename": "a1_u6_scene_03_corner_checkpoint.webp",
+      "binding": "cards",
+      "old_sha256": "8e52dc63c5a5c34effc3dbb908d6396b0d4aed5df5a3d0dd44a1fc29facaa257",
+      "issue": "The three-beat stub mission is rebuilt to the approved Unit 6 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's corner scene used by its only voice gate; kept byte-for-byte together with its inspected full-frame edit.",
+      "replacement_filename": "a1_u6_town_v1_bank_question.webp",
+      "original_action": "preserve-byte-for-byte"
+    },
+    {
+      "lesson_id": "lesson-6-10-town-mission",
+      "old_filename": "a1_u6_mission_kickoff.webp",
+      "binding": "mission.kickoff_image_url",
+      "old_sha256": "7225218a89b809b6d72b8672e18a184a82d0401bd1b31edcd1afcd86121dabc2",
+      "issue": "The three-beat stub mission is rebuilt to the approved Unit 6 contract: nine listening scenes and four question-and-answer voice gates replace it, and every beat is re-authored, so this scene and the approved photo edit pinned to its stub card stop being bound.",
+      "observation": "Inspected: the stub mission's kickoff shot of the town; the original file stays byte-for-byte on disk and in every archive copy, and only its Lesson 6.10 binding changes.",
+      "replacement_filename": "a1_u6_town_v1_kickoff.webp",
+      "original_action": "preserve-byte-for-byte"
+    }
+  ]
+}

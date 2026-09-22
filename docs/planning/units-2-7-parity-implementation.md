@@ -53,6 +53,32 @@ Unit 1 is the completed reference. The full Units 2–7 rollout remains unfinish
 - Follow-up verification: **all 309 backend tests pass**. Mobile fixture updates retain the original Unit 1 targets while accepting explicit object-group icons, pin the three revised review instruction cards and four Unit 2 mission voice gates, compare all new Unit 2 runtime image bytes with their inspection records, and preserve old asset files without requiring unused retired shots in Metro. The interaction runner now reaches the unchanged release-integrity gate and fails there because the aggregate course fingerprint remains the previous candidate (`5417263413ef9ff1a26057e5e39a01f86e9389d3` versus current `8d8e542660611870934d407e5158b5f133695e12`). Update that fingerprint deliberately with the finished canonical release candidate; do not weaken the gate or describe this preflight as passed.
 - A separate local Android export succeeded (2,289 modules, 5.3 MB Hermes bundle); all sixteen new review WebP payloads were verified present in its content-addressed asset output. This is a build check only, not an installed-device test, protected release preflight, or publication. No Preview/Production channel was changed. The web optimized build and 17 web regression tests also pass.
 
+### Unit 6 parity checkpoint — 2026-09-21
+
+Branch `claude/unit-6-parity`, stacked on `claude/unit-5-parity` (PR #186). Unit 6 now passes
+`python scripts/audit_a1_unit_parity.py` (`ready: true`) alongside Units 2–5; Unit 7 still correctly fails it.
+
+- **6.9** is rebuilt from 32 to 48 cards (8 Learn, 8 Recognize, 18 Listen, 6 Speak, 8 Use). Exact-byte reuse of
+  earlier teaching pictures is zero, down from 20 files, and the successful path retrieves 34 of the unit's
+  35 declared words. Eleven fresh review-only stills carry the pharmacy, bank next to grocery store, left and right
+  street, far station, crossing or not, help requests, train schedules, thank you, and a taxi.
+- **6.10** is rebuilt from three stub beats to the contract's thirteen: nine listening scenes with 36 decisions
+  (town square, transport stop, crossing corner, help exchange, direction signs, near/far park, station clocks, café table)
+  and four voice gates that ask where the bank is, direct to the station, ask for help, and say thank you.
+  Every contract function is practised on the successful path.
+- The stub mission's plaza, school and corner scenes cannot be kept: the approved photo edit of each pins its stub
+  card exactly as inspected, so those edits are recorded as superseded and every rebuilt beat binds its own
+  mission-only still generated from the kickoff cast. Each retired original stays byte-for-byte on disk.
+- Media: 29 stills generated and installed (11 review, 18 mission). Receipts, prompts, hash-bound agent inspections
+  and measured targets are recorded in `docs/qa/unit-6-{review,mission}-media-v1.json`.
+- Audio: 24 new takes, 40 reused, 802 billable characters against a declared 1,200-character ceiling. The
+  missing-asset dry run is zero, the pinned-cast validator passes and every new spoken line over a picture has a
+  reviewed, gender-matched voice in `docs/qa/speaking-voice-review-v1.json`.
+- The aggregate course fingerprint is re-pinned in both files that gate Preview.
+- Verification: parity audit (2–6 ready), lesson validator under the Preview policy, media preservation audit with
+  zero errors, answer-choice guardrail over 988 banks, pinned-cast validator, backend suite, web regression,
+  and complete mobile interaction suite under the Preview policy.
+
 ### Unit 5 parity checkpoint — 2026-09-21
 
 Branch `claude/unit-5-parity`, stacked on `claude/unit-4-parity` (PR #182). Unit 5 now passes
